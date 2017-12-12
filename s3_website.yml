@@ -8,6 +8,8 @@ max_age:
   "public/*": 6000
   "*": 300
 
+gzip: true
+
 # gzip:
 #   - .html
 #   - .css
