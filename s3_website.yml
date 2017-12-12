@@ -1,6 +1,6 @@
 s3_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
 s3_secret: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-s3_endpoint: <%= ENV['AWS_DEFAULT_REGION'] %>
+s3_endpoint: us-gov-west-1
 s3_bucket: <%= ENV['AWS_BUCKET_NAME'] %>
 cloudfront_distribution_id: <%= ENV['CLOUDFRONT_DISTRIBUTION_ID'] %>
 
