@@ -3,4 +3,16 @@ rvm:
   - 2.4.2
 install: bundle install
 script: jekyll build
-after_success: s3_website push
+deploy:
+  on:
+    branch: master
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: datalab-usaspending-gov
+  skip_cleanup: true
+  local_dir: _site
+  cache_control: "max-age=21600"
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
