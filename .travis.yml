@@ -5,7 +5,7 @@ python:
   - "3.6"
 install: 
   - bundle install
-  - pip install awscli
+  - pip3 install awscli
 script: jekyll build
 deploy:
   on:
