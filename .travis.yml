@@ -13,6 +13,7 @@ deploy:
   skip_cleanup: true
   local_dir: _site
   cache_control: "max-age=21600"
+  region: us-gov-west-1
 after_deploy:
   - aws configure set preview.cloudfront true
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
