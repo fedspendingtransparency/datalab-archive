@@ -1,4 +1,3 @@
-bundle install
 jekyll build
 pip install requests[security] --user
 pip install awscli --user
