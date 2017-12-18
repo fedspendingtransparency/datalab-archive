@@ -2,5 +2,9 @@ jekyll build
 pip install requests[security] --user
 pip install awscli --user
 aws s3 sync _site s3://datalab-usaspending-gov
-aws configure set preview.cloudfront true
-aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
+
+# CloudFront uses separate keys, so specify them here for the upcoming invalidation
+# aws configure set aws_access_key_id $CLOUDFRONT_AWS_ACCESS_KEY
+# aws configure set aws_secret_access_key $CLOUDFRONT_AWS_SECRET_ACCESS_KEY
+# aws configure set preview.cloudfront true
+# aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
