@@ -1,27 +1,28 @@
-env:
-  global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-sudo: false
 language: ruby
+dist: trusty
+sudo: required
 rvm:
   - 2.4.2
-#python:
-#  - 3.6.3
-install: 
-  - bundle install
-#  - python3-pip install awscli
-script: jekyll build
-deploy:
-  on:
-    branch: master
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: datalab-usaspending-gov
-  skip_cleanup: true
-  local_dir: _site
-  cache_control: "max-age=21600"
-  region: us-gov-west-1
-after_deploy:
-  - aws configure set preview.cloudfront true
-  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+before_script:
+- chmod +x ./script/cibuild
+script: "./script/cibuild"
+# install: 
+#   - bundle install
+# script: jekyll build
+branches:
+  only:
+  - master
+#deploy:
+#  on:
+#    branch: master
+#  provider: s3
+#  access_key_id: $AWS_ACCESS_KEY_ID
+#  secret_access_key: $AWS_SECRET_ACCESS_KEY
+#  bucket: datalab-usaspending-gov
+#  skip_cleanup: true
+#  local_dir: _site
+#  cache_control: "max-age=21600"
+#  region: us-gov-west-1
+#after_deploy:
+#  - aws configure set preview.cloudfront true
+#  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
