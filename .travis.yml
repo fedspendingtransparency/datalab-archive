@@ -1,11 +1,9 @@
 language: ruby
 rvm:
   - 2.4.2
-# python:
-#  - 3.6.3
 install: 
   - bundle install
-  # - pip3 install awscli
+  - pip install awscli
 script: jekyll build
 deploy:
   on:
