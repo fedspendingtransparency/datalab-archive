@@ -3,7 +3,7 @@ rvm:
   - 2.4.2
 install: 
   - bundle install
-  - pip install awscli
+  - pip3 install awscli
 script: jekyll build
 deploy:
   on:
