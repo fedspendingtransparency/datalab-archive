@@ -2,6 +2,6 @@ bundle install
 jekyll build
 pip install requests[security] --user
 pip install awscli --user
-aws s3 sync --acl public-read --sse --delete s3://datalab-usaspending-gov
+aws s3 sync --acl public-read --delete s3://datalab-usaspending-gov
 aws configure set preview.cloudfront true
 aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
