@@ -1,15 +1,15 @@
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+sudo: false
 language: ruby
 rvm:
   - 2.4.2
-python:
-  - "3.6.3"
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install python3
-  - sudo apt-get install python3-pip
+#python:
+#  - 3.6.3
 install: 
   - bundle install
-  - python3-pip install awscli
+#  - python3-pip install awscli
 script: jekyll build
 deploy:
   on:
