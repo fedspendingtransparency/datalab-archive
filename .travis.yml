@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get install python3
 install: 
   - bundle install
-  - pip install awscli
+  - pip3 install awscli
 script: jekyll build
 deploy:
   on:
