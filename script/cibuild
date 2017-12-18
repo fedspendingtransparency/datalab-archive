@@ -2,6 +2,7 @@ jekyll build
 pip install requests[security] --user
 pip install awscli --user
 
+aws configure set region us-gov-west-1
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 
