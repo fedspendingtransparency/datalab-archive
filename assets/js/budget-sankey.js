@@ -437,7 +437,7 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
                 legend.append("div")
                     .attr("id","tab")
                     .attr("height",200)
-                    .attr("width",500)
+                    .attr("width",425)
                     .html("<h1 class='panel_title'>"+s_title[j].name+"</h1>"+
                         "<h3 class='panel_desc'>"+formatNumber(s_title[j].value)+
                         "<br />"+"</h3>");
@@ -448,7 +448,7 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
                     legend.append("div")
                         .attr("id","description")
                         .attr("height",200)
-                        .attr("width",500)
+                        .attr("width",425)
                         .html("<p class='body_text'>"+descriptions[j].desc+"</p>");
                 }
             }

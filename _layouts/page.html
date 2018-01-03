@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article id="main">
+  <header style='background-image: url("images/{{ page.banner }}");'>
+    <h2>{{ page.title }}</h2>
+    <!-- <p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p> -->
+  </header>
+  <section class="wrapper style5">
+    <div class="inner">
+      {{ content }}
+      {% include share.html %}
+    </div>
+  </section>
+</article>

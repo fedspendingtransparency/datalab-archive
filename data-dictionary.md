@@ -1,7 +1,7 @@
 ---
 published: true
 permalink: /data-dictionary/
-layout: hero
+layout: page
 filename: data-dictionary.md
 title: DATA Act Information Model Schema Data Dictionary v1.1
 ---

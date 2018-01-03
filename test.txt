@@ -1,8 +1,0 @@
-foo
-bar
-baz
-test
-asdf
-12
-testing travis build time
-testing cache

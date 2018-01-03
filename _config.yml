@@ -1,57 +1,56 @@
-#document settings
-title: Federal Spending Transparency
-desc: "DATA Act Collaboration Space"
-url: //fedspendingtransparency.github.io/
-repo_name: fedspendingtransparency.github.io
-branch: master
-encoding: utf-8
+title: DATA Lab
+description: |
+  The DATA Lab is an initiative by the U.S. Department of the Treasury to create 
+  visualizations and analyses using federal spending data to help the 
+  public, researchers, and others understand and use the data from USAspending.gov
+owner: USAspending.gov
+first_published: 2018
+email: fed-spending-transparency-collaboration@gsa.gov
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://datalab.usaspending.gov
+social:
+  github: https://github.com/fedspendingtransparency/datalab
+  globe: https://data.world/usaspending
+  twitter: https://twitter.com/fiscalservice
+  facebook-official: https://www.facebook.com/pg/fiscalservice
+  linkedin-square: https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt
+  email: fed-spending-transparency-collaboration@gsa.gov
+  #google-plus-square:
+  #flickr:
+  #instagram:
+  #youtube-square:
+  #spotify:
+  #stack-overflow:
+  #vimeo:
+  #reddit:
+  #stubleupon:
+  #delicious:
+  #pied-piper:
+  #digg:
+  #soundcloud:
+  #deviantart:
+  #angellist:
+  #tumblr-square:
+  #stackexchange:
+  #weibo:
+  #trello:
+  #foursquare:
+  #linux:
+  #bitbucket-square:
+  #vk:
+  #slack:
+  #vine:
+  #weixin:
+  #yelp:
+  #skyatlas:
+  #leanpub:
+  #connectdevelop:
+  #ils:
+  #forumbee:
+  #tripadvisor:
+  #amazon:
 
-
-
-#global settings, no need to change these
-root_url: //fedspendingtransparency.github.io
-org_name: fedspendingtransparency
-
-# default build settings for running locally, no need to edit
-highlighter: rouge
-exclude: ["script", "vendor", "Gemfile", "Gemfile.lock", "config.ru", "Procfile", "Rakefile", "readme.md", "LICENSE"]
+# Build settings
 markdown: kramdown
-# markdown: redcarpet
-# redcarpet:
-#   extensions: []
-relative_permalinks: false
-
-gems:
- - jekyll-redirect-from
-
-whitelist:
- - jekyll-redirect-from
-
-navigation:
- - title: Home
-   url: /index.html
- - title: About
-   url: /about
- - title: Data Model
-   url: /data-model
- #- title: DAIMS v1.1
- #  url: /DAIMS-v1.1
- # - title: Data Broker
- #   url: /data-broker
- - title: User-Centered Design
-   url: /user-centered-design
- - title: Get Involved
-   url: "/get-involved"
- - title: DATA Act-ivity
-   url: "/act-ivity" 
- - title: Data Lab
-   url: "/data-lab"
-
- # - title: Discuss
- #   url: "https://github.com/fedspendingtransparency/fedspendingtransparency.github.io/issues"
- # - title: Get Updates
- #   url: "https://gsa.us9.list-manage.com/subscribe?u=6f1977de9eff4c384dc8d6527&id=5cee0e93aa"
-
-sass:
-  sass_dir:          assets/_scss
-  #style:            :compressed
+#sass:
+#  style: compressed
