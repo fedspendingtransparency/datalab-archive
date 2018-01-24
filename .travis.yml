@@ -9,3 +9,4 @@ script: "./script/cibuild"
 branches:
   only:
   - master
+  - dev
