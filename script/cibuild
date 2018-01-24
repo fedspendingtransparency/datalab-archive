@@ -2,7 +2,7 @@ jekyll build
 pip install requests[security] --user
 pip install awscli --user
 
-printf "%50s\n" "This field is 50 characters wide..."
+echo "Current Branch: $TRAVIS_BRANCH"
 
 aws configure set region us-gov-west-1
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
