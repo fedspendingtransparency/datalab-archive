@@ -6,8 +6,6 @@ aws configure set region us-gov-west-1
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 
-printf "Testing Travis Branch: %s\n" "$TRAVIS_BRANCH"
-
 aws s3 sync _site s3://datalab-usaspending-gov --delete --size-only
 
 # CloudFront uses separate keys, so specify them here for the upcoming invalidation
