@@ -2,7 +2,11 @@ jekyll build
 pip install requests[security] --user
 pip install awscli --user
 
-echo "Current Branch: $TRAVIS_BRANCH"
+if [[ $TRAVIS_BRANCH == 'master' ]]
+  echo "We are on the master branch"
+elif [[ $TRAVIS_BRANCH == 'dev'  ]]
+  echo "We are on the dev branch"
+fi
 
 aws configure set region us-gov-west-1
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
