@@ -8,17 +8,14 @@
     position:relative;
     background-color: inherit;
     font-family: inherit;
-    width:1024px;
+    width:99%;
   }
   #tree-container{
     position: relative;
-    max-height:800px;
-    max-width:1016px;
+    max-height:99%;
+    max-width:99%;
     background-color: rgba(243,246,255,0);
     overflow: hidden;
-    border-color: #d6d7d9;
-    border-width:2px;
-    border-style:solid;
   }
   .node {
     cursor: pointer;

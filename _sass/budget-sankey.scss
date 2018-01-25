@@ -20,9 +20,8 @@
 			}
 		}
 	}
-	#viz_container{
-		overflow: visible;
-		position: relative;
+	#sankey-viz {
+		width: 700px;
 		height: inherit;
 		margin-top:20px;
 	}
@@ -40,10 +39,7 @@
 		stroke: #000;
 		stroke-opacity: .1;
 	}
-	#sankey-panel {
-		overflow: visible;
-		position: relative;
-		float: right;
+	#sankey-table {
 		text-align:left;
 		/*left:730px;
 		padding-right:20px;
@@ -88,7 +84,7 @@
 		margin-top:2px;
 		margin-bottom:-15px;
 	}
-	#sankey-panel h1 {
+	#sankey-table h1 {
 		font-size: 2em;
 		font-style: inherit;
 		font-weight: lighter;
@@ -100,7 +96,7 @@
 		color: #0071BC;
 		line-height:110%;
 		}
-	#sankey-panel h2 {
+	#sankey-table h2 {
 		font-size: 2.1em;
 		font-style: inherit;
 		font-weight: ultra-light;
@@ -108,7 +104,7 @@
 		padding: 0;
 		color: #666666;
 	}
-	#sankey-panel h3 {
+	#sankey-table h3 {
 		font-size: 1.4em;
 		margin: 0;
 		padding: 0;
@@ -116,14 +112,14 @@
 		/*font-variant:small-caps;*/
 		color: #555555;
 	}
-	#sankey-panel h4 {
+	#sankey-table h4 {
 		font-size: 1.5em;
 		text-transform: capitalize;
 		/*font-variant:small-caps;*/
 		font-style: inherit;
 		color: #555555;
 	}
-	#sankey-panel p {
+	#sankey-table p {
 		font-style: inherit;
 		font-size: .8em;
 		line-height: 110%;
@@ -155,7 +151,7 @@
 				margin-bottom: 1.5rem;
 		}
 	}
-	#viz_container text {
+	#sankey-viz text {
 		font-size: 12px;
 	}
 }

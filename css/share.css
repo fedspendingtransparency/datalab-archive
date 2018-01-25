@@ -34,7 +34,7 @@
 .fa-facebook-official {
     color: #3b5998;
 }
-.fa-facebook-official:hover {
+.share-buttons .fa-facebook-official:hover {
     background-color: #3b5998;
 }
 
@@ -42,7 +42,7 @@
 .fa-twitter {
     color: #55acee;
 }
-.fa-twitter:hover {
+.share-buttons .fa-twitter:hover {
     background-color: #55acee;
 }
 

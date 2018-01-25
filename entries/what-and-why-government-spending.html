@@ -1,50 +1,38 @@
 ---
 layout: page
-title: “The what” and “the why” of government spending
-banner: pic03.png
+title: “The What” And “The Why” Of Government Spending
+description: Do you know what the government spends money on and why? Budget functions are categories that describe the purpose of federal spending, or “the why.” Object classes are categories that describe what goods and services were purchased, or “the what.”
+banner: landings/budget.jpg
 permalink: what-and-why-government-spending.html
 category: entry
 ---
 
-<h2 style="margin-top:0; margin-bottom:10px">“The what” and “the why” of government spending </h2>
-<p class="subheading">Connecting Object Class and Budget Function (as of Q3 FY2017)</p>
-<div class="row mt-0">
-	<div class="col-md-8" style="margin-left:0; padding-left:0; padding-right:30px">
-		<p>Do you know what the government spends money on and why? Budget functions are categories that describe the purpose of federal spending, or “the why.” Object classes are categories that describe what goods and services were purchased, or “the what.”</p>
-	</div>
-	<div class="col-md-4" style="padding-left:0">
-		<div style="border-color:#d6d7d9; border-width: 1px; border-style: solid; padding:10px; margin-bottom:40px">
-			<h6 style="margin-top:0; margin-bottom:5px">How to use this tool:</h6>
-			<p style="margin-bottom:0">Hover over each color bar to highlight how each budget function relates to object class categories, and vice versa.</p>
-		</div>
+<div class="info-bkgd">
+	<div class="page-box">
+		<h2 class="entry-about-title">How This Research Was Conducted</h2>
+		<h3 class="entry-about-body">This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API). Summarizing across all agency accounts can provide the total dollars obligated under each unique combination of Budget Function and Object Class which populates the visualization above.The data used in this tool was pulled as of September 22, 2017.</h3>
 	</div>
 </div>
 
-<div class="row mt-0">
-	<div class="col-md-7" style="padding:10px">
-		<div class="row mt-0">
-            <h6 style="margin-bottom: 0px">Budget Function:</h6>
-            <h6 style="float:right; margin-bottom:0px;">Object Class:</h6>
-		</div>
-		<div class="row mt-0">
-            <element class="budget-sankey">
-                <div id="viz_container"></div>
-            </element>
+<section id="one" class="wrapper style1 special">
+	<div class="viz-bkgd">
+		<div class="mask">
+			<div class="viz-actions">
+				<button class="reset-button">Reset</button>
+				<button class="fullscreen-button">Fullscreen</button>
+			</div>
+			<div class="viz-container">
+				<element class="budget-sankey">
+					<div id="sankey-container" style="padding:10px">
+						<div id="sankey-viz"></div>	
+						<div id="sankey-table"></div>
+					</div>
+				</element>
+			</div>
 		</div>
 	</div>
+</section>
 
-	<div class="col-md-5" style="padding:10px">
-        <element class="budget-sankey">
-            <div id="sankey-panel" style="width:425px"></div>
-        </element>
-	</div>
-</div>
-<div class="row mt-0">
-	<div id="references">
-		<h5> How this analysis was conducted</h5>
-		<p>This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API). Summarizing across all agency accounts can provide the total dollars obligated under each unique combination of Budget Function and Object Class which populates the visualization above.The data used in this tool was pulled as of September 22, 2017.</p>
-	</div>
-</div>
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/budget-sankey.js"></script>

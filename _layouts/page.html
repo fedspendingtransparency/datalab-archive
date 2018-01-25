@@ -3,7 +3,11 @@ layout: default
 ---
 <article id="main">
   <header style='background-image: url("images/{{ page.banner }}");'>
-    <h2>{{ page.title }}</h2>
+    <div class="page-box">
+      <h2 class="page-title">{{ page.title }}</h2>
+      <h3 class="page-description">{{ page.description }}</h3>
+      <a href="#one" class="rectangle-3 more scrolly"><span class="take-a-closer-look">Take a closer look <i class="fa fa-arrow-down" aria-hidden="true"></i></span></a>
+    </div>
     <!-- <p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p> -->
   </header>
   <section class="wrapper style5">
