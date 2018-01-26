@@ -2016,7 +2016,6 @@ a {
 }
 
 .entry-about-body {
-	height: 150px;
 	width: 650px;
 	color: #323A45;
 	font-family: "Source Sans Pro";
@@ -2163,4 +2162,42 @@ a {
 	font-size: 12px;
     color: #aeb0b5;
     text-decoration: none;
+}
+
+.wrapper.style4 {
+	background-color: #0D8DBE !important;
+}
+
+.get-involved-button {
+	height: 54px;
+	width: 245px;
+	border: 1px solid #FFFFFF !important;
+	border-radius: 50px;
+	box-shadow: none;
+	display: inline-flex;
+}
+
+#cta {
+	height: 325px;
+}
+
+#cta .inner {
+	display: block;
+	text-align: center;
+	width: 500px;
+}
+
+#cta .inner header h1 {
+	font-size: 48px;
+	margin-bottom: 35px;
+}
+
+#cta .inner header p {
+	font-size: 16px;
+	opacity: 0.7;
+}
+
+#cta .inner header {
+	width: 100%;
+	padding-right: 0;
 }
