@@ -2058,20 +2058,34 @@ a {
 	overflow: hidden;
 }
 
-.reset-button {
-	margin: 15px 0px 0px 50px;
-	color: #5B616B !important;
-	border: 1px solid #D2CCCC;
-	border-radius: 10px;
+.left-buttons {
 	float: left;
 }
 
-.fullscreen-button {
-	margin: 15px 50px 0px 0px;
+.right-buttons {
+	float: right;
+}
+
+.action-button:focus {
+    outline: none;
+}
+
+.action-button {
 	color: #5B616B !important;
 	border: 1px solid #D2CCCC;
-	border-radius: 10px;
-	float: right;
+	border-radius: 50px;
+	margin-top: 15px;
+	margin-left: 15px;
+	box-shadow: none !important;
+}
+
+.share-viz-button {
+	color: #FFFFFF !important;
+	background-color: #62666C;
+	border: 1px solid #D2CCCC;
+	border-radius: 50px;
+	margin: 15px 15px 0px 0px;
+	box-shadow: none !important;
 }
 
 .share-buttons {
@@ -2175,6 +2189,7 @@ a {
 	border-radius: 50px;
 	box-shadow: none;
 	display: inline-flex;
+	padding: 0 3.25em !important;
 }
 
 #cta {
@@ -2200,4 +2215,10 @@ a {
 #cta .inner header {
 	width: 100%;
 	padding-right: 0;
+}
+
+.viz-info-icon {
+	font-size: 2em;
+	padding-right: 5px;
+	vertical-align: middle;
 }
