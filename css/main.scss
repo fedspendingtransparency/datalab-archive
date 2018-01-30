@@ -14,6 +14,7 @@ $baseurl: '{{ site.baseurl }}/images';
 @import 'share.css';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
 
 	@import 'libs/skel';
 
@@ -2221,4 +2222,67 @@ a {
 	font-size: 2em;
 	padding-right: 5px;
 	vertical-align: middle;
+}
+
+.btn-analysis {
+	height: 52px;
+	width: 196px;
+	border-radius: 26px;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 50px;
+	font-family: "Source Sans Pro";
+	color: #FFFFFF;
+	margin-right: 50px;
+	text-align: center;
+	display: inline-block;
+	letter-spacing: 2px;
+}
+
+.btn-analysis-read-more {
+	background-color: #0C99CD;
+}
+
+.btn-analysis-next-analysis {
+	background-color: #D334BA;
+}
+
+.how-analysis-container {
+	height: 480px;
+	background-size: 100% 480px;
+	background-image: url("images/analysis.jpg");
+}
+
+.sub-how-analysis-container {
+	display: inline-block;
+	width: 600px;
+}
+
+.how-we-conducted-this-analysis {
+	height: 126px;
+	width: 317px;
+	color: #FFFFFF;
+	font-size: 35px;
+	font-family: "Source Sans Pro";
+	font-weight: 300;
+	line-height: 44px;
+	display: inline-block;
+	margin-left: 25%;
+	margin-right: 50px;
+	opacity: 0.85;
+	vertical-align: top;
+}
+
+.how-analysis-inner-container {
+	padding-top: 5%;
+}
+
+.this-analysis-was-co {
+	width: 530px;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 100;
+	font-family: "Source Sans Pro";
+	line-height: 36px;
+	margin-bottom: 50px;
 }

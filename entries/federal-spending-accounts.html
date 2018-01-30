@@ -7,14 +7,6 @@ permalink: federal-spending-accounts.html
 category: entry
 ---
 
-
-<div class="info-bkgd">
-	<div class="page-box">
-		<h2 class="entry-about-title">How This Research Was Conducted</h2>
-    <h3 class="entry-about-body">This analysis was conducted by organizing spending data reported to USAspending.gov according to the structure of the federal government presented in government-wide budget documents. To accomplish this, federal accounts were matched with the Office of Management and Budget's Master Account File, which contains Treasury accounts and their corresponding agency, as presented in the government-wide budget. This structure was matched to federal account obligations data reported by agencies to show both the size and relationships of agencies and accounts. The data used in this tool was pulled as of September 22, 2017.</h3>
-  </div>
-</div>
-
 <section id="one" class="wrapper style1 special">
   <div class="viz-bkgd">
     <div class="mask">
@@ -27,6 +19,12 @@ category: entry
     </div>
   </div>
 </section>
+
+{% include how-analysis-conducted.html
+  how="This analysis was conducted by organizing spending data reported to USAspending.gov according to the structure of the federal government presented in government-wide budget documents."
+  read-more="test.html"
+  next-analysis="asdf.html"
+%}
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
