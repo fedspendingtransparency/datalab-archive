@@ -7,13 +7,6 @@ permalink: what-and-why-government-spending.html
 category: entry
 ---
 
-<div class="info-bkgd">
-	<div class="page-box">
-		<h2 class="entry-about-title">How This Research Was Conducted</h2>
-		<h3 class="entry-about-body">This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API). Summarizing across all agency accounts can provide the total dollars obligated under each unique combination of Budget Function and Object Class which populates the visualization above.The data used in this tool was pulled as of September 22, 2017.</h3>
-	</div>
-</div>
-
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
 		<div class="mask">
@@ -29,6 +22,12 @@ category: entry
 		</div>
 	</div>
 </section>
+
+{% include how-analysis-conducted.html
+	how="This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API)."
+	read-more="test.html"
+	next-analysis="asdf.html"
+%}
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
