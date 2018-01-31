@@ -1272,7 +1272,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	#page-wrapper {
 		@include vendor('transition', 'opacity #{_duration(menu)} ease');
 		opacity: 1;
-		padding-top: 3em;
+		padding-top: 0;
 
 		&:before {
 			background: rgba(0,0,0,0);
@@ -1307,9 +1307,9 @@ $baseurl: '{{ site.baseurl }}/images';
 		ul {
 			list-style: none;
 			padding: 0;
+			font-family: "Source Sans Pro";
 
 			> li {
-				border-top: solid 1px _palette(accent1, border);
 				margin: 0.5em 0 0 0;
 				padding: 0.5em 0 0 0;
 
@@ -1327,11 +1327,15 @@ $baseurl: '{{ site.baseurl }}/images';
 					letter-spacing: _size(letter-spacing-alt);
 					outline: 0;
 					text-decoration: none;
-					text-transform: uppercase;
+					border-bottom: 1px dashed #4498c8;
 
 					@include breakpoint(small) {
 						line-height: 3em;
 					}
+				}
+
+				> a:hover {
+					border-bottom: 1px dashed #FFFFFF;
 				}
 			}
 		}
@@ -1374,32 +1378,38 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	#header {
 		@include vendor('transition', 'background-color #{_duration(transitions)} ease');
-		background: _palette(bg);
-		height: 3em;
+		background: #FFFFFF !important;
+		/*background: _palette(bg);*/
+		height: 6em;
 		left: 0;
 		line-height: 3em;
-		position: fixed;
+		/*position: fixed;*/
 		top: 0;
 		width: 100%;
 		z-index: _misc(z-index-base);
 
 		h1 {
-			@include vendor('transition', 'opacity #{_duration(transitions)} ease');
-			height: inherit;
-			left: 1.25em;
+			/*@include vendor('transition', 'opacity #{_duration(transitions)} ease');*/
+			/*height: inherit;*/
+			/*left: 1.25em;*/
+			margin-top: 31px;
 			line-height: inherit;
-			position: absolute;
+			/*position: absolute;*/
 			top: 0;
-
+			display: inline-block;
+			vertical-align: top;
+			
 			a {
 				border: 0;
-				display: block;
+				display: inline-block;
 				height: inherit;
 				line-height: inherit;
 
+				/*
 				@include breakpoint(small) {
 					font-size: 0.8em;
 				}
+				*/
 			}
 		}
 
@@ -1407,7 +1417,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			height: inherit;
 			line-height: inherit;
 			position: absolute;
-			right: 0;
+			right: 25px;
 			top: 0;
 
 			> ul {
@@ -1433,6 +1443,7 @@ $baseurl: '{{ site.baseurl }}/images';
 							outline: 0;
 							position: relative;
 
+							/*
 							&:after {
 								background-image: url('images/bars.svg');
 								background-position: right center;
@@ -1443,6 +1454,7 @@ $baseurl: '{{ site.baseurl }}/images';
 								vertical-align: top;
 								width: 2em;
 							}
+							*/
 
 							@include breakpoint(small) {
 								padding: 0 1.5em;
@@ -1465,6 +1477,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 		}
 
+		/*
 		&.alt {
 			background: transparent;
 
@@ -1473,6 +1486,7 @@ $baseurl: '{{ site.baseurl }}/images';
 				opacity: 0;
 			}
 		}
+		*/
 	}
 
 /* Banner */
@@ -1573,9 +1587,11 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		&:after {
+			/*
 			@include vendor('pointer-events', 'none');
 			@include vendor('transition', 'opacity #{_duration(fadein)} ease-in-out');
 			@include vendor('transition-delay', '1.25s');
+			*/
 			content: '';
 			background: _palette(bg);
 			display: block;
@@ -1899,14 +1915,6 @@ a {
 	letter-spacing: 2px;
 }
 
-.title-first {
-	color: #fff;
-}
-
-.title-second {
-	color: #0C99CD;
-}
-
 #banner p {
 	text-transform: none;
 	letter-spacing: 3px;
@@ -1996,6 +2004,7 @@ a {
 	margin-left: 90px;
 	width: 600px;
 	text-align: left;
+	font-family: "Source Sans Pro";
 }
 
 .wrapper > .inner {
@@ -2003,7 +2012,8 @@ a {
 }
 
 .info-bkgd {
-	height: 375px;
+	/*height: 375px;*/
+	padding: 50px;
 	width: 100%;
 	background-color: #FFFFFF;
 	box-shadow: 0 2px 4px 1px rgba(201,199,199,0.5);
@@ -2288,4 +2298,162 @@ a {
 	font-family: "Source Sans Pro";
 	line-height: 36px;
 	margin-bottom: 50px;
+}
+
+.nav-header {
+	width: 121px;
+	color: #000000;
+	font-family: "Source Sans Pro";
+	font-size: 18px;
+	letter-spacing: 5px;
+	line-height: 44px;
+}
+
+.usaspending-logo {
+	background-size: 350px 33px;
+    width: 326px;
+    height: 42px;
+	background-image: url('images/logo.svg');
+	background-repeat: no-repeat;
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+
+	margin-top: 35px;
+	margin-left: 35px;
+}
+
+.line-3 {
+	height: 38px;
+	display: inline-block;
+	border-right: 1px solid #000000;
+	margin: 0px 15px 0px 15px;
+}
+
+.go-to-usaspending {
+	height: 34px;
+	width: 166px;
+	border: 1px solid #0C99CD;
+	border-radius: 17px;
+	color: #6AB6D3;
+	float: right;
+	margin-right: 150px;
+	margin-top: 30px;
+	line-height: 33px;
+	font-size: 14px;
+	font-family: "Source Sans Pro";
+	font-weight: 600;
+	text-align: center;
+}
+
+.menu-toggle {
+	color: #373E47;
+	font-size: 3em;
+}
+
+#nav {
+	padding-top: 20px;
+}
+
+#menu {
+	background-color: #4498C8;
+	text-align: right;
+	padding-top: 150px;
+	font-size: 125%;
+	font-weight: 300;
+}
+
+#menu .close {
+	background-size: 50px 50px;
+	background-position: 20px 50px;
+	width: 6em;
+	height: 6em;
+}
+
+.read-more-header {
+	height: 365px;
+	background-color: #4498C9;
+	font-weight: 300;
+	display: flex;
+	justify-content: center;
+}
+
+.read-more-header-container {
+	align-self: center;
+}
+
+.read-more-header > div > h2 {
+	width: 249px;
+	color: #FFFFFF;
+	font-family: "Source Sans Pro";
+	font-size: 18px;
+	line-height: 23px;
+	text-align: center;
+	font-weight: 300;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.read-more-header > div > h3 {
+	width: 700px;
+	color: #FFFFFF;
+	font-family: "Source Sans Pro";
+	font-size: 64px;
+	line-height: 71px;
+	text-align: center;
+	font-weight: 300;
+	margin: 0 auto;
+}
+
+.read-more-content {
+	width: 900px;
+	color: #5B616B;
+	font-family: "Source Sans Pro";
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 42px;
+	margin: 0 auto;
+	padding: 25px;
+}
+
+.horizontal-separator {
+	border-bottom: 1px solid #979797;
+}
+
+.hs-1 {
+	margin-top: 125px;
+	margin-bottom: 35px;
+}
+
+.hs-2 {
+	margin-top: 50px;
+	margin-bottom: 35px;
+}
+
+.container-read-more-button {
+	margin: 0 auto;
+	height: 200px;
+}
+
+.read-more-button {
+	height: 75px;
+	width: 371px;
+	border: 1px solid #0C99CD;
+	border-radius: 50.5px;
+	color: #0C99CD;
+	font-family: "Open Sans";
+	font-size: 20px;
+	line-height: 72px;
+	text-transform: uppercase;
+	text-align: center;
+	cursor: pointer;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
 }

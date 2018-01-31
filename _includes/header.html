@@ -1,15 +1,18 @@
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
-  <h1><a href="{{ site.baseurl }}/index.html"><b class="title-first">DATA</b><span class="title-second">LAB</span></a></h1>
+  <a href="{{ site.baseurl }}/index.html"><div class="usaspending-logo"></div></a>
+  <div class="line-3"></div>
+  <h1><a href="{{ site.baseurl }}/index.html"><span class="nav-header">DATA LAB</span></a></h1>
+  <div class="go-to-usaspending"><a href="https://beta.usaspending.gov/">USAspending.gov</a></div>
   <nav id="nav">
     <ul>
       <li class="special">
-        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+        <a href="#menu" class="menuToggle"><span class="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></span></a>
         <div id="menu">
           <ul>
             <li><a href="index.html">Home</a></li>
             {% for my_page in site.pages %}
             {% if my_page.category == "entry" %}
-            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.menuname }}</a></li>
             {% endif %}
             {% endfor %}
             <br />
