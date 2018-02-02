@@ -2207,6 +2207,13 @@ a {
 
 #cta {
 	height: 325px;
+	background: repeating-linear-gradient(
+		-45deg,
+		#238eb5,
+		#238eb5 3px,
+		#0C99CD 3px,
+		#0C99CD 6px
+	);
 }
 
 #cta .inner {
@@ -2223,7 +2230,7 @@ a {
 
 #cta .inner header p {
 	font-size: 16px;
-	opacity: 0.7;
+	opacity: 0.9;
 }
 
 #cta .inner header {
@@ -2457,3 +2464,52 @@ a {
 .float-right {
 	float: right;
 }
+
+.wrapper.style1 {
+	background: repeating-linear-gradient(
+		-45deg,
+		#252a32,
+		#252a32 3px,
+		#313944 3px,
+		#313944 6px
+	);
+}
+
+
+/* return to top button */
+
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    border-radius: 35px;
+    display: none;
+	transition: all 0.3s ease;
+	z-index: 1000;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 9px;
+    font-size: 19px;
+    transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+/* return to top button */
