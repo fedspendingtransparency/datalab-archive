@@ -1880,7 +1880,7 @@ header.major h2 {
 }
 
 #one > div > div > ul {
-	margin-left: 5px;
+	margin-left: 30px;
 }
 
 .spotlight {
@@ -2513,3 +2513,27 @@ a {
 }
 
 /* return to top button */
+
+.resources-icon {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	margin: 0 auto;
+}
+
+.resources-icon.user-guide {
+	background-image: url('images/services/user-guide.svg');
+	width: 58px;
+	height: 75px;
+}
+
+.resources-icon.playbook {
+	background-image: url('images/services/playbook-icon.svg');
+	width: 65px;
+	height: 75px;
+}
+
+.resources-icon.api-guide {
+	background-image: url('images/services/api-icon.svg');
+	width: 81px;
+	height: 75px;
+}
