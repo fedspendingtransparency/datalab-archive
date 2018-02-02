@@ -1,0 +1,34 @@
+---
+layout: page
+menuname: Contract Explorer
+title: Ever wonder who’s getting federal contracts, and what agencies are awarding them?
+description: This data visualization tool allows you to see to whom federal contracts are being awarded in Q3 FY17 and what product or services they are being awarded for. Selecting each layer of this chart provides an additional level of detail, starting from major agency to any associated sub-agencies, and to the contractors that receive funding from the federal government.
+banner: landings/contracts.jpg
+permalink: contract-explorer.html
+category: entry
+---
+
+
+<div class="info-bkgd">
+	<div class="page-box">
+		<h2 class="entry-about-title">How This Research Was Conducted</h2>
+    <h3 class="entry-about-body">Lorem ipsum</h3>
+  </div>
+</div>
+
+<section id="one" class="wrapper style1 special">
+  <div class="viz-bkgd">
+    <div class="mask">
+      {% include action-buttons.html %}
+      <div class="viz-container">
+        <element class="dendrogram">
+          <div id="tree-container"></div>
+        </element>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- d3 -->
+<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>

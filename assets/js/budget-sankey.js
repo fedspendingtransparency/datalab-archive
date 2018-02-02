@@ -303,7 +303,7 @@ var formatNumber = d3.format("$,.0f"),    // zero decimal places
 var color = [{"name":"Social Security","color":"#143e64"},{"name":"Medicare","color":"#2869a4"},{"name":"Income Security","color":"#0086c8"},{"name":"Health","color":"#29e0ff"},{"name":"Net Interest","color":"#00b5db"},{"name":"National Defense","color":"#aae1f4"},{"name":"General Government","color":"#143e64"},{"name":"Agriculture","color":"#2869a4"},{"name":"Education, Training, Employment, and Social Services","color":"#0086c8"},{"name":"Veterans Benefits and Services","color":"#29e0ff"},{"name":"Regional Development, Commerce, and Housing","color":"#00b5db"},{"name":"Natural Resources and Environment","color":"#aae1f4"},{"name":"Administration of Justice","color":"#143e64"},{"name":"Transportation","color":"#2869a4"},{"name":"International Affairs","color":"#0086c8"},{"name":"Energy, Science, Space, and Technology","color":"#29e0ff"},{"name":"Insurance Claims and Indemnities","color":"#461e45"},{"name":"Grants, Subsidies, and Contributions","color":"#783877"},{"name":"Interest and Dividends","color":"#b56db4"},{"name":"Personnel Compensation and Benefits","color":"#e0b1df"},{"name":"Refunds","color":"#f8dbf8"},{"name":"Advisory, R&D, Medical, and Other Contracts","color":"#783877"},{"name":"Acquisition of Assets","color":"#783877"},{"name":"Printing and Supplies","color":"#b56db4"},{"name":"Other","color":"#e0b1df"},{"name":"Travel and Transportation","color":"#f8dbf8"},{"name":"Rent, Communications, and Utilities","color":"#461e45"}];
 
 // append the svg canvas to the page
-var svg = d3.select("#viz_container").append("svg")
+var svg = d3.select("#sankey-viz").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -327,7 +327,7 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
         console.log("s_panel: ",s_panel);
         console.log("s_title: ",s_title);
 
-        var legend = d3.select("#sankey-panel")
+        var legend = d3.select("#sankey-table")
 
         //set up graph in same style as original example but empty
         graph = {"nodes" : [], "links" : []};

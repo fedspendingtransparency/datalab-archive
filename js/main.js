@@ -97,4 +97,21 @@
 
 	});
 
+	window.onscroll = function() {
+		var scrollElement = document.getElementById("return-to-top");
+
+		if (scrollElement == null) { return; }
+
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			scrollElement.style.display = "block";
+		} else {
+			scrollElement.style.display = "none";
+		}
+	}
+
+	$('#return-to-top').click(function () {
+		document.body.scrollTop = 0; // For Safari
+		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+	});
+
 })(jQuery);

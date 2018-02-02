@@ -1,8 +1,6 @@
 title: DATA Lab
 description: |
-  The DATA Lab is an initiative by the U.S. Department of the Treasury to create 
-  visualizations and analyses using federal spending data to help the 
-  public, researchers, and others understand and use the data from USAspending.gov
+  Experiment, Analyze, and Discover.
 owner: USAspending.gov
 first_published: 2018
 email: fed-spending-transparency-collaboration@gsa.gov
@@ -14,7 +12,7 @@ social:
   twitter: https://twitter.com/fiscalservice
   facebook-official: https://www.facebook.com/pg/fiscalservice
   linkedin-square: https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt
-  email: fed-spending-transparency-collaboration@gsa.gov
+  #email: fed-spending-transparency-collaboration@gsa.gov
   #google-plus-square:
   #flickr:
   #instagram:

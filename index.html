@@ -6,7 +6,6 @@ layout: landing
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2>{{ site.title }}</h2>
 							<p>{{ site.description | markdownify }}</p>
 							<!--
 							<ul class="actions">
@@ -14,7 +13,7 @@ layout: landing
 							</ul>
 							-->
 						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
+						<a href="#one" class="scrolly homepage-get-started">Get Started</a>
 					</section>
 
 				{% include services.html %}
@@ -38,38 +37,42 @@ layout: landing
 				<!-- Two -->
 					<section id="two" class="wrapper alt style2">
 						<section class="spotlight">
-							<div class="image"><img src="images/pic01.png" alt="Who works in Government?" /></div><div class="content">
-								<h2><a href="who-works-in-government.html">Who works<br />
-								in Government?</h2></a>
-								<p>Explore federal occupations across the United States</p>
+							<div class="image"><img src="images/homepage/homelessness.jpg" alt="Homeless Analysis" /></div><div class="content">
+								<h4>Interactive Dashboard</h4>
+								<h2>Explore Federal Programs That Address Homelessness</h2>
+								<p>On a single night in 2016, over 500,000 people were experiencing homelessness in the United States. One out of every five of these people were children. Use this visualization to explore the federal government’s approach to addressing homelessness in America.</p>
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/pic02.png" alt="Government Contractors" /></div><div class="content">
-								<h2>Government <br />
-								Contractors</h2>
-								<p>Explore federal agencies and their contractors</p>
+							<div class="image"><img src="images/homepage/contracts.jpg" alt="Government Contractors" /></div><div class="content">
+								<h4>Sunburst Diagram</h4>
+								<h2>Who Receives Federal Contracts?</h2>
+								<p>Did you know that the federal government spends about $500 billion each year on contracts? This is around the size of the economy of Sweden! Explore contract recipients and what agencies are getting with these contracts, from missiles to lighting fixtures to internet and phone service.</p>
+								<a href="contract-explorer.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/pic03.png" alt="The what and why of government spending" /></div><div class="content">
-								<h2><a href="what-and-why-government-spending.html">“The what” and “the why”<br />
-								of government spending</a></h2>
-								<p>Connecting Object Class and Budget Function</p>
+							<div class="image"><img src="images/homepage/federal.jpg" alt="Federal Spending Accounts" /></div><div class="content">
+								<h4>Dendrogram</h4>
+								<h2>Discover the Federal Government’s Bank Accounts</h2>
+								<p>Did you know that the government has almost 2,000 bank accounts? These accounts vary greatly in size across the government, ranging from a few thousand dollars to tens of billions. Use this interactive tree-style visualization to explore these accounts and see how much money has been spent recently.</p>
+								<a href="federal-spending-accounts.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/pic04.png" alt="Federal Spending Accounts" /></div><div class="content">
-								<h2><a href="federal-spending-accounts.html">Federal<br />
-								Spending Accounts</a></h2>
-								<p>See an all-in-one view of the accounts used to pay the government’s bills</p>
+							<div class="image"><img src="images/homepage/budget.jpg" alt="The what and why of government spending" /></div><div class="content">
+								<h4>Sankey Diagram</h4>
+								<h2><a href="what-and-why-government-spending.html">See How The Government Categorizes Its Purchases</a></h2>
+								<p>The DATA Act now allows you to connect two different categorization systems: what the government pays for and what it is trying to achieve. For example, you can use this visualization to see when money is spent for national defense, the amounts spent on military personnel versus military contractors.</p>
+								<a href="what-and-why-government-spending.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/pic05.png" alt="Homeless Analysis" /></div><div class="content">
-								<h2>Homeless<br />
-								Analysis</h2>
-								<p>Explore federal spending data on homelessness</p>
+							<div class="image"><img src="images/homepage/workers.jpg" alt="Who works in Government?" /></div><div class="content">
+								<h4>Interactive Dashboard</h4>
+								<h2><a href="who-works-in-government.html">What Do Federal Employees Do And Where Do They Live?</h2></a>
+								<p>There are many types of Federal employees, ranging from park rangers to special agents to the nurses and doctors who take care of veterans.  These people live and work all across the United States. Use this visualization to explore Federal salaries, occupations, and where employees live.</p>
+								<a href="who-works-in-government.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
 							</div>
 						</section>
 					</section>
@@ -105,7 +108,7 @@ layout: landing
 								</li>
 								<li class="icon fa-flag-o">
 									<h3>Tortor Ut</h3>
-									<p>AuguE consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
 								</li>
 							</ul>
 						</div>
@@ -116,12 +119,12 @@ layout: landing
 					<section id="cta" class="wrapper style4">
 						<div class="inner">
 							<header>
-								<h2>Get Involved</h2>
+								<h1>Get Involved!</h1>
 								<p>Your input is invaluable. Sign up to become a website tester or send us any feedback you have</p>
 							</header>
-							<ul class="actions vertical">
-								<li><a href="https://airtable.com/shrVMcNncc32AEum7" class="button fit special">Tester Signup</a></li>
-								<li><a href="https://airtable.com/shrNO3BREEFIhUhdz" class="button fit special">Send Feedback</a></li>
-							</ul>
+							<div>
+								<a href="https://airtable.com/shrVMcNncc32AEum7"><button class="get-involved-button">Tester Signup</button></a>
+								<a href="https://airtable.com/shrNO3BREEFIhUhdz"><button class="get-involved-button">Send Feedback</button></a>
+							</div>
 						</div>
 					</section>
