@@ -11,6 +11,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 @import 'budget-sankey';
 @import 'dendrogram';
+@import 'share.css';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
@@ -2059,6 +2060,7 @@ a {
 	border: 1px solid #BEBBBB;
 	background-color: #E8EAF5;
 	margin: 0 auto;
+	position: relative;
 }
 
 .wrapper {
@@ -2099,11 +2101,6 @@ a {
 	border-radius: 50px;
 	margin: 15px 15px 0px 0px;
 	box-shadow: none !important;
-}
-
-.share-buttons {
-	width: 1000px;
-	margin: 0 auto;
 }
 
 .homepage-get-started {
@@ -2355,7 +2352,8 @@ a {
 
 .menu-toggle {
 	color: #373E47;
-	font-size: 3em;
+	font-size: 4em;
+	-webkit-text-stroke: 3px white;
 }
 
 #nav {
@@ -2537,3 +2535,69 @@ a {
 	width: 81px;
 	height: 75px;
 }
+
+/* Popup Start */
+
+#button-instructions {
+	position: static;
+}
+
+#button-share {
+	position: static;
+}
+
+.popup {
+    
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 420px;
+	background-color: #fff;
+	border: 1px #ccc solid;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 100;
+    bottom: 70px;
+	margin-left: 0px;
+	height: 300px;
+}
+
+.popup .popuptext.left {
+	left: 70px;
+	right: none;
+}
+
+.popup .popuptext.right {
+	left: none;
+	right: 22px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+/* Popup End */

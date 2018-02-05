@@ -437,9 +437,9 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
                 legend.append("div")
                     .attr("id","tab")
                     .attr("height",200)
-                    .attr("width",425)
+                    .attr("width",700)
                     .html("<h1 class='panel_title'>"+s_title[j].name+"</h1>"+
-                        "<h3 class='panel_desc'>"+formatNumber(s_title[j].value)+
+                        "<h3 class='panel_desc'><div class='panel_total_amount'>Total Amount</div>"+formatNumber(s_title[j].value)+
                         "<br />"+"</h3>");
                 }
             }
@@ -448,7 +448,7 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
                     legend.append("div")
                         .attr("id","description")
                         .attr("height",200)
-                        .attr("width",425)
+                        .attr("width",600)
                         .html("<p class='body_text'>"+descriptions[j].desc+"</p>");
                 }
             }
@@ -462,36 +462,19 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
                 stroke_opacity = 0.3;
             }
 
+            var dataTable = "";
+            
             for(var k=0; k < s_panel.length; k++){
-                //console.log(data[k]);
-                //console.log(node.name);
                 if(s_panel[k].target===node.name){
-                    legend.append("div")
-                        .attr("id","tab_2")
-                        //.attr("height",50)
-                        //.attr("width",500)
-                        .style("margin-bottom","2px")
-                        .html("<table class ='icon'>"
-                            +"<tr>"+"<td class='val'>"+formatNumber(s_panel[k].value)+"</td>"+"<td>"+"  "+"</td>"+
-                            "<td class='name'>"+s_panel[k].source+"</td>"+"</tr>"+
-                            "</table>");
+                    dataTable += "<tr><td class='val'>" + formatNumber(s_panel[k].value) + "</td><td>" + s_panel[k].source + "</td></tr>";
+                }
+                if(s_panel[k].source===node.name){
+                    dataTable += "<tr><td class='val'>" + formatNumber(s_panel[k].value) + "</td><td>" + s_panel[k].target + "</td></tr>";
                 }
             }
 
-            for(var i=0; i < s_panel.length;i++){
-                //console.log(data[i]);
-                //console.log(node.name);
-                if(s_panel[i].source===node.name){
-                    legend.append("div")
-                        .attr("id","tab_2")
-                        //.attr("height",50)
-                        //.attr("width",500)
-                        .style("margin-bottom","2px")
-                        .html("<table class ='icon'>"
-                            +"<tr>"+"<td class='val'>"+formatNumber(s_panel[i].value)+"</td>"+"<td>"+"  "+"</td>"+
-                            "<td class='name'>"+s_panel[i].target+"</td>"+"</tr>"+
-                            "</table>");
-                }
+            if (dataTable.length > 0) {
+                legend.append("div").attr("id","tab_2").attr("class", "treecolumn").append("table").html(dataTable);
             }
 
             legend.append("div")
