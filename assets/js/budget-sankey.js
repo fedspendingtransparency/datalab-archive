@@ -319,9 +319,9 @@ var sankey = d3.sankey()
 var path = sankey.link();
 
 // load the data (using the timelyportfolio csv method)
-d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
- d3.csv("/data-lab-data/sankey_panel.csv",function(error, s_panel){
-  d3.csv("/data-lab-data/sankey_titles.csv",function(error, s_title){
+d3.csv("/data-lab-data/sankey_v14.csv",function(error, data){
+ d3.csv("/data-lab-data/sankey_panel2.csv",function(error, s_panel){
+  d3.csv("/data-lab-data/sankey_titles2.csv",function(error, s_title){
    d3.csv("/data-lab-data/descriptions.csv", function(error, descriptions) {
         console.log("data: ",data);
         console.log("s_panel: ",s_panel);
@@ -425,7 +425,7 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
 
         function highlight_node_links(node,i){
            // console.log("this: ",this);
-           
+
             var remainingNodes=[],
                 nextNodes=[];
 
@@ -463,7 +463,7 @@ d3.csv("/data-lab-data/sankey_v13.csv",function(error, data){
             }
 
             var dataTable = "";
-            
+
             for(var k=0; k < s_panel.length; k++){
                 if(s_panel[k].target===node.name){
                     dataTable += "<tr><td class='val'>" + formatNumber(s_panel[k].value) + "</td><td>" + s_panel[k].source + "</td></tr>";
