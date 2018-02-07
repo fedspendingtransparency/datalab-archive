@@ -561,7 +561,7 @@
 
   .panel_text {
     font-style: inherit;
-    font-size: 1.5em;
+    font-size: .7em;
     //margin-top: -3px;
     //text-transform: capitalize;
     /*font-variant:small-caps;*/
@@ -571,14 +571,18 @@
 
   .panel_text2{
     font-style: inherit;
-    font-size: 1.5em;
+    font-size: .7em;
     color:#0071bc;
     text-align: right;
     width: 200px;
   }
 
-  #cfda_info > table{
-    min-width: 100%
+  #coc_info > table > tbody > tr{
+    height:10px;
+  }
+
+  #cfda_info > table > tbody > td{
+    padding:0 0 0 0;
   }
 
   #cfda_info > table > tbody > tr > td.val {
@@ -807,12 +811,6 @@
     width: 50px;
     margin: 0 20px 3px 20;
     text-align: right;
-    /*-ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -sand-transform: rotate(-45deg);
-    transform: rotate(-45deg);*/
   }
 
   .p2_2_legend_title{
@@ -823,8 +821,9 @@
   }
 
   #p2_2_key_value p{
-    font-size: 1.2rem;
+    font-size: .7rem;
     line-height: 1.5rem;
+    color: #000;
   }
 
   #p2_2_legend_title > div > h5{
