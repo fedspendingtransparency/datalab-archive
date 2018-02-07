@@ -26,9 +26,15 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 // Get csv data
 
-d3.csv('/data-lab-data/accounts_obligations_revised_v7.csv',function(error,newData){
+d3.csv('/data-lab-data/accounts_obligations_revised_180131.csv',function(error,newData){
 
 console.log("Hierarchy: ",newData);
+
+newData.forEach(function(d){
+  d.Obligation = +d.Obligation
+  d.Unobligated = +d.Unobligated
+})
+
 
 var root = { name :"Federal Accounts", children : [] },
 levels = ["Agency","Subagency"];
@@ -52,9 +58,10 @@ newData.forEach(function(d){
       // Now reference the new child array as we go deeper into the tree
       depthCursor = depthCursor[index].children;
       // This is a leaf, so add the last element to the specified branch
-  if ( depth === levels.length - 1 ) depthCursor.push({ name : d.Title, size : d.Obligation, id : d.accountID });
+  if ( depth === levels.length - 1 ) depthCursor.push({ name : d.Title, size : d.Obligation, unob : d.Unobligated ,id : d.accountID });
 });
 });
+
 
 console.log("root:",root);
   // Calculate total nodes, max label length
@@ -83,7 +90,7 @@ console.log("root:",root);
       .projection(function(d) {
           return [d.y, d.x];
       });
-    
+
   /*function blowUp(d) {
    //console.log("blowUp-->d: ",d);
    if (d.children) {
@@ -93,15 +100,15 @@ console.log("root:",root);
       d._children.forEach(blowUp);
       d = toggleChildren(d);
     }
-  };*/  
-    
+  };*/
+
   function toggleAll(d) {
     if (d.children) {
       d.children.forEach(toggleAll);
       toggle(d);
     }
   };
-    
+
   // Toggle children.
   function toggle(d) {
   if (d.children) {
@@ -117,7 +124,7 @@ console.log("root:",root);
 d3.select("#zoom_out").on("click", zoomButtonDn);*/
 d3.select("#button1").on("click", change);
 //d3.select("#button2 > p > input").on("click", explode);
- 
+
 /*function zoomButtonUp(){
   console.log("translate: ",zoomListener.translate());
   var scale = zoomListener.scale() + .1,
@@ -129,7 +136,7 @@ d3.select("#button1").on("click", change);
   zoomListener.scale(scale);
   zoomListener.translate(translate);
 };
-  
+
 function zoomButtonDn(){
   var scale = zoomListener.scale() - .1,
       translate = zoomListener.translate();
@@ -139,7 +146,7 @@ function zoomButtonDn(){
   zoomListener.scale(scale);
   zoomListener.translate(translate);
 };*/
-  
+
 function change() {
   zoomListener.scale(1);
   toggleAll(root);
@@ -149,11 +156,11 @@ function change() {
   zoomListener.scale(1);
   console.log("root after reset: ",root);
 };
-    
+
 /*function explode(){
   zoomListener.scale(0.7);
   blowUp(root);
-  toggle(root);  
+  toggle(root);
   update(root);
   centerExplode(root);
   zoomListener.scale(0.7);
@@ -197,7 +204,7 @@ function change() {
         }
       });
   }
- 
+
   // Sort the tree initially incase the JSON isn't in a sorted order.
   sortTree();
 
@@ -232,7 +239,7 @@ function change() {
   function zoom() {
       svgGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   }
-  
+
   /*function zoomed() {
       svgGroup.attr("transform", "translate(" + d3.event.translate + ")");
   }*/
@@ -330,7 +337,7 @@ function centerNode(source) {
           zoomListener.translate([x, y]);
     }
   }
-    
+
     function centerRootNode(source) {
       scale = zoomListener.scale();
       x = -source.y0;
@@ -343,7 +350,7 @@ function centerNode(source) {
       zoomListener.scale(scale);
       zoomListener.translate([x, y]);
   }
- 
+
     function centerExplode(source) {
       scale = zoomListener.scale();
       x = -source.y0;
@@ -441,7 +448,20 @@ function centerNode(source) {
               return d.id || (d.id = ++i);
           });
 
-      
+      var tip = d3.tip()
+                 .attr('class', 'dendro d3-tip')
+                 .style('background','#ffffff')
+                 .style('color','#333')
+                 .style('border', 'solid 1px #BFBCBC')
+                 .style('padding', '5px')
+                 .style('min-width', '200px')
+                 .style('max-width', '375px')
+                 .offset([-10, -10])
+                 .html(createHover)
+
+      baseSvg.call(tip);
+
+
       // Enter any new nodes at the parent's previous position.
       var nodeEnter = node.enter().append("g")
           //.call(dragListener)
@@ -450,14 +470,76 @@ function centerNode(source) {
               return "translate(" + source.y0 + "," + source.x0 + ")";
           })
           .on('click', click)
-          .on("mouseover", createHover)
-          .on("mouseout", removeHover);
-     console.log("nodeEnter: ",nodeEnter);
+          .on("mouseover", tip.show)
+          .on("mouseout", tip.hide);
 
-      function createHover(d) {
+     function sumUp(object){
+       total = 0
+       object._children.forEach(function(d){
+         d._children.forEach(function(d){
+           total = total + d.size
+        })
+       })
+      return formatNumber(total);
+    };
+
+    function sumUp_lvl2(object){
+      total = 0
+      object._children.forEach(function(d){
+        total = total + d.size
+     })
+     return formatNumber(total);
+    };
+
+    function sumUp_unob(object){
+      total = 0
+      object._children.forEach(function(d){
+        d._children.forEach(function(d){
+          total = total + d.unob
+       })
+      })
+     return formatNumber(total);
+    };
+
+    function sumUp_lvl2_unob(object){
+     total = 0
+     object._children.forEach(function(d){
+       total = total + d.unob
+    })
+    return formatNumber(total);
+    };
+
+
+
+     function createHover(d) {
+       console.log("createHover d: ",d)
+       //console.log("children: ",d._children[0]._children)
+       if(d.depth===3){
+           return '<p style="border-bottom:1px solid #898C90; font-size: 18px"><b style="color: #000">' + d.name +  '</b></p>' +
+             '<p style="color: #0071BC; margin: 0; font-size: 20px">'+'Total Obligations: ' + formatNumber(d.size) + '</p>' +
+             '<p style="color: #0071BC; margin: 0; font-size: 20px">'+'Unobligated Balance: ' + formatNumber(d.unob) + '</p>' +
+             '<p><b style="color: #000">' + 'Click to visit Federal Account page</b></p>';
+        }else if (d.depth === 2){
+            return '<p style="color: #0071BC; margin: 0; font-size: 20px"><b style="color: #0071BC">'
+            + 'Total Obligations: ' + sumUp_lvl2(d) + '<br/>'
+            + 'Unobligated Balance: '+ sumUp_lvl2_unob(d) +'</b></p>'
+            + '<p><b style="color: #000">'+ 'View Federal Accounts'+ '</b></p>';
+        }else if (d.depth===1){
+            return '<p style="color: #0071BC; margin: 0; font-size: 20px"><b style="color: #0071BC">'
+            + 'Total Obligations: ' + sumUp(d) + '<br/>'
+            + 'Unobligated Balance: '+ sumUp_unob(d) + '</b></p>'
+            + '<p><b style="color: #000">' + 'View Agencies'+ '</b></p>';
+        }else if (d.depth===0){
+            return '<p font-size: 18px; margin:0"><b style="color: #000">'
+            + 'FY17 Federal Accounts'+ '</b></p>';
+        }
+     }
+
+
+      /*function createHover(d) {
         d3.select(this).append("text")
             .attr("class", "hover")
-            .attr('transform', function(d){ 
+            .attr('transform', function(d){
                 if(d.depth===3){ return 'translate(-145, -10)';}
                 else if (d.depth === 2 | d.depth===1){ return 'translate(10, -10)';}
         })
@@ -467,10 +549,10 @@ function centerNode(source) {
             else if (d.depth===1){ return "View Agencies";}
         });
       }
-      
+
       function removeHover() {
         d3.select(this).select("text.hover").remove();
-      }
+      }*/
 
       nodeEnter.append("circle")
           .attr('class', 'nodeCircle')
@@ -509,7 +591,7 @@ function centerNode(source) {
           })
           .style("font-weight","900")
           .text(function(d) {
-              return d.children || d._children ? d.name : d.name+"  "+formatNumber(d.size);
+              return d.children || d._children ? d.name : d.name;
               //(d.name+"  "+formatNumber(d.size));
           });
 
