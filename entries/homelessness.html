@@ -2,7 +2,7 @@
 layout: page
 menuname: Homelessness
 title: On a single night in 2016, over 500,000 people were experiencing homelessness in the United States.
-description: Multiple federal, state, and local programs offer support to people experiencing homelessness.  Our analysis uses federal financial data to show the breakdown of federal funding spent to address homelessness.  
+description: Multiple federal, state, and local programs offer support to people experiencing homelessness.  Our analysis uses federal financial data to show the breakdown of federal funding spent to address homelessness.
 banner: landings/homelessness.jpg
 permalink: homelessness.html
 category: entry
@@ -21,8 +21,7 @@ category: entry
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
-        <element class="dendrogram">
-          <div id="tree-container"></div>
+        <div id="container" height="500px" width="1024px"></div>
         </element>
       </div>
     </div>
@@ -31,4 +30,8 @@ category: entry
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/topojson.v1.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/spin.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/homeless-format.js"></script>
+<script src="{{site.baseurl}}/assets/js/homeless.js"></script>
