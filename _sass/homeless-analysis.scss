@@ -214,6 +214,7 @@
     font-family: inherit;
     height: 300px;
     overflow: visible;
+    margin-top: -40px;
   }
 
   #container2_3{
@@ -232,6 +233,7 @@
     font-family: inherit;
     height: 415px;
     overflow: visible;
+    margin-top: 160px;
   }
 
   #viz_container {
@@ -506,10 +508,12 @@
   #p2_4_legend{
     height: 50px;
     width: 100%;
-    padding-left:20px;
+    padding-left:70px;
+    margin-top: -30px;
   }
   #p2_4_legend_title{
     padding-bottom:10px;
+    margin-top: 30px;
   }
 
   #panel_info {
@@ -537,9 +541,9 @@
   }
 
   #p2_1_title > div > h1.panel_title {
-    font-size: 2em;
+    font-size: 1em;
     font-style: inherit;
-    font-weight: lighter;
+    font-weight: bold;
     margin: 10px 0 0 0;
     padding: 0;
     color: #0071BC;
@@ -557,24 +561,37 @@
 
   .panel_text {
     font-style: inherit;
-    font-size: 1.5em;
+    font-size: 1em;
     //margin-top: -3px;
     //text-transform: capitalize;
     /*font-variant:small-caps;*/
     color: #555555;
     width:400px;
+    padding: 0em 0em 0em 0em;
   }
 
   .panel_text2{
     font-style: inherit;
-    font-size: 1.5em;
+    font-size: 1em;
     color:#0071bc;
     text-align: right;
     width: 200px;
+    padding: 0em 7em 0em 0em;
   }
 
-  #cfda_info > table{
-    min-width: 100%
+  #p2_3 >  #panel_coc > #coc_info > table{
+    margin: 0 0 1.6em 0;
+    background-color: inherit;
+    border: none;
+  }
+
+  #p2_3 >  #panel_coc > #coc_info > table > tbody > tr{
+    background: inherit;
+    border: none;
+  }
+
+  #cfda_info > table > tbody > td{
+    padding:0 0 0 0;
   }
 
   #cfda_info > table > tbody > tr > td.val {
@@ -768,6 +785,8 @@
   #p2_2{
     height: 330px;
     margin-bottom:15px;
+    // margin-left: -100px;
+    margin-top: -10px;
   }
 
   #p2_2_legend{
@@ -780,7 +799,6 @@
   #p2_2_legend_title{
     position: relative;
     height: 70px;
-    padding-top: 2em;
   }
 
   #p2_2_legend_key{
@@ -802,12 +820,6 @@
     width: 50px;
     margin: 0 20px 3px 20;
     text-align: right;
-    /*-ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -sand-transform: rotate(-45deg);
-    transform: rotate(-45deg);*/
   }
 
   .p2_2_legend_title{
@@ -818,8 +830,9 @@
   }
 
   #p2_2_key_value p{
-    font-size: 1.2rem;
+    font-size: .7rem;
     line-height: 1.5rem;
+    color: #000;
   }
 
   #p2_2_legend_title > div > h5{
@@ -829,13 +842,18 @@
   .p2_1_title{
     position: relative;
     text-align: center;
+    min-width: 465.48px;
     max-width: 465.48px;
     min-height: 66px;
+    margin-top: -50px;
   }
 
   #myModalContact{
     z-index: 99999;
   }
 
-
+  #p2p2_cfda_legend_title{
+    min-width: 465.48px;
+    max-width: 465.48px;
+  }
 }

@@ -121,7 +121,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             .style('width', '300px')
             .offset([-10, 0])
             .html(function(d) {
-              return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b>' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</b></p>' + '<br>' +
+              return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color: #555555">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</b></p>' + '<br>' +
                 '<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ' + getDollarValue(d) + '</p><br>' +
                 '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>'
               /*+
@@ -326,7 +326,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
           function getCFDA_value(d) {
             //console.log('CFDA value: ',d);
-            return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b>' + d.program_title + '</b> [CFDA No. ' + d.cfda_number + ']' + '</p><br>' +
+            return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.program_title + '</b> [CFDA No. ' + d.cfda_number + ']' + '</p><br>' +
               '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0">Agency: ' + d.agency + '</p><br>' +
               '<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ' + formatNumber(d.fed_funding) + '</p><br>' +
               '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the program website</p>';
@@ -383,7 +383,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .style('width', '300px')
               .offset([-10, -10])
               .html(function(d) {
-                return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b>' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</p>' + '<br>' +
+                return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</p>' + '<br>' +
                   /*'<hr style="height: 1px; color: #BFBCBC">'*/
                   '<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">Total Homeless: ' + getValue(d) + '</p><br>' +
                   '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">' +
@@ -480,7 +480,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               })
               .attr('d', path)
               .on('mouseover', tip.show)
-              .on('mouseout', tip.hide)
+              //.on('mouseout', tip.hide)
               .on('dblclick', clicked)
               .on("click", function(d) {
                 BarChart(d);
@@ -1223,7 +1223,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
           }
 
           function Make_Map_Title(d) {
-            return map_title.html('<h1 class="panel_title" style="color: #0071BC;">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
+            return map_title.html('<h1 class="panel_title">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
           }
 
 
@@ -1236,12 +1236,12 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var cfda_legend_title = d3.select('#p2_2_legend_title')
               .append('div')
-              .attr('width', '500px')
-              .attr('height', '75px')
-              .attr('padding', '50px 0 0 50px')
+              //.attr('width', '500px')
+              .attr('min-height', '75px')
+              .attr('padding', '0 0 0 0')
               .attr('id', 'p2_cfda_legend_title')
               .style('text-align', 'center')
-              .html('<p style="color: #333; font-size: 18px; margin-top:10px"><b>Federal Programs Serving ' + d.properties.coc_number + '</b></p>');
+              .html('<p style="color: #333; font-size: 18px;"><b>Federal Programs Serving ' + d.properties.coc_number + '</b></p>');
 
             /*  var cfda_legend = d3.select('#p2_2_legend')
                 .append('div')
@@ -1284,7 +1284,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
               /*.attr('width', matrix_width + margin.left + margin.right)
               .attr('height', matrix_height + margin.top + margin.bottom)*/
-              .attr('width', map_width + margin.left + margin.right + 50)
+              .attr('width', '550px')
               .attr('height', map_height + margin.top + margin.bottom + 40)
               .style('margin-left', -margin.left / 2.5 + 'px')
               .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
@@ -1335,7 +1335,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 }
               })
               .attr('transform', function(d, i) {
-                return 'translate(0,' + (i * (barHeight + barPadding)) + ')';
+                return 'translate(50,' + (i * (barHeight + barPadding)) + ')';
               })
               .on('mouseover', p2_3_bar_tip.show)
               .on('mouseout', p2_3_bar_tip.hide)
@@ -1343,7 +1343,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             bar.append('text')
               .attr('class', 'label')
-              .attr('x', 15)
+              .attr('x', -40)
               .attr('y', barHeight / 2)
               .attr('dy', '.35em') //vertical align middle
               .text(function(d) {
@@ -1378,7 +1378,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_3_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal')
-              .attr('transform', 'translate(' + labelWidth + ',' + 255 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 225 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
@@ -1459,7 +1459,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var p2_4_matrix_svg = d3.select('#panel_info').append('svg')
               /*.attr('width', matrix_width + margin.left + margin.right)
               .attr('height', matrix_height + margin.top + margin.bottom)*/
-              .attr('width', map_width + margin.left + margin.right + 50)
+              .attr('width', '550px')
               .attr('height', map_height + margin.top + margin.bottom + 140)
               .style('margin-left', -margin.left / 2.5 - 12 + 'px')
               .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
@@ -1510,7 +1510,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 }
               })
               .attr('transform', function(d, i) {
-                return 'translate(0,' + (i * (barHeight + barPadding)) + ')';
+                return 'translate(50,' + (i * (barHeight + barPadding)) + ')';
               })
               .on('mouseover', p2_3_bar_tip.show)
               .on('mouseout', p2_3_bar_tip.hide)
@@ -1518,7 +1518,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             bar.append('text')
               .attr('class', 'label')
-              .attr('x', 15)
+              .attr('x', -40)
               .attr('y', barHeight / 2)
               .attr('dy', '.35em') //vertical align middle
               .text(function(d) {
@@ -1554,7 +1554,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_4_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal2')
-              .attr('transform', 'translate(' + labelWidth + ',' + 345 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 225 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
