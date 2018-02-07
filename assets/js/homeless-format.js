@@ -11,7 +11,7 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
+//document.getElementById("defaultOpen").click();
 
 function openTab2(evt, tabName) {
     var i, tabcontent2, tablinks2;
@@ -26,7 +26,7 @@ function openTab2(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen2").click();
+//document.getElementById("defaultOpen2").click();
 
 var modal = document.getElementById('myModal1');
 

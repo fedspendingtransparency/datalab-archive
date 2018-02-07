@@ -1223,7 +1223,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
           }
 
           function Make_Map_Title(d) {
-            return map_title.html('<h1 class="panel_title">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
+            return map_title.html('<h1 class="panel_title" style="color: #0071BC;">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
           }
 
 

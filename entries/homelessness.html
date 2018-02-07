@@ -8,43 +8,66 @@ permalink: homelessness.html
 category: entry
 ---
 
-
 <div class="info-bkgd">
 	<div class="page-box">
 		<h2 class="entry-about-title">How individuals experiencing homelessness are counted</h2>
-        <h3 class="entry-about-body">Determining how many people are experiencing homelessness at a given time can be challenging. People experiencing homelessness are counted once a year (in late January) by grantees who receive funding from HUD’s Continuum of Care program. This program — the largest federal program related to homelessness — requires grantees to collect reliable data on the total number of people experiencing homelessness who reside in the grantee’s geographic area.</h3>
-  </div>
+		<h3 class="entry-about-body">Determining how many people are experiencing homelessness at a given time can be challenging. People experiencing homelessness are counted once a year (in late January) by grantees who receive funding from HUD’s Continuum of Care program. This program — the largest federal program related to homelessness — requires grantees to collect reliable data on the total number of people experiencing homelessness who reside in the grantee’s geographic area.</h3>
+	</div>
 </div>
 
 <section id="one" class="wrapper style1 special">
-  <div class="viz-bkgd">
-    <div class="mask">
-      {% include action-buttons.html %}
-      <div class="viz-container">
-        <div id="container" height="500px" width="1024px"></div>
-        </element>
-      </div>
-    </div>
-  </div>
+	<div class="viz-bkgd">
+		<div class="mask">
+			{% include action-buttons.html %}
+			<div class="viz-container">
+				<div id="container" height="500px" width="1024px"></div>
+				</element>
+			</div>
+		</div>
+	</div>
 </section>
 
 <div class="info-bkgd">
 	<div class="page-box">
 		<h2 class="entry-about-title">Federal programs that address homelessness</h2>
-        <h3 class="entry-about-body">The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, though multiple federal agencies manage programs that provide services including education, employment, housing resources, and more. Our analysis identified 33 federal programs that explicitly flagged homeless individuals as beneficiaries. These included programs that named homeless individuals as primary targets of services or as one of the program’s target recipient groups.</h3>
-  </div>
+		<h3 class="entry-about-body">The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, though multiple federal agencies manage programs that provide services including education, employment, housing resources, and more. Our analysis identified 33 federal programs that explicitly flagged homeless individuals as beneficiaries. These included programs that named homeless individuals as primary targets of services or as one of the program’s target recipient groups.</h3>
+	</div>
 </div>
 
 <section id="one" class="wrapper style1 special">
-  <div class="viz-bkgd">
-    <div class="mask">
-      {% include action-buttons.html %}
-      <div class="viz-container">
-        <div id="container" height="500px" width="1024px"></div>
-        </element>
-      </div>
-    </div>
-  </div>
+	<div class="viz-bkgd">
+		<div class="mask">
+			{% include action-buttons.html %}
+			<div class="viz-container">
+				<div class="row flex" style="min-height:300px">
+					<div class="col-md-6">
+						<div class="row flex" style="margin-top:0">
+							<div id="container2_1"></div>
+						</div>
+						<!--<button class="button" id="myBtnContact" style="margin: auto; top:-20px;left:170px; position:relative; z-index:99">CoC Contact</button>-->
+						<div class="row flex">
+							<div id="container2_3" style="margin-top:0px"></div>
+							<button class="button" id="myBtnContact" style="margin: auto; top:-20px;left:170px; position:relative; z-index:99">CoC Contact</button>
+						</div>
+						<div id="myModalContact" class="modal">
+							<div class="modal-content" id="modalContact">
+								<span class="closeContact">&times;</span>
+								<div class="modal-body" id="CoCcontact"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row flex" style="margin-top:0">
+							<div id="container2_2"></div>
+						</div>
+						<div class="row flex" style="margin-top:15px">
+							<div id="container2_4"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- d3 -->
@@ -52,5 +75,5 @@ category: entry
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/topojson.v1.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/spin.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/homeless-format.js"></script>
+<!-- <script src="{{site.baseurl}}/assets/js/homeless-format.js"></script> -->
 <script src="{{site.baseurl}}/assets/js/homeless.js"></script>
