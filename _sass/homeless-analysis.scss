@@ -580,12 +580,14 @@
   }
 
   #p2_3 >  #panel_coc > #coc_info > table{
-    margin: 0 0 1em 0;
+    margin: 0 0 1.6em 0;
     background-color: inherit;
+    border: none;
   }
 
-  #coc_info > table > tbody > tr{
-    height:10px;
+  #p2_3 >  #panel_coc > #coc_info > table > tbody > tr{
+    background: inherit;
+    border: none;
   }
 
   #cfda_info > table > tbody > td{
