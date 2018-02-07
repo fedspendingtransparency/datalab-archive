@@ -214,6 +214,7 @@
     font-family: inherit;
     height: 300px;
     overflow: visible;
+    margin-top: -40px;
   }
 
   #container2_3{
@@ -537,9 +538,9 @@
   }
 
   #p2_1_title > div > h1.panel_title {
-    font-size: 2em;
+    font-size: 1em;
     font-style: inherit;
-    font-weight: lighter;
+    font-weight: bold;
     margin: 10px 0 0 0;
     padding: 0;
     color: #0071BC;
@@ -768,6 +769,8 @@
   #p2_2{
     height: 330px;
     margin-bottom:15px;
+    // margin-left: -100px;
+    margin-top: -10px;
   }
 
   #p2_2_legend{
@@ -780,7 +783,6 @@
   #p2_2_legend_title{
     position: relative;
     height: 70px;
-    padding-top: 2em;
   }
 
   #p2_2_legend_key{
@@ -829,13 +831,18 @@
   .p2_1_title{
     position: relative;
     text-align: center;
+    min-width: 465.48px;
     max-width: 465.48px;
     min-height: 66px;
+    margin-top: -50px;
   }
 
   #myModalContact{
     z-index: 99999;
   }
 
-
+  #p2p2_cfda_legend_title{
+    min-width: 465.48px;
+    max-width: 465.48px;
+  }
 }

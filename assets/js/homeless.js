@@ -1223,7 +1223,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
           }
 
           function Make_Map_Title(d) {
-            return map_title.html('<h1 class="panel_title" style="color: #0071BC;">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
+            return map_title.html('<h1 class="panel_title">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
           }
 
 
@@ -1236,12 +1236,12 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var cfda_legend_title = d3.select('#p2_2_legend_title')
               .append('div')
-              .attr('width', '500px')
-              .attr('height', '75px')
-              .attr('padding', '50px 0 0 50px')
+              //.attr('width', '500px')
+              .attr('min-height', '75px')
+              .attr('padding', '0 0 0 0')
               .attr('id', 'p2_cfda_legend_title')
               .style('text-align', 'center')
-              .html('<p style="color: #333; font-size: 18px; margin-top:10px"><b>Federal Programs Serving ' + d.properties.coc_number + '</b></p>');
+              .html('<p style="color: #333; font-size: 18px;"><b>Federal Programs Serving ' + d.properties.coc_number + '</b></p>');
 
             /*  var cfda_legend = d3.select('#p2_2_legend')
                 .append('div')
@@ -1284,7 +1284,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
               /*.attr('width', matrix_width + margin.left + margin.right)
               .attr('height', matrix_height + margin.top + margin.bottom)*/
-              .attr('width', map_width + margin.left + margin.right + 50)
+              .attr('width', '550px')
               .attr('height', map_height + margin.top + margin.bottom + 40)
               .style('margin-left', -margin.left / 2.5 + 'px')
               .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
@@ -1335,7 +1335,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 }
               })
               .attr('transform', function(d, i) {
-                return 'translate(0,' + (i * (barHeight + barPadding)) + ')';
+                return 'translate(50,' + (i * (barHeight + barPadding)) + ')';
               })
               .on('mouseover', p2_3_bar_tip.show)
               .on('mouseout', p2_3_bar_tip.hide)
@@ -1343,7 +1343,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             bar.append('text')
               .attr('class', 'label')
-              .attr('x', 15)
+              .attr('x', -40)
               .attr('y', barHeight / 2)
               .attr('dy', '.35em') //vertical align middle
               .text(function(d) {
@@ -1378,7 +1378,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_3_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal')
-              .attr('transform', 'translate(' + labelWidth + ',' + 255 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 255 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
@@ -1510,7 +1510,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 }
               })
               .attr('transform', function(d, i) {
-                return 'translate(0,' + (i * (barHeight + barPadding)) + ')';
+                return 'translate(50,' + (i * (barHeight + barPadding)) + ')';
               })
               .on('mouseover', p2_3_bar_tip.show)
               .on('mouseout', p2_3_bar_tip.hide)
@@ -1554,7 +1554,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_4_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal2')
-              .attr('transform', 'translate(' + labelWidth + ',' + 345 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 345 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
