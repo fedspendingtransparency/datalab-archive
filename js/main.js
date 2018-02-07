@@ -69,7 +69,7 @@ function toggleSharePopup() {
 			$('.scrolly')
 				.scrolly({
 					speed: 1500,
-					offset: $header.outerHeight()
+					offset: $header.outerHeight() - 560
 				});
 
 		// Menu.
