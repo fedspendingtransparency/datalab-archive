@@ -1378,7 +1378,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_3_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal')
-              .attr('transform', 'translate(' + 135 + ',' + 255 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 225 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
@@ -1459,7 +1459,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var p2_4_matrix_svg = d3.select('#panel_info').append('svg')
               /*.attr('width', matrix_width + margin.left + margin.right)
               .attr('height', matrix_height + margin.top + margin.bottom)*/
-              .attr('width', map_width + margin.left + margin.right + 50)
+              .attr('width', '550px')
               .attr('height', map_height + margin.top + margin.bottom + 140)
               .style('margin-left', -margin.left / 2.5 - 12 + 'px')
               .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
@@ -1518,7 +1518,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             bar.append('text')
               .attr('class', 'label')
-              .attr('x', 15)
+              .attr('x', -40)
               .attr('y', barHeight / 2)
               .attr('dy', '.35em') //vertical align middle
               .text(function(d) {
@@ -1554,7 +1554,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_4_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal2')
-              .attr('transform', 'translate(' + 135 + ',' + 345 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 225 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
