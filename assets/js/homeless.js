@@ -159,7 +159,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
 
           var p2_1_projection = d3.geo.albersUsa()
-            .translate([map_width / 1, map_height / 1]) // translate to center of screen
+            .translate([map_width / .9, map_height / .9]) // translate to center of screen
             .scale([575]); // scale things down so see entire US
 
           // Define path generator
@@ -1380,7 +1380,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_3_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal')
-              .attr('transform', 'translate(' + 135 + ',' + 225 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 235 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)
