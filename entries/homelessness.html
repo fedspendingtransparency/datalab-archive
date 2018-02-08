@@ -70,6 +70,31 @@ category: entry
 	</div>
 </section>
 
+<div class="info-bkgd">
+	<div class="page-box">
+		<h2 class="entry-about-title">How we conducted this analysis</h2>
+		<h3 class="entry-about-body">We conducted this analysis using data from the following sources:
+			<ul>
+				<li>Federal grant award data from USAspending.gov</li>
+				<li>Federal program descriptions from the Catalogue of Federal Domestic Assistance (CFDA)</li>
+				<li>Counts of people experiencing homelessness from the Department of Housing and Urban Development’s (HUD) 2017 Point-in-Time count</li>
+			</ul>
+		</h3>
+		<h3>To determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA,
+		looking for keywords related to homelessness. We then developed a ranking system to assess whether individuals experiencing homelessness
+		would directly benefit from these programs, keeping only the most relevant programs in our dataset.  We also categorized these programs
+		by the type of service they provide. For example, the Homeless Veterans Reintegration Program provides services to homeless veterans seeking
+		meaningful employment, which we classified as employment-related. We presented these programs to the US Interagency Council on Homelessness,
+		which provided feedback on our ranking system.</h3>
+	<h3>We used this dataset to identify all grant spending from USAspending.gov related to the programs we determined have a direct relation to
+		homelessness programs. As part of our analysis, we identified two categories of grant awards in USAspending.gov data that are relevant to our
+		work: those that were awarded to a Continuum of Care area (an administrative region recognized by HUD) or fell within its geographic area, and
+		those that didn’t have specific location data or that applied to multiple areas within a state. To create our map visualization, we mapped
+		funding amounts for the programs that fell within Continuum of Care areas using shape files provided by HUD. The data used in this analysis were
+		updated as of January 2018.</h3>
+	</div>
+</div>
+
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
