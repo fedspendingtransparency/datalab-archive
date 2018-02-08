@@ -1909,6 +1909,7 @@ header.major h2 {
 	font-size: 16px;
 	line-height: 19px;
 	text-transform: uppercase;
+	margin-bottom: 0;
 }
 
 .spotlight > .content > h2 {
@@ -2240,9 +2241,9 @@ a {
 	background: repeating-linear-gradient(
 		-45deg,
 		#238eb5,
-		#238eb5 3px,
-		#0C99CD 3px,
-		#0C99CD 6px
+		#238eb5 2px,
+		#0C99CD 2px,
+		#0C99CD 4px
 	);
 }
 
@@ -2282,6 +2283,15 @@ a {
     margin-left: 0px;
     margin-bottom: -4px;
     filter: invert(100%);
+}
+
+.hamburger-icon {
+	background-image: url(images/hamburger.svg);
+    display: inline-block;
+	width: 55px;
+	height: 23px;
+    margin-left: 0px;
+    margin-bottom: 8px;
 }
 
 .btn-analysis {
@@ -2517,9 +2527,9 @@ a {
 	background: repeating-linear-gradient(
 		-45deg,
 		#252a32,
-		#252a32 3px,
-		#313944 3px,
-		#313944 6px
+		#252a32 2px,
+		#313944 2px,
+		#313944 4px
 	);
 }
 
@@ -2662,4 +2672,16 @@ a {
 	width: 55px;
 	margin: 0 auto;
 	margin-bottom: 75px;
+}
+
+.how-we-divider {
+	width: 39px;
+	border-bottom: 5px solid #FFFFFF;
+	display: block;
+	margin-bottom: 15px;
+}
+
+.read-more-button:hover {
+	background-color: #0C99CD;
+	color: #FFFFFF;
 }
