@@ -243,10 +243,12 @@ $baseurl: '{{ site.baseurl }}/images';
 			margin: 0 0 (_size(element-margin) * 1.75) 0;
 
 			h2, h3, h4, h5, h6 {
-				border-bottom: solid 2px _palette(border);
+				/*border-bottom: solid 2px _palette(border);*/
+				/*box-shadow: 0px 31px 0px -31px white;*/
 				display: inline-block;
-				padding-bottom: 1em;
+				/*padding-bottom: 1em;*/
 				position: relative;
+				margin-bottom: 5px;
 
 				&:after {
 					content: '';
@@ -260,9 +262,11 @@ $baseurl: '{{ site.baseurl }}/images';
 				top: 0;
 			}
 
+			/*
 			@include breakpoint(small) {
 				margin: 0 0 _size(element-margin) 0;
 			}
+			*/
 		}
 
 		@include breakpoint(medium) {
@@ -1859,7 +1863,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	/* Additions */
 
 h3.philosophy {
-	margin: 15px 0px;
+	margin-top: 25px;
 }
 
 ul.icons.major {
@@ -1876,14 +1880,24 @@ header.major {
 .philosophy a {
 	color: #9BDAF1;
 	border-bottom: none;
+	font-family: 'Source Sans Pro';
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 36px;
+	text-align: center;
 }
 
 header.major h2 {
 	border-color: #fff !important;
+	text-transform: uppercase;
+	font-family: "Source Sans Pro";
+	font-size: 24px;
+	letter-spacing: 1px;
+	font-weight: normal;
 }
 
 #one > div > div > ul {
-	margin-left: 30px;
+	margin-left: 39px;
 }
 
 .spotlight {
@@ -2204,12 +2218,17 @@ a {
 
 .get-involved-button {
 	height: 54px;
-	width: 245px;
+	width: 205px;
 	border: 1px solid #FFFFFF !important;
 	border-radius: 50px;
-	box-shadow: none;
-	display: inline-flex;
-	padding: 0 3.25em !important;
+	display: inline-block;
+	font-family: "Source Sans Pro";
+	/*padding: 0 3.25em !important;*/
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 50px;
+	letter-spacing: 2px;
+	margin: 0px 20px;
 }
 
 .get-involved-button:hover {
@@ -2253,6 +2272,16 @@ a {
 	font-size: 2em;
 	padding-right: 5px;
 	vertical-align: middle;
+}
+
+.viz-share-icon {
+	background-image: url(images/share.svg);
+    display: inline-block;
+	width: 18px;
+	height: 18px;
+    margin-left: 0px;
+    margin-bottom: -4px;
+    filter: invert(100%);
 }
 
 .btn-analysis {
@@ -2573,18 +2602,13 @@ a {
 /* The actual popup */
 .popup .popuptext {
     visibility: hidden;
-    width: 420px;
+    width: 135px;
 	background-color: #fff;
 	border: 1px #ccc solid;
-    color: #000;
-    text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
     position: absolute;
     z-index: 100;
-    bottom: 70px;
-	margin-left: 0px;
-	height: 300px;
+    top: 65px;
 }
 
 .popup .popuptext.left {
@@ -2595,18 +2619,6 @@ a {
 .popup .popuptext.right {
 	left: none;
 	right: 22px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -2641,4 +2653,13 @@ a {
 	margin-bottom: -3px;
 	width: 18px;
 	height: 18px;
+}
+
+.resources-divider {
+	border-bottom: 3px solid #FFFFFF;
+	box-sizing: border-box;
+	height: 3px;
+	width: 55px;
+	margin: 0 auto;
+	margin-bottom: 75px;
 }
