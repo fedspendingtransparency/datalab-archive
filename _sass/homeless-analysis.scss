@@ -203,8 +203,8 @@
     position: relative;
     background-color: inherit;
     font-family: inherit;
-    width: 500px;
-    min-height: 300px;
+    width: 100%;
+    //min-height: 500px;
     overflow: visible;
   }
 
@@ -215,16 +215,18 @@
     height: 300px;
     overflow: visible;
     margin-top: -40px;
+    width:100%;
   }
 
   #container2_3{
     position: relative;
     background-color: inherit;
     font-family: inherit;
-    min-height: 370px;
+    min-height: 340px;
     //max-width: 250px;
     overflow: visible;
     top:-40px;
+    width:100%;
   }
 
   #container2_4{
@@ -234,6 +236,7 @@
     height: 415px;
     overflow: visible;
     margin-top: 160px;
+    width: 100%;
   }
 
   #viz_container {
@@ -492,11 +495,12 @@
     float: left;
     overflow: visible;
     margin-top: -5px;
+    width:100%;
   }
 
   #panel_map {
     margin-top: 0;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
     position: relative;
     overflow: visible;
     background-color: inherit;
@@ -529,14 +533,14 @@
   }
 
   #p2_quad3_title{
-    padding-top:35px;
+    margin-top:-12px;
   }
   #panel_coc {
     position: relative;
     //top:50px;
     overflow: visible;
     background-color: inherit;
-    max-width: 460px;
+    width: 100%;
     min-height: 255px;
     float:left;
   }
@@ -577,13 +581,18 @@
     color:#0071bc;
     text-align: right;
     width: 200px;
-    padding: 0em 7em 0em 0em;
+    padding: 0em 3em 0em 0em;
+  }
+
+  #p2_3 #p2_4{
+    width:100%;
   }
 
   #p2_3 >  #panel_coc > #coc_info > table{
     margin: 0 0 1.6em 0;
     background-color: inherit;
     border: none;
+    width:100%;
   }
 
   #p2_3 >  #panel_coc > #coc_info > table > tbody > tr{
@@ -844,8 +853,8 @@
   .p2_1_title{
     position: relative;
     text-align: center;
-    min-width: 465.48px;
-    max-width: 465.48px;
+    min-width: 100%;
+    max-width: 100%;
     min-height: 66px;
     margin-top: -50px;
   }
@@ -857,5 +866,8 @@
   #p2p2_cfda_legend_title{
     min-width: 465.48px;
     max-width: 465.48px;
+  }
+  .col-md-6{
+    width:50%;
   }
 }
