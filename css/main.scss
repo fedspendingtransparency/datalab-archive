@@ -9,9 +9,10 @@ $baseurl: '{{ site.baseurl }}/images';
 @import 'libs/mixins';
 @import 'font-awesome.min.css';
 
+@import 'share.css';
+@import 'bootstrap.min.css';
 @import 'budget-sankey';
 @import 'dendrogram';
-@import 'share.css';
 @import 'homeless-analysis';
 @import 'contract-explorer';
 
