@@ -480,7 +480,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               })
               .attr('d', path)
               .on('mouseover', tip.show)
-              //.on('mouseout', tip.hide)
+              .on('mouseout', tip.hide)
               .on('dblclick', clicked)
               .on("click", function(d) {
                 BarChart(d);
@@ -1554,7 +1554,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             p2_4_matrix_svg.insert('g', ':first-child')
               .attr('class', 'axisHorizontal2')
-              .attr('transform', 'translate(' + 135 + ',' + 225 + ')')
+              .attr('transform', 'translate(' + 135 + ',' + 250 + ')')
               .call(p2_xAxis)
               .selectAll('text')
               .attr('y', 10)

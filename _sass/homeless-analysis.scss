@@ -194,7 +194,7 @@
     position: relative;
     background-color: inherit;
     font-family: inherit;
-    width: 1024px;
+    width: 100%;
     height: 800px;
     margin-top: 65px;
   }
@@ -238,8 +238,8 @@
 
   #viz_container {
     position: relative;
-    height: 600px;
-    width: 950px;
+    height: auto;
+    width: 100%;
     background-color: rgba(243,246,255,0);
     overflow: visible;
   }
