@@ -1958,6 +1958,7 @@ a {
 	border: 1px solid #979797;
 	text-decoration: none;
 	background-color: #0C99CD;
+	border: none;
 }
 
 .rectangle-18:hover .discover {
@@ -2115,7 +2116,8 @@ a {
 	margin-left: 15px;
 	box-shadow: none !important;
 	letter-spacing: 0.075em;
-    font-weight: lighter;
+	font-weight: lighter;
+	text-transform: none;
 }
 
 .share-viz-button {
@@ -2234,6 +2236,7 @@ a {
 
 .get-involved-button:hover {
 	background-color: #0C759D;
+	border: none !important;
 }
 
 #cta {
@@ -2294,6 +2297,16 @@ a {
     margin-bottom: 8px;
 }
 
+.information-icon {
+	background-image: url(images/information.svg);
+    display: inline-block;
+	width: 23px;
+	height: 23px;
+	vertical-align: middle;
+	filter: invert(40%);
+	margin-bottom: 4px;
+}
+
 .btn-analysis {
 	height: 52px;
 	width: 196px;
@@ -2315,6 +2328,7 @@ a {
 
 .btn-analysis-read-more:hover {
 	background-color: #0C759D;
+	border: none;
 }
 
 .btn-analysis-next-analysis {
@@ -2323,6 +2337,7 @@ a {
 
 .btn-analysis-next-analysis:hover {
 	background-color: #AC2096;
+	border: none;
 }
 
 .how-analysis-container {
@@ -2549,6 +2564,7 @@ a {
     display: none;
 	transition: all 0.3s ease;
 	z-index: 1000;
+	opacity: 0.8;
 }
 #return-to-top i {
     color: #fff;
@@ -2684,4 +2700,5 @@ a {
 .read-more-button:hover {
 	background-color: #0C99CD;
 	color: #FFFFFF;
+	border: none;
 }
