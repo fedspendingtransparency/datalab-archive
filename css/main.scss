@@ -1541,6 +1541,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 		}
 
+		/*
 		p {
 			letter-spacing: _size(letter-spacing-alt);
 			text-transform: uppercase;
@@ -1555,6 +1556,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			font-weight: 500;
 			line-height: 77px;
 		}
+		*/
 
 		.more {
 			@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
@@ -1934,13 +1936,6 @@ a {
 	letter-spacing: 2px;
 }
 
-#banner p {
-	text-transform: none;
-	letter-spacing: 3px;
-	font-size: 54px;
-	font-weight: 600;
-}
-
 #footer > ul.icons {
 	margin: 0 0 1em 0;
 }
@@ -1954,8 +1949,33 @@ a {
 	display: block;
 }
 
+.button-read-more {
+	margin-top: 50px;
+	height: 45px;
+	width: 147px;
+	border: 1px solid #0C99CD;
+	border-radius: 50px;
+	text-decoration: none;
+	display: block;
+}
+
+.button-read-more:hover {
+	text-decoration: none;
+	background-color: #0C99CD;
+	padding: 0;
+	border: none;
+}
+
+.button-read-more span {
+	color: #3BADD6;
+	text-transform: uppercase;
+}
+
+.button-read-more:hover span {
+	color: #FFFFFF;
+}
+
 .rectangle-18:hover {
-	border: 1px solid #979797;
 	text-decoration: none;
 	background-color: #0C99CD;
 	border: none;
@@ -1963,6 +1983,7 @@ a {
 
 .rectangle-18:hover .discover {
 	color: #FFFFFF;
+	padding-top: 17px;
 }
 
 .discover {
@@ -1971,7 +1992,7 @@ a {
 	line-height: 18px;
 	text-align: center;
 	display: block;
-    padding-top: 14px;
+    padding-top: 16px;
 }
 
 #footer {
@@ -2024,13 +2045,6 @@ a {
 	font-size: 10px;
 }
 
-.page-box {
-	margin-left: 90px;
-	width: 600px;
-	text-align: left;
-	font-family: "Source Sans Pro";
-}
-
 .wrapper > .inner {
 	width: 100%;
 }
@@ -2043,18 +2057,48 @@ a {
 	box-shadow: 0 2px 4px 1px rgba(201,199,199,0.5);
 }
 
+.page-box {
+	margin-left: 90px;
+	text-align: left;
+	font-family: "Source Sans Pro";
+}
+
+.entry-about-title-container {
+	width: 445px;
+	margin-right: 250px;
+	display: inline-block;
+	vertical-align: top;
+}
+
 .entry-about-title {
 	color: #323A45;
 	font-size: 30px;
+	font-family: "Source Sans Pro";
+	font-size: 35px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	line-height: 45px;
+	margin-bottom: 0;
+}
+
+.entry-about-divider {
+	height: 1px;
+	width: 103px;
+	display: inline-block;
+	border: 1px solid #5B616B;
+}
+
+.entry-about-body-container {
+	width: 650px;
+	display: inline-block;
 }
 
 .entry-about-body {
-	width: 650px;
-	color: #323A45;
+	color: #5B616B;
 	font-family: "Source Sans Pro";
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
-	line-height: 30px;
+	line-height: 32px;
 }
 
 .resources-section {
@@ -2129,6 +2173,10 @@ a {
 	box-shadow: none !important;
 }
 
+.inner-margin {
+	margin-top: 225px;
+}
+
 .homepage-get-started {
 	height: 62px;
 	width: 240px;
@@ -2140,6 +2188,7 @@ a {
 	color: #FFFFFF;
 	margin-left: 92px;
 	z-index: 1;
+	margin-top: 25px;
 }
 
 #banner p {
@@ -2324,6 +2373,16 @@ a {
 
 .btn-analysis-read-more {
 	background-color: #0C99CD;
+}
+
+.button-read-more span {
+	text-align: center;
+	display: block;
+	padding-top: 7px;
+}
+
+.button-read-more:hover span {
+	padding-top: 8px;
 }
 
 .btn-analysis-read-more:hover {
@@ -2701,4 +2760,58 @@ a {
 	background-color: #0C99CD;
 	color: #FFFFFF;
 	border: none;
+}
+
+.homeless-style {
+	color: #5B616B;
+    margin-left: 35px;
+    margin-right: 15px;
+}
+
+#homeless-action-map {
+	background-image: url(images/map1.svg);
+    display: inline-block;
+	width: 56px;
+	height: 31px;
+	background-size: 56px 31px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+#homeless-action-map:hover {
+	filter: saturate(2);
+}
+
+#homeless-action-table {
+	background-image: url(images/table.svg);
+    display: inline-block;
+	width: 25px;
+	height: 29px;
+	background-size: 25px 29px;
+	vertical-align: middle;
+	opacity: 0.4;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+#homeless-action-table:hover {
+	opacity: 0.7;
+}
+
+.index-header {
+	color: #FFFFFF;
+	font-family: "Source Sans Pro";
+	font-size: 64px;
+	font-weight: 500;
+	line-height: 77px;
+	margin-bottom: 25px;
+}
+
+.index-sub-header {
+	color: #FFFFFF;
+	font-family: "Source Sans Pro";
+	width: 500px !important;
+	font-size: 20px;
+	line-height: 31px;
+	font-weight: 300;
 }
