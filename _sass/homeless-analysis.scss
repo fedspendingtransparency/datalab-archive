@@ -312,8 +312,7 @@
     border-collapse: collapse;
     //height:72px;
     margin-bottom: 0;
-    overflow: scroll;
-    width:100%;
+    width:90%;
   }
 
   #tab a:link,
@@ -337,6 +336,7 @@
     // padding: 5px;
     text-align: center;
     height: 20px;
+    max-width: 300px;
   }
 
   #tab > thead > tr > th {
@@ -353,14 +353,6 @@
 
   #tab > tbody > tr:hover td {
     background-color: #edf8b1;
-  }
-
-  #tab > tbody > tr{
-    width:95%;
-  }
-  #tab > tbody,
-  #tab > thead{
-    width:95%;
   }
 
   #scatter {
