@@ -919,7 +919,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             }) // end of click listeners
 
             //Scrollable body, frozen headers
-            document.getElementById('table_container').addEventListener('click', function() {
+            document.getElementById('table_container').addEventListener('scroll', function() {
               console.log("SCROLL!!!! ",this)
               var translate = 'translate(0,' + this.scrollTop + 'px)';
               this.querySelector('thead').style.transform = translate;
