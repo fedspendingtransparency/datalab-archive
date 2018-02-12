@@ -255,9 +255,9 @@
 
   #table_container {
     position: relative;
-    overflow: auto;
-    height: 575px;
-    width: 950px;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
   }
 
   #legend {
@@ -282,7 +282,7 @@
   }
 
   .legend_title > h5 {
-    width: 950px;
+    width: 100%;
     text-align: center;
     color: #4F4F4F;
     font-weight: 500;
@@ -294,87 +294,11 @@
     font-weight: 500;
   }
 
-  .control {
-    font-family: inherit;
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 5px;
-    padding-top: 3px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 800px;
-    overflow: hidden;
-  }
-
-  .control input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-  }
-
-  .control_indicator {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background: #e6e6e6;
-    border: 0 solid #000000;
-  }
-
-  .control-radio .control_indicator {
-    border-radius: 50%;
-  }
-
-  .control input:focus ~ .control_indicator,
-  .control:hover input ~ .control_indicator {
-    background: #cccccc;
-  }
-
-  .control input:checked ~ .control_indicator {
-    background: #2aa1c0;
-  }
-
-  .control input:checked:focus ~ .control_indicator,
-  .control:hover input:not([disabled]):checked ~ .control_indicator {
-    background: #0e6647;
-  }
-
-  .control input:disabled ~ .control_indicator {
-    background: #e6e6e6;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  .control_indicator:after {
-    box-sizing: unset;
-    content: '';
-    position: absolute;
-    display: none;
-  }
-
-  .control input:checked ~ .control_indicator:after {
-    display: block;
-  }
-
-  .control-radio .control_indicator:after {
-    left: 7px;
-    top: 7px;
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background: #ffffff;
-  }
-
-  .control-radio input:disabled ~ .control_indicator:after {
-    background: #7b7b7b;
-  }
-
   .SearchBar {
     display: inline;
     position: relative;
     left: 1%;
+    width:75%;
   }
 
   .SearchBar input {
@@ -383,11 +307,13 @@
   }
 
   #tab {
-    top: 85px;
-    left: 20px;
+    // top: 85px;
+    // left: 20px;
     border-collapse: collapse;
     //height:72px;
     margin-bottom: 0;
+    overflow: scroll;
+    width:100%;
   }
 
   #tab a:link,
@@ -408,7 +334,7 @@
 
   #tab > tbody > tr > td,
   #tab > tbody > tr > th {
-    padding: 5px;
+    // padding: 5px;
     text-align: center;
     height: 20px;
   }
@@ -422,10 +348,19 @@
 
   #tab > tbody > tr > td {
     background-color: #cccccc;
+    color:#FFFFFF;
   }
 
   #tab > tbody > tr:hover td {
     background-color: #edf8b1;
+  }
+
+  #tab > tbody > tr{
+    width:95%;
+  }
+  #tab > tbody,
+  #tab > thead{
+    width:95%;
   }
 
   #scatter {
@@ -692,43 +627,6 @@
     stroke: #FFF;
     stroke-width: 2px;
   }
- /*.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-  pointer-events: none;
-}
-
-/* Creates a small triangle extender for the tooltip */
-/*.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  pointer-events: none;
-}
-
-/* Northward tooltips */
-/*.d3-tip.n:after {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-  pointer-events: none;
-  content: "\25BC";
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-  text-align: center;
-}*/
 
   #button_holder {
     position: relative;
