@@ -1637,40 +1637,28 @@ d3.select('#right_column')
   .append('ul')
   .attr('class','accordion')
     .append('li')
-    .attr('class','panel')
       .append('a')
       .attr('class','toggle')
       .attr('href','javascript:void(0)')
       .text('Section 1')
-        .append('div')
+        .append('ul')
         .attr('class','inner')
-          .html('<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>');
+          .append('li')
+            .html('<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>')
 
-d3.select('#right_column')
-  .append('ul')
-  .attr('class','accordion')
-    .append('li')
-    .attr('class','panel')
-      .append('a')
-      .attr('class','toggle')
-      .attr('href','javascript:void(0)')
-      .text('Section 2')
-        .append('div')
-        .attr('class','inner')
-          .html('<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>');
 
 $('.toggle').click(function(e) {
   	e.preventDefault();
-
+    console.log("in toggle!",e)
     var $this = $(this);
-
+    console.log('$this: ',$this.parent().parent());
     if ($this.next().hasClass('show')) {
         $this.next().removeClass('show');
         $this.next().slideUp(350);
     } else {
-        $this.parent().parent().find('div .inner').removeClass('show');
-        $this.parent().parent().find('div .inner').slideUp(350);
+        $this.parent().parent().find('li .inner').removeClass('show');
+        $this.parent().parent().find('li .inner').slideUp(350);
         $this.next().toggleClass('show');
         $this.next().slideToggle(350);
     }
-});
+})

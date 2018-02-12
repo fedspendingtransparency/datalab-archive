@@ -43,24 +43,26 @@
 		stroke-opacity: .1;
 	}
 	#sankey-viz {
-		width: 550px;
-		height: inherit;
-		margin-top:20px;
+		width: 50%;
+		height: 100%;
+		margin-top:125px;
+		float: left;
 	}
 	#sankey-table {
 		text-align:left;
 		/*left:730px;
 		padding-right:20px;
 		padding-left:40px;*/
-		height: inherit;
-		margin-left:0px;
+		height: 100%;
+		// margin-left:0px;
 		background-color: inherit;
 		display: inline-block;
    		margin-bottom: 310px;
 		float: right;
-		margin-top: 40px;
-		margin-right: 380px;
-		margin-bottom: 500px;
+		// margin-top: 40px;
+		// margin-right: 380px;
+		// margin-bottom: 500px;
+		width:50%
 	}
 	.panel_desc{
 		margin-top: 10px;
