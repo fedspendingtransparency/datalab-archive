@@ -1,0 +1,34 @@
+---
+layout: page
+menuname: Competition in Contracting
+title: Competition in Contracting
+description: Lorem Ipsum
+banner: landings/federal.jpg
+alt: Competition in Contracting
+permalink: competition-in-contracting.html
+category: entry
+---
+
+<section id="one" class="wrapper style1 special">
+  <div class="viz-bkgd">
+    <div class="mask">
+      {% include action-buttons.html %}
+      <div class="viz-container">
+        <element class="dendrogram">
+          <div id="tree-container"></div>
+        </element>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include how-analysis-conducted.html
+  how="This analysis was conducted by organizing spending data reported to USAspending.gov according to the structure of the federal government presented in government-wide budget documents."
+  read-more="homeless-analysis-more.html"
+  next-analysis="what-and-why-government-spending.html"
+%}
+
+<!-- d3 -->
+<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+<script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>
