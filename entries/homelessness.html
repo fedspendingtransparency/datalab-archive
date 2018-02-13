@@ -1,0 +1,99 @@
+---
+layout: page
+menuname: Homelessness
+title: On a single night in 2016, over 500,000 people were experiencing homelessness in the United States.
+description: Multiple federal, state, and local programs offer support to people experiencing homelessness.  Our analysis uses federal financial data to show the breakdown of federal funding spent to address homelessness.
+alt: Homelessness
+banner: landings/homelessness.jpg
+permalink: homelessness.html
+category: entry
+---
+
+{% include viz-header-info.html
+	title="How individuals experiencing homelessness are counted"
+	body="Determining how many people are experiencing homelessness at a given time can be challenging. People experiencing homelessness are counted once a year (in late January) by grantees who receive funding from HUD’s Continuum of Care program. This program — the largest federal program related to homelessness — requires grantees to collect reliable data on the total number of people experiencing homelessness who reside in the grantee’s geographic area."
+%}
+
+<section id="one" class="wrapper style1 special">
+	<div class="viz-bkgd">
+		<div class="mask">
+			{% include homeless-p1-buttons.html %}
+			<div class="viz-container homeless-analysis">
+				<div id="container" height="100%" width="100%"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include viz-header-info.html
+	title="Federal programs that address homelessness"
+	body="The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, though multiple federal agencies manage programs that provide services including education, employment, housing resources, and more. Our analysis identified 33 federal programs that explicitly flagged homeless individuals as beneficiaries. These included programs that named homeless individuals as primary targets of services or as one of the program’s target recipient groups."
+%}
+
+<section id="one" class="wrapper style1 special">
+	<div class="viz-bkgd">
+		<div class="mask">
+			{% include action-buttons.html %}
+			<div class="viz-container homeless-analysis">
+				<div class="row flex" style="min-height:300px">
+					<div class="col-md-6">
+						<div class="row flex" style="margin-top:0">
+							<div id="container2_1"></div>
+						</div>
+						<div class="row flex">
+							<div id="container2_3" style="margin-top:0px"></div>
+						</div>
+						<button class="button" id="myBtnContact" style="margin: auto; position:relative; z-index:99; text-align:center; vertical-align:middle;">CoC Contact</button>
+						<div id="myModalContact" class="modal">
+							<div class="modal-content" id="modalContact">
+								<span class="closeContact">&times;</span>
+								<div class="modal-body" id="CoCcontact"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row flex" style="margin-top:0">
+							<div id="container2_2"></div>
+						</div>
+						<div class="row flex" style="margin-top:15px">
+							<div id="container2_4"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include viz-header-info.html
+	title="Cluster filler heading... blah blah"
+	body="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+%}
+
+<section id="one" class="wrapper style1 special">
+	<div class="viz-bkgd">
+		<div class="mask">
+			{% include action-buttons.html %}
+			<div class="viz-container homeless-analysis">
+				<div id="panel_3"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include how-analysis-conducted.html
+	how="To determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA,
+	looking for keywords related to homelessness. We then developed a ranking system to assess whether individuals experiencing homelessness
+	would directly benefit from these programs, keeping only the most relevant programs in our dataset."
+	read-more="homeless-analysis-more.html"
+	next-analysis="who-works-in-government.html"
+%}
+
+<!-- d3 -->
+<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/topojson.v1.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/spin.min.js"></script>
+<script src="{{site.baseurl}}/js/jquery.min.js"></script>
+<!-- <script src="{{site.baseurl}}/assets/js/homeless-format.js"></script> -->
+<script src="{{site.baseurl}}/assets/js/homeless.js"></script>

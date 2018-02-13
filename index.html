@@ -2,21 +2,16 @@
 layout: landing
 ---
 
-
 				<!-- Banner -->
 					<section id="banner">
-						<div class="inner">
-							<p>{{ site.description | markdownify }}</p>
-							<!--
-							<ul class="actions">
-								<li><a href="#" class="button special">Activate</a></li>
-							</ul>
-							-->
+						<div class="inner inner-margin">
+							<p class="index-header">{{ site.description }}</p>
+							<p class="index-sub-header">Using federal spending data to explore the government's programs and operations.</p>
 						</div>
-						<a href="#one" class="scrolly homepage-get-started">Get Started</a>
+						<a href="#one" class="scrolly homepage-get-started">Get Started<i class="get-started-arrow"></i></a>
 					</section>
 
-				{% include services.html %}
+				{% include resources.html %}
 
 				<!-- One
 					<section id="one" class="wrapper style1 special">
@@ -37,14 +32,15 @@ layout: landing
 				<!-- Two -->
 					<section id="two" class="wrapper alt style2">
 						<section class="spotlight">
-							<div class="image"><img src="images/homepage/homelessness.jpg" alt="Homeless Analysis" /></div><div class="content">
+							<div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div><div class="content">
 								<h4>Interactive Dashboard</h4>
 								<h2>Explore Federal Programs That Address Homelessness</h2>
 								<p>On a single night in 2016, over 500,000 people were experiencing homelessness in the United States. One out of every five of these people were children. Use this visualization to explore the federal government’s approach to addressing homelessness in America.</p>
+								<a href="homelessness.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/homepage/contracts.jpg" alt="Government Contractors" /></div><div class="content">
+							<div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div><div class="content">
 								<h4>Sunburst Diagram</h4>
 								<h2>Who Receives Federal Contracts?</h2>
 								<p>Did you know that the federal government spends about $500 billion each year on contracts? This is around the size of the economy of Sweden! Explore contract recipients and what agencies are getting with these contracts, from missiles to lighting fixtures to internet and phone service.</p>
@@ -60,7 +56,7 @@ layout: landing
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/homepage/budget.jpg" alt="The what and why of government spending" /></div><div class="content">
+							<div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div><div class="content">
 								<h4>Sankey Diagram</h4>
 								<h2><a href="what-and-why-government-spending.html">See How The Government Categorizes Its Purchases</a></h2>
 								<p>The DATA Act now allows you to connect two different categorization systems: what the government pays for and what it is trying to achieve. For example, you can use this visualization to see when money is spent for national defense, the amounts spent on military personnel versus military contractors.</p>
@@ -68,11 +64,19 @@ layout: landing
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/homepage/workers.jpg" alt="Who works in Government?" /></div><div class="content">
+							<div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div><div class="content">
 								<h4>Interactive Dashboard</h4>
 								<h2><a href="who-works-in-government.html">What Do Federal Employees Do And Where Do They Live?</h2></a>
 								<p>There are many types of Federal employees, ranging from park rangers to special agents to the nurses and doctors who take care of veterans.  These people live and work all across the United States. Use this visualization to explore Federal salaries, occupations, and where employees live.</p>
 								<a href="who-works-in-government.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div><div class="content">
+								<h4>Lorem Ipsum</h4>
+								<h2><a href="competition-in-contracting.html">Competition in Contracting</h2></a>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<a href="competition-in-contracting.html" class="rectangle-18"><span class="discover">Discover ⟶</span></a>
 							</div>
 						</section>
 					</section>
@@ -123,8 +127,8 @@ layout: landing
 								<p>Your input is invaluable. Sign up to become a website tester or send us any feedback you have</p>
 							</header>
 							<div>
-								<a href="https://airtable.com/shrVMcNncc32AEum7"><button class="get-involved-button">Tester Signup</button></a>
-								<a href="https://airtable.com/shrNO3BREEFIhUhdz"><button class="get-involved-button">Send Feedback</button></a>
+								<a href="https://airtable.com/shrVMcNncc32AEum7"><span class="get-involved-button">Tester Signup</span></a>
+								<a href="https://airtable.com/shrNO3BREEFIhUhdz"><span class="get-involved-button">Send Feedback</span></a>
 							</div>
 						</div>
 					</section>
