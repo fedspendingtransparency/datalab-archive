@@ -510,7 +510,7 @@ function centerNode(source) {
     };
 
 
-
+//createHover for depths 0-3, CSS currently exists in the html, need to change...
      function createHover(d) {
        console.log("createHover d: ",d)
        //console.log("children: ",d._children[0]._children)
