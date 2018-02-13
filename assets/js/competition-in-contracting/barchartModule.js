@@ -232,31 +232,16 @@ const barchartModule = function() {
         handleYAxisCheckboxChange(id, checked);
       });
 
-    // var stacked = d3.layout.stack()(
-    //   keys.map((key, i) => {
-    //     return sortedData.map(d => {
-    //       console.log({ k, d, i });
-    //       return { val: d[k], data: d };
-    //       // return { x: d.date, y: d[c] };
-    //     });
-    //   })
-    // );
-
-    // var stack = d3.layout.stack().values((d, i) => {
-    //   console.log({ d, i });
-    //   keys.map;
-    // });
-
-    var stackedDataset = d3.layout.stack()(
-      keys.map(function(key) {
-        return sortedData.map(function(d) {
-          // console.log(d)
-          return { y: d[key], x: d.name, displayed: d.displayed };
-        });
-      })
+    const stackedDataset = d3.layout.stack()(
+      keys.map(key =>
+        sortedData.map(d => ({
+          y: d[key],
+          x: d.name,
+          displayed: d.displayed,
+          data: d
+        }))
+      )
     );
-
-    console.log({ stackedDataset });
 
     // bars
     g
@@ -265,10 +250,7 @@ const barchartModule = function() {
       .data(stackedDataset)
       .enter()
       .append("g")
-      .attr("fill", (d, i) => {
-        console.log({d, i, keys})
-        return z(keys[i]);
-      })
+      .attr("fill", (d, i) => z(keys[i]))
       .attr("class", "barGroup")
       .selectAll(".bar")
       .data(d => {
@@ -277,19 +259,13 @@ const barchartModule = function() {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", d => {
-        // console.log({ d });
-        return x(d.y0);
-      })
+      .attr("x", d => x(d.y0))
       .attr("y", d => y(d.x))
       .attr("height", 10)
       .attr("width", d => {
-        // console.log({d})
         if (!d.displayed) return 0;
-        // return x(d[1]) - x(d[0]);
         return x(d.y0 + d.y) - x(d.y0);
       })
-      // .attr("width", x.rangeBand())
       .on("mouseover", handleMouseOver)
       .on("mousemove", handleMouseMove)
       .on("mouseout", handleMouseOut);
