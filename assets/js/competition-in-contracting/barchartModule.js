@@ -202,7 +202,7 @@ const barchartModule = function() {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .append("foreignObject")
-      .attr("transform", "translate(-16.5,5)")
+      .attr("transform", "translate(-21,6)")
       .attr("width", 100)
       .attr("height", 1000)
       .append("xhtml:body")
