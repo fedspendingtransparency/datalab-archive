@@ -125,23 +125,23 @@ const barchartModule = function() {
     // x scale
     let x;
     if (settings.xAxisScale === "quantity") {
-      x = d3
-        .scaleLinear()
+      x = d3.scale
+        .linear()
         .domain([0, d3.max(sortedData, d => (d.displayed ? d.total : 0))]);
     } else {
-      x = d3.scaleLinear().domain([0, 1]);
+      x = d3.scale.linear().domain([0, 1]);
     }
     x.range([0, width]);
 
     // y scale
-    const y = d3
-      .scaleBand()
-      .rangeRound([0, height])
-      .padding(0.1)
+    const y = d3.scale
+      .ordinal()
+      .rangeRoundBands([0, height], 0.1)
+      // .padding(0.1)
       .domain(sortedData.map(d => d.name));
 
     // z scale (color)
-    const z = d3.scaleOrdinal().range(["#2a5da8", "#f0ca4d"]);
+    const z = d3.scale.ordinal().range(["#2a5da8", "#f0ca4d"]);
     const keys =
       settings.xAxisScale === "quantity"
         ? ["competed", "notCompeted"]
@@ -173,8 +173,10 @@ const barchartModule = function() {
       .attr("class", "axis axis--x")
       .attr("transform", `translate(0,${height})`)
       .call(
-        d3
-          .axisBottom(x)
+        d3.svg
+          .axis()
+          .scale(x)
+          .orient("bottom")
           .ticks(10)
           .tickFormat(d3.format(tickFormat))
       )
@@ -191,7 +193,12 @@ const barchartModule = function() {
       .append("g")
       .attr("transform", `translate(-10,0)`)
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
+      .call(
+        d3.svg
+          .axis()
+          .orient("left")
+          .scale(y)
+      )
       .selectAll(".tick")
       .attr("class", "yTick");
 
@@ -225,27 +232,64 @@ const barchartModule = function() {
         handleYAxisCheckboxChange(id, checked);
       });
 
+    // var stacked = d3.layout.stack()(
+    //   keys.map((key, i) => {
+    //     return sortedData.map(d => {
+    //       console.log({ k, d, i });
+    //       return { val: d[k], data: d };
+    //       // return { x: d.date, y: d[c] };
+    //     });
+    //   })
+    // );
+
+    // var stack = d3.layout.stack().values((d, i) => {
+    //   console.log({ d, i });
+    //   keys.map;
+    // });
+
+    var stackedDataset = d3.layout.stack()(
+      keys.map(function(key) {
+        return sortedData.map(function(d) {
+          // console.log(d)
+          return { y: d[key], x: d.name, displayed: d.displayed };
+        });
+      })
+    );
+
+    console.log({ stackedDataset });
+
     // bars
     g
       .append("g")
       .selectAll(".barGroup")
-      .data(d3.stack().keys(keys)(sortedData))
+      .data(stackedDataset)
       .enter()
       .append("g")
-      .attr("fill", d => z(d.key))
+      .attr("fill", (d, i) => {
+        console.log({d, i, keys})
+        return z(keys[i]);
+      })
       .attr("class", "barGroup")
       .selectAll(".bar")
-      .data(d => d)
+      .data(d => {
+        return d;
+      })
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", d => x(d[0]))
-      .attr("y", d => y(d.data.name))
-      .attr("height", y.bandwidth())
-      .attr("width", d => {
-        if (!d.data.displayed) return 0;
-        return x(d[1]) - x(d[0]);
+      .attr("x", d => {
+        // console.log({ d });
+        return x(d.y0);
       })
+      .attr("y", d => y(d.x))
+      .attr("height", 10)
+      .attr("width", d => {
+        // console.log({d})
+        if (!d.displayed) return 0;
+        // return x(d[1]) - x(d[0]);
+        return x(d.y0 + d.y) - x(d.y0);
+      })
+      // .attr("width", x.rangeBand())
       .on("mouseover", handleMouseOver)
       .on("mousemove", handleMouseMove)
       .on("mouseout", handleMouseOut);
