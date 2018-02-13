@@ -1,0 +1,62 @@
+table, th, td {
+  border: 1px solid black;
+}
+
+#tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 1px;
+  border-radius: 2px;
+  pointer-events: none;
+  width: 250px;
+  color: black;
+}
+
+#tooltip h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+#tooltip table {
+  table-layout: fixed;
+}
+
+#tooltip tr td {
+  padding: 0;
+  margin: 0;
+}
+
+#tooltip tr td:nth-child(1) {
+  width: 50px;
+}
+
+#tooltip tr td:nth-child(2) {
+  text-align: center;
+}
+
+.viz-bkd.competition-in-contracting-viz-bkgd {
+  height: 1220px;
+}
+
+#yAxisCheckboxes {
+  background-color: transparent;
+}
+
+// input[type=checkbox]
+// {
+//   height: 10px;
+//   /* Double-sized Checkboxes */
+//   -ms-transform: scale(2); /* IE */
+//   -moz-transform: scale(2); /* FF */
+//   -webkit-transform: scale(2); /* Safari and Chrome */
+//   -o-transform: scale(2); /* Opera */
+//   padding: 10px;
+// }
+
+.dropdown {
+  border: 1px solid black;
+}

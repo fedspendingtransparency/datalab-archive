@@ -15,6 +15,7 @@ $baseurl: '{{ site.baseurl }}/images';
 @import 'dendrogram';
 @import 'homeless-analysis';
 @import 'contract-explorer';
+@import 'competition-in-contracting';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
@@ -2107,7 +2108,7 @@ a {
 }
 
 .viz-bkgd {
-	height: 1100px;
+	height: 1300px;
 	width: 100%;
 	background-color: #E2DFEC;
 	padding: 25px;
