@@ -10,25 +10,57 @@ category: entry
 ---
 
 <section id="one" class="wrapper style1 special">
-  <div class="viz-bkgd">
+  <div class="viz-bkgd competition-in-contracting-viz-bkgd">
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
-        <element class="dendrogram">
-          <div id="tree-container"></div>
-        </element>
+        <div>
+          <!-- tooltip -->
+          <div id="tooltip"></div>
+
+          <!-- summary -->
+          <table id="summaryTable">
+          </table>
+
+          <!-- toolbar -->
+          <form id="barchartToolbar" class="ui form">
+
+            <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
+              <option value="quantity">Quantity</option>
+              <option value="percent">Percent</option>
+            </select>
+            <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
+              <option value="actions">Actions</option>
+              <option value="dollars">Dollars</option>
+            </select>
+
+          </form>
+
+          <input type="checkbox" checked="true">
+
+          <!-- barchart -->
+          <div>
+            <svg width="1200" height="700" id="barchartSvg"></svg>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-{% include how-analysis-conducted.html
-  how="This analysis was conducted by organizing spending data reported to USAspending.gov according to the structure of the federal government presented in government-wide budget documents."
-  read-more="homeless-analysis-more.html"
-  next-analysis="what-and-why-government-spending.html"
-%}
+{% include how-analysis-conducted.html how="This analysis was conducted by organizing spending data reported to USAspending.gov
+according to the structure of the federal government presented in government-wide budget documents." read-more="homeless-analysis-more.html"
+next-analysis="what-and-why-government-spending.html" %}
 
 <!-- d3 -->
-<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
-<script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>
+<!-- <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+  <script src="{{site.baseurl}}/assets/js/dendrogram.js"></script> -->
+<script src="{{site.baseurl}}/assets/js/vendor/d3.v4.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/helperFunctionModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/dataModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/tooltipModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/barchartModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/competitionInContracting.js"></script>
