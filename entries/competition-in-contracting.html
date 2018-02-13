@@ -1,13 +1,18 @@
 ---
 layout: page
 menuname: Competition in Contracting
-title: Competition in Contracting
-description: Lorem Ipsum
-banner: landings/federal.jpg
+title: In FY 2017, over 60 percent of dollars paid to contractors went to those who had undergone a competitive bidding process.
+description: The analysis below shows the 24 CFO Act agencies, which are generally the largest agencies in government, accounting for over 98 percent of all federal spending. Other smaller agencies are grouped together in a separate category.
+banner: landings/competition.jpg
 alt: Competition in Contracting
 permalink: competition-contracting.html
 category: entry
 ---
+
+{% include viz-header-info.html
+	title="Why does the government use competition when issuing contracts?"
+	body="It's the law. In 1984, Congress passed the Competition in Contracting Act, which requires federal agencies to use full and open competition when hiring contractors to provide goods and services. The law also spells out circumstances when agencies can bypass competitive practices, which include unusual and compelling urgency and national security. In many cases, federal agencies will pursue competition even when an exception to the law applies, as competition may help to provide a better selection of goods and services or better prices."
+%}
 
 <section id="one" class="wrapper style1 special">
   <div class="viz-bkgd competition-in-contracting-viz-bkgd">
@@ -47,8 +52,9 @@ category: entry
   </div>
 </section>
 
-{% include how-analysis-conducted.html how="This analysis was conducted by organizing spending data reported to USAspending.gov
-according to the structure of the federal government presented in government-wide budget documents." read-more="homeless-analysis-more.html"
+{% include how-analysis-conducted.html 
+how="We conducted this analysis using a report from the Federal Procurement Data System Next Generation, which is the source of part of USAspending.gov's procurement data." 
+read-more="homeless-analysis-more.html"
 next-analysis="what-and-why-government-spending.html" %}
 
 <!-- d3 -->
