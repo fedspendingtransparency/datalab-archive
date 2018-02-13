@@ -454,7 +454,7 @@ function centerNode(source) {
                  .style('color','#333')
                  .style('border', 'solid 1px #BFBCBC')
                  .style('padding', '5px')
-                 .style('min-width', '200px')
+                 .style('min-width', '100px')
                  .style('max-width', '375px')
                  .offset([-10, -10])
                  .html(createHover)
@@ -515,22 +515,27 @@ function centerNode(source) {
        console.log("createHover d: ",d)
        //console.log("children: ",d._children[0]._children)
        if(d.depth===3){
-           return '<p style="border-bottom:1px solid #898C90; font-size: 18px"><b style="color: #000">' + d.name +  '</b></p>' +
-             '<p style="color: #0071BC; margin: 0; font-size: 20px">'+'Total Obligations: ' + formatNumber(d.size) + '</p>' +
-             '<p style="color: #0071BC; margin: 0; font-size: 20px">'+'Unobligated Balance: ' + formatNumber(d.unob) + '</p>' +
-             '<p><b style="color: #000">' + 'Click to visit Federal Account page</b></p>';
+           return '<p style="border-bottom:1px solid #898C90; font-size: 12px"><b style="color: #000">'
+             + d.parent.parent.name + ' > ' + d.parent.name + ' > ' + d.name +  '</b></p>' +
+             '<p style="color: #0071BC; margin: 0; font-size: 12px">'+'Total Obligations: ' + formatNumber(d.size) + '</p>' +
+             '<p style="margin: 0; font-size: 10px">'+'Unobligated Balance*: ' + formatNumber(d.unob) + '</p>' +
+             '<p><i style="color: #000; font-size: 10px">' + 'Click to visit federal account page</i></p>';
         }else if (d.depth === 2){
-            return '<p style="color: #0071BC; margin: 0; font-size: 20px"><b style="color: #0071BC">'
-            + 'Total Obligations: ' + sumUp_lvl2(d) + '<br/>'
-            + 'Unobligated Balance: '+ sumUp_lvl2_unob(d) +'</b></p>'
-            + '<p><b style="color: #000">'+ 'View Federal Accounts'+ '</b></p>';
+            return '<p style="border-bottom:1px solid #898C90; font-size: 12px"><b style="color: #000">'
+            + d.parent.name + ' > ' +d.name +  '</b></p>'
+            + '<p style="color: #0071BC; margin: 0; font-size: 12px"><b style="color: #0071BC">'
+            + 'Total Obligations: ' + sumUp_lvl2(d) + '</b></p>'
+            + '<p style= "margin: 0; font-size: 10px">' + 'Unobligated Balance*: '+ sumUp_lvl2_unob(d) +'</p>'
+            + '<p><i style="color: #000; font-size: 10px">'+ 'Click to view federal accounts'+ '</i></p>';
         }else if (d.depth===1){
-            return '<p style="color: #0071BC; margin: 0; font-size: 20px"><b style="color: #0071BC">'
-            + 'Total Obligations: ' + sumUp(d) + '<br/>'
-            + 'Unobligated Balance: '+ sumUp_unob(d) + '</b></p>'
-            + '<p><b style="color: #000">' + 'View Agencies'+ '</b></p>';
+            return '<p style="border-bottom:1px solid #898C90; font-size: 12px"><b style="color: #000">'
+            + d.name +  '</b></p>'
+            + '<p style="color: #0071BC; margin: 0; font-size: 12px"><b style="color: #0071BC">'
+            + 'Total Obligations: ' + sumUp(d) + '</b></p>'
+            + '<p style= "margin: 0; font-size: 10px">' + 'Unobligated Balance*: '+ sumUp_unob(d) + '</p>'
+            + '<p><i style="color: #000; font-size: 10px">' + 'Click to view agencies'+ '</i></p>';
         }else if (d.depth===0){
-            return '<p font-size: 18px; margin:0"><b style="color: #000">'
+            return '<p style="font-size: 12px; margin:0"><b style="color: #000">'
             + 'FY17 Federal Accounts'+ '</b></p>';
         }
      }
