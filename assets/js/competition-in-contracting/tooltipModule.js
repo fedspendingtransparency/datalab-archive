@@ -32,12 +32,12 @@ const tooltipModule = function() {
   }
 
   function remove() {
-    console.log("remove");
     d3
       .select("#tooltip")
       .transition()
       .duration(500)
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .style("pointer-events", "none");
   }
 
   function move() {

@@ -3,7 +3,6 @@ $(function() {
   const tooltipModuleDraw = tooltipModule().draw;
   const tooltipModuleRemove = tooltipModule().remove;
   const tooltipModuleMove = tooltipModule().move;
-  // const formatNumber = helperFunctionModule().formatNumber;
 
   const settings = {
     logScale: false,
@@ -16,7 +15,6 @@ $(function() {
     tooltipModuleRemove,
     tooltipModuleMove,
     handleYAxisCheckboxChange
-    // formatNumber
   };
 
   function handleYAxisCheckboxChange(id, checked) {

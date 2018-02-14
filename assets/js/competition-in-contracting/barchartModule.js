@@ -101,25 +101,27 @@ const barchartModule = function() {
         tickFormat = "$,";
       }
     }
+    const ticklength = 525;
     g
       .append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", `translate(0,${height})`)
+      .attr("transform", `translate(0,${height - ticklength})`)
       .call(
         d3.svg
           .axis()
           .scale(x)
           .orient("bottom")
-          .ticks(10)
+          // .ticks(10)
           .tickFormat(d3.format(tickFormat))
+          .tickSize(ticklength)
       )
       .attr("class", "xTick")
       .selectAll("text")
       .style("text-anchor", "end")
       .style("font-size", "12px")
-      .attr("transform", `rotate(-35)`)
-      .attr("dx", ".8em")
-      .attr("dy", ".35em")
+      .attr("transform", `rotate(-35) translate(-295,-95)`)
+      .attr("dx", "-.8em")
+      // .attr("dy", ".35em")
       .attr("pointer-events", "none");
 
     // y axis
@@ -145,7 +147,7 @@ const barchartModule = function() {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .append("foreignObject")
-      .attr("transform", "translate(-21,6)")
+      .attr("transform", "translate(-21,8)")
       .attr("width", 100)
       .attr("height", 1000)
       .append("xhtml:body")
@@ -155,7 +157,7 @@ const barchartModule = function() {
       .data(sortedData)
       .enter()
       .append("div")
-      .style("height", "19px")
+      .style("height", "21px")
       .style("background", "white")
       .append("input")
       .attr("type", "checkbox")
@@ -212,7 +214,7 @@ const barchartModule = function() {
       .append("g")
       .attr("transform", "translate(0,-50)")
       .selectAll(".legend")
-      .data(options.slice())
+      .data(options)
       .enter()
       .append("g")
       .attr("class", "legend")
@@ -233,6 +235,7 @@ const barchartModule = function() {
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
+      .style("font-size", "12px")
       .text(function(d) {
         return d;
       });

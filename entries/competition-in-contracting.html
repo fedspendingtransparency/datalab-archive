@@ -33,14 +33,18 @@ category: entry
             <!-- toolbar -->
             <div class="control-item">
               <form id="barchartToolbar" class="ui form">
-                <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
-                  <option value="quantity">Quantity</option>
-                  <option value="percent">Percent</option>
-                </select>
-                <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
-                  <option value="actions">Actions</option>
-                  <option value="dollars">Dollars</option>
-                </select>
+                <div class="select-wrapper">
+                  <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
+                    <option value="quantity">Quantity</option>
+                    <option value="percent">Percent</option>
+                  </select>
+                </div>
+                <div class="select-wrapper">
+                  <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
+                    <option value="actions">Actions</option>
+                    <option value="dollars">Dollars</option>
+                  </select>
+                </div>
               </form>
             </div>
           </div>
