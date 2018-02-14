@@ -49,3 +49,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+vendor/
+Gemfile.lock
+.bundle/config
