@@ -1389,7 +1389,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include vendor('transition', 'background-color #{_duration(transitions)} ease');
 		background: #FFFFFF !important;
 		/*background: _palette(bg);*/
-		height: 6em;
+		height: 100px;
 		left: 0;
 		line-height: 3em;
 		/*position: fixed;*/
@@ -2440,34 +2440,18 @@ a {
 	margin-bottom: 50px;
 }
 
-.nav-header {
-	width: 121px;
-	color: #000000;
-	font-family: "Source Sans Pro";
-	font-size: 18px;
-	letter-spacing: 5px;
-	line-height: 44px;
-}
-
 .usaspending-logo {
-	background-size: 350px 33px;
-    width: 326px;
-    height: 42px;
+	background-size: 380px 43px;
+	width: 424px;
+    height: 55px;
 	background-image: url('images/logo.svg');
 	background-repeat: no-repeat;
 	border: 0;
 	cursor: pointer;
 	display: inline-block;
 
-	margin-top: 35px;
-	margin-left: 35px;
-}
-
-.line-3 {
-	height: 38px;
-	display: inline-block;
-	border-right: 1px solid #000000;
-	margin: 0px 15px 0px 15px;
+	margin-top: 25px;
+	margin-left: 0;
 }
 
 .go-to-usaspending {
