@@ -55,16 +55,12 @@ const barchartModule = function() {
         a += `
       <tr>
         <td>${c[0]}</td>
-        <td>${
-          c[0] === "% Competed"
-            ? formatNumber("percent", c[1].Actions)
-            : formatNumber("actions", c[1].Actions)
-        }</td>
-        <td>${
-          c[0] === "% Competed"
-            ? formatNumber("percent", c[1].Dollars)
-            : formatNumber("dollars", c[1].Dollars)
-        }</td>
+        <td>${c[0] === "% Competed"
+          ? formatNumber("percent", c[1].Actions)
+          : formatNumber("actions", c[1].Actions)}</td>
+        <td>${c[0] === "% Competed"
+          ? formatNumber("percent", c[1].Dollars)
+          : formatNumber("dollars", c[1].Dollars)}</td>
       </tr>
       `;
         return a;
