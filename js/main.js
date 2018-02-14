@@ -4,6 +4,16 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+function toggleInstructionsPopup() {
+    var popup = document.getElementById("instructionsPopup");
+    popup.classList.toggle("show");
+}
+
+function toggleSharePopup() {
+    var popup = document.getElementById("sharePopup");
+    popup.classList.toggle("show");
+}
+
 (function($) {
 
 	skel
@@ -59,7 +69,7 @@
 			$('.scrolly')
 				.scrolly({
 					speed: 1500,
-					offset: $header.outerHeight()
+					offset: $header.outerHeight() - 560
 				});
 
 		// Menu.

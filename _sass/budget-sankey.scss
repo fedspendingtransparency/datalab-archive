@@ -1,3 +1,6 @@
+
+
+
 .budget-sankey {
 	& p.subheading {
 		font-size: 1.75rem;
@@ -20,10 +23,10 @@
 			}
 		}
 	}
-	#sankey-viz {
-		width: 700px;
-		height: inherit;
-		margin-top:20px;
+	.treecolumn{
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+		-moz-column-count: 2; /* Firefox */
+		column-count: 2;
 	}
 	.node rect {
 		cursor: move;
@@ -39,63 +42,89 @@
 		stroke: #000;
 		stroke-opacity: .1;
 	}
+	#sankey-viz {
+		width: 50%;
+		height: 100%;
+		margin-top:125px;
+		float: left;
+	}
 	#sankey-table {
 		text-align:left;
 		/*left:730px;
 		padding-right:20px;
 		padding-left:40px;*/
-		height: inherit;
-		margin-top: 0px;
-		margin-left:0px;
+		height: 100%;
+		// margin-left:0px;
 		background-color: inherit;
+		display: inline-block;
+   		margin-bottom: 310px;
+		float: right;
+		// margin-top: 40px;
+		// margin-right: 380px;
+		// margin-bottom: 500px;
+		width:50%
 	}
 	.panel_desc{
 		margin-top: 10px;
 	}
+	.panel_total_amount {
+		color: #5B616B;
+		margin-bottom: -15px;
+		font-weight: 200;
+		font-size: 14px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
 	#tab{
-		margin-top: -20px;
+		margin-top: 0px;
 		margin-bottom: 25px;
 	}
 
-	#tab_2 > table.icon{
-		margin-bottom: 3.5px;
+	table, th, td {
+		border: none;
+	 }
+
+	table tr {
+		background-color: #fff !important;
 	}
-	#tab_2 > table > tbody > tr {
-		line-height: 12px;
-	}
+	table td { display: block; }​
+
 	#tab_2 > table > tbody > td {
 		height: 8px;
 	}
-	#tab_2 > table > tbody > tr > td.val{
+	table > tbody > tr > td.val{
 		width: 116px;
-		height:15px;
+		height: 5px;
 		overflow:visible;
-		font-size: 10px;
+		color: #0C99CD;
 	}
-	#tab_2 > table > tbody > tr > td.name{
-		width: 270px;
-		height:15px;
-		overflow:visible;
-		font-size: 10px;
+	table > tbody > tr {
+		border: none;
 	}
 	#tab_2 {
 		/*height:40px;*/
-		width:385px;
+		width:600px;
 		margin-top:2px;
 		margin-bottom:-15px;
 	}
+	#sankey-table #tab {
+		width: 600px;
+	}
+	#sankey-table #description {
+		width: 600px;
+	}
 	#sankey-table h1 {
-		font-size: 2em;
-		font-style: inherit;
-		font-weight: lighter;
 		margin-top: 0;
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: 10px;
 		padding: 0;
-		color: #0071BC;
-		line-height:110%;
-		}
+		color: #5B616B !important;
+		font-family: "Source Sans Pro";
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 31px;
+	}
 	#sankey-table h2 {
 		font-size: 2.1em;
 		font-style: inherit;
@@ -105,12 +134,15 @@
 		color: #666666;
 	}
 	#sankey-table h3 {
-		font-size: 1.4em;
 		margin: 0;
 		padding: 0;
 		text-transform: capitalize;
 		/*font-variant:small-caps;*/
-		color: #555555;
+		color: #0C99CD;
+		font-family: "Source Sans Pro";
+		font-size: 40px;
+		font-weight: 300;
+		line-height: 50px;
 	}
 	#sankey-table h4 {
 		font-size: 1.5em;
@@ -123,10 +155,13 @@
 		font-style: inherit;
 		font-size: .8em;
 		line-height: 110%;
-		/*margin-top: -3px;
-		text-transform: capitalize;
-		font-variant:small-caps;*/
 		color: #555555;
+	}
+	table tbody tr td {
+		color: #5B616B;
+		font-family: "Source Sans Pro";
+		font-size: 15px;
+		line-height: 18px;
 	}
 	#tite_text {
 		margin-top: 10px;
@@ -143,8 +178,12 @@
 	}
 	#description > p.body_text {
 		position: relative;
-		font-size: 1.1em;
 		margin-top: -15px;
+		color: #5B616B;
+		font-family: "Source Sans Pro";
+		font-size: 15px;
+		line-height: 28px;
+		font-weight: 300;
 	}
 	#references{
 		.p {

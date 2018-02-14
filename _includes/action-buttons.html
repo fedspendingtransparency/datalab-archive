@@ -1,11 +1,16 @@
 <div class="viz-actions">
     <div class="left-buttons">
-        <button class="action-button"><i class="fa fa-info-circle viz-info-icon" aria-hidden="true"></i>Instructions</button>
+        <button id="button-instructions" onclick="toggleInstructionsPopup()" class="action-button popup">
+            <i class="information-icon" aria-hidden="true"></i>
+            Instructions
+            <span class="popuptext left" id="instructionsPopup">Popup Text</span>
+        </button>
+        
         <button class="action-button">Fullscreen</button>
         <button id="button1" class="action-button">Reset</button>
     </div>
 
     <div class="right-buttons">
-        <button class="action-button share-viz-button"><i class="fa fa-share-square-o viz-info-icon" aria-hidden="true"></i>Share</button>
+        {% include share-menu.html %}
     </div>
 </div>
