@@ -1,6 +1,6 @@
 const barchartModule = function() {
   var svg = d3.select("#barchartSvg"),
-    margin = { top: 60, right: 40, bottom: 150, left: 350 },
+    margin = { top: 60, right: 40, bottom: 100, left: 350 },
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -13,68 +13,11 @@ const barchartModule = function() {
       tooltipModuleDraw,
       tooltipModuleRemove,
       tooltipModuleMove,
-      handleYAxisCheckboxChange,
-      formatNumber
+      handleYAxisCheckboxChange
     } = helpers;
+    const { formatNumber } = helperFunctionModule;
 
-    const summaryData = data.reduce(
-      (a, c) => {
-        if (c.displayed) {
-          a.Competed.Actions += c.competedActions;
-          a.Competed.Dollars += c.competedDollars;
-          a["Not Competed"].Actions += c.notCompetedActions;
-          a["Not Competed"].Dollars += c.notCompetedDollars;
-          a.Total.Actions += c.totalActions;
-          a.Total.Dollars += c.totalDollars;
-        }
-        return a;
-      },
-      {
-        Competed: {
-          Actions: 0,
-          Dollars: 0
-        },
-        "Not Competed": {
-          Actions: 0,
-          Dollars: 0
-        },
-        Total: {
-          Actions: 0,
-          Dollars: 0
-        }
-      }
-    );
-
-    summaryData["% Competed"] = {
-      Actions: summaryData.Competed.Actions / summaryData.Total.Actions,
-      Dollars: summaryData.Competed.Dollars / summaryData.Total.Dollars
-    };
-
-    const summaryTableHtml = Object.entries(summaryData).reduce(
-      (a, c) => {
-        a += `
-      <tr>
-        <td>${c[0]}</td>
-        <td>${
-          c[0] === "% Competed"
-            ? formatNumber("percent", c[1].Actions)
-            : formatNumber("actions", c[1].Actions)
-        }</td>
-        <td>${
-          c[0] === "% Competed"
-            ? formatNumber("percent", c[1].Dollars)
-            : formatNumber("dollars", c[1].Dollars)
-        }</td>
-      </tr>
-      `;
-        return a;
-      },
-      `<th></th>
-    <th>Actions</th>
-    <th>Dollars</th>`
-    );
-
-    d3.select("#summaryTable").html(summaryTableHtml);
+    summartTableModule.draw(data);
 
     g.selectAll("*").remove();
 
@@ -147,16 +90,6 @@ const barchartModule = function() {
         ? ["competed", "notCompeted"]
         : ["percentCompeted", "percentNotCompeted"];
 
-    // title
-    g
-      .append("text")
-      .attr("x", width / 2)
-      .attr("y", 0 - margin.top / 2)
-      .attr("text-anchor", "middle")
-      .style("font-size", "16px")
-      .style("text-decoration", "underline")
-      .text("FY17 Competition Report");
-
     // x axis
     let tickFormat;
     if (settings.xAxisScale === "percent") {
@@ -168,30 +101,33 @@ const barchartModule = function() {
         tickFormat = "$,";
       }
     }
+    const ticklength = 525;
     g
       .append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", `translate(0,${height})`)
+      .attr("transform", `translate(0,${height - ticklength})`)
       .call(
         d3.svg
           .axis()
           .scale(x)
           .orient("bottom")
-          .ticks(10)
+          // .ticks(10)
           .tickFormat(d3.format(tickFormat))
+          .tickSize(ticklength)
       )
       .attr("class", "xTick")
       .selectAll("text")
-      .style("text-anchor", "start")
-      .attr("dx", ".8em")
-      .attr("dy", "-.6em")
-      .attr("transform", "rotate(90)")
+      .style("text-anchor", "end")
+      .style("font-size", "12px")
+      .attr("transform", `rotate(-35) translate(-295,-95)`)
+      .attr("dx", "-.8em")
+      // .attr("dy", ".35em")
       .attr("pointer-events", "none");
 
     // y axis
     g
       .append("g")
-      .attr("transform", `translate(-10,0)`)
+      .attr("transform", `translate(-12,0)`)
       .attr("class", "axis axis--y")
       .call(
         d3.svg
@@ -200,7 +136,9 @@ const barchartModule = function() {
           .scale(y)
       )
       .selectAll(".tick")
-      .attr("class", "yTick");
+      .attr("class", "yTick")
+      .selectAll("text")
+      .style("font-size", "12px");
 
     // y axis checkboxes
     g
@@ -209,7 +147,7 @@ const barchartModule = function() {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .append("foreignObject")
-      .attr("transform", "translate(-21,6)")
+      .attr("transform", "translate(-21,8)")
       .attr("width", 100)
       .attr("height", 1000)
       .append("xhtml:body")
@@ -219,7 +157,7 @@ const barchartModule = function() {
       .data(sortedData)
       .enter()
       .append("div")
-      .style("height", "19px")
+      .style("height", "21px")
       .style("background", "white")
       .append("input")
       .attr("type", "checkbox")
@@ -261,7 +199,7 @@ const barchartModule = function() {
       .attr("class", "bar")
       .attr("x", d => x(d.y0))
       .attr("y", d => y(d.x))
-      .attr("height", 10)
+      .attr("height", y.rangeBand())
       .attr("width", d => {
         if (!d.displayed) return 0;
         return x(d.y0 + d.y) - x(d.y0);
@@ -276,7 +214,7 @@ const barchartModule = function() {
       .append("g")
       .attr("transform", "translate(0,-50)")
       .selectAll(".legend")
-      .data(options.slice())
+      .data(options)
       .enter()
       .append("g")
       .attr("class", "legend")
@@ -297,6 +235,7 @@ const barchartModule = function() {
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
+      .style("font-size", "12px")
       .text(function(d) {
         return d;
       });

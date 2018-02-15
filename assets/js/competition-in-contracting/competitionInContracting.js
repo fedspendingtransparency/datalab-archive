@@ -3,7 +3,6 @@ $(function() {
   const tooltipModuleDraw = tooltipModule().draw;
   const tooltipModuleRemove = tooltipModule().remove;
   const tooltipModuleMove = tooltipModule().move;
-  const formatNumber = helperFunctionModule().formatNumber;
 
   const settings = {
     logScale: false,
@@ -15,8 +14,7 @@ $(function() {
     tooltipModuleDraw,
     tooltipModuleRemove,
     tooltipModuleMove,
-    handleYAxisCheckboxChange,
-    formatNumber
+    handleYAxisCheckboxChange
   };
 
   function handleYAxisCheckboxChange(id, checked) {
@@ -49,8 +47,6 @@ $(function() {
     const xAxisScale = $("#xAxisScaleDropdown")
       .find(":selected")
       .val();
-
-    console.log({ xAxisScale, xAxisUnit });
 
     settings.xAxisScale = xAxisScale;
     settings.xAxisUnit = xAxisUnit;

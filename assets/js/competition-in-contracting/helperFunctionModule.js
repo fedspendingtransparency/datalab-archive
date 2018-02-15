@@ -1,4 +1,4 @@
-const helperFunctionModule = function() {
+const helperFunctionModule = (function() {
   const formatPercent = d3.format(",.0%");
   const formatActions = d3.format(",");
   const formatDollars = d3.format("$,");
@@ -10,9 +10,9 @@ const helperFunctionModule = function() {
       case "actions":
         return formatActions(number);
       case "dollars":
-        return formatDollars(number);
+        return formatDollars(Math.round(number));
     }
   }
 
   return { formatNumber };
-};
+})();
