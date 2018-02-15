@@ -14,13 +14,14 @@
         <div id="menu">
           <ul>
             <li><a href="index.html">Home</a></li>
-            {% for my_page in site.pages %}
+            {% assign sorted_pages = site.pages | sort:"menuorder" %}
+            {% for my_page in sorted_pages %}
             {% if my_page.category == "entry" %}
             <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.menuname }}</a></li>
             {% endif %}
             {% endfor %}
             <br />
-            <li><a href="https://beta.usaspending.gov">Back To USASpending.gov</a></li>
+            <li><a href="https://beta.usaspending.gov">USASpending.gov</a></li>
           </ul>
         </div>
       </li>
