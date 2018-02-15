@@ -80,7 +80,7 @@ console.log("root:",root);
 
   // size of the diagram
   var viewerWidth = $(document).width();
-  var viewerHeight = 800;
+  var viewerHeight = 1111;
 
   var tree = d3.layout.tree()
       .size([viewerHeight, viewerWidth]);
@@ -148,12 +148,12 @@ function zoomButtonDn(){
 };*/
 
 function change() {
-  zoomListener.scale(1);
+  //zoomListener.scale(1);
   toggleAll(root);
   toggle(root);
   update(root);
   centerRootNode(root);
-  zoomListener.scale(1);
+  //zoomListener.scale(1);
   console.log("root after reset: ",root);
 };
 
@@ -245,15 +245,15 @@ function change() {
   }*/
 
   // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-  var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
+  //var zoomListener = d3.behavior.zoom().scaleExtent([1, 1]);//.on("zoom", zoom);
   //var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]);
 
   // define the baseSvg, attaching a class for styling and the zoomListener
   var baseSvg = d3.select("#tree-container").append("svg")
       .attr("width", viewerWidth)
       .attr("height", viewerHeight)
-      .attr("class", "overlay")
-      .call(zoomListener);
+      .attr("class", "overlay");
+      //.call(zoomListener);
 
   // Helper functions for collapsing and expanding nodes.
 
@@ -314,7 +314,7 @@ function change() {
 
 function centerNode(source) {
       if(source.depth===2){
-          scale = zoomListener.scale();
+          scale = 1;//zoomListener.scale();
           x = -source.y0;
           y = -source.x0;
           x = x * scale + viewerWidth / 4.2;
@@ -322,10 +322,10 @@ function centerNode(source) {
           d3.select('g').transition()
               .duration(duration)
               .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-          zoomListener.scale(scale);
-          zoomListener.translate([x, y]);
+          //zoomListener.scale(scale);
+          //zoomListener.translate([x, y]);
     }else{
-          scale = zoomListener.scale();
+          scale = 1;//zoomListener.scale();
           x = -source.y0;
           y = -source.x0;
           x = x * scale + viewerWidth / 3;
@@ -339,7 +339,7 @@ function centerNode(source) {
   }
 
     function centerRootNode(source) {
-      scale = zoomListener.scale();
+      scale = 1;//zoomListener.scale();
       x = -source.y0;
       y = -source.x0;
       x = x * scale + viewerWidth / 4;
@@ -347,22 +347,22 @@ function centerNode(source) {
       d3.select('g').transition()
           .duration(duration)
           .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-      zoomListener.scale(scale);
-      zoomListener.translate([x, y]);
+      //zoomListener.scale(scale);
+      //zoomListener.translate([x, y]);
   }
 
-    function centerExplode(source) {
-      scale = zoomListener.scale();
-      x = -source.y0;
-      y = -source.x0;
-      x = x * scale + viewerWidth / 19;
-      y = y * scale + viewerHeight / 2;
-      d3.select('g').transition()
-          .duration(duration)
-          .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-      zoomListener.scale(scale);
-      zoomListener.translate([x, y]);
-  }
+  //   function centerExplode(source) {
+  //     scale = 1;//zoomListener.scale();
+  //     x = -source.y0;
+  //     y = -source.x0;
+  //     x = x * scale + viewerWidth / 19;
+  //     y = y * scale + viewerHeight / 2;
+  //     d3.select('g').transition()
+  //         .duration(duration)
+  //         .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
+  //     //zoomListener.scale(scale);
+  //     //zoomListener.translate([x, y]);
+  // }
 
   // Toggle children function
 
