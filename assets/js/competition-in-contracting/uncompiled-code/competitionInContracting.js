@@ -5,8 +5,7 @@ $(function() {
   const tooltipModuleMove = tooltipModule().move;
 
   const settings = {
-    logScale: false,
-    xAxisUnit: "actions",
+    xAxisUnit: "dollars",
     xAxisScale: "quantity"
   };
 

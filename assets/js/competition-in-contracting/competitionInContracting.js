@@ -21,8 +21,7 @@ $(function() {
   var tooltipModuleMove = tooltipModule().move;
 
   var settings = {
-    logScale: false,
-    xAxisUnit: "actions",
+    xAxisUnit: "dollars",
     xAxisScale: "quantity"
   };
 

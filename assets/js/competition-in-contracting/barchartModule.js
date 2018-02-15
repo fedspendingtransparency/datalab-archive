@@ -18,7 +18,7 @@ var barchartModule = function barchartModule() {
     var _helperFunctionModule = helperFunctionModule,
       formatNumber = _helperFunctionModule.formatNumber;
 
-    summartTableModule.draw(data);
+    summaryTableModule.draw(data);
 
     g.selectAll("*").remove();
 

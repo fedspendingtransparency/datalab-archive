@@ -17,7 +17,7 @@ const barchartModule = function() {
     } = helpers;
     const { formatNumber } = helperFunctionModule;
 
-    summartTableModule.draw(data);
+    summaryTableModule.draw(data);
 
     g.selectAll("*").remove();
 

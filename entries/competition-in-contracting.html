@@ -21,32 +21,39 @@ category: entry
       <div class="viz-container">
         <div class="competition-in-contracting">
 
-          <div id="controls">
+          <div id="summary">
             <!-- tooltip -->
             <div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; pointer-events: all; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; width: 300px; left: 486.128px;"></div>
 
             <!-- summary -->
-            <div class="control-item">
-              <table id="summaryTable"></table>
+            <div class="summary-item" style="border-right: 2px solid #a4a4a4">
+              <p style="color: #2a5da8">COMPETED</p>
+              <h2 id="competed-dollars"></h2>
             </div>
-
-            <!-- toolbar -->
-            <div class="control-item">
-              <form id="barchartToolbar" class="ui form">
-                <div class="select-wrapper">
-                  <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
-                    <option value="quantity">Quantity</option>
-                    <option value="percent">Percent</option>
-                  </select>
-                </div>
-                <div class="select-wrapper">
-                  <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
-                    <option value="actions">Actions</option>
-                    <option value="dollars">Dollars</option>
-                  </select>
-                </div>
-              </form>
+            <div class="summary-item">
+              <p style="color: #f0ca4d">NOT COMPETED</p>
+              <h2 id="not-competed-dollars"></h2>
             </div>
+            <div class="summary-item summary-item-text">
+              Click the toggle to switch between seeing raw numbers and percent for each agency, as well as total dollars obligated and the number of contracting actions. Click the check box beside each agency to remove or add it to the visualization and re-scale the horizontal axis. 
+            </div>
+          </div>
+          <!-- toolbar -->
+          <div>
+            <form id="barchartToolbar" class="ui form">
+              <div class="select-wrapper">
+                <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
+                  <option value="quantity">Quantity</option>
+                  <option value="percent">Percent</option>
+                </select>
+              </div>
+              <div class="select-wrapper">
+                <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
+                  <option value="dollars">Dollars</option>
+                  <option value="actions">Actions</option>
+                </select>
+              </div>
+            </form>
           </div>
 
           <!-- barchart -->
