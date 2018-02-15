@@ -1,7 +1,5 @@
-"use strict";
-
-var dataModule = (function() {
-  var mem = {};
+const dataModule = (function() {
+  const mem = {};
 
   function loadCicData(cb) {
     d3.json("/data-lab-data/cicData.json", function(error, data) {
@@ -12,7 +10,7 @@ var dataModule = (function() {
   }
 
   return {
-    loadCicData: loadCicData,
-    mem: mem
+    loadCicData,
+    mem
   };
 })();

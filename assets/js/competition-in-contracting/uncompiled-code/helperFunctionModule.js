@@ -1,9 +1,7 @@
-"use strict";
-
-var helperFunctionModule = (function() {
-  var formatPercent = d3.format(",.0%");
-  var formatActions = d3.format(",");
-  var formatDollars = d3.format("$,");
+const helperFunctionModule = (function() {
+  const formatPercent = d3.format(",.0%");
+  const formatActions = d3.format(",");
+  const formatDollars = d3.format("$,");
 
   function formatNumber(type, number) {
     switch (type) {
@@ -16,5 +14,5 @@ var helperFunctionModule = (function() {
     }
   }
 
-  return { formatNumber: formatNumber };
+  return { formatNumber };
 })();
