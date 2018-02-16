@@ -191,7 +191,6 @@ d3.sankey = function() {
                 nodes.forEach(function(node) {
                     if (node.targetLinks.length) {
                         var y = d3.sum(node.targetLinks, weightedSource) / d3.sum(node.targetLinks, value);
-                        // added Math.abs()
                         node.y += (y - center(node)) * alpha;
                     }
                 });
@@ -207,7 +206,6 @@ d3.sankey = function() {
                 nodes.forEach(function(node) {
                     if (node.sourceLinks.length) {
                         var y = d3.sum(node.sourceLinks, weightedTarget) / d3.sum(node.sourceLinks, value);
-                        // added Math.abs()
                         node.y += (y - center(node)) * alpha;
                     }
                 });
@@ -347,13 +345,13 @@ d3.csv("/data-lab-data/sankey_v14.csv",function(error, data){
         graph.nodes.sort(function(x, y){
             return d3.ascending(x.value, y.value);
         })
-        //console.log(graph.nodes);
+
         // loop through each link replacing the text with its index from node
         graph.links.forEach(function (d, i) {
             graph.links[i].source = graph.nodes.indexOf(graph.links[i].source);
             graph.links[i].target = graph.nodes.indexOf(graph.links[i].target);
         });
-        //console.log(graph.links);
+
         //now loop through each nodes to make nodes an array of objects
         // rather than an array of strings
         graph.nodes.forEach(function (d, i) {
@@ -479,8 +477,8 @@ d3.csv("/data-lab-data/sankey_v14.csv",function(error, data){
 
             legend.append("div")
                 .attr("id","tab_3")
-                .style("margin-top","10px")
-                .html("<table class ='icon'>"+"<tr>"+"<td>"+"Negative values are not included in the visualization."+"</td>"+"</tr>"+"</table>");
+                .style("margin-top","20px")
+                .html("<div>Negative values are not included in the visualization.</div>");
 
             var traverse = [{
                 linkType : "sourceLinks",
@@ -551,10 +549,6 @@ d3.csv("/data-lab-data/sankey_v14.csv",function(error, data){
                     remainingNodes = nextNodes;
                 }
             });
-            //legend.transition().duration(700).style("opacity","0");
-            //  d3.selectAll(".icon").remove();
-            //d3.selectAll(".panel_title").remove();
-            //d3.selectAll(".panel_desc").remove();
             d3.selectAll("#tab").remove();
             d3.selectAll("#tab_2").remove();
             d3.selectAll("#tab_3").remove();

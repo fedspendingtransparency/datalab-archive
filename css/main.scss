@@ -1298,19 +1298,18 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	#menu {
-		@include vendor('transform', 'translateX(325px)');
+		@include vendor('transform', 'translateX(385px)');
 		@include vendor('transition', 'transform #{_duration(menu)} ease');
 		-webkit-overflow-scrolling: touch;
 		background: _palette(accent1, bg);
 		color: _palette(accent1, fg-bold);
 		height: 100%;
-		max-width: 80%;
 		overflow-y: auto;
-		padding: 3em 2em;
+		padding: 0em 2em 1em 0em;
 		position: fixed;
 		right: 0;
 		top: 0;
-		width: 325px;
+		width: 385px;
 		z-index: _misc(z-index-base) + 2;
 
 		ul {
@@ -1389,21 +1388,18 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include vendor('transition', 'background-color #{_duration(transitions)} ease');
 		background: #FFFFFF !important;
 		/*background: _palette(bg);*/
-		height: 6em;
+		height: 80px;
 		left: 0;
 		line-height: 3em;
-		/*position: fixed;*/
 		top: 0;
 		width: 100%;
 		z-index: _misc(z-index-base);
+		display: flex;
+		align-items: center;
 
 		h1 {
-			/*@include vendor('transition', 'opacity #{_duration(transitions)} ease');*/
-			/*height: inherit;*/
-			/*left: 1.25em;*/
 			margin-top: 31px;
 			line-height: inherit;
-			/*position: absolute;*/
 			top: 0;
 			display: inline-block;
 			vertical-align: top;
@@ -1413,12 +1409,6 @@ $baseurl: '{{ site.baseurl }}/images';
 				display: inline-block;
 				height: inherit;
 				line-height: inherit;
-
-				/*
-				@include breakpoint(small) {
-					font-size: 0.8em;
-				}
-				*/
 			}
 		}
 
@@ -1452,19 +1442,6 @@ $baseurl: '{{ site.baseurl }}/images';
 							outline: 0;
 							position: relative;
 
-							/*
-							&:after {
-								background-image: url('images/bars.svg');
-								background-position: right center;
-								background-repeat: no-repeat;
-								content: '';
-								display: inline-block;
-								height: 3.75em;
-								vertical-align: top;
-								width: 2em;
-							}
-							*/
-
 							@include breakpoint(small) {
 								padding: 0 1.5em;
 
@@ -1485,17 +1462,6 @@ $baseurl: '{{ site.baseurl }}/images';
 				}
 			}
 		}
-
-		/*
-		&.alt {
-			background: transparent;
-
-			h1 {
-				@include vendor('pointer-events', 'none');
-				opacity: 0;
-			}
-		}
-		*/
 	}
 
 /* Banner */
@@ -1901,7 +1867,7 @@ header.major h2 {
 }
 
 #one > div > div > ul {
-	margin-left: 39px;
+	margin-left: 0px;
 }
 
 .spotlight {
@@ -2345,7 +2311,7 @@ a {
 	width: 55px;
 	height: 23px;
     margin-left: 0px;
-    margin-bottom: 8px;
+    margin-bottom: -5px;
 }
 
 .information-icon {
@@ -2440,34 +2406,44 @@ a {
 	margin-bottom: 50px;
 }
 
-.nav-header {
-	width: 121px;
-	color: #000000;
+.official-banner__wrapper {
+    padding: 4px 12px;
+    background-color: #f9f9f9;
+    display: box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.official-banner__text {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    font-size: 10px;
+    line-height: 13px;
+	color: #555;
+	font-weight: 300;
+	letter-spacing: 0px;
 	font-family: "Source Sans Pro";
-	font-size: 18px;
-	letter-spacing: 5px;
-	line-height: 44px;
+}
+
+.official-banner__flag {
+    flex: 0 0 auto;
+}
+
+.usaspending-logo-link {
+	height: 42px;
 }
 
 .usaspending-logo {
-	background-size: 350px 33px;
-    width: 326px;
+	background-size: 380px 43px;
+	width: 300px;
     height: 42px;
 	background-image: url('images/logo.svg');
 	background-repeat: no-repeat;
 	border: 0;
 	cursor: pointer;
 	display: inline-block;
-
-	margin-top: 35px;
-	margin-left: 35px;
-}
-
-.line-3 {
-	height: 38px;
-	display: inline-block;
-	border-right: 1px solid #000000;
-	margin: 0px 15px 0px 15px;
+	margin-left: 0;
 }
 
 .go-to-usaspending {
@@ -2476,9 +2452,8 @@ a {
 	border: 1px solid #0C99CD;
 	border-radius: 17px;
 	color: #6AB6D3;
-	float: right;
+	margin-left: auto;
 	margin-right: 150px;
-	margin-top: 30px;
 	line-height: 33px;
 	font-size: 14px;
 	font-family: "Source Sans Pro";
@@ -2505,10 +2480,12 @@ a {
 }
 
 #menu .close {
-	background-size: 40px 40px;
-	background-position: 20px 50px;
-	width: 5em;
-	height: 6em;
+	background-size: 30px 30px;
+    background-position: 0px 0px;
+    width: 30px;
+    height: 30px;
+    margin-right: 40px;
+    margin-top: 40px;
 }
 
 .read-more-header {

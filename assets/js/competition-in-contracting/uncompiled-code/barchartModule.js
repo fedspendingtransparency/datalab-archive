@@ -1,6 +1,4 @@
-"use strict";
-
-var barchartModule = function barchartModule() {
+const barchartModule = function() {
   var svg = d3.select("#barchartSvg"),
     margin = { top: 60, right: 40, bottom: 100, left: 350 },
     width = +svg.attr("width") - margin.left - margin.right,
@@ -8,33 +6,32 @@ var barchartModule = function barchartModule() {
 
   var g = svg
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
   function draw(data, settings, helpers) {
-    var tooltipModuleDraw = helpers.tooltipModuleDraw,
-      tooltipModuleRemove = helpers.tooltipModuleRemove,
-      tooltipModuleMove = helpers.tooltipModuleMove,
-      handleYAxisCheckboxChange = helpers.handleYAxisCheckboxChange;
-    var _helperFunctionModule = helperFunctionModule,
-      formatNumber = _helperFunctionModule.formatNumber;
+    const {
+      tooltipModuleDraw,
+      tooltipModuleRemove,
+      tooltipModuleMove,
+      handleYAxisCheckboxChange
+    } = helpers;
+    const { formatNumber } = helperFunctionModule;
 
     summaryTableModule.draw(data);
 
     g.selectAll("*").remove();
 
     // sort data
-    var sortedData = void 0;
+    let sortedData;
     if (settings.xAxisUnit === "actions") {
       if (settings.xAxisScale === "quantity") {
-        sortedData = data.sort(function(a, b) {
-          return b.totalActions - a.totalActions;
-        });
+        sortedData = data.sort((a, b) => b.totalActions - a.totalActions);
       } else {
-        sortedData = data.sort(function(a, b) {
-          return b.percentActionsCompeted - a.percentActionsCompeted;
-        });
+        sortedData = data.sort(
+          (a, b) => b.percentActionsCompeted - a.percentActionsCompeted
+        );
       }
-      sortedData = sortedData.map(function(c) {
+      sortedData = sortedData.map(c => {
         return {
           name: c.name,
           total: c.totalActions,
@@ -48,15 +45,13 @@ var barchartModule = function barchartModule() {
       });
     } else {
       if (settings.xAxisScale === "quantity") {
-        sortedData = data.sort(function(a, b) {
-          return b.totalDollars - a.totalDollars;
-        });
+        sortedData = data.sort((a, b) => b.totalDollars - a.totalDollars);
       } else {
-        sortedData = data.sort(function(a, b) {
-          return b.percentDollarsCompeted - a.percentDollarsCompeted;
-        });
+        sortedData = data.sort(
+          (a, b) => b.percentDollarsCompeted - a.percentDollarsCompeted
+        );
       }
-      sortedData = data.map(function(c) {
+      sortedData = data.map(c => {
         return {
           name: c.name,
           total: c.totalDollars,
@@ -71,39 +66,32 @@ var barchartModule = function barchartModule() {
     }
 
     // x scale
-    var x = void 0;
+    let x;
     if (settings.xAxisScale === "quantity") {
-      x = d3.scale.linear().domain([
-        0,
-        d3.max(sortedData, function(d) {
-          return d.displayed ? d.total : 0;
-        })
-      ]);
+      x = d3.scale
+        .linear()
+        .domain([0, d3.max(sortedData, d => (d.displayed ? d.total : 0))]);
     } else {
       x = d3.scale.linear().domain([0, 1]);
     }
     x.range([0, width]);
 
     // y scale
-    var y = d3.scale
+    const y = d3.scale
       .ordinal()
       .rangeRoundBands([0, height], 0.1)
       // .padding(0.1)
-      .domain(
-        sortedData.map(function(d) {
-          return d.name;
-        })
-      );
+      .domain(sortedData.map(d => d.name));
 
     // z scale (color)
-    var z = d3.scale.ordinal().range(["#2a5da8", "#f0ca4d"]);
-    var keys =
+    const z = d3.scale.ordinal().range(["#2a5da8", "#f0ca4d"]);
+    const keys =
       settings.xAxisScale === "quantity"
         ? ["competed", "notCompeted"]
         : ["percentCompeted", "percentNotCompeted"];
 
     // x axis
-    var tickFormat = void 0;
+    let tickFormat;
     if (settings.xAxisScale === "percent") {
       tickFormat = ",.0%";
     } else {
@@ -113,11 +101,11 @@ var barchartModule = function barchartModule() {
         tickFormat = "$,";
       }
     }
-    var ticklength = 525;
+    const ticklength = 525;
     g
       .append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + (height - ticklength) + ")")
+      .attr("transform", `translate(0,${height - ticklength})`)
       .call(
         d3.svg
           .axis()
@@ -131,7 +119,7 @@ var barchartModule = function barchartModule() {
       .selectAll("text")
       .style("text-anchor", "end")
       .style("font-size", "12px")
-      .attr("transform", "rotate(-35) translate(-295,-95)")
+      .attr("transform", `rotate(-35) translate(-295,-95)`)
       .attr("dx", "-.8em")
       // .attr("dy", ".35em")
       .attr("pointer-events", "none");
@@ -139,7 +127,7 @@ var barchartModule = function barchartModule() {
     // y axis
     g
       .append("g")
-      .attr("transform", "translate(-12,0)")
+      .attr("transform", `translate(-12,0)`)
       .attr("class", "axis axis--y")
       .call(
         d3.svg
@@ -173,31 +161,24 @@ var barchartModule = function barchartModule() {
       .style("background", "white")
       .append("input")
       .attr("type", "checkbox")
-      .attr("checked", function(d) {
-        return d.displayed ? true : null;
-      })
+      .attr("checked", d => (d.displayed ? true : null))
       .attr("class", ".yAxisCheckbox")
-      .attr("id", function(d) {
-        return "checkbox" + d.id;
-      })
+      .attr("id", d => `checkbox${d.id}`)
       .on("click", function(d, i) {
-        var id = d.id;
-
-        var checked = svg.select("#checkbox" + id).node().checked;
+        const { id } = d;
+        const checked = svg.select(`#checkbox${id}`).node().checked;
         handleYAxisCheckboxChange(id, checked);
       });
 
-    var stackedDataset = d3.layout.stack()(
-      keys.map(function(key) {
-        return sortedData.map(function(d) {
-          return {
-            y: d[key],
-            x: d.name,
-            displayed: d.displayed,
-            data: d
-          };
-        });
-      })
+    const stackedDataset = d3.layout.stack()(
+      keys.map(key =>
+        sortedData.map(d => ({
+          y: d[key],
+          x: d.name,
+          displayed: d.displayed,
+          data: d
+        }))
+      )
     );
 
     // bars
@@ -207,25 +188,19 @@ var barchartModule = function barchartModule() {
       .data(stackedDataset)
       .enter()
       .append("g")
-      .attr("fill", function(d, i) {
-        return z(keys[i]);
-      })
+      .attr("fill", (d, i) => z(keys[i]))
       .attr("class", "barGroup")
       .selectAll(".bar")
-      .data(function(d) {
+      .data(d => {
         return d;
       })
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) {
-        return x(d.y0);
-      })
-      .attr("y", function(d) {
-        return y(d.x);
-      })
+      .attr("x", d => x(d.y0))
+      .attr("y", d => y(d.x))
       .attr("height", y.rangeBand())
-      .attr("width", function(d) {
+      .attr("width", d => {
         if (!d.displayed) return 0;
         return x(d.y0 + d.y) - x(d.y0);
       })
@@ -234,7 +209,7 @@ var barchartModule = function barchartModule() {
       .on("mouseout", handleMouseOut);
 
     // legend
-    var options = ["Competed", "Not Competed"];
+    const options = ["Competed", "Not Competed"];
     var legend = g
       .append("g")
       .attr("transform", "translate(0,-50)")
@@ -288,5 +263,5 @@ var barchartModule = function barchartModule() {
     }
   }
 
-  return { draw: draw };
+  return { draw };
 };

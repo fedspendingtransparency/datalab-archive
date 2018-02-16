@@ -1,6 +1,7 @@
 ---
 layout: page
 menuname: Competition in Contracting
+menuorder: 6
 title: In FY 2017, over 60 percent of dollars paid to contractors went to those who had undergone a competitive bidding process.
 description: The analysis below shows the 24 CFO Act agencies, which are generally the largest agencies in government, accounting for over 98 percent of all federal spending. Other smaller agencies are grouped together in a separate category.
 banner: landings/competition.jpg
@@ -20,26 +21,41 @@ category: entry
       {% include action-buttons.html %}
       <div class="viz-container">
         <div class="competition-in-contracting">
-          <!-- tooltip -->
-          <div id="tooltip"></div>
 
-          <!-- summary -->
-          <table id="summaryTable">
-          </table>
+          <div id="summary">
+            <!-- tooltip -->
+            <div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; pointer-events: all; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; width: 300px; left: 486.128px;"></div>
 
+            <!-- summary -->
+            <div class="summary-item" style="border-right: 2px solid #a4a4a4">
+              <p style="color: #2a5da8">COMPETED</p>
+              <h2 id="competed-dollars"></h2>
+            </div>
+            <div class="summary-item">
+              <p style="color: #f0ca4d">NOT COMPETED</p>
+              <h2 id="not-competed-dollars"></h2>
+            </div>
+            <div class="summary-item summary-item-text">
+              Click the toggle to switch between seeing raw numbers and percent for each agency, as well as total dollars obligated and the number of contracting actions. Click the check box beside each agency to remove or add it to the visualization and re-scale the horizontal axis. 
+            </div>
+          </div>
           <!-- toolbar -->
-          <form id="barchartToolbar" class="ui form">
-
-            <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
-              <option value="quantity">Quantity</option>
-              <option value="percent">Percent</option>
-            </select>
-            <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
-              <option value="actions">Actions</option>
-              <option value="dollars">Dollars</option>
-            </select>
-
-          </form>
+          <div>
+            <form id="barchartToolbar" class="ui form">
+              <div class="select-wrapper">
+                <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
+                  <option value="quantity">Quantity</option>
+                  <option value="percent">Percent</option>
+                </select>
+              </div>
+              <div class="select-wrapper">
+                <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
+                  <option value="dollars">Dollars</option>
+                  <option value="actions">Actions</option>
+                </select>
+              </div>
+            </form>
+          </div>
 
           <!-- barchart -->
           <div>
@@ -55,15 +71,14 @@ category: entry
 {% include how-analysis-conducted.html 
 how="We conducted this analysis using a report from the Federal Procurement Data System Next Generation, which is the source of part of USAspending.gov's procurement data." 
 read-more="homeless-analysis-more.html"
-next-analysis="what-and-why-government-spending.html" %}
+next-analysis="federal-spending-accounts.html" %}
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
-<!-- <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script> -->
-<!-- <script src="{{site.baseurl}}/assets/js/vendor/d3.v4.min.js"></script> -->
 <script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/helperFunctionModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/dataModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/summaryTableModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/tooltipModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/barchartModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/competitionInContracting.js"></script>
