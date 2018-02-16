@@ -1482,8 +1482,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
   })
 })
 
-var w = 1280 - 80,
-    h = 800 - 180,
+var w = $('#panel_3b').width(),
+    h = $('#panel_3b').height() * (3/8),
     x = d3.scale.linear().range([0, w]),
     y = d3.scale.linear().range([0, h]),
     color = d3.scale.category20c(),
@@ -1497,7 +1497,7 @@ var treemap = d3.layout.treemap()
 //    .value(function(d) { return d["好き度"]; });
     .value(function(d) { return d.total_homeless; });
 
-var svg = d3.select("#panel_3").append("div")
+var svg = d3.select("#tree").append("div")
     .attr("class", "chart")
     .style("width", w + "px")
     .style("height", h + "px")
@@ -1508,7 +1508,7 @@ var svg = d3.select("#panel_3").append("div")
     .attr("transform", "translate(.5,.5)");
 
 //d3.json("kinoko_takenoko.json", function(data) {
-d3.json('/data-lab-data/panel3testdata.json', function(data) {
+d3.json('/data-lab-data/homeless_cluster.json', function(data) {
 node = root = data;
 console.log(data);
 var nodes = treemap.nodes(root)
