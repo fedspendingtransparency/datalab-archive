@@ -1541,7 +1541,42 @@ d3.select("select").on("change", function() {
 treemap.value((this.value == "total_homeless") ? total_homeless : (this.value == "sheltered_homeless") ? sheltered_homeless : (this.value == "unsheltered_homeless") ? ground : unsheltered_homeless).nodes(root);
 zoom(node);
 });
-});
+
+
+d3.select('#panel_3b')
+  .append('div')
+  .attr('id','left_column')
+    .append('svg')
+    .style('background', 'src=GetInfographic')
+    .attr('height','100%')
+    .attr('width','100%');
+
+function GetInfographic(d){
+  for (var i = 0; i < data.length; i++) {
+    if (d.properties.group === "group 1") {
+      return('/images/homelessness/Group1.pgn')
+    } else if (d.properties.group === "group 2"){
+      return('/images/homelessness/Group2.png')
+    } else if (d.properties.group === "group 3"){
+      return ('/images/homelessness/Group3.png')
+    } else if (d.properties.group === "group 4"){
+      return ('/images/homelessness/Group4.png')
+    } else if (d.properties.group === "group 5"){
+      return ('/images/homelessness/Group5.png')
+    } else if (d.properites.group === "group 6"){
+      return ('/images/homelessness/Group6.png')
+    } else if(d.properties.group === "group 7"){
+      return ('/images/homelessness/Group7.png')
+    } else if (d.properties.group === "group 8"){
+      return ('/images/homelessness/Group8.png')
+    } else if (d.propeties.group ==="group 9"){
+      return ('/images/homelessness/Group9.png')
+    } else {
+      return (All.png)
+    }
+  }
+
+};
 
 function size(d) {
 return d.size;
@@ -1601,41 +1636,9 @@ d3.select('#panel_3c')
     .attr('height','100%')
     .attr('width','100%');**/
 
-d3.select('#panel_3b')
-  .append('div')
-  .attr('id','left_column')
-    .append('svg')
-    .style('background', GetInfographic)
-    .attr('height','100%')
-    .attr('width','100%');
-
-function GetInfographic(){
-  for (var i = 0; i < d.length; i++) {
-    if (d.properties.group === "Group 1") {
-      return(Group1.pgn)
-    } else if (d.properties.group === "Group 2"){
-      return(Group2.png)
-    } else if (d.properties.group === "Group 3"){
-      return (Group3.png)
-    } else if (d.properties.group === "Group 4"){
-      return (Group4.png)
-    } else if (d.properties.group === "Group 5"){
-      return (Group5.png)
-    } else if (d.properites.group === "Group 6"){
-      return (Group6.png)
-    } else if(d.properties.group === "Group 7"){
-      return (Group7.png)
-    } else if (d.properties.group === "Group 8"){
-      return (Group8.png)
-    } else if (d.propeties.group ==="Group 9"){
-      return (Group9.png)
-    } else {
-      return (All.png)
-    }
-  }
 
 
-}
+})
 /**var div = d3.select('#tree')
   .append('div')
   .attr('height','100%')
