@@ -1,0 +1,394 @@
+﻿cluster_final,coc_number,coc_name,total_homeless
+1a,NY-600,New York City CoC,76501
+1a,CA-600,Los Angeles City & County CoC,55188
+1a,DC-500,District of Columbia CoC,7473
+1a,CA-501,San Francisco CoC,6858
+1a,MA-500,Boston CoC,6135
+1a,PA-500,Philadelphia CoC,5693
+1a,IL-510,Chicago CoC,5657
+1a,MD-501,Baltimore City CoC,2669
+1a,CA-606,Long Beach CoC,1863
+1a,NJ-506,Jersey City/Bayonne/Hudson County CoC,822
+1a,MA-502,Lynn CoC,582
+1a,MA-509,Cambridge CoC,530
+2a,FL-600,Miami/Dade County CoC,3721
+2a,GA-500,Atlanta Continuum of Care,3572
+2a,FL-502,St. Petersburg/Clearwater/Largo/Pinellas County CoC,2831
+2a,MI-501,Detroit CoC,2078
+2a,IN-503,Indianapolis CoC,1783
+2a,OH-502,Cleveland/Cuyahoga County CoC,1727
+2a,MO-501,St.Louis City CoC,1336
+2a,NM-500,Albuquerque CoC,1318
+2a,LA-503,New Orleans/Jefferson Parish CoC,1301
+2a,TX-603,El Paso City & County CoC,1193
+2a,OH-500,Cincinnati/Hamilton County CoC,1162
+2a,KY-501,Louisville/Jefferson County CoC,1034
+2a,WI-501,Milwaukee City & County CoC,900
+2a,OH-505,Dayton/Kettering/Montgomery County CoC,619
+2a,AL-501,Mobile City & County/Baldwin County CoC,606
+2a,OH-501,Toledo/Lucas County CoC,499
+2a,AL-504,Montgomery City & County CoC,377
+2a,FL-515,"Panama City/Bay, Jackson Counties CoC",336
+2a,OH-504,Youngstown/Mahoning County CoC,262
+2a,GA-503,Athens/Clarke County CoC,239
+2a,AL-506,Tuscaloosa City & County CoC,200
+2b,MA-504,Springfield/Hampden County CoC,2311
+2b,NJ-504,Newark/Essex County CoC,2048
+2b,CA-514,Fresno/Madera County CoC,2016
+2b,MO-604,"Kansas City, Independence, Lee's Summit/Jackson, Wyandotte Counties CoC",1671
+2b,OR-500,Eugene/Springfield/Lane County CoC,1529
+2b,TN-501,Memphis/Shelby County CoC,1426
+2b,CA-509,Mendocino County CoC,1238
+2b,SC-502,Columbia/Midlands CoC,1200
+2b,CA-519,Chico/Paradise/Butte County CoC,1195
+2b,CA-613,Imperial County CoC,1154
+2b,FL-506,Tallahassee/Leon County CoC,1072
+2b,KY-502,Lexington/Fayette County CoC,1051
+2b,GA-507,Savannah/Chatham County CoC,926
+2b,NY-508,"Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC",925
+2b,CA-513,"Visalia, Kings, Tulare Counties CoC",853
+2b,FL-508,"Gainesville/Alachua, Putnam Counties CoC",819
+2b,TN-502,Knoxville/Knox County CoC,812
+2b,IL-511,Cook County CoC,780
+2b,CA-522,Humboldt County CoC,759
+2b,FL-504,"Daytona Beach/Daytona/Volusia, Flagler Counties CoC",753
+2b,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC",752
+2b,FL-514,Ocala/Marion County CoC,725
+2b,OR-502,Medford/Ashland/Jackson County CoC,633
+2b,FL-517,"Hendry, Hardee, Highlands Counties CoC",609
+2b,TN-500,Chattanooga/Southeast Tennessee CoC,576
+2b,NC-504,Greensboro/High Point CoC,573
+2b,MS-500,"Jackson/Rankin, Madison Counties CoC",511
+2b,FL-518,"Columbia, Hamilton, Lafayette, Suwannee Counties CoC",502
+2b,MI-507,Portage/Kalamazoo City & County CoC,479
+2b,NC-516,Northwest North Carolina CoC,466
+2b,CA-521,Davis/Woodland/Yolo County CoC,459
+2b,CA-520,Merced City & County CoC,454
+2b,NC-500,Winston Salem/Forsyth County CoC,453
+2b,TN-509,Appalachian Regional CoC,450
+2b,NC-511,Fayetteville/Cumberland County CoC,442
+2b,MI-508,Lansing/East Lansing/Ingham County CoC,435
+2b,MI-505,Flint/Genesee County CoC,420
+2b,CA-529,Lake County CoC,401
+2b,MI-510,Saginaw City & County CoC,388
+2b,PA-605,Erie City & County CoC,369
+2b,LA-500,Lafayette/Acadiana CoC,357
+2b,LA-502,Shreveport/Bossier/Northwest CoC,349
+2b,NC-506,"Wilmington/Brunswick, New Hanover, Pender Counties CoC",322
+2b,GA-505,Columbus-Muscogee/Russell County CoC,319
+2b,WV-503,"Charleston/Kanawha, Putnam, Boone, Clay Counties CoC",319
+2b,IL-508,East Saint Louis/Belleville/Saint Clair County CoC,300
+2b,GA-502,Fulton County Continuum of Care,293
+2b,MS-503,Gulf Port/Gulf Coast Regional CoC,264
+2b,TN-506,Oak Ridge/Upper Cumberland CoC,252
+2b,NC-509,"Gastonia/Cleveland, Gaston, Lincoln Counties CoC",249
+2b,GA-504,Augusta-Richmond County CoC,246
+2b,MI-502,Dearborn/Dearborn Heights/Westland/Wayne County CoC,226
+2b,TX-604,Waco/McLennan County CoC,221
+2b,MO-603,"St. Joseph/Andrew, Buchanan, DeKalb Counties CoC",210
+2b,WV-501,"Huntington/Cabell, Wayne Counties CoC",205
+2b,MI-514,Battle Creek/Calhoun County CoC,204
+2b,PA-508,Scranton/Lackawanna County CoC,197
+2b,LA-505,Monroe/Northeast Louisiana CoC,185
+2b,CA-523,"Colusa, Glenn, Trinity Counties CoC",176
+2b,PA-503,Wilkes-Barre/Hazleton/Luzerne County CoC,174
+2b,AR-508,Old Fort Homeless Coalition,168
+2b,AL-505,Gadsden/Northeast Alabama CoC,163
+2b,IL-503,Champaign/Urbana/Rantoul/Champaign County CoC,160
+2b,LA-507,Alexandria/Central Louisiana CoC,159
+2b,AL-502,Florence/Northwest Alabama CoC,155
+2b,VA-507,Portsmouth CoC,151
+2b,MI-517,Jackson City & County CoC,140
+2b,MI-516,Norton Shores/Muskegon City & County CoC,135
+2b,IL-516,Decatur/Macon County CoC,130
+2b,NY-516,Clinton County CoC,126
+2b,VA-508,Lynchburg CoC,125
+2b,CA-527,Tehama County CoC,124
+2b,MD-500,Cumberland/Allegany County CoC,118
+2b,WV-500,Wheeling/Weirton Area CoC,118
+2b,LA-508,Houma-Terrebonne/Thibodaux CoC,116
+2b,TX-701,Bryan/College Station/Brazos Valley CoC,102
+2b,IL-509,Dekalb City & County CoC,90
+2b,MI-513,"Marquette, Alger Counties CoC",84
+2b,NY-514,Jamestown/Dunkirk/Chautauqua County CoC,83
+2b,NY-510,Ithaca/Tompkins County CoC,73
+2b,AR-512,"Boone, Baxter, Marion, Newton Counties CoC",53
+2b,NY-520,Franklin County CoC,28
+2c,NC-503,North Carolina Balance of State CoC,3054
+2c,KY-500,Kentucky Balance of State CoC,1940
+2c,AZ-500,Arizona Balance of State CoC,1768
+2c,AZ-501,Tucson/Pima County CoC,1574
+2c,SC-501,Greenville/Anderson/Spartanburg Upstate CoC,1317
+2c,NM-501,New Mexico Balance of State CoC,1164
+2c,TN-507,Jackson/West Tennessee CoC,1103
+2c,SC-503,Myrtle Beach/Sumter City & County CoC,974
+2c,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC",934
+2c,AR-503,Arkansas  Balance of State  CoC,822
+2c,AL-507,Alabama Balance of State CoC,764
+2c,VA-521,Virginia Balance of State (BoS) CoC,722
+2c,MS-501,Mississippi Balance of State CoC,697
+2c,WV-508,West Virginia Balance of State CoC,667
+2c,LA-509,Louisiana Balance of State CoC,590
+2c,IL-520,Southern Illinois CoC,435
+2c,OK-507,Southeastern Oklahoma Regional CoC,351
+2c,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC",234
+2c,OK-506,Southwest Oklahoma Regional CoC,231
+2c,OK-500,North Central Oklahoma CoC,192
+2c,AR-505,Southeast Arkansas,88
+3a,CA-500,San Jose/Santa Clara City & County CoC,7394
+3a,NY-603,"Nassau, Suffolk Counties/Babylon/Islip/ Huntington CoC",3937
+3a,CA-512,Daly/San Mateo County CoC,1253
+3a,CA-611,Oxnard/San Buenaventura/Ventura County CoC,1152
+3a,AK-500,Anchorage CoC,1128
+3a,CA-507,Marin County CoC,1117
+3a,VA-601,Fairfax County CoC,964
+3a,MD-601,Montgomery County CoC,894
+3a,NJ-502,Burlington County CoC,604
+3a,PA-505,Chester County CoC,578
+3a,MO-503,"St. Charles, Lincoln, Warren Counties CoC",578
+3a,MN-503,"Dakota, Anoka, Washington, Scott, Carver Counties",544
+3a,MD-600,Prince George`s County/Maryland CoC,525
+3a,PA-511,Bristol/Bensalem/Bucks County CoC,511
+3a,MD-508,"Charles, Calvert, St.Mary's Counties CoC",419
+3a,VA-604,Prince William County CoC,400
+3a,NJ-509,Morris County CoC,378
+3a,MD-503,Annapolis/Anne Arundel County CoC,376
+3a,VA-503,Virginia Beach CoC,349
+3a,IL-514,DuPage County CoC,331
+3a,PA-504,Lower Marion/Norristown/Abington/Montgomery County CoC,310
+3a,MD-509,Frederick City & County CoC,309
+3a,NJ-516,"Warren, Sussex, Hunterdon Counties CoC",286
+3a,IL-506,Joliet/Bolingbrook/Will County CoC,282
+3a,NJ-513,Somerset County CoC,244
+3a,VA-600,Arlington County CoC,232
+3a,VA-514,"Fredericksburg/Spotsylvania, Stafford Counties CoC",216
+3a,VA-603,City of Alexandria CoC,211
+3a,MD-504,Howard County CoC,168
+3a,IL-500,McHenry County CoC,155
+3a,MD-506,Carroll County CoC,147
+3a,KS-505,Overland Park/Shawnee/Johnson County CoC,130
+3a,VA-602,Loudoun County CoC,113
+3a,MI-518,Livingston County CoC,103
+4a,WA-500,Seattle/King County CoC,11643
+4a,CA-601,San Diego City and County CoC,9160
+4a,CA-502,Oakland/Alameda County CoC,5629
+4a,HI-501,Honolulu CoC,4959
+4a,TX-600,Dallas City & County/Irving CoC,3789
+4a,MN-500,Minneapolis/Hennepin County CoC,3057
+4a,UT-500,Salt Lake City & County CoC,2047
+4a,TX-601,Fort Worth/Arlington/Tarrant County CoC,1941
+4a,CO-504,Colorado Springs/El Paso County CoC,1415
+4a,NE-501,Omaha/Council Bluffs CoC,1389
+4a,NC-507,Raleigh/Wake County CoC,884
+4a,IA-502,Des Moines/Polk County CoC,676
+4a,MA-508,Lowell CoC,658
+4a,WI-503,Madison/Dane County CoC,585
+4a,NJ-514,Trenton/Mercer County CoC,478
+4a,GA-506,Marietta/Cobb County CoC,403
+4b,CO-503,Metropolitan Denver Homeless Initiative,5506
+4b,CA-602,Santa Ana/Anaheim/Orange County CoC,4792
+4b,TX-700,"Houston, Pasadena, Conroe/Harris, Ft. Bend, Montgomery, Counties CoC",3605
+4b,CA-506,"Salinas/Monterey, San Benito Counties CoC",3364
+4b,CA-504,Santa Rosa/Petaluma/Sonoma County CoC,2835
+4b,CA-603,Santa Maria/Santa Barbara County CoC,1860
+4b,NY-604,Yonkers/Mount Vernon/New Rochelle/Westchester CoC,1832
+4b,CA-505,Richmond/Contra Costa County CoC,1607
+4b,WA-503,Tacoma/Lakewood/Pierce County CoC,1321
+4b,CA-518,Vallejo/Solano County CoC,1232
+4b,MA-511,Quincy/Brockton/Weymouth/Plymouth City and County CoC,1109
+4b,WA-504,Everett/Snohomish County CoC,1066
+4b,CA-515,"Roseville/Rocklin/Placer, Nevada Counties CoC",979
+4b,CT-503,Bridgeport/Norwalk /Stamford/Fairfield County CoC,778
+4b,WA-508,Vancouver/Clark County CoC,749
+4b,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC",662
+4b,FL-606,Naples/Collier County CoC,621
+4b,MD-505,Baltimore County CoC,609
+4b,CA-525,El Dorado County CoC,602
+4b,NJ-507,New Brunswick/Middlesex County CoC,546
+4b,OR-506,Hillsboro/Beaverton/Washington County CoC,544
+4b,VA-505,Newport News/Hampton/Virginia Peninsula CoC,512
+4b,OR-507,Clackamas County CoC,497
+4b,NJ-515,Elizabeth/Union County CoC,480
+4b,MO-500,St. Louis County CoC,462
+4b,PA-502,Upper Darby/Chester/Haverford/Delaware County CoC,453
+4b,FL-512,Saint Johns County CoC,445
+4b,MI-504,Pontiac/Royal Oak/Oakland County CoC,412
+4b,NH-501,Manchester CoC,394
+4b,NY-601,Poughkeepsie/Dutchess County CoC,388
+4b,IL-517,Aurora/Elgin/Kane County CoC,360
+4b,NY-602,Newburgh/Middletown/Orange County CoC,350
+4b,MA-503,Cape Cod/Islands CoC,324
+4b,PA-510,Lancaster City & County CoC,321
+4b,TN-510,Murfreesboro/Rutherford County CoC,316
+4b,CA-517,Napa City & County CoC,315
+4b,NJ-501,Bergen County CoC,302
+4b,NJ-508,Monmouth County CoC,299
+4b,NH-502,Nashua/Hillsborough County CoC,295
+4b,VT-501,Burlington/Chittenden County CoC,291
+4b,PA-512,York City & County CoC,288
+4b,VA-513,"Harrisburg, Winchester/Western Virginia CoC",280
+4b,MI-519,Holland/Ottawa County CoC,258
+4b,IL-502,Waukegan/North Chicago/Lake County CoC,228
+4b,NJ-510,Lakewood Township/Ocean County CoC,224
+4b,MD-507,Cecil County CoC,193
+4b,MD-502,Harford County CoC,189
+4b,UT-504,Provo/Mountainland CoC,171
+4b,NY-606,Rockland County CoC,170
+4b,MD-511,Mid-Shore Regional CoC,153
+4b,MA-517,Somerville CoC,142
+4b,MI-523,Eaton County CoC,107
+4c,WI-500,Wisconsin Balance of State CoC,3348
+4c,CT-505,Connecticut Balance of State CoC,2610
+4c,MA-516,Massachusetts Balance of State CoC,2080
+4c,WY-500,Wyoming Statewide CoC,873
+4c,MN-505,St. Cloud/Central Minnesota CoC,862
+4c,NH-500,New Hampshire Balance of State CoC,767
+4c,AK-501,Alaska Balance of State CoC,717
+4c,UT-503,Utah Balance of State CoC,634
+4c,MN-502,Rochester/Southeast Minnesota CoC,552
+4c,TN-503,Central Tennessee CoC,285
+4c,NY-523,"Glens Falls/Saratoga Springs/Saratoga, Washington, Warren, Hamilton Counties CoC",247
+4c,CA-530,"Alpine, Inyo, Mono Counties CoC",121
+5a,CA-503,Sacramento City & County CoC,3665
+5a,TX-500,San Antonio/Bexar County CoC,2743
+5a,FL-601,Ft Lauderdale/Broward County CoC,2450
+5a,TX-503,Austin/Travis County CoC,2036
+5a,FL-510,"Jacksonville-Duval, Clay Counties CoC",1869
+5a,OH-503,Columbus/Franklin County CoC,1691
+5a,FL-501,Tampa/Hillsborough County CoC,1549
+5a,NC-505,Charlotte/Mecklenberg CoC,1476
+5a,MN-501,Saint Paul/Ramsey County CoC,1438
+5a,OK-502,Oklahoma City CoC,1368
+5a,WA-502,Spokane City & County CoC,1090
+5a,OK-501,Tulsa City & County/Broken Arrow CoC,1074
+5a,AR-500,Little Rock/Central Arkansas CoC,1006
+5a,ID-500,Boise/Ada County CoC,833
+5a,NE-502,Lincoln CoC,606
+5a,KS-502,Wichita/Sedgwick County CoC,575
+5a,OH-506,Akron/Barberton/Summit County CoC,507
+5a,FL-603,Ft Myers/Cape Coral/Lee County CoC,431
+5a,KS-503,Topeka/Shawnee County CoC,356
+5a,NC-502,Durham City & County CoC,354
+5a,MA-505,New Bedford CoC,352
+5b,NV-500,Las Vegas/Clark County CoC,6490
+5b,AZ-502,Phoenix/Mesa/Maricopa County Regional CoC,5605
+5b,OR-501,Portland-Gresham-Multnomah County CoC,4177
+5b,FL-519,Pasco County CoC,2593
+5b,CA-608,Riverside City & County CoC,2406
+5b,TN-504,Nashville/Davidson County CoC,2337
+5b,CA-508,Watsonville/Santa Cruz City & County CoC,2249
+5b,FL-507,"Orlando/Orange, Osceola, Seminole Counties CoC",2074
+5b,FL-509,"Fort Pierce/St. Lucie, Indian River, Martin Counties CoC",1732
+5b,CA-510,Turlock/Modesto/Stanislaus County CoC,1661
+5b,FL-605,West Palm Beach/Palm Beach County CoC,1607
+5b,CA-511,Stockton/San Joaquin County CoC,1542
+5b,MA-506,Worcester City & County CoC,1507
+5b,FL-500,"Sarasota/Bradenton/Manatee, Sarasota Counties CoC",1447
+5b,RI-500,Rhode Island Statewide CoC,1180
+5b,PA-600,Pittsburgh/McKeesport/Penn Hills/Allegheny County CoC,1145
+5b,CA-614,San Luis Obispo County CoC,1125
+5b,NV-501,Reno/Sparks/Washoe County CoC,1106
+5b,AL-500,"Birmingham/Jefferson, St. Clair, Shelby Counties CoC",1092
+5b,NJ-503,"Camden City/Camden, Cumberland, Gloucester, Cape May Counties CoC",938
+5b,MI-506,Grand Rapids/Wyoming/Kent County CoC,912
+5b,FL-513,Palm Bay/Melbourne/Brevard County CoC,845
+5b,NY-500,Rochester/Irondequoit/Greece/Monroe County CoC,817
+5b,CA-604,Bakersfield/Kern County CoC,810
+5b,NY-503,Albany City & County CoC,802
+5b,NY-505,"Syracuse, Auburn/Onondaga, Oswego, Cayuga Counties CoC",798
+5b,CA-524,Yuba City & County/Sutter County CoC,760
+5b,FL-511,Pensacola/Escambia/Santa Rosa County CoC,758
+5b,MA-510,"Gloucester, Haverhill, Salem/Essex County CoC",747
+5b,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC",703
+5b,FL-520,"Citrus, Hernando, Lake, Sumter Counties CoC",635
+5b,FL-604,Monroe County CoC,631
+5b,CA-607,Pasadena CoC,575
+5b,WA-507,Yakima City & County CoC,572
+5b,NC-501,Asheville/Buncombe County CoC,562
+5b,MA-507,"Pittsfield/Berkshire, Franklin, Hampshire County CoC",557
+5b,PA-506,Reading/Berks County CoC,534
+5b,FL-503,Lakeland/Winter Haven/Polk County CoC,512
+5b,MN-509,Duluth/St.Louis County CoC,505
+5b,GA-508,DeKalb County CoC,460
+5b,PA-501,Harrisburg/Dauphin County CoC,460
+5b,MO-600,"Springfield/Greene, Christian, Webster Counties CoC",455
+5b,NJ-511,Paterson/Passaic County CoC,449
+5b,AL-503,Huntsville/North Alabama CoC,436
+5b,SC-500,Charleston/Low Country CoC,425
+5b,NJ-500,Atlantic City & County CoC,422
+5b,NY-608,Kingston/Ulster County CoC,411
+5b,FL-505,"Fort Walton Beach/Okaloosa, Walton Counties CoC",401
+5b,CA-526,"Amador, Calaveras, Tuolumne and Mariposa Counties CoC",367
+5b,MI-503,St. Clair Shores/Warren/Macomb County CoC,354
+5b,NY-513,"Wayne, Ontario, Seneca, Yates Counties CoC",337
+5b,AR-501,Fayetteville/Northwest Arkansas CoC,330
+5b,IL-507,"Peoria/Perkin/Fulton, Peoria, Tazewell, Woodford CoC",329
+5b,OH-508,Canton/Massillon/Alliance/Stark County CoC,319
+5b,MI-509,Ann Arbor/Washtenaw County CoC,302
+5b,MA-515,Fall River CoC,297
+5b,IL-501,"Rockford/Winnebago, Boone Counties CoC",291
+5b,IA-500,"Sioux City/Dakota, Woodbury Counties CoC",288
+5b,NY-507,Schenectady City & County CoC,274
+5b,MO-602,"Joplin/Jasper, Newton Counties CoC",270
+5b,VA-502,Roanoke City & County/Salem CoC,267
+5b,MD-513,Wicomico/Somerset/Worcester County CoC,260
+5b,LA-506,Slidell/Southeast Louisiana CoC,248
+5b,MA-519,Attleboro/Taunton/Bristol County CoC,234
+5b,IL-513,Springfield/Sangamon County CoC,230
+5b,MI-512,"Grand Traverse, Antrim, Leelanau Counties CoC",228
+5b,NY-501,"Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC",226
+5b,FL-602,Punta Gorda/Charlotte County CoC,222
+5b,MN-508,Moorhead/West Central Minnesota CoC,215
+5b,MD-512,Hagerstown/Washington County CoC,208
+5b,WI-502,Racine City & County CoC,194
+5b,NY-512,Troy/Rensselaer County CoC,194
+5b,MI-515,Monroe City & County CoC,193
+5b,IL-504,Madison County CoC,176
+5b,OK-504,Norman/Cleveland County CoC,174
+5b,NY-522,Jefferson/Lewis/St. Lawrence Counties CoC,169
+5b,CA-612,Glendale CoC,168
+5b,NY-607,Sullivan County CoC,167
+5b,NY-518,"Utica/Rome/Oneida, Madison Counties CoC",162
+5b,VA-504,Charlottesville CoC,160
+5b,NY-519,Columbia/Greene County CoC,144
+5b,MI-511,Lenawee County CoC,128
+5b,NC-513,Chapel Hill/Orange County CoC,127
+5b,PA-603,Beaver County CoC,98
+5b,IL-519,West Central Illinois CoC,80
+5b,NY-504,Cattaragus County CoC,34
+5b,NJ-512,Salem County CoC,16
+5b,MD-510,Garrett County CoC,10
+5c,TX-607,Texas Balance of State (BoS) CoC,7153
+5c,OR-505,Oregon Balance of State CoC,5795
+5c,WA-501,Washington Balance of State CoC,4671
+5c,CO-500,Colorado Balance of State CoC,4019
+5c,GA-501,Georgia Balance of State CoC,3716
+5c,IN-502,Indiana Balance of State CoC,3655
+5c,OH-507,Ohio Balance of State CoC,3309
+5c,ME-500,Maine Balance of State CoC,2280
+5c,HI-500,Hawaii Balance of State CoC,2261
+5c,PA-509,Eastern Pennsylvania CoC,2170
+5c,CA-609,San Bernardino City & County CoC,1866
+5c,IA-501,Iowa Balance of State CoC,1792
+5c,MT-500,Montana Statewide CoC,1529
+5c,MI-500,Michigan Balance of State CoC,1465
+5c,MO-606,Missouri Balance of State CoC,1244
+5c,ID-501,Idaho Balance of State,1204
+5c,ND-500,North Dakota Statewide CoC,1089
+5c,KS-507,Kansas Balance of State CoC,1037
+5c,DE-500,Delaware Statewide CoC,994
+5c,SD-500,South Dakota Statewide CoC,943
+5c,VT-500,Vermont Balance of State CoC,934
+5c,PA-601,Western Pennsylvania CoC,837
+5c,OR-503,Central Oregon CoC,778
+5c,NE-500,Nebraska Balance of State CoC,506
+5c,IL-512,Bloomington/Central Illinois CoC,433
+5c,OK-503,Oklahoma Balance of State CoC,432
+5c,OK-505,Northeast Oklahoma CoC,377
+5c,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C",308
+5c,MN-506,Northwest Minnesota CoC,288
+5c,IL-518,Rock Island/Moline/Northwestern Illinois CoC,243
+5c,NV-502,Nevada Balance of State CoC,237
+5c,IL-515,South Central Illinois CoC,108
+5c,MN-511,Southwest Minnesota CoC,108
+5c,MN-504,Northeast Minnesota CoC,99
