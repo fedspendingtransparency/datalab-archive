@@ -1670,8 +1670,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
     })
     .style("fill", function(d) {
       return color(d.parent.group);
-    })
-    .on("click",zoom);
+    });
 
   cell.append("svg:text")
     .attr("x", function(d) {
@@ -1690,9 +1689,9 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       return d.dx > d.w ? 1 : 0;
     });
 
-  // d3.select(window).on("click", function() {
-  //   zoom(root);
-  // });
+  d3.select(window).on("click", function() {
+    zoom(root);
+  });
 
   d3.select("select").on("change", function() {
     //treemap.value(this.value == "size" ? size : count).nodes(root);
