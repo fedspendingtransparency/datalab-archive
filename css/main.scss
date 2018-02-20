@@ -1834,6 +1834,12 @@ $baseurl: '{{ site.baseurl }}/images';
 
 h3.philosophy {
 	margin-top: 25px;
+	border-bottom: none;
+	font-family: 'Source Sans Pro';
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 36px;
+	text-align: center;
 }
 
 ul.icons.major {
@@ -1847,14 +1853,9 @@ header.major {
 
 .wow { visibility: hidden; }
 
+
 .philosophy a {
 	color: #9BDAF1;
-	border-bottom: none;
-	font-family: 'Source Sans Pro';
-	font-size: 36px;
-	font-weight: 600;
-	line-height: 36px;
-	text-align: center;
 }
 
 header.major h2 {
@@ -1867,7 +1868,7 @@ header.major h2 {
 }
 
 #one > div > div > ul {
-	margin-left: 0px;
+	margin-left: 55px;
 }
 
 .spotlight {
@@ -2793,4 +2794,9 @@ a {
 	font-size: 20px;
 	line-height: 31px;
 	font-weight: 300;
+}
+
+.greyed-out {
+	opacity: 0.3;
+	color: #6B6E76 !important;
 }

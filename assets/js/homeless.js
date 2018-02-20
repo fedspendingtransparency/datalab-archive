@@ -93,6 +93,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             .attr('width', '100%')//map_width + margin.left + margin.right + 40)
             .attr('height', '350px')//map_height + margin.top + margin.bottom + 25);
 
+            
+
           var info_panel = d3.select('#panel_info')
             .attr('width', '100%')//info_width + margin.left + margin.right)
             .attr('height', info_height + margin.top + margin.bottom - 20);
@@ -120,7 +122,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             .style('border', 'solid 1px #BFBCBC')
             .style('padding', '25px')
             .style('width', '300px')
-            .offset([-10, 0])
             .html(function(d) {
               return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color: #555555">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</b></p>' + '<br>' +
                 '<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ' + getDollarValue(d) + '</p><br>' +
@@ -134,8 +135,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                               '</ul>'*/
               ;
             });
-
-
 
 
           /*  .html(function(d) {
@@ -167,6 +166,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             .projection(p2_1_projection); // tell path generator to use albersUsa projection
 
           var m = p2_1_map_svg.append('g');
+
+          p2_1_map_svg.append('circle').attr('id', 'tipfollowscursor_2');
+          p2_1_map_svg.call(p2_tip);
 
           bar_chrt.forEach(function(d) {
             d.fed_funding = +d.fed_funding;
@@ -390,7 +392,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                   '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>';
               })
 
-            map_svg.call(tip)
+            map_svg.append('circle').attr('id', 'tipfollowscursor_1');
+            map_svg.call(tip);
 
             d3.select('#legend_title').append('h3')
               .attr('id', 'title')
@@ -422,7 +425,13 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 return d.properties.name;
               })
               .attr('d', path)
-              .on('mouseover', tip.show)
+              .on('mouseover', function(d) {
+                var target = d3.select('#tipfollowscursor_1')
+                .attr('cx', d3.event.offsetX)
+                .attr('cy', d3.event.offsetY - 30)
+                .node();
+                tip.show(d, target);
+              })
               .on('mouseout', tip.hide)
               .on('dblclick', clicked)
               .on("click", function(d) {
@@ -978,7 +987,13 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               })
               .style('fill', p2_getColor)
               .on('dblclick', p2_1_clicked)
-              .on('mouseover', p2_tip.show)
+              .on('mouseover', function(d) {
+                var target = d3.select('#tipfollowscursor_2')
+                .attr('cx', d3.event.offsetX)
+                .attr('cy', d3.event.offsetY - 30)
+                .node();
+                p2_tip.show(d, target);
+              })
               .on('mouseout', p2_tip.hide);
 
             function p2_getColor(d) {
