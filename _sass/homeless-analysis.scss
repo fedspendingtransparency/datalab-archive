@@ -827,7 +827,6 @@ li {
 
 
 }
-}
 
 .node rect {
   cursor: pointer;
@@ -844,6 +843,7 @@ li {
 
 path.link {
   fill: none;
-  stroke: #9ecae1;
-  stroke-width: 1.5px;
+  stroke: none;
+}
+
 }

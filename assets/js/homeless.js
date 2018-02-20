@@ -1262,7 +1262,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .text(function(d) {
                 return getProgram(d);
               }).each(function() {
-                labelWidth = 85;
+                labelWidth = 30;
               });
 
             scale = d3.scale.linear()
@@ -1425,7 +1425,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .text(function(d) {
                 return getProgram(d);
               }).each(function() {
-                labelWidth = 85;
+                labelWidth = 30;
               });
 
             scale = d3.scale.linear()
@@ -1491,7 +1491,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
   })
   })
 })
-
+/**** begin treemap *****/
 var w = $('#panel_3b').width(),
     h = $('#panel_3b').height() * (3/8),
     x = d3.scale.linear().range([0, w]),
@@ -1504,11 +1504,10 @@ var treemap = d3.layout.treemap()
     .round(false)
     .size([w, h])
     .sticky(true)
-//    .value(function(d) { return d["好き度"]; });
     .value(function(d) { return d.total_homeless; });
 
 var svg = d3.select("#tree").append("div")
-    .attr("class", "chart")
+    .attr("class", "panel_3b")
     .style("width", w + "px")
     .style("height", h + "px")
   .append("svg:svg")
@@ -1517,7 +1516,6 @@ var svg = d3.select("#tree").append("div")
   .append("svg:g")
     .attr("transform", "translate(.5,.5)");
 
-//d3.json("kinoko_takenoko.json", function(data) {
 d3.json('/data-lab-data/homeless_cluster.json', function(data) {
 node = root = data;
 console.log(data);
@@ -1552,7 +1550,7 @@ treemap.value((this.value == "total_homeless") ? total_homeless : (this.value ==
 zoom(node);
 });
 
-
+/***** begin infographic ******/
 d3.select('#panel_3b')
   .append('div')
   .attr('id','left_column')
@@ -1634,193 +1632,147 @@ node = d;
 d3.event.stopPropagation();
 }
 
+/********* Begining panel 3c *********/
 d3.select('#panel_3c')
   .append('div')
   .attr('id','group_cocs');
 
-/**d3.select('#panel_3')
-  .append('div')
-  .attr('id','tree')
-    .append('svg')
-    .style('background','red')
-    .attr('height','100%')
-    .attr('width','100%');**/
+var w = 400,
+    h = 800,
+    i = 0,
+    barHeight = 20,
+    barWidth = w * .8,
+    duration = 400,
+    root;
 
-
-
-})
-/**var div = d3.select('#tree')
-  .append('div')
-  .attr('height','100%')
-  .attr('width','100%');**/
-
-/*d3.select('#group_cocs')
-  .append('ul')
-  .attr('class','accordion')
-    .append('li')
-      .append('a')
-      .attr('class','toggle')
-      .attr('href','javascript:void(0)')
-      .text('Section 1')
-        .append('ul')
-        .attr('class','inner')
-          .append('li')
-            .html('<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>')
-
-
-$('.toggle').click(function(e) {
-  	e.preventDefault();
-    console.log("in toggle!",e)
-    var $this = $(this);
-    console.log('$this: ',$this.parent().parent());
-    if ($this.next().hasClass('show')) {
-        $this.next().removeClass('show');
-        $this.next().slideUp(350);
-    } else {
-        $this.parent().parent().find('li .inner').removeClass('show');
-        $this.parent().parent().find('li .inner').slideUp(350);
-        $this.next().toggleClass('show');
-        $this.next().slideToggle(350);
-    }
-})*/
-
-/**var margin = {top: 30, right: 20, bottom: 30, left: 20},
-width = 960 - margin.left - margin.right,
-barHeight = 20,
-barWidth = width * .8;
-
-var i = 0,
-duration = 400,
-root;
-
-var tree = d3.layout.tree()
-.nodeSize([0, 20]);
+var tree2 = d3.layout.tree()
+    .size([h, 100]);
 
 var diagonal = d3.svg.diagonal()
-.projection(function(d) { return [d.y, d.x]; });
+    .projection(function(d) { return [d.y, d.x]; });
 
-var svg = d3.select("panel_3c").append("svg")
-.attr("width", width + margin.left + margin.right)
-.append("g")
-.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var vis = d3.select("#group_cocs").append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+  .append("svg:g")
+    .attr("transform", "translate(20,30)");
 
-var json = '/data-lab-data/homeless_cluster2.json'
+function moveChildren(node) {
+    if(node.children) {
+        node.children.forEach(function(c) { moveChildren(c); });
+        node._children = node.children;
+        node.children = null;
+    }
+}
 
-json.x0 = 0;
-json.y0 = 0;
-update(root = json);
-
+d3.json("/data-lab-data/homeless_cluster2.json", function(json) {
+  json.x0 = 0;
+  json.y0 = 0;
+  moveChildren(json);
+  update(root = json);
+});
 
 function update(source) {
 
-// Compute the flattened node list. TODO use d3.layout.hierarchy.
-var nodes = tree.nodes(root);
+  // Compute the flattened node list. TODO use d3.layout.hierarchy.
+  var nodes = tree2.nodes(root);
 
-var height = Math.max(500, nodes.length * barHeight + margin.top + margin.bottom);
+  // Compute the "layout".
+  nodes.forEach(function(n, i) {
+    n.x = i * barHeight;
+  });
 
-d3.select("svg").transition()
-  .duration(duration)
-  .attr("height", height);
+  // Update the nodes…
+  var node = vis.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
-d3.select(self.frameElement).transition()
-  .duration(duration)
-  .style("height", height + "px");
+  var nodeEnter = node.enter().append("svg:g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .style("opacity", 1e-6);
 
-// Compute the "layout".
-nodes.forEach(function(n, i) {
-n.x = i * barHeight;
-});
+  // Enter any new nodes at the parent's previous position.
+  nodeEnter.append("svg:rect")
+      .attr("y", -barHeight / 2)
+      .attr("height", barHeight)
+      .attr("width", barWidth)
+      .style("fill", color)
+      .on("click", click);
 
-// Update the nodes…
-var node = svg.selectAll("g.node")
-  .data(nodes, function(d) { return d.id || (d.id = ++i); });
+  nodeEnter.append("svg:text")
+      .attr("dy", 3.5)
+      .attr("dx", 5.5)
+      .text(function(d) { return d.name; });
 
-var nodeEnter = node.enter().append("g")
-  .attr("class", "node")
-  .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-  .style("opacity", 1e-6);
+  // Transition nodes to their new position.
+  nodeEnter.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1);
 
-// Enter any new nodes at the parent's previous position.
-nodeEnter.append("rect")
-  .attr("y", -barHeight / 2)
-  .attr("height", barHeight)
-  .attr("width", barWidth)
-  .style("fill", color)
-  .on("click", click);
+  node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1)
+    .select("rect")
+      .style("fill", colorCoC);
 
-nodeEnter.append("text")
-  .attr("dy", 3.5)
-  .attr("dx", 5.5)
-  .text(function(d) { return d.name; });
+  // Transition exiting nodes to the parent's new position.
+  node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .style("opacity", 1e-6)
+      .remove();
 
-// Transition nodes to their new position.
-nodeEnter.transition()
-  .duration(duration)
-  .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
-  .style("opacity", 1);
+  // Update the links…
+  var link = vis.selectAll("path.link")
+      .data(tree2.links(nodes), function(d) { return d.target.id; });
 
-node.transition()
-  .duration(duration)
-  .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
-  .style("opacity", 1)
-.select("rect")
-  .style("fill", color);
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("svg:path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
+      .attr("d", diagonal);
 
-// Transition exiting nodes to the parent's new position.
-node.exit().transition()
-  .duration(duration)
-  .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-  .style("opacity", 1e-6)
-  .remove();
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
 
-// Update the links…
-var link = svg.selectAll("path.link")
-  .data(tree.links(nodes), function(d) { return d.target.id; });
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
 
-// Enter any new links at the parent's previous position.
-link.enter().insert("path", "g")
-  .attr("class", "link")
-  .attr("d", function(d) {
-    var o = {x: source.x0, y: source.y0};
-    return diagonal({source: o, target: o});
-  })
-.transition()
-  .duration(duration)
-  .attr("d", diagonal);
-
-// Transition links to their new position.
-link.transition()
-  .duration(duration)
-  .attr("d", diagonal);
-
-// Transition exiting nodes to the parent's new position.
-link.exit().transition()
-  .duration(duration)
-  .attr("d", function(d) {
-    var o = {x: source.x, y: source.y};
-    return diagonal({source: o, target: o});
-  })
-  .remove();
-
-// Stash the old positions for transition.
-nodes.forEach(function(d) {
-d.x0 = d.x;
-d.y0 = d.y;
-});
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
 }
 
 // Toggle children on click.
 function click(d) {
-if (d.children) {
-d._children = d.children;
-d.children = null;
-} else {
-d.children = d._children;
-d._children = null;
-}
-update(d);
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update(d);
 }
 
-function color(d) {
-return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
-}**/
+function colorCoC(d) {
+  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+}
+})
