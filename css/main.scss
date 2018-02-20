@@ -1682,7 +1682,6 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			h2 {
 				font-size: 1.75em;
-				margin: 0 0 (_size(element-margin) * 0.25) 0;
 			}
 
 			p {
@@ -1926,6 +1925,7 @@ a {
 	border-radius: 50px;
 	text-decoration: none;
 	display: block;
+	font-size: 14px;
 }
 
 .button-read-more:hover {
@@ -1968,23 +1968,6 @@ a {
 	padding: 1em 0 0 0;
 }
 
-.page-title {
-	height: 150px;
-	width: 557px;
-	color: #FFFFFF;
-	font-size: 18px;
-	line-height: 43px;
-}
-
-.page-description {
-	height: 208px;
-	width: 557px;
-	color: #FFFFFF;
-	font-size: 18px;
-	font-weight: 300;
-	line-height: 28px;
-}
-
 .rectangle-3 {
 	height: 45px;
 	width: 231px;
@@ -2016,20 +1999,6 @@ a {
 
 .wrapper > .inner {
 	width: 100%;
-}
-
-.info-bkgd {
-	/*height: 375px;*/
-	padding: 50px;
-	width: 100%;
-	background-color: #FFFFFF;
-	box-shadow: 0 2px 4px 1px rgba(201,199,199,0.5);
-}
-
-.page-box {
-	margin-left: 90px;
-	text-align: left;
-	font-family: "Source Sans Pro";
 }
 
 .entry-about-title-container {
@@ -2799,4 +2768,46 @@ a {
 .greyed-out {
 	opacity: 0.3;
 	color: #6B6E76 !important;
+}
+
+article > header {
+	height: 725px;
+}
+
+.header-box {
+	margin-top: 100px;
+	margin-left: 90px;
+	text-align: left;
+	font-family: "Source Sans Pro";
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+
+.page-box {
+	margin-left: 90px;
+	font-family: "Source Sans Pro";
+	padding: 50px;
+}
+
+.page-menuname {
+	color: #FFFFFF;
+	font-family: "Source Sans Pro";
+	font-size: 18px !important;
+	line-height: 23px;
+	text-transform: uppercase;
+	font-weight: 300;
+	margin-bottom: 50px;
+}
+
+.page-title {
+	width: 557px;
+	line-height: 43px;
+}
+
+.page-description {
+	width: 557px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 28px;
 }
