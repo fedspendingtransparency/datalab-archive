@@ -139,7 +139,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             .attr('width', '100%')//map_width + margin.left + margin.right + 40)
             .attr('height', '350px')//map_height + margin.top + margin.bottom + 25);
 
-            
+
 
           var info_panel = d3.select('#panel_info')
             .attr('width', '100%')//info_width + margin.left + margin.right)
@@ -1832,8 +1832,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
     })
     .style("fill", function(d) {
       return color(d.parent.group);
-    })
-    .on("click",zoom);
+    });
 
   cell.append("svg:text")
     .attr("x", function(d) {
@@ -1852,9 +1851,9 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       return d.dx > d.w ? 1 : 0;
     });
 
-  // d3.select(window).on("click", function() {
-  //   zoom(root);
-  // });
+  d3.select(window).on("click", function() {
+    zoom(root);
+  });
 
   d3.select("select").on("change", function() {
     //treemap.value(this.value == "size" ? size : count).nodes(root);
