@@ -1,0 +1,2013 @@
+{
+  "name": "cocs",
+  "children": [{
+      "name": "1a",
+      "children": [{
+          "coc_number": "CA-501",
+          "name": "San Francisco CoC",
+          "total_homeless": 6858
+        },
+        {
+          "coc_number": "CA-600",
+          "name": "Los Angeles City & County CoC",
+          "total_homeless": 55188
+        },
+        {
+          "coc_number": "CA-606",
+          "name": "Long Beach CoC",
+          "total_homeless": 1863
+        },
+        {
+          "coc_number": "DC-500",
+          "name": "District of Columbia CoC",
+          "total_homeless": 7473
+        },
+        {
+          "coc_number": "IL-510",
+          "name": "Chicago CoC",
+          "total_homeless": 5657
+        },
+        {
+          "coc_number": "MA-500",
+          "name": "Boston CoC",
+          "total_homeless": 6135
+        },
+        {
+          "coc_number": "MA-502",
+          "name": "Lynn CoC",
+          "total_homeless": 582
+        },
+        {
+          "coc_number": "MA-509",
+          "name": "Cambridge CoC",
+          "total_homeless": 530
+        },
+        {
+          "coc_number": "MD-501",
+          "name": "Baltimore City CoC",
+          "total_homeless": 2669
+        },
+        {
+          "coc_number": "NJ-506",
+          "name": "Jersey City/Bayonne/Hudson County CoC",
+          "total_homeless": 822
+        },
+        {
+          "coc_number": "NY-600",
+          "name": "New York City CoC",
+          "total_homeless": 76501
+        },
+        {
+          "coc_number": "PA-500",
+          "name": "Philadelphia CoC",
+          "total_homeless": 5693
+        }
+      ]
+    },
+    {
+      "name": "2a",
+      "children": [{
+          "coc_number": "AL-501",
+          "name": "Mobile City & County/Baldwin County CoC",
+          "total_homeless": 606
+        },
+        {
+          "coc_number": "AL-504",
+          "name": "Montgomery City & County CoC",
+          "total_homeless": 377
+        },
+        {
+          "coc_number": "AL-506",
+          "name": "Tuscaloosa City & County CoC",
+          "total_homeless": 200
+        },
+        {
+          "coc_number": "FL-502",
+          "name": "St. Petersburg/Clearwater/Largo/Pinellas County CoC",
+          "total_homeless": 2831
+        },
+        {
+          "coc_number": "FL-515",
+          "name": "Panama City/Bay, Jackson Counties CoC",
+          "total_homeless": 336
+        },
+        {
+          "coc_number": "FL-600",
+          "name": "Miami/Dade County CoC",
+          "total_homeless": 3721
+        },
+        {
+          "coc_number": "GA-500",
+          "name": "Atlanta Continuum of Care",
+          "total_homeless": 3572
+        },
+        {
+          "coc_number": "GA-503",
+          "name": "Athens/Clarke County CoC",
+          "total_homeless": 239
+        },
+        {
+          "coc_number": "IN-503",
+          "name": "Indianapolis CoC",
+          "total_homeless": 1783
+        },
+        {
+          "coc_number": "KY-501",
+          "name": "Louisville/Jefferson County CoC",
+          "total_homeless": 1034
+        },
+        {
+          "coc_number": "LA-503",
+          "name": "New Orleans/Jefferson Parish CoC",
+          "total_homeless": 1301
+        },
+        {
+          "coc_number": "MI-501",
+          "name": "Detroit CoC",
+          "total_homeless": 2078
+        },
+        {
+          "coc_number": "MO-501",
+          "name": "St.Louis City CoC",
+          "total_homeless": 1336
+        },
+        {
+          "coc_number": "NM-500",
+          "name": "Albuquerque CoC",
+          "total_homeless": 1318
+        },
+        {
+          "coc_number": "OH-500",
+          "name": "Cincinnati/Hamilton County CoC",
+          "total_homeless": 1162
+        },
+        {
+          "coc_number": "OH-501",
+          "name": "Toledo/Lucas County CoC",
+          "total_homeless": 499
+        },
+        {
+          "coc_number": "OH-502",
+          "name": "Cleveland/Cuyahoga County CoC",
+          "total_homeless": 1727
+        },
+        {
+          "coc_number": "OH-504",
+          "name": "Youngstown/Mahoning County CoC",
+          "total_homeless": 262
+        },
+        {
+          "coc_number": "OH-505",
+          "name": "Dayton/Kettering/Montgomery County CoC",
+          "total_homeless": 619
+        },
+        {
+          "coc_number": "TX-603",
+          "name": "El Paso City & County CoC",
+          "total_homeless": 1193
+        },
+        {
+          "coc_number": "WI-501",
+          "name": "Milwaukee City & County CoC",
+          "total_homeless": 900
+        }
+      ]
+    },
+    {
+      "name": "2b",
+      "children": [{
+          "coc_number": "AL-502",
+          "name": "Florence/Northwest Alabama CoC",
+          "total_homeless": 155
+        },
+        {
+          "coc_number": "AL-505",
+          "name": "Gadsden/Northeast Alabama CoC",
+          "total_homeless": 163
+        },
+        {
+          "coc_number": "AR-508",
+          "name": "Old Fort Homeless Coalition",
+          "total_homeless": 168
+        },
+        {
+          "coc_number": "AR-512",
+          "name": "Boone, Baxter, Marion, Newton Counties CoC",
+          "total_homeless": 53
+        },
+        {
+          "coc_number": "CA-509",
+          "name": "Mendocino County CoC",
+          "total_homeless": 1238
+        },
+        {
+          "coc_number": "CA-513",
+          "name": "Visalia, Kings, Tulare Counties CoC",
+          "total_homeless": 853
+        },
+        {
+          "coc_number": "CA-514",
+          "name": "Fresno/Madera County CoC",
+          "total_homeless": 2016
+        },
+        {
+          "coc_number": "CA-519",
+          "name": "Chico/Paradise/Butte County CoC",
+          "total_homeless": 1195
+        },
+        {
+          "coc_number": "CA-520",
+          "name": "Merced City & County CoC",
+          "total_homeless": 454
+        },
+        {
+          "coc_number": "CA-521",
+          "name": "Davis/Woodland/Yolo County CoC",
+          "total_homeless": 459
+        },
+        {
+          "coc_number": "CA-522",
+          "name": "Humboldt County CoC",
+          "total_homeless": 759
+        },
+        {
+          "coc_number": "CA-523",
+          "name": "Colusa, Glenn, Trinity Counties CoC",
+          "total_homeless": 176
+        },
+        {
+          "coc_number": "CA-527",
+          "name": "Tehama County CoC",
+          "total_homeless": 124
+        },
+        {
+          "coc_number": "CA-529",
+          "name": "Lake County CoC",
+          "total_homeless": 401
+        },
+        {
+          "coc_number": "CA-613",
+          "name": "Imperial County CoC",
+          "total_homeless": 1154
+        },
+        {
+          "coc_number": "FL-504",
+          "name": "Daytona Beach/Daytona/Volusia, Flagler Counties CoC",
+          "total_homeless": 753
+        },
+        {
+          "coc_number": "FL-506",
+          "name": "Tallahassee/Leon County CoC",
+          "total_homeless": 1072
+        },
+        {
+          "coc_number": "FL-508",
+          "name": "Gainesville/Alachua, Putnam Counties CoC",
+          "total_homeless": 819
+        },
+        {
+          "coc_number": "FL-514",
+          "name": "Ocala/Marion County CoC",
+          "total_homeless": 725
+        },
+        {
+          "coc_number": "FL-517",
+          "name": "Hendry, Hardee, Highlands Counties CoC",
+          "total_homeless": 609
+        },
+        {
+          "coc_number": "FL-518",
+          "name": "Columbia, Hamilton, Lafayette, Suwannee Counties CoC",
+          "total_homeless": 502
+        },
+        {
+          "coc_number": "GA-502",
+          "name": "Fulton County Continuum of Care",
+          "total_homeless": 293
+        },
+        {
+          "coc_number": "GA-504",
+          "name": "Augusta-Richmond County CoC",
+          "total_homeless": 246
+        },
+        {
+          "coc_number": "GA-505",
+          "name": "Columbus-Muscogee/Russell County CoC",
+          "total_homeless": 319
+        },
+        {
+          "coc_number": "GA-507",
+          "name": "Savannah/Chatham County CoC",
+          "total_homeless": 926
+        },
+        {
+          "coc_number": "IL-503",
+          "name": "Champaign/Urbana/Rantoul/Champaign County CoC",
+          "total_homeless": 160
+        },
+        {
+          "coc_number": "IL-508",
+          "name": "East Saint Louis/Belleville/Saint Clair County CoC",
+          "total_homeless": 300
+        },
+        {
+          "coc_number": "IL-509",
+          "name": "Dekalb City & County CoC",
+          "total_homeless": 90
+        },
+        {
+          "coc_number": "IL-511",
+          "name": "Cook County CoC",
+          "total_homeless": 780
+        },
+        {
+          "coc_number": "IL-516",
+          "name": "Decatur/Macon County CoC",
+          "total_homeless": 130
+        },
+        {
+          "coc_number": "KY-502",
+          "name": "Lexington/Fayette County CoC",
+          "total_homeless": 1051
+        },
+        {
+          "coc_number": "LA-500",
+          "name": "Lafayette/Acadiana CoC",
+          "total_homeless": 357
+        },
+        {
+          "coc_number": "LA-502",
+          "name": "Shreveport/Bossier/Northwest CoC",
+          "total_homeless": 349
+        },
+        {
+          "coc_number": "LA-505",
+          "name": "Monroe/Northeast Louisiana CoC",
+          "total_homeless": 185
+        },
+        {
+          "coc_number": "LA-507",
+          "name": "Alexandria/Central Louisiana CoC",
+          "total_homeless": 159
+        },
+        {
+          "coc_number": "LA-508",
+          "name": "Houma-Terrebonne/Thibodaux CoC",
+          "total_homeless": 116
+        },
+        {
+          "coc_number": "MA-504",
+          "name": "Springfield/Hampden County CoC",
+          "total_homeless": 2311
+        },
+        {
+          "coc_number": "MD-500",
+          "name": "Cumberland/Allegany County CoC",
+          "total_homeless": 118
+        },
+        {
+          "coc_number": "MI-502",
+          "name": "Dearborn/Dearborn Heights/Westland/Wayne County CoC",
+          "total_homeless": 226
+        },
+        {
+          "coc_number": "MI-505",
+          "name": "Flint/Genesee County CoC",
+          "total_homeless": 420
+        },
+        {
+          "coc_number": "MI-507",
+          "name": "Portage/Kalamazoo City & County CoC",
+          "total_homeless": 479
+        },
+        {
+          "coc_number": "MI-508",
+          "name": "Lansing/East Lansing/Ingham County CoC",
+          "total_homeless": 435
+        },
+        {
+          "coc_number": "MI-510",
+          "name": "Saginaw City & County CoC",
+          "total_homeless": 388
+        },
+        {
+          "coc_number": "MI-513",
+          "name": "Marquette, Alger Counties CoC",
+          "total_homeless": 84
+        },
+        {
+          "coc_number": "MI-514",
+          "name": "Battle Creek/Calhoun County CoC",
+          "total_homeless": 204
+        },
+        {
+          "coc_number": "MI-516",
+          "name": "Norton Shores/Muskegon City & County CoC",
+          "total_homeless": 135
+        },
+        {
+          "coc_number": "MI-517",
+          "name": "Jackson City & County CoC",
+          "total_homeless": 140
+        },
+        {
+          "coc_number": "MO-603",
+          "name": "St. Joseph/Andrew, Buchanan, DeKalb Counties CoC",
+          "total_homeless": 210
+        },
+        {
+          "coc_number": "MO-604",
+          "name": "Kansas City, Independence, Lee's Summit/Jackson, Wyandotte Counties CoC",
+          "total_homeless": 1671
+        },
+        {
+          "coc_number": "MS-500",
+          "name": "Jackson/Rankin, Madison Counties CoC",
+          "total_homeless": 511
+        },
+        {
+          "coc_number": "MS-503",
+          "name": "Gulf Port/Gulf Coast Regional CoC",
+          "total_homeless": 264
+        },
+        {
+          "coc_number": "NC-500",
+          "name": "Winston Salem/Forsyth County CoC",
+          "total_homeless": 453
+        },
+        {
+          "coc_number": "NC-504",
+          "name": "Greensboro/High Point CoC",
+          "total_homeless": 573
+        },
+        {
+          "coc_number": "NC-506",
+          "name": "Wilmington/Brunswick, New Hanover, Pender Counties CoC",
+          "total_homeless": 322
+        },
+        {
+          "coc_number": "NC-509",
+          "name": "Gastonia/Cleveland, Gaston, Lincoln Counties CoC",
+          "total_homeless": 249
+        },
+        {
+          "coc_number": "NC-511",
+          "name": "Fayetteville/Cumberland County CoC",
+          "total_homeless": 442
+        },
+        {
+          "coc_number": "NC-516",
+          "name": "Northwest North Carolina CoC",
+          "total_homeless": 466
+        },
+        {
+          "coc_number": "NJ-504",
+          "name": "Newark/Essex County CoC",
+          "total_homeless": 2048
+        },
+        {
+          "coc_number": "NY-508",
+          "name": "Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC",
+          "total_homeless": 925
+        },
+        {
+          "coc_number": "NY-510",
+          "name": "Ithaca/Tompkins County CoC",
+          "total_homeless": 73
+        },
+        {
+          "coc_number": "NY-514",
+          "name": "Jamestown/Dunkirk/Chautauqua County CoC",
+          "total_homeless": 83
+        },
+        {
+          "coc_number": "NY-516",
+          "name": "Clinton County CoC",
+          "total_homeless": 126
+        },
+        {
+          "coc_number": "NY-520",
+          "name": "Franklin County CoC",
+          "total_homeless": 28
+        },
+        {
+          "coc_number": "OR-500",
+          "name": "Eugene/Springfield/Lane County CoC",
+          "total_homeless": 1529
+        },
+        {
+          "coc_number": "OR-502",
+          "name": "Medford/Ashland/Jackson County CoC",
+          "total_homeless": 633
+        },
+        {
+          "coc_number": "PA-503",
+          "name": "Wilkes-Barre/Hazleton/Luzerne County CoC",
+          "total_homeless": 174
+        },
+        {
+          "coc_number": "PA-508",
+          "name": "Scranton/Lackawanna County CoC",
+          "total_homeless": 197
+        },
+        {
+          "coc_number": "PA-605",
+          "name": "Erie City & County CoC",
+          "total_homeless": 369
+        },
+        {
+          "coc_number": "SC-502",
+          "name": "Columbia/Midlands CoC",
+          "total_homeless": 1200
+        },
+        {
+          "coc_number": "TN-500",
+          "name": "Chattanooga/Southeast Tennessee CoC",
+          "total_homeless": 576
+        },
+        {
+          "coc_number": "TN-501",
+          "name": "Memphis/Shelby County CoC",
+          "total_homeless": 1426
+        },
+        {
+          "coc_number": "TN-502",
+          "name": "Knoxville/Knox County CoC",
+          "total_homeless": 812
+        },
+        {
+          "coc_number": "TN-506",
+          "name": "Oak Ridge/Upper Cumberland CoC",
+          "total_homeless": 252
+        },
+        {
+          "coc_number": "TN-509",
+          "name": "Appalachian Regional CoC",
+          "total_homeless": 450
+        },
+        {
+          "coc_number": "TN-512",
+          "name": "Morristown/Blount, Sevier, Campbell, Cocke Counties CoC",
+          "total_homeless": 752
+        },
+        {
+          "coc_number": "TX-604",
+          "name": "Waco/McLennan County CoC",
+          "total_homeless": 221
+        },
+        {
+          "coc_number": "TX-701",
+          "name": "Bryan/College Station/Brazos Valley CoC",
+          "total_homeless": 102
+        },
+        {
+          "coc_number": "VA-507",
+          "name": "Portsmouth CoC",
+          "total_homeless": 151
+        },
+        {
+          "coc_number": "VA-508",
+          "name": "Lynchburg CoC",
+          "total_homeless": 125
+        },
+        {
+          "coc_number": "WV-500",
+          "name": "Wheeling/Weirton Area CoC",
+          "total_homeless": 118
+        },
+        {
+          "coc_number": "WV-501",
+          "name": "Huntington/Cabell, Wayne Counties CoC",
+          "total_homeless": 205
+        },
+        {
+          "coc_number": "WV-503",
+          "name": "Charleston/Kanawha, Putnam, Boone, Clay Counties CoC",
+          "total_homeless": 319
+        }
+      ]
+    },
+    {
+      "name": "2c",
+      "children": [{
+          "coc_number": "AL-507",
+          "name": "Alabama Balance of State CoC",
+          "total_homeless": 764
+        },
+        {
+          "coc_number": "AR-503",
+          "name": "Arkansas  Balance of State  CoC",
+          "total_homeless": 822
+        },
+        {
+          "coc_number": "AR-505",
+          "name": "Southeast Arkansas",
+          "total_homeless": 88
+        },
+        {
+          "coc_number": "AZ-500",
+          "name": "Arizona Balance of State CoC",
+          "total_homeless": 1768
+        },
+        {
+          "coc_number": "AZ-501",
+          "name": "Tucson/Pima County CoC",
+          "total_homeless": 1574
+        },
+        {
+          "coc_number": "CA-516",
+          "name": "Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC",
+          "total_homeless": 934
+        },
+        {
+          "coc_number": "IL-520",
+          "name": "Southern Illinois CoC",
+          "total_homeless": 435
+        },
+        {
+          "coc_number": "KY-500",
+          "name": "Kentucky Balance of State CoC",
+          "total_homeless": 1940
+        },
+        {
+          "coc_number": "LA-509",
+          "name": "Louisiana Balance of State CoC",
+          "total_homeless": 590
+        },
+        {
+          "coc_number": "MS-501",
+          "name": "Mississippi Balance of State CoC",
+          "total_homeless": 697
+        },
+        {
+          "coc_number": "NC-503",
+          "name": "North Carolina Balance of State CoC",
+          "total_homeless": 3054
+        },
+        {
+          "coc_number": "NM-501",
+          "name": "New Mexico Balance of State CoC",
+          "total_homeless": 1164
+        },
+        {
+          "coc_number": "OK-500",
+          "name": "North Central Oklahoma CoC",
+          "total_homeless": 192
+        },
+        {
+          "coc_number": "OK-506",
+          "name": "Southwest Oklahoma Regional CoC",
+          "total_homeless": 231
+        },
+        {
+          "coc_number": "OK-507",
+          "name": "Southeastern Oklahoma Regional CoC",
+          "total_homeless": 351
+        },
+        {
+          "coc_number": "SC-501",
+          "name": "Greenville/Anderson/Spartanburg Upstate CoC",
+          "total_homeless": 1317
+        },
+        {
+          "coc_number": "SC-503",
+          "name": "Myrtle Beach/Sumter City & County CoC",
+          "total_homeless": 974
+        },
+        {
+          "coc_number": "TN-507",
+          "name": "Jackson/West Tennessee CoC",
+          "total_homeless": 1103
+        },
+        {
+          "coc_number": "TX-624",
+          "name": "Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC",
+          "total_homeless": 234
+        },
+        {
+          "coc_number": "VA-521",
+          "name": "Virginia Balance of State (BoS) CoC",
+          "total_homeless": 722
+        },
+        {
+          "coc_number": "WV-508",
+          "name": "West Virginia Balance of State CoC",
+          "total_homeless": 667
+        }
+      ]
+    },
+    {
+      "name": "3a",
+      "children": [{
+          "coc_number": "AK-500",
+          "name": "Anchorage CoC",
+          "total_homeless": 1128
+        },
+        {
+          "coc_number": "CA-500",
+          "name": "San Jose/Santa Clara City & County CoC",
+          "total_homeless": 7394
+        },
+        {
+          "coc_number": "CA-507",
+          "name": "Marin County CoC",
+          "total_homeless": 1117
+        },
+        {
+          "coc_number": "CA-512",
+          "name": "Daly/San Mateo County CoC",
+          "total_homeless": 1253
+        },
+        {
+          "coc_number": "CA-611",
+          "name": "Oxnard/San Buenaventura/Ventura County CoC",
+          "total_homeless": 1152
+        },
+        {
+          "coc_number": "IL-500",
+          "name": "McHenry County CoC",
+          "total_homeless": 155
+        },
+        {
+          "coc_number": "IL-506",
+          "name": "Joliet/Bolingbrook/Will County CoC",
+          "total_homeless": 282
+        },
+        {
+          "coc_number": "IL-514",
+          "name": "DuPage County CoC",
+          "total_homeless": 331
+        },
+        {
+          "coc_number": "KS-505",
+          "name": "Overland Park/Shawnee/Johnson County CoC",
+          "total_homeless": 130
+        },
+        {
+          "coc_number": "MD-503",
+          "name": "Annapolis/Anne Arundel County CoC",
+          "total_homeless": 376
+        },
+        {
+          "coc_number": "MD-504",
+          "name": "Howard County CoC",
+          "total_homeless": 168
+        },
+        {
+          "coc_number": "MD-506",
+          "name": "Carroll County CoC",
+          "total_homeless": 147
+        },
+        {
+          "coc_number": "MD-508",
+          "name": "Charles, Calvert, St.Mary's Counties CoC",
+          "total_homeless": 419
+        },
+        {
+          "coc_number": "MD-509",
+          "name": "Frederick City & County CoC",
+          "total_homeless": 309
+        },
+        {
+          "coc_number": "MD-600",
+          "name": "Prince George`s County/Maryland CoC",
+          "total_homeless": 525
+        },
+        {
+          "coc_number": "MD-601",
+          "name": "Montgomery County CoC",
+          "total_homeless": 894
+        },
+        {
+          "coc_number": "MI-518",
+          "name": "Livingston County CoC",
+          "total_homeless": 103
+        },
+        {
+          "coc_number": "MN-503",
+          "name": "Dakota, Anoka, Washington, Scott, Carver Counties",
+          "total_homeless": 544
+        },
+        {
+          "coc_number": "MO-503",
+          "name": "St. Charles, Lincoln, Warren Counties CoC",
+          "total_homeless": 578
+        },
+        {
+          "coc_number": "NJ-502",
+          "name": "Burlington County CoC",
+          "total_homeless": 604
+        },
+        {
+          "coc_number": "NJ-509",
+          "name": "Morris County CoC",
+          "total_homeless": 378
+        },
+        {
+          "coc_number": "NJ-513",
+          "name": "Somerset County CoC",
+          "total_homeless": 244
+        },
+        {
+          "coc_number": "NJ-516",
+          "name": "Warren, Sussex, Hunterdon Counties CoC",
+          "total_homeless": 286
+        },
+        {
+          "coc_number": "NY-603",
+          "name": "Nassau, Suffolk Counties/Babylon/Islip/ Huntington CoC",
+          "total_homeless": 3937
+        },
+        {
+          "coc_number": "PA-504",
+          "name": "Lower Marion/Norristown/Abington/Montgomery County CoC",
+          "total_homeless": 310
+        },
+        {
+          "coc_number": "PA-505",
+          "name": "Chester County CoC",
+          "total_homeless": 578
+        },
+        {
+          "coc_number": "PA-511",
+          "name": "Bristol/Bensalem/Bucks County CoC",
+          "total_homeless": 511
+        },
+        {
+          "coc_number": "VA-503",
+          "name": "Virginia Beach CoC",
+          "total_homeless": 349
+        },
+        {
+          "coc_number": "VA-514",
+          "name": "Fredericksburg/Spotsylvania, Stafford Counties CoC",
+          "total_homeless": 216
+        },
+        {
+          "coc_number": "VA-600",
+          "name": "Arlington County CoC",
+          "total_homeless": 232
+        },
+        {
+          "coc_number": "VA-601",
+          "name": "Fairfax County CoC",
+          "total_homeless": 964
+        },
+        {
+          "coc_number": "VA-602",
+          "name": "Loudoun County CoC",
+          "total_homeless": 113
+        },
+        {
+          "coc_number": "VA-603",
+          "name": "City of Alexandria CoC",
+          "total_homeless": 211
+        },
+        {
+          "coc_number": "VA-604",
+          "name": "Prince William County CoC",
+          "total_homeless": 400
+        }
+      ]
+    },
+    {
+      "name": "4a",
+      "children": [{
+          "coc_number": "CA-502",
+          "name": "Oakland/Alameda County CoC",
+          "total_homeless": 5629
+        },
+        {
+          "coc_number": "CA-601",
+          "name": "San Diego City and County CoC",
+          "total_homeless": 9160
+        },
+        {
+          "coc_number": "CO-504",
+          "name": "Colorado Springs/El Paso County CoC",
+          "total_homeless": 1415
+        },
+        {
+          "coc_number": "GA-506",
+          "name": "Marietta/Cobb County CoC",
+          "total_homeless": 403
+        },
+        {
+          "coc_number": "HI-501",
+          "name": "Honolulu CoC",
+          "total_homeless": 4959
+        },
+        {
+          "coc_number": "IA-502",
+          "name": "Des Moines/Polk County CoC",
+          "total_homeless": 676
+        },
+        {
+          "coc_number": "MA-508",
+          "name": "Lowell CoC",
+          "total_homeless": 658
+        },
+        {
+          "coc_number": "MN-500",
+          "name": "Minneapolis/Hennepin County CoC",
+          "total_homeless": 3057
+        },
+        {
+          "coc_number": "NC-507",
+          "name": "Raleigh/Wake County CoC",
+          "total_homeless": 884
+        },
+        {
+          "coc_number": "NE-501",
+          "name": "Omaha/Council Bluffs CoC",
+          "total_homeless": 1389
+        },
+        {
+          "coc_number": "NJ-514",
+          "name": "Trenton/Mercer County CoC",
+          "total_homeless": 478
+        },
+        {
+          "coc_number": "TX-600",
+          "name": "Dallas City & County/Irving CoC",
+          "total_homeless": 3789
+        },
+        {
+          "coc_number": "TX-601",
+          "name": "Fort Worth/Arlington/Tarrant County CoC",
+          "total_homeless": 1941
+        },
+        {
+          "coc_number": "UT-500",
+          "name": "Salt Lake City & County CoC",
+          "total_homeless": 2047
+        },
+        {
+          "coc_number": "WA-500",
+          "name": "Seattle/King County CoC",
+          "total_homeless": 11643
+        },
+        {
+          "coc_number": "WI-503",
+          "name": "Madison/Dane County CoC",
+          "total_homeless": 585
+        }
+      ]
+    },
+    {
+      "name": "4b",
+      "children": [{
+          "coc_number": "CA-504",
+          "name": "Santa Rosa/Petaluma/Sonoma County CoC",
+          "total_homeless": 2835
+        },
+        {
+          "coc_number": "CA-505",
+          "name": "Richmond/Contra Costa County CoC",
+          "total_homeless": 1607
+        },
+        {
+          "coc_number": "CA-506",
+          "name": "Salinas/Monterey, San Benito Counties CoC",
+          "total_homeless": 3364
+        },
+        {
+          "coc_number": "CA-515",
+          "name": "Roseville/Rocklin/Placer, Nevada Counties CoC",
+          "total_homeless": 979
+        },
+        {
+          "coc_number": "CA-517",
+          "name": "Napa City & County CoC",
+          "total_homeless": 315
+        },
+        {
+          "coc_number": "CA-518",
+          "name": "Vallejo/Solano County CoC",
+          "total_homeless": 1232
+        },
+        {
+          "coc_number": "CA-525",
+          "name": "El Dorado County CoC",
+          "total_homeless": 602
+        },
+        {
+          "coc_number": "CA-602",
+          "name": "Santa Ana/Anaheim/Orange County CoC",
+          "total_homeless": 4792
+        },
+        {
+          "coc_number": "CA-603",
+          "name": "Santa Maria/Santa Barbara County CoC",
+          "total_homeless": 1860
+        },
+        {
+          "coc_number": "CO-503",
+          "name": "Metropolitan Denver Homeless Initiative",
+          "total_homeless": 5506
+        },
+        {
+          "coc_number": "CT-503",
+          "name": "Bridgeport/Norwalk /Stamford/Fairfield County CoC",
+          "total_homeless": 778
+        },
+        {
+          "coc_number": "FL-512",
+          "name": "Saint Johns County CoC",
+          "total_homeless": 445
+        },
+        {
+          "coc_number": "FL-606",
+          "name": "Naples/Collier County CoC",
+          "total_homeless": 621
+        },
+        {
+          "coc_number": "IL-502",
+          "name": "Waukegan/North Chicago/Lake County CoC",
+          "total_homeless": 228
+        },
+        {
+          "coc_number": "IL-517",
+          "name": "Aurora/Elgin/Kane County CoC",
+          "total_homeless": 360
+        },
+        {
+          "coc_number": "MA-503",
+          "name": "Cape Cod/Islands CoC",
+          "total_homeless": 324
+        },
+        {
+          "coc_number": "MA-511",
+          "name": "Quincy/Brockton/Weymouth/Plymouth City and County CoC",
+          "total_homeless": 1109
+        },
+        {
+          "coc_number": "MA-517",
+          "name": "Somerville CoC",
+          "total_homeless": 142
+        },
+        {
+          "coc_number": "MD-502",
+          "name": "Harford County CoC",
+          "total_homeless": 189
+        },
+        {
+          "coc_number": "MD-505",
+          "name": "Baltimore County CoC",
+          "total_homeless": 609
+        },
+        {
+          "coc_number": "MD-507",
+          "name": "Cecil County CoC",
+          "total_homeless": 193
+        },
+        {
+          "coc_number": "MD-511",
+          "name": "Mid-Shore Regional CoC",
+          "total_homeless": 153
+        },
+        {
+          "coc_number": "MI-504",
+          "name": "Pontiac/Royal Oak/Oakland County CoC",
+          "total_homeless": 412
+        },
+        {
+          "coc_number": "MI-519",
+          "name": "Holland/Ottawa County CoC",
+          "total_homeless": 258
+        },
+        {
+          "coc_number": "MI-523",
+          "name": "Eaton County CoC",
+          "total_homeless": 107
+        },
+        {
+          "coc_number": "MO-500",
+          "name": "St. Louis County CoC",
+          "total_homeless": 462
+        },
+        {
+          "coc_number": "NH-501",
+          "name": "Manchester CoC",
+          "total_homeless": 394
+        },
+        {
+          "coc_number": "NH-502",
+          "name": "Nashua/Hillsborough County CoC",
+          "total_homeless": 295
+        },
+        {
+          "coc_number": "NJ-501",
+          "name": "Bergen County CoC",
+          "total_homeless": 302
+        },
+        {
+          "coc_number": "NJ-507",
+          "name": "New Brunswick/Middlesex County CoC",
+          "total_homeless": 546
+        },
+        {
+          "coc_number": "NJ-508",
+          "name": "Monmouth County CoC",
+          "total_homeless": 299
+        },
+        {
+          "coc_number": "NJ-510",
+          "name": "Lakewood Township/Ocean County CoC",
+          "total_homeless": 224
+        },
+        {
+          "coc_number": "NJ-515",
+          "name": "Elizabeth/Union County CoC",
+          "total_homeless": 480
+        },
+        {
+          "coc_number": "NY-601",
+          "name": "Poughkeepsie/Dutchess County CoC",
+          "total_homeless": 388
+        },
+        {
+          "coc_number": "NY-602",
+          "name": "Newburgh/Middletown/Orange County CoC",
+          "total_homeless": 350
+        },
+        {
+          "coc_number": "NY-604",
+          "name": "Yonkers/Mount Vernon/New Rochelle/Westchester CoC",
+          "total_homeless": 1832
+        },
+        {
+          "coc_number": "NY-606",
+          "name": "Rockland County CoC",
+          "total_homeless": 170
+        },
+        {
+          "coc_number": "OR-506",
+          "name": "Hillsboro/Beaverton/Washington County CoC",
+          "total_homeless": 544
+        },
+        {
+          "coc_number": "OR-507",
+          "name": "Clackamas County CoC",
+          "total_homeless": 497
+        },
+        {
+          "coc_number": "PA-502",
+          "name": "Upper Darby/Chester/Haverford/Delaware County CoC",
+          "total_homeless": 453
+        },
+        {
+          "coc_number": "PA-510",
+          "name": "Lancaster City & County CoC",
+          "total_homeless": 321
+        },
+        {
+          "coc_number": "PA-512",
+          "name": "York City & County CoC",
+          "total_homeless": 288
+        },
+        {
+          "coc_number": "TN-510",
+          "name": "Murfreesboro/Rutherford County CoC",
+          "total_homeless": 316
+        },
+        {
+          "coc_number": "TX-700",
+          "name": "Houston, Pasadena, Conroe/Harris, Ft. Bend, Montgomery, Counties CoC",
+          "total_homeless": 3605
+        },
+        {
+          "coc_number": "UT-504",
+          "name": "Provo/Mountainland CoC",
+          "total_homeless": 171
+        },
+        {
+          "coc_number": "VA-500",
+          "name": "Richmond/Henrico, Chesterfield, Hanover Counties CoC",
+          "total_homeless": 662
+        },
+        {
+          "coc_number": "VA-505",
+          "name": "Newport News/Hampton/Virginia Peninsula CoC",
+          "total_homeless": 512
+        },
+        {
+          "coc_number": "VA-513",
+          "name": "Harrisburg, Winchester/Western Virginia CoC",
+          "total_homeless": 280
+        },
+        {
+          "coc_number": "VT-501",
+          "name": "Burlington/Chittenden County CoC",
+          "total_homeless": 291
+        },
+        {
+          "coc_number": "WA-503",
+          "name": "Tacoma/Lakewood/Pierce County CoC",
+          "total_homeless": 1321
+        },
+        {
+          "coc_number": "WA-504",
+          "name": "Everett/Snohomish County CoC",
+          "total_homeless": 1066
+        },
+        {
+          "coc_number": "WA-508",
+          "name": "Vancouver/Clark County CoC",
+          "total_homeless": 749
+        }
+      ]
+    },
+    {
+      "name": "4c",
+      "children": [{
+          "coc_number": "AK-501",
+          "name": "Alaska Balance of State CoC",
+          "total_homeless": 717
+        },
+        {
+          "coc_number": "CA-530",
+          "name": "Alpine, Inyo, Mono Counties CoC",
+          "total_homeless": 121
+        },
+        {
+          "coc_number": "CT-505",
+          "name": "Connecticut Balance of State CoC",
+          "total_homeless": 2610
+        },
+        {
+          "coc_number": "MA-516",
+          "name": "Massachusetts Balance of State CoC",
+          "total_homeless": 2080
+        },
+        {
+          "coc_number": "MN-502",
+          "name": "Rochester/Southeast Minnesota CoC",
+          "total_homeless": 552
+        },
+        {
+          "coc_number": "MN-505",
+          "name": "St. Cloud/Central Minnesota CoC",
+          "total_homeless": 862
+        },
+        {
+          "coc_number": "NH-500",
+          "name": "New Hampshire Balance of State CoC",
+          "total_homeless": 767
+        },
+        {
+          "coc_number": "NY-523",
+          "name": "Glens Falls/Saratoga Springs/Saratoga, Washington, Warren, Hamilton Counties CoC",
+          "total_homeless": 247
+        },
+        {
+          "coc_number": "TN-503",
+          "name": "Central Tennessee CoC",
+          "total_homeless": 285
+        },
+        {
+          "coc_number": "UT-503",
+          "name": "Utah Balance of State CoC",
+          "total_homeless": 634
+        },
+        {
+          "coc_number": "WI-500",
+          "name": "Wisconsin Balance of State CoC",
+          "total_homeless": 3348
+        },
+        {
+          "coc_number": "WY-500",
+          "name": "Wyoming Statewide CoC",
+          "total_homeless": 873
+        }
+      ]
+    },
+    {
+      "name": "5a",
+      "children": [{
+          "coc_number": "AR-500",
+          "name": "Little Rock/Central Arkansas CoC",
+          "total_homeless": 1006
+        },
+        {
+          "coc_number": "CA-503",
+          "name": "Sacramento City & County CoC",
+          "total_homeless": 3665
+        },
+        {
+          "coc_number": "FL-501",
+          "name": "Tampa/Hillsborough County CoC",
+          "total_homeless": 1549
+        },
+        {
+          "coc_number": "FL-510",
+          "name": "Jacksonville-Duval, Clay Counties CoC",
+          "total_homeless": 1869
+        },
+        {
+          "coc_number": "FL-601",
+          "name": "Ft Lauderdale/Broward County CoC",
+          "total_homeless": 2450
+        },
+        {
+          "coc_number": "FL-603",
+          "name": "Ft Myers/Cape Coral/Lee County CoC",
+          "total_homeless": 431
+        },
+        {
+          "coc_number": "ID-500",
+          "name": "Boise/Ada County CoC",
+          "total_homeless": 833
+        },
+        {
+          "coc_number": "KS-502",
+          "name": "Wichita/Sedgwick County CoC",
+          "total_homeless": 575
+        },
+        {
+          "coc_number": "KS-503",
+          "name": "Topeka/Shawnee County CoC",
+          "total_homeless": 356
+        },
+        {
+          "coc_number": "MA-505",
+          "name": "New Bedford CoC",
+          "total_homeless": 352
+        },
+        {
+          "coc_number": "MN-501",
+          "name": "Saint Paul/Ramsey County CoC",
+          "total_homeless": 1438
+        },
+        {
+          "coc_number": "NC-502",
+          "name": "Durham City & County CoC",
+          "total_homeless": 354
+        },
+        {
+          "coc_number": "NC-505",
+          "name": "Charlotte/Mecklenberg CoC",
+          "total_homeless": 1476
+        },
+        {
+          "coc_number": "NE-502",
+          "name": "Lincoln CoC",
+          "total_homeless": 606
+        },
+        {
+          "coc_number": "OH-503",
+          "name": "Columbus/Franklin County CoC",
+          "total_homeless": 1691
+        },
+        {
+          "coc_number": "OH-506",
+          "name": "Akron/Barberton/Summit County CoC",
+          "total_homeless": 507
+        },
+        {
+          "coc_number": "OK-501",
+          "name": "Tulsa City & County/Broken Arrow CoC",
+          "total_homeless": 1074
+        },
+        {
+          "coc_number": "OK-502",
+          "name": "Oklahoma City CoC",
+          "total_homeless": 1368
+        },
+        {
+          "coc_number": "TX-500",
+          "name": "San Antonio/Bexar County CoC",
+          "total_homeless": 2743
+        },
+        {
+          "coc_number": "TX-503",
+          "name": "Austin/Travis County CoC",
+          "total_homeless": 2036
+        },
+        {
+          "coc_number": "WA-502",
+          "name": "Spokane City & County CoC",
+          "total_homeless": 1090
+        }
+      ]
+    },
+    {
+      "name": "5b",
+      "children": [{
+          "coc_number": "AL-500",
+          "name": "Birmingham/Jefferson, St. Clair, Shelby Counties CoC",
+          "total_homeless": 1092
+        },
+        {
+          "coc_number": "AL-503",
+          "name": "Huntsville/North Alabama CoC",
+          "total_homeless": 436
+        },
+        {
+          "coc_number": "AR-501",
+          "name": "Fayetteville/Northwest Arkansas CoC",
+          "total_homeless": 330
+        },
+        {
+          "coc_number": "AZ-502",
+          "name": "Phoenix/Mesa/Maricopa County Regional CoC",
+          "total_homeless": 5605
+        },
+        {
+          "coc_number": "CA-508",
+          "name": "Watsonville/Santa Cruz City & County CoC",
+          "total_homeless": 2249
+        },
+        {
+          "coc_number": "CA-510",
+          "name": "Turlock/Modesto/Stanislaus County CoC",
+          "total_homeless": 1661
+        },
+        {
+          "coc_number": "CA-511",
+          "name": "Stockton/San Joaquin County CoC",
+          "total_homeless": 1542
+        },
+        {
+          "coc_number": "CA-524",
+          "name": "Yuba City & County/Sutter County CoC",
+          "total_homeless": 760
+        },
+        {
+          "coc_number": "CA-526",
+          "name": "Amador, Calaveras, Tuolumne and Mariposa Counties CoC",
+          "total_homeless": 367
+        },
+        {
+          "coc_number": "CA-604",
+          "name": "Bakersfield/Kern County CoC",
+          "total_homeless": 810
+        },
+        {
+          "coc_number": "CA-607",
+          "name": "Pasadena CoC",
+          "total_homeless": 575
+        },
+        {
+          "coc_number": "CA-608",
+          "name": "Riverside City & County CoC",
+          "total_homeless": 2406
+        },
+        {
+          "coc_number": "CA-612",
+          "name": "Glendale CoC",
+          "total_homeless": 168
+        },
+        {
+          "coc_number": "CA-614",
+          "name": "San Luis Obispo County CoC",
+          "total_homeless": 1125
+        },
+        {
+          "coc_number": "FL-500",
+          "name": "Sarasota/Bradenton/Manatee, Sarasota Counties CoC",
+          "total_homeless": 1447
+        },
+        {
+          "coc_number": "FL-503",
+          "name": "Lakeland/Winter Haven/Polk County CoC",
+          "total_homeless": 512
+        },
+        {
+          "coc_number": "FL-505",
+          "name": "Fort Walton Beach/Okaloosa, Walton Counties CoC",
+          "total_homeless": 401
+        },
+        {
+          "coc_number": "FL-507",
+          "name": "Orlando/Orange, Osceola, Seminole Counties CoC",
+          "total_homeless": 2074
+        },
+        {
+          "coc_number": "FL-509",
+          "name": "Fort Pierce/St. Lucie, Indian River, Martin Counties CoC",
+          "total_homeless": 1732
+        },
+        {
+          "coc_number": "FL-511",
+          "name": "Pensacola/Escambia/Santa Rosa County CoC",
+          "total_homeless": 758
+        },
+        {
+          "coc_number": "FL-513",
+          "name": "Palm Bay/Melbourne/Brevard County CoC",
+          "total_homeless": 845
+        },
+        {
+          "coc_number": "FL-519",
+          "name": "Pasco County CoC",
+          "total_homeless": 2593
+        },
+        {
+          "coc_number": "FL-520",
+          "name": "Citrus, Hernando, Lake, Sumter Counties CoC",
+          "total_homeless": 635
+        },
+        {
+          "coc_number": "FL-602",
+          "name": "Punta Gorda/Charlotte County CoC",
+          "total_homeless": 222
+        },
+        {
+          "coc_number": "FL-604",
+          "name": "Monroe County CoC",
+          "total_homeless": 631
+        },
+        {
+          "coc_number": "FL-605",
+          "name": "West Palm Beach/Palm Beach County CoC",
+          "total_homeless": 1607
+        },
+        {
+          "coc_number": "GA-508",
+          "name": "DeKalb County CoC",
+          "total_homeless": 460
+        },
+        {
+          "coc_number": "IA-500",
+          "name": "Sioux City/Dakota, Woodbury Counties CoC",
+          "total_homeless": 288
+        },
+        {
+          "coc_number": "IL-501",
+          "name": "Rockford/Winnebago, Boone Counties CoC",
+          "total_homeless": 291
+        },
+        {
+          "coc_number": "IL-504",
+          "name": "Madison County CoC",
+          "total_homeless": 176
+        },
+        {
+          "coc_number": "IL-507",
+          "name": "Peoria/Perkin/Fulton, Peoria, Tazewell, Woodford CoC",
+          "total_homeless": 329
+        },
+        {
+          "coc_number": "IL-513",
+          "name": "Springfield/Sangamon County CoC",
+          "total_homeless": 230
+        },
+        {
+          "coc_number": "IL-519",
+          "name": "West Central Illinois CoC",
+          "total_homeless": 80
+        },
+        {
+          "coc_number": "LA-506",
+          "name": "Slidell/Southeast Louisiana CoC",
+          "total_homeless": 248
+        },
+        {
+          "coc_number": "MA-506",
+          "name": "Worcester City & County CoC",
+          "total_homeless": 1507
+        },
+        {
+          "coc_number": "MA-507",
+          "name": "Pittsfield/Berkshire, Franklin, Hampshire County CoC",
+          "total_homeless": 557
+        },
+        {
+          "coc_number": "MA-510",
+          "name": "Gloucester, Haverhill, Salem/Essex County CoC",
+          "total_homeless": 747
+        },
+        {
+          "coc_number": "MA-515",
+          "name": "Fall River CoC",
+          "total_homeless": 297
+        },
+        {
+          "coc_number": "MA-519",
+          "name": "Attleboro/Taunton/Bristol County CoC",
+          "total_homeless": 234
+        },
+        {
+          "coc_number": "MD-510",
+          "name": "Garrett County CoC",
+          "total_homeless": 10
+        },
+        {
+          "coc_number": "MD-512",
+          "name": "Hagerstown/Washington County CoC",
+          "total_homeless": 208
+        },
+        {
+          "coc_number": "MD-513",
+          "name": "Wicomico/Somerset/Worcester County CoC",
+          "total_homeless": 260
+        },
+        {
+          "coc_number": "MI-503",
+          "name": "St. Clair Shores/Warren/Macomb County CoC",
+          "total_homeless": 354
+        },
+        {
+          "coc_number": "MI-506",
+          "name": "Grand Rapids/Wyoming/Kent County CoC",
+          "total_homeless": 912
+        },
+        {
+          "coc_number": "MI-509",
+          "name": "Ann Arbor/Washtenaw County CoC",
+          "total_homeless": 302
+        },
+        {
+          "coc_number": "MI-511",
+          "name": "Lenawee County CoC",
+          "total_homeless": 128
+        },
+        {
+          "coc_number": "MI-512",
+          "name": "Grand Traverse, Antrim, Leelanau Counties CoC",
+          "total_homeless": 228
+        },
+        {
+          "coc_number": "MI-515",
+          "name": "Monroe City & County CoC",
+          "total_homeless": 193
+        },
+        {
+          "coc_number": "MN-508",
+          "name": "Moorhead/West Central Minnesota CoC",
+          "total_homeless": 215
+        },
+        {
+          "coc_number": "MN-509",
+          "name": "Duluth/St.Louis County CoC",
+          "total_homeless": 505
+        },
+        {
+          "coc_number": "MO-600",
+          "name": "Springfield/Greene, Christian, Webster Counties CoC",
+          "total_homeless": 455
+        },
+        {
+          "coc_number": "MO-602",
+          "name": "Joplin/Jasper, Newton Counties CoC",
+          "total_homeless": 270
+        },
+        {
+          "coc_number": "NC-501",
+          "name": "Asheville/Buncombe County CoC",
+          "total_homeless": 562
+        },
+        {
+          "coc_number": "NC-513",
+          "name": "Chapel Hill/Orange County CoC",
+          "total_homeless": 127
+        },
+        {
+          "coc_number": "NJ-500",
+          "name": "Atlantic City & County CoC",
+          "total_homeless": 422
+        },
+        {
+          "coc_number": "NJ-503",
+          "name": "Camden City/Camden, Cumberland, Gloucester, Cape May Counties CoC",
+          "total_homeless": 938
+        },
+        {
+          "coc_number": "NJ-511",
+          "name": "Paterson/Passaic County CoC",
+          "total_homeless": 449
+        },
+        {
+          "coc_number": "NJ-512",
+          "name": "Salem County CoC",
+          "total_homeless": 16
+        },
+        {
+          "coc_number": "NV-500",
+          "name": "Las Vegas/Clark County CoC",
+          "total_homeless": 6490
+        },
+        {
+          "coc_number": "NV-501",
+          "name": "Reno/Sparks/Washoe County CoC",
+          "total_homeless": 1106
+        },
+        {
+          "coc_number": "NY-500",
+          "name": "Rochester/Irondequoit/Greece/Monroe County CoC",
+          "total_homeless": 817
+        },
+        {
+          "coc_number": "NY-501",
+          "name": "Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC",
+          "total_homeless": 226
+        },
+        {
+          "coc_number": "NY-503",
+          "name": "Albany City & County CoC",
+          "total_homeless": 802
+        },
+        {
+          "coc_number": "NY-504",
+          "name": "Cattaragus County CoC",
+          "total_homeless": 34
+        },
+        {
+          "coc_number": "NY-505",
+          "name": "Syracuse, Auburn/Onondaga, Oswego, Cayuga Counties CoC",
+          "total_homeless": 798
+        },
+        {
+          "coc_number": "NY-507",
+          "name": "Schenectady City & County CoC",
+          "total_homeless": 274
+        },
+        {
+          "coc_number": "NY-512",
+          "name": "Troy/Rensselaer County CoC",
+          "total_homeless": 194
+        },
+        {
+          "coc_number": "NY-513",
+          "name": "Wayne, Ontario, Seneca, Yates Counties CoC",
+          "total_homeless": 337
+        },
+        {
+          "coc_number": "NY-518",
+          "name": "Utica/Rome/Oneida, Madison Counties CoC",
+          "total_homeless": 162
+        },
+        {
+          "coc_number": "NY-519",
+          "name": "Columbia/Greene County CoC",
+          "total_homeless": 144
+        },
+        {
+          "coc_number": "NY-522",
+          "name": "Jefferson/Lewis/St. Lawrence Counties CoC",
+          "total_homeless": 169
+        },
+        {
+          "coc_number": "NY-607",
+          "name": "Sullivan County CoC",
+          "total_homeless": 167
+        },
+        {
+          "coc_number": "NY-608",
+          "name": "Kingston/Ulster County CoC",
+          "total_homeless": 411
+        },
+        {
+          "coc_number": "OH-508",
+          "name": "Canton/Massillon/Alliance/Stark County CoC",
+          "total_homeless": 319
+        },
+        {
+          "coc_number": "OK-504",
+          "name": "Norman/Cleveland County CoC",
+          "total_homeless": 174
+        },
+        {
+          "coc_number": "OR-501",
+          "name": "Portland-Gresham-Multnomah County CoC",
+          "total_homeless": 4177
+        },
+        {
+          "coc_number": "PA-501",
+          "name": "Harrisburg/Dauphin County CoC",
+          "total_homeless": 460
+        },
+        {
+          "coc_number": "PA-506",
+          "name": "Reading/Berks County CoC",
+          "total_homeless": 534
+        },
+        {
+          "coc_number": "PA-600",
+          "name": "Pittsburgh/McKeesport/Penn Hills/Allegheny County CoC",
+          "total_homeless": 1145
+        },
+        {
+          "coc_number": "PA-603",
+          "name": "Beaver County CoC",
+          "total_homeless": 98
+        },
+        {
+          "coc_number": "RI-500",
+          "name": "Rhode Island Statewide CoC",
+          "total_homeless": 1180
+        },
+        {
+          "coc_number": "SC-500",
+          "name": "Charleston/Low Country CoC",
+          "total_homeless": 425
+        },
+        {
+          "coc_number": "TN-504",
+          "name": "Nashville/Davidson County CoC",
+          "total_homeless": 2337
+        },
+        {
+          "coc_number": "VA-501",
+          "name": "Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC",
+          "total_homeless": 703
+        },
+        {
+          "coc_number": "VA-502",
+          "name": "Roanoke City & County/Salem CoC",
+          "total_homeless": 267
+        },
+        {
+          "coc_number": "VA-504",
+          "name": "Charlottesville CoC",
+          "total_homeless": 160
+        },
+        {
+          "coc_number": "WA-507",
+          "name": "Yakima City & County CoC",
+          "total_homeless": 572
+        },
+        {
+          "coc_number": "WI-502",
+          "name": "Racine City & County CoC",
+          "total_homeless": 194
+        }
+      ]
+    },
+    {
+      "name": "5c",
+      "children": [{
+          "coc_number": "CA-609",
+          "name": "San Bernardino City & County CoC",
+          "total_homeless": 1866
+        },
+        {
+          "coc_number": "CO-500",
+          "name": "Colorado Balance of State CoC",
+          "total_homeless": 4019
+        },
+        {
+          "coc_number": "DE-500",
+          "name": "Delaware Statewide CoC",
+          "total_homeless": 994
+        },
+        {
+          "coc_number": "GA-501",
+          "name": "Georgia Balance of State CoC",
+          "total_homeless": 3716
+        },
+        {
+          "coc_number": "HI-500",
+          "name": "Hawaii Balance of State CoC",
+          "total_homeless": 2261
+        },
+        {
+          "coc_number": "IA-501",
+          "name": "Iowa Balance of State CoC",
+          "total_homeless": 1792
+        },
+        {
+          "coc_number": "ID-501",
+          "name": "Idaho Balance of State",
+          "total_homeless": 1204
+        },
+        {
+          "coc_number": "IL-512",
+          "name": "Bloomington/Central Illinois CoC",
+          "total_homeless": 433
+        },
+        {
+          "coc_number": "IL-515",
+          "name": "South Central Illinois CoC",
+          "total_homeless": 108
+        },
+        {
+          "coc_number": "IL-518",
+          "name": "Rock Island/Moline/Northwestern Illinois CoC",
+          "total_homeless": 243
+        },
+        {
+          "coc_number": "IN-502",
+          "name": "Indiana Balance of State CoC",
+          "total_homeless": 3655
+        },
+        {
+          "coc_number": "KS-507",
+          "name": "Kansas Balance of State CoC",
+          "total_homeless": 1037
+        },
+        {
+          "coc_number": "ME-500",
+          "name": "Maine Balance of State CoC",
+          "total_homeless": 2280
+        },
+        {
+          "coc_number": "MI-500",
+          "name": "Michigan Balance of State CoC",
+          "total_homeless": 1465
+        },
+        {
+          "coc_number": "MN-504",
+          "name": "Northeast Minnesota CoC",
+          "total_homeless": 99
+        },
+        {
+          "coc_number": "MN-506",
+          "name": "Northwest Minnesota CoC",
+          "total_homeless": 288
+        },
+        {
+          "coc_number": "MN-511",
+          "name": "Southwest Minnesota CoC",
+          "total_homeless": 108
+        },
+        {
+          "coc_number": "MO-606",
+          "name": "Missouri Balance of State CoC",
+          "total_homeless": 1244
+        },
+        {
+          "coc_number": "MT-500",
+          "name": "Montana Statewide CoC",
+          "total_homeless": 1529
+        },
+        {
+          "coc_number": "ND-500",
+          "name": "North Dakota Statewide CoC",
+          "total_homeless": 1089
+        },
+        {
+          "coc_number": "NE-500",
+          "name": "Nebraska Balance of State CoC",
+          "total_homeless": 506
+        },
+        {
+          "coc_number": "NV-502",
+          "name": "Nevada Balance of State CoC",
+          "total_homeless": 237
+        },
+        {
+          "coc_number": "NY-511",
+          "name": "Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C",
+          "total_homeless": 308
+        },
+        {
+          "coc_number": "OH-507",
+          "name": "Ohio Balance of State CoC",
+          "total_homeless": 3309
+        },
+        {
+          "coc_number": "OK-503",
+          "name": "Oklahoma Balance of State CoC",
+          "total_homeless": 432
+        },
+        {
+          "coc_number": "OK-505",
+          "name": "Northeast Oklahoma CoC",
+          "total_homeless": 377
+        },
+        {
+          "coc_number": "OR-503",
+          "name": "Central Oregon CoC",
+          "total_homeless": 778
+        },
+        {
+          "coc_number": "OR-505",
+          "name": "Oregon Balance of State CoC",
+          "total_homeless": 5795
+        },
+        {
+          "coc_number": "PA-509",
+          "name": "Eastern Pennsylvania CoC",
+          "total_homeless": 2170
+        },
+        {
+          "coc_number": "PA-601",
+          "name": "Western Pennsylvania CoC",
+          "total_homeless": 837
+        },
+        {
+          "coc_number": "SD-500",
+          "name": "South Dakota Statewide CoC",
+          "total_homeless": 943
+        },
+        {
+          "coc_number": "TX-607",
+          "name": "Texas Balance of State (BoS) CoC",
+          "total_homeless": 7153
+        },
+        {
+          "coc_number": "VT-500",
+          "name": "Vermont Balance of State CoC",
+          "total_homeless": 934
+        },
+        {
+          "coc_number": "WA-501",
+          "name": "Washington Balance of State CoC",
+          "total_homeless": 4671
+        }
+      ]
+    }
+  ]
+}
