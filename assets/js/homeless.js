@@ -38,6 +38,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
           d3.csv('/data-lab-data/coc_pop_value.csv', function(table_data) {
 
 
+<<<<<<< HEAD
             console.log('CoC US: ', us);
             console.log('CFDA State: ', cfda_state);
             //console.log('data: ', data);
@@ -81,6 +82,106 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               info_width = panel_2_width - matrix_width - margin.left - margin.right,
               info_height = panel_2_height / 3,
               centered = null;
+=======
+          console.log('CoC US: ', us);
+          console.log('CFDA State: ', cfda_state);
+          //console.log('data: ', data);
+          console.log('bar_chrt: ', bar_chrt);
+          console.log('state: ', state);
+          //console.log('scatter_data: ', scatter_data);
+          console.log('table_data: ', table_data);
+
+          d3.select('#container2_1').append('div').attr('id', 'p2_1_title')
+          d3.select('#container2_1').append('div').attr('id', 'p2_1').style('top', '150px')
+          d3.select('#container2_2').append('div').attr('id', 'p2_2_legend_title')
+          /*d3.select('#container2_2').append('div').attr('id', 'p2_2_legend')*/
+          d3.select('#container2_2').append('div').attr('id', 'p2_2')
+          d3.select('#container2_3').append('div').attr('id', 'p2_3_title')
+          d3.select('#container2_3').append('div').attr('id', 'p2_3')
+          d3.select('#container2_2').append('div').attr('id', 'p2_4_legend')
+          d3.select('#container2_2').append('div').attr('id', 'p2_4_legend_title')
+          d3.select('#container2_4').append('div').attr('id', 'p2_4')
+          d3.select('#CoCcontact').append('div').attr('id', 'p2_5')
+          d3.select('#p2_1').append('div').attr('id', 'panel_map')
+          d3.select('#p2_2').append('div').attr('id', 'panel_matrix')
+          d3.select('#p2_3').append('div').attr('id', 'panel_coc')
+          d3.select('#p2_4').append('div').attr('id', 'panel_info')
+          d3.select('#p2_5').append('div').attr('id', 'panel_contact')
+
+
+          var abs_width = 1024,
+            abs_height = 575,
+            margin = {
+              top: 100,
+              right: 50,
+              bottom: 15,
+              left: 100
+            },
+            panel_2_width = abs_width - margin.left - margin.right,
+            panel_2_height = abs_height - margin.top - margin.bottom,
+            matrix_width = abs_width / 1.85 - margin.left - margin.right,
+            matrix_height = abs_height - margin.top - margin.bottom,
+            map_width = panel_2_width - matrix_width - margin.left - margin.right - 45,
+            map_height = panel_2_height / 3,
+            info_width = panel_2_width - matrix_width - margin.left - margin.right,
+            info_height = panel_2_height / 3,
+            centered = null;
+
+          var map_title = d3.select('#p2_1_title')
+            .append('div')
+            .attr('padding', '50px 0 0 0')
+            .attr('class', 'p2_1_title')
+            .style('text-align', 'center');
+
+          var p2_1_map_svg = d3.select('#panel_map')
+            .append('svg')
+            .attr('id', 'p2_1_map')
+            .attr('width', '100%')//map_width + margin.left + margin.right + 40)
+            .attr('height', '350px')//map_height + margin.top + margin.bottom + 25);
+
+            
+
+          var info_panel = d3.select('#panel_info')
+            .attr('width', '100%')//info_width + margin.left + margin.right)
+            .attr('height', info_height + margin.top + margin.bottom - 20);
+
+          var contact_panel = d3.select('#panel_contact')
+            .attr('width', info_width + margin.left + margin.right)
+            .attr('height', info_height + margin.top + margin.bottom);
+
+          var coc_panel = d3.select('#panel_coc')
+            .attr('height', info_height + margin.top + margin.bottom)
+            .attr('width','100%');
+
+          var p2_matrix_svg = d3.select('#panel_matrix').append('svg')
+            /*.attr('width', matrix_width + margin.left + margin.right)
+            .attr('height', matrix_height + margin.top + margin.bottom)*/
+            .attr('width', '100%')//map_width + margin.left + margin.right + 50)
+            .attr('height', map_height + margin.top + margin.bottom + 40)
+            .style('margin-left', -margin.left / 2.5 + 'px')
+            .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
+
+          var p2_tip = d3.tip()
+            .attr('class', 'homeless-analysis d3-tip')
+            .style('background', '#ffffff')
+            .style('color', '#333')
+            .style('border', 'solid 1px #BFBCBC')
+            .style('padding', '25px')
+            .style('width', '300px')
+            .html(function(d) {
+              return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color: #555555">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</b></p>' + '<br>' +
+                '<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ' + getDollarValue(d) + '</p><br>' +
+                '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>'
+              /*+
+                              '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">'+
+                                '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Total Homeless: ' + getValue(d) + '</li>' +
+                                '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Sheltered Homeless: ' + getSheltered(d) + '</li>' +
+                                '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Unsheltered Homeless: ' + getUnsheltered(d) + '</li>' +
+                                '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Homeless Veterans: ' + getVets(d) + '</li>'+
+                              '</ul>'*/
+              ;
+            });
+>>>>>>> a5c3355f4c3a5fd837fd0492fabeefafb0314935
 
             var map_title = d3.select('#p2_1_title')
               .append('div')
@@ -88,6 +189,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .attr('class', 'p2_1_title')
               .style('text-align', 'center');
 
+<<<<<<< HEAD
             var p2_1_map_svg = d3.select('#panel_map')
               .append('svg')
               .attr('id', 'p2_1_map')
@@ -101,6 +203,26 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var contact_panel = d3.select('#panel_contact')
               .attr('width', info_width + margin.left + margin.right)
               .attr('height', info_height + margin.top + margin.bottom);
+=======
+          /*  .html(function(d) {
+              return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b>' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</p>' + '<br>' +
+                '<p style="color: #0071BC; margin: 0; font-size: 20px">Total Homeless: ' + getValue(d) + '</p><br>' +
+                '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">'+
+                '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Sheltered Homeless: ' + getSheltered(d) + '</li>' +
+                '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Unsheltered Homeless: ' + getUnsheltered(d) + '</li></ul>';
+            })*/
+          var p2_3_bar_tip = d3.tip()
+            .attr('class', 'homeless-analysis d3-tip')
+            .style('background', '#ffffff')
+            .style('color', '#333')
+            .style('border', 'solid 1px #BFBCBC')
+            .style('padding', '25px')
+            .style('width', '400px')
+            .offset([-10, 0])
+            .html(function(d) {
+              return getCFDA_value(d);
+            });
+>>>>>>> a5c3355f4c3a5fd837fd0492fabeefafb0314935
 
             var coc_panel = d3.select('#panel_coc')
               .attr('height', info_height + margin.top + margin.bottom)
@@ -137,6 +259,15 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               });
 
 
+<<<<<<< HEAD
+=======
+          p2_1_map_svg.append('circle').attr('id', 'tipfollowscursor_2');
+          p2_1_map_svg.call(p2_tip);
+
+          bar_chrt.forEach(function(d) {
+            d.fed_funding = +d.fed_funding;
+          });
+>>>>>>> a5c3355f4c3a5fd837fd0492fabeefafb0314935
 
 
             /*  .html(function(d) {
@@ -375,6 +506,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('width', width)
                 .attr('height', height);
 
+<<<<<<< HEAD
               var map_svg = d3.select('#map_container')
                 .append('svg')
                 .attr('id', 'svg')
@@ -398,6 +530,83 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                     '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Unsheltered Homeless: ' + getUnsheltered(d) + '</li></ul><br>' +
                     '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>';
                 })
+=======
+            var map_svg = d3.select('#map_container')
+              .append('svg')
+              .attr('id', 'svg')
+              .attr('width', '950px')
+              .attr('height', '575px');
+
+            var tip = d3.tip()
+              .attr('class', 'homeless-analysis d3-tip')
+              .style('background', '#ffffff')
+              .style('color', '#333')
+              .style('border', 'solid 1px #BFBCBC')
+              .style('padding', '25px')
+              .style('width', '300px')
+              .offset([-10, -10])
+              .html(function(d) {
+                return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</p>' + '<br>' +
+                  /*'<hr style="height: 1px; color: #BFBCBC">'*/
+                  '<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">Total Homeless: ' + getValue(d) + '</p><br>' +
+                  '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">' +
+                  '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Sheltered Homeless: ' + getSheltered(d) + '</li>' +
+                  '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Unsheltered Homeless: ' + getUnsheltered(d) + '</li></ul><br>' +
+                  '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>';
+              })
+
+            map_svg.append('circle').attr('id', 'tipfollowscursor_1');
+            map_svg.call(tip);
+
+            d3.select('#legend_title').append('h3')
+              .attr('id', 'title')
+              .style('text-align', 'center')
+              .style('color', '#476057')
+              .style('margin-bottom', '10px')
+              .text('Homeless Population by Region')
+
+            d3.select('#legend_subtitle').append('p')
+              .attr('id', 'subtitle')
+              .style('text-align', 'center')
+              .style('color', '#476057')
+              .style('font-style', 'italic')
+              .text('HUD Point in Time Count by Continuum of Care Area')
+
+            var g = map_svg.append('g')
+              .attr('class', 'counties')
+              .selectAll('path')
+              .data(us.features)
+              .enter().append('path')
+              .attr('class', 'coc')
+              .attr('data-coc', function(d) {
+                return d.properties.coc_number;
+              })
+              .attr('data-state', function(d) {
+                return d.properties.state;
+              })
+              .attr('data-name', function(d) {
+                return d.properties.name;
+              })
+              .attr('d', path)
+              .on('mouseover', function(d) {
+                var target = d3.select('#tipfollowscursor_1')
+                .attr('cx', d3.event.offsetX)
+                .attr('cy', d3.event.offsetY - 30)
+                .node();
+                tip.show(d, target);
+              })
+              .on('mouseout', tip.hide)
+              .on('dblclick', clicked)
+              .on("click", function(d) {
+                BarChart(d);
+                createCoCTable(d);
+                Make_Map_Title(d)
+                StateBarChart(d);
+                //createCFDATableHover(d);
+                p2_1_clicked_p1(d);
+              })
+              .style('fill', getColor);
+>>>>>>> a5c3355f4c3a5fd837fd0492fabeefafb0314935
 
               map_svg.call(tip)
 
@@ -963,6 +1172,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               //var OnMouseOver = 'BarChart; tip.show'
 
+<<<<<<< HEAD
               m.selectAll('p2_1_path')
                 .data(us.features)
                 .enter().append('path')
@@ -1030,6 +1240,80 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                     } else {
                       return ('#291C24')
                     }
+=======
+            m.selectAll('p2_1_path')
+              .data(us.features)
+              .enter().append('path')
+              .attr('d', p2_1_path)
+              .attr('id', 'counties_mini')
+              .attr('data-coc', function(d) {
+                return d.properties.coc_number;
+              })
+              .attr('data-state', function(d) {
+                return d.properties.state;
+              })
+              .attr('data-name', function(d) {
+                return d.properties.name;
+              })
+              .attr('d', p2_1_path)
+              .on('click', function(d) {
+                BarChart(d);
+                StateBarChart(d);
+                createCoCTable(d);
+                Make_Map_Title(d)
+                createContact(d);
+              })
+              .style('fill', p2_getColor)
+              .on('dblclick', p2_1_clicked)
+              .on('mouseover', function(d) {
+                var target = d3.select('#tipfollowscursor_2')
+                .attr('cx', d3.event.offsetX)
+                .attr('cy', d3.event.offsetY - 30)
+                .node();
+                p2_tip.show(d, target);
+              })
+              .on('mouseout', p2_tip.hide);
+
+            function p2_getColor(d) {
+              for (var i = 0; i < table_data.length; i++) {
+                if (d.properties.coc_number === table_data[i].coc_number) {
+                  if (table_data[i].amount <= 500000) {
+                    return ('#BEF399');
+                  } else if (table_data[i].amount <= 1500000) {
+                    return ('#B0EC9A');
+                  } else if (table_data[i].amount <= 2500000) {
+                    return ('#A3E59B');
+                  } else if (table_data[i].amount <= 5000000) {
+                    return ('#96DD9B');
+                  } else if (table_data[i].amount <= 7500000) {
+                    return ('#8AD59C');
+                  } else if (table_data[i].amount <= 10000000) {
+                    return ('#80CE9C');
+                  } else if (table_data[i].amount <= 20000000) {
+                    return ('#76C69C');
+                  } else if (table_data[i].amount <= 30000000) {
+                    return ('#6DBD9B');
+                  } else if (table_data[i].amount <= 40000000) {
+                    return ('#66B59A');
+                  } else if (table_data[i].amount <= 50000000) {
+                    return ('#5FAD98');
+                  } else if (table_data[i].amount <= 60000000) {
+                    return ('#5AA496');
+                  } else if (table_data[i].amount <= 70000000) {
+                    return ('#569C93');
+                  } else if (table_data[i].amount <= 80000000) {
+                    return ('#529490');
+                  } else if (table_data[i].amount <= 90000000) {
+                    return ('#508B8C');
+                  } else if (table_data[i].amount <= 100000000) {
+                    return ('#4E8387');
+                  } else if (table_data[i].amount <= 150000000) {
+                    return ('#465261');
+                  } else if (table_data[i].amount <= 200000000) {
+                    return ('#3E3C4A');
+                  } else {
+                    return ('#291C24')
+>>>>>>> a5c3355f4c3a5fd837fd0492fabeefafb0314935
                   }
                 }
               }
