@@ -36,6 +36,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
       d3.csv('/data-lab-data/State_crosswalk.csv', function(state) {
         d3.csv('/data-lab-data/cfda_acronyms.csv', function(acr) {
           d3.csv('/data-lab-data/coc_pop_value.csv', function(table_data) {
+            d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
+              d3.csv('/data-lab-data/homeless_clusters_cmeans.csv', function(cluster) {
 
 
             console.log('CoC US: ', us);
@@ -1501,15 +1503,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 'Email: ' + d.properties.EMAIL_ADDR + '<br>' +
                 'Phone: ' + d.properties.PRIMARY_PH + '</p>';
             }
-          })
-        })
-      })
-    })
-  })
-})
 
+// PANEL 3 ********************************************
 var w = $('#panel_3b').width(),
-  h = $('#panel_3b').height() * (3 / 8),
+  h = $('#panel_3b').height() * (1 / 3),
   x = d3.scale.linear().range([0, w]),
   y = d3.scale.linear().range([0, h]),
   color = d3.scale.category20c(),
@@ -1536,8 +1533,7 @@ var svg = d3.select("#tree").append("div")
   .attr("transform", "translate(.5,.5)");
 
 //d3.json("kinoko_takenoko.json", function(data) {
-d3.json('/data-lab-data/homeless_cluster.json', function(data) {
-  d3.csv('/data-lab-data/homeless_clusters_cmeans.csv', function(cluster) {
+
 
     var formatNumber = d3.format('$,.0f');
     var OtherformatNumber = d3.format(',');
@@ -1564,8 +1560,8 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds
       });
 
-    node = root = data;
-    console.log(data);
+    node = root = tree_data;
+    console.log(tree_data);
     var nodes = treemap.nodes(root)
       .filter(function(d) {
         return !d.children;
@@ -1626,7 +1622,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
     initialize_accordion();
 
     function initialize_accordion(){
-      var init_accordion = data.children[0].children;
+      var init_accordion = tree_data.children[0].children;
       console.log("init accordion: ", init_accordion[0]);
 
       for (var i = 0; i < init_accordion.length; i++) {
@@ -1755,8 +1751,18 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
 
     }
 
+              })
+            })
+          })
+        })
+      })
+    })
   })
-});
+})
+
+
+
+
 
 
 
