@@ -1778,7 +1778,7 @@ d3.select('#panel_3c')
       h = 800,
       i = 0,
       barHeight = 20,
-      barWidth = w * .8,
+      barWidth = w * .95,
       duration = 400,
       root;
 
