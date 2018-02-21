@@ -1750,7 +1750,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
         '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
         '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<p>Property crime (incidents per 10k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
+        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
 
       )
 
