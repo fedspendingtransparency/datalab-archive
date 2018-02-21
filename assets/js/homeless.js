@@ -233,6 +233,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var formatNumber = d3.format('$,.0f');
             var OtherformatNumber = d3.format(',');
+            var P3_formatNumber = d3.format(',.2');
 
             function bar_click(d) {
               console.log("bar_click d: ", d);
@@ -1536,173 +1537,220 @@ var svg = d3.select("#tree").append("div")
 
 //d3.json("kinoko_takenoko.json", function(data) {
 d3.json('/data-lab-data/homeless_cluster.json', function(data) {
-  node = root = data;
-  console.log(data);
-  var nodes = treemap.nodes(root)
-    .filter(function(d) {
-      return !d.children;
+  d3.csv('/data-lab-data/homeless_clusters_cmeans.csv', function(cluster) {
+
+    var formatNumber = d3.format('$,.0f');
+    var OtherformatNumber = d3.format(',');
+    var P3_formatNumber = d3.format(',.2f');
+
+
+    console.log('cluster: ',cluster)
+    cluster.forEach(function(d) {
+      d.days_below_32 = +d.days_below_32
+      d.density = +d.density
+      d.estimated_pop_2016 = +d.estimated_pop_2016
+      d.homeless_individuals = +d.homeless_individuals
+      d.homeless_people_in_families = +d.homeless_people_in_families
+      d.land_area = +d.land_area
+      d.sheltered_homeless = +d.sheltered_homeless
+      d.total_homeless = +d.total_homeless
+      d.unsheltered_homeless = +d.unsheltered_homeless
+      d.weighted_alcohol_dependence_or_abuse = +d.weighted_alcohol_dependence_or_abuse
+      d.weighted_drug_use = +d.weighted_drug_use
+      d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent
+      d.weighted_income = +d.weighted_income
+      d.weighted_mental_illness = +d.weighted_mental_illness
+      });
+
+    node = root = data;
+    console.log(data);
+    var nodes = treemap.nodes(root)
+      .filter(function(d) {
+        return !d.children;
+      });
+
+    var cell = svg.selectAll("g")
+      .data(nodes)
+      .enter().append("svg:g")
+      .attr("class", "cell")
+      .attr("transform", function(d) {
+        return "translate(" + d.x + "," + d.y + ")";
+      })
+      .on("click", function(d) {
+        return zoom(node == d.parent ? root : d.parent);
+      });
+
+    cell.append("svg:rect")
+      .attr("width", function(d) {
+        return d.dx - 1;
+      })
+      .attr("height", function(d) {
+        return d.dy - 1;
+      })
+      .style("fill", function(d) {
+        return color(d.parent.group);
+      });
+
+    cell.append("svg:text")
+      .attr("x", function(d) {
+        return d.dx / 2;
+      })
+      .attr("y", function(d) {
+        return d.dy / 2;
+      })
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .text(function(d) {
+        return d.coc_name;
+      })
+      .style('font-size', '8px')
+      .style('word-wrap', 'break-word')
+      .style("opacity", function(d) {
+        d.w = this.getComputedTextLength();
+        return d.dx > d.w ? 1 : 0;
+      });
+
+    d3.select('.chart').on("click", function() {
+      zoom(root);
     });
 
-  var cell = svg.selectAll("g")
-    .data(nodes)
-    .enter().append("svg:g")
-    .attr("class", "cell")
-    .attr("transform", function(d) {
-      return "translate(" + d.x + "," + d.y + ")";
+    d3.select("select").on("change", function() {
+      //treemap.value(this.value == "size" ? size : count).nodes(root);
+      treemap.value((this.value == "total_homeless") ? total_homeless : (this.value == "sheltered_homeless") ? sheltered_homeless : (this.value == "unsheltered_homeless") ? ground : unsheltered_homeless).nodes(root);
+      zoom(node);
     })
-    .on("click", function(d) {
-      return zoom(node == d.parent ? root : d.parent);
-    });
+    // Initialize accordion
+    d3.select('#panel_3c').append('div').attr('id', 'accordion');
+    initialize_accordion();
 
-  cell.append("svg:rect")
-    .attr("width", function(d) {
-      return d.dx - 1;
-    })
-    .attr("height", function(d) {
-      return d.dy - 1;
-    })
-    .style("fill", function(d) {
-      return color(d.parent.group);
-    });
+    function initialize_accordion(){
+      var init_accordion = data.children[0].children;
+      console.log("init accordion: ", init_accordion[0]);
 
-  cell.append("svg:text")
-    .attr("x", function(d) {
-      return d.dx / 2;
-    })
-    .attr("y", function(d) {
-      return d.dy / 2;
-    })
-    .attr("dy", ".35em")
-    .attr("text-anchor", "middle")
-    .text(function(d) {
-      return d.coc_name;
-    })
-    .style('font-size', '8px')
-    .style("opacity", function(d) {
-      d.w = this.getComputedTextLength();
-      return d.dx > d.w ? 1 : 0;
-    });
-
-  d3.select('.chart').on("click", function() {
-    zoom(root);
-  });
-
-  d3.select("select").on("change", function() {
-    //treemap.value(this.value == "size" ? size : count).nodes(root);
-    treemap.value((this.value == "total_homeless") ? total_homeless : (this.value == "sheltered_homeless") ? sheltered_homeless : (this.value == "unsheltered_homeless") ? ground : unsheltered_homeless).nodes(root);
-    zoom(node);
-  })
-  // Initialize accordion
-  d3.select('#panel_3c').append('div').attr('id', 'accordion');
-  initialize_accordion();
-
-  function initialize_accordion(){
-    var init_accordion = data.children[0].children;
-    console.log("init accordion: ", init_accordion[0]);
-
-    for (var i = 0; i < init_accordion.length; i++) {
-      makeAccordion(init_accordion[i]);
+      for (var i = 0; i < init_accordion.length; i++) {
+        makeAccordion(init_accordion[i]);
+      }
     }
-  }
-  function makeAccordion(d) {
-    d3.select('#accordion')
-      .append('div')
-      .attr('class', 'panel')
-      .attr('position', 'relative')
-      .append('div')
-      .attr('class', 'header')
-      .html('<p>' + d.coc_name + '</p>')
-      .append('div')
-      .attr('class', 'body')
-      .html('<p>' + "initAccordion function is defined to initialize the accordion component. It puts a click event on each panel. When a panel is clicked, it removes the active class from the current active panel and adds it to the new panel. By default, it makes the first panel as active." + '</p>');
-  }
-
-  function initAccordion(accordionElem) {
-
-    //when panel is clicked, handlePanelClick is called.
-
-    function handlePanelClick(event) {
-      showPanel(event.currentTarget);
+    function makeAccordion(d) {
+      d3.select('#accordion')
+        .append('div')
+        .attr('class', 'panel')
+        .attr('position', 'relative')
+        .append('div')
+        .attr('class', 'header')
+        .html('<p>' + d.coc_name + '</p>')
+        .append('div')
+        .attr('class', 'body')
+        .html(get_CFDA(d));
     }
 
-    //Hide currentPanel and show new panel.
+    function initAccordion(accordionElem) {
 
-    function showPanel(panel) {
-      //Hide current one. First time it will be null.
-      var expandedPanel = accordionElem.querySelector(".active");
-      if (expandedPanel) {
-        expandedPanel.classList.remove("active");
+      //when panel is clicked, handlePanelClick is called.
+
+      function handlePanelClick(event) {
+        showPanel(event.currentTarget);
       }
 
-      //Show new one
-      panel.classList.add("active");
+      //Hide currentPanel and show new panel.
 
-    }
+      function showPanel(panel) {
+        //Hide current one. First time it will be null.
+        var expandedPanel = accordionElem.querySelector(".active");
+        if (expandedPanel) {
+          expandedPanel.classList.remove("active");
+        }
 
-    var allPanelElems = accordionElem.querySelectorAll(".panel");
-    for (var i = 0, len = allPanelElems.length; i < len; i++) {
-      allPanelElems[i].addEventListener("click", handlePanelClick);
-    }
+        //Show new one
+        panel.classList.add("active");
 
-    //By Default Show first panel
-    showPanel(allPanelElems[0])
-
-  }
-
-  initAccordion(document.getElementById("accordion"));
-
-  function zoom(d) {
-
-    d3.selectAll('.panel').remove()
-    console.log('zoom d: ', d)
-
-    if(d.depth === 0){
-        console.log("IN ZOOM OUT!!!!!")
-        initialize_accordion();
-    }else{
-      var accordion = d.children
-      console.log('zoom d accordion: ', accordion)
-      for (var i = 0; i < accordion.length; i++) {
-        makeAccordion(accordion[i]);
       }
+
+      var allPanelElems = accordionElem.querySelectorAll(".panel");
+      for (var i = 0, len = allPanelElems.length; i < len; i++) {
+        allPanelElems[i].addEventListener("click", handlePanelClick);
+      }
+
+      //By Default Show first panel
+      showPanel(allPanelElems[0])
+
     }
 
     initAccordion(document.getElementById("accordion"));
 
-    var kx = w / d.dx,
-      ky = h / d.dy;
-    x.domain([d.x, d.x + d.dx]);
-    y.domain([d.y, d.y + d.dy]);
+    function zoom(d) {
 
-    var t = svg.selectAll("g.cell").transition()
-      .duration(d3.event.altKey ? 7500 : 750)
-      .attr("transform", function(d) {
-        return "translate(" + x(d.x) + "," + y(d.y) + ")";
-      });
+      d3.selectAll('.panel').remove()
+      console.log('zoom d: ', d)
 
-    t.select("rect")
-      .attr("width", function(d) {
-        return kx * d.dx - 1;
-      })
-      .attr("height", function(d) {
-        return ky * d.dy - 1;
-      })
+      if(d.depth === 0){
+          console.log("IN ZOOM OUT!!!!! ")
+          initialize_accordion();
+      }else{
+        var accordion = d.children
+        console.log('zoom d accordion: ', accordion)
+        for (var i = 0; i < accordion.length; i++) {
+          makeAccordion(accordion[i]);
+        }
+      }
 
-    t.select("text")
-      .attr("x", function(d) {
-        return kx * d.dx / 2;
-      })
-      .attr("y", function(d) {
-        return ky * d.dy / 2;
-      })
-      .style("opacity", function(d) {
-        return kx * d.dx > d.w ? 1 : 0;
-      });
+      initAccordion(document.getElementById("accordion"));
 
-    node = d;
-    d3.event.stopPropagation();
-  }
+      var kx = w / d.dx,
+        ky = h / d.dy;
+      x.domain([d.x, d.x + d.dx]);
+      y.domain([d.y, d.y + d.dy]);
 
+      var t = svg.selectAll("g.cell").transition()
+        .duration(d3.event.altKey ? 7500 : 750)
+        .attr("transform", function(d) {
+          return "translate(" + x(d.x) + "," + y(d.y) + ")";
+        });
+
+      t.select("rect")
+        .attr("width", function(d) {
+          return kx * d.dx - 1;
+        })
+        .attr("height", function(d) {
+          return ky * d.dy - 1;
+        })
+
+      t.select("text")
+        .attr("x", function(d) {
+          return kx * d.dx / 2;
+        })
+        .attr("y", function(d) {
+          return ky * d.dy / 2;
+        })
+        .style("opacity", function(d) {
+          return kx * d.dx > d.w ? 1 : 0;
+        });
+
+      node = d;
+      d3.event.stopPropagation();
+    }
+
+    function get_CFDA(d){
+      console.log('get_CFDA: ',d)
+
+      function filter_cocNum_barChart(cluster) {
+        return cluster.coc_number == d.coc_number;
+      }
+
+      var dat = cluster.filter(filter_cocNum_barChart)[0];
+
+      console.log('get CFDA dat: ',dat)
+
+      return(
+        '<p>Area in square miles: ' + P3_formatNumber(dat.land_area) + '</p>' +
+        '<p>Population density: ' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
+        '<p>Avg income for the 25th percentile: ' + formatNumber(dat.weighted_income) + '</p>'
+
+      )
+
+    }
+
+  })
 });
 
 
