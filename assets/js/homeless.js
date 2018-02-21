@@ -1686,31 +1686,34 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
       initAccordion(document.getElementById("accordion"));
 
-      var kx = w / d.dx,
-        ky = h / d.dy;
-      x.domain([d.x, d.x + d.dx]);
-      y.domain([d.y, d.y + d.dy]);
+      // var kx = w / d.dx,
+      //   ky = h / d.dy;
+      // x.domain([d.x, d.x + d.dx]);
+      // y.domain([d.y, d.y + d.dy]);
+      //
+      // var t = svg.selectAll("g.cell").transition()
+      //   .duration(d3.event.altKey ? 7500 : 750)
+      //   // .attr("transform", function(d) {
+      //   //   return "translate(" + x(d.x) + "," + y(d.y) + ")";
+      //   // });
+      //   .attr("transform", function(d) {
+      //     return "translate(" + 1 + "," + 1 + ")";
+      //   });
 
-      var t = svg.selectAll("g.cell").transition()
-        .duration(d3.event.altKey ? 7500 : 750)
-        .attr("transform", function(d) {
-          return "translate(" + x(d.x) + "," + y(d.y) + ")";
-        });
-
-      t.select("rect")
-        .attr("width", function(d) {
-          return kx * d.dx - 1;
-        })
-        .attr("height", function(d) {
-          return ky * d.dy - 1;
-        })
-
-      t.select("text")
-        // .attr("x",0)
-        // .attr("dx", "0.35em")
-        // .attr("dy", "0.9em");
-        .each(fontSize)
-        .each(wordWrap);
+      // t.select("rect")
+      //   .attr("width", function(d) {
+      //     return kx * d.dx - 1;
+      //   })
+      //   .attr("height", function(d) {
+      //     return ky * d.dy - 1;
+      //   })
+      //
+      // t.select("text")
+      //   // .attr("x",0)
+      //   // .attr("dx", "0.35em")
+      //   // .attr("dy", "0.9em");
+      //   .each(fontSize)
+      //   .each(wordWrap);
 
       node = d;
       d3.event.stopPropagation();
@@ -1742,7 +1745,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
     }
 
     function fontSize(d,i) {
-      var size = d.dx/10;
+      var size = d.dx/9;
       console.log("fontSize: ",d)
       var words = d.coc_name.split(' ');
       var word = words[0];
