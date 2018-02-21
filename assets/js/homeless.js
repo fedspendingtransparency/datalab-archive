@@ -1560,6 +1560,8 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent
       d.weighted_income = +d.weighted_income
       d.weighted_mental_illness = +d.weighted_mental_illness
+      d.Property_crime_rate = +d.Property_crime_rate
+      d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds
       });
 
     node = root = data;
@@ -1744,7 +1746,10 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       return(
         '<p>Area in square miles: ' + P3_formatNumber(dat.land_area) + '</p>' +
         '<p>Population density: ' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
-        '<p>Avg income for the 25th percentile: ' + formatNumber(dat.weighted_income) + '</p>'
+        '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
+        '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
+        '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
+        '<p>Property crime (incidents per 10k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
 
       )
 
