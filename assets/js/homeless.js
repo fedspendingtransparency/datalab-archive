@@ -1753,24 +1753,15 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
         '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
         '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
+        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
+        '<p>Prevalence rate of serious mental illness: ' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
+        '<p>Prevalence rate of drug abuse: ' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
+        '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
 
       )
 
     }
 
-    d3.select('#footnotes')
-      .html(
-        '<ol>' +
-        '<li>Illicit Drug Use in the Past Month among Individuals Aged 12 or Older, by State and Substate Region: Percentages, Annual Averages Based on 2012, 2013, and 2014 NSDUHs <br/>'
-        'NOTE: Illicit Drugs include marijuana/hashish, cocaine (including crack), heroin, hallucinogens, inhalants, or prescription-type psychotherapeutics used nonmedically, including data from original methamphetamine questions but not including new methamphetamine items added in 2005 and 2006.</li>'+
-        '<li>Alcohol Dependence or Abuse in the Past Year among Individuals Aged 12 or Older, by State and Substate Region: Percentages, Annual Averages Based on 2012, 2013, and 2014 NSDUHs</li>' +
-        '<li>Serious Mental Illness in the Past Year among Adults Aged 18 or Older, by State and Substate Region: Percentages, Annual Averages Based on 2012, 2013, and 2014 NSDUHs</li>' +
-        '<li>Income: 2016 estimate_income_lowest_quintile</li>' +
-        '<li>Rent: census median gross rent</li>' +
-        '<li>Crime: property crime per 100,000</li>' +
-        '</ol>'
-      )
 
   })
 });
