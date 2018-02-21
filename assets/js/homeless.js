@@ -1625,14 +1625,15 @@ initAccordion(document.getElementById("accordion"));
 
 function zoom(d) {
 
-d3.selectAll('.panel').remove()
-console.log('zoom d: ',d)
-
-var accordion = d.children
-console.log('zoom d: ',accordion)
-
-for(var i=0; i<accordion.length; i++){
-}
+// d3.selectAll('#viz_container').remove()
+// console.log('zoom d: ',d)
+//
+// var accordion = d.children
+// console.log('zoom d: ',accordion)
+//
+// for(var i=0; i<accordion.length; i++){
+//   makeAccordion(accordion[i]);
+// }
 
 var kx = w / d.dx, ky = h / d.dy;
 x.domain([d.x, d.x + d.dx]);
