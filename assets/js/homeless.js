@@ -1595,10 +1595,29 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         return color(d.parent.group);
       });
 
+    // cell.append("svg:text")
+    //   .attr("x",0)
+    //   .each(fontSize)
+    //   .each(wordWrap);
+
     cell.append("svg:text")
-      .attr("x",0)
-      .each(fontSize)
-      .each(wordWrap);
+      .attr("x", function(d) {
+        return d.dx / 2;
+      })
+      .attr("y", function(d) {
+        return d.dy / 2;
+      })
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .text(function(d) {
+        return d.coc_name;
+      })
+      .style('font-size', '8px')
+      .style('word-wrap', 'break-word')
+      .style("opacity", function(d) {
+        d.w = this.getComputedTextLength();
+        return d.dx > d.w ? 1 : 0;
+      });
 
     d3.select('.chart').on("click", function() {
       zoom(root);
@@ -1686,34 +1705,42 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
       initAccordion(document.getElementById("accordion"));
 
-      // var kx = w / d.dx,
-      //   ky = h / d.dy;
-      // x.domain([d.x, d.x + d.dx]);
-      // y.domain([d.y, d.y + d.dy]);
-      //
-      // var t = svg.selectAll("g.cell").transition()
-      //   .duration(d3.event.altKey ? 7500 : 750)
-      //   // .attr("transform", function(d) {
-      //   //   return "translate(" + x(d.x) + "," + y(d.y) + ")";
-      //   // });
-      //   .attr("transform", function(d) {
-      //     return "translate(" + 1 + "," + 1 + ")";
-      //   });
+      var kx = w / d.dx,
+        ky = h / d.dy;
+      x.domain([d.x, d.x + d.dx]);
+      y.domain([d.y, d.y + d.dy]);
 
-      // t.select("rect")
-      //   .attr("width", function(d) {
-      //     return kx * d.dx - 1;
-      //   })
-      //   .attr("height", function(d) {
-      //     return ky * d.dy - 1;
-      //   })
-      //
+      var t = svg.selectAll("g.cell").transition()
+        .duration(d3.event.altKey ? 7500 : 750)
+        .attr("transform", function(d) {
+          return "translate(" + x(d.x) + "," + y(d.y) + ")";
+        });
+
+      t.select("rect")
+        .attr("width", function(d) {
+          return kx * d.dx - 1;
+        })
+        .attr("height", function(d) {
+          return ky * d.dy - 1;
+        })
+
       // t.select("text")
-      //   // .attr("x",0)
-      //   // .attr("dx", "0.35em")
-      //   // .attr("dy", "0.9em");
+      //   .attr("x",0)
+      //   .attr("dx", "0.35em")
+      //   .attr("dy", "0.9em")
       //   .each(fontSize)
       //   .each(wordWrap);
+
+      t.select("text")
+        .attr("x", function(d) {
+          return kx * d.dx / 2;
+        })
+        .attr("y", function(d) {
+          return ky * d.dy / 2;
+        })
+        .style("opacity", function(d) {
+          return kx * d.dx > d.w ? 1 : 0;
+        });
 
       node = d;
       d3.event.stopPropagation();
@@ -1744,81 +1771,81 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
       )
     }
 
-    function fontSize(d,i) {
-      var size = d.dx/9;
-      console.log("fontSize: ",d)
-      var words = d.coc_name.split(' ');
-      var word = words[0];
-      var width = d.dx;
-      var height = d.dy;
-      var length = 0;
-      d3.select(this).style("font-size", size + "px").text(word);
-      while(((this.getBBox().width >= width) || (this.getBBox().height >= height)) && (size > 12))
-       {
-        size--;
-        d3.select(this).style("font-size", size + "px");
-        this.firstChild.data = word;
-       }
-    }
-
-    function wordWrap(d, i){
-      var words = d.coc_name.split(' ');
-      var line = new Array();
-      var length = 0;
-      var text = "";
-      var width = d.dx;
-      var height = d.dy;
-      var word;
-      do {
-         word = words.shift();
-         line.push(word);
-         if (words.length)
-           this.firstChild.data = line.join(' ') + " " + words[0];
-         else
-           this.firstChild.data = line.join(' ');
-         length = this.getBBox().width;
-         if (length < width && words.length) {
-           ;
-         }
-         else {
-           text = line.join(' ');
-           this.firstChild.data = text;
-           if (this.getBBox().width > width) {
-             text = d3.select(this).select(function() {return this.lastChild;}).text();
-             text = text + "...";
-             d3.select(this).select(function() {return this.lastChild;}).text(text);
-             d3.select(this).classed("wordwrapped", true);
-             break;
-          }
-          else
-            ;
-
-        if (text != '') {
-          d3.select(this).append("svg:tspan")
-          .attr("x", 0)
-          .attr("dx", "0.35em")
-          .attr("dy", "0.9em")
-          .text(text);
-        }
-        else
-           ;
-
-        if(this.getBBox().height > height && words.length) {
-           text = d3.select(this).select(function() {return this.lastChild;}).text();
-           text = text + "...";
-           d3.select(this).select(function() {return this.lastChild;}).text(text);
-           d3.select(this).classed("wordwrapped", true);
-
-           break;
-        }
-        else
-           ;
-
-        line = new Array();
-          }
-        } while (words.length);
-        this.firstChild.data = '';
-    }
+    // function fontSize(d,i) {
+    //   var size = d.dx/10;
+    //   console.log("fontSize: ",d)
+    //   var words = d.coc_name.split(' ');
+    //   var word = words[0];
+    //   var width = d.dx;
+    //   var height = d.dy;
+    //   var length = 0;
+    //   d3.select(this).style("font-size", size + "px").text(word);
+    //   while(((this.getBBox().width >= width) || (this.getBBox().height >= height)) && (size > 12))
+    //    {
+    //     size--;
+    //     d3.select(this).style("font-size", size + "px");
+    //     this.firstChild.data = word;
+    //    }
+    // }
+    //
+    // function wordWrap(d, i){
+    //   var words = d.coc_name.split(' ');
+    //   var line = new Array();
+    //   var length = 0;
+    //   var text = "";
+    //   var width = d.dx;
+    //   var height = d.dy;
+    //   var word;
+    //   do {
+    //      word = words.shift();
+    //      line.push(word);
+    //      if (words.length)
+    //        this.firstChild.data = line.join(' ') + " " + words[0];
+    //      else
+    //        this.firstChild.data = line.join(' ');
+    //      length = this.getBBox().width;
+    //      if (length < width && words.length) {
+    //        ;
+    //      }
+    //      else {
+    //        text = line.join(' ');
+    //        this.firstChild.data = text;
+    //        if (this.getBBox().width > width) {
+    //          text = d3.select(this).select(function() {return this.lastChild;}).text();
+    //          text = text + "...";
+    //          d3.select(this).select(function() {return this.lastChild;}).text(text);
+    //          d3.select(this).classed("wordwrapped", true);
+    //          break;
+    //       }
+    //       else
+    //         ;
+    //
+    //     if (text != '') {
+    //       d3.select(this).append("svg:tspan")
+    //       .attr("x", 0)
+    //       .attr("dx", "0.35em")
+    //       .attr("dy", "0.9em")
+    //       .text(text);
+    //     }
+    //     else
+    //        ;
+    //
+    //     if(this.getBBox().height > height && words.length) {
+    //        text = d3.select(this).select(function() {return this.lastChild;}).text();
+    //        text = text + "...";
+    //        d3.select(this).select(function() {return this.lastChild;}).text(text);
+    //        d3.select(this).classed("wordwrapped", true);
+    //
+    //        break;
+    //     }
+    //     else
+    //        ;
+    //
+    //     line = new Array();
+    //       }
+    //     } while (words.length);
+    //     this.firstChild.data = '';
+    // }
 
 
   })
