@@ -7,12 +7,13 @@
     color: #525252;
     font-style: italic;
   }
-  & ul{
-    margin-bottom:25px;
+
+  & ul {
+    margin-bottom: 25px;
 
     &.li {
       margin-bottom: 5px;
-      margin-top: 5px
+      margin-top: 5px;
     }
   }
 
@@ -28,162 +29,164 @@
     margin: 0;
     cursor: pointer;
   }
-  .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #inherit;
-      margin-top: 10px;
-  }
 
+  .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #inherit;
+    margin-top: 10px;
+  }
   /* Style the buttons inside the tab */
   .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
   }
-
   /* Change background color of buttons on hover */
   .tab button:hover {
-      background-color: #ddd;
+    background-color: #ddd;
   }
-
   /* Create an active/current tablink class */
   .tab button.active {
-      background-color: inherit;
-      border-bottom: solid 2px #0071BC;
+    background-color: inherit;
+    border-bottom: solid 2px #0071BC;
   }
-
   /* Style the tab content */
   .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-  }
-  .tab2 {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #inherit;
-      margin-top: 10px;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
   }
 
+  .tab2 {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #inherit;
+    margin-top: 10px;
+  }
   /* Style the buttons inside the tab */
   .tab2 button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
   }
-
   /* Change background color of buttons on hover */
   .tab2 button:hover {
-      background-color: #ddd;
+    background-color: #ddd;
   }
-
   /* Create an active/current tablink class */
   .tab2 button.active {
-      background-color: inherit;
-      border-bottom: solid 2px #0071BC;
+    background-color: inherit;
+    border-bottom: solid 2px #0071BC;
   }
-
   /* Style the tab content */
   .tabcontent2 {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
   }
+
   & div.row {
     margin-left: 0;
     margin-right: 0;
-    margin-top:50px;
-  }
-  .modal {
-     display: none; /* Hidden by default */
-     position: fixed; /* Stay in place */
-     z-index: 1; /* Sit on top */
-     padding-top: 100px; /* Location of the box */
-     left: 0;
-     top: 0;
-     width: 100%; /* Full width */
-     height: 100%; /* Full height */
-     overflow: auto; /* Enable scroll if needed */
-     background-color: rgb(0,0,0); /* Fallback color */
-     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    margin-top: 50px;
   }
 
-  .modal-body{
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0,0,0);
+    /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+    /* Black w/ opacity */
+  }
+
+  .modal-body {
     max-width: 90%;
   }
   /* Modal Content */
   .modal-content {
-     background-color: #fefefe ;
-     margin: auto;
-     padding: 20px;
-     border: 1px solid #888;
-     width: 80%;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
   }
-
   /* The Close Button */
   .close {
-     color: #aaaaaa ;
-     float: right;
-     font-size: 28px;
-     font-weight: bold;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
   }
 
-  .close:hover,
-  .close:focus {
-     color: #000;
-     text-decoration: none;
-     cursor: pointer;
+  .close:focus,
+  .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .close2 {
-     color: #aaaaaa ;
-     float: right;
-     font-size: 28px;
-     font-weight: bold;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
   }
 
-  .close2:hover,
-  .close2:focus {
-     color: #000;
-     text-decoration: none;
-     cursor: pointer;
+  .close2:focus,
+  .close2:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .closeContact {
-     color: #aaaaaa ;
-     float: right;
-     font-size: 28px;
-     font-weight: bold;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
   }
 
-  .closeContact:hover,
-  .closeContact:focus {
-     color: #000;
-     text-decoration: none;
-     cursor: pointer;
+  .closeContact:focus,
+  .closeContact:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
+
   & hr {
-      display: block;
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-      margin-left: auto;
-      margin-right: auto;
-      border-style: inset;
-      border-color: #ccc;
-      border-width: 0.5px;
+    display: block;
+    margin: 0.5em auto;
+    border-style: inset;
+    border-color: #ccc;
+    border-width: 0.5px;
   }
 
   #funding-map {
@@ -199,7 +202,7 @@
     margin-top: 65px;
   }
 
-  #container2_1{
+  #container2_1 {
     position: relative;
     background-color: inherit;
     font-family: inherit;
@@ -208,28 +211,28 @@
     overflow: visible;
   }
 
-  #container2_2{
+  #container2_2 {
     position: relative;
     background-color: inherit;
     font-family: inherit;
     height: 300px;
     overflow: visible;
     margin-top: -40px;
-    width:100%;
+    width: 100%;
   }
 
-  #container2_3{
+  #container2_3 {
     position: relative;
     background-color: inherit;
     font-family: inherit;
     min-height: 340px;
     //max-width: 250px;
     overflow: visible;
-    top:-40px;
-    width:100%;
+    top: -40px;
+    width: 100%;
   }
 
-  #container2_4{
+  #container2_4 {
     position: relative;
     background-color: inherit;
     font-family: inherit;
@@ -298,7 +301,7 @@
     display: inline;
     position: relative;
     left: 1%;
-    width:75%;
+    width: 75%;
   }
 
   .SearchBar input {
@@ -312,7 +315,7 @@
     border-collapse: collapse;
     //height:72px;
     margin-bottom: 0;
-    width:90%;
+    width: 90%;
   }
 
   #tab a:link,
@@ -348,7 +351,7 @@
 
   #tab > tbody > tr > td {
     background-color: #cccccc;
-    color:#FFFFFF;
+    color: #FFFFFF;
   }
 
   #tab > tbody > tr:hover td {
@@ -422,7 +425,7 @@
     float: left;
     overflow: visible;
     margin-top: -5px;
-    width:100%;
+    width: 100%;
   }
 
   #panel_map {
@@ -436,16 +439,18 @@
     border-color: #414b57;*/
     background-color: inherit;
   }
-  #p2_4_legend{
+
+  #p2_4_legend {
     height: 50px;
     width: 100%;
-    padding-left:70px;
+    padding-left: 70px;
     margin-top: -30px;
   }
-  #p2_4_legend_title{
-    padding-bottom:10px;
+
+  #p2_4_legend_title {
+    padding-bottom: 10px;
     margin-top: 30px;
-    width:100%;
+    width: 100%;
   }
 
   #panel_info {
@@ -459,9 +464,10 @@
     margin-top: 20px;
   }
 
-  #p2_quad3_title{
-    margin-top:-12px;
+  #p2_quad3_title {
+    margin-top: -12px;
   }
+
   #panel_coc {
     position: relative;
     //top:50px;
@@ -469,14 +475,14 @@
     background-color: inherit;
     width: 100%;
     min-height: 255px;
-    float:left;
+    float: left;
   }
 
   #p2_1_title > div > h1.panel_title {
     font-size: 1em;
     font-style: inherit;
     font-weight: bold;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0;
     padding: 0;
     color: #0071BC;
     line-height: 30px;
@@ -498,37 +504,37 @@
     //text-transform: capitalize;
     /*font-variant:small-caps;*/
     color: #555555;
-    width:400px;
-    padding: 0em 0em 0em 0em;
+    width: 400px;
+    padding: 0;
   }
 
-  .panel_text2{
+  .panel_text2 {
     font-style: inherit;
     font-size: 1em;
-    color:#0071bc;
+    color: #0071bc;
     text-align: right;
     width: 200px;
-    padding: 0em 3em 0em 0em;
+    padding: 0 3em 0 0;
   }
 
-  #p2_3 #p2_4{
-    width:100%;
+  #p2_3 #p2_4 {
+    width: 100%;
   }
 
-  #p2_3 >  #panel_coc > #coc_info > table{
-    margin: 0 0 1.6em 0;
+  #p2_3 > #panel_coc > #coc_info > table {
+    margin: 0 0 1.6em;
     background-color: inherit;
     border: none;
-    width:100%;
+    width: 100%;
   }
 
-  #p2_3 >  #panel_coc > #coc_info > table > tbody > tr{
+  #p2_3 > #panel_coc > #coc_info > table > tbody > tr {
     background: inherit;
     border: none;
   }
 
-  #cfda_info > table > tbody > td{
-    padding:0 0 0 0;
+  #cfda_info > table > tbody > td {
+    padding: 0;
   }
 
   #cfda_info > table > tbody > tr > td.val {
@@ -536,23 +542,24 @@
     color: #555555;
     font-weight: bolder;
     min-width: 70px;
-    margin:5px 0px 0px 0px;
+    margin: 5px 0 0;
   }
 
   #cfda_info > table > tbody > tr > td.name {
     font-size: 1em;
     color: #555555;
     text-align: left;
-    width:465px;
-    margin:5px 0px 0px 0px;
+    width: 465px;
+    margin: 5px 0 0;
   }
-  .head_val{
+
+  .head_val {
     color: #555555;
     font-size: 1.1em;
     min-width: 70px;
   }
 
-  .head_name{
+  .head_name {
     color: #555555;
     font-size: 1.1em;
     width: 200px;
@@ -560,12 +567,12 @@
 
   .icon {
     position: relative;
-    margin: 0 0 2px 0;
+    margin: 0 0 2px;
   }
 
-  #cfda_info_header{
+  #cfda_info_header {
     margin-bottom: 13px;
-    margin-top:20px;
+    margin-top: 20px;
   }
 
   .background {
@@ -682,65 +689,66 @@
     stroke-width: 1;
     stroke: rgba(0, 0, 0, 0.2);
   }
-  #p2_2{
+
+  #p2_2 {
     height: 330px;
-    margin-bottom:15px;
+    margin-bottom: 15px;
     // margin-left: -100px;
     margin-top: -10px;
   }
 
-  #p2_2_legend{
+  #p2_2_legend {
     position: relative;
     height: 65px;
     width: 750px;
     margin-left: 10px;
   }
 
-  #p2_2_legend_title{
+  #p2_2_legend_title {
     position: relative;
     height: 70px;
-    width:100%;
+    width: 100%;
   }
 
-  #p2_2_legend_key{
+  #p2_2_legend_key {
     height: 50px;
     width: 53px;
-    margin: -15px 0 -7px 0;
+    margin: -15px 0 -7px;
     padding: 9px 60px 0 40px;
     float: left;
   }
 
-  #p2_2_key{
+  #p2_2_key {
     height: 30px;
     width: 53px;
     margin: 0 0 3px 10px;
   }
 
-  #p2_2_key_value{
+  #p2_2_key_value {
     height: 10px;
     width: 50px;
     margin: 0 20px 3px 20;
     text-align: right;
   }
 
-  .p2_2_legend_title{
+  .p2_2_legend_title {
     position: relative;
-    top:10px;
+    top: 10px;
     left: 20px;
-    height:1px;
+    height: 1px;
   }
 
-  #p2_2_key_value p{
-    font-size: .7rem;
+  #p2_2_key_value p {
+    font-size: 0.7rem;
     line-height: 1.5rem;
     color: #000;
   }
 
-  #p2_2_legend_title > div > h5{
-    height:1px;
+  #p2_2_legend_title > div > h5 {
+    height: 1px;
   }
 
-  .p2_1_title{
+  .p2_1_title {
     position: relative;
     text-align: center;
     min-width: 100%;
@@ -749,128 +757,131 @@
     margin-top: -50px;
   }
 
-  #myModalContact{
+  #myModalContact {
     z-index: 99999;
   }
 
-  #p2p2_cfda_legend_title{
+  #p2p2_cfda_legend_title {
     min-width: 465.48px;
     max-width: 465.48px;
   }
-  .col-md-6{
-    width:50%;
+
+  .col-md-6 {
+    width: 50%;
   }
 
-  #right_column{
+  #right_column {
     margin: 0 0 0 2.5px;
   }
 
-  #tree{
+  #tree {
     float: left;
     margin: 0 2.5px 0 0;
   }
 
-  #left_column{
+  #left_column {
     margin: 5px 2.5px 0 0;
   }
 
-a {
+  a {
     text-decoration: none;
     color: inherit;
-}
+  }
 
-ul {
+  ul {
     list-style: none;
     padding: 0;
 
     .inner {
-        padding-left: 1em;
-        overflow: hidden;
-        display: none;
+      padding-left: 1em;
+      overflow: hidden;
+      display: none;
 
-        &.show {
-          display: block;
-        }
+      &.show {
+        display: block;
+      }
     }
 
-li {
-    margin: .5em 0;
+    li {
+      margin: 0.5em 0;
 
-    a.toggle {
+      a.toggle {
         width: 100%;
         display: block;
         background: rgba(0,0,0,0.78);
         color: #fefefe;
-        padding: .75em;
+        padding: 0.75em;
         border-radius: 0.15em;
-        transition: background .3s ease;
+        transition: background 0.3s ease;
 
         &:hover {
-            background: rgba(0, 0, 0, 0.9);
+          background: rgba(0, 0, 0, 0.9);
         }
+      }
+    }
+
+    .chart {
+      display: block;
+      margin: 40px auto auto;
+    }
+
+    & text {
+      font-size: 11px;
+    }
+
+    & rect {
+      fill: none;
     }
   }
 
-  .chart {
-    display: block;
-    margin: auto;
-    margin-top: 40px;
+  .node rect {
+    cursor: pointer;
+    fill: #fff;
+    fill-opacity: 0.5;
+    stroke: #3182bd;
+    stroke-width: 1.5px;
   }
 
-  & text {
-    font-size: 11px;
+  .node text {
+    font: 10px sans-serif;
+    pointer-events: none;
   }
 
-  & rect {
+  path.link {
     fill: none;
+    stroke: none;
   }
 
+  #panel_3c {
+    overflow-x: scroll;
+  }
 
-}
-
-.node rect {
-  cursor: pointer;
-  fill: #fff;
-  fill-opacity: .5;
-  stroke: #3182bd;
-  stroke-width: 1.5px;
-}
-
-.node text {
-  font: 10px sans-serif;
-  pointer-events: none;
-}
-
-path.link {
-  fill: none;
-  stroke: none;
-}
-#panel_3c{
-  overflow-x: scroll;
-}
-
-#accordion .body{
-   display : none;
-   padding : 10px;
-   overflow: scroll;
-}
-
-/** This class will show the body if it has a parent with active       class
+  #accordion .body {
+    display: none;
+    padding: 10px;
+    overflow: scroll;
+  }
+  /** This class will show the body if it has a parent with active class
 **/
-#accordion .active .body {
-   display : block;
-}
+  #accordion .active .body {
+    display: block;
+  }
 
-#accordion .panel{
-  border : solid 1px #D6D6D6;
-  margin:5px;
-  padding : 5px;
-  border-radius : 2px;
-}
-#accordion > div.panel > div > div > p{
-  margin: 0 0 0 0;
-  text-align: left;
-  font-size: 12px;
-  color: 	#848482;
-}
+  #accordion .panel {
+    border: solid 1px #D6D6D6;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 2px;
+  }
+
+  #accordion > div.panel > div > div > p {
+    margin: 0;
+    text-align: left;
+    font-size: 12px;
+    color: #848482;
+  }
+
+  #accordion > div.panel > div > h3 {
+    color: #848482;
+  }
 }

@@ -1640,7 +1640,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
         .attr('position', 'relative')
         .append('div')
         .attr('class', 'header')
-        .html('<p>' + d.coc_name + '</p>')
+        .html('<h3>' + d.coc_name + '</h3>')
         .append('div')
         .attr('class', 'body')
         .html(get_CFDA(d));
