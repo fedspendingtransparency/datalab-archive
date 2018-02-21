@@ -1538,7 +1538,7 @@ var svg = d3.select("#tree").append("div")
 
 //d3.json("kinoko_takenoko.json", function(data) {
 d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
-  d3.csv('/data-lab-data/homeless_clusters_cmeans.csv', function(cluster) {
+  d3.csv('/data-lab-data/cluster_data.csv', function(cluster) {
 
     var formatNumber = d3.format('$,.0f');
     var OtherformatNumber = d3.format(',');
@@ -1547,6 +1547,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     console.log('cluster: ',cluster)
     cluster.forEach(function(d) {
+      d.amount = +d.amount
       d.days_below_32 = +d.days_below_32
       d.density = +d.density
       d.estimated_pop_2016 = +d.estimated_pop_2016
@@ -1745,16 +1746,31 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
       console.log('get CFDA dat: ',dat)
 
       return(
+        '<p>Total funding: ' + formatNumber(dat.amount) + '</p>' +
+        '<p>Total homeless population: ' + OtherformatNumber(dat.total_homeless) + '</p>' +
         '<p>Area in square miles: ' + P3_formatNumber(dat.land_area) + '</p>' +
         '<p>Population density: ' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
         '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
         '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
         '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<p>Property crime (incidents per 10k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
+        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
 
       )
 
     }
+
+    d3.select('#footnotes')
+      .html(
+        '<ol>' +
+        '<li>Illicit Drug Use in the Past Month among Individuals Aged 12 or Older, by State and Substate Region: Percentages, Annual Averages Based on 2012, 2013, and 2014 NSDUHs <br/>'
+        'NOTE: Illicit Drugs include marijuana/hashish, cocaine (including crack), heroin, hallucinogens, inhalants, or prescription-type psychotherapeutics used nonmedically, including data from original methamphetamine questions but not including new methamphetamine items added in 2005 and 2006.</li>'+
+        '<li>Alcohol Dependence or Abuse in the Past Year among Individuals Aged 12 or Older, by State and Substate Region: Percentages, Annual Averages Based on 2012, 2013, and 2014 NSDUHs</li>' +
+        '<li>Serious Mental Illness in the Past Year among Adults Aged 18 or Older, by State and Substate Region: Percentages, Annual Averages Based on 2012, 2013, and 2014 NSDUHs</li>' +
+        '<li>Income: 2016 estimate_income_lowest_quintile</li>' +
+        '<li>Rent: census median gross rent</li>' +
+        '<li>Crime: property crime per 100,000</li>' +
+        '</ol>'
+      )
 
   })
 });
