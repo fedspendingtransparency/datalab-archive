@@ -845,5 +845,27 @@ path.link {
   fill: none;
   stroke: none;
 }
+#panel_3c{
+  overflow-x: scroll;
+}
+
+#accordion .body{
+   display : none;
+   padding : 10px;
+   overflow: scroll;
+}
+
+/** This class will show the body if it has a parent with active       class
+**/
+#accordion .active .body {
+   display : block;
+}
+
+#accordion .panel{
+  border : solid 1px #D6D6D6;
+  margin:5px;
+  padding : 5px;
+  border-radius : 2px;
+}
 
 }
