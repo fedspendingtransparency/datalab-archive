@@ -1278,7 +1278,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 85;
+                  labelWidth = 30;
                 });
 
               scale = d3.scale.linear()
@@ -1441,7 +1441,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 85;
+                  labelWidth = 30;
                 });
 
               scale = d3.scale.linear()
