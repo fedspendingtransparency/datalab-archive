@@ -1654,11 +1654,12 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
     var w2 = $('#panel_3b').width(),
       h2 = $('#panel_3b').height() * .66;
 
-    d3.select('#infographic').attr('height', 'h').attr('width','w')
+    d3.select('#infographic').attr('height', h2).attr('width', w2)
       .append('div')
       .attr('id', 'picture')
-      .attr('height', 'h2')
-      .attr('height', 'w2');
+      .attr('height', h2)
+      .attr('height', w2);
+
     initialize_infographic();
 
     function initialize_infographic(){
@@ -1671,8 +1672,8 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
     function makeInfographic(d) {
       d3.select('#picture')
         .append('svg:image')
-        .attr('height', 'h2')
-        .attr('width', 'w2')
+        .attr('height', h2)
+        .attr('width', w2)
         .attr('src', get_Infographic(d));
     }
 
@@ -1794,7 +1795,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
   function get_Infographic(d){
     console.log('get_Infographic: ',d)
       if (d == "1a") {
-         return('/images/homelessness/Group1.pgn')
+         return('/images/homelessness/Group1.png')
          } else if (d == "2a"){
            return('/images/homelessness/Group2.png')
          } else if (d == "2b"){
