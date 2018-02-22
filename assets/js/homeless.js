@@ -1624,7 +1624,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     // Initialize Infographic
     var w2 = $('#panel_3b').width(),
-      h2 = $('#panel_3b').height() * .66;
+        h2 = $('#panel_3b').height() * .66;
 
     d3.select('#infographic').attr('height', h2).attr('width', w2)
       .append('div')
@@ -1635,18 +1635,24 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
     initialize_infographic();
 
     function initialize_infographic(){
-      var init_infographic = tree_data.children[0].children[0].group;
-      //console.log("init infographic: ", init_infographic[0]);
+      var init_infographic = tree_data.children[0].group;
+      console.log("init infographic: ", init_infographic);
 
         makeInfographic(init_infographic);
     }
 
     function makeInfographic(d) {
+      d3.select('#imagebox').remove()
+
       d3.select('#picture')
-        .append('svg:image')
+        .append('svg')
+        .attr('id','imagebox')
         .attr('height', h2)
         .attr('width', w2)
-        .attr('src', get_Infographic(d));
+          .append('svg:image')
+          .attr('height', h2)
+          .attr('width', w2)
+          .attr('xlink:href', get_Infographic(d));
     }
 
     function initAccordion(accordionElem) {
