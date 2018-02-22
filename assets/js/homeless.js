@@ -279,7 +279,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                     return ('#365248');
                   } else if (table_data[i].total_homeless <= 12000) {
                     return ('#1E3D32');
-                  } else if (table_data[i].total_homeless <= 12000) {
+                  } else if (table_data[i].total_homeless <= 77000) {
                     return ('#06281C');
                   } else {
                     return ('#F2B400')
