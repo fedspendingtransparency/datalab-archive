@@ -1622,6 +1622,33 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         .html(get_CFDA(d));
     }
 
+    // Initialize Infographic
+    var w2 = $('#panel_3b').width(),
+      h2 = $('#panel_3b').height() * .66;
+
+    d3.select('#infographic').attr('height', h2).attr('width', w2)
+      .append('div')
+      .attr('id', 'picture')
+      .attr('height', h2)
+      .attr('height', w2);
+
+    initialize_infographic();
+
+    function initialize_infographic(){
+      var init_infographic = tree_data.children[0].children[0].group;
+      //console.log("init infographic: ", init_infographic[0]);
+
+        makeInfographic(init_infographic);
+    }
+
+    function makeInfographic(d) {
+      d3.select('#picture')
+        .append('svg:image')
+        .attr('height', h2)
+        .attr('width', w2)
+        .attr('src', get_Infographic(d));
+    }
+
     function initAccordion(accordionElem) {
 
       //when panel is clicked, handlePanelClick is called.
@@ -1656,6 +1683,9 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     initAccordion(document.getElementById("accordion"));
 
+
+
+
     function zoom(d) {
 
       d3.selectAll('.panel').remove()
@@ -1663,13 +1693,15 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
       if(d.depth === 0){
           console.log("IN ZOOM OUT!!!!! ")
-          initialize_accordion();
+          initialize_accordion()
+          initialize_infographic();
       }else{
         var accordion = d.children
         console.log('zoom d accordion: ', accordion)
         for (var i = 0; i < accordion.length; i++) {
           makeAccordion(accordion[i]);
         }
+        makeInfographic(d.group)
       }
 
       initAccordion(document.getElementById("accordion"));
@@ -1732,10 +1764,30 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
-
-
-  })
-});
+  function get_Infographic(d){
+    console.log('get_Infographic: ',d)
+      if (d == "1a") {
+         return('/images/homelessness/Group1.png')
+         } else if (d == "2a"){
+           return('/images/homelessness/Group2.png')
+         } else if (d == "2b"){
+          return ('/images/homelessness/Group3.png')
+         } else if (d == "4a"){
+          return ('/images/homelessness/Group4.png')
+         } else if (d == "4b"){
+           return ('/images/homelessness/Group5.png')
+         } else if (d == "4c"){
+           return ('/images/homelessness/Group6.png')
+         } else if(d == "5a"){
+         return ('/images/homelessness/Group7.png')
+         } else if (d == "5b"){
+          return ('/images/homelessness/Group8.png')
+         } else if (d =="5c"){
+          return ('/images/homelessness/Group9.png')
+         }
+       }
+     })
+  });
 
 
 
