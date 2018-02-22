@@ -1173,17 +1173,17 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 if (table_data[i].coc_number === d.properties.coc_number) {
                   var tab_dat = table_data[i];
                   console.log('tab_dat: ', tab_dat);
-                  return '<table><tr><td class="panel_text">' + 'Homeless Individuals ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.homeless_individuals) + '</td></tr>' +
-                    '<tr><td class="panel_text" style="border-bottom:1pt solid black">' + 'Homeless People in Families ' + '</td><td class="panel_text2"  style="border-bottom:1pt solid black">' + OtherformatNumber(tab_dat.homeless_people_in_families) + '</td></tr>' +
-                    '<tr><td class="panel_text">' + 'Total Homeless' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.total_homeless) + '</td></tr>' + '</table>' +
+                  return '<table><tr><td class="panel_text" style="text-align:left">' + 'Homeless Individuals ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.homeless_individuals) + '</td></tr>' +
+                    '<tr><td class="panel_text" style="border-bottom:1pt solid black; text-align:left">' + 'Homeless People in Families ' + '</td><td class="panel_text2"  style="border-bottom:1pt solid black">' + OtherformatNumber(tab_dat.homeless_people_in_families) + '</td></tr>' +
+                    '<tr><td class="panel_text" style="text-align:left">' + 'Total Homeless' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.total_homeless) + '</td></tr>' + '</table>' +
 
 
-                    '<table><tr><td class="panel_text">' + 'Sheltered Homeless ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.sheltered_homeless) + '</td></tr>' +
-                    '<tr><td class="panel_text" style="border-bottom:1pt solid black">' + 'Unsheltered Homeless ' + '</td><td class="panel_text2" style="border-bottom:1pt solid black">' + OtherformatNumber(tab_dat.unsheltered_homeless) + '</td></tr>' +
-                    '<tr><td class="panel_text">' + 'Total Homeless' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.total_homeless) + '</td></tr>' + '</table>' +
+                    '<table><tr><td class="panel_text" style="text-align:left">' + 'Sheltered Homeless ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.sheltered_homeless) + '</td></tr>' +
+                    '<tr><td class="panel_text" style="border-bottom:1pt solid black; text-align:left">' + 'Unsheltered Homeless ' + '</td><td class="panel_text2" style="border-bottom:1pt solid black">' + OtherformatNumber(tab_dat.unsheltered_homeless) + '</td></tr>' +
+                    '<tr><td class="panel_text" style="text-align:left">' + 'Total Homeless' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.total_homeless) + '</td></tr>' + '</table>' +
 
-                    '<table style="margin-bottom:0"><tr><td class="panel_text">' + 'Chronically Homeless ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.chronically_homeless) + '</td></tr>' +
-                    '<tr><td class="panel_text">' + 'Homeless Veterans ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.homeless_veterans) + '</td></tr>' + '</table>'
+                    '<table style="margin-bottom:0"><tr><td class="panel_text" style="text-align:left">' + 'Chronically Homeless ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.chronically_homeless) + '</td></tr>' +
+                    '<tr><td class="panel_text" style="text-align:left">' + 'Homeless Veterans ' + '</td><td class="panel_text2">' + OtherformatNumber(tab_dat.homeless_veterans) + '</td></tr>' + '</table>'
 
                 }
               }
