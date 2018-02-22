@@ -1760,8 +1760,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
-
-
+    
   })
 });
 
