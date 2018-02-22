@@ -1280,7 +1280,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 30;
+                  labelWidth = 35;
                 });
 
               scale = d3.scale.linear()
@@ -1443,7 +1443,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 30;
+                  labelWidth = 35;
                 });
 
               scale = d3.scale.linear()
@@ -1760,7 +1760,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
-    
+
   })
 });
 
