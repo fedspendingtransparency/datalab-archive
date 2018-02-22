@@ -1772,12 +1772,16 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
     }
   function get_Infographic(d){
     console.log('get_Infographic: ',d)
-      if (d == "1a") {
-         return('/images/homelessness/Group1.png')
+         if (d == "1a") {
+           return('/images/homelessness/Group1.png')
          } else if (d == "2a"){
            return('/images/homelessness/Group2.png')
          } else if (d == "2b"){
           return ('/images/homelessness/Group3.png')
+         } else if (d == "2c"){
+          return ('/images/homelessness/Group8.png')
+         } else if (d == "3a"){
+           return('/images/homelessness/Group9.png')
          } else if (d == "4a"){
           return ('/images/homelessness/Group4.png')
          } else if (d == "4b"){
