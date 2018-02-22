@@ -311,13 +311,13 @@ header.major {
 /* Resources Header */
 header.major h2 {
 	text-transform: uppercase;
-	font-size: 24px;
+	font-size: 20px;
 	letter-spacing: 1px;
 	font-weight: normal;
 }
 
 #one > div > div > ul {
-	margin-right: 55px;
+	margin-left: 8px;
 }
 
 .spotlight {
@@ -353,6 +353,7 @@ header.major h2 {
 .page-title {
 	width: 600px;
 	font-size: 35px;
+	line-height: 45px;
 }
 
 .page-description {
@@ -401,7 +402,7 @@ header.major h2 {
 }
 
 .resources-section {
-	padding: 50px 0;
+	padding: 25px 0;
 }
 
 .viz-bkgd {
@@ -847,6 +848,10 @@ header.major h2 {
 	margin-bottom: 15px;
 }
 
+.homeless-map-options {
+	margin-top: 20px;
+}
+
 .homeless-style {
 	color: #5B616B;
     margin-left: 35px;
@@ -939,7 +944,7 @@ article > header {
 }
 
 .entry-about-container {
-	padding: 50px 125px;
+	padding: 50px 200px;
 }
 
 .clear-both {
@@ -1029,7 +1034,7 @@ article > header {
 	background-color: #62666C;
 	border: 1px solid #D2CCCC;
 	border-radius: 50px;
-	margin: 15px 15px 0 0;
+	margin: 15px 15px 0 15px;
 }
 
 .get-involved-button {
@@ -1101,17 +1106,36 @@ article > header {
 	border: 1px solid #0C99CD;
 }
 
+.button-instructions {
+    background-color: #D334BA;
+    display: inline-block;
+    color: #FFFFFF;
+    border-radius: 50px;
+    margin-left: 15px;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+	letter-spacing: 1px;
+}
+
+.button-instructions:hover {
+	background-color: #AC2096;
+}
+
 /* Buttons End */
 
 .viz-title-container {
 	text-align: left;
 	color: #5B616B;
-	margin: 20px 0 25px 10px;
+	margin: 0 0 25px 10px;
 }
 
 .viz-title {
 	font-size: 36px;
 	font-weight: 400;
+	display: inline-block;
 }
 
 .viz-subtext {
@@ -1162,6 +1186,7 @@ article > header {
 	font-weight: 300;
 	margin-top: 30px;
 	letter-spacing: 0px;
+	text-align: left;
 }
 
 .modal-body-close {
