@@ -1617,7 +1617,8 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         .attr('position', 'relative')
         .append('div')
         .attr('class', 'header')
-        .html('<p id="head">' + d.coc_name + '</p3>')
+        .attr('background-color', "#E8EAF5")
+        .html('<p id="head", style="background-color:#E8EAF5; margin-bottom:0; padding:20px 0 20px 0; min-height:100px">' + d.coc_name + '</p3>')
         .append('div')
         .attr('class', 'body')
         .html(get_CFDA(d));
