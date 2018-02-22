@@ -1601,7 +1601,6 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         return d.coc_name;
       })
       .style('font-size', '8px')
-      .style('word-wrap', 'break-word')
       .style("opacity", function(d) {
         d.w = this.getComputedTextLength();
         return d.dx > d.w ? 1 : 0;
