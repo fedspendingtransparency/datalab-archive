@@ -38,6 +38,20 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
           d3.csv('/data-lab-data/coc_pop_value.csv', function(table_data) {
 
 
+            d3.selectAll("#button1").on("click", change);
+
+            function change() {
+              d3.selectAll('#viz_container').remove()
+              d3.selectAll('#legend').remove()
+              d3.selectAll('#legend_title').remove()
+              d3.selectAll('#legend_subtitle').remove()
+              d3.selectAll('#counties_mini').remove()
+
+              GenMap()
+              GenPanelTwo()
+            }
+
+
             console.log('CoC US: ', us);
             console.log('CFDA State: ', cfda_state);
             //console.log('data: ', data);
@@ -1281,7 +1295,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_3_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal')
-                .attr('transform', 'translate(' + 135 + ',' + 235 + ')')
+                .attr('transform', 'translate(' + 80 + ',' + 235 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
@@ -1445,7 +1459,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_4_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal2')
-                .attr('transform', 'translate(' + 135 + ',' + 250 + ')')
+                .attr('transform', 'translate(' + 80 + ',' + 250 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
@@ -1461,8 +1475,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               $('#panel_contact').empty();
               contact_panel.append('div')
                 .attr('id', 'contact_info')
-                .attr("height", info_height + margin.top + margin.bottom)
-                .attr("width", info_width + margin.left + margin.right)
+                .attr("height", info_height)
+                .attr("width", info_width)
                 .html(Make_Contact_Table(d))
             }
 
@@ -1487,7 +1501,8 @@ var w = $('#panel_3b').width(),
   h = $('#panel_3b').height() * .33,
   x = d3.scale.linear().range([0, w]),
   y = d3.scale.linear().range([0, h]),
-  color = d3.scale.category20c(),
+  color = d3.scale.ordinal().range(['#A1B3BF','#37071F','#EE4D99','#9C81C4','#172450','#6D94DF','#4F63AC',
+           '#91B9FF','#C4704B','#972666','#CB6C94']),
   root,
   node;
 
@@ -1616,7 +1631,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         .attr('position', 'relative')
         .append('div')
         .attr('class', 'header')
-        .html('<h3>' + d.coc_name + '</h3>')
+        .html('<p id="head">' + d.coc_name + '</p3>')
         .append('div')
         .attr('class', 'body')
         .html(get_CFDA(d));
@@ -1624,7 +1639,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     // Initialize Infographic
     var w2 = $('#panel_3b').width(),
-      h2 = $('#panel_3b').height() * .66;
+        h2 = $('#panel_3b').height() * .66;
 
     d3.select('#infographic').attr('height', h2).attr('width', w2)
       .append('div')
@@ -1635,18 +1650,24 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
     initialize_infographic();
 
     function initialize_infographic(){
-      var init_infographic = tree_data.children[0].children[0].group;
-      //console.log("init infographic: ", init_infographic[0]);
+      var init_infographic = tree_data.children[0].group;
+      console.log("init infographic: ", init_infographic);
 
         makeInfographic(init_infographic);
     }
 
     function makeInfographic(d) {
+      d3.select('#imagebox').remove()
+
       d3.select('#picture')
-        .append('svg:image')
+        .append('svg')
+        .attr('id','imagebox')
         .attr('height', h2)
         .attr('width', w2)
-        .attr('src', get_Infographic(d));
+          .append('svg:image')
+          .attr('height', h2)
+          .attr('width', w2)
+          .attr('xlink:href', get_Infographic(d));
     }
 
     function initAccordion(accordionElem) {
@@ -1751,27 +1772,31 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
       console.log('get CFDA dat: ',dat)
 
       return(
-        '<p>Total funding: ' + formatNumber(dat.amount) + '</p>' +
-        '<p>Total homeless population: ' + OtherformatNumber(dat.total_homeless) + '</p>' +
-        '<p>Area in square miles: ' + P3_formatNumber(dat.land_area) + '</p>' +
-        '<p>Population density: ' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
-        '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
-        '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
-        '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
-        '<p>Prevalence rate of serious mental illness: ' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
-        '<p>Prevalence rate of drug abuse: ' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
-        '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
+        '<p id="txt">Total funding: ' + '</p><p>'+ formatNumber(dat.amount) + '</p>' +
+        '<br/><p id="txt">Total homeless population: ' + '</p><p>' + OtherformatNumber(dat.total_homeless) + '</p>' +
+        '<br/><p id="txt">Area in square miles: ' + '</p><p>' + P3_formatNumber(dat.land_area) + '</p>' +
+        '<br/><p id="txt">Population density: ' + '</p><p>' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
+        '<br/><p id="txt">Median montly gross rent: ' + '</p><p>' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
+        '<br/><p id="txt">Avg income for the 20th percentile: ' + '</p><p>' + formatNumber(dat.weighted_income) + '</p>' +
+        '<br/><p id="txt">Avg number of days below freezing: ' + '</p><p>' + P3_formatNumber(dat.days_below_32) + '</p>' +
+        '<br/><p id="txt">Property crime (incidents per 100k people): ' + '</p><p>' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
+        '<br/><p id="txt">Prevalence rate of serious mental illness: ' + '</p><p>' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
+        '<br/><p id="txt">Prevalence rate of drug abuse: ' + '</p><p>' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
+        '<br/><p id="txt">Prevalence rate of alcohol dependece or abuse: ' + '</p><p>' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
   function get_Infographic(d){
     console.log('get_Infographic: ',d)
-      if (d == "1a") {
-         return('/images/homelessness/Group1.png')
+         if (d == "1a") {
+           return('/images/homelessness/Group1.png')
          } else if (d == "2a"){
            return('/images/homelessness/Group2.png')
          } else if (d == "2b"){
           return ('/images/homelessness/Group3.png')
+         } else if (d == "2c"){
+          return ('/images/homelessness/Group8.png')
+         } else if (d == "3a"){
+           return('/images/homelessness/Group9.png')
          } else if (d == "4a"){
           return ('/images/homelessness/Group4.png')
          } else if (d == "4b"){
@@ -1786,42 +1811,6 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
           return ('/images/homelessness/Group9.png')
          }
        }
+
      })
   });
-
-
-
-// d3.select('#panel_3b')
-//   .append('div')
-//   .attr('id','left_column')
-//     .append('svg')
-//     .style('background', 'src=GetInfographic(d)')
-//     .attr('height','100%')
-//     .attr('width','100%');
-//
-// function GetInfographic(d){
-//   for (var i = 0; i < data.length; i++) {
-//     if (d.properties.group === "1a") {
-//       return('/images/homelessness/Group1.pgn')
-//     } else if (d.properties.group === "2a"){
-//       return('/images/homelessness/Group2.png')
-//     } else if (d.properties.group === "2b"){
-//       return ('/images/homelessness/Group3.png')
-//     } else if (d.properties.group === "4a"){
-//       return ('/images/homelessness/Group4.png')
-//     } else if (d.properties.group === "4b"){
-//       return ('/images/homelessness/Group5.png')
-//     } else if (d.properites.group === "4c"){
-//       return ('/images/homelessness/Group6.png')
-//     } else if(d.properties.group === "5a"){
-//       return ('/images/homelessness/Group7.png')
-//     } else if (d.properties.group === "5b"){
-//       return ('/images/homelessness/Group8.png')
-//     } else if (d.propeties.group ==="5c"){
-//       return ('/images/homelessness/Group9.png')
-//     } else {
-//       return (All.png)
-//     }
-//   }
-//
-// };
