@@ -344,6 +344,7 @@
     text-align: center;
     height: 20px;
     max-width: 300px;
+    font-size: 14px;
   }
 
   #tab > thead > tr > th {
@@ -351,15 +352,17 @@
     color: #D3D2D8;
     border-collapse: collapse;
     text-align: center;
+    font-size: 14px;
   }
 
   #tab > tbody > tr > td {
     background-color: #cccccc;
     color: #FFFFFF;
+    font-size: 14px;
   }
 
   #tab > tbody > tr:hover td {
-    background-color: #edf8b1;
+    background-color: #0087BD;
   }
 
   #scatter {
