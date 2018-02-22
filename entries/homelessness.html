@@ -12,10 +12,10 @@ category: entry
 
 {% include viz-header-info.html
 	title="How individuals experiencing homelessness are counted"
-	body="Determining how many people are experiencing homelessness at a given time can be challenging. 
-		  People experiencing homelessness are counted once a year (in late January) by grantees who receive 
-		  funding from HUD’s Continuum of Care program. This program — the largest federal program 
-		  related to homelessness — requires grantees to collect reliable data on the total number 
+	body="Determining how many people are experiencing homelessness at a given time can be challenging.
+		  People experiencing homelessness are counted once a year (in late January) by grantees who receive
+		  funding from HUD’s Continuum of Care program. This program — the largest federal program
+		  related to homelessness — requires grantees to collect reliable data on the total number
 		  of people experiencing homelessness who reside in the grantee’s geographic area."
 	buttonIdentifier="btnPanel1Modal"
 %}
@@ -28,10 +28,10 @@ category: entry
 				How individuals experiencing homelessness are counted
 			</div>
 			<div class="modal-body-content">
-				<p>People experiencing homelessness are counted once a year (in late January) by grantees who receive 
+				<p>People experiencing homelessness are counted once a year (in late January) by grantees who receive
 				   funding from HUD's Continuum of Care program. This program is the largest federal program related to homelessness.
-				   It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside 
-				   in the grantee's geographic area. State and local governments create the Continuum of Care regions. 
+				   It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside
+				   in the grantee's geographic area. State and local governments create the Continuum of Care regions.
 				</p>
 				<p>
 					They reflect how each community organizes itself and applies for funding from HUD's Continuum of Care program.
@@ -60,7 +60,7 @@ category: entry
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
-		{% include viz-title.html 
+		{% include viz-title.html
 		   title="Homeless Population by Region"
 		   subtext="HUD Point in Time Count by Continuum of Care Area"
 		%}
@@ -80,7 +80,7 @@ category: entry
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
-		{% include viz-title.html 
+		{% include viz-title.html
 			title="Federal Spending on Homelessness by Region"
 			subtext="Federal grant awards by Continuum of Care Area"
 		%}
@@ -97,9 +97,12 @@ category: entry
 						</div>
 						<button class="button" id="myBtnContact" style="margin: auto; position:relative; z-index:99; text-align:center; vertical-align:middle;">CoC Contact</button>
 						<div id="myModalContact" class="modal">
-							<div class="modal-content" id="modalContact">
-								<span class="closeContact">&times;</span>
-								<div class="modal-body" id="CoCcontact"></div>
+							<div class="modal-content" id="modalContact"  style="width:30%">
+								<div class="modal-blue-bar"></div>
+								<div class="modal-body"  style="max-width:100%; padding: 0 0 0 0;">
+									<!-- <span class="closeContact">&times;</span> -->
+									<div class="modal-body-content" id="CoCcontact"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -116,6 +119,20 @@ category: entry
 		</div>
 	</div>
 </section>
+
+<script>
+	var modal = document.getElementById('myModalContact');
+
+	document.getElementById("myBtnContact").onclick = function() {
+		modal.style.display = "block";
+	}
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
 
 {% include viz-header-info.html
 	title="Cluster filler heading... blah blah"

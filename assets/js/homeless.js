@@ -1461,8 +1461,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               $('#panel_contact').empty();
               contact_panel.append('div')
                 .attr('id', 'contact_info')
-                .attr("height", info_height + margin.top + margin.bottom)
-                .attr("width", info_width + margin.left + margin.right)
+                .attr("height", info_height)
+                .attr("width", info_width)
                 .html(Make_Contact_Table(d))
             }
 
@@ -1796,6 +1796,6 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
           return ('/images/homelessness/Group9.png')
          }
        }
-       
+
      })
   });
