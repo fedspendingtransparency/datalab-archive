@@ -12,11 +12,58 @@ category: entry
 
 {% include viz-header-info.html
 	title="How individuals experiencing homelessness are counted"
-	body="Determining how many people are experiencing homelessness at a given time can be challenging. People experiencing homelessness are counted once a year (in late January) by grantees who receive funding from HUD’s Continuum of Care program. This program — the largest federal program related to homelessness — requires grantees to collect reliable data on the total number of people experiencing homelessness who reside in the grantee’s geographic area."
+	body="Determining how many people are experiencing homelessness at a given time can be challenging. 
+		  People experiencing homelessness are counted once a year (in late January) by grantees who receive 
+		  funding from HUD’s Continuum of Care program. This program — the largest federal program 
+		  related to homelessness — requires grantees to collect reliable data on the total number 
+		  of people experiencing homelessness who reside in the grantee’s geographic area."
+	buttonIdentifier="btnPanel1Modal"
 %}
+
+<div id="myModal" class="modal">
+	<div class="modal-content">
+		<div class="modal-blue-bar"></div>
+		<div class="modal-body">
+			<div class="modal-body-title">
+				How individuals experiencing homelessness are counted
+			</div>
+			<div class="modal-body-content">
+				<p>People experiencing homelessness are counted once a year (in late January) by grantees who receive 
+				   funding from HUD's Continuum of Care program. This program is the largest federal program related to homelessness.
+				   It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside 
+				   in the grantee's geographic area. State and local governments create the Continuum of Care regions. 
+				</p>
+				<p>
+					They reflect how each community organizes itself and applies for funding from HUD's Continuum of Care program.
+					HUD allows Continuum of Care grantees to use multiple approaches to complete their count, if necessary.
+					Grantees may use a census approach, a sampling approach, or a combination of the methods.
+				</p>
+			</div>
+			<span class="modal-body-close">Close</span>
+		</div>
+	</div>
+</div>
+
+<script>
+	var modal = document.getElementById('myModal');
+
+	document.getElementById("btnPanel1Modal").onclick = function() {
+		modal.style.display = "block";
+	}
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
+		{% include viz-title.html 
+		   title="Homeless Population by Region"
+		   subtext="HUD Point in Time Count by Continuum of Care Area"
+		%}
 		<div class="mask">
 			{% include homeless-p1-buttons.html %}
 			<div class="viz-container homeless-analysis">
@@ -33,6 +80,10 @@ category: entry
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
+		{% include viz-title.html 
+			title="Federal Spending on Homelessness by Region"
+			subtext="Federal grant awards by Continuum of Care Area"
+		%}
 		<div class="mask">
 			{% include action-buttons.html %}
 			<div class="viz-container homeless-analysis">
@@ -92,8 +143,6 @@ category: entry
 	how="To determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA,
 	looking for keywords related to homelessness. We then developed a ranking system to assess whether individuals experiencing homelessness
 	would directly benefit from these programs, keeping only the most relevant programs in our dataset."
-	read-more="homeless-analysis-more.html"
-	next-analysis="what-and-why-government-spending.html"
 %}
 
 <!-- d3 -->

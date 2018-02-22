@@ -407,20 +407,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               map_svg.append('circle').attr('id', 'tipfollowscursor_1');
               map_svg.call(tip);
 
-              d3.select('#legend_title').append('h3')
-                .attr('id', 'title')
-                .style('text-align', 'center')
-                .style('color', '#476057')
-                .style('margin-bottom', '10px')
-                .text('Homeless Population by Region')
-
-              d3.select('#legend_subtitle').append('p')
-                .attr('id', 'subtitle')
-                .style('text-align', 'center')
-                .style('color', '#476057')
-                .style('font-style', 'italic')
-                .text('HUD Point in Time Count by Continuum of Care Area')
-
               var g = map_svg.append('g')
                 .attr('class', 'counties')
                 .selectAll('path')
@@ -533,20 +519,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               d3.select('#container').append('div')
                 .attr('id', 'viz_container');
-
-              d3.select('#viz_container').append('h3')
-                .attr('id', 'title')
-                .style('text-align', 'center')
-                .style('color', '#476057')
-                .style('margin-bottom', '10px')
-                .text('Homeless Population by Region')
-
-              d3.select('#viz_container').append('h5')
-                .attr('id', 'subtitle')
-                .style('text-align', 'center')
-                .style('color', '#476057')
-                .style('font-style', 'italic')
-                .text('HUD Point in Time Count by Continuum of Care Area')
 
               d3.select('#viz_container').append('div')
                 .attr('class', 'SearchBar')

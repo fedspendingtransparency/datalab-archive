@@ -229,7 +229,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	#main {
 		> header {
-			@include padding(12em, 0);
+			@include padding(5em, 0);
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -351,20 +351,15 @@ header.major h2 {
 }
 
 .page-title {
-	height: 150px;
-	width: 557px;
-	color: #FFFFFF;
+	width: 600px;
 	font-size: 35px;
-	line-height: 43px;
 }
 
 .page-description {
-	height: 208px;
-	width: 557px;
-	color: #FFFFFF;
+	width: 600px;
 	font-size: 18px;
-	font-weight: 300;
-	line-height: 28px;
+	font-weight: 100;
+	opacity: 0.9;
 }
 
 .wrapper > .inner {
@@ -410,7 +405,6 @@ header.major h2 {
 }
 
 .viz-bkgd {
-	height: 1300px;
 	width: 100%;
 	background-color: #E2DFEC;
 	padding: 25px;
@@ -933,7 +927,7 @@ header.major h2 {
 }
 
 article > header {
-	height: 725px;
+	height: 600px;
 }
 
 .header-box {
@@ -959,13 +953,6 @@ article > header {
 	text-transform: uppercase;
 	font-weight: 300;
 	margin-bottom: 50px;
-}
-
-.page-description {
-	width: 557px;
-	font-size: 18px;
-	font-weight: 200;
-	line-height: 28px;
 }
 
 /* Buttons Start */
@@ -1004,6 +991,7 @@ article > header {
 	font-size: 14px;
 	text-align: center;
 	padding: 5px;
+	cursor: pointer;
 }
 
 .button-read-more:hover {
@@ -1114,3 +1102,83 @@ article > header {
 }
 
 /* Buttons End */
+
+.viz-title-container {
+	text-align: left;
+	color: #5B616B;
+	margin: 20px 0 25px 10px;
+}
+
+.viz-title {
+	font-size: 36px;
+	font-weight: 400;
+}
+
+.viz-subtext {
+	font-size: 16px;
+	font-weight: 300;
+}
+
+/* Modal Start */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+	width: 600px; /* Could be more or less, depending on screen size */
+	line-height: 26px;
+}
+
+.modal-blue-bar {
+	height: 10px;
+	background-color: #4498C8;
+}
+
+.modal-body {
+	padding: 60px;
+}
+
+.modal-body-title {
+	color: #5B616B;
+	font-size: 30px;
+	font-weight: 400;
+	line-height: 40px;
+}
+
+.modal-body-content {
+	color: #5B616B;
+	font-size: 16px;
+	font-weight: 300;
+	margin-top: 30px;
+	letter-spacing: 0px;
+}
+
+.modal-body-close {
+	width: 147px;
+	background-color: #5B616B;
+	border-radius: 50px;
+	cursor: pointer;
+	display: block;
+	padding: 12px;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.modal-body-close:hover {
+	background-color: #1C1D20;
+}
+
+/* Modal End */
