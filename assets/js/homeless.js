@@ -279,8 +279,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                     return ('#365248');
                   } else if (table_data[i].total_homeless <= 12000) {
                     return ('#1E3D32');
+                  } else if (table_data[i].total_homeless <= 77000) {
+                    return ('#06281C');
                   } else {
-                    return ('#06281C')
+                    return ('#F2B400')
                   }
                 }
               }
@@ -1278,7 +1280,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 85;
+                  labelWidth = 30;
                 });
 
               scale = d3.scale.linear()
@@ -1441,7 +1443,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 85;
+                  labelWidth = 30;
                 });
 
               scale = d3.scale.linear()
@@ -1501,6 +1503,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 'Email: ' + d.properties.EMAIL_ADDR + '<br>' +
                 'Phone: ' + d.properties.PRIMARY_PH + '</p>';
             }
+
           })
         })
       })
@@ -1509,7 +1512,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 })
 
 var w = $('#panel_3b').width(),
-  h = $('#panel_3b').height() * (3 / 8),
+  h = $('#panel_3b').height() * .33,
   x = d3.scale.linear().range([0, w]),
   y = d3.scale.linear().range([0, h]),
   color = d3.scale.category20c(),
@@ -1536,8 +1539,8 @@ var svg = d3.select("#tree").append("div")
   .attr("transform", "translate(.5,.5)");
 
 //d3.json("kinoko_takenoko.json", function(data) {
-d3.json('/data-lab-data/homeless_cluster.json', function(data) {
-  d3.csv('/data-lab-data/homeless_clusters_cmeans.csv', function(cluster) {
+d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
+  d3.csv('/data-lab-data/cluster_data.csv', function(cluster) {
 
     var formatNumber = d3.format('$,.0f');
     var OtherformatNumber = d3.format(',');
@@ -1546,6 +1549,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
 
     console.log('cluster: ',cluster)
     cluster.forEach(function(d) {
+      d.amount = +d.amount
       d.days_below_32 = +d.days_below_32
       d.density = +d.density
       d.estimated_pop_2016 = +d.estimated_pop_2016
@@ -1564,8 +1568,8 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds
       });
 
-    node = root = data;
-    console.log(data);
+    node = root = tree_data;
+    console.log(tree_data);
     var nodes = treemap.nodes(root)
       .filter(function(d) {
         return !d.children;
@@ -1626,7 +1630,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
     initialize_accordion();
 
     function initialize_accordion(){
-      var init_accordion = data.children[0].children;
+      var init_accordion = tree_data.children[0].children;
       console.log("init accordion: ", init_accordion[0]);
 
       for (var i = 0; i < init_accordion.length; i++) {
@@ -1740,20 +1744,23 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
       }
 
       var dat = cluster.filter(filter_cocNum_barChart)[0];
-
       console.log('get CFDA dat: ',dat)
 
       return(
+        '<p>Total funding: ' + formatNumber(dat.amount) + '</p>' +
+        '<p>Total homeless population: ' + OtherformatNumber(dat.total_homeless) + '</p>' +
         '<p>Area in square miles: ' + P3_formatNumber(dat.land_area) + '</p>' +
         '<p>Population density: ' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
         '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
         '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
         '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<p>Property crime (incidents per 10k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>'
-
+        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
+        '<p>Prevalence rate of serious mental illness: ' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
+        '<p>Prevalence rate of drug abuse: ' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
+        '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
-
     }
+
 
   })
 });
@@ -1794,294 +1801,3 @@ d3.json('/data-lab-data/homeless_cluster.json', function(data) {
 //   }
 //
 // };
-
-// function size(d) {
-// return d.size;
-// }
-//
-// function total_homeless(d) {
-// return d.total_homeless;
-// }
-//
-// function sheltered_homeless(d) {
-// return d.sheltered_homeless;
-// }
-//
-// function unsheltered_homeless(d) {
-// return d.unsheltered_homeless;
-// }
-//
-// /*function cash(d) {
-// return d.cash;
-// }*/
-//
-// function count(d) {
-// return 1;
-// }
-//
-//
-// d3.select('#panel_3c')
-//   .append('div')
-//   .attr('id','group_cocs');
-//
-//   d3.select('#infographic')
-//     .append('div')
-//     .attr('id','left_column')
-//       .append('svg')
-//       .attr('height','500px')
-//       .attr('width','800px')
-//       .attr('class','picture')
-//       .attr('src', GetInfographic);
-//
-//   function GetInfographic(d){
-//     for (var i = 0; i < data.length; i++) {
-//       if (d.properties.group === "1a") {
-//         return('/images/homelessness/Group1.pgn')
-//       } else if (d.properties.group === "2a"){
-//         return('/images/homelessness/Group2.png')
-//       } else if (d.properties.group === "2b"){
-//         return ('/images/homelessness/Group3.png')
-//       } else if (d.properties.group === "4a"){
-//         return ('/images/homelessness/Group4.png')
-//       } else if (d.properties.group === "4b"){
-//         return ('/images/homelessness/Group5.png')
-//       } else if (d.properites.group === "4c"){
-//         return ('/images/homelessness/Group6.png')
-//       } else if(d.properties.group === "5a"){
-//         return ('/images/homelessness/Group7.png')
-//       } else if (d.properties.group === "5b"){
-//         return ('/images/homelessness/Group8.png')
-//       } else if (d.propeties.group ==="5c"){
-//         return ('/images/homelessness/Group9.png')
-//       } else {
-//         return (All.png)
-//       }
-//     }
-//
-//     d3.select('#infographic')
-//     .append('div')
-//     .attr('id','left_column')
-//       .append('svg')
-//       .attr('height','500px')
-//       .attr('width','800px')
-//       .attr('class','picture')
-//       .attr('src', GetInfographic);
-//
-//   function GetInfographic(d){
-//     for (var i = 0; i < data.length; i++) {
-//       if (d.properties.group === "1a") {
-//         return('/images/homelessness/Group1.pgn')
-//       } else if (d.properties.group === "2a"){
-//         return('/images/homelessness/Group2.png')
-//       } else if (d.properties.group === "2b"){
-//         return ('/images/homelessness/Group3.png')
-//       } else if (d.properties.group === "4a"){
-//         return ('/images/homelessness/Group4.png')
-//       } else if (d.properties.group === "4b"){
-//         return ('/images/homelessness/Group5.png')
-//       } else if (d.properites.group === "4c"){
-//         return ('/images/homelessness/Group6.png')
-//       } else if(d.properties.group === "5a"){
-//         return ('/images/homelessness/Group7.png')
-//       } else if (d.properties.group === "5b"){
-//         return ('/images/homelessness/Group8.png')
-//       } else if (d.propeties.group ==="5c"){
-//         return ('/images/homelessness/Group9.png')
-//       } else {
-//         return (All.png)
-//       }
-//     }
-//
-//   };
-//
-//   function size(d) {
-//   return d.size;
-//   }
-//
-//   function total_homeless(d) {
-//   return d.total_homeless;
-//   }
-//
-//   function sheltered_homeless(d) {
-//   return d.sheltered_homeless;
-//   }
-//
-//   function unsheltered_homeless(d) {
-//   return d.unsheltered_homeless;
-//   }
-//
-//   /*function cash(d) {
-//   return d.cash;
-//   }*/
-//
-//   function count(d) {
-//   return 1;
-//   }
-//
-//   function zoom(d) {
-//   var kx = w / d.dx, ky = h / d.dy;
-//   x.domain([d.x, d.x + d.dx]);
-//   y.domain([d.y, d.y + d.dy]);
-//
-//   var t = svg.selectAll("g.cell").transition()
-//     .duration(d3.event.altKey ? 7500 : 750)
-//     .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
-//
-//   t.select("rect")
-//     .attr("width", function(d) { return kx * d.dx - 1; })
-//     .attr("height", function(d) { return ky * d.dy - 1; })
-//
-//   t.select("text")
-//     .attr("x", function(d) { return kx * d.dx / 2; })
-//     .attr("y", function(d) { return ky * d.dy / 2; })
-//     .style("opacity", function(d) { return kx * d.dx > d.w ? 1 : 0; });
-//
-//   node = d;
-//   d3.event.stopPropagation();
-//   }
-//
-//   /********* Begining panel 3c *********/
-//   d3.select('#panel_3c')
-//     .append('div')
-//     .attr('id','group_cocs');
-//
-//   var w = 400,
-//       h = 800,
-//       i = 0,
-//       barHeight = 20,
-//       barWidth = w * .8,
-//       duration = 400,
-//       root;
-//
-//   var tree2 = d3.layout.tree()
-//       .size([h, 100]);
-//
-//   var diagonal = d3.svg.diagonal()
-//       .projection(function(d) { return [d.y, d.x]; });
-//
-//   var vis = d3.select("#group_cocs").append("svg:svg")
-//       .attr("width", w)
-//       .attr("height", h)
-//     .append("svg:g")
-//       .attr("transform", "translate(20,30)");
-//
-//   function moveChildren(node) {
-//       if(node.children) {
-//           node.children.forEach(function(c) { moveChildren(c); });
-//           node._children = node.children;
-//           node.children = null;
-//       }
-//   }
-//
-//   d3.json("/data-lab-data/homeless_cluster2.json", function(json) {
-//     json.x0 = 0;
-//     json.y0 = 0;
-//     moveChildren(json);
-//     update(root = json);
-//   });
-//
-//   function update(source) {
-//
-//     // Compute the flattened node list. TODO use d3.layout.hierarchy.
-//     var nodes = tree2.nodes(root);
-//
-//     // Compute the "layout".
-//     nodes.forEach(function(n, i) {
-//       n.x = i * barHeight;
-//     });
-//
-//     // Update the nodes…
-//     var node = vis.selectAll("g.node")
-//         .data(nodes, function(d) { return d.id || (d.id = ++i); });
-//
-//     var nodeEnter = node.enter().append("svg:g")
-//         .attr("class", "node")
-//         .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-//         .style("opacity", 1e-6);
-//
-//     // Enter any new nodes at the parent's previous position.
-//     nodeEnter.append("svg:rect")
-//         .attr("y", -barHeight / 2)
-//         .attr("height", barHeight)
-//         .attr("width", barWidth)
-//         .style("fill", color)
-//         .on("click", click);
-//
-//     nodeEnter.append("svg:text")
-//         .attr("dy", 3.5)
-//         .attr("dx", 5.5)
-//         .text(function(d) { return d.name; });
-//
-//     // Transition nodes to their new position.
-//     nodeEnter.transition()
-//         .duration(duration)
-//         .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
-//         .style("opacity", 1);
-//
-//     node.transition()
-//         .duration(duration)
-//         .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
-//         .style("opacity", 1)
-//       .select("rect")
-//         .style("fill", colorCoC);
-//
-//     // Transition exiting nodes to the parent's new position.
-//     node.exit().transition()
-//         .duration(duration)
-//         .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-//         .style("opacity", 1e-6)
-//         .remove();
-//
-//     // Update the links…
-//     var link = vis.selectAll("path.link")
-//         .data(tree2.links(nodes), function(d) { return d.target.id; });
-//
-//     // Enter any new links at the parent's previous position.
-//     link.enter().insert("svg:path", "g")
-//         .attr("class", "link")
-//         .attr("d", function(d) {
-//           var o = {x: source.x0, y: source.y0};
-//           return diagonal({source: o, target: o});
-//         })
-//       .transition()
-//         .duration(duration)
-//         .attr("d", diagonal);
-//
-//     // Transition links to their new position.
-//     link.transition()
-//         .duration(duration)
-//         .attr("d", diagonal);
-//
-//     // Transition exiting nodes to the parent's new position.
-//     link.exit().transition()
-//         .duration(duration)
-//         .attr("d", function(d) {
-//           var o = {x: source.x, y: source.y};
-//           return diagonal({source: o, target: o});
-//         })
-//         .remove();
-//
-//     // Stash the old positions for transition.
-//     nodes.forEach(function(d) {
-//       d.x0 = d.x;
-//       d.y0 = d.y;
-//     });
-//   }
-//
-//   // Toggle children on click.
-//   function click(d) {
-//     if (d.children) {
-//       d._children = d.children;
-//       d.children = null;
-//     } else {
-//       d.children = d._children;
-//       d._children = null;
-//     }
-//     update(d);
-//   }
-//
-//   function colorCoC(d) {
-//     return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
-//   }
-//   }
-// })
