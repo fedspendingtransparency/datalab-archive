@@ -550,7 +550,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('placeholder', 'Search...')
                 .style('font-family', 'inherit')
                 .style('margin-bottom', '10px')
-                .style('font-size', '16');
+                .style('font-size', '16')
+                .style('color','#000');
 
               d3.select('#viz_container').append('div')
                 .attr('id', 'table_container')
