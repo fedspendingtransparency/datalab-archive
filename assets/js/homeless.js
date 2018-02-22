@@ -1796,42 +1796,6 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
           return ('/images/homelessness/Group9.png')
          }
        }
+       
      })
   });
-
-
-
-// d3.select('#panel_3b')
-//   .append('div')
-//   .attr('id','left_column')
-//     .append('svg')
-//     .style('background', 'src=GetInfographic(d)')
-//     .attr('height','100%')
-//     .attr('width','100%');
-//
-// function GetInfographic(d){
-//   for (var i = 0; i < data.length; i++) {
-//     if (d.properties.group === "1a") {
-//       return('/images/homelessness/Group1.pgn')
-//     } else if (d.properties.group === "2a"){
-//       return('/images/homelessness/Group2.png')
-//     } else if (d.properties.group === "2b"){
-//       return ('/images/homelessness/Group3.png')
-//     } else if (d.properties.group === "4a"){
-//       return ('/images/homelessness/Group4.png')
-//     } else if (d.properties.group === "4b"){
-//       return ('/images/homelessness/Group5.png')
-//     } else if (d.properites.group === "4c"){
-//       return ('/images/homelessness/Group6.png')
-//     } else if(d.properties.group === "5a"){
-//       return ('/images/homelessness/Group7.png')
-//     } else if (d.properties.group === "5b"){
-//       return ('/images/homelessness/Group8.png')
-//     } else if (d.propeties.group ==="5c"){
-//       return ('/images/homelessness/Group9.png')
-//     } else {
-//       return (All.png)
-//     }
-//   }
-//
-// };
