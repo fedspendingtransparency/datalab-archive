@@ -901,8 +901,16 @@
     margin: 0;
     display: inline-table;
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
     color: #0C99CD;
+    float: left;
+  }
+  #accordion > div.panel > div > div > p#txt2 {
+    margin: 0;
+    display: inline-table;
+    text-align: left;
+    font-size: 14px;
+    color: #848482;
     float: left;
   }
 
