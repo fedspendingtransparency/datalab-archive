@@ -114,7 +114,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .attr('width', '100%') //info_width + margin.left + margin.right)
               .attr('height', info_height + margin.top + margin.bottom - 20);
 
-            var contact_panel = d3.select('#panel_contact')
+            var contact_panel = d3.select('#CoCcontact')
               .attr('width', info_width + margin.left + margin.right)
               .attr('height', info_height + margin.top + margin.bottom);
 
@@ -451,6 +451,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                   createCoCTable(d);
                   Make_Map_Title(d)
                   StateBarChart(d);
+                  createContact(d)
                   //createCFDATableHover(d);
                   p2_1_clicked_p1(d);
                 })
@@ -1472,7 +1473,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             function createContact(d) {
               console.log('Create_Contact d: ', d);
-              $('#panel_contact').empty();
+              $('#contact_panel').empty();
+              $('#contact_info').remove();
+
               contact_panel.append('div')
                 .attr('id', 'contact_info')
                 .attr("height", info_height)
