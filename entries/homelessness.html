@@ -17,52 +17,37 @@ category: entry
 		  funding from HUD’s Continuum of Care program. This program — the largest federal program
 		  related to homelessness — requires grantees to collect reliable data on the total number
 		  of people experiencing homelessness who reside in the grantee’s geographic area."
-	buttonIdentifier="btnPanel1Modal"
+	identifier="panel1Modal"
 %}
 
-<div id="myModal" class="modal">
-	<div class="modal-content">
-		<div class="modal-blue-bar"></div>
-		<div class="modal-body">
-			<div class="modal-body-title">
-				How individuals experiencing homelessness are counted
-			</div>
-			<div class="modal-body-content">
-				<p>People experiencing homelessness are counted once a year (in late January) by grantees who receive
-				   funding from HUD's Continuum of Care program. This program is the largest federal program related to homelessness.
-				   It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside
-				   in the grantee's geographic area. State and local governments create the Continuum of Care regions.
-				</p>
-				<p>
-					They reflect how each community organizes itself and applies for funding from HUD's Continuum of Care program.
-					HUD allows Continuum of Care grantees to use multiple approaches to complete their count, if necessary.
-					Grantees may use a census approach, a sampling approach, or a combination of the methods.
-				</p>
-			</div>
-			<span class="modal-body-close">Close</span>
-		</div>
-	</div>
-</div>
-
-<script>
-	var modal = document.getElementById('myModal');
-
-	document.getElementById("btnPanel1Modal").onclick = function() {
-		modal.style.display = "block";
-	}
-
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-</script>
+{% include viz-modal.html
+	identifier="panel1Modal"
+	title="How individuals experiencing homelessness are counted"
+	body="<p>People experiencing homelessness are counted once a year (in late January) by grantees who receive 
+			funding from HUD's Continuum of Care program. This program is the largest federal program related to homelessness.
+			It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside 
+			in the grantee's geographic area. State and local governments create the Continuum of Care regions. 
+		  </p>
+		  <p>
+			They reflect how each community organizes itself and applies for funding from HUD's Continuum of Care program.
+			HUD allows Continuum of Care grantees to use multiple approaches to complete their count, if necessary.
+			Grantees may use a census approach, a sampling approach, or a combination of the methods.
+		  </p>"
+%}
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
 		{% include viz-title.html
 		   title="Homeless Population by Region"
 		   subtext="HUD Point in Time Count by Continuum of Care Area"
+		   identifier="panel1InstructionsModal"
+		%}
+		{% include viz-modal.html
+			identifier="panel1InstructionsModal"
+			title="Instructions"
+			body="<p>To zoom into the map below, double-click on a region. 
+				  To re-orient the map, double-click on a new region. 
+				  To zoom out, double-click on the region last clicked on.</p>"
 		%}
 		<div class="mask">
 			{% include homeless-p1-buttons.html %}
@@ -75,7 +60,24 @@ category: entry
 
 {% include viz-header-info.html
 	title="Federal programs that address homelessness"
-	body="The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, though multiple federal agencies manage programs that provide services including education, employment, housing resources, and more. Our analysis identified 33 federal programs that explicitly flagged homeless individuals as beneficiaries. These included programs that named homeless individuals as primary targets of services or as one of the program’s target recipient groups."
+	body="The Department of Housing and Urban Development plays a lead role in federal efforts to 
+		  address homelessness, though multiple federal agencies manage programs that provide services 
+		  including education, employment, housing resources, and more. Our analysis identified 33 
+		  federal programs that explicitly flagged homeless individuals as beneficiaries. 
+		  These included programs that named homeless individuals as primary targets of 
+		  services or as one of the program’s target recipient groups."
+	identifier="panel2Modal"
+%}
+
+{% include viz-modal.html
+	identifier="panel2Modal"
+	title="Lorem Ipsum"
+	body="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+			 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+			 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+			 voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+			 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+			</p>"
 %}
 
 <section id="one" class="wrapper style1 special">
@@ -83,6 +85,21 @@ category: entry
 		{% include viz-title.html
 			title="Federal Spending on Homelessness by Region"
 			subtext="Federal grant awards by Continuum of Care Area"
+			identifier="panel2InstructionsModal"
+		%}
+		{% include viz-modal.html
+			identifier="panel2InstructionsModal"
+			title="Instructions"
+			body="<p>
+				    To zoom into the map below, double-click on a region. 
+				    To re-orient the map, double-click on a new region. 
+				  	To zoom out, double-click on the region last clicked on.
+				  </p>
+				  <p>
+					To select a different CoC area and update the charts, 
+					single-click a different region. Single-click the bars on 
+					the charts to visit a website describing each program in depth.
+				  </p>"
 		%}
 		<div class="mask">
 			{% include action-buttons.html %}
@@ -120,20 +137,6 @@ category: entry
 	</div>
 </section>
 
-<script>
-	var modal = document.getElementById('myModalContact');
-
-	document.getElementById("myBtnContact").onclick = function() {
-		modal.style.display = "block";
-	}
-
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-</script>
-
 {% include viz-header-info.html
 	title="Cluster filler heading... blah blah"
 	body="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -157,9 +160,11 @@ category: entry
 
 
 {% include how-analysis-conducted.html
-	how="To determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA,
-	looking for keywords related to homelessness. We then developed a ranking system to assess whether individuals experiencing homelessness
-	would directly benefit from these programs, keeping only the most relevant programs in our dataset."
+	how="To accurately determine the amount the federal government spends addressing homelessness, 
+	we reviewed federal program descriptions using the CFDA, looking for any mention of 
+	keywords related to homelessness."
+	read-more="homeless-analysis-more.html"
+	next-analysis="what-and-why-government-spending.html"
 %}
 
 <!-- d3 -->

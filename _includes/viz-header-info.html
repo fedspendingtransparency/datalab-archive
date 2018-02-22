@@ -5,7 +5,7 @@
     </div>
     <div class="entry-about-body-container">
         <h3 class="entry-about-body">{{include.body}}</h3>
-        <a id={{include.buttonIdentifier}} class="button-read-more"><span>Read More ⟶</span></a>
+        <a onclick="document.getElementById('{{include.identifier}}').style.display='block';" class="button-read-more"><span>Read More ⟶</span></a>
     </div>
     <div class="clear-both"></div>
 </div>
