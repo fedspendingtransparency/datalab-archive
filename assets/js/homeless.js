@@ -38,6 +38,20 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
           d3.csv('/data-lab-data/coc_pop_value.csv', function(table_data) {
 
 
+            d3.selectAll("#button1").on("click", change);
+
+            function change() {
+              d3.selectAll('#viz_container').remove()
+              d3.selectAll('#legend').remove()
+              d3.selectAll('#legend_title').remove()
+              d3.selectAll('#legend_subtitle').remove()
+              d3.selectAll('#counties_mini').remove()
+
+              GenMap()
+              GenPanelTwo()
+            }
+
+
             console.log('CoC US: ', us);
             console.log('CFDA State: ', cfda_state);
             //console.log('data: ', data);
