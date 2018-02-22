@@ -1487,7 +1487,8 @@ var w = $('#panel_3b').width(),
   h = $('#panel_3b').height() * .33,
   x = d3.scale.linear().range([0, w]),
   y = d3.scale.linear().range([0, h]),
-  color = d3.scale.category20c(),
+  color = d3.scale.ordinal().range(['#A1B3BF','#37071F','#EE4D99','#9C81C4','#172450','#6D94DF','#4F63AC',
+           '#91B9FF','#C4704B','#972666','#CB6C94']),
   root,
   node;
 
@@ -1616,7 +1617,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         .attr('position', 'relative')
         .append('div')
         .attr('class', 'header')
-        .html('<h3>' + d.coc_name + '</h3>')
+        .html('<p id="head">' + d.coc_name + '</p3>')
         .append('div')
         .attr('class', 'body')
         .html(get_CFDA(d));
@@ -1757,17 +1758,17 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
       console.log('get CFDA dat: ',dat)
 
       return(
-        '<p>Total funding: ' + formatNumber(dat.amount) + '</p>' +
-        '<p>Total homeless population: ' + OtherformatNumber(dat.total_homeless) + '</p>' +
-        '<p>Area in square miles: ' + P3_formatNumber(dat.land_area) + '</p>' +
-        '<p>Population density: ' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
-        '<p>Median montly gross rent: ' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
-        '<p>Avg income for the 20th percentile: ' + formatNumber(dat.weighted_income) + '</p>' +
-        '<p>Avg number of days below freezing: ' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<p>Property crime (incidents per 100k people): ' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
-        '<p>Prevalence rate of serious mental illness: ' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
-        '<p>Prevalence rate of drug abuse: ' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
-        '<p>Prevalence rate of alcohol dependece or abuse: ' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
+        '<p id="txt">Total funding: ' + '</p><p>'+ formatNumber(dat.amount) + '</p>' +
+        '<br/><p id="txt">Total homeless population: ' + '</p><p>' + OtherformatNumber(dat.total_homeless) + '</p>' +
+        '<br/><p id="txt">Area in square miles: ' + '</p><p>' + P3_formatNumber(dat.land_area) + '</p>' +
+        '<br/><p id="txt">Population density: ' + '</p><p>' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
+        '<br/><p id="txt">Median montly gross rent: ' + '</p><p>' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
+        '<br/><p id="txt">Avg income for the 20th percentile: ' + '</p><p>' + formatNumber(dat.weighted_income) + '</p>' +
+        '<br/><p id="txt">Avg number of days below freezing: ' + '</p><p>' + P3_formatNumber(dat.days_below_32) + '</p>' +
+        '<br/><p id="txt">Property crime (incidents per 100k people): ' + '</p><p>' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
+        '<br/><p id="txt">Prevalence rate of serious mental illness: ' + '</p><p>' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
+        '<br/><p id="txt">Prevalence rate of drug abuse: ' + '</p><p>' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
+        '<br/><p id="txt">Prevalence rate of alcohol dependece or abuse: ' + '</p><p>' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
   function get_Infographic(d){

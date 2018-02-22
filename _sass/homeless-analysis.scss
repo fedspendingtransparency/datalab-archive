@@ -890,12 +890,24 @@
 
   #accordion > div.panel > div > div > p {
     margin: 0;
+    display: inline-table;
     text-align: left;
     font-size: 12px;
     color: #848482;
+    float: left;
   }
 
-  #accordion > div.panel > div > h3 {
+  #accordion > div.panel > div > div > p#txt {
+    margin: 0;
+    display: inline-table;
+    text-align: left;
+    font-size: 12px;
+    color: #0C99CD;
+    float: left;
+  }
+
+  #accordion > div.panel > div > p#head {
     color: #848482;
+    font-size: 20px;
   }
 }
