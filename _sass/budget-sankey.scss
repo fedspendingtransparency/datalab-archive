@@ -42,10 +42,14 @@
 		stroke: #000;
 		stroke-opacity: .1;
 	}
+	#sankey-container {
+		position: relative;
+	}
 	#sankey-viz {
 		width: 600px;
 		height: 100%;
-		float: left;
+		margin: 25px 0 0 15px;
+		position: absolute;
 	}
 	#sankey-table {
 		text-align:left;
@@ -193,49 +197,13 @@
 	#sankey-viz text {
 		font-size: 12px;
 	}
-	.sankey-label-budget-function {
-		height: 30px;
-		width: 597px;
-		border: 2px solid #65656E;
-		border-bottom: none;
-		margin: -15px 0px 0px -580px;
-		transform: rotate(-90deg);
-		float: left;
-		transform-origin: right;
-	}
-	.sankey-label-budget-function > h1{
-		width: 215px;
-		margin-top: -11px;
-		text-align: center;
-		margin-left: 190px;
-		background: white;
-		text-transform: uppercase;
-		color: #65656E;
-		font-family: "Source Sans Pro";
-		letter-spacing: 2px;
-	}
-
-	.sankey-label-object-class {
-		height: 30px;
-		width: 557px;
-		border: 2px solid #65656E;
-		border-bottom: none;
-		margin: 582px 0px 0px -685px;
-		transform: rotate(-270deg);
-		display: inline-block;
-		transform-origin: right;
-	}
-	.sankey-label-object-class > h1{
-		width: 165px;
-		margin-top: -18px;
-		text-align: center;
-		margin-left: 0px;
-		background: white;
-		text-transform: uppercase;
-		color: #65656E;
-		vertical-align: middle;
-		display: inline-block;
-		font-family: "Source Sans Pro";
-		letter-spacing: 2px;
+	.sankey-brackets {
+		background-image: url(images/sankey-brackets.svg);
+		background-repeat: no-repeat;
+		width: 650px;
+		height: 675px;
+		position: absolute;
+		left: 0;
+		top: 0;
 	}
 }
