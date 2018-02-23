@@ -247,7 +247,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var formatNumber = d3.format('$,.0f');
             var OtherformatNumber = d3.format(',');
-            var P3_formatNumber = d3.format(',');
+            var P3_formatNumber = d3.format(',.0f');
 
             function bar_click(d) {
               console.log("bar_click d: ", d);
@@ -1535,7 +1535,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     var formatNumber = d3.format('$,.0f');
     var OtherformatNumber = d3.format(',');
-    var P3_formatNumber = d3.format(',.2f');
+    var P3_formatNumber = d3.format(',.0f');
 
 
     console.log('cluster: ',cluster)
@@ -1784,9 +1784,9 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<br/><p id="txt">Avg income for the 20th percentile: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_income) + '</p>' +
         '<br/><p id="txt">Avg number of days below freezing: ' + '</p><p id="txt2">' + P3_formatNumber(dat.days_below_32) + '</p>' +
         '<br/><p id="txt">Property crime (incidents per 100k people): ' + '</p><p id="txt2">' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
-        '<br><p id="txt">Prevalence rate of serious mental illness: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
-        '<br/><p id="txt">Prevalence rate of drug abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
-        '<br/><p id="txt">Prevalence rate of alcohol dependece or abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
+        '<br/><p id="txt">Prevalence of serious mental illness: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
+        '<br/><p id="txt">Prevalence of drug abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
+        '<br/><p id="txt">Prevalence of alcohol dependence or abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
   function get_Infographic(d){
