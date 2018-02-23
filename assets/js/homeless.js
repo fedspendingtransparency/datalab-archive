@@ -1535,7 +1535,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     var formatNumber = d3.format('$,.0f');
     var OtherformatNumber = d3.format(',');
-    var P3_formatNumber = d3.format(',.2f');
+    var P3_formatNumber = d3.format(',');
 
 
     console.log('cluster: ',cluster)
