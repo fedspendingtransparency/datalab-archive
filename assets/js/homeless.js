@@ -1792,27 +1792,27 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
   function get_Infographic(d){
     console.log('get_Infographic: ',d)
          if (d == "1a") {
-           return('/images/homelessness/cluster_1a.jpg')
+           return('/images/homelessness/cluserV2_1a.jpg')
          } else if (d == "2a"){
-           return('/images/homelessness/cluster_2a.jpg')
+           return('/images/homelessness/cluserV2_2a.jpg')
          } else if (d == "2b"){
-          return ('/images/homelessness/cluster_2b.jpg')
+          return ('/images/homelessness/cluserV2_2b.jpg')
          } else if (d == "2c"){
-          return ('/images/homelessness/cluster_2c.jpg')
+          return ('/images/homelessness/cluserV2_2c.jpg')
          } else if (d == "3a"){
-           return('/images/homelessness/cluster_3a.jpg')
+           return('/images/homelessness/cluserV2_3a.jpg')
          } else if (d == "4a"){
-          return ('/images/homelessness/cluster_4a.jpg')
+          return ('/images/homelessness/cluserV2_4a.jpg')
          } else if (d == "4b"){
-           return ('/images/homelessness/cluster_4b.jpg')
+           return ('/images/homelessness/cluserV2_4b.jpg')
          } else if (d == "4c"){
-           return ('/images/homelessness/cluster_4c.jpg')
+           return ('/images/homelessness/cluserV2_4c.jpg')
          } else if(d == "5a"){
-         return ('/images/homelessness/cluster_5a.jpg')
+         return ('/images/homelessness/cluserV2_5a.jpg')
          } else if (d == "5b"){
-          return ('/images/homelessness/cluster_5b.jpg')
+          return ('/images/homelessness/cluserV2_5b.jpg')
          } else if (d =="5c"){
-          return ('/images/homelessness/cluster_5c.jpg')
+          return ('/images/homelessness/cluserV2_5c.jpg')
          }
        }
 
