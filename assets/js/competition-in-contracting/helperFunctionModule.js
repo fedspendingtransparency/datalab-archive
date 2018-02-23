@@ -1,7 +1,10 @@
-const helperFunctionModule = function() {
-  const formatPercent = d3.format(",.0%");
-  const formatActions = d3.format(",");
-  const formatDollars = d3.format("$,");
+"use strict";
+
+var helperFunctionModule = (function() {
+  var formatPercent = d3.format(",.0%");
+  var formatActions = d3.format(",");
+  var formatDollars = d3.format("$,");
+  var formatDollarsText = d3.format(".2s");
 
   function formatNumber(type, number) {
     switch (type) {
@@ -10,9 +13,18 @@ const helperFunctionModule = function() {
       case "actions":
         return formatActions(number);
       case "dollars":
-        return formatDollars(number);
+        return formatDollars(Math.round(number));
+      case "dollars text":
+        return (
+          "$" +
+          formatDollarsText(Math.round(number))
+            .replace("k", " thousand")
+            .replace("M", " million")
+            .replace("G", " billion")
+            .replace("T", " trillion")
+        );
     }
   }
 
-  return { formatNumber };
-};
+  return { formatNumber: formatNumber };
+})();

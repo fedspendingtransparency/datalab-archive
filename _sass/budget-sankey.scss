@@ -43,9 +43,8 @@
 		stroke-opacity: .1;
 	}
 	#sankey-viz {
-		width: 50%;
+		width: 600px;
 		height: 100%;
-		margin-top:125px;
 		float: left;
 	}
 	#sankey-table {
@@ -100,11 +99,12 @@
 	}
 	table > tbody > tr {
 		border: none;
+		display: inline-block;
+		width: 260px;
 	}
 	#tab_2 {
-		/*height:40px;*/
 		width:600px;
-		margin-top:2px;
+		margin-top:-20px;
 		margin-bottom:-15px;
 	}
 	#sankey-table #tab {
@@ -192,5 +192,50 @@
 	}
 	#sankey-viz text {
 		font-size: 12px;
+	}
+	.sankey-label-budget-function {
+		height: 30px;
+		width: 597px;
+		border: 2px solid #65656E;
+		border-bottom: none;
+		margin: -15px 0px 0px -580px;
+		transform: rotate(-90deg);
+		float: left;
+		transform-origin: right;
+	}
+	.sankey-label-budget-function > h1{
+		width: 215px;
+		margin-top: -11px;
+		text-align: center;
+		margin-left: 190px;
+		background: white;
+		text-transform: uppercase;
+		color: #65656E;
+		font-family: "Source Sans Pro";
+		letter-spacing: 2px;
+	}
+
+	.sankey-label-object-class {
+		height: 30px;
+		width: 557px;
+		border: 2px solid #65656E;
+		border-bottom: none;
+		margin: 582px 0px 0px -685px;
+		transform: rotate(-270deg);
+		display: inline-block;
+		transform-origin: right;
+	}
+	.sankey-label-object-class > h1{
+		width: 165px;
+		margin-top: -18px;
+		text-align: center;
+		margin-left: 0px;
+		background: white;
+		text-transform: uppercase;
+		color: #65656E;
+		vertical-align: middle;
+		display: inline-block;
+		font-family: "Source Sans Pro";
+		letter-spacing: 2px;
 	}
 }

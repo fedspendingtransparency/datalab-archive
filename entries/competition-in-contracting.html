@@ -1,8 +1,9 @@
 ---
 layout: page
 menuname: Competition in Contracting
-title: In FY 2017, over 60 percent of dollars paid to contractors went to those who had undergone a competitive bidding process.
-description: The analysis below shows the 24 CFO Act agencies, which are generally the largest agencies in government, accounting for over 98 percent of all federal spending. Other smaller agencies are grouped together in a separate category.
+menuorder: 6
+title: In FY 2017, over 60 percent of Federal contracts were competitively awarded.
+description: The analysis below shows the competition information for the 24 CFO Act agencies which account for over 98 percent of federal contract spending. Other smaller agencies are grouped together in a separate category.
 banner: landings/competition.jpg
 alt: Competition in Contracting
 permalink: competition-contracting.html
@@ -10,36 +11,61 @@ category: entry
 ---
 
 {% include viz-header-info.html
-	title="Why does the government use competition when issuing contracts?"
-	body="It's the law. In 1984, Congress passed the Competition in Contracting Act, which requires federal agencies to use full and open competition when hiring contractors to provide goods and services. The law also spells out circumstances when agencies can bypass competitive practices, which include unusual and compelling urgency and national security. In many cases, federal agencies will pursue competition even when an exception to the law applies, as competition may help to provide a better selection of goods and services or better prices."
+	title="Why does the government use competition when awarding contracts?"
+  body="Competition is a healthy component of maintaining the integrity of the federal procurement process. Competition generates better quality and lower costs for goods and services purchased in support of agency services to the American taxpayer. The 1984 Competition in Contracting Act requires full and open competition while also allowing for exceptions in certain situations. In many cases, federal agencies will pursue competition even when an exception to the law applies, as competition may help to provide innovative solutions or better prices."
 %}
 
 <section id="one" class="wrapper style1 special">
   <div class="viz-bkgd competition-in-contracting-viz-bkgd">
+     {% include viz-title.html
+        title="Competition in Contracting"
+        subtext="Updated as of December 2017"
+        identifier="panel1InstructionsModal"
+     %}
+     {% include viz-modal.html
+       identifier="panel1InstructionsModal"
+       title="Instructions"
+       body="<p>Click the toggle to switch between seeing raw numbers and percent for each agency, as well as total dollars obligated and the number of contracting actions. Click the check box beside each agency to remove or add it to the visualization and re-scale the horizontal axis.</p>"
+     %}
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
         <div class="competition-in-contracting">
-          <!-- tooltip -->
-          <div id="tooltip"></div>
 
-          <!-- summary -->
-          <table id="summaryTable">
-          </table>
+          <div id="summary">
+            <!-- tooltip -->
+            <div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; pointer-events: all; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; width: 300px; left: 486.128px;"></div>
 
+            <!-- summary -->
+            <div class="summary-item" style="border-right: 2px solid #a4a4a4">
+              <p style="color: #2a5da8">COMPETED</p>
+              <h2 id="competed-dollars"></h2>
+            </div>
+            <div class="summary-item">
+              <p style="color: #f0ca4d">NOT COMPETED</p>
+              <h2 id="not-competed-dollars"></h2>
+            </div>
+            <div class="summary-item summary-item-text">
+              Click the toggle to switch between seeing raw numbers and percent for each agency, as well as total dollars obligated and the number of contracting actions. Click the check box beside each agency to remove or add it to the visualization and re-scale the horizontal axis. 
+            </div>
+          </div>
           <!-- toolbar -->
-          <form id="barchartToolbar" class="ui form">
-
-            <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
-              <option value="quantity">Quantity</option>
-              <option value="percent">Percent</option>
-            </select>
-            <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
-              <option value="actions">Actions</option>
-              <option value="dollars">Dollars</option>
-            </select>
-
-          </form>
+          <div>
+            <form id="barchartToolbar" class="ui form">
+              <div class="select-wrapper">
+                <select name="xAxisScale" id="xAxisScaleDropdown" class="dropdown">
+                  <option value="quantity">Quantity</option>
+                  <option value="percent">Percent</option>
+                </select>
+              </div>
+              <div class="select-wrapper">
+                <select name="xAxisUnit" id="xAxisUnitDropdown" class="dropdown">
+                  <option value="dollars">Dollars</option>
+                  <option value="actions">Actions</option>
+                </select>
+              </div>
+            </form>
+          </div>
 
           <!-- barchart -->
           <div>
@@ -53,17 +79,15 @@ category: entry
 </section>
 
 {% include how-analysis-conducted.html 
-how="We conducted this analysis using a report from the Federal Procurement Data System Next Generation, which is the source of part of USAspending.gov's procurement data." 
-read-more="homeless-analysis-more.html"
-next-analysis="what-and-why-government-spending.html" %}
+how="This analysis is generated directly from data available in the Federal Procurement Data System Next Generation, which is the source of U.S. federal procurement data on USASpending.gov."
+%}
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
-<!-- <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script> -->
-<!-- <script src="{{site.baseurl}}/assets/js/vendor/d3.v4.min.js"></script> -->
 <script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/helperFunctionModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/dataModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/summaryTableModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/tooltipModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/barchartModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/competition-in-contracting/competitionInContracting.js"></script>

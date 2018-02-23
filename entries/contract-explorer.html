@@ -1,45 +1,45 @@
 ---
 layout: page
 menuname: Contract Explorer
-title: Ever wonder who’s getting federal contracts, and what agencies are awarding them?
-description: This data visualization tool allows you to see to whom federal contracts are being awarded in Q3 FY17 and what product or services they are being awarded for. Selecting each layer of this chart provides an additional level of detail, starting from major agency to any associated sub-agencies, and to the contractors that receive funding from the federal government.
+menuorder: 2
+title: The federal government spends about $500 billion each year on contracts - that's roughly the size of Sweden's economy.
+description: Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY 17, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government.
 banner: landings/contracts.jpg
 alt: Contract Explorer-Photography by Franz Harvin Aceituna
 permalink: contract-explorer.html
 category: entry
 ---
 
-<link href="/assets/js/contract-sunburst/static/css/main.0f248c4b.css" rel="stylesheet">
+{% include viz-header-info.html
+	title="How does the government buy things?"
+  body="The federal government uses contracts to buy the things it needs, from office furniture to airplanes. 
+  It also uses contracts to buy services ranging from internet to research and development. 
+  Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing 
+  the goods and services they purchase using Product Service Codes (PSC)."
+	identifier="panel1Modal"
+%}
+
+{% include viz-modal.html
+	identifier="panel1Modal"
+	title="How does the government buy things?"
+	body="<p>The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services ranging from internet to research and development. Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing the goods and services they purchase using Product Service Codes (PSC).</p>
+        <p>Although contracts and grants share some similarities, each serves a different purpose. Generally, contracts allow the government to purchase goods and services it will use to execute its mission, while grants allow the government to provide goods and services directly to the public. For example, the Air Force uses contracts to acquire fighter jets to execute its mission, while the Federal Highway Administration uses grants to provide funds to states for public roads.</p>"
+%}
 
 <div class="contract-explorer">
-  <div class="info-bkgd">
-    <div class="page-box">
-      <h2 class="entry-about-title">How To Use This Tool</h2>
-      <h3 class="entry-about-body">
-
-        <div style="border-color:#d6d7d9; border-width: 1px; border-style: solid; padding:10px; margin-bottom:40px; margin-top:30px; height: 270px">
-          <h6 style="margin-top:0; margin-bottom:5px">How to Use this Tool:</h6>
-          <p style="margin-bottom:0">Click the inner rings to begin exploring agencies, their offices, and largest contractors. Click the center node to return to a higher level of abstraction.</p>
-          <div id="legend_colorKey">
-            <div style="left:65px;top:14px;width:70px;" class="legend_circleKeyLabel"><span style="left:75px;">Contractor</span></div>
-            <div style="left:65px;top:25px;" class="legend_circleKeyLabel"><span style="left:75px;">Funding Subagency</span></div>
-            <div style="left:65px;top:36px;" class="legend_circleKeyLabel"><span style="left:75px;">Funding Agency</span></div>
-            <div style="left:65px;top:65px;" class="legend_circleKeyLabel"><span style="left:75px;">2017 Q3 Total Contracts</span></div>
-            <svg id="legend_scaleKey">
-                <circle r="25" class="legend_scaleKeyCircle" cx="60" cy="65" />
-                <circle r="35" class="legend_scaleKeyCircle" cx="60" cy="65" />
-                <circle r="45" class="legend_scaleKeyCircle" cx="60" cy="65" />
-                <circle r="55" class="legend_scaleKeyCircle" cx="60" cy="65" />
-            </svg>
-          </div>
-        </div>
-
-      </h3>
-    </div>
-  </div>
-
   <section id="one" class="wrapper style1 special">
     <div class="viz-bkgd">
+       {% include viz-title.html
+          title="Contract Explorer Sunburst"
+          subtext="Updated as of December 2017"
+          identifier="panel1InstructionsModal"
+       %}
+       {% include viz-modal.html
+         identifier="panel1InstructionsModal"
+         title="Instructions"
+         body="<p>When you look at the diagram, you'll notice it has three rings. The innermost ring represents federal agencies, like the Department of Defense, which are sized by the total dollar amounts they spent on contracts in FY 17. The center ring represents sub-agencies, like the Air Force, which in most cases actually award contracts to contractors. The outermost ring represents the contractors who receive awards from those sub-agencies.</p>
+               <p>Hover over any part of the diagram to get a preview of the information featured in the next layer. Click on an agency (inner ring), sub-agency (middle ring), or contractor (outer ring) to zoom in on that entity and get more detailed information about it. Click the white center circle to reset the sunburst. To find a specific contractor by name, type the name into the search bar.</p>"
+       %}
       <div class="mask">
         <div class="viz-container">
           <div id="root"></div>
@@ -49,7 +49,14 @@ category: entry
   </section>
 </div>
 
+{% include how-analysis-conducted.html 
+  how="We conducted this analysis using agency contract award data for FY 2017, which agencies report to USAspending.gov (and which is publicly available). Each reported contract includes information about the agency and sub-agency that awarded the contract, the contract recipient, and a Product and Service Code, which indicates the goods or services delivered as a result of the contract."
+  read-more="contract-explorer-more.html"
+  next-analysis="homelessness.html"
+%}
+
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>
-<script src="{{site.baseurl}}/assets/js/contract-sunburst/static/js/main.106ae71d.js"></script>
+<script src="{{site.baseurl}}/assets/js/contract-sunburst/static/js/main.a1242cb5.js"></script>
+
+

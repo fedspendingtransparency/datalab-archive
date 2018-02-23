@@ -53,3 +53,6 @@ Temporary Items
 vendor/
 Gemfile.lock
 .bundle/config
+
+# Linting files
+.eslintrc.json

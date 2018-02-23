@@ -1,6 +1,7 @@
 ---
 layout: page
 menuname: Federal Account Explorer
+menuorder: 1
 title: Discover the Federal Government’s Bank Accounts
 description: Did you know that the government has almost 2,000 “accounts,” similar to bank accounts, which it uses to spend money? This visualization allows you to explore those accounts based on the agency structure.
 banner: landings/federal.jpg
@@ -9,8 +10,42 @@ permalink: federal-spending-accounts.html
 category: entry
 ---
 
+{% include viz-header-info.html
+	title="How do agencies receive and spend money?"
+  body="Every fiscal year, Congress decides how much money to give the federal government through
+        its budgeting and appropriations process. These funds, or appropriations, are then designated 
+        for specific purposes and placed in specific bank accounts, or federal accounts, for each agency to use."
+	identifier="panel1Modal"
+%}
+
+{% include viz-modal.html
+	identifier="panel1Modal"
+	title="How do agencies receive and spend money?"
+	body="<p>Every fiscal year, Congress decides how much money to give the federal government through its budgeting and appropriations process. These funds, or appropriations, are then designated for specific purposes and placed in specific bank accounts, or federal accounts, for each agency to use.</p>
+        <p>Federal agencies are responsible for spending their appropriations to carry out their programs and operations, which the Treasury Department assists with by managing the federal government's accounts.  All federal agencies have their own financial accounting systems to track money flowing in and out of accounts, but the Treasury Department is responsible for maintaining current and accurate information about the balances of agency accounts.</p>
+        <p>This is true whether the accounts are designated for paying individuals receiving Social Security, providing Medicare reimbursements, or paying for grants for roads and bridges.</p>"
+%}
+
 <section id="one" class="wrapper style1 special">
   <div class="viz-bkgd">
+     {% include viz-title.html
+        title="Federal Accounts Dendrogram"
+        subtext="Updated as of December 2017"
+        identifier="panel1InstructionsModal"
+     %}
+     {% include viz-modal.html
+       identifier="panel1InstructionsModal"
+       title="Instructions"
+       body="<p>On the first branch, click any circle to reveal how an agency is organized into sub-agencies. 
+                On the second branch, click any circle next to a sub-agency to view that sub-agency's federal accounts. 
+                On the third branch, click on the name of any federal account to see its Federal Account Profile on USAspending.gov. 
+                There, you will find an account description, how much money flowed in and out of the account in a fiscal year, and more.
+              </p>
+              <p>
+                  Click and drag the visualization to re-center. Zoom in or out to see more or less of the dendrogram. 
+                  Use the reset button at the top left corner to reset the visualization.
+              </p>"
+     %}
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
@@ -23,9 +58,10 @@ category: entry
 </section>
 
 {% include how-analysis-conducted.html
-  how="This analysis was conducted by organizing spending data reported to USAspending.gov according to the structure of the federal government presented in government-wide budget documents."
-  read-more="homeless-analysis-more.html"
-  next-analysis="what-and-why-government-spending.html"
+  how="We conducted this analysis by organizing the spending data reported to USAspending.gov 
+       in a way that reflects the structure of the federal government."
+  read-more="federal-spending-accounts-more.html"
+  next-analysis="contract-explorer.html"
 %}
 
 <!-- d3 -->

@@ -1,0 +1,16 @@
+<div id={{include.identifier}} class="modal">
+    <div class="modal-content">
+        <div class="modal-blue-bar"></div>
+        <div class="modal-body">
+            <div class="modal-body-title">{{include.title}}</div>
+            <div class="modal-body-content">{{include.body}}</div>
+            <span class="modal-body-close">Close</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('{{include.identifier}}').querySelector("div > div.modal-body > span").onclick = function() {
+		document.getElementById('{{include.identifier}}').style.display = "none";
+	}
+</script>

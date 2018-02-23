@@ -1,54 +1,69 @@
 .competition-in-contracting {
-  table, th, td {
+
+  table,
+  th,
+  td {
     border: 1px solid black;
-  }
-
-  #tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 20px;
-    margin: 10px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 1px;
-    border-radius: 2px;
-    pointer-events: none;
-    width: 250px;
-    color: black;
-  }
-
-  #tooltip h4 {
-    margin: 0;
-    font-size: 14px;
-  }
-
-  #tooltip table {
-    table-layout: fixed;
-  }
-
-  #tooltip tr td {
-    padding: 0;
-    margin: 0;
-  }
-
-  #tooltip tr td:nth-child(1) {
-    width: 50px;
-  }
-
-  #tooltip tr td:nth-child(2) {
-    text-align: center;
   }
 
   .viz-bkd.competition-in-contracting-viz-bkgd {
     height: 1220px;
   }
 
-  input[type=checkbox] {
+  input[type="checkbox"] {
     -webkit-appearance: checkbox;
     opacity: 1;
   }
 
   .dropdown {
     border: 1px solid black;
+  }
+
+  #summary {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 12px;
+    color: black;
+    border-bottom: 2px solid #a4a4a4;
+    padding: 20px;
+  }
+
+  .summary-item {
+    padding: 20px;
+    width: 20%;
+    text-align: left;
+  }
+
+  .summary-item-text {
+    font-size: 10px;
+    width: 40%;
+  }
+
+  .domain {
+    display: none;
+  }
+
+  .xtick {
+    font-size: 16px;
+    fill: #4f4f4f;
+    font-weight: 500;
+  }
+  .tick {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+  }
+
+  .select-wrapper {
+    margin: 20px;
+  }
+
+  #tooltip {
+    pointer-events: none;
+  }
+
+  #tooltip li {
+    text-align: left;
   }
 }

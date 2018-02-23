@@ -1,6 +1,7 @@
 ---
 layout: page
-menuname: Homelessness
+menuname: Homelessness Analysis
+menuorder: 3
 title: On a single night in 2016, over 500,000 people were experiencing homelessness in the United States.
 description: Multiple federal, state, and local programs offer support to people experiencing homelessness.  Our analysis uses federal financial data to show the breakdown of federal funding spent to address homelessness.
 alt: Homelessness
@@ -11,11 +12,43 @@ category: entry
 
 {% include viz-header-info.html
 	title="How individuals experiencing homelessness are counted"
-	body="Determining how many people are experiencing homelessness at a given time can be challenging. People experiencing homelessness are counted once a year (in late January) by grantees who receive funding from HUD’s Continuum of Care program. This program — the largest federal program related to homelessness — requires grantees to collect reliable data on the total number of people experiencing homelessness who reside in the grantee’s geographic area."
+	body="Determining how many people are experiencing homelessness at a given time can be challenging.
+		  People experiencing homelessness are counted once a year (in late January) by grantees who receive
+		  funding from HUD’s Continuum of Care program. This program — the largest federal program
+		  related to homelessness — requires grantees to collect reliable data on the total number
+		  of people experiencing homelessness who reside in the grantee’s geographic area."
+	identifier="panel1Modal"
+%}
+
+{% include viz-modal.html
+	identifier="panel1Modal"
+	title="How individuals experiencing homelessness are counted"
+	body="<p>People experiencing homelessness are counted once a year (in late January) by grantees who receive
+			funding from HUD's Continuum of Care program. This program is the largest federal program related to homelessness.
+			It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside
+			in the grantee's geographic area. State and local governments create the Continuum of Care regions.
+		  </p>
+		  <p>
+			They reflect how each community organizes itself and applies for funding from HUD's Continuum of Care program.
+			HUD allows Continuum of Care grantees to use multiple approaches to complete their count, if necessary.
+			Grantees may use a census approach, a sampling approach, or a combination of the methods.
+		  </p>"
 %}
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
+		{% include viz-title.html
+		   title="Homeless Population by Region"
+		   subtext="HUD Point in Time Count by Continuum of Care Area"
+		   identifier="panel1InstructionsModal"
+		%}
+		{% include viz-modal.html
+			identifier="panel1InstructionsModal"
+			title="Instructions"
+			body="<p>To zoom into the map below, double-click on a region.
+				  To re-orient the map, double-click on a new region.
+				  To zoom out, double-click on the region last clicked on.</p>"
+		%}
 		<div class="mask">
 			{% include homeless-p1-buttons.html %}
 			<div class="viz-container homeless-analysis">
@@ -27,16 +60,52 @@ category: entry
 
 {% include viz-header-info.html
 	title="Federal programs that address homelessness"
-	body="The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, though multiple federal agencies manage programs that provide services including education, employment, housing resources, and more. Our analysis identified 33 federal programs that explicitly flagged homeless individuals as beneficiaries. These included programs that named homeless individuals as primary targets of services or as one of the program’s target recipient groups."
+	body="The Department of Housing and Urban Development plays a lead role in federal efforts to
+		  address homelessness, though multiple federal agencies manage programs that provide services
+		  including education, employment, housing resources, and more. Our analysis identified 33
+		  federal programs that explicitly flagged homeless individuals as beneficiaries.
+		  These included programs that named homeless individuals as primary targets of
+		  services or as one of the program’s target recipient groups."
+	identifier="panel2Modal"
+%}
+
+{% include viz-modal.html
+	identifier="panel2Modal"
+	title="Lorem Ipsum"
+	body="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+			 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+			 voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+			 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+			</p>"
 %}
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
+		{% include viz-title.html
+			title="Federal Spending on Homelessness by Region"
+			subtext="Federal grant awards by Continuum of Care Area"
+			identifier="panel2InstructionsModal"
+		%}
+		{% include viz-modal.html
+			identifier="panel2InstructionsModal"
+			title="Instructions"
+			body="<p>
+				    To zoom into the map below, double-click on a region.
+				    To re-orient the map, double-click on a new region.
+				  	To zoom out, double-click on the region last clicked on.
+				  </p>
+				  <p>
+					To select a different CoC area and update the charts,
+					single-click a different region. Single-click the bars on
+					the charts to visit a website describing each program in depth.
+				  </p>"
+		%}
 		<div class="mask">
 			{% include action-buttons.html %}
 			<div class="viz-container homeless-analysis">
 				<div class="row flex" style="min-height:300px">
-					<div class="col-md-6">
+					<div class="column" style="width:50%; float:left; padding-left:15px; padding-right:15px">
 						<div class="row flex" style="margin-top:0">
 							<div id="container2_1"></div>
 						</div>
@@ -45,13 +114,16 @@ category: entry
 						</div>
 						<button class="button" id="myBtnContact" style="margin: auto; position:relative; z-index:99; text-align:center; vertical-align:middle;">CoC Contact</button>
 						<div id="myModalContact" class="modal">
-							<div class="modal-content" id="modalContact">
-								<span class="closeContact">&times;</span>
-								<div class="modal-body" id="CoCcontact"></div>
+							<div class="modal-content" id="modalContact"  style="width:30%">
+								<div class="modal-blue-bar"></div>
+								<div class="modal-body"  style="max-width:100%; padding: 0 0 0 0;">
+									<!-- <span class="closeContact">&times;</span> -->
+									<div class="modal-body-content" id="CoCcontact"></div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="column" style="width:50%; float:right; padding-left:15px; padding-right:15px">
 						<div class="row flex" style="margin-top:0">
 							<div id="container2_2"></div>
 						</div>
@@ -65,6 +137,20 @@ category: entry
 	</div>
 </section>
 
+<script>
+	var modal = document.getElementById('myModalContact');
+
+	document.getElementById("myBtnContact").onclick = function() {
+		modal.style.display = "block";
+	}
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
+
 {% include viz-header-info.html
 	title="Cluster filler heading... blah blah"
 	body="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -74,19 +160,25 @@ category: entry
 	<div class="viz-bkgd">
 		<div class="mask">
 			{% include action-buttons.html %}
-			<div class="viz-container homeless-analysis">
-				<div id="panel_3"></div>
+			<div class="viz-container homeless-analysis" style = "height:75%; padding: 25px 25px 0 25px;">
+				<div class="column" id="panel_3c" style="width:31%; float:right; height: 900px"></div>
+				<div class="column" id="panel_3b" style="width:69%; float:left; height: 900px">
+					<div id="tree"></div>
+					<div id="infographic"></div>
+				</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
+
 {% include how-analysis-conducted.html
-	how="To determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA,
-	looking for keywords related to homelessness. We then developed a ranking system to assess whether individuals experiencing homelessness
-	would directly benefit from these programs, keeping only the most relevant programs in our dataset."
+	how="To accurately determine the amount the federal government spends addressing homelessness,
+	we reviewed federal program descriptions using the CFDA, looking for any mention of
+	keywords related to homelessness."
 	read-more="homeless-analysis-more.html"
-	next-analysis="who-works-in-government.html"
+	next-analysis="what-and-why-government-spending.html"
 %}
 
 <!-- d3 -->

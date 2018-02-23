@@ -1,31 +1,43 @@
-$(function() {
-  const barchartModuleDraw = barchartModule().draw;
-  const tooltipModuleDraw = tooltipModule().draw;
-  const tooltipModuleRemove = tooltipModule().remove;
-  const tooltipModuleMove = tooltipModule().move;
-  const formatNumber = helperFunctionModule().formatNumber;
+"use strict";
 
-  const settings = {
-    logScale: false,
-    xAxisUnit: "actions",
+var _extends =
+  Object.assign ||
+  function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+
+$(function() {
+  var barchartModuleDraw = barchartModule().draw;
+  var tooltipModuleDraw = tooltipModule().draw;
+  var tooltipModuleRemove = tooltipModule().remove;
+  var tooltipModuleMove = tooltipModule().move;
+
+  var settings = {
+    xAxisUnit: "dollars",
     xAxisScale: "quantity"
   };
 
-  const helpers = {
-    tooltipModuleDraw,
-    tooltipModuleRemove,
-    tooltipModuleMove,
-    handleYAxisCheckboxChange,
-    formatNumber
+  var helpers = {
+    tooltipModuleDraw: tooltipModuleDraw,
+    tooltipModuleRemove: tooltipModuleRemove,
+    tooltipModuleMove: tooltipModuleMove,
+    handleYAxisCheckboxChange: handleYAxisCheckboxChange
   };
 
   function handleYAxisCheckboxChange(id, checked) {
-    dataModule.mem.cicData = dataModule.mem.cicData.map(c => {
+    dataModule.mem.cicData = dataModule.mem.cicData.map(function(c) {
       if (c.id === id) {
-        return {
-          ...c,
+        return _extends({}, c, {
           displayed: checked
-        };
+        });
       } else {
         return c;
       }
@@ -34,23 +46,21 @@ $(function() {
     barchartModuleDraw(dataModule.mem.cicData, settings, helpers);
   }
 
-  dataModule.loadCicData(cicData => {
+  dataModule.loadCicData(function(cicData) {
     barchartModuleDraw(cicData, settings, helpers);
   });
 
-  $("#barchartToolbar").change(e => {
+  $("#barchartToolbar").change(function(e) {
     e.preventDefault();
 
-    const data = dataModule.mem.cicData;
+    var data = dataModule.mem.cicData;
 
-    const xAxisUnit = $("#xAxisUnitDropdown")
+    var xAxisUnit = $("#xAxisUnitDropdown")
       .find(":selected")
       .val();
-    const xAxisScale = $("#xAxisScaleDropdown")
+    var xAxisScale = $("#xAxisScaleDropdown")
       .find(":selected")
       .val();
-
-    console.log({ xAxisScale, xAxisUnit });
 
     settings.xAxisScale = xAxisScale;
     settings.xAxisUnit = xAxisUnit;
