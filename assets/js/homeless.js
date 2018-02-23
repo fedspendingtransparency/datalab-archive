@@ -1669,8 +1669,11 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         .attr('height', h2)
         .attr('width', w2)
           .append('svg:image')
-          .attr('height', h2)
+          // .attr("viewBox", "0 0 300 300")
           .attr('width', w2)
+          .attr('height', h2)
+          // .attr('preserveAspectRatio', 'xMinYmin meet')
+          // .classed("svg-content", true)
           .attr('xlink:href', get_Infographic(d));
     }
 
