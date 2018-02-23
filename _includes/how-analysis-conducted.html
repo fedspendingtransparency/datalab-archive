@@ -6,8 +6,14 @@
         </div>
         <div class="sub-how-analysis-container">
             <div class="this-analysis-was-co">{{include.how}}</div>
-            <a href="{{include.read-more}}"><span class="btn-analysis btn-analysis-read-more">Read More</span></a>
-            <a href="{{include.next-analysis}}"><span class="btn-analysis btn-analysis-next-analysis">Next Analysis</span></a>
+            {% if include.read-more %}
+                <a href="{{include.read-more}}"><span class="btn-analysis btn-analysis-read-more">Read More</span></a>
+            {% endif %}
+            {% if include.next-analysis %}
+                <a href="{{include.next-analysis}}"><span class="btn-analysis btn-analysis-next-analysis">Next Analysis</span></a>
+            {% endif %}
         </div>
     </div>
 </div>
+
+

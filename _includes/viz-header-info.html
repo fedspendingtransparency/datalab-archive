@@ -5,7 +5,9 @@
     </div>
     <div class="entry-about-body-container">
         <h3 class="entry-about-body">{{include.body}}</h3>
-        <a onclick="document.getElementById('{{include.identifier}}').style.display='block';" class="button-read-more"><span>Read More ⟶</span></a>
+        {% if include.identifier %}
+            <a onclick="document.getElementById('{{include.identifier}}').style.display='block';" class="button-read-more"><span>Read More ⟶</span></a>
+        {% endif %}
     </div>
     <div class="clear-both"></div>
 </div>
