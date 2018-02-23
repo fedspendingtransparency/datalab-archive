@@ -453,7 +453,7 @@ function centerNode(source) {
                  .style('background','#ffffff')
                  .style('color','#333')
                  .style('border', 'solid 1px #BFBCBC')
-                 .style('padding', '5px')
+                 .style('padding', '15px 25px 15px 25px')
                  .style('min-width', '100px')
                  .style('max-width', '375px')
                  .offset([-10, -10])
@@ -515,28 +515,28 @@ function centerNode(source) {
        console.log("createHover d: ",d)
        //console.log("children: ",d._children[0]._children)
        if(d.depth===3){
-           return '<p style="border-bottom:1px solid #898C90; font-size: 14px"><b style="color: #000">'
-             + d.parent.name + ', ' + d.parent.parent.name + ', ' + d.name +  '</b></p>' +
+           return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
+             + d.name + '</p>' +
              '<p style="color: #0071BC; margin: 0; font-size: 18px">'+'Total Obligations: ' + formatNumber(d.size) + '</p>' +
              '<p style="margin: 0; font-size: 12px">'+'Unobligated Balance: ' + formatNumber(d.unob) + '</p>' +
-             '<p style="color: #000; font-size: 12px"><i>' + 'Click to visit federal account page</i></p>';
+             '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Click to visit federal account page</p>';
         }else if (d.depth === 2){
-            return '<p style="border-bottom:1px solid #898C90; font-size: 14px"><b style="color: #000">'
-            + d.name + ', ' +d.parent.name +  '</b></p>'
+            return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
+            + d.name + ', ' +d.parent.name +  '</p>'
             + '<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">'
             + 'Total Obligations: ' + sumUp_lvl2(d) + '</b></p>'
             + '<p style= "margin: 0; font-size: 12px">' + 'Unobligated Balance: '+ sumUp_lvl2_unob(d) +'</p>'
-            + '<p style="color: #000; font-size: 12px"><i>'+ 'Click to view federal accounts'+ '</i></p>';
+            + '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">'+ 'Click to view federal accounts'+ '</p>';
         }else if (d.depth===1){
-            return '<p style="border-bottom:1px solid #898C90; font-size: 14px"><b style="color: #000">'
-            + d.name +  '</b></p>'
+            return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
+            + d.name +  '</p>'
             + '<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">'
             + 'Total Obligations: ' + sumUp(d) + '</b></p>'
             + '<p style= "margin: 0; font-size: 12px">' + 'Unobligated Balance: '+ sumUp_unob(d) + '</p>'
-            + '<p style="color: #000; font-size: 12px"><i>' + 'Click to view agencies'+ '</i></p>';
+            + '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Click to view agencies'+ '</p>';
         }else if (d.depth===0){
-            return '<p style="font-size:16px; margin:0"><b style="color: #000">'
-            + 'FY17 Federal Agencies'+ '</b></p>';
+            return '<p style="font-size:16px; margin:0; color: #000; font-weight:bolder;">'
+            + 'FY17 Federal Agencies'+ '</p>';
         }
      }
 
