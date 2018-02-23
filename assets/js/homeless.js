@@ -1780,7 +1780,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<br/><p id="txt">Total homeless population: ' + '</p><p id="txt2">' + OtherformatNumber(dat.total_homeless) + '</p>' +
         '<br/><p id="txt">Area in square miles: ' + '</p><p id="txt2">' + P3_formatNumber(dat.land_area) + '</p>' +
         '<br/><p id="txt">Population density: ' + '</p><p id="txt2">' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
-        '<br/><p id="txt">Median montly gross rent: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
+        '<br/><p id="txt">Median monthly gross rent: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
         '<br/><p id="txt">Avg income for the 20th percentile: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_income) + '</p>' +
         '<br/><p id="txt">Avg number of days below freezing: ' + '</p><p id="txt2">' + P3_formatNumber(dat.days_below_32) + '</p>' +
         '<br/><p id="txt">Property crime (incidents per 100k people): ' + '</p><p id="txt2">' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
