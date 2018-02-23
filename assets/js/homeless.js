@@ -247,7 +247,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var formatNumber = d3.format('$,.0f');
             var OtherformatNumber = d3.format(',');
-            var P3_formatNumber = d3.format(',.2');
+            var P3_formatNumber = d3.format(',');
 
             function bar_click(d) {
               console.log("bar_click d: ", d);
