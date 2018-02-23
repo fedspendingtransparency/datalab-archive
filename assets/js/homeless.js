@@ -114,7 +114,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .attr('width', '100%') //info_width + margin.left + margin.right)
               .attr('height', info_height + margin.top + margin.bottom - 20);
 
-            var contact_panel = d3.select('#panel_contact')
+            var contact_panel = d3.select('#CoCcontact')
               .attr('width', info_width + margin.left + margin.right)
               .attr('height', info_height + margin.top + margin.bottom);
 
@@ -247,8 +247,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var formatNumber = d3.format('$,.0f');
             var OtherformatNumber = d3.format(',');
-            var P3_formatNumber = d3.format(',.2');
-            var P3_formatNumber2 = d3.format(',.0');
+            var P3_formatNumber = d3.format(',');
 
             function bar_click(d) {
               console.log("bar_click d: ", d);
@@ -452,6 +451,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                   createCoCTable(d);
                   Make_Map_Title(d)
                   StateBarChart(d);
+                  createContact(d)
                   //createCFDATableHover(d);
                   p2_1_clicked_p1(d);
                 })
@@ -550,7 +550,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('placeholder', 'Search...')
                 .style('font-family', 'inherit')
                 .style('margin-bottom', '10px')
-                .style('font-size', '16');
+                .style('font-size', '16')
+                .style('color','#000');
 
               d3.select('#viz_container').append('div')
                 .attr('id', 'table_container')
@@ -1473,7 +1474,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             function createContact(d) {
               console.log('Create_Contact d: ', d);
-              $('#panel_contact').empty();
+              $('#contact_panel').empty();
+              $('#contact_info').remove();
+
               contact_panel.append('div')
                 .attr('id', 'contact_info')
                 .attr("height", info_height)
@@ -1598,7 +1601,6 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         return d.coc_name;
       })
       .style('font-size', '8px')
-      .style('word-wrap', 'break-word')
       .style("opacity", function(d) {
         d.w = this.getComputedTextLength();
         return d.dx > d.w ? 1 : 0;
