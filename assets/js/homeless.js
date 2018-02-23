@@ -1505,8 +1505,8 @@ var w = $('#panel_3b').width(),
   h = $('#panel_3b').height() * .33,
   x = d3.scale.linear().range([0, w]),
   y = d3.scale.linear().range([0, h]),
-  color = d3.scale.ordinal().range(['#A1B3BF','#37071F','#EE4D99','#9C81C4','#172450','#6D94DF','#4F63AC',
-           '#91B9FF','#C4704B','#972666','#CB6C94']),
+  color = d3.scale.ordinal().range(['#972666','#37071F','#EE4D99','#9C81C4','#172450','#6D94DF','#4F63AC',
+           '#91B9FF','#C4704B','#A1B3BF','#CB6C94']),
   root,
   node;
 
