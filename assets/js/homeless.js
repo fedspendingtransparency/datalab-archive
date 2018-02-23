@@ -105,7 +105,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var p2_1_map_svg = d3.select('#panel_map')
               .append('svg')
               .attr('id', 'p2_1_map')
-              .attr('width', '100%') //map_width + margin.left + margin.right + 40)
+              .attr('width', '95%') //map_width + margin.left + margin.right + 40)
               .attr('height', '350px') //map_height + margin.top + margin.bottom + 25);
 
 
@@ -120,7 +120,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var coc_panel = d3.select('#panel_coc')
               .attr('height', info_height + margin.top + margin.bottom)
-              .attr('width', '100%');
+              .attr('width', '95%');
 
             var p2_matrix_svg = d3.select('#panel_matrix').append('svg')
               /*.attr('width', matrix_width + margin.left + margin.right)
@@ -247,7 +247,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
             var formatNumber = d3.format('$,.0f');
             var OtherformatNumber = d3.format(',');
-            var P3_formatNumber = d3.format(',.2');
+            var P3_formatNumber = d3.format(',.0f');
 
             function bar_click(d) {
               console.log("bar_click d: ", d);
@@ -1505,8 +1505,8 @@ var w = $('#panel_3b').width(),
   h = $('#panel_3b').height() * .33,
   x = d3.scale.linear().range([0, w]),
   y = d3.scale.linear().range([0, h]),
-  color = d3.scale.ordinal().range(['#A1B3BF','#37071F','#EE4D99','#9C81C4','#172450','#6D94DF','#4F63AC',
-           '#91B9FF','#C4704B','#972666','#CB6C94']),
+  color = d3.scale.ordinal().range(['#972666','#37071F','#EE4D99','#9C81C4','#172450','#6D94DF','#4F63AC',
+           '#91B9FF','#C4704B','#A1B3BF','#CB6C94']),
   root,
   node;
 
@@ -1535,7 +1535,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
 
     var formatNumber = d3.format('$,.0f');
     var OtherformatNumber = d3.format(',');
-    var P3_formatNumber = d3.format(',.2f');
+    var P3_formatNumber = d3.format(',.0f');
 
 
     console.log('cluster: ',cluster)
@@ -1784,9 +1784,9 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         '<br/><p id="txt">Avg income for the 20th percentile: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_income) + '</p>' +
         '<br/><p id="txt">Avg number of days below freezing: ' + '</p><p id="txt2">' + P3_formatNumber(dat.days_below_32) + '</p>' +
         '<br/><p id="txt">Property crime (incidents per 100k people): ' + '</p><p id="txt2">' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
-        '<br/><p id="txt">Prevalence rate of serious mental illness: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
-        '<br/><p id="txt">Prevalence rate of drug abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
-        '<br/><p id="txt">Prevalence rate of alcohol dependece or abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
+        '<br/><p id="txt">Prevalence of serious mental illness: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
+        '<br/><p id="txt">Prevalence of drug abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
+        '<br/><p id="txt">Prevalence of alcohol dependence or abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
       )
     }
   function get_Infographic(d){
