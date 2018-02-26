@@ -1206,7 +1206,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('width', '100%')
                 .attr('height', map_height + margin.top + margin.bottom + 40)
                 .style('margin-left', -margin.left / 2.5 + 'px')
-                .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 10 + ')');
 
               p2_3_matrix_svg.call(p2_3_bar_tip);
 
@@ -1268,7 +1268,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 30;
+                  labelWidth = 45;
                 });
 
               scale = d3.scale.linear()
@@ -1297,7 +1297,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_3_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal')
-                .attr('transform', 'translate(' + 80 + ',' + 235 + ')')
+                .attr('transform', 'translate(' + 95 + ',' + 235 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
@@ -1369,7 +1369,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('width', '100%')
                 .attr('height', map_height + margin.top + margin.bottom + 140)
                 .style('margin-left', -margin.left / 2.5 - 12 + 'px')
-                .attr('transform', 'translate(' + 40 + ',' + 10 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 10 + ')');
 
               p2_4_matrix_svg.call(p2_3_bar_tip);
 
@@ -1431,7 +1431,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .text(function(d) {
                   return getProgram(d);
                 }).each(function() {
-                  labelWidth = 30;
+                  labelWidth = 45;
                 });
 
               scale = d3.scale.linear()
@@ -1461,7 +1461,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_4_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal2')
-                .attr('transform', 'translate(' + 80 + ',' + 250 + ')')
+                .attr('transform', 'translate(' + 95 + ',' + 250 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
@@ -1471,6 +1471,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .style('font-size', '12')
                 .style('text-anchor', 'end');
             }
+
+            // dolor Lorem ipsum labore
 
             function createContact(d) {
               console.log('Create_Contact d: ', d);
