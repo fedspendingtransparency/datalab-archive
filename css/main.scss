@@ -37,7 +37,7 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Basic */
 
 	body, input, select, textarea {
-		color: _palette(fg);
+		color: #000;
 		font-family: _font(family);
 		font-size: 15pt;
 		font-weight: _font(weight);
@@ -299,6 +299,7 @@ ul.icons.major {
 	padding: 0;
 	display: flex;
 	justify-content: space-evenly;
+	color: #FFFFFF;
 }
 
 ul.icons.major li {
@@ -326,6 +327,7 @@ header.major h2 {
 	font-size: 20px;
 	letter-spacing: 1px;
 	font-weight: normal;
+	color: #FFFFFF;
 }
 
 .spotlight {
@@ -363,6 +365,7 @@ header.major h2 {
 	font-size: 35px;
 	line-height: 45px;
 	margin: 25px 0;
+	color: #FFFFFF;
 }
 
 .page-description {
@@ -371,6 +374,7 @@ header.major h2 {
 	font-weight: 100;
 	opacity: 0.9;
 	margin: 0;
+	color: #FFFFFF;
 }
 
 .wrapper > .inner {
@@ -463,6 +467,7 @@ header.major h2 {
 #banner p {
 	text-align: left;
 	margin-left: 86px;
+	color: #FFFFFF;
 }
 
 #top-footer {
@@ -499,6 +504,10 @@ header.major h2 {
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 35px;
+}
+
+.group-title {
+	color: #FFFFFF;
 }
 
 .footer-links {
@@ -540,6 +549,7 @@ header.major h2 {
 #cta .inner header h1 {
 	font-size: 48px;
 	margin-bottom: 35px;
+	color: #FFFFFF;
 }
 
 #cta .inner header p {
@@ -637,6 +647,7 @@ header.major h2 {
 	text-align: right;
 	padding-top: 150px;
 	font-weight: 300;
+	color: #FFFFFF;
 }
 
 #menu .close {
@@ -1050,6 +1061,7 @@ article > header {
 	letter-spacing: 2px;
 	margin: 0 20px;
 	padding: 10px;
+	color: #FFFFFF;
 }
 
 .get-involved-button:hover {
@@ -1193,6 +1205,9 @@ article > header {
 	margin-top: 30px;
 	letter-spacing: 0px;
 	text-align: left;
+	overflow-y: auto;
+	max-height: 400px;
+	margin-bottom: 25px;
 }
 
 .modal-body-close {
