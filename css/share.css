@@ -3,9 +3,8 @@
 .share-buttons {
     margin: 0 auto;
     font-size: 18px;
-    width: 175px;
+    margin-top: 7px;
     display: inline-block;
-    margin-bottom: -15px;
 }
 
 .share-buttons ul {

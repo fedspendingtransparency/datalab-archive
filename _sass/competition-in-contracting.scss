@@ -17,6 +17,7 @@
 
   .dropdown {
     border: 1px solid black;
+    color:#000;
   }
 
   #summary {
@@ -31,14 +32,16 @@
   }
 
   .summary-item {
-    padding: 20px;
+    padding: 0 0 10px 0;
     width: 20%;
     text-align: left;
+    margin-left: -30px;
   }
 
   .summary-item-text {
-    font-size: 10px;
+    font-size: 14px;
     width: 40%;
+    font-weight: lighter;
   }
 
   .domain {
@@ -65,5 +68,23 @@
 
   #tooltip li {
     text-align: left;
+  }
+  #xAxisScaleDropdown{
+    color:#000;
+  }
+  #competed-dollars, #not-competed-dollars{
+    font-size: 3.9em;
+    font-weight: lighter;
+    margin:0;
+  }
+  #summary > div:nth-child(2) > p, #summary > div:nth-child(3) > p{
+    font-size: 1.6em;
+    margin:0;
+  }
+  #summary > div:nth-child(2), #summary > div:nth-child(3){
+    margin-top:-60px;
+  }
+  #summary > div:nth-child(2){
+    width:22%;
   }
 }

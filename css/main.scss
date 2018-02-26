@@ -220,9 +220,10 @@ $baseurl: '{{ site.baseurl }}/images';
 	#banner {
 		@include vendor('display', 'flex');
 		@include vendor('flex-direction', 'column');
-		@include vendor('justify-content', 'center');
-		height: 100vh;
+		@include vendor('justify-content', 'flex-end');
+		height: 90vh;
 		text-align: center;
+		margin-bottom: 15vh;
 	}
 
 /* Main */
@@ -378,8 +379,7 @@ header.major h2 {
 
 .entry-about-title-container {
 	width: 445px;
-	vertical-align: top;
-	float: left;
+	margin-right: 150px;
 }
 
 .entry-about-title {
@@ -400,7 +400,6 @@ header.major h2 {
 
 .entry-about-body-container {
 	width: 650px;
-	float: right;
 }
 
 .entry-about-body {
@@ -448,13 +447,7 @@ header.major h2 {
 	overflow: hidden;
 }
 
-.inner-margin {
-	margin-top: 225px;
-}
-
 .homepage-get-started {
-	height: 62px;
-	width: 240px;
 	border-radius: 48.5px;
 	background-color: #D334BA;
 	font-size: 24px;
@@ -464,6 +457,7 @@ header.major h2 {
 	margin-left: 92px;
 	z-index: 1;
 	margin-top: 25px;
+	width: 250px;
 }
 
 #banner p {
@@ -951,7 +945,10 @@ article > header {
 }
 
 .entry-about-container {
-	padding: 50px 200px;
+	padding: 50px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .clear-both {
@@ -1135,7 +1132,7 @@ article > header {
 .viz-title-container {
 	text-align: left;
 	color: #5B616B;
-	margin: 0 0 25px 10px;
+	margin: 25px 0 50px 10px;
 }
 
 .viz-title {
