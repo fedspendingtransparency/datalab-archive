@@ -84,6 +84,10 @@ $baseurl: '{{ site.baseurl }}/images';
 			padding-left: .75em;
 		}
 
+		li:first-child {
+			padding-left: 0;
+		}
+
 		&.icons {
 			list-style: none;
 
@@ -476,6 +480,7 @@ header.major h2 {
 }
 
 #footer > ul.icons {
+	flex-grow: 0;
 	justify-content: center;
 }
 
@@ -489,7 +494,6 @@ header.major h2 {
 #footer > ul, #footer > div {
 	flex: 1;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 
