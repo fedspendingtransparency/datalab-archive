@@ -140,7 +140,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .html(function(d) {
                 return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px; color: #555555; font-weight: bold">' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</p>' + '<br>' +
                   '<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ' + getDollarValue(d) + '</p><br>' +
-                  '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>'
+                  '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in</p>'
                 /*+
                                 '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">'+
                                   '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Total Homeless: ' + getValue(d) + '</li>' +
@@ -415,7 +415,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                     '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">' +
                     '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Sheltered Homeless: ' + getSheltered(d) + '</li>' +
                     '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Unsheltered Homeless: ' + getUnsheltered(d) + '</li></ul><br>' +
-                    '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/orient</p>';
+                    '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in</p>';
                 })
 
               map_svg.append('circle').attr('id', 'tipfollowscursor_1');

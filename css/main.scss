@@ -268,7 +268,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 				&:first-child {
 					border-left: 0;
-					margin-left: 0;
+					margin-left: 20px;
 					padding-left: 0;
 				}
 			}
@@ -476,23 +476,31 @@ header.major h2 {
 }
 
 #footer > ul.icons {
-	display: block;
-	text-align: center;
+	justify-content: center;
 }
 
 #footer {
 	padding: 1em 0;
+	background-color: #262626;
+	display: flex;
+	flex-direction: row;
+}
+
+#footer > ul, #footer > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #footer > .copyright {
-	position: absolute;
-	display: inline-block;
-	margin-left: 40px;
+	justify-content: flex-start;
 }
 
 #footer .copyright li {
-	font-size: 13px;
-	letter-spacing: 1.5px;
+	font-size: 11px;
+	letter-spacing: 1px;
+	padding: 0 4px;
 }
 
 #footer-logo {
@@ -515,6 +523,10 @@ header.major h2 {
 	margin: 30px 50px 0 0;
 }
 
+.footer-important-info {
+	justify-content: flex-end;
+}
+
 .links {
 	list-style: none;
 	list-style-type: none;
@@ -526,6 +538,22 @@ header.major h2 {
 	font-size: 14px;
     color: #aeb0b5;
     text-decoration: none;
+}
+
+.important-db-info {
+	color: #CCCCCC;
+    font-size: 12px;
+	letter-spacing: .75px;
+	font-weight: 300;
+}
+
+.important-db-info > b {
+	font-weight: bold;
+}
+
+.important-db-info > a {
+	color: #9BC6DA;
+	text-decoration: underline;
 }
 
 #cta {
