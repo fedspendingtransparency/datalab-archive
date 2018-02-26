@@ -262,7 +262,7 @@
 
   #table_container {
     position: relative;
-    overflow: scroll;
+    overflow-y: auto;
     height: 850px;
     width: 100%;
   }
@@ -890,7 +890,7 @@
   #accordion .body {
     display: none;
     padding: 10px;
-    overflow: scroll;
+    overflow: hidden;
   }
   /** This class will show the body if it has a parent with active class
 **/
