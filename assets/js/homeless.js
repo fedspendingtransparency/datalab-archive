@@ -46,9 +46,13 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               d3.selectAll('#legend_title').remove()
               d3.selectAll('#legend_subtitle').remove()
               d3.selectAll('#counties_mini').remove()
+              d3.select('#imagebox').remove()
+              d3.selectAll('.panel').remove()
+              d3.selectAll('.chart').remove()
 
               GenMap()
               GenPanelTwo()
+              infographic_yeah()
             }
 
 
@@ -1503,6 +1507,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
   })
 })
 
+
+function infographic_yeah(){
 var w = $('#panel_3b').width(),
   h = $('#panel_3b').height() * .33,
   x = d3.scale.linear().range([0, w]),
@@ -1820,6 +1826,8 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
           return ('/images/homelessness/cluserV2_5c.jpg')
          }
        }
-
      })
   });
+}
+
+infographic_yeah();
