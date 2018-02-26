@@ -1472,6 +1472,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .style('text-anchor', 'end');
             }
 
+            // dolor Lorem ipsum labore
+
             function createContact(d) {
               console.log('Create_Contact d: ', d);
               $('#contact_panel').empty();
