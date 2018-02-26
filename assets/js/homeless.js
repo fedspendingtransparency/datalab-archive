@@ -543,7 +543,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('class', 'SearchBar')
                 .append('p')
                 .attr('class', 'SearchBar')
-                .style('margin-bottom', '10px')
+                .style('margin','0 0 10px -70px')
                 .text('Search By CoC Name:');
 
               d3.select('.SearchBar')
@@ -559,7 +559,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               d3.select('#viz_container').append('div')
                 .attr('id', 'table_container')
-                .style('margin-top', '10px');
+                .style('margin', '10px 0 0 65px');
 
               var table = d3.select('#table_container').append('table').attr('id', 'tab');
               table.append('thead').append('tr');
