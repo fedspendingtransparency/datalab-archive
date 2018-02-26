@@ -17,6 +17,7 @@
 
   .dropdown {
     border: 1px solid black;
+    color:#000;
   }
 
   #summary {
@@ -65,5 +66,8 @@
 
   #tooltip li {
     text-align: left;
+  }
+  #xAxisScaleDropdown{
+    color:#000;
   }
 }
