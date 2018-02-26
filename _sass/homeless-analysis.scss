@@ -450,7 +450,7 @@
   #p2_4_legend {
     height: 50px;
     width: 100%;
-    padding-left: 100px;
+    padding-left: 10%;
     margin-top: -30px;
   }
 
@@ -720,23 +720,29 @@
 
   #p2_2_legend_key {
     height: 50px;
-    width: 10px;
-    margin: -15px 0 -7px;
-    padding: 9px 90px 0 0;
+    width: 18%;
+    // margin: -5% 0 0 0;
+    // padding: 9px 90px 0 0;
     float: left;
   }
 
   #p2_2_key {
     height: 30px;
-    width: 10px;
-    margin: 0 10px 3px 0;
+    // width: 10px;
+    width:100%;
+    padding-left:15%;
+    margin-left: auto;
+    margin-right: auto;
+    // margin: 0 10px 3px 0;
   }
 
   #p2_2_key_value {
     height: 10px;
-    width: 50px;
-    margin: 0 0 3px -10px;
-    text-align: right;
+    width:100%;
+    text-align: center;
+    // width: 50px;
+    // margin: 0 0 3px -10px;
+    // text-align: right;
   }
 
   .p2_2_legend_title {
