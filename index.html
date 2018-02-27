@@ -23,7 +23,7 @@ layout: landing
 	</section>
 	<section class="spotlight">
 		<div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div><div class="content">
-			<h4>Contractors in Government</h4>
+			<h4>Contract Explorer Sunburst</h4>
 			<h2><a href="contract-explorer.html">Who receives federal contracts?</a></h2>
 			<p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies recieve from these contracts.</p>
 			<a href="contract-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
@@ -31,7 +31,7 @@ layout: landing
 	</section>
 	<section class="spotlight">
 		<div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div><div class="content">
-			<h4>Homeless Analysis</h4>
+			<h4>Homelessness Analysis</h4>
 			<h2><a href="homelessness.html">Explore federal programs that address homelessness</a></h2>
 			<p>On a single night in 2016, more than 500,000 people experienced homelessness in the United States. Twenty percent of these people were children. Use this case study to see how graant data illuminates the federal governments approach to addressing homelessness.</p>
 			<a href="homelessness.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
@@ -39,7 +39,7 @@ layout: landing
 	</section>
 	<section class="spotlight">
 		<div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div><div class="content">
-			<h4>Budget Function and Object Class</h4>
+			<h4>Budget Function</h4>
 			<h2><a href="what-and-why-government-spending.html">See how the government categorizes its purchases</a></h2>
 			<p>Data from USAspending.gov allows you to connect two different ways the government categorizes spending: what it pays for and what it's trying to achieve with those purchases. Use this visualization to explore broad spending categories (for example, national defense) and specific examples related to those categories (for example, military personnel versus military contractors).</p>
 			<a href="what-and-why-government-spending.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
@@ -55,6 +55,12 @@ layout: landing
 	</section>
 </section>
 
+{% include viz-modal.html
+	identifier="getInvolvedModal"
+	title="Contact us!"
+	body="<p>For media inquiries or questions on DataLab activities or operations, please contact Imani Lester at Imani.lester@fiscal.treasury.gov</p>"
+%}
+
 <!-- CTA -->
 <section id="cta" class="wrapper style4">
 	<div class="inner">
@@ -65,6 +71,7 @@ layout: landing
 		<div>
 			<a href="https://airtable.com/shrVMcNncc32AEum7"><span class="get-involved-button">Tester Signup</span></a>
 			<a href="https://usaspending-help.zendesk.com/hc/en-us/community/topics"><span class="get-involved-button">Send Feedback</span></a>
+			<span onclick="document.getElementById('getInvolvedModal').style.display='block';" class="get-involved-button">Media Inquiries</span>
 		</div>
 	</div>
 </section>
