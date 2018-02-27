@@ -1,5 +1,10 @@
 "use strict";
-
+//
+//
+//comments so cloudfront will read changes
+//
+//
+//
 var tooltipModule = function tooltipModule() {
   function draw(title, information) {
     d3
