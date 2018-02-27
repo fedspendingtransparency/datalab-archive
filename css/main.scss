@@ -568,7 +568,7 @@ header.major h2 {
 #cta .inner {
 	display: block;
 	text-align: center;
-	width: 500px;
+	/*width: 500px;*/
 	padding-top: 50px;
 }
 
@@ -1088,6 +1088,7 @@ article > header {
 	margin: 0 20px;
 	padding: 10px;
 	color: #FFFFFF;
+	cursor: pointer;
 }
 
 .get-involved-button:hover {
