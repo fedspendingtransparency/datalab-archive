@@ -417,9 +417,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                     /*'<hr style="height: 1px; color: #BFBCBC">'*/
                     '<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">Total Homeless: ' + getValue(d) + '</p><br>' +
                     '<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">' +
-                    '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Sheltered Homeless: ' + getSheltered(d) + '</li>' +
-                    '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">Unsheltered Homeless: ' + getUnsheltered(d) + '</li></ul><br>' +
-                    '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/out</p>';
+                    '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Sheltered Homeless: ' + getSheltered(d) + '</li>' +
+                    '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Unsheltered Homeless: ' + getUnsheltered(d) + '</li></ul><br>' +
+                    '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/zoom out</p>'
                 })
 
               map_svg.append('circle').attr('id', 'tipfollowscursor_1');
