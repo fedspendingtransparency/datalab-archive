@@ -1327,16 +1327,22 @@ article > header {
 	ul {
 		list-style: disc;
 		margin-left: 20px;
+		margin-bottom:25px;
+	}
+	li{
+		margin-left: 25px;
 	}
 
 	h2 {
 		font-size: 24px;
 		font-weight: bold;
+		margin:25px 0 0 0;
 	}
 
 	h3 {
 		font-weight: bold;
 		display: inline-block;
+		margin-bottom:0;
 	}
 
 	i {
