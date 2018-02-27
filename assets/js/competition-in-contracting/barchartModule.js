@@ -241,36 +241,36 @@ var barchartModule = function barchartModule() {
       .on("mouseout", handleMouseOut);
 
     // legend
-    var options = ["Competed", "Not Competed"];
-    var legend = g
-      .append("g")
-      .attr("transform", "translate(0,-50)")
-      .selectAll(".legend")
-      .data(options)
-      .enter()
-      .append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) {
-        return "translate(0," + i * 20 + ")";
-      });
-
-    legend
-      .append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", z);
-
-    legend
-      .append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .style("font-size", "12px")
-      .text(function(d) {
-        return d;
-      });
+    // var options = ["Competed", "Not Competed"];
+    // var legend = g
+    //   .append("g")
+    //   .attr("transform", "translate(0,-50)")
+    //   .selectAll(".legend")
+    //   .data(options)
+    //   .enter()
+    //   .append("g")
+    //   .attr("class", "legend")
+    //   .attr("transform", function(d, i) {
+    //     return "translate(0," + i * 20 + ")";
+    //   });
+    //
+    // legend
+    //   .append("rect")
+    //   .attr("x", width - 18)
+    //   .attr("width", 18)
+    //   .attr("height", 18)
+    //   .style("fill", z);
+    //
+    // legend
+    //   .append("text")
+    //   .attr("x", width - 24)
+    //   .attr("y", 9)
+    //   .attr("dy", ".35em")
+    //   .style("text-anchor", "end")
+    //   .style("font-size", "12px")
+    //   .text(function(d) {
+    //     return d;
+    //   });
 
     function handleMouseOver(d) {
       tooltipModuleDraw(d.data.name, {

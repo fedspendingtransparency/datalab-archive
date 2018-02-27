@@ -38,12 +38,6 @@
     margin-left: -30px;
   }
 
-  .summary-item-text {
-    font-size: 14px;
-    width: 40%;
-    font-weight: lighter;
-  }
-
   .domain {
     display: none;
   }
@@ -58,8 +52,34 @@
     stroke: rgba(0, 0, 0, 0.2);
   }
 
-  .select-wrapper {
-    margin: 20px;
+  .select-wrapper1, .select-wrapper2 {
+    //margin: 20px;
+    width:25%;
+  }
+
+  .select-wrapper1{
+    position: relative;
+    float:left;
+  }
+  .select-wrapper2{
+    position: relative;
+    float:left;
+  }
+
+  .legend{
+    width:15%;
+    float:left;
+    position: relative;
+  }
+
+  #competed{
+    margin-left: -6%;
+  }
+
+  #one > div > div.mask > div.viz-container > div > div:nth-child(2) > form > div.select-wrapper1 > label,
+  #one > div > div.mask > div.viz-container > div > div:nth-child(2) > form > div.select-wrapper2 > label{
+    font-family: inherit;
+    font-size: 10px;
   }
 
   #tooltip {
@@ -72,17 +92,26 @@
   #xAxisScaleDropdown{
     color:#000;
   }
-  #competed-dollars, #not-competed-dollars{
+  #competed-dollars,
+  #not-competed-dollars,
+  #competed-actions,
+  #not-competed-actions{
     font-size: 3.9em;
     font-weight: lighter;
     margin:0;
   }
-  #summary > div:nth-child(2) > p, #summary > div:nth-child(3) > p{
+  #summary > div:nth-child(2) > p,
+  #summary > div:nth-child(3) > p,
+  #summary > div:nth-child(4) > p,
+  #summary > div:nth-child(5) > p{
     font-size: 1.6em;
     margin:0;
   }
-  #summary > div:nth-child(2), #summary > div:nth-child(3){
-    margin-top:-60px;
+  #summary > div:nth-child(2),
+  #summary > div:nth-child(3),
+  #summary > div:nth-child(4),
+  #summary > div:nth-child(5){
+    margin-top:0;
   }
   #summary > div:nth-child(2){
     width:22%;
