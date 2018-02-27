@@ -152,12 +152,39 @@ category: entry
 </script>
 
 {% include viz-header-info.html
-	title="Cluster filler heading... blah blah"
-	body="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	title="Federal programs that address homelessness"
+	body="Lorem ipsum"
+	identifier="panel3Modal"
+%}
+
+{% include viz-modal.html
+	identifier="panel3Modal"
+	title="Lorem ipsum"
+	body="<p>The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, though multiple federal agencies manage programs that provide services including education, employment, housing resources, and more.</p>
+          <p>Our analysis identified 33 federal programs that explicitly flagged homeless individuals as beneficiaries. These included programs that named homeless individuals as primary targets of services or as one of the program’s target recipient groups.</p>
+		  <p>We found that programs targeting homelessness focus either on all individuals experiencing homelessness, or on a subset, such as veterans or youth. These programs provide various types of assistance, which we divided into six categories: housing, food, education, employment, health, and support services.</p>
+		  <p>Federal funding is just one  piece of the puzzle — states, municipalities, and other organizations play a large role in providing funding to address homelessness.</p>
+		  <p>While we did not conduct a comprehensive analysis of the relationship between federal, state, local, and private funding sources for homelessness-alleviation programs across the country, numerous examples illustrate that federal funding works as part of a larger network of support.</p>
+		  <p>For example, the city of New York spent $1.6 billion on homelessness programs in 2017, compared with about $250 million from federal programs (including those where homeless individuals are one of several beneficiaries). The city of San Francisco spent $275 million on similar programs in 2017, compared with the $63 million they received in federal funding. And, to cite an example of private funding, the Church of Latter Day Saints has given $42 million (over the last ten years) to build housing in Salt Lake City.</p>"
 %}
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
+		{% include viz-title.html
+			title="Lorem Ipsum"
+			subtext="Lorem Ipsum"
+			identifier="panel3InstructionsModal"
+		%}
+		{% include viz-modal.html
+			identifier="panel3InstructionsModal"
+			title="Instructions"
+			body="<p>
+					Lorem Ipsum
+					</p>
+					<p>
+					Lorem Ipsum
+					</p>"
+		%}
 		<div class="mask">
 			{% include action-buttons.html %}
 			<div class="viz-container homeless-analysis" style = "height:90%; padding: 15px 15px 15px 15px;">
