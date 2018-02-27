@@ -96,7 +96,7 @@ var barchartModule = function barchartModule() {
       );
 
     // z scale (color)
-    var z = d3.scale.ordinal().range(["#2a5da8", "#f0ca4d"]);
+    var z = d3.scale.ordinal().range(["#0071bc", "#D334BA"]);
     var keys =
       settings.xAxisScale === "quantity"
         ? ["competed", "notCompeted"]
