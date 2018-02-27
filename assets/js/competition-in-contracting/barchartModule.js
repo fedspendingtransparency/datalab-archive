@@ -1,5 +1,11 @@
 "use strict";
 
+//comments so cloudfront will pick up the changes
+//
+//
+//
+//
+
 var barchartModule = function barchartModule() {
   var svg = d3.select("#barchartSvg"),
     margin = { top: 60, right: 40, bottom: 100, left: 350 },
