@@ -1237,6 +1237,15 @@ article > header {
 	margin-bottom: 25px;
 }
 
+.modal-body-content b {
+	font-style: bold;
+}
+
+.modal-body-content ul {
+	list-style: disc;
+    margin-left: 20px;
+}
+
 .modal-body-close {
 	width: 147px;
 	background-color: #5B616B;
@@ -1317,15 +1326,23 @@ article > header {
 .homelessness-read-more {
 	ul {
 		list-style: disc;
+		// margin-left: 20px;
+		margin-bottom:25px;
+	}
+	li{
+		margin-left: 30px;
 	}
 
 	h2 {
 		font-size: 24px;
 		font-weight: bold;
+		margin:25px 0 0 0;
 	}
 
 	h3 {
 		font-weight: bold;
+		display: inline-block;
+		margin-bottom:0;
 	}
 
 	i {

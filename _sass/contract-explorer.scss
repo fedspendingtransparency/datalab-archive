@@ -266,7 +266,7 @@
   width: 350px; }
 .contract-explorer .react-autosuggest__container {
   position: relative;
-  width: 100%; 
+  width: 100%;
 }
 .contract-explorer .react-autosuggest__input {
   padding: 10px 30px;
@@ -276,7 +276,7 @@
   border: 1px solid #aaa;
   color: black;
   border-radius: 24px;
-  width: 100%; 
+  width: 100%;
  }
  .contract-explorer .clear-button {
    fill: #fff;
@@ -325,3 +325,6 @@
 .contract-explorer .react-autosuggest__suggestion-match {
   background-color: #f8ff38;
   font-weight: bold; }
+.modal-body-content b {
+  	font-style: bold;
+  }
