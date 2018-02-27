@@ -10,8 +10,8 @@ var summaryTableModule = (function() {
         if (c.displayed) {
           a["Competed"] += c.competedDollars;
           a["Not Competed"] += c.notCompetedDollars;
-          a["Actions"] = c.competedActions;
-          a["NC Actions"] = c.notCompetedActions;
+          a["Actions"] += c.competedActions;
+          a["NC Actions"] += c.notCompetedActions;
         }
         return a;
       },
