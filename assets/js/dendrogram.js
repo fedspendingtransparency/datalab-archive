@@ -519,7 +519,8 @@ function centerNode(source) {
              + d.name + '</p>' +
              '<p style="color: #0071BC; margin: 0; font-size: 18px">'+'Total Obligations: ' + formatNumber(d.size) + '</p>' +
              '<p style="margin: 0; font-size: 12px">'+'Unobligated Balance: ' + formatNumber(d.unob) + '</p>' +
-             '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Click to visit federal account page</p>';
+             '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Click to visit federal account page</p>'
+             +'<p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Federal account page contains FY17-FY18 data</p>';
         }else if (d.depth === 2){
             return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
             + d.name + ', ' +d.parent.name +  '</p>'
