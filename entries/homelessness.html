@@ -186,6 +186,23 @@ category: entry
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
+		{% include viz-title.html
+			title="Comparing and clustering Continuum of Care areas"
+			subtext="Using multiple data sources to discover similarities between regions"
+			identifier="panel3InstructionsModal"
+		%}
+		{% include viz-modal.html
+			identifier="panel3InstructionsModal"
+			title="Instructions"
+			body="<p>
+				There are three parts to explore: the top tree map shows all Continuum of Care areas and the clusters to which they belong. The right panel will show all Continuum of Care areas that belong to the selected cluster. The infographic below offers a quick snapshot of the cluster's attributes. For example, one Continuum of Care areas in a cluster may have a median rent of $1,800 (the maximum for that cluster) while another Continuum of Care areas has a median rent of $900 (the minimum for that cluster).</p>
+				<ul>
+					<lh>The top tree map updates the panel on the right and the infographic below.</lh>
+					<li>To change the right-hand panel or infographic, click a cluster in the top tree map.</li>
+					<li>To zoom in and see more Continuum of Care areas within a cluster, click any cluster in the top tree map.</li>
+					<li>Click any Continuum of Care area in the right panel to expand its information.</li>
+				</ul>"
+		%}
 		<div class="mask">
 			{% include action-buttons.html %}
 			<div class="viz-container homeless-analysis" style = "height:90%; padding: 15px 15px 15px 15px;">
