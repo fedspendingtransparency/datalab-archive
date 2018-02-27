@@ -41,10 +41,12 @@ category: entry
 		{% include viz-modal.html
 			identifier="panel1InstructionsModal"
 			title="Instructions"
-			body="<p>This Sankey diagram shows Budget Functions on the left and Object Classes on the right. </p>
-                  <p> - Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories</p>
-			      <p> - Hover over an Object Class on the right to see how spending breaks down into Budget Functions</p>
-						<p> - Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category</p>"
+			body="<ul stle='list-style:inside'>
+							<li>This Sankey diagram shows Budget Functions on the left and Object Classes on the right. </li>
+              <li> - Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories</li>
+			      	<li> - Hover over an Object Class on the right to see how spending breaks down into Budget Functions</li>
+							<li> - Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category</li>
+						</ul>"
 		%}
 		<div class="mask">
 			<div class="viz-actions">
