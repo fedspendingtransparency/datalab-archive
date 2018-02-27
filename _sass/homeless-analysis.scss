@@ -881,10 +881,16 @@
   #panel_3c {
     overflow-y: auto;
     padding: 0 5px 0 5px;
+    width:31%;
+    float: right;
+    height:900px;
   }
 
   #panel_3b{
     padding: 0 5px 0 5px;
+    width:69%;
+    float:left;
+    height:900px;
   }
 
   #accordion .body {

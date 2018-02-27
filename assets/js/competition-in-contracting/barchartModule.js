@@ -1,5 +1,11 @@
 "use strict";
 
+//comments so cloudfront will pick up the changes
+//
+//
+//
+//
+
 var barchartModule = function barchartModule() {
   var svg = d3.select("#barchartSvg"),
     margin = { top: 60, right: 40, bottom: 100, left: 350 },
@@ -96,7 +102,7 @@ var barchartModule = function barchartModule() {
       );
 
     // z scale (color)
-    var z = d3.scale.ordinal().range(["#2a5da8", "#f0ca4d"]);
+    var z = d3.scale.ordinal().range(["#0071bc", "#D334BA"]);
     var keys =
       settings.xAxisScale === "quantity"
         ? ["competed", "notCompeted"]
