@@ -16,9 +16,9 @@ var tooltipModule = function tooltipModule() {
 
     function toolTipHtml(title, information) {
       var html =
-        '\n      <p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px">\n        <b style="color:#555555">' +
+        '\n      <p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px; color:#555555; font-weight:bold; text-align:left">\n        ' +
         title +
-        '</b>\n      </p>\n      <b style="color:#555555">\n        <br>\n        <ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">\n          ' +
+        '</p>\n      <b style="color:#555555">\n        <br>\n        <ul style="list-style-type: none; margin:0; padding:0 0 0 15px; text-align:left">\n          ' +
         Object.entries(information).reduce(function(a, c) {
           a +=
             '<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">' +
@@ -28,7 +28,7 @@ var tooltipModule = function tooltipModule() {
             "</li>";
           return a;
         }, "") +
-        "\n        </ul>\n      </b>";
+        "\n        </ul>\n      </b><br/><p style='font-style:italic; margin-bottom:-1%'>click checkbox to add/remove agency</p>";
 
       return html;
     }
