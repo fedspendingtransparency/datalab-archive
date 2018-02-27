@@ -213,9 +213,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	align-items: center;
 
 	nav {
-		position: absolute;
-		right: 49px;
-		top: 49px;
+		margin: 15px 35px 0 0;
 	}
 }
 
@@ -549,6 +547,7 @@ header.major h2 {
     font-size: 12px;
 	letter-spacing: .75px;
 	font-weight: 300;
+	margin-right: 20px;
 }
 
 .important-db-info > b {
@@ -1261,3 +1260,60 @@ article > header {
 }
 
 /* Modal End */
+
+/* Info Banner Start */
+
+.info-banner {
+	height: 45px;
+	background: #e1f3f8;
+    width: 100%;
+	border-top: 5px solid #9bdaf1;
+	display: none;
+}
+
+.info-banner__content {
+	text-align: center;
+}
+
+.info-banner__alert-icon {
+    background-image: url(images/warning.svg);
+    background-repeat: no-repeat;
+    width: 26px;
+	height: 26px;
+	display: inline-block;
+	margin-top: 7px;
+	opacity: 0.7;
+}
+
+.info-banner__alert-text {
+	color: #555;
+	display: inline-block;
+	vertical-align: super;
+}
+
+.info-banner__body-text {
+	font-size: 13px;
+	padding-top: 5px;
+	padding-bottom: 8px;
+	line-height: 22px;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
+.info-banner__close-icon {
+    background-image: url(images/close.svg);
+    background-repeat: no-repeat;
+    cursor: pointer;
+	filter: invert(50%);
+	position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.info-banner__body-text > a {
+	color: #5475A4;
+}
+
+/* Beta Banner End */
