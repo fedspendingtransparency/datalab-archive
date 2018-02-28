@@ -4,11 +4,6 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-function toggleSharePopup() {
-    var popup = document.getElementById("sharePopup");
-    popup.classList.toggle("show");
-}
-
 function setCookie(name, value, days) {
     var expires = "";
     if (days) {
@@ -39,6 +34,10 @@ function closeInfoBanner() {
 function handleInfoBarVisibility() {
 	document.querySelector('.info-banner').style.display = getCookie('is-info-banner-visible') == null ? 'block' : 'none';
 }
+
+$(".share-viz-button").click(function(){
+	$(this).find('span.popuptext.right').toggleClass('show');
+});
 
 (function($) {
 	handleInfoBarVisibility();

@@ -3,28 +3,14 @@
 .share-buttons {
     margin: 0 auto;
     font-size: 18px;
-    margin-top: 7px;
     display: inline-block;
-}
-
-.share-buttons ul {
-    list-style: none;
-    text-transform: none;
-    padding-left: 0;
-}
-
-.share-buttons ul li {
-    float: left;
+    padding: 5px 10px 5px 10px;
 }
 
 /* All buttons */
-.share-buttons a {
-	border-bottom: 0px;
-}
 
 .share-button-text {
-    font-family: "Source Sans Pro";
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 /* Each button */

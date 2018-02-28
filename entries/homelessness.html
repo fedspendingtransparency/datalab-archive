@@ -13,8 +13,8 @@ category: entry
 	title="How individuals experiencing homelessness are counted"
 	body="People experiencing homelessness are counted once a year (in late January) by grantees who
 	receive funding from HUD's Continuum of Care program. This program is the largest federal
-	program related to homelessness.<span style='vertical-align:super; font-size:smaller'>1</span>  It requires grantees to collect reliable data on the total
-	number of people experiencing homelessness who reside in the grantee's geographic area.<span style='vertical-align:super; font-size:smaller'>2</span>  "
+	program related to homelessness.<span class='superscript'>1</span> It requires grantees to collect reliable data on the total
+	number of people experiencing homelessness who reside in the grantee's geographic area.<span class='superscript'>2</span>"
 	identifier="panel1Modal"
 %}
 
@@ -24,19 +24,19 @@ category: entry
 	body="<p>
 				People experiencing homelessness are counted once a year (in late January) by grantees who
 				receive funding from HUD's Continuum of Care program. This program is the largest federal
-				program related to homelessness.<span style='vertical-align:super; font-size:smaller'>1</span>  It requires grantees to collect reliable data on the total
-				number of people experiencing homelessness who reside in the grantee's geographic area.<span style='vertical-align:super; font-size:smaller'>2</span>
+				program related to homelessness.<span class='superscript'>1</span> It requires grantees to collect reliable data on the total
+				number of people experiencing homelessness who reside in the grantee's geographic area.<span class='superscript'>2</span>
 			</p>
 		  <p>
 				State and local governments create the Continuum of Care regions. They reflect how each community
 				organizes itself and applies for funding from HUD's Continuum of Care program. HUD allows Continuum of
 				Care grantees to use multiple approaches to complete their count, if necessary. Grantees may use a
-				census approach, a sampling approach, or a combination of the methods.<span style='vertical-align:super; font-size:smaller'>3</span>
+				census approach, a sampling approach, or a combination of the methods.<span class='superscript'>3</span>
 		  </p>
 			<hr>
-			<p><span style='vertical-align:super; font-size:smaller'>1</span> United States Interagency Council on Homelessness. <a href='https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf' target='_blank'>https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf</p>
-			<p><span style='vertical-align:super; font-size:smaller'>2</span> <span style='font-style:italic'> 'The Point-in-Time (PIT) count is a count of sheltered and unsheltered homeless persons on a single night in January. HUD requires that Continuums of Care conduct an annual count of homeless persons who are sheltered in emergency shelter, transitional housing, and Safe Havens on a single night. Continuums of Care also must conduct a count of unsheltered homeless persons every other year (odd numbered years). Each count is planned, coordinated, and carried out locally.'</span> - Department of Housing and Urban Development. <a href='https://www.hudexchange.info/programs/hdx/guides/pit-hic/#general-pit-guides-and-tools' target='_blank'>https://www.hudexchange.info/programs/hdx/guides/pit-hic/#general-pit-guides-and-tools</a> </p>
-			<p><span style='vertical-align:super; font-size:smaller'>3</span> Department of Housing and Urban Development. <a href='https://www.hudexchange.info/resources/documents/PIT-Count-Methodology-Guide.pdf' target='_blank'>https://www.hudexchange.info/resources/documents/PIT-Count-Methodology-Guide.pdf</p>"
+			<p><span class='superscript'>1</span> <a href='https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf' target='_blank'>United States Interagency Council on Homelessness.</a></p>
+			<p><span class='superscript'>2</span> <i>'The Point-in-Time (PIT) count is a count of sheltered and unsheltered homeless persons on a single night in January. HUD requires that Continuums of Care conduct an annual count of homeless persons who are sheltered in emergency shelter, transitional housing, and Safe Havens on a single night. Continuums of Care also must conduct a count of unsheltered homeless persons every other year (odd numbered years). Each count is planned, coordinated, and carried out locally.'</i></span><br />- <a href='https://www.hudexchange.info/programs/hdx/guides/pit-hic/#general-pit-guides-and-tools' target='_blank'>Department of Housing and Urban Development.</a></p>
+			<p><span class='superscript'>3</span> <a href='https://www.hudexchange.info/resources/documents/PIT-Count-Methodology-Guide.pdf' target='_blank'>Department of Housing and Urban Development.</a></p>"
 %}
 
 <section id="one" class="wrapper style1 special">
@@ -50,19 +50,20 @@ category: entry
 			identifier="panel1InstructionsModal"
 			title="Instructions"
 			body="<ul>
-							<li>Double click to zoom into a region</li>
-							<li>Double click that same region to zoom out or click the reset button</li>
-							<li>While zoomed in, double clicking a different region will re-center the map</li>
-						</ul>"
+					<li>Double click to zoom into a region</li>
+					<li>Double click that same region to zoom out or click the reset button</li>
+					<li>While zoomed in, double clicking a different region will re-center the map</li>
+				  </ul>"
 		%}
 		<div class="mask">
 			{% include homeless-p1-buttons.html %}
 			<div class="viz-container homeless-analysis">
 				<div id="container" height="100%" width="100%"></div>
 			</div>
-			<div style="padding:0 5% 25px 5%">
-				<p style="font-size:14px; text-align:left; font-weight:300; text-color:#5B616B">* White areas with no hover-over represent areas of the country that are not represented by a Continuum of Care area.<br>
-				** This map reflects the most up to date HUD map available; however, some Continuum of Care areas have merged together in 2017 since this map was updated. See our section on How We Conducted This Analysis for more information.</p>
+			<div class="homeless-panel-one-info">
+				<p>* White areas with no hover-over represent areas of the country that are not represented by a Continuum of Care area.</p>
+				<p>** This map reflects the most up to date HUD map available; however, some Continuum of Care areas have merged together in 2017 since this map was updated.</p>
+				<p>See our section on How We Conducted This Analysis for more information.</p>
 		</div>
 	</div>
 </section>
@@ -81,7 +82,7 @@ category: entry
 					services including education, employment, housing resources, and more.</p>
         <p>Our analysis identified 33 federal programs that explicitly flagged homeless individuals
 					as beneficiaries. These included programs that named homeless individuals as primary
-					targets of services or as one of the program's target recipient groups.<span style='vertical-align:super; font-size:smaller'>4</span> We found that
+					targets of services or as one of the program's target recipient groups.<span class='superscript'>4</span> We found that
 					programs targeting homelessness focus either on all individuals experiencing homelessness,
 					or on a subset, such as veterans or youth. These programs provide various types of assistance,
 					which we divided into six categories: housing, food, education, employment, health, and support
@@ -91,19 +92,19 @@ category: entry
 					analysis of the relationship between federal, state, local, and private funding sources for programs that
 					alleviate homelessness across the country, numerous examples show that federal funding works as part of a
 					larger network of support.</p>
-			  <p>For example, the city of New York spent $1.6 billion on homelessness programs in 2017,<span style='vertical-align:super; font-size:smaller'>5</span> compared with
+			  <p>For example, the city of New York spent $1.6 billion on homelessness programs in 2017,<span class='superscript'>5</span> compared with
 					about $250 million from federal programs (including those where homeless individuals are one of several
 					beneficiaries).</p>
-			  <p>The city of San Francisco spent $275 million on similar programs in 2017,<span style='vertical-align:super; font-size:smaller'>6</span> compared to the $63 million
-					they received in federal funding.<style='vertical-align:super; font-size:smaller'>7</span> </p>
+			  <p>The city of San Francisco spent $275 million on similar programs in 2017,<span class='superscript'>6</span> compared to the $63 million
+					they received in federal funding.<span class='superscript'>7</span> </p>
 			  <p>And, to cite an example of private funding, the Church of Latter Day Saints has given $42 million (over
-					the last ten years) to build housing in Salt Lake City.<span style='vertical-align:super; font-size:smaller'>8</span></p>
+					the last ten years) to build housing in Salt Lake City.<span class='superscript'>8</span></p>
 				<hr>
-				<p><span style='vertical-align:super; font-size:smaller'>4</span> As an example, we included a program managed by the Department of Health and Human Services called <span style='font-style: italic'>Grants for New and Expanded Services under the Health Center Program</span>, which provides funding for expanded and sustained national investment in health centers, even though people experiencing homelessness were one type of beneficiary listed, along with migrant workers, public housing residents, and others. We did not include programs intended to address poverty or that provide resources for low-income individuals if homeless individuals were not specifically mentioned as a type of beneficiary.</p>
-				<p><span style='vertical-align:super; font-size:smaller'>5</span> Dawsey, Josh. 'NYC's Homeless Spending Surges to $1.6 Billion.' <span style='font-style:italic'>The Wall Street Journal.</span> <a href='https://www.wsj.com/articles/nycs-homeless-spending-surges-to-1-6-billion-1479676408' target='_blank'>https://www.wsj.com/articles/nycs-homeless-spending-surges-to-1-6-billion-1479676408</a> </p>
-				<p><span style='vertical-align:super; font-size:smaller'>6</span> Knight, Heather. 'Despite money and effort, homelessness in SF as bad as ever.' <a href='http://www.sfchronicle.com/aboutsfgate/article/Despite-money-and-work-homelessness-in-SF-as-bad-11242946.php' target='_blank'>http://www.sfchronicle.com/aboutsfgate/article/Despite-money-and-work-homelessness-in-SF-as-bad-11242946.php</a>.  </p>
-				<p><span style='vertical-align:super; font-size:smaller'>7</span> Federal, state, and local fiscal years do not always align to the same time frame; the purpose here is to make a broad comparison. </p>
-				<p><span style='vertical-align:super; font-size:smaller'>8</span> Walch, Tad. 'Over a decade, LDS Church has given $42 million to homeless relief in Salt Lake.' <a href='https://www.deseretnews.com/article/865677276/Over-a-decade-LDS-Church-has-given-42-million-to-homeless-relief-in-Salt-Lake.html' target='_blank'>https://www.deseretnews.com/article/865677276/Over-a-decade-LDS-Church-has-given-42-million-to-homeless-relief-in-Salt-Lake.html</a> </p>"
+				<p><span class='superscript'>4</span> As an example, we included a program managed by the Department of Health and Human Services called <i>Grants for New and Expanded Services under the Health Center Program</i>, which provides funding for expanded and sustained national investment in health centers, even though people experiencing homelessness were one type of beneficiary listed, along with migrant workers, public housing residents, and others. We did not include programs intended to address poverty or that provide resources for low-income individuals if homeless individuals were not specifically mentioned as a type of beneficiary.</p>
+				<p><span class='superscript'>5</span> Dawsey, Josh. <a href='https://www.wsj.com/articles/nycs-homeless-spending-surges-to-1-6-billion-1479676408' target='_blank'>'NYC's Homeless Spending Surges to $1.6 Billion.' </a><i>The Wall Street Journal.</i></p>
+				<p><span class='superscript'>6</span> Knight, Heather. <a href='http://www.sfchronicle.com/aboutsfgate/article/Despite-money-and-work-homelessness-in-SF-as-bad-11242946.php' target='_blank'>'Despite money and effort, homelessness in SF as bad as ever.'</a>.</p>
+				<p><span class='superscript'>7</span> Federal, state, and local fiscal years do not always align to the same time frame; the purpose here is to make a broad comparison. </p>
+				<p><span class='superscript'>8</span> Walch, Tad. <a href='https://www.deseretnews.com/article/865677276/Over-a-decade-LDS-Church-has-given-42-million-to-homeless-relief-in-Salt-Lake.html' target='_blank'>'Over a decade, LDS Church has given $42 million to homeless relief in Salt Lake.'</a></p>"
 %}
 
 <section id="one" class="wrapper style1 special">
@@ -117,17 +118,18 @@ category: entry
 			identifier="panel2InstructionsModal"
 			title="Instructions"
 			body="
-						<ul style='list-style:inside'>
-							<lh style='font-weight:bold'>Map</lh>
-							<li>Double click to zoom into a region</li>
-							<li>Double click that same region to zoom out</li>
-							<li>While zoomed in, double clicking a different region will re-center the map</li>
-							<li>To select a different CoC area and update the charts, single-click a different region</li>
-						</ul>
-						<ul style='list-style:inside'>
-							<lh style='font-weight:bold'>Bar charts</lh>
-							<li>Single-click the bars on the charts to visit a website describing each program in depth</li>
-						<ul>"
+				<b>Map</b>
+				<ul>
+					<li>Double click to zoom into a region</li>
+					<li>Double click that same region to zoom out</li>
+					<li>While zoomed in, double clicking a different region will re-center the map</li>
+					<li>To select a different CoC area and update the charts, single-click a different region</li>
+				</ul>
+				<br />
+				<b>Bar Charts</b>
+				<ul>
+					<li>Single-click the bars on the charts to visit a website describing each program in depth</li>
+				<ul>"
 		%}
 		<div class="mask">
 			{% include action-buttons.html %}
@@ -195,9 +197,13 @@ category: entry
 			identifier="panel3InstructionsModal"
 			title="Instructions"
 			body="<p>
-				There are three parts to explore: the top tree map shows all Continuum of Care areas and the clusters to which they belong. The right panel will show all Continuum of Care areas that belong to the selected cluster. The infographic below offers a quick snapshot of the cluster's attributes. For example, one Continuum of Care areas in a cluster may have a median rent of $1,800 (the maximum for that cluster) while another Continuum of Care areas has a median rent of $900 (the minimum for that cluster).</p>
-				<ul style='list-style:inside'>
-					<lh>The top tree map updates the panel on the right and the infographic below.</lh>
+				There are three parts to explore: the top tree map shows all Continuum of Care areas and the clusters 
+				to which they belong. The right panel will show all Continuum of Care areas that belong to the selected cluster. 
+				The infographic below offers a quick snapshot of the cluster's attributes. For example, one Continuum of Care 
+				area in a cluster may have a median rent of $1,800 (the maximum for that cluster) while another Continuum of Care 
+				area has a median rent of $900 (the minimum for that cluster).</p>
+				<ul>
+					<li>The top tree map updates the panel on the right and the infographic below.</li>
 					<li>To change the right-hand panel or infographic, click a cluster in the top tree map.</li>
 					<li>To zoom in and see more Continuum of Care areas within a cluster, click any cluster in the top tree map.</li>
 					<li>Click any Continuum of Care area in the right panel to expand its information.</li>
