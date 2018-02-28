@@ -55,12 +55,8 @@ $(function() {
 
     var data = dataModule.mem.cicData;
 
-    var xAxisUnit = $("#xAxisUnitDropdown")
-      .find(":selected")
-      .val();
-    var xAxisScale = $("#xAxisScaleDropdown")
-      .find(":selected")
-      .val();
+    var xAxisUnit = document.querySelector('input[name="xAxisUnit"]:checked').value;
+    var xAxisScale = document.querySelector('input[name="xAxisScale"]:checked').value;
 
     settings.xAxisScale = xAxisScale;
     settings.xAxisUnit = xAxisUnit;

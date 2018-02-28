@@ -2,8 +2,8 @@
 layout: page
 menuname: Budget Function
 menuorder: 4
-title: Understanding spending related to the government's main functions
-description: Do you know what the government spends money on in support of its main functions? Budget functions are categories that describe the purpose of federal spending (the why), and Object Classes are categories that describe what goods and services were purchased (the what). This data story will shed light on both categories and help you draw connections between them.
+title: Understanding federal spending related to the government's main functions
+description: Do you know what the government spends money on in support of its main functions? Budget Functions are categories that describe the purpose of federal spending (the why), and Object Classes are categories that describe what goods and services were purchased (the what). This visualization will shed light on both categories and help you draw connections between them.
 banner: landings/budget.jpg
 alt: Budget Function-Photography by Brandon Mowinkel
 permalink: what-and-why-government-spending.html
@@ -12,42 +12,55 @@ category: entry
 
 {% include viz-header-info.html
 	title="Categorization Systems"
-	body="Budget Functions are used by Congress to categorize federal spending, but are also useful
-		  for the public to understand the different missions, or functions of the federal government. 
-		  Though budget functions have slightly evolved over time, the use of budget functions is nothing new. 
-		  Congress has been tracking federal spending using a version of these categories for more than 200 years."
+	body="Budget Functions are used by Congress to categorize federal spending, and are also useful for the
+	public to understand the different missions, or functions of the federal government. Though Budget Functions
+	have evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal
+	spending using a version of these categories for more than 200 years."
 	identifier="panel1Modal"
 %}
 
 {% include viz-modal.html
 	identifier="panel1Modal"
 	title="Categorization Systems"
-	body="<p>Budget Functions are used by Congress to categorize federal spending, but are also useful for the public to understand the different missions, or functions of the federal government. Though budget functions have slightly evolved over time, the use of budget functions is nothing new: Congress has been tracking federal spending using a version of these categories for more than 200 years.</p>
-          <p>The Object Classification system, which was created in the 1920s, explains what the government received in exchange for spending.  For example, the Object Classification system captures spending on salaries for federal employees, rent payments for federal buildings, and spending on federal contracts.</p>"
+	body="<p>Budget Functions are used by Congress to categorize federal spending, and are also useful for the public
+		to understand the different missions, or functions of the federal government. Though Budget Functions have
+		evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal spending
+		using a version of these categories for more than 200 years.</p>
+		
+		<p>The Object Classification system, which was created
+		in the 1920s, explains what the government received in exchange for spending.  For example, the Object
+		Classification system captures spending on salaries for federal employees, rent payments for federal buildings,
+		and spending on federal contracts.</p>"
 %}
 
 <section id="one" class="wrapper style1 special">
 	<div class="viz-bkgd">
 		{% include viz-title.html
 			title="Budget Function Explorer"
-			subtext="Updated as of December 2017"
+			subtext="Spending in Fiscal Year 2017"
 			identifier="panel1InstructionsModal"
 		%}
 		{% include viz-modal.html
 			identifier="panel1InstructionsModal"
 			title="Instructions"
-			body="<p>This Sankey diagram shows Budget Functions on its left-hand side and Object Classes on its right-hand side. Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories. Interacting with the diagram in this way allows you to explore why money was spent and then see what the government purchased with it.</p>
-                  <p>Hover over an Object Class on the right to see how spending breaks down into Budget Functions. Interacting with the diagram in this way lets you start by seeing what goods and services the government purchased, and then provides you more insight into why these things were purchased.</p>
-			      <p>Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category.</p>"
+			body="<ul>
+					<li>This Sankey diagram shows Budget Functions on the left and Object Classes on the right. </li>
+              		<li>Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories</li>
+			      	<li>Hover over an Object Class on the right to see how spending breaks down into Budget Functions</li>
+					<li>Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category</li>
+				  </ul>"
 		%}
 		<div class="mask">
-			{% include action-buttons.html %}
+			<div class="viz-actions">
+				<div class="float-right">
+					{% include share-menu.html %}
+				</div>
+			</div>
 			<div class="viz-container" style="height: 900px">
 				<element class="budget-sankey">
 					<div id="sankey-container" style="padding:10px">
-						<div class="sankey-label-budget-function"><h1>Budget Function</h1></div>
+						<div class="sankey-brackets"></div>
 						<div id="sankey-viz"></div>
-						<div class="sankey-label-object-class"><h1>Object Class</h1></div>
 						<div id="sankey-table"></div>
 					</div>
 				</element>
@@ -57,9 +70,9 @@ category: entry
 </section>
 
 {% include how-analysis-conducted.html
-	how="This analysis was conducted using agency account obligation data reported to USAspending.gov, 
-		 which is available to the public. Each reported account is aligned to a single Budget Function and 
-		 is further broken out by the dollars obligated under each Object Class (data can be found via the 
+	how="This analysis was conducted using agency account obligation data reported to USAspending.gov,
+		 which is available to the public. Each reported account is aligned to a single Budget Function and
+		 is further broken out by the dollars obligated under each Object Class (data can be found via the
 		 TAS/categories endpoint within the DATA Act API)."
 	read-more="what-and-why-government-spending-more.html"
 	next-analysis="who-works-in-government.html"
