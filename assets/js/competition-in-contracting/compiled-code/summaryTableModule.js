@@ -8,26 +8,26 @@ var summaryTableModule = function () {
 
     var summaryData = data.reduce(function (a, c) {
       if (c.displayed) {
-        a["Competed"] += c.competedDollars;
-        a["Not Competed"] += c.notCompetedDollars;
-        a["Actions"] = c.competedActions;
-        a["NC Actions"] = c.notCompetedActions;
+        a.competedDollars += c.competedDollars;
+        a.notCompetedDollars += c.notCompetedDollars;
+        a.competedActions += c.competedActions;
+        a.notCompetedActions += c.notCompetedActions;
       }
       return a;
     }, {
-      Competed: 0,
-      "Not Competed": 0,
-      Actions: 0,
-      "NC Actions": 0
+      competedDollars: 0,
+      notCompetedDollars: 0,
+      competedActions: 0,
+      notCompetedActions: 0
     });
 
-    d3.select("#competed-dollars").text(formatNumber("dollars text", summaryData.Competed));
+    d3.select("#competed-dollars").text(formatNumber("dollars text", summaryData.competedDollars));
 
-    d3.select("#competed-actions").text(formatNumber("actions", summaryData["Actions"]));
+    d3.select("#competed-actions").text(formatNumber("actions", summaryData.competedActions));
 
-    d3.select("#not-competed-dollars").text(formatNumber("dollars text", summaryData["Not Competed"]));
+    d3.select("#not-competed-dollars").text(formatNumber("dollars text", summaryData.notCompetedDollars));
 
-    d3.select("#not-competed-actions").text(formatNumber("actions", summaryData["NC Actions"]));
+    d3.select("#not-competed-actions").text(formatNumber("actions", summaryData.notCompetedActions));
   }
 
   return { draw: draw };
