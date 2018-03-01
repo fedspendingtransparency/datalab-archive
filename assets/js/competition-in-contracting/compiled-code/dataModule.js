@@ -1,10 +1,10 @@
 "use strict";
 
-var dataModule = (function() {
+var dataModule = function () {
   var mem = {};
 
   function loadCicData(cb) {
-    d3.json("/data-lab-data/cicData.json", function(error, data) {
+    d3.json("/data-lab-data/cicData.json", function (error, data) {
       if (error) throw error;
       mem.cicData = data;
       cb(data);
@@ -15,4 +15,4 @@ var dataModule = (function() {
     loadCicData: loadCicData,
     mem: mem
   };
-})();
+}();

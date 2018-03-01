@@ -1,20 +1,8 @@
 "use strict";
 
-var _extends =
-  Object.assign ||
-  function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-$(function() {
+$(function () {
   var barchartModuleDraw = barchartModule().draw;
   var tooltipModuleDraw = tooltipModule().draw;
   var tooltipModuleRemove = tooltipModule().remove;
@@ -33,7 +21,7 @@ $(function() {
   };
 
   function handleYAxisCheckboxChange(id, checked) {
-    dataModule.mem.cicData = dataModule.mem.cicData.map(function(c) {
+    dataModule.mem.cicData = dataModule.mem.cicData.map(function (c) {
       if (c.id === id) {
         return _extends({}, c, {
           displayed: checked
@@ -46,15 +34,21 @@ $(function() {
     barchartModuleDraw(dataModule.mem.cicData, settings, helpers);
   }
 
-  dataModule.loadCicData(function(cicData) {
+  dataModule.loadCicData(function (cicData) {
     barchartModuleDraw(cicData, settings, helpers);
   });
 
-  $("#barchartToolbar").change(function(e) {
+  $("#barchartToolbar").change(function (e) {
     e.preventDefault();
 
     var data = dataModule.mem.cicData;
 
+    // const xAxisUnit = $("#xAxisUnitDropdown")
+    //   .find(":selected")
+    //   .val();
+    // const xAxisScale = $("#xAxisScaleDropdown")
+    //   .find(":selected")
+    //   .val();
     var xAxisUnit = document.querySelector('input[name="xAxisUnit"]:checked').value;
     var xAxisScale = document.querySelector('input[name="xAxisScale"]:checked').value;
 

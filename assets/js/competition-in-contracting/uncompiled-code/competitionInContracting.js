@@ -40,12 +40,16 @@ $(function() {
 
     const data = dataModule.mem.cicData;
 
-    const xAxisUnit = $("#xAxisUnitDropdown")
-      .find(":selected")
-      .val();
-    const xAxisScale = $("#xAxisScaleDropdown")
-      .find(":selected")
-      .val();
+    // const xAxisUnit = $("#xAxisUnitDropdown")
+    //   .find(":selected")
+    //   .val();
+    // const xAxisScale = $("#xAxisScaleDropdown")
+    //   .find(":selected")
+    //   .val();
+    var xAxisUnit = document.querySelector('input[name="xAxisUnit"]:checked')
+      .value;
+    var xAxisScale = document.querySelector('input[name="xAxisScale"]:checked')
+      .value;
 
     settings.xAxisScale = xAxisScale;
     settings.xAxisUnit = xAxisUnit;

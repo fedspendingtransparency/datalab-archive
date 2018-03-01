@@ -56,3 +56,8 @@ Gemfile.lock
 
 # Linting files
 .eslintrc.json
+
+# node
+package.json
+package-lock.json
+node_modules

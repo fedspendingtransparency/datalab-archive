@@ -84,7 +84,7 @@ const barchartModule = function() {
       .domain(sortedData.map(d => d.name));
 
     // z scale (color)
-    const z = d3.scale.ordinal().range(["#2a5da8", "#f0ca4d"]);
+    const z = d3.scale.ordinal().range(["#0071bc", "#D334BA"]);
     const keys =
       settings.xAxisScale === "quantity"
         ? ["competed", "notCompeted"]
@@ -147,8 +147,8 @@ const barchartModule = function() {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .append("foreignObject")
-      .attr("transform", "translate(-21,8)")
-      .attr("width", 100)
+      .attr("transform", "translate(-20,0)")
+      .attr("width", 10)
       .attr("height", 1000)
       .append("xhtml:body")
       .append("form")
@@ -209,36 +209,36 @@ const barchartModule = function() {
       .on("mouseout", handleMouseOut);
 
     // legend
-    const options = ["Competed", "Not Competed"];
-    var legend = g
-      .append("g")
-      .attr("transform", "translate(0,-50)")
-      .selectAll(".legend")
-      .data(options)
-      .enter()
-      .append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) {
-        return "translate(0," + i * 20 + ")";
-      });
+    // const options = ["Competed", "Not Competed"];
+    // var legend = g
+    //   .append("g")
+    //   .attr("transform", "translate(0,-50)")
+    //   .selectAll(".legend")
+    //   .data(options)
+    //   .enter()
+    //   .append("g")
+    //   .attr("class", "legend")
+    //   .attr("transform", function(d, i) {
+    //     return "translate(0," + i * 20 + ")";
+    //   });
 
-    legend
-      .append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", z);
+    // legend
+    //   .append("rect")
+    //   .attr("x", width - 18)
+    //   .attr("width", 18)
+    //   .attr("height", 18)
+    //   .style("fill", z);
 
-    legend
-      .append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .style("font-size", "12px")
-      .text(function(d) {
-        return d;
-      });
+    // legend
+    //   .append("text")
+    //   .attr("x", width - 24)
+    //   .attr("y", 9)
+    //   .attr("dy", ".35em")
+    //   .style("text-anchor", "end")
+    //   .style("font-size", "12px")
+    //   .text(function(d) {
+    //     return d;
+    //   });
 
     function handleMouseOver(d) {
       tooltipModuleDraw(d.data.name, {
