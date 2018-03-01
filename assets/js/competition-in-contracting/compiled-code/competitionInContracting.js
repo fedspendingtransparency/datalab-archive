@@ -43,17 +43,29 @@ $(function () {
 
     var data = dataModule.mem.cicData;
 
-    // const xAxisUnit = $("#xAxisUnitDropdown")
-    //   .find(":selected")
-    //   .val();
-    // const xAxisScale = $("#xAxisScaleDropdown")
-    //   .find(":selected")
-    //   .val();
-    var xAxisUnit = document.querySelector('input[name="xAxisUnit"]:checked').value;
-    var xAxisScale = document.querySelector('input[name="xAxisScale"]:checked').value;
+    var xAxisUnit = $('input[name="xAxisUnit"]:checked').val();
+    var xAxisScale = $('input[name="xAxisScale"]:checked').val();
 
     settings.xAxisScale = xAxisScale;
     settings.xAxisUnit = xAxisUnit;
+
+    barchartModuleDraw(data, settings, helpers);
+  });
+
+  $("#button1").click(function (e) {
+    var data = dataModule.mem.cicData;
+
+    data = data.map(function (c) {
+      return _extends({}, c, {
+        displayed: true
+      });
+    });
+
+    settings.xAxisUnit = "dollars";
+    settings.xAxisScale = "quantity";
+
+    $('input[name="xAxisUnit"]')[0].checked = true;
+    $('input[name="xAxisScale"]')[0].checked = true;
 
     barchartModuleDraw(data, settings, helpers);
   });
