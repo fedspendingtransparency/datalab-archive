@@ -26,7 +26,7 @@ category: entry
 		to understand the different missions, or functions of the federal government. Though Budget Functions have
 		evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal spending
 		using a version of these categories for more than 200 years.</p>
-		
+
 		<p>The Object Classification system, which was created
 		in the 1920s, explains what the government received in exchange for spending.  For example, the Object
 		Classification system captures spending on salaries for federal employees, rent payments for federal buildings,
@@ -52,6 +52,15 @@ category: entry
 		%}
 		<div class="mask">
 			<div class="viz-actions">
+				<form id="SankeyRadio">
+					<div class="select-wrapper1" style="position:absolute; margin:20px;">
+						<input type="radio" id="contactChoice1" name="FiscalYear" value="fy18" checked>
+						<label for="contactChoice1" style="font-size:12px;">FY 18</label>
+
+						<input type="radio" id="contactChoice2" name="FiscalYear" value="fy17">
+						<label for="contactChoice2" style="font-size:12px">FY 17</label>
+					</div>
+				</form>
 				<div class="float-right">
 					{% include share-menu.html %}
 				</div>
@@ -80,4 +89,5 @@ category: entry
 
 <!-- d3 scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/budget-sankey.js"></script>
