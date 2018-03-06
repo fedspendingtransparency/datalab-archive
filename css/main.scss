@@ -2,11 +2,6 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-$baseurl: '{{ site.baseurl }}/images';
-
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
 @import 'font-awesome.min.css';
 
 @import 'share.css';
@@ -19,30 +14,25 @@ $baseurl: '{{ site.baseurl }}/images';
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
 
-@import 'libs/skel';
-
-@include skel-breakpoints((
-	xlarge: '(max-width: 1680px)',
-	large: '(max-width: 1280px)',
-	medium: '(max-width: 980px)',
-	small: '(max-width: 736px)',
-	xsmall: '(max-width: 480px)'
-));
-
-@include skel-layout((
-	reset: 'full',
-	boxModel: 'border',
-	grid: ( gutters: 1.5em )
-));
+$accent-blue: #0C99CD;
+$accent-grey: #323A45;
+$shuttle-grey: #62666C;
+$silver: #CCCCCC;
+$button1: #D334BA;
+$fg-light: rgba(255,255,255,0.5);
 
 /* Basic */
 
+	body {
+		margin: 0;
+	}
+
 	body, input, select, textarea {
 		color: #000;
-		font-family: _font(family);
+		font-family: 'Source Sans Pro', Helvetica, sans-serif;
 		font-size: 15pt;
-		font-weight: _font(weight);
-		letter-spacing: _size(letter-spacing);
+		font-weight: 400;
+		letter-spacing: 0.075em;
 		line-height: 1.65em;
 	}
 
@@ -60,19 +50,11 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	p {
-		margin: 0 0 _size(element-margin) 0;
+		margin: 0 0 2em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		margin: 0 0 (_size(element-margin) * 0.5) 0;
-	}
-
-/* Section/Article */
-
-	section, article {
-		&.special {
-			text-align: center;
-		}
+		margin: 0 0 1em 0;
 	}
 
 /* Image */
@@ -87,6 +69,8 @@ $baseurl: '{{ site.baseurl }}/images';
 /* List */
 
 	ul {
+		list-style: none;
+
 		&.icons {
 			list-style: none;
 
@@ -112,7 +96,16 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Icons */
 
 	.icon {
-		@include icon;
+		text-decoration: none;
+
+		&:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			font-family: FontAwesome;
+			font-style: normal;
+			font-weight: normal;
+			text-transform: none !important;
+		}
 
 		> .label {
 			display: none;
@@ -122,11 +115,12 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Spotlight */
 
 	.spotlight {
-		@include vendor('align-items', 'center');
-		@include vendor('display', 'flex');
+		align-items: center;
+		display: flex;
 
 		.image {
-			@include vendor('order', '1');
+			order: 1;
+			min-width: 50%;
 			width: 50%;
 
 			img {
@@ -136,13 +130,13 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		.content {
-			@include padding(2em, 4em);
-			@include vendor('order', '2');
+			padding: 2em 4em;
+			order: 2;
 			width: 50%;
 		}
 
 		&:nth-child(2n) {
-			@include vendor('flex-direction', 'row-reverse');
+			flex-direction: row-reverse;
 		}
 	}
 
@@ -155,32 +149,41 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
-/* Page Wrapper + Menu */
+	/* Landing */
 
-	/* Menu opening/closing transition */
-	#page-wrapper {
-		@include vendor('transition', 'opacity #{_duration(menu)} ease');
+	#banner {
+		background-image: url("{{site.baseurl}}/images/banner.jpg");
+		background-attachment: fixed;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: 0;
 	}
 
+/* Page Wrapper + Menu */
+
 	#menu {
-		@include vendor('transform', 'translateX(385px)');
-		@include vendor('transition', 'transform #{_duration(menu)} ease');
-		padding: 0em 2em 1em 0em;
+		transition: 0.5s;
+		padding: 0;
 		height: 100%;
 		position: fixed;
+		overflow-x: hidden;
+		z-index: 1;
 		right: 0;
 		top: 0;
-		width: 385px;
+		width: 0;
 
 		ul {
+			padding: 0px 40px;
+
 			> li {
 				margin: 0.5em 0 0 0;
 				padding: 0.5em 0 0 0;
 
 				> a {
 					font-size: 15px;
-					letter-spacing: _size(letter-spacing-alt);
-					border-bottom: 1px dashed #4498c8;
+					letter-spacing: 0.225em;
+					border-bottom: 1px dashed $accent-blue;
 				}
 
 				> a:hover {
@@ -195,16 +198,6 @@ $baseurl: '{{ site.baseurl }}/images';
 			position: absolute;
 			right: 0;
 			top: 0;
-		}
-	}
-
-	body.is-menu-visible {
-		#page-wrapper {
-			opacity: 0.35;
-		}
-
-		#menu {
-			@include vendor('transform', 'translateX(0)');
 		}
 	}
 
@@ -224,12 +217,12 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Banner */
 
 	#banner {
-		@include vendor('display', 'flex');
-		@include vendor('flex-direction', 'column');
-		@include vendor('justify-content', 'flex-end');
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
 		height: 90vh;
 		text-align: center;
-		margin-bottom: 15vh;
+		padding-bottom: 15vh;
 	}
 
 /* Main */
@@ -256,19 +249,19 @@ $baseurl: '{{ site.baseurl }}/images';
 			font-size: 1.5em;
 
 			a {
-				color: _palette(fg-light);
+				color: $fg-light;
 
 				&:hover {
-					color: _palette(fg);
+					color: #FFFFFF;
 				}
 			}
 		}
 
 		.copyright {
-			color: _palette(fg-light);
+			color: $fg-light;
 
 			li {
-				border-left: solid 1px _palette(fg-light);
+				border-left: solid 1px $fg-light;
 				display: inline-block;
 				line-height: 1em;
 
@@ -281,20 +274,11 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
-/* Landing */
-
-	body.landing {
-		#page-wrapper {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0))', 'url("#{$baseurl}/banner.jpg")'));
-			background-attachment: fixed;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			padding-top: 0;
-		}
-	}
-
 /* Additions */
+
+.center-text {
+	text-align: center;
+}
 
 h3.philosophy {
 	margin-top: 25px;
@@ -341,22 +325,24 @@ header.major h2 {
 }
 
 .spotlight > .content > h4 {
-	color: #0C99CD;
+	color: $accent-blue;
 	font-size: 16px;
 	line-height: 19px;
+	font-weight: 400;
 	text-transform: uppercase;
 	margin-bottom: 0;
 }
 
 .spotlight > .content > h2 {
-	color: #323A45;
+	color: $accent-grey;
 	font-size: 28px;
 	line-height: 36px;
+	font-weight: 400;
 	letter-spacing: 0.030em;
 }
 
 .spotlight > .content > p {
-	color: #606368;
+	color: $shuttle-grey;
 	font-size: 16px;
 	line-height: 32px;
 }
@@ -371,7 +357,12 @@ header.major h2 {
 	font-size: 35px;
 	line-height: 45px;
 	margin: 25px 0;
+	font-weight: 400;
 	color: #FFFFFF;
+}
+
+#page-wrapper {
+	transition: .5s;
 }
 
 .page-description {
@@ -393,7 +384,7 @@ header.major h2 {
 }
 
 .entry-about-title {
-	color: #323A45;
+	color: $accent-grey;
 	font-size: 30px;
 	font-size: 35px;
 	font-weight: 300;
@@ -425,6 +416,7 @@ header.major h2 {
 
 .viz-bkgd {
 	width: 100%;
+	box-sizing: border-box;
 	background-color: #E2DFEC;
 	padding: 25px;
 }
@@ -432,7 +424,7 @@ header.major h2 {
 .mask {
 	height: 99%;
 	width: 99%;
-	border: 1px solid #CDCACA;
+	border: 1px solid $silver;
 	border-radius: 5px;
 	background-color: #FFFFFF;
 	margin: auto;
@@ -459,7 +451,7 @@ header.major h2 {
 
 .homepage-get-started {
 	border-radius: 48.5px;
-	background-color: #D334BA;
+	background-color: $button1;
 	font-size: 24px;
 	font-weight: 600;
 	line-height: 58px;
@@ -487,7 +479,6 @@ header.major h2 {
 }
 
 #footer {
-	padding: 1em 0;
 	background-color: #262626;
 	display: flex;
 	flex-direction: row;
@@ -497,6 +488,7 @@ header.major h2 {
 	flex: 1;
 	display: flex;
 	align-items: center;
+	padding: 0;
 }
 
 #footer > .copyright {
@@ -547,7 +539,7 @@ header.major h2 {
 }
 
 .important-db-info {
-	color: #CCCCCC;
+	color: $silver;
     font-size: 12px;
 	letter-spacing: .75px;
 	font-weight: 300;
@@ -569,8 +561,8 @@ header.major h2 {
 		-45deg,
 		#238eb5,
 		#238eb5 2px,
-		#0C99CD 2px,
-		#0C99CD 4px
+		$accent-blue 2px,
+		$accent-blue 4px
 	);
 }
 
@@ -583,6 +575,7 @@ header.major h2 {
 
 #cta .inner header h1 {
 	font-size: 48px;
+	font-weight: 400;
 	margin-bottom: 35px;
 	color: #FFFFFF;
 }
@@ -626,6 +619,9 @@ header.major h2 {
 	height: 480px;
 	background-size: 100% 480px;
 	background-image: url("images/analysis.jpg");
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .sub-how-analysis-container {
@@ -640,10 +636,9 @@ header.major h2 {
 	font-weight: 300;
 	line-height: 44px;
 	display: inline-block;
-	margin-left: 330px;
-	margin-right: 50px;
 	opacity: 0.85;
 	vertical-align: top;
+	margin-right: 50px;
 }
 
 .how-analysis-inner-container {
@@ -668,7 +663,7 @@ header.major h2 {
 
 .go-to-usaspending {
     width: 166px;
-    border: 1px solid #0C99CD;
+    border: 1px solid $accent-blue;
     border-radius: 17px;
     color: #6AB6D3;
     margin-left: auto;
@@ -678,7 +673,7 @@ header.major h2 {
 }
 
 #menu {
-	background-color: #4498C8;
+	background-color: $accent-blue;
 	text-align: right;
 	padding-top: 150px;
 	font-weight: 300;
@@ -696,7 +691,7 @@ header.major h2 {
 
 .read-more-header {
 	height: 365px;
-	background-color: #4498C9;
+	background-color: $accent-blue;
 	font-weight: 300;
 	display: flex;
 	justify-content: center;
@@ -771,8 +766,8 @@ header.major h2 {
 		-45deg,
 		#252a32,
 		#252a32 2px,
-		#313944 2px,
-		#313944 4px
+		$accent-grey 2px,
+		$accent-grey 4px
 	);
 }
 
@@ -782,7 +777,7 @@ header.major h2 {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #D3D3D4;
+    background: $silver;
     width: 50px;
     height: 50px;
     border-radius: 35px;
@@ -844,7 +839,7 @@ header.major h2 {
     visibility: hidden;
     width: 135px;
 	background-color: #fff;
-	border: 1px #ccc solid;
+	border: 1px $silver solid;
     border-radius: 6px;
     position: absolute;
     z-index: 100;
@@ -909,7 +904,7 @@ header.major h2 {
 }
 
 #homeless-action-map {
-	background-image: url(images/map1.svg);
+	background-image: url(images/map.svg);
     display: inline-block;
 	width: 56px;
 	height: 31px;
@@ -1028,8 +1023,8 @@ article > header {
 }
 
 .discover-box:hover {
-	background-color: #0C99CD;
-	border: 1px solid #0C99CD;
+	background-color: $accent-blue;
+	border: 1px solid $accent-blue;
 }
 
 .discover-box:hover .discover {
@@ -1039,7 +1034,7 @@ article > header {
 .button-read-more {
 	margin-top: 50px;
 	width: 147px;
-	border: 1px solid #0C99CD;
+	border: 1px solid $accent-blue;
 	border-radius: 50px;
 	display: block;
 	font-size: 14px;
@@ -1050,8 +1045,8 @@ article > header {
 
 .button-read-more:hover {
 	text-decoration: none;
-	background-color: #0C99CD;
-	border: 1px solid #0C99CD;
+	background-color: $accent-blue;
+	border: 1px solid $accent-blue;
 }
 
 .button-read-more span {
@@ -1066,7 +1061,7 @@ article > header {
 .action-button {
 	display: inline-block;
 	color: #5B616B;
-	border: 1px solid #D2CCCC;
+	border: 1px solid $silver;
 	border-radius: 50px;
 	margin: 15px 0 0 15px;
 	font-weight: lighter;
@@ -1075,13 +1070,13 @@ article > header {
 }
 
 .action-button:hover {
-	background-color: #D2D3DC;
+	background-color: $silver;
 }
 
 .share-viz-button {
 	color: #FFFFFF;
-	background-color: #62666C;
-	border: 1px solid #D2CCCC;
+	background-color: $shuttle-grey;
+	border: 1px solid $silver;
 	border-radius: 50px;
 	margin: 15px 15px 0 15px;
 }
@@ -1115,12 +1110,12 @@ article > header {
 	display: inline-block;
 	letter-spacing: 2px;
 	padding: 10px;
-	border: 1px solid #0C99CD;
+	border: 1px solid $accent-blue;
 }
 
 .btn-analysis-read-more {
-	background-color: #0C99CD;
-	border: 1px solid #0C99CD;
+	background-color: $accent-blue;
+	border: 1px solid $accent-blue;
 }
 
 .btn-analysis-read-more:hover {
@@ -1129,8 +1124,8 @@ article > header {
 }
 
 .btn-analysis-next-analysis {
-	background-color: #D334BA;
-	border: 1px solid #D334BA;
+	background-color: $button1;
+	border: 1px solid $button1;
 }
 
 .btn-analysis-next-analysis:hover {
@@ -1141,9 +1136,9 @@ article > header {
 .read-more-button {
 	height: 75px;
 	width: 371px;
-	border: 1px solid #0C99CD;
+	border: 1px solid $accent-blue;
 	border-radius: 50.5px;
-	color: #0C99CD;
+	color: $accent-blue;
 	font-size: 20px;
 	line-height: 72px;
 	text-transform: uppercase;
@@ -1152,13 +1147,13 @@ article > header {
 }
 
 .read-more-button:hover {
-	background-color: #0C99CD;
+	background-color: $accent-blue;
 	color: #FFFFFF;
-	border: 1px solid #0C99CD;
+	border: 1px solid $accent-blue;
 }
 
 .button-instructions {
-    background-color: #D334BA;
+    background-color: $button1;
     display: inline-block;
     color: #FFFFFF;
     border-radius: 50px;
@@ -1220,7 +1215,7 @@ article > header {
 
 .modal-blue-bar {
 	height: 10px;
-	background-color: #4498C8;
+	background-color: $accent-blue;
 }
 
 .modal-body {

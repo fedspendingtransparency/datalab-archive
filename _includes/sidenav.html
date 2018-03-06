@@ -1,0 +1,27 @@
+
+<script>
+    function openNav() {
+        document.getElementById("menu").style.width = "350px";
+        document.getElementById("page-wrapper").style.opacity = 0.35;
+    }
+    
+    function closeNav() {
+        document.getElementById("menu").style.width = "0";
+        document.getElementById("page-wrapper").style.opacity = 1;
+    }
+</script>
+
+<div id="menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        {% assign sorted_pages = site.pages | sort:"menuorder" %}
+        {% for my_page in sorted_pages %}
+        {% if my_page.category == "entry" %}
+        <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.menuname }}</a></li>
+        {% endif %}
+        {% endfor %}
+        <br />
+        <li><a href="https://beta.usaspending.gov">USASpending.gov</a></li>
+    </ul>
+    <a href="javascript:void(0)" class="close" onclick="closeNav()"></a>
+</div>
