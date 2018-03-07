@@ -27,11 +27,14 @@ function RadioSankeyFY17() {
     });
   });
 }
-
+// comment for file size change
+//
+//
+// 
 function RadioSankeyFY18() {
-  d3.csv("/data-lab-data/sankey_panel_FY18.csv", function(error, data) {
-    d3.csv("/data-lab-data/sankey_v15_FY18.csv", function(error, s_panel) {
-      d3.csv("/data-lab-data/sankey_titles_FY18.csv", function(error, s_title) {
+  d3.csv("/data-lab-data/sankey_panel_v2_FY18.csv", function(error, data) {
+    d3.csv("/data-lab-data/sankey_v16_FY18.csv", function(error, s_panel) {
+      d3.csv("/data-lab-data/sankey_titles_v2_FY18.csv", function(error, s_title) {
         d3.csv("/data-lab-data/descriptions.csv", function(error, descriptions) {
           makeSankey(data, s_panel, s_title, descriptions);
         });
