@@ -17,11 +17,11 @@ const barchartModule = function() {
   function findFillCollor(type) {
     switch (type) {
       case "Blue Collar":
-        return "rgb(66, 134, 244)";
+        return "#0C99CD";
       case "White Collar":
         return "white";
       case "Other":
-        return "green";
+        return "#075D7D";
     }
   }
 

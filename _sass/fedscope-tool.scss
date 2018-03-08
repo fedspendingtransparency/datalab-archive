@@ -80,6 +80,7 @@
   .visContainer {
     display: flex;
     justify-content: center;
+    padding: 20px;
   }
 
   .ui.multiple.dropdown > .label {
@@ -95,6 +96,11 @@
   /* treemap */
   #treemapSvg {
     font-size: 10px;
+    color: white;
+  }
+
+  #mapToolbar {
+    padding: 20px;
   }
 
   /* map */
@@ -105,57 +111,15 @@
   }
 
   #tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 20px;
-    margin: 10px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 1px;
-    border-radius: 2px;
     pointer-events: none;
   }
 
-  #tooltip h4 {
-    margin: 0;
-    font-size: 14px;
+  #tooltip li {
+    text-align: left;
   }
-
-  #tooltip {
-    background: rgba(0, 0, 0, 0.9);
-    border: 1px solid grey;
-    border-radius: 5px;
-    font-size: 12px;
-    width: auto;
-    padding: 4px;
-    color: white;
-    opacity: 0;
-  }
-
-  #tooltip table {
-    table-layout: fixed;
-  }
-
-  #tooltip tr td {
-    padding: 0;
-    margin: 0;
-  }
-
-  #tooltip tr td:nth-child(1) {
-    width: 50px;
-  }
-
-  #tooltip tr td:nth-child(2) {
-    text-align: center;
-  }
-
-  /* barchart */
-  // .bar {
-  //   fill: rgb(66, 134, 244);
-  // }
 
   .bar:hover {
-    fill: brown;
+    fill: #D334BA;
   }
 
   .axis--x path {
