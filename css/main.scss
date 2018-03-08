@@ -12,7 +12,7 @@
 @import 'competition-in-contracting';
 @import 'fedscope-tool';
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
 
 $accent-blue: #0C99CD;
 $accent-grey: #323A45;
@@ -308,13 +308,7 @@ header.major h2 {
 	line-height: 32px;
 }
 
-#banner h2 {
-	font-weight: 800;
-	letter-spacing: 2px;
-}
-
 .page-title {
-	width: 600px;
 	font-size: 35px;
 	line-height: 45px;
 	margin: 25px 0;
@@ -327,7 +321,6 @@ header.major h2 {
 }
 
 .page-description {
-	width: 600px;
 	font-size: 18px;
 	font-weight: 100;
 	opacity: 0.9;
@@ -347,6 +340,7 @@ header.major h2 {
 	font-weight: 300;
 	letter-spacing: 1px;
 	line-height: 45px;
+	margin-top: 0;
 	margin-bottom: 0;
 }
 
@@ -365,6 +359,7 @@ header.major h2 {
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 32px;
+	margin-top: 0;
 }
 
 .resources-section {
@@ -576,8 +571,7 @@ header.major h2 {
 }
 
 .how-analysis-container {
-	height: 480px;
-	background-size: 100% 480px;
+	background-size: cover;
 	background-image: url("images/analysis.jpg");
 	display: flex;
     flex-direction: row;
@@ -606,7 +600,7 @@ header.major h2 {
 }
 
 .this-analysis-was-co {
-	width: 530px;
+	max-width: 530px;
 	color: #FFFFFF;
 	font-size: 20px;
 	font-weight: 100;
@@ -659,41 +653,37 @@ header.major h2 {
 }
 
 .read-more-header {
+	color: #FFFFFF;
 	height: 365px;
 	background-color: $accent-blue;
-	font-weight: 300;
 	display: flex;
 	justify-content: center;
+	text-align: center;
 }
 
 .read-more-header-container {
 	align-self: center;
+	width: 600px;
 }
 
 .read-more-header > div > h2 {
-	width: 600px;
-	color: #FFFFFF;
 	font-size: 18px;
 	line-height: 23px;
-	text-align: center;
-	font-weight: 300;
 	margin: 0 auto;
 	margin-bottom: 20px;
 	text-transform: uppercase;
+	font-weight: 300;
 }
 
 .read-more-header > div > h3 {
-	width: 600px;
-	color: #FFFFFF;
 	font-size: 64px;
 	line-height: 71px;
-	text-align: center;
-	font-weight: 300;
 	margin: 0 auto;
+	font-weight: 300;
 }
 
 .read-more-content {
-	width: 900px;
+	width: 50%;
 	color: #5B616B;
 	font-size: 20px;
 	font-weight: 300;
@@ -945,23 +935,20 @@ header.major h2 {
 }
 
 article > header {
-	height: 600px;
+	min-height: 600px;
 }
 
 .header-box {
 	margin-left: 90px;
+	width: 600px;
 	text-align: left;
 }
 
 .entry-about-container {
-	padding: 50px 0;
+	padding: 50px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-}
-
-.clear-both {
-	clear: both;
 }
 
 .page-menuname {
@@ -1000,7 +987,7 @@ article > header {
 }
 
 .button-read-more {
-	margin-top: 50px;
+	margin-top: 35px;
 	width: 147px;
 	border: 1px solid $accent-blue;
 	border-radius: 50px;
@@ -1102,13 +1089,12 @@ article > header {
 }
 
 .read-more-button {
-	height: 75px;
-	width: 371px;
+	width: 325px;
 	border: 1px solid $accent-blue;
-	border-radius: 50.5px;
+	border-radius: 50px;
 	color: $accent-blue;
 	font-size: 20px;
-	line-height: 72px;
+	padding: 15px 0;
 	text-transform: uppercase;
 	text-align: center;
 	cursor: pointer;
@@ -1155,6 +1141,10 @@ article > header {
 .viz-subtext {
 	font-size: 16px;
 	font-weight: 300;
+}
+
+.viz-mobile-message {
+	display: none;
 }
 
 /* Modal Start */
@@ -1228,7 +1218,7 @@ article > header {
 
 .modal-body-content ul {
 	list-style: disc;
-    margin-left: 20px;
+	padding-left: 20px;
 }
 
 .modal-body-content a {
@@ -1348,7 +1338,7 @@ article > header {
 /* Mobile Begin */
 
 @media (max-width: 787px) {
-	#top-footer {
+	#top-footer, .footer-links {
 		flex-direction: column;
 	}
 
@@ -1381,10 +1371,77 @@ article > header {
 	#banner {
 		padding-left: 25px;
 	}
+
+	.header-box {
+		margin-left: 25px;
+		width: calc(100% - 50px);
+	}
+
+	.entry-about-container {
+		flex-direction: column;
+		padding: 30px;
+	}
+
+	.entry-about-title-container {
+		margin-right: 0;
+		margin-bottom: 25px;
+		width: 100%;
+	}
+
+	.entry-about-body-container {
+		width: 100%;
+	}
+
+	.mask {
+		display: none;
+	}
+
+	.viz-mobile-message {
+		display: block;
+		margin-top: 25px;
+		border-radius: 10px;
+		border: 1px solid #f0e2c5;
+		text-align: center;
+		background-color: #fcf8e4;
+		font-weight: 300;
+		width: 100%;
+		font-size: 14px;
+		line-height: 22px;
+		padding: 15px 30px;
+		box-sizing: border-box;
+	}
+
+	.button-instructions {
+		margin: 25px 0;
+	}
+
+	.btn-analysis {
+		margin-bottom: 25px;
+	}
+
+	.modal-content {
+		width: 90%;
+	}
+
+	.modal-body {
+		padding: 20px;
+	}
+
+	.how-we-conducted-this-analysis {
+		margin-right: 0;
+	}
+
+	.how-analysis-inner-container {
+		padding: 30px;
+	}
+
+	.read-more-content {
+		width: 85%;
+	}
 }
 
 @media (max-width: 1400px) {
-	.footer-links, ul.icons.major, .copyright, #footer {
+	ul.icons.major, .copyright, #footer {
 		flex-direction: column;
 	}
 
