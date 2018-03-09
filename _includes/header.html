@@ -6,25 +6,8 @@
 </div>
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
   <a href="{{ site.baseurl }}/index.html" class="usaspending-logo-link"><div class="usaspending-logo"></div></a>
-  <div class="go-to-usaspending"><a href="https://beta.usaspending.gov/">USAspending.gov</a></div>
-  <nav id="nav">
-    <ul>
-      <li class="special">
-        <a href="#menu"><i class="hamburger-icon" aria-hidden="true"></i></a>
-        <div id="menu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            {% assign sorted_pages = site.pages | sort:"menuorder" %}
-            {% for my_page in sorted_pages %}
-            {% if my_page.category == "entry" %}
-            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.menuname }}</a></li>
-            {% endif %}
-            {% endfor %}
-            <br />
-            <li><a href="https://beta.usaspending.gov">USASpending.gov</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </nav>
+  <div class="header-right">
+      <div class="go-to-usaspending"><a href="https://beta.usaspending.gov/">USAspending.gov</a></div>
+      <i class="hamburger-icon" onclick="openNav()" aria-hidden="true"></i>
+  </div>
 </header>

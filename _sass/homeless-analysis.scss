@@ -219,7 +219,7 @@
     padding:0 15px 0 15px;
     height: 300px;
     overflow: visible;
-    margin-top: -40px;
+    margin-top: 0;
     width: 100%;
   }
 
@@ -231,7 +231,7 @@
     padding:0 15px 0 15px;
     //max-width: 250px;
     overflow: visible;
-    top: -40px;
+    top: 0;
     width: 100%;
   }
 
@@ -887,8 +887,7 @@
   }
 
   #panel_3b{
-    padding: 0 5px 0 5px;
-    width:69%;
+    width:68%;
     float:left;
     height:900px;
   }

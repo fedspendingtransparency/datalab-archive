@@ -1365,7 +1365,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('height', '75px')
                 .attr('padding', '40px 0 0 40px')
                 .attr('id', 'p2_4_cfda_legend_title')
-                .html('<p style="color:#333; font-size:18px; text-align: center; font-weight: bold">Federal Programs Serving ' + getState(d) + '*</p>');
+                .html('<p style="color:#333; font-size:18px; margin-bottom: 20px; text-align: center; font-weight: bold">Federal Programs Serving ' + getState(d) + '*</p>');
 
               var p2_4_matrix_svg = d3.select('#panel_info').append('svg')
                 /*.attr('width', matrix_width + margin.left + margin.right)
