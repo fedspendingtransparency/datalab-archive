@@ -169,7 +169,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               .style('color', '#333')
               .style('border', 'solid 1px #BFBCBC')
               .style('padding', '25px')
-              .style('width', '400px')
+              .style('width', '300px')
               .offset([-10, 0])
               .html(function(d) {
                 return getCFDA_value(d);

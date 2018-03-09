@@ -1438,6 +1438,14 @@ article > header {
 	.read-more-content {
 		width: 85%;
 	}
+
+	.homeless-analysis d3-tip {
+		display: none;
+	}
+
+	.important-db-info {
+		margin-right: 0;
+	}
 }
 
 @media (max-width: 1400px) {
