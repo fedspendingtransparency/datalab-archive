@@ -32,7 +32,7 @@ const treemapModule = function() {
       .attr("id", d => d.data.agencyId)
       .attr("width", d => d.x1 - d.x0)
       .attr("height", d => d.y1 - d.y0)
-      .attr("fill", "rgb(66, 134, 244)")
+      .attr("fill", "#7cd6f8")
       .on("mouseover", handleMouseOver)
       .on("mousemove", handleMouseMove)
       .on("mouseout", handleMouseOut);
@@ -48,6 +48,7 @@ const treemapModule = function() {
       .text(d => agencies[d.data.agencyId].abbreviation)
       .attr("dy", 12)
       .attr("dx", 2)
+      .attr("fill", "white")
       .attr("pointer-events", "none");
 
     function handleMouseOver(d) {
@@ -55,12 +56,12 @@ const treemapModule = function() {
       tooltipModuleDraw(agencies[d.data.agencyId].name, {
         "Employee Salaries": formatNumber(d.value)
       });
-      d3.select(this).style("fill", "brown");
+      d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
       tooltipModuleRemove();
-      d3.select(this).style("fill", "rgb(66, 134, 244)");
+      d3.select(this).style("fill", "#7cd6f8");
     }
 
     function handleMouseMove() {

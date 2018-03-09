@@ -1,6 +1,6 @@
 const barchartModule = function() {
   var svg = d3.select("#barchartSvg"),
-    margin = { top: 20, right: 80, bottom: 100, left: 50 },
+    margin = { top: 20, right: 80, bottom: 100, left: 60 },
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -17,16 +17,45 @@ const barchartModule = function() {
   function findFillCollor(type) {
     switch (type) {
       case "Blue Collar":
-        return "rgb(66, 134, 244)";
+        return "#0C99CD";
       case "White Collar":
         return "white";
       case "Other":
-        return "green";
+        return "#075D7D";
     }
   }
 
-  function draw(data, { agencies, occupationCategories }) {
-    console.log({ data });
+  function draw(
+    data,
+    { agencies, occupationCategories, tooltipModuleDraw, keyModuleDraw }
+  ) {
+    keyModuleDraw(
+      "barchartKey",
+      [
+        {
+          name: "White Collar",
+          fillColor: "#fff",
+          borderColor: "#0C99CD"
+        },
+        {
+          name: "Blue Collar",
+          fillColor: "#0C99CD",
+          borderColor: "#0C99CD"
+        },
+        {
+          name: "Other",
+          fillColor: "#075D7D",
+          borderColor: "#075D7D"
+        }
+      ],
+      {
+        orientation: "horizontal",
+        fontSize: 16,
+        shape: "circle",
+        spacing: 150,
+        borderWidth: 2
+      }
+    );
 
     g.selectAll("*").remove();
 
@@ -62,8 +91,6 @@ const barchartModule = function() {
         }
         return a;
       }, []);
-
-    console.log({ groupedData });
 
     x.domain(groupedData.map(d => d.occupationCategoryName));
     y.domain([0, d3.max(groupedData, d => d.employeeCount)]);

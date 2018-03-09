@@ -15,7 +15,7 @@ const mapModule = function() {
     var color = d3
       .scaleLinear()
       .domain([1, d3.max(Object.values(dataByState), d => d)])
-      .range(["rgb(255, 255, 255)", "rgb(66, 134, 244)"])
+      .range(["#cbeffd", "#1799ce"])
       .interpolate(d3.interpolateRgb);
 
     function handleMouseOver(d) {
@@ -23,7 +23,7 @@ const mapModule = function() {
       tooltipModuleDraw(d.name, {
         Employees: formatNumber(dataByState[d.abbreviation])
       });
-      d3.select(this).style("fill", "brown");
+      d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
