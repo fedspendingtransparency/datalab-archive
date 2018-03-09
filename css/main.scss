@@ -119,7 +119,7 @@ table td {
 	}
 
 	.content {
-		padding: 2em 4em;
+		padding: 2% 4%;
 		order: 2;
 		width: 50%;
 	}
@@ -292,7 +292,7 @@ header.major h2 {
 	line-height: 19px;
 	font-weight: 400;
 	text-transform: uppercase;
-	margin-bottom: 0;
+	margin: 0;
 }
 
 .spotlight > .content > h2 {
@@ -301,12 +301,14 @@ header.major h2 {
 	line-height: 36px;
 	font-weight: 400;
 	letter-spacing: 0.030em;
+	margin: 4% 0;
 }
 
 .spotlight > .content > p {
 	color: $shuttle-grey;
 	font-size: 16px;
 	line-height: 32px;
+	margin: 0 0 4% 0;
 }
 
 .page-title {
@@ -1338,23 +1340,51 @@ article > header {
 
 /* Mobile Begin */
 
-@media (max-width: 787px) {
-	#top-footer, .footer-links {
+@media (max-width: 1400px) {
+	.copyright, #footer {
 		flex-direction: column;
 	}
 
+	.footer-important-info {
+		justify-content: center;
+	}
+
+	#footer .copyright li:before {
+		content: ""
+	}
+
+	ul.icons {
+		margin: 0 0 25px 0;
+	}
+
+	.spotlight .content {
+		padding: 1% 2% 2% 2%;
+	}
+
+	.footer-important-info {
+		margin-bottom: 15px;
+	}
+}
+
+@media (max-width: 1000px) {
 	.spotlight {
 		flex-direction: column !important;
 	}
 
 	.spotlight .content {
 		width: 100%;
-		padding: 2em 2em;
 		box-sizing: border-box;
+		padding: 40px;
 	}
 
 	.spotlight .image {
 		width: 100%;
+	}
+}
+
+@media (max-width: 787px) {
+	#top-footer, .footer-links, ul.icons.major {
+		flex-direction: column;
 	}
 
 	.go-to-usaspending {
@@ -1366,7 +1396,12 @@ article > header {
 	}
 
 	.index-header {
-		width: 300px;
+		width: 90%;
+		font-size: 54px;
+	}
+
+	.index-sub-header {
+		width: 95%;
 	}
 
 	#banner {
@@ -1439,27 +1474,13 @@ article > header {
 	.read-more-content {
 		width: 85%;
 	}
-}
 
-@media (max-width: 1400px) {
-	ul.icons.major, .copyright, #footer {
-		flex-direction: column;
+	.homeless-analysis d3-tip {
+		display: none;
 	}
 
-	.footer-important-info {
-		justify-content: center;
-	}
-
-	#footer .copyright li:before {
-		content: ""
-	}
-
-	ul.icons {
-		margin: 0 0 25px 0;
-	}
-
-	.footer-important-info {
-		margin-bottom: 15px;
+	.important-db-info {
+		margin-right: 0;
 	}
 }
 
