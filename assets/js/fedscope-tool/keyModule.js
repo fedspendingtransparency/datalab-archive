@@ -19,8 +19,8 @@ const keyModule = (function() {
       case "rect":
         legend
           .append(shape)
-          .attr("width", 10)
-          .attr("height", 10)
+          .attr("width", fontSize)
+          .attr("height", fontSize)
           .style("fill", d => d.fillColor)
           .style("stroke", d => d.borderColor)
           .style("stroke-width", borderWidth);
@@ -47,9 +47,9 @@ const keyModule = (function() {
 
     d3
       .select(`#${id}`)
-      .style("height", bb.height)
-      .style("width", bb.width)
-      .style("margin", 20)
+      .style("height", bb.height + 2 * borderWidth)
+      .style("width", bb.width + 2 * borderWidth)
+      .style("padding", borderWidth)
       .style("overflow", "visible");
   }
   return { draw };
