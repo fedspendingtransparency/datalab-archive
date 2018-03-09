@@ -5,6 +5,8 @@ $(function() {
   treemapModuleDraw = treemapModule().draw;
   mapModuleDraw = mapModule().draw;
   barchartModuleDraw = barchartModule().draw;
+  keyModuleDraw = keyModule.draw;
+
   const {
     loadEmployeeCountData,
     loadEmployeeSalaryData,
@@ -23,7 +25,8 @@ $(function() {
           occupationCategories,
           tooltipModuleDraw,
           tooltipModuleRemove,
-          tooltipModuleMove
+          tooltipModuleMove,
+          keyModuleDraw
         });
 
         loadEmployeeSalaryData([treemapModuleDraw], {
@@ -135,7 +138,8 @@ $(function() {
       occupationCategories,
       tooltipModuleDraw,
       tooltipModuleRemove,
-      tooltipModuleMove
+      tooltipModuleMove,
+      keyModuleDraw
     });
   });
 });
