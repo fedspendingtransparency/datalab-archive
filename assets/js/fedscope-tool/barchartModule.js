@@ -25,8 +25,37 @@ const barchartModule = function() {
     }
   }
 
-  function draw(data, { agencies, occupationCategories }) {
-    console.log({ data });
+  function draw(
+    data,
+    { agencies, occupationCategories, tooltipModuleDraw, keyModuleDraw }
+  ) {
+    keyModuleDraw(
+      "barchartKey",
+      [
+        {
+          name: "White Collar",
+          fillColor: "#fff",
+          borderColor: "#0C99CD"
+        },
+        {
+          name: "Blue Collar",
+          fillColor: "#0C99CD",
+          borderColor: "#0C99CD"
+        },
+        {
+          name: "Other",
+          fillColor: "#075D7D",
+          borderColor: "#075D7D"
+        }
+      ],
+      {
+        orientation: "horizontal",
+        fontSize: 16,
+        shape: "circle",
+        spacing: 150,
+        borderWidth: 2
+      }
+    );
 
     g.selectAll("*").remove();
 
@@ -62,8 +91,6 @@ const barchartModule = function() {
         }
         return a;
       }, []);
-
-    console.log({ groupedData });
 
     x.domain(groupedData.map(d => d.occupationCategoryName));
     y.domain([0, d3.max(groupedData, d => d.employeeCount)]);
