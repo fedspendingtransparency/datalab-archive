@@ -122,7 +122,12 @@ $(function() {
       );
     }
 
-    barchartModuleDraw(newData, { agencies, occupationCategories });
+    barchartModuleDraw(newData, {
+      agencies,
+      occupationCategories,
+      keyModuleDraw,
+      tooltipModuleDraw
+    });
   });
 
   $("#barchartToolbarReset").click(e => {
