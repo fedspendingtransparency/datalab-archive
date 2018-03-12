@@ -7,6 +7,11 @@
     padding: 5px 10px 5px 10px;
 }
 
+.share-buttons ul {
+    margin: 0;
+    padding: 0;
+}
+
 /* All buttons */
 
 .share-button-text {
