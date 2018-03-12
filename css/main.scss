@@ -1387,8 +1387,20 @@ article > header {
 		flex-direction: column;
 	}
 
+	#banner, .how-analysis-container {
+		background-attachment: scroll;
+	}
+
 	.go-to-usaspending {
 		display: none;
+	}
+
+	.spotlight > .content > h2 {
+		margin: 25px 0;
+	}
+
+	.spotlight > .content > p {
+		margin-bottom: 25px;
 	}
 
 	.usaspending-logo {
