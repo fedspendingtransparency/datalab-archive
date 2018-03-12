@@ -40,15 +40,19 @@ category: nonentry
   <div class="viz-bkgd">
     <div class="mask">
       {% include action-buttons.html %}
-      <form id="mapToolbar">
-        Agencies:<br>
-        <select multiple id="mapAgencyDropdown"></select>
-        <br>
-        Occupation Types:<br>
-        <select multiple id="mapOccupationDropdown"></select>
-        <br>
-        <button type="submit">Filter</button>
-        <button id="mapToolbarReset">Reset</button>
+      <form id="mapToolbar" class="toolbar">
+        <div class="formItem">
+          Agencies:<br>
+          <select multiple id="mapAgencyDropdown"></select>
+          <br>
+          Occupation Types:<br>
+          <select multiple id="mapOccupationDropdown"></select>
+          <br>
+        </div>
+        <div class="formItem">
+          <button type="submit">Filter</button>
+          <button id="mapToolbarReset">Reset</button>
+        </div>
       </form>
       
       <div class="visContainer">
@@ -63,20 +67,24 @@ category: nonentry
 %}
 
 <div class="viz-bkgd">
-	<div class="mask">
+	<div class="mask">  
     {% include action-buttons.html %}
-    <form id="barchartToolbar">
-      Agencies:<br>
-      <select multiple="" id="barchartAgencyDropdown"></select>
-      <br>
-      States:<br>
-      <select multiple="" id="barchartStateDropdown"></select>
-      <br>
-      <button type="submit">Filter</button>
-      <button id="barchartToolbarReset">Reset</button>
+    <form id="barchartToolbar" class="toolbar">
+      <div class="formItem">
+        Agencies:<br>
+        <select multiple="" id="barchartAgencyDropdown"></select>
+        <br>
+        States:<br>
+        <select multiple="" id="barchartStateDropdown"></select>
+        <br>
+      </div>
+      <div class="formItem">      
+        <button type="submit">Filter</button>
+        <button id="barchartToolbarReset">Reset</button>
+      </div>
     </form>
-    <svg id="barchartKey"></svg>
     <div class="visContainer">
+      <svg id="barchartKey"></svg>
       <svg width="900" height="500" id="barchartSvg"></svg>
     </div>
 	</div>

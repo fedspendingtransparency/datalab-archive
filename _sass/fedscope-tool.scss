@@ -81,6 +81,8 @@
     display: flex;
     justify-content: center;
     padding: 20px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .ui.multiple.dropdown > .label {
@@ -124,5 +126,12 @@
 
   .axis--x path {
     display: none;
+  }
+  
+  .toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
