@@ -1,6 +1,6 @@
 const barchartModule = function() {
   var svg = d3.select("#barchartSvg"),
-    margin = { top: 10, right: 80, bottom: 110, left: 60 },
+    margin = { top: 10, right: 80, bottom: 110, left: 90 },
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -102,8 +102,10 @@ const barchartModule = function() {
       .append("text")
       .attr("y", 6)
       .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Employee Count");
+      .attr("text-anchor", "start")
+      .text("Employee Count")
+      .attr("transform", `translate(-85,250) rotate(-90)`)
+      .attr("fill", "black");
 
     g
       .selectAll(".bar")
