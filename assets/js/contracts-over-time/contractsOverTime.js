@@ -15,7 +15,5 @@ $(function() {
     timeout = setTimeout(findAndOriendParallax, 0);
   });
 
-  // const printData = data => console.log(data);
-
   dataModule.loadAwardsByYear(draw);
 });

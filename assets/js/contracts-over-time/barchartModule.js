@@ -1,8 +1,8 @@
 const barchartModule = (function() {
   function draw(data) {
-    var margin = { top: 20, right: 20, bottom: 30, left: 140 },
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+    var margin = { top: 20, right: 20, bottom: 30, left: 80 },
+      width = 800 - margin.left - margin.right,
+      height = 800 - margin.top - margin.bottom;
 
     var x = d3
       .scaleBand()
@@ -12,7 +12,6 @@ const barchartModule = (function() {
 
     var svg = d3
       .select("#svg-1")
-      // .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -20,23 +19,9 @@ const barchartModule = (function() {
     var formatmillions = d3.format(".2s");
     var formatnumber = d3.format(".2f");
 
-    // d3.json("TotalContractAwardsbyYear.json", function(error, data) {
-    // if (error) throw error;
-    data.forEach(function(d) {
-      d.totalbyyear = +d.totalbyyear;
-      // return console.log(d);
-    });
-    x.domain(
-      data.map(function(d) {
-        return d.fiscalyear;
-      })
-    );
-    y.domain([
-      0,
-      d3.max(data, function(d) {
-        return d.totalbyyear;
-      })
-    ]);
+    data.forEach(d => (d.totalbyyear = +d.totalbyyear));
+    x.domain(data.map(d => d.fiscalyear));
+    y.domain([0, d3.max(data, d => d.totalbyyear)]);
 
     svg
       .selectAll(".bar")
@@ -44,16 +29,11 @@ const barchartModule = (function() {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) {
-        return x(d.fiscalyear);
-      })
+      .attr("x", d => x(d.fiscalyear))
       .attr("width", x.bandwidth())
-      .attr("y", function(d) {
-        return y(d.totalbyyear);
-      })
-      .attr("height", function(d) {
-        return height - y(d.totalbyyear);
-      });
+      .attr("y", d => y(d.totalbyyear))
+      .attr("height", d => height - y(d.totalbyyear));
+
     svg
       .append("g")
       .attr("class", "axis")
@@ -63,12 +43,10 @@ const barchartModule = (function() {
       .append("g")
       .attr("class", "axis")
       .call(
-        d3.axisLeft(y).tickFormat(function(d) {
-          return formatmillions(d).replace("G", " billion");
-        })
+        d3
+          .axisLeft(y)
+          .tickFormat(d => formatmillions(d).replace("G", " billion"))
       );
-    // console.log("svg", svg);
-    // });
   }
 
   return { draw };
