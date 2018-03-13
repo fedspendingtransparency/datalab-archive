@@ -5,6 +5,8 @@ $(function() {
     findAndOriendParallax
   } = parallaxModule;
 
+  const { draw } = barchartModule;
+
   findAndOriendParallax();
 
   let timeout;
@@ -13,7 +15,7 @@ $(function() {
     timeout = setTimeout(findAndOriendParallax, 0);
   });
 
-  const printData = data => console.log(data);
+  // const printData = data => console.log(data);
 
-  dataModule.loadAwardsByYear(printData);
+  dataModule.loadAwardsByYear(draw);
 });
