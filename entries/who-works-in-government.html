@@ -38,8 +38,10 @@ category: nonentry
   %}
   
   <div class="viz-bkgd">
-    <div class="mask">
-      {% include action-buttons.html %}
+    <div class="mask" id="mapMask">
+      {% include action-buttons.html
+        actions="<div id='mapFilter' class='action-button'>Filter</div>"
+      %}
       <form id="mapToolbar" class="toolbar">
         <div class="formItem">
           Agencies:<br>
@@ -50,10 +52,6 @@ category: nonentry
           Occupation Types:<br>
           <select multiple id="mapOccupationDropdown"></select>
           <br>
-        </div>
-        <div class="formItem">
-          <button type="submit">Filter</button>
-          <button id="mapToolbarReset">Reset</button>
         </div>
       </form>
       
@@ -76,11 +74,9 @@ category: nonentry
 %}
 
 <div class="viz-bkgd">
-	<div class="mask">  
+	<div class="mask" id="barchartMask">  
     {% include action-buttons.html
-      actions="
-        <div id='barchartFilter' class='action-button'>Filter</div>
-      "
+      actions="<div id='barchartFilter' class='action-button'>Filter</div>"
     %}
     <form id="barchartToolbar" class="toolbar">
       <div class="formItem">
@@ -93,10 +89,6 @@ category: nonentry
         <select multiple="" id="barchartStateDropdown"></select>
         <br>
       </div>
-      <!-- <div class="formItem">      
-        <button type="submit">Filter</button>
-        <button id="barchartToolbarReset">Reset</button>
-      </div> -->
     </form>
 
     <div class="visContainer">

@@ -61,9 +61,7 @@ $(function() {
     });
   });
 
-  $("#mapToolbar").submit(e => {
-    e.preventDefault();
-
+  $("#mapFilter").click(() => {
     const filterAgencies = $("#mapAgencyDropdown").val();
     const filterOccupations = $("#mapOccupationDropdown").val();
     const { employeeCounts, states, occupationCategories } = mem;
@@ -90,26 +88,26 @@ $(function() {
     });
   });
 
-  $("#mapToolbarReset").click(e => {
-    e.preventDefault();
+  $("#mapMask")
+    .find("#button1")
+    .click(e => {
+      e.preventDefault();
 
-    $("#mapAgencyDropdown > option").attr("selected", false);
-    $("#mapOccupationDropdown > option").attr("selected", false);
+      $("#mapAgencyDropdown > option").attr("selected", false);
+      $("#mapOccupationDropdown > option").attr("selected", false);
 
-    const { employeeCounts, states, occupationCategories } = mem;
+      const { employeeCounts, states, occupationCategories } = mem;
 
-    mapModuleDraw([...employeeCounts], {
-      states,
-      occupationCategories,
-      tooltipModuleDraw,
-      tooltipModuleRemove,
-      tooltipModuleMove
+      mapModuleDraw([...employeeCounts], {
+        states,
+        occupationCategories,
+        tooltipModuleDraw,
+        tooltipModuleRemove,
+        tooltipModuleMove
+      });
     });
-  });
 
-  $("#barchartToolbar").submit(e => {
-    e.preventDefault();
-
+  $("#barchartFilter").click(() => {
     const filterStates = $("#barchartStateDropdown").val();
     const filterAgencies = $("#barchartAgencyDropdown").val();
 
@@ -136,21 +134,23 @@ $(function() {
     });
   });
 
-  $("#barchartToolbarReset").click(e => {
-    e.preventDefault();
+  $("#barchartMask")
+    .find("#button1")
+    .click(e => {
+      e.preventDefault();
 
-    $("#barchartAgencyDropdown > option").attr("selected", false);
-    $("#barchartStateDropdown > option").attr("selected", false);
+      $("#barchartAgencyDropdown > option").attr("selected", false);
+      $("#barchartStateDropdown > option").attr("selected", false);
 
-    const { employeeCounts, states, occupationCategories } = mem;
+      const { employeeCounts, states, occupationCategories } = mem;
 
-    barchartModuleDraw([...employeeCounts], {
-      states,
-      occupationCategories,
-      tooltipModuleDraw,
-      tooltipModuleRemove,
-      tooltipModuleMove,
-      keyModuleDraw
+      barchartModuleDraw([...employeeCounts], {
+        states,
+        occupationCategories,
+        tooltipModuleDraw,
+        tooltipModuleRemove,
+        tooltipModuleMove,
+        keyModuleDraw
+      });
     });
-  });
 });
