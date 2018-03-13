@@ -15,7 +15,7 @@ const mapModule = function() {
     var color = d3
       .scaleLinear()
       .domain([1, d3.max(Object.values(dataByState), d => d)])
-      .range(["#cbeffd", "#1799ce"])
+      .range(["#f2f1f8", "#3f3c7d"])
       .interpolate(d3.interpolateRgb);
 
     function handleMouseOver(d) {
