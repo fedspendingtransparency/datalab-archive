@@ -1,6 +1,6 @@
 const barchartModule = function() {
   var svg = d3.select("#barchartSvg"),
-    margin = { top: 0, right: 80, bottom: 110, left: 60 },
+    margin = { top: 10, right: 80, bottom: 110, left: 60 },
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -35,7 +35,7 @@ const barchartModule = function() {
         {
           name: "White Collar",
           fillColor: "#fff",
-          borderColor: "#0C99CD"
+          borderColor: "rgb(0,0,0)"
         },
         {
           name: "Blue Collar",
