@@ -36,20 +36,26 @@ $(function() {
           tooltipModuleMove
         });
 
-        const stateDropdownOptions = Object.values(states).map(
-          s => `<option value="${s.abbreviation}">${s.name}</option>`
-        );
+        const sorter = (a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        };
+
+        const stateDropdownOptions = Object.values(states)
+          .sort(sorter)
+          .map(s => `<option value="${s.abbreviation}">${s.name}</option>`);
         $("#barchartStateDropdown").append(...stateDropdownOptions);
 
-        const agencyDropdownOptions = Object.values(agencies).map(
-          a => `<option value="${a.id}">${a.name}</option>`
-        );
+        const agencyDropdownOptions = Object.values(agencies)
+          .sort(sorter)
+          .map(a => `<option value="${a.id}">${a.name}</option>`);
         $("#mapAgencyDropdown").append(...agencyDropdownOptions);
         $("#barchartAgencyDropdown").append(...agencyDropdownOptions);
 
-        const occupationDropdownOptions = Object.values(
-          occupationCategories
-        ).map(o => `<option value="${o.id}">${o.name}</option>`);
+        const occupationDropdownOptions = Object.values(occupationCategories)
+          .sort(sorter)
+          .map(o => `<option value="${o.id}">${o.name}</option>`);
         $("#mapOccupationDropdown").append(...occupationDropdownOptions);
       });
     });
