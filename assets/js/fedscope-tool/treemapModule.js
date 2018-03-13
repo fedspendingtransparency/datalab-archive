@@ -32,7 +32,7 @@ const treemapModule = function() {
       .attr("id", d => d.data.agencyId)
       .attr("width", d => d.x1 - d.x0)
       .attr("height", d => d.y1 - d.y0)
-      .attr("fill", "#7cd6f8")
+      .attr("fill", "#6E9BA3")
       .on("mouseover", handleMouseOver)
       .on("mousemove", handleMouseMove)
       .on("mouseout", handleMouseOut);
@@ -61,7 +61,7 @@ const treemapModule = function() {
 
     function handleMouseOut() {
       tooltipModuleRemove();
-      d3.select(this).style("fill", "#7cd6f8");
+      d3.select(this).style("fill", "#6E9BA3");
     }
 
     function handleMouseMove() {

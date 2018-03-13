@@ -1,5 +1,5 @@
-const parallaxModule = function() {
-  function orientParallaxSection() {
+const parallaxModule = (function() {
+  function findParallaxStatus() {
     const elements = $.makeArray($(".left"));
 
     // this doesn't change as the user scrolls
@@ -26,6 +26,14 @@ const parallaxModule = function() {
       parallaxStatus = "post";
     else parallaxStatus = "active";
 
+    activePanel = elementsData.find(e => {
+      return triggerpointY >= e.top && triggerpointY <= e.bottom;
+    });
+
+    return { parallaxStatus, activePanel };
+  }
+
+  function orientParallaxSection(parallaxStatus, activePanel) {
     $(".parallax-container").removeClass("fixed");
     $(".parallax-container").removeClass("absolute");
     $(".parallax-container").removeClass("post");
@@ -44,13 +52,15 @@ const parallaxModule = function() {
         $(".parallax-container").addClass("fixed");
     }
 
-    activePanel = elementsData.find(e => {
-      return triggerpointY >= e.top && triggerpointY <= e.bottom;
-    });
     if (activePanel) {
       $("#counter").html(`currently scrolling past panel ${activePanel.id}`);
     }
   }
 
-  return { orientParallaxSection };
-};
+  function findAndOriendParallax() {
+    const { parallaxStatus, activePanel } = findParallaxStatus();
+    orientParallaxSection(parallaxStatus, activePanel);
+  }
+
+  return { orientParallaxSection, findParallaxStatus, findAndOriendParallax };
+})();
