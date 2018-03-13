@@ -27,12 +27,31 @@
         <li><a href="http://html5up.net" rel="noopener noreferrer" target="_blank">HTML5 UP</a></li>
     </ul>
     <ul class="icons">
-        {% for socloc in site.social %}
-        {% if socloc[1] %}
-        <li><a target="_blank" rel="noopener noreferrer" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }}"
-        ><span class="label">{{ socloc[0] }}</span></a></li>
-        {% endif %}
-        {% endfor %}
+            <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/fedspendingtransparency/datalab">
+                    {% include svgs/github.svg %}
+                </a>
+            </li>
+            <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://data.world/usaspending">
+                    {% include svgs/globe.svg %}
+                </a>
+            </li>
+            <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/fiscalservice">
+                    {% include svgs/twitter-square.svg %}
+                </a>
+            </li>
+            <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/pg/fiscalservice">
+                    {% include svgs/facebook-square.svg %}
+                </a>
+            </li>
+            <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+                    {% include svgs/linkedin-square.svg %}
+                </a>
+            </li>
     </ul>
     <div class="footer-important-info">
         <span class="important-db-info">

@@ -200,6 +200,10 @@ table td {
 
 /* Footer */
 
+.footer-icon:hover {
+	fill: #FFF;
+}
+
 #footer {
 	.icons {
 		font-size: 1.5em;
@@ -563,16 +567,6 @@ header.major h2 {
 	vertical-align: middle;
 }
 
-.information-icon {
-	background-image: url(images/information.svg);
-    display: inline-block;
-	width: 23px;
-	height: 23px;
-	vertical-align: middle;
-	filter: invert(40%);
-	margin-bottom: 4px;
-}
-
 .how-analysis-container {
 	background-size: cover;
 	background-image: url("images/analysis.jpg");
@@ -748,19 +742,9 @@ header.major h2 {
 	z-index: 1000;
 	opacity: 0.8;
 }
-#return-to-top i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    left: 16px;
-    top: 9px;
-    font-size: 19px;
-    transition: all 0.3s ease;
-}
 
-#return-to-top:hover i {
-    color: #fff;
-    top: 5px;
+#return-to-top:hover .icon-chevron-up {
+    margin-top: 10px;
 }
 
 .resources-icon {
@@ -1501,3 +1485,28 @@ article > header {
 }
 
 /* Mobile End */
+
+.icon-chevron-up {
+	width: 20px;
+    height: 20px;
+	display: block;
+    margin: 15px auto;
+	fill: #FFFFFF;
+	transition: all 0.3s ease;
+}
+
+.icon-linkedin-square {
+	width: 20px;
+	height: 20px;
+}
+
+.icon-globe {
+	width: 20px;
+	height: 20px;
+}
+
+.footer-icon {
+	width: 27px;
+	height: 38px;
+	fill: rgba(255, 255, 255, 0.5);
+}
