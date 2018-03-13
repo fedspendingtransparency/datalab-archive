@@ -4,16 +4,8 @@ description: |
 owner: USAspending.gov
 first_published: 2018
 email: fed-spending-transparency-collaboration@gsa.gov
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: ""
 url: https://datalab.usaspending.gov
-social:
-  github: https://github.com/fedspendingtransparency/datalab
-  globe: https://data.world/usaspending
-  twitter: https://twitter.com/fiscalservice
-  facebook-official: https://www.facebook.com/pg/fiscalservice
-  linkedin-square: https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt
-  #email: fed-spending-transparency-collaboration@gsa.gov
-  #google-plus-square:
 
 # Build settings
 markdown: kramdown
