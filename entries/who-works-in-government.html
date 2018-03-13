@@ -45,6 +45,8 @@ category: nonentry
           Agencies:<br>
           <select multiple id="mapAgencyDropdown"></select>
           <br>
+        </div>
+        <div class="formItem">
           Occupation Types:<br>
           <select multiple id="mapOccupationDropdown"></select>
           <br>
@@ -75,21 +77,28 @@ category: nonentry
 
 <div class="viz-bkgd">
 	<div class="mask">  
-    {% include action-buttons.html %}
+    {% include action-buttons.html
+      actions="
+        <div id='barchartFilter' class='action-button'>Filter</div>
+      "
+    %}
     <form id="barchartToolbar" class="toolbar">
       <div class="formItem">
         Agencies:<br>
         <select multiple="" id="barchartAgencyDropdown"></select>
         <br>
+      </div>
+      <div class="formItem">  
         States:<br>
         <select multiple="" id="barchartStateDropdown"></select>
         <br>
       </div>
-      <div class="formItem">      
+      <!-- <div class="formItem">      
         <button type="submit">Filter</button>
         <button id="barchartToolbarReset">Reset</button>
-      </div>
+      </div> -->
     </form>
+
     <div class="visContainer">
       <svg id="barchartKey"></svg>
       <svg width="900" height="500" id="barchartSvg"></svg>
