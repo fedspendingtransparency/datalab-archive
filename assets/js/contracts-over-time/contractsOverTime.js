@@ -1,11 +1,19 @@
 $(function() {
-  const { orientParallaxSection } = parallaxModule();
+  const {
+    orientParallaxSection,
+    findParallaxStatus,
+    findAndOriendParallax
+  } = parallaxModule;
 
-  orientParallaxSection();
+  findAndOriendParallax();
 
   let timeout;
   $(window).scroll(() => {
     clearTimeout(timeout);
-    timeout = setTimeout(orientParallaxSection, 5);
+    timeout = setTimeout(findAndOriendParallax, 0);
   });
+
+  const printData = data => console.log(data);
+
+  dataModule.loadAwardsByYear(printData);
 });
