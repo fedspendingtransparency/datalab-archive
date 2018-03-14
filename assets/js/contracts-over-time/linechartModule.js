@@ -31,8 +31,6 @@ const linechartModule = (function() {
       d.contractdollars = +d.contractdollars;
     });
 
-    console.log(data.slice(0, 10));
-
     // Scale the range of the data
     x.domain(d3.extent(data, d => d.parsedDate));
     y.domain([0, d3.max(data, d => d.contractdollars)]);

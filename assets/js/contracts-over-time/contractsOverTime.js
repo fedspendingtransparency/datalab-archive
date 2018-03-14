@@ -12,12 +12,6 @@ $(function() {
     mem
   } = dataModule;
 
-  // orient the parallax panel on page load
-  findAndOriendParallax();
-
-  // load dataset 1 and draw barchart
-  loadAwardsByYear(barchartModule.draw);
-
   // metadata on each panel
   const panels = [
     {
@@ -54,6 +48,12 @@ $(function() {
     //   datasetLoader: loadAwardsByYear
     // }
   ];
+
+  // orient the parallax panel on page load
+  findAndOriendParallax();
+
+  // load dataset 1 and draw barchart
+  loadAwardsByYear(barchartModule.draw);
 
   // load remaining datasets
   panels.forEach(p => p.datasetLoader());
