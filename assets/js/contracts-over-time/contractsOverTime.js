@@ -9,11 +9,7 @@ $(function() {
 
   findAndOriendParallax();
 
-  let timeout;
-  $(window).scroll(() => {
-    clearTimeout(timeout);
-    timeout = setTimeout(findAndOriendParallax, 0);
-  });
+  $(window).scroll(findAndOriendParallax);
 
   dataModule.loadAwardsByYear(draw);
 });
