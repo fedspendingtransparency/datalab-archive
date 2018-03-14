@@ -53,7 +53,7 @@ const parallaxModule = (function() {
     }
 
     if (activePanel) {
-      $("#counter").html(`currently scrolling past panel ${activePanel.id}`);
+      $("#counter").html(`currently scrolling past ${activePanel.id}`);
     }
   }
 
