@@ -2,9 +2,7 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import 'font-awesome.min.css';
-
-@import 'share.css';
+@import 'share';
 @import 'budget-sankey';
 @import 'dendrogram';
 @import 'homeless-analysis';
@@ -79,25 +77,6 @@ ul {
 
 table td {
 	padding: 0.75em 0.75em;
-}
-
-/* Icons */
-
-.icon {
-	text-decoration: none;
-
-	&:before {
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-font-smoothing: antialiased;
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		text-transform: none !important;
-	}
-
-	> .label {
-		display: none;
-	}
 }
 
 /* Spotlight */
@@ -549,7 +528,6 @@ header.major h2 {
 }
 
 .viz-share-icon {
-	background-image: url(images/share.svg);
     display: inline-block;
 	width: 18px;
 	height: 18px;
@@ -559,17 +537,17 @@ header.major h2 {
 }
 
 .hamburger-icon {
-	background-image: url(images/hamburger.svg);
     display: inline-block;
 	width: 55px;
 	height: 23px;
+	margin-right: 15px;
 	cursor: pointer;
 	vertical-align: middle;
 }
 
 .how-analysis-container {
 	background-size: cover;
-	background-image: url("images/analysis.jpg");
+	background-image: url("{{site.baseurl}}/images/analysis.jpg");
 	display: flex;
     flex-direction: row;
     justify-content: center;
@@ -608,7 +586,6 @@ header.major h2 {
 .usaspending-logo {
     width: 197px;
     height: 42px;
-	background-image: url('images/logo.svg');
 	margin-left: 70px;
 }
 
@@ -641,7 +618,6 @@ header.major h2 {
 }
 
 #menu .close {
-	background-image: url(images/close.svg);
     background-size: 30px 30px;
     width: 30px;
     height: 30px;
@@ -754,19 +730,16 @@ header.major h2 {
 }
 
 .resources-icon.user-guide {
-	background-image: url('images/services/user-guide.svg');
 	width: 58px;
 	height: 75px;
 }
 
 .resources-icon.playbook {
-	background-image: url('images/services/playbook-icon.svg');
 	width: 65px;
 	height: 75px;
 }
 
 .resources-icon.api-guide {
-	background-image: url('images/services/api-icon.svg');
 	width: 81px;
 	height: 75px;
 }
@@ -814,7 +787,6 @@ header.major h2 {
 /* Popup End */
 
 .get-started-arrow {
-	background-image: url('images/down-arrow.svg');
 	display: inline-block;
 	width: 24px;
 	height: 24px;
@@ -850,7 +822,6 @@ header.major h2 {
 }
 
 #homeless-action-map {
-	background-image: url(images/map.svg);
     display: inline-block;
 	width: 56px;
 	height: 31px;
@@ -864,7 +835,6 @@ header.major h2 {
 }
 
 #homeless-action-table {
-	background-image: url(images/table.svg);
     display: inline-block;
 	width: 25px;
 	height: 29px;
@@ -876,7 +846,8 @@ header.major h2 {
 }
 
 #homeless-action-table:hover {
-	opacity: 0.7;
+	opacity: 1;
+	fill: #4497C9;
 }
 
 .index-header {
@@ -1252,7 +1223,6 @@ article > header {
 }
 
 .info-banner__alert-icon {
-    background-image: url(images/warning.svg);
     background-repeat: no-repeat;
     width: 26px;
 	height: 26px;
@@ -1276,13 +1246,12 @@ article > header {
 }
 
 .info-banner__close-icon {
-    background-image: url(images/close.svg);
     background-repeat: no-repeat;
     cursor: pointer;
 	filter: invert(50%);
 	position: absolute;
     right: 18px;
-    top: 18px;
+    top: 12px;
     width: 18px;
     height: 18px;
 }
@@ -1509,4 +1478,10 @@ article > header {
 	width: 27px;
 	height: 38px;
 	fill: rgba(255, 255, 255, 0.5);
+}
+
+.icon-inherit {
+	width: inherit;
+	height: inherit;
+	fill: inherit;
 }
