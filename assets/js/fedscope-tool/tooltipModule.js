@@ -19,12 +19,13 @@ const tooltipModule = function() {
       </p>
       <b style="color:#555555">
         <br>
-        <ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">
-          ${Object.entries(information).reduce((a, c) => {
-            a += `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px">${c[0]}: ${c[1]}</li>`;
-            return a;
-          }, "")}
-        </ul>
+        ${Object.entries(information).reduce((a, c) => {
+          a += `
+            <p style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; color: #7cd6f8;">${c[0]}</p>
+            <p style="font-size: 20px; font-weight: normal; margin:0; line-height: 16px padding-top:"2px";>${c[1]}</p>
+            `;
+          return a;
+        }, "")}
       </b>`;
 
       return html;
