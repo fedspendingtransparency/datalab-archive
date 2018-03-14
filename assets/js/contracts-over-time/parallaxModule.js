@@ -1,5 +1,5 @@
 const parallaxModule = (function() {
-  function findParallaxStatus() {
+  function findParallaxStatus(onChangeCB) {
     const elements = $.makeArray($(".left"));
 
     // this doesn't change as the user scrolls
@@ -28,17 +28,37 @@ const parallaxModule = (function() {
 
     activePanel = elementsData.find(e => {
       return triggerpointY >= e.top && triggerpointY <= e.bottom;
-    });
+    }) || { id: null };
 
-    return { parallaxStatus, activePanel };
+    const { mem } = dataModule;
+
+    if (
+      mem.parallaxStatus !== parallaxStatus ||
+      mem.activePanel.id !== activePanel.id
+    ) {
+      function Status(parallaxStatus, activePanel) {
+        this.parallaxStatus = parallaxStatus;
+        this.activePanel = activePanel;
+      }
+
+      if (onChangeCB)
+        onChangeCB(
+          new Status(mem.parallaxStatus, mem.activePanel),
+          new Status(parallaxStatus, activePanel)
+        );
+      mem.parallaxStatus = parallaxStatus;
+      mem.activePanel = activePanel;
+    }
   }
 
-  function orientParallaxSection(parallaxStatus, activePanel) {
+  function orientParallaxSection() {
+    const { mem } = dataModule;
+
     $(".parallax-container").removeClass("fixed");
     $(".parallax-container").removeClass("absolute");
     $(".parallax-container").removeClass("post");
 
-    switch (parallaxStatus) {
+    switch (mem.parallaxStatus) {
       case "pre":
         $("#counter").html(`not currently scrolling past a panel`);
         $(".parallax-container").addClass("absolute");
@@ -52,13 +72,14 @@ const parallaxModule = (function() {
         $(".parallax-container").addClass("fixed");
     }
 
-    if (activePanel) {
-      $("#counter").html(`currently scrolling past ${activePanel.id}`);
+    if (mem.activePanel) {
+      $("#counter").html(`currently scrolling past ${mem.activePanel.id}`);
     }
   }
 
   function findAndOriendParallax() {
-    const { parallaxStatus, activePanel } = findParallaxStatus();
+    findParallaxStatus();
+    const { parallaxStatus, activePanel } = dataModule.mem;
     orientParallaxSection(parallaxStatus, activePanel);
   }
 

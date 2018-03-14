@@ -1,5 +1,11 @@
 const dataModule = (function() {
-  const mem = {};
+  const mem = {
+    awardsByYear: null,
+    weeklyTotals: null,
+    weeklyAverages: null,
+    parallaxStatus: "pre", // "pre" || "post" || "active"
+    activePanel: { id: null }
+  };
 
   function loadAwardsByYear(cb) {
     d3.json(

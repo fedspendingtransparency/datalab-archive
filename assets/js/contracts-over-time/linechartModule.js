@@ -26,7 +26,7 @@ const linechartModule = (function() {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // format the data
-    data.forEach(function(d) {
+    data.forEach(d => {
       d.parsedDate = parseTime(d.date);
       d.contractdollars = +d.contractdollars;
     });
