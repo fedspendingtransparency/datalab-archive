@@ -7,7 +7,7 @@ email: fed-spending-transparency-collaboration@gsa.gov
 baseurl: ""
 url: https://datalab.usaspending.gov
 
-# Build settings
 markdown: kramdown
-#sass:
-#  style: compressed
+
+sass:
+  style: compressed

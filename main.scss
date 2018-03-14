@@ -2,7 +2,7 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import 'share.scss';
+@import 'share';
 @import 'budget-sankey';
 @import 'dendrogram';
 @import 'homeless-analysis';
