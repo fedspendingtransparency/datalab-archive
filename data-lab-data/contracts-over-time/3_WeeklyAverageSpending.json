@@ -1,320 +1,267 @@
 [
-    {
-        "week": 40,
-        "contractdollar": 285238090.9064,
-        "contractcount": 2847.8139,
-        "fiscalweek": "40"
-    },
-    {
-        "week": 41,
-        "contractdollar": 242735359.1612,
-        "contractcount": 2380.217,
-        "fiscalweek": "41"
-    },
-    {
-        "week": 42,
-        "contractdollar": 321683421.175,
-        "contractcount": 2963.4703,
-        "fiscalweek": "42"
-    },
-    {
-        "week": 43,
-        "contractdollar": 496717628.9025,
-        "contractcount": 3767.8837,
-        "fiscalweek": "43"
-    },
-    {
-        "week": 44,
-        "contractdollar": 343587521.5229,
-        "contractcount": 3066.6652,
-        "fiscalweek": "44"
-    },
-    {
-        "week": 45,
-        "contractdollar": 240598968.7508,
-        "contractcount": 2506.8929,
-        "fiscalweek": "45"
-    },
-    {
-        "week": 46,
-        "contractdollar": 345907252.372,
-        "contractcount": 2992.2613,
-        "fiscalweek": "46"
-    },
-    {
-        "week": 47,
-        "contractdollar": 323358527.3406,
-        "contractcount": 2306.5505,
-        "fiscalweek": "47"
-    },
-    {
-        "week": 48,
-        "contractdollar": 435373566.6909,
-        "contractcount": 3152.7748,
-        "fiscalweek": "48"
-    },
-    {
-        "week": 49,
-        "contractdollar": 361372235.039,
-        "contractcount": 3176.4725,
-        "fiscalweek": "49"
-    },
-    {
-        "week": 50,
-        "contractdollar": 509783628.9185,
-        "contractcount": 3193.942,
-        "fiscalweek": "50"
-    },
-    {
-        "week": 51,
-        "contractdollar": 495742968.0932,
-        "contractcount": 2375.0553,
-        "fiscalweek": "51"
-    },
-    {
-        "week": 52,
-        "contractdollar": 376697500.3504,
-        "contractcount": 1691.705,
-        "fiscalweek": "52"
-    },
-    {
-        "week": 0,
-        "contractdollar": 151706913.4543,
-        "contractcount": 1957.8623,
-        "fiscalweek": "0"
-    },
-    {
-        "week": 1,
-        "contractdollar": 251449477.2926,
-        "contractcount": 2981.1598,
-        "fiscalweek": "1"
-    },
-    {
-        "week": 2,
-        "contractdollar": 322066976.2095,
-        "contractcount": 3208.5541,
-        "fiscalweek": "2"
-    },
-    {
-        "week": 3,
-        "contractdollar": 292808242.5258,
-        "contractcount": 2869.7558,
-        "fiscalweek": "3"
-    },
-    {
-        "week": 4,
-        "contractdollar": 554644065.2243,
-        "contractcount": 3497.2578,
-        "fiscalweek": "4"
-    },
-    {
-        "week": 5,
-        "contractdollar": 392386539.1245,
-        "contractcount": 3468.6444,
-        "fiscalweek": "5"
-    },
-    {
-        "week": 6,
-        "contractdollar": 325627729.1196,
-        "contractcount": 3396.9324,
-        "fiscalweek": "6"
-    },
-    {
-        "week": 7,
-        "contractdollar": 317539984.7282,
-        "contractcount": 3007.0933,
-        "fiscalweek": "7"
-    },
-    {
-        "week": 8,
-        "contractdollar": 505350767.6317,
-        "contractcount": 3414.4391,
-        "fiscalweek": "8"
-    },
-    {
-        "week": 9,
-        "contractdollar": 412022814.2799,
-        "contractcount": 3501.2555,
-        "fiscalweek": "9"
-    },
-    {
-        "week": 10,
-        "contractdollar": 377720574.343,
-        "contractcount": 3528.3229,
-        "fiscalweek": "10"
-    },
-    {
-        "week": 11,
-        "contractdollar": 404572938.5492,
-        "contractcount": 3452.817,
-        "fiscalweek": "11"
-    },
-    {
-        "week": 12,
-        "contractdollar": 538052593.5438,
-        "contractcount": 3576.1239,
-        "fiscalweek": "12"
-    },
-    {
-        "week": 13,
-        "contractdollar": 655401814.2043,
-        "contractcount": 4315.8205,
-        "fiscalweek": "13"
-    },
-    {
-        "week": 14,
-        "contractdollar": 321690593.2742,
-        "contractcount": 3349.4956,
-        "fiscalweek": "14"
-    },
-    {
-        "week": 15,
-        "contractdollar": 318417820.2237,
-        "contractcount": 3396.183,
-        "fiscalweek": "15"
-    },
-    {
-        "week": 16,
-        "contractdollar": 341608127.7282,
-        "contractcount": 3405.5405,
-        "fiscalweek": "16"
-    },
-    {
-        "week": 17,
-        "contractdollar": 476927425.2328,
-        "contractcount": 3607.4267,
-        "fiscalweek": "17"
-    },
-    {
-        "week": 18,
-        "contractdollar": 326010724.7883,
-        "contractcount": 3329.3921,
-        "fiscalweek": "18"
-    },
-    {
-        "week": 19,
-        "contractdollar": 317648714.3226,
-        "contractcount": 3427.5223,
-        "fiscalweek": "19"
-    },
-    {
-        "week": 20,
-        "contractdollar": 317114517.8425,
-        "contractcount": 3379.136,
-        "fiscalweek": "20"
-    },
-    {
-        "week": 21,
-        "contractdollar": 452095901.4414,
-        "contractcount": 3221.2946,
-        "fiscalweek": "21"
-    },
-    {
-        "week": 22,
-        "contractdollar": 381483979.6095,
-        "contractcount": 3694.7273,
-        "fiscalweek": "22"
-    },
-    {
-        "week": 23,
-        "contractdollar": 342972742.1057,
-        "contractcount": 3409.2124,
-        "fiscalweek": "23"
-    },
-    {
-        "week": 24,
-        "contractdollar": 369731755.0725,
-        "contractcount": 3419.7991,
-        "fiscalweek": "24"
-    },
-    {
-        "week": 25,
-        "contractdollar": 508973728.5138,
-        "contractcount": 3658.8136,
-        "fiscalweek": "25"
-    },
-    {
-        "week": 26,
-        "contractdollar": 568072800.1253,
-        "contractcount": 3863.7237,
-        "fiscalweek": "26"
-    },
-    {
-        "week": 27,
-        "contractdollar": 269001764.9402,
-        "contractcount": 3026.9682,
-        "fiscalweek": "27"
-    },
-    {
-        "week": 28,
-        "contractdollar": 325934094.6007,
-        "contractcount": 3387.7892,
-        "fiscalweek": "28"
-    },
-    {
-        "week": 29,
-        "contractdollar": 331710613.1043,
-        "contractcount": 3306.1378,
-        "fiscalweek": "29"
-    },
-    {
-        "week": 30,
-        "contractdollar": 521684162.1747,
-        "contractcount": 3597.0578,
-        "fiscalweek": "30"
-    },
-    {
-        "week": 31,
-        "contractdollar": 331603460.1797,
-        "contractcount": 3378.8515,
-        "fiscalweek": "31"
-    },
-    {
-        "week": 32,
-        "contractdollar": 341829746.6669,
-        "contractcount": 3489.4115,
-        "fiscalweek": "32"
-    },
-    {
-        "week": 33,
-        "contractdollar": 362546266.7944,
-        "contractcount": 3632.3644,
-        "fiscalweek": "33"
-    },
-    {
-        "week": 34,
-        "contractdollar": 456253454.5266,
-        "contractcount": 3859.5531,
-        "fiscalweek": "34"
-    },
-    {
-        "week": 35,
-        "contractdollar": 487690851.0864,
-        "contractcount": 3776.5152,
-        "fiscalweek": "35"
-    },
-    {
-        "week": 36,
-        "contractdollar": 410413277.0026,
-        "contractcount": 3920.5221,
-        "fiscalweek": "36"
-    },
-    {
-        "week": 37,
-        "contractdollar": 635875521.9385,
-        "contractcount": 4810.7241,
-        "fiscalweek": "37"
-    },
-    {
-        "week": 38,
-        "contractdollar": 1145420513.0429,
-        "contractcount": 5743.3451,
-        "fiscalweek": "38"
-    },
-    {
-        "week": 39,
-        "contractdollar": 927927755.7939,
-        "contractcount": 3925.6589,
-        "fiscalweek": "39"
-    }
+  {
+    "week": 40,
+    "contractdollars": 285238090.9064,
+    "contractcount": 2847.8139
+  },
+  {
+    "week": 41,
+    "contractdollars": 242735359.1612,
+    "contractcount": 2380.217
+  },
+  {
+    "week": 42,
+    "contractdollars": 321683421.175,
+    "contractcount": 2963.4703
+  },
+  {
+    "week": 43,
+    "contractdollars": 496717628.9025,
+    "contractcount": 3767.8837
+  },
+  {
+    "week": 44,
+    "contractdollars": 343587521.5229,
+    "contractcount": 3066.6652
+  },
+  {
+    "week": 45,
+    "contractdollars": 240598968.7508,
+    "contractcount": 2506.8929
+  },
+  {
+    "week": 46,
+    "contractdollars": 345907252.372,
+    "contractcount": 2992.2613
+  },
+  {
+    "week": 47,
+    "contractdollars": 323358527.3406,
+    "contractcount": 2306.5505
+  },
+  {
+    "week": 48,
+    "contractdollars": 435373566.6909,
+    "contractcount": 3152.7748
+  },
+  {
+    "week": 49,
+    "contractdollars": 361372235.039,
+    "contractcount": 3176.4725
+  },
+  {
+    "week": 50,
+    "contractdollars": 509783628.9185,
+    "contractcount": 3193.942
+  },
+  {
+    "week": 51,
+    "contractdollars": 495742968.0932,
+    "contractcount": 2375.0553
+  },
+  {
+    "week": 52,
+    "contractdollars": 376697500.3504,
+    "contractcount": 1691.705
+  },
+  {
+    "week": 0,
+    "contractdollars": 151706913.4543,
+    "contractcount": 1957.8623
+  },
+  {
+    "week": 1,
+    "contractdollars": 251449477.2926,
+    "contractcount": 2981.1598
+  },
+  {
+    "week": 2,
+    "contractdollars": 322066976.2095,
+    "contractcount": 3208.5541
+  },
+  {
+    "week": 3,
+    "contractdollars": 292808242.5258,
+    "contractcount": 2869.7558
+  },
+  {
+    "week": 4,
+    "contractdollars": 554644065.2243,
+    "contractcount": 3497.2578
+  },
+  {
+    "week": 5,
+    "contractdollars": 392386539.1245,
+    "contractcount": 3468.6444
+  },
+  {
+    "week": 6,
+    "contractdollars": 325627729.1196,
+    "contractcount": 3396.9324
+  },
+  {
+    "week": 7,
+    "contractdollars": 317539984.7282,
+    "contractcount": 3007.0933
+  },
+  {
+    "week": 8,
+    "contractdollars": 505350767.6317,
+    "contractcount": 3414.4391
+  },
+  {
+    "week": 9,
+    "contractdollars": 412022814.2799,
+    "contractcount": 3501.2555
+  },
+  {
+    "week": 10,
+    "contractdollars": 377720574.343,
+    "contractcount": 3528.3229
+  },
+  {
+    "week": 11,
+    "contractdollars": 404572938.5492,
+    "contractcount": 3452.817
+  },
+  {
+    "week": 12,
+    "contractdollars": 538052593.5438,
+    "contractcount": 3576.1239
+  },
+  {
+    "week": 13,
+    "contractdollars": 655401814.2043,
+    "contractcount": 4315.8205
+  },
+  {
+    "week": 14,
+    "contractdollars": 321690593.2742,
+    "contractcount": 3349.4956
+  },
+  {
+    "week": 15,
+    "contractdollars": 318417820.2237,
+    "contractcount": 3396.183
+  },
+  {
+    "week": 16,
+    "contractdollars": 341608127.7282,
+    "contractcount": 3405.5405
+  },
+  {
+    "week": 17,
+    "contractdollars": 476927425.2328,
+    "contractcount": 3607.4267
+  },
+  {
+    "week": 18,
+    "contractdollars": 326010724.7883,
+    "contractcount": 3329.3921
+  },
+  {
+    "week": 19,
+    "contractdollars": 317648714.3226,
+    "contractcount": 3427.5223
+  },
+  {
+    "week": 20,
+    "contractdollars": 317114517.8425,
+    "contractcount": 3379.136
+  },
+  {
+    "week": 21,
+    "contractdollars": 452095901.4414,
+    "contractcount": 3221.2946
+  },
+  {
+    "week": 22,
+    "contractdollars": 381483979.6095,
+    "contractcount": 3694.7273
+  },
+  {
+    "week": 23,
+    "contractdollars": 342972742.1057,
+    "contractcount": 3409.2124
+  },
+  {
+    "week": 24,
+    "contractdollars": 369731755.0725,
+    "contractcount": 3419.7991
+  },
+  {
+    "week": 25,
+    "contractdollars": 508973728.5138,
+    "contractcount": 3658.8136
+  },
+  {
+    "week": 26,
+    "contractdollars": 568072800.1253,
+    "contractcount": 3863.7237
+  },
+  {
+    "week": 27,
+    "contractdollars": 269001764.9402,
+    "contractcount": 3026.9682
+  },
+  {
+    "week": 28,
+    "contractdollars": 325934094.6007,
+    "contractcount": 3387.7892
+  },
+  {
+    "week": 29,
+    "contractdollars": 331710613.1043,
+    "contractcount": 3306.1378
+  },
+  {
+    "week": 30,
+    "contractdollars": 521684162.1747,
+    "contractcount": 3597.0578
+  },
+  {
+    "week": 31,
+    "contractdollars": 331603460.1797,
+    "contractcount": 3378.8515
+  },
+  {
+    "week": 32,
+    "contractdollars": 341829746.6669,
+    "contractcount": 3489.4115
+  },
+  {
+    "week": 33,
+    "contractdollars": 362546266.7944,
+    "contractcount": 3632.3644
+  },
+  {
+    "week": 34,
+    "contractdollars": 456253454.5266,
+    "contractcount": 3859.5531
+  },
+  {
+    "week": 35,
+    "contractdollars": 487690851.0864,
+    "contractcount": 3776.5152
+  },
+  {
+    "week": 36,
+    "contractdollars": 410413277.0026,
+    "contractcount": 3920.5221
+  },
+  {
+    "week": 37,
+    "contractdollars": 635875521.9385,
+    "contractcount": 4810.7241
+  },
+  {
+    "week": 38,
+    "contractdollars": 1145420513.0429,
+    "contractcount": 5743.3451
+  },
+  {
+    "week": 39,
+    "contractdollars": 927927755.7939,
+    "contractcount": 3925.6589
+  }
 ]

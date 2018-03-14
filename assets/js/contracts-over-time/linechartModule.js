@@ -1,7 +1,7 @@
 const linechartModule = (function() {
-  function draw(data) {
+  function draw(data, xAxis) {
     // set the dimensions and margins of the graph
-    var margin = { top: 20, right: 50, bottom: 30, left: 100 },
+    var margin = { top: 10, right: 10, bottom: 30, left: 100 },
       width = 800 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
@@ -9,14 +9,30 @@ const linechartModule = (function() {
     var parseTime = d3.timeParse("%Y-%m-%d");
 
     // set the ranges
-    var x = d3.scaleTime().range([0, width]);
+    var x =
+      xAxis === "year"
+        ? d3.scaleTime().range([0, width])
+        : d3
+            .scaleBand()
+            .rangeRound([0, width])
+            .padding(0.5);
     var y = d3.scaleLinear().range([height, 0]);
     var formatAsMillions = d3.format(".2s");
 
-    var valueline = d3
-      .line()
-      .x(d => x(d.parsedDate))
-      .y(d => y(d.contractdollars));
+    var valueline =
+      xAxis === "year"
+        ? d3
+            .line()
+            .x(d => x(d.parsedDate))
+            .y(d => y(d.contractdollars))
+        : d3
+            .line()
+            .x(function(d) {
+              return x(d.week);
+            })
+            .y(function(d) {
+              return y(d.contractdollars);
+            });
 
     var svg = d3
       .select("#svg-1")
@@ -26,13 +42,22 @@ const linechartModule = (function() {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // format the data
-    data.forEach(d => {
-      d.parsedDate = parseTime(d.date);
-      d.contractdollars = +d.contractdollars;
-    });
+    if (xAxis === "year") {
+      data.forEach(d => {
+        d.parsedDate = parseTime(d.date);
+        d.contractdollars = +d.contractdollars;
+      });
+    }
 
     // Scale the range of the data
-    x.domain(d3.extent(data, d => d.parsedDate));
+    if (xAxis === "year") x.domain(d3.extent(data, d => d.parsedDate));
+    else
+      x.domain(
+        data.map(function(d) {
+          return d.week;
+        })
+      );
+
     y.domain([0, d3.max(data, d => d.contractdollars)]);
 
     // Add the valueline path.
@@ -43,10 +68,24 @@ const linechartModule = (function() {
       .attr("d", valueline);
 
     // Add the X Axis
-    svg
-      .append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+    if (xAxis === "year") {
+      svg
+        .append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+    } else {
+      svg
+        .append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(
+          d3.axisBottom(x).tickValues(
+            x.domain().filter(function(d, i) {
+              return !(i % 2);
+            })
+          )
+        );
+    }
 
     // Add the Y Axis
     svg
