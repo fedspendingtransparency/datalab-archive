@@ -18,19 +18,22 @@ $(function() {
       id: "panel-1",
       module: barchartModule,
       datasetLoader: loadAwardsByYear,
-      dataset: "awardsByYear"
+      dataset: "awardsByYear",
+      xAxis: "year"
     },
     {
       id: "panel-2",
       module: linechartModule,
-      datasetLoader: loadWeeklyTotals,
-      dataset: "weeklyTotals"
+      datasetLoader: loadWeeklyAverages,
+      dataset: "weeklyAverages",
+      xAxis: "week"
     },
     {
       id: "panel-3",
       module: linechartModule,
-      datasetLoader: loadWeeklyAverages,
-      dataset: "weeklyAverages"
+      datasetLoader: loadWeeklyTotals,
+      dataset: "weeklyTotals",
+      xAxis: "year"
     }
     // {
     //   id: "panel-4",
@@ -70,14 +73,14 @@ $(function() {
 
       if (!postChangePanel) return;
 
-      const { module, dataset } = postChangePanel;
+      const { module, dataset, xAxis } = postChangePanel;
 
       d3
         .select("#svg-1")
         .selectAll("*")
         .remove();
 
-      module.draw(mem[dataset]);
+      module.draw(mem[dataset], xAxis);
     };
 
     // parallax variables
