@@ -14,7 +14,7 @@ const barchartModule = function() {
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  function findFillCollor(type) {
+  function findFillColor(type) {
     switch (type) {
       case "Blue Collar":
         return "#0C99CD";
@@ -117,7 +117,7 @@ const barchartModule = function() {
       .attr("y", d => y(d.employeeCount))
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.employeeCount))
-      .attr("fill", d => findFillCollor(d.occupationCategoryType))
+      .attr("fill", d => findFillColor(d.occupationCategoryType))
       .attr("stroke", "rgb(0,0,0)")
       .attr("stroke-width", "1")
       .on("mouseover", handleMouseOver)
