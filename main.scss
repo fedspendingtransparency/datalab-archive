@@ -846,7 +846,8 @@ header.major h2 {
 }
 
 #homeless-action-table:hover {
-	opacity: 0.7;
+	opacity: 1;
+	fill: #4497C9;
 }
 
 .index-header {
@@ -1477,4 +1478,10 @@ article > header {
 	width: 27px;
 	height: 38px;
 	fill: rgba(255, 255, 255, 0.5);
+}
+
+.icon-inherit {
+	width: inherit;
+	height: inherit;
+	fill: inherit;
 }
