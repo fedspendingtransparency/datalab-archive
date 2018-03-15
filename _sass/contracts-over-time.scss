@@ -1,0 +1,105 @@
+.contracts-over-time {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .left {
+    height: 800px;
+    width: 40%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section {
+    position: relative;
+  }
+
+  .parallax-container {
+    width: 60%;
+    margin-left: 40%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fixed {
+    position: fixed;
+    top: 100px;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .post {
+    bottom: 0px;
+  }
+
+  .a {
+    background-color: aquamarine;
+  }
+  .b {
+    background-color: lightblue;
+  }
+
+  .filler-section {
+    height: 1200px;
+    background-color: lemonchiffon;
+  }
+
+  .scroll-breakpoint {
+    position: fixed;
+    border-bottom: 1px solid black;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+  }
+  
+  .scroll-triggerpoint {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    border-bottom-style: dotted;
+    top: 0;
+  }
+
+  #scroll-breakpoint-1 {
+    padding-top: 100px;
+  }
+
+  #scroll-triggerpoint {
+    padding-top: 300px;
+  }
+
+  #scroll-breakpoint-2 {
+    padding-top: 900px;
+  }
+
+  svg {
+    border: 1px solid black;
+    height: 800px;
+    width: 800px;
+  }
+
+  #counter {
+    height: 20px;
+    margin-bottom: -20px;
+  }
+
+  .panel-text {
+    padding: 70px;
+    font-size: 12px;
+  }
+
+  .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1px;
+  }
+}

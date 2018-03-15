@@ -1,0 +1,68 @@
+.share-buttons {
+    margin: 0 auto;
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+}
+
+.share-buttons ul {
+    margin: 0;
+    padding: 0;
+}
+
+.share-buttons ul li {
+    text-align: left;
+}
+
+/* All buttons */
+
+.share-button-text {
+    margin-left: 5px;
+    color: #333333;
+}
+
+.share-button {
+    margin: 0px;
+    display: block;
+    width: 120px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.share-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+}
+
+.icon-facebook {
+    fill: #3b5998;	
+}
+
+.icon-twitter {
+    fill: #55acee;
+}
+
+.icon-google-plus {
+    fill: #dd4b39;
+}
+
+.icon-pinterest {
+    fill: #cb2027;
+}
+
+.icon-tumblr {
+    fill: #32506d;
+}
+
+.icon-reddit {
+    fill: #ff4500;
+}
+
+.icon-linkedin {
+    fill: #007bb5;
+}
+
+.icon-envelope {
+    fill: #444444;
+}

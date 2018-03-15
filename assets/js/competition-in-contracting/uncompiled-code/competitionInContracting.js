@@ -40,15 +40,30 @@ $(function() {
 
     const data = dataModule.mem.cicData;
 
-    const xAxisUnit = $("#xAxisUnitDropdown")
-      .find(":selected")
-      .val();
-    const xAxisScale = $("#xAxisScaleDropdown")
-      .find(":selected")
-      .val();
+    const xAxisUnit = $('input[name="xAxisUnit"]:checked').val();
+    const xAxisScale = $('input[name="xAxisScale"]:checked').val();
 
     settings.xAxisScale = xAxisScale;
     settings.xAxisUnit = xAxisUnit;
+
+    barchartModuleDraw(data, settings, helpers);
+  });
+
+  $("#button1").click(e => {
+    let data = dataModule.mem.cicData;
+
+    data = data.map(c => {
+      return {
+        ...c,
+        displayed: true
+      };
+    });
+
+    settings.xAxisUnit = "dollars";
+    settings.xAxisScale = "quantity";
+
+    $('input[name="xAxisUnit"]')[0].checked = true;
+    $('input[name="xAxisScale"]')[0].checked = true;
 
     barchartModuleDraw(data, settings, helpers);
   });

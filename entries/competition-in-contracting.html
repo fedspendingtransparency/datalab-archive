@@ -2,26 +2,24 @@
 layout: page
 menuname: Competition in Contracting
 menuorder: 6
-title: In FY 2017, over 60 percent of Federal contracts were competitively awarded.
-description: The analysis below shows the competition information for the 24 CFO Act agencies which account for over 98% of Federal contract spending. Other smaller agencies are grouped together in a separate category.
+title: In FY 2017, over 60 percent of federal contracts were competitively awarded.
+description: The analysis below shows the competition information for the 24 CFO Act agencies which account for over 98% of federal contract spending. Other smaller agencies are grouped together in a separate category.
 banner: landings/competition.jpg
 alt: Competition in Contracting
-permalink: competition-contracting.html
+permalink: competition-in-contracting.html
 category: entry
 ---
 <!-- // comments so cloudfront will change the <fieldset>
 	//
 	// -->
-	<!--  -->
-	<!--  -->
 </fieldset>
 {% include viz-header-info.html
 	title="Why does the government use competition when awarding contracts?"
-  body="<p>Competition is a healthy component of maintaining the integrity of the Federal procurement process.  Competition generates better quality and lower costs for goods and services purchased in support of agency services to the American taxpayer.</p>
+  body="<p>Competition is a healthy component of maintaining the integrity of the federal procurement process.  Competition generates better quality and lower costs for goods and services purchased in support of agency services to the American taxpayer.</p>
 				<p>The 1984 Competition in Contracting Act requires full and open competition while also allowing for exceptions in certain situations. In many cases, federal agencies will pursue competition even when an exception to the law applies, as competition may help to provide innovative solutions or better prices.</p>"
 %}
 
-<section id="one" class="wrapper style1 special">
+<section id="one" class="wrapper style1 center-text">
   <div class="viz-bkgd competition-in-contracting-viz-bkgd">
      {% include viz-title.html
         title="Competition in Contracting"
@@ -42,7 +40,7 @@ category: entry
 
           <div id="summary">
             <!-- tooltip -->
-            <div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; pointer-events: all; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; width: 300px; left: 486.128px;"></div>
+            <div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; width: 300px; left: 486.128px;"></div>
 
             <!-- summary -->
 						<div class="summary-item">
@@ -106,15 +104,15 @@ category: entry
 </section>
 
 {% include how-analysis-conducted.html
-how="This analysis is generated directly from data available in the Federal Procurement Data System Next Generation, which is the source of U.S. Federal procurement data  on USASpending.gov."
+how="This analysis is generated directly from data available in the Federal Procurement Data System Next Generation, which is the source of U.S. federal procurement data  on USASpending.gov. Data updated Dec 2017."
 %}
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/helperFunctionModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/dataModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/summaryTableModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/tooltipModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/barchartModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/competitionInContracting.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/helperFunctionModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/dataModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/summaryTableModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/tooltipModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/barchartModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/competitionInContracting.js"></script>

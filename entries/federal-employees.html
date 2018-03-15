@@ -1,0 +1,117 @@
+---
+layout: page
+menuname: Federal Employees
+menuorder: 5
+title: In 2017, the largest 24 federal agencies employed nearly 2 million people.
+description: These federal employees live in all 50 states and hold vastly diverse roles, including special agent, park ranger, Veterans Affairs hospital doctor, and more. This analysis uses federal financial data and employment data from the Office of Personnel Management (OPM) to show the breakdown of personnel spending by agency, along with where federal employees live and the types of work they do.
+banner: landings/workers.jpg
+alt: Workers in Government-Photography by Dana Dierkes
+permalink: federal-employees.html
+category: entry
+---
+
+{% include viz-header-info.html
+	title="How much do agencies spend on personnel?"
+	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 million in personnel compensation. Government-wide spending on personnel compensation (base salaries)is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Agriculture."
+%}
+
+<div class="fedscope-tool">
+
+<!-- tooltip -->
+<div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; left: 486.128px;"></div>
+
+<section id="one" class="wrapper style1 center-text">
+  <div class="viz-bkgd">
+    <div class="mask">
+      {% include action-buttons.html %}
+      <div class="visContainer">
+        <svg width="1200" height="700" id="treemapSvg"></svg>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+{% include viz-header-info.html
+	title="Where do federal employees work?"
+	body="CFO Act agencies employ 1.9 million people across the nation. The largest number of employees live and work in the District of Columbia, California, Virginia, Maryland, and Texas. Nearly a quarter of CFO Act agency employees (407,000 people) are located in 'the DMV area' -the District of Columbia, Maryland, or Virginia."
+  %}
+  
+  <div class="viz-bkgd">
+    <div class="mask" id="mapMask">
+      {% include action-buttons.html
+        actions="<div id='mapFilter' class='action-button'>Filter</div>"
+      %}
+      <form id="mapToolbar" class="toolbar">
+        <div class="formItem">
+          Agencies:<br>
+          <select multiple id="mapAgencyDropdown"></select>
+          <br>
+        </div>
+        <div class="formItem">
+          Occupation Types:<br>
+          <select multiple id="mapOccupationDropdown"></select>
+          <br>
+        </div>
+      </form>
+      
+      <div class="visContainer">
+        <svg width="900" height="562" id="mapSvg"></svg>
+      </div>
+    </div>
+</div>
+
+{% include viz-header-info.html
+	title="What do federal employees do?"
+  body="
+  <div>
+    Federal employees serve in highly varied occupations. The following interactive visualization lists the main occupational categories, each of which includes several job types that are grouped by function - for example, administrative, medical, legal, or engineering. The occupation data also makes a distinction between blue-collar jobs (for example, warehousing) and white-collar jobs (for example, information technology). Across all CFO Act agencies, the top two occupation categories are Administrative and Clerical and Medical, Hospital, Dental, and Public Health. 
+  </div>
+  <div>
+    To explore the distribution of workers across occupation categories for each agency, select an agency from the menu.
+  </div>
+  "
+%}
+
+<div class="viz-bkgd">
+	<div class="mask" id="barchartMask">  
+    {% include action-buttons.html
+      actions="<div id='barchartFilter' class='action-button'>Filter</div>"
+    %}
+    <form id="barchartToolbar" class="toolbar">
+      <div class="formItem">
+        Agencies:<br>
+        <select multiple="" id="barchartAgencyDropdown"></select>
+        <br>
+      </div>
+      <div class="formItem">  
+        States:<br>
+        <select multiple="" id="barchartStateDropdown"></select>
+        <br>
+      </div>
+    </form>
+
+    <div class="visContainer">
+      <svg id="barchartKey"></svg>
+      <svg width="900" height="500" id="barchartSvg"></svg>
+    </div>
+	</div>
+</div>
+
+{% include how-analysis-conducted.html
+  how="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
+   read-more="federal-employees-more.html"
+   next-analysis="competition-in-contracting.html"
+%}
+</div>
+
+<!-- master scripts -->
+<script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/d3.v4.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/treemapModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/mapModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/barchartModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/tooltipModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/keyModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/dataModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/fedscope-tool/fedscope.js"></script>

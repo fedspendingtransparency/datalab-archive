@@ -3,12 +3,12 @@
   {% include head.html %}
   <body>
     <div id="page-wrapper">
-      {% include info-banner.html %}
-      {% include header.html %}
-      <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-      {{ content }}
-      {% include footer.html %}
-      {% include scripts.html %}
+        {% include header.html %}
+        <a href="javascript:" id="return-to-top">{% include svgs/chevron-up.svg class="icon-chevron-up" %}</a>
+        {{ content }}
+        {% include footer.html %}
+        {% include scripts.html %}
     </div>
+    {% include sidenav.html %}
   </body>
 </html>

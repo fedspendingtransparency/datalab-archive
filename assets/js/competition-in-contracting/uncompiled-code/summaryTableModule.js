@@ -5,24 +5,36 @@ const summaryTableModule = (function() {
     const summaryData = data.reduce(
       (a, c) => {
         if (c.displayed) {
-          a["Competed"] += c.competedDollars;
-          a["Not Competed"] += c.notCompetedDollars;
+          a.competedDollars += c.competedDollars;
+          a.notCompetedDollars += c.notCompetedDollars;
+          a.competedActions += c.competedActions;
+          a.notCompetedActions += c.notCompetedActions;
         }
         return a;
       },
       {
-        Competed: 0,
-        "Not Competed": 0
+        competedDollars: 0,
+        notCompetedDollars: 0,
+        competedActions: 0,
+        notCompetedActions: 0
       }
     );
 
     d3
       .select("#competed-dollars")
-      .text(formatNumber("dollars text", summaryData.Competed));
+      .text(formatNumber("dollars text", summaryData.competedDollars));
+
+    d3
+      .select("#competed-actions")
+      .text(formatNumber("actions", summaryData.competedActions));
 
     d3
       .select("#not-competed-dollars")
-      .text(formatNumber("dollars text", summaryData["Not Competed"]));
+      .text(formatNumber("dollars text", summaryData.notCompetedDollars));
+
+    d3
+      .select("#not-competed-actions")
+      .text(formatNumber("actions", summaryData.notCompetedActions));
   }
 
   return { draw };

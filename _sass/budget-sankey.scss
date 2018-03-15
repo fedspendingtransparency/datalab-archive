@@ -73,7 +73,7 @@
 	.panel_total_amount {
 		color: #5B616B;
 		margin-bottom: -15px;
-		font-weight: 200;
+		font-weight: 300;
 		font-size: 14px;
 		letter-spacing: 1px;
 		text-transform: uppercase;
@@ -198,7 +198,6 @@
 		font-size: 12px;
 	}
 	.sankey-brackets {
-		background-image: url(images/sankey-brackets.svg);
 		background-repeat: no-repeat;
 		width: 650px;
 		height: 675px;
@@ -206,4 +205,5 @@
 		left: 0;
 		top: 0;
 	}
+	
 }
