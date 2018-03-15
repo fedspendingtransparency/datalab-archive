@@ -591,18 +591,6 @@ header.major h2 {
 	margin-left: 70px;
 }
 
-.go-to-usaspending {
-    width: 166px;
-    border: 1px solid $accent-blue;
-    border-radius: 17px;
-    color: #6AB6D3;
-    margin-left: auto;
-    margin-right: 50px;
-    font-size: 14px;
-	text-align: center;
-	display: inline-block;
-}
-
 #menu {
 	transition: 0.5s;
 	height: 100%;
@@ -1327,10 +1315,6 @@ article > header {
 
 	#banner, .how-analysis-container {
 		background-attachment: scroll;
-	}
-
-	.go-to-usaspending {
-		display: none;
 	}
 
 	.spotlight > .content > h2 {
