@@ -60,15 +60,20 @@ const linechartModule = (function() {
     y.domain([0, d3.max(data, d => d.contractdollars)]);
 
     // Add the valueline path.
-    svg
+    const path = svg
       .append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline)
-      .style("opacity", 0)
+      .attr("d", valueline);
+
+    var totalLength = path.node().getTotalLength();
+
+    path
+      .attr("stroke-dasharray", totalLength)
+      .attr("stroke-dashoffset", totalLength)
       .transition()
-      .duration(800)
-      .style("opacity", 1);
+      .duration(4000)
+      .attr("stroke-dashoffset", "0");
 
     // Add the X Axis
     if (xAxis === "year") {
@@ -109,12 +114,6 @@ const linechartModule = (function() {
         )
       )
       .style("opacity", 0)
-      .transition()
-      .duration(800)
-      .style("opacity", 1);
-
-    svg
-      .selectAll("*")
       .transition()
       .duration(800)
       .style("opacity", 1);
