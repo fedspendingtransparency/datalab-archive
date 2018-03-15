@@ -1,0 +1,95 @@
+.official-banner {
+    // bring in universal styling from USAspending
+    $tablet-screen: 768px;
+    $font-normal: 400;
+    $font-semibold: 600;
+
+    @mixin media($min-width) {
+        @media screen and (min-width: $min-width) {
+            @content;
+        }
+    }
+
+    @mixin unstyled-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    letter-spacing: normal;
+    font-weight: $font-normal;
+    line-height: normal;
+    -webkit-font-smoothing: antialiased;
+
+    padding: 5px 15px;
+    background-color: #002A43;
+
+    @include media($tablet-screen) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .official-banner__site-list {
+        @include media($tablet-screen) {
+            flex: 1 1 auto;
+        }
+        @include unstyled-list;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 20px;
+    }
+
+    .official-banner__site-item {
+        flex: 0 0 100px;
+
+        &.official-banner__site-item_spacer {
+            flex: 0 0 auto;
+            margin: 0 15px 0 10px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: $font-normal;
+        }
+    }
+
+    .official-banner__site-link {
+        display: block;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: $font-normal;
+        text-decoration: none;
+        &:hover {
+            font-weight: $font-semibold;
+        }
+    }
+
+    .official-banner__wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 20px;
+
+        @include media($tablet-screen) {
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: 0;
+        }
+    }
+
+    .official-banner__text {
+        flex: 0 0 auto;
+        margin-right: 10px;
+
+        font-size: 10px;
+        line-height: 13px;
+        color: #ffffff;
+    }
+
+    .official-banner__flag {
+        flex: 0 0 auto;
+        width: 16px;
+        height: 11px;
+    }
+}
