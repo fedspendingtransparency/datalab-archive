@@ -11,10 +11,8 @@ const linechartModule = (function() {
     var x =
       xAxis === "year"
         ? d3.scaleTime().range([0, width])
-        : d3
-            .scaleBand()
-            .rangeRound([0, width])
-            .padding(0.5);
+        : d3.scaleBand().rangeRound([0, width]);
+
     var y = d3.scaleLinear().range([height, 0]);
     var formatAsMillions = d3.format(".2s");
 
@@ -26,12 +24,8 @@ const linechartModule = (function() {
             .y(d => y(d.contractdollars))
         : d3
             .line()
-            .x(function(d) {
-              return x(d.week);
-            })
-            .y(function(d) {
-              return y(d.contractdollars);
-            });
+            .x(d => x(d.week))
+            .y(d => y(d.contractdollars));
 
     var svg = d3
       .select("#svg-1")
@@ -50,12 +44,7 @@ const linechartModule = (function() {
 
     // Scale the range of the data
     if (xAxis === "year") x.domain(d3.extent(data, d => d.parsedDate));
-    else
-      x.domain(
-        data.map(function(d) {
-          return d.week;
-        })
-      );
+    else x.domain(data.map(d => d.week));
 
     y.domain([0, d3.max(data, d => d.contractdollars)]);
 
@@ -91,11 +80,7 @@ const linechartModule = (function() {
         .attr("class", "axis")
         .attr("transform", "translate(0," + height + ")")
         .call(
-          d3.axisBottom(x).tickValues(
-            x.domain().filter(function(d, i) {
-              return !(i % 2);
-            })
-          )
+          d3.axisBottom(x).tickValues(x.domain().filter((d, i) => !(i % 2)))
         )
         .style("opacity", 0)
         .transition()
