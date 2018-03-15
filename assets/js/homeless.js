@@ -1465,7 +1465,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_4_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal2')
-                .attr('transform', 'translate(' + 95 + ',' + 250 + ')')
+                .attr('transform', 'translate(' + 95 + ',' + 300 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
