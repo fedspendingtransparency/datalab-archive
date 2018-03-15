@@ -65,7 +65,10 @@ const linechartModule = (function() {
       .data([data])
       .attr("class", "line")
       .attr("d", valueline)
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .transition()
+      .duration(800)
+      .style("opacity", 1);
 
     // Add the X Axis
     if (xAxis === "year") {
@@ -73,7 +76,10 @@ const linechartModule = (function() {
         .append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
-        .style("opacity", 0);
+        .style("opacity", 0)
+        .transition()
+        .duration(800)
+        .style("opacity", 1);
     } else {
       svg
         .append("g")
@@ -86,18 +92,26 @@ const linechartModule = (function() {
             })
           )
         )
-        .style("opacity", 0);
+        .style("opacity", 0)
+        .transition()
+        .duration(800)
+        .style("opacity", 1);
     }
 
     // Add the Y Axis
     svg
       .append("g")
       .call(
-        d3
-          .axisLeft(y)
-          .tickFormat(d => formatAsMillions(d).replace("G", " billion"))
+        d3.axisLeft(y).tickFormat(d =>
+          formatAsMillions(d)
+            .replace("G", "billion")
+            .replace("M", "million")
+        )
       )
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .transition()
+      .duration(800)
+      .style("opacity", 1);
 
     svg
       .selectAll("*")
