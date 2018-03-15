@@ -31,16 +31,24 @@ const barchartModule = (function() {
       .attr("class", "bar")
       .attr("x", d => x(d.fiscalyear))
       .attr("width", x.bandwidth())
+      .attr("y", height)
+      .attr("height", 0)
+      .style("opacity", 0)
+      .transition()
+      .duration(800)
+      .style("opacity", 1)
       .attr("y", d => y(d.totalbyyear))
-      .attr("height", d => height - y(d.totalbyyear))
-      .style("opacity", 0);
+      .attr("height", d => height - y(d.totalbyyear));
 
     svg
       .append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .transition()
+      .duration(800)
+      .style("opacity", 1);
 
     svg
       .append("g")
@@ -50,13 +58,11 @@ const barchartModule = (function() {
           .axisLeft(y)
           .tickFormat(d => formatmillions(d).replace("G", " billion"))
       )
-      .style("opacity", 0);
-
-    svg
-      .selectAll("*")
+      .style("opacity", 0)
       .transition()
       .duration(800)
       .style("opacity", 1);
+
   }
 
   function remove(cb) {
