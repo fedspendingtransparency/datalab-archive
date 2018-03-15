@@ -23,22 +23,25 @@ const barchartModule = (function() {
     x.domain(data.map(d => d.fiscalyear));
     y.domain([0, d3.max(data, d => d.totalbyyear)]);
 
-    svg
-      .selectAll(".bar")
-      .data(data)
+    const bar = svg.selectAll(".bar").data(data);
+
+    bar
       .enter()
       .append("rect")
       .attr("class", "bar")
       .attr("x", d => x(d.fiscalyear))
       .attr("width", x.bandwidth())
       .attr("y", d => y(d.totalbyyear))
-      .attr("height", d => height - y(d.totalbyyear));
+      .attr("height", d => height - y(d.totalbyyear))
+      .style("opacity", 0);
 
     svg
       .append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x))
+      .style("opacity", 0);
+
     svg
       .append("g")
       .attr("class", "axis")
@@ -46,8 +49,27 @@ const barchartModule = (function() {
         d3
           .axisLeft(y)
           .tickFormat(d => formatmillions(d).replace("G", " billion"))
-      );
+      )
+      .style("opacity", 0);
+
+    svg
+      .selectAll("*")
+      .transition()
+      .duration(800)
+      .style("opacity", 1);
   }
 
-  return { draw };
+  function remove(cb) {
+    d3
+      .select("#svg-1")
+      .selectAll("*")
+      .transition()
+      .duration(400)
+      .style("opacity", 0)
+      .remove();
+
+    setTimeout(cb, 400);
+  }
+
+  return { draw, remove };
 })();

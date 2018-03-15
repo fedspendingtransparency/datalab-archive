@@ -64,23 +64,20 @@ $(function() {
   // handle scroll events
   $(window).scroll(() => {
     const onChangeCB = (preChange, postChange) => {
-      // console.log({ preChange, postChange });
       if (preChange.activePanel.id === postChange.activePanel.id) return;
 
       const postChangePanel = panels.find(
         p => p.id === postChange.activePanel.id
       );
+      const preChangePanel = panels.find(
+        p => p.id === preChange.activePanel.id
+      );
 
-      if (!postChangePanel) return;
+      if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
 
-      d3
-        .select("#svg-1")
-        .selectAll("*")
-        .remove();
-
-      module.draw(mem[dataset], xAxis);
+      preChangePanel.module.remove(() => module.draw(mem[dataset], xAxis));
     };
 
     // parallax variables

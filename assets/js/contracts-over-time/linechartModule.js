@@ -1,6 +1,5 @@
 const linechartModule = (function() {
   function draw(data, xAxis) {
-    // set the dimensions and margins of the graph
     var margin = { top: 10, right: 10, bottom: 30, left: 100 },
       width = 800 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
@@ -65,14 +64,16 @@ const linechartModule = (function() {
       .append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline);
+      .attr("d", valueline)
+      .style("opacity", 0);
 
     // Add the X Axis
     if (xAxis === "year") {
       svg
         .append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .style("opacity", 0);
     } else {
       svg
         .append("g")
@@ -84,7 +85,8 @@ const linechartModule = (function() {
               return !(i % 2);
             })
           )
-        );
+        )
+        .style("opacity", 0);
     }
 
     // Add the Y Axis
@@ -94,8 +96,27 @@ const linechartModule = (function() {
         d3
           .axisLeft(y)
           .tickFormat(d => formatAsMillions(d).replace("G", " billion"))
-      );
+      )
+      .style("opacity", 0);
+
+    svg
+      .selectAll("*")
+      .transition()
+      .duration(800)
+      .style("opacity", 1);
   }
 
-  return { draw };
+  function remove(cb) {
+    d3
+      .select("#svg-1")
+      .selectAll("*")
+      .transition()
+      .duration(400)
+      .style("opacity", 0)
+      .remove();
+
+    setTimeout(cb, 400);
+  }
+
+  return { draw, remove };
 })();
