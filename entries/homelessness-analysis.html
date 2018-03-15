@@ -167,6 +167,18 @@ category: entry
 	</div>
 </section>
 
+<script>
+	var modal = document.getElementById('myModalContact');
+	document.getElementById("myBtnContact").onclick = function() {
+		modal.style.display = "block";
+	}
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
+
 {% include viz-header-info.html
 	title="Which Continuum of Care areas are similar to each other?"
 	body="While the section above allows you to compare Continuum of Care areas that are neighbors geographically, we wanted to explore if Continuum of Care areas were similar along characteristics other than geography. It may be helpful for those working in the field to know what types of funding their neighbors are receiving and to know what regions are similar to their own regardless of location. Using an unsupervised machine learning algorithm, we clustered Continuum of Care areas based on a variety of attributes, such as population, income, and the prevalence of mental illness."
