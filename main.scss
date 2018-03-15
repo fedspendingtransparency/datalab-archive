@@ -10,8 +10,10 @@
 @import 'competition-in-contracting';
 @import 'fedscope-tool';
 @import 'contracts-over-time';
+@import 'universal-banner';
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
+
 
 $accent-blue: #0C99CD;
 $accent-grey: #323A45;
@@ -865,28 +867,6 @@ header.major h2 {
 	font-weight: 300;
 }
 
-.official-banner__wrapper {
-    padding: 4px 12px;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.official-banner__text {
-    flex: 0 0 auto;
-    margin-right: 10px;
-    font-size: 10px;
-    line-height: 13px;
-	color: #555;
-	font-weight: 300;
-	letter-spacing: 0;
-}
-
-.official-banner__flag {
-    flex: 0 0 auto;
-}
-
 .greyed-out {
 	opacity: 0.3;
 	color: #6B6E76;
@@ -1220,6 +1200,7 @@ article > header {
 
 .info-banner__content {
 	text-align: center;
+    position: relative;
 }
 
 .info-banner__alert-icon {
@@ -1251,7 +1232,7 @@ article > header {
 	filter: invert(50%);
 	position: absolute;
     right: 18px;
-    top: 12px;
+    top: 7px;
     width: 18px;
     height: 18px;
 }
