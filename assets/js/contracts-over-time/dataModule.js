@@ -51,11 +51,23 @@ const dataModule = (function() {
     );
   }
 
+  function loadContractDataByPSC(cb) {
+    d3.json(
+      "../../../data-lab-data/contracts-over-time/5_PSCCategoriesContractsData.json",
+      function(error, data) {
+        if (error) throw error;
+        mem.contractDataByPSC = data;
+        if (cb) cb(data);
+      }
+    );
+  }
+
   return {
     loadAwardsByYear,
     loadWeeklyTotals,
     loadWeeklyAverages,
     loadContractDataByCategory,
+    loadContractDataByPSC,
     mem
   };
 })();

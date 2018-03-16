@@ -10,6 +10,7 @@ $(function() {
     loadWeeklyTotals,
     loadWeeklyAverages,
     loadContractDataByCategory,
+    loadContractDataByPSC,
     mem
   } = dataModule;
 
@@ -41,17 +42,13 @@ $(function() {
       module: multiLinechartModule,
       datasetLoader: loadContractDataByCategory,
       dataset: "contractDataByCategory"
+    },
+    {
+      id: "panel-5",
+      module: multiLinechartModule,
+      datasetLoader: loadContractDataByPSC,
+      dataset: "contractDataByPSC"
     }
-    // {
-    //   id: "panel-5",
-    //   module: linechartModule,
-    //   datasetLoader: loadAwardsByYear
-    // },
-    // {
-    //   id: "panel-6",
-    //   module: linechartModule,
-    //   datasetLoader: loadAwardsByYear
-    // }
   ];
 
   // orient the parallax panel on page load
