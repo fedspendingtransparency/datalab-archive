@@ -16,12 +16,8 @@ const multiLinechartModule = (function() {
     // define the lines
     var totalspend = d3
       .line()
-      .x(function(d) {
-        return x(d.parsedDate);
-      })
-      .y(function(d) {
-        return y(+d.contractdollars);
-      });
+      .x(d => x(d.parsedDate))
+      .y(d => y(+d.contractdollars));
 
     // Add SVG Canvas
     var svg = d3
@@ -31,30 +27,18 @@ const multiLinechartModule = (function() {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    data.forEach(function(d) {
-      d.parsedDate = parseDate(d.date);
-    });
+    data.forEach(d => (d.parsedDate = parseDate(d.date)));
 
     // Scale the range for WeeklyDataTotals
-    x.domain(
-      d3.extent(data, function(d) {
-        return d.parsedDate;
-      })
-    );
-    y.domain([
-      0,
-      d3.max(data, function(d) {
-        return d.contractdollars;
-      })
-    ]);
+    x.domain(d3.extent(data, d => d.parsedDate));
+    y.domain([0, d3.max(data, d => d.contractdollars)]);
 
     // Nest the lines by contract type "type"
     var dataNest = d3
       .nest()
-      .key(function(d) {
-        return d.category;
-      })
+      .key(d => d.category)
       .entries(data);
+
     var color = d3.scaleOrdinal(d3.schemeCategory10);
 
     // Add spacing specification for the legend
@@ -63,34 +47,33 @@ const multiLinechartModule = (function() {
     var legendRectWidth = 30;
 
     // Loop through each Type
-    dataNest.forEach(function(d, i) {
+    dataNest.forEach((d, i) => {
       svg
         .append("path")
         .attr("class", "line")
-        .style("stroke", function() {
-          return (d.color = color(d.key));
-        })
+        .style("stroke", () => (d.color = color(d.key)))
         .attr("d", totalspend(d.values));
       // Add legend
       svg
         .append("text")
         .attr("class", "legend")
         .attr("id", "legend-text-" + i)
-        .attr("x", width - 7 * margin.right)
+        .attr("x", width)
         .attr("y", legendSpace * i * 2 + margin.top / 2)
-        .style("fill", function() {
-          return (d.color = color(d.key));
-        })
+        .style("fill", () => (d.color = color(d.key)))
         .style("font-size", "12px")
         .style("font-family", "sans-serif")
+        .style("text-anchor", "end")
         .text(d.key);
     });
+
     // Add Axis
     svg
       .append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
+
     // Add Y axis
     svg
       .append("g")
