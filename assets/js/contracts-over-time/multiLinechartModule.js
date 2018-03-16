@@ -52,7 +52,7 @@ const multiLinechartModule = (function() {
     var dataNest = d3
       .nest()
       .key(function(d) {
-        return d.type;
+        return d.category;
       })
       .entries(data);
     var color = d3.scaleOrdinal(d3.schemeCategory10);
