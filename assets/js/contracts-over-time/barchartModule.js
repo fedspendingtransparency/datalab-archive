@@ -1,6 +1,6 @@
 const barchartModule = (function() {
   function draw(data) {
-    var margin = { top: 20, right: 20, bottom: 30, left: 80 },
+    const margin = { top: 10, right: 10, bottom: 30, left: 100 },
       width = 800 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
@@ -16,8 +16,6 @@ const barchartModule = (function() {
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    var formatmillions = d3.format(".2s");
-    var formatnumber = d3.format(".2f");
 
     data.forEach(d => (d.totalbyyear = +d.totalbyyear));
     x.domain(data.map(d => d.fiscalyear));
@@ -53,16 +51,11 @@ const barchartModule = (function() {
     svg
       .append("g")
       .attr("class", "axis")
-      .call(
-        d3
-          .axisLeft(y)
-          .tickFormat(d => formatmillions(d).replace("G", " billion"))
-      )
+      .call(d3.axisLeft(y).tickFormat(chartModule.formatNumberAsText))
       .style("opacity", 0)
       .transition()
       .duration(800)
       .style("opacity", 1);
-
   }
 
   function remove(cb) {
