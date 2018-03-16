@@ -162,22 +162,18 @@ table td {
 	text-align: left;
 }
 
-/* Main */
+#main > header {
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 
-	#main {
-		> header {
-			background-attachment: fixed;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: cover;
+	padding: 3em 0;
 
-			padding: 3em 0;
-
-			display: flex;
-			justify-content: flex-end;
-			flex-direction: column;
-		}
-	}
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
 
 /* Footer */
 
