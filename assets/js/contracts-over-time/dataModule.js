@@ -18,23 +18,23 @@ const dataModule = (function() {
     );
   }
 
-  function loadWeeklyTotals(cb) {
+  function loadWeeklyAverages(cb) {
     d3.json(
-      "../../../data-lab-data/contracts-over-time/2_WeeklyDataTotals.json",
+      "../../../data-lab-data/contracts-over-time/2_WeeklyAverageSpending.json",
       function(error, data) {
         if (error) throw error;
-        mem.weeklyTotals = data;
+        mem.weeklyAverages = data;
         if (cb) cb(data);
       }
     );
   }
 
-  function loadWeeklyAverages(cb) {
+  function loadWeeklyTotals(cb) {
     d3.json(
-      "../../../data-lab-data/contracts-over-time/3_WeeklyAverageSpending.json",
+      "../../../data-lab-data/contracts-over-time/3_WeeklyDataTotals.json",
       function(error, data) {
         if (error) throw error;
-        mem.weeklyAverages = data;
+        mem.weeklyTotals = data;
         if (cb) cb(data);
       }
     );
