@@ -9,6 +9,8 @@ $(function() {
     loadAwardsByYear,
     loadWeeklyTotals,
     loadWeeklyAverages,
+    loadContractDataByCategory,
+    loadContractDataByPSC,
     mem
   } = dataModule;
 
@@ -34,22 +36,19 @@ $(function() {
       datasetLoader: loadWeeklyTotals,
       dataset: "weeklyTotals",
       xAxis: "year"
+    },
+    {
+      id: "panel-4",
+      module: multiLinechartModule,
+      datasetLoader: loadContractDataByCategory,
+      dataset: "contractDataByCategory"
+    },
+    {
+      id: "panel-5",
+      module: multiLinechartModule,
+      datasetLoader: loadContractDataByPSC,
+      dataset: "contractDataByPSC"
     }
-    // {
-    //   id: "panel-4",
-    //   module: linechartModule,
-    //   datasetLoader: loadAwardsByYear
-    // },
-    // {
-    //   id: "panel-5",
-    //   module: linechartModule,
-    //   datasetLoader: loadAwardsByYear
-    // },
-    // {
-    //   id: "panel-6",
-    //   module: linechartModule,
-    //   datasetLoader: loadAwardsByYear
-    // }
   ];
 
   // orient the parallax panel on page load
@@ -64,23 +63,20 @@ $(function() {
   // handle scroll events
   $(window).scroll(() => {
     const onChangeCB = (preChange, postChange) => {
-      // console.log({ preChange, postChange });
       if (preChange.activePanel.id === postChange.activePanel.id) return;
 
       const postChangePanel = panels.find(
         p => p.id === postChange.activePanel.id
       );
+      const preChangePanel = panels.find(
+        p => p.id === preChange.activePanel.id
+      );
 
-      if (!postChangePanel) return;
+      if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
 
-      d3
-        .select("#svg-1")
-        .selectAll("*")
-        .remove();
-
-      module.draw(mem[dataset], xAxis);
+      preChangePanel.module.remove(() => module.draw(mem[dataset], xAxis));
     };
 
     // parallax variables

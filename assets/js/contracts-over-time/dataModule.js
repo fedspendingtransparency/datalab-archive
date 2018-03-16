@@ -18,9 +18,20 @@ const dataModule = (function() {
     );
   }
 
+  function loadWeeklyAverages(cb) {
+    d3.json(
+      "../../../data-lab-data/contracts-over-time/2_WeeklyAverageSpending.json",
+      function(error, data) {
+        if (error) throw error;
+        mem.weeklyAverages = data;
+        if (cb) cb(data);
+      }
+    );
+  }
+
   function loadWeeklyTotals(cb) {
     d3.json(
-      "../../../data-lab-data/contracts-over-time/2_WeeklyDataTotals.json",
+      "../../../data-lab-data/contracts-over-time/3_WeeklyDataTotals.json",
       function(error, data) {
         if (error) throw error;
         mem.weeklyTotals = data;
@@ -29,12 +40,23 @@ const dataModule = (function() {
     );
   }
 
-  function loadWeeklyAverages(cb) {
+  function loadContractDataByCategory(cb) {
     d3.json(
-      "../../../data-lab-data/contracts-over-time/3_WeeklyAverageSpending.json",
+      "../../../data-lab-data/contracts-over-time/4_ContractDatabyCategoryofContract.json",
       function(error, data) {
         if (error) throw error;
-        mem.weeklyAverages = data;
+        mem.contractDataByCategory = data;
+        if (cb) cb(data);
+      }
+    );
+  }
+
+  function loadContractDataByPSC(cb) {
+    d3.json(
+      "../../../data-lab-data/contracts-over-time/5_PSCCategoriesContractsData.json",
+      function(error, data) {
+        if (error) throw error;
+        mem.contractDataByPSC = data;
         if (cb) cb(data);
       }
     );
@@ -44,6 +66,8 @@ const dataModule = (function() {
     loadAwardsByYear,
     loadWeeklyTotals,
     loadWeeklyAverages,
+    loadContractDataByCategory,
+    loadContractDataByPSC,
     mem
   };
 })();
