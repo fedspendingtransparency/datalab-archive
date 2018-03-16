@@ -9,6 +9,7 @@ $(function() {
     loadAwardsByYear,
     loadWeeklyTotals,
     loadWeeklyAverages,
+    loadContractDataByCategory,
     mem
   } = dataModule;
 
@@ -34,12 +35,13 @@ $(function() {
       datasetLoader: loadWeeklyTotals,
       dataset: "weeklyTotals",
       xAxis: "year"
+    },
+    {
+      id: "panel-4",
+      module: multiLinechartModule,
+      datasetLoader: loadContractDataByCategory,
+      dataset: "contractDataByCategory"
     }
-    // {
-    //   id: "panel-4",
-    //   module: linechartModule,
-    //   datasetLoader: loadAwardsByYear
-    // },
     // {
     //   id: "panel-5",
     //   module: linechartModule,

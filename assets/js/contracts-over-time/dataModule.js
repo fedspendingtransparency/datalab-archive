@@ -40,10 +40,22 @@ const dataModule = (function() {
     );
   }
 
+  function loadContractDataByCategory(cb) {
+    d3.json(
+      "../../../data-lab-data/contracts-over-time/4_ContractDatabyCategoryofContract.json",
+      function(error, data) {
+        if (error) throw error;
+        mem.contractDataByCategory = data;
+        if (cb) cb(data);
+      }
+    );
+  }
+
   return {
     loadAwardsByYear,
     loadWeeklyTotals,
     loadWeeklyAverages,
+    loadContractDataByCategory,
     mem
   };
 })();
