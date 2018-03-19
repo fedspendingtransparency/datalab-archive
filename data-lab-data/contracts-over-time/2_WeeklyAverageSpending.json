@@ -2,266 +2,372 @@
   {
     "week": 40,
     "contractdollars": 285238090.9064,
-    "contractcount": 2847.8139
+    "contractcount": 2847.8139,
+    "date": "2016-10-08",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 41,
     "contractdollars": 242735359.1612,
-    "contractcount": 2380.217
+    "contractcount": 2380.217,
+    "date": "2016-10-15",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 42,
     "contractdollars": 321683421.175,
-    "contractcount": 2963.4703
+    "contractcount": 2963.4703,
+    "date": "2016-10-22",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 43,
     "contractdollars": 496717628.9025,
-    "contractcount": 3767.8837
+    "contractcount": 3767.8837,
+    "date": "2016-10-29",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 44,
     "contractdollars": 343587521.5229,
-    "contractcount": 3066.6652
+    "contractcount": 3066.6652,
+    "date": "2016-11-05",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 45,
     "contractdollars": 240598968.7508,
-    "contractcount": 2506.8929
+    "contractcount": 2506.8929,
+    "date": "2016-11-12",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 46,
     "contractdollars": 345907252.372,
-    "contractcount": 2992.2613
+    "contractcount": 2992.2613,
+    "date": "2016-11-19",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 47,
     "contractdollars": 323358527.3406,
-    "contractcount": 2306.5505
+    "contractcount": 2306.5505,
+    "date": "2016-11-26",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 48,
     "contractdollars": 435373566.6909,
-    "contractcount": 3152.7748
+    "contractcount": 3152.7748,
+    "date": "2016-12-03",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 49,
     "contractdollars": 361372235.039,
-    "contractcount": 3176.4725
+    "contractcount": 3176.4725,
+    "date": "2016-12-10",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 50,
     "contractdollars": 509783628.9185,
-    "contractcount": 3193.942
+    "contractcount": 3193.942,
+    "date": "2016-12-17",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 51,
     "contractdollars": 495742968.0932,
-    "contractcount": 2375.0553
+    "contractcount": 2375.0553,
+    "date": "2016-12-24",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 52,
     "contractdollars": 376697500.3504,
-    "contractcount": 1691.705
+    "contractcount": 1691.705,
+    "date": "2016-12-31",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 0,
     "contractdollars": 151706913.4543,
-    "contractcount": 1957.8623
+    "contractcount": 1957.8623,
+    "date": "2017-01-01",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 1,
     "contractdollars": 251449477.2926,
-    "contractcount": 2981.1598
+    "contractcount": 2981.1598,
+    "date": "2017-01-08",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 2,
     "contractdollars": 322066976.2095,
-    "contractcount": 3208.5541
+    "contractcount": 3208.5541,
+    "date": "2017-01-15",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 3,
     "contractdollars": 292808242.5258,
-    "contractcount": 2869.7558
+    "contractcount": 2869.7558,
+    "date": "2017-01-22",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 4,
     "contractdollars": 554644065.2243,
-    "contractcount": 3497.2578
+    "contractcount": 3497.2578,
+    "date": "2017-01-29",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 5,
     "contractdollars": 392386539.1245,
-    "contractcount": 3468.6444
+    "contractcount": 3468.6444,
+    "date": "2017-02-05",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 6,
     "contractdollars": 325627729.1196,
-    "contractcount": 3396.9324
+    "contractcount": 3396.9324,
+    "date": "2017-02-12",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 7,
     "contractdollars": 317539984.7282,
-    "contractcount": 3007.0933
+    "contractcount": 3007.0933,
+    "date": "2017-02-19",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 8,
     "contractdollars": 505350767.6317,
-    "contractcount": 3414.4391
+    "contractcount": 3414.4391,
+    "date": "2017-02-26",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 9,
     "contractdollars": 412022814.2799,
-    "contractcount": 3501.2555
+    "contractcount": 3501.2555,
+    "date": "2017-03-05",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 10,
     "contractdollars": 377720574.343,
-    "contractcount": 3528.3229
+    "contractcount": 3528.3229,
+    "date": "2017-03-12",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 11,
     "contractdollars": 404572938.5492,
-    "contractcount": 3452.817
+    "contractcount": 3452.817,
+    "date": "2017-03-19",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 12,
     "contractdollars": 538052593.5438,
-    "contractcount": 3576.1239
+    "contractcount": 3576.1239,
+    "date": "2017-03-26",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 13,
     "contractdollars": 655401814.2043,
-    "contractcount": 4315.8205
+    "contractcount": 4315.8205,
+    "date": "2017-04-02",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 14,
     "contractdollars": 321690593.2742,
-    "contractcount": 3349.4956
+    "contractcount": 3349.4956,
+    "date": "2017-04-09",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 15,
     "contractdollars": 318417820.2237,
-    "contractcount": 3396.183
+    "contractcount": 3396.183,
+    "date": "2017-04-16",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 16,
     "contractdollars": 341608127.7282,
-    "contractcount": 3405.5405
+    "contractcount": 3405.5405,
+    "date": "2017-04-23",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 17,
     "contractdollars": 476927425.2328,
-    "contractcount": 3607.4267
+    "contractcount": 3607.4267,
+    "date": "2017-04-30",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 18,
     "contractdollars": 326010724.7883,
-    "contractcount": 3329.3921
+    "contractcount": 3329.3921,
+    "date": "2017-05-07",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 19,
     "contractdollars": 317648714.3226,
-    "contractcount": 3427.5223
+    "contractcount": 3427.5223,
+    "date": "2017-05-14",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 20,
     "contractdollars": 317114517.8425,
-    "contractcount": 3379.136
+    "contractcount": 3379.136,
+    "date": "2017-05-21",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 21,
     "contractdollars": 452095901.4414,
-    "contractcount": 3221.2946
+    "contractcount": 3221.2946,
+    "date": "2017-05-28",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 22,
     "contractdollars": 381483979.6095,
-    "contractcount": 3694.7273
+    "contractcount": 3694.7273,
+    "date": "2017-06-04",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 23,
     "contractdollars": 342972742.1057,
-    "contractcount": 3409.2124
+    "contractcount": 3409.2124,
+    "date": "2017-06-11",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 24,
     "contractdollars": 369731755.0725,
-    "contractcount": 3419.7991
+    "contractcount": 3419.7991,
+    "date": "2017-06-18",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 25,
     "contractdollars": 508973728.5138,
-    "contractcount": 3658.8136
+    "contractcount": 3658.8136,
+    "date": "2017-06-25",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 26,
     "contractdollars": 568072800.1253,
-    "contractcount": 3863.7237
+    "contractcount": 3863.7237,
+    "date": "2017-07-02",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 27,
     "contractdollars": 269001764.9402,
-    "contractcount": 3026.9682
+    "contractcount": 3026.9682,
+    "date": "2017-07-09",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 28,
     "contractdollars": 325934094.6007,
-    "contractcount": 3387.7892
+    "contractcount": 3387.7892,
+    "date": "2017-07-16",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 29,
     "contractdollars": 331710613.1043,
-    "contractcount": 3306.1378
+    "contractcount": 3306.1378,
+    "date": "2017-07-23",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 30,
     "contractdollars": 521684162.1747,
-    "contractcount": 3597.0578
+    "contractcount": 3597.0578,
+    "date": "2017-07-30",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 31,
     "contractdollars": 331603460.1797,
-    "contractcount": 3378.8515
+    "contractcount": 3378.8515,
+    "date": "2017-08-06",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 32,
     "contractdollars": 341829746.6669,
-    "contractcount": 3489.4115
+    "contractcount": 3489.4115,
+    "date": "2017-08-13",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 33,
     "contractdollars": 362546266.7944,
-    "contractcount": 3632.3644
+    "contractcount": 3632.3644,
+    "date": "2017-08-20",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 34,
     "contractdollars": 456253454.5266,
-    "contractcount": 3859.5531
+    "contractcount": 3859.5531,
+    "date": "2017-08-27",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 35,
     "contractdollars": 487690851.0864,
-    "contractcount": 3776.5152
+    "contractcount": 3776.5152,
+    "date": "2017-09-03",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 36,
     "contractdollars": 410413277.0026,
-    "contractcount": 3920.5221
+    "contractcount": 3920.5221,
+    "date": "2017-09-10",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 37,
     "contractdollars": 635875521.9385,
-    "contractcount": 4810.7241
+    "contractcount": 4810.7241,
+    "date": "2017-09-17",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 38,
     "contractdollars": 1145420513.0429,
-    "contractcount": 5743.3451
+    "contractcount": 5743.3451,
+    "date": "2017-09-24",
+    "category": "Weekly Average Spending"
   },
   {
     "week": 39,
     "contractdollars": 927927755.7939,
-    "contractcount": 3925.6589
+    "contractcount": 3925.6589,
+    "date": "2017-10-01",
+    "category": "Weekly Average Spending"
   }
 ]

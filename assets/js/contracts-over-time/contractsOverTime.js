@@ -25,7 +25,7 @@ $(function() {
     },
     {
       id: "panel-2",
-      module: linechartModule,
+      module: multiLinechartModule,
       datasetLoader: loadWeeklyAverages,
       dataset: "weeklyAverages",
       xAxis: "week"
@@ -41,13 +41,15 @@ $(function() {
       id: "panel-4",
       module: multiLinechartModule,
       datasetLoader: loadContractDataByCategory,
-      dataset: "contractDataByCategory"
+      dataset: "contractDataByCategory",
+      xAxis: "year"
     },
     {
       id: "panel-5",
       module: multiLinechartModule,
       datasetLoader: loadContractDataByPSC,
-      dataset: "contractDataByPSC"
+      dataset: "contractDataByPSC",
+      xAxis: "year"
     }
   ];
 

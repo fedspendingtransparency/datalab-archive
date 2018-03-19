@@ -1,5 +1,5 @@
 const multiLinechartModule = (function() {
-  function draw(data) {
+  function draw(data, xAxisFormat) {
     // set chart dimensions
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
       width = 800 - margin.left - margin.right,
@@ -77,21 +77,27 @@ const multiLinechartModule = (function() {
       .style("text-anchor", "end")
       .text(d => d.key);
 
-    // Add Axis
+    // Add X Axis
     svg
       .append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(
+        d3
+          .axisBottom(x)
+          .tickFormat(
+            xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y")
+          )
+      );
 
     // Add Y axis
     svg
       .append("g")
       .attr("class", "axis")
       .call(
-        d3.axisLeft(y).tickFormat(function(d) {
-          return formatAsMillions(d).replace("G", " billion");
-        })
+        d3
+          .axisLeft(y)
+          .tickFormat(d => formatAsMillions(d).replace("G", " billion"))
       );
   }
 
