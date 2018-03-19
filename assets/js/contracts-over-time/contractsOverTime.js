@@ -32,7 +32,7 @@ $(function() {
     },
     {
       id: "panel-3",
-      module: linechartModule,
+      module: multiLinechartModule,
       datasetLoader: loadWeeklyTotals,
       dataset: "weeklyTotals",
       xAxis: "year"
