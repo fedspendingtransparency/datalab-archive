@@ -1,5 +1,12 @@
 [
   {
+    "week": 39,
+    "contractdollars": 927927755.7939,
+    "contractcount": 3925.6589,
+    "date": "2016-10-01",
+    "category": "Weekly Average Spending"
+  },
+  {
     "week": 40,
     "contractdollars": 285238090.9064,
     "contractcount": 2847.8139,
@@ -361,13 +368,6 @@
     "contractdollars": 1145420513.0429,
     "contractcount": 5743.3451,
     "date": "2017-09-24",
-    "category": "Weekly Average Spending"
-  },
-  {
-    "week": 39,
-    "contractdollars": 927927755.7939,
-    "contractcount": 3925.6589,
-    "date": "2017-10-01",
     "category": "Weekly Average Spending"
   }
 ]
