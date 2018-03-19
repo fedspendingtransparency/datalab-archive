@@ -2,7 +2,7 @@ const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
     // set chart dimensions
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
-      width = 800 - margin.left - margin.right,
+      width = 1000 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
     // add parse date and y-axis formatting functions
@@ -67,11 +67,15 @@ const multiLinechartModule = (function() {
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(
-        d3
-          .axisBottom(x)
-          .tickFormat(
-            xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y")
-          )
+        xAxisFormat === "week"
+          ? d3
+              .axisBottom(x)
+              // .ticks(6)
+              .tickFormat(d3.timeFormat("%B"))
+          : d3
+              .axisBottom(x)
+              // .ticks(3)
+              .tickFormat(d3.timeFormat("%Y"))
       );
 
     // Add Y axis
