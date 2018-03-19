@@ -41,19 +41,26 @@ const multiLinechartModule = (function() {
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    // Add spacing specification for the legend
-    var legendSpace = 10;
-    var legendRectHeight = 2;
-    var legendRectWidth = 30;
-
-    svg
+    const path = svg
       .selectAll("path")
       .data(dataNest)
       .enter()
       .append("path")
       .attr("class", "line")
       .style("stroke", d => (d.color = color(d.key)))
-      .attr("d", d => totalspend(d.values));
+      .attr("d", d => totalspend(d.values))
+      .each(function(d) {
+        d.totalLength = this.getTotalLength();
+      })
+      .attr("stroke-dasharray", d => d.totalLength)
+      .attr("stroke-dashoffset", d => d.totalLength)
+      .transition()
+      .duration(4000)
+      .attr("stroke-dashoffset", "0");
+
+    const legendSpace = 10;
+    const legendRectHeight = 2;
+    const legendRectWidth = 30;
 
     svg
       .selectAll(".legend")
