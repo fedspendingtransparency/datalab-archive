@@ -78,7 +78,14 @@ $(function() {
 
       const { module, dataset, xAxis } = postChangePanel;
 
-      preChangePanel.module.remove(() => module.draw(mem[dataset], xAxis));
+      d3
+        .select("#svg-1")
+        .selectAll("*")
+        .transition()
+        .style("opacity", 0)
+        .remove();
+
+      setTimeout(() => module.draw(mem[dataset], xAxis, 400));
     };
 
     // parallax variables
