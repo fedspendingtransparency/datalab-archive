@@ -606,12 +606,14 @@ header.major h2 {
 	color: #FFFFFF;
 }
 
-#menu .close {
+.sidenav-close {
     background-size: 30px 30px;
     width: 30px;
     height: 30px;
 	display: inline-block;
-	margin: 40px 40px 40px 0;
+	margin: 40px 40px 0 0;
+	stroke-width: 2px;
+	stroke: #FFF;
 }
 
 .read-more-header {
@@ -1218,9 +1220,11 @@ article > header {
     cursor: pointer;
 	position: absolute;
     right: 18px;
-    top: 7px;
+    top: 13px;
     width: 18px;
-    height: 18px;
+	height: 18px;
+	stroke: #808080;
+	stroke-width: 2px;
 }
 
 .info-banner__body-text > a {
