@@ -19,7 +19,7 @@ const multiLinechartModule = (function() {
       .x(d => x(d.parsedDate))
       .y(d => y(+d.contractdollars));
 
-    // Add SVG Canvas
+    // Add SVG
     var svg = d3
       .select("#svg-1")
       .attr("width", width + margin.left + margin.right)
@@ -33,7 +33,7 @@ const multiLinechartModule = (function() {
     x.domain(d3.extent(data, d => d.parsedDate));
     y.domain([0, d3.max(data, d => d.contractdollars)]);
 
-    // Nest the lines by contract type "type"
+    // Organize data
     var dataNest = d3
       .nest()
       .key(d => d.category)
@@ -58,24 +58,8 @@ const multiLinechartModule = (function() {
       .duration(4000)
       .attr("stroke-dashoffset", "0");
 
-    const legendSpace = 10;
-    const legendRectHeight = 2;
-    const legendRectWidth = 30;
-
-    svg
-      .selectAll(".legend")
-      .data(dataNest)
-      .enter()
-      .append("text")
-      .attr("class", "legend")
-      .attr("id", "legend-text-" + i)
-      .attr("x", width)
-      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
-      .style("fill", d => (d.color = color(d.key)))
-      .style("font-size", "12px")
-      .style("font-family", "sans-serif")
-      .style("text-anchor", "end")
-      .text(d => d.key);
+    // draw gridlines
+    chartModule.drawYAxisGridlines(svg, y, width, 10);
 
     // Add X Axis
     svg
@@ -97,8 +81,29 @@ const multiLinechartModule = (function() {
       .call(
         d3
           .axisLeft(y)
+          .ticks(10)
           .tickFormat(d => formatAsMillions(d).replace("G", " billion"))
       );
+
+    const legendSpace = 10;
+    const legendRectHeight = 2;
+    const legendRectWidth = 30;
+
+    svg
+      .selectAll(".legend")
+      .data(dataNest)
+      .enter()
+      .append("text")
+      .attr("class", "legend")
+      .attr("id", "legend-text-" + i)
+      .attr("x", width)
+      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
+      .style("fill", d => (d.color = color(d.key)))
+      .style("font-size", "12px")
+      .style("font-family", "sans-serif")
+      .style("text-anchor", "end")
+      .style("alignment-baseline", "hanging")
+      .text(d => d.key);
   }
 
   function remove(cb) {
