@@ -86,7 +86,11 @@ const multiLinechartModule = (function() {
         d3
           .axisLeft(y)
           .ticks(10)
-          .tickFormat(d => formatAsMillions(d).replace("G", " billion"))
+          .tickFormat(d =>
+            formatAsMillions(d)
+              .replace("G", " billion")
+              .replace("M", " million")
+          )
       );
 
     const legendSpace = 10;
