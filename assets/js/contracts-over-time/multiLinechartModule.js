@@ -46,26 +46,29 @@ const multiLinechartModule = (function() {
     var legendRectHeight = 2;
     var legendRectWidth = 30;
 
-    // Loop through each Type
-    dataNest.forEach((d, i) => {
-      svg
-        .append("path")
-        .attr("class", "line")
-        .style("stroke", () => (d.color = color(d.key)))
-        .attr("d", totalspend(d.values));
-      // Add legend
-      svg
-        .append("text")
-        .attr("class", "legend")
-        .attr("id", "legend-text-" + i)
-        .attr("x", width)
-        .attr("y", legendSpace * i * 2 + margin.top / 2)
-        .style("fill", () => (d.color = color(d.key)))
-        .style("font-size", "12px")
-        .style("font-family", "sans-serif")
-        .style("text-anchor", "end")
-        .text(d.key);
-    });
+    svg
+      .selectAll("path")
+      .data(dataNest)
+      .enter()
+      .append("path")
+      .attr("class", "line")
+      .style("stroke", d => (d.color = color(d.key)))
+      .attr("d", d => totalspend(d.values));
+
+    svg
+      .selectAll(".legend")
+      .data(dataNest)
+      .enter()
+      .append("text")
+      .attr("class", "legend")
+      .attr("id", "legend-text-" + i)
+      .attr("x", width)
+      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
+      .style("fill", d => (d.color = color(d.key)))
+      .style("font-size", "12px")
+      .style("font-family", "sans-serif")
+      .style("text-anchor", "end")
+      .text(d => d.key);
 
     // Add Axis
     svg
