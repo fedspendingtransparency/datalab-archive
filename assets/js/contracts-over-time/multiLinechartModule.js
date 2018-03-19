@@ -1,8 +1,8 @@
 const multiLinechartModule = (function() {
-  function draw(data) {
+  function draw(data, xAxisFormat) {
     // set chart dimensions
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
-      width = 800 - margin.left - margin.right,
+      width = 1000 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
     // add parse date and y-axis formatting functions
@@ -16,14 +16,10 @@ const multiLinechartModule = (function() {
     // define the lines
     var totalspend = d3
       .line()
-      .x(function(d) {
-        return x(d.parsedDate);
-      })
-      .y(function(d) {
-        return y(+d.contractdollars);
-      });
+      .x(d => x(d.parsedDate))
+      .y(d => y(+d.contractdollars));
 
-    // Add SVG Canvas
+    // Add SVG
     var svg = d3
       .select("#svg-1")
       .attr("width", width + margin.left + margin.right)
@@ -31,75 +27,91 @@ const multiLinechartModule = (function() {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    data.forEach(function(d) {
-      d.parsedDate = parseDate(d.date);
-    });
+    data.forEach(d => (d.parsedDate = parseDate(d.date)));
 
     // Scale the range for WeeklyDataTotals
-    x.domain(
-      d3.extent(data, function(d) {
-        return d.parsedDate;
-      })
-    );
-    y.domain([
-      0,
-      d3.max(data, function(d) {
-        return d.contractdollars;
-      })
-    ]);
+    x.domain(d3.extent(data, d => d.parsedDate));
+    y.domain([0, d3.max(data, d => d.contractdollars)]);
 
-    // Nest the lines by contract type "type"
+    // Organize data
     var dataNest = d3
       .nest()
-      .key(function(d) {
-        return d.category;
-      })
+      .key(d => d.category)
       .entries(data);
+
     var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    // Add spacing specification for the legend
-    var legendSpace = 10;
-    var legendRectHeight = 2;
-    var legendRectWidth = 30;
+    const path = svg
+      .selectAll("path")
+      .data(dataNest)
+      .enter()
+      .append("path")
+      .attr("class", "line")
+      .style("stroke", d => (d.color = color(d.key)))
+      .attr("d", d => totalspend(d.values))
+      .each(function(d) {
+        d.totalLength = this.getTotalLength();
+      })
+      .attr("stroke-dasharray", d => d.totalLength)
+      .attr("stroke-dashoffset", d => d.totalLength)
+      .transition()
+      .duration(4000)
+      .attr("stroke-dashoffset", "0");
 
-    // Loop through each Type
-    dataNest.forEach(function(d, i) {
-      svg
-        .append("path")
-        .attr("class", "line")
-        .style("stroke", function() {
-          return (d.color = color(d.key));
-        })
-        .attr("d", totalspend(d.values));
-      // Add legend
-      svg
-        .append("text")
-        .attr("class", "legend")
-        .attr("id", "legend-text-" + i)
-        .attr("x", width - 7 * margin.right)
-        .attr("y", legendSpace * i * 2 + margin.top / 2)
-        .style("fill", function() {
-          return (d.color = color(d.key));
-        })
-        .style("font-size", "12px")
-        .style("font-family", "sans-serif")
-        .text(d.key);
-    });
-    // Add Axis
+    // draw gridlines
+    chartModule.drawYAxisGridlines(svg, y, width, 10);
+
+    // Add X Axis
     svg
       .append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(
+        xAxisFormat === "week"
+          ? d3
+              .axisBottom(x)
+              // .ticks(6)
+              .tickFormat(d3.timeFormat("%B"))
+          : d3
+              .axisBottom(x)
+              // .ticks(3)
+              .tickFormat(d3.timeFormat("%Y"))
+      );
+
     // Add Y axis
     svg
       .append("g")
       .attr("class", "axis")
       .call(
-        d3.axisLeft(y).tickFormat(function(d) {
-          return formatAsMillions(d).replace("G", " billion");
-        })
+        d3
+          .axisLeft(y)
+          .ticks(10)
+          .tickFormat(d =>
+            formatAsMillions(d)
+              .replace("G", " billion")
+              .replace("M", " million")
+          )
       );
+
+    const legendSpace = 10;
+    const legendRectHeight = 2;
+    const legendRectWidth = 30;
+
+    svg
+      .selectAll(".legend")
+      .data(dataNest)
+      .enter()
+      .append("text")
+      .attr("class", "legend")
+      .attr("id", "legend-text-" + i)
+      .attr("x", width)
+      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
+      .style("fill", d => (d.color = color(d.key)))
+      .style("font-size", "12px")
+      .style("font-family", "sans-serif")
+      .style("text-anchor", "end")
+      .style("alignment-baseline", "hanging")
+      .text(d => d.key);
   }
 
   function remove(cb) {

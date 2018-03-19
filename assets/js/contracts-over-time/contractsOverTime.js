@@ -25,14 +25,14 @@ $(function() {
     },
     {
       id: "panel-2",
-      module: linechartModule,
+      module: multiLinechartModule,
       datasetLoader: loadWeeklyAverages,
       dataset: "weeklyAverages",
       xAxis: "week"
     },
     {
       id: "panel-3",
-      module: linechartModule,
+      module: multiLinechartModule,
       datasetLoader: loadWeeklyTotals,
       dataset: "weeklyTotals",
       xAxis: "year"
@@ -41,13 +41,15 @@ $(function() {
       id: "panel-4",
       module: multiLinechartModule,
       datasetLoader: loadContractDataByCategory,
-      dataset: "contractDataByCategory"
+      dataset: "contractDataByCategory",
+      xAxis: "year"
     },
     {
       id: "panel-5",
       module: multiLinechartModule,
       datasetLoader: loadContractDataByPSC,
-      dataset: "contractDataByPSC"
+      dataset: "contractDataByPSC",
+      xAxis: "year"
     }
   ];
 
@@ -76,7 +78,14 @@ $(function() {
 
       const { module, dataset, xAxis } = postChangePanel;
 
-      preChangePanel.module.remove(() => module.draw(mem[dataset], xAxis));
+      d3
+        .select("#svg-1")
+        .selectAll("*")
+        .transition()
+        .style("opacity", 0)
+        .remove();
+
+      setTimeout(() => module.draw(mem[dataset], xAxis, 400));
     };
 
     // parallax variables
