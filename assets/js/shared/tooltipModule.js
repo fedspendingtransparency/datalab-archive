@@ -17,19 +17,20 @@ const tooltipModule = (function() {
 
     function toolTipHtml(title, information) {
       const html = `
-      <p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px">
-        <b style="color:#555555">${title}</b>
+      <p class="title">
+        <b>${title}</b>
       </p>
-      <b style="color:#555555">
-        <br>
+      <br>
+      <div class="information">
         ${Object.entries(information).reduce((a, c) => {
           a += `
-            <p style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; color: #7cd6f8;">${c[0]}</p>
-            <p style="font-size: 20px; font-weight: normal; margin:0; line-height: 16px padding-top:"2px";>${c[1]}</p>
+            <p class="key">${c[0]}</p>
+            <p class="val">${c[1]}</p>
             `;
           return a;
         }, "")}
-      </b>`;
+      <div />  
+      `;
 
       return html;
     }
