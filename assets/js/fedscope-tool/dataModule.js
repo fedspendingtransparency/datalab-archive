@@ -1,4 +1,7 @@
-const dataModule = function() {
+---
+---
+
+const dataModule = (function() {
   const mem = {};
 
   function loadStates(cb) {
@@ -64,4 +67,4 @@ const dataModule = function() {
     loadOccupationCategories,
     mem
   };
-};
+})();

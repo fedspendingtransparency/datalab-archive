@@ -1,3 +1,6 @@
+---
+---
+
 const parallaxModule = (function() {
   function findParallaxStatus(onChangeCB) {
     const elements = $.makeArray($(".left"));

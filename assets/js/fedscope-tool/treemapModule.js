@@ -1,4 +1,7 @@
-const treemapModule = function() {
+---
+---
+
+const treemapModule = (function() {
   var svg = d3.select("#treemapSvg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
@@ -53,23 +56,21 @@ const treemapModule = function() {
 
     function handleMouseOver(d) {
       const formatNumber = d3.format("$,d");
-      tooltipModuleDraw(agencies[d.data.agencyId].name, {
+      tooltipModule.draw("#tooltip", agencies[d.data.agencyId].name, {
         "Employee Salaries": formatNumber(d.value)
       });
       d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
-      tooltipModuleRemove();
+      tooltipModule.remove("#tooltip");
       d3.select(this).style("fill", "#6E9BA3");
     }
 
     function handleMouseMove() {
-      tooltipModuleMove();
+      tooltipModule.move("#tooltip");
     }
   }
 
   return { draw };
-};
-
-// cloudfront
+})();

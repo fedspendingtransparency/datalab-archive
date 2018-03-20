@@ -1,5 +1,8 @@
-const mapModule = function() {
-  function draw(data, { states, tooltipModuleDraw }) {
+---
+---
+
+const mapModule = (function() {
+  function draw(data, { states }) {
     let filteredData = [...data];
 
     const initialStateData = Object.keys(states).reduce((a, c) => {
@@ -20,19 +23,19 @@ const mapModule = function() {
 
     function handleMouseOver(d) {
       const formatNumber = d3.format(",d");
-      tooltipModuleDraw(d.name, {
+      tooltipModule.draw("#tooltip", d.name, {
         Employees: formatNumber(dataByState[d.abbreviation])
       });
       d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
-      tooltipModuleRemove();
+      tooltipModule.remove("#tooltip");
       d3.select(this).style("fill", d => color(dataByState[d.abbreviation]));
     }
 
     function handleMouseMove() {
-      tooltipModuleMove();
+      tooltipModule.move("#tooltip");
     }
 
     d3
@@ -51,6 +54,4 @@ const mapModule = function() {
       .on("mouseout", handleMouseOut);
   }
   return { draw };
-};
-
-
+})();

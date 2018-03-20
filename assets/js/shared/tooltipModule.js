@@ -1,13 +1,16 @@
-const tooltipModule = function() {
-  function draw(title, information) {
+---
+---
+
+const tooltipModule = (function() {
+  function draw(tooltipId, title, information) {
     d3
-      .select("#tooltip")
+      .select(tooltipId)
       .transition()
       .duration(200)
       .style("opacity", 1);
 
     d3
-      .select("#tooltip")
+      .select(tooltipId)
       .html(toolTipHtml(title, information))
       .style("left", `${d3.event.pageX}px`)
       .style("top", `${d3.event.pageY}px`);
@@ -32,21 +35,21 @@ const tooltipModule = function() {
     }
   }
 
-  function remove() {
+  function remove(tooltipId) {
     d3
-      .select("#tooltip")
+      .select(tooltipId)
       .transition()
       .duration(500)
       .style("opacity", 0)
       .style("pointer-events", "none");
   }
 
-  function move() {
+  function move(tooltipId) {
     d3
-      .select("#tooltip")
+      .select(tooltipId)
       .style("left", `${d3.event.pageX + 10}px`)
       .style("top", `${d3.event.pageY + 10}px`);
   }
 
   return { draw, remove, move };
-};
+})();
