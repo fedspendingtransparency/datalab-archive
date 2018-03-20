@@ -1,3 +1,6 @@
+---
+---
+
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
     // set chart dimensions
