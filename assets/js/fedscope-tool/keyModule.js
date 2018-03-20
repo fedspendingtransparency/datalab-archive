@@ -1,3 +1,6 @@
+---
+---
+
 const keyModule = (function() {
   function draw(id, keyData, keySettings) {
     const { orientation, fontSize, shape, spacing, borderWidth } = keySettings;

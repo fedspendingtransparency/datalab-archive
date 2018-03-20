@@ -1,3 +1,6 @@
+---
+---
+
 const barchartModule = (function() {
   var svg = d3.select("#barchartSvg"),
     margin = { top: 10, right: 80, bottom: 110, left: 90 },
