@@ -14,6 +14,7 @@ $(function() {
     loadWeeklyAverages,
     loadContractDataByCategory,
     loadContractDataByPSC,
+    loadWeeklyContractSpendwithBudgetDates,
     mem
   } = dataModule;
 
@@ -52,6 +53,13 @@ $(function() {
       module: multiLinechartModule,
       datasetLoader: loadContractDataByPSC,
       dataset: "contractDataByPSC",
+      xAxis: "year"
+    },
+    {
+      id: "panel-6",
+      module: multiLinechartModule,
+      datasetLoader: loadWeeklyContractSpendwithBudgetDates,
+      dataset: "weeklyContractSpendwithBudgetDates",
       xAxis: "year"
     }
   ];

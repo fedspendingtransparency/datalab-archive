@@ -65,12 +65,24 @@ const dataModule = (function() {
     );
   }
 
+  function loadWeeklyContractSpendwithBudgetDates(cb) {
+    d3.json(
+      "../../../data-lab-data/contracts-over-time/6_WeeklyContractSpendwithBudgetDates.json",
+      function(error, data) {
+        if (error) throw error;
+        mem.weeklyContractSpendwithBudgetDates = data;
+        if (cb) cb(data);
+      }
+    );
+  }
+
   return {
     loadAwardsByYear,
     loadWeeklyTotals,
     loadWeeklyAverages,
     loadContractDataByCategory,
     loadContractDataByPSC,
+    loadWeeklyContractSpendwithBudgetDates,
     mem
   };
 })();
