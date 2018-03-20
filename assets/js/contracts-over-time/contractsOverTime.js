@@ -1,3 +1,6 @@
+---
+---
+
 $(function() {
   const {
     orientParallaxSection,

@@ -1,3 +1,6 @@
+---
+---
+
 const barchartModule = (function() {
   function draw(data) {
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
