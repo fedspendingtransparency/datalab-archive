@@ -1,12 +1,4 @@
 $(function() {
-  tooltipModuleDraw = tooltipModule().draw;
-  tooltipModuleRemove = tooltipModule().remove;
-  tooltipModuleMove = tooltipModule().move;
-  treemapModuleDraw = treemapModule().draw;
-  mapModuleDraw = mapModule().draw;
-  barchartModuleDraw = barchartModule().draw;
-  keyModuleDraw = keyModule.draw;
-
   const {
     loadEmployeeCountData,
     loadEmployeeSalaryData,
@@ -14,26 +6,19 @@ $(function() {
     loadAgencies,
     loadOccupationCategories,
     mem
-  } = dataModule();
+  } = dataModule;
 
   loadStates(states => {
     loadAgencies(agencies => {
       loadOccupationCategories(occupationCategories => {
-        loadEmployeeCountData([mapModuleDraw, barchartModuleDraw], {
+        loadEmployeeCountData([mapModule.draw, barchartModule.draw], {
           states,
           agencies,
-          occupationCategories,
-          tooltipModuleDraw,
-          tooltipModuleRemove,
-          tooltipModuleMove,
-          keyModuleDraw
+          occupationCategories
         });
 
-        loadEmployeeSalaryData([treemapModuleDraw], {
-          agencies,
-          tooltipModuleDraw,
-          tooltipModuleRemove,
-          tooltipModuleMove
+        loadEmployeeSalaryData([treemapModule.draw], {
+          agencies
         });
 
         const sorter = (a, b) => {
@@ -79,12 +64,9 @@ $(function() {
       );
     }
 
-    mapModuleDraw(newData, {
+    mapModule.draw(newData, {
       states,
-      occupationCategories,
-      tooltipModuleDraw,
-      tooltipModuleRemove,
-      tooltipModuleMove
+      occupationCategories
     });
   });
 
@@ -98,12 +80,9 @@ $(function() {
 
       const { employeeCounts, states, occupationCategories } = mem;
 
-      mapModuleDraw([...employeeCounts], {
+      mapModule.draw([...employeeCounts], {
         states,
-        occupationCategories,
-        tooltipModuleDraw,
-        tooltipModuleRemove,
-        tooltipModuleMove
+        occupationCategories
       });
     });
 
@@ -126,11 +105,9 @@ $(function() {
       );
     }
 
-    barchartModuleDraw(newData, {
+    barchartModule.draw(newData, {
       agencies,
-      occupationCategories,
-      keyModuleDraw,
-      tooltipModuleDraw
+      occupationCategories
     });
   });
 
@@ -144,13 +121,9 @@ $(function() {
 
       const { employeeCounts, states, occupationCategories } = mem;
 
-      barchartModuleDraw([...employeeCounts], {
+      barchartModule.draw([...employeeCounts], {
         states,
-        occupationCategories,
-        tooltipModuleDraw,
-        tooltipModuleRemove,
-        tooltipModuleMove,
-        keyModuleDraw
+        occupationCategories
       });
     });
 });

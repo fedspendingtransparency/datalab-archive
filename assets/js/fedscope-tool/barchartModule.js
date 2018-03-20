@@ -1,4 +1,4 @@
-const barchartModule = function() {
+const barchartModule = (function() {
   var svg = d3.select("#barchartSvg"),
     margin = { top: 10, right: 80, bottom: 110, left: 90 },
     width = +svg.attr("width") - margin.left - margin.right,
@@ -25,11 +25,8 @@ const barchartModule = function() {
     }
   }
 
-  function draw(
-    data,
-    { agencies, occupationCategories, tooltipModuleDraw, keyModuleDraw }
-  ) {
-    keyModuleDraw(
+  function draw(data, { agencies, occupationCategories }) {
+    keyModule.draw(
       "barchartKey",
       [
         {
@@ -138,19 +135,19 @@ const barchartModule = function() {
 
     function handleMouseOver(d) {
       const formatNumber = d3.format(",d");
-      tooltipModuleDraw(d.occupationCategoryName, {
+      tooltipModule.draw(d.occupationCategoryName, {
         Employees: formatNumber(d.employeeCount)
       });
     }
 
     function handleMouseOut() {
-      tooltipModuleRemove();
+      tooltipModule.remove();
     }
 
     function handleMouseMove() {
-      tooltipModuleMove();
+      tooltipModule.move();
     }
   }
 
   return { draw };
-};
+})();

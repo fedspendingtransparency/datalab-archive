@@ -1,4 +1,4 @@
-const tooltipModule = function() {
+const tooltipModule = (function() {
   function draw(title, information) {
     d3
       .select("#tooltip")
@@ -49,4 +49,4 @@ const tooltipModule = function() {
   }
 
   return { draw, remove, move };
-};
+})();
