@@ -138,17 +138,17 @@ const barchartModule = (function() {
 
     function handleMouseOver(d) {
       const formatNumber = d3.format(",d");
-      tooltipModule.draw(d.occupationCategoryName, {
+      tooltipModule.draw("#tooltip", d.occupationCategoryName, {
         Employees: formatNumber(d.employeeCount)
       });
     }
 
     function handleMouseOut() {
-      tooltipModule.remove();
+      tooltipModule.remove("#tooltip");
     }
 
     function handleMouseMove() {
-      tooltipModule.move();
+      tooltipModule.move("#tooltip");
     }
   }
 

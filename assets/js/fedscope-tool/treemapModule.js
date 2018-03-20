@@ -56,19 +56,19 @@ const treemapModule = (function() {
 
     function handleMouseOver(d) {
       const formatNumber = d3.format("$,d");
-      tooltipModule.draw(agencies[d.data.agencyId].name, {
+      tooltipModule.draw("#tooltip", agencies[d.data.agencyId].name, {
         "Employee Salaries": formatNumber(d.value)
       });
       d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
-      tooltipModule.remove();
+      tooltipModule.remove("#tooltip");
       d3.select(this).style("fill", "#6E9BA3");
     }
 
     function handleMouseMove() {
-      tooltipModule.move();
+      tooltipModule.move("#tooltip");
     }
   }
 

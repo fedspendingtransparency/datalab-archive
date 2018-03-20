@@ -23,19 +23,19 @@ const mapModule = (function() {
 
     function handleMouseOver(d) {
       const formatNumber = d3.format(",d");
-      tooltipModule.draw(d.name, {
+      tooltipModule.draw("#tooltip", d.name, {
         Employees: formatNumber(dataByState[d.abbreviation])
       });
       d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
-      tooltipModule.remove();
+      tooltipModule.remove("#tooltip");
       d3.select(this).style("fill", d => color(dataByState[d.abbreviation]));
     }
 
     function handleMouseMove() {
-      tooltipModule.move();
+      tooltipModule.move("#tooltip");
     }
 
     d3
