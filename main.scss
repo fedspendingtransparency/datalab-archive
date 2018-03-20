@@ -383,6 +383,11 @@ header.major h2 {
 	padding: 0;
 }
 
+.viz-section:last-of-type {
+	padding-bottom: 90px;
+	background-color: #E2DFEC;
+}
+
 .viz-container {
 	padding: 25px;
 	height: 90%;
@@ -684,7 +689,7 @@ header.major h2 {
 	float: right;
 }
 
-.wrapper.style1 {
+.resources-background {
 	background: repeating-linear-gradient(
 		-45deg,
 		#252a32,
