@@ -365,7 +365,7 @@ header.major h2 {
 	height: 99%;
 	width: 99%;
 	border: 1px solid $silver;
-	border-radius: 50px;
+	border-radius: 25px;
 	background-color: #FFFFFF;
 	margin: auto;
 }
@@ -373,8 +373,6 @@ header.major h2 {
 .viz-actions {
 	height: 76px;
 	width: 100%;
-	border: 1px solid #BEBBBB;
-	background-color: #E8EAF5;
 	margin: 0 auto;
 	position: relative;
 }
@@ -687,6 +685,7 @@ header.major h2 {
 
 .float-right {
 	float: right;
+	margin-right: 5px;
 }
 
 .resources-background {
