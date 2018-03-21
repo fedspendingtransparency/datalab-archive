@@ -1,5 +1,5 @@
----
----
+// ---
+// ---
 
 const barchartModule = (function() {
   function draw(data) {
@@ -20,9 +20,8 @@ const barchartModule = (function() {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    data.forEach(d => (d.totalbyyear = +d.totalbyyear));
-    x.domain(data.map(d => d.fiscalyear));
-    y.domain([0, d3.max(data, d => d.totalbyyear)]);
+    x.domain(data.map(d => d.fiscalYear));
+    y.domain([0, d3.max(data, d => d.val)]);
 
     const bar = svg.selectAll(".bar").data(data);
 
@@ -30,7 +29,9 @@ const barchartModule = (function() {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", d => x(d.fiscalyear))
+      .attr("x", d => {
+        return x(d.fiscalYear);
+      })
       .attr("width", x.bandwidth())
       .attr("y", height)
       .attr("height", 0)
@@ -38,8 +39,8 @@ const barchartModule = (function() {
       .transition()
       .duration(800)
       .style("opacity", 1)
-      .attr("y", d => y(d.totalbyyear))
-      .attr("height", d => height - y(d.totalbyyear));
+      .attr("y", d => y(d.val))
+      .attr("height", d => height - y(d.val));
 
     svg
       .append("g")

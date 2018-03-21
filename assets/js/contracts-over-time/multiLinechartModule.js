@@ -20,7 +20,7 @@ const multiLinechartModule = (function() {
     var totalspend = d3
       .line()
       .x(d => x(d.parsedDate))
-      .y(d => y(+d.contractdollars));
+      .y(d => y(d.val));
 
     // Add SVG
     var svg = d3
@@ -30,28 +30,32 @@ const multiLinechartModule = (function() {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    data.forEach(d => (d.parsedDate = parseDate(d.date)));
+    Object.entries(data.lineData).forEach(d =>
+      d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
+    );
+    Object.entries(data.verticalLineData).forEach(d =>
+      d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
+    );
 
-    // Scale the range for WeeklyDataTotals
-    x.domain(d3.extent(data, d => d.parsedDate));
-    y.domain([0, d3.max(data, d => d.contractdollars)]);
+    const combinedLineData = Object.entries(data.lineData).reduce((a, c) => {
+      const a2 = [...a, ...c[1]];
+      return a2;
+    }, []);
 
-    // Organize data
-    var dataNest = d3
-      .nest()
-      .key(d => d.category)
-      .entries(data);
+    // Scale the domains
+    x.domain(d3.extent(combinedLineData, d => d.parsedDate));
+    y.domain([0, d3.max(combinedLineData, d => d.val)]);
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
 
     const path = svg
       .selectAll("path")
-      .data(dataNest)
+      .data(Object.entries(data.lineData))
       .enter()
       .append("path")
       .attr("class", "line")
-      .style("stroke", d => (d.color = color(d.key)))
-      .attr("d", d => totalspend(d.values))
+      .style("stroke", d => color(d[0]))
+      .attr("d", d => totalspend(d[1]))
       .each(function(d) {
         d.totalLength = this.getTotalLength();
       })
@@ -102,7 +106,7 @@ const multiLinechartModule = (function() {
 
     svg
       .selectAll(".legend")
-      .data(dataNest)
+      .data(data.lineData)
       .enter()
       .append("text")
       .attr("class", "legend")

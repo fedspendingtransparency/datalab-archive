@@ -9,12 +9,7 @@ $(function() {
   } = parallaxModule;
 
   const {
-    loadAwardsByYear,
-    loadWeeklyTotals,
-    loadWeeklyAverages,
-    loadContractDataByCategory,
-    loadContractDataByPSC,
-    loadWeeklyContractSpendwithBudgetDates,
+    loadPanelData,
     mem
   } = dataModule;
 
@@ -23,43 +18,37 @@ $(function() {
     {
       id: "panel-1",
       module: barchartModule,
-      datasetLoader: loadAwardsByYear,
-      dataset: "awardsByYear",
+      dataset: "panel1",
       xAxis: "year"
     },
     {
       id: "panel-2",
       module: multiLinechartModule,
-      datasetLoader: loadWeeklyAverages,
-      dataset: "weeklyAverages",
+      dataset: "panel2",
       xAxis: "week"
     },
     {
       id: "panel-3",
       module: multiLinechartModule,
-      datasetLoader: loadWeeklyTotals,
-      dataset: "weeklyTotals",
+      dataset: "panel3",
       xAxis: "year"
     },
     {
       id: "panel-4",
       module: multiLinechartModule,
-      datasetLoader: loadContractDataByCategory,
-      dataset: "contractDataByCategory",
+      dataset: "panel4",
       xAxis: "year"
     },
     {
       id: "panel-5",
       module: multiLinechartModule,
-      datasetLoader: loadContractDataByPSC,
-      dataset: "contractDataByPSC",
+      dataset: "panel5",
       xAxis: "year"
     },
     {
       id: "panel-6",
       module: multiLinechartModule,
-      datasetLoader: loadWeeklyContractSpendwithBudgetDates,
-      dataset: "weeklyContractSpendwithBudgetDates",
+      dataset: "panel6",
       xAxis: "year"
     }
   ];
@@ -68,10 +57,10 @@ $(function() {
   findAndOriendParallax();
 
   // load dataset 1 and draw barchart
-  loadAwardsByYear(barchartModule.draw);
+  loadPanelData("panel1", barchartModule.draw);
 
   // load remaining datasets
-  panels.forEach(p => p.datasetLoader());
+  panels.forEach(p => loadPanelData(p.dataset));
 
   // handle scroll events
   $(window).scroll(() => {
