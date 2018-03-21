@@ -1,5 +1,5 @@
-// ---
-// ---
+---
+---
 
 const barchartModule = (function() {
   function draw(data) {
