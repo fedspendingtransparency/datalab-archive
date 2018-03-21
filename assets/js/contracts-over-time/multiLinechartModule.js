@@ -46,15 +46,30 @@ const multiLinechartModule = (function() {
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    // var lineColor = d3
+    //   .scaleOrdinal(["f2f1f8", "222043"])
+    //   .domain([0, Object.keys(data.lineData).length - 1]);
 
-    const path = svg
-      .selectAll("path")
+    var lineColor = d3
+      .scaleLinear()
+      .range(["#FF1379", "#28AFFF"])
+      .domain([0, Object.keys(data.lineData).length - 1]);
+    var verticalLineColor = d3
+      .scaleLinear()
+      .range(["#06FF9E", "#FFCD1A"])
+      .domain([0, Object.keys(data.verticalLineData).length - 1]);
+    // var verticalLineColor = d3
+    //   .scaleOrdinal(d3.schemeCategory10)
+    //   .domain([0, Object.keys(data.verticalLineData).length - 1]);
+
+    // draw lines
+    svg
+      .selectAll(".line")
       .data(Object.entries(data.lineData))
       .enter()
       .append("path")
       .attr("class", "line")
-      .style("stroke", d => color(d[0]))
+      .style("stroke", (d, i) => lineColor(i))
       .attr("d", d => totalspend(d[1]))
       .each(function(d) {
         d.totalLength = this.getTotalLength();
@@ -64,6 +79,29 @@ const multiLinechartModule = (function() {
       .transition()
       .duration(4000)
       .attr("stroke-dashoffset", "0");
+
+    // draw vertical lines
+    Object.entries(data.verticalLineData).forEach((l, i) => {
+      svg
+        .selectAll(`.vertical-line-${i}`)
+        .data(l[1])
+        .enter()
+        .append("line")
+        .attr("class", `.vertical-line-${i}`)
+        .style("stroke", () => verticalLineColor(i))
+        .attr("x1", d => x(d.parsedDate))
+        .attr("y1", height)
+        .attr("x2", d => x(d.parsedDate))
+        .attr("y2", 0)
+        .each(function(d) {
+          d.totalLength = this.getTotalLength();
+        })
+        .attr("stroke-dasharray", d => d.totalLength)
+        .attr("stroke-dashoffset", d => d.totalLength)
+        .transition()
+        .duration(4000)
+        .attr("stroke-dashoffset", "0");
+    });
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
@@ -75,14 +113,8 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + height + ")")
       .call(
         xAxisFormat === "week"
-          ? d3
-              .axisBottom(x)
-              // .ticks(6)
-              .tickFormat(d3.timeFormat("%B"))
-          : d3
-              .axisBottom(x)
-              // .ticks(3)
-              .tickFormat(d3.timeFormat("%Y"))
+          ? d3.axisBottom(x).tickFormat(d3.timeFormat("%B"))
+          : d3.axisBottom(x).tickFormat(d3.timeFormat("%Y"))
       );
 
     // Add Y axis
@@ -105,20 +137,42 @@ const multiLinechartModule = (function() {
     const legendRectWidth = 30;
 
     svg
-      .selectAll(".legend")
-      .data(data.lineData)
+      .append("g")
+      .attr("class", "legend legend1")
+      .append("g")
+      .attr("class", "legend-items legend1-items")
+      .selectAll(".legend1-item")
+      .data(Object.keys(data.lineData))
       .enter()
       .append("text")
-      .attr("class", "legend")
-      .attr("id", "legend-text-" + i)
+      .attr("class", "legend-item legend1-item")
       .attr("x", width)
       .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
-      .style("fill", d => (d.color = color(d.key)))
+      .style("fill", (d, i) => lineColor(i))
       .style("font-size", "12px")
       .style("font-family", "sans-serif")
       .style("text-anchor", "end")
       .style("alignment-baseline", "hanging")
-      .text(d => d.key);
+      .text(d => d);
+
+    // add keys for vertical line data
+    svg
+      .append("g")
+      .attr("class", "legend legend2")
+      .append("g")
+      .attr("class", "legend-items legend2-items")
+      .selectAll(".legend2-item")
+      .data(Object.keys(data.verticalLineData))
+      .enter()
+      .append("text")
+      .attr("class", "legend-item legend2-item")
+      .attr("x", 10)
+      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
+      .style("fill", (d, i) => verticalLineColor(i))
+      .style("font-size", "12px")
+      .style("font-family", "sans-serif")
+      .style("alignment-baseline", "hanging")
+      .text(d => d);
   }
 
   function remove(cb) {
