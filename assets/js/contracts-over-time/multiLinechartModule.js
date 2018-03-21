@@ -46,10 +46,6 @@ const multiLinechartModule = (function() {
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
 
-    // var lineColor = d3
-    //   .scaleOrdinal(["f2f1f8", "222043"])
-    //   .domain([0, Object.keys(data.lineData).length - 1]);
-
     var lineColor = d3
       .scaleLinear()
       .range(["#FF1379", "#28AFFF"])
@@ -58,9 +54,6 @@ const multiLinechartModule = (function() {
       .scaleLinear()
       .range(["#06FF9E", "#FFCD1A"])
       .domain([0, Object.keys(data.verticalLineData).length - 1]);
-    // var verticalLineColor = d3
-    //   .scaleOrdinal(d3.schemeCategory10)
-    //   .domain([0, Object.keys(data.verticalLineData).length - 1]);
 
     // draw lines
     svg
