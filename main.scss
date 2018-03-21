@@ -370,6 +370,16 @@ header.major h2 {
 	margin: auto;
 }
 
+.copy-text {
+	width: 16px;
+	height: 16px;
+}
+
+.copy-text:hover {
+	cursor: pointer;
+	fill: #666;
+}
+
 .viz-actions {
 	height: 76px;
 	width: 100%;
