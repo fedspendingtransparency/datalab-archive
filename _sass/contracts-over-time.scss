@@ -9,8 +9,6 @@
     width: 40%;
     display: block;
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     flex-direction: column;
     text-align: left;
   }
@@ -25,7 +23,6 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    // text-align: center;
     justify-content: center;
     align-items: center;
   }
@@ -43,13 +40,6 @@
     bottom: 0px;
   }
 
-  // .a {
-  //   background-color: aquamarine;
-  // }
-  // .b {
-  //   background-color: lightblue;
-  // }
-
   .filler-section {
     height: 1200px;
     background-color: lemonchiffon;
@@ -57,17 +47,13 @@
 
   .scroll-breakpoint {
     position: fixed;
-    // border-bottom: 1px solid black;
     width: 100%;
-    // z-index: 1;
     top: 0;
   }
 
   .scroll-triggerpoint {
     position: fixed;
     width: 100%;
-    // z-index: 1;
-    // border-bottom-style: dotted;
     top: 0;
   }
 
