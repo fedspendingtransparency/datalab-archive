@@ -29,9 +29,7 @@ const barchartModule = (function() {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", d => {
-        return x(d.fiscalYear);
-      })
+      .attr("x", d => x(d.fiscalYear))
       .attr("width", x.bandwidth())
       .attr("y", height)
       .attr("height", 0)
