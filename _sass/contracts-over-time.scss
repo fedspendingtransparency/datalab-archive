@@ -118,6 +118,16 @@
   }
 
   .bar {
-    fill: #1cb2ee
+    fill: #1cb2ee;
+  }
+
+  .viz-section {
+    background-color: #333333 !IMPORTANT;
+  }
+
+  svg {
+    text {
+      fill: #fff;
+    }
   }
 }
