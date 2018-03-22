@@ -9,8 +9,10 @@
     width: 40%;
     display: block;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+    text-align: left;
   }
 
   .section {
@@ -23,7 +25,7 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    // text-align: center;
     justify-content: center;
     align-items: center;
   }
@@ -41,12 +43,12 @@
     bottom: 0px;
   }
 
-  .a {
-    background-color: aquamarine;
-  }
-  .b {
-    background-color: lightblue;
-  }
+  // .a {
+  //   background-color: aquamarine;
+  // }
+  // .b {
+  //   background-color: lightblue;
+  // }
 
   .filler-section {
     height: 1200px;
@@ -87,8 +89,11 @@
   }
 
   .panel-text {
-    padding: 70px;
+    margin: 70px;
+    padding: 10px;
     font-size: 12px;
+    background: #fff;
+    border-radius: 10px;
   }
 
   .line {
@@ -110,5 +115,9 @@
 
   .grid path {
     stroke-width: 0;
+  }
+
+  .bar {
+    fill: #1cb2ee
   }
 }
