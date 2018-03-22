@@ -381,10 +381,11 @@ header.major h2 {
 }
 
 .viz-actions {
-	height: 76px;
+	height: 100px;
 	width: 100%;
-	margin: 0 auto;
-	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .wrapper {
@@ -544,11 +545,11 @@ header.major h2 {
 
 .viz-share-icon {
     display: inline-block;
-	width: 18px;
-	height: 18px;
-    margin-left: 0;
-    margin-bottom: -4px;
-    fill: #FFFFFF;
+    width: 18px;
+    height: 18px;
+    vertical-align: sub;
+    margin-right: 5px;
+    fill: #5b6160;
 }
 
 .hamburger-icon {
@@ -689,15 +690,6 @@ header.major h2 {
 	display: table;
 }
 
-.float-left {
-	float: left;
-}
-
-.float-right {
-	float: right;
-	margin-right: 5px;
-}
-
 .resources-background {
 	background: repeating-linear-gradient(
 		-45deg,
@@ -817,7 +809,7 @@ header.major h2 {
 }
 
 .homeless-map-options {
-	margin-top: 20px;
+	
 }
 
 .homeless-style {
@@ -955,14 +947,15 @@ article > header {
 }
 
 .action-button {
-	display: inline-block;
-	color: #5B616B;
-	border: 1px solid $silver;
-	border-radius: 50px;
-	margin: 15px 0 0 15px;
-	font-weight: lighter;
-	cursor: pointer;
-	padding: 5px 20px;
+    display: inline-block;
+    color: #5B616B;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 0 5px 0 15px;
+    font-weight: lighter;
+    cursor: pointer;
+    padding: 5px 30px;
+    font-size: 16px;
 }
 
 .action-button:hover {
@@ -970,11 +963,11 @@ article > header {
 }
 
 .share-viz-button {
-	color: #FFFFFF;
-	background-color: $shuttle-grey;
-	border: 1px solid $silver;
-	border-radius: 50px;
-	margin: 15px 15px 0 15px;
+	color: #333;
+    background-color: #FFF;
+    border: 1px solid $silver;
+    border-radius: 50px;
+    margin: 0 35px 0 15px;
 }
 
 .get-involved-button {
