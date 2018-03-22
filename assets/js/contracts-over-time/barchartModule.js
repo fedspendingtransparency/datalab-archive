@@ -4,7 +4,7 @@
 const barchartModule = (function() {
   function draw(data) {
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
-      width = 800 - margin.left - margin.right,
+      width = 1000 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
     var x = d3
