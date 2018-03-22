@@ -762,12 +762,9 @@ header.major h2 {
     top: 65px;
 }
 
-.popup .popuptext.left {
-	left: 70px;
-}
-
 .popup .popuptext.right {
-	right: 22px;
+	right: 0px;
+    top: 50px;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -973,7 +970,8 @@ article > header {
     background-color: #FFF;
     border: 1px solid $silver;
     border-radius: 50px;
-    margin: 0 35px 0 15px;
+	margin: 0 35px 0 15px;
+	position: relative;
 }
 
 .get-involved-button {
