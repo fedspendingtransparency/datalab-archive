@@ -959,7 +959,12 @@ article > header {
 }
 
 .action-button:hover {
-	background-color: $silver;
+	background-color: #0C99CD;
+   	color: #FFF;
+}
+
+.action-button:hover .viz-share-icon {
+	fill: #FFF;
 }
 
 .share-viz-button {
