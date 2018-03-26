@@ -81,7 +81,10 @@
     font-size: 12px;
     background: #fff;
     border-radius: 10px;
-  }
+    line-height: 22px;
+    color: #5B616B;
+    padding: 30px;
+ }
 
   .line {
     fill: none;
@@ -114,7 +117,7 @@
 
   svg {
     text {
-      fill: #fff;
+      fill: #D0CCCC;
     }
   }
 }
