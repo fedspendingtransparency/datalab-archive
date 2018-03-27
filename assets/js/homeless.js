@@ -401,8 +401,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               var map_svg = d3.select('#map_container')
                 .append('svg')
                 .attr('id', 'svg')
-                .attr('width', '950px')
-                .attr('height', '575px');
+                .attr('width', '100%')
+                .attr('height', '575px')
+                .attr('viewBox', '0 0 950 575')
+                .attr('preserveAspectRatio', 'xMidYMid meet');
 
               var tip = d3.tip()
                 .attr('class', 'homeless-analysis d3-tip')
