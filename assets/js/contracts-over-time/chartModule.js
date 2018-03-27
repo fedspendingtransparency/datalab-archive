@@ -33,8 +33,8 @@ const chartModule = (function() {
 
   const formatNumberAsText = d =>
     d3.format(".2s")(d)
-      .replace("G", "billion")
-      .replace("M", "million");
+      .replace("G", " billion")
+      .replace("M", " million");
 
   return {
     drawXAxisGridlines,

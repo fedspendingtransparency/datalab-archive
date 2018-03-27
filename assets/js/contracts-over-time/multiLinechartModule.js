@@ -10,7 +10,7 @@ const multiLinechartModule = (function() {
 
     // add parse date and y-axis formatting functions
     var parseDate = d3.timeParse("%Y-%m-%d");
-    var formatAsMillions = d3.format(".2s");
+    // var formatAsMillions = d3.format(".2s");
 
     // line value ranges
     var x = d3.scaleTime().range([0, width]);
@@ -118,11 +118,7 @@ const multiLinechartModule = (function() {
         d3
           .axisLeft(y)
           .ticks(10)
-          .tickFormat(d =>
-            formatAsMillions(d)
-              .replace("G", " billion")
-              .replace("M", " million")
-          )
+          .tickFormat(chartModule.formatNumberAsText)
       );
 
     const legendSpace = 10;
