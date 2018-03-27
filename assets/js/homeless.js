@@ -1212,7 +1212,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('width', '100%')
                 .attr('height', map_height + margin.top + margin.bottom + 40)
                 .style('margin-left', -margin.left / 2.5 + 'px')
-                .attr('transform', 'translate(' + 0 + ',' + 10 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 10 + ')')
+                .attr('viewBox', '0 0 477 308')
+                .attr('preserveAspectRatio', 'xMidYMid meet');;
 
               p2_3_matrix_svg.call(p2_3_bar_tip);
 
@@ -1226,7 +1228,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               var OtherformatNumber = d3.format(',');
 
               var axisMargin = 5,
-                x_width = 470,
+                x_width = document.getElementById("panel_matrix").offsetWidth,
                 barHeight = 18,
                 barPadding = 5,
                 bar, scale, p2_xAxis, labelWidth = 0;
