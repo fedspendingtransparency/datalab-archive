@@ -3,10 +3,9 @@
 
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
-    // set chart dimensions
-    const margin = { top: 10, right: 10, bottom: 30, left: 100 },
-      width = 1000 - margin.left - margin.right,
-      height = 800 - margin.top - margin.bottom;
+    const svgMargin = { top: 10, right: 10, bottom: 30, left: 100 },
+    width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
+    height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom;
 
     // add parse date and y-axis formatting functions
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -25,10 +24,8 @@ const multiLinechartModule = (function() {
     // Add SVG
     var svg = d3
       .select("#svg-1")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")");
 
     Object.entries(data.lineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
@@ -136,7 +133,7 @@ const multiLinechartModule = (function() {
       .append("text")
       .attr("class", "legend-item legend1-item")
       .attr("x", width)
-      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
+      .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
       .style("fill", (d, i) => lineColor(i))
       .style("font-size", "12px")
       .style("font-family", "sans-serif")
@@ -156,7 +153,7 @@ const multiLinechartModule = (function() {
       .append("text")
       .attr("class", "legend-item legend2-item")
       .attr("x", 10)
-      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
+      .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
       .style("fill", (d, i) => verticalLineColor(i))
       .style("font-size", "12px")
       .style("font-family", "sans-serif")
