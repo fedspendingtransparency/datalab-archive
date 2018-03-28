@@ -161,7 +161,7 @@ table td {
 
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: center;
 	height: 800px;
 	color: #FFFFFF;
 	text-align: left;
@@ -228,7 +228,7 @@ table td {
 }
 
 .top-footer-column {
-	width: 23%;
+	width: 295px;
 	display: flex;
     flex-direction: column;
 	justify-content: space-between;
@@ -238,7 +238,6 @@ table td {
 	margin: 15px 0;
     opacity: 0.5;
 	border-bottom: 1px solid #979797;
-	width: 295px;
 }
 
 /* Additions */
@@ -447,17 +446,13 @@ header.major h2 {
 	background-color: #262626;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
 
 #footer > ul, #footer > div {
-	flex: 1;
 	display: flex;
 	align-items: center;
 	padding: 0;
-}
-
-#footer > .copyright {
-	justify-content: flex-start;
 }
 
 #footer .copyright li {
@@ -484,20 +479,12 @@ header.major h2 {
 	color: #9BDAF1;
 }
 
-.link-group:last-child {
-	margin-right: 0;
-}
-
 .group-title {
 	color: #DBDBDB;
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 18px;
 	text-transform: uppercase;
-}
-
-.group-body {
-
 }
 
 .footer-important-info {
@@ -1300,32 +1287,8 @@ article > header {
 /* Mobile Begin */
 
 @media (max-width: 1400px) {
-	.copyright, #footer {
-		flex-direction: column;
-	}
-
-	#footer > ul, #footer > div {
-		flex: none;
-	}
-
-	.footer-important-info {
-		justify-content: center;
-	}
-
-	#footer .copyright li:before {
-		content: ""
-	}
-
-	ul.icons {
-		margin: 0 0 25px 0;
-	}
-
 	.spotlight .content {
 		padding: 1% 2% 2% 2%;
-	}
-
-	.footer-important-info {
-		margin-bottom: 15px;
 	}
 
 	.how-we-conducted-this-analysis {
@@ -1348,22 +1311,48 @@ article > header {
 	.spotlight .image {
 		width: 100%;
 	}
-}
 
-@media (max-width: 787px) {
+	.copyright, #footer {
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+
+	.footer-important-info {
+		justify-content: center;
+		margin-bottom: 15px;
+	}
+
+	#footer .copyright li:before {
+		content: ""
+	}
+
 	#top-footer, ul.icons.major {
 		flex-direction: column;
 	}
 
 	.top-footer-column {
-		max-width: 50%;
-		align-self: center;
+		width: 100%;
 	}
 
-	.top-footer-column:last {
-		margin-bottom: 25px;
+	ul.icons {
+		margin-bottom: 60px;
 	}
 
+	#top-footer {
+		padding: 25px;
+	}
+
+	#footer-logo {
+		bottom: 25px;
+		left: 25px;
+	}
+
+	.link-group {
+		margin: 15px 0;
+	}
+}
+
+@media (max-width: 787px) {
 	#banner, .how-analysis-container, #main > header {
 		background-attachment: scroll;
 	}

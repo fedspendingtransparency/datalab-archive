@@ -41,9 +41,7 @@ $(".share-viz-button").click(function(){
 	handleInfoBarVisibility();
 
 	$(function() {
-		var	$header = $('#header');
-
-		$('.scrolly').scrolly({ speed: 1500, offset: $header.outerHeight() - 560 });
+		$('.scrolly').scrolly({ speed: 1500, offset: 0 });
 	});
 
 	window.onscroll = function() {
