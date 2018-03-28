@@ -202,48 +202,8 @@
     margin-top: 65px;
   }
 
-  #container2_1 {
-    position: relative;
-    background-color: inherit;
-    font-family: inherit;
-    width: 100%;
-    padding:0 15px 0 15px;
-    //min-height: 500px;
-    overflow: visible;
-  }
-
   #container2_2 {
-    position: relative;
-    background-color: inherit;
-    font-family: inherit;
-    padding:0 15px 0 15px;
-    height: 300px;
-    overflow: visible;
-    margin-top: 0;
-    width: 100%;
-  }
-
-  #container2_3 {
-    position: relative;
-    background-color: inherit;
-    font-family: inherit;
-    min-height: 340px;
-    padding:0 15px 0 15px;
-    //max-width: 250px;
-    overflow: visible;
-    top: 0;
-    width: 100%;
-  }
-
-  #container2_4 {
-    position: relative;
-    background-color: inherit;
-    font-family: inherit;
-    height: 415px;
-    overflow: visible;
-    margin-top: 160px;
-    padding:0 15px 0 15px;
-    width: 100%;
+    height: 475px;
   }
 
   #viz_container {
@@ -712,11 +672,13 @@
     margin-left: 10px;
   }
 
+  /*
   #p2_2_legend_title {
     position: relative;
     height: 70px;
     width: 100%;
   }
+  */
 
   #p2_2_legend_key {
     height: 50px;
@@ -804,6 +766,34 @@
 
   #imagebox{
     overflow: visible;
+  }
+
+  .panel-2-container {
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #myBtnContact {
+    margin: auto;
+    position: relative;
+    z-index: 99;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .column {
+    
+  }
+
+  @media (max-width: 1000px) {
+    .panel-2-container {
+      flex-direction: column;
+    }
+
+    #container2_2 {
+      margin-top: 50px;
+    }
   }
 
   #left_column {
