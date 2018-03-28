@@ -4,8 +4,8 @@
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
     const svgMargin = { top: 10, right: 10, bottom: 30, left: 100 },
-    width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
-    height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom;
+      width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
+      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom;
 
     // add parse date and y-axis formatting functions
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -25,7 +25,10 @@ const multiLinechartModule = (function() {
     var svg = d3
       .select("#svg-1")
       .append("g")
-      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")");
+      .attr(
+        "transform",
+        "translate(" + svgMargin.left + "," + svgMargin.top + ")"
+      );
 
     Object.entries(data.lineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
@@ -118,47 +121,52 @@ const multiLinechartModule = (function() {
           .tickFormat(chartModule.formatNumberAsText)
       );
 
-    const legendSpace = 10;
-    const legendRectHeight = 2;
-    const legendRectWidth = 30;
+    function addLegend(legendName, legendData, colorScale, position) {
+      const legendSpace = 10;
 
-    svg
-      .append("g")
-      .attr("class", "legend legend1")
-      .append("g")
-      .attr("class", "legend-items legend1-items")
-      .selectAll(".legend1-item")
-      .data(Object.keys(data.lineData))
-      .enter()
-      .append("text")
-      .attr("class", "legend-item legend1-item")
-      .attr("x", width)
-      .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
-      .style("fill", (d, i) => lineColor(i))
-      .style("font-size", "12px")
-      .style("font-family", "sans-serif")
-      .style("text-anchor", "end")
-      .style("alignment-baseline", "hanging")
-      .text(d => d);
+      const legend = svg
+        .append("g")
+        .attr("class", `legend ${legendName}`)
+        .attr("transform", `translate(${position === "right" ? width : 0},0)`);
 
-    // add keys for vertical line data
-    svg
-      .append("g")
-      .attr("class", "legend legend2")
-      .append("g")
-      .attr("class", "legend-items legend2-items")
-      .selectAll(".legend2-item")
-      .data(Object.keys(data.verticalLineData))
-      .enter()
-      .append("text")
-      .attr("class", "legend-item legend2-item")
-      .attr("x", 10)
-      .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
-      .style("fill", (d, i) => verticalLineColor(i))
-      .style("font-size", "12px")
-      .style("font-family", "sans-serif")
-      .style("alignment-baseline", "hanging")
-      .text(d => d);
+      const legendBackground = legend
+        .append("rect")
+        .attr("fill", "#333333")
+        .attr("class", `${legendName}-background`);
+
+      legend
+        .append("g")
+        .attr("class", `legend-items ${legendName}-items`)
+        .selectAll(`.${legendName}-item`)
+        .data(legendData)
+        .enter()
+        .append("text")
+        .attr("class", `legend-item ${legendName}-item`)
+        .attr("x", 0)
+        .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
+        .style("fill", (d, i) => colorScale(i))
+        .style("font-size", "12px")
+        .style("font-family", "sans-serif")
+        .style("text-anchor", position === "right" ? "end" : "start")
+        .style("alignment-baseline", "hanging")
+        .text(d => d);
+
+      const legendDims = legend.node().getBBox();
+
+      legendBackground
+        .attr("width", legendDims.width)
+        .attr("height", legendDims.height + 20)
+        .attr("x", position === "right" ? -legendDims.width : 0)
+        .attr("y", -10);
+    }
+
+    addLegend("legend-1", Object.keys(data.lineData), lineColor, "right");
+    addLegend(
+      "legend-2",
+      Object.keys(data.verticalLineData),
+      verticalLineColor,
+      "left"
+    );
   }
 
   function remove(cb) {
