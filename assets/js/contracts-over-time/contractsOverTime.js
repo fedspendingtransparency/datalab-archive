@@ -54,17 +54,16 @@ $(function() {
   ];
 
   function setDimsOfSvg(id) {
-    const windowWidth = $( window ).width();
-    const windowHeight = $( window ).height();
+    const windowWidth = $(window).width();
+    const windowHeight = $(window).height();
     const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-
-    console.log({windowHeight, svgHeight})
+    const svgWidth = windowWidth * .7 - 2 * windowMargin;
 
     $(id)
       .attr("height", svgHeight)
-      .attr("width", 1000);
+      .attr("width", svgWidth);
 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
