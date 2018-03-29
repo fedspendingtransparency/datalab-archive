@@ -1494,3 +1494,63 @@ article > header {
 	height: inherit;
 	fill: inherit;
 }
+
+/* Footer Navigation Start */
+
+.footer-navigation {
+	display: flex;
+    justify-content: space-around;
+	padding: 70px;
+	
+	background-position: center;
+    background-size: cover;
+    background-image: url(/images/analysis.jpg);
+}
+
+.footer-navigation__navigate-button {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	vertical-align: sub;
+}
+
+.footer-navigation__navigate-button.btn-prev-viz {
+	margin-right: 40px;
+}
+
+.footer-navigation__navigate-button.btn-next-viz {
+	margin-left: 40px;
+}
+
+.footer-navigation__separator {
+	border-right: 1px solid #FFF;
+	height: 75px;
+}
+
+.footer-navigation__title-container {
+	display: inline-block;
+	color: #FFF;
+}
+
+.footer-navigation__container {
+	align-self: center;
+}
+
+.footer-navigation__title {
+    color: inherit;
+    font-weight: 400;
+    font-size: 34px;
+}
+
+.footer-navigation__subtitle {
+    color: inherit;
+	font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.footer-navigation__title-container:hover {
+	color: #9BDAF1;
+}
+
+/* Footer Navigation End */

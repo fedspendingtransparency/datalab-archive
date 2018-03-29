@@ -97,13 +97,19 @@ category: entry
     </div>
 	</div>
 </div>
-
-{% include how-analysis-conducted.html
-  how="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
-   read-more="federal-employees-more.html"
-   next-analysis="competition-in-contracting.html"
-%}
 </div>
+
+{% include viz-footer-info.html
+  body="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
+  link="federal-employees-more.html"
+%}
+
+{% include footer-navigation.html
+  prev-text="Budget Function"
+  prev-link="budget-function.html"
+  next-text="Competition In Contracting"
+  next-link="competition-in-contracting.html"
+%}
 
 <!-- shared scripts -->
 <script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>

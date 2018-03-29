@@ -219,13 +219,16 @@ category: entry
 	body="As these visualizations depict, thousands of people are homeless across the United States. We hope that this analysis show how federal funding impacts homelessness and can serve as a useful tool for state and local governments, as well as private institutions, who are working to reduce homelessness. In addition, we chose to conduct this analysis because it features data from across multiple federal agencies, which is all available in one dataset. Analysts and users who have ideas for other types of analyses, whether featuring contracts or financial assistance across the federal government, can use the Data Lab's Analyst Guide for guidance and hints as they use the data."
 %}
 
+{% include viz-footer-info.html
+	body="To accurately determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA, looking for any mention of keywords related to homelessness."
+	link="homelessness-analysis-more.html"
+%}
 
-{% include how-analysis-conducted.html
-	how="To accurately determine the amount the federal government spends addressing homelessness,
-	we reviewed federal program descriptions using the CFDA, looking for any mention of
-	keywords related to homelessness."
-	read-more="homelessness-analysis-more.html"
-	next-analysis="budget-function.html"
+{% include footer-navigation.html
+	prev-text="Contract Explorer"
+	prev-link="contract-explorer.html"
+	next-text="Budget Function"
+	next-link="budget-function.html"
 %}
 
 <!-- d3 -->
