@@ -1,12 +1,12 @@
 //Width and height of map
-var width = 1024;
-var height = 700;
+var width = document.getElementById("container").offsetWidth;
+var height = 800;
 var centered;
 
 // D3 Projection
 var projection = d3.geo.albersUsa()
-  .translate([width / 2, height / 2]) // translate to center of screen
-  .scale([1400]); // scale things down so see entire US ---1455
+  .translate([width / 2, height / 2])
+  .scale([1800]);
 
 // Define path generator
 var path = d3.geo.path() // path generator that will convert GeoJSON to SVG paths
