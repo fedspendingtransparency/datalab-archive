@@ -63,11 +63,11 @@ const parallaxModule = (function() {
 
     switch (mem.parallaxStatus) {
       case "pre":
-        console.log(`not currently scrolling past a panel`)
+        // console.log(`not currently scrolling past a panel`)
         $(".parallax-container").addClass("absolute");
         break;
       case "post":
-        console.log(`not currently scrolling past a panel`)
+        // console.log(`not currently scrolling past a panel`)
         $(".parallax-container").addClass("absolute");
         $(".parallax-container").addClass("post");
         break;
@@ -76,7 +76,7 @@ const parallaxModule = (function() {
     }
 
     if (mem.activePanel) {
-      console.log(`currently scrolling past ${mem.activePanel.id}`)
+      // console.log(`currently scrolling past ${mem.activePanel.id}`)
     }
   }
 

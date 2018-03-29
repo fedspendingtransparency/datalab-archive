@@ -4,9 +4,9 @@
 const barchartModule = (function() {
   function draw(data) {
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
-      width = 1000 - margin.left - margin.right,
-      height = 800 - margin.top - margin.bottom;
-
+      width = $("#svg-1").width() - margin.left - margin.right,
+      height = $("#svg-1").height() - margin.top - margin.bottom;
+    
     var x = d3
       .scaleBand()
       .range([0, width])
@@ -15,8 +15,6 @@ const barchartModule = (function() {
 
     var svg = d3
       .select("#svg-1")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

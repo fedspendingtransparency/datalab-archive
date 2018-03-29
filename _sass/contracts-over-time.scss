@@ -5,7 +5,7 @@
   }
 
   .left {
-    height: 800px;
+    // height: 800px;
     width: 30%;
     display: block;
     display: flex;
@@ -30,7 +30,7 @@
 
   .fixed {
     position: fixed;
-    top: 100px;
+  //   top: 100px;
   }
 
   .absolute {
@@ -58,17 +58,17 @@
     top: 0;
   }
 
-  #scroll-breakpoint-1 {
-    padding-top: 100px;
-  }
+  // #scroll-breakpoint-1 {
+  //   padding-top: 100px;
+  // }
 
-  #scroll-triggerpoint {
-    padding-top: 300px;
-  }
+  // #scroll-triggerpoint {
+  //   padding-top: 300px;
+  // }
 
-  #scroll-breakpoint-2 {
-    padding-top: 900px;
-  }
+  // #scroll-breakpoint-2 {
+  //   padding-top: 900px;
+  // }
 
   #counter {
     height: 20px;
@@ -81,16 +81,19 @@
     font-size: 12px;
     background: #fff;
     border-radius: 10px;
-  }
+    line-height: 22px;
+    color: #5B616B;
+    padding: 30px;
+ }
 
   .line {
     fill: none;
     stroke: steelblue;
-    stroke-width: 1px;
+    stroke-width: 3px;
   }
 
   line {
-    stroke: black;
+    // stroke: black;
     stroke-width: 1px;
   }
 
@@ -114,7 +117,7 @@
 
   svg {
     text {
-      fill: #fff;
+      fill: #D0CCCC;
     }
   }
 }
