@@ -7,19 +7,7 @@ const multiLinechartModule = (function() {
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom;
 
-    // add parse date and y-axis formatting functions
     var parseDate = d3.timeParse("%Y-%m-%d");
-    // var formatAsMillions = d3.format(".2s");
-
-    // line value ranges
-    var x = d3.scaleTime().range([0, width]);
-    var y = d3.scaleLinear().range([height, 0]);
-
-    // define the lines
-    var totalspend = d3
-      .line()
-      .x(d => x(d.parsedDate))
-      .y(d => y(d.val));
 
     // Add SVG
     var svg = d3
@@ -39,6 +27,16 @@ const multiLinechartModule = (function() {
       return a2;
     }, []);
 
+    // line value ranges
+    var x = d3.scaleTime().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // define the lines
+    var totalspend = d3
+      .line()
+      .x(d => x(d.parsedDate))
+      .y(d => y(d.val));
+
     // Scale the domains
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
@@ -57,6 +55,8 @@ const multiLinechartModule = (function() {
 
     // draw lines
     svg
+      .append("g")
+      .attr("class", "line-paths")
       .selectAll(".line")
       .data(Object.entries(data.lineData))
       .enter()
@@ -73,9 +73,44 @@ const multiLinechartModule = (function() {
       .duration(4000)
       .attr("stroke-dashoffset", "0");
 
+    function handleMouseOver(d, title) {
+      tooltipModule.draw("#tooltip", title, {
+        Value: chartModule.formatNumberAsText(d.val)
+      });
+    }
+
+    function handleMouseOut() {
+      tooltipModule.remove("#tooltip");
+    }
+
+    function handleMouseMove() {
+      tooltipModule.move("#tooltip");
+    }
+
+    // draw data points
+    Object.entries(data.lineData).forEach((l, i) => {
+      svg
+        .append("g")
+        .attr("class", "data-points")
+        .selectAll(".data-point")
+        .data(l[1])
+        .enter()
+        .append("circle")
+        .attr("class", "data-point")
+        .attr("cx", d => x(d.parsedDate))
+        .attr("cy", d => y(d.val))
+        .attr("r", 10)
+        .attr("fill-opacity", "0")
+        .on("mouseover", d => handleMouseOver(d, l[0]))
+        .on("mouseout", handleMouseOut)
+        .on("mousemove", handleMouseMove);
+    });
+
     // draw vertical lines
     Object.entries(data.verticalLineData).forEach((l, i) => {
       svg
+        .append("g")
+        .attr("class", "vertical-line-paths")
         .selectAll(`.vertical-line-${i}`)
         .data(l[1])
         .enter()
