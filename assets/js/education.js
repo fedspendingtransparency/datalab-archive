@@ -1,12 +1,12 @@
 //Width and height of map
-var width = 1024;
-var height = 700;
+var width = document.getElementById("container").offsetWidth;
+var height = 800;
 var centered;
 
 // D3 Projection
 var projection = d3.geo.albersUsa()
-  .translate([width / 2, height / 2]) // translate to center of screen
-  .scale([1400]); // scale things down so see entire US ---1455
+  .translate([width / 2, height / 2])
+  .scale([1800]);
 
 // Define path generator
 var path = d3.geo.path() // path generator that will convert GeoJSON to SVG paths
@@ -58,10 +58,10 @@ d3.json("/data-lab-data/us-states.json", function(json) { // Load GeoJSON data a
 //
       function EduToolTip(d) {
         // console.log("edu tip: ",d)
-        return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.Recipient + '</p><br>' +
-          '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0">' + d.INST_TYPE + '</p><br>' +
-          '<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ' + formatNumber(d.Fed_Funding_Amt) + '</p><br>' +
-          '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the institution details page</p>';
+        return '<p style="border-bottom:1px solid #898C90; font-size: 16px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.Recipient + '</p>' +
+          '<p style="font-size: 10px; margin-top:0; padding-top:0; margin-bottom:0">' + d.INST_TYPE + '</p>' +
+          '<p style="color: #0071BC; margin: 0; font-size: 14px; padding:0">Federal Funding: ' + formatNumber(d.Fed_Funding_Amt) + '</p>' +
+          '<p style="font-size: 10px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the institution details page</p>';
       }
 
       function reset() {
@@ -276,7 +276,7 @@ d3.json("/data-lab-data/us-states.json", function(json) { // Load GeoJSON data a
             return projection([d.LONGITUDE, d.LATITUDE])[1];
           })
           .attr("r", function(d) {
-            return Math.sqrt(d.Fed_Funding_Amt) * .0003;
+            return ((Math.sqrt(d.Fed_Funding_Amt) * .0003) >=2 ? (Math.sqrt(d.Fed_Funding_Amt) * .0003) : 2);
           })
           .style("fill", "#0086c8")
           .style("opacity", 0.6)
