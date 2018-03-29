@@ -25,10 +25,7 @@ const multiLinechartModule = (function() {
     var svg = d3
       .select("#svg-1")
       .append("g")
-      .attr(
-        "transform",
-        "translate(" + svgMargin.left + "," + svgMargin.top + ")"
-      );
+      .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
@@ -48,12 +45,15 @@ const multiLinechartModule = (function() {
 
     var lineColor = d3
       .scaleLinear()
-      .range(["#FF1379", "#28AFFF"])
-      .domain([0, Object.keys(data.lineData).length - 1]);
+      .range(["#93DFB8", "#E3AAD6", "#FFC8BA", "#B5D8EB"])
+      .domain([0, Object.keys(data.lineData).length - 1])
+      .interpolate(d3.interpolateHcl);
+
     var verticalLineColor = d3
       .scaleLinear()
-      .range(["#06FF9E", "#FFCD1A"])
-      .domain([0, Object.keys(data.verticalLineData).length - 1]);
+      .range(["#69D2E7", "#D1F2A5", "#E8BF56", "#EF746F"])
+      .domain([0, Object.keys(data.verticalLineData).length - 1])
+      .interpolate(d3.interpolateHcl);
 
     // draw lines
     svg
