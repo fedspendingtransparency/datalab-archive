@@ -276,7 +276,7 @@ d3.json("/data-lab-data/us-states.json", function(json) { // Load GeoJSON data a
             return projection([d.LONGITUDE, d.LATITUDE])[1];
           })
           .attr("r", function(d) {
-            return Math.sqrt(d.Fed_Funding_Amt) * .0003;
+            return ((Math.sqrt(d.Fed_Funding_Amt) * .0003) >=2 ? (Math.sqrt(d.Fed_Funding_Amt) * .0003) : 2);
           })
           .style("fill", "#0086c8")
           .style("opacity", 0.6)
