@@ -58,10 +58,10 @@ d3.json("/data-lab-data/us-states.json", function(json) { // Load GeoJSON data a
 //
       function EduToolTip(d) {
         // console.log("edu tip: ",d)
-        return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.Recipient + '</p><br>' +
-          '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0">' + d.INST_TYPE + '</p><br>' +
-          '<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ' + formatNumber(d.Fed_Funding_Amt) + '</p><br>' +
-          '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the institution details page</p>';
+        return '<p style="border-bottom:1px solid #898C90; font-size: 16px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.Recipient + '</p>' +
+          '<p style="font-size: 10px; margin-top:0; padding-top:0; margin-bottom:0">' + d.INST_TYPE + '</p>' +
+          '<p style="color: #0071BC; margin: 0; font-size: 14px; padding:0">Federal Funding: ' + formatNumber(d.Fed_Funding_Amt) + '</p>' +
+          '<p style="font-size: 10px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the institution details page</p>';
       }
 
       function reset() {
