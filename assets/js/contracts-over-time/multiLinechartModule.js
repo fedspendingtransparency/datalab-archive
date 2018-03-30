@@ -3,32 +3,17 @@
 
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
-    // set chart dimensions
-    const margin = { top: 10, right: 10, bottom: 30, left: 100 },
-      width = 1000 - margin.left - margin.right,
-      height = 800 - margin.top - margin.bottom;
+    const svgMargin = { top: 10, right: 10, bottom: 30, left: 100 },
+      width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
+      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom;
 
-    // add parse date and y-axis formatting functions
     var parseDate = d3.timeParse("%Y-%m-%d");
-    var formatAsMillions = d3.format(".2s");
-
-    // line value ranges
-    var x = d3.scaleTime().range([0, width]);
-    var y = d3.scaleLinear().range([height, 0]);
-
-    // define the lines
-    var totalspend = d3
-      .line()
-      .x(d => x(d.parsedDate))
-      .y(d => y(d.val));
 
     // Add SVG
     var svg = d3
       .select("#svg-1")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
@@ -42,21 +27,36 @@ const multiLinechartModule = (function() {
       return a2;
     }, []);
 
+    // line value ranges
+    var x = d3.scaleTime().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // define the lines
+    var totalspend = d3
+      .line()
+      .x(d => x(d.parsedDate))
+      .y(d => y(d.val));
+
     // Scale the domains
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
 
     var lineColor = d3
       .scaleLinear()
-      .range(["#FF1379", "#28AFFF"])
-      .domain([0, Object.keys(data.lineData).length - 1]);
+      .range(["#93DFB8", "#E3AAD6", "#FFC8BA", "#B5D8EB"])
+      .domain([0, Object.keys(data.lineData).length - 1])
+      .interpolate(d3.interpolateHcl);
+
     var verticalLineColor = d3
       .scaleLinear()
-      .range(["#06FF9E", "#FFCD1A"])
-      .domain([0, Object.keys(data.verticalLineData).length - 1]);
+      .range(["#69D2E7", "#D1F2A5", "#E8BF56", "#EF746F"])
+      .domain([0, Object.keys(data.verticalLineData).length - 1])
+      .interpolate(d3.interpolateHcl);
 
     // draw lines
     svg
+      .append("g")
+      .attr("class", "line-paths")
       .selectAll(".line")
       .data(Object.entries(data.lineData))
       .enter()
@@ -73,9 +73,44 @@ const multiLinechartModule = (function() {
       .duration(4000)
       .attr("stroke-dashoffset", "0");
 
+    function handleMouseOver(d, title) {
+      tooltipModule.draw("#tooltip", title, {
+        Value: chartModule.formatNumberAsText(d.val)
+      });
+    }
+
+    function handleMouseOut() {
+      tooltipModule.remove("#tooltip");
+    }
+
+    function handleMouseMove() {
+      tooltipModule.move("#tooltip");
+    }
+
+    // draw data points
+    Object.entries(data.lineData).forEach((l, i) => {
+      svg
+        .append("g")
+        .attr("class", "data-points")
+        .selectAll(".data-point")
+        .data(l[1])
+        .enter()
+        .append("circle")
+        .attr("class", "data-point")
+        .attr("cx", d => x(d.parsedDate))
+        .attr("cy", d => y(d.val))
+        .attr("r", 10)
+        .attr("fill-opacity", "0")
+        .on("mouseover", d => handleMouseOver(d, l[0]))
+        .on("mouseout", handleMouseOut)
+        .on("mousemove", handleMouseMove);
+    });
+
     // draw vertical lines
     Object.entries(data.verticalLineData).forEach((l, i) => {
       svg
+        .append("g")
+        .attr("class", "vertical-line-paths")
         .selectAll(`.vertical-line-${i}`)
         .data(l[1])
         .enter()
@@ -118,54 +153,55 @@ const multiLinechartModule = (function() {
         d3
           .axisLeft(y)
           .ticks(10)
-          .tickFormat(d =>
-            formatAsMillions(d)
-              .replace("G", " billion")
-              .replace("M", " million")
-          )
+          .tickFormat(chartModule.formatNumberAsText)
       );
 
-    const legendSpace = 10;
-    const legendRectHeight = 2;
-    const legendRectWidth = 30;
+    function addLegend(legendName, legendData, colorScale, position) {
+      const legendSpace = 10;
 
-    svg
-      .append("g")
-      .attr("class", "legend legend1")
-      .append("g")
-      .attr("class", "legend-items legend1-items")
-      .selectAll(".legend1-item")
-      .data(Object.keys(data.lineData))
-      .enter()
-      .append("text")
-      .attr("class", "legend-item legend1-item")
-      .attr("x", width)
-      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
-      .style("fill", (d, i) => lineColor(i))
-      .style("font-size", "12px")
-      .style("font-family", "sans-serif")
-      .style("text-anchor", "end")
-      .style("alignment-baseline", "hanging")
-      .text(d => d);
+      const legend = svg
+        .append("g")
+        .attr("class", `legend ${legendName}`)
+        .attr("transform", `translate(${position === "right" ? width : 0},0)`);
 
-    // add keys for vertical line data
-    svg
-      .append("g")
-      .attr("class", "legend legend2")
-      .append("g")
-      .attr("class", "legend-items legend2-items")
-      .selectAll(".legend2-item")
-      .data(Object.keys(data.verticalLineData))
-      .enter()
-      .append("text")
-      .attr("class", "legend-item legend2-item")
-      .attr("x", 10)
-      .attr("y", (d, i) => legendSpace * i * 2 + margin.top / 2)
-      .style("fill", (d, i) => verticalLineColor(i))
-      .style("font-size", "12px")
-      .style("font-family", "sans-serif")
-      .style("alignment-baseline", "hanging")
-      .text(d => d);
+      const legendBackground = legend
+        .append("rect")
+        .attr("fill", "#333333")
+        .attr("class", `${legendName}-background`);
+
+      legend
+        .append("g")
+        .attr("class", `legend-items ${legendName}-items`)
+        .selectAll(`.${legendName}-item`)
+        .data(legendData)
+        .enter()
+        .append("text")
+        .attr("class", `legend-item ${legendName}-item`)
+        .attr("x", 0)
+        .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
+        .style("fill", (d, i) => colorScale(i))
+        .style("font-size", "12px")
+        .style("font-family", "sans-serif")
+        .style("text-anchor", position === "right" ? "end" : "start")
+        .style("alignment-baseline", "hanging")
+        .text(d => d);
+
+      const legendDims = legend.node().getBBox();
+
+      legendBackground
+        .attr("width", legendDims.width)
+        .attr("height", legendDims.height + 20)
+        .attr("x", position === "right" ? -legendDims.width : 0)
+        .attr("y", -10);
+    }
+
+    addLegend("legend-1", Object.keys(data.lineData), lineColor, "right");
+    addLegend(
+      "legend-2",
+      Object.keys(data.verticalLineData),
+      verticalLineColor,
+      "left"
+    );
   }
 
   function remove(cb) {

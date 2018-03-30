@@ -53,6 +53,33 @@ $(function() {
     }
   ];
 
+  function setDimsOfSvg(id) {
+    const windowWidth = $(window).width();
+    const windowHeight = $(window).height();
+    const windowMargin = 100;
+
+    const svgHeight = windowHeight - 2 * windowMargin;
+    const svgWidth = windowWidth * .7 - 2 * windowMargin;
+
+    $(id)
+      .attr("height", svgHeight)
+      .attr("width", svgWidth);
+
+    $("#scroll-breakpoint-1").css("padding-top", windowMargin);
+    $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
+    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);
+
+    $("<style>")
+    .prop("type", "text/css")
+    .html(`
+      .fixed {top: ${windowMargin}px;}
+      .left {height: ${svgHeight}px;}
+    `)
+    .appendTo("head");
+  }
+
+  setDimsOfSvg("#svg-1");
+
   // orient the parallax panel on page load
   findAndOriendParallax();
 

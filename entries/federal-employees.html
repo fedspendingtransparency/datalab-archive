@@ -12,7 +12,7 @@ category: entry
 
 {% include viz-header-info.html
 	title="How much do agencies spend on personnel?"
-	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 million in personnel compensation. Government-wide spending on personnel compensation (base salaries) is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Agriculture."
+	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 billion in personnel compensation. Government-wide spending on personnel compensation (base salaries) is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Veterans Affairs."
 %}
 
 <div class="fedscope-tool">
@@ -97,13 +97,19 @@ category: entry
     </div>
 	</div>
 </div>
-
-{% include how-analysis-conducted.html
-  how="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
-   read-more="federal-employees-more.html"
-   next-analysis="competition-in-contracting.html"
-%}
 </div>
+
+{% include viz-footer-info.html
+  body="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
+  link="federal-employees-more.html"
+%}
+
+{% include footer-navigation.html
+  prev-text="Budget Function"
+  prev-link="budget-function.html"
+  next-text="Competition In Contracting"
+  next-link="competition-in-contracting.html"
+%}
 
 <!-- shared scripts -->
 <script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>

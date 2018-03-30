@@ -236,7 +236,6 @@
       margin:0 10px 0 10px;
     }
 
-
   // #container2_1 {
   //   position: relative;
   //   background-color: inherit;
@@ -280,6 +279,7 @@
   //   padding:0 15px 0 15px;
   //   width: 100%;
   // }
+
 
   #viz_container {
     position: relative;
@@ -762,6 +762,7 @@
   //   height:30px;
   // }
 
+
   #p2_2_legend_key {
     height: 15px;
     width: 18%;
@@ -910,6 +911,34 @@
 
   #imagebox{
     overflow: visible;
+  }
+
+  .panel-2-container {
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #myBtnContact {
+    margin: auto;
+    position: relative;
+    z-index: 99;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .column {
+    
+  }
+
+  @media (max-width: 1000px) {
+    .panel-2-container {
+      flex-direction: column;
+    }
+
+    #container2_2 {
+      margin-top: 50px;
+    }
   }
 
   #left_column {

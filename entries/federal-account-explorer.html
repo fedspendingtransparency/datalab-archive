@@ -50,10 +50,16 @@ category: entry
   </div>
 </section>
 
-{% include how-analysis-conducted.html
-  how="We conducted this analysis by organizing the spending data reported to USAspending.gov in a way that reflects the structure of the federal government."
-  read-more="federal-account-explorer-more.html"
-  next-analysis="contract-explorer.html"
+{% include viz-footer-info.html
+  body="We conducted this analysis by organizing the spending data reported to USAspending.gov in a way that reflects the structure of the federal government. To do this, we matched federal accounts with the Office of Management and Budget's (OMB's) Master Account File, which lists agencies and their Treasury accounts as presented in the government-wide budget. We based this analysis on File A information reported to USAspending.gov."
+  link="federal-account-explorer-more.html"
+%}
+
+{% include footer-navigation.html
+  prev-text="Competition In Contracting"
+  prev-link="competition-in-contracting.html"
+  next-text="Contract Explorer"
+  next-link="contract-explorer.html"
 %}
 
 <!-- d3 -->
