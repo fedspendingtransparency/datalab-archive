@@ -1184,7 +1184,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             }
 
             function Make_Map_Title(d) {
-              return map_title.html('<h5>' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h1>')
+              return map_title.html('<h5>' + d.properties.coc_number + ': ' + d.properties.COCNAME + '</h5>')
             }
 
 
@@ -1199,11 +1199,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .append('div')
                 //.attr('width', '500px')
                 // .attr('min-height', '75px')
-                .attr('padding', '0 0 0 0')
+                .attr('padding', '0 0 10px 0')
                 .attr('id', 'p2_cfda_legend_title')
                 .attr('class', 'h5')
                 .style('text-align', 'center')
-                .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</p>');
+                .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</h5>');
 
               var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
                 /*.attr('width', matrix_width + margin.left + margin.right)
@@ -1321,6 +1321,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               d3.select('#p2_4_cfda_legend_title').remove()
               d3.select('#p2_4_cfda_legend').remove()
 
+              var cfda_legend_2_2 = d3.select ('#p2_2_legend')
+                .append('div')
+                .attr('width', '100%')
+                .attr('height', '30px')
+                .attr('id', 'p2_2_cfda_legend');
 
               var cfda_legend = d3.select('#p2_4_legend')
                 .append('div')
@@ -1335,7 +1340,33 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               for (var i = 0; i < 5; i++) {
 
-                var l = cfda_legend.append('div')
+                var k = cfda_legend_2_2.append('div')
+                  .attr('id', 'p2_2_legend_key');
+
+                var cfda_key_2_2 = k.append('div')
+                  .attr('id', 'p2_2_key')
+                  .style('position', 'relative')
+                  .append('svg')
+                  .attr('height', '40px')
+                  .attr('width', '53px')
+                  .append('circle')
+                  .attr('cx', 7)
+                  .attr('cy', 7)
+                  .attr('r', 7)
+                  .attr('height', 20)
+                  .attr('width', 20)
+                  .style('fill', function(d) {
+                    return cfda_color[i];
+                  });
+
+                k.append('div')
+                  .attr('id', 'p2_2_key_value')
+                  .style('position', 'relative')
+                  .style('color', 'blue')
+                  .html('<p>' + cfda_legend_key_values[i] + '</p>');
+
+
+              var l = cfda_legend.append('div')
                   .attr('id', 'p2_4_legend_key');
 
                 var cfda_key = l.append('div')
