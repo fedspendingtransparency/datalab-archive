@@ -1208,7 +1208,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .attr('viewBox', '0 0 850 300')
                 .attr('preserveAspectRatio', 'xMidYMid meet');
 
-
               p2_3_matrix_svg.call(p2_3_bar_tip);
 
               function filter_cocNum_barChart(bar_chrt) {
@@ -1221,7 +1220,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               var OtherformatNumber = d3.format(',');
 
               var axisMargin = 5,
-                x_width = document.getElementById("panel_matrix").offsetWidth,
+                x_width = document.getElementById("panel_matrix").offsetWidth - 50,
                 barHeight = 20,
                 barPadding =  5,
                 bar, scale, p2_xAxis, labelWidth = 0;
@@ -1255,7 +1254,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                   }
                 })
                 .attr('transform', function(d, i) {
-                  return 'translate(50,' + (i * (barHeight + barPadding)) + ')';
+                  return 'translate(5,' + (i * (barHeight + barPadding)) + ')';
                 })
                 .on('mouseover', p2_3_bar_tip.show)
                 .on('mouseout', p2_3_bar_tip.hide)
@@ -1298,7 +1297,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_3_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal')
-                .attr('transform', 'translate(' + 125 + ',' + 235 + ')')
+                .attr('transform', 'translate(' + 80 + ',' + 235 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
@@ -1416,7 +1415,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               console.log('state bar initial_bar: ', initial)
               var axisMargin = 5,
-                x_width = 600,
+                x_width = document.getElementById("panel_matrix").offsetWidth - 50,
                 barHeight = 20,
                 barPadding = 5,
                 bar, scale, p2_xAxis, labelWidth = 0;
@@ -1450,7 +1449,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                   }
                 })
                 .attr('transform', function(d, i) {
-                  return 'translate(50,' + (i * (barHeight + barPadding)) + ')';
+                  return 'translate(5,' + (i * (barHeight + barPadding)) + ')';
                 })
                 .on('mouseover', p2_3_bar_tip.show)
                 .on('mouseout', p2_3_bar_tip.hide)
@@ -1494,7 +1493,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               p2_4_matrix_svg.insert('g', ':first-child')
                 .attr('class', 'axisHorizontal2')
-                .attr('transform', 'translate(' + 125 + ',' + 325 + ')')
+                .attr('transform', 'translate(' + 80 + ',' + 325 + ')')
                 .call(p2_xAxis)
                 .selectAll('text')
                 .attr('y', 10)
