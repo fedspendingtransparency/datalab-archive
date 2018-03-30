@@ -103,8 +103,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             var map_title = d3.select('#p2_1_title')
               .append('div')
               .attr('padding', '50px 0 0 0')
-              .attr('class', 'h5')
-              .style('text-align', 'center');
+              .attr('class', 'legend-header');
 
             var p2_1_map_svg = d3.select('#panel_map')
               .append('svg')
@@ -1156,10 +1155,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
               var quad3_title = d3.select('#p2_3_title')
                 .append('div')
                 .attr('width', '100%')
-                .attr('min-height', '50px')
-                .attr('padding', '0 0 0 50px')
                 .attr('id', 'p2_quad3_title')
-                .style('text-align', 'center')
+                .style('class', 'legend-header')
                 .html('<h5>' + d.properties.coc_number + ' Homeless Counts</h5>');
 
               var OtherformatNumber = d3.format(',');
@@ -1199,22 +1196,16 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               var cfda_legend_title = d3.select('#p2_2_legend_title')
                 .append('div')
-                //.attr('width', '500px')
-                // .attr('min-height', '75px')
-                .attr('padding', '0 0 10px 0')
                 .attr('id', 'p2_cfda_legend_title')
-                .attr('class', 'h5')
-                .style('text-align', 'center')
+                .attr('class', 'legend-header')
                 .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</h5>');
 
               var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
                 /*.attr('width', matrix_width + margin.left + margin.right)
                 .attr('height', matrix_height + margin.top + margin.bottom)*/
-                .attr('width', '100%')
-                .attr('height', map_height + margin.top + margin.bottom + 40)
                 // .style('margin-left', -margin.left / 2.5 + 'px')
                 .attr('transform', 'translate(' + 0 + ',' + 10 + ')')
-                .attr('viewBox', '0 0 477 308')
+                .attr('viewBox', '0 0 850 300')
                 .attr('preserveAspectRatio', 'xMidYMid meet');
 
 
@@ -1399,11 +1390,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               var cfda_legend_title = d3.select('#p2_4_legend_title')
                 .append('div')
-                .attr('width', '100%')
                 // .attr('height', '75px')
                 // .attr('padding', '40px 0 0 40px')
                 .attr('id', 'p2_4_cfda_legend_title')
-                .attr('class', 'h5')
+                .attr('class', 'legend-header')
                 .html('<h5>Federal Programs Serving ' + getState(d) + '</h5>');
 
               var p2_4_matrix_svg = d3.select('#panel_info').append('svg')
