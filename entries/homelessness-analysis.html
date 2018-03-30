@@ -134,34 +134,28 @@ category: entry
 		%}
 		<div class="mask">
 			{% include action-buttons.html %}
-			<div class="viz-container homeless-analysis">
-				<div class="row flex" style="min-height:300px">
-					<div class="column" style="width:50%; float:left; padding-left:15px; padding-right:15px; box-sizing: border-box;">
-						<div class="row flex" style="margin-top:0">
-							<div id="container2_1"></div>
+			<div class="viz-container homeless-analysis" style="background-color: #E2DFEC">
+				<div class="flex-container">
+							<div class="panel2_container" id="container2_1"></div>
+							<div class="panel2_container" id="container2_2"></div>
+							<div class="panel2_container" id="container2_3"></div>
+							<div class="panel2_container" id="container2_4"></div>
 						</div>
-						<div class="row flex">
-							<div id="container2_3" style="margin-top:0px"></div>
-						</div>
-						<button class="button" id="myBtnContact" style="margin: auto; position:relative; z-index:99; text-align:center; vertical-align:middle;">CoC Contact</button>
-						<div id="myModalContact" class="modal">
-							<div class="modal-content" id="modalContact"  style="width:30%">
-								<div class="modal-blue-bar"></div>
+					</div>
+
+
+						<!-- <button class="button" id="myBtnContact" style="margin: auto; position:relative; z-index:99; text-align:center; vertical-align:middle;">CoC Contact</button> -->
+						<!-- <div id="myModalContact" class="modal"> -->
+							<!-- <div class="modal-content" id="modalContact"  style="width:30%"> -->
+								<!-- <div class="modal-blue-bar"></div>
 								<div class="modal-body"  style="max-width:100%; padding: 0 0 0 0;">
 									<!-- <span class="closeContact">&times;</span> -->
-									<div class="modal-body-content" id="CoCcontact"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column" style="width:50%; float:right; padding-left:15px; padding-right:15px; box-sizing: border-box;">
-						<div class="row flex" style="margin-top:0">
-							<div id="container2_2"></div>
-						</div>
-						<div class="row flex" style="margin-top:15px; padding-top: 5px;">
-							<div id="container2_4"></div>
-						</div>
-					</div>
+									<!-- <div class="modal-body-content" id="CoCcontact"></div> -->
+								<!-- </div> -->
+							<!-- </div> -->
+						<!-- </div> -->
+					<!-- </div> -->
+
 				</div>
 			</div>
 		</div>
@@ -211,11 +205,13 @@ category: entry
 		<div class="mask">
 			{% include action-buttons.html %}
 			<div class="viz-container homeless-analysis" style = "height:90%; padding: 15px 15px 15px 15px;">
-				<div class="column" id="panel_3b">
+				<div id="panel_3b">
 					<div id="tree"></div>
+					<div id="tab_info">
+						<div class="tab" id="tab"></div>
+					</div>
 					<div id="infographic"></div>
 				</div>
-				<div class="column" id="panel_3c"></div>
 				</div>
 			</div>
 		</div>
