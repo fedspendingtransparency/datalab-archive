@@ -1194,15 +1194,15 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               $('#panel_info').empty();
               d3.select('#panel_matrix > svg').remove()
-              d3.select('#p2_cfda_legend_title').remove()
-              /*d3.select('#p2_cfda_legend').remove()*/
+              d3.select('#p2_2_cfda_legend_title').remove()
+              d3.select('#p2_2_cfda_legend').remove();
 
               var cfda_legend_title = d3.select('#p2_2_legend_title')
                 .append('div')
                 //.attr('width', '500px')
                 // .attr('min-height', '75px')
                 .attr('padding', '0 0 10px 0')
-                .attr('id', 'p2_cfda_legend_title')
+                .attr('id', 'p2_2_cfda_legend_title')
                 .attr('class', 'h5')
                 .style('text-align', 'center')
                 .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</h5>');
@@ -1662,7 +1662,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
       zoom(node);
     })
     // Initialize accordion
-    d3.select('#panel_3c').append('div').attr('id', 'accordion');
+    d3.select('#tab').append('div').attr('id', 'accordion');
     initialize_accordion();
 
     function initialize_accordion(){
@@ -1693,7 +1693,7 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
         .html(get_CFDA(d));
     }
 
-    function openCoC(evt, cocName) {
+    function openCoC(evt, cocNAME) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -1845,17 +1845,30 @@ d3.json('/data-lab-data/homeless_cluster.json', function(tree_data) {
       console.log('get CFDA dat: ',dat)
 
       return(
-        '<p id="txt">Total funding: ' + '</p><p id="txt2">'+ formatNumber(dat.amount) + '</p>' +
-        '<br/><p id="txt">Total homeless population: ' + '</p><p id="txt2">' + OtherformatNumber(dat.total_homeless) + '</p>' +
-        '<br/><p id="txt">Area in square miles: ' + '</p><p id="txt2">' + P3_formatNumber(dat.land_area) + '</p>' +
-        '<br/><p id="txt">Population density: ' + '</p><p id="txt2">' + P3_formatNumber(dat.density) + ' people per square mile</p>' +
-        '<br/><p id="txt">Median montly gross rent: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
-        '<br/><p id="txt">Avg income for the lowest 20th percentile: ' + '</p><p id="txt2">' + formatNumber(dat.weighted_income) + '</p>' +
-        '<br/><p id="txt">Avg number of days below freezing: ' + '</p><p id="txt2">' + P3_formatNumber(dat.days_below_32) + '</p>' +
-        '<br/><p id="txt">Property crime (incidents per 100k people): ' + '</p><p id="txt2">' + P3_formatNumber(dat.Property_crime_rate) + '</p>' +
-        '<br/><p id="txt">Prevalence of serious mental illness: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_mental_illness) + '%</p>' +
-        '<br/><p id="txt">Prevalence of drug abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_drug_use) + '%</p>' +
-        '<br/><p id="txt">Prevalence of alcohol dependence or abuse: ' + '</p><p id="txt2">' + P3_formatNumber(dat.weighted_alcohol_dependence_or_abuse) + '%</p>'
+        '<div><h2>Cluster '+ dat.group + dat.coc_name +'</h2></div>'+
+        '<div class="flex-container"><div><p>Federal Funding for the Continuum of Care Program</p>'+
+        '<br/><h3>$'+dat.coc_funding+'</h3>'+
+        '<br/><p>Federal Funding for Other Homlessness Programs</p>'+
+        '<br/><h3>$'+dat.other_funding+'</div>'+
+        '<div><p id="txt">Population of Homeless: ' + '</p>'+
+        '<br/><p id="txt2">' + OtherformatNumber(dat.total_homeless) + '</p>' +
+        '<br/><p id="txt">Homeless that are in families: </p>'+
+        '<br/><p id="txt2">'+OtherformatNumber(dat.homeless_people_in_families)+'</p>'+
+        '<br/><p id="txt">Homeless that are individuals: </p>'+
+        '<br/><p id="txt2">'+OtherformatNumber(dat.homeless_individuals)+'</p>'+
+        '<br/><p id="txt">Beds Available: </p></div>'+
+        '<div><p id="txt">Population density: PPL. Per Sq. Mi.</p>'+
+        '<br/><p id="txt2">' + P3_formatNumber(dat.density) +
+        '<br/><p id="txt">Income Avg. For Lowest 20% of Pop.: ' + '</p>'+
+        '<br/><p id="txt2">' + formatNumber(dat.weighted_income) + '</p>' +
+        '<br/><p id="txt">Rent: Median Gross' + '</p>'+
+        '<br/><p id="txt2">' + formatNumber(dat.weighted_estimate_median_gross_rent) + '</p>' +
+        '<br/><p id="txt">Rent as a Percent of Income:</p>'+
+        '<br/><p id="txt2">' + formatNumber(dat.rent_percent) +'</p></div>'+
+        '<div><p id="txt">Land Area: Per Sq. Mile: ' + '</p>' +
+        '<br/><p id="txt2">' + P3_formatNumber(dat.land_area) + '</p>' +
+        '<br/><p id="txt">Property crime rate:incidents per 100k people ' + '</p>'+
+        '<br><p id="txt2">' + P3_formatNumber(dat.Property_crime_rate) + '</p></div></div>'
       )
     }
   function get_Infographic(d){
