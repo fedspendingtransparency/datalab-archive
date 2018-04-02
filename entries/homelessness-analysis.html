@@ -6,6 +6,7 @@ title: On a single night in 2016, more than 500,000 people experienced homelessn
 description: Multiple federal, state, and local programs offer support to people experiencing homelessness. Our visualizations display federal financial data to show the breakdown of funding spent to address homelessness.
 banner: landings/homelessness.jpg
 permalink: homelessness-analysis.html
+redirect_from: http://www.fedspendingtransparency.github.io/data-lab/homeless-analysis/
 category: entry
 ---
 
@@ -39,7 +40,7 @@ category: entry
 			<p><span class='superscript'>3</span> <a href='https://www.hudexchange.info/resources/documents/PIT-Count-Methodology-Guide.pdf' target='_blank'>Department of Housing and Urban Development.</a></p>"
 %}
 
-<section id="one" class="wrapper style1 center-text">
+<section id="one" class="viz-section center-text">
 	<div class="viz-bkgd">
 		{% include viz-title.html
 		   title="Homeless Population by Region"
@@ -107,7 +108,7 @@ category: entry
 				<p><span class='superscript'>8</span> Walch, Tad. <a href='https://www.deseretnews.com/article/865677276/Over-a-decade-LDS-Church-has-given-42-million-to-homeless-relief-in-Salt-Lake.html' target='_blank'>'Over a decade, LDS Church has given $42 million to homeless relief in Salt Lake.'</a></p>"
 %}
 
-<section id="one" class="wrapper style1 center-text">
+<section id="one" class="viz-section center-text">
 	<div class="viz-bkgd">
 		{% include viz-title.html
 			title="Federal Spending on Homelessness by Region"
@@ -133,51 +134,58 @@ category: entry
 		%}
 		<div class="mask">
 			{% include action-buttons.html %}
-			<div class="viz-container homeless-analysis">
-				<div class="row flex" style="min-height:300px">
-					<div class="column" style="width:50%; float:left; padding-left:15px; padding-right:15px; box-sizing: border-box;">
-						<div class="row flex" style="margin-top:0">
-							<div id="container2_1"></div>
-						</div>
-						<div class="row flex">
-							<div id="container2_3" style="margin-top:0px"></div>
-						</div>
-						<button class="button" id="myBtnContact" style="margin: auto; position:relative; z-index:99; text-align:center; vertical-align:middle;">CoC Contact</button>
+			<div class="viz-container homeless-analysis" style="background-color: #E2DFEC">
+				<div class="flex-container">
+					<div class="panel2_container" id="container2_1"></div>
+					<div class="panel2_container" id="container2_2"></div>
+					<div class="panel2_container">
+						<div id="container2_3"></div>
+						<button class="button" id="myBtnContact">CoC Contact</button>
 						<div id="myModalContact" class="modal">
 							<div class="modal-content" id="modalContact"  style="width:30%">
 								<div class="modal-blue-bar"></div>
-								<div class="modal-body"  style="max-width:100%; padding: 0 0 0 0;">
-									<!-- <span class="closeContact">&times;</span> -->
+								<div class="modal-body"  style="max-width:100%; padding: 0 0 0 0">
+									<span class="closeContact">&times;</span>
 									<div class="modal-body-content" id="CoCcontact"></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="column" style="width:50%; float:right; padding-left:15px; padding-right:15px; box-sizing: border-box;">
-						<div class="row flex" style="margin-top:0">
-							<div id="container2_2"></div>
-						</div>
-						<div class="row flex" style="margin-top:15px; padding-top: 5px;">
-							<div id="container2_4"></div>
-						</div>
-					</div>
+					<div class="panel2_container" id="container2_4"></div>
 				</div>
 			</div>
 		</div>
+		</div>
 	</div>
 </section>
+
+<script>
+	var modal = document.getElementById('myModalContact');
+	document.getElementById("myBtnContact").onclick = function() {
+		modal.style.display = "block";
+	}
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
 
 {% include viz-header-info.html
 	title="Final thoughts"
 	body="As these visualizations depict, thousands of people are homeless across the United States. We hope that this analysis show how federal funding impacts homelessness and can serve as a useful tool for state and local governments, as well as private institutions, who are working to reduce homelessness. In addition, we chose to conduct this analysis because it features data from across multiple federal agencies, which is all available in one dataset. Analysts and users who have ideas for other types of analyses, whether featuring contracts or financial assistance across the federal government, can use the Data Lab's Analyst Guide for guidance and hints as they use the data."
 %}
 
-{% include how-analysis-conducted.html
-	how="To accurately determine the amount the federal government spends addressing homelessness,
-	we reviewed federal program descriptions using the CFDA, looking for any mention of
-	keywords related to homelessness."
-	read-more="homelessness-analysis-more.html"
-	next-analysis="budget-function.html"
+{% include viz-footer-info.html
+	body="To accurately determine the amount the federal government spends addressing homelessness, we reviewed federal program descriptions using the CFDA, looking for any mention of keywords related to homelessness."
+	link="homelessness-analysis-more.html"
+%}
+
+{% include footer-navigation.html
+	prev-text="Contract Explorer"
+	prev-link="contract-explorer.html"
+	next-text="Budget Function"
+	next-link="budget-function.html"
 %}
 
 <!-- d3 -->

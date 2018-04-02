@@ -33,7 +33,7 @@ category: entry
 		and spending on federal contracts.</p>"
 %}
 
-<section id="one" class="wrapper style1 center-text">
+<section id="one" class="viz-section center-text">
 	<div class="viz-bkgd">
 		{% include viz-title.html
 			title="Budget Function Explorer"
@@ -61,7 +61,7 @@ category: entry
 						<label for="contactChoice2" style="font-size:12px">FY 17</label>
 					</div>
 				</form>
-				<div class="float-right">
+				<div>
 					{% include share-menu.html %}
 				</div>
 			</div>
@@ -80,13 +80,16 @@ category: entry
 	</div>
 </section>
 
-{% include how-analysis-conducted.html
-	how="This analysis was conducted using agency account obligation data reported to USAspending.gov,
-		 which is available to the public. Each reported account is aligned to a single Budget Function and
-		 is further broken out by the dollars obligated under each Object Class (data can be found via the
-		 TAS/categories endpoint within the DATA Act API)."
-	read-more="budget-function-more.html"
-	next-analysis="federal-employees.html"
+{% include viz-footer-info.html
+	body="This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API)."
+	link="budget-function-more.html"
+%}
+
+{% include footer-navigation.html
+	prev-text="Homelessness Analysis"
+	prev-link="homelessness-analysis.html"
+	next-text="Federal Employees"
+	next-link="federal-employees.html"
 %}
 
 <!-- d3 scripts -->

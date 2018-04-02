@@ -5,10 +5,8 @@ layout: landing
 <section id="banner">
 	<p class="index-header">{{ site.description }}</p>
 	<p class="index-sub-header">Data visualizations to help you understand government spending.</p>
-	<a href="#one" class="scrolly homepage-get-started">Get Started<span class="get-started-arrow">{% include svgs/down-arrow.svg %}</span></a>
+	<a href="#two" class="scrolly homepage-get-started">Get Started<span class="get-started-arrow">{% include svgs/down-arrow.svg %}</span></a>
 </section>
-
-{% include resources.html %}
 
 <section id="two" class="wrapper alt style2">
 	<section class="spotlight">
@@ -23,7 +21,7 @@ layout: landing
 		<div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div><div class="content">
 			<h4>Contract Explorer</h4>
 			<h2><a href="contract-explorer.html">Who receives federal contracts?</a></h2>
-			<p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies recieve from these contracts.</p>
+			<p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies receive from these contracts.</p>
 			<a href="contract-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
 		</div>
 	</section>
@@ -61,28 +59,4 @@ layout: landing
 	</section>
 </section>
 
-{% include viz-modal.html
-	identifier="getInvolvedModal"
-	title="Contact us!"
-	body="<p>For media inquiries or questions on DataLab activites or operations, 
-			 please contact our Legislative and Public Affairs Office:</p>
-		  <ul>
-				<li>Media Line: 202-504-3535</li>
-				<li>Media Email: media.relations@fiscal.treasury.gov</li>
-		  </ul>"
-%}
-
-<!-- CTA -->
-<section id="cta" class="wrapper style4">
-	<div class="inner">
-		<header>
-			<h1>Get Involved!</h1>
-			<p>Your input is invaluable. Sign up to become a website tester or send us any feedback you have.</p>
-		</header>
-		<div>
-			<a href="https://airtable.com/shrVMcNncc32AEum7"><span class="get-involved-button">Tester Signup</span></a>
-			<a href="https://usaspending-help.zendesk.com/hc/en-us/community/topics"><span class="get-involved-button">Send Feedback</span></a>
-			<span onclick="document.getElementById('getInvolvedModal').style.display='block';" class="get-involved-button">Media Inquiries</span>
-		</div>
-	</div>
-</section>
+{% include resources.html %}

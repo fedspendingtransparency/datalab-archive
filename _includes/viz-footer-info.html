@@ -1,0 +1,12 @@
+<div class="entry-about-container">
+    <div class="entry-about-title-container">
+        <h2 class="entry-about-title">How We Conducted This Analysis</h2>
+        <div class="entry-about-divider"></div>
+    </div>
+    <div class="entry-about-body-container">
+        <h3 class="entry-about-body">{{include.body}}</h3>
+        {% if include.link %}
+            <a href="{{include.link}}" class="button-read-more"><span>Read More ⟶</span></a>
+        {% endif %}
+    </div>
+</div>

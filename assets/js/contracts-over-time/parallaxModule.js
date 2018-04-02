@@ -1,3 +1,6 @@
+---
+---
+
 const parallaxModule = (function() {
   function findParallaxStatus(onChangeCB) {
     const elements = $.makeArray($(".left"));
@@ -60,11 +63,11 @@ const parallaxModule = (function() {
 
     switch (mem.parallaxStatus) {
       case "pre":
-        $("#counter").html(`not currently scrolling past a panel`);
+        // console.log(`not currently scrolling past a panel`)
         $(".parallax-container").addClass("absolute");
         break;
       case "post":
-        $("#counter").html(`not currently scrolling past a panel`);
+        // console.log(`not currently scrolling past a panel`)
         $(".parallax-container").addClass("absolute");
         $(".parallax-container").addClass("post");
         break;
@@ -73,7 +76,7 @@ const parallaxModule = (function() {
     }
 
     if (mem.activePanel) {
-      $("#counter").html(`currently scrolling past ${mem.activePanel.id}`);
+      // console.log(`currently scrolling past ${mem.activePanel.id}`)
     }
   }
 

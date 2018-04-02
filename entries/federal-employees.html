@@ -12,15 +12,15 @@ category: entry
 
 {% include viz-header-info.html
 	title="How much do agencies spend on personnel?"
-	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 million in personnel compensation. Government-wide spending on personnel compensation (base salaries) is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Agriculture."
+	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 billion in personnel compensation. Government-wide spending on personnel compensation (base salaries) is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Veterans Affairs."
 %}
 
 <div class="fedscope-tool">
 
 <!-- tooltip -->
-<div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; left: 486.128px;"></div>
+<div id="tooltip" class="tooltip-module"></div>
 
-<section id="one" class="wrapper style1 center-text">
+<section id="one" class="viz-section center-text">
   <div class="viz-bkgd">
     <div class="mask">
       {% include action-buttons.html %}
@@ -97,21 +97,29 @@ category: entry
     </div>
 	</div>
 </div>
-
-{% include how-analysis-conducted.html
-  how="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
-   read-more="federal-employees-more.html"
-   next-analysis="competition-in-contracting.html"
-%}
 </div>
 
-<!-- master scripts -->
+{% include viz-footer-info.html
+  body="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
+  link="federal-employees-more.html"
+%}
+
+{% include footer-navigation.html
+  prev-text="Budget Function"
+  prev-link="budget-function.html"
+  next-text="Competition In Contracting"
+  next-link="competition-in-contracting.html"
+%}
+
+<!-- shared scripts -->
+<script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
+
+<!-- fedscope scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v4.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/fedscope-tool/treemapModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/fedscope-tool/mapModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/fedscope-tool/barchartModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/fedscope-tool/tooltipModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/fedscope-tool/keyModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/fedscope-tool/dataModule.js"></script>
 <script src="{{site.baseurl}}/assets/js/fedscope-tool/fedscope.js"></script>

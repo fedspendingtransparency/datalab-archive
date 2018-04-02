@@ -24,7 +24,7 @@ category: entry
 %}
 
 <div class="contract-explorer">
-  <section id="one" class="wrapper style1 center-text">
+  <section id="one" class="viz-section center-text">
     <div class="viz-bkgd">
        {% include viz-title.html
           title="Contract Explorer Sunburst"
@@ -51,10 +51,16 @@ category: entry
   </section>
 </div>
 
-{% include how-analysis-conducted.html
-  how="We conducted this analysis using agency contract award data for FY 2017, which agencies report to USAspending.gov (and which is publicly available). Each reported contract includes information about the agency and sub-agency that awarded the contract, the contract recipient, and a Product and Service Code, which indicates the goods or services delivered as a result of the contract."
-  read-more="contract-explorer-more.html"
-  next-analysis="homelessness-analysis.html"
+{% include viz-footer-info.html
+  body="We conducted this analysis using agency contract award data for FY 2017, which agencies report to USAspending.gov (and which is publicly available). Each reported contract includes information about the agency and sub-agency that awarded the contract, the contract recipient, and a Product and Service Code, which indicates the goods or services delivered as a result of the contract."
+  link="contract-explorer-more.html"
+%}
+
+{% include footer-navigation.html
+  prev-text="Federal Account Explorer"
+  prev-link="federal-account-explorer.html"
+  next-text="Homelessness Analysis"
+  next-link="homelessness-analysis.html"
 %}
 
 <!-- d3 -->

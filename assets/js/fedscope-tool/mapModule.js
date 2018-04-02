@@ -1,5 +1,11 @@
-const mapModule = function() {
-  function draw(data, { states, tooltipModuleDraw }) {
+---
+---
+
+const mapModule = (function() {
+  function draw(data, { states }) {
+    const svg = d3.select("#mapSvg")
+    svg.selectAll("*").remove();
+
     let filteredData = [...data];
 
     const initialStateData = Object.keys(states).reduce((a, c) => {
@@ -12,33 +18,40 @@ const mapModule = function() {
       return a;
     }, initialStateData);
 
+    const max = d3.max(Object.values(dataByState), d => d);
+    const min = d3.min(Object.values(dataByState), d => d);
+
+    const formatNumber = d3.format(",d");
+
+    const colors = ["#f2f1f8", "#3f3c7d"];
+
     var color = d3
       .scaleLinear()
-      .domain([1, d3.max(Object.values(dataByState), d => d)])
-      .range(["#f2f1f8", "#3f3c7d"])
+      .domain([min, max])
+      .range(colors)
       .interpolate(d3.interpolateRgb);
 
     function handleMouseOver(d) {
-      const formatNumber = d3.format(",d");
-      tooltipModuleDraw(d.name, {
+      tooltipModule.draw("#tooltip", d.name, {
         Employees: formatNumber(dataByState[d.abbreviation])
       });
       d3.select(this).style("fill", "#D334BA");
     }
 
     function handleMouseOut() {
-      tooltipModuleRemove();
+      tooltipModule.remove("#tooltip");
       d3.select(this).style("fill", d => color(dataByState[d.abbreviation]));
     }
 
     function handleMouseMove() {
-      tooltipModuleMove();
+      tooltipModule.move("#tooltip");
     }
 
-    d3
-      .select("#mapSvg")
+    const mapGroup = svg
       .append("g")
-      .attr("transform", "scale(.9375)")
+      .attr("transform", "scale(.9375)");
+    
+    mapGroup
       .selectAll(".state")
       .data(Object.values(states))
       .enter()
@@ -49,8 +62,50 @@ const mapModule = function() {
       .on("mouseover", handleMouseOver)
       .on("mousemove", handleMouseMove)
       .on("mouseout", handleMouseOut);
+
+    const svgWidth = 900;
+    const scaleWidth = 400;
+
+    const scaleGroup = svg
+      .append("g")
+      .attr("transform", `translate(${(svgWidth - scaleWidth)/2}, 10)`)
+
+    const linearGradient = scaleGroup
+      .append("defs")
+      .append("linearGradient")
+      .attr("id", "linear-gradient");
+
+    linearGradient
+      .append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", colors[0]);
+  
+    linearGradient
+      .append("stop") 
+      .attr("offset", "100%")   
+      .attr("stop-color", colors[1]);
+
+    scaleGroup
+      .append("rect")
+      .attr("height", 10)
+      .attr("width", scaleWidth)
+      .attr("fill", "url(#linear-gradient)");
+    
+    scaleGroup
+      .append("text")
+      .text(`${formatNumber(min)}`)
+      .attr("transform", `translate(0, 20)`)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      
+    scaleGroup
+      .append("text")
+      .text(`${formatNumber(max)}`)
+      .attr("transform", `translate(${scaleWidth}, 20)`)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+
+
   }
   return { draw };
-};
-
-
+})();
