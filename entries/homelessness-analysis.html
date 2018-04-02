@@ -172,50 +172,6 @@ category: entry
 </script>
 
 {% include viz-header-info.html
-	title="Which Continuum of Care areas are similar to each other?"
-	body="While the section above allows you to compare Continuum of Care areas that are neighbors geographically, we wanted to explore if Continuum of Care areas were similar along characteristics other than geography. It may be helpful for those working in the field to know what types of funding their neighbors are receiving and to know what regions are similar to their own regardless of location. Using an unsupervised machine learning algorithm, we clustered Continuum of Care areas based on a variety of attributes, such as population, income, and the prevalence of mental illness."
-%}
-
-<section id="one" class="viz-section center-text">
-	<div class="viz-bkgd">
-		{% include viz-title.html
-			title="Comparing and Clustering Continuum of Care Areas"
-			subtext="Using multiple data sources to discover similarities between regions"
-			identifier="panel3InstructionsModal"
-		%}
-		{% include viz-modal.html
-			identifier="panel3InstructionsModal"
-			title="Instructions"
-			body="<p>
-				There are three parts to explore: the top tree map shows all Continuum of Care areas and the clusters
-				to which they belong. The right panel will show all Continuum of Care areas that belong to the selected cluster.
-				The infographic below offers a quick snapshot of the cluster's attributes. For example, one Continuum of Care
-				area in a cluster may have a median rent of $1,800 (the maximum for that cluster) while another Continuum of Care
-				area has a median rent of $900 (the minimum for that cluster).</p>
-				<ul>
-					<li>The top tree map updates the panel on the right and the infographic below.</li>
-					<li>To change the right-hand panel or infographic, click a cluster in the top tree map.</li>
-					<li>To zoom in and see more Continuum of Care areas within a cluster, click any cluster in the top tree map.</li>
-					<li>Click any Continuum of Care area in the right panel to expand its information.</li>
-				</ul>"
-		%}
-		<div class="mask">
-			{% include action-buttons.html %}
-			<div class="viz-container homeless-analysis" style = "height:90%; padding: 15px 15px 15px 15px;">
-				<div id="panel_3b">
-					<div id="tree"></div>
-					<div id="tab_info">
-						<div class="tab" id="tab"></div>
-					</div>
-					<div id="infographic"></div>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-{% include viz-header-info.html
 	title="Final thoughts"
 	body="As these visualizations depict, thousands of people are homeless across the United States. We hope that this analysis show how federal funding impacts homelessness and can serve as a useful tool for state and local governments, as well as private institutions, who are working to reduce homelessness. In addition, we chose to conduct this analysis because it features data from across multiple federal agencies, which is all available in one dataset. Analysts and users who have ideas for other types of analyses, whether featuring contracts or financial assistance across the federal government, can use the Data Lab's Analyst Guide for guidance and hints as they use the data."
 %}
