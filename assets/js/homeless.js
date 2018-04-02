@@ -1191,22 +1191,19 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
 
               $('#panel_info').empty();
               d3.select('#panel_matrix > svg').remove()
-              d3.select('#p2_2_cfda_legend_title').remove()
+              d3.select('#p2_cfda_legend_title').remove()
               d3.select('#p2_2_cfda_legend').remove();
 
               var cfda_legend_title = d3.select('#p2_2_legend_title')
                 .append('div')
-<<<<<<< HEAD
                 //.attr('width', '500px')
                 // .attr('min-height', '75px')
                 .attr('padding', '0 0 10px 0')
                 .attr('id', 'p2_2_cfda_legend_title')
                 .attr('class', 'h5')
                 .style('text-align', 'center')
-=======
                 .attr('id', 'p2_cfda_legend_title')
                 .attr('class', 'legend-header')
->>>>>>> afcd06c5c2bb5e6a0d73fcb37f6e3500ac7a6e49
                 .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</h5>');
 
               var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
