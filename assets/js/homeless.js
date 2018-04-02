@@ -1207,12 +1207,18 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</h5>');
 
               var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
-                /*.attr('width', matrix_width + margin.left + margin.right)
-                .attr('height', matrix_height + margin.top + margin.bottom)*/
-                // .style('margin-left', -margin.left / 2.5 + 'px')
-                .attr('transform', 'translate(' + 0 + ',' + 10 + ')')
-                .attr('viewBox', '0 0 850 300')
-                .attr('preserveAspectRatio', 'xMidYMid meet');
+              /*.attr('width', matrix_width + margin.left + margin.right)
+              .attr('height', matrix_height + margin.top + margin.bottom)*/
+              .attr('width', '100%')
+              .attr('height', map_height + margin.top + margin.bottom + 140)
+              // .style('margin-left', -margin.left / 2.5 - 12 + 'px')
+              .attr('transform', 'translate(' + 0 + ',' + 10 + ')');
+                // /*.attr('width', matrix_width + margin.left + margin.right)
+                // .attr('height', matrix_height + margin.top + margin.bottom)*/
+                // // .style('margin-left', -margin.left / 2.5 + 'px')
+                // .attr('transform', 'translate(' + 0 + ',' + 10 + ')')
+                // .attr('viewBox', '0 0 850 300')
+                // .attr('preserveAspectRatio', 'xMidYMid meet');
 
               p2_3_matrix_svg.call(p2_3_bar_tip);
 
