@@ -1,3 +1,6 @@
+---
+---
+
 const summaryTableModule = (function() {
   function draw(data) {
     const { formatNumber } = helperFunctionModule;
