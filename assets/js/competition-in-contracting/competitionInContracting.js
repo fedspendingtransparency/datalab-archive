@@ -1,3 +1,6 @@
+---
+---
+
 $(function() {
   const barchartModuleDraw = barchartModule().draw;
   const tooltipModuleDraw = tooltipModule().draw;

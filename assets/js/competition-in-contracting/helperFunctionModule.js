@@ -1,3 +1,6 @@
+---
+---
+
 const helperFunctionModule = (function() {
   const formatPercent = d3.format(",.0%");
   const formatActions = d3.format(",");
