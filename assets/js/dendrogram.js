@@ -1,703 +1,462 @@
-/*Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+d3.csv('/data-lab-data/accounts_obligations_revised_180306.csv', (error, newData) => {
+    newData.forEach((d) => {
+        d.Obligation = +d.Obligation;
+        d.Unobligated = +d.Unobligated;
+    });
 
-* Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.
+    const root = { name: 'Federal Agencies', children: [] };
+    const levels = ['Agency', 'Subagency'];
 
-* Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.
+    let maxLabelLength = 0;
+    // Misc. variables
+    let nodeIterator = 0;
+    const duration = 750;
 
-* The name Rob Schmuecker may not be used to endorse or promote products
-derived from this software without specific prior written permission.
+    // size of the diagram
+    const viewerWidth = document.body.clientWidth;
+    const viewerHeight = 800;
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL MICHAEL BOSTOCK BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+    let svgGroup;
 
-
-// comments
-// // comments
-// // comments
-// // comments
-// // comments
-// 
-// Get csv data
-
-d3.csv('/data-lab-data/accounts_obligations_revised_180306.csv',function(error,newData){
-
-console.log("Hierarchy: ",newData);
-
-newData.forEach(function(d){
-  d.Obligation = +d.Obligation
-  d.Unobligated = +d.Unobligated
-})
-
-
-var root = { name :"Federal Agencies", children : [] },
-levels = ["Agency","Subagency"];
-
-newData.forEach(function(d){
-  // Keep this as a reference to the current level
-  var depthCursor = root.children;
-  // Go down one level at a time
-  levels.forEach(function( property, depth ){
-
-      // Look to see if a branch has already been created
-      var index;
-      depthCursor.forEach(function(child,i){
-          if ( d[property] == child.name ) index = i;
-      });
-      // Add a branch if it isn't there
-      if ( isNaN(index) ) {
-          depthCursor.push({ name : d[property], children : []});
-          index = depthCursor.length - 1;
-      }
-      // Now reference the new child array as we go deeper into the tree
-      depthCursor = depthCursor[index].children;
-      // This is a leaf, so add the last element to the specified branch
-  if ( depth === levels.length - 1 ) depthCursor.push({ name : d.Title, size : d.Obligation, unob : d.Unobligated ,id : d.accountID });
-});
-});
-
-
-console.log("root:",root);
-  // Calculate total nodes, max label length
-  var totalNodes = 0;
-  var maxLabelLength = 0;
-  // variables for drag/drop
-  var selectedNode = null;
-  var draggingNode = null;
-  // panning variables
-  var panSpeed = 200;
-  var panBoundary = 20; // Within 20px from edges will pan when dragging.
-  // Misc. variables
-  var i = 0;
-  var duration = 750;
-  var root;
-
-  // size of the diagram
-  var viewerWidth = $(document).width();
-  var viewerHeight = 800;
-
-  var tree = d3.layout.tree()
-      .size([viewerHeight, viewerWidth]);
-  //console.log(treeData);
-  // define a d3 diagonal projection for use by the node paths later on.
-  var diagonal = d3.svg.diagonal()
-      .projection(function(d) {
-          return [d.y, d.x];
-      });
-
-  /*function blowUp(d) {
-   //console.log("blowUp-->d: ",d);
-   if (d.children) {
-      d.children.forEach(blowUp);
-      d = toggleChildren(d);
-   }else if(d._children){
-      d._children.forEach(blowUp);
-      d = toggleChildren(d);
+    function zoom() {
+        svgGroup.attr('transform', `translate(${d3.event.translate})scale(1)`);
     }
-  };*/
 
-  function toggleAll(d) {
-    if (d.children) {
-      d.children.forEach(toggleAll);
-      toggle(d);
-    }
-  };
+    // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
+    const zoomListener = d3.behavior.zoom().scaleExtent([1, 1]).on('zoom', zoom);
 
-  // Toggle children.
-  function toggle(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
-};
+    // define the baseSvg, attaching a class for styling and the zoomListener
+    const baseSvg = d3.select('#tree-container').append('svg')
+        .attr('width', viewerWidth)
+        .attr('height', viewerHeight)
+        .attr('class', 'overlay')
+        .call(zoomListener);
 
-/*d3.select("#zoom_in").on("click", zoomButtonUp);
-d3.select("#zoom_out").on("click", zoomButtonDn);*/
-d3.select("#button1").on("click", change);
-//d3.select("#button2 > p > input").on("click", explode);
+    // Append a group which holds all nodes and which the zoom Listener can act upon.
+    svgGroup = baseSvg.append('g');
 
-/*function zoomButtonUp(){
-  console.log("translate: ",zoomListener.translate());
-  var scale = zoomListener.scale() + .1,
-      translate = zoomListener.translate();
-  d3.select('g').transition()
-          .duration(duration)
-          .attr("transform", "scale(" + scale + ")");
-  console.log("translate-new: ",zoomListener.translate());
-  zoomListener.scale(scale);
-  zoomListener.translate(translate);
-};
-
-function zoomButtonDn(){
-  var scale = zoomListener.scale() - .1,
-      translate = zoomListener.translate();
-  d3.select('g').transition()
-          .duration(duration)
-          .attr("transform", "scale(" + scale + ")");
-  zoomListener.scale(scale);
-  zoomListener.translate(translate);
-};*/
-
-function change() {
-  zoomListener.scale(1);
-  toggleAll(root);
-  toggle(root);
-  update(root);
-  centerRootNode(root);
-  zoomListener.scale(1);
-  console.log("root after reset: ",root);
-};
-
-/*function explode(){
-  zoomListener.scale(0.7);
-  blowUp(root);
-  toggle(root);
-  update(root);
-  centerExplode(root);
-  zoomListener.scale(0.7);
-  console.log("root after explode: ",root);
-};*/
-
-  // A recursive helper function for performing some setup by walking through all nodes
-
-  function visit(parent, visitFn, childrenFn) {
-      if (!parent) return;
-
-      visitFn(parent);
-
-      var children = childrenFn(parent);
-      if (children) {
-          var count = children.length;
-          for (var i = 0; i < count; i++) {
-              visit(children[i], visitFn, childrenFn);
-          }
-      }
-  }
-
-  // Call visit function to establish maxLabelLength
-  visit(root, function(d) {
-      totalNodes++;
-      maxLabelLength = Math.max(d.name.length, maxLabelLength);
-
-  }, function(d) {
-      return d.children && d.children.length > 0 ? d.children : null;
-  });
-
-
-  // sort the tree according to the node names & numerically for obligation amounts
-
-  function sortTree() {
-      tree.sort(function(a, b) {
-        if(a.depth===3 & b.depth===3){
-            return b.size - a.size;
-        }else if(a.depth<3 & b.depth<3){
-          return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
-        }
-      });
-  }
-
-  // Sort the tree initially incase the JSON isn't in a sorted order.
-  sortTree();
-
-/*
-  function pan(domNode, direction) {
-      var speed = panSpeed;
-      if (panTimer) {
-          clearTimeout(panTimer);
-          translateCoords = d3.transform(svgGroup.attr("transform"));
-          if (direction == 'left' || direction == 'right') {
-              translateX = direction == 'left' ? translateCoords.translate[0] + speed : translateCoords.translate[0] - speed;
-              translateY = translateCoords.translate[1];
-          } else if (direction == 'up' || direction == 'down') {
-              translateX = translateCoords.translate[0];
-              translateY = direction == 'up' ? translateCoords.translate[1] + speed : translateCoords.translate[1] - speed;
-          }
-          scaleX = translateCoords.scale[0];
-          scaleY = translateCoords.scale[1];
-          scale = zoomListener.scale();
-          svgGroup.transition().attr("transform", "translate(" + translateX + "," + translateY + ")scale(" + scale + ")");
-          d3.select(domNode).select('g.node').attr("transform", "translate(" + translateX + "," + translateY + ")");
-          zoomListener.scale(zoomListener.scale());
-          zoomListener.translate([translateX, translateY]);
-          panTimer = setTimeout(function() {
-              pan(domNode, speed, direction);
-          }, 50);
-      }
-  }
-*/
-  // Define the zoom function for the zoomable tree
-
-  function zoom() {
-      svgGroup.attr("transform", "translate(" + d3.event.translate + ")scale(1)");
-  }
-
-  /*function zoomed() {
-      svgGroup.attr("transform", "translate(" + d3.event.translate + ")");
-  }*/
-
-  // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-  var zoomListener = d3.behavior.zoom().scaleExtent([1, 1]).on("zoom", zoom);
-  //var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]);
-
-  // define the baseSvg, attaching a class for styling and the zoomListener
-  var baseSvg = d3.select("#tree-container").append("svg")
-      .attr("width", viewerWidth)
-      .attr("height", viewerHeight)
-      .attr("class", "overlay")
-      .call(zoomListener);
-
-  // Helper functions for collapsing and expanding nodes.
-
-  function collapse(d) {
-      if (d.children) {
-          d._children = d.children;
-          d._children.forEach(collapse);
-          d.children = null;
-      }
-  }
-
-  function expand(d) {
-      if (d._children) {
-          d.children = d._children;
-          d.children.forEach(expand);
-          d._children = null;
-      }
-  }
-
-  var overCircle = function(d) {
-      selectedNode = d;
-      updateTempConnector();
-  };
-  var outCircle = function(d) {
-      selectedNode = null;
-      updateTempConnector();
-  };
-
-  // Function to update the temporary connector indicating dragging affiliation
-  var updateTempConnector = function() {
-      var data = [];
-      if (draggingNode !== null && selectedNode !== null) {
-          // have to flip the source coordinates since we did this for the existing connectors on the original tree
-          data = [{
-              source: {
-                  x: selectedNode.y0,
-                  y: selectedNode.x0
-              },
-              target: {
-                  x: draggingNode.y0,
-                  y: draggingNode.x0
-              }
-          }];
-      }
-      var link = svgGroup.selectAll(".templink").data(data);
-
-      link.enter().append("path")
-          .attr("class", "templink")
-          .attr("d", d3.svg.diagonal())
-          .attr('pointer-events', 'none');
-
-      link.attr("d", d3.svg.diagonal());
-
-      link.exit().remove();
-  };
-
-  // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
-
-function centerNode(source) {
-      if(source.depth===2){
-          scale = zoomListener.scale();
-          x = -source.y0;
-          y = -source.x0;
-          x = x * scale + viewerWidth / 4.2;
-          y = y * scale + viewerHeight / 2;
-          d3.select('g').transition()
-              .duration(duration)
-              .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-          zoomListener.scale(scale);
-          zoomListener.translate([x, y]);
-    }else{
-          scale = zoomListener.scale();
-          x = -source.y0;
-          y = -source.x0;
-          x = x * scale + viewerWidth / 3;
-          y = y * scale + viewerHeight / 2;
-          d3.select('g').transition()
-              .duration(duration)
-              .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-          zoomListener.scale(scale);
-          zoomListener.translate([x, y]);
-    }
-  }
+    newData.forEach((d) => {
+        // Keep this as a reference to the current level
+        let depthCursor = root.children;
+        // Go down one level at a time
+        levels.forEach((property, depth) => {
+            // Look to see if a branch has already been created
+            let index;
+            depthCursor.forEach((child, i) => {
+                if (d[property] === child.name) index = i;
+            });
+            // Add a branch if it isn't there
+            if (isNaN(index)) {
+                depthCursor.push({ name: d[property], children: [] });
+                index = depthCursor.length - 1;
+            }
+            // Now reference the new child array as we go deeper into the tree
+            depthCursor = depthCursor[index].children;
+            // This is a leaf, so add the last element to the specified branch
+            if (depth === levels.length - 1) {
+                depthCursor.push({
+                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.accountID
+                });
+            }
+        });
+    });
 
     function centerRootNode(source) {
-      scale = zoomListener.scale();
-      x = -source.y0;
-      y = -source.x0;
-      x = x * scale + viewerWidth / 4;
-      y = y * scale + viewerHeight / 2;
-      d3.select('g').transition()
-          .duration(duration)
-          .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-      zoomListener.scale(scale);
-      zoomListener.translate([x, y]);
-  }
-
-    function centerExplode(source) {
-      scale = zoomListener.scale();
-      x = -source.y0;
-      y = -source.x0;
-      x = x * scale + viewerWidth / 19;
-      y = y * scale + viewerHeight / 2;
-      d3.select('g').transition()
-          .duration(duration)
-          .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-      zoomListener.scale(scale);
-      zoomListener.translate([x, y]);
-  }
-
-  // Toggle children function
-
-  function toggleChildren(d) {
-    //console.log("In toggleChildren(d): ",d);
-      if (d.children) {
-          d._children = d.children;
-          d.children = null;
-      } else if (d._children) {
-          d.children = d._children;
-          d._children = null;
-      }
-      return d;
-  }
-
-  // Toggle children on click.
-  function click(d) {
-    if(d.depth===1 & d._children === null){
-      d = toggleChildren(d);
-      update(d);
-      centerNode(d);
-    }else if(d.depth===3 ){
-      update(d);
-      getLink(d);
-    }else if(d.depth===2 ){
-      d = toggleChildren(d);
-      update(d);
-      centerNode(d);
-    }else if(d.depth===1 & d._children !== null & d._children.length===1 ){
-      d._children.forEach(expand);
-      d = toggleChildren(d);
-      update(d);
-      centerNode(d.children[0]);
-    }else{
-      d = toggleChildren(d);
-      update(d);
-      centerNode(d);
+        const scale = zoomListener.scale();
+        const x = (-source.y0 * scale) + (viewerWidth / 4);
+        const y = (-source.x0 * scale) + (viewerHeight / 2);
+        d3.select('g').transition()
+            .duration(duration)
+            .attr('transform', `translate(${x},${y})scale(${scale})`);
+        zoomListener.scale(scale);
+        zoomListener.translate([x, y]);
     }
-  }
 
-  function getLink(d){
-    var base_url = ("https://beta.usaspending.gov/#/federal_account/");
-    var acct_num = (d.id);
-    window.open(base_url+acct_num);
-    console.log("in getLink");
-  }
+    let tree = d3.layout.tree()
+        .size([viewerHeight, viewerWidth]);
 
-  function update(source) {
-      // Compute the new height, function counts total children of root node and sets tree height accordingly.
-      // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
-      // This makes the layout more consistent.
-      var levelWidth = [1];
-      var childCount = function(level, n) {
+    // define a d3 diagonal projection for use by the node paths later on.
+    const diagonal = d3.svg.diagonal()
+        .projection((d) => [d.y, d.x]);
 
-          if (n.children && n.children.length > 0) {
-              if (levelWidth.length <= level + 1) levelWidth.push(0);
-
-              levelWidth[level + 1] += n.children.length;
-              n.children.forEach(function(d) {
-                  childCount(level + 1, d);
-              });
-          }
-      };
-      childCount(0, root);
-      var newHeight = d3.max(levelWidth) * 26; // 25 pixels per line
-      tree = tree.size([newHeight, viewerWidth]);
-
-      // Compute the new tree layout.
-      var nodes = tree.nodes(root).reverse(),
-          links = tree.links(nodes);
-
-      // Set widths between levels based on maxLabelLength.
-    nodes.forEach(function(d) {
-         d.y = (d.depth * (maxLabelLength * 2.5)); //maxLabelLength * 10px
-          // alternatively to keep a fixed scale one can set a fixed depth per level
-          // Normalize for fixed-depth by commenting out below line
-          //d.y = (d.depth * 500); //500px per level.
-      });
-
-      // Update the nodes
-      node = svgGroup.selectAll("g.node")
-          .data(nodes, function(d) {
-              return d.id || (d.id = ++i);
-          });
-
-      var tip = d3.tip()
-                 .attr('class', 'dendro d3-tip')
-                 .style('background','#ffffff')
-                 .style('color','#333')
-                 .style('border', 'solid 1px #BFBCBC')
-                 .style('padding', '15px 25px 15px 25px')
-                 .style('min-width', '100px')
-                 .style('max-width', '375px')
-                 .offset([-10, -10])
-                 .html(createHover)
-
-      baseSvg.call(tip);
-
-
-      // Enter any new nodes at the parent's previous position.
-      var nodeEnter = node.enter().append("g")
-          //.call(dragListener)
-          .attr("class", "node")
-          .attr("transform", function(d) {
-              return "translate(" + source.y0 + "," + source.x0 + ")";
-          })
-          .on('click', click)
-          .on("mouseover", tip.show)
-          .on("mouseout", tip.hide);
-
-     function sumUp(object){
-       total = 0
-       object._children.forEach(function(d){
-         d._children.forEach(function(d){
-           total = total + d.size
-        })
-       })
-      return formatNumber(total);
-    };
-
-    function sumUp_lvl2(object){
-      total = 0
-      object._children.forEach(function(d){
-        total = total + d.size
-     })
-     return formatNumber(total);
-    };
-
-    function sumUp_unob(object){
-      total = 0
-      object._children.forEach(function(d){
-        d._children.forEach(function(d){
-          total = total + d.unob
-       })
-      })
-     return formatNumber(total);
-    };
-
-    function sumUp_lvl2_unob(object){
-     total = 0
-     object._children.forEach(function(d){
-       total = total + d.unob
-    })
-    return formatNumber(total);
-    };
-
-
-//createHover for depths 0-3, CSS currently exists in the html, need to change...
-     function createHover(d) {
-       console.log("createHover d: ",d)
-       //console.log("children: ",d._children[0]._children)
-       if(d.depth===3){
-           return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
-             + d.name + '</p>' +
-             '<p style="color: #0071BC; margin: 0; font-size: 18px">'+'Total Obligations: ' + formatNumber(d.size) + '</p>' +
-             '<p style="margin: 0; font-size: 12px">'+'Unobligated Balance: ' + formatNumber(d.unob) + '</p>' +
-             '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Click to visit federal account page</p>'
-             +'<p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Federal account page contains FY17-FY18 data</p>';
-        }else if (d.depth === 2){
-            return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
-            + d.name + ', ' +d.parent.name +  '</p>'
-            + '<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">'
-            + 'Total Obligations: ' + sumUp_lvl2(d) + '</b></p>'
-            + '<p style= "margin: 0; font-size: 12px">' + 'Unobligated Balance: '+ sumUp_lvl2_unob(d) +'</p>'
-            + '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">'+ 'Click to view federal accounts'+ '</p>';
-        }else if (d.depth===1){
-            return '<p style="border-bottom:1px solid #898C90; font-size: 14px; color: #000; font-weight:bolder;">'
-            + d.name +  '</p>'
-            + '<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">'
-            + 'Total Obligations: ' + sumUp(d) + '</b></p>'
-            + '<p style= "margin: 0; font-size: 12px">' + 'Unobligated Balance: '+ sumUp_unob(d) + '</p>'
-            + '<br/><p id="click" style="color: #000; font-size: 12px; font-style:italic; margin: 0 0 0 0;">' + 'Click to view agencies'+ '</p>';
-        }else if (d.depth===0){
-            return '<p style="font-size:16px; margin:0; color: #000; font-weight:bolder;">'
-            + 'FY17 Federal Agencies'+ '</p>';
+    // Toggle children.
+    function toggle(d) {
+        if (d.children) {
+            d._children = d.children;
+            d.children = null;
         }
-     }
+        else {
+            d.children = d._children;
+            d._children = null;
+        }
+    }
 
+    function toggleAll(d) {
+        if (d.children) {
+            d.children.forEach(toggleAll);
+            toggle(d);
+        }
+    }
 
-      /*function createHover(d) {
-        d3.select(this).append("text")
-            .attr("class", "hover")
-            .attr('transform', function(d){
-                if(d.depth===3){ return 'translate(-145, -10)';}
-                else if (d.depth === 2 | d.depth===1){ return 'translate(10, -10)';}
-        })
-        .text(function(d){
-            if(d.depth===3){ return "Visit Federal Account Page";}
-            else if (d.depth === 2){ return "View Federal Accounts";}
-            else if (d.depth===1){ return "View Agencies";}
+    function update(source) {
+        // Compute the new height, function counts total children of root node and sets tree height accordingly.
+        // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
+        // This makes the layout more consistent.
+        const levelWidth = [1];
+        const childCount = (level, n) => {
+            if (n.children && n.children.length > 0) {
+                if (levelWidth.length <= level + 1) levelWidth.push(0);
+
+                levelWidth[level + 1] += n.children.length;
+                n.children.forEach((d) => {
+                    childCount(level + 1, d);
+                });
+            }
+        };
+        childCount(0, root);
+        const newHeight = d3.max(levelWidth) * 26; // 26 pixels per line
+        tree = tree.size([newHeight, viewerWidth]);
+
+        // Compute the new tree layout.
+        const nodes = tree.nodes(root).reverse();
+        const links = tree.links(nodes);
+
+        // Set widths between levels based on maxLabelLength.
+        nodes.forEach((d) => {
+            d.y = (d.depth * (maxLabelLength * 2.5)); // maxLabelLength * 10px
+            // alternatively to keep a fixed scale one can set a fixed depth per level
+            // Normalize for fixed-depth by commenting out below line
+            // d.y = (d.depth * 500); //500px per level.
         });
-      }
 
-      function removeHover() {
-        d3.select(this).select("text.hover").remove();
-      }*/
+        // Update the nodes
+        const node = svgGroup
+            .selectAll('g.node')
+            .data(nodes, (d) => {
+                if (d.id) return d.id;
+                nodeIterator += 1;
+                d.id = nodeIterator;
+                return d.id;
+            });
 
-      nodeEnter.append("circle")
-          .attr('class', 'nodeCircle')
-          .attr("r", 0)
-          .style("fill", function(d) {
-              return d._children ? "lightsteelblue" : "#fff";
-          });
+        const formatNumber = d3.format('$,.0f');
 
-      nodeEnter.append("text")
-          .attr("x", function(d) {
-              return d.children || d._children ? -10 : 10;
-          })
-          .attr("dy", ".35em")
-          .attr('class', 'nodeText')
-          .attr("text-anchor","start")
-          //function(d) {
-            //  return d.children || d._children ? "start" : "start";
-          //})
-          .text(function(d) {
-              return d.name;
-          })
-          .style("fill-opacity", 0);
+        function sumUp(object) {
+            let total = 0;
+            object._children.forEach((d) => {
+                d._children.forEach((dd) => {
+                    total += dd.size;
+                });
+            });
+            return formatNumber(total);
+        }
 
-      var formatNumber = d3.format("$,.0f");
+        function sumUpLvl2(object) {
+            let total = 0;
+            object._children.forEach((d) => {
+                total += d.size;
+            });
+            return formatNumber(total);
+        }
 
-      // Update the text to reflect whether node has children or not.
-      node.select('text')
-          .attr("x", function(d) {
-              return d.children || d._children ? -10 : 10;
-          })
-          .attr("text-anchor", function(d) {
-              return d.children || d._children ? "end" : "start";
-          })
-          .attr("alignment-baseline",function(d) {
-              return d.children || d._children ? "baseline" : "baseline";
-          })
-          .style("font-weight","900")
-          .text(function(d) {
-              return d.children || d._children ? d.name : d.name;
-              //(d.name+"  "+formatNumber(d.size));
-          });
+        function sumUpUnob(object) {
+            let total = 0;
+            object._children.forEach((d) => {
+                d._children.forEach((dd) => {
+                    total += dd.unob;
+                });
+            });
+            return formatNumber(total);
+        }
 
-      // Change the circle fill depending on whether it has children and is collapsed
-      node.select("circle.nodeCircle")
-          .attr("r", 4.5)
-          .style("fill", function(d) {
-              return d._children ? "lightsteelblue" : "#fff";
-          });
+        function sumUpLvl2Unob(object) {
+            let total = 0;
+            object._children.forEach((d) => {
+                total += d.unob;
+            });
+            return formatNumber(total);
+        }
 
-      // Transition nodes to their new position.
-      var nodeUpdate = node.transition()
-          .duration(duration)
-          .attr("transform", function(d) {
-              return "translate(" + d.y + "," + d.x + ")";
-          });
+        function createHover(d) {
+            if (d.depth === 3) {
+                return `<p class="dendrogram-hover-name">${d.name}</p>` +
+                    `<p style="color: #0071BC; margin: 0; font-size: 18px">Total Obligations: ${formatNumber(d.size)}</p>` +
+                    `<p style="margin: 0; font-size: 12px">Unobligated Balance: ${formatNumber(d.unob)}</p>` +
+                    '<br/><p id="click" class="dendrogram-hover-style">Click to visit federal account page</p>'
+                    + '<p id="click" class="dendrogram-hover-style">Federal account page contains FY17-FY18 data</p>';
+            }
+            else if (d.depth === 2) {
+                return `<p class="dendrogram-hover-name">${d.name}, ${d.parent.name}</p>`
+                + `<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">Total Obligations: ${sumUpLvl2(d)}</b></p>`
+                + `<p style= "margin: 0; font-size: 12px">Unobligated Balance: ${sumUpLvl2Unob(d)}</p>`
+                + '<br/><p id="click" class="dendrogram-hover-style">Click to view federal accounts</p>';
+            }
+            else if (d.depth === 1) {
+                return `<p class="dendrogram-hover-name">${d.name}</p>`
+                + `<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">Total Obligations: ${sumUp(d)}</b></p>`
+                + `<p style= "margin: 0; font-size: 12px">Unobligated Balance: ${sumUpUnob(d)}</p>`
+                + '<br/><p id="click" class="dendrogram-hover-style">Click to view agencies</p>';
+            }
+            else if (d.depth === 0) {
+                return '<p style="font-size:16px; margin:0; color: #000; font-weight:bolder;">FY17 Federal Agencies</p>';
+            }
 
-      // Fade the text in
-      nodeUpdate.select("text")
-          .style("fill-opacity", 1);
+            return '';
+        }
 
-      // Transition exiting nodes to the parent's new position.
-      var nodeExit = node.exit().transition()
-          .duration(duration)
-          .attr("transform", function(d) {
-              return "translate(" + source.y + "," + source.x + ")";
-          })
-          .remove();
+        const tip = d3.tip()
+            .attr('class', 'dendro d3-tip')
+            .style('background', '#ffffff')
+            .style('color', '#333')
+            .style('border', 'solid 1px #BFBCBC')
+            .style('padding', '15px 25px 15px 25px')
+            .style('min-width', '100px')
+            .style('max-width', '375px')
+            .offset([-10, -10])
+            .html(createHover);
 
-      nodeExit.select("circle")
-          .attr("r", 0);
+        baseSvg.call(tip);
 
-      nodeExit.select("text")
-          .style("fill-opacity", 0);
+        // Enter any new nodes at the parent's previous position.
+        const nodeEnter = node.enter().append('g')
+            .attr('class', 'node')
+            .attr('transform', () => `translate(${source.y0},${source.x0})`) // eslint-disable-next-line no-use-before-define
+            .on('click', click)
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
 
-      // Update the links¦
-      var link = svgGroup.selectAll("path.link")
-          .data(links, function(d) {
-              return d.target.id;
-          });
+        nodeEnter.append('circle')
+            .attr('class', 'nodeCircle')
+            .attr('r', 0)
+            .style('fill', (d) => (d._children ? 'lightsteelblue' : '#fff'));
 
-      // Enter any new links at the parent's previous position.
-      link.enter().insert("path", "g")
-          .attr("class", "link")
-          .attr("d", function(d) {
-              var o = {
-                  x: source.x0,
-                  y: source.y0
-              };
-              return diagonal({
-                  source: o,
-                  target: o
-              });
-          });
+        nodeEnter.append('text')
+            .attr('x', (d) => (d.children || d._children ? -10 : 10))
+            .attr('dy', '.35em')
+            .attr('class', 'nodeText')
+            .attr('text-anchor', 'start')
+            .text((d) => d.name)
+            .style('fill-opacity', 0);
 
-      // Transition links to their new position.
-      link.transition()
-          .duration(duration)
-          .attr("d", diagonal);
+        // Update the text to reflect whether node has children or not.
+        node.select('text')
+            .attr('x', (d) => (d.children || d._children ? -10 : 10))
+            .attr('text-anchor', (d) => (d.children || d._children ? 'end' : 'start'))
+            .attr('alignment-baseline', (d) => (d.children || d._children ? 'baseline' : 'baseline'))
+            .style('font-weight', '900')
+            .text((d) =>
+                (d.children || d._children ? d.name : d.name)
+            );
 
-      // Transition exiting nodes to the parent's new position.
-      link.exit().transition()
-          .duration(duration)
-          .attr("d", function(d) {
-              var o = {
-                  x: source.x,
-                  y: source.y
-              };
-              return diagonal({
-                  source: o,
-                  target: o
-              });
-          })
-          .remove();
+        // Change the circle fill depending on whether it has children and is collapsed
+        node.select('circle.nodeCircle')
+            .attr('r', 4.5)
+            .style('fill', (d) => (d._children ? 'lightsteelblue' : '#fff'));
 
-      // Stash the old positions for transition.
-      nodes.forEach(function(d) {
-          d.x0 = d.x;
-          d.y0 = d.y;
-      });
-  }
+        // Transition nodes to their new position.
+        const nodeUpdate = node.transition()
+            .duration(duration)
+            .attr('transform', (d) => `translate(${d.y},${d.x})`);
 
-  // Append a group which holds all nodes and which the zoom Listener can act upon.
-  var svgGroup = baseSvg.append("g");
+            // Fade the text in
+        nodeUpdate.select('text')
+            .style('fill-opacity', 1);
 
-  // Define the root
-  root = root;
+        // Transition exiting nodes to the parent's new position.
+        const nodeExit = node.exit().transition()
+            .duration(duration)
+            .attr('transform', () => `translate(${source.y},${source.x})`)
+            .remove();
 
-  root.x0 = viewerHeight / 2;
-  root.y0 = 0;
+        nodeExit.select('circle')
+            .attr('r', 0);
 
-  // Layout the tree initially and center on the root node.
-  toggleAll(root);
-  toggle(root);
-  update(root);
-  centerRootNode(root);
-  console.log("root after initialization: ",root);
+        nodeExit.select('text')
+            .style('fill-opacity', 0);
+
+        // Update the links¦
+        const link = svgGroup.selectAll('path.link')
+            .data(links, (d) => d.target.id);
+
+            // Enter any new links at the parent's previous position.
+        link.enter().insert('path', 'g')
+            .attr('class', 'link')
+            .attr('d', () => {
+                const o = {
+                    x: source.x0,
+                    y: source.y0
+                };
+                return diagonal({
+                    source: o,
+                    target: o
+                });
+            });
+
+        // Transition links to their new position.
+        link.transition()
+            .duration(duration)
+            .attr('d', diagonal);
+
+        // Transition exiting nodes to the parent's new position.
+        link.exit().transition()
+            .duration(duration)
+            .attr('d', () => {
+                const o = {
+                    x: source.x,
+                    y: source.y
+                };
+                return diagonal({
+                    source: o,
+                    target: o
+                });
+            })
+            .remove();
+
+        // Stash the old positions for transition.
+        nodes.forEach((d) => {
+            d.x0 = d.x;
+            d.y0 = d.y;
+        });
+    }
+
+    function change() {
+        zoomListener.scale(1);
+        toggleAll(root);
+        toggle(root);
+        update(root);
+        centerRootNode(root);
+        zoomListener.scale(1);
+    }
+
+    d3.select('#button1').on('click', change);
+
+    // A recursive helper function for performing some setup by walking through all nodes
+    function visit(parent, visitFn, childrenFn) {
+        if (!parent) return;
+
+        visitFn(parent);
+
+        const children = childrenFn(parent);
+        if (children) {
+            const count = children.length;
+            for (let i = 0; i < count; i++) {
+                visit(children[i], visitFn, childrenFn);
+            }
+        }
+    }
+
+    // Call visit function to establish maxLabelLength
+    visit(root, (d) => {
+        maxLabelLength = Math.max(d.name.length, maxLabelLength);
+    }, (d) => (d.children && d.children.length > 0 ? d.children : null));
+
+    // sort the tree according to the node names & numerically for obligation amounts
+    function sortTree() {
+        tree.sort((a, b) => {
+            if (a.depth === 3 && b.depth === 3) {
+                return b.size - a.size;
+            }
+            else if (a.depth < 3 && b.depth < 3) {
+                return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
+            }
+            return 0;
+        });
+    }
+
+    // Sort the tree initially incase the JSON isn't in a sorted order.
+    sortTree();
+
+    function expand(d) {
+        if (d._children) {
+            d.children = d._children;
+            d.children.forEach(expand);
+            d._children = null;
+        }
+    }
+
+    // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
+    function centerNode(source) {
+        if (source.depth === 2) {
+            const scale = zoomListener.scale();
+            let x = -source.y0;
+            let y = -source.x0;
+            x = (x * scale) + (viewerWidth / 4.2);
+            y = (y * scale) + (viewerHeight / 2);
+            d3.select('g').transition()
+                .duration(duration)
+                .attr('transform', `translate(${x},${y})scale(${scale})`);
+            zoomListener.scale(scale);
+            zoomListener.translate([x, y]);
+        }
+        else {
+            const scale = zoomListener.scale();
+            let x = -source.y0;
+            let y = -source.x0;
+            x = (x * scale) + (viewerWidth / 3);
+            y = (y * scale) + (viewerHeight / 2);
+            d3.select('g').transition()
+                .duration(duration)
+                .attr('transform', `translate(${x},${y})scale(${scale})`);
+            zoomListener.scale(scale);
+            zoomListener.translate([x, y]);
+        }
+    }
+
+    // Toggle children function
+
+    function toggleChildren(d) {
+        if (d.children) {
+            d._children = d.children;
+            d.children = null;
+        }
+        else if (d._children) {
+            d.children = d._children;
+            d._children = null;
+        }
+        return d;
+    }
+
+    function getLink(d) {
+        const baseUrl = ('https://beta.usaspending.gov/#/federal_account/');
+        const acctNum = (d.id);
+        window.open(baseUrl + acctNum);
+    }
+
+    // Toggle children on click.
+    function click(d) {
+        if (d.depth === 1 && d._children === null) {
+            d = toggleChildren(d);
+            update(d);
+            centerNode(d);
+        }
+        else if (d.depth === 3) {
+            update(d);
+            getLink(d);
+        }
+        else if (d.depth === 2) {
+            d = toggleChildren(d);
+            update(d);
+            centerNode(d);
+        }
+        else if (d.depth === 1 && d._children !== null && d._children.length === 1) {
+            d._children.forEach(expand);
+            d = toggleChildren(d);
+            update(d);
+            centerNode(d.children[0]);
+        }
+        else {
+            d = toggleChildren(d);
+            update(d);
+            centerNode(d);
+        }
+    }
+
+    root.x0 = viewerHeight / 2;
+    root.y0 = 0;
+
+    // Layout the tree initially and center on the root node.
+    toggleAll(root);
+    toggle(root);
+    update(root);
+    centerRootNode(root);
 });
