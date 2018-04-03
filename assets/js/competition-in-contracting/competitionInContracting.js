@@ -3,9 +3,6 @@
 
 $(function() {
   const barchartModuleDraw = barchartModule().draw;
-  const tooltipModuleDraw = tooltipModule().draw;
-  const tooltipModuleRemove = tooltipModule().remove;
-  const tooltipModuleMove = tooltipModule().move;
 
   const settings = {
     xAxisUnit: "dollars",
@@ -13,9 +10,6 @@ $(function() {
   };
 
   const helpers = {
-    tooltipModuleDraw,
-    tooltipModuleRemove,
-    tooltipModuleMove,
     handleYAxisCheckboxChange
   };
 

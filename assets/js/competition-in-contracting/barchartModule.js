@@ -12,12 +12,7 @@ const barchartModule = function() {
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
   function draw(data, settings, helpers) {
-    const {
-      tooltipModuleDraw,
-      tooltipModuleRemove,
-      tooltipModuleMove,
-      handleYAxisCheckboxChange
-    } = helpers;
+    const { handleYAxisCheckboxChange } = helpers;
     const { formatNumber } = helperFunctionModule;
 
     summaryTableModule.draw(data);
@@ -114,7 +109,6 @@ const barchartModule = function() {
           .axis()
           .scale(x)
           .orient("bottom")
-          // .ticks(10)
           .tickFormat(d3.format(tickFormat))
           .tickSize(ticklength)
       )
@@ -124,7 +118,6 @@ const barchartModule = function() {
       .style("font-size", "12px")
       .attr("transform", `rotate(-35) translate(-295,-95)`)
       .attr("dx", "-.8em")
-      // .attr("dy", ".35em")
       .attr("pointer-events", "none");
 
     // y axis
@@ -211,40 +204,8 @@ const barchartModule = function() {
       .on("mousemove", handleMouseMove)
       .on("mouseout", handleMouseOut);
 
-    // legend
-    // const options = ["Competed", "Not Competed"];
-    // var legend = g
-    //   .append("g")
-    //   .attr("transform", "translate(0,-50)")
-    //   .selectAll(".legend")
-    //   .data(options)
-    //   .enter()
-    //   .append("g")
-    //   .attr("class", "legend")
-    //   .attr("transform", function(d, i) {
-    //     return "translate(0," + i * 20 + ")";
-    //   });
-
-    // legend
-    //   .append("rect")
-    //   .attr("x", width - 18)
-    //   .attr("width", 18)
-    //   .attr("height", 18)
-    //   .style("fill", z);
-
-    // legend
-    //   .append("text")
-    //   .attr("x", width - 24)
-    //   .attr("y", 9)
-    //   .attr("dy", ".35em")
-    //   .style("text-anchor", "end")
-    //   .style("font-size", "12px")
-    //   .text(function(d) {
-    //     return d;
-    //   });
-
     function handleMouseOver(d) {
-      tooltipModuleDraw(d.data.name, {
+      tooltipModule.draw("#tooltip", d.data.name, {
         Competed:
           settings.xAxisUnit === "dollars"
             ? formatNumber("dollars", d.data.competed)
@@ -258,11 +219,11 @@ const barchartModule = function() {
     }
 
     function handleMouseOut() {
-      tooltipModuleRemove();
+      tooltipModule.remove("#tooltip");
     }
 
     function handleMouseMove() {
-      tooltipModuleMove();
+      tooltipModule.move("#tooltip");
     }
   }
 
