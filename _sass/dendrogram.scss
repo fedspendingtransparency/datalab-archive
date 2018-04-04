@@ -119,3 +119,17 @@ text.hover {
      font-weight: bold;
   }
 }
+
+.dendrogram-hover-name {
+  border-bottom: 1px solid #898C90;
+  font-size: 14px;
+  color: #000;
+  font-weight: bolder;
+}
+
+.dendrogram-hover-style {
+  color: #000; 
+  font-size: 12px; 
+  font-style:italic; 
+  margin: 0;
+}
