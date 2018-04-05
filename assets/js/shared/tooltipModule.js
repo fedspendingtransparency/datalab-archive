@@ -2,7 +2,7 @@
 ---
 
 window.tooltipModule = (() => {
-    function draw(tooltipId, title, information, disclaimer) {
+    function draw(tooltipId, title, information, disclaimers) {
         d3
             .select(tooltipId)
             .transition()
@@ -10,23 +10,31 @@ window.tooltipModule = (() => {
             .style("opacity", 1);
 
         function toolTipHtml(t, i, d) {
-            const infoHtml = Object.entries(i).reduce((a, c) => {
-                a += `<p class="key">${c[0]}</p><p class="val">${c[1]}</p>`;
-                return a;
-            }, "");
+            function getinfoHtml() {
+                return Object.entries(i).reduce((a, c) => {
+                    a += `<p class="key">${c[0]}</p><p class="val">${c[1]}</p>`;
+                    return a;
+                }, "");
+            }
+
+            function getDisclaimerHtml() {
+                return d.reduce((a, c) => {
+                    a += `<div class="disclaimer">${c}<div />`;
+                    return a;
+                }, "");
+            }
 
             const html = `
                 <p class="title"><b>${t}</b></p>
-                <br>
-                <div class="information">${infoHtml}<div />
-                ${d ? `<br><div class="disclaimer">${d}<div />` : ""}
+                ${i ? `<br><div class="information">${getinfoHtml()}<div />` : ""}
+                ${d ? `<br>${getDisclaimerHtml()}` : ""}
             `;
             return html;
         }
 
         d3
             .select(tooltipId)
-            .html(toolTipHtml(title, information, disclaimer))
+            .html(toolTipHtml(title, information, disclaimers))
             .style("left", `${d3.event.pageX}px`)
             .style("top", `${d3.event.pageY}px`);
     }
