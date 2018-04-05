@@ -10,21 +10,16 @@ window.tooltipModule = (() => {
             .style("opacity", 1);
 
         function toolTipHtml(t, i) {
-            const html = `
-        <p class="title">
-          <b>${t}</b>
-        </p>
-        <br>
-        <div class="information">
-          ${Object.entries(i).reduce((a, c) => {
-        a += `
-                <p class="key">${c[0]}</p>
-                <p class="val">${c[1]}</p>
-                    `;
-        return a;
-    }, "")}
-        <div />`;
+            const infoHtml = Object.entries(i).reduce((a, c) => {
+                a += `<p class="key">${c[0]}</p><p class="val">${c[1]}</p>`;
+                return a;
+            }, "");
 
+            const html = `
+                <p class="title"><b>${t}</b></p>
+                <br>
+                <div class="information">${infoHtml}<div />
+            `;
             return html;
         }
 
