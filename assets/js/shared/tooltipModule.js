@@ -2,14 +2,14 @@
 ---
 
 window.tooltipModule = (() => {
-    function draw(tooltipId, title, information) {
+    function draw(tooltipId, title, information, disclaimer) {
         d3
             .select(tooltipId)
             .transition()
             .duration(200)
             .style("opacity", 1);
 
-        function toolTipHtml(t, i) {
+        function toolTipHtml(t, i, d) {
             const infoHtml = Object.entries(i).reduce((a, c) => {
                 a += `<p class="key">${c[0]}</p><p class="val">${c[1]}</p>`;
                 return a;
@@ -19,13 +19,14 @@ window.tooltipModule = (() => {
                 <p class="title"><b>${t}</b></p>
                 <br>
                 <div class="information">${infoHtml}<div />
+                ${d ? `<br><div class="disclaimer">${d}<div />` : ""}
             `;
             return html;
         }
 
         d3
             .select(tooltipId)
-            .html(toolTipHtml(title, information))
+            .html(toolTipHtml(title, information, disclaimer))
             .style("left", `${d3.event.pageX}px`)
             .style("top", `${d3.event.pageY}px`);
     }
