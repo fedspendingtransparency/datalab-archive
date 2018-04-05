@@ -42,6 +42,8 @@ category: entry
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
+        <!-- tooltip -->
+        <div id="tooltip" class="tooltip-module"></div>
         <element class="dendrogram">
           <div id="tree-container"></div>
         </element>
@@ -62,7 +64,12 @@ category: entry
   next-link="contract-explorer.html"
 %}
 
-<!-- d3 -->
+<!-- vendor scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+
+<!-- shared scripts -->
+<script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
+
+<!-- federal-account-explorer scripts -->
 <script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>
