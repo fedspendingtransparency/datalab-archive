@@ -346,9 +346,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
             }
 
             function getCFDA_value(d) {
-              //console.log('CFDA value: ',d);
+              console.log('CFDA value: ',d);
               return '<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">' + d.program_title + '</b> [CFDA No. ' + d.cfda_number + ']' + '</p><br>' +
-                '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0">Agency: ' + d.agency + '</p><br>' +
                 '<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ' + formatNumber(d.fed_funding) + '</p><br>' +
                 '<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the program website</p>';
             }
@@ -1207,12 +1206,18 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', function(us) {
                 .html('<h5>Federal Programs Serving ' + d.properties.coc_number + '</h5>');
 
               var p2_3_matrix_svg = d3.select('#panel_matrix').append('svg')
-                /*.attr('width', matrix_width + margin.left + margin.right)
-                .attr('height', matrix_height + margin.top + margin.bottom)*/
-                // .style('margin-left', -margin.left / 2.5 + 'px')
-                .attr('transform', 'translate(' + 0 + ',' + 10 + ')')
-                .attr('viewBox', '0 0 850 300')
-                .attr('preserveAspectRatio', 'xMidYMid meet');
+              /*.attr('width', matrix_width + margin.left + margin.right)
+              .attr('height', matrix_height + margin.top + margin.bottom)*/
+              .attr('width', '100%')
+              .attr('height', map_height + margin.top + margin.bottom + 140)
+              // .style('margin-left', -margin.left / 2.5 - 12 + 'px')
+              .attr('transform', 'translate(' + 0 + ',' + 10 + ')');
+                // /*.attr('width', matrix_width + margin.left + margin.right)
+                // .attr('height', matrix_height + margin.top + margin.bottom)*/
+                // // .style('margin-left', -margin.left / 2.5 + 'px')
+                // .attr('transform', 'translate(' + 0 + ',' + 10 + ')')
+                // .attr('viewBox', '0 0 850 300')
+                // .attr('preserveAspectRatio', 'xMidYMid meet');
 
               p2_3_matrix_svg.call(p2_3_bar_tip);
 
