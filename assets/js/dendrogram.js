@@ -177,53 +177,44 @@ d3.csv('/data-lab-data/accounts_obligations_revised_180306.csv', (error, newData
             return formatNumber(total);
         }
 
-        function createHover(d) {
+        function handleMouseOver(d) {
             if (d.depth === 3) {
-                return `<p class="dendrogram-hover-name">${d.name}</p>` +
-                    `<p style="color: #0071BC; margin: 0; font-size: 18px">Total Obligations: ${formatNumber(d.size)}</p>` +
-                    `<p style="margin: 0; font-size: 12px">Unobligated Balance: ${formatNumber(d.unob)}</p>` +
-                    '<br/><p id="click" class="dendrogram-hover-style">Click to visit federal account page</p>'
-                    + '<p id="click" class="dendrogram-hover-style">Federal account page contains FY17-FY18 data</p>';
+                window.tooltipModule.draw("#tooltip", d.name, {
+                    "Total Obligations": formatNumber(d.size),
+                    "Unobligated Balance": formatNumber(d.unob)
+                }, ["Click to visit federal account page", "Federal account page contains FY17-FY18 data"]);
             }
-            else if (d.depth === 2) {
-                return `<p class="dendrogram-hover-name">${d.name}, ${d.parent.name}</p>`
-                + `<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">Total Obligations: ${sumUpLvl2(d)}</b></p>`
-                + `<p style= "margin: 0; font-size: 12px">Unobligated Balance: ${sumUpLvl2Unob(d)}</p>`
-                + '<br/><p id="click" class="dendrogram-hover-style">Click to view federal accounts</p>';
+            if (d.depth === 2) {
+                window.tooltipModule.draw("#tooltip", `${d.name}, ${d.parent.name}`, {
+                    "Total Obligations": sumUpLvl2(d),
+                    "Unobligated Balance": sumUpLvl2Unob(d)
+                }, ["Click to view federal accounts"]);
             }
-            else if (d.depth === 1) {
-                return `<p class="dendrogram-hover-name">${d.name}</p>`
-                + `<p style="color: #0071BC; margin: 0; font-size: 18px"><b style="color: #0071BC">Total Obligations: ${sumUp(d)}</b></p>`
-                + `<p style= "margin: 0; font-size: 12px">Unobligated Balance: ${sumUpUnob(d)}</p>`
-                + '<br/><p id="click" class="dendrogram-hover-style">Click to view agencies</p>';
+            if (d.depth === 1) {
+                window.tooltipModule.draw("#tooltip", d.name, {
+                    "Total Obligations": sumUp(d),
+                    "Unobligated Balance": sumUpUnob(d)
+                }, ["Click to view agencies"]);
             }
-            else if (d.depth === 0) {
-                return '<p style="font-size:16px; margin:0; color: #000; font-weight:bolder;">FY17 Federal Agencies</p>';
+            if (d.depth === 0) {
+                window.tooltipModule.draw("#tooltip", "FY17 Federal Agencies");
             }
-
-            return '';
         }
-
-        const tip = d3.tip()
-            .attr('class', 'dendro d3-tip')
-            .style('background', '#ffffff')
-            .style('color', '#333')
-            .style('border', 'solid 1px #BFBCBC')
-            .style('padding', '15px 25px 15px 25px')
-            .style('min-width', '100px')
-            .style('max-width', '375px')
-            .offset([-10, -10])
-            .html(createHover);
-
-        baseSvg.call(tip);
+        function handleMouseOut() {
+            window.tooltipModule.remove("#tooltip");
+        }
+        function handleMouseMove() {
+            window.tooltipModule.move("#tooltip");
+        }
 
         // Enter any new nodes at the parent's previous position.
         const nodeEnter = node.enter().append('g')
             .attr('class', 'node')
             .attr('transform', () => `translate(${source.y0},${source.x0})`) // eslint-disable-next-line no-use-before-define
             .on('click', click)
-            .on('mouseover', tip.show)
-            .on('mouseout', tip.hide);
+            .on('mouseover', (d) => handleMouseOver(d))
+            .on('mouseout', handleMouseOut)
+            .on('mousemove', handleMouseMove);
 
         nodeEnter.append('circle')
             .attr('class', 'nodeCircle')
