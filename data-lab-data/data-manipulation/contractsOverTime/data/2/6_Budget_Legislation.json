@@ -1,0 +1,56 @@
+[
+    {
+        "yrweek": "200800",
+        "Reference": "PL 110-161",
+        "type": "Budget",
+        "end": "2008-09-30",
+        "fiscalyear": 2008,
+        "weeknum": "00",
+        "date": "2008-01-01"
+    },
+    {
+        "yrweek": "200950",
+        "Reference": "PL 111-117",
+        "type": "Budget",
+        "end": "2010-09-30",
+        "fiscalyear": 2010,
+        "weeknum": "50",
+        "date": "2009-12-13"
+    },
+    {
+        "yrweek": "201151",
+        "Reference": " PL 112-74",
+        "type": "Budget",
+        "end": "2012-09-30",
+        "fiscalyear": 2012,
+        "weeknum": "51",
+        "date": "2011-12-18"
+    },
+    {
+        "yrweek": "201403",
+        "Reference": " PL 113-76",
+        "type": "Budget",
+        "end": "2014-09-30",
+        "fiscalyear": 2014,
+        "weeknum": "03",
+        "date": "2014-01-19"
+    },
+    {
+        "yrweek": "201551",
+        "Reference": " PL 114-113",
+        "type": "Budget",
+        "end": "2016-09-30",
+        "fiscalyear": 2016,
+        "weeknum": "51",
+        "date": "2015-12-20"
+    },
+    {
+        "yrweek": "201718",
+        "Reference": " PL 115-31",
+        "type": "Budget",
+        "end": "2017-09-30",
+        "fiscalyear": 2017,
+        "weeknum": "18",
+        "date": "2017-05-01"
+    }
+]

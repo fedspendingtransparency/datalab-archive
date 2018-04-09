@@ -1,0 +1,5249 @@
+[
+    {
+        "fiscalyear": 2007,
+        "date": "2006-10-01",
+        "yrweek": 200640,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 123718,
+        "contractdollars": 11944180322.56
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-10-08",
+        "yrweek": 200641,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 46276,
+        "contractdollars": 4797613749.89
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-10-15",
+        "yrweek": 200642,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 57805,
+        "contractdollars": 7395218344.22
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-10-22",
+        "yrweek": 200643,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 55778,
+        "contractdollars": 6755100419.35
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-10-29",
+        "yrweek": 200644,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 66464,
+        "contractdollars": 10469074481.46
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-11-05",
+        "yrweek": 200645,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 51601,
+        "contractdollars": 4909853000.82
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-11-12",
+        "yrweek": 200646,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 62215,
+        "contractdollars": 10000676620.35
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-11-19",
+        "yrweek": 200647,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 41118,
+        "contractdollars": 4222145413.07
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-11-26",
+        "yrweek": 200648,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 62572,
+        "contractdollars": 9378765400.35
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-12-03",
+        "yrweek": 200649,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 66029,
+        "contractdollars": 7952104450.89
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-12-10",
+        "yrweek": 200650,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 64956,
+        "contractdollars": 7681381329.46
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-12-17",
+        "yrweek": 200651,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 67447,
+        "contractdollars": 16474978588.22
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-12-24",
+        "yrweek": 200652,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 33717,
+        "contractdollars": 6311553600.02
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2006-12-31",
+        "yrweek": 200653,
+        "year": "2006",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 593,
+        "contractdollars": 100348931.45
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-01-01",
+        "yrweek": 200700,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 72182,
+        "contractdollars": 5902935575.26
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-01-07",
+        "yrweek": 200701,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 72508,
+        "contractdollars": 6087878053.77
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-01-14",
+        "yrweek": 200702,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 56110,
+        "contractdollars": 5314202515.73
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-01-21",
+        "yrweek": 200703,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 70792,
+        "contractdollars": 6698731515.66
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-01-28",
+        "yrweek": 200704,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 82536,
+        "contractdollars": 9388894805.83
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-02-04",
+        "yrweek": 200705,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 77037,
+        "contractdollars": 5529133232.86
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-02-11",
+        "yrweek": 200706,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 71666,
+        "contractdollars": 5505220552.57
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-02-18",
+        "yrweek": 200707,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 63409,
+        "contractdollars": 5479337333.67
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-02-25",
+        "yrweek": 200708,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 84026,
+        "contractdollars": 11127577883.12
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-03-04",
+        "yrweek": 200709,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 78845,
+        "contractdollars": 5102425230.03
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-03-11",
+        "yrweek": 200710,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 76882,
+        "contractdollars": 5940901955.12
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-03-18",
+        "yrweek": 200711,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 74752,
+        "contractdollars": 9973481985.12
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-03-25",
+        "yrweek": 200712,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 81186,
+        "contractdollars": 17306070770.67
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-04-01",
+        "yrweek": 200713,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 110639,
+        "contractdollars": 9254267648.33
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-04-08",
+        "yrweek": 200714,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 74588,
+        "contractdollars": 6513618200.69
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-04-15",
+        "yrweek": 200715,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 77871,
+        "contractdollars": 5541670545.98
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-04-22",
+        "yrweek": 200716,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 75642,
+        "contractdollars": 7576502235.39
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-04-29",
+        "yrweek": 200717,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 77870,
+        "contractdollars": 7191758509.49
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-05-06",
+        "yrweek": 200718,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 76963,
+        "contractdollars": 4498201768.85
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-05-13",
+        "yrweek": 200719,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 75571,
+        "contractdollars": 5438338886.49
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-05-20",
+        "yrweek": 200720,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 79892,
+        "contractdollars": 5517118887.64
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-05-27",
+        "yrweek": 200721,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 64830,
+        "contractdollars": 6473030020.93
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-06-03",
+        "yrweek": 200722,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 83142,
+        "contractdollars": 5747010695.28
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-06-10",
+        "yrweek": 200723,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 78612,
+        "contractdollars": 7651020989.89
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-06-17",
+        "yrweek": 200724,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 75311,
+        "contractdollars": 6919010032.66
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-06-24",
+        "yrweek": 200725,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 83336,
+        "contractdollars": 12638062543.32
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-07-01",
+        "yrweek": 200726,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 92939,
+        "contractdollars": 5946309935.4
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-07-08",
+        "yrweek": 200727,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 79095,
+        "contractdollars": 6236998976.41
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-07-15",
+        "yrweek": 200728,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 79257,
+        "contractdollars": 6595980833.39
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-07-22",
+        "yrweek": 200729,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 84952,
+        "contractdollars": 7952658990.76
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-07-29",
+        "yrweek": 200730,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 89887,
+        "contractdollars": 9168755285.46
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-08-05",
+        "yrweek": 200731,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 86426,
+        "contractdollars": 6668323473.69
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-08-12",
+        "yrweek": 200732,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 90826,
+        "contractdollars": 6313752042.78
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-08-19",
+        "yrweek": 200733,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 93357,
+        "contractdollars": 6387559448.22
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-08-26",
+        "yrweek": 200734,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 101303,
+        "contractdollars": 11832018957.16
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-09-02",
+        "yrweek": 200735,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 92339,
+        "contractdollars": 6386378460.86
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-09-09",
+        "yrweek": 200736,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 123981,
+        "contractdollars": 9813224746.33
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-09-16",
+        "yrweek": 200737,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 131511,
+        "contractdollars": 14311805543.73
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-09-23",
+        "yrweek": 200738,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 155057,
+        "contractdollars": 35523872311.12
+    },
+    {
+        "fiscalyear": 2007,
+        "date": "2007-09-30",
+        "yrweek": 200739,
+        "year": "2007",
+        "TotalbyFiscalYear": 453508935095.71,
+        "contractcount": 148846,
+        "contractdollars": 21661899063.94
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-10-07",
+        "yrweek": 200740,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 55133,
+        "contractdollars": 3766997497.66
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-10-14",
+        "yrweek": 200741,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 70878,
+        "contractdollars": 6933235824.88
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-10-21",
+        "yrweek": 200742,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 71332,
+        "contractdollars": 5597536715.5
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-10-28",
+        "yrweek": 200743,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 72803,
+        "contractdollars": 11253209170.1
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-11-04",
+        "yrweek": 200744,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 72821,
+        "contractdollars": 4820001411.87
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-11-11",
+        "yrweek": 200745,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 59443,
+        "contractdollars": 3949162778.13
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-11-18",
+        "yrweek": 200746,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 47982,
+        "contractdollars": 4460067256.68
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-11-25",
+        "yrweek": 200747,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 78626,
+        "contractdollars": 12642649872.36
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-12-02",
+        "yrweek": 200748,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 72886,
+        "contractdollars": 7104003192.27
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-12-09",
+        "yrweek": 200749,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 76813,
+        "contractdollars": 10193979015.72
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-12-16",
+        "yrweek": 200750,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 78708,
+        "contractdollars": 15490185194.75
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-12-23",
+        "yrweek": 200751,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 31357,
+        "contractdollars": 5097887132.75
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2007-12-30",
+        "yrweek": 200752,
+        "year": "2007",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 9170,
+        "contractdollars": 1297595575.45
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-01-01",
+        "yrweek": 200800,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 65674,
+        "contractdollars": 3924892038.69
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-01-06",
+        "yrweek": 200801,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 80948,
+        "contractdollars": 6825041578.82
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-01-13",
+        "yrweek": 200802,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 84879,
+        "contractdollars": 8758951119.56
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-01-20",
+        "yrweek": 200803,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 68777,
+        "contractdollars": 6291455309.41
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-01-27",
+        "yrweek": 200804,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 87818,
+        "contractdollars": 15609447863.82
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-02-03",
+        "yrweek": 200805,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 87596,
+        "contractdollars": 7196082260.82
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-02-10",
+        "yrweek": 200806,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 81775,
+        "contractdollars": 8348220064.18
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-02-17",
+        "yrweek": 200807,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 68629,
+        "contractdollars": 8854178142.3
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-02-24",
+        "yrweek": 200808,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 89875,
+        "contractdollars": 12572436046.55
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-03-02",
+        "yrweek": 200809,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 85495,
+        "contractdollars": 7304643930.83
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-03-09",
+        "yrweek": 200810,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 84644,
+        "contractdollars": 10110951880.55
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-03-16",
+        "yrweek": 200811,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 85574,
+        "contractdollars": 7678927379.72
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-03-23",
+        "yrweek": 200812,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 83349,
+        "contractdollars": 12317212685.15
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-03-30",
+        "yrweek": 200813,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 116805,
+        "contractdollars": 13833231832.52
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-04-06",
+        "yrweek": 200814,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 84248,
+        "contractdollars": 6011491320.13
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-04-13",
+        "yrweek": 200815,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 83988,
+        "contractdollars": 6898344922.49
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-04-20",
+        "yrweek": 200816,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 81464,
+        "contractdollars": 6560758360.18
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-04-27",
+        "yrweek": 200817,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 86346,
+        "contractdollars": 8952775181.59
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-05-04",
+        "yrweek": 200818,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 83138,
+        "contractdollars": 5924629510.63
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-05-11",
+        "yrweek": 200819,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 83425,
+        "contractdollars": 5185569458.93
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-05-18",
+        "yrweek": 200820,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 80834,
+        "contractdollars": 6336508310.81
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-05-25",
+        "yrweek": 200821,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 75469,
+        "contractdollars": 9465865589.83
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-06-01",
+        "yrweek": 200822,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 86176,
+        "contractdollars": 5749639156.24
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-06-08",
+        "yrweek": 200823,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 81932,
+        "contractdollars": 7057402544.99
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-06-15",
+        "yrweek": 200824,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 82590,
+        "contractdollars": 6462583267.7
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-06-22",
+        "yrweek": 200825,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 83248,
+        "contractdollars": 8672689372.84
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-06-29",
+        "yrweek": 200826,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 97033,
+        "contractdollars": 9204376832.73
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-07-06",
+        "yrweek": 200827,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 82964,
+        "contractdollars": 5442849320.55
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-07-13",
+        "yrweek": 200828,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 85135,
+        "contractdollars": 6094853263.72
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-07-20",
+        "yrweek": 200829,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 87273,
+        "contractdollars": 6539686025.77
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-07-27",
+        "yrweek": 200830,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 91783,
+        "contractdollars": 10789887872.72
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-08-03",
+        "yrweek": 200831,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 93443,
+        "contractdollars": 7101529330.8
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-08-10",
+        "yrweek": 200832,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 93324,
+        "contractdollars": 7563314896.11
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-08-17",
+        "yrweek": 200833,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 94677,
+        "contractdollars": 6854146254.41
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-08-24",
+        "yrweek": 200834,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 111010,
+        "contractdollars": 10824412364.67
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-08-31",
+        "yrweek": 200835,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 96821,
+        "contractdollars": 9671106713.62
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-09-07",
+        "yrweek": 200836,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 127311,
+        "contractdollars": 10890689803.61
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-09-14",
+        "yrweek": 200837,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 129066,
+        "contractdollars": 16862890957.81
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-09-21",
+        "yrweek": 200838,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 141282,
+        "contractdollars": 27592671358.16
+    },
+    {
+        "fiscalyear": 2008,
+        "date": "2008-09-28",
+        "yrweek": 200839,
+        "year": "2008",
+        "TotalbyFiscalYear": 476152251436.57,
+        "contractcount": 140969,
+        "contractdollars": 35209396674.49
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-10-05",
+        "yrweek": 200840,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 51300,
+        "contractdollars": 5652999839.04
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-10-12",
+        "yrweek": 200841,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 41198,
+        "contractdollars": 6216322739.52
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-10-19",
+        "yrweek": 200842,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 52800,
+        "contractdollars": 9007371994.43
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-10-26",
+        "yrweek": 200843,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61440,
+        "contractdollars": 15666802106.08
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-11-02",
+        "yrweek": 200844,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 54548,
+        "contractdollars": 6681794305.3
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-11-09",
+        "yrweek": 200845,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 41181,
+        "contractdollars": 7993004592.96
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-11-16",
+        "yrweek": 200846,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 55989,
+        "contractdollars": 8073862813.98
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-11-23",
+        "yrweek": 200847,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 38699,
+        "contractdollars": 8111165643.13
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-11-30",
+        "yrweek": 200848,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 63596,
+        "contractdollars": 10762878919.28
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-12-07",
+        "yrweek": 200849,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 58297,
+        "contractdollars": 9064204822.87
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-12-14",
+        "yrweek": 200850,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61474,
+        "contractdollars": 13380025522.52
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-12-21",
+        "yrweek": 200851,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 28684,
+        "contractdollars": 8530097299.39
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2008-12-28",
+        "yrweek": 200852,
+        "year": "2008",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 27604,
+        "contractdollars": 7816533744.12
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-01-01",
+        "yrweek": 200900,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 28254,
+        "contractdollars": 1609733163.69
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-01-04",
+        "yrweek": 200901,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 59563,
+        "contractdollars": 5415804372.43
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-01-11",
+        "yrweek": 200902,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61093,
+        "contractdollars": 8129202695.55
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-01-18",
+        "yrweek": 200903,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 48022,
+        "contractdollars": 6309896854.73
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-01-25",
+        "yrweek": 200904,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 62440,
+        "contractdollars": 11403992928.37
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-02-01",
+        "yrweek": 200905,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61252,
+        "contractdollars": 7214853144.12
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-02-08",
+        "yrweek": 200906,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 63460,
+        "contractdollars": 6785136547.96
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-02-15",
+        "yrweek": 200907,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 52186,
+        "contractdollars": 6259705942.65
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-02-22",
+        "yrweek": 200908,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 65745,
+        "contractdollars": 11638603992.36
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-03-01",
+        "yrweek": 200909,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61418,
+        "contractdollars": 7934263595.27
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-03-08",
+        "yrweek": 200910,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 65348,
+        "contractdollars": 7823859299.91
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-03-15",
+        "yrweek": 200911,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 64046,
+        "contractdollars": 7512432218.48
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-03-22",
+        "yrweek": 200912,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 66058,
+        "contractdollars": 14491045416.65
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-03-29",
+        "yrweek": 200913,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 97577,
+        "contractdollars": 15018380577.24
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-04-05",
+        "yrweek": 200914,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 60502,
+        "contractdollars": 6929699400.33
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-04-12",
+        "yrweek": 200915,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 59353,
+        "contractdollars": 9641349730.58
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-04-19",
+        "yrweek": 200916,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61846,
+        "contractdollars": 6972037259.9
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-04-26",
+        "yrweek": 200917,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 64816,
+        "contractdollars": 14129222019.06
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-05-03",
+        "yrweek": 200918,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 64592,
+        "contractdollars": 8400073518.12
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-05-10",
+        "yrweek": 200919,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 62385,
+        "contractdollars": 7710997775.8
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-05-17",
+        "yrweek": 200920,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 61572,
+        "contractdollars": 7070664131.75
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-05-24",
+        "yrweek": 200921,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 52469,
+        "contractdollars": 8174192987.49
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-05-31",
+        "yrweek": 200922,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 81090,
+        "contractdollars": 7269276705.47
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-06-07",
+        "yrweek": 200923,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 63536,
+        "contractdollars": 6292620500.66
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-06-14",
+        "yrweek": 200924,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 64663,
+        "contractdollars": 9432259430.27
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-06-21",
+        "yrweek": 200925,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 64105,
+        "contractdollars": 9596845092.02
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-06-28",
+        "yrweek": 200926,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 87875,
+        "contractdollars": 12109156308.92
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-07-05",
+        "yrweek": 200927,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 60563,
+        "contractdollars": 7876892112.1
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-07-12",
+        "yrweek": 200928,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 65381,
+        "contractdollars": 8298841297.27
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-07-19",
+        "yrweek": 200929,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 69918,
+        "contractdollars": 7183017061.43
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-07-26",
+        "yrweek": 200930,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 75703,
+        "contractdollars": 12447804752.55
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-08-02",
+        "yrweek": 200931,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 72050,
+        "contractdollars": 6375917285.78
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-08-09",
+        "yrweek": 200932,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 77013,
+        "contractdollars": 8723825485.47
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-08-16",
+        "yrweek": 200933,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 78547,
+        "contractdollars": 9018865530.15
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-08-23",
+        "yrweek": 200934,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 81288,
+        "contractdollars": 11398807948.41
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-08-30",
+        "yrweek": 200935,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 91489,
+        "contractdollars": 12349605033.45
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-09-06",
+        "yrweek": 200936,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 78819,
+        "contractdollars": 8551208806.26
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-09-13",
+        "yrweek": 200937,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 110740,
+        "contractdollars": 14042205465.18
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-09-20",
+        "yrweek": 200938,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 129232,
+        "contractdollars": 26717491547.33
+    },
+    {
+        "fiscalyear": 2009,
+        "date": "2009-09-27",
+        "yrweek": 200939,
+        "year": "2009",
+        "TotalbyFiscalYear": 523989715318.36,
+        "contractcount": 173540,
+        "contractdollars": 42772863040.58
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-10-04",
+        "yrweek": 200940,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 48025,
+        "contractdollars": 4954885984.44
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-10-11",
+        "yrweek": 200941,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 40824,
+        "contractdollars": 5235330159.29
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-10-18",
+        "yrweek": 200942,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 53370,
+        "contractdollars": 4948231964.14
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-10-25",
+        "yrweek": 200943,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 60172,
+        "contractdollars": 8946167347.55
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-11-01",
+        "yrweek": 200944,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 55248,
+        "contractdollars": 7397275992.62
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-11-08",
+        "yrweek": 200945,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 43199,
+        "contractdollars": 5159749641.42
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-11-15",
+        "yrweek": 200946,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 56524,
+        "contractdollars": 8471656028.28
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-11-22",
+        "yrweek": 200947,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 40509,
+        "contractdollars": 7914887487.87
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-11-29",
+        "yrweek": 200948,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 60039,
+        "contractdollars": 13739214762.39
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-12-06",
+        "yrweek": 200949,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 55455,
+        "contractdollars": 7194208540.13
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-12-13",
+        "yrweek": 200950,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 59752,
+        "contractdollars": 13186583937.18
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-12-20",
+        "yrweek": 200951,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 39586,
+        "contractdollars": 8573699489.03
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2009-12-27",
+        "yrweek": 200952,
+        "year": "2009",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 34604,
+        "contractdollars": 10064619997.4
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-01-01",
+        "yrweek": 201000,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 29341,
+        "contractdollars": 1996164684.49
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-01-03",
+        "yrweek": 201001,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 53447,
+        "contractdollars": 5807521840.61
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-01-10",
+        "yrweek": 201002,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 62115,
+        "contractdollars": 8473776683.96
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-01-17",
+        "yrweek": 201003,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 53454,
+        "contractdollars": 8580616893.54
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-01-24",
+        "yrweek": 201004,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 69445,
+        "contractdollars": 16730688949.52
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-01-31",
+        "yrweek": 201005,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 66965,
+        "contractdollars": 10234922625.87
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-02-07",
+        "yrweek": 201006,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 53199,
+        "contractdollars": 6870471043.87
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-02-14",
+        "yrweek": 201007,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 52823,
+        "contractdollars": 7775833592.58
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-02-21",
+        "yrweek": 201008,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 69803,
+        "contractdollars": 11959278209.37
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-02-28",
+        "yrweek": 201009,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 69520,
+        "contractdollars": 8816433388.82
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-03-07",
+        "yrweek": 201010,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 66122,
+        "contractdollars": 9130857110.06
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-03-14",
+        "yrweek": 201011,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 63313,
+        "contractdollars": 8609212010.13
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-03-21",
+        "yrweek": 201012,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 65904,
+        "contractdollars": 11621248387.22
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-03-28",
+        "yrweek": 201013,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 108396,
+        "contractdollars": 17660038641.02
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-04-04",
+        "yrweek": 201014,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 58954,
+        "contractdollars": 6517062782.64
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-04-11",
+        "yrweek": 201015,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 63715,
+        "contractdollars": 7478943105.75
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-04-18",
+        "yrweek": 201016,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 63701,
+        "contractdollars": 9105922357.5
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-04-25",
+        "yrweek": 201017,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 70307,
+        "contractdollars": 11905348658.07
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-05-02",
+        "yrweek": 201018,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 62652,
+        "contractdollars": 8260633487.96
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-05-09",
+        "yrweek": 201019,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 62879,
+        "contractdollars": 6607040510.46
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-05-16",
+        "yrweek": 201020,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 64517,
+        "contractdollars": 7395899901.72
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-05-23",
+        "yrweek": 201021,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 64802,
+        "contractdollars": 9707304344.37
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-05-30",
+        "yrweek": 201022,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 52846,
+        "contractdollars": 7834198098.61
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-06-06",
+        "yrweek": 201023,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 63387,
+        "contractdollars": 6003913180.89
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-06-13",
+        "yrweek": 201024,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 62044,
+        "contractdollars": 8045464830.6
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-06-20",
+        "yrweek": 201025,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 66618,
+        "contractdollars": 9170412690.02
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-06-27",
+        "yrweek": 201026,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 100497,
+        "contractdollars": 15578994307.92
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-07-04",
+        "yrweek": 201027,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 48810,
+        "contractdollars": 5098863189.09
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-07-11",
+        "yrweek": 201028,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 69508,
+        "contractdollars": 6013829042.17
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-07-18",
+        "yrweek": 201029,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 66587,
+        "contractdollars": 6838719067.25
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-07-25",
+        "yrweek": 201030,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 72558,
+        "contractdollars": 12463916497.95
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-08-01",
+        "yrweek": 201031,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 71316,
+        "contractdollars": 7344069576.75
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-08-08",
+        "yrweek": 201032,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 71321,
+        "contractdollars": 8902288195.87
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-08-15",
+        "yrweek": 201033,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 76515,
+        "contractdollars": 7382466184.37
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-08-22",
+        "yrweek": 201034,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 80913,
+        "contractdollars": 9704581214.81
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-08-29",
+        "yrweek": 201035,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 84355,
+        "contractdollars": 12129865121.14
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-09-05",
+        "yrweek": 201036,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 73984,
+        "contractdollars": 9265910891.94
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-09-12",
+        "yrweek": 201037,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 109020,
+        "contractdollars": 14784747047.3
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-09-19",
+        "yrweek": 201038,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 128883,
+        "contractdollars": 25026440980.25
+    },
+    {
+        "fiscalyear": 2010,
+        "date": "2010-09-26",
+        "yrweek": 201039,
+        "year": "2010",
+        "TotalbyFiscalYear": 524197881386.13,
+        "contractcount": 187567,
+        "contractdollars": 45577470727.93
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-10-03",
+        "yrweek": 201040,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 48700,
+        "contractdollars": 4308693362.77
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-10-10",
+        "yrweek": 201041,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 39402,
+        "contractdollars": 4251930377.06
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-10-17",
+        "yrweek": 201042,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 53880,
+        "contractdollars": 6639388324.66
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-10-24",
+        "yrweek": 201043,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 62970,
+        "contractdollars": 10138521743.46
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-10-31",
+        "yrweek": 201044,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 55911,
+        "contractdollars": 7368591935.65
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-11-07",
+        "yrweek": 201045,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 44985,
+        "contractdollars": 3911041478.57
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-11-14",
+        "yrweek": 201046,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 56535,
+        "contractdollars": 7610388743.53
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-11-21",
+        "yrweek": 201047,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 37172,
+        "contractdollars": 5328230863.1
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-11-28",
+        "yrweek": 201048,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 56657,
+        "contractdollars": 11072577024.63
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-12-05",
+        "yrweek": 201049,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 54539,
+        "contractdollars": 6832666925.79
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-12-12",
+        "yrweek": 201050,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 55908,
+        "contractdollars": 10007471836.93
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-12-19",
+        "yrweek": 201051,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 44120,
+        "contractdollars": 11365909542.62
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2010-12-26",
+        "yrweek": 201052,
+        "year": "2010",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 34004,
+        "contractdollars": 10130756565.34
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-01-01",
+        "yrweek": 201100,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 26321,
+        "contractdollars": 1624730025.67
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-01-02",
+        "yrweek": 201101,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 52608,
+        "contractdollars": 5934293616.98
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-01-09",
+        "yrweek": 201102,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 53925,
+        "contractdollars": 6983387698.66
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-01-16",
+        "yrweek": 201103,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 48841,
+        "contractdollars": 5882521115.27
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-01-23",
+        "yrweek": 201104,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 62180,
+        "contractdollars": 11620632718.7
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-01-30",
+        "yrweek": 201105,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 61180,
+        "contractdollars": 8188485372.87
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-02-06",
+        "yrweek": 201106,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 59424,
+        "contractdollars": 6361515532.92
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-02-13",
+        "yrweek": 201107,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 62857,
+        "contractdollars": 6314395897.59
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-02-20",
+        "yrweek": 201108,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 51001,
+        "contractdollars": 6589988018.37
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-02-27",
+        "yrweek": 201109,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 68561,
+        "contractdollars": 10436906264.83
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-03-06",
+        "yrweek": 201110,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 59618,
+        "contractdollars": 6443353913.85
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-03-13",
+        "yrweek": 201111,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 61481,
+        "contractdollars": 11023110653.48
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-03-20",
+        "yrweek": 201112,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 62033,
+        "contractdollars": 6948095709.5
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-03-27",
+        "yrweek": 201113,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 92485,
+        "contractdollars": 17620615896.49
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-04-03",
+        "yrweek": 201114,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 64037,
+        "contractdollars": 10346445552.8
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-04-10",
+        "yrweek": 201115,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 57942,
+        "contractdollars": 5599916568.91
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-04-17",
+        "yrweek": 201116,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 56296,
+        "contractdollars": 5838292229.74
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-04-24",
+        "yrweek": 201117,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 59031,
+        "contractdollars": 9325287076.93
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-05-01",
+        "yrweek": 201118,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 59067,
+        "contractdollars": 6458068857.18
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-05-08",
+        "yrweek": 201119,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 58470,
+        "contractdollars": 8635409764.04
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-05-15",
+        "yrweek": 201120,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 60356,
+        "contractdollars": 7465652377.51
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-05-22",
+        "yrweek": 201121,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 60228,
+        "contractdollars": 14835130985.01
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-05-29",
+        "yrweek": 201122,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 52856,
+        "contractdollars": 11162183156.53
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-06-05",
+        "yrweek": 201123,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 60789,
+        "contractdollars": 9799575733.93
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-06-12",
+        "yrweek": 201124,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 60105,
+        "contractdollars": 8987841549.09
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-06-19",
+        "yrweek": 201125,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 63032,
+        "contractdollars": 9943059367.92
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-06-26",
+        "yrweek": 201126,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 75992,
+        "contractdollars": 18855738402.79
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-07-03",
+        "yrweek": 201127,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 49671,
+        "contractdollars": 5919667800.81
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-07-10",
+        "yrweek": 201128,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 63454,
+        "contractdollars": 7390135207.88
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-07-17",
+        "yrweek": 201129,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 67084,
+        "contractdollars": 9586496476.98
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-07-24",
+        "yrweek": 201130,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 75900,
+        "contractdollars": 15137554948.79
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-07-31",
+        "yrweek": 201131,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 73872,
+        "contractdollars": 9050035002.97
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-08-07",
+        "yrweek": 201132,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 71464,
+        "contractdollars": 8940957184.43
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-08-14",
+        "yrweek": 201133,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 77180,
+        "contractdollars": 10173578294.43
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-08-21",
+        "yrweek": 201134,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 76413,
+        "contractdollars": 8704563247.18
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-08-28",
+        "yrweek": 201135,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 87471,
+        "contractdollars": 13575336192.95
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-09-04",
+        "yrweek": 201136,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 70530,
+        "contractdollars": 8238183624.91
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-09-11",
+        "yrweek": 201137,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 105102,
+        "contractdollars": 14541478910.38
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-09-18",
+        "yrweek": 201138,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 120732,
+        "contractdollars": 20822269384.11
+    },
+    {
+        "fiscalyear": 2011,
+        "date": "2011-09-25",
+        "yrweek": 201139,
+        "year": "2011",
+        "TotalbyFiscalYear": 517413741640.96,
+        "contractcount": 173684,
+        "contractdollars": 47142682583.47
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-10-02",
+        "yrweek": 201140,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 43678,
+        "contractdollars": 4919307154.09
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-10-09",
+        "yrweek": 201141,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 37340,
+        "contractdollars": 4307375180.33
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-10-16",
+        "yrweek": 201142,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 48669,
+        "contractdollars": 5131395305.4
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-10-23",
+        "yrweek": 201143,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 54603,
+        "contractdollars": 7807830919.03
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-10-30",
+        "yrweek": 201144,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 54383,
+        "contractdollars": 7333225401.22
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-11-06",
+        "yrweek": 201145,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 43520,
+        "contractdollars": 4839615362.09
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-11-13",
+        "yrweek": 201146,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 54616,
+        "contractdollars": 7455424095.3
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-11-20",
+        "yrweek": 201147,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 35847,
+        "contractdollars": 4190399696.46
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-11-27",
+        "yrweek": 201148,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 54786,
+        "contractdollars": 9567486909.81
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-12-04",
+        "yrweek": 201149,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 53479,
+        "contractdollars": 6312430888.04
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-12-11",
+        "yrweek": 201150,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 52104,
+        "contractdollars": 9225192778.69
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-12-18",
+        "yrweek": 201151,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 55809,
+        "contractdollars": 11499914661.71
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2011-12-25",
+        "yrweek": 201152,
+        "year": "2011",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 33104,
+        "contractdollars": 9267086712.08
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-01-01",
+        "yrweek": 201201,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 41318,
+        "contractdollars": 4811880931.83
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-01-08",
+        "yrweek": 201202,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 54078,
+        "contractdollars": 7457026138.71
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-01-15",
+        "yrweek": 201203,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 47487,
+        "contractdollars": 5958459555.13
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-01-22",
+        "yrweek": 201204,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 59714,
+        "contractdollars": 12213541672.98
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-01-29",
+        "yrweek": 201205,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 61171,
+        "contractdollars": 15552755533.91
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-02-05",
+        "yrweek": 201206,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 56432,
+        "contractdollars": 7822577027.46
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-02-12",
+        "yrweek": 201207,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 57894,
+        "contractdollars": 8220512866.87
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-02-19",
+        "yrweek": 201208,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 50355,
+        "contractdollars": 8237282395.1
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-02-26",
+        "yrweek": 201209,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 63390,
+        "contractdollars": 15693967456.13
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-03-04",
+        "yrweek": 201210,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 61574,
+        "contractdollars": 6369181380.35
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-03-11",
+        "yrweek": 201211,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 59422,
+        "contractdollars": 10637824701.02
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-03-18",
+        "yrweek": 201212,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 62197,
+        "contractdollars": 7714571209.45
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-03-25",
+        "yrweek": 201213,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 71564,
+        "contractdollars": 21014128891.29
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-04-01",
+        "yrweek": 201214,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 63243,
+        "contractdollars": 7791585402.39
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-04-08",
+        "yrweek": 201215,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 58741,
+        "contractdollars": 6067042632.99
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-04-15",
+        "yrweek": 201216,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 62554,
+        "contractdollars": 6809545461.68
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-04-22",
+        "yrweek": 201217,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 64219,
+        "contractdollars": 9634486848.58
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-04-29",
+        "yrweek": 201218,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 62630,
+        "contractdollars": 8745418762.69
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-05-06",
+        "yrweek": 201219,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 60627,
+        "contractdollars": 7714363942.12
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-05-13",
+        "yrweek": 201220,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 62043,
+        "contractdollars": 6694554664.79
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-05-20",
+        "yrweek": 201221,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 60444,
+        "contractdollars": 9269045304.12
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-05-27",
+        "yrweek": 201222,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 52144,
+        "contractdollars": 8971391222.19
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-06-03",
+        "yrweek": 201223,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 61430,
+        "contractdollars": 7652350530.33
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-06-10",
+        "yrweek": 201224,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 60626,
+        "contractdollars": 7523585314.31
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-06-17",
+        "yrweek": 201225,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 62776,
+        "contractdollars": 6996285448.36
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-06-24",
+        "yrweek": 201226,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 73486,
+        "contractdollars": 14115282525.39
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-07-01",
+        "yrweek": 201227,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 45436,
+        "contractdollars": 5162793242.11
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-07-08",
+        "yrweek": 201228,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 60997,
+        "contractdollars": 6233341422.02
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-07-15",
+        "yrweek": 201229,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 66941,
+        "contractdollars": 6802650037.63
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-07-22",
+        "yrweek": 201230,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 66108,
+        "contractdollars": 7941100216.44
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-07-29",
+        "yrweek": 201231,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 60087,
+        "contractdollars": 10407857375.16
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-08-05",
+        "yrweek": 201232,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 53745,
+        "contractdollars": 6817175407.13
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-08-12",
+        "yrweek": 201233,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 57407,
+        "contractdollars": 8630126869.19
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-08-19",
+        "yrweek": 201234,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 62429,
+        "contractdollars": 8392625256.74
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-08-26",
+        "yrweek": 201235,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 69433,
+        "contractdollars": 11930321117.08
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-09-02",
+        "yrweek": 201236,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 58095,
+        "contractdollars": 7810170603.81
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-09-09",
+        "yrweek": 201237,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 81865,
+        "contractdollars": 11388121916.94
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-09-16",
+        "yrweek": 201238,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 99755,
+        "contractdollars": 21337227422.55
+    },
+    {
+        "fiscalyear": 2012,
+        "date": "2012-09-23",
+        "yrweek": 201239,
+        "year": "2012",
+        "TotalbyFiscalYear": 485473804731.44,
+        "contractcount": 131834,
+        "contractdollars": 41074960960.22
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-09-30",
+        "yrweek": 201240,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 70828,
+        "contractdollars": 15364864525.88
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-10-07",
+        "yrweek": 201241,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 27653,
+        "contractdollars": 4737446800.42
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-10-14",
+        "yrweek": 201242,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 40442,
+        "contractdollars": 9118334453.69
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-10-21",
+        "yrweek": 201243,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 39575,
+        "contractdollars": 7655144155.21
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-10-28",
+        "yrweek": 201244,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 41139,
+        "contractdollars": 11432599387.78
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-11-04",
+        "yrweek": 201245,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 40891,
+        "contractdollars": 6948116191.64
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-11-11",
+        "yrweek": 201246,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 36137,
+        "contractdollars": 5075636910.48
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-11-18",
+        "yrweek": 201247,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 29728,
+        "contractdollars": 6297746121.16
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-11-25",
+        "yrweek": 201248,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 47530,
+        "contractdollars": 9944624332.03
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-12-02",
+        "yrweek": 201249,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 43003,
+        "contractdollars": 8528831766.5
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-12-09",
+        "yrweek": 201250,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 44620,
+        "contractdollars": 10996901203.24
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-12-16",
+        "yrweek": 201251,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 49976,
+        "contractdollars": 15448277541.32
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-12-23",
+        "yrweek": 201252,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 19064,
+        "contractdollars": 7968929901.68
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2012-12-30",
+        "yrweek": 201253,
+        "year": "2012",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 5910,
+        "contractdollars": 1745328347.22
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-01-01",
+        "yrweek": 201300,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 23393,
+        "contractdollars": 2626729956.4
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-01-06",
+        "yrweek": 201301,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 41198,
+        "contractdollars": 3925397120.77
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-01-13",
+        "yrweek": 201302,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 45846,
+        "contractdollars": 4854378493.63
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-01-20",
+        "yrweek": 201303,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 38037,
+        "contractdollars": 5697396185.36
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-01-27",
+        "yrweek": 201304,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 51033,
+        "contractdollars": 7398021310.63
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-02-03",
+        "yrweek": 201305,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 45047,
+        "contractdollars": 4382779018.33
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-02-10",
+        "yrweek": 201306,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 44194,
+        "contractdollars": 4357604594.25
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-02-17",
+        "yrweek": 201307,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 40670,
+        "contractdollars": 4254369903.52
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-02-24",
+        "yrweek": 201308,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 51697,
+        "contractdollars": 9451377750.53
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-03-03",
+        "yrweek": 201309,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 43052,
+        "contractdollars": 5269079971.52
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-03-10",
+        "yrweek": 201310,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 45455,
+        "contractdollars": 5495821079.27
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-03-17",
+        "yrweek": 201311,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 47702,
+        "contractdollars": 5025328882.38
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-03-24",
+        "yrweek": 201312,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 53222,
+        "contractdollars": 10563852847.64
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-03-31",
+        "yrweek": 201313,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 47847,
+        "contractdollars": 5081819568.42
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-04-07",
+        "yrweek": 201314,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 45979,
+        "contractdollars": 4590634937.41
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-04-14",
+        "yrweek": 201315,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 45446,
+        "contractdollars": 5075713354.44
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-04-21",
+        "yrweek": 201316,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 46200,
+        "contractdollars": 7291857957.48
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-04-28",
+        "yrweek": 201317,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 49185,
+        "contractdollars": 8424681354.86
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-05-05",
+        "yrweek": 201318,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 46561,
+        "contractdollars": 5924239185.43
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-05-12",
+        "yrweek": 201319,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 46891,
+        "contractdollars": 7034725293.57
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-05-19",
+        "yrweek": 201320,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 46287,
+        "contractdollars": 7864980650.22
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-05-26",
+        "yrweek": 201321,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 43757,
+        "contractdollars": 11397464459.65
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-06-02",
+        "yrweek": 201322,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 48144,
+        "contractdollars": 8141054656.12
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-06-09",
+        "yrweek": 201323,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 45279,
+        "contractdollars": 8368488048.01
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-06-16",
+        "yrweek": 201324,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 47305,
+        "contractdollars": 7793572033.07
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-06-23",
+        "yrweek": 201325,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 52740,
+        "contractdollars": 21030006055.35
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-06-30",
+        "yrweek": 201326,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 35611,
+        "contractdollars": 6289030589.75
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-07-07",
+        "yrweek": 201327,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 43000,
+        "contractdollars": 5805517027.74
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-07-14",
+        "yrweek": 201328,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 46315,
+        "contractdollars": 6536814929.49
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-07-21",
+        "yrweek": 201329,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 46603,
+        "contractdollars": 7494921959.76
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-07-28",
+        "yrweek": 201330,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 53113,
+        "contractdollars": 11719395559.65
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-08-04",
+        "yrweek": 201331,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 48051,
+        "contractdollars": 6101535392.86
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-08-11",
+        "yrweek": 201332,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 52318,
+        "contractdollars": 6944920827.04
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-08-18",
+        "yrweek": 201333,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 56776,
+        "contractdollars": 8542601583.06
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-08-25",
+        "yrweek": 201334,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 64155,
+        "contractdollars": 11652799700.43
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-09-01",
+        "yrweek": 201335,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 53752,
+        "contractdollars": 8991844963.33
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-09-08",
+        "yrweek": 201336,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 74204,
+        "contractdollars": 10391892980.28
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-09-15",
+        "yrweek": 201337,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 87663,
+        "contractdollars": 15556880661.37
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-09-22",
+        "yrweek": 201338,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 111249,
+        "contractdollars": 31625910865.48
+    },
+    {
+        "fiscalyear": 2013,
+        "date": "2013-09-29",
+        "yrweek": 201339,
+        "year": "2013",
+        "TotalbyFiscalYear": 457940841170.79,
+        "contractcount": 85243,
+        "contractdollars": 17702617824.04
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-10-06",
+        "yrweek": 201340,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 26676,
+        "contractdollars": 1754048760.61
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-10-13",
+        "yrweek": 201341,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 24367,
+        "contractdollars": 4701025748.87
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-10-20",
+        "yrweek": 201342,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 36221,
+        "contractdollars": 5809984149.67
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-10-27",
+        "yrweek": 201343,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 40976,
+        "contractdollars": 9129067177.43
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-11-03",
+        "yrweek": 201344,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 40288,
+        "contractdollars": 5405725649.79
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-11-10",
+        "yrweek": 201345,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 35958,
+        "contractdollars": 4937046178.66
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-11-17",
+        "yrweek": 201346,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 45787,
+        "contractdollars": 7228250546.37
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-11-24",
+        "yrweek": 201347,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 30585,
+        "contractdollars": 6332207059.93
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-12-01",
+        "yrweek": 201348,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 40043,
+        "contractdollars": 6289590794.04
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-12-08",
+        "yrweek": 201349,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 40945,
+        "contractdollars": 5129485784.32
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-12-15",
+        "yrweek": 201350,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 48278,
+        "contractdollars": 12048844921.74
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-12-22",
+        "yrweek": 201351,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 22049,
+        "contractdollars": 6786221220.92
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2013-12-29",
+        "yrweek": 201352,
+        "year": "2013",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 13793,
+        "contractdollars": 3210532984.97
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-01-01",
+        "yrweek": 201400,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 11315,
+        "contractdollars": 1463563639.63
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-01-05",
+        "yrweek": 201401,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 36556,
+        "contractdollars": 4137185276.97
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-01-12",
+        "yrweek": 201402,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 42980,
+        "contractdollars": 5478970688.5
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-01-19",
+        "yrweek": 201403,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 33634,
+        "contractdollars": 3232038864.44
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-01-26",
+        "yrweek": 201404,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 51018,
+        "contractdollars": 7832020240.93
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-02-02",
+        "yrweek": 201405,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 40332,
+        "contractdollars": 5736397995.95
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-02-09",
+        "yrweek": 201406,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 39862,
+        "contractdollars": 7447637547.48
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-02-16",
+        "yrweek": 201407,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 36804,
+        "contractdollars": 4650947693.66
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-02-23",
+        "yrweek": 201408,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 56222,
+        "contractdollars": 16913161130.73
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-03-02",
+        "yrweek": 201409,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 44896,
+        "contractdollars": 7298830690.52
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-03-09",
+        "yrweek": 201410,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 47644,
+        "contractdollars": 12188852671.3
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-03-16",
+        "yrweek": 201411,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 47557,
+        "contractdollars": 9297987934.65
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-03-23",
+        "yrweek": 201412,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 56175,
+        "contractdollars": 14397229859.07
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-03-30",
+        "yrweek": 201413,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 54761,
+        "contractdollars": 12127811535.46
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-04-06",
+        "yrweek": 201414,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 46894,
+        "contractdollars": 6500925200.87
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-04-13",
+        "yrweek": 201415,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 45536,
+        "contractdollars": 6717094841.76
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-04-20",
+        "yrweek": 201416,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 47835,
+        "contractdollars": 8037594333.27
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-04-27",
+        "yrweek": 201417,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 50917,
+        "contractdollars": 9025120746.89
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-05-04",
+        "yrweek": 201418,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 44874,
+        "contractdollars": 8505201614.73
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-05-11",
+        "yrweek": 201419,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 47793,
+        "contractdollars": 5838178681.72
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-05-18",
+        "yrweek": 201420,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 49238,
+        "contractdollars": 6121873003.37
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-05-25",
+        "yrweek": 201421,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 44854,
+        "contractdollars": 7917006702.81
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-06-01",
+        "yrweek": 201422,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 49379,
+        "contractdollars": 7121503846.52
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-06-08",
+        "yrweek": 201423,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 49206,
+        "contractdollars": 6400382203.44
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-06-15",
+        "yrweek": 201424,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 48942,
+        "contractdollars": 7354103679.84
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-06-22",
+        "yrweek": 201425,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 50506,
+        "contractdollars": 9942572850.8
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-06-29",
+        "yrweek": 201426,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 43259,
+        "contractdollars": 9689293389.74
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-07-06",
+        "yrweek": 201427,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 45405,
+        "contractdollars": 4559906533.38
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-07-13",
+        "yrweek": 201428,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 50955,
+        "contractdollars": 8369647055.81
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-07-20",
+        "yrweek": 201429,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 52300,
+        "contractdollars": 6555974916.45
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-07-27",
+        "yrweek": 201430,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 57691,
+        "contractdollars": 11158322593.1
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-08-03",
+        "yrweek": 201431,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 50830,
+        "contractdollars": 6064174712.64
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-08-10",
+        "yrweek": 201432,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 57597,
+        "contractdollars": 7188890663.83
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-08-17",
+        "yrweek": 201433,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 58061,
+        "contractdollars": 6605661977.41
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-08-24",
+        "yrweek": 201434,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 63808,
+        "contractdollars": 10537578203.25
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-08-31",
+        "yrweek": 201435,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 55276,
+        "contractdollars": 7340560559.6
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-09-07",
+        "yrweek": 201436,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 75822,
+        "contractdollars": 10474492237.46
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-09-14",
+        "yrweek": 201437,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 85686,
+        "contractdollars": 14974880327.24
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-09-21",
+        "yrweek": 201438,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 103341,
+        "contractdollars": 25684643034.83
+    },
+    {
+        "fiscalyear": 2014,
+        "date": "2014-09-28",
+        "yrweek": 201439,
+        "year": "2014",
+        "TotalbyFiscalYear": 436407555788.01,
+        "contractcount": 118632,
+        "contractdollars": 26757305130.64
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-10-05",
+        "yrweek": 201440,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 60258,
+        "contractdollars": 3758254062.89
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-10-12",
+        "yrweek": 201441,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 57645,
+        "contractdollars": 4389493179.36
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-10-19",
+        "yrweek": 201442,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 75894,
+        "contractdollars": 5318944088.87
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-10-26",
+        "yrweek": 201443,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 188470,
+        "contractdollars": 11062905877.85
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-11-02",
+        "yrweek": 201444,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 76917,
+        "contractdollars": 4214126505.08
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-11-09",
+        "yrweek": 201445,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 61134,
+        "contractdollars": 3508325015.13
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-11-16",
+        "yrweek": 201446,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 80224,
+        "contractdollars": 6374261701.96
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-11-23",
+        "yrweek": 201447,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 51585,
+        "contractdollars": 5790147973.28
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-11-30",
+        "yrweek": 201448,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 75743,
+        "contractdollars": 4976667967.74
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-12-07",
+        "yrweek": 201449,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 74726,
+        "contractdollars": 6237072756.07
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-12-14",
+        "yrweek": 201450,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 80234,
+        "contractdollars": 7939146730.25
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-12-21",
+        "yrweek": 201451,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 41585,
+        "contractdollars": 6254700269.97
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2014-12-28",
+        "yrweek": 201452,
+        "year": "2014",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 34937,
+        "contractdollars": 5606428736.81
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-01-01",
+        "yrweek": 201500,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 7733,
+        "contractdollars": 1051319724.44
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-01-04",
+        "yrweek": 201501,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 72245,
+        "contractdollars": 4277737978.26
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-01-11",
+        "yrweek": 201502,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 74862,
+        "contractdollars": 4811152944.86
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-01-18",
+        "yrweek": 201503,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 61493,
+        "contractdollars": 4482244419.75
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-01-25",
+        "yrweek": 201504,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 74143,
+        "contractdollars": 11477994425.25
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-02-01",
+        "yrweek": 201505,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 85328,
+        "contractdollars": 8106557749.1
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-02-08",
+        "yrweek": 201506,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 87285,
+        "contractdollars": 7355741213.18
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-02-15",
+        "yrweek": 201507,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 64381,
+        "contractdollars": 5527092573.33
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-02-22",
+        "yrweek": 201508,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 89403,
+        "contractdollars": 12221249270.69
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-03-01",
+        "yrweek": 201509,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 81614,
+        "contractdollars": 6517914386.51
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-03-08",
+        "yrweek": 201510,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 87721,
+        "contractdollars": 6144066243.78
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-03-15",
+        "yrweek": 201511,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 86026,
+        "contractdollars": 8007785942
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-03-22",
+        "yrweek": 201512,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 89563,
+        "contractdollars": 9516003361.58
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-03-29",
+        "yrweek": 201513,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 102534,
+        "contractdollars": 11735617834.23
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-04-05",
+        "yrweek": 201514,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 84291,
+        "contractdollars": 6076180079.23
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-04-12",
+        "yrweek": 201515,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 81660,
+        "contractdollars": 5779776224.32
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-04-19",
+        "yrweek": 201516,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 83482,
+        "contractdollars": 5927232456.21
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-04-26",
+        "yrweek": 201517,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 87649,
+        "contractdollars": 10781023643.14
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-05-03",
+        "yrweek": 201518,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 70836,
+        "contractdollars": 5207210359.15
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-05-10",
+        "yrweek": 201519,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 72890,
+        "contractdollars": 5169151703.08
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-05-17",
+        "yrweek": 201520,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 78832,
+        "contractdollars": 6133897898.82
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-05-24",
+        "yrweek": 201521,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 69253,
+        "contractdollars": 7110196876.51
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-05-31",
+        "yrweek": 201522,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 86927,
+        "contractdollars": 6589224522.21
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-06-07",
+        "yrweek": 201523,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 83846,
+        "contractdollars": 5170495825.53
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-06-14",
+        "yrweek": 201524,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 81046,
+        "contractdollars": 6609591332.09
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-06-21",
+        "yrweek": 201525,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 87442,
+        "contractdollars": 8500698080.43
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-06-28",
+        "yrweek": 201526,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 70402,
+        "contractdollars": 9085715483.8
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-07-05",
+        "yrweek": 201527,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 77727,
+        "contractdollars": 5207157253.59
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-07-12",
+        "yrweek": 201528,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 83167,
+        "contractdollars": 6142832436.62
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-07-19",
+        "yrweek": 201529,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 86201,
+        "contractdollars": 6505563729.86
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-07-26",
+        "yrweek": 201530,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 95820,
+        "contractdollars": 10924631567.31
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-08-02",
+        "yrweek": 201531,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 89625,
+        "contractdollars": 5146788927.26
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-08-09",
+        "yrweek": 201532,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 92787,
+        "contractdollars": 6277630752.26
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-08-16",
+        "yrweek": 201533,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 94047,
+        "contractdollars": 7665131041.21
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-08-23",
+        "yrweek": 201534,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 97667,
+        "contractdollars": 8059230295.57
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-08-30",
+        "yrweek": 201535,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 102156,
+        "contractdollars": 11125029805.37
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-09-06",
+        "yrweek": 201536,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 88552,
+        "contractdollars": 7505516859.88
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-09-13",
+        "yrweek": 201537,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 116332,
+        "contractdollars": 13068415734.12
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-09-20",
+        "yrweek": 201538,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 131025,
+        "contractdollars": 19085351540.09
+    },
+    {
+        "fiscalyear": 2015,
+        "date": "2015-09-27",
+        "yrweek": 201539,
+        "year": "2015",
+        "TotalbyFiscalYear": 400397514903.65,
+        "contractcount": 146945,
+        "contractdollars": 28880887543.77
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-10-04",
+        "yrweek": 201540,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 65984,
+        "contractdollars": 4354373026.77
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-10-11",
+        "yrweek": 201541,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 59473,
+        "contractdollars": 2963648040.4
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-10-18",
+        "yrweek": 201542,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 80574,
+        "contractdollars": 5066263528.96
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-10-25",
+        "yrweek": 201543,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 85425,
+        "contractdollars": 11708322518.71
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-11-01",
+        "yrweek": 201544,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 83586,
+        "contractdollars": 5015424216.3
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-11-08",
+        "yrweek": 201545,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 69212,
+        "contractdollars": 3866420138.91
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-11-15",
+        "yrweek": 201546,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 82540,
+        "contractdollars": 5900506987.77
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-11-22",
+        "yrweek": 201547,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 60035,
+        "contractdollars": 4902410507.76
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-11-29",
+        "yrweek": 201548,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 78710,
+        "contractdollars": 6410613774.16
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-12-06",
+        "yrweek": 201549,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 82727,
+        "contractdollars": 5944185457.13
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-12-13",
+        "yrweek": 201550,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 86112,
+        "contractdollars": 7282444832.05
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-12-20",
+        "yrweek": 201551,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 53551,
+        "contractdollars": 5534958599.06
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2015-12-27",
+        "yrweek": 201552,
+        "year": "2015",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 47707,
+        "contractdollars": 5832905933.63
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-01-01",
+        "yrweek": 201600,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 5972,
+        "contractdollars": 735485248.43
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-01-03",
+        "yrweek": 201601,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 78154,
+        "contractdollars": 3767382387.07
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-01-10",
+        "yrweek": 201602,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 87695,
+        "contractdollars": 5152004712.58
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-01-17",
+        "yrweek": 201603,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 77510,
+        "contractdollars": 4921002411.16
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-01-24",
+        "yrweek": 201604,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 93171,
+        "contractdollars": 12509320827.29
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-01-31",
+        "yrweek": 201605,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 95429,
+        "contractdollars": 7058816970.77
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-02-07",
+        "yrweek": 201606,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 97579,
+        "contractdollars": 6049124557.02
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-02-14",
+        "yrweek": 201607,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 80215,
+        "contractdollars": 6680028200.87
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-02-21",
+        "yrweek": 201608,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 97867,
+        "contractdollars": 9762807978.65
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-02-28",
+        "yrweek": 201609,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 99780,
+        "contractdollars": 10000759133.71
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-03-06",
+        "yrweek": 201610,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 99329,
+        "contractdollars": 8828225258.16
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-03-13",
+        "yrweek": 201611,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 94659,
+        "contractdollars": 7162750739.95
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-03-20",
+        "yrweek": 201612,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 95411,
+        "contractdollars": 9826508532.16
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-03-27",
+        "yrweek": 201613,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 103121,
+        "contractdollars": 15589895100.05
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-04-03",
+        "yrweek": 201614,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 90110,
+        "contractdollars": 6696311187.27
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-04-10",
+        "yrweek": 201615,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 98480,
+        "contractdollars": 6731535578.42
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-04-17",
+        "yrweek": 201616,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 93392,
+        "contractdollars": 6210693719.83
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-04-24",
+        "yrweek": 201617,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 99181,
+        "contractdollars": 8944025423.77
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-05-01",
+        "yrweek": 201618,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 97758,
+        "contractdollars": 7257029117.51
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-05-08",
+        "yrweek": 201619,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 96877,
+        "contractdollars": 6751737761.92
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-05-15",
+        "yrweek": 201620,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 94054,
+        "contractdollars": 5692806783.75
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-05-22",
+        "yrweek": 201621,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 92319,
+        "contractdollars": 9095383832.47
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-05-29",
+        "yrweek": 201622,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 75648,
+        "contractdollars": 6529692022.56
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-06-05",
+        "yrweek": 201623,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 94366,
+        "contractdollars": 5672440719.21
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-06-12",
+        "yrweek": 201624,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 94381,
+        "contractdollars": 6021121485.03
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-06-19",
+        "yrweek": 201625,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 95139,
+        "contractdollars": 8195579134.9
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-06-26",
+        "yrweek": 201626,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 99599,
+        "contractdollars": 12488741120.17
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-07-03",
+        "yrweek": 201627,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 69954,
+        "contractdollars": 4025015972.57
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-07-10",
+        "yrweek": 201628,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 93939,
+        "contractdollars": 6428875659.85
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-07-17",
+        "yrweek": 201629,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 94241,
+        "contractdollars": 6461489454.19
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-07-24",
+        "yrweek": 201630,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 104993,
+        "contractdollars": 11259048285.52
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-07-31",
+        "yrweek": 201631,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 101836,
+        "contractdollars": 7990235409.75
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-08-07",
+        "yrweek": 201632,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 104697,
+        "contractdollars": 6575596753.4
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-08-14",
+        "yrweek": 201633,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 105939,
+        "contractdollars": 6940796845.5
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-08-21",
+        "yrweek": 201634,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 108109,
+        "contractdollars": 8169655684.19
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-08-28",
+        "yrweek": 201635,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 110468,
+        "contractdollars": 13089864550.81
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-09-04",
+        "yrweek": 201636,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 92091,
+        "contractdollars": 6606491435.52
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-09-11",
+        "yrweek": 201637,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 125998,
+        "contractdollars": 12226530773.39
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-09-18",
+        "yrweek": 201638,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 140587,
+        "contractdollars": 18053382783.62
+    },
+    {
+        "fiscalyear": 2016,
+        "date": "2016-09-25",
+        "yrweek": 201639,
+        "year": "2016",
+        "TotalbyFiscalYear": 425046400527.56,
+        "contractcount": 170558,
+        "contractdollars": 38105729412.96
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-10-02",
+        "yrweek": 201640,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 63545,
+        "contractdollars": 5111394462.67
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-10-09",
+        "yrweek": 201641,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 59550,
+        "contractdollars": 2926474342.16
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-10-16",
+        "yrweek": 201642,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 78013,
+        "contractdollars": 6416000367.79
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-10-23",
+        "yrweek": 201643,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 87883,
+        "contractdollars": 6671218779.27
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-10-30",
+        "yrweek": 201644,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 85628,
+        "contractdollars": 6825765534.05
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-11-06",
+        "yrweek": 201645,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 70420,
+        "contractdollars": 3871834621.84
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-11-13",
+        "yrweek": 201646,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 85733,
+        "contractdollars": 6140678321.88
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-11-20",
+        "yrweek": 201647,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 58924,
+        "contractdollars": 4760168322.12
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-11-27",
+        "yrweek": 201648,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 87354,
+        "contractdollars": 7406508728.67
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-12-04",
+        "yrweek": 201649,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 86458,
+        "contractdollars": 5389976831.04
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-12-11",
+        "yrweek": 201650,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 83297,
+        "contractdollars": 6953354590.94
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-12-18",
+        "yrweek": 201651,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 81223,
+        "contractdollars": 12009579731.24
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2016-12-25",
+        "yrweek": 201652,
+        "year": "2016",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 50637,
+        "contractdollars": 7832556318.58
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-01-01",
+        "yrweek": 201701,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 64329,
+        "contractdollars": 4077312369.56
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-01-08",
+        "yrweek": 201702,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 88716,
+        "contractdollars": 6085815026.77
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-01-15",
+        "yrweek": 201703,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 74690,
+        "contractdollars": 5485025503.65
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-01-22",
+        "yrweek": 201704,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 93385,
+        "contractdollars": 8610358932.15
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-01-29",
+        "yrweek": 201705,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 99108,
+        "contractdollars": 9086187398.41
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-02-05",
+        "yrweek": 201706,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 99243,
+        "contractdollars": 5386107183.66
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-02-12",
+        "yrweek": 201707,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 96728,
+        "contractdollars": 7430094416.8
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-02-19",
+        "yrweek": 201708,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 79327,
+        "contractdollars": 5756913879.81
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-02-26",
+        "yrweek": 201709,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 98214,
+        "contractdollars": 9153954793.37
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-03-05",
+        "yrweek": 201710,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 92479,
+        "contractdollars": 5755617286.13
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-03-12",
+        "yrweek": 201711,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 88899,
+        "contractdollars": 5695495788.1
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-03-19",
+        "yrweek": 201712,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 93106,
+        "contractdollars": 6898047361.81
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-03-26",
+        "yrweek": 201713,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 104173,
+        "contractdollars": 14428216998.75
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-04-02",
+        "yrweek": 201714,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 90839,
+        "contractdollars": 5371501202.76
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-04-09",
+        "yrweek": 201715,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 88013,
+        "contractdollars": 5794204224.46
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-04-16",
+        "yrweek": 201716,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 83618,
+        "contractdollars": 5506567984.47
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-04-23",
+        "yrweek": 201717,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 102150,
+        "contractdollars": 8994941215
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-05-01",
+        "yrweek": 201718,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 86701,
+        "contractdollars": 4823728344.69
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-05-07",
+        "yrweek": 201719,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 99957,
+        "contractdollars": 5067798230.13
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-05-14",
+        "yrweek": 201720,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 92818,
+        "contractdollars": 6008153457.72
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-05-21",
+        "yrweek": 201721,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 93145,
+        "contractdollars": 7824860819.68
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-05-28",
+        "yrweek": 201722,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 144488,
+        "contractdollars": 8811301432.35
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-06-04",
+        "yrweek": 201723,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 88099,
+        "contractdollars": 7443149439
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-06-11",
+        "yrweek": 201724,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 89022,
+        "contractdollars": 7670780181.59
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-06-18",
+        "yrweek": 201725,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 95997,
+        "contractdollars": 7288009637.08
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-06-25",
+        "yrweek": 201726,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 104236,
+        "contractdollars": 16157959531.95
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-07-02",
+        "yrweek": 201727,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 63308,
+        "contractdollars": 3844726858.49
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-07-09",
+        "yrweek": 201728,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 57369,
+        "contractdollars": 4578151947.73
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-07-16",
+        "yrweek": 201729,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 21781,
+        "contractdollars": 2713710228.39
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-07-23",
+        "yrweek": 201730,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 25782,
+        "contractdollars": 4368518909.81
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-07-30",
+        "yrweek": 201731,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 26221,
+        "contractdollars": 3686725893.5
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-08-06",
+        "yrweek": 201732,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 23515,
+        "contractdollars": 3005170538.39
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-08-13",
+        "yrweek": 201733,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 24776,
+        "contractdollars": 3371976000.78
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-08-20",
+        "yrweek": 201734,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 25164,
+        "contractdollars": 3837007850.6
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-08-27",
+        "yrweek": 201735,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 28815,
+        "contractdollars": 6066674082.75
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-09-03",
+        "yrweek": 201736,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 22649,
+        "contractdollars": 3205618612.59
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-09-10",
+        "yrweek": 201737,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 33105,
+        "contractdollars": 5765163752.28
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-09-17",
+        "yrweek": 201738,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 36853,
+        "contractdollars": 7395774720.15
+    },
+    {
+        "fiscalyear": 2017,
+        "date": "2017-09-24",
+        "yrweek": 201739,
+        "year": "2017",
+        "TotalbyFiscalYear": 338989061517.77,
+        "contractcount": 41412,
+        "contractdollars": 14222228530.21
+    }
+]

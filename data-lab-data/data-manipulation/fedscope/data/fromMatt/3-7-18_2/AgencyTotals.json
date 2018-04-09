@@ -1,0 +1,194 @@
+[
+    {
+        "agency_id": 70,
+        "totaloutlays": 18497460153.39,
+        "totalobligations": 18659839936.51,
+        "oblig_percent": 0.1128,
+        "outlay_percent": 0.1132,
+        "totalemployees": 198399
+    },
+    {
+        "agency_id": 13,
+        "totaloutlays": 4860212697.15,
+        "totalobligations": 4906717037.6,
+        "oblig_percent": 0.0297,
+        "outlay_percent": 0.0297,
+        "totalemployees": 47704
+    },
+    {
+        "agency_id": 97,
+        "totaloutlays": 44843034675.28,
+        "totalobligations": 45899363169.82,
+        "oblig_percent": 0.2775,
+        "outlay_percent": 0.2744,
+        "totalemployees": 731100
+    },
+    {
+        "agency_id": 89,
+        "totaloutlays": 1714394793.52,
+        "totalobligations": 1718074277.57,
+        "oblig_percent": 0.0104,
+        "outlay_percent": 0.0105,
+        "totalemployees": 14762
+    },
+    {
+        "agency_id": 14,
+        "totaloutlays": 5187335182.63,
+        "totalobligations": 5206873954.87,
+        "oblig_percent": 0.0315,
+        "outlay_percent": 0.0317,
+        "totalemployees": 68275
+    },
+    {
+        "agency_id": 15,
+        "totaloutlays": 11557360632.55,
+        "totalobligations": 11448417318.79,
+        "oblig_percent": 0.0692,
+        "outlay_percent": 0.0707,
+        "totalemployees": 115976
+    },
+    {
+        "agency_id": 16,
+        "totaloutlays": 1605754478.71,
+        "totalobligations": 1608319646.96,
+        "oblig_percent": 0.0097,
+        "outlay_percent": 0.0098,
+        "totalemployees": 15016
+    },
+    {
+        "agency_id": 19,
+        "totaloutlays": 4589366714.79,
+        "totalobligations": 4675324387.49,
+        "oblig_percent": 0.0283,
+        "outlay_percent": 0.0281,
+        "totalemployees": 12301
+    },
+    {
+        "agency_id": 69,
+        "totaloutlays": 6617614444.66,
+        "totalobligations": 6626933705.48,
+        "oblig_percent": 0.0401,
+        "outlay_percent": 0.0405,
+        "totalemployees": 54748
+    },
+    {
+        "agency_id": 91,
+        "totaloutlays": 472661003.02,
+        "totalobligations": 473110829.91,
+        "oblig_percent": 0.0029,
+        "outlay_percent": 0.0029,
+        "totalemployees": 4059
+    },
+    {
+        "agency_id": 68,
+        "totaloutlays": 1734562794.21,
+        "totalobligations": 1733996268.72,
+        "oblig_percent": 0.0105,
+        "outlay_percent": 0.0106,
+        "totalemployees": 15058
+    },
+    {
+        "agency_id": 47,
+        "totaloutlays": 1206572251.71,
+        "totalobligations": 1207235691.05,
+        "oblig_percent": 0.0073,
+        "outlay_percent": 0.0074,
+        "totalemployees": 11498
+    },
+    {
+        "agency_id": 75,
+        "totaloutlays": 7857921954.8,
+        "totalobligations": 7900248542.35,
+        "oblig_percent": 0.0478,
+        "outlay_percent": 0.0481,
+        "totalemployees": 84822
+    },
+    {
+        "agency_id": 86,
+        "totaloutlays": 859550220.67,
+        "totalobligations": 815819032.5,
+        "oblig_percent": 0.0049,
+        "outlay_percent": 0.0053,
+        "totalemployees": 7827
+    },
+    {
+        "agency_id": 80,
+        "totaloutlays": 2130606700.33,
+        "totalobligations": 2133776968.38,
+        "oblig_percent": 0.0129,
+        "outlay_percent": 0.013,
+        "totalemployees": 17189
+    },
+    {
+        "agency_id": 31,
+        "totaloutlays": 428871609.79,
+        "totalobligations": 426852850.38,
+        "oblig_percent": 0.0026,
+        "outlay_percent": 0.0026,
+        "totalemployees": 3228
+    },
+    {
+        "agency_id": 73,
+        "totaloutlays": 304516401.96,
+        "totalobligations": 305484172.21,
+        "oblig_percent": 0.0018,
+        "outlay_percent": 0.0019,
+        "totalemployees": 5249
+    },
+    {
+        "agency_id": 28,
+        "totaloutlays": 5119158493.71,
+        "totalobligations": 5117932545.64,
+        "oblig_percent": 0.0309,
+        "outlay_percent": 0.0313,
+        "totalemployees": 62297
+    },
+    {
+        "agency_id": 20,
+        "totaloutlays": 7835578947.25,
+        "totalobligations": 7856331019.82,
+        "oblig_percent": 0.0475,
+        "outlay_percent": 0.0479,
+        "totalemployees": 87676
+    },
+    {
+        "agency_id": 12,
+        "totaloutlays": 4629724735.76,
+        "totalobligations": 5176997197.6,
+        "oblig_percent": 0.0313,
+        "outlay_percent": 0.0283,
+        "totalemployees": 93401
+    },
+    {
+        "agency_id": 36,
+        "totaloutlays": 29962130422.54,
+        "totalobligations": 30023316720.19,
+        "oblig_percent": 0.1815,
+        "outlay_percent": 0.1833,
+        "totalemployees": 381457
+    },
+    {
+        "agency_id": 49,
+        "totaloutlays": 184763750.93,
+        "totalobligations": 185311708.66,
+        "oblig_percent": 0.0011,
+        "outlay_percent": 0.0011,
+        "totalemployees": 1479
+    },
+    {
+        "agency_id": 24,
+        "totaloutlays": 476628428.8,
+        "totalobligations": 480848695.56,
+        "oblig_percent": 0.0029,
+        "outlay_percent": 0.0029,
+        "totalemployees": 5506
+    },
+    {
+        "agency_id": 72,
+        "totaloutlays": 771714884.7,
+        "totalobligations": 818479860.15,
+        "oblig_percent": 0.0049,
+        "outlay_percent": 0.0047,
+        "totalemployees": 3653
+    }
+]

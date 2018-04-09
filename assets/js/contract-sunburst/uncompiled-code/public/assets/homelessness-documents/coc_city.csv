@@ -1,0 +1,31 @@
+State,City,County,coc_number,coc_name
+GA,Atlanta,Fulton,GA-500,Atlanta Continuum of Care
+ME,Portland,Cumberland,ME-502,Portland CoC
+MI,Detroit,Wayne,MI-501,Detroit CoC
+NE,Lincoln,Lancaster,NE-502,Lincoln CoC
+NM,Albuquerque,Bernalillo,NM-500,Albuquerque CoC
+MA,Boston,Suffolk,MA-500,Boston CoC
+MA,Lynn,Essex,MA-502,Lynn CoC
+MA,New Bedford,Bristol,MA-505,New Bedford CoC
+MA,Lowell,Middlesex,MA-508,Lowell CoC
+MA,Cambridge,Middlesex,MA-509,Cambridge CoC
+MA,Lawrence,Essex,MA-516,Massachusetts Balance of State
+MA,Fall River,Bristol,MA-515,Fall River CoC
+MA,Framingham,Middlesex,MA-516,Massachusetts Balance of State
+MA,Medford,Middlesex,MA-516,Massachusetts Balance of State
+MA,Malden,Middlesex,MA-516,Massachusetts Balance of State
+MA,Revere,Suffolk,MA-516,Massachusetts Balance of State
+MA,Somerville,Middlesex,MA-517,Somerville CoC
+MA,Arlington,Middlesex,MA-517,Somerville CoC
+MA,Waltham,Middlesex,MA-516,Massachusetts Balance of State
+MA,Newton,Middlesex,MA-516,Massachusetts Balance of State
+MA,Brookline,Middlesex,MA-516,Massachusetts Balance of State
+CA,Long Beach,Los Angeles,CA-606,Long Beach CoC
+CA,Glendale,Los Angeles,CA-612,Glendale CoC
+IL,Chicago,Cook,IL-510,Chicago CoC
+IA,Des Moines,,IA-502,Des Moines/Polk County CoC
+IA,West Des Moines,,IA-502,Des Moines/Polk County CoC
+NH,Manchester,Hillsborough,NH-501,Manchester CoC
+MA,Quincy,Norfolk,MA-511,Quincy/Brockton/Weymouth/Plymouth City and County CoC
+MA,Weymouth,Norfolk,MA-511,Quincy/Brockton/Weymouth/Plymouth City and County CoC
+CA,Pasadena,Los Angeles,CA-607,Pasadena CoC
