@@ -193,34 +193,19 @@ const multiLinechartModule = (function() {
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
           }else if (d === "Equipment/Facilities/Construction/Vehicles"){
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","0px");
           }else if (d === "Miscellaneous"){
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","0px");
           }else if (d === "Professional Services"){
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","0px");
           }else if (d === "Telecomm & IT"){
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","0px");
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","0px");
           }else if (d === "Weapons"){
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","0px");
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
             d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
           }
         })
