@@ -1,0 +1,109 @@
+setwd("C:\Users\mmeint01\Documents\Homeless Data for QC")
+
+#install.packages("plyr")
+#install.packages("dplyr")
+install.packages("tidyr")
+#install.packages("stats")
+#install.packages("stringr")
+#install.packages("reshape2")
+library(plyr)
+library(dplyr)
+library(magrittr)
+library(tidyr)
+library(stats)
+library(stringr)
+library(reshape2)
+
+#Create Zip to CoC file
+# import zip to county to state data
+zipdata<-read.csv("Zip_State_County.csv", header=TRUE, stringsAsFactors = FALSE)
+zipdata$state_county<-paste(zipdata$State, zipdata$County, sep="_")
+zipdata$state_city<-paste(zipdata$State, zipdata$City, sep="_")
+
+#import CoC to county to state data
+#These tables were created using the maps included in 2016 CoC Dashboard reports for each CoC
+cocdata<-read.csv("State_County_COC.csv", header=TRUE, stringsAsFactors = FALSE)
+coc_city<-read.csv("coc_city.csv", header=TRUE, stringsAsFactors=FALSE)
+cocdata$state_county<-paste(cocdata$State, cocdata$County, sep="_")
+cocdata$state_city<-paste(cocdata$State, cocdata$City, sep="_")
+coc_city$state_county<-paste(coc_city$State, coc_city$County, sep="_")
+coc_city$state_city<-paste(coc_city$State, coc_city$City, sep="_")
+
+cities<-c("GA_Atlanta", "ME_Portland", "MI_Detroit", "NE_Lincoln", "NM_Albuquerque", "MA_Boston", "MA_Lynn", "MA_New Bedford", "MA_Lowell", "MA_Lowell", "MA_Cambridge", "MA_Fall River", "MA_Lawrence", "MA_Framingham", "MA_Medford", "MA_Malden", "MA_Revere", "MA_Somerville", "MA_Arlington", "MA_Waltham", "MA_Newton", "MA_Newton", "MA_Brookline", "CA_Long Beach", "CA_Glendale", "IL_Chicago", "IA_Des Moines", "IA_West Des Moines", "NH_Manchester", "MA_Quincy", "MA_Weymouth", "CA_Pasadena")
+
+zipdata1<-subset(zipdata, zipdata$state_city %in% cities)
+zipdata2<-subset(zipdata, !(zipdata$state_city %in% cities))
+zipcoc1 <- join(zipdata1, coc_city, by="state_city", type="left", match="all")
+col<-c("State", "City", "Zip","County", "coc_number", "coc_name")
+zip1coc<-zipcoc1[,c(col)]
+zipcoc2 <- join(zipdata2, cocdata, by="state_county", type="left", match="all")
+zip2coc<-zipcoc2[,c(col)]
+CoC<-rbind(zip1coc, zip2coc)
+
+#Download grants for CFDAs related to homelessness from beta.usaspending.gov for FY2017 from https://cfda.gov/
+#clean place_of_performance_zip_plus_four field in excel so that you have a field with just the 5 digit zip codes (and find zipcodes for awards that have cities and counties but not zip codes in the file)
+
+#import awards file
+award<-read.csv("2017HomelessAssistance.csv", header=TRUE, stringsAsFactors = FALSE)
+
+#import CoC data
+#CoC<-read.csv("zip-coc.csv", header = TRUE, stringsAsFactors = FALSE)
+CoC$primary_place_of_performance_zip<-CoC$Zip
+
+#import CFDA data
+CFDA<-read.csv("CFDA-description.csv", header = TRUE, stringsAsFactors = FALSE)
+
+#join CFDA with awards data
+grantswithCFDA <-join(award, CFDA, by="cfda_number", type="left", match="all")
+
+
+#subset grants to CFDAs rated 1-3
+grantsrelevant<-subset(grantswithCFDA, grantswithCFDA$level_of_focus_on_homelessness %in% c(1:3))
+
+#seperate data to awarded locally vs to the state
+GrantsState<- subset(grantsrelevant, grantsrelevant$level_of_detail %in% c("State", "States"))
+GrantsCoC <- subset(grantsrelevant, grantsrelevant$level_of_detail=="CoC")
+
+#join CoC data to grants awarded locally
+GrantswithCoC<-join(GrantsCoC, CoC, by="primary_place_of_performance_zip", type="left", match="all")
+
+#subset awards that cannot be linked to a CoC
+GrantsnoCoC<-subset(GrantswithCoC, is.na(GrantswithCoC$coc_number))
+GrantsHasCoC<-subset(GrantswithCoC, !is.na(GrantswithCoC$coc_number))
+
+#merge NAs to state Data
+StateGrants<-GrantsnoCoC[,c(1:79)]
+GrantsState2<-rbind(GrantsState, StateGrants)
+
+#summarize state awards to state level
+require(plyr)
+statefunding<-ddply(GrantsState2,.(State_code), summarize, fed_funding=sum(federal_action_obligation))
+
+write.csv(statefunding, file="2017statefunding.csv")
+
+#summarize state awards to state level by CFDA
+statecfdafunding<-ddply(GrantsState,.(State_code, cfda_number, program_title, types_of_assistance, objectives, beneficiary_eligability, level_of_detail, level_of_focus_on_homelessness, category, program_website, CFDA_website), summarize, fed_funding=sum(federal_action_obligation))
+
+write.csv(statecfdafunding, file="2017statecfdafunding.csv")
+
+#summarize awards to CoC level
+CoCZero<-read.csv("CoCnoFunding.csv")
+CoCwithZeros<-rbind(GrantswithCoC, CoCZero)
+CoCfunding<-ddply(CoCwithZeros,.(coc_number,coc_name), summarize, fed_funding=sum(federal_action_obligation))
+
+write.csv(CoCfunding, file="2017CoCfunding.csv")
+
+#summarize awards to CoC level by CFDA
+CoCcfdafunding<-ddply(CoCwithZeros,.(coc_number, coc_name, cfda_number, program_title, types_of_assistance, objectives, beneficiary_eligability, level_of_detail, level_of_focus_on_homelessness, category, program_website, CFDA_website ), summarize, fed_funding=sum(federal_action_obligation))
+
+write.csv(CoCcfdafunding, file="2017CoCCFDAfunding.csv")
+
+#Join award and PIT count information
+#import PIT count data
+pop <- read.csv("2017_PIT_Count.csv", header=TRUE, stringsAsFactors=FALSE)
+Columns<-c("coc_number", "coc_name", "total_homeless", "sheltered_homeless", "unsheltered_homeless", "homeless_individuals", "homeless_people_in_families", "chronically_homeless", "homeless_veterans", "sheltered_homeless_unacompanied_youth")
+popsm<-pop[,c(Columns)]
+AwardPop <- join(CoCfunding, popsm, by="coc_number", type="left", match="all")
+
+write.csv(popsm, file="coc-pop-type.csv")
+write.csv(AwardPop, file="award-pop.csv")

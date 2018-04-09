@@ -1,0 +1,263 @@
+[
+    {
+        "state": "alabama",
+        "stateabbreviation": "AL",
+        "State.name": "Alabama"
+    },
+    {
+        "state": "alaska",
+        "stateabbreviation": "AK",
+        "State.name": "Alaska"
+    },
+    {
+        "state": "arizona",
+        "stateabbreviation": "AZ",
+        "State.name": "Arizona"
+    },
+    {
+        "state": "arkansas",
+        "stateabbreviation": "AR",
+        "State.name": "Arkansas"
+    },
+    {
+        "state": "california",
+        "stateabbreviation": "CA",
+        "State.name": "California"
+    },
+    {
+        "state": "colorado",
+        "stateabbreviation": "CO",
+        "State.name": "Colorado"
+    },
+    {
+        "state": "connecticut",
+        "stateabbreviation": "CT",
+        "State.name": "Connecticut"
+    },
+    {
+        "state": "delaware",
+        "stateabbreviation": "DE",
+        "State.name": "Delaware"
+    },
+    {
+        "state": "district of columbia",
+        "stateabbreviation": "DC",
+        "State.name": "District of Columbia"
+    },
+    {
+        "state": "florida",
+        "stateabbreviation": "FL",
+        "State.name": "Florida"
+    },
+    {
+        "state": "georgia",
+        "stateabbreviation": "GA",
+        "State.name": "Georgia"
+    },
+    {
+        "state": "hawaii",
+        "stateabbreviation": "HI",
+        "State.name": "Hawaii"
+    },
+    {
+        "state": "idaho",
+        "stateabbreviation": "ID",
+        "State.name": "Idaho"
+    },
+    {
+        "state": "illinois",
+        "stateabbreviation": "IL",
+        "State.name": "Illinois"
+    },
+    {
+        "state": "indiana",
+        "stateabbreviation": "IN",
+        "State.name": "Indiana"
+    },
+    {
+        "state": "iowa",
+        "stateabbreviation": "IA",
+        "State.name": "Iowa"
+    },
+    {
+        "state": "kansas",
+        "stateabbreviation": "KS",
+        "State.name": "Kansas"
+    },
+    {
+        "state": "kentucky",
+        "stateabbreviation": "KY",
+        "State.name": "Kentucky"
+    },
+    {
+        "state": "louisiana",
+        "stateabbreviation": "LA",
+        "State.name": "Louisiana"
+    },
+    {
+        "state": "maine",
+        "stateabbreviation": "ME",
+        "State.name": "Maine"
+    },
+    {
+        "state": "maryland",
+        "stateabbreviation": "MD",
+        "State.name": "Maryland"
+    },
+    {
+        "state": "massachusetts",
+        "stateabbreviation": "MA",
+        "State.name": "Massachusetts"
+    },
+    {
+        "state": "michigan",
+        "stateabbreviation": "MI",
+        "State.name": "Michigan"
+    },
+    {
+        "state": "minnesota",
+        "stateabbreviation": "MN",
+        "State.name": "Minnesota"
+    },
+    {
+        "state": "mississippi",
+        "stateabbreviation": "MS",
+        "State.name": "Mississippi"
+    },
+    {
+        "state": "missouri",
+        "stateabbreviation": "MO",
+        "State.name": "Missouri"
+    },
+    {
+        "state": "montana",
+        "stateabbreviation": "MT",
+        "State.name": "Montana"
+    },
+    {
+        "state": "nebraska",
+        "stateabbreviation": "NE",
+        "State.name": "Nebraska"
+    },
+    {
+        "state": "nevada",
+        "stateabbreviation": "NV",
+        "State.name": "Nevada"
+    },
+    {
+        "state": "new hampshire",
+        "stateabbreviation": "NH",
+        "State.name": "New Hampshire"
+    },
+    {
+        "state": "new jersey",
+        "stateabbreviation": "NJ",
+        "State.name": "New Jersey"
+    },
+    {
+        "state": "new mexico",
+        "stateabbreviation": "NM",
+        "State.name": "New Mexico"
+    },
+    {
+        "state": "new york",
+        "stateabbreviation": "NY",
+        "State.name": "New York"
+    },
+    {
+        "state": "north carolina",
+        "stateabbreviation": "NC",
+        "State.name": "North Carolina"
+    },
+    {
+        "state": "north dakota",
+        "stateabbreviation": "ND",
+        "State.name": "North Dakota"
+    },
+    {
+        "state": "ohio",
+        "stateabbreviation": "OH",
+        "State.name": "Ohio"
+    },
+    {
+        "state": "oklahoma",
+        "stateabbreviation": "OK",
+        "State.name": "Oklahoma"
+    },
+    {
+        "state": "oregon",
+        "stateabbreviation": "OR",
+        "State.name": "Oregon"
+    },
+    {
+        "state": "pennsylvania",
+        "stateabbreviation": "PA",
+        "State.name": "Pennsylvania"
+    },
+    {
+        "state": "rhode island",
+        "stateabbreviation": "RI",
+        "State.name": "Rhode Island"
+    },
+    {
+        "state": "south carolina",
+        "stateabbreviation": "SC",
+        "State.name": "South Carolina"
+    },
+    {
+        "state": "south dakota",
+        "stateabbreviation": "SD",
+        "State.name": "South Dakota"
+    },
+    {
+        "state": "tennessee",
+        "stateabbreviation": "TN",
+        "State.name": "Tennessee"
+    },
+    {
+        "state": "texas",
+        "stateabbreviation": "TX",
+        "State.name": "Texas"
+    },
+    {
+        "state": "unknown",
+        "stateabbreviation": "UN",
+        "State.name": "Unknown"
+    },
+    {
+        "state": "utah",
+        "stateabbreviation": "UT",
+        "State.name": "Utah"
+    },
+    {
+        "state": "vermont",
+        "stateabbreviation": "VT",
+        "State.name": "Vermont"
+    },
+    {
+        "state": "virginia",
+        "stateabbreviation": "VA",
+        "State.name": "Virginia"
+    },
+    {
+        "state": "washington",
+        "stateabbreviation": "WA",
+        "State.name": "Washington"
+    },
+    {
+        "state": "west virginia",
+        "stateabbreviation": "WV",
+        "State.name": "West Virginia"
+    },
+    {
+        "state": "wisconsin",
+        "stateabbreviation": "WI",
+        "State.name": "Wisconsin"
+    },
+    {
+        "state": "wyoming",
+        "stateabbreviation": "WY",
+        "State.name": "Wyoming"
+    },
+    {}
+]

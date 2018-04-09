@@ -1,0 +1,146 @@
+[
+    {
+        "abbreviation": "DHS",
+        "agencytitle": "department of homeland security",
+        "reporting_agency": "Department of Homeland Security",
+        "agency_id": 70
+    },
+    {
+        "abbreviation": "DOC",
+        "agencytitle": "department of commerce",
+        "reporting_agency": "Department of Commerce",
+        "agency_id": 13
+    },
+    {
+        "abbreviation": "DOD",
+        "agencytitle": "department of defense",
+        "reporting_agency": "Department of Defense",
+        "agency_id": 97
+    },
+    {
+        "abbreviation": "DOE",
+        "agencytitle": "department of energy",
+        "reporting_agency": "Department of Energy",
+        "agency_id": 89
+    },
+    {
+        "abbreviation": "DOI",
+        "agencytitle": "department of the interior",
+        "reporting_agency": "Department of the Interior",
+        "agency_id": 14
+    },
+    {
+        "abbreviation": "DOJ",
+        "agencytitle": "department of justice",
+        "reporting_agency": "Department of Justice",
+        "agency_id": 15
+    },
+    {
+        "abbreviation": "DOL",
+        "agencytitle": "department of labor",
+        "reporting_agency": "Department of Labor",
+        "agency_id": 16
+    },
+    {
+        "abbreviation": "DOS",
+        "agencytitle": "department of state",
+        "reporting_agency": "Department of State",
+        "agency_id": 19
+    },
+    {
+        "abbreviation": "DOT",
+        "agencytitle": "department of transportation",
+        "reporting_agency": "Department of Transportation",
+        "agency_id": 69
+    },
+    {
+        "abbreviation": "ED",
+        "agencytitle": "department of education",
+        "reporting_agency": "Department of Education",
+        "agency_id": 91
+    },
+    {
+        "abbreviation": "EPA",
+        "agencytitle": "environmental protection agency",
+        "reporting_agency": "Environmental Protection Agency",
+        "agency_id": 68
+    },
+    {
+        "abbreviation": "GSA",
+        "agencytitle": "general services administration",
+        "reporting_agency": "General Services Administration",
+        "agency_id": 47
+    },
+    {
+        "abbreviation": "HHS",
+        "agencytitle": "department of health and human services",
+        "reporting_agency": "Department of Health and Human Services",
+        "agency_id": 75
+    },
+    {
+        "abbreviation": "HUD",
+        "agencytitle": "department of housing and urban development",
+        "reporting_agency": "Department of Housing and Urban Development",
+        "agency_id": 86
+    },
+    {
+        "abbreviation": "NASA",
+        "agencytitle": "national aeronautics and space administration",
+        "reporting_agency": "National Aeronautics and Space Administration",
+        "agency_id": 80
+    },
+    {
+        "abbreviation": "NRC",
+        "agencytitle": "nuclear regulatory commission",
+        "reporting_agency": "Nuclear Regulatory Commission",
+        "agency_id": 31
+    },
+    {
+        "abbreviation": "SBA",
+        "agencytitle": "small business administration",
+        "reporting_agency": "Small Business Administration",
+        "agency_id": 73
+    },
+    {
+        "abbreviation": "SSA",
+        "agencytitle": "social security administration",
+        "reporting_agency": "Social Security Administration",
+        "agency_id": 28
+    },
+    {
+        "abbreviation": "TREAS",
+        "agencytitle": "department of the treasury",
+        "reporting_agency": "Department of the Treasury",
+        "agency_id": 20
+    },
+    {
+        "abbreviation": "USDA",
+        "agencytitle": "department of agriculture",
+        "reporting_agency": "Department of Agriculture",
+        "agency_id": 12
+    },
+    {
+        "abbreviation": "VA",
+        "agencytitle": "department of veterans affairs",
+        "reporting_agency": "Department of Veterans Affairs",
+        "agency_id": 36
+    },
+    {
+        "abbreviation": "NSF",
+        "agencytitle": "national science foundation",
+        "reporting_agency": "National Science Foundation",
+        "agency_id": 49
+    },
+    {
+        "abbreviation": "OPM",
+        "agencytitle": "office of personnel management",
+        "reporting_agency": "Office of Personnel Management",
+        "agency_id": 24
+    },
+    {
+        "abbreviation": "USAID",
+        "agencytitle": "u.s. agency for international development",
+        "reporting_agency": "US Agency for International Development",
+        "agency_id": 72
+    }
+]
