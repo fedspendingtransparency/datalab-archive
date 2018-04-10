@@ -1,0 +1,3226 @@
+State,City,County,coc_number,coc_name
+AK,,Aleutians East,AK-501,Alaska Balance of State CoC
+AK,,Anchorage,AK-500,Anchorage CoC
+AK,,Bethel,AK-501,Alaska Balance of State CoC
+AK,,Bristol Bay,AK-501,Alaska Balance of State CoC
+AK,,Denali,AK-501,Alaska Balance of State CoC
+AK,,Dillingham,AK-501,Alaska Balance of State CoC
+AK,,Fairbanks North Star,AK-501,Alaska Balance of State CoC
+AK,,Haines,AK-501,Alaska Balance of State CoC
+AK,,Skagway Hoonah Angoon,AK-501,Alaska Balance of State CoC
+AK,,Juneau,AK-501,Alaska Balance of State CoC
+AK,,Kenai Peninsula,AK-501,Alaska Balance of State CoC
+AK,,Ketchikan Gateway,AK-501,Alaska Balance of State CoC
+AK,,Kodiak Island,AK-501,Alaska Balance of State CoC
+AK,,Kusilvak,AK-501,Alaska Balance of State CoC
+AK,,Lake and Peninsula,AK-501,Alaska Balance of State CoC
+AK,,Matanuska Susitna,AK-501,Alaska Balance of State CoC
+AK,,Nome,AK-501,Alaska Balance of State CoC
+AK,,North Slope,AK-501,Alaska Balance of State CoC
+AK,,Northwest Arctic,AK-501,Alaska Balance of State CoC
+AK,,Prince Wales Ketchikan,AK-501,Alaska Balance of State CoC
+AK,,Sitka,AK-501,Alaska Balance of State CoC
+AK,,Southeast Fairbanks,AK-501,Alaska Balance of State CoC
+AK,,Wrangell Petersburg,AK-501,Alaska Balance of State CoC
+AK,,Yakutat,AK-501,Alaska Balance of State CoC
+AK,,Yukon Koyukuk,AK-501,Alaska Balance of State CoC
+AL,,Autauga,AL-504,Montgomery City & County CoC
+AL,,Baldwin,AL-501,Mobile City & County/Baldwin County CoC
+AL,,Barbour,AL-507,Alabama Balance of State CoC
+AL,,Bibb,AL-507,Alabama Balance of State CoC
+AL,,Blount,AL-507,Alabama Balance of State CoC
+AL,,Bullock,AL-504,Montgomery City & County CoC
+AL,,Butler,AL-507,Alabama Balance of State CoC
+AL,,Calhoun,AL-505,Gadsden/Northeast Alabama CoC
+AL,,Chambers,AL-507,Alabama Balance of State CoC
+AL,,Cherokee,AL-505,Gadsden/Northeast Alabama CoC
+AL,,Chilton,AL-507,Alabama Balance of State CoC
+AL,,Choctaw,AL-507,Alabama Balance of State CoC
+AL,,Clarke,AL-507,Alabama Balance of State CoC
+AL,,Clay,AL-507,Alabama Balance of State CoC
+AL,,Cleburne,AL-507,Alabama Balance of State CoC
+AL,,Coffee,AL-507,Alabama Balance of State CoC
+AL,,Colbert,AL-502,Florence/Northwest Alabama CoC
+AL,,Conecuh,AL-507,Alabama Balance of State CoC
+AL,,Coosa,AL-507,Alabama Balance of State CoC
+AL,,Covington,AL-507,Alabama Balance of State CoC
+AL,,Crenshaw,AL-507,Alabama Balance of State CoC
+AL,,Cullman,AL-507,Alabama Balance of State CoC
+AL,,Dale,AL-507,Alabama Balance of State CoC
+AL,,Dallas,AL-507,Alabama Balance of State CoC
+AL,,De Kalb,AL-505,Gadsden/Northeast Alabama CoC
+AL,,Elmore,AL-504,Montgomery City & County CoC
+AL,,Escambia,AL-507,Alabama Balance of State CoC
+AL,,Etowah,AL-505,Gadsden/Northeast Alabama CoC
+AL,,Fayette,AL-507,Alabama Balance of State CoC
+AL,,Franklin,AL-502,Florence/Northwest Alabama CoC
+AL,,Geneva,AL-507,Alabama Balance of State CoC
+AL,,Greene,AL-507,Alabama Balance of State CoC
+AL,,Hale,AL-507,Alabama Balance of State CoC
+AL,,Henry,AL-507,Alabama Balance of State CoC
+AL,,Houston,AL-507,Alabama Balance of State CoC
+AL,,Jackson,AL-507,Alabama Balance of State CoC
+AL,,Jefferson,AL-500,"Birmingham/Jefferson, St. Clair, Shelby Counties CoC"
+AL,,Lamar,AL-507,Alabama Balance of State CoC
+AL,,Lauderdale,AL-502,Florence/Northwest Alabama CoC
+AL,,Lawrence,AL-502,Florence/Northwest Alabama CoC
+AL,,Lee,AL-507,Alabama Balance of State CoC
+AL,,Limestone,AL-503,Huntsville/North Alabama CoC
+AL,,Lowndes,AL-504,Montgomery City & County CoC
+AL,,Macon,AL-507,Alabama Balance of State CoC
+AL,,Madison,AL-503,Huntsville/North Alabama CoC
+AL,,Marengo,AL-507,Alabama Balance of State CoC
+AL,,Marion,AL-502,Florence/Northwest Alabama CoC
+AL,,Marshall,AL-507,Alabama Balance of State CoC
+AL,,Mobile,AL-501,Mobile City & County/Baldwin County CoC
+AL,,Monroe,AL-507,Alabama Balance of State CoC
+AL,,Montgomery,AL-504,Montgomery City & County CoC
+AL,,Morgan,AL-503,Huntsville/North Alabama CoC
+AL,,Perry,AL-507,Alabama Balance of State CoC
+AL,,Pickens,AL-507,Alabama Balance of State CoC
+AL,,Pike,AL-507,Alabama Balance of State CoC
+AL,,Randolph,AL-507,Alabama Balance of State CoC
+AL,,Russell,GA-505,Columbus-Muscogee/Russell County CoC
+AL,,Shelby,AL-500,"Birmingham/Jefferson, St. Clair, Shelby Counties CoC"
+AL,,Saint Clair,AL-500,"Birmingham/Jefferson, St. Clair, Shelby Counties CoC"
+AL,,Sumter,AL-507,Alabama Balance of State CoC
+AL,,Talladega,AL-507,Alabama Balance of State CoC
+AL,,Tallapoosa,AL-507,Alabama Balance of State CoC
+AL,,Tuscaloosa,AL-506,Tuscaloosa City & County CoC
+AL,,Walker,AL-507,Alabama Balance of State CoC
+AL,,Washington,AL-507,Alabama Balance of State CoC
+AL,,Wilcox,AL-507,Alabama Balance of State CoC
+AL,,Winston,AL-502,Florence/Northwest Alabama CoC
+AR,,Arkansas,AR-505,Southeast Arkansas
+AR,,Ashley,AR-505,Southeast Arkansas
+AR,,Baxter,AR-512,"Boone, Baxter, Marion, Newton Counties CoC"
+AR,,Benton,AR-501,Fayetteville/Northwest Arkansas CoC
+AR,,Boone,AR-512,"Boone, Baxter, Marion, Newton Counties CoC"
+AR,,Bradley,AR-505,Southeast Arkansas
+AR,,Calhoun,AR-505,Southeast Arkansas
+AR,,Carroll,AR-501,Fayetteville/Northwest Arkansas CoC
+AR,,Chicot,AR-505,Southeast Arkansas
+AR,,Clark,AR-503,Arkansas  Balance of State  CoC
+AR,,Clay,AR-504,Delta Hills CoC
+AR,,Cleburne,AR-504,Delta Hills CoC
+AR,,Cleveland,AR-505,Southeast Arkansas
+AR,,Columbia,AR-505,Southeast Arkansas
+AR,,Conway,AR-503,Arkansas  Balance of State  CoC
+AR,,Craighead,AR-503,Arkansas  Balance of State  CoC
+AR,,Crawford,AR-508,Old Fort Homeless Coalition
+AR,,Crittenden,AR-503,Arkansas  Balance of State  CoC
+AR,,Cross,AR-504,Delta Hills CoC
+AR,,Dallas,AR-505,Southeast Arkansas
+AR,,Desha,AR-505,Southeast Arkansas
+AR,,Drew,AR-505,Southeast Arkansas
+AR,,Faulkner,AR-503,Arkansas  Balance of State  CoC
+AR,,Franklin,AR-508,Old Fort Homeless Coalition
+AR,,Fulton,AR-504,Delta Hills CoC
+AR,,Garland,AR-503,Arkansas  Balance of State  CoC
+AR,,Grant,AR-505,Southeast Arkansas
+AR,,Greene,AR-503,Arkansas  Balance of State  CoC
+AR,,Hempstead,AR-503,Arkansas  Balance of State  CoC
+AR,,Hot Spring,AR-503,Arkansas  Balance of State  CoC
+AR,,Howard,AR-503,Arkansas  Balance of State  CoC
+AR,,Independence,AR-504,Delta Hills CoC
+AR,,Izard,AR-504,Delta Hills CoC
+AR,,Jackson,AR-504,Delta Hills CoC
+AR,,Jefferson,AR-505,Southeast Arkansas
+AR,,Johnson,AR-503,Arkansas  Balance of State  CoC
+AR,,Lafayette,AR-503,Arkansas  Balance of State  CoC
+AR,,Lawrence,AR-504,Delta Hills CoC
+AR,,Lee,AR-504,Delta Hills CoC
+AR,,Lincoln,AR-505,Southeast Arkansas
+AR,,Little River,AR-503,Arkansas  Balance of State  CoC
+AR,,Logan,AR-508,Old Fort Homeless Coalition
+AR,,Lonoke,AR-500,Little Rock/Central Arkansas CoC
+AR,,Madison,AR-501,Fayetteville/Northwest Arkansas CoC
+AR,,Marion,AR-512,"Boone, Baxter, Marion, Newton Counties CoC"
+AR,,Miller,AR-503,Arkansas  Balance of State  CoC
+AR,,Mississippi,AR-503,Arkansas  Balance of State  CoC
+AR,,Monroe,AR-504,Delta Hills CoC
+AR,,Montgomery,AR-503,Arkansas  Balance of State  CoC
+AR,,Nevada,AR-503,Arkansas  Balance of State  CoC
+AR,,Newton,AR-512,"Boone, Baxter, Marion, Newton Counties CoC"
+AR,,Ouachita,AR-505,Southeast Arkansas
+AR,,Perry,AR-503,Arkansas  Balance of State  CoC
+AR,,Phillips,AR-503,Arkansas  Balance of State  CoC
+AR,,Pike,AR-503,Arkansas  Balance of State  CoC
+AR,,Poinsett,AR-503,Arkansas  Balance of State  CoC
+AR,,Polk,AR-508,Old Fort Homeless Coalition
+AR,,Pope,AR-503,Arkansas  Balance of State  CoC
+AR,,Prairie,AR-500,Little Rock/Central Arkansas CoC
+AR,,Pulaski,AR-500,Little Rock/Central Arkansas CoC
+AR,,Randolph,AR-504,Delta Hills CoC
+AR,,Saline,AR-500,Little Rock/Central Arkansas CoC
+AR,,Scott,AR-508,Old Fort Homeless Coalition
+AR,,Searcy,AR-504,Delta Hills CoC
+AR,,Sebastian,AR-508,Old Fort Homeless Coalition
+AR,,Sevier,AR-503,Arkansas  Balance of State  CoC
+AR,,Sharp,AR-504,Delta Hills CoC
+AR,,Saint Francis,AR-504,Delta Hills CoC
+AR,,Stone,AR-504,Delta Hills CoC
+AR,,Union,AR-505,Southeast Arkansas
+AR,,Van Buren,AR-504,Delta Hills CoC
+AR,,Washington,AR-501,Fayetteville/Northwest Arkansas CoC
+AR,,White,AR-504,Delta Hills CoC
+AR,,Woodruff,AR-504,Delta Hills CoC
+AR,,Yell,AR-503,Arkansas  Balance of State  CoC
+AZ,,Apache,AZ-500,Arizona Balance of State CoC
+AZ,,Cochise,AZ-500,Arizona Balance of State CoC
+AZ,,Coconino,AZ-500,Arizona Balance of State CoC
+AZ,,Gila,AZ-500,Arizona Balance of State CoC
+AZ,,Graham,AZ-500,Arizona Balance of State CoC
+AZ,,Greenlee,AZ-500,Arizona Balance of State CoC
+AZ,,La Paz,AZ-500,Arizona Balance of State CoC
+AZ,,Maricopa,AZ-502,Phoenix/Mesa/Maricopa County Regional CoC
+AZ,,Mohave,AZ-500,Arizona Balance of State CoC
+AZ,,Navajo,AZ-500,Arizona Balance of State CoC
+AZ,,Pima,AZ-501,Tucson/Pima County CoC
+AZ,,Pinal,AZ-500,Arizona Balance of State CoC
+AZ,,Santa Cruz,AZ-500,Arizona Balance of State CoC
+AZ,,Yavapai,AZ-500,Arizona Balance of State CoC
+AZ,,Yuma,AZ-500,Arizona Balance of State CoC
+CA,,Alameda,CA-502,Oakland/Alameda County CoC
+CA,,Amador,CA-526,"Amador, Calaveras, Tuolumne and Mariposa Counties CoC"
+CA,,Butte,CA-519,Chico/Paradise/Butte County CoC
+CA,,Calaveras,CA-526,"Amador, Calaveras, Tuolumne and Mariposa Counties CoC"
+CA,,Colusa,CA-523,"Colusa, Glenn, Trinity Counties CoC"
+CA,,Contra Costa,CA-505,Richmond/Contra Costa County CoC
+CA,,Del Norte,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,El Dorado,CA-525,El Dorado County CoC
+CA,,Fresno,CA-514,Fresno/Madera County CoC
+CA,,Glenn,CA-523,"Colusa, Glenn, Trinity Counties CoC"
+CA,,Humboldt,CA-522,Humboldt County CoC
+CA,,Imperial,CA-613,Imperial County CoC
+CA,,Kern,CA-604,Bakersfield/Kern County CoC
+CA,,Kings,CA-513,"Visalia, Kings, Tulare Counties CoC"
+CA,,Lake,CA-529,Lake County CoC
+CA,,Lassen,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,Los Angeles,CA-600,Los Angeles City & County CoC
+CA,,Madera,CA-514,Fresno/Madera County CoC
+CA,,Marin,CA-507,Marin County CoC
+CA,,Mariposa,CA-526,"Amador, Calaveras, Tuolumne and Mariposa Counties CoC"
+CA,,Mendocino,CA-509,Mendocino County CoC
+CA,,Merced,CA-520,Merced City & County CoC
+CA,,Modoc,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,Monterey,CA-506,"Salinas/Monterey, San Benito Counties CoC"
+CA,,Napa,CA-517,Napa City & County CoC
+CA,,Nevada,CA-515,"Roseville/Rocklin/Placer, Nevada Counties CoC"
+CA,,Orange,CA-602,Santa Ana/Anaheim/Orange County CoC
+CA,,Placer,CA-515,"Roseville/Rocklin/Placer, Nevada Counties CoC"
+CA,,Plumas,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,Riverside,CA-608,Riverside City & County CoC
+CA,,Sacramento,CA-503,Sacramento City & County CoC
+CA,,San Benito,CA-506,"Salinas/Monterey, San Benito Counties CoC"
+CA,,San Bernardino,CA-609,San Bernardino City & County CoC
+CA,,San Diego,CA-601,San Diego City and County CoC
+CA,,San Francisco,CA-501,San Francisco CoC
+CA,,San Joaquin,CA-511,Stockton/San Joaquin County CoC
+CA,,San Luis Obispo,CA-614,San Luis Obispo County CoC
+CA,,San Mateo,CA-512,Daly/San Mateo County CoC
+CA,,Santa Barbara,CA-603,Santa Maria/Santa Barbara County CoC
+CA,,Santa Clara,CA-500,San Jose/Santa Clara City & County CoC
+CA,,Santa Cruz,CA-508,Watsonville/Santa Cruz City & County CoC
+CA,,Shasta,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,Sierra,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,Siskiyou,CA-516,"Redding/Shasta, Siskiyou, Lassen, Plumas, Del Norte, Modoc, Sierra Counties CoC"
+CA,,Solano,CA-518,Vallejo/Solano County CoC
+CA,,Sonoma,CA-504,Santa Rosa/Petaluma/Sonoma County CoC
+CA,,Stanislaus,CA-510,Turlock/Modesto/Stanislaus County CoC
+CA,,Sutter,CA-524,Yuba City & County/Sutter County CoC
+CA,,Tehama,CA-527,Tehama County CoC
+CA,,Trinity,CA-523,"Colusa, Glenn, Trinity Counties CoC"
+CA,,Tulare,CA-513,"Visalia, Kings, Tulare Counties CoC"
+CA,,Tuolumne,CA-526,"Amador, Calaveras, Tuolumne and Mariposa Counties CoC"
+CA,,Ventura,CA-611,Oxnard/San Buenaventura/Ventura County CoC
+CA,,Yolo,CA-521,Davis/Woodland/Yolo County CoC
+CA,,Yuba,CA-524,Yuba City & County/Sutter County CoC
+CO,,Adams,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Alamosa,CO-500,Colorado Balance of State CoC
+CO,,Arapahoe,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Archuleta,CO-500,Colorado Balance of State CoC
+CO,,Baca,CO-500,Colorado Balance of State CoC
+CO,,Bent,CO-500,Colorado Balance of State CoC
+CO,,Boulder,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Broomfield,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Chaffee,CO-500,Colorado Balance of State CoC
+CO,,Cheyenne,CO-500,Colorado Balance of State CoC
+CO,,Clear Creek,CO-500,Colorado Balance of State CoC
+CO,,Conejos,CO-500,Colorado Balance of State CoC
+CO,,Costilla,CO-500,Colorado Balance of State CoC
+CO,,Crowley,CO-500,Colorado Balance of State CoC
+CO,,Custer,CO-500,Colorado Balance of State CoC
+CO,,Delta,CO-500,Colorado Balance of State CoC
+CO,,Denver,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Dolores,CO-500,Colorado Balance of State CoC
+CO,,Douglas,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Eagle,CO-500,Colorado Balance of State CoC
+CO,,El Paso,CO-504,Colorado Springs/El Paso County CoC
+CO,,Elbert,CO-500,Colorado Balance of State CoC
+CO,,Fremont,CO-500,Colorado Balance of State CoC
+CO,,Garfield,CO-500,Colorado Balance of State CoC
+CO,,Gilpin,CO-500,Colorado Balance of State CoC
+CO,,Grand,CO-500,Colorado Balance of State CoC
+CO,,Gunnison,CO-500,Colorado Balance of State CoC
+CO,,Hinsdale,CO-500,Colorado Balance of State CoC
+CO,,Huerfano,CO-500,Colorado Balance of State CoC
+CO,,Jackson,CO-500,Colorado Balance of State CoC
+CO,,Jefferson,CO-503,Metropolitan Denver Homeless Initiative
+CO,,Kit Carson,CO-500,Colorado Balance of State CoC
+CO,,Kiowa,CO-500,Colorado Balance of State CoC
+CO,,La Plata,CO-500,Colorado Balance of State CoC
+CO,,Lake,CO-500,Colorado Balance of State CoC
+CO,,Larimer,CO-500,Colorado Balance of State CoC
+CO,,Las Animas,CO-500,Colorado Balance of State CoC
+CO,,Lincoln,CO-500,Colorado Balance of State CoC
+CO,,Logan,CO-500,Colorado Balance of State CoC
+CO,,Mesa,CO-500,Colorado Balance of State CoC
+CO,,Mineral,CO-500,Colorado Balance of State CoC
+CO,,Moffat,CO-500,Colorado Balance of State CoC
+CO,,Montezuma,CO-500,Colorado Balance of State CoC
+CO,,Montrose,CO-500,Colorado Balance of State CoC
+CO,,Morgan,CO-500,Colorado Balance of State CoC
+CO,,Otero,CO-500,Colorado Balance of State CoC
+CO,,Ouray,CO-500,Colorado Balance of State CoC
+CO,,Park,CO-500,Colorado Balance of State CoC
+CO,,Phillips,CO-500,Colorado Balance of State CoC
+CO,,Pitkin,CO-500,Colorado Balance of State CoC
+CO,,Prowers,CO-500,Colorado Balance of State CoC
+CO,,Pueblo,CO-500,Colorado Balance of State CoC
+CO,,Rio Blanco,CO-500,Colorado Balance of State CoC
+CO,,Rio Grande,CO-500,Colorado Balance of State CoC
+CO,,Routt,CO-500,Colorado Balance of State CoC
+CO,,Saguache,CO-500,Colorado Balance of State CoC
+CO,,San Juan,CO-500,Colorado Balance of State CoC
+CO,,San Miguel,CO-500,Colorado Balance of State CoC
+CO,,Sedgwick,CO-500,Colorado Balance of State CoC
+CO,,Summit,CO-500,Colorado Balance of State CoC
+CO,,Teller,CO-500,Colorado Balance of State CoC
+CO,,Washington,CO-500,Colorado Balance of State CoC
+CO,,Weld,CO-500,Colorado Balance of State CoC
+CO,,Yuma,CO-500,Colorado Balance of State CoC
+CT,,Fairfield,CT-503,Bridgeport/Norwalk /Stamford/Fairfield County CoC
+CT,,Hartford,CT-505,Connecticut Balance of State CoC
+CT,,Litchfield,CT-505,Connecticut Balance of State CoC
+CT,,Middlesex,CT-505,Connecticut Balance of State CoC
+CT,,New Haven,CT-505,Connecticut Balance of State CoC
+CT,,New London,CT-505,Connecticut Balance of State CoC
+CT,,Tolland,CT-505,Connecticut Balance of State CoC
+CT,,Windham,CT-505,Connecticut Balance of State CoC
+DC,,Washington,DC-500,District of Columbia CoC
+DE,,Kent,DE-500,Delaware Statewide CoC
+DE,,New Castle,DE-500,Delaware Statewide CoC
+DE,,Sussex,DE-500,Delaware Statewide CoC
+FL,,Alachua,FL-508,"Gainesville/Alachua, Putnam Counties CoC"
+FL,,Baker,No CoC,No CoC
+FL,,Bay,FL-515,"Panama City/Bay, Jackson Counties CoC"
+FL,,Bradford,FL-508,"Gainesville/Alachua, Putnam Counties CoC"
+FL,,Brevard,FL-513,Palm Bay/Melbourne/Brevard County CoC
+FL,,Broward,FL-601,Ft Lauderdale/Broward County CoC
+FL,,Calhoun,FL-515,"Panama City/Bay, Jackson Counties CoC"
+FL,,Charlotte,FL-602,Punta Gorda/Charlotte County CoC
+FL,,Citrus,FL-520,"Citrus, Hernando, Lake, Sumter Counties CoC"
+FL,,Clay,FL-510,"Jacksonville-Duval, Clay Counties CoC"
+FL,,Collier,FL-606,Naples/Collier County CoC
+FL,,Columbia,FL-518,"Columbia, Hamilton, Lafayette, Suwannee Counties CoC"
+FL,,De Soto,FL-517,"Hendry, Hardee, Highlands Counties CoC"
+FL,,Dixie,No CoC,No CoC
+FL,,Duval,FL-510,"Jacksonville-Duval, Clay Counties CoC"
+FL,,Escambia,FL-511,Pensacola/Escambia/Santa Rosa County CoC
+FL,,Flagler,FL-504,"Daytona Beach/Daytona/Volusia, Flagler Counties CoC"
+FL,,Franklin,FL-506,Tallahassee/Leon County CoC
+FL,,Gadsden,FL-506,Tallahassee/Leon County CoC
+FL,,Gilchrist,FL-508,"Gainesville/Alachua, Putnam Counties CoC"
+FL,,Glades,FL-517,"Hendry, Hardee, Highlands Counties CoC"
+FL,,Gulf,FL-515,"Panama City/Bay, Jackson Counties CoC"
+FL,,Hamilton,FL-518,"Columbia, Hamilton, Lafayette, Suwannee Counties CoC"
+FL,,Hardee,FL-517,"Hendry, Hardee, Highlands Counties CoC"
+FL,,Hendry,FL-517,"Hendry, Hardee, Highlands Counties CoC"
+FL,,Hernando,FL-520,"Citrus, Hernando, Lake, Sumter Counties CoC"
+FL,,Highlands,FL-517,"Hendry, Hardee, Highlands Counties CoC"
+FL,,Hillsborough,FL-501,Tampa/Hillsborough County CoC
+FL,,Holmes,FL-515,"Panama City/Bay, Jackson Counties CoC"
+FL,,Indian River,FL-509,"Fort Pierce/St. Lucie, Indian River, Martin Counties CoC"
+FL,,Jackson,FL-515,"Panama City/Bay, Jackson Counties CoC"
+FL,,Jefferson,FL-506,Tallahassee/Leon County CoC
+FL,,Lafayette,FL-518,"Columbia, Hamilton, Lafayette, Suwannee Counties CoC"
+FL,,Lake,FL-520,"Citrus, Hernando, Lake, Sumter Counties CoC"
+FL,,Lee,FL-603,Ft Myers/Cape Coral/Lee County CoC
+FL,,Leon,FL-506,Tallahassee/Leon County CoC
+FL,,Levy,FL-508,"Gainesville/Alachua, Putnam Counties CoC"
+FL,,Liberty,FL-506,Tallahassee/Leon County CoC
+FL,,Madison,FL-506,Tallahassee/Leon County CoC
+FL,,Manatee,FL-500,"Sarasota/Bradenton/Manatee, Sarasota Counties CoC"
+FL,,Marion,FL-514,Ocala/Marion County CoC
+FL,,Martin,FL-509,"Fort Pierce/St. Lucie, Indian River, Martin Counties CoC"
+FL,,Miami-Dade,FL-600,Miami/Dade County CoC
+FL,,Monroe,FL-604,Monroe County CoC
+FL,,Nassau,FL-510,"Jacksonville-Duval, Clay Counties CoC"
+FL,,Okaloosa,FL-505,"Fort Walton Beach/Okaloosa, Walton Counties CoC"
+FL,,Okeechobee,FL-517,"Hendry, Hardee, Highlands Counties CoC"
+FL,,Orange,FL-507,"Orlando/Orange, Osceola, Seminole Counties CoC"
+FL,,Osceola,FL-507,"Orlando/Orange, Osceola, Seminole Counties CoC"
+FL,,Palm Beach,FL-605,West Palm Beach/Palm Beach County CoC
+FL,,Pasco,FL-519,Pasco County CoC
+FL,,Pinellas,FL-502,St. Petersburg/Clearwater/Largo/Pinellas County CoC
+FL,,Polk,FL-503,Lakeland/Winter Haven/Polk County CoC
+FL,,Putnam,FL-508,"Gainesville/Alachua, Putnam Counties CoC"
+FL,,Santa Rosa,FL-511,Pensacola/Escambia/Santa Rosa County CoC
+FL,,Sarasota,FL-500,"Sarasota/Bradenton/Manatee, Sarasota Counties CoC"
+FL,,Seminole,FL-507,"Orlando/Orange, Osceola, Seminole Counties CoC"
+FL,,Saint Johns,FL-512,Saint Johns County CoC
+FL,,Saint Lucie,FL-509,"Fort Pierce/St. Lucie, Indian River, Martin Counties CoC"
+FL,,Sumter,FL-520,"Citrus, Hernando, Lake, Sumter Counties CoC"
+FL,,Suwannee,FL-518,"Columbia, Hamilton, Lafayette, Suwannee Counties CoC"
+FL,,Taylor,FL-506,Tallahassee/Leon County CoC
+FL,,Union,No CoC,No CoC
+FL,,Volusia,FL-504,"Daytona Beach/Daytona/Volusia, Flagler Counties CoC"
+FL,,Wakulla,FL-506,Tallahassee/Leon County CoC
+FL,,Walton,FL-505,"Fort Walton Beach/Okaloosa, Walton Counties CoC"
+FL,,Washington,FL-515,"Panama City/Bay, Jackson Counties CoC"
+GA,,Appling,GA-501,Georgia Balance of State CoC
+GA,,Atkinson,GA-501,Georgia Balance of State CoC
+GA,,Bacon,GA-501,Georgia Balance of State CoC
+GA,,Baker,GA-501,Georgia Balance of State CoC
+GA,,Baldwin,GA-501,Georgia Balance of State CoC
+GA,,Banks,GA-501,Georgia Balance of State CoC
+GA,,Barrow,GA-501,Georgia Balance of State CoC
+GA,,Bartow,GA-501,Georgia Balance of State CoC
+GA,,Ben Hill,GA-501,Georgia Balance of State CoC
+GA,,Berrien,GA-501,Georgia Balance of State CoC
+GA,,Bibb,GA-501,Georgia Balance of State CoC
+GA,,Bleckley,GA-501,Georgia Balance of State CoC
+GA,,Brantley,GA-501,Georgia Balance of State CoC
+GA,,Brooks,GA-501,Georgia Balance of State CoC
+GA,,Bryan,GA-501,Georgia Balance of State CoC
+GA,,Bulloch,GA-501,Georgia Balance of State CoC
+GA,,Burke,GA-501,Georgia Balance of State CoC
+GA,,Butts,GA-501,Georgia Balance of State CoC
+GA,,Calhoun,GA-501,Georgia Balance of State CoC
+GA,,Camden,GA-501,Georgia Balance of State CoC
+GA,,Candler,GA-501,Georgia Balance of State CoC
+GA,,Carroll,GA-501,Georgia Balance of State CoC
+GA,,Catoosa,GA-501,Georgia Balance of State CoC
+GA,,Charlton,GA-501,Georgia Balance of State CoC
+GA,,Chatham,GA-507,Savannah/Chatham County CoC
+GA,,Chattahoochee,GA-501,Georgia Balance of State CoC
+GA,,Chattooga,GA-501,Georgia Balance of State CoC
+GA,,Cherokee,GA-501,Georgia Balance of State CoC
+GA,,Clarke,GA-503,Athens/Clarke County CoC
+GA,,Clay,GA-501,Georgia Balance of State CoC
+GA,,Clayton,GA-501,Georgia Balance of State CoC
+GA,,Clinch,GA-501,Georgia Balance of State CoC
+GA,,Cobb,GA-506,Marietta/Cobb County CoC
+GA,,Coffee,GA-501,Georgia Balance of State CoC
+GA,,Colquitt,GA-501,Georgia Balance of State CoC
+GA,,Columbia,GA-501,Georgia Balance of State CoC
+GA,,Cook,GA-501,Georgia Balance of State CoC
+GA,,Coweta,GA-501,Georgia Balance of State CoC
+GA,,Crawford,GA-501,Georgia Balance of State CoC
+GA,,Crisp,GA-501,Georgia Balance of State CoC
+GA,,Dade,GA-501,Georgia Balance of State CoC
+GA,,Dawson,GA-501,Georgia Balance of State CoC
+GA,,Decatur,GA-501,Georgia Balance of State CoC
+GA,,Dekalb,GA-508,DeKalb County CoC
+GA,,Dodge,GA-501,Georgia Balance of State CoC
+GA,,Dooly,GA-501,Georgia Balance of State CoC
+GA,,Dougherty,GA-501,Georgia Balance of State CoC
+GA,,Douglas,GA-501,Georgia Balance of State CoC
+GA,,Early,GA-501,Georgia Balance of State CoC
+GA,,Echols,GA-501,Georgia Balance of State CoC
+GA,,Effingham,GA-501,Georgia Balance of State CoC
+GA,,Elbert,GA-501,Georgia Balance of State CoC
+GA,,Emanuel,GA-501,Georgia Balance of State CoC
+GA,,Evans,GA-501,Georgia Balance of State CoC
+GA,,Fannin,GA-501,Georgia Balance of State CoC
+GA,,Fayette,GA-501,Georgia Balance of State CoC
+GA,,Floyd,GA-501,Georgia Balance of State CoC
+GA,,Forsyth,GA-501,Georgia Balance of State CoC
+GA,,Franklin,GA-501,Georgia Balance of State CoC
+GA,,Fulton,GA-502,Fulton County Continuum of Care
+GA,,Gilmer,GA-501,Georgia Balance of State CoC
+GA,,Glascock,GA-501,Georgia Balance of State CoC
+GA,,Glynn,GA-501,Georgia Balance of State CoC
+GA,,Gordon,GA-501,Georgia Balance of State CoC
+GA,,Grady,GA-501,Georgia Balance of State CoC
+GA,,Greene,GA-501,Georgia Balance of State CoC
+GA,,Gwinnett,GA-501,Georgia Balance of State CoC
+GA,,Habersham,GA-501,Georgia Balance of State CoC
+GA,,Hall,GA-501,Georgia Balance of State CoC
+GA,,Hancock,GA-501,Georgia Balance of State CoC
+GA,,Haralson,GA-501,Georgia Balance of State CoC
+GA,,Harris,GA-501,Georgia Balance of State CoC
+GA,,Hart,GA-501,Georgia Balance of State CoC
+GA,,Heard,GA-501,Georgia Balance of State CoC
+GA,,Henry,GA-501,Georgia Balance of State CoC
+GA,,Houston,GA-501,Georgia Balance of State CoC
+GA,,Irwin,GA-501,Georgia Balance of State CoC
+GA,,Jackson,GA-501,Georgia Balance of State CoC
+GA,,Jasper,GA-501,Georgia Balance of State CoC
+GA,,Jeff Davis,GA-501,Georgia Balance of State CoC
+GA,,Jefferson,GA-501,Georgia Balance of State CoC
+GA,,Jenkins,GA-501,Georgia Balance of State CoC
+GA,,Johnson,GA-501,Georgia Balance of State CoC
+GA,,Jones,GA-501,Georgia Balance of State CoC
+GA,,Lamar,GA-501,Georgia Balance of State CoC
+GA,,Lanier,GA-501,Georgia Balance of State CoC
+GA,,Laurens,GA-501,Georgia Balance of State CoC
+GA,,Lee,GA-501,Georgia Balance of State CoC
+GA,,Liberty,GA-501,Georgia Balance of State CoC
+GA,,Lincoln,GA-501,Georgia Balance of State CoC
+GA,,Long,GA-501,Georgia Balance of State CoC
+GA,,Lowndes,GA-501,Georgia Balance of State CoC
+GA,,Lumpkin,GA-501,Georgia Balance of State CoC
+GA,,Macon,GA-501,Georgia Balance of State CoC
+GA,,Madison,GA-501,Georgia Balance of State CoC
+GA,,Marion,GA-501,Georgia Balance of State CoC
+GA,,Mcduffie,GA-501,Georgia Balance of State CoC
+GA,,Mcintosh,GA-501,Georgia Balance of State CoC
+GA,,Meriwether,GA-501,Georgia Balance of State CoC
+GA,,Miller,GA-501,Georgia Balance of State CoC
+GA,,Mitchell,GA-501,Georgia Balance of State CoC
+GA,,Monroe,GA-501,Georgia Balance of State CoC
+GA,,Montgomery,GA-501,Georgia Balance of State CoC
+GA,,Morgan,GA-501,Georgia Balance of State CoC
+GA,,Murray,GA-501,Georgia Balance of State CoC
+GA,,Muscogee,GA-505,Columbus-Muscogee/Russell County CoC
+GA,,Newton,GA-501,Georgia Balance of State CoC
+GA,,Oconee,GA-501,Georgia Balance of State CoC
+GA,,Oglethorpe,GA-501,Georgia Balance of State CoC
+GA,,Paulding,GA-501,Georgia Balance of State CoC
+GA,,Peach,GA-501,Georgia Balance of State CoC
+GA,,Pickens,GA-501,Georgia Balance of State CoC
+GA,,Pierce,GA-501,Georgia Balance of State CoC
+GA,,Pike,GA-501,Georgia Balance of State CoC
+GA,,Polk,GA-501,Georgia Balance of State CoC
+GA,,Pulaski,GA-501,Georgia Balance of State CoC
+GA,,Putnam,GA-501,Georgia Balance of State CoC
+GA,,Quitman,GA-501,Georgia Balance of State CoC
+GA,,Rabun,GA-501,Georgia Balance of State CoC
+GA,,Randolph,GA-501,Georgia Balance of State CoC
+GA,,Richmond,GA-504,Augusta-Richmond County CoC
+GA,,Rockdale,GA-501,Georgia Balance of State CoC
+GA,,Schley,GA-501,Georgia Balance of State CoC
+GA,,Screven,GA-501,Georgia Balance of State CoC
+GA,,Seminole,GA-501,Georgia Balance of State CoC
+GA,,Spalding,GA-501,Georgia Balance of State CoC
+GA,,Stephens,GA-501,Georgia Balance of State CoC
+GA,,Stewart,GA-501,Georgia Balance of State CoC
+GA,,Sumter,GA-501,Georgia Balance of State CoC
+GA,,Talbot,GA-501,Georgia Balance of State CoC
+GA,,Taliaferro,GA-501,Georgia Balance of State CoC
+GA,,Tattnall,GA-501,Georgia Balance of State CoC
+GA,,Taylor,GA-501,Georgia Balance of State CoC
+GA,,Telfair,GA-501,Georgia Balance of State CoC
+GA,,Terrell,GA-501,Georgia Balance of State CoC
+GA,,Thomas,GA-501,Georgia Balance of State CoC
+GA,,Tift,GA-501,Georgia Balance of State CoC
+GA,,Toombs,GA-501,Georgia Balance of State CoC
+GA,,Towns,GA-501,Georgia Balance of State CoC
+GA,,Treutlen,GA-501,Georgia Balance of State CoC
+GA,,Troup,GA-501,Georgia Balance of State CoC
+GA,,Turner,GA-501,Georgia Balance of State CoC
+GA,,Twiggs,GA-501,Georgia Balance of State CoC
+GA,,Union,GA-501,Georgia Balance of State CoC
+GA,,Upson,GA-501,Georgia Balance of State CoC
+GA,,Walker,GA-501,Georgia Balance of State CoC
+GA,,Walton,GA-501,Georgia Balance of State CoC
+GA,,Ware,GA-501,Georgia Balance of State CoC
+GA,,Warren,GA-501,Georgia Balance of State CoC
+GA,,Washington,GA-501,Georgia Balance of State CoC
+GA,,Wayne,GA-501,Georgia Balance of State CoC
+GA,,Webster,GA-501,Georgia Balance of State CoC
+GA,,Wheeler,GA-501,Georgia Balance of State CoC
+GA,,White,GA-501,Georgia Balance of State CoC
+GA,,Whitfield,GA-501,Georgia Balance of State CoC
+GA,,Wilcox,GA-501,Georgia Balance of State CoC
+GA,,Wilkes,GA-501,Georgia Balance of State CoC
+GA,,Wilkinson,GA-501,Georgia Balance of State CoC
+GA,,Worth,GA-501,Georgia Balance of State CoC
+HI,,Hawaii,HI-500,Hawaii Balance of State CoC
+HI,,Honolulu,HI-501,Honolulu CoC
+HI,,Kalawoa,HI-500,Hawaii Balance of State CoC
+HI,,Kauai,HI-500,Hawaii Balance of State CoC
+HI,,Maui,HI-500,Hawaii Balance of State CoC
+IA,,Adair,IA-501,Iowa Balance of State CoC
+IA,,Adams,IA-501,Iowa Balance of State CoC
+IA,,Allamakee,IA-501,Iowa Balance of State CoC
+IA,,Appanoose,IA-501,Iowa Balance of State CoC
+IA,,Audubon,IA-501,Iowa Balance of State CoC
+IA,,Benton,IA-501,Iowa Balance of State CoC
+IA,,Black Hawk,IA-501,Iowa Balance of State CoC
+IA,,Boone,IA-501,Iowa Balance of State CoC
+IA,,Bremer,IA-501,Iowa Balance of State CoC
+IA,,Buchanan,IA-501,Iowa Balance of State CoC
+IA,,Buena Vista,IA-501,Iowa Balance of State CoC
+IA,,Butler,IA-501,Iowa Balance of State CoC
+IA,,Calhoun,IA-501,Iowa Balance of State CoC
+IA,,Carroll,IA-501,Iowa Balance of State CoC
+IA,,Cass,IA-501,Iowa Balance of State CoC
+IA,,Cedar,IA-501,Iowa Balance of State CoC
+IA,,Cerro Gordo,IA-501,Iowa Balance of State CoC
+IA,,Cherokee,IA-501,Iowa Balance of State CoC
+IA,,Chickasaw,IA-501,Iowa Balance of State CoC
+IA,,Clarke,IA-501,Iowa Balance of State CoC
+IA,,Clay,IA-501,Iowa Balance of State CoC
+IA,,Clayton,IA-501,Iowa Balance of State CoC
+IA,,Clinton,IA-501,Iowa Balance of State CoC
+IA,,Crawford,IA-501,Iowa Balance of State CoC
+IA,,Dallas,IA-501,Iowa Balance of State CoC
+IA,,Davis,IA-501,Iowa Balance of State CoC
+IA,,Decatur,IA-501,Iowa Balance of State CoC
+IA,,Delaware,IA-501,Iowa Balance of State CoC
+IA,,Des Moines,IA-501,Iowa Balance of State CoC
+IA,,Dickinson,IA-501,Iowa Balance of State CoC
+IA,,Dubuque,IA-501,Iowa Balance of State CoC
+IA,,Emmet,IA-501,Iowa Balance of State CoC
+IA,,Fayette,IA-501,Iowa Balance of State CoC
+IA,,Floyd,IA-501,Iowa Balance of State CoC
+IA,,Franklin,IA-501,Iowa Balance of State CoC
+IA,,Fremont,IA-501,Iowa Balance of State CoC
+IA,,Greene,IA-501,Iowa Balance of State CoC
+IA,,Grundy,IA-501,Iowa Balance of State CoC
+IA,,Guthrie,IA-501,Iowa Balance of State CoC
+IA,,Hamilton,IA-501,Iowa Balance of State CoC
+IA,,Hancock,IA-501,Iowa Balance of State CoC
+IA,,Hardin,IA-501,Iowa Balance of State CoC
+IA,,Harrison,IA-501,Iowa Balance of State CoC
+IA,,Henry,IA-501,Iowa Balance of State CoC
+IA,,Howard,IA-501,Iowa Balance of State CoC
+IA,,Humboldt,IA-501,Iowa Balance of State CoC
+IA,,Ida,IA-501,Iowa Balance of State CoC
+IA,,Iowa,IA-501,Iowa Balance of State CoC
+IA,,Jackson,IA-501,Iowa Balance of State CoC
+IA,,Jasper,IA-501,Iowa Balance of State CoC
+IA,,Jefferson,IA-501,Iowa Balance of State CoC
+IA,,Johnson,IA-501,Iowa Balance of State CoC
+IA,,Jones,IA-501,Iowa Balance of State CoC
+IA,,Keokuk,IA-501,Iowa Balance of State CoC
+IA,,Kossuth,IA-501,Iowa Balance of State CoC
+IA,,Lee,IA-501,Iowa Balance of State CoC
+IA,,Linn,IA-501,Iowa Balance of State CoC
+IA,,Louisa,IA-501,Iowa Balance of State CoC
+IA,,Lucas,IA-501,Iowa Balance of State CoC
+IA,,Lyon,IA-501,Iowa Balance of State CoC
+IA,,Madison,IA-501,Iowa Balance of State CoC
+IA,,Mahaska,IA-501,Iowa Balance of State CoC
+IA,,Marion,IA-501,Iowa Balance of State CoC
+IA,,Marshall,IA-501,Iowa Balance of State CoC
+IA,,Mills,IA-501,Iowa Balance of State CoC
+IA,,Mitchell,IA-501,Iowa Balance of State CoC
+IA,,Monona,IA-501,Iowa Balance of State CoC
+IA,,Monroe,IA-501,Iowa Balance of State CoC
+IA,,Montgomery,IA-501,Iowa Balance of State CoC
+IA,,Muscatine,IA-501,Iowa Balance of State CoC
+IA,,Obrien,IA-501,Iowa Balance of State CoC
+IA,,Osceola,IA-501,Iowa Balance of State CoC
+IA,,Page,IA-501,Iowa Balance of State CoC
+IA,,Palo Alto,IA-501,Iowa Balance of State CoC
+IA,,Plymouth,IA-501,Iowa Balance of State CoC
+IA,,Pocahontas,IA-501,Iowa Balance of State CoC
+IA,,Polk,IA-502,Iowa Balance of State CoC
+IA,,Pottawattamie,NE-501,Omaha/Council Bluffs CoC
+IA,,Poweshiek,IA-501,Iowa Balance of State CoC
+IA,,Ringgold,IA-501,Iowa Balance of State CoC
+IA,,Sac,IA-501,Iowa Balance of State CoC
+IA,,Scott,IA-501,Iowa Balance of State CoC
+IA,,Shelby,IA-501,Iowa Balance of State CoC
+IA,,Sioux,IA-501,Iowa Balance of State CoC
+IA,,Story,IA-501,Iowa Balance of State CoC
+IA,,Tama,IA-501,Iowa Balance of State CoC
+IA,,Taylor,IA-501,Iowa Balance of State CoC
+IA,,Union,IA-501,Iowa Balance of State CoC
+IA,,Van Buren,IA-501,Iowa Balance of State CoC
+IA,,Wapello,IA-501,Iowa Balance of State CoC
+IA,,Warren,IA-501,Iowa Balance of State CoC
+IA,,Washington,IA-501,Iowa Balance of State CoC
+IA,,Wayne,IA-501,Iowa Balance of State CoC
+IA,,Webster,IA-501,Iowa Balance of State CoC
+IA,,Winnebago,IA-501,Iowa Balance of State CoC
+IA,,Winneshiek,IA-501,Iowa Balance of State CoC
+IA,,Woodbury,IA-500,"Sioux City/Dakota, Woodbury Counties CoC"
+IA,,Worth,IA-501,Iowa Balance of State CoC
+IA,,Wright,IA-501,Iowa Balance of State CoC
+ID,,Ada,ID-500,Boise/Ada County CoC
+ID,,Adams,ID-501,Idaho Balance of State
+ID,,Bannock,ID-501,Idaho Balance of State
+ID,,Bear Lake,ID-501,Idaho Balance of State
+ID,,Benewah,ID-501,Idaho Balance of State
+ID,,Bingham,ID-501,Idaho Balance of State
+ID,,Blaine,ID-501,Idaho Balance of State
+ID,,Boise,ID-501,Idaho Balance of State
+ID,,Bonner,ID-501,Idaho Balance of State
+ID,,Bonneville,ID-501,Idaho Balance of State
+ID,,Boundary,ID-501,Idaho Balance of State
+ID,,Butte,ID-501,Idaho Balance of State
+ID,,Camas,ID-501,Idaho Balance of State
+ID,,Canyon,ID-501,Idaho Balance of State
+ID,,Caribou,ID-501,Idaho Balance of State
+ID,,Cassia,ID-501,Idaho Balance of State
+ID,,Clark,ID-501,Idaho Balance of State
+ID,,Clearwater,ID-501,Idaho Balance of State
+ID,,Custer,ID-501,Idaho Balance of State
+ID,,Elmore,ID-501,Idaho Balance of State
+ID,,Franklin,ID-501,Idaho Balance of State
+ID,,Fremont,ID-501,Idaho Balance of State
+ID,,Gem,ID-501,Idaho Balance of State
+ID,,Gooding,ID-501,Idaho Balance of State
+ID,,Idaho,ID-501,Idaho Balance of State
+ID,,Jefferson,ID-501,Idaho Balance of State
+ID,,Jerome,ID-501,Idaho Balance of State
+ID,,Kootenai,ID-501,Idaho Balance of State
+ID,,Latah,ID-501,Idaho Balance of State
+ID,,Lemhi,ID-501,Idaho Balance of State
+ID,,Lewis,ID-501,Idaho Balance of State
+ID,,Lincoln,ID-501,Idaho Balance of State
+ID,,Madison,ID-501,Idaho Balance of State
+ID,,Minidoka,ID-501,Idaho Balance of State
+ID,,Nez Perce,ID-501,Idaho Balance of State
+ID,,Oneida,ID-501,Idaho Balance of State
+ID,,Owyhee,ID-501,Idaho Balance of State
+ID,,Payette,ID-501,Idaho Balance of State
+ID,,Power,ID-501,Idaho Balance of State
+ID,,Shoshone,ID-501,Idaho Balance of State
+ID,,Teton,ID-501,Idaho Balance of State
+ID,,Twin Falls,ID-501,Idaho Balance of State
+ID,,Valley,ID-501,Idaho Balance of State
+ID,,Washington,ID-501,Idaho Balance of State
+IL,,Adams,IL-519,West Central Illinois CoC
+IL,,Alexander,IL-520,Southern Illinois CoC
+IL,,Bond,IL-520,Southern Illinois CoC
+IL,,Boone,IL-501,"Rockford/Winnebago, Boone Counties CoC"
+IL,,Brown,IL-519,West Central Illinois CoC
+IL,,Bureau,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Calhoun,IL-515,South Central Illinois CoC
+IL,,Carroll,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Cass,IL-519,West Central Illinois CoC
+IL,,Champaign,IL-503,Champaign/Urbana/Rantoul/Champaign County CoC
+IL,,Christian,IL-515,South Central Illinois CoC
+IL,,Clark,IL-515,South Central Illinois CoC
+IL,,Clay,IL-515,South Central Illinois CoC
+IL,,Clinton,IL-520,Southern Illinois CoC
+IL,,Coles,IL-515,South Central Illinois CoC
+IL,,Cook,IL-511,Cook County CoC
+IL,,Crawford,IL-515,South Central Illinois CoC
+IL,,Cumberland,IL-515,South Central Illinois CoC
+IL,,Dewitt,IL-512,Bloomington/Central Illinois CoC
+IL,,Dekalb,IL-509,Dekalb City & County CoC
+IL,,Douglas,IL-515,South Central Illinois CoC
+IL,,Dupage,IL-514,DuPage County CoC
+IL,,Edgar,IL-515,South Central Illinois CoC
+IL,,Edwards,IL-520,Southern Illinois CoC
+IL,,Effingham,IL-515,South Central Illinois CoC
+IL,,Fayette,IL-515,South Central Illinois CoC
+IL,,Ford,IL-512,Bloomington/Central Illinois CoC
+IL,,Franklin,IL-520,Southern Illinois CoC
+IL,,Fulton,IL-507,"Peoria/Perkin/Fulton, Peoria, Tazewell, Woodford CoC"
+IL,,Gallatin,IL-520,Southern Illinois CoC
+IL,,Greene,IL-515,South Central Illinois CoC
+IL,,Grundy,IL-506,Joliet/Bolingbrook/Will County CoC
+IL,,Hamilton,IL-520,Southern Illinois CoC
+IL,,Hancock,IL-519,West Central Illinois CoC
+IL,,Hardin,IL-520,Southern Illinois CoC
+IL,,Henderson,IL-519,West Central Illinois CoC
+IL,,Henry,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Iroquois,IL-512,Bloomington/Central Illinois CoC
+IL,,Jackson,IL-520,Southern Illinois CoC
+IL,,Jasper,IL-515,South Central Illinois CoC
+IL,,Jefferson,IL-520,Southern Illinois CoC
+IL,,Jersey,IL-515,South Central Illinois CoC
+IL,,Jo Daviess,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Johnson,IL-520,Southern Illinois CoC
+IL,,Kane,IL-517,Aurora/Elgin/Kane County CoC
+IL,,Kankakee,IL-512,Bloomington/Central Illinois CoC
+IL,,Kendall,IL-506,Joliet/Bolingbrook/Will County CoC
+IL,,Knox,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Lake,IL-502,Waukegan/North Chicago/Lake County CoC
+IL,,La Salle,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Lawrence,IL-520,Southern Illinois CoC
+IL,,Lee,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Livingston,IL-512,Bloomington/Central Illinois CoC
+IL,,Logan,IL-512,Bloomington/Central Illinois CoC
+IL,,Macon,IL-516,Decatur/Macon County CoC
+IL,,Macoupin,IL-515,South Central Illinois CoC
+IL,,Madison,IL-504,Madison County CoC
+IL,,Marion,IL-520,Southern Illinois CoC
+IL,,Marshall,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Mason,IL-512,Bloomington/Central Illinois CoC
+IL,,Massac,IL-520,Southern Illinois CoC
+IL,,Mcdonough,IL-519,West Central Illinois CoC
+IL,,Mchenry,IL-500,McHenry County CoC
+IL,,Mclean,IL-512,Bloomington/Central Illinois CoC
+IL,,Menard,IL-512,Bloomington/Central Illinois CoC
+IL,,Mercer,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Monroe,IL-520,Southern Illinois CoC
+IL,,Montgomery,IL-515,South Central Illinois CoC
+IL,,Morgan,IL-519,West Central Illinois CoC
+IL,,Moultrie,IL-515,South Central Illinois CoC
+IL,,Ogle,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Peoria,IL-507,"Peoria/Perkin/Fulton, Peoria, Tazewell, Woodford CoC"
+IL,,Perry,IL-520,Southern Illinois CoC
+IL,,Piatt,IL-512,Bloomington/Central Illinois CoC
+IL,,Pike,IL-519,West Central Illinois CoC
+IL,,Pope,IL-520,Southern Illinois CoC
+IL,,Pulaski,IL-520,Southern Illinois CoC
+IL,,Putnam,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Randolph,IL-520,Southern Illinois CoC
+IL,,Richland,IL-520,Southern Illinois CoC
+IL,,Rock Island,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Saline,IL-520,Southern Illinois CoC
+IL,,Sangamon,IL-513,Springfield/Sangamon County CoC
+IL,,Schuyler,IL-519,West Central Illinois CoC
+IL,,Scott,IL-519,West Central Illinois CoC
+IL,,Shelby,IL-515,South Central Illinois CoC
+IL,,Saint Clair,IL-508,East Saint Louis/Belleville/Saint Clair County CoC
+IL,,Stark,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Stephenson,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Tazewell,IL-507,"Peoria/Perkin/Fulton, Peoria, Tazewell, Woodford CoC"
+IL,,Union,IL-520,Southern Illinois CoC
+IL,,Vermilion,IL-512,Bloomington/Central Illinois CoC
+IL,,Wabash,IL-520,Southern Illinois CoC
+IL,,Warren,IL-519,West Central Illinois CoC
+IL,,Washington,IL-520,Southern Illinois CoC
+IL,,Wayne,IL-520,Southern Illinois CoC
+IL,,White,IL-520,Southern Illinois CoC
+IL,,Whiteside,IL-518,Rock Island/Moline/Northwestern Illinois CoC
+IL,,Will,IL-506,Joliet/Bolingbrook/Will County CoC
+IL,,Williamson,IL-520,Southern Illinois CoC
+IL,,Winnebago,IL-501,"Rockford/Winnebago, Boone Counties CoC"
+IL,,Woodford,IL-507,"Peoria/Perkin/Fulton, Peoria, Tazewell, Woodford CoC"
+IN,,Adams,IN-502,Indiana Balance of State CoC
+IN,,Allen,IN-502,Indiana Balance of State CoC
+IN,,Bartholomew,IN-502,Indiana Balance of State CoC
+IN,,Benton,IN-502,Indiana Balance of State CoC
+IN,,Blackford,IN-502,Indiana Balance of State CoC
+IN,,Boone,IN-502,Indiana Balance of State CoC
+IN,,Brown,IN-502,Indiana Balance of State CoC
+IN,,Carroll,IN-502,Indiana Balance of State CoC
+IN,,Cass,IN-502,Indiana Balance of State CoC
+IN,,Clark,IN-502,Indiana Balance of State CoC
+IN,,Clay,IN-502,Indiana Balance of State CoC
+IN,,Clinton,IN-502,Indiana Balance of State CoC
+IN,,Crawford,IN-502,Indiana Balance of State CoC
+IN,,Daviess,IN-502,Indiana Balance of State CoC
+IN,,Dearborn,IN-502,Indiana Balance of State CoC
+IN,,Decatur,IN-502,Indiana Balance of State CoC
+IN,,De Kalb,IN-502,Indiana Balance of State CoC
+IN,,Delaware,IN-502,Indiana Balance of State CoC
+IN,,Dubois,IN-502,Indiana Balance of State CoC
+IN,,Elkhart,IN-502,Indiana Balance of State CoC
+IN,,Fayette,IN-502,Indiana Balance of State CoC
+IN,,Floyd,IN-502,Indiana Balance of State CoC
+IN,,Fountain,IN-502,Indiana Balance of State CoC
+IN,,Franklin,IN-502,Indiana Balance of State CoC
+IN,,Fulton,IN-502,Indiana Balance of State CoC
+IN,,Gibson,IN-502,Indiana Balance of State CoC
+IN,,Grant,IN-502,Indiana Balance of State CoC
+IN,,Greene,IN-502,Indiana Balance of State CoC
+IN,,Hamilton,IN-502,Indiana Balance of State CoC
+IN,,Hancock,IN-502,Indiana Balance of State CoC
+IN,,Harrison,IN-502,Indiana Balance of State CoC
+IN,,Hendricks,IN-502,Indiana Balance of State CoC
+IN,,Henry,IN-502,Indiana Balance of State CoC
+IN,,Howard,IN-502,Indiana Balance of State CoC
+IN,,Huntington,IN-502,Indiana Balance of State CoC
+IN,,Jackson,IN-502,Indiana Balance of State CoC
+IN,,Jasper,IN-502,Indiana Balance of State CoC
+IN,,Jay,IN-502,Indiana Balance of State CoC
+IN,,Jefferson,IN-502,Indiana Balance of State CoC
+IN,,Jennings,IN-502,Indiana Balance of State CoC
+IN,,Johnson,IN-502,Indiana Balance of State CoC
+IN,,Knox,IN-502,Indiana Balance of State CoC
+IN,,Kosciusko,IN-502,Indiana Balance of State CoC
+IN,,Lagrange,IN-502,Indiana Balance of State CoC
+IN,,Lake,IN-502,Indiana Balance of State CoC
+IN,,La Porte,IN-502,Indiana Balance of State CoC
+IN,,Lawrence,IN-502,Indiana Balance of State CoC
+IN,,Madison,IN-502,Indiana Balance of State CoC
+IN,,Marion,IN-503,Indianapolis CoC
+IN,,Marshall,IN-502,Indiana Balance of State CoC
+IN,,Martin,IN-502,Indiana Balance of State CoC
+IN,,Miami,IN-502,Indiana Balance of State CoC
+IN,,Monroe,IN-502,Indiana Balance of State CoC
+IN,,Montgomery,IN-502,Indiana Balance of State CoC
+IN,,Morgan,IN-502,Indiana Balance of State CoC
+IN,,Newton,IN-502,Indiana Balance of State CoC
+IN,,Noble,IN-502,Indiana Balance of State CoC
+IN,,Ohio,IN-502,Indiana Balance of State CoC
+IN,,Orange,IN-502,Indiana Balance of State CoC
+IN,,Owen,IN-502,Indiana Balance of State CoC
+IN,,Parke,IN-502,Indiana Balance of State CoC
+IN,,Perry,IN-502,Indiana Balance of State CoC
+IN,,Pike,IN-502,Indiana Balance of State CoC
+IN,,Porter,IN-502,Indiana Balance of State CoC
+IN,,Posey,IN-502,Indiana Balance of State CoC
+IN,,Pulaski,IN-502,Indiana Balance of State CoC
+IN,,Putnam,IN-502,Indiana Balance of State CoC
+IN,,Randolph,IN-502,Indiana Balance of State CoC
+IN,,Ripley,IN-502,Indiana Balance of State CoC
+IN,,Rush,IN-502,Indiana Balance of State CoC
+IN,,Scott,IN-502,Indiana Balance of State CoC
+IN,,Shelby,IN-502,Indiana Balance of State CoC
+IN,,Spencer,IN-502,Indiana Balance of State CoC
+IN,,St Joseph,IN-502,Indiana Balance of State CoC
+IN,,Starke,IN-502,Indiana Balance of State CoC
+IN,,Steuben,IN-502,Indiana Balance of State CoC
+IN,,Sullivan,IN-502,Indiana Balance of State CoC
+IN,,Switzerland,IN-502,Indiana Balance of State CoC
+IN,,Tippecanoe,IN-502,Indiana Balance of State CoC
+IN,,Tipton,IN-502,Indiana Balance of State CoC
+IN,,Union,IN-502,Indiana Balance of State CoC
+IN,,Vanderburgh,IN-502,Indiana Balance of State CoC
+IN,,Vermillion,IN-502,Indiana Balance of State CoC
+IN,,Vigo,IN-502,Indiana Balance of State CoC
+IN,,Wabash,IN-502,Indiana Balance of State CoC
+IN,,Warren,IN-502,Indiana Balance of State CoC
+IN,,Warrick,IN-502,Indiana Balance of State CoC
+IN,,Washington,IN-502,Indiana Balance of State CoC
+IN,,Wayne,IN-502,Indiana Balance of State CoC
+IN,,Wells,IN-502,Indiana Balance of State CoC
+IN,,White,IN-502,Indiana Balance of State CoC
+IN,,Whitley,IN-502,Indiana Balance of State CoC
+KS,,Allen,KS-507,Kansas Balance of State CoC
+KS,,Anderson,KS-507,Kansas Balance of State CoC
+KS,,Atchison,KS-507,Kansas Balance of State CoC
+KS,,Barber,KS-507,Kansas Balance of State CoC
+KS,,Barton,KS-507,Kansas Balance of State CoC
+KS,,Bourbon,KS-507,Kansas Balance of State CoC
+KS,,Brown,KS-507,Kansas Balance of State CoC
+KS,,Butler,KS-507,Kansas Balance of State CoC
+KS,,Chase,KS-507,Kansas Balance of State CoC
+KS,,Chautauqua,KS-507,Kansas Balance of State CoC
+KS,,Cherokee,KS-507,Kansas Balance of State CoC
+KS,,Cheyenne,KS-507,Kansas Balance of State CoC
+KS,,Clark,KS-507,Kansas Balance of State CoC
+KS,,Clay,KS-507,Kansas Balance of State CoC
+KS,,Cloud,KS-507,Kansas Balance of State CoC
+KS,,Coffey,KS-507,Kansas Balance of State CoC
+KS,,Comanche,KS-507,Kansas Balance of State CoC
+KS,,Cowley,KS-507,Kansas Balance of State CoC
+KS,,Crawford,KS-507,Kansas Balance of State CoC
+KS,,Decatur,KS-507,Kansas Balance of State CoC
+KS,,Dickinson,KS-507,Kansas Balance of State CoC
+KS,,Doniphan,KS-507,Kansas Balance of State CoC
+KS,,Douglas,KS-507,Kansas Balance of State CoC
+KS,,Edwards,KS-507,Kansas Balance of State CoC
+KS,,Elk,KS-507,Kansas Balance of State CoC
+KS,,Ellis,KS-507,Kansas Balance of State CoC
+KS,,Ellsworth,KS-507,Kansas Balance of State CoC
+KS,,Finney,KS-507,Kansas Balance of State CoC
+KS,,Ford,KS-507,Kansas Balance of State CoC
+KS,,Franklin,KS-507,Kansas Balance of State CoC
+KS,,Geary,KS-507,Kansas Balance of State CoC
+KS,,Gove,KS-507,Kansas Balance of State CoC
+KS,,Graham,KS-507,Kansas Balance of State CoC
+KS,,Grant,KS-507,Kansas Balance of State CoC
+KS,,Gray,KS-507,Kansas Balance of State CoC
+KS,,Greeley,KS-507,Kansas Balance of State CoC
+KS,,Greenwood,KS-507,Kansas Balance of State CoC
+KS,,Hamilton,KS-507,Kansas Balance of State CoC
+KS,,Harper,KS-507,Kansas Balance of State CoC
+KS,,Harvey,KS-507,Kansas Balance of State CoC
+KS,,Haskell,KS-507,Kansas Balance of State CoC
+KS,,Hodgeman,KS-507,Kansas Balance of State CoC
+KS,,Jackson,KS-507,Kansas Balance of State CoC
+KS,,Jefferson,KS-507,Kansas Balance of State CoC
+KS,,Jewell,KS-507,Kansas Balance of State CoC
+KS,,Johnson,KS-505,Overland Park/Shawnee/Johnson County CoC
+KS,,Kearny,KS-507,Kansas Balance of State CoC
+KS,,Kingman,KS-507,Kansas Balance of State CoC
+KS,,Kiowa,KS-507,Kansas Balance of State CoC
+KS,,Labette,KS-507,Kansas Balance of State CoC
+KS,,Lane,KS-507,Kansas Balance of State CoC
+KS,,Leavenworth,KS-507,Kansas Balance of State CoC
+KS,,Lincoln,KS-507,Kansas Balance of State CoC
+KS,,Linn,KS-507,Kansas Balance of State CoC
+KS,,Logan,KS-507,Kansas Balance of State CoC
+KS,,Lyon,KS-507,Kansas Balance of State CoC
+KS,,Marion,KS-507,Kansas Balance of State CoC
+KS,,Marshall,KS-507,Kansas Balance of State CoC
+KS,,Mcpherson,KS-507,Kansas Balance of State CoC
+KS,,Meade,KS-507,Kansas Balance of State CoC
+KS,,Miami,KS-507,Kansas Balance of State CoC
+KS,,Mitchell,KS-507,Kansas Balance of State CoC
+KS,,Montgomery,KS-507,Kansas Balance of State CoC
+KS,,Morris,KS-507,Kansas Balance of State CoC
+KS,,Morton,KS-507,Kansas Balance of State CoC
+KS,,Nemaha,KS-507,Kansas Balance of State CoC
+KS,,Neosho,KS-507,Kansas Balance of State CoC
+KS,,Ness,KS-507,Kansas Balance of State CoC
+KS,,Norton,KS-507,Kansas Balance of State CoC
+KS,,Osage,KS-507,Kansas Balance of State CoC
+KS,,Osborne,KS-507,Kansas Balance of State CoC
+KS,,Ottawa,KS-507,Kansas Balance of State CoC
+KS,,Pawnee,KS-507,Kansas Balance of State CoC
+KS,,Phillips,KS-507,Kansas Balance of State CoC
+KS,,Pottawatomie,KS-507,Kansas Balance of State CoC
+KS,,Pratt,KS-507,Kansas Balance of State CoC
+KS,,Rawlins,KS-507,Kansas Balance of State CoC
+KS,,Reno,KS-507,Kansas Balance of State CoC
+KS,,Republic,KS-507,Kansas Balance of State CoC
+KS,,Rice,KS-507,Kansas Balance of State CoC
+KS,,Riley,KS-507,Kansas Balance of State CoC
+KS,,Rooks,KS-507,Kansas Balance of State CoC
+KS,,Rush,KS-507,Kansas Balance of State CoC
+KS,,Russell,KS-507,Kansas Balance of State CoC
+KS,,Saline,KS-507,Kansas Balance of State CoC
+KS,,Scott,KS-507,Kansas Balance of State CoC
+KS,,Sedgwick,KS-502,Wichita/Sedgwick County CoC
+KS,,Seward,KS-507,Kansas Balance of State CoC
+KS,,Shawnee,KS-503,Topeka/Shawnee County CoC
+KS,,Sheridan,KS-507,Kansas Balance of State CoC
+KS,,Sherman,KS-507,Kansas Balance of State CoC
+KS,,Smith,KS-507,Kansas Balance of State CoC
+KS,,Stafford,KS-507,Kansas Balance of State CoC
+KS,,Stanton,KS-507,Kansas Balance of State CoC
+KS,,Stevens,KS-507,Kansas Balance of State CoC
+KS,,Sumner,KS-507,Kansas Balance of State CoC
+KS,,Thomas,KS-507,Kansas Balance of State CoC
+KS,,Trego,KS-507,Kansas Balance of State CoC
+KS,,Wabaunsee,KS-507,Kansas Balance of State CoC
+KS,,Wallace,KS-507,Kansas Balance of State CoC
+KS,,Washington,KS-507,Kansas Balance of State CoC
+KS,,Wichita,KS-507,Kansas Balance of State CoC
+KS,,Wilson,KS-507,Kansas Balance of State CoC
+KS,,Woodson,KS-507,Kansas Balance of State CoC
+KS,,Wyandotte,MO-604,"Kansas City, Independence, Lee's Summit/Jackson, Wyandotte Counties CoC"
+KY,,Adair,KY-500,Kentucky Balance of State CoC
+KY,,Allen,KY-500,Kentucky Balance of State CoC
+KY,,Anderson,KY-500,Kentucky Balance of State CoC
+KY,,Ballard,KY-500,Kentucky Balance of State CoC
+KY,,Barren,KY-500,Kentucky Balance of State CoC
+KY,,Bath,KY-500,Kentucky Balance of State CoC
+KY,,Bell,KY-500,Kentucky Balance of State CoC
+KY,,Boone,KY-500,Kentucky Balance of State CoC
+KY,,Bourbon,KY-500,Kentucky Balance of State CoC
+KY,,Boyd,KY-500,Kentucky Balance of State CoC
+KY,,Boyle,KY-500,Kentucky Balance of State CoC
+KY,,Bracken,KY-500,Kentucky Balance of State CoC
+KY,,Breathitt,KY-500,Kentucky Balance of State CoC
+KY,,Breckinridge,KY-500,Kentucky Balance of State CoC
+KY,,Bullitt,KY-500,Kentucky Balance of State CoC
+KY,,Butler,KY-500,Kentucky Balance of State CoC
+KY,,Caldwell,KY-500,Kentucky Balance of State CoC
+KY,,Calloway,KY-500,Kentucky Balance of State CoC
+KY,,Campbell,KY-500,Kentucky Balance of State CoC
+KY,,Carlisle,KY-500,Kentucky Balance of State CoC
+KY,,Carroll,KY-500,Kentucky Balance of State CoC
+KY,,Carter,KY-500,Kentucky Balance of State CoC
+KY,,Casey,KY-500,Kentucky Balance of State CoC
+KY,,Christian,KY-500,Kentucky Balance of State CoC
+KY,,Clark,KY-500,Kentucky Balance of State CoC
+KY,,Clay,KY-500,Kentucky Balance of State CoC
+KY,,Clinton,KY-500,Kentucky Balance of State CoC
+KY,,Crittenden,KY-500,Kentucky Balance of State CoC
+KY,,Cumberland,KY-500,Kentucky Balance of State CoC
+KY,,Daviess,KY-500,Kentucky Balance of State CoC
+KY,,Edmonson,KY-500,Kentucky Balance of State CoC
+KY,,Elliott,KY-500,Kentucky Balance of State CoC
+KY,,Estill,KY-500,Kentucky Balance of State CoC
+KY,,Fayette,KY-502,Lexington/Fayette County CoC
+KY,,Fleming,KY-500,Kentucky Balance of State CoC
+KY,,Floyd,KY-500,Kentucky Balance of State CoC
+KY,,Franklin,KY-500,Kentucky Balance of State CoC
+KY,,Fulton,KY-500,Kentucky Balance of State CoC
+KY,,Gallatin,KY-500,Kentucky Balance of State CoC
+KY,,Garrard,KY-500,Kentucky Balance of State CoC
+KY,,Grant,KY-500,Kentucky Balance of State CoC
+KY,,Graves,KY-500,Kentucky Balance of State CoC
+KY,,Grayson,KY-500,Kentucky Balance of State CoC
+KY,,Green,KY-500,Kentucky Balance of State CoC
+KY,,Greenup,KY-500,Kentucky Balance of State CoC
+KY,,Hancock,KY-500,Kentucky Balance of State CoC
+KY,,Hardin,KY-500,Kentucky Balance of State CoC
+KY,,Harlan,KY-500,Kentucky Balance of State CoC
+KY,,Harrison,KY-500,Kentucky Balance of State CoC
+KY,,Hart,KY-500,Kentucky Balance of State CoC
+KY,,Henderson,KY-500,Kentucky Balance of State CoC
+KY,,Henry,KY-500,Kentucky Balance of State CoC
+KY,,Hickman,KY-500,Kentucky Balance of State CoC
+KY,,Hopkins,KY-500,Kentucky Balance of State CoC
+KY,,Jackson,KY-500,Kentucky Balance of State CoC
+KY,,Jefferson,KY-501,Louisville/Jefferson County CoC
+KY,,Jessamine,KY-500,Kentucky Balance of State CoC
+KY,,Johnson,KY-500,Kentucky Balance of State CoC
+KY,,Kenton,KY-500,Kentucky Balance of State CoC
+KY,,Knott,KY-500,Kentucky Balance of State CoC
+KY,,Knox,KY-500,Kentucky Balance of State CoC
+KY,,Larue,KY-500,Kentucky Balance of State CoC
+KY,,Laurel,KY-500,Kentucky Balance of State CoC
+KY,,Lawrence,KY-500,Kentucky Balance of State CoC
+KY,,Lee,KY-500,Kentucky Balance of State CoC
+KY,,Leslie,KY-500,Kentucky Balance of State CoC
+KY,,Letcher,KY-500,Kentucky Balance of State CoC
+KY,,Lewis,KY-500,Kentucky Balance of State CoC
+KY,,Lincoln,KY-500,Kentucky Balance of State CoC
+KY,,Livingston,KY-500,Kentucky Balance of State CoC
+KY,,Logan,KY-500,Kentucky Balance of State CoC
+KY,,Lyon,KY-500,Kentucky Balance of State CoC
+KY,,Madison,KY-500,Kentucky Balance of State CoC
+KY,,Magoffin,KY-500,Kentucky Balance of State CoC
+KY,,Marion,KY-500,Kentucky Balance of State CoC
+KY,,Marshall,KY-500,Kentucky Balance of State CoC
+KY,,Martin,KY-500,Kentucky Balance of State CoC
+KY,,Mason,KY-500,Kentucky Balance of State CoC
+KY,,McCracken,KY-500,Kentucky Balance of State CoC
+KY,,McCreary,KY-500,Kentucky Balance of State CoC
+KY,,Mclean,KY-500,Kentucky Balance of State CoC
+KY,,Meade,KY-500,Kentucky Balance of State CoC
+KY,,Menifee,KY-500,Kentucky Balance of State CoC
+KY,,Mercer,KY-500,Kentucky Balance of State CoC
+KY,,Metcalfe,KY-500,Kentucky Balance of State CoC
+KY,,Monroe,KY-500,Kentucky Balance of State CoC
+KY,,Montgomery,KY-500,Kentucky Balance of State CoC
+KY,,Morgan,KY-500,Kentucky Balance of State CoC
+KY,,Muhlenberg,KY-500,Kentucky Balance of State CoC
+KY,,Nelson,KY-500,Kentucky Balance of State CoC
+KY,,Nicholas,KY-500,Kentucky Balance of State CoC
+KY,,Ohio,KY-500,Kentucky Balance of State CoC
+KY,,Oldham,KY-500,Kentucky Balance of State CoC
+KY,,Owen,KY-500,Kentucky Balance of State CoC
+KY,,Owsley,KY-500,Kentucky Balance of State CoC
+KY,,Pendleton,KY-500,Kentucky Balance of State CoC
+KY,,Perry,KY-500,Kentucky Balance of State CoC
+KY,,Pike,KY-500,Kentucky Balance of State CoC
+KY,,Powell,KY-500,Kentucky Balance of State CoC
+KY,,Pulaski,KY-500,Kentucky Balance of State CoC
+KY,,Robertson,KY-500,Kentucky Balance of State CoC
+KY,,Rockcastle,KY-500,Kentucky Balance of State CoC
+KY,,Rowan,KY-500,Kentucky Balance of State CoC
+KY,,Russell,KY-500,Kentucky Balance of State CoC
+KY,,Scott,KY-500,Kentucky Balance of State CoC
+KY,,Shelby,KY-500,Kentucky Balance of State CoC
+KY,,Simpson,KY-500,Kentucky Balance of State CoC
+KY,,Spencer,KY-500,Kentucky Balance of State CoC
+KY,,Taylor,KY-500,Kentucky Balance of State CoC
+KY,,Todd,KY-500,Kentucky Balance of State CoC
+KY,,Trigg,KY-500,Kentucky Balance of State CoC
+KY,,Trimble,KY-500,Kentucky Balance of State CoC
+KY,,Union,KY-500,Kentucky Balance of State CoC
+KY,,Warren,KY-500,Kentucky Balance of State CoC
+KY,,Washington,KY-500,Kentucky Balance of State CoC
+KY,,Wayne,KY-500,Kentucky Balance of State CoC
+KY,,Webster,KY-500,Kentucky Balance of State CoC
+KY,,Whitley,KY-500,Kentucky Balance of State CoC
+KY,,Wolfe,KY-500,Kentucky Balance of State CoC
+KY,,Woodford,KY-500,Kentucky Balance of State CoC
+LA,,Acadia,LA-500,Lafayette/Acadiana CoC
+LA,,Allen,LA-509,Louisiana Balance of State
+LA,,Ascension,LA-509,Louisiana Balance of State CoC
+LA,,Assumption,LA-508,Houma-Terrebonne/Thibodaux CoC
+LA,,Avoyelles,LA-507,Alexandria/Central Louisiana CoC
+LA,,Beauregard,LA-509,Louisiana Balance of State
+LA,,Bienville,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,Bossier,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,Caddo,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,Calcasieu,LA-509,Louisiana Balance of State
+LA,,Caldwell,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Cameron,LA-509,Louisiana Balance of State
+LA,,Catahoula,LA-507,Alexandria/Central Louisiana CoC
+LA,,Claiborne,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,Concordia,LA-507,Alexandria/Central Louisiana CoC
+LA,,De Soto,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,East Baton Rouge,LA-509,Louisiana Balance of State CoC
+LA,,East Carroll,LA-505,Monroe/Northeast Louisiana CoC
+LA,,East Feliciana,LA-509,Louisiana Balance of State CoC
+LA,,Evangeline,LA-500,Lafayette/Acadiana CoC
+LA,,Franklin,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Grant,LA-507,Alexandria/Central Louisiana CoC
+LA,,Iberia,LA-500,Lafayette/Acadiana CoC
+LA,,Iberville,LA-509,Louisiana Balance of State CoC
+LA,,Jackson,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Jefferson,LA-503,New Orleans/Jefferson Parish CoC
+LA,,Jefferson Davis,LA-509,Louisiana Balance of State
+LA,,La Salle,LA-507,Alexandria/Central Louisiana CoC
+LA,,Lafayette,LA-500,Lafayette/Acadiana CoC
+LA,,Lafourche,LA-508,Houma-Terrebonne/Thibodaux CoC
+LA,,Lincoln,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Livingston,LA-506,Slidell/Southeast Louisiana CoC
+LA,,Madison,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Morehouse,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Natchitoches,LA-509,Louisiana Balance of State
+LA,,Orleans,LA-503,New Orleans/Jefferson Parish CoC
+LA,,Ouachita,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Plaquemines,LA-509,Louisiana Balance of State
+LA,,Pointe Coupee,LA-509,Louisiana Balance of State CoC
+LA,,Rapides,LA-507,Alexandria/Central Louisiana CoC
+LA,,Red River,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,Richland,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Sabine,LA-509,Louisiana Balance of State
+LA,,Saint Bernard,LA-509,Louisiana Balance of State
+LA,,Saint Charles,LA-508,Houma-Terrebonne/Thibodaux CoC
+LA,,Saint Helena,LA-506,Slidell/Southeast Louisiana CoC
+LA,,Saint James,LA-508,Houma-Terrebonne/Thibodaux CoC
+LA,,St John The Baptist,LA-508,Houma-Terrebonne/Thibodaux CoC
+LA,,Saint Landry,LA-500,Lafayette/Acadiana CoC
+LA,,Saint Martin,LA-500,Lafayette/Acadiana CoC
+LA,,Saint Mary,LA-500,Lafayette/Acadiana CoC
+LA,,Saint Tammany,LA-506,Slidell/Southeast Louisiana CoC
+LA,,Tangipahoa,LA-506,Slidell/Southeast Louisiana CoC
+LA,,Tensas,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Terrebonne,LA-508,Houma-Terrebonne/Thibodaux CoC
+LA,,Union,LA-505,Monroe/Northeast Louisiana CoC
+LA,,Vermilion,LA-500,Lafayette/Acadiana CoC
+LA,,Vernon,LA-507,Alexandria/Central Louisiana CoC
+LA,,Washington,LA-506,Slidell/Southeast Louisiana CoC
+LA,,Webster,LA-502,Shreveport/Bossier/Northwest CoC
+LA,,West Baton Rouge,LA-509,Louisiana Balance of State CoC
+LA,,West Carroll,LA-505,Monroe/Northeast Louisiana CoC
+LA,,West Feliciana,LA-509,Louisiana Balance of State CoC
+LA,,Winn,LA-507,Alexandria/Central Louisiana CoC
+MA,,Barnstable,MA-503,Cape Cod/Islands CoC
+MA,,Berkshire,MA-507,"Pittsfield/Berkshire, Franklin, Hampshire County CoC"
+MA,,Bristol,MA-519,Attleboro/Taunton/Bristol County CoC
+MA,,Dukes,MA-503,Cape Cod/Islands CoC
+MA,,Essex,MA-510,"Gloucester, Haverhill, Salem/Essex County CoC"
+MA,,Franklin,MA-507,"Pittsfield/Berkshire, Franklin, Hampshire County CoC"
+MA,,Hampden,MA-504,Springfield/Hampden County CoC
+MA,,Hampshire,MA-507,"Pittsfield/Berkshire, Franklin, Hampshire County CoC"
+MA,,Middlesex,MA-599,"MA-510, MA-516 & MA-518 Shared Jurisdiction"
+MA,,Nantucket,MA-503,Cape Cod/Islands CoC
+MA,,Norfolk,MA-516,Massachusetts Balance of State CoC
+MA,,Plymouth,MA-511,Quincy/Brockton/Weymouth/Plymouth City and County CoC
+MA,,Suffolk,MA-516,Massachusetts Balance of State CoC
+MA,,Worcester,MA-506,Worcester City & County CoC
+MD,,Allegany,MD-500,Cumberland/Allegany County CoC
+MD,,Anne Arundel,MD-503,Annapolis/Anne Arundel County CoC
+MD,,Baltimore,MD-505,Baltimore County CoC
+MD,,Calvert,MD-508,"Charles, Calvert, St.Mary's Counties CoC"
+MD,,Caroline,MD-511,Mid-Shore Regional CoC
+MD,,Carroll,MD-506,Carroll County CoC
+MD,,Cecil,MD-507,Cecil County CoC
+MD,,Charles,MD-508,"Charles, Calvert, St.Mary's Counties CoC"
+MD,,City of Baltimore,MD-501,Baltimore City CoC
+MD,,Dorchester,MD-511,Mid-Shore Regional CoC
+MD,,Frederick,MD-509,Frederick City & County CoC
+MD,,Garrett,MD-510,Garrett County CoC
+MD,,Harford,MD-502,Harford County CoC
+MD,,Howard,MD-504,Howard County CoC
+MD,,Kent,MD-511,Mid-Shore Regional CoC
+MD,,Montgomery,MD-601,Montgomery County CoC
+MD,,Prince Georges,MD-600,Prince George`s County/Maryland CoC
+MD,,Queen Annes,MD-511,Mid-Shore Regional CoC
+MD,,Somerset,MD-513,Wicomico/Somerset/Worcester County CoC
+MD,,Saint Marys,MD-508,"Charles, Calvert, St.Mary's Counties CoC"
+MD,,Talbot,MD-513,Wicomico/Somerset/Worcester County CoC
+MD,,Washington,MD-512,Hagerstown/Washington County CoC
+MD,,Wicomico,MD-513,Wicomico/Somerset/Worcester County CoC
+MD,,Worcester,MD-513,Wicomico/Somerset/Worcester County CoC
+ME,,Androscoggin,ME-500,Maine Balance of State CoC
+ME,,Aroostook,ME-500,Maine Balance of State CoC
+ME,,Cumberland,ME-500,Maine Balance of State CoC
+ME,,Franklin,ME-500,Maine Balance of State CoC
+ME,,Hancock,ME-500,Maine Balance of State CoC
+ME,,Kennebec,ME-500,Maine Balance of State CoC
+ME,,Knox,ME-500,Maine Balance of State CoC
+ME,,Lincoln,ME-500,Maine Balance of State CoC
+ME,,Oxford,ME-500,Maine Balance of State CoC
+ME,,Penobscot,ME-500,Maine Balance of State CoC
+ME,,Piscataquis,ME-500,Maine Balance of State CoC
+ME,,Sagadahoc,ME-500,Maine Balance of State CoC
+ME,,Somerset,ME-500,Maine Balance of State CoC
+ME,,Waldo,ME-500,Maine Balance of State CoC
+ME,,Washington,ME-500,Maine Balance of State CoC
+ME,,York,ME-500,Maine Balance of State CoC
+MI,,Alcona,MI-500,Michigan Balance of State CoC
+MI,,Alger,MI-513,"Marquette, Alger Counties CoC"
+MI,,Allegan,MI-500,Michigan Balance of State CoC
+MI,,Alpena,MI-500,Michigan Balance of State CoC
+MI,,Antrim,MI-512,"Grand Traverse, Antrim, Leelanau Counties CoC"
+MI,,Arenac,MI-500,Michigan Balance of State CoC
+MI,,Baraga,MI-500,Michigan Balance of State CoC
+MI,,Barry,MI-500,Michigan Balance of State CoC
+MI,,Bay,MI-500,Michigan Balance of State CoC
+MI,,Benzie,MI-500,Michigan Balance of State CoC
+MI,,Berrien,MI-500,Michigan Balance of State CoC
+MI,,Branch,MI-500,Michigan Balance of State CoC
+MI,,Calhoun,MI-514,Battle Creek/Calhoun County CoC
+MI,,Cass,MI-500,Michigan Balance of State CoC
+MI,,Charlevoix,MI-500,Michigan Balance of State CoC
+MI,,Cheboygan,MI-500,Michigan Balance of State CoC
+MI,,Chippewa,MI-500,Michigan Balance of State CoC
+MI,,Clare,MI-500,Michigan Balance of State CoC
+MI,,Clinton,MI-500,Michigan Balance of State CoC
+MI,,Crawford,MI-500,Michigan Balance of State CoC
+MI,,Delta,MI-500,Michigan Balance of State CoC
+MI,,Dickinson,MI-500,Michigan Balance of State CoC
+MI,,Eaton,MI-523,Eaton County CoC
+MI,,Emmet,MI-500,Michigan Balance of State CoC
+MI,,Genesee,MI-505,Flint/Genesee County CoC
+MI,,Gladwin,MI-500,Michigan Balance of State CoC
+MI,,Gogebic,MI-500,Michigan Balance of State CoC
+MI,,Grand Traverse,MI-512,"Grand Traverse, Antrim, Leelanau Counties CoC"
+MI,,Ingham,MI-508,Lansing/East Lansing/Ingham County CoC
+MI,,Ionia,MI-500,Michigan Balance of State CoC
+MI,,Iosco,MI-500,Michigan Balance of State CoC
+MI,,Iron,MI-500,Michigan Balance of State CoC
+MI,,Isabella,MI-500,Michigan Balance of State CoC
+MI,,Jackson,MI-517,Jackson City & County CoC
+MI,,Kalamazoo,MI-507,Portage/Kalamazoo City & County CoC
+MI,,Kalkaska,MI-512,"Grand Traverse, Antrim, Leelanau Counties CoC"
+MI,,Kent,MI-506,Grand Rapids/Wyoming/Kent County CoC
+MI,,Keweenaw,MI-500,Michigan Balance of State CoC
+MI,,Lake,MI-500,Michigan Balance of State CoC
+MI,,Lapeer,MI-500,Michigan Balance of State CoC
+MI,,Leelanau,MI-512,"Grand Traverse, Antrim, Leelanau Counties CoC"
+MI,,Lenawee,MI-511,Lenawee County CoC
+MI,,Livingston,MI-518,Livingston County CoC
+MI,,Luce,MI-500,Michigan Balance of State CoC
+MI,,Mackinac,MI-500,Michigan Balance of State CoC
+MI,,Macomb,MI-503,St. Clair Shores/Warren/Macomb County CoC
+MI,,Manistee,MI-500,Michigan Balance of State CoC
+MI,,Marquette,MI-513,"Marquette, Alger Counties CoC"
+MI,,Mason,MI-500,Michigan Balance of State CoC
+MI,,Mecosta,MI-500,Michigan Balance of State CoC
+MI,,Menominee,MI-500,Michigan Balance of State CoC
+MI,,Midland,MI-500,Michigan Balance of State CoC
+MI,,Missaukee,MI-500,Michigan Balance of State CoC
+MI,,Monroe,MI-515,Monroe City & County CoC
+MI,,Montcalm,MI-500,Michigan Balance of State CoC
+MI,,Montmorency,MI-500,Michigan Balance of State CoC
+MI,,Muskegon,MI-516,Norton Shores/Muskegon City & County CoC
+MI,,Newaygo,MI-500,Michigan Balance of State CoC
+MI,,Oakland,MI-504,Pontiac/Royal Oak/Oakland County CoC
+MI,,Oceana,MI-500,Michigan Balance of State CoC
+MI,,Ogemaw,MI-500,Michigan Balance of State CoC
+MI,,Ontonagon,MI-500,Michigan Balance of State CoC
+MI,,Osceola,MI-500,Michigan Balance of State CoC
+MI,,Oscoda,MI-500,Michigan Balance of State CoC
+MI,,Otsego,MI-500,Michigan Balance of State CoC
+MI,,Ottawa,MI-519,Holland/Ottawa County CoC
+MI,,Presque Isle,MI-500,Michigan Balance of State CoC
+MI,,Roscommon,MI-500,Michigan Balance of State CoC
+MI,,Saginaw,MI-510,Saginaw City & County CoC
+MI,,Sanilac,MI-500,Michigan Balance of State CoC
+MI,,Schoolcraft,MI-500,Michigan Balance of State CoC
+MI,,Shiawassee,MI-500,Michigan Balance of State CoC
+MI,,Saint Clair,MI-500,Michigan Balance of State CoC
+MI,,Saint Joseph,MI-500,Michigan Balance of State CoC
+MI,,Tuscola,MI-500,Michigan Balance of State CoC
+MI,,Van Buren,MI-500,Michigan Balance of State CoC
+MI,,Washtenaw,MI-509,Ann Arbor/Washtenaw County CoC
+MI,,Wayne,MI-502,Dearborn/Dearborn Heights/Westland/Wayne County CoC
+MI,,Wexford,MI-500,Michigan Balance of State CoC
+MN,,Aitkin,MN-504,Northeast Minnesota CoC
+MN,,Anoka,MN-503,"Dakota, Anoka, Washington, Scott, Carver Counties"
+MN,,Becker,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Beltrami,MN-506,Northwest Minnesota CoC
+MN,,Benton,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Big Stone,MN-511,Southwest Minnesota CoC
+MN,,Blue Earth,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Brown,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Carlton,MN-504,Northeast Minnesota CoC
+MN,,Carver,MN-503,"Dakota, Anoka, Washington, Scott, Carver Counties"
+MN,,Cass,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Chippewa,MN-511,Southwest Minnesota CoC
+MN,,Chisago,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Clay,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Clearwater,MN-506,Northwest Minnesota CoC
+MN,,Cook,MN-504,Northeast Minnesota CoC
+MN,,Cottonwood,MN-511,Southwest Minnesota CoC
+MN,,Crow Wing,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Dakota,MN-503,"Dakota, Anoka, Washington, Scott, Carver Counties"
+MN,,Dodge,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Douglas,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Faribault,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Fillmore,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Freeborn,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Goodhue,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Grant,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Hennepin,MN-500,Minneapolis/Hennepin County CoC
+MN,,Houston,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Hubbard,MN-506,Northwest Minnesota CoC
+MN,,Isanti,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Itasca,MN-504,Northeast Minnesota CoC
+MN,,Jackson,MN-511,Southwest Minnesota CoC
+MN,,Kanabec,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Kandiyohi,MN-511,Southwest Minnesota CoC
+MN,,Kittson,MN-506,Northwest Minnesota CoC
+MN,,Koochiching,MN-504,Northeast Minnesota CoC
+MN,,Lac qui Parle,MN-511,Southwest Minnesota CoC
+MN,,Lake,MN-504,Northeast Minnesota CoC
+MN,,Lake of the Woods,MN-506,Northwest Minnesota CoC
+MN,,Le Sueur,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Lincoln,MN-511,Southwest Minnesota CoC
+MN,,Lyon,MN-511,Southwest Minnesota CoC
+MN,,Mahnomen,MN-506,Northwest Minnesota CoC
+MN,,Marshall,MN-506,Northwest Minnesota CoC
+MN,,Martin,MN-502,Rochester/Southeast Minnesota CoC
+MN,,McLeod,MN-511,Southwest Minnesota CoC
+MN,,Meeker,MN-511,Southwest Minnesota CoC
+MN,,Mille Lacs,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Morrison,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Mower,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Murray,MN-511,Southwest Minnesota CoC
+MN,,Nicollet,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Nobles,MN-511,Southwest Minnesota CoC
+MN,,Norman,MN-506,Northwest Minnesota CoC
+MN,,Olmsted,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Otter Tail,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Pennington,MN-506,Northwest Minnesota CoC
+MN,,Pine,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Pipestone,MN-511,Southwest Minnesota CoC
+MN,,Polk,MN-506,Northwest Minnesota CoC
+MN,,Pope,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Ramsey,MN-501,Saint Paul/Ramsey County CoC
+MN,,Red Lake,MN-506,Northwest Minnesota CoC
+MN,,Redwood,MN-511,Southwest Minnesota CoC
+MN,,Renville,MN-511,Southwest Minnesota CoC
+MN,,Rice,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Rock,MN-511,Southwest Minnesota CoC
+MN,,Roseau,MN-506,Northwest Minnesota CoC
+MN,,Scott,MN-503,"Dakota, Anoka, Washington, Scott, Carver Counties"
+MN,,Sherburne,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Sibley,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Saint Louis,MN-509,Duluth/St.Louis County CoC
+MN,,Stearns,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Steele,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Stevens,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Swift,MN-511,Southwest Minnesota CoC
+MN,,Todd,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Traverse,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Wabasha,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Wadena,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Waseca,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Washington,MN-503,"Dakota, Anoka, Washington, Scott, Carver Counties"
+MN,,Watonwan,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Wilkin,MN-508,Moorhead/West Central Minnesota CoC
+MN,,Winona,MN-502,Rochester/Southeast Minnesota CoC
+MN,,Wright,MN-505,St. Cloud/Central Minnesota CoC
+MN,,Yellow Medicine,MN-511,Southwest Minnesota CoC
+MO,,Adair,MO-606,Missouri Balance of State CoC
+MO,,Andrew,MO-603,"St. Joseph/Andrew, Buchanan, DeKalb Counties CoC"
+MO,,Atchison,MO-606,Missouri Balance of State CoC
+MO,,Audrain,MO-606,Missouri Balance of State CoC
+MO,,Barry,MO-606,Missouri Balance of State CoC
+MO,,Barton,MO-606,Missouri Balance of State CoC
+MO,,Bates,MO-606,Missouri Balance of State CoC
+MO,,Benton,MO-606,Missouri Balance of State CoC
+MO,,Bollinger,MO-606,Missouri Balance of State CoC
+MO,,Boone,MO-606,Missouri Balance of State CoC
+MO,,Buchanan,MO-603,"St. Joseph/Andrew, Buchanan, DeKalb Counties CoC"
+MO,,Butler,MO-606,Missouri Balance of State CoC
+MO,,Caldwell,MO-606,Missouri Balance of State CoC
+MO,,Callaway,MO-606,Missouri Balance of State CoC
+MO,,Camden,MO-606,Missouri Balance of State CoC
+MO,,Cape Girardeau,MO-606,Missouri Balance of State CoC
+MO,,Carroll,MO-606,Missouri Balance of State CoC
+MO,,Carter,MO-606,Missouri Balance of State CoC
+MO,,Cass,MO-606,Missouri Balance of State CoC
+MO,,Cedar,MO-606,Missouri Balance of State CoC
+MO,,Chariton,MO-606,Missouri Balance of State CoC
+MO,,Christian,MO-600,"Springfield/Greene, Christian, Webster Counties CoC"
+MO,,City of St. Louis,MO-501,St.Louis City CoC
+MO,,Clark,MO-606,Missouri Balance of State CoC
+MO,,Clay,MO-606,Missouri Balance of State CoC
+MO,,Clinton,MO-606,Missouri Balance of State CoC
+MO,,Cole,MO-606,Missouri Balance of State CoC
+MO,,Cooper,MO-606,Missouri Balance of State CoC
+MO,,Crawford,MO-606,Missouri Balance of State CoC
+MO,,Dade,MO-606,Missouri Balance of State CoC
+MO,,Dallas,MO-606,Missouri Balance of State CoC
+MO,,Daviess,MO-606,Missouri Balance of State CoC
+MO,,Dekalb,MO-603,"St. Joseph/Andrew, Buchanan, DeKalb Counties CoC"
+MO,,Dent,MO-606,Missouri Balance of State CoC
+MO,,Douglas,MO-606,Missouri Balance of State CoC
+MO,,Dunklin,MO-606,Missouri Balance of State CoC
+MO,,Franklin,MO-606,Missouri Balance of State CoC
+MO,,Gasconade,MO-606,Missouri Balance of State CoC
+MO,,Gentry,MO-606,Missouri Balance of State CoC
+MO,,Greene,MO-600,"Springfield/Greene, Christian, Webster Counties CoC"
+MO,,Grundy,MO-606,Missouri Balance of State CoC
+MO,,Harrison,MO-606,Missouri Balance of State CoC
+MO,,Henry,MO-606,Missouri Balance of State CoC
+MO,,Hickory,MO-606,Missouri Balance of State CoC
+MO,,Holt,MO-606,Missouri Balance of State CoC
+MO,,Howard,MO-606,Missouri Balance of State CoC
+MO,,Howell,MO-606,Missouri Balance of State CoC
+MO,,Iron,MO-606,Missouri Balance of State CoC
+MO,,Jackson,MO-604,"Kansas City, Independence, Lee's Summit/Jackson, Wyandotte Counties CoC"
+MO,,Jasper,MO-602,"Joplin/Jasper, Newton Counties CoC"
+MO,,Jefferson,MO-606,Missouri Balance of State CoC
+MO,,Johnson,MO-606,Missouri Balance of State CoC
+MO,,Knox,MO-606,Missouri Balance of State CoC
+MO,,Laclede,MO-606,Missouri Balance of State CoC
+MO,,Lafayette,MO-606,Missouri Balance of State CoC
+MO,,Lawrence,MO-606,Missouri Balance of State CoC
+MO,,Lewis,MO-606,Missouri Balance of State CoC
+MO,,Lincoln,MO-503,"St. Charles, Lincoln, Warren Counties CoC"
+MO,,Linn,MO-606,Missouri Balance of State CoC
+MO,,Livingston,MO-606,Missouri Balance of State CoC
+MO,,Macon,MO-606,Missouri Balance of State CoC
+MO,,Madison,MO-606,Missouri Balance of State CoC
+MO,,Maries,MO-606,Missouri Balance of State CoC
+MO,,Marion,MO-606,Missouri Balance of State CoC
+MO,,Mcdonald,MO-606,Missouri Balance of State CoC
+MO,,Mercer,MO-606,Missouri Balance of State CoC
+MO,,Miller,MO-606,Missouri Balance of State CoC
+MO,,Mississippi,MO-606,Missouri Balance of State CoC
+MO,,Moniteau,MO-606,Missouri Balance of State CoC
+MO,,Monroe,MO-606,Missouri Balance of State CoC
+MO,,Montgomery,MO-606,Missouri Balance of State CoC
+MO,,Morgan,MO-606,Missouri Balance of State CoC
+MO,,New Madrid,MO-606,Missouri Balance of State CoC
+MO,,Newton,MO-602,"Joplin/Jasper, Newton Counties CoC"
+MO,,Nodaway,MO-606,Missouri Balance of State CoC
+MO,,Oregon,MO-606,Missouri Balance of State CoC
+MO,,Osage,MO-606,Missouri Balance of State CoC
+MO,,Ozark,MO-606,Missouri Balance of State CoC
+MO,,Pemiscot,MO-606,Missouri Balance of State CoC
+MO,,Perry,MO-606,Missouri Balance of State CoC
+MO,,Pettis,MO-606,Missouri Balance of State CoC
+MO,,Phelps,MO-606,Missouri Balance of State CoC
+MO,,Pike,MO-606,Missouri Balance of State CoC
+MO,,Platte,MO-606,Missouri Balance of State CoC
+MO,,Polk,MO-606,Missouri Balance of State CoC
+MO,,Pulaski,MO-606,Missouri Balance of State CoC
+MO,,Putnam,MO-606,Missouri Balance of State CoC
+MO,,Ralls,MO-606,Missouri Balance of State CoC
+MO,,Randolph,MO-606,Missouri Balance of State CoC
+MO,,Ray,MO-606,Missouri Balance of State CoC
+MO,,Reynolds,MO-606,Missouri Balance of State CoC
+MO,,Ripley,MO-606,Missouri Balance of State CoC
+MO,,Saline,MO-606,Missouri Balance of State CoC
+MO,,Schuyler,MO-606,Missouri Balance of State CoC
+MO,,Scotland,MO-606,Missouri Balance of State CoC
+MO,,Scott,MO-606,Missouri Balance of State CoC
+MO,,Shannon,MO-606,Missouri Balance of State CoC
+MO,,Shelby,MO-606,Missouri Balance of State CoC
+MO,,Saint Charles,MO-503,"St. Charles, Lincoln, Warren Counties CoC"
+MO,,Saint Clair,MO-606,Missouri Balance of State CoC
+MO,,Saint Francois,MO-606,Missouri Balance of State CoC
+MO,,Saint Louis,MO-500,St. Louis County CoC
+MO,,Sainte Genevieve,MO-606,Missouri Balance of State CoC
+MO,,Stoddard,MO-606,Missouri Balance of State CoC
+MO,,Stone,MO-606,Missouri Balance of State CoC
+MO,,Sullivan,MO-606,Missouri Balance of State CoC
+MO,,Taney,MO-606,Missouri Balance of State CoC
+MO,,Texas,MO-606,Missouri Balance of State CoC
+MO,,Vernon,MO-606,Missouri Balance of State CoC
+MO,,Warren,MO-503,"St. Charles, Lincoln, Warren Counties CoC"
+MO,,Washington,MO-606,Missouri Balance of State CoC
+MO,,Wayne,MO-606,Missouri Balance of State CoC
+MO,,Webster,MO-600,"Springfield/Greene, Christian, Webster Counties CoC"
+MO,,Worth,MO-606,Missouri Balance of State CoC
+MO,,Wright,MO-606,Missouri Balance of State CoC
+MS,,Adams,MS-501,Mississippi Balance of State CoC
+MS,,Alcorn,MS-501,Mississippi Balance of State CoC
+MS,,Amite,MS-501,Mississippi Balance of State CoC
+MS,,Attala,MS-501,Mississippi Balance of State CoC
+MS,,Benton,MS-501,Mississippi Balance of State CoC
+MS,,Bolivar,MS-501,Mississippi Balance of State CoC
+MS,,Calhoun,MS-501,Mississippi Balance of State CoC
+MS,,Carroll,MS-501,Mississippi Balance of State CoC
+MS,,Chickasaw,MS-501,Mississippi Balance of State CoC
+MS,,Choctaw,MS-501,Mississippi Balance of State CoC
+MS,,Claiborne,MS-501,Mississippi Balance of State CoC
+MS,,Clarke,MS-501,Mississippi Balance of State CoC
+MS,,Clay,MS-501,Mississippi Balance of State CoC
+MS,,Coahoma,MS-501,Mississippi Balance of State CoC
+MS,,Copiah,MS-500,"Jackson/Rankin, Madison Counties CoC"
+MS,,Covington,MS-501,Mississippi Balance of State CoC
+MS,,DeSoto,MS-501,Mississippi Balance of State CoC
+MS,,Forrest,MS-501,Mississippi Balance of State CoC
+MS,,Franklin,MS-501,Mississippi Balance of State CoC
+MS,,George,MS-503,Gulf Port/Gulf Coast Regional CoC
+MS,,Greene,MS-501,Mississippi Balance of State CoC
+MS,,Grenada,MS-501,Mississippi Balance of State CoC
+MS,,Hancock,MS-503,Gulf Port/Gulf Coast Regional CoC
+MS,,Harrison,MS-503,Gulf Port/Gulf Coast Regional CoC
+MS,,Hinds,MS-500,"Jackson/Rankin, Madison Counties CoC"
+MS,,Holmes,MS-501,Mississippi Balance of State CoC
+MS,,Humphreys,MS-501,Mississippi Balance of State CoC
+MS,,Issaquena,MS-501,Mississippi Balance of State CoC
+MS,,Itawamba,MS-501,Mississippi Balance of State CoC
+MS,,Jackson,MS-503,Gulf Port/Gulf Coast Regional CoC
+MS,,Jasper,MS-501,Mississippi Balance of State CoC
+MS,,Jefferson,MS-501,Mississippi Balance of State CoC
+MS,,Jefferson Davis,MS-501,Mississippi Balance of State CoC
+MS,,Jones,MS-501,Mississippi Balance of State CoC
+MS,,Kemper,MS-501,Mississippi Balance of State CoC
+MS,,Lafayette,MS-501,Mississippi Balance of State CoC
+MS,,Lamar,MS-501,Mississippi Balance of State CoC
+MS,,Lauderdale,MS-501,Mississippi Balance of State CoC
+MS,,Lawrence,MS-501,Mississippi Balance of State CoC
+MS,,Leake,MS-501,Mississippi Balance of State CoC
+MS,,Lee,MS-501,Mississippi Balance of State CoC
+MS,,Leflore,MS-501,Mississippi Balance of State CoC
+MS,,Lincoln,MS-501,Mississippi Balance of State CoC
+MS,,Lowndes,MS-501,Mississippi Balance of State CoC
+MS,,Madison,MS-500,"Jackson/Rankin, Madison Counties CoC"
+MS,,Marion,MS-501,Mississippi Balance of State CoC
+MS,,Marshall,MS-501,Mississippi Balance of State CoC
+MS,,Monroe,MS-501,Mississippi Balance of State CoC
+MS,,Montgomery,MS-501,Mississippi Balance of State CoC
+MS,,Neshoba,MS-501,Mississippi Balance of State CoC
+MS,,Newton,MS-501,Mississippi Balance of State CoC
+MS,,Noxubee,MS-501,Mississippi Balance of State CoC
+MS,,Oktibbeha,MS-501,Mississippi Balance of State CoC
+MS,,Panola,MS-501,Mississippi Balance of State CoC
+MS,,Pearl River,MS-503,Gulf Port/Gulf Coast Regional CoC
+MS,,Perry,MS-501,Mississippi Balance of State CoC
+MS,,Pike,MS-501,Mississippi Balance of State CoC
+MS,,Pontotoc,MS-501,Mississippi Balance of State CoC
+MS,,Prentiss,MS-501,Mississippi Balance of State CoC
+MS,,Quitman,MS-501,Mississippi Balance of State CoC
+MS,,Rankin,MS-500,"Jackson/Rankin, Madison Counties CoC"
+MS,,Scott,MS-501,Mississippi Balance of State CoC
+MS,,Sharkey,MS-501,Mississippi Balance of State CoC
+MS,,Simpson,MS-501,Mississippi Balance of State CoC
+MS,,Smith,MS-501,Mississippi Balance of State CoC
+MS,,Stone,MS-503,Gulf Port/Gulf Coast Regional CoC
+MS,,Sunflower,MS-501,Mississippi Balance of State CoC
+MS,,Tallahatchie,MS-501,Mississippi Balance of State CoC
+MS,,Tate,MS-501,Mississippi Balance of State CoC
+MS,,Tippah,MS-501,Mississippi Balance of State CoC
+MS,,Tishomingo,MS-501,Mississippi Balance of State CoC
+MS,,Tunica,MS-501,Mississippi Balance of State CoC
+MS,,Union,MS-501,Mississippi Balance of State CoC
+MS,,Walthall,MS-501,Mississippi Balance of State CoC
+MS,,Warren,MS-500,"Jackson/Rankin, Madison Counties CoC"
+MS,,Washington,MS-501,Mississippi Balance of State CoC
+MS,,Wayne,MS-501,Mississippi Balance of State CoC
+MS,,Webster,MS-501,Mississippi Balance of State CoC
+MS,,Wilkinson,MS-501,Mississippi Balance of State CoC
+MS,,Winston,MS-501,Mississippi Balance of State CoC
+MS,,Yalobusha,MS-501,Mississippi Balance of State CoC
+MS,,Yazoo,MS-501,Mississippi Balance of State CoC
+MT,,Beaverhead,MT-500,Montana Statewide CoC
+MT,,Big Horn,MT-500,Montana Statewide CoC
+MT,,Blaine,MT-500,Montana Statewide CoC
+MT,,Broadwater,MT-500,Montana Statewide CoC
+MT,,Carbon,MT-500,Montana Statewide CoC
+MT,,Carter,MT-500,Montana Statewide CoC
+MT,,Cascade,MT-500,Montana Statewide CoC
+MT,,Chouteau,MT-500,Montana Statewide CoC
+MT,,Custer,MT-500,Montana Statewide CoC
+MT,,Daniels,MT-500,Montana Statewide CoC
+MT,,Dawson,MT-500,Montana Statewide CoC
+MT,,Deer Lodge,MT-500,Montana Statewide CoC
+MT,,Fallon,MT-500,Montana Statewide CoC
+MT,,Fergus,MT-500,Montana Statewide CoC
+MT,,Flathead,MT-500,Montana Statewide CoC
+MT,,Gallatin,MT-500,Montana Statewide CoC
+MT,,Garfield,MT-500,Montana Statewide CoC
+MT,,Glacier,MT-500,Montana Statewide CoC
+MT,,Golden Valley,MT-500,Montana Statewide CoC
+MT,,Granite,MT-500,Montana Statewide CoC
+MT,,Hill,MT-500,Montana Statewide CoC
+MT,,Jefferson,MT-500,Montana Statewide CoC
+MT,,Judith Basin,MT-500,Montana Statewide CoC
+MT,,Lake,MT-500,Montana Statewide CoC
+MT,,Lewis And Clark,MT-500,Montana Statewide CoC
+MT,,Liberty,MT-500,Montana Statewide CoC
+MT,,Lincoln,MT-500,Montana Statewide CoC
+MT,,Madison,MT-500,Montana Statewide CoC
+MT,,Mccone,MT-500,Montana Statewide CoC
+MT,,Meagher,MT-500,Montana Statewide CoC
+MT,,Mineral,MT-500,Montana Statewide CoC
+MT,,Missoula,MT-500,Montana Statewide CoC
+MT,,Musselshell,MT-500,Montana Statewide CoC
+MT,,Park,MT-500,Montana Statewide CoC
+MT,,Petroleum,MT-500,Montana Statewide CoC
+MT,,Phillips,MT-500,Montana Statewide CoC
+MT,,Pondera,MT-500,Montana Statewide CoC
+MT,,Powder River,MT-500,Montana Statewide CoC
+MT,,Powell,MT-500,Montana Statewide CoC
+MT,,Prairie,MT-500,Montana Statewide CoC
+MT,,Ravalli,MT-500,Montana Statewide CoC
+MT,,Richland,MT-500,Montana Statewide CoC
+MT,,Roosevelt,MT-500,Montana Statewide CoC
+MT,,Rosebud,MT-500,Montana Statewide CoC
+MT,,Sanders,MT-500,Montana Statewide CoC
+MT,,Sheridan,MT-500,Montana Statewide CoC
+MT,,Silver Bow,MT-500,Montana Statewide CoC
+MT,,Stillwater,MT-500,Montana Statewide CoC
+MT,,Sweet Grass,MT-500,Montana Statewide CoC
+MT,,Teton,MT-500,Montana Statewide CoC
+MT,,Toole,MT-500,Montana Statewide CoC
+MT,,Treasure,MT-500,Montana Statewide CoC
+MT,,Valley,MT-500,Montana Statewide CoC
+MT,,Wheatland,MT-500,Montana Statewide CoC
+MT,,Wibaux,MT-500,Montana Statewide CoC
+MT,,Yellowstone,MT-500,Montana Statewide CoC
+NC,,Alamance,NC-503,North Carolina Balance of State CoC
+NC,,Alexander,NC-503,North Carolina Balance of State CoC
+NC,,Alleghany,NC-516,Northwest North Carolina CoC
+NC,,Anson,NC-503,North Carolina Balance of State CoC
+NC,,Ashe,NC-516,Northwest North Carolina CoC
+NC,,Avery,NC-516,Northwest North Carolina CoC
+NC,,Beaufort,NC-503,North Carolina Balance of State CoC
+NC,,Bertie,NC-503,North Carolina Balance of State CoC
+NC,,Bladen,NC-503,North Carolina Balance of State CoC
+NC,,Brunswick,NC-506,"Wilmington/Brunswick, New Hanover, Pender Counties CoC"
+NC,,Buncombe,NC-501,Asheville/Buncombe County CoC
+NC,,Burke,NC-503,North Carolina Balance of State CoC
+NC,,Cabarrus,NC-503,North Carolina Balance of State CoC
+NC,,Caldwell,NC-503,North Carolina Balance of State CoC
+NC,,Camden,NC-503,North Carolina Balance of State CoC
+NC,,Carteret,NC-503,North Carolina Balance of State CoC
+NC,,Caswell,NC-503,North Carolina Balance of State CoC
+NC,,Catawba,NC-503,North Carolina Balance of State CoC
+NC,,Chatham,NC-503,North Carolina Balance of State CoC
+NC,,Cherokee,NC-503,North Carolina Balance of State CoC
+NC,,Chowan,NC-503,North Carolina Balance of State CoC
+NC,,Clay,NC-503,North Carolina Balance of State CoC
+NC,,Cleveland,NC-509,"Gastonia/Cleveland, Gaston, Lincoln Counties CoC"
+NC,,Columbus,NC-503,North Carolina Balance of State CoC
+NC,,Craven,NC-503,North Carolina Balance of State CoC
+NC,,Cumberland,NC-511,Fayetteville/Cumberland County CoC
+NC,,Currituck,NC-503,North Carolina Balance of State CoC
+NC,,Dare,NC-503,North Carolina Balance of State CoC
+NC,,Davidson,NC-503,North Carolina Balance of State CoC
+NC,,Davie,NC-503,North Carolina Balance of State CoC
+NC,,Duplin,NC-503,North Carolina Balance of State CoC
+NC,,Durham,NC-502,Durham City & County CoC
+NC,,Edgecombe,NC-503,North Carolina Balance of State CoC
+NC,,Forsyth,NC-500,Winston Salem/Forsyth County CoC
+NC,,Franklin,NC-503,North Carolina Balance of State CoC
+NC,,Gaston,NC-509,"Gastonia/Cleveland, Gaston, Lincoln Counties CoC"
+NC,,Gates,NC-503,North Carolina Balance of State CoC
+NC,,Graham,NC-503,North Carolina Balance of State CoC
+NC,,Granville,NC-503,North Carolina Balance of State CoC
+NC,,Greene,NC-503,North Carolina Balance of State CoC
+NC,,Guilford,NC-504,Greensboro/High Point CoC
+NC,,Halifax,NC-503,North Carolina Balance of State CoC
+NC,,Harnett,NC-503,North Carolina Balance of State CoC
+NC,,Haywood,NC-503,North Carolina Balance of State CoC
+NC,,Henderson,NC-503,North Carolina Balance of State CoC
+NC,,Hertford,NC-503,North Carolina Balance of State CoC
+NC,,Hoke,NC-503,North Carolina Balance of State CoC
+NC,,Hyde,NC-503,North Carolina Balance of State CoC
+NC,,Iredell,NC-503,North Carolina Balance of State CoC
+NC,,Jackson,NC-503,North Carolina Balance of State CoC
+NC,,Johnston,NC-503,North Carolina Balance of State CoC
+NC,,Jones,NC-503,North Carolina Balance of State CoC
+NC,,Lee,NC-503,North Carolina Balance of State CoC
+NC,,Lenoir,NC-503,North Carolina Balance of State CoC
+NC,,Lincoln,NC-509,"Gastonia/Cleveland, Gaston, Lincoln Counties CoC"
+NC,,Macon,NC-503,North Carolina Balance of State CoC
+NC,,Madison,NC-503,North Carolina Balance of State CoC
+NC,,Martin,NC-503,North Carolina Balance of State CoC
+NC,,Mcdowell,NC-503,North Carolina Balance of State CoC
+NC,,Mecklenburg,NC-505,Charlotte/Mecklenberg CoC
+NC,,Mitchell,NC-516,Northwest North Carolina CoC
+NC,,Montgomery,NC-503,North Carolina Balance of State CoC
+NC,,Moore,NC-503,North Carolina Balance of State CoC
+NC,,Nash,NC-503,North Carolina Balance of State CoC
+NC,,New Hanover,NC-506,"Wilmington/Brunswick, New Hanover, Pender Counties CoC"
+NC,,Northampton,NC-503,North Carolina Balance of State CoC
+NC,,Onslow,NC-503,North Carolina Balance of State CoC
+NC,,Orange,NC-513,Chapel Hill/Orange County CoC
+NC,,Pamlico,NC-503,North Carolina Balance of State CoC
+NC,,Pasquotank,NC-503,North Carolina Balance of State CoC
+NC,,Pender,NC-506,"Wilmington/Brunswick, New Hanover, Pender Counties CoC"
+NC,,Perquimans,NC-503,North Carolina Balance of State CoC
+NC,,Person,NC-503,North Carolina Balance of State CoC
+NC,,Pitt,NC-503,North Carolina Balance of State CoC
+NC,,Polk,NC-503,North Carolina Balance of State CoC
+NC,,Randolph,NC-503,North Carolina Balance of State CoC
+NC,,Richmond,NC-503,North Carolina Balance of State CoC
+NC,,Robeson,NC-503,North Carolina Balance of State CoC
+NC,,Rockingham,NC-503,North Carolina Balance of State CoC
+NC,,Rowan,NC-503,North Carolina Balance of State CoC
+NC,,Rutherford,NC-503,North Carolina Balance of State CoC
+NC,,Sampson,NC-503,North Carolina Balance of State CoC
+NC,,Scotland,NC-503,North Carolina Balance of State CoC
+NC,,Stanly,NC-503,North Carolina Balance of State CoC
+NC,,Stokes,NC-503,North Carolina Balance of State CoC
+NC,,Surry,NC-503,North Carolina Balance of State CoC
+NC,,Swain,NC-503,North Carolina Balance of State CoC
+NC,,Transylvania,NC-503,North Carolina Balance of State CoC
+NC,,Tyrrell,NC-503,North Carolina Balance of State CoC
+NC,,Union,NC-503,North Carolina Balance of State CoC
+NC,,Vance,NC-503,North Carolina Balance of State CoC
+NC,,Wake,NC-507,Raleigh/Wake County CoC
+NC,,Warren,NC-503,North Carolina Balance of State CoC
+NC,,Washington,NC-503,North Carolina Balance of State CoC
+NC,,Watauga,NC-516,Northwest North Carolina CoC
+NC,,Wayne,NC-503,North Carolina Balance of State CoC
+NC,,Wilkes,NC-516,Northwest North Carolina CoC
+NC,,Wilson,NC-503,North Carolina Balance of State CoC
+NC,,Yadkin,NC-503,North Carolina Balance of State CoC
+NC,,Yancey,NC-516,Northwest North Carolina CoC
+ND,,Adams,ND-500,North Dakota Statewide CoC
+ND,,Barnes,ND-500,North Dakota Statewide CoC
+ND,,Benson,ND-500,North Dakota Statewide CoC
+ND,,Billings,ND-500,North Dakota Statewide CoC
+ND,,Bottineau,ND-500,North Dakota Statewide CoC
+ND,,Bowman,ND-500,North Dakota Statewide CoC
+ND,,Burke,ND-500,North Dakota Statewide CoC
+ND,,Burleigh,ND-500,North Dakota Statewide CoC
+ND,,Cass,ND-500,North Dakota Statewide CoC
+ND,,Cavalier,ND-500,North Dakota Statewide CoC
+ND,,Dickey,ND-500,North Dakota Statewide CoC
+ND,,Divide,ND-500,North Dakota Statewide CoC
+ND,,Dunn,ND-500,North Dakota Statewide CoC
+ND,,Eddy,ND-500,North Dakota Statewide CoC
+ND,,Emmons,ND-500,North Dakota Statewide CoC
+ND,,Foster,ND-500,North Dakota Statewide CoC
+ND,,Golden Valley,ND-500,North Dakota Statewide CoC
+ND,,Grand Forks,ND-500,North Dakota Statewide CoC
+ND,,Grant,ND-500,North Dakota Statewide CoC
+ND,,Griggs,ND-500,North Dakota Statewide CoC
+ND,,Hettinger,ND-500,North Dakota Statewide CoC
+ND,,Kidder,ND-500,North Dakota Statewide CoC
+ND,,Lamoure,ND-500,North Dakota Statewide CoC
+ND,,Logan,ND-500,North Dakota Statewide CoC
+ND,,Mchenry,ND-500,North Dakota Statewide CoC
+ND,,Mcintosh,ND-500,North Dakota Statewide CoC
+ND,,Mckenzie,ND-500,North Dakota Statewide CoC
+ND,,Mclean,ND-500,North Dakota Statewide CoC
+ND,,Mercer,ND-500,North Dakota Statewide CoC
+ND,,Morton,ND-500,North Dakota Statewide CoC
+ND,,Mountrail,ND-500,North Dakota Statewide CoC
+ND,,Nelson,ND-500,North Dakota Statewide CoC
+ND,,Oliver,ND-500,North Dakota Statewide CoC
+ND,,Pembina,ND-500,North Dakota Statewide CoC
+ND,,Pierce,ND-500,North Dakota Statewide CoC
+ND,,Ramsey,ND-500,North Dakota Statewide CoC
+ND,,Ransom,ND-500,North Dakota Statewide CoC
+ND,,Renville,ND-500,North Dakota Statewide CoC
+ND,,Richland,ND-500,North Dakota Statewide CoC
+ND,,Rolette,ND-500,North Dakota Statewide CoC
+ND,,Sargent,ND-500,North Dakota Statewide CoC
+ND,,Sheridan,ND-500,North Dakota Statewide CoC
+ND,,Sioux,ND-500,North Dakota Statewide CoC
+ND,,Slope,ND-500,North Dakota Statewide CoC
+ND,,Stark,ND-500,North Dakota Statewide CoC
+ND,,Steele,ND-500,North Dakota Statewide CoC
+ND,,Stutsman,ND-500,North Dakota Statewide CoC
+ND,,Towner,ND-500,North Dakota Statewide CoC
+ND,,Traill,ND-500,North Dakota Statewide CoC
+ND,,Walsh,ND-500,North Dakota Statewide CoC
+ND,,Ward,ND-500,North Dakota Statewide CoC
+ND,,Wells,ND-500,North Dakota Statewide CoC
+ND,,Williams,ND-500,North Dakota Statewide CoC
+NE,,Adams,NE-500,Nebraska Balance of State CoC
+NE,,Antelope,NE-500,Nebraska Balance of State CoC
+NE,,Arthur,NE-500,Nebraska Balance of State CoC
+NE,,Banner,NE-500,Nebraska Balance of State CoC
+NE,,Blaine,NE-500,Nebraska Balance of State CoC
+NE,,Boone,NE-500,Nebraska Balance of State CoC
+NE,,Box Butte,NE-500,Nebraska Balance of State CoC
+NE,,Boyd,NE-500,Nebraska Balance of State CoC
+NE,,Brown,NE-500,Nebraska Balance of State CoC
+NE,,Buffalo,NE-500,Nebraska Balance of State CoC
+NE,,Burt,NE-500,Nebraska Balance of State CoC
+NE,,Butler,NE-500,Nebraska Balance of State CoC
+NE,,Cass,NE-500,Nebraska Balance of State CoC
+NE,,Cedar,NE-500,Nebraska Balance of State CoC
+NE,,Chase,NE-500,Nebraska Balance of State CoC
+NE,,Cherry,NE-500,Nebraska Balance of State CoC
+NE,,Cheyenne,NE-500,Nebraska Balance of State CoC
+NE,,Clay,NE-500,Nebraska Balance of State CoC
+NE,,Colfax,NE-500,Nebraska Balance of State CoC
+NE,,Cuming,NE-500,Nebraska Balance of State CoC
+NE,,Custer,NE-500,Nebraska Balance of State CoC
+NE,,Dakota,NE-500,Nebraska Balance of State CoC
+NE,,Dawes,NE-500,Nebraska Balance of State CoC
+NE,,Dawson,NE-500,Nebraska Balance of State CoC
+NE,,Deuel,NE-500,Nebraska Balance of State CoC
+NE,,Dixon,NE-500,Nebraska Balance of State CoC
+NE,,Dodge,NE-500,Nebraska Balance of State CoC
+NE,,Douglas,NE-501,Omaha/Council Bluffs CoC
+NE,,Dundy,NE-500,Nebraska Balance of State CoC
+NE,,Fillmore,NE-500,Nebraska Balance of State CoC
+NE,,Franklin,NE-500,Nebraska Balance of State CoC
+NE,,Frontier,NE-500,Nebraska Balance of State CoC
+NE,,Furnas,NE-500,Nebraska Balance of State CoC
+NE,,Gage,NE-500,Nebraska Balance of State CoC
+NE,,Garden,NE-500,Nebraska Balance of State CoC
+NE,,Garfield,NE-500,Nebraska Balance of State CoC
+NE,,Gosper,NE-500,Nebraska Balance of State CoC
+NE,,Grant,NE-500,Nebraska Balance of State CoC
+NE,,Greeley,NE-500,Nebraska Balance of State CoC
+NE,,Hall,NE-500,Nebraska Balance of State CoC
+NE,,Hamilton,NE-500,Nebraska Balance of State CoC
+NE,,Harlan,NE-500,Nebraska Balance of State CoC
+NE,,Hayes,NE-500,Nebraska Balance of State CoC
+NE,,Hitchcock,NE-500,Nebraska Balance of State CoC
+NE,,Holt,NE-500,Nebraska Balance of State CoC
+NE,,Hooker,NE-500,Nebraska Balance of State CoC
+NE,,Howard,NE-500,Nebraska Balance of State CoC
+NE,,Jefferson,NE-500,Nebraska Balance of State CoC
+NE,,Johnson,NE-500,Nebraska Balance of State CoC
+NE,,Kearney,NE-500,Nebraska Balance of State CoC
+NE,,Keith,NE-500,Nebraska Balance of State CoC
+NE,,Keya Paha,NE-500,Nebraska Balance of State CoC
+NE,,Kimball,NE-500,Nebraska Balance of State CoC
+NE,,Knox,NE-500,Nebraska Balance of State CoC
+NE,,Lancaster,NE-500,Nebraska Balance of State CoC
+NE,,Lincoln,NE-500,Nebraska Balance of State CoC
+NE,,Logan,NE-500,Nebraska Balance of State CoC
+NE,,Loup,NE-500,Nebraska Balance of State CoC
+NE,,Madison,NE-500,Nebraska Balance of State CoC
+NE,,Mcpherson,NE-500,Nebraska Balance of State CoC
+NE,,Merrick,NE-500,Nebraska Balance of State CoC
+NE,,Morrill,NE-500,Nebraska Balance of State CoC
+NE,,Nance,NE-500,Nebraska Balance of State CoC
+NE,,Nemaha,NE-500,Nebraska Balance of State CoC
+NE,,Nuckolls,NE-500,Nebraska Balance of State CoC
+NE,,Otoe,NE-500,Nebraska Balance of State CoC
+NE,,Pawnee,NE-500,Nebraska Balance of State CoC
+NE,,Perkins,NE-500,Nebraska Balance of State CoC
+NE,,Phelps,NE-500,Nebraska Balance of State CoC
+NE,,Pierce,NE-500,Nebraska Balance of State CoC
+NE,,Platte,NE-500,Nebraska Balance of State CoC
+NE,,Polk,NE-500,Nebraska Balance of State CoC
+NE,,Red Willow,NE-500,Nebraska Balance of State CoC
+NE,,Richardson,NE-500,Nebraska Balance of State CoC
+NE,,Rock,NE-500,Nebraska Balance of State CoC
+NE,,Saline,NE-500,Nebraska Balance of State CoC
+NE,,Sarpy,NE-501,Omaha/Council Bluffs CoC
+NE,,Saunders,NE-500,Nebraska Balance of State CoC
+NE,,Scotts Bluff,NE-500,Nebraska Balance of State CoC
+NE,,Seward,NE-500,Nebraska Balance of State CoC
+NE,,Sheridan,NE-500,Nebraska Balance of State CoC
+NE,,Sherman,NE-500,Nebraska Balance of State CoC
+NE,,Sioux,NE-500,Nebraska Balance of State CoC
+NE,,Stanton,NE-500,Nebraska Balance of State CoC
+NE,,Thayer,NE-500,Nebraska Balance of State CoC
+NE,,Thomas,NE-500,Nebraska Balance of State CoC
+NE,,Thurston,NE-500,Nebraska Balance of State CoC
+NE,,Valley,NE-500,Nebraska Balance of State CoC
+NE,,Washington,NE-500,Nebraska Balance of State CoC
+NE,,Wayne,NE-500,Nebraska Balance of State CoC
+NE,,Webster,NE-500,Nebraska Balance of State CoC
+NE,,Wheeler,NE-500,Nebraska Balance of State CoC
+NE,,York,NE-500,Nebraska Balance of State CoC
+NH,,Belknap,NH-500,New Hampshire Balance of State CoC
+NH,,Carroll,NH-500,New Hampshire Balance of State CoC
+NH,,Cheshire,NH-500,New Hampshire Balance of State CoC
+NH,,Coos,NH-500,New Hampshire Balance of State CoC
+NH,,Grafton,NH-500,New Hampshire Balance of State CoC
+NH,,Hillsborough,NH-502,Nashua/Hillsborough County CoC
+NH,,Merrimack,NH-500,New Hampshire Balance of State CoC
+NH,,Rockingham,NH-500,New Hampshire Balance of State CoC
+NH,,Strafford,NH-500,New Hampshire Balance of State CoC
+NH,,Sullivan,NH-500,New Hampshire Balance of State CoC
+NJ,,Atlantic,NJ-500,Atlantic City & County CoC
+NJ,,Bergen,NJ-501,Bergen County CoC
+NJ,,Burlington,NJ-502,Burlington County CoC
+NJ,,Camden,NJ-503,"Camden City/Camden, Cumberland, Gloucester, Cape May Counties CoC"
+NJ,,Cape May,NJ-503,"Camden City/Camden, Cumberland, Gloucester, Cape May Counties CoC"
+NJ,,Cumberland,NJ-503,"Camden City/Camden, Cumberland, Gloucester, Cape May Counties CoC"
+NJ,,Essex,NJ-504,Newark/Essex County CoC
+NJ,,Gloucester,NJ-503,"Camden City/Camden, Cumberland, Gloucester, Cape May Counties CoC"
+NJ,,Hudson,NJ-506,Jersey City/Bayonne/Hudson County CoC
+NJ,,Hunterdon,NJ-516,"Warren, Sussex, Hunterdon Counties CoC"
+NJ,,Mercer,NJ-514,Trenton/Mercer County CoC
+NJ,,Middlesex,NJ-507,New Brunswick/Middlesex County CoC
+NJ,,Monmouth,NJ-508,Monmouth County CoC
+NJ,,Morris,NJ-509,Morris County CoC
+NJ,,Ocean,NJ-510,Lakewood Township/Ocean County CoC
+NJ,,Passaic,NJ-511,Paterson/Passaic County CoC
+NJ,,Salem,NJ-512,Salem County CoC
+NJ,,Somerset,NJ-513,Somerset County CoC
+NJ,,Sussex,NJ-516,"Warren, Sussex, Hunterdon Counties CoC"
+NJ,,Union,NJ-515,Elizabeth/Union County CoC
+NJ,,Warren,NJ-516,"Warren, Sussex, Hunterdon Counties CoC"
+NM,,Bernalillo,NM-501,New Mexico Balance of State CoC
+NM,,Catron,NM-501,New Mexico Balance of State CoC
+NM,,Chaves,NM-501,New Mexico Balance of State CoC
+NM,,Cibola,NM-501,New Mexico Balance of State CoC
+NM,,Colfax,NM-501,New Mexico Balance of State CoC
+NM,,Curry,NM-501,New Mexico Balance of State CoC
+NM,,De Baca,NM-501,New Mexico Balance of State CoC
+NM,,Dona Ana,NM-501,New Mexico Balance of State CoC
+NM,,Eddy,NM-501,New Mexico Balance of State CoC
+NM,,Grant,NM-501,New Mexico Balance of State CoC
+NM,,Guadalupe,NM-501,New Mexico Balance of State CoC
+NM,,Harding,NM-501,New Mexico Balance of State CoC
+NM,,Hidalgo,NM-501,New Mexico Balance of State CoC
+NM,,Lea,NM-501,New Mexico Balance of State CoC
+NM,,Lincoln,NM-501,New Mexico Balance of State CoC
+NM,,Los Alamos,NM-501,New Mexico Balance of State CoC
+NM,,Luna,NM-501,New Mexico Balance of State CoC
+NM,,Mckinley,NM-501,New Mexico Balance of State CoC
+NM,,Mora,NM-501,New Mexico Balance of State CoC
+NM,,Municipality and County of Los,NM-501,New Mexico Balance of State CoC
+NM,,Otero,NM-501,New Mexico Balance of State CoC
+NM,,Quay,NM-501,New Mexico Balance of State CoC
+NM,,Rio Arriba,NM-501,New Mexico Balance of State CoC
+NM,,Roosevelt,NM-501,New Mexico Balance of State CoC
+NM,,San Juan,NM-501,New Mexico Balance of State CoC
+NM,,San Miguel,NM-501,New Mexico Balance of State CoC
+NM,,Sandoval,NM-501,New Mexico Balance of State CoC
+NM,,Santa Fe,NM-501,New Mexico Balance of State CoC
+NM,,Sierra,NM-501,New Mexico Balance of State CoC
+NM,,Socorro,NM-501,New Mexico Balance of State CoC
+NM,,Taos,NM-501,New Mexico Balance of State CoC
+NM,,Torrance,NM-501,New Mexico Balance of State CoC
+NM,,Union,NM-501,New Mexico Balance of State CoC
+NM,,Valencia,NM-501,New Mexico Balance of State CoC
+NV,,Churchill,NV-502,Nevada Balance of State CoC
+NV,,Clark,NV-500,Las Vegas/Clark County CoC
+NV,,Carson City,NV-502,Nevada Balance of State CoC
+NV,,Douglas,NV-502,Nevada Balance of State CoC
+NV,,Elko,NV-502,Nevada Balance of State CoC
+NV,,Esmeralda,NV-502,Nevada Balance of State CoC
+NV,,Eureka,NV-502,Nevada Balance of State CoC
+NV,,Humboldt,NV-502,Nevada Balance of State CoC
+NV,,Lander,NV-502,Nevada Balance of State CoC
+NV,,Lincoln,NV-502,Nevada Balance of State CoC
+NV,,Lyon,NV-502,Nevada Balance of State CoC
+NV,,Mineral,NV-502,Nevada Balance of State CoC
+NV,,Nye,NV-502,Nevada Balance of State CoC
+NV,,Pershing,NV-502,Nevada Balance of State CoC
+NV,,Storey,NV-502,Nevada Balance of State CoC
+NV,,Washoe,NV-501,Reno/Sparks/Washoe County CoC
+NV,,White Pine,NV-502,Nevada Balance of State CoC
+NY,,Albany,NY-503,Albany City & County CoC
+NY,,Allegany,NY-501,"Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC"
+NY,,Bronx,NY-600,New York City CoC
+NY,,Broome,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C"
+NY,,Cattaraugus,NY-504,Cattaragus County CoC
+NY,,Cayuga,NY-505,"Syracuse, Auburn/Onondaga, Oswego, Cayuga Counties CoC"
+NY,,Chautauqua,NY-514,Jamestown/Dunkirk/Chautauqua County CoC
+NY,,Chemung,NY-501,"Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC"
+NY,,Chenango,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C"
+NY,,Clinton,NY-516,Clinton County CoC
+NY,,Columbia,NY-519,Columbia/Greene County CoC
+NY,,Cortland,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C"
+NY,,Delaware,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C"
+NY,,Dutchess,NY-601,Poughkeepsie/Dutchess County CoC
+NY,,Erie,NY-508,"Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC"
+NY,,Essex,NY-520,Franklin County CoC
+NY,,Franklin,NY-520,Franklin County CoC
+NY,,Fulton,NY-506,"Fulton, Montgomery, Schoharie Counties CoC"
+NY,,Genesee,NY-508,"Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC"
+NY,,Greene,NY-519,Columbia/Greene County CoC
+NY,,Hamilton,NY-523,"Glens Falls/Saratoga Springs/Saratoga, Washington, Warren, Hamilton Counties CoC"
+NY,,Herkimer,No CoC,No CoC
+NY,,Jefferson,NY-522,Jefferson/Lewis/St. Lawrence Counties CoC
+NY,,Kings,NY-600,New York City CoC
+NY,,Lewis,NY-522,Jefferson/Lewis/St. Lawrence Counties CoC
+NY,,Livingston,NY-501,"Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC"
+NY,,Madison,NY-518,"Utica/Rome/Oneida, Madison Counties CoC"
+NY,,Monroe,NY-500,Rochester/Irondequoit/Greece/Monroe County CoC
+NY,,Montgomery,NY-506,"Fulton, Montgomery, Schoharie Counties CoC"
+NY,,Nassau,NY-603,"Nassau, Suffolk Counties/Babylon/Islip/ Huntington CoC"
+NY,,New York,NY-600,New York City CoC
+NY,,Niagara,NY-508,"Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC"
+NY,,Oneida,NY-518,"Utica/Rome/Oneida, Madison Counties CoC"
+NY,,Onondaga,NY-505,"Syracuse, Auburn/Onondaga, Oswego, Cayuga Counties CoC"
+NY,,Ontario,NY-513,"Wayne, Ontario, Seneca, Yates Counties CoC"
+NY,,Orange,NY-602,Newburgh/Middletown/Orange County CoC
+NY,,Orleans,NY-508,"Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC"
+NY,,Oswego,NY-505,"Syracuse, Auburn/Onondaga, Oswego, Cayuga Counties CoC"
+NY,,Otsego,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C"
+NY,,Putnam,No CoC,No CoC
+NY,,Queens,NY-600,New York City CoC
+NY,,Rensselaer,NY-512,Troy/Rensselaer County CoC
+NY,,Richmond,NY-600,New York City CoC
+NY,,Rockland,NY-606,Rockland County CoC
+NY,,Saratoga,NY-523,"Glens Falls/Saratoga Springs/Saratoga, Washington, Warren, Hamilton Counties CoC"
+NY,,Schenectady,NY-507,Schenectady City & County CoC
+NY,,Schoharie,NY-506,"Fulton, Montgomery, Schoharie Counties CoC"
+NY,,Schuyler,NY-501,"Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC"
+NY,,Seneca,NY-513,"Wayne, Ontario, Seneca, Yates Counties CoC"
+NY,,Saint Lawrence,NY-522,Jefferson/Lewis/St. Lawrence Counties CoC
+NY,,Steuben,NY-501,"Elmira/Steuben, Allegany, Livingston, Chemung, Schuyler Counties CoC"
+NY,,Suffolk,NY-603,"Nassau, Suffolk Counties/Babylon/Islip/ Huntington CoC"
+NY,,Sullivan,NY-607,Sullivan County CoC
+NY,,Tioga,NY-511,"Binghamton, Union/Broome, Otsego, Chenango, Delaware, Cortland, Tioga Counties C"
+NY,,Tompkins,NY-510,Ithaca/Tompkins County CoC
+NY,,Ulster,NY-608,Kingston/Ulster County CoC
+NY,,Warren,NY-523,"Glens Falls/Saratoga Springs/Saratoga, Washington, Warren, Hamilton Counties CoC"
+NY,,Washington,NY-523,"Glens Falls/Saratoga Springs/Saratoga, Washington, Warren, Hamilton Counties CoC"
+NY,,Wayne,NY-513,"Wayne, Ontario, Seneca, Yates Counties CoC"
+NY,,Westchester,NY-604,Yonkers/Mount Vernon/New Rochelle/Westchester CoC
+NY,,Wyoming,NY-508,"Buffalo, Niagara Falls/Erie, Niagara, Orleans, Genesee, Wyoming Counties CoC"
+NY,,Yates,NY-513,"Wayne, Ontario, Seneca, Yates Counties CoC"
+OH,,Adams,OH-507,Ohio Balance of State CoC
+OH,,Allen,OH-507,Ohio Balance of State CoC
+OH,,Ashland,OH-507,Ohio Balance of State CoC
+OH,,Ashtabula,OH-507,Ohio Balance of State CoC
+OH,,Athens,OH-507,Ohio Balance of State CoC
+OH,,Auglaize,OH-507,Ohio Balance of State CoC
+OH,,Belmont,OH-507,Ohio Balance of State CoC
+OH,,Brown,OH-507,Ohio Balance of State CoC
+OH,,Butler,OH-507,Ohio Balance of State CoC
+OH,,Carroll,OH-507,Ohio Balance of State CoC
+OH,,Champaign,OH-507,Ohio Balance of State CoC
+OH,,Clark,OH-507,Ohio Balance of State CoC
+OH,,Clermont,OH-507,Ohio Balance of State CoC
+OH,,Clinton,OH-507,Ohio Balance of State CoC
+OH,,Columbiana,OH-507,Ohio Balance of State CoC
+OH,,Coshocton,OH-507,Ohio Balance of State CoC
+OH,,Crawford,OH-507,Ohio Balance of State CoC
+OH,,Cuyahoga,OH-502,Cleveland/Cuyahoga County CoC
+OH,,Darke,OH-507,Ohio Balance of State CoC
+OH,,Defiance,OH-507,Ohio Balance of State CoC
+OH,,Delaware,OH-507,Ohio Balance of State CoC
+OH,,Erie,OH-507,Ohio Balance of State CoC
+OH,,Fairfield,OH-507,Ohio Balance of State CoC
+OH,,Fayette,OH-507,Ohio Balance of State CoC
+OH,,Franklin,OH-503,Columbus/Franklin County CoC
+OH,,Fulton,OH-507,Ohio Balance of State CoC
+OH,,Gallia,OH-507,Ohio Balance of State CoC
+OH,,Geauga,OH-507,Ohio Balance of State CoC
+OH,,Greene,OH-507,Ohio Balance of State CoC
+OH,,Guernsey,OH-507,Ohio Balance of State CoC
+OH,,Hamilton,OH-500,Cincinnati/Hamilton County CoC
+OH,,Hancock,OH-507,Ohio Balance of State CoC
+OH,,Hardin,OH-507,Ohio Balance of State CoC
+OH,,Harrison,OH-507,Ohio Balance of State CoC
+OH,,Henry,OH-507,Ohio Balance of State CoC
+OH,,Highland,OH-507,Ohio Balance of State CoC
+OH,,Hocking,OH-507,Ohio Balance of State CoC
+OH,,Holmes,OH-507,Ohio Balance of State CoC
+OH,,Huron,OH-507,Ohio Balance of State CoC
+OH,,Jackson,OH-507,Ohio Balance of State CoC
+OH,,Jefferson,OH-507,Ohio Balance of State CoC
+OH,,Knox,OH-507,Ohio Balance of State CoC
+OH,,Lake,OH-507,Ohio Balance of State CoC
+OH,,Lawrence,OH-507,Ohio Balance of State CoC
+OH,,Licking,OH-507,Ohio Balance of State CoC
+OH,,Logan,OH-507,Ohio Balance of State CoC
+OH,,Lorain,OH-507,Ohio Balance of State CoC
+OH,,Lucas,OH-501,Toledo/Lucas County CoC
+OH,,Madison,OH-507,Ohio Balance of State CoC
+OH,,Mahoning,OH-504,Youngstown/Mahoning County CoC
+OH,,Marion,OH-507,Ohio Balance of State CoC
+OH,,Medina,OH-507,Ohio Balance of State CoC
+OH,,Meigs,OH-507,Ohio Balance of State CoC
+OH,,Mercer,OH-507,Ohio Balance of State CoC
+OH,,Miami,OH-507,Ohio Balance of State CoC
+OH,,Monroe,OH-507,Ohio Balance of State CoC
+OH,,Montgomery,OH-505,Dayton/Kettering/Montgomery County CoC
+OH,,Morgan,OH-507,Ohio Balance of State CoC
+OH,,Morrow,OH-507,Ohio Balance of State CoC
+OH,,Muskingum,OH-507,Ohio Balance of State CoC
+OH,,Noble,OH-507,Ohio Balance of State CoC
+OH,,Ottawa,OH-507,Ohio Balance of State CoC
+OH,,Paulding,OH-507,Ohio Balance of State CoC
+OH,,Perry,OH-507,Ohio Balance of State CoC
+OH,,Pickaway,OH-507,Ohio Balance of State CoC
+OH,,Pike,OH-507,Ohio Balance of State CoC
+OH,,Portage,OH-507,Ohio Balance of State CoC
+OH,,Preble,OH-507,Ohio Balance of State CoC
+OH,,Putnam,OH-507,Ohio Balance of State CoC
+OH,,Richland,OH-507,Ohio Balance of State CoC
+OH,,Ross,OH-507,Ohio Balance of State CoC
+OH,,Sandusky,OH-507,Ohio Balance of State CoC
+OH,,Scioto,OH-507,Ohio Balance of State CoC
+OH,,Seneca,OH-507,Ohio Balance of State CoC
+OH,,Shelby,OH-507,Ohio Balance of State CoC
+OH,,Stark,OH-508,Canton/Massillon/Alliance/Stark County CoC
+OH,,Summit,OH-506,Akron/Barberton/Summit County CoC
+OH,,Trumbull,OH-507,Ohio Balance of State CoC
+OH,,Tuscarawas,OH-507,Ohio Balance of State CoC
+OH,,Union,OH-507,Ohio Balance of State CoC
+OH,,Van Wert,OH-507,Ohio Balance of State CoC
+OH,,Vinton,OH-507,Ohio Balance of State CoC
+OH,,Warren,OH-507,Ohio Balance of State CoC
+OH,,Washington,OH-507,Ohio Balance of State CoC
+OH,,Wayne,OH-507,Ohio Balance of State CoC
+OH,,Williams,OH-507,Ohio Balance of State CoC
+OH,,Wood,OH-507,Ohio Balance of State CoC
+OH,,Wyandot,OH-507,Ohio Balance of State CoC
+OK,,Adair,OK-505,Northeast Oklahoma CoC
+OK,,Alfalfa,OK-503,Oklahoma Balance of State CoC
+OK,,Atoka,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Beaver,OK-503,Oklahoma Balance of State CoC
+OK,,Beckham,OK-506,Southwest Oklahoma Regional CoC
+OK,,Blaine,OK-503,Oklahoma Balance of State CoC
+OK,,Bryan,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Caddo,OK-506,Southwest Oklahoma Regional CoC
+OK,,Canadian,OK-503,Oklahoma Balance of State CoC
+OK,,Carter,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Cherokee,OK-505,Northeast Oklahoma CoC
+OK,,Choctaw,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Cimarron,OK-503,Oklahoma Balance of State CoC
+OK,,Cleveland,OK-504,Norman/Cleveland County CoC
+OK,,Coal,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Comanche,OK-506,Southwest Oklahoma Regional CoC
+OK,,Cotton,OK-506,Southwest Oklahoma Regional CoC
+OK,,Craig,OK-505,Northeast Oklahoma CoC
+OK,,Creek,OK-500,North Central Oklahoma CoC
+OK,,Custer,OK-503,Oklahoma Balance of State CoC
+OK,,Delaware,OK-505,Northeast Oklahoma CoC
+OK,,Dewey,OK-503,Oklahoma Balance of State CoC
+OK,,Ellis,OK-503,Oklahoma Balance of State CoC
+OK,,Garfield,OK-500,North Central Oklahoma CoC
+OK,,Garvin,OK-506,Southwest Oklahoma Regional CoC
+OK,,Grady,OK-506,Southwest Oklahoma Regional CoC
+OK,,Grant,OK-500,North Central Oklahoma CoC
+OK,,Greer,OK-506,Southwest Oklahoma Regional CoC
+OK,,Harmon,OK-506,Southwest Oklahoma Regional CoC
+OK,,Harper,OK-503,Oklahoma Balance of State CoC
+OK,,Haskell,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Hughes,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Jackson,OK-506,Southwest Oklahoma Regional CoC
+OK,,Jefferson,OK-506,Southwest Oklahoma Regional CoC
+OK,,Johnston,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Kay,OK-500,North Central Oklahoma CoC
+OK,,Kingfisher,OK-503,Oklahoma Balance of State CoC
+OK,,Kiowa,OK-506,Southwest Oklahoma Regional CoC
+OK,,Latimer,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Le Flore,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Lincoln,OK-503,Oklahoma Balance of State CoC
+OK,,Logan,OK-503,Oklahoma Balance of State CoC
+OK,,Love,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Major,OK-503,Oklahoma Balance of State CoC
+OK,,Marshall,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Mayes,OK-505,Northeast Oklahoma CoC
+OK,,Mcclain,OK-506,Southwest Oklahoma Regional CoC
+OK,,Mccurtain,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Mcintosh,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Murray,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Muskogee,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Noble,OK-500,North Central Oklahoma CoC
+OK,,Nowata,OK-505,Northeast Oklahoma CoC
+OK,,Okfuskee,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Oklahoma,OK-502,Oklahoma City CoC
+OK,,Okmulgee,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Osage,OK-500,North Central Oklahoma CoC
+OK,,Ottawa,OK-505,Northeast Oklahoma CoC
+OK,,Pawnee,OK-500,North Central Oklahoma CoC
+OK,,Payne,OK-500,North Central Oklahoma CoC
+OK,,Pittsburg,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Pontotoc,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Pottawatomie,OK-503,Oklahoma Balance of State CoC
+OK,,Pushmataha,OK-507,Southeastern Oklahoma Regional CoC
+OK,,Roger Mills,OK-506,Southwest Oklahoma Regional CoC
+OK,,Rogers,OK-505,Northeast Oklahoma CoC
+OK,,Seminole,OK-503,Oklahoma Balance of State CoC
+OK,,Sequoyah,OK-505,Northeast Oklahoma CoC
+OK,,Stephens,OK-506,Southwest Oklahoma Regional CoC
+OK,,Texas,OK-503,Oklahoma Balance of State CoC
+OK,,Tillman,OK-506,Southwest Oklahoma Regional CoC
+OK,,Tulsa,OK-501,Tulsa City & County/Broken Arrow CoC
+OK,,Wagoner,OK-505,Northeast Oklahoma CoC
+OK,,Washington,OK-505,Northeast Oklahoma CoC
+OK,,Washita,No CoC,No CoC
+OK,,Woods,OK-503,Oklahoma Balance of State CoC
+OK,,Woodward,OK-503,Oklahoma Balance of State CoC
+OR,,Baker,OR-505,Oregon Balance of State CoC
+OR,,Benton,OR-505,Oregon Balance of State CoC
+OR,,Clackamas,OR-507,Clackamas County CoC
+OR,,Clatsop,OR-505,Oregon Balance of State CoC
+OR,,Columbia,OR-505,Oregon Balance of State CoC
+OR,,Coos,OR-505,Oregon Balance of State CoC
+OR,,Crook,OR-503,Central Oregon CoC
+OR,,Curry,OR-505,Oregon Balance of State CoC
+OR,,Deschutes,OR-503,Central Oregon CoC
+OR,,Douglas,OR-505,Oregon Balance of State CoC
+OR,,Gilliam,OR-505,Oregon Balance of State CoC
+OR,,Grant,OR-505,Oregon Balance of State CoC
+OR,,Harney,OR-505,Oregon Balance of State CoC
+OR,,Hood River,OR-505,Oregon Balance of State CoC
+OR,,Jackson,OR-502,Medford/Ashland/Jackson County CoC
+OR,,Jefferson,OR-503,Central Oregon CoC
+OR,,Josephine,OR-505,Oregon Balance of State CoC
+OR,,Klamath,OR-505,Oregon Balance of State CoC
+OR,,Lake,OR-505,Oregon Balance of State CoC
+OR,,Lane,OR-500,Eugene/Springfield/Lane County CoC
+OR,,Lincoln,OR-505,Oregon Balance of State CoC
+OR,,Linn,OR-505,Oregon Balance of State CoC
+OR,,Malheur,OR-505,Oregon Balance of State CoC
+OR,,Marion,OR-505,Oregon Balance of State CoC
+OR,,Morrow,OR-505,Oregon Balance of State CoC
+OR,,Multnomah,OR-501,Portland-Gresham-Multnomah County CoC
+OR,,Polk,OR-505,Oregon Balance of State CoC
+OR,,Sherman,OR-505,Oregon Balance of State CoC
+OR,,Tillamook,OR-505,Oregon Balance of State CoC
+OR,,Umatilla,OR-505,Oregon Balance of State CoC
+OR,,Union,OR-505,Oregon Balance of State CoC
+OR,,Wallowa,OR-505,Oregon Balance of State CoC
+OR,,Wasco,OR-505,Oregon Balance of State CoC
+OR,,Washington,OR-506,Hillsboro/Beaverton/Washington County CoC
+OR,,Wheeler,OR-505,Oregon Balance of State CoC
+OR,,Yamhill,OR-505,Oregon Balance of State CoC
+PA,,Adams,PA-509,Eastern Pennsylvania CoC
+PA,,Allegheny,PA-600,Pittsburgh/McKeesport/Penn Hills/Allegheny County CoC
+PA,,Armstrong,PA-601,Western Pennsylvania CoC
+PA,,Beaver,PA-603,Beaver County CoC
+PA,,Bedford,PA-509,Eastern Pennsylvania CoC
+PA,,Berks,PA-506,Reading/Berks County CoC
+PA,,Blair,PA-509,Eastern Pennsylvania CoC
+PA,,Bradford,PA-509,Eastern Pennsylvania CoC
+PA,,Bucks,PA-511,Bristol/Bensalem/Bucks County CoC
+PA,,Butler,PA-601,Western Pennsylvania CoC
+PA,,Cambria,PA-509,Eastern Pennsylvania CoC
+PA,,Cameron,PA-601,Western Pennsylvania CoC
+PA,,Carbon,PA-509,Eastern Pennsylvania CoC
+PA,,Centre,PA-509,Eastern Pennsylvania CoC
+PA,,Chester,PA-505,Chester County CoC
+PA,,Clarion,PA-601,Western Pennsylvania CoC
+PA,,Clearfield,PA-601,Western Pennsylvania CoC
+PA,,Clinton,PA-509,Eastern Pennsylvania CoC
+PA,,Columbia,PA-509,Eastern Pennsylvania CoC
+PA,,Crawford,PA-601,Western Pennsylvania CoC
+PA,,Cumberland,PA-509,Eastern Pennsylvania CoC
+PA,,Dauphin,PA-501,Harrisburg/Dauphin County CoC
+PA,,Delaware,PA-502,Upper Darby/Chester/Haverford/Delaware County CoC
+PA,,Elk,PA-601,Western Pennsylvania CoC
+PA,,Erie,PA-605,Erie City & County CoC
+PA,,Fayette,PA-601,Western Pennsylvania CoC
+PA,,Forest,PA-601,Western Pennsylvania CoC
+PA,,Franklin,PA-509,Eastern Pennsylvania CoC
+PA,,Fulton,PA-509,Eastern Pennsylvania CoC
+PA,,Greene,PA-601,Western Pennsylvania CoC
+PA,,Huntingdon,PA-509,Eastern Pennsylvania CoC
+PA,,Indiana,PA-601,Western Pennsylvania CoC
+PA,,Jefferson,PA-601,Western Pennsylvania CoC
+PA,,Juniata,PA-509,Eastern Pennsylvania CoC
+PA,,Lackawanna,PA-508,Scranton/Lackawanna County CoC
+PA,,Lancaster,PA-510,Lancaster City & County CoC
+PA,,Lawrence,PA-601,Western Pennsylvania CoC
+PA,,Lebanon,PA-509,Eastern Pennsylvania CoC
+PA,,Lehigh,PA-509,Eastern Pennsylvania CoC
+PA,,Luzerne,PA-503,Wilkes-Barre/Hazleton/Luzerne County CoC
+PA,,Lycoming,PA-509,Eastern Pennsylvania CoC
+PA,,Mckean,PA-601,Western Pennsylvania CoC
+PA,,Mercer,PA-601,Western Pennsylvania CoC
+PA,,Mifflin,PA-509,Eastern Pennsylvania CoC
+PA,,Monroe,PA-509,Eastern Pennsylvania CoC
+PA,,Montgomery,PA-504,Lower Marion/Norristown/Abington/Montgomery County CoC
+PA,,Montour,PA-509,Eastern Pennsylvania CoC
+PA,,Northampton,PA-509,Eastern Pennsylvania CoC
+PA,,Northumberland,PA-509,Eastern Pennsylvania CoC
+PA,,Perry,PA-509,Eastern Pennsylvania CoC
+PA,,Philadelphia,PA-500,Philadelphia CoC
+PA,,Pike,PA-509,Eastern Pennsylvania CoC
+PA,,Potter,PA-601,Western Pennsylvania CoC
+PA,,Schuylkill,PA-509,Eastern Pennsylvania CoC
+PA,,Snyder,PA-509,Eastern Pennsylvania CoC
+PA,,Somerset,PA-509,Eastern Pennsylvania CoC
+PA,,Sullivan,PA-509,Eastern Pennsylvania CoC
+PA,,Susquehanna,PA-509,Eastern Pennsylvania CoC
+PA,,Tioga,PA-509,Eastern Pennsylvania CoC
+PA,,Union,PA-509,Eastern Pennsylvania CoC
+PA,,Venango,PA-601,Western Pennsylvania CoC
+PA,,Warren,PA-601,Western Pennsylvania CoC
+PA,,Washington,PA-601,Western Pennsylvania CoC
+PA,,Wayne,PA-509,Eastern Pennsylvania CoC
+PA,,Westmoreland,PA-601,Western Pennsylvania CoC
+PA,,Wyoming,PA-509,Eastern Pennsylvania CoC
+PA,,York,PA-512,York City & County CoC
+RI,,Bristol,RI-500,Rhode Island Statewide CoC
+RI,,Kent,RI-500,Rhode Island Statewide CoC
+RI,,Newport,RI-500,Rhode Island Statewide CoC
+RI,,Providence,RI-500,Rhode Island Statewide CoC
+RI,,Washington,RI-500,Rhode Island Statewide CoC
+SC,,Abbeville,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Aiken,SC-502,Columbia/Midlands CoC
+SC,,Allendale,SC-502,Columbia/Midlands CoC
+SC,,Anderson,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Bamberg,SC-502,Columbia/Midlands CoC
+SC,,Barnwell,SC-502,Columbia/Midlands CoC
+SC,,Beaufort,SC-500,Charleston/Low Country CoC
+SC,,Berkeley,SC-500,Charleston/Low Country CoC
+SC,,Calhoun,SC-502,Columbia/Midlands CoC
+SC,,Charleston,SC-500,Charleston/Low Country CoC
+SC,,Cherokee,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Chester,SC-502,Columbia/Midlands CoC
+SC,,Chesterfield,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Clarendon,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Colleton,SC-500,Charleston/Low Country CoC
+SC,,Darlington,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Dillon,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Dorchester,SC-500,Charleston/Low Country CoC
+SC,,Edgefield,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Fairfield,SC-502,Columbia/Midlands CoC
+SC,,Florence,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Georgetown,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Greenville,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Greenwood,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Hampton,SC-500,Charleston/Low Country CoC
+SC,,Horry,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Jasper,SC-500,Charleston/Low Country CoC
+SC,,Kershaw,SC-502,Columbia/Midlands CoC
+SC,,Lancaster,SC-502,Columbia/Midlands CoC
+SC,,Laurens,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Lee,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Lexington,SC-502,Columbia/Midlands CoC
+SC,,Marion,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Marlboro,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Mccormick,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Newberry,SC-502,Columbia/Midlands CoC
+SC,,Oconee,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Orangeburg,SC-502,Columbia/Midlands CoC
+SC,,Pickens,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Richland,SC-502,Columbia/Midlands CoC
+SC,,Saluda,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Spartanburg,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Sumter,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,Union,SC-501,Greenville/Anderson/Spartanburg Upstate CoC
+SC,,Williamsburg,SC-503,Myrtle Beach/Sumter City & County CoC
+SC,,York,SC-502,Columbia/Midlands CoC
+SD,,Aurora,SD-500,South Dakota Statewide CoC
+SD,,Beadle,SD-500,South Dakota Statewide CoC
+SD,,Bennett,SD-500,South Dakota Statewide CoC
+SD,,Bon Homme,SD-500,South Dakota Statewide CoC
+SD,,Brookings,SD-500,South Dakota Statewide CoC
+SD,,Brown,SD-500,South Dakota Statewide CoC
+SD,,Brule,SD-500,South Dakota Statewide CoC
+SD,,Buffalo,SD-500,South Dakota Statewide CoC
+SD,,Butte,SD-500,South Dakota Statewide CoC
+SD,,Campbell,SD-500,South Dakota Statewide CoC
+SD,,Charles Mix,SD-500,South Dakota Statewide CoC
+SD,,Clark,SD-500,South Dakota Statewide CoC
+SD,,Clay,SD-500,South Dakota Statewide CoC
+SD,,Codington,SD-500,South Dakota Statewide CoC
+SD,,Corson,SD-500,South Dakota Statewide CoC
+SD,,Custer,SD-500,South Dakota Statewide CoC
+SD,,Davison,SD-500,South Dakota Statewide CoC
+SD,,Day,SD-500,South Dakota Statewide CoC
+SD,,Deuel,SD-500,South Dakota Statewide CoC
+SD,,Dewey,SD-500,South Dakota Statewide CoC
+SD,,Douglas,SD-500,South Dakota Statewide CoC
+SD,,Edmunds,SD-500,South Dakota Statewide CoC
+SD,,Fall River,SD-500,South Dakota Statewide CoC
+SD,,Faulk,SD-500,South Dakota Statewide CoC
+SD,,Grant,SD-500,South Dakota Statewide CoC
+SD,,Gregory,SD-500,South Dakota Statewide CoC
+SD,,Haakon,SD-500,South Dakota Statewide CoC
+SD,,Hamlin,SD-500,South Dakota Statewide CoC
+SD,,Hand,SD-500,South Dakota Statewide CoC
+SD,,Hanson,SD-500,South Dakota Statewide CoC
+SD,,Harding,SD-500,South Dakota Statewide CoC
+SD,,Hughes,SD-500,South Dakota Statewide CoC
+SD,,Hutchinson,SD-500,South Dakota Statewide CoC
+SD,,Hyde,SD-500,South Dakota Statewide CoC
+SD,,Jackson,SD-500,South Dakota Statewide CoC
+SD,,Jerauld,SD-500,South Dakota Statewide CoC
+SD,,Jones,SD-500,South Dakota Statewide CoC
+SD,,Kingsbury,SD-500,South Dakota Statewide CoC
+SD,,Lake,SD-500,South Dakota Statewide CoC
+SD,,Lawrence,SD-500,South Dakota Statewide CoC
+SD,,Lincoln,SD-500,South Dakota Statewide CoC
+SD,,Lyman,SD-500,South Dakota Statewide CoC
+SD,,Marshall,SD-500,South Dakota Statewide CoC
+SD,,Mccook,SD-500,South Dakota Statewide CoC
+SD,,Mcpherson,SD-500,South Dakota Statewide CoC
+SD,,Meade,SD-500,South Dakota Statewide CoC
+SD,,Mellette,SD-500,South Dakota Statewide CoC
+SD,,Miner,SD-500,South Dakota Statewide CoC
+SD,,Minnehaha,SD-500,South Dakota Statewide CoC
+SD,,Moody,SD-500,South Dakota Statewide CoC
+SD,,Oglala Lakota,SD-500,South Dakota Statewide CoC
+SD,,Pennington,SD-500,South Dakota Statewide CoC
+SD,,Perkins,SD-500,South Dakota Statewide CoC
+SD,,Potter,SD-500,South Dakota Statewide CoC
+SD,,Roberts,SD-500,South Dakota Statewide CoC
+SD,,Sanborn,SD-500,South Dakota Statewide CoC
+SD,,Spink,SD-500,South Dakota Statewide CoC
+SD,,Stanley,SD-500,South Dakota Statewide CoC
+SD,,Sully,SD-500,South Dakota Statewide CoC
+SD,,Todd,SD-500,South Dakota Statewide CoC
+SD,,Tripp,SD-500,South Dakota Statewide CoC
+SD,,Turner,SD-500,South Dakota Statewide CoC
+SD,,Union,SD-500,South Dakota Statewide CoC
+SD,,Walworth,SD-500,South Dakota Statewide CoC
+SD,,Yankton,SD-500,South Dakota Statewide CoC
+SD,,Ziebach,SD-500,South Dakota Statewide CoC
+TN,,Anderson,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Bedford,TN-503,Central Tennessee CoC
+TN,,Benton,TN-507,Jackson/West Tennessee CoC
+TN,,Bledsoe,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Blount,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Bradley,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Campbell,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Cannon,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Carroll,TN-507,Jackson/West Tennessee CoC
+TN,,Carter,TN-509,Appalachian Regional CoC
+TN,,Cheatham,TN-503,Central Tennessee CoC
+TN,,Chester,TN-507,Jackson/West Tennessee CoC
+TN,,Claiborne,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Clay,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Cocke,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Coffee,TN-503,Central Tennessee CoC
+TN,,Crockett,TN-507,Jackson/West Tennessee CoC
+TN,,Cumberland,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Davidson,TN-504,Nashville/Davidson County CoC
+TN,,Decatur,TN-507,Jackson/West Tennessee CoC
+TN,,Dekalb,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Dickson,TN-503,Central Tennessee CoC
+TN,,Dyer,TN-507,Jackson/West Tennessee CoC
+TN,,Fayette,TN-507,Jackson/West Tennessee CoC
+TN,,Fentress,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Franklin,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Gibson,TN-507,Jackson/West Tennessee CoC
+TN,,Giles,TN-503,Central Tennessee CoC
+TN,,Grainger,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Greene,TN-509,Appalachian Regional CoC
+TN,,Grundy,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Hamblen,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Hamilton,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Hancock,TN-509,Appalachian Regional CoC
+TN,,Hardeman,TN-507,Jackson/West Tennessee CoC
+TN,,Hardin,TN-507,Jackson/West Tennessee CoC
+TN,,Hawkins,TN-509,Appalachian Regional CoC
+TN,,Haywood,TN-507,Jackson/West Tennessee CoC
+TN,,Henderson,TN-507,Jackson/West Tennessee CoC
+TN,,Henry,TN-507,Jackson/West Tennessee CoC
+TN,,Hickman,TN-503,Central Tennessee CoC
+TN,,Houston,TN-507,Jackson/West Tennessee CoC
+TN,,Humphreys,TN-507,Jackson/West Tennessee CoC
+TN,,Jackson,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Jefferson,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Johnson,TN-509,Appalachian Regional CoC
+TN,,Knox,TN-502,Knoxville/Knox County CoC
+TN,,Lake,TN-507,Jackson/West Tennessee CoC
+TN,,Lauderdale,TN-507,Jackson/West Tennessee CoC
+TN,,Lawrence,TN-503,Central Tennessee CoC
+TN,,Lewis,TN-503,Central Tennessee CoC
+TN,,Lincoln,TN-503,Central Tennessee CoC
+TN,,Loudon,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Macon,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Madison,TN-507,Jackson/West Tennessee CoC
+TN,,Marion,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Marshall,TN-503,Central Tennessee CoC
+TN,,Maury,TN-503,Central Tennessee CoC
+TN,,Mcminn,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Mcnairy,TN-507,Jackson/West Tennessee CoC
+TN,,Meigs,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Monroe,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Montgomery,TN-503,Central Tennessee CoC
+TN,,Moore,TN-503,Central Tennessee CoC
+TN,,Morgan,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Obion,TN-507,Jackson/West Tennessee CoC
+TN,,Overton,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Perry,TN-503,Central Tennessee CoC
+TN,,Pickett,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Polk,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Putnam,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Rhea,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Roane,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Robertson,TN-503,Central Tennessee CoC
+TN,,Rutherford,TN-510,Murfreesboro/Rutherford County CoC
+TN,,Scott,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Sequatchie,TN-500,Chattanooga/Southeast Tennessee CoC
+TN,,Sevier,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Shelby,TN-501,Memphis/Shelby County CoC
+TN,,Smith,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Stewart,TN-507,Jackson/West Tennessee CoC
+TN,,Sullivan,TN-509,Appalachian Regional CoC
+TN,,Sumner,TN-503,Central Tennessee CoC
+TN,,Tipton,TN-507,Jackson/West Tennessee CoC
+TN,,Trousdale,TN-503,Central Tennessee CoC
+TN,,Unicoi,TN-509,Appalachian Regional CoC
+TN,,Union,TN-512,"Morristown/Blount, Sevier, Campbell, Cocke Counties CoC"
+TN,,Van Buren,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Warren,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Washington,TN-509,Appalachian Regional CoC
+TN,,Wayne,TN-503,Central Tennessee CoC
+TN,,Weakley,TN-507,Jackson/West Tennessee CoC
+TN,,White,TN-506,Oak Ridge/Upper Cumberland CoC
+TN,,Williamson,TN-503,Central Tennessee CoC
+TN,,Wilson,TN-506,Oak Ridge/Upper Cumberland CoC
+TX,,Anderson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Andrews,TX-607,Texas Balance of State (BoS) CoC
+TX,,Angelina,TX-607,Texas Balance of State (BoS) CoC
+TX,,Aransas,TX-607,Texas Balance of State (BoS) CoC
+TX,,Archer,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Armstrong,TX-607,Texas Balance of State (BoS) CoC
+TX,,Atascosa,TX-607,Texas Balance of State (BoS) CoC
+TX,,Austin,TX-607,Texas Balance of State (BoS) CoC
+TX,,Bailey,TX-607,Texas Balance of State (BoS) CoC
+TX,,Bandera,TX-607,Texas Balance of State (BoS) CoC
+TX,,Bastrop,TX-607,Texas Balance of State (BoS) CoC
+TX,,Baylor,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Bee,TX-607,Texas Balance of State (BoS) CoC
+TX,,Bell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Bexar,TX-500,San Antonio/Bexar County CoC
+TX,,Blanco,TX-607,Texas Balance of State (BoS) CoC
+TX,,Borden,TX-607,Texas Balance of State (BoS) CoC
+TX,,Bosque,TX-604,Waco/McLennan County CoC
+TX,,Bowie,TX-607,Texas Balance of State (BoS) CoC
+TX,,Brazoria,TX-607,Texas Balance of State (BoS) CoC
+TX,,Brazos,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Brewster,TX-607,Texas Balance of State (BoS) CoC
+TX,,Briscoe,TX-607,Texas Balance of State (BoS) CoC
+TX,,Brooks,TX-607,Texas Balance of State (BoS) CoC
+TX,,Brown,TX-607,Texas Balance of State (BoS) CoC
+TX,,Burleson,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Burnet,TX-607,Texas Balance of State (BoS) CoC
+TX,,Caldwell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Calhoun,TX-607,Texas Balance of State (BoS) CoC
+TX,,Callahan,TX-607,Texas Balance of State (BoS) CoC
+TX,,Cameron,TX-607,Texas Balance of State (BoS) CoC
+TX,,Camp,TX-607,Texas Balance of State (BoS) CoC
+TX,,Carson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Cass,TX-607,Texas Balance of State (BoS) CoC
+TX,,Castro,TX-607,Texas Balance of State (BoS) CoC
+TX,,Chambers,TX-607,Texas Balance of State (BoS) CoC
+TX,,Cherokee,TX-607,Texas Balance of State (BoS) CoC
+TX,,Childress,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Clay,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Cochran,TX-607,Texas Balance of State (BoS) CoC
+TX,,Coke,TX-607,Texas Balance of State (BoS) CoC
+TX,,Coleman,TX-607,Texas Balance of State (BoS) CoC
+TX,,Collin,TX-600,Dallas City & County/Irving CoC
+TX,,Collingsworth,TX-607,Texas Balance of State (BoS) CoC
+TX,,Colorado,TX-607,Texas Balance of State (BoS) CoC
+TX,,Comal,TX-607,Texas Balance of State (BoS) CoC
+TX,,Comanche,TX-607,Texas Balance of State (BoS) CoC
+TX,,Concho,TX-607,Texas Balance of State (BoS) CoC
+TX,,Cooke,TX-607,Texas Balance of State (BoS) CoC
+TX,,Coryell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Cottle,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Crane,TX-607,Texas Balance of State (BoS) CoC
+TX,,Crockett,TX-607,Texas Balance of State (BoS) CoC
+TX,,Crosby,TX-607,Texas Balance of State (BoS) CoC
+TX,,Culberson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Dallam,TX-607,Texas Balance of State (BoS) CoC
+TX,,Dallas,TX-600,Dallas City & County/Irving CoC
+TX,,Dawson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Deaf Smith,TX-607,Texas Balance of State (BoS) CoC
+TX,,Delta,TX-607,Texas Balance of State (BoS) CoC
+TX,,Denton,TX-607,Texas Balance of State (BoS) CoC
+TX,,Dewitt,TX-607,Texas Balance of State (BoS) CoC
+TX,,Dickens,TX-607,Texas Balance of State (BoS) CoC
+TX,,Dimmit,TX-607,Texas Balance of State (BoS) CoC
+TX,,Donley,TX-607,Texas Balance of State (BoS) CoC
+TX,,Duval,TX-607,Texas Balance of State (BoS) CoC
+TX,,Eastland,TX-607,Texas Balance of State (BoS) CoC
+TX,,Ector,TX-607,Texas Balance of State (BoS) CoC
+TX,,Edwards,TX-607,Texas Balance of State (BoS) CoC
+TX,,El Paso,TX-603,El Paso City & County CoC
+TX,,Ellis,TX-607,Texas Balance of State (BoS) CoC
+TX,,Erath,TX-607,Texas Balance of State (BoS) CoC
+TX,,Falls,TX-604,Waco/McLennan County CoC
+TX,,Fannin,TX-607,Texas Balance of State (BoS) CoC
+TX,,Fayette,TX-607,Texas Balance of State (BoS) CoC
+TX,,Fisher,TX-607,Texas Balance of State (BoS) CoC
+TX,,Floyd,TX-607,Texas Balance of State (BoS) CoC
+TX,,Foard,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Fort Bend,TX-700,"Houston, Pasadena, Conroe/Harris, Ft. Bend, Montgomery, Counties CoC"
+TX,,Franklin,TX-607,Texas Balance of State (BoS) CoC
+TX,,Freestone,TX-604,Waco/McLennan County CoC
+TX,,Frio,TX-607,Texas Balance of State (BoS) CoC
+TX,,Gaines,TX-607,Texas Balance of State (BoS) CoC
+TX,,Galveston,TX-607,Texas Balance of State (BoS) CoC
+TX,,Garza,TX-607,Texas Balance of State (BoS) CoC
+TX,,Gillespie,TX-607,Texas Balance of State (BoS) CoC
+TX,,Glasscock,TX-607,Texas Balance of State (BoS) CoC
+TX,,Goliad,TX-607,Texas Balance of State (BoS) CoC
+TX,,Gonzales,TX-607,Texas Balance of State (BoS) CoC
+TX,,Gray,TX-607,Texas Balance of State (BoS) CoC
+TX,,Grayson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Gregg,TX-607,Texas Balance of State (BoS) CoC
+TX,,Grimes,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Guadalupe,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hale,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hall,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hamilton,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hansford,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hardeman,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Hardin,TX-607,Texas Balance of State (BoS) CoC
+TX,,Harris,TX-700,"Houston, Pasadena, Conroe/Harris, Ft. Bend, Montgomery, Counties CoC"
+TX,,Harrison,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hartley,TX-607,Texas Balance of State (BoS) CoC
+TX,,Haskell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hays,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hemphill,TX-607,Texas Balance of State (BoS) CoC
+TX,,Henderson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hidalgo,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hill,TX-604,Waco/McLennan County CoC
+TX,,Hockley,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hood,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hopkins,TX-607,Texas Balance of State (BoS) CoC
+TX,,Houston,TX-607,Texas Balance of State (BoS) CoC
+TX,,Howard,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hudspeth,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hunt,TX-607,Texas Balance of State (BoS) CoC
+TX,,Hutchinson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Irion,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jack,TX-604,Waco/McLennan County CoC
+TX,,Jackson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jasper,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jeff Davis,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jefferson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jim Hogg,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jim Wells,TX-607,Texas Balance of State (BoS) CoC
+TX,,Johnson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Jones,TX-607,Texas Balance of State (BoS) CoC
+TX,,Karnes,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kaufman,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kendall,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kenedy,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kent,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kerr,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kimble,TX-607,Texas Balance of State (BoS) CoC
+TX,,King,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kinney,TX-607,Texas Balance of State (BoS) CoC
+TX,,Kleberg,TX-607,Texas Balance of State (BoS) CoC
+TX,,Knox,TX-607,Texas Balance of State (BoS) CoC
+TX,,La Salle,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lamar,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lamb,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lampasas,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lavaca,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lee,TX-607,Texas Balance of State (BoS) CoC
+TX,,Leon,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Liberty,TX-607,Texas Balance of State (BoS) CoC
+TX,,Limestone,TX-604,Waco/McLennan County CoC
+TX,,Lipscomb,TX-607,Texas Balance of State (BoS) CoC
+TX,,Live Oak,TX-607,Texas Balance of State (BoS) CoC
+TX,,Llano,TX-607,Texas Balance of State (BoS) CoC
+TX,,Loving,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lubbock,TX-607,Texas Balance of State (BoS) CoC
+TX,,Lynn,TX-607,Texas Balance of State (BoS) CoC
+TX,,Madison,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Marion,TX-607,Texas Balance of State (BoS) CoC
+TX,,Martin,TX-607,Texas Balance of State (BoS) CoC
+TX,,Mason,TX-607,Texas Balance of State (BoS) CoC
+TX,,Matagorda,TX-607,Texas Balance of State (BoS) CoC
+TX,,Maverick,TX-607,Texas Balance of State (BoS) CoC
+TX,,Mcculloch,TX-607,Texas Balance of State (BoS) CoC
+TX,,Mclennan,TX-604,Waco/McLennan County CoC
+TX,,Mcmullen,TX-607,Texas Balance of State (BoS) CoC
+TX,,Medina,TX-607,Texas Balance of State (BoS) CoC
+TX,,Menard,TX-607,Texas Balance of State (BoS) CoC
+TX,,Midland,TX-607,Texas Balance of State (BoS) CoC
+TX,,Milam,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Mills,TX-607,Texas Balance of State (BoS) CoC
+TX,,Mitchell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Montague,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Montgomery,TX-700,"Houston, Pasadena, Conroe/Harris, Ft. Bend, Montgomery, Counties CoC"
+TX,,Moore,TX-607,Texas Balance of State (BoS) CoC
+TX,,Morris,TX-607,Texas Balance of State (BoS) CoC
+TX,,Motley,TX-607,Texas Balance of State (BoS) CoC
+TX,,Nacogdoches,TX-607,Texas Balance of State (BoS) CoC
+TX,,Navarro,TX-607,Texas Balance of State (BoS) CoC
+TX,,Newton,TX-607,Texas Balance of State (BoS) CoC
+TX,,Nolan,TX-607,Texas Balance of State (BoS) CoC
+TX,,Nueces,TX-607,Texas Balance of State (BoS) CoC
+TX,,Ochiltree,TX-607,Texas Balance of State (BoS) CoC
+TX,,Oldham,TX-607,Texas Balance of State (BoS) CoC
+TX,,Orange,TX-607,Texas Balance of State (BoS) CoC
+TX,,Palo Pinto,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Panola,TX-607,Texas Balance of State (BoS) CoC
+TX,,Parker,TX-601,Fort Worth/Arlington/Tarrant County CoC
+TX,,Parmer,TX-607,Texas Balance of State (BoS) CoC
+TX,,Pecos,TX-607,Texas Balance of State (BoS) CoC
+TX,,Polk,TX-607,Texas Balance of State (BoS) CoC
+TX,,Potter,TX-607,Texas Balance of State (BoS) CoC
+TX,,Presidio,TX-607,Texas Balance of State (BoS) CoC
+TX,,Rains,TX-607,Texas Balance of State (BoS) CoC
+TX,,Randall,TX-607,Texas Balance of State (BoS) CoC
+TX,,Reagan,TX-607,Texas Balance of State (BoS) CoC
+TX,,Real,TX-607,Texas Balance of State (BoS) CoC
+TX,,Red River,TX-607,Texas Balance of State (BoS) CoC
+TX,,Reeves,TX-607,Texas Balance of State (BoS) CoC
+TX,,Refugio,TX-607,Texas Balance of State (BoS) CoC
+TX,,Roberts,TX-607,Texas Balance of State (BoS) CoC
+TX,,Robertson,TX-701,Bryan/College Station/Brazos Valley CoC
+TX,,Rockwall,TX-607,Texas Balance of State (BoS) CoC
+TX,,Runnels,TX-607,Texas Balance of State (BoS) CoC
+TX,,Rusk,TX-607,Texas Balance of State (BoS) CoC
+TX,,Sabine,TX-607,Texas Balance of State (BoS) CoC
+TX,,San Augustine,TX-607,Texas Balance of State (BoS) CoC
+TX,,San Jacinto,TX-607,Texas Balance of State (BoS) CoC
+TX,,San Patricio,TX-607,Texas Balance of State (BoS) CoC
+TX,,San Saba,TX-607,Texas Balance of State (BoS) CoC
+TX,,Schleicher,TX-607,Texas Balance of State (BoS) CoC
+TX,,Scurry,TX-607,Texas Balance of State (BoS) CoC
+TX,,Shackelford,TX-607,Texas Balance of State (BoS) CoC
+TX,,Shelby,TX-607,Texas Balance of State (BoS) CoC
+TX,,Sherman,TX-607,Texas Balance of State (BoS) CoC
+TX,,Smith,TX-607,Texas Balance of State (BoS) CoC
+TX,,Somervell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Starr,TX-607,Texas Balance of State (BoS) CoC
+TX,,Stephens,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Sterling,TX-607,Texas Balance of State (BoS) CoC
+TX,,Stonewall,TX-607,Texas Balance of State (BoS) CoC
+TX,,Sutton,TX-607,Texas Balance of State (BoS) CoC
+TX,,Swisher,TX-607,Texas Balance of State (BoS) CoC
+TX,,Tarrant,TX-601,Fort Worth/Arlington/Tarrant County CoC
+TX,,Taylor,TX-607,Texas Balance of State (BoS) CoC
+TX,,Terrell,TX-607,Texas Balance of State (BoS) CoC
+TX,,Terry,TX-607,Texas Balance of State (BoS) CoC
+TX,,Throckmorton,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Titus,TX-607,Texas Balance of State (BoS) CoC
+TX,,Tom Green,TX-607,Texas Balance of State (BoS) CoC
+TX,,Travis,TX-503,Austin/Travis County CoC
+TX,,Trinity,TX-607,Texas Balance of State (BoS) CoC
+TX,,Tyler,TX-607,Texas Balance of State (BoS) CoC
+TX,,Upshur,TX-607,Texas Balance of State (BoS) CoC
+TX,,Upton,TX-607,Texas Balance of State (BoS) CoC
+TX,,Uvalde,TX-607,Texas Balance of State (BoS) CoC
+TX,,Val Verde,TX-607,Texas Balance of State (BoS) CoC
+TX,,Van Zandt,TX-607,Texas Balance of State (BoS) CoC
+TX,,Victoria,TX-607,Texas Balance of State (BoS) CoC
+TX,,Walker,TX-607,Texas Balance of State (BoS) CoC
+TX,,Waller,TX-607,Texas Balance of State (BoS) CoC
+TX,,Ward,TX-607,Texas Balance of State (BoS) CoC
+TX,,Washington,TX-607,Texas Balance of State (BoS) CoC
+TX,,Webb,TX-607,Texas Balance of State (BoS) CoC
+TX,,Wharton,TX-607,Texas Balance of State (BoS) CoC
+TX,,Wheeler,TX-607,Texas Balance of State (BoS) CoC
+TX,,Wichita,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Wilbarger,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Willacy,TX-607,Texas Balance of State (BoS) CoC
+TX,,Williamson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Wilson,TX-607,Texas Balance of State (BoS) CoC
+TX,,Winkler,TX-607,Texas Balance of State (BoS) CoC
+TX,,Wise,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Wood,TX-607,Texas Balance of State (BoS) CoC
+TX,,Yoakum,TX-607,Texas Balance of State (BoS) CoC
+TX,,Young,TX-624,"Wichita Falls/Wise, Palo Pinto, Wichita, Archer Counties CoC"
+TX,,Zapata,TX-607,Texas Balance of State (BoS) CoC
+TX,,Zavala,TX-607,Texas Balance of State (BoS) CoC
+UT,,Beaver,UT-503,Utah Balance of State CoC
+UT,,Box Elder,UT-503,Utah Balance of State CoC
+UT,,Cache,UT-503,Utah Balance of State CoC
+UT,,Carbon,UT-503,Utah Balance of State CoC
+UT,,Daggett,UT-503,Utah Balance of State CoC
+UT,,Davis,UT-503,Utah Balance of State CoC
+UT,,Duchesne,UT-503,Utah Balance of State CoC
+UT,,Emery,UT-503,Utah Balance of State CoC
+UT,,Garfield,UT-503,Utah Balance of State CoC
+UT,,Grand,UT-503,Utah Balance of State CoC
+UT,,Iron,UT-503,Utah Balance of State CoC
+UT,,Juab,UT-503,Utah Balance of State CoC
+UT,,Kane,UT-503,Utah Balance of State CoC
+UT,,Millard,UT-503,Utah Balance of State CoC
+UT,,Morgan,UT-503,Utah Balance of State CoC
+UT,,Piute,UT-503,Utah Balance of State CoC
+UT,,Rich,UT-503,Utah Balance of State CoC
+UT,,Salt Lake,UT-500,Salt Lake City & County CoC
+UT,,San Juan,UT-503,Utah Balance of State CoC
+UT,,Sanpete,UT-503,Utah Balance of State CoC
+UT,,Sevier,UT-503,Utah Balance of State CoC
+UT,,Summit,UT-504,Provo/Mountainland CoC
+UT,,Tooele,UT-503,Utah Balance of State CoC
+UT,,Uintah,UT-503,Utah Balance of State CoC
+UT,,Utah,UT-504,Provo/Mountainland CoC
+UT,,Wasatch,UT-504,Provo/Mountainland CoC
+UT,,Washington,UT-503,Utah Balance of State CoC
+UT,,Wayne,UT-503,Utah Balance of State CoC
+UT,,Weber,UT-503,Utah Balance of State CoC
+VA,,Accomack,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Albemarle,VA-504,Charlottesville CoC
+VA,,Alleghany,VA-502,Roanoke City & County/Salem CoC
+VA,,Amelia,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Amherst,VA-508,Lynchburg CoC
+VA,,Appomattox,VA-508,Lynchburg CoC
+VA,,Arlington,VA-600,Arlington County CoC
+VA,,Augusta,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Bath,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Bedford,VA-508,Lynchburg CoC
+VA,,Bland,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Botetourt,VA-502,Roanoke City & County/Salem CoC
+VA,,Brunswick,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Buchanan,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Buckingham,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Campbell,VA-508,Lynchburg CoC
+VA,,Caroline,VA-514,"Fredericksburg/Spotsylvania, Stafford Counties CoC"
+VA,,Carroll,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Charles City,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,Charlotte,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Chesterfield,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,City of Alexandria,VA-603,City of Alexandria CoC
+VA,,City of Bristol,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Buena Vista,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Charlottesville,VA-504,Charlottesville CoC
+VA,,City of Chesapeake,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC"
+VA,,City of Colonial Heights,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Covington,VA-502,Roanoke City & County/Salem CoC
+VA,,City of Danville,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Emporia,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Fairfax,VA-601,Fairfax County CoC
+VA,,City of Falls Church,VA-600,Arlington County CoC
+VA,,City of Franklin,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC"
+VA,,City of Fredericksburg,VA-514,"Fredericksburg/Spotsylvania, Stafford Counties CoC"
+VA,,City of Galax,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Hampton,VA-505,Newport News/Hampton/Virginia Peninsula CoC
+VA,,City of Harrisonburg,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,City of Hopewell,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Lexington,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Lynchburg,VA-508,Lynchburg CoC
+VA,,City of Manassas,VA-604,Prince William County CoC
+VA,,City of Manassas Park,VA-604,Prince William County CoC
+VA,,City of Martinsville,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Newport News,VA-505,Newport News/Hampton/Virginia Peninsula CoC
+VA,,City of Norfolk,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC"
+VA,,City of Norton,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Petersburg,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Poquoson,VA-505,Newport News/Hampton/Virginia Peninsula CoC
+VA,,City of Portsmouth,VA-507,Portsmouth CoC
+VA,,City of Radford,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Richmond,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,City of Roanoke,VA-502,Roanoke City & County/Salem CoC
+VA,,City of Salem,VA-502,Roanoke City & County/Salem CoC
+VA,,City of Staunton,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Suffolk,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC"
+VA,,City of Virginia Beach,VA-503,Virginia Beach CoC
+VA,,City of Waynesboro,VA-521,Virginia Balance of State (BoS) CoC
+VA,,City of Williamsburg,VA-505,Newport News/Hampton/Virginia Peninsula CoC
+VA,,City of Winchester,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Clarke,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Craig,VA-502,Roanoke City & County/Salem CoC
+VA,,Culpeper,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Cumberland,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Dickenson,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Dinwiddie,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Essex,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Fairfax,VA-601,Fairfax County CoC
+VA,,Fauquier,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Floyd,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Fluvanna,VA-504,Charlottesville CoC
+VA,,Franklin,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Frederick,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Giles,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Gloucester,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Goochland,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,Grayson,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Greene,VA-504,Charlottesville CoC
+VA,,Greensville,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Halifax,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Hanover,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,Henrico,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,Henry,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Highland,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Isle Of Wight,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC"
+VA,,James City,VA-505,Newport News/Hampton/Virginia Peninsula CoC
+VA,,King And Queen,VA-521,Virginia Balance of State (BoS) CoC
+VA,,King George,VA-514,"Fredericksburg/Spotsylvania, Stafford Counties CoC"
+VA,,King William,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Lancaster,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Lee,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Loudoun,VA-602,Loudoun County CoC
+VA,,Louisa,VA-504,Charlottesville CoC
+VA,,Lunenburg,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Madison,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Mathews,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Mecklenburg,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Middlesex,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Montgomery,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Nelson,VA-504,Charlottesville CoC
+VA,,New Kent,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,Northampton,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Northumberland,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Nottoway,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Orange,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Page,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Patrick,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Pittsylvania,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Powhatan,VA-500,"Richmond/Henrico, Chesterfield, Hanover Counties CoC"
+VA,,Prince Edward,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Prince George,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Prince William,VA-604,Prince William County CoC
+VA,,Pulaski,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Rappahannock,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Richmond,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Roanoke,VA-502,Roanoke City & County/Salem CoC
+VA,,Rockbridge,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Rockingham,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Russell,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Scott,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Shenandoah,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Smyth,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Southampton,VA-501,"Norfolk/Chesapeake/Suffolk/Isle of Wright, Southampton Counties CoC"
+VA,,Spotsylvania,VA-514,"Fredericksburg/Spotsylvania, Stafford Counties CoC"
+VA,,Stafford,VA-514,"Fredericksburg/Spotsylvania, Stafford Counties CoC"
+VA,,Surry,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Sussex,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Tazewell,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Warren,VA-513,"Harrisburg, Winchester/Western Virginia CoC"
+VA,,Washington,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Westmoreland,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Wise,VA-521,Virginia Balance of State (BoS) CoC
+VA,,Wythe,VA-521,Virginia Balance of State (BoS) CoC
+VA,,York,VA-505,Newport News/Hampton/Virginia Peninsula CoC
+VT,,Addison,VT-500,Vermont Balance of State CoC
+VT,,Bennington,VT-500,Vermont Balance of State CoC
+VT,,Caledonia,VT-500,Vermont Balance of State CoC
+VT,,Chittenden,VT-501,Burlington/Chittenden County CoC
+VT,,Essex,VT-500,Vermont Balance of State CoC
+VT,,Franklin,VT-500,Vermont Balance of State CoC
+VT,,Grand Isle,VT-500,Vermont Balance of State CoC
+VT,,Lamoille,VT-500,Vermont Balance of State CoC
+VT,,Orange,VT-500,Vermont Balance of State CoC
+VT,,Orleans,VT-500,Vermont Balance of State CoC
+VT,,Rutland,VT-500,Vermont Balance of State CoC
+VT,,Washington,VT-500,Vermont Balance of State CoC
+VT,,Windham,VT-500,Vermont Balance of State CoC
+VT,,Windsor,VT-500,Vermont Balance of State CoC
+WA,,Adams,WA-501,Washington Balance of State CoC
+WA,,Asotin,WA-501,Washington Balance of State CoC
+WA,,Benton,WA-501,Washington Balance of State CoC
+WA,,Chelan,WA-501,Washington Balance of State CoC
+WA,,Clallam,WA-501,Washington Balance of State CoC
+WA,,Clark,WA-508,Vancouver/Clark County CoC
+WA,,Columbia,WA-501,Washington Balance of State CoC
+WA,,Cowlitz,WA-501,Washington Balance of State CoC
+WA,,Douglas,WA-501,Washington Balance of State CoC
+WA,,Ferry,WA-501,Washington Balance of State CoC
+WA,,Franklin,WA-501,Washington Balance of State CoC
+WA,,Garfield,WA-501,Washington Balance of State CoC
+WA,,Grant,WA-501,Washington Balance of State CoC
+WA,,Grays Harbor,WA-501,Washington Balance of State CoC
+WA,,Island,WA-501,Washington Balance of State CoC
+WA,,Jefferson,WA-501,Washington Balance of State CoC
+WA,,King,WA-500,Seattle/King County CoC
+WA,,Kitsap,WA-501,Washington Balance of State CoC
+WA,,Kittitas,WA-501,Washington Balance of State CoC
+WA,,Klickitat,WA-501,Washington Balance of State CoC
+WA,,Lewis,WA-501,Washington Balance of State CoC
+WA,,Lincoln,WA-501,Washington Balance of State CoC
+WA,,Mason,WA-501,Washington Balance of State CoC
+WA,,Okanogan,WA-501,Washington Balance of State CoC
+WA,,Pacific,WA-501,Washington Balance of State CoC
+WA,,Pend Oreille,WA-501,Washington Balance of State CoC
+WA,,Pierce,WA-503,Tacoma/Lakewood/Pierce County CoC
+WA,,San Juan,WA-501,Washington Balance of State CoC
+WA,,Skagit,WA-501,Washington Balance of State CoC
+WA,,Skamania,WA-501,Washington Balance of State CoC
+WA,,Snohomish,WA-504,Everett/Snohomish County CoC
+WA,,Spokane,WA-502,Spokane City & County CoC
+WA,,Stevens,WA-501,Washington Balance of State CoC
+WA,,Thurston,WA-501,Washington Balance of State CoC
+WA,,Wahkiakum,WA-501,Washington Balance of State CoC
+WA,,Walla Walla,WA-501,Washington Balance of State CoC
+WA,,Whatcom,WA-501,Washington Balance of State CoC
+WA,,Whitman,WA-501,Washington Balance of State CoC
+WA,,Yakima,WA-507,Yakima City & County CoC
+WI,,Adams,WI-500,Wisconsin Balance of State CoC
+WI,,Ashland,WI-500,Wisconsin Balance of State CoC
+WI,,Barron,WI-500,Wisconsin Balance of State CoC
+WI,,Bayfield,WI-500,Wisconsin Balance of State CoC
+WI,,Brown,WI-500,Wisconsin Balance of State CoC
+WI,,Buffalo,WI-500,Wisconsin Balance of State CoC
+WI,,Burnett,WI-500,Wisconsin Balance of State CoC
+WI,,Calumet,WI-500,Wisconsin Balance of State CoC
+WI,,Chippewa,WI-500,Wisconsin Balance of State CoC
+WI,,Clark,WI-500,Wisconsin Balance of State CoC
+WI,,Columbia,WI-500,Wisconsin Balance of State CoC
+WI,,Crawford,WI-500,Wisconsin Balance of State CoC
+WI,,Dane,WI-503,Madison/Dane County CoC
+WI,,Dodge,WI-500,Wisconsin Balance of State CoC
+WI,,Door,WI-500,Wisconsin Balance of State CoC
+WI,,Douglas,WI-500,Wisconsin Balance of State CoC
+WI,,Dunn,WI-500,Wisconsin Balance of State CoC
+WI,,Eau Claire,WI-500,Wisconsin Balance of State CoC
+WI,,Florence,WI-500,Wisconsin Balance of State CoC
+WI,,Fond Du Lac,WI-500,Wisconsin Balance of State CoC
+WI,,Forest,WI-500,Wisconsin Balance of State CoC
+WI,,Grant,WI-500,Wisconsin Balance of State CoC
+WI,,Green,WI-500,Wisconsin Balance of State CoC
+WI,,Green Lake,WI-500,Wisconsin Balance of State CoC
+WI,,Iowa,WI-500,Wisconsin Balance of State CoC
+WI,,Iron,WI-500,Wisconsin Balance of State CoC
+WI,,Jackson,WI-500,Wisconsin Balance of State CoC
+WI,,Jefferson,WI-500,Wisconsin Balance of State CoC
+WI,,Juneau,WI-500,Wisconsin Balance of State CoC
+WI,,Kenosha,WI-500,Wisconsin Balance of State CoC
+WI,,Kewaunee,WI-500,Wisconsin Balance of State CoC
+WI,,La Crosse,WI-500,Wisconsin Balance of State CoC
+WI,,Lafayette,WI-500,Wisconsin Balance of State CoC
+WI,,Langlade,WI-500,Wisconsin Balance of State CoC
+WI,,Lincoln,WI-500,Wisconsin Balance of State CoC
+WI,,Manitowoc,WI-500,Wisconsin Balance of State CoC
+WI,,Marathon,WI-500,Wisconsin Balance of State CoC
+WI,,Marinette,WI-500,Wisconsin Balance of State CoC
+WI,,Marquette,WI-500,Wisconsin Balance of State CoC
+WI,,Menominee,WI-500,Wisconsin Balance of State CoC
+WI,,Milwaukee,WI-501,Milwaukee City & County CoC
+WI,,Monroe,WI-500,Wisconsin Balance of State CoC
+WI,,Oconto,WI-500,Wisconsin Balance of State CoC
+WI,,Oneida,WI-500,Wisconsin Balance of State CoC
+WI,,Outagamie,WI-500,Wisconsin Balance of State CoC
+WI,,Ozaukee,WI-500,Wisconsin Balance of State CoC
+WI,,Pepin,WI-500,Wisconsin Balance of State CoC
+WI,,Pierce,WI-500,Wisconsin Balance of State CoC
+WI,,Polk,WI-500,Wisconsin Balance of State CoC
+WI,,Portage,WI-500,Wisconsin Balance of State CoC
+WI,,Price,WI-500,Wisconsin Balance of State CoC
+WI,,Racine,WI-502,Racine City & County CoC
+WI,,Richland,WI-500,Wisconsin Balance of State CoC
+WI,,Rock,WI-500,Wisconsin Balance of State CoC
+WI,,Rusk,WI-500,Wisconsin Balance of State CoC
+WI,,Sauk,WI-500,Wisconsin Balance of State CoC
+WI,,Sawyer,WI-500,Wisconsin Balance of State CoC
+WI,,Shawano,WI-500,Wisconsin Balance of State CoC
+WI,,Sheboygan,WI-500,Wisconsin Balance of State CoC
+WI,,Saint Croix,WI-500,Wisconsin Balance of State CoC
+WI,,Taylor,WI-500,Wisconsin Balance of State CoC
+WI,,Trempealeau,WI-500,Wisconsin Balance of State CoC
+WI,,Vernon,WI-500,Wisconsin Balance of State CoC
+WI,,Vilas,WI-500,Wisconsin Balance of State CoC
+WI,,Walworth,WI-500,Wisconsin Balance of State CoC
+WI,,Washburn,WI-500,Wisconsin Balance of State CoC
+WI,,Washington,WI-500,Wisconsin Balance of State CoC
+WI,,Waukesha,WI-500,Wisconsin Balance of State CoC
+WI,,Waupaca,WI-500,Wisconsin Balance of State CoC
+WI,,Waushara,WI-500,Wisconsin Balance of State CoC
+WI,,Winnebago,WI-500,Wisconsin Balance of State CoC
+WI,,Wood,WI-500,Wisconsin Balance of State CoC
+WV,,Barbour,WV-508,West Virginia Balance of State CoC
+WV,,Berkeley,WV-508,West Virginia Balance of State CoC
+WV,,Boone,WV-503,"Charleston/Kanawha, Putnam, Boone, Clay Counties CoC"
+WV,,Braxton,WV-508,West Virginia Balance of State CoC
+WV,,Brooke,WV-500,Wheeling/Weirton Area CoC
+WV,,Cabell,WV-501,"Huntington/Cabell, Wayne Counties CoC"
+WV,,Calhoun,WV-508,West Virginia Balance of State CoC
+WV,,Clay,WV-503,"Charleston/Kanawha, Putnam, Boone, Clay Counties CoC"
+WV,,Doddridge,WV-508,West Virginia Balance of State CoC
+WV,,Fayette,WV-508,West Virginia Balance of State CoC
+WV,,Gilmer,WV-508,West Virginia Balance of State CoC
+WV,,Grant,WV-508,West Virginia Balance of State CoC
+WV,,Greenbrier,WV-508,West Virginia Balance of State CoC
+WV,,Hampshire,WV-508,West Virginia Balance of State CoC
+WV,,Hancock,WV-500,Wheeling/Weirton Area CoC
+WV,,Hardy,WV-508,West Virginia Balance of State CoC
+WV,,Harrison,WV-508,West Virginia Balance of State CoC
+WV,,Jackson,WV-508,West Virginia Balance of State CoC
+WV,,Jefferson,WV-508,West Virginia Balance of State CoC
+WV,,Kanawha,WV-503,"Charleston/Kanawha, Putnam, Boone, Clay Counties CoC"
+WV,,Lewis,WV-508,West Virginia Balance of State CoC
+WV,,Lincoln,WV-508,West Virginia Balance of State CoC
+WV,,Logan,WV-508,West Virginia Balance of State CoC
+WV,,Marion,WV-508,West Virginia Balance of State CoC
+WV,,Marshall,WV-500,Wheeling/Weirton Area CoC
+WV,,Mason,WV-508,West Virginia Balance of State CoC
+WV,,Mcdowell,WV-508,West Virginia Balance of State CoC
+WV,,Mercer,WV-508,West Virginia Balance of State CoC
+WV,,Mineral,WV-508,West Virginia Balance of State CoC
+WV,,Mingo,WV-508,West Virginia Balance of State CoC
+WV,,Monongalia,WV-508,West Virginia Balance of State CoC
+WV,,Monroe,WV-508,West Virginia Balance of State CoC
+WV,,Morgan,WV-508,West Virginia Balance of State CoC
+WV,,Nicholas,WV-508,West Virginia Balance of State CoC
+WV,,Ohio,WV-500,Wheeling/Weirton Area CoC
+WV,,Pendleton,WV-508,West Virginia Balance of State CoC
+WV,,Pleasants,WV-508,West Virginia Balance of State CoC
+WV,,Pocahontas,WV-508,West Virginia Balance of State CoC
+WV,,Preston,WV-508,West Virginia Balance of State CoC
+WV,,Putnam,WV-503,"Charleston/Kanawha, Putnam, Boone, Clay Counties CoC"
+WV,,Raleigh,WV-508,West Virginia Balance of State CoC
+WV,,Randolph,WV-508,West Virginia Balance of State CoC
+WV,,Ritchie,WV-508,West Virginia Balance of State CoC
+WV,,Roane,WV-508,West Virginia Balance of State CoC
+WV,,Summers,WV-508,West Virginia Balance of State CoC
+WV,,Taylor,WV-508,West Virginia Balance of State CoC
+WV,,Tucker,WV-508,West Virginia Balance of State CoC
+WV,,Tyler,WV-508,West Virginia Balance of State CoC
+WV,,Upshur,WV-508,West Virginia Balance of State CoC
+WV,,Wayne,WV-501,"Huntington/Cabell, Wayne Counties CoC"
+WV,,Webster,WV-508,West Virginia Balance of State CoC
+WV,,Wetzel,WV-500,Wheeling/Weirton Area CoC
+WV,,Wirt,WV-508,West Virginia Balance of State CoC
+WV,,Wood,WV-508,West Virginia Balance of State CoC
+WV,,Wyoming,WV-508,West Virginia Balance of State CoC
+WY,,Albany,WY-500,Wyoming Statewide CoC
+WY,,Big Horn,WY-500,Wyoming Statewide CoC
+WY,,Campbell,WY-500,Wyoming Statewide CoC
+WY,,Carbon,WY-500,Wyoming Statewide CoC
+WY,,Converse,WY-500,Wyoming Statewide CoC
+WY,,Crook,WY-500,Wyoming Statewide CoC
+WY,,Fremont,WY-500,Wyoming Statewide CoC
+WY,,Goshen,WY-500,Wyoming Statewide CoC
+WY,,Hot Springs,WY-500,Wyoming Statewide CoC
+WY,,Johnson,WY-500,Wyoming Statewide CoC
+WY,,Laramie,WY-500,Wyoming Statewide CoC
+WY,,Lincoln,WY-500,Wyoming Statewide CoC
+WY,,Natrona,WY-500,Wyoming Statewide CoC
+WY,,Niobrara,WY-500,Wyoming Statewide CoC
+WY,,Park,WY-500,Wyoming Statewide CoC
+WY,,Platte,WY-500,Wyoming Statewide CoC
+WY,,Sheridan,WY-500,Wyoming Statewide CoC
+WY,,Sublette,WY-500,Wyoming Statewide CoC
+WY,,Sweetwater,WY-500,Wyoming Statewide CoC
+WY,,Teton,WY-500,Wyoming Statewide CoC
+WY,,Uinta,WY-500,Wyoming Statewide CoC
+WY,,Washakie,WY-500,Wyoming Statewide CoC
+WY,,Weston,WY-500,Wyoming Statewide CoC
+AK,,Valdez Cordova,AK-501,Alaska Balance of State CoC
+MI,,Gratiot,MI-500,Michigan Balance of State CoC
+MI,,Houghton,MI-500,Michigan Balance of State CoC
+MI,,Huron,MI-500,Michigan Balance of State CoC
+MI,,Hillsdale,MI-500,Michigan Balance of State CoC
+PR,,Adjuntas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Aguada,PR-503,South-Southeast Puerto Rico CoC
+PR,,Aguadilla,PR-503,South-Southeast Puerto Rico CoC
+PR,,Maricao,PR-503,South-Southeast Puerto Rico CoC
+PR,,Anasco,PR-503,South-Southeast Puerto Rico CoC
+PR,,Utuado,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Arecibo,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Barceloneta,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Cabo Rojo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Penuelas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Camuy,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Lares,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,San German,PR-503,South-Southeast Puerto Rico CoC
+PR,,Sabana Grande,PR-503,South-Southeast Puerto Rico CoC
+PR,,Ciales,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Dorado,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Guanica,PR-503,South-Southeast Puerto Rico CoC
+PR,,Florida,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Guayanilla,PR-503,South-Southeast Puerto Rico CoC
+PR,,Hatillo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Hormigueros,PR-503,South-Southeast Puerto Rico CoC
+PR,,Isabela,PR-503,South-Southeast Puerto Rico CoC
+PR,,Jayuya,PR-503,South-Southeast Puerto Rico CoC
+PR,,Lajas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Las Marias,PR-503,South-Southeast Puerto Rico CoC
+PR,,Manati,PR-503,South-Southeast Puerto Rico CoC
+PR,,Moca,PR-503,South-Southeast Puerto Rico CoC
+PR,,Rincon,PR-503,South-Southeast Puerto Rico CoC
+PR,,Quebradillas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Mayaguez,PR-503,South-Southeast Puerto Rico CoC
+PR,,San Sebastian,PR-503,South-Southeast Puerto Rico CoC
+PR,,Morovis,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Vega Alta,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Vega Baja,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Yauco,PR-503,South-Southeast Puerto Rico CoC
+PR,,Aguas Buenas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Salinas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Aibonito,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Maunabo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Arroyo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Ponce,PR-503,South-Southeast Puerto Rico CoC
+PR,,Naguabo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Naranjito,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Orocovis,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Rio Grande,PR-503,South-Southeast Puerto Rico CoC
+PR,,Patillas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Caguas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Canavanas,PR-503,South-Southeast Puerto Rico CoC
+PR,,Ceiba,PR-503,South-Southeast Puerto Rico CoC
+PR,,Cayey,PR-503,South-Southeast Puerto Rico CoC
+PR,,Fajardo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Cidra,PR-503,South-Southeast Puerto Rico CoC
+PR,,Humacao,PR-503,South-Southeast Puerto Rico CoC
+PR,,San Lorenzo,PR-503,South-Southeast Puerto Rico CoC
+PR,,San Isabel,PR-503,South-Southeast Puerto Rico CoC
+PR,,Vieques,PR-503,South-Southeast Puerto Rico CoC
+PR,,Villalba,PR-503,South-Southeast Puerto Rico CoC
+PR,,Yabucoa,PR-503,South-Southeast Puerto Rico CoC
+PR,,Coamo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Las Piedras,PR-503,South-Southeast Puerto Rico CoC
+PR,,Loiza,PR-503,South-Southeast Puerto Rico CoC
+PR,,Luquillo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Culebra,PR-503,South-Southeast Puerto Rico CoC
+PR,,Juncos,PR-503,South-Southeast Puerto Rico CoC
+PR,,Gurabo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Comerio,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Corozal,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Guayama,PR-503,South-Southeast Puerto Rico CoC
+PR,,Barranquitas,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Juana Diaz,PR-503,South-Southeast Puerto Rico CoC
+PR,,San Juan,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Guaynabo,PR-503,South-Southeast Puerto Rico CoC
+PR,,Toa Baja,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Toa Alta,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Bayamon,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Catano,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Guynabo,PR-502,Puerto Rico Balance of Commonwealth CoC
+PR,,Trujillo Alto,PR-503,South-Southeast Puerto Rico CoC
+PR,,Carolina,PR-502,Puerto Rico Balance of Commonwealth CoC
+VI,,Saint Thomas,VI-500,Virgin Islands CoC
+VI,,Saint Croix,VI-500,Virgin Islands CoC
+VI,,Saint John,VI-500,Virgin Islands CoC
+VI,,Sain Croix,VI-500,Virgin Islands CoC
+CA,,Alpine,CA-530,"Alpine, Inyo, Mono Counties CoC"
+CA,,Inyo,CA-530,"Alpine, Inyo, Mono Counties CoC"
+CA,,Mono,CA-530,"Alpine, Inyo, Mono Counties CoC"
+GU,,Guam,GU-500,Guam CoC
+AK,,Aleutians West,AK-501,Alaska Balance of State CoC
