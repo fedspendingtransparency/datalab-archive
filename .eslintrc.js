@@ -11,7 +11,8 @@ module.exports = {
         "window": true,
         "document": true,
         "d3": true,
-        "$": true
+        "$": true,
+        "jQuery": true
     },
     // overrides to the Airbnb style follow
     "rules": {

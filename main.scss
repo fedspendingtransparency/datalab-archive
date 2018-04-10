@@ -16,11 +16,11 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
 
 
-$accent-blue: #0C99CD;
+$accent-blue: #007fae;
 $accent-grey: #323A45;
 $shuttle-grey: #62666C;
 $silver: #CCCCCC;
-$button1: #D334BA;
+$button1: #D41EB6;
 $fg-light: rgba(255,255,255,0.5);
 
 /* Basic */
@@ -293,7 +293,7 @@ header.major h2 {
 	background-color: #FFFFFF;
 }
 
-.spotlight > .content > h4 {
+.spotlight > .content > h3 {
 	color: $accent-blue;
 	font-size: 16px;
 	line-height: 19px;
@@ -427,7 +427,7 @@ header.major h2 {
 
 .homepage-get-started {
 	border-radius: 48.5px;
-	background-color: $button1;
+	background-color: #D420B3;
 	font-size: 24px;
 	font-weight: 600;
 	line-height: 58px;
@@ -640,6 +640,7 @@ header.major h2 {
 	margin: 40px 40px 0 0;
 	stroke-width: 2px;
 	stroke: #FFF;
+	cursor: pointer;
 }
 
 .read-more-header {
