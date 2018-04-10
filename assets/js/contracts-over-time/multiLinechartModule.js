@@ -126,6 +126,8 @@ const multiLinechartModule = (function() {
         })
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
         .transition()
         .duration(4000)
         .attr("stroke-dashoffset", "0");
@@ -220,7 +222,13 @@ const multiLinechartModule = (function() {
         .attr("y", -10);
     }
 
-    addLegend("legend-1", Object.keys(data.lineData), lineColor, "right");
+    addLegend(
+      "legend-1", 
+      Object.keys(data.lineData), 
+      lineColor, 
+      "right"
+    );
+
     addLegend(
       "legend-2",
       Object.keys(data.verticalLineData),
