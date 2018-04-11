@@ -72,6 +72,22 @@
 	}
 }
 
+@media (max-width: 1000px) {
+	.competition-in-contracting .summary-item {
+		width: auto;
+		border-right: none !important;
+	}
+
+	.competition-in-contracting #summary {
+		flex-direction: column;
+		line-height: 50px;
+	}
+
+	.viz-container {
+		padding: 0;
+	}
+}
+
 @media (max-width: 787px) {
 	#banner, .how-analysis-container, #main > header {
 		background-attachment: scroll;
@@ -126,6 +142,7 @@
 		width: 100%;
 	}
 
+	/*
 	.mask {
 		display: none;
 	}
@@ -144,6 +161,7 @@
 		padding: 15px 30px;
 		box-sizing: border-box;
 	}
+	*/
 
 	.button-instructions {
 		margin: 25px 0;
