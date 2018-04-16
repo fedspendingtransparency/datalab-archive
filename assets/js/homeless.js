@@ -1517,7 +1517,7 @@ function infographic_yeah() {
             const cocTable = d3.select("#cocTab").append("svg").attr("class","cocTable");
             
             // Initialize accordion
-            d3.select('#tab').append('div').attr('id', 'accordion');
+            // d3.select('#tab').append('div').attr('id', 'accordion');
             initialize_accordion();
 
             function initialize_accordion() {
@@ -1543,23 +1543,7 @@ function infographic_yeah() {
                     .append('div')
                     .attr('class', 'tabcontent')
                     .attr('id', d.coc_name)
-                    .html(get_CFDA(d));
-            }
-
-            function openCoC(evt, cocNAME) {
-                let i,
-                    tabcontent,
-                    tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cocName).style.display = "block";
-                evt.currentTarget.className += " active";
+                    .html(getCoCData(d));
             }
 
             // Initialize Infographic
@@ -1625,49 +1609,7 @@ function infographic_yeah() {
 
             initAccordion(document.getElementById("accordion"));
 
-
-            function zoom(d) {
-                d3.selectAll('.panel').remove();
-
-
-                if (d.depth === 0) {
-                    initialize_accordion();
-                    initialize_infographic();
-                }
-                else {
-                    const accordion = d.children;
-
-                    for (let i = 0; i < accordion.length; i++) {
-                        makeAccordion(accordion[i]);
-                    }
-                    makeInfographic(d.group);
-                }
-
-                initAccordion(document.getElementById("accordion"));
-
-                let kx = w / d.dx,
-                    ky = h / d.dy;
-                x.domain([d.x, d.x + d.dx]);
-                y.domain([d.y, d.y + d.dy]);
-
-                const t = svg.selectAll("g.cell").transition()
-                    .duration(d3.event.altKey ? 7500 : 750)
-                    .attr("transform", (d) => `translate(${x(d.x)},${y(d.y)})`);
-
-                t.select("rect")
-                    .attr("width", (d) => kx * d.dx - 1)
-                    .attr("height", (d) => ky * d.dy - 1);
-
-                t.select("text")
-                    .attr("x", (d) => kx * d.dx / 2)
-                    .attr("y", (d) => ky * d.dy / 2)
-                    .style("opacity", (d) => (kx * d.dx > d.w ? 1 : 0));
-
-                node = d;
-                d3.event.stopPropagation();
-            }
-
-            function get_CFDA(d) {
+            function getCoCData(d) {
                 function filter_cocNum_barChart(cluster) {
                     return cluster.coc_number === d.coc_number;
                 }
@@ -1676,29 +1618,29 @@ function infographic_yeah() {
 
                 return (
                     `<div><h2>Cluster ${dat.group}${dat.coc_name}</h2></div>` +
-        `<div class="flex-container"><div><p>Federal Funding for the Continuum of Care Program</p>` +
-        `<br/><h3>$${dat.CoC_program_funding}</h3>` +
-        `<br/><p>Federal Funding for Other Homlessness Programs</p>` +
-        `<br/><h3>$${dat.Other_program_funding}</div>` +
-        `<div><p id="txt">Population of Homeless: ` + `</p>` +
-        `<br/><p id="txt2">${OtherformatNumber(dat.total_homeless)}</p>` +
-        `<br/><p id="txt">Homeless that are in families: </p>` +
-        `<br/><p id="txt2">${OtherformatNumber(dat.homeless_people_in_families)}</p>` +
-        `<br/><p id="txt">Homeless that are individuals: </p>` +
-        `<br/><p id="txt2">${OtherformatNumber(dat.homeless_individuals)}</p>` +
-        `<br/><p id="txt">Beds Available: </p></div>` +
-        `<div><p id="txt">Population density: PPL. Per Sq. Mi.</p>` +
-        `<br/><p id="txt2">${P3_formatNumber(dat.density)
-        }<br/><p id="txt">Income Avg. For Lowest 20% of Pop.: ` + `</p>` +
-        `<br/><p id="txt2">${formatNumber(dat.weighted_income)}</p>` +
-        `<br/><p id="txt">Rent: Median Gross` + `</p>` +
-        `<br/><p id="txt2">${formatNumber(dat.weighted_estimate_median_gross_rent)}</p>` +
-        `<br/><p id="txt">Rent as a Percent of Income:</p>` +
-        `<br/><p id="txt2">${formatNumber(dat.rent_percent)}</p></div>` +
-        `<div><p id="txt">Land Area: Per Sq. Mile: ` + `</p>` +
-        `<br/><p id="txt2">${P3_formatNumber(dat.land_area)}</p>` +
-        `<br/><p id="txt">Property crime rate:incidents per 100k people ` + `</p>` +
-        `<br><p id="txt2">${P3_formatNumber(dat.Property_crime_rate)}</p></div></div>`
+                    `<div class="flex-container"><div><p>Federal Funding for the Continuum of Care Program</p>` +
+                    `<br/><h3>$${dat.CoC_program_funding}</h3>` +
+                    `<br/><p>Federal Funding for Other Homlessness Programs</p>` +
+                    `<br/><h3>$${dat.Other_program_funding}</div>` +
+                    `<div><p id="txt">Population of Homeless: ` + `</p>` +
+                    `<br/><p id="txt2">${OtherformatNumber(dat.total_homeless)}</p>` +
+                    `<br/><p id="txt">Homeless that are in families: </p>` +
+                    `<br/><p id="txt2">${OtherformatNumber(dat.homeless_people_in_families)}</p>` +
+                    `<br/><p id="txt">Homeless that are individuals: </p>` +
+                    `<br/><p id="txt2">${OtherformatNumber(dat.homeless_individuals)}</p>` +
+                    `<br/><p id="txt">Beds Available: </p></div>` +
+                    `<div><p id="txt">Population density: PPL. Per Sq. Mi.</p>` +
+                    `<br/><p id="txt2">${P3_formatNumber(dat.density)
+                    }<br/><p id="txt">Income Avg. For Lowest 20% of Pop.: ` + `</p>` +
+                    `<br/><p id="txt2">${formatNumber(dat.weighted_income)}</p>` +
+                    `<br/><p id="txt">Rent: Median Gross` + `</p>` +
+                    `<br/><p id="txt2">${formatNumber(dat.weighted_estimate_median_gross_rent)}</p>` +
+                    `<br/><p id="txt">Rent as a Percent of Income:</p>` +
+                    `<br/><p id="txt2">${formatNumber(dat.rent_percent)}</p></div>` +
+                    `<div><p id="txt">Land Area: Per Sq. Mile: ` + `</p>` +
+                    `<br/><p id="txt2">${P3_formatNumber(dat.land_area)}</p>` +
+                    `<br/><p id="txt">Property crime rate:incidents per 100k people ` + `</p>` +
+                    `<br><p id="txt2">${P3_formatNumber(dat.Property_crime_rate)}</p></div></div>`
                 );
             }
             function get_Infographic(d) {
