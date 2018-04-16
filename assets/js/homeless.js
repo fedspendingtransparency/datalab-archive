@@ -502,10 +502,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .append('th')
                                 .text((d) => d);
 
-                            let rows,
-                                row_entries,
-                                row_entries_no_anchor,
-                                row_entries_with_anchor;
+                            let rows;
+                            let row_entries;
+                            let row_entries_no_anchor;
+                            let row_entries_with_anchor;
 
                             // draw table body with rows
                             table.append('tbody');
@@ -1317,14 +1317,14 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             const initial_bar = initial.filter(filter_cfdaAmount);
                             const formatNumber = d3.format('$,');
 
-                            let axisMargin = 5,
-                                x_width = document.getElementById("panel_matrix").offsetWidth - 50,
-                                barHeight = 20,
-                                barPadding = 5,
-                                bar,
-                                scale,
-                                p2_xAxis,
-                                labelWidth = 0;
+                            const axisMargin = 5;
+                            let x_width = document.getElementById("panel_matrix").offsetWidth - 50;
+                            const barHeight = 20;
+                            const barPadding = 5;
+                            let bar;
+                            let scale;
+                            let p2_xAxis;
+                            let labelWidth = 0;
 
                             max = d3.max(initial_bar, (d) => d.fed_funding);
 
@@ -1431,8 +1431,8 @@ function infographic_yeah() {
         h = $('#panel_3b').height() * 0.33,
         x = d3.scale.linear().range([0, w]),
         y = d3.scale.linear().range([0, h]),
-        color = d3.scale.ordinal().range(['#972666', '#37071F', '#EE4D99', '#9C81C4', '#172450', '#6D94DF', '#4F63AC',
-            '#91B9FF', '#C4704B', '#A1B3BF', '#CB6C94']),
+        color = d3.scale.ordinal().range(['#380a6d','#4f0887','#68095f','#8c007c',
+            '#773884','#072f6b','#0a47a0','#166ed8','#064c12','#547f01','#93bc20']),
         root,
         node;
 
@@ -1440,7 +1440,9 @@ function infographic_yeah() {
         .round(false)
         .size([w, h])
         .sticky(true)
-        .value((d) => d.total_homeless);
+        .sort((a,b) => { return a.value - b.value; })
+        .value(function(d) { return d.total_homeless; });
+        // .value((d) => d.total_homeless);
 
     const svg = d3.select("#tree").append("div")
         .attr("class", "chart")
@@ -1452,30 +1454,28 @@ function infographic_yeah() {
         .append("svg:g")
         .attr("transform", "translate(.5,.5)");
 
-    d3.json('/data-lab-data/homeless_cluster.json', (tree_data) => {
-        d3.csv('/data-lab-data/cluster_data.csv', (cluster) => {
+    d3.json('/data-lab-data/homeless_cluster_v2.json', (tree_data) => {
+        d3.csv('/data-lab-data/cluster_data_v2.csv', (cluster) => {
             const formatNumber = d3.format('$,.0f');
             const OtherformatNumber = d3.format(',');
             const P3_formatNumber = d3.format(',.0f');
 
             cluster.forEach((d) => {
                 d.amount = +d.amount;
-                d.days_below_32 = +d.days_below_32;
                 d.density = +d.density;
                 d.estimated_pop_2016 = +d.estimated_pop_2016;
                 d.homeless_individuals = +d.homeless_individuals;
                 d.homeless_people_in_families = +d.homeless_people_in_families;
                 d.land_area = +d.land_area;
-                d.sheltered_homeless = +d.sheltered_homeless;
                 d.total_homeless = +d.total_homeless;
                 d.unsheltered_homeless = +d.unsheltered_homeless;
-                d.weighted_alcohol_dependence_or_abuse = +d.weighted_alcohol_dependence_or_abuse;
-                d.weighted_drug_use = +d.weighted_drug_use;
                 d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent;
                 d.weighted_income = +d.weighted_income;
-                d.weighted_mental_illness = +d.weighted_mental_illness;
                 d.Property_crime_rate = +d.Property_crime_rate;
                 d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
+                d.CoC_program_funding = +d.CoC_program_funding;
+                d.Other_program_funding = +d.Other_program_funding;
+                d.Total_funding = +d.Total_funding;
             });
 
             node = root = tree_data;
@@ -1493,28 +1493,41 @@ function infographic_yeah() {
             cell.append("svg:rect")
                 .attr("width", (d) => d.dx - 1)
                 .attr("height", (d) => d.dy - 1)
-                .style("fill", (d) => color(d.parent.group));
+                .style("fill", (d) => color(d.group));
 
-            d3.select('.chart').on("click", () => {
-                zoom(root);
-            });
-
-            d3.select("select").on("change", function () {
-                treemap.value((this.value === "total_homeless") ? total_homeless : (this.value === "sheltered_homeless") ? sheltered_homeless : (this.value === "unsheltered_homeless") ? ground : unsheltered_homeless).nodes(root);
-                zoom(node);
-            });
-
+            cell.append("svg:text")
+                .attr("x", function(d) {
+                  return d.dx / 2;
+                })
+                .attr("y", function(d) {
+                  return d.dy / 2;
+                })
+                .attr("dy", ".35em")
+                .attr("text-anchor", "middle")
+                .text(function(d) {
+                  return d.name;
+                })
+                .style('font-size', '40px')
+                .style('font-weight','lighter')
+                .style("opacity", function(d) {
+                  d.w = this.getComputedTextLength();
+                  return d.dx > d.w ? 1 : 0;
+                });
+          
+            const cocTable = d3.select("#cocTab").append("svg").attr("class","cocTable");
+            
             // Initialize accordion
             d3.select('#tab').append('div').attr('id', 'accordion');
             initialize_accordion();
 
             function initialize_accordion() {
-                const init_accordion = tree_data.children[0].children;
-
+                const init_accordion = cluster.filter((d) => (d.cluster_final==="1a"));
+                init_accordion.sort((a,b) => { return b.total_homeless - a.total_homeless; })
                 for (let i = 0; i < init_accordion.length; i++) {
                     makeAccordion(init_accordion[i]);
                 }
             }
+
             function makeAccordion(d) {
                 d3.select('#tab')
                     .append('button')
@@ -1562,7 +1575,7 @@ function infographic_yeah() {
             initialize_infographic();
 
             function initialize_infographic() {
-                const init_infographic = tree_data.children[0].group;
+                const init_infographic = cluster.filter()
 
                 makeInfographic(init_infographic);
             }
@@ -1664,9 +1677,9 @@ function infographic_yeah() {
                 return (
                     `<div><h2>Cluster ${dat.group}${dat.coc_name}</h2></div>` +
         `<div class="flex-container"><div><p>Federal Funding for the Continuum of Care Program</p>` +
-        `<br/><h3>$${dat.coc_funding}</h3>` +
+        `<br/><h3>$${dat.CoC_program_funding}</h3>` +
         `<br/><p>Federal Funding for Other Homlessness Programs</p>` +
-        `<br/><h3>$${dat.other_funding}</div>` +
+        `<br/><h3>$${dat.Other_program_funding}</div>` +
         `<div><p id="txt">Population of Homeless: ` + `</p>` +
         `<br/><p id="txt2">${OtherformatNumber(dat.total_homeless)}</p>` +
         `<br/><p id="txt">Homeless that are in families: </p>` +
