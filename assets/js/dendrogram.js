@@ -440,6 +440,11 @@ d3.csv('/data-lab-data/accounts_obligations_revised_180306.csv', (error, newData
             update(d);
             centerNode(d);
         }
+
+        window.Analytics.event({
+            category: 'Federal Account Explorer - Click Node',
+            action: d.name
+        });
     }
 
     root.x0 = viewerHeight / 2;
