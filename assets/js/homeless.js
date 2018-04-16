@@ -1547,8 +1547,8 @@ function infographic_yeah() {
             }
 
             // Initialize Infographic
-            let w2 = $('#panel_3b').width(),
-                h2 = $('#panel_3b').height() * 0.66;
+            let w2 = $('#panel_3b').width();
+            let h2 = $('#panel_3b').height();
 
             d3.select('#infographic').attr('height', h2).attr('width', w2)
                 .append('div')
@@ -1559,9 +1559,9 @@ function infographic_yeah() {
             initialize_infographic();
 
             function initialize_infographic() {
-                const init_infographic = cluster.filter()
+                const init_infographic = cluster.filter((d) => (d.cluster_final==='1a'))
 
-                makeInfographic(init_infographic);
+                makeInfographic(init_infographic[0].cluster_final);
             }
 
             function makeInfographic(d) {
