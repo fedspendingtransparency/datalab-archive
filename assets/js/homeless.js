@@ -1489,7 +1489,15 @@ function infographic_yeah() {
                 .enter().append("svg:g")
                 .attr("class", "cell")
                 .attr("transform", (d) => `translate(${d.x},${d.y})`)
-                .on("click", (d) => zoom(node === d.parent ? root : d.parent));
+                .on("click", (d) => {
+                    let group = d.group
+                    console.log("click d: ",group);
+                    makeInfographic(d.group);
+                    const current = cluster.filter((d) => (d.cluster_final===group));
+                    console.log("current: ",current);
+                    CreateCoCTable(current[0]);
+                    makeSelectionPanel(current);
+                });
 
             cell.append("svg:rect")
                 .attr("width", (d) => d.dx - 1)
@@ -1518,8 +1526,10 @@ function infographic_yeah() {
             const cocTable = d3.select("#cocTab").append("div").attr("class","cocTable");
 
             function makeCoCTableTitle(d){
-                return '<p class="cocTabTitleCluster">Cluster ' + d.cluster + ': </p>' +
+                return '<p class="cocTabTitleCluster" >Cluster ' + d.cluster + ': </p>' +
                 '<p class="cocTabTitleCity">' + d.coc_name + '</p>'
+
+                d3.selectAll('p.cocTabTitleCluster').style("color",(d) => color(d.cluster_final));
             }
 
             function makeCoCTableFund(d){
@@ -1598,11 +1608,11 @@ function infographic_yeah() {
 
             function initializeCoCTable(){
                 const initTable = cluster.filter((d) => (d.cluster_final==="1a"));
-                makeCoCTable(initTable[initTable.length]);
-                makeFundingTable(initTable[initTable.length]);
-                makeInfoTableCol1(initTable[initTable.length]);
-                makeInfoTableCol2(initTable[initTable.length]);
-                makeInfoTableCol3(initTable[initTable.length]);
+                makeCoCTable(initTable[0]);
+                makeFundingTable(initTable[0]);
+                makeInfoTableCol1(initTable[0]);
+                makeInfoTableCol2(initTable[0]);
+                makeInfoTableCol3(initTable[0]);
             }    
 
             initializeCoCTable();
@@ -1628,18 +1638,17 @@ function infographic_yeah() {
             }
 
             function makeSelectionPanel(d) {
-                console.log("makeSelectionPanel: ",d);
-
+                d3.select('.tablinks').remove();
+                
                 d3.select('#tab').append("g")
                     .attr('class', 'tablinks')
                     .selectAll('button')
                     .data(d)
                     .enter()
                     .append('button')
-                    .attr("value",`${d.coc_name}`)
                     .attr("class","cocButton")
+                    .attr('label', (d) => d.coc_name)
                     .attr('position', 'relative')
-                    .attr('background-color', "#E8EAF5")
                     .on('click', d => CreateCoCTable(d));
             }
 
