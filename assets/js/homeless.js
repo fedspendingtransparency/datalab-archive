@@ -1598,11 +1598,11 @@ function infographic_yeah() {
 
             function initializeCoCTable(){
                 const initTable = cluster.filter((d) => (d.cluster_final==="1a"));
-                makeCoCTable(initTable[initTable.length-1]);
-                makeFundingTable(initTable[initTable.length-1]);
-                makeInfoTableCol1(initTable[initTable.length-1]);
-                makeInfoTableCol2(initTable[initTable.length-1]);
-                makeInfoTableCol3(initTable[initTable.length-1]);
+                makeCoCTable(initTable[initTable.length]);
+                makeFundingTable(initTable[initTable.length]);
+                makeInfoTableCol1(initTable[initTable.length]);
+                makeInfoTableCol2(initTable[initTable.length]);
+                makeInfoTableCol3(initTable[initTable.length]);
             }    
 
             initializeCoCTable();
@@ -1611,7 +1611,6 @@ function infographic_yeah() {
                 d3.selectAll(".cocTabInfo").remove();
                 d3.selectAll(".cocTabFund").remove();
                 d3.selectAll(".cocTabTitle").remove();
-                // d3.selectAll("InfoTable").remove();
             
                 makeCoCTable(d);
                 makeFundingTable(d);
@@ -1625,9 +1624,7 @@ function infographic_yeah() {
             function initializeCoCSelection() {
                 const initSelection = cluster.filter((d) => (d.cluster_final==="1a"));
                 initSelection.sort((a,b) => { return b.total_homeless - a.total_homeless; })
-                // for (let i = 0; i < initSelection.length; i++) {
-                    makeSelectionPanel(initSelection);
-                // }
+                makeSelectionPanel(initSelection);
             }
 
             function makeSelectionPanel(d) {
@@ -1639,10 +1636,10 @@ function infographic_yeah() {
                     .data(d)
                     .enter()
                     .append('button')
+                    .attr("value",`${d.coc_name}`)
                     .attr("class","cocButton")
                     .attr('position', 'relative')
                     .attr('background-color', "#E8EAF5")
-                    .html(`<p id="head">${d.coc_name}</p>`)
                     .on('click', d => CreateCoCTable(d));
             }
 
