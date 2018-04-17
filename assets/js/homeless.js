@@ -1634,6 +1634,10 @@ function infographic_yeah() {
                 makeSelectionPanel(initSelection);
             }
 
+            function makeCocTile(d){
+                return `<p>${d.coc_name}</p>`
+            }
+
             function makeSelectionPanel(d) {
                 d3.select('.tablinks').remove();
                 
@@ -1644,9 +1648,14 @@ function infographic_yeah() {
                     .enter()
                     .append('button')
                     .attr("class","cocButton")
-                    .attr('label', (d) => d.coc_name)
+                    // .attr('label', (d) => d.coc_name)
                     .attr('position', 'relative')
-                    .on('click', d => CreateCoCTable(d));
+                    .on('click', d => CreateCoCTable(d))
+                    .append('div')
+                    .attr('class', 'header')
+                    .attr('background-color', "#E8EAF5")
+                    .html((d) => makeCocTile(d));
+
             }
 
             // Initialize Infographic
