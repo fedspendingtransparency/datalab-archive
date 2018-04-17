@@ -1457,10 +1457,11 @@ function infographic_yeah() {
     d3.json('/data-lab-data/homeless_cluster_v2.json', (tree_data) => {
         d3.csv('/data-lab-data/cluster_data_v2.csv', (cluster) => {
             const formatNumber = d3.format('$,.0f');
-            const OtherformatNumber = d3.format(',');
-            const P3_formatNumber = d3.format(',.0f');
+            const OtherformatNumber = d3.format(',.0f');
+            const percentFormat = d3.format(",.1%");	
 
             cluster.forEach((d) => {
+                d.rent_pct_income = +d.rent_pct_income;
                 d.amount = +d.amount;
                 d.density = +d.density;
                 d.estimated_pop_2016 = +d.estimated_pop_2016;
@@ -1514,36 +1515,135 @@ function infographic_yeah() {
                   return d.dx > d.w ? 1 : 0;
                 });
           
-            const cocTable = d3.select("#cocTab").append("svg").attr("class","cocTable");
-            
-            // Initialize accordion
-            // d3.select('#tab').append('div').attr('id', 'accordion');
-            initialize_accordion();
+            const cocTable = d3.select("#cocTab").append("div").attr("class","cocTable");
 
-            function initialize_accordion() {
-                const init_accordion = cluster.filter((d) => (d.cluster_final==="1a"));
-                init_accordion.sort((a,b) => { return b.total_homeless - a.total_homeless; })
-                for (let i = 0; i < init_accordion.length; i++) {
-                    makeAccordion(init_accordion[i]);
-                }
+            function makeCoCTableTitle(d){
+                return '<p class="cocTabTitleCluster">Cluster ' + d.cluster + ': </p>' +
+                '<p class="cocTabTitleCity">' + d.coc_name + '</p>'
             }
 
-            function makeAccordion(d) {
-                d3.select('#tab')
-                    .append('button')
-                    .attr('class', 'tablinks')
-                    .attr('position', 'relative')
-                    .attr('onclick', `openCoC(event, "${d.coc_name}")`)
-                    .append('div')
-                    .attr('class', 'header')
-                    .attr('background-color', "#E8EAF5")
-                    .html(`<p id="head">${d.coc_name}</p3>`);
+            function makeCoCTableFund(d){
+                return '<table class="FundingTable"><tr><th class="fundingTitle">FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>'+
+                '<tr><td class="fundingAmount">' + formatNumber(d.CoC_program_funding) + '</td></tr>' + 
+                '<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>'+
+                '<tr><td class="fundingAmount">' + formatNumber(d.Other_program_funding) + '</td></tr></table>';
+            }
 
-                d3.select('#tab_info')
-                    .append('div')
-                    .attr('class', 'tabcontent')
-                    .attr('id', d.coc_name)
-                    .html(getCoCData(d));
+            function makeCoCTableInfoCol1(d){
+                return '<table class="InfoTable">' + 
+                '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.total_homeless) + '</td></tr>' + 
+                '<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.homeless_people_in_families) + '</td></tr>' +
+                '<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.homeless_individuals) + '</td></tr>' + 
+                '<tr><th class="fundingTitle">BEDS AVAILABLE:</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.Total_Year_Round_Beds) + '</td></tr></table>';
+            }
+
+            function makeCoCTableInfoCol2(d){
+                return '<table class="InfoTable">' + 
+                '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.density) + '</td></tr>' + 
+                '<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>'+
+                '<tr><td class="infoAmount">' + formatNumber(d.weighted_income) + '</td></tr>' +
+                '<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>'+
+                '<tr><td class="infoAmount">' + formatNumber(d.weighted_estimate_median_gross_rent) + '</td></tr>' + 
+                '<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>'+
+                '<tr><td class="infoAmount">' + percentFormat(d.rent_pct_income) + '</td></tr></table>';
+            }
+
+            function makeCoCTableInfoCol3(d){
+                return '<table class="InfoTable">' + 
+                '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.land_area) + '</td></tr>' + 
+                '<tr><th class="fundingTitle">PROPERTY CRIME RATE: PER 100K</th></tr>'+
+                '<tr><td class="infoAmount">' + OtherformatNumber(d.Property_crime_rate) + '</td></tr></table>';
+            }
+
+            function makeCoCTable(d){
+                const cocTabTitle = d3.select(".cocTable")
+                .append("div")
+                .attr("class","cocTabTitle")
+                .html(makeCoCTableTitle(d));
+            }
+
+            function makeFundingTable(d){
+                const cocTabFund = d3.select(".cocTable")
+                .append("div")
+                .attr("class","cocTabFund")
+                .html(makeCoCTableFund(d))
+            }
+
+            function makeInfoTableCol1(d){
+                const cocTabFund = d3.select(".cocTable")
+                .append("div")
+                .attr("class","cocTabInfo")
+                .html(makeCoCTableInfoCol1(d))
+            }
+
+            function makeInfoTableCol2(d){
+                const cocTabFund = d3.select(".cocTable")
+                .append("div")
+                .attr("class","cocTabInfo")
+                .html(makeCoCTableInfoCol2(d))
+            }
+
+            function makeInfoTableCol3(d){
+                const cocTabFund = d3.select(".cocTable")
+                .append("div")
+                .attr("class","cocTabInfo")
+                .html(makeCoCTableInfoCol3(d))
+            }
+
+            function initializeCoCTable(){
+                const initTable = cluster.filter((d) => (d.cluster_final==="1a"));
+                makeCoCTable(initTable[initTable.length-1]);
+                makeFundingTable(initTable[initTable.length-1]);
+                makeInfoTableCol1(initTable[initTable.length-1]);
+                makeInfoTableCol2(initTable[initTable.length-1]);
+                makeInfoTableCol3(initTable[initTable.length-1]);
+            }    
+
+            initializeCoCTable();
+
+            function CreateCoCTable(d){
+                d3.selectAll(".cocTabInfo").remove();
+                d3.selectAll(".cocTabFund").remove();
+                d3.selectAll(".cocTabTitle").remove();
+                // d3.selectAll("InfoTable").remove();
+            
+                makeCoCTable(d);
+                makeFundingTable(d);
+                makeInfoTableCol1(d);
+                makeInfoTableCol2(d);
+                makeInfoTableCol3(d);
+            }    
+
+            initializeCoCSelection();
+
+            function initializeCoCSelection() {
+                const initSelection = cluster.filter((d) => (d.cluster_final==="1a"));
+                initSelection.sort((a,b) => { return b.total_homeless - a.total_homeless; })
+                // for (let i = 0; i < initSelection.length; i++) {
+                    makeSelectionPanel(initSelection);
+                // }
+            }
+
+            function makeSelectionPanel(d) {
+                console.log("makeSelectionPanel: ",d);
+
+                d3.select('#tab').append("g")
+                    .attr('class', 'tablinks')
+                    .selectAll('button')
+                    .data(d)
+                    .enter()
+                    .append('button')
+                    .attr("class","cocButton")
+                    .attr('position', 'relative')
+                    .attr('background-color', "#E8EAF5")
+                    .html(`<p id="head">${d.coc_name}</p>`)
+                    .on('click', d => CreateCoCTable(d));
             }
 
             // Initialize Infographic
@@ -1560,7 +1660,6 @@ function infographic_yeah() {
 
             function initialize_infographic() {
                 const init_infographic = cluster.filter((d) => (d.cluster_final==='1a'))
-
                 makeInfographic(init_infographic[0].cluster_final);
             }
 
@@ -1578,71 +1677,6 @@ function infographic_yeah() {
                     .attr('xlink:href', get_Infographic(d));
             }
 
-            function initAccordion(accordionElem) {
-                // when panel is clicked, handlePanelClick is called.
-
-                function handlePanelClick(event) {
-                    showPanel(event.currentTarget);
-                }
-
-                // Hide currentPanel and show new panel.
-
-                function showPanel(panel) {
-                    // Hide current one. First time it will be null.
-                    const expandedPanel = accordionElem.querySelector(".active");
-                    if (expandedPanel) {
-                        expandedPanel.classList.remove("active");
-                    }
-
-                    // Show new one
-                    panel.classList.add("active");
-                }
-
-                const allPanelElems = accordionElem.querySelectorAll(".panel");
-                for (let i = 0, len = allPanelElems.length; i < len; i++) {
-                    allPanelElems[i].addEventListener("click", handlePanelClick);
-                }
-
-                // By Default Show first panel
-                showPanel(allPanelElems[0]);
-            }
-
-            initAccordion(document.getElementById("accordion"));
-
-            function getCoCData(d) {
-                function filter_cocNum_barChart(cluster) {
-                    return cluster.coc_number === d.coc_number;
-                }
-
-                const dat = cluster.filter(filter_cocNum_barChart)[0];
-
-                return (
-                    `<div><h2>Cluster ${dat.group}${dat.coc_name}</h2></div>` +
-                    `<div class="flex-container"><div><p>Federal Funding for the Continuum of Care Program</p>` +
-                    `<br/><h3>$${dat.CoC_program_funding}</h3>` +
-                    `<br/><p>Federal Funding for Other Homlessness Programs</p>` +
-                    `<br/><h3>$${dat.Other_program_funding}</div>` +
-                    `<div><p id="txt">Population of Homeless: ` + `</p>` +
-                    `<br/><p id="txt2">${OtherformatNumber(dat.total_homeless)}</p>` +
-                    `<br/><p id="txt">Homeless that are in families: </p>` +
-                    `<br/><p id="txt2">${OtherformatNumber(dat.homeless_people_in_families)}</p>` +
-                    `<br/><p id="txt">Homeless that are individuals: </p>` +
-                    `<br/><p id="txt2">${OtherformatNumber(dat.homeless_individuals)}</p>` +
-                    `<br/><p id="txt">Beds Available: </p></div>` +
-                    `<div><p id="txt">Population density: PPL. Per Sq. Mi.</p>` +
-                    `<br/><p id="txt2">${P3_formatNumber(dat.density)
-                    }<br/><p id="txt">Income Avg. For Lowest 20% of Pop.: ` + `</p>` +
-                    `<br/><p id="txt2">${formatNumber(dat.weighted_income)}</p>` +
-                    `<br/><p id="txt">Rent: Median Gross` + `</p>` +
-                    `<br/><p id="txt2">${formatNumber(dat.weighted_estimate_median_gross_rent)}</p>` +
-                    `<br/><p id="txt">Rent as a Percent of Income:</p>` +
-                    `<br/><p id="txt2">${formatNumber(dat.rent_percent)}</p></div>` +
-                    `<div><p id="txt">Land Area: Per Sq. Mile: ` + `</p>` +
-                    `<br/><p id="txt2">${P3_formatNumber(dat.land_area)}</p>` +
-                    `<br/><p id="txt">Property crime rate:incidents per 100k people ` + `</p>` +
-                    `<br><p id="txt2">${P3_formatNumber(dat.Property_crime_rate)}</p></div></div>`
-                );
-            }
             function get_Infographic(d) {
                 if (d === "1a") {
                     return ('/images/homelessness/cluserV2_1a.jpg');

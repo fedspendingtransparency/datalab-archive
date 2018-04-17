@@ -970,14 +970,91 @@
     height: 32%;
     width: 100%;
     position: relative;
-    border: 1px solid black;
+    border: 1px solid #aaaaaa;
   }
 
   .cocTable{
     margin: 0 0 0 0;
-    background-color: red;
     width: 100%;
     height:100%;
+  }
+
+  .cocTabTable{
+    margin: 0 0 0 0;
+    min-width: 100%;
+    min-height: 25%;
+  }
+
+  .cocTabTitle{
+    margin: 0 0 10px 0;
+    min-width: 100%;
+    min-height: 25%;
+  }
+
+  .cocTabTitleCluster{
+    position: absolute;
+    text-align: left;
+    margin: 20px 0 20px 20px;
+    font-size: 34px;
+    font-family: inherit;
+    font-weight: 400;
+    padding: 0 0 0 0;
+  }
+
+  .cocTabTitleCity{
+    position: absolute;
+    text-align: left;
+    margin: 20px 0 20px 200px;
+    font-size: 34px;
+    font-family: inherit;
+    font-weight: lighter;
+  }
+
+  .cocTabFund{
+    position: relative;
+    max-width: 30%;
+    float: left;
+    padding: 0 0 0 15px;
+  }
+
+  .cocTabInfo{
+    position: relative;
+    float: left;
+    padding: 0 0 0 50px;
+    max-height: 70%;
+  }
+
+  .fundingTitle{
+    text-align: left;
+    font-family: inherit;
+    font-size: 10px;
+    padding: 0 10px;
+  }
+
+  .fundingAmount{
+    text-align: left;
+    font-family: inherit;
+    font-size: 52px;
+    font-weight: lighter;
+    padding: 10px 10px;
+  }
+
+  .infoAmount{
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 0 0 0 10px;
+    margin-top: -18px;
+  }
+
+  .InfoTable td { 
+    display: block; 
+  }
+    ​
+  .InfoTable{
+    display: inline-block;
+    position: relative;
   }
 
   #tab_info{
