@@ -1491,10 +1491,8 @@ function infographic_yeah() {
                 .attr("transform", (d) => `translate(${d.x},${d.y})`)
                 .on("click", (d) => {
                     let group = d.group
-                    console.log("click d: ",group);
                     makeInfographic(d.group);
                     const current = cluster.filter((d) => (d.cluster_final===group));
-                    console.log("current: ",current);
                     CreateCoCTable(current[0]);
                     makeSelectionPanel(current);
                 });
@@ -1526,10 +1524,9 @@ function infographic_yeah() {
             const cocTable = d3.select("#cocTab").append("div").attr("class","cocTable");
 
             function makeCoCTableTitle(d){
-                return '<p class="cocTabTitleCluster" >Cluster ' + d.cluster + ': </p>' +
-                '<p class="cocTabTitleCity">' + d.coc_name + '</p>'
-
-                d3.selectAll('p.cocTabTitleCluster').style("color",(d) => color(d.cluster_final));
+                let textColor = color(d.cluster_final);
+                return `<p class="cocTabTitleCluster" style=color:${textColor}>Cluster ` + d.cluster + ': </p>' +
+                '<p class="cocTabTitleCity">' + d.coc_name + '</p>';
             }
 
             function makeCoCTableFund(d){
