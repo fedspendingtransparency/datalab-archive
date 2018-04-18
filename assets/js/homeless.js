@@ -1635,7 +1635,7 @@ function infographic_yeah() {
             }
 
             function makeCocTile(d){
-                return `<p>${d.coc_name}</p>`
+                return `<p class="CocTileTitle">${d.coc_name}</p>`
             }
 
             function makeSelectionPanel(d) {
