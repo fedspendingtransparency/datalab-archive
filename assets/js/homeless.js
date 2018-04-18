@@ -15,6 +15,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             d3.select('#imagebox').remove();
                             d3.selectAll('.panel').remove();
                             d3.selectAll('.chart').remove();
+                            d3.selectAll(".cocTabInfo").remove();
+                            d3.selectAll(".cocTabFund").remove();
+                            d3.selectAll(".cocTabTitle").remove();
+                            // d3.selectAll("").remove();
 
                             GenMap();
                             GenPanelTwo();
