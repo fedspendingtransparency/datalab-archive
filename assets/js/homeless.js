@@ -1415,12 +1415,12 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         }
 
                         function Make_Contact_Table(d) {
-                            return `<h6 style="margin-bottom:0">${d.properties.COCNAME}</h6>` + `<br>` +
-                `<p>` + `<b>Contact information for the Continuum of Care program</b>` + `<br>${
-                                d.properties.CONTACT_TY}<br>` +
-                `Name: ${d.properties.FIRST_NAME} ${d.properties.LAST_NAME}<br>` +
-                `Email: ${d.properties.EMAIL_ADDR}<br>` +
-                `Phone: ${d.properties.PRIMARY_PH}</p>`;
+                            return `<h4 style="margin-bottom:0">${d.properties.COCNAME}</h4>` + `<br>` +
+                            `<p>` + `<b>Contact information for the Continuum of Care program</b>` + 
+                            `<br>${d.properties.CONTACT_TY}<br>` +
+                            `Name: ${d.properties.FIRST_NAME} ${d.properties.LAST_NAME}<br>` +
+                            `Email: ${d.properties.EMAIL_ADDR}<br>` +
+                            `Phone: ${d.properties.PRIMARY_PH}</p>`;
                         }
                     });
                 });
