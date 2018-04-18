@@ -486,8 +486,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('color', '#000');
 
                             d3.select('#viz_container').append('div')
-                                .attr('id', 'table_container')
-                                .style('margin', '10px 0 0 65px');
+                                .attr('id', 'table_container');
 
                             const table = d3.select('#table_container').append('table').attr('id', 'tab');
                             table.append('thead').append('tr');
