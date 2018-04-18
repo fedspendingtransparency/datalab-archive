@@ -17,20 +17,6 @@
     }
   }
 
-
-  // .button {
-  //   background-color: #0071BC;
-  //   border: none;
-  //   color: white;
-  //   padding: 10px 15px;
-  //   text-align: center;
-  //   text-decoration: none;
-  //   display: inline-block;
-  //   font-size: 14px;
-  //   margin: 0;
-  //   cursor: pointer;
-  // }
-
   & div.row {
     margin-left: 0;
     margin-right: 0;
@@ -698,12 +684,6 @@
     overflow: visible;
   }
 
-  .panel-2-container {
-    min-height: 300px;
-    display: flex;
-    justify-content: space-around;
-  }
-
   #myBtnContact {
     margin: auto;
     position: relative;
@@ -714,10 +694,6 @@
   }
 
   @media (max-width: 1000px) {
-    .panel-2-container {
-      flex-direction: column;
-    }
-
     #container2_2 {
       margin-top: 50px;
     }
