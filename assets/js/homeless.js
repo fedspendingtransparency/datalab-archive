@@ -60,7 +60,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         const map_height = panel_2_height / 3;
                         const info_width = panel_2_width - matrix_width - margin.left - margin.right;
                         const info_height = panel_2_height / 3;
-                        let centered = null;
 
                         const map_title = d3.select('#p2_1_title')
                             .append('div')
@@ -323,8 +322,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                             const width = 1000;
                             const height = 600;
-                            centered = null;
-
+                            let centered = null;
+                            
                             // D3 Projection
                             const projection = d3.geo.albersUsa()
                                 .translate([width / 2, height / 2]) // translate to center of screen
@@ -396,60 +395,53 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 })
                                 .style('fill', getColor);
 
-                            function clicked(d) {
-                                let x;
-                                let y;
-                                let k;
-
-                                if (d && centered !== d) {
-                                    const centroid = path.centroid(d);
-                                    x = centroid[0];
-                                    y = centroid[1];
-
-                                    if (d.properties.COCNAME === 'Hawaii Balance of State CoC') {
-                                        k = 6.0;
+                                function clicked(d) {
+                                    var x, y, k;
+                                    
+                                    if (d && centered !== d) {
+                                      var centroid = path.centroid(d)
+                                      x = centroid[0]
+                                      y = centroid[1]
+                                      
+                                      if (d.properties.COCNAME == 'Hawaii Balance of State CoC') {
+                                        k = 6.0
+                                      } else if (d.properties.COCNAME == 'Alaska Balance of State CoC') {
+                                        k = 4.0
+                                      } else if (d.properties.COCNAME == 'Maine Balance of State CoC') {
+                                        k = 5.0
+                                      } else if (d.properties.Shape__Are <= .4) {
+                                        k = 17.0
+                                      } else if (d.properties.Shape__Are > .4 && d.properties.Shape__Are <= 1) {
+                                        k = 14.0
+                                      } else if (d.properties.Shape__Are > 1 && d.properties.Shape__Are <= 5) {
+                                        k = 12.0
+                                      } else if (d.properties.Shape__Are > 5 && d.properties.Shape__Are <= 17) {
+                                        k = 6.0
+                                      } else if (d.properties.Shape__Are > 17 && d.properties.Shape__Are <= 55) {
+                                        k = 3.0
+                                      } else {
+                                        k = 2.0
+                                      };
+                                      centered = d;
+                    
+                                    } else {
+                                      x = width / 2;
+                                      y = height / 2;
+                                      k = 1;
+                                      centered = null;
+                    
                                     }
-                                    else if (d.properties.COCNAME === 'Alaska Balance of State CoC') {
-                                        k = 4.0;
-                                    }
-                                    else if (d.properties.COCNAME === 'Maine Balance of State CoC') {
-                                        k = 5.0;
-                                    }
-                                    else if (d.properties.Shape__Are <= 0.4) {
-                                        k = 17.0;
-                                    }
-                                    else if (d.properties.Shape__Are > 0.4 && d.properties.Shape__Are <= 1) {
-                                        k = 14.0;
-                                    }
-                                    else if (d.properties.Shape__Are > 1 && d.properties.Shape__Are <= 5) {
-                                        k = 12.0;
-                                    }
-                                    else if (d.properties.Shape__Are > 5 && d.properties.Shape__Are <= 17) {
-                                        k = 6.0;
-                                    }
-                                    else if (d.properties.Shape__Are > 17 && d.properties.Shape__Are <= 55) {
-                                        k = 3.0;
-                                    }
-                                    else {
-                                        k = 2.0;
-                                    }
-                                    centered = d;
-                                }
-                                else {
-                                    x = width / 2;
-                                    y = height / 2;
-                                    k = 1;
-                                    centered = null;
-                                }
-
-                                g.selectAll('path')
-                                    .classed('active', centered && ((d) => d === centered));
-
-                                g.transition()
-                                    .duration(750)
-                                    .attr('transform', `translate(${width / 2},${height / 2})scale(${k})translate(${-x},${-y})`)
-                                    .style('stroke-width', `${0.25 / k}px`);
-                            }
+                    
+                                    g.selectAll('path')
+                                      .classed('active', centered && function(d) {
+                                        return d === centered;
+                                      });
+                    
+                                    g.transition()
+                                      .duration(750)
+                                      .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')scale(' + k + ')translate(' + -x + ',' + -y + ')')
+                                      .style('stroke-width', .25 / k + 'px');
+                                  }
                         } // end of GenMap()
 
                         function GenTable() {
