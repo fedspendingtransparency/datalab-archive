@@ -29,6 +29,10 @@ $(() => {
         barchartModuleDraw(cicData, settings, { handleYAxisCheckboxChange });
     });
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     $("#barchartToolbar").change((e) => {
         e.preventDefault();
 
@@ -36,6 +40,11 @@ $(() => {
 
         const xAxisUnit = $('input[name="xAxisUnit"]:checked').val();
         const xAxisScale = $('input[name="xAxisScale"]:checked').val();
+
+        window.Analytics.event({
+            category: 'Competition in Contracting - Panel 1 - Toggle',
+            action: capitalizeFirstLetter(xAxisScale) + " - " + capitalizeFirstLetter(xAxisUnit)
+        });
 
         settings.xAxisScale = xAxisScale;
         settings.xAxisUnit = xAxisUnit;

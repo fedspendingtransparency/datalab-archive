@@ -189,6 +189,11 @@ class SunburstContainer extends Component {
         console.log("something went wrong", { selected });
     }
 
+    window.Analytics.event({
+        category: 'Contract Explorer - Click Node',
+        action: selectedName
+    });
+
     const hierarchy = formatDataHierarchy(filteredData);
     const root = partition.nodes(hierarchy);
     const sunburstFilterByText =

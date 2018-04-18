@@ -185,6 +185,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         // const P3_formatNumber = d3.format(',.0f');
 
                         function bar_click(d) {
+                            window.Analytics.event({
+                                category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
+                                action: d.CFDA_website
+                            });
+
                             window.open(d.CFDA_website);
                         }
 
@@ -397,6 +402,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                 function clicked(d) {
                                     var x, y, k;
+
+                                    window.Analytics.event({
+                                        category: 'Homelessness Analysis - Panel 1 - Double Click CoC',
+                                        action: d.properties.coc_number + " - " + d.properties.COCNAME
+                                    });
                                     
                                     if (d && centered !== d) {
                                       var centroid = path.centroid(d)
@@ -883,6 +893,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .attr('data-name', (d) => d.properties.name)
                                 .attr('d', p2_1_path)
                                 .on('click', (d) => {
+                                    window.Analytics.event({
+                                        category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
+                                        action: d.properties.coc_number + " - " + d.properties.COCNAME
+                                    });
+
                                     BarChart(d);
                                     StateBarChart(d);
                                     createCoCTable(d);

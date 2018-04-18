@@ -59,6 +59,14 @@ $(() => {
         const { employeeCounts, states, occupationCategories } = mem;
         let newData = [...employeeCounts];
 
+        const filterAgenciesName = $("#mapAgencyDropdown option:selected").text();
+        const filterOccupationsName = $("#mapOccupationDropdown option:selected").text();
+
+        window.Analytics.event({
+            category: 'Federal Employees - Panel 2 - Filter',
+            action: filterAgenciesName + " - " + filterOccupationsName
+        });
+
         if (filterAgencies) {
             newData = newData.filter((e) =>
                 filterAgencies.some((a) => e.agencyId === +a)
@@ -96,6 +104,14 @@ $(() => {
     $("#barchartFilter").click(() => {
         const filterStates = $("#barchartStateDropdown").val();
         const filterAgencies = $("#barchartAgencyDropdown").val();
+
+        const filterStatesName = $("#barchartStateDropdown option:selected").text();
+        const filterAgenciesName = $("#barchartAgencyDropdown option:selected").text();
+
+        window.Analytics.event({
+            category: 'Federal Employees - Panel 3 - Filter',
+            action: filterAgenciesName + " - " + filterStatesName
+        });
 
         const { employeeCounts, agencies, occupationCategories } = mem;
         let newData = employeeCounts;
