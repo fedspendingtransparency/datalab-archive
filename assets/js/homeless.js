@@ -1509,6 +1509,7 @@ function infographic_yeah() {
 
             cell.append("svg:rect")
                 .attr("class","rect")
+                .attr("z-index","99")
                 .attr("width", (d) => d.dx - 1)
                 .attr("height", (d) => d.dy - 1)
                 .style("fill", (d) => color(d.group));
@@ -1532,10 +1533,10 @@ function infographic_yeah() {
                   return d.dx > d.w ? 1 : 0;
                 });
             
-            $(".cell ").first().addClass("active");
+            $(".rect ").first().addClass("active");
 
-            $(".cell").click(function(){
-                $(".cell").removeClass("active");
+            $(".rect").click(function(){
+                $(".rect").removeClass("active");
                 $(this).addClass("active");
                 console.log(this)
             });

@@ -945,12 +945,16 @@
     text-decoration: none;
   }
 
-  .cell:hover{
-    fill-opacity: .6;
+  .rect:hover{
+    fill-opacity: .75;
+    stroke-width:3;
+    stroke:#FFF;
   }
 
-  .cell.active, .cell:active{
-    fill-opacity: .6;
+  .rect.active, .rect:active{
+    fill-opacity: .75;
+    stroke-width:3;
+    stroke:#FFF;
   }
 }
 
