@@ -930,18 +930,19 @@
     display: inline-flex;
     align-items: center; 
   }
-  .tab button:last-child {
+  .cocButton:last-child {
     border: none;
   }
   /* Change background color of buttons on hover */
-  .tab button:hover {
+  .cocButton:hover {
     background-color: #ddd;
     color: #525252;
   }
-  /* Create an active/current tablink class */
-  .tab button.active {
-    font-weight: bold;
-    color: #000;
+
+  .cocButton.active, .cocButton:active {
+    background-color: #ddd;
+    color: #525252;
+    text-decoration: none;
   }
 }
 

@@ -1665,9 +1665,22 @@ function infographic_yeah() {
                     .attr('class', 'header')
                     .attr('background-color', "#E8EAF5")
                     .html((d) => makeCocTile(d));
+                    
+                    $(".tablinks > .cocButton").first().addClass("active");
 
+                    $(".tablinks > .cocButton").click(function(){
+                        $(".tablinks > .cocButton").removeClass("active");
+                        $(this).addClass("active");
+                    });
             }
 
+            // $(".tablinks > .cocButton").first().addClass("active");
+
+            // $(".tablinks > .cocButton").click(function(){
+            //     $(".tablinks > .cocButton").removeClass("active");
+            //     $(this).addClass("active");
+            // });
+            
             // Initialize Infographic
             let w2 = $('#panel_3b').width();
             let h2 = $('#panel_3b').height();
