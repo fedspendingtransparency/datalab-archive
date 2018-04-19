@@ -944,6 +944,14 @@
     color: #525252;
     text-decoration: none;
   }
+
+  .cell:hover{
+    fill-opacity: .6;
+  }
+
+  .cell.active, .cell:active{
+    fill-opacity: .6;
+  }
 }
 
 

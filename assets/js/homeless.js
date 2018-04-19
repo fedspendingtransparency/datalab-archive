@@ -1508,6 +1508,7 @@ function infographic_yeah() {
                 });
 
             cell.append("svg:rect")
+                .attr("class","rect")
                 .attr("width", (d) => d.dx - 1)
                 .attr("height", (d) => d.dy - 1)
                 .style("fill", (d) => color(d.group));
@@ -1530,6 +1531,14 @@ function infographic_yeah() {
                   d.w = this.getComputedTextLength();
                   return d.dx > d.w ? 1 : 0;
                 });
+            
+            $(".cell ").first().addClass("active");
+
+            $(".cell").click(function(){
+                $(".cell").removeClass("active");
+                $(this).addClass("active");
+                console.log(this)
+            });
           
             const cocTable = d3.select("#cocTab").append("div").attr("class","cocTable");
 
@@ -1658,7 +1667,6 @@ function infographic_yeah() {
                     .enter()
                     .append('button')
                     .attr("class","cocButton")
-                    // .attr('label', (d) => d.coc_name)
                     .attr('position', 'relative')
                     .on('click', d => CreateCoCTable(d))
                     .append('div')
@@ -1673,13 +1681,6 @@ function infographic_yeah() {
                         $(this).addClass("active");
                     });
             }
-
-            // $(".tablinks > .cocButton").first().addClass("active");
-
-            // $(".tablinks > .cocButton").click(function(){
-            //     $(".tablinks > .cocButton").removeClass("active");
-            //     $(this).addClass("active");
-            // });
             
             // Initialize Infographic
             let w2 = $('#panel_3b').width();
