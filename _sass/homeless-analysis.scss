@@ -945,13 +945,13 @@
     text-decoration: none;
   }
 
-  .rect:hover{
+  .cell:hover{
     fill-opacity: .75;
     stroke-width:3;
     stroke:#FFF;
   }
 
-  .rect.active, .rect:active{
+  .cell.active, .cell:active{
     fill-opacity: .75;
     stroke-width:3;
     stroke:#FFF;

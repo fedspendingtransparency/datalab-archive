@@ -1533,10 +1533,10 @@ function infographic_yeah() {
                   return d.dx > d.w ? 1 : 0;
                 });
             
-            $(".rect ").first().addClass("active");
+            $(".cell ").first().addClass("active");
 
-            $(".rect").click(function(){
-                $(".rect").removeClass("active");
+            $(".cell").click(function(){
+                $(".cell").removeClass("active");
                 $(this).addClass("active");
                 console.log(this)
             });
