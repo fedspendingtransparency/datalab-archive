@@ -33,7 +33,7 @@ function handleInfoBarVisibility() {
     document.querySelector('.info-banner').style.display = getCookie('is-info-banner-visible') == null ? 'block' : 'none';
 }
 
-$(".share-viz-button").click(() => {
+$(".share-viz-button").click(function() {
     $(this).find('span.popuptext.right').toggleClass('show');
 });
 
