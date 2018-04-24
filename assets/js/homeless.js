@@ -29,6 +29,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             bottom: 15,
                             left: 100
                         };
+                        const formatNumber = d3.format('$,.0f');
+                        const OtherformatNumber = d3.format(',');
                         const panel2Width = absWidth - margin.left - margin.right;
                         const panel2Height = absHeight - margin.top - margin.bottom;
                         const matrixWidth = (absWidth / 1.85) - margin.left - margin.right;
@@ -133,43 +135,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         });
 
                         barChrt = barChrt.sort((x, y) => d3.descending(x.fed_funding, y.fed_funding));
-
-                        // Initialize visualization
-                        GenMap();
-                        GenPanelTwo();
-
-                        const mapIcon = d3.select('#homeless-action-map');
-                        mapIcon.on('click', mapIconFunction);
-
-                        const tableIcon = d3.select('#homeless-action-table');
-                        tableIcon.on('click', tableIconFunction);
-
-                        function mapIconFunction() {
-                            d3.selectAll('#viz_container').remove();
-                            d3.selectAll('legend_subtitle').remove();
-                            d3.selectAll('#counties_mini').remove();
-
-                            GenMap();
-                            GenPanelTwo();
-                        }
-
-                        function tableIconFunction() {
-                            d3.selectAll('#viz_container').remove();
-                            d3.selectAll('#legend').remove();
-                            d3.selectAll('#legend_title').remove();
-                            d3.selectAll('#legend_subtitle').remove();
-                            d3.selectAll('#counties_mini').remove();
-
-                            GenTable();
-                            GenPanelTwo();
-                        }
-
                         // **************************************************************
-
-                        const formatNumber = d3.format('$,.0f');
-                        const OtherformatNumber = d3.format(',');
-                        // const P3_formatNumber = d3.format(',.0f');
-
                         function barClick(d) {
                             window.Analytics.event({
                                 category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
@@ -266,14 +232,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             }
                         }
 
-                        function getVets(d) {
-                            for (let i = 0; i < tableData.length; i++) {
-                                if (d.properties.coc_number === tableData[i].coc_number) {
-                                    return OtherformatNumber(tableData[i].homeless_veterans);
-                                }
-                            }
-                        }
-
                         function getState(d) {
                             for (let i = 0; i < tableData.length; i++) {
                                 if (d.properties.STUSAB === state[i].Abbrv) {
@@ -292,6 +250,386 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             }
 
                             return '';
+                        }
+
+                        function filterCfdaAmount(x) {
+                            return x.fed_funding > 0;
+                        }
+
+                        function BarChart(d) {
+                            $('#panel_info').empty();
+                            d3.select('#panel_matrix > svg').remove();
+                            d3.select('#p2_cfda_legend_title').remove();
+                            d3.select('#p2_2_cfda_legend').remove();
+
+                            d3.select('#p2_2_legend_title')
+                                .append('div')
+                                .attr('padding', '0 0 10px 0')
+                                .attr('id', 'p2_2_cfda_legend_title')
+                                .attr('class', 'h5')
+                                .style('text-align', 'center')
+                                .attr('id', 'p2_cfda_legend_title')
+                                .attr('class', 'legend-header')
+                                .html(`<h5>Federal Programs Serving ${d.properties.coc_number}</h5>`);
+
+                            const p23MatrixSvg = d3.select('#panel_matrix').append('svg')
+                                .attr('width', '100%')
+                                .attr('height', mapHeight + margin.top + margin.bottom + 140)
+                                .attr('transform', `translate(${0},${10})`);
+                            p23MatrixSvg.call(p23BarTip);
+
+                            function filterCocNumBarChart(barChart) {
+                                return barChart.coc_number === d.properties.coc_number;
+                            }
+
+                            const initial = barChrt.filter(filterCocNumBarChart);
+                            const initialBar = initial.filter(filterCfdaAmount);
+
+                            const axisMargin = 5;
+                            const xWidth = document.getElementById("panel_matrix").offsetWidth - 50;
+                            const barHeight = 20;
+                            const barPadding = 5;
+                            let labelWidth = 0;
+
+                            const max = d3.max(initialBar, (d) => d.fed_funding);
+
+                            const bar = p23MatrixSvg.selectAll('g')
+                                .data(initialBar)
+                                .enter()
+                                .append('g');
+
+                            bar.attr('class', 'bar')
+                                .attr('cx', 0)
+                                .style('fill', (d) => {
+                                    if (d.category === 'Housing') {
+                                        return '#324D5C';
+                                    }
+                                    else if (d.category === 'Health') {
+                                        return '#F0CA4D';
+                                    }
+                                    else if (d.category === 'Education') {
+                                        return '#2A5DA8';
+                                    }
+                                    else if (d.category === 'Support Services') {
+                                        return '#E37B40';
+                                    }
+                                    else if (d.category === 'Employment') {
+                                        return '#F53855';
+                                    }
+                                    return "#FFF";
+                                })
+                                .attr('transform', (d, i) => `translate(5,${i * (barHeight + barPadding)})`)
+                                .on('mouseover', p23BarTip.show)
+                                .on('mouseout', p23BarTip.hide)
+                                .on('click', barClick);
+
+                            bar.append('text')
+                                .attr('class', 'label')
+                                .attr('x', 0)
+                                .attr('y', barHeight / 2)
+                                .attr('dy', '.35em') // vertical align middle
+                                .text((t) => getProgram(t))
+                                .each(() => {
+                                    labelWidth = 75;
+                                });
+
+                            const scale = d3.scale.linear()
+                                .domain([0, max])
+                                .range([0, xWidth - labelWidth]);
+
+                            const p2XAxis = d3.svg.axis()
+                                .scale(scale)
+                                .tickSize(-p2MatrixSvg[0][0].attributes[1].nodeValue + axisMargin)
+                                .tickFormat((d) => formatNumber(d));
+
+                            bar.append('rect')
+                                .attr('transform', `translate(${labelWidth},0)`)
+                                .attr('margin-left', 5)
+                                .attr('height', barHeight)
+                                .attr('width', (d) => scale(d.fed_funding));
+
+                            p23MatrixSvg.insert('g', ':first-child')
+                                .attr('class', 'axisHorizontal')
+                                .attr('transform', `translate(${80},${235})`)
+                                .call(p2XAxis)
+                                .selectAll('text')
+                                .attr('y', 10)
+                                .attr('x', 0)
+                                .attr('dy', '.35em')
+                                .attr('transform', 'rotate(-35)')
+                                .style('font-size', '12')
+                                .style('text-anchor', 'end');
+                        }
+
+                        function MakeCoCTable(d) {
+                            d3.selectAll('#p2_quad3_title').remove();
+
+                            d3.select('#p2_3_title')
+                                .append('div')
+                                .attr('width', '100%')
+                                .attr('id', 'p2_quad3_title')
+                                .style('class', 'legend-header')
+                                .html(`<h5>${d.properties.coc_number} Homeless Counts</h5>`);
+
+                            for (let i = 0; i < tableData.length; i++) {
+                                if (tableData[i].coc_number === d.properties.coc_number) {
+                                    const tabDat = tableData[i];
+
+                                    return `${'<table><tr><td class="panel_text">Homeless Individuals </td><td class="panel_text2">'}${OtherformatNumber(tabDat.homeless_individuals)}</td></tr>` +
+                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">Homeless People in Families </td><td class="panel_text2"  style="border-bottom:1pt solid black">${OtherformatNumber(tabDat.homeless_people_in_families)}</td></tr>` +
+                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
+
+
+                                    `<table><tr><td class="panel_text">Sheltered Homeless </td><td class="panel_text2">${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
+                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">Unsheltered Homeless </td><td class="panel_text2" style="border-bottom:1pt solid black">${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr>` +
+                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
+
+                                    `<table style="margin-bottom:0"><tr><td class="panel_text">Chronically Homeless </td><td class="panel_text2">${OtherformatNumber(tabDat.chronically_homeless)}</td></tr>` +
+                                    `<tr><td class="panel_text">Homeless Veterans </td><td class="panel_text2">${OtherformatNumber(tabDat.homeless_veterans)}</td></tr></table>`;
+                                }
+                            }
+                        }
+
+                        function createCoCTable(d) {
+                            $('#panel_coc').empty();
+                            cocPanel.append('div')
+                                .attr('id', 'coc_info')
+                                .attr('height', infoHeight + margin.top + margin.bottom)
+                                .attr('width', '100%')
+                                .html(MakeCoCTable(d));
+                        }
+
+                        function makeMapTitle(d) {
+                            return mapTitle.html(`<h5>${d.properties.coc_number}: ${d.properties.COCNAME}</h5>`);
+                        }
+
+                        function StateBarChart(d) {
+                            d3.select('#panel_info > svg').remove();
+                            d3.select('#p2_4_cfda_legend_title').remove();
+                            d3.select('#p2_4_cfda_legend').remove();
+
+                            const cfdaLegend22 = d3.select('#p2_2_legend')
+                                .append('div')
+                                .attr('width', '100%')
+                                .attr('height', '30px')
+                                .attr('id', 'p2_2_cfda_legend');
+
+                            const cfdaLegend = d3.select('#p2_4_legend')
+                                .append('div')
+                                .attr('width', '100%')
+                                .attr('height', '30px')
+                                .attr('id', 'p2_4_cfda_legend');
+
+                            const cfdaColor = ['#324D5C', '#2A5DA8', '#F53855', '#E37B40', '#F0CA4D'];
+
+                            const cfdaLegendKeyValues = ['Housing', 'Education', 'Employment', 'Support Services', 'Health'];
+
+                            for (let i = 0; i < 5; i++) {
+                                const k = cfdaLegend22.append('div')
+                                    .attr('id', 'p2_2_legend_key');
+
+                                k.append('div')
+                                    .attr('id', 'p2_2_key')
+                                    .style('position', 'relative')
+                                    .append('svg')
+                                    .attr('height', '40px')
+                                    .attr('width', '53px')
+                                    .append('circle')
+                                    .attr('cx', 7)
+                                    .attr('cy', 7)
+                                    .attr('r', 7)
+                                    .attr('height', 20)
+                                    .attr('width', 20)
+                                    .style('fill', () => cfdaColor[i]);
+
+                                k.append('div')
+                                    .attr('id', 'p2_2_key_value')
+                                    .style('position', 'relative')
+                                    .style('color', 'blue')
+                                    .html(`<p>${cfdaLegendKeyValues[i]}</p>`);
+
+
+                                const l = cfdaLegend.append('div')
+                                    .attr('id', 'p2_4_legend_key');
+
+                                l.append('div')
+                                    .attr('id', 'p2_4_key')
+                                    .style('position', 'relative')
+                                    .append('svg')
+                                    .attr('height', '40px')
+                                    .attr('width', '53px')
+                                    .append('circle')
+                                    .attr('cx', 7)
+                                    .attr('cy', 7)
+                                    .attr('r', 7)
+                                    .attr('height', 20)
+                                    .attr('width', 20)
+                                    .style('fill', (d) => cfdaColor[i]);
+
+                                l.append('div')
+                                    .attr('id', 'p2_4_key_value')
+                                    .style('position', 'relative')
+                                    .style('color', 'blue')
+                                    .html(`<p>${cfdaLegendKeyValues[i]}</p>`);
+                            }
+
+                            d3.select('#p2_4_legend_title')
+                                .append('div')
+                                .attr('id', 'p2_4_cfda_legend_title')
+                                .attr('class', 'legend-header')
+                                .html(`<h5>Federal Programs Serving ${getState(d)}</h5>`);
+
+                            const p24MatrixSvg = d3.select('#panel_info').append('svg')
+                                .attr('width', '100%')
+                                .attr('height', mapHeight + margin.top + margin.bottom + 140)
+                                .attr('transform', `translate(${0},${10})`);
+
+                            p24MatrixSvg.call(p23BarTip);
+
+                            function filterStateBarChart(cfdaStateData) {
+                                return cfdaStateData.State_code === d.properties.STUSAB;
+                            }
+
+                            const initial = cfdaState.filter(filterStateBarChart);
+                            const initialBar = initial.filter(filterCfdaAmount);
+
+                            const axisMargin = 5;
+                            const xWidth = document.getElementById("panel_matrix").offsetWidth - 50;
+                            const barHeight = 20;
+                            const barPadding = 5;
+                            let labelWidth = 0;
+
+                            const max = d3.max(initialBar, (d) => d.fed_funding);
+
+                            const bar = p24MatrixSvg.selectAll('g')
+                                .data(initialBar)
+                                .enter()
+                                .append('g');
+
+                            bar.attr('class', 'bar')
+                                .attr('cx', 0)
+                                .style('fill', (d) => {
+                                    if (d.category === 'Housing') {
+                                        return '#324D5C';
+                                    }
+                                    else if (d.category === 'Health') {
+                                        return '#F0CA4D';
+                                    }
+                                    else if (d.category === 'Education') {
+                                        return '#2A5DA8';
+                                    }
+                                    else if (d.category === 'Support Services') {
+                                        return '#E37B40';
+                                    }
+                                    else if (d.category === 'Employment') {
+                                        return '#F53855';
+                                    }
+                                })
+                                .attr('transform', (d, i) => `translate(5,${i * (barHeight + barPadding)})`)
+                                .on('mouseover', p23BarTip.show)
+                                .on('mouseout', p23BarTip.hide)
+                                .on('click', barClick);
+
+                            bar.append('text')
+                                .attr('class', 'label')
+                                .attr('x', 0)
+                                .attr('y', barHeight / 2)
+                                .attr('dy', '.35em') // vertical align middle
+                                .text((d) => getProgram(d))
+                                .each(() => {
+                                    labelWidth = 75;
+                                });
+
+                            const scale = d3.scale.linear()
+                                .domain([0, max])
+                                .range([0, xWidth - labelWidth]);
+
+                            const p2XAxis = d3.svg.axis()
+                                .scale(scale)
+                                .tickSize(-p2MatrixSvg[0][0].attributes[1].nodeValue + axisMargin - 50)
+                                .tickFormat((d) => formatNumber(d));
+
+                            bar.append('rect')
+                                .attr('transform', `translate(${labelWidth},0)`)
+                                .attr('margin-left', 5)
+                                .attr('height', barHeight)
+                                .attr('width', (d) => scale(d.fed_funding));
+
+                            p24MatrixSvg.insert('g', ':first-child')
+                                .attr('class', 'axisHorizontal2')
+                                .attr('transform', `translate(${80},${325})`)
+                                .call(p2XAxis)
+                                .selectAll('text')
+                                .attr('y', 10)
+                                .attr('x', 0)
+                                .attr('dy', '.35em')
+                                .attr('transform', 'rotate(-35)')
+                                .style('font-size', '12')
+                                .style('text-anchor', 'end');
+                        }
+
+                        function makeContactTable(d) {
+                            return `<h4 style="margin-bottom:0">${d.properties.COCNAME}</h4>` + `<br>` +
+                            `<p>` + `<b>Contact information for the Continuum of Care program</b>` +
+                            `<br>${d.properties.CONTACT_TY}<br>` +
+                            `Name: ${d.properties.FIRST_NAME} ${d.properties.LAST_NAME}<br>` +
+                            `Email: ${d.properties.EMAIL_ADDR}<br>` +
+                            `Phone: ${d.properties.PRIMARY_PH}</p>`;
+                        }
+
+                        function createContact(d) {
+                            $('#contact_panel').empty();
+                            $('#contact_info').remove();
+
+                            contactPanel.append('div')
+                                .attr('id', 'contact_info')
+                                .attr("height", infoHeight)
+                                .attr("width", infoWidth)
+                                .html(makeContactTable(d));
+                        }
+
+                        function p21ClickedP1(d) {
+                            let k;
+                            const centroid = p21Path.centroid(d);
+                            const x = centroid[0];
+                            const y = centroid[1];
+
+                            if (d.properties.COCNAME === 'Hawaii Balance of State CoC') {
+                                k = 6.0;
+                            }
+                            else if (d.properties.COCNAME === 'Alaska Balance of State CoC') {
+                                k = 4.0;
+                            }
+                            else if (d.properties.COCNAME === 'Maine Balance of State CoC') {
+                                k = 5.0;
+                            }
+                            else if (d.properties.Shape__Are <= 0.4) {
+                                k = 17.0;
+                            }
+                            else if (d.properties.Shape__Are > 0.4 && d.properties.Shape__Are <= 1) {
+                                k = 14.0;
+                            }
+                            else if (d.properties.Shape__Are > 1 && d.properties.Shape__Are <= 5) {
+                                k = 12.0;
+                            }
+                            else if (d.properties.Shape__Are > 5 && d.properties.Shape__Are <= 17) {
+                                k = 6.0;
+                            }
+                            else if (d.properties.Shape__Are > 17 && d.properties.Shape__Are <= 55) {
+                                k = 3.0;
+                            }
+                            else {
+                                k = 2.0;
+                            }
+                            centered = d;
+
+                            m.selectAll('p2_1_path')
+                                .classed('active', centered && ((d) => d === centered));
+
+                            m.transition()
+                                .duration(750)
+                                .attr('transform', `translate(${mapWidth / 1.35},${mapHeight / 1.1})scale(${k})translate(${-x},${-y})`)
+                                .style('stroke-width', `${0.15 / k}px`);
                         }
 
                         function GenMap() {
@@ -313,7 +651,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             const path = d3.geo.path() // path generator that will convert GeoJSON to SVG paths
                                 .projection(projection); // tell path generator to use albersUsa projection
 
-                            const div = d3.select('#viz_container')
+                            d3.select('#viz_container')
                                 .append('div')
                                 .attr('id', 'map_container')
                                 .attr('width', width)
@@ -336,44 +674,14 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('width', '300px')
                                 .offset([-10, -10])
                                 .html((d) => `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px; font-weight: bold; color:#555555">${d.properties.coc_number}: ${d.properties.COCNAME}</p>` + `<br>` +
-                    `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">Total Homeless: ${getValue(d)}</p><br>` +
-                    `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
-                    `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Sheltered Homeless: ${getSheltered(d)}</li>` +
-                    `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
-                    `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/zoom out</p>`);
+                                `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">Total Homeless: ${getValue(d)}</p><br>` +
+                                `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
+                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Sheltered Homeless: ${getSheltered(d)}</li>` +
+                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
+                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/zoom out</p>`);
 
                             mapSvg.append('circle').attr('id', 'tipfollowscursor_1');
                             mapSvg.call(tip);
-
-                            const g = mapSvg.append('g')
-                                .attr('class', 'counties')
-                                .selectAll('path')
-                                .data(us.features)
-                                .enter()
-                                .append('path')
-                                .attr('class', 'coc')
-                                .attr('data-coc', (d) => d.properties.coc_number)
-                                .attr('data-state', (d) => d.properties.state)
-                                .attr('data-name', (d) => d.properties.name)
-                                .attr('d', path)
-                                .on('mouseover', (d) => {
-                                    const target = d3.select('#tipfollowscursor_1')
-                                        .attr('cx', d3.event.offsetX)
-                                        .attr('cy', d3.event.offsetY - 30)
-                                        .node();
-                                    tip.show(d, target);
-                                })
-                                .on('mouseout', tip.hide)
-                                .on('dblclick', clicked)
-                                .on("click", (d) => {
-                                    BarChart(d);
-                                    createCoCTable(d);
-                                    makeMapTitle(d);
-                                    StateBarChart(d);
-                                    createContact(d);
-                                    p21ClickedP1(d);
-                                })
-                                .style('fill', getColor);
 
                             function clicked(d) {
                                 let x;
@@ -434,6 +742,36 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     .attr('transform', `translate(${width / 2},${height / 2})scale(${k})translate(${-x},${-y})`)
                                     .style('stroke-width', `${0.25 / k}px`);
                             }
+
+                            const g = mapSvg.append('g')
+                                .attr('class', 'counties')
+                                .selectAll('path')
+                                .data(us.features)
+                                .enter()
+                                .append('path')
+                                .attr('class', 'coc')
+                                .attr('data-coc', (d) => d.properties.coc_number)
+                                .attr('data-state', (d) => d.properties.state)
+                                .attr('data-name', (d) => d.properties.name)
+                                .attr('d', path)
+                                .on('mouseover', (d) => {
+                                    const target = d3.select('#tipfollowscursor_1')
+                                        .attr('cx', d3.event.offsetX)
+                                        .attr('cy', d3.event.offsetY - 30)
+                                        .node();
+                                    tip.show(d, target);
+                                })
+                                .on('mouseout', tip.hide)
+                                .on('dblclick', clicked)
+                                .on("click", (d) => {
+                                    BarChart(d);
+                                    createCoCTable(d);
+                                    makeMapTitle(d);
+                                    StateBarChart(d);
+                                    createContact(d);
+                                    p21ClickedP1(d);
+                                })
+                                .style('fill', getColor);
                         }
 
                         function GenTable() {
@@ -971,6 +1309,38 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 return ('#291C24');
                             }
                         } // end of GenPanelTwo
+
+                        // Initialize visualization
+                        GenMap();
+                        GenPanelTwo();
+
+                        function mapIconFunction() {
+                            d3.selectAll('#viz_container').remove();
+                            d3.selectAll('legend_subtitle').remove();
+                            d3.selectAll('#counties_mini').remove();
+
+                            GenMap();
+                            GenPanelTwo();
+                        }
+
+                        function tableIconFunction() {
+                            d3.selectAll('#viz_container').remove();
+                            d3.selectAll('#legend').remove();
+                            d3.selectAll('#legend_title').remove();
+                            d3.selectAll('#legend_subtitle').remove();
+                            d3.selectAll('#counties_mini').remove();
+
+                            GenTable();
+                            GenPanelTwo();
+                        }
+
+                        const mapIcon = d3.select('#homeless-action-map');
+                        mapIcon.on('click', mapIconFunction);
+
+                        const tableIcon = d3.select('#homeless-action-table');
+                        tableIcon.on('click', tableIconFunction);
+
+
                         function p21Clicked(d) {
                             let x;
                             let y;
@@ -1026,404 +1396,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('stroke-width', `${0.15 / k}px`);
                         }
 
-                        function p21ClickedP1(d) {
-                            let k;
-                            const centroid = p21Path.centroid(d);
-                            const x = centroid[0];
-                            const y = centroid[1];
-
-                            if (d.properties.COCNAME === 'Hawaii Balance of State CoC') {
-                                k = 6.0;
-                            }
-                            else if (d.properties.COCNAME === 'Alaska Balance of State CoC') {
-                                k = 4.0;
-                            }
-                            else if (d.properties.COCNAME === 'Maine Balance of State CoC') {
-                                k = 5.0;
-                            }
-                            else if (d.properties.Shape__Are <= 0.4) {
-                                k = 17.0;
-                            }
-                            else if (d.properties.Shape__Are > 0.4 && d.properties.Shape__Are <= 1) {
-                                k = 14.0;
-                            }
-                            else if (d.properties.Shape__Are > 1 && d.properties.Shape__Are <= 5) {
-                                k = 12.0;
-                            }
-                            else if (d.properties.Shape__Are > 5 && d.properties.Shape__Are <= 17) {
-                                k = 6.0;
-                            }
-                            else if (d.properties.Shape__Are > 17 && d.properties.Shape__Are <= 55) {
-                                k = 3.0;
-                            }
-                            else {
-                                k = 2.0;
-                            }
-                            centered = d;
-
-                            m.selectAll('p2_1_path')
-                                .classed('active', centered && ((d) => d === centered));
-
-                            m.transition()
-                                .duration(750)
-                                .attr('transform', `translate(${mapWidth / 1.35},${mapHeight / 1.1})scale(${k})translate(${-x},${-y})`)
-                                .style('stroke-width', `${0.15 / k}px`);
-                        }
-
-                        function createCoCTable(d) {
-                            $('#panel_coc').empty();
-                            cocPanel.append('div')
-                                .attr('id', 'coc_info')
-                                .attr('height', infoHeight + margin.top + margin.bottom)
-                                .attr('width', '100%')
-                                .html(MakeCoCTable(d));
-                        }
-
-                        function filterCfdaAmount(x) {
-                            return x.fed_funding > 0;
-                        }
-
-                        function MakeCoCTable(d) {
-                            d3.selectAll('#p2_quad3_title').remove();
-                            const quad3Title = d3.select('#p2_3_title')
-                                .append('div')
-                                .attr('width', '100%')
-                                .attr('id', 'p2_quad3_title')
-                                .style('class', 'legend-header')
-                                .html(`<h5>${d.properties.coc_number} Homeless Counts</h5>`);
-
-                            const OtherformatNumber = d3.format(',');
-
-                            for (let i = 0; i < tableData.length; i++) {
-                                if (tableData[i].coc_number === d.properties.coc_number) {
-                                    const tabDat = tableData[i];
-
-                                    return `${'<table><tr><td class="panel_text">Homeless Individuals </td><td class="panel_text2">'}${OtherformatNumber(tabDat.homeless_individuals)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">Homeless People in Families </td><td class="panel_text2"  style="border-bottom:1pt solid black">${OtherformatNumber(tabDat.homeless_people_in_families)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-
-
-                                    `<table><tr><td class="panel_text">Sheltered Homeless </td><td class="panel_text2">${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">Unsheltered Homeless </td><td class="panel_text2" style="border-bottom:1pt solid black">${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-
-                                    `<table style="margin-bottom:0"><tr><td class="panel_text">Chronically Homeless </td><td class="panel_text2">${OtherformatNumber(tabDat.chronically_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Homeless Veterans </td><td class="panel_text2">${OtherformatNumber(tabDat.homeless_veterans)}</td></tr></table>`;
-                                }
-                            }
-                        }
-
-                        function makeMapTitle(d) {
-                            return mapTitle.html(`<h5>${d.properties.coc_number}: ${d.properties.COCNAME}</h5>`);
-                        }
-
-
-                        function BarChart(d) {
-                            $('#panel_info').empty();
-                            d3.select('#panel_matrix > svg').remove();
-                            d3.select('#p2_cfda_legend_title').remove();
-                            d3.select('#p2_2_cfda_legend').remove();
-
-                            const cfdaLegendTitle = d3.select('#p2_2_legend_title')
-                                .append('div')
-                                .attr('padding', '0 0 10px 0')
-                                .attr('id', 'p2_2_cfda_legend_title')
-                                .attr('class', 'h5')
-                                .style('text-align', 'center')
-                                .attr('id', 'p2_cfda_legend_title')
-                                .attr('class', 'legend-header')
-                                .html(`<h5>Federal Programs Serving ${d.properties.coc_number}</h5>`);
-
-                            const p23MatrixSvg = d3.select('#panel_matrix').append('svg')
-                                .attr('width', '100%')
-                                .attr('height', mapHeight + margin.top + margin.bottom + 140)
-                                .attr('transform', `translate(${0},${10})`);
-                            p23MatrixSvg.call(p23BarTip);
-
-                            function filterCocNumBarChart(barChart) {
-                                return barChart.coc_number === d.properties.coc_number;
-                            }
-
-                            const initial = barChrt.filter(filterCocNumBarChart);
-                            const initialBar = initial.filter(filterCfdaAmount);
-                            const formatNumber = d3.format('$,');
-                            const OtherformatNumber = d3.format(',');
-
-                            const axisMargin = 5;
-                            const xWidth = document.getElementById("panel_matrix").offsetWidth - 50;
-                            const barHeight = 20;
-                            const barPadding = 5;
-                            let bar;
-                            let p2XAxis;
-                            let labelWidth = 0;
-
-                            let max = d3.max(initialBar, (d) => d.fed_funding);
-
-                            bar = p23MatrixSvg.selectAll('g')
-                                .data(initialBar)
-                                .enter()
-                                .append('g');
-
-                            bar.attr('class', 'bar')
-                                .attr('cx', 0)
-                                .style('fill', (d) => {
-                                    if (d.category === 'Housing') {
-                                        return '#324D5C';
-                                    }
-                                    else if (d.category === 'Health') {
-                                        return '#F0CA4D';
-                                    }
-                                    else if (d.category === 'Education') {
-                                        return '#2A5DA8';
-                                    }
-                                    else if (d.category === 'Support Services') {
-                                        return '#E37B40';
-                                    }
-                                    else if (d.category === 'Employment') {
-                                        return '#F53855';
-                                    }
-                                    return "#FFF";
-                                })
-                                .attr('transform', (d, i) => `translate(5,${i * (barHeight + barPadding)})`)
-                                .on('mouseover', p23BarTip.show)
-                                .on('mouseout', p23BarTip.hide)
-                                .on('click', barClick);
-
-                            bar.append('text')
-                                .attr('class', 'label')
-                                .attr('x', 0)
-                                .attr('y', barHeight / 2)
-                                .attr('dy', '.35em') // vertical align middle
-                                .text((t) => getProgram(t))
-                                .each(() => {
-                                    labelWidth = 75;
-                                });
-
-                            const scale = d3.scale.linear()
-                                .domain([0, max])
-                                .range([0, xWidth - labelWidth]);
-
-                            p2XAxis = d3.svg.axis()
-                                .scale(scale)
-                                .tickSize(-p2MatrixSvg[0][0].attributes[1].nodeValue + axisMargin)
-                                .tickFormat((d) => formatNumber(d));
-
-                            yAxis = d3.svg.axis()
-                                .orient('left');
-
-                            bar.append('rect')
-                                .attr('transform', `translate(${labelWidth},0)`)
-                                .attr('margin-left', 5)
-                                .attr('height', barHeight)
-                                .attr('width', (d) => scale(d.fed_funding));
-
-                            p23MatrixSvg.insert('g', ':first-child')
-                                .attr('class', 'axisHorizontal')
-                                .attr('transform', `translate(${80},${235})`)
-                                .call(p2XAxis)
-                                .selectAll('text')
-                                .attr('y', 10)
-                                .attr('x', 0)
-                                .attr('dy', '.35em')
-                                .attr('transform', 'rotate(-35)')
-                                .style('font-size', '12')
-                                .style('text-anchor', 'end');
-                        }
-
-
-                        function StateBarChart(d) {
-                            d3.select('#panel_info > svg').remove();
-                            d3.select('#p2_4_cfda_legend_title').remove();
-                            d3.select('#p2_4_cfda_legend').remove();
-
-                            const cfdaLegend22 = d3.select('#p2_2_legend')
-                                .append('div')
-                                .attr('width', '100%')
-                                .attr('height', '30px')
-                                .attr('id', 'p2_2_cfda_legend');
-
-                            const cfdaLegend = d3.select('#p2_4_legend')
-                                .append('div')
-                                .attr('width', '100%')
-                                .attr('height', '30px')
-                                .attr('id', 'p2_4_cfda_legend');
-
-                            const cfdaColor = ['#324D5C', '#2A5DA8', '#F53855', '#E37B40', '#F0CA4D'];
-
-                            const cfdaLegendKeyValues = ['Housing', 'Education', 'Employment', 'Support Services', 'Health'];
-
-                            for (let i = 0; i < 5; i++) {
-                                const k = cfdaLegend22.append('div')
-                                    .attr('id', 'p2_2_legend_key');
-
-                                const cfdaKey22 = k.append('div')
-                                    .attr('id', 'p2_2_key')
-                                    .style('position', 'relative')
-                                    .append('svg')
-                                    .attr('height', '40px')
-                                    .attr('width', '53px')
-                                    .append('circle')
-                                    .attr('cx', 7)
-                                    .attr('cy', 7)
-                                    .attr('r', 7)
-                                    .attr('height', 20)
-                                    .attr('width', 20)
-                                    .style('fill', () => cfdaColor[i]);
-
-                                k.append('div')
-                                    .attr('id', 'p2_2_key_value')
-                                    .style('position', 'relative')
-                                    .style('color', 'blue')
-                                    .html(`<p>${cfdaLegendKeyValues[i]}</p>`);
-
-
-                                const l = cfdaLegend.append('div')
-                                    .attr('id', 'p2_4_legend_key');
-
-                                const cfdaKey = l.append('div')
-                                    .attr('id', 'p2_4_key')
-                                    .style('position', 'relative')
-                                    .append('svg')
-                                    .attr('height', '40px')
-                                    .attr('width', '53px')
-                                    .append('circle')
-                                    .attr('cx', 7)
-                                    .attr('cy', 7)
-                                    .attr('r', 7)
-                                    .attr('height', 20)
-                                    .attr('width', 20)
-                                    .style('fill', (d) => cfdaColor[i]);
-
-                                l.append('div')
-                                    .attr('id', 'p2_4_key_value')
-                                    .style('position', 'relative')
-                                    .style('color', 'blue')
-                                    .html(`<p>${cfdaLegendKeyValues[i]}</p>`);
-                            }
-
-                            const cfdaLegendTitle = d3.select('#p2_4_legend_title')
-                                .append('div')
-                                .attr('id', 'p2_4_cfda_legend_title')
-                                .attr('class', 'legend-header')
-                                .html(`<h5>Federal Programs Serving ${getState(d)}</h5>`);
-
-                            const p24MatrixSvg = d3.select('#panel_info').append('svg')
-                                .attr('width', '100%')
-                                .attr('height', mapHeight + margin.top + margin.bottom + 140)
-                                .attr('transform', `translate(${0},${10})`);
-
-                            p24MatrixSvg.call(p23BarTip);
-
-                            function filterStateBarChart(cfda_state) {
-                                return cfda_state.State_code === d.properties.STUSAB;
-                            }
-
-                            const initial = cfdaState.filter(filterStateBarChart);
-                            const initialBar = initial.filter(filterCfdaAmount);
-                            const formatNumber = d3.format('$,');
-
-                            const axisMargin = 5;
-                            const xWidth = document.getElementById("panel_matrix").offsetWidth - 50;
-                            const barHeight = 20;
-                            const barPadding = 5;
-                            let bar;
-                            let scale;
-                            let p2XAxis;
-                            let labelWidth = 0;
-
-                            max = d3.max(initialBar, (d) => d.fed_funding);
-
-                            bar = p24MatrixSvg.selectAll('g')
-                                .data(initialBar)
-                                .enter()
-                                .append('g');
-
-                            bar.attr('class', 'bar')
-                                .attr('cx', 0)
-                                .style('fill', (d) => {
-                                    if (d.category === 'Housing') {
-                                        return '#324D5C';
-                                    }
-                                    else if (d.category === 'Health') {
-                                        return '#F0CA4D';
-                                    }
-                                    else if (d.category === 'Education') {
-                                        return '#2A5DA8';
-                                    }
-                                    else if (d.category === 'Support Services') {
-                                        return '#E37B40';
-                                    }
-                                    else if (d.category === 'Employment') {
-                                        return '#F53855';
-                                    }
-                                })
-                                .attr('transform', (d, i) => `translate(5,${i * (barHeight + barPadding)})`)
-                                .on('mouseover', p23BarTip.show)
-                                .on('mouseout', p23BarTip.hide)
-                                .on('click', barClick);
-
-                            bar.append('text')
-                                .attr('class', 'label')
-                                .attr('x', 0)
-                                .attr('y', barHeight / 2)
-                                .attr('dy', '.35em') // vertical align middle
-                                .text((d) => getProgram(d))
-                                .each(() => {
-                                    labelWidth = 75;
-                                });
-
-                            scale = d3.scale.linear()
-                                .domain([0, max])
-                                .range([0, xWidth - labelWidth]);
-
-                            p2XAxis = d3.svg.axis()
-                                .scale(scale)
-                                .tickSize(-p2MatrixSvg[0][0].attributes[1].nodeValue + axisMargin - 50)
-                                .tickFormat((d) => formatNumber(d));
-
-                            yAxis = d3.svg.axis()
-                                .orient('left')
-                                .tickSize(0, 400);
-
-                            bar.append('rect')
-                                .attr('transform', `translate(${labelWidth},0)`)
-                                .attr('margin-left', 5)
-                                .attr('height', barHeight)
-                                .attr('width', (d) => scale(d.fed_funding));
-
-                            p24MatrixSvg.insert('g', ':first-child')
-                                .attr('class', 'axisHorizontal2')
-                                .attr('transform', `translate(${80},${325})`)
-                                .call(p2XAxis)
-                                .selectAll('text')
-                                .attr('y', 10)
-                                .attr('x', 0)
-                                .attr('dy', '.35em')
-                                .attr('transform', 'rotate(-35)')
-                                .style('font-size', '12')
-                                .style('text-anchor', 'end');
-                        }
-
-                        function createContact(d) {
-                            $('#contact_panel').empty();
-                            $('#contact_info').remove();
-
-                            contactPanel.append('div')
-                                .attr('id', 'contact_info')
-                                .attr("height", infoHeight)
-                                .attr("width", infoWidth)
-                                .html(makeContactTable(d));
-                        }
-
-                        function makeContactTable(d) {
-                            return `<h4 style="margin-bottom:0">${d.properties.COCNAME}</h4>` + `<br>` +
-                            `<p>` + `<b>Contact information for the Continuum of Care program</b>` +
-                            `<br>${d.properties.CONTACT_TY}<br>` +
-                            `Name: ${d.properties.FIRST_NAME} ${d.properties.LAST_NAME}<br>` +
-                            `Email: ${d.properties.EMAIL_ADDR}<br>` +
-                            `Phone: ${d.properties.PRIMARY_PH}</p>`;
-                        }
-
                         function infographic_yeah() {
                             const w = $('#panel_3b').width();
                             const h = $('#panel_3b').height() * 0.33;
@@ -1453,8 +1425,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                             d3.json('/data-lab-data/homeless_cluster_v2.json', (treeData) => {
                                 d3.csv('/data-lab-data/cluster_data_v2.csv', (cluster) => {
-                                    const formatNumber = d3.format('$,.0f');
-                                    const OtherformatNumber = d3.format(',.0f');
                                     const percentFormat = d3.format(",.1%");
 
                                     cluster.forEach((d) => {
@@ -1510,14 +1480,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         .text((d) => d.name)
                                         .style('font-size', '40px')
                                         .style('font-weight', 'lighter')
-                                        .style("opacity", function (d) {
-                                            d.w = this.getComputedTextLength();
-                                            return d.dx > d.w ? 1 : 0;
-                                        });
+                                        .style("opacity", '1');
 
                                     $(".cell ").first().addClass("active");
 
-                                    $(".cell").click(function () {
+                                    $(".cell").click(() => {
                                         $(".cell").removeClass("active");
                                         $(this).addClass("active");
                                     });
@@ -1627,18 +1594,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         makeInfoTableCol3(d);
                                     }
 
-                                    initializeCoCSelection();
-
-                                    function initializeCoCSelection() {
-                                        const initSelection = cluster.filter((d) => (d.cluster_final === "1a"));
-                                        initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
-                                        makeSelectionPanel(initSelection);
-                                    }
-
-                                    function makeCocTile(d) {
-                                        return `<p class="CocTileTitle">${d.coc_name}</p>`;
-                                    }
-
                                     function makeSelectionPanel(d) {
                                         d3.select('.tablinks').remove();
 
@@ -1664,6 +1619,16 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         });
                                     }
 
+                                    function initializeCoCSelection() {
+                                        const initSelection = cluster.filter((d) => (d.cluster_final === "1a"));
+                                        initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
+                                        makeSelectionPanel(initSelection);
+                                    }
+
+                                    function makeCocTile(d) {
+                                        return `<p class="CocTileTitle">${d.coc_name}</p>`;
+                                    }
+
                                     // Initialize Infographic
                                     const w2 = $('#panel_3b').width();
                                     const h2 = $('#panel_3b').height();
@@ -1673,27 +1638,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         .attr('id', 'picture')
                                         .attr('height', h2)
                                         .attr('height', w2);
-
-                                    initializeInfographic();
-
-                                    function initializeInfographic() {
-                                        const initInfographic = cluster.filter((d) => (d.cluster_final === '1a'));
-                                        makeInfographic(initInfographic[0].cluster_final);
-                                    }
-
-                                    function makeInfographic(d) {
-                                        d3.select('#imagebox').remove();
-
-                                        d3.select('#picture')
-                                            .append('svg')
-                                            .attr('id', 'imagebox')
-                                            .attr('height', h2)
-                                            .attr('width', w2)
-                                            .append('svg:image')
-                                            .attr('width', w2)
-                                            .attr('height', h2)
-                                            .attr('xlink:href', getInfographic(d));
-                                    }
 
                                     function getInfographic(d) {
                                         if (d === "1a") {
@@ -1731,6 +1675,28 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         }
                                         return '';
                                     }
+
+                                    function makeInfographic(d) {
+                                        d3.select('#imagebox').remove();
+
+                                        d3.select('#picture')
+                                            .append('svg')
+                                            .attr('id', 'imagebox')
+                                            .attr('height', h2)
+                                            .attr('width', w2)
+                                            .append('svg:image')
+                                            .attr('width', w2)
+                                            .attr('height', h2)
+                                            .attr('xlink:href', getInfographic(d));
+                                    }
+
+                                    function initializeInfographic() {
+                                        const initInfographic = cluster.filter((d) => (d.cluster_final === '1a'));
+                                        makeInfographic(initInfographic[0].cluster_final);
+                                    }
+
+                                    initializeCoCSelection();
+                                    initializeInfographic();
                                 });
                             });
                         }
