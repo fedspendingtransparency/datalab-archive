@@ -31,6 +31,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             bottom: 15,
                             left: 100
                         };
+                        const la = us.features.filter((d) => d.properties.coc_number === 'CA-600');
+                        let map1Centered = null;
+                        let map2Centered = la[0];
                         const formatNumber = d3.format('$,.0f');
                         const OtherformatNumber = d3.format(',');
                         const panel2Width = absWidth - margin.left - margin.right;
@@ -632,10 +635,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             else {
                                 k = 2.0;
                             }
-                            centered = d;
+                            map2Centered = d;
 
                             m.selectAll('p2_1_path')
-                                .classed('active', centered && d === centered);
+                                .classed('active', map2Centered && d === map2Centered);
 
                             m.transition()
                                 .duration(750)
@@ -707,8 +710,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             let x;
                             let y;
                             let k;
+                            console.log(d);
 
-                            if (d && centered !== d) {
+                            if (d && map2Centered !== d) {
                                 const centroid = p21Path.centroid(d);
                                 x = centroid[0];
                                 y = centroid[1];
@@ -740,17 +744,17 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 else {
                                     k = 2.0;
                                 }
-                                centered = d;
+                                map2Centered = d;
                             }
                             else {
                                 x = mapWidth / 1.35;
                                 y = mapHeight / 1.1;
                                 k = 1;
-                                centered = null;
+                                map2Centered = null;
                             }
 
                             m.selectAll('p2_1_path')
-                                .classed('active', centered && d === centered);
+                                .classed('active', map2Centered && d === map2Centered);
 
                             m.transition()
                                 .duration(750)
@@ -766,7 +770,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                             const width = 1000;
                             const height = 600;
-                            let centered = null;
+                            // let centered = null;
 
                             // D3 Projection
                             const projection = d3.geo.albersUsa()
@@ -831,7 +835,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     action: `${d.properties.coc_number} - ${d.properties.COCNAME}`
                                 });
 
-                                if (d && centered !== d) {
+                                if (d && map1Centered !== d) {
                                     const centroid = path.centroid(d);
                                     x = centroid[0];
                                     y = centroid[1];
@@ -863,17 +867,17 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     else {
                                         k = 2.0;
                                     }
-                                    centered = d;
+                                    map1Centered = d;
                                 }
                                 else {
                                     x = width / 2;
                                     y = height / 2;
                                     k = 1;
-                                    centered = null;
+                                    map1Centered = null;
                                 }
 
                                 g.selectAll('path')
-                                    .classed('active', centered && d === centered);
+                                    .classed('active', map1Centered && d === map1Centered);
 
                                 g.transition()
                                     .duration(750)
@@ -1328,18 +1332,20 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function GenPanelTwo() {
                             p21MapSvg.call(p2Tip);
 
-                            // Initialize Panel 2 info
-                            for (let y = 0; y < us.features.length; y++) {
-                                if (us.features[y].properties.coc_number === 'CA-600') {
-                                    const la = us.features[y];
-                                    BarChart(la);
-                                    StateBarChart(la);
-                                    createContact(la);
-                                    createCoCTable(la);
-                                    makeMapTitle(la);
-                                    p21ClickedP1(la);
-                                }
-                            }
+                            // // Initialize Panel 2 info
+                            // for (let y = 0; y < us.features.length; y++) {
+                            //     if (us.features[y].properties.coc_number === 'CA-600') {
+                            //         const la = us.features[y];
+                            const xyz = map2Centered;
+    
+                            BarChart(xyz);
+                            StateBarChart(xyz);
+                            createContact(xyz);
+                            createCoCTable(xyz);
+                            makeMapTitle(xyz);
+                            p21ClickedP1(xyz);
+                            //     }
+                            // }
 
                             m.selectAll('p2_1_path')
                                 .data(us.features)
@@ -1350,12 +1356,13 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .attr('data-state', (d) => d.properties.state)
                                 .attr('data-name', (d) => d.properties.name)
                                 .attr('d', p21Path)
+                                .on('dblclick', (d) => p21Clicked(d))
                                 .on('click', (d) => {
                                     window.Analytics.event({
                                         category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
                                         action: `${d.properties.coc_number} - ${d.properties.COCNAME}`
                                     });
-
+                                    console.log("click d: ",d)
                                     BarChart(d);
                                     StateBarChart(d);
                                     createCoCTable(d);
@@ -1363,7 +1370,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     createContact(d);
                                 })
                                 .style('fill', p2GetColor)
-                                .on('dblclick', p21Clicked)
                                 .on('mouseover', (d) => {
                                     const target = d3.select('#tipfollowscursor_2')
                                         .attr('cx', d3.event.offsetX)
