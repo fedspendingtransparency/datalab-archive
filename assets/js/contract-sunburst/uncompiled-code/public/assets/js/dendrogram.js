@@ -1,4 +1,4 @@
-/*Redistribution and use in source and binary forms, with or without
+/* Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 * Redistributions of source code must retain the above copyright notice, this
@@ -21,8 +21,6 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
 OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
-
 
 // Get csv data
 
@@ -252,6 +250,7 @@ function change() {
   var baseSvg = d3.select("#tree-container").append("svg")
       .attr("width", viewerWidth)
       .attr("height", viewerHeight)
+      .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
       .attr("class", "overlay")
       .call(zoomListener);
 

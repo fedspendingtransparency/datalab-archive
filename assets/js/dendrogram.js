@@ -29,6 +29,7 @@ d3.csv('/data-lab-data/accounts_obligations_revised_180306.csv', (error, newData
     const baseSvg = d3.select('#tree-container').append('svg')
         .attr('width', viewerWidth)
         .attr('height', viewerHeight)
+        .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
         .attr('class', 'overlay')
         .call(zoomListener);
 

@@ -383,7 +383,7 @@ d3.sankey = () => {
 function makeSankey(data, sPanel, sTitle, descriptions) {
     // append the svg canvas to the page
     const svg = d3.select("#sankey-viz").append("svg")
-        .attr("width", "100%")
+        .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .attr('viewBox', `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
         .append("g")

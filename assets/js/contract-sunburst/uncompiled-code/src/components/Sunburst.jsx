@@ -80,7 +80,7 @@ class Sunburst extends Component {
   render() {
     return (
       <div className="sunburst-panel-col-item">
-        <svg width="600" height="600">
+        <svg id="sunburstSvg" width="600" height="600" viewBox="0 0 600 600">
           <g transform="translate(300,300)" id="sunburst" />
         </svg>
       </div>
