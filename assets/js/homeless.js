@@ -54,9 +54,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         }
 
                         function getCFDAValue(d) {
-                            return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">${d.program_title}</b> [CFDA No. ${d.cfda_number}]</p><br>` +
+                            return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">` +
+                            `${d.program_title}</b> [CFDA No. ${d.cfda_number}]</p><br>` +
                             `<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ${formatNumber(d.fed_funding)}</p><br>` +
-                            `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">Click to visit the program website</p>`;
+                            `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">` +
+                            `Click to visit the program website</p>`;
                         }
 
                         const mapTitle = d3.select('#p2_1_title')
@@ -83,7 +85,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             .attr('height', mapHeight + margin.top + margin.bottom + 40);
 
                         function p2TipHTML(d) {
-                            return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px; color: #555555; font-weight: bold">${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
+                            return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; `
+                            + `padding-bottom:15px; color: #555555; font-weight: bold">`
+                            + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
                             `<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ${getDollarValue(d)}</p><br>` +
                             `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/out</p>`;
                         }
@@ -388,17 +392,24 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 if (tableData[i].coc_number === d7.properties.coc_number) {
                                     const tabDat = tableData[i];
 
-                                    return `${'<table><tr><td class="panel_text">Homeless Individuals </td><td class="panel_text2">'}${OtherformatNumber(tabDat.homeless_individuals)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">Homeless People in Families </td><td class="panel_text2"  style="border-bottom:1pt solid black">${OtherformatNumber(tabDat.homeless_people_in_families)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-
-
-                                    `<table><tr><td class="panel_text">Sheltered Homeless </td><td class="panel_text2">${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">Unsheltered Homeless </td><td class="panel_text2" style="border-bottom:1pt solid black">${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-
-                                    `<table style="margin-bottom:0"><tr><td class="panel_text">Chronically Homeless </td><td class="panel_text2">${OtherformatNumber(tabDat.chronically_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Homeless Veterans </td><td class="panel_text2">${OtherformatNumber(tabDat.homeless_veterans)}</td></tr></table>`;
+                                    return `${'<table><tr><td class="panel_text">Homeless Individuals </td><td class="panel_text2">'}`
+                                    + `${OtherformatNumber(tabDat.homeless_individuals)}</td></tr>` +
+                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">`
+                                    + `Homeless People in Families </td><td class="panel_text2"  style="border-bottom:1pt solid black">`
+                                    + `${OtherformatNumber(tabDat.homeless_people_in_families)}</td></tr>` +
+                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">` +
+                                    `${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
+                                    `<table><tr><td class="panel_text">Sheltered Homeless </td><td class="panel_text2">`
+                                    + `${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
+                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">` +
+                                    `Unsheltered Homeless </td><td class="panel_text2" style="border-bottom:1pt solid black">` +
+                                    `${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr>` +
+                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">` +
+                                    `${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
+                                    `<table style="margin-bottom:0"><tr><td class="panel_text">Chronically Homeless `
+                                    + `</td><td class="panel_text2">${OtherformatNumber(tabDat.chronically_homeless)}</td></tr>` +
+                                    `<tr><td class="panel_text">Homeless Veterans </td><td class="panel_text2">`
+                                    + `${OtherformatNumber(tabDat.homeless_veterans)}</td></tr></table>`;
                                 }
                             }
                         }
@@ -710,7 +721,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             let x;
                             let y;
                             let k;
-                            console.log(d);
 
                             if (d && map2Centered !== d) {
                                 const centroid = p21Path.centroid(d);
@@ -803,12 +813,18 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('padding', '25px')
                                 .style('width', '300px')
                                 .offset([-10, -10])
-                                .html((d) => `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px; font-weight: bold; color:#555555">${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
-                                `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">Total Homeless: ${getValue(d)}</p><br>` +
+                                .html((d) => `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0;`
+                                + ` padding-bottom:15px; font-weight: bold; color:#555555">`
+                                + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
+                                `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">`
+                                + `Total Homeless: ${getValue(d)}</p><br>` +
                                 `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
-                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Sheltered Homeless: ${getSheltered(d)}</li>` +
-                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
-                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/zoom out</p>`);
+                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
+                                + `Sheltered Homeless: ${getSheltered(d)}</li>` +
+                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
+                                + `Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
+                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">`
+                                + ` Double click to zoom in/zoom out</p>`);
 
                             mapSvg.append('circle').attr('id', 'tipfollowscursor_1');
                             mapSvg.call(tip);
@@ -907,7 +923,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         }
 
                         function GenTable() {
-                            const columnNames = ['CoC Number', 'CoC Name', 'Total Homeless', 'Sheltered Homeless', 'Unsheltered Homeless', 'Chronically Homeless', 'Homeless Veterans', 'Homeless Individuals', 'Homeless People in Families', 'Homeless Unaccompanied Youth (Under 25)'];
+                            const columnNames = ['CoC Number', 'CoC Name', 'Total Homeless', 'Sheltered Homeless',
+                                'Unsheltered Homeless', 'Chronically Homeless', 'Homeless Veterans', 'Homeless Individuals',
+                                'Homeless People in Families', 'Homeless Unaccompanied Youth (Under 25)'];
 
                             const clicks = {
                                 coc_number: 0,
@@ -1337,7 +1355,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             //     if (us.features[y].properties.coc_number === 'CA-600') {
                             //         const la = us.features[y];
                             const xyz = map2Centered;
-    
+
                             BarChart(xyz);
                             StateBarChart(xyz);
                             createContact(xyz);
@@ -1362,7 +1380,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
                                         action: `${d.properties.coc_number} - ${d.properties.COCNAME}`
                                     });
-                                    console.log("click d: ",d)
                                     BarChart(d);
                                     StateBarChart(d);
                                     createCoCTable(d);
@@ -1413,7 +1430,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function infographicYeah() {
                             const w = $('#panel_3b').width();
                             const h = $('#panel_3b').height() * 0.33;
-                            const color = d3.scale.ordinal().range(['#380a6d', '#4f0887', '#68095f', '#8c007c', '#773884', '#072f6b', '#0a47a0', '#166ed8', '#064c12', '#547f01', '#93bc20']);
+                            const color = d3.scale.ordinal().range(['#380a6d', '#4f0887', '#68095f',
+                                '#8c007c', '#773884', '#072f6b', '#0a47a0', '#166ed8', '#064c12',
+                                '#547f01', '#93bc20']);
                             let root;
 
                             const treemap = d3.layout.treemap()
@@ -1528,8 +1547,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     }
 
                                     function makeCoCTableFund(d) {
-                                        return `${'<table class="FundingTable"><tr><th class="fundingTitle">FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>' +
-                                        '<tr><td class="fundingAmount">'}${formatNumber(d.CoC_program_funding)}</td></tr>` +
+                                        return `<table class="FundingTable"><tr><th class="fundingTitle">`
+                                        + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
+                                        `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
                                         `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
                                         `<tr><td class="fundingAmount">${formatNumber(d.Other_program_funding)}</td></tr></table>`;
                                     }
