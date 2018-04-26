@@ -1430,8 +1430,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function infographicYeah() {
                             const w = $('#panel_3b').width();
                             const h = $('#panel_3b').height() * 0.2;
-                            const color = d3.scale.ordinal().range(['#280c60','#2f1868','#372c7a','#4d4d8c',
-                                '#5e5e96','#26660c','#587c13','#789e25','#e55c00','#e8751a','#ffad29']);
+                            const color = d3.scale.ordinal().range(['#280c60', '#2f1868', '#372c7a', '#4d4d8c',
+                                '#5e5e96', '#26660c', '#587c13', '#789e25', '#e55c00', '#e8751a', '#ffad29']);
                             let root;
 
                             const treemap = d3.layout.treemap()
