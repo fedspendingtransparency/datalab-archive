@@ -1429,10 +1429,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function infographicYeah() {
                             const w = $('#panel_3b').width();
-                            const h = $('#panel_3b').height() * 0.33;
-                            const color = d3.scale.ordinal().range(['#380a6d', '#4f0887', '#68095f',
-                                '#8c007c', '#773884', '#072f6b', '#0a47a0', '#166ed8', '#064c12',
-                                '#547f01', '#93bc20']);
+                            const h = $('#panel_3b').height() * 0.2;
+                            const color = d3.scale.ordinal().range(['#280c60','#2f1868','#372c7a','#4d4d8c',
+                                '#5e5e96','#26660c','#587c13','#789e25','#e55c00','#e8751a','#ffad29']);
                             let root;
 
                             const treemap = d3.layout.treemap()
@@ -1491,10 +1490,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                     function getInfographic(d) {
                                         if (d === "1a") {
-                                            return ('/images/homelessness/cluserV2_1a.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster1.svg');
                                         }
                                         else if (d === "2a") {
-                                            return ('/images/homelessness/cluserV2_2a.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster4.svg');
                                         }
                                         else if (d === "2b") {
                                             return ('/images/homelessness/cluserV2_2b.jpg');
@@ -1503,22 +1502,22 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                             return ('/images/homelessness/cluserV2_2c.jpg');
                                         }
                                         else if (d === "3a") {
-                                            return ('/images/homelessness/cluserV2_3a.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster5.svg');
                                         }
                                         else if (d === "4a") {
-                                            return ('/images/homelessness/cluserV2_4a.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster2.svg');
                                         }
                                         else if (d === "4b") {
-                                            return ('/images/homelessness/cluserV2_4b.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster7.svg');
                                         }
                                         else if (d === "4c") {
                                             return ('/images/homelessness/cluserV2_4c.jpg');
                                         }
                                         else if (d === "5a") {
-                                            return ('/images/homelessness/cluserV2_5a.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster3.svg');
                                         }
                                         else if (d === "5b") {
-                                            return ('/images/homelessness/cluserV2_5b.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster6.svg');
                                         }
                                         else if (d === "5c") {
                                             return ('/images/homelessness/cluserV2_5c.jpg');
