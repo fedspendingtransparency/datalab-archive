@@ -878,6 +878,13 @@ article > header {
 	display: none;
 }
 
+.sankey-viz-svg {
+	width: 41vw;
+	height: 42vw;
+	position: absolute;
+	left: 0;
+}
+
 .homelessness-read-more {
 	ul {
 		list-style: disc;
