@@ -40,7 +40,7 @@
   height: 100px;
   width: 300px; }
 .contract-explorer #legend_sizeKey, .contract-explorer .legend_circleKeyLabel span {
-  font-size: 0.625vw;
+  font-size: 10px;
   color: #999;
   position: absolute;
   display: block;
@@ -93,16 +93,16 @@
   display: inline-block;
 }
 .contract-explorer .subagency-card .name{
-  font-size: 1vw;
+  font-size: 16px;
   font-weight: 550;
 }
 .contract-explorer .subagency-card .obligation{
-  font-size: 1.5vw;
+  font-size: 24px;
   font-weight: 400;
 }
 
 .contract-explorer .psc-card {
-  margin-bottom: 35px;
+  margin-bottom: 1vw;
   width: 50%;
   display: inline-flex;
   align-items: center;
@@ -132,7 +132,7 @@
 
 .contract-explorer #sunburst-panel h1 {
   font-family: Source Sans Pro;
-    font-size: 3vw;
+    font-size: 48px;
     font-style: inherit;
     font-weight: lighter;
     margin: 0;
@@ -142,7 +142,7 @@
     border-bottom: 1px solid #aaa; }
 .contract-explorer #sunburst-panel h2 {
   font-family: Source Sans Pro;
-  font-size: 1.25vw;
+  font-size: 20px;
   font-style: inherit;
   font-weight: 550;
   margin-top: 55px;
@@ -152,7 +152,7 @@
  }
 .contract-explorer #sunburst-panel h3 {
   font-family: Source Sans Pro;
-  font-size: 1vw;
+  font-size: 16px;
   margin: 20px 0;
   padding: 0;
   text-transform: capitalize;
@@ -161,7 +161,7 @@
   font-family: Source Sans Pro;
   margin-top: 0.625vw;
   margin-bottom: 0px;
-  font-size: 0.625vw;
+  font-size:  10px;
   text-transform: capitalize;
   font-style: inherit;
   color: #555555; }
@@ -195,8 +195,8 @@
   margin: 0px 0px 0px 0px; }
 .contract-explorer .psc-icon {
   position: relative;
-  height: 40px;
-  width: 40px;
+  height: 3vw;
+  width: 3vw;
   margin-right: 10px; }
 .contract-explorer .val {
   font-size: 1.3em;
@@ -236,7 +236,7 @@
   display: flex;
   margin-bottom: 20px;
   align-items: center;
-  font-size: .75vw; }
+  font-size: 12px; }
 .contract-explorer .psc-obligation {
   color: #0071BC; }
 .contract-explorer .sunburst-panel-col {
@@ -277,7 +277,7 @@
   padding: 10px 30px;
   font-family: Source Sans Pro;
   font-weight: 300;
-  font-size: 1vw;
+  font-size: 16px;
   border: 1px solid #aaa;
   color: black;
   border-radius: 24px;
@@ -287,10 +287,10 @@
    fill: #fff;
    -webkit-appearance: none;
     border-radius: 24px;
-    width: 11vw;
+    width: 100px;
     height: 48px;
     border: 1px solid #aaa;
-    font-size: 1vw;
+    font-size: 16px;
     font-family: Source Sans Pro;
     font-weight: 300;
  }
@@ -310,7 +310,7 @@
   background-color: #fff;
   font-family: Helvetica, sans-serif;
   font-weight: 300;
-  font-size: .75vw;
+  font-size: 12px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   z-index: 2;
