@@ -1,3 +1,12 @@
+<script>
+    function trackLinkClick(actionName) {
+        window.Analytics.event({
+            category: 'Footer - Click Link',
+            action: actionName
+        });
+    }
+</script>
+
 <div id="top-footer">
     <img id="footer-logo" alt="Footer logo" src="./images/footer_logo.png" />
     <div class="top-footer-column">
@@ -22,8 +31,8 @@
             <div class="group-title">Get Involved</div>
             <div class="top-footer-group-separator"></div>
             <ul class="links">
-                <li><a href="https://airtable.com/shrVMcNncc32AEum7">Tester Sign-up</a></li>
-                <li><a href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Send Feedback</a></li>
+                <li><a onclick="trackLinkClick('Tester Signup')" href="https://airtable.com/shrVMcNncc32AEum7">Tester Sign-up</a></li>
+                <li><a onclick="trackLinkClick('Send Feedback')" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Send Feedback</a></li>
             </ul>
         </div>
     </div>
@@ -33,9 +42,10 @@
             <div class="group-title">Resources</div>
             <div class="top-footer-group-separator"></div>
             <ul class="links">
-                <li><a href="assets/user-guide.pdf" rel="noopener noreferrer" title="User Guide" aria-label="User Guide">User Guide</a></li>
-                <li><a href="https://api.usaspending.gov/" rel="noopener noreferrer" title="API Guide" aria-label="API Guide">API Guide</a></li>
-                <li><a href="assets/user-guide.pdf" rel="noopener noreferrer" title="College Playbook" aria-label="College Playbook">College Playbook</a></li>
+                <li><a onclick="trackLinkClick('Analyst Guide')" href="assets/user-guide.pdf" rel="noopener noreferrer" title="Analyst Guide" aria-label="Analyst Guide">Analyst Guide</a></li>
+                <li><a onclick="trackLinkClick('API Guide')" href="https://api.usaspending.gov/" rel="noopener noreferrer" title="API Guide" aria-label="API Guide">API Guide</a></li>
+                <li><a onclick="trackLinkClick('College Playbook')" href="assets/user-guide.pdf" rel="noopener noreferrer" title="College Playbook" aria-label="College Playbook">College Playbook</a></li>
+                <li><a onclick="trackLinkClick('Data Model')" href="http://fedspendingtransparency.github.io/DAIMS-v1.1/" rel="noopener noreferrer" title="Data Model" aria-label="Data Model">Data Model</a></li>
             </ul>
         </div>
 
@@ -44,27 +54,27 @@
             <div class="top-footer-group-separator"></div>
             <ul class="icons">
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
+                    <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
                         {% include svgs/github.svg class="footer-icon" %}
                     </a>
                 </li>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
+                    <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
                         {% include svgs/globe.svg class="footer-icon" %}
                     </a>
                 </li>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
+                    <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
                         {% include svgs/twitter-square.svg class="footer-icon" %}
                     </a>
                 </li>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
+                    <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
                         {% include svgs/facebook-square.svg class="footer-icon" %}
                     </a>
                 </li>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+                    <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
                         {% include svgs/linkedin-square.svg class="footer-icon" %}
                     </a>
                 </li>

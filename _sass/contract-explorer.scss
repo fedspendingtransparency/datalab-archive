@@ -102,7 +102,7 @@
 }
 
 .contract-explorer .psc-card {
-  margin-bottom: 1vw;
+  margin-bottom: 16px;
   width: 50%;
   display: inline-flex;
   align-items: center;
@@ -119,12 +119,12 @@
   width: 250px;
 }
 .contract-explorer .psc-card .name{
-  font-size: 1vw;
+  font-size: 16px;
   font-weight: 550;
   color: #20A4D5;
 }
 .contract-explorer .psc-card .obligation{
-  font-size: 1.5vw;
+  font-size: 24px;
   font-weight: 400;
 }
 
@@ -159,7 +159,7 @@
   color: #20A4D5; }
 .contract-explorer #sunburst-panel h4 {
   font-family: Source Sans Pro;
-  margin-top: 0.625vw;
+  margin-top: 10px;
   margin-bottom: 0px;
   font-size:  10px;
   text-transform: capitalize;
@@ -195,8 +195,8 @@
   margin: 0px 0px 0px 0px; }
 .contract-explorer .psc-icon {
   position: relative;
-  height: 3vw;
-  width: 3vw;
+  height: 48px;
+  width: 48px;
   margin-right: 10px; }
 .contract-explorer .val {
   font-size: 1.3em;
@@ -240,7 +240,7 @@
 .contract-explorer .psc-obligation {
   color: #0071BC; }
 .contract-explorer .sunburst-panel-col {
-  width: 600px; }
+  width: 49%; }
 .contract-explorer .sunburst-panel-col-item {
   width: 100%; }
 .contract-explorer .sunburst-panel-grid {
@@ -255,7 +255,7 @@
   margin-top: 30px;
   font-family: Source Sans Pro;
   color: black;
-  font-size: 1vw;
+  font-size: 16px;
 }
 .contract-explorer .controls-row {
   display: flex;
@@ -271,7 +271,7 @@
   width: 350px; }
 .contract-explorer .react-autosuggest__container {
   position: relative;
-  width: 100%;
+  width: 49%;
 }
 .contract-explorer .react-autosuggest__input {
   padding: 10px 30px;
@@ -332,4 +332,29 @@
   font-weight: bold; }
 .modal-body-content b {
   	font-style: bold;
+  }
+
+
+  @media (max-width: 1000px) {
+    .contract-explorer .sunburst-panel-grid {
+      flex-direction: column-reverse;
+    }
+
+    .contract-explorer .sunburst-panel-col {
+      width: unset;
+      padding: 25px;
+      padding-top: 0;
+    }
+
+    .contract-explorer .controls {
+      padding: 0 25px;
+    }
+
+    .contract-explorer .react-autosuggest__container {
+      width: 90%;
+    }
+
+    .contract-explorer #sunburst-panel {
+      margin-top: -80px;
+    }
   }

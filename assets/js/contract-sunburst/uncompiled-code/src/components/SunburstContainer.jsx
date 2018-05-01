@@ -305,45 +305,47 @@ class SunburstContainer extends Component {
     }
 
     return (
-      <div className="sunburst-panel-grid">
-        <div className="sunburst-panel-col">
-          <SunburstSearchbar
-            unfilteredSearchbarSuggestions={unfilteredSearchbarSuggestions}
-            searchbarSuggestions={searchbarSuggestions}
-            searchbarText={searchbarText}
-            handleSearchbarSelect={handleSearchbarSelect}
-            handleSearchbarTextChange={handleSearchbarTextChange}
-            setSearchbarSuggestions={setSearchbarSuggestions}
-            staticData={staticData}
-            clearSunburstFilters={clearSunburstFilters}
-            searchbarOptionSelected={searchbarOptionSelected}
-            handleSearchbarOptionChange={handleSearchbarOptionChange}
-          />
-          <SunburstPanel
-            activePanelNode={activePanelNode}
-            sunburstFilterByText={sunburstFilterByText}
-            staticData={staticData}
-          />
+      <div>
+        <SunburstSearchbar
+          unfilteredSearchbarSuggestions={unfilteredSearchbarSuggestions}
+          searchbarSuggestions={searchbarSuggestions}
+          searchbarText={searchbarText}
+          handleSearchbarSelect={handleSearchbarSelect}
+          handleSearchbarTextChange={handleSearchbarTextChange}
+          setSearchbarSuggestions={setSearchbarSuggestions}
+          staticData={staticData}
+          clearSunburstFilters={clearSunburstFilters}
+          searchbarOptionSelected={searchbarOptionSelected}
+          handleSearchbarOptionChange={handleSearchbarOptionChange}
+        />
+        <div className="sunburst-panel-grid">
+          <div className="sunburst-panel-col">
+            <SunburstPanel
+              activePanelNode={activePanelNode}
+              sunburstFilterByText={sunburstFilterByText}
+              staticData={staticData}
+            />
+          </div>
+          <div className="sunburst-panel-col">
+            <Sunburst
+              root={root}
+              handleClick={handleClick}
+              handleHover={handleHover}
+              colors={staticData.colors}
+              tooltipShown={tooltipShown}
+              handleUnhover={handleUnhover}
+              handleMouseMove={handleMouseMove}
+            />
+          </div>
+          {this.state.tooltipShown ? (
+            <Tooltip
+              depth={activePanelNode.depth}
+              coordinates={tooltipCoordinates}
+            />
+          ) : (
+            ""
+          )}
         </div>
-        <div className="sunburst-panel-col">
-          <Sunburst
-            root={root}
-            handleClick={handleClick}
-            handleHover={handleHover}
-            colors={staticData.colors}
-            tooltipShown={tooltipShown}
-            handleUnhover={handleUnhover}
-            handleMouseMove={handleMouseMove}
-          />
-        </div>
-        {this.state.tooltipShown ? (
-          <Tooltip
-            depth={activePanelNode.depth}
-            coordinates={tooltipCoordinates}
-          />
-        ) : (
-          ""
-        )}
       </div>
     );
   }
