@@ -115,6 +115,16 @@
     background-color: #333333 !IMPORTANT;
   }
 
+  .zoom {
+    cursor: move;
+    fill: none;
+    pointer-events: all;
+  }
+  
+  .focus, .context{
+    position: relative;
+  }
+
   svg {
     text {
       fill: #D0CCCC;

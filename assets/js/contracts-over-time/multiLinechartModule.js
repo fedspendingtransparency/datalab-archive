@@ -3,9 +3,11 @@
 
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
-    const svgMargin = { top: 10, right: 10, bottom: 30, left: 100 },
+    const svgMargin = { top: 10, right: 0, bottom: 90, left: 40 },
+      svgMargin2 = {top: 475, right: 0, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
-      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom;
+      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom,
+      height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
@@ -30,17 +32,87 @@ const multiLinechartModule = (function() {
     // line value ranges
     var x = d3.scaleTime().range([0, width]);
     var y = d3.scaleLinear().range([height, 0]);
+    var x2 = d3.scaleTime().range([0, width]);
+    var y2 = d3.scaleLinear().range([height2, 0]);
 
     // define the lines
-    var totalspend = d3
+    var line = d3
       .line()
       .x(d => x(d.parsedDate))
       .y(d => y(d.val));
+    
+    var line2 = d3
+      .line()
+      .x(d => x2(d.parsedDate))
+      .y(d => y2(d.val));
 
     // Scale the domains
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
+    x2.domain(x.domain());
+    y2.domain(y.domain());
 
+    let xAxis = d3.axisBottom(x)
+      .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
+
+    let xAxis2 = d3.axisBottom(x2)
+      .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
+
+    let yAxis = d3.axisLeft(y)
+      .ticks(10)
+      .tickFormat(chartModule.formatNumberAsText);
+
+    var clip = svg.append("defs").append("svg:clipPath")
+      .attr("id", "clip")
+      .append("svg:rect")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("x", 0)
+      .attr("y", 0); 
+
+    var LineChart = svg.append("g")
+      .attr("class", "focus")
+      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
+      .attr("clip-path", "url(#clip)");
+
+    var focus = svg.append("g")
+      .attr("class", "focus")
+      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")");
+
+    var context = svg.append("g")
+      .attr("class", "context")
+      .attr("transform", "translate(" + svgMargin2.left + "," + svgMargin2.top + ")");
+
+    function brushed() {
+      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+      var s = d3.event.selection || x2.range();
+      x.domain(s.map(x2.invert, x2));
+      LineChart.select(".line").attr("d", line);
+      focus.select(".axis--x").call(xAxis);
+      svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
+          .scale(width / (s[1] - s[0]))
+          .translate(-s[0], 0));
+    }
+    
+    function zoomed() {
+      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
+      var t = d3.event.transform;
+      x.domain(t.rescaleX(x2).domain());
+      LineChart.select(".line").attr("d", line);
+      focus.select(".axis--x").call(xAxis);
+      context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+    }
+
+    var brush = d3.brushX()
+      .extent([[0, 0], [width, height2]])
+      .on("brush end", brushed);
+
+    var zoom = d3.zoom()
+      .scaleExtent([1, Infinity])
+      .translateExtent([[0, 0], [width, height]])
+      .extent([[0, 0], [width, height]])
+      .on("zoom", zoomed);
+    
     var lineColor = d3
       .scaleLinear()
       .range(["#93DFB8", "#E3AAD6", "#FFC8BA", "#B5D8EB"])
@@ -53,8 +125,35 @@ const multiLinechartModule = (function() {
       .domain([0, Object.keys(data.verticalLineData).length - 1])
       .interpolate(d3.interpolateHcl);
 
+    context.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height2 + ")")
+      .call(xAxis2);
+
+    context.append("g")
+      .attr("class", "brush")
+      .call(brush)
+      .call(brush.move, x.range());
+
+    focus.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+    focus.append("g")
+      .attr("class", "axis axis--y")
+      .call(yAxis);
+
+    svg.append("rect")
+      .attr("class", "zoom")
+      .attr("width", width)
+      .attr("height", height)
+      .style('opacity','0')
+      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
+      .call(zoom);
+
     // draw lines
-    svg
+    LineChart
       .append("g")
       .attr("class", "line-paths")
       .selectAll(".line")
@@ -63,7 +162,26 @@ const multiLinechartModule = (function() {
       .append("path")
       .attr("class", "line")
       .style("stroke", (d, i) => lineColor(i))
-      .attr("d", d => totalspend(d[1]))
+      .attr("d", d => line(d[1]))
+      .each(function(d) {
+        d.totalLength = this.getTotalLength();
+      })
+      .attr("stroke-dasharray", d => d.totalLength)
+      .attr("stroke-dashoffset", d => d.totalLength)
+      .transition()
+      .duration(4000)
+      .attr("stroke-dashoffset", "0");
+
+    context
+      .append("g")
+      .attr("class", "line-paths")
+      .selectAll(".line")
+      .data(Object.entries(data.lineData))
+      .enter()
+      .append("path")
+      .attr("class", "line")
+      .style("stroke", (d, i) => lineColor(i))
+      .attr("d", d => line2(d[1]))
       .each(function(d) {
         d.totalLength = this.getTotalLength();
       })
@@ -75,7 +193,7 @@ const multiLinechartModule = (function() {
 
     // draw data points
     Object.entries(data.lineData).forEach((l, i) => {
-      svg
+      LineChart
         .append("g")
         .attr("class", "data-points")
         .selectAll(".data-point")
@@ -85,6 +203,22 @@ const multiLinechartModule = (function() {
         .attr("class", "data-point")
         .attr("cx", d => x(d.parsedDate))
         .attr("cy", d => y(d.val))
+        .attr("r", 10)
+        .attr("fill-opacity", "0")
+        .on("mouseover", d => handleMouseOver(d, l[0]))
+        .on("mouseout", handleMouseOut)
+        .on("mousemove", handleMouseMove);
+
+      context
+        .append("g")
+        .attr("class", "data-points")
+        .selectAll(".data-point")
+        .data(l[1])
+        .enter()
+        .append("circle")
+        .attr("class", "data-point")
+        .attr("cx", d => x2(d.parsedDate))
+        .attr("cy", d => y2(d.val))
         .attr("r", 10)
         .attr("fill-opacity", "0")
         .on("mouseover", d => handleMouseOver(d, l[0]))
@@ -137,26 +271,15 @@ const multiLinechartModule = (function() {
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
     // Add X Axis
-    svg
-      .append("g")
-      .attr("class", "axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(
-        xAxisFormat === "week"
-          ? d3.axisBottom(x).tickFormat(d3.timeFormat("%B"))
-          : d3.axisBottom(x).tickFormat(d3.timeFormat("%Y"))
-      );
-
-    // Add Y axis
-    svg
-      .append("g")
-      .attr("class", "axis")
-      .call(
-        d3
-          .axisLeft(y)
-          .ticks(10)
-          .tickFormat(chartModule.formatNumberAsText)
-      );
+    // svg
+    //   .append("g")
+    //   .attr("class", "axis")
+    //   .attr("transform", "translate(0," + height + ")")
+    //   .call(
+    //     xAxisFormat === "week"
+    //       ? d3.axisBottom(x).tickFormat(d3.timeFormat("%B"))
+    //       : d3.axisBottom(x).tickFormat(d3.timeFormat("%Y"))
+    //   );
 
     function addLegend(legendName, legendData, colorScale, position) {
       const legendSpace = 10;
