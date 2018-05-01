@@ -89,7 +89,7 @@
   .line {
     fill: none;
     stroke: steelblue;
-    stroke-width: 3px;
+    stroke-width: 1px;
   }
 
   line {
@@ -129,5 +129,9 @@
     text {
       fill: #D0CCCC;
     }
+  }
+
+  #svg-1 > g > g.legend.legend-1 > g > text{
+    cursor: pointer;
   }
 }

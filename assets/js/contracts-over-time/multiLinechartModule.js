@@ -191,20 +191,6 @@ const multiLinechartModule = (function() {
       .duration(4000)
       .attr("stroke-dashoffset", "0");
 
-    function handleMouseOver(d, title) {
-      tooltipModule.draw("#tooltip", title, {
-        Value: chartModule.formatNumberAsText(d.val)
-      });
-    }
-
-    function handleMouseOut() {
-      tooltipModule.remove("#tooltip");
-    }
-
-    function handleMouseMove() {
-      tooltipModule.move("#tooltip");
-    }
-
     // draw data points
     Object.entries(data.lineData).forEach((l, i) => {
       LineChart
@@ -240,6 +226,20 @@ const multiLinechartModule = (function() {
         .on("mousemove", handleMouseMove);
     });
 
+    function handleMouseOver(d, title) {
+      tooltipModule.draw("#tooltip", title, {
+        Value: chartModule.formatNumberAsText(d.val)
+      });
+    }
+
+    function handleMouseOut() {
+      tooltipModule.remove("#tooltip");
+    }
+
+    function handleMouseMove() {
+      tooltipModule.move("#tooltip");
+    }
+
     // draw vertical lines
     Object.entries(data.verticalLineData).forEach((l, i) => {
       svg
@@ -260,6 +260,8 @@ const multiLinechartModule = (function() {
         })
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
         .transition()
         .duration(4000)
         .attr("stroke-dashoffset", "0");
@@ -307,7 +309,32 @@ const multiLinechartModule = (function() {
         .style("font-family", "sans-serif")
         .style("text-anchor", position === "right" ? "end" : "start")
         .style("alignment-baseline", "hanging")
-        .text(d => d);
+        .text(d => d)
+        .on("mouseover",(d) => {
+          if(d === "Contract Modification"){
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+          }else if (d === "New Contract"){
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+          }else if (d === "Equipment/Facilities/Construction/Vehicles"){
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+          }else if (d === "Miscellaneous"){
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+          }else if (d === "Professional Services"){
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
+          }else if (d === "Telecomm & IT"){
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+          }else if (d === "Weapons"){
+            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
+          }
+        })
+        .on("mouseout",() => d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","1px"));
 
       const legendDims = legend.node().getBBox();
 
@@ -318,7 +345,13 @@ const multiLinechartModule = (function() {
         .attr("y", -10);
     }
 
-    addLegend("legend-1", Object.keys(data.lineData), lineColor, "right");
+    addLegend(
+      "legend-1", 
+      Object.keys(data.lineData), 
+      lineColor, 
+      "right"
+    );
+
     addLegend(
       "legend-2",
       Object.keys(data.verticalLineData),
