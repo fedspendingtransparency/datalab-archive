@@ -11,15 +11,16 @@
 @import 'fedscope-tool';
 @import 'contracts-over-time';
 @import 'universal-banner';
+@import 'tooltip-module';
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
 
 
-$accent-blue: #0C99CD;
+$accent-blue: #007fae;
 $accent-grey: #323A45;
 $shuttle-grey: #62666C;
 $silver: #CCCCCC;
-$button1: #D334BA;
+$button1: #D41EB6;
 $fg-light: rgba(255,255,255,0.5);
 
 /* Basic */
@@ -167,6 +168,10 @@ table td {
 	text-align: left;
 }
 
+#banner p {
+	margin-bottom: 0;
+}
+
 #main > header {
 	background-attachment: fixed;
 	background-position: center center;
@@ -254,8 +259,8 @@ ul.icons.major {
 	margin: 0;
 	padding: 0;
 	display: flex;
-	justify-content: space-around;
 	justify-content: space-evenly;
+	justify-content: space-around;
 	flex-direction: row;
 	color: #FFFFFF;
 }
@@ -288,7 +293,7 @@ header.major h2 {
 	background-color: #FFFFFF;
 }
 
-.spotlight > .content > h4 {
+.spotlight > .content > h3 {
 	color: $accent-blue;
 	font-size: 16px;
 	line-height: 19px;
@@ -422,7 +427,7 @@ header.major h2 {
 
 .homepage-get-started {
 	border-radius: 48.5px;
-	background-color: $button1;
+	background-color: #D420B3;
 	font-size: 24px;
 	font-weight: 600;
 	line-height: 58px;
@@ -635,6 +640,7 @@ header.major h2 {
 	margin: 40px 40px 0 0;
 	stroke-width: 2px;
 	stroke: #FFF;
+	cursor: pointer;
 }
 
 .read-more-header {
@@ -707,8 +713,6 @@ header.major h2 {
 	);
 }
 
-/* return to top button */
-
 #return-to-top {
     position: fixed;
     bottom: 20px;
@@ -748,45 +752,6 @@ header.major h2 {
 	height: 75px;
 }
 
-/* Popup Start */
-
-#button-instructions {
-	position: static;
-}
-
-#button-share {
-	position: static;
-}
-
-.popup .popuptext {
-    visibility: hidden;
-    width: 135px;
-	background-color: #fff;
-	border: 1px $silver solid;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 100;
-    top: 65px;
-}
-
-.popup .popuptext.right {
-	right: 0px;
-    top: 50px;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-    visibility: visible;
-    animation: fadeIn 1s;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
-
-/* Popup End */
-
 .get-started-arrow {
 	display: inline-block;
 	width: 24px;
@@ -810,10 +775,6 @@ header.major h2 {
 	border-bottom: 5px solid #FFFFFF;
 	display: block;
 	margin-bottom: 15px;
-}
-
-.homeless-map-options {
-	
 }
 
 .homeless-style {
@@ -896,181 +857,6 @@ article > header {
 	margin: 0;
 }
 
-/* Buttons Start */
-
-.discover {
-	color: #5B616B;
-	font-size: 16px;
-	text-align: center;
-	display: block;
-}
-
-.discover-box {
-	width: 147px;
-	border: 1px solid #979797;
-	border-radius: 50px;
-	cursor: pointer;
-	display: block;
-	padding: 8px;
-}
-
-.discover-box:hover {
-	background-color: $accent-blue;
-	border: 1px solid $accent-blue;
-}
-
-.discover-box:hover .discover {
-	color: #FFFFFF;
-}
-
-.button-read-more {
-	margin-top: 35px;
-	width: 147px;
-	border: 1px solid $accent-blue;
-	border-radius: 50px;
-	display: block;
-	font-size: 14px;
-	text-align: center;
-	padding: 5px;
-	cursor: pointer;
-}
-
-.button-read-more:hover {
-	text-decoration: none;
-	background-color: $accent-blue;
-	border: 1px solid $accent-blue;
-}
-
-.button-read-more span {
-	color: #3BADD6;
-	text-transform: uppercase;
-}
-
-.button-read-more:hover span {
-	color: #FFFFFF;
-}
-
-.action-button {
-    display: inline-block;
-    color: #5B616B;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin: 0 5px 0 15px;
-    font-weight: lighter;
-    cursor: pointer;
-    padding: 5px 30px;
-    font-size: 16px;
-}
-
-.action-button:hover {
-	background-color: #0C99CD;
-	border-color: #0C99CD;
-	color: #FFF;
-}
-
-.action-button:hover .viz-share-icon {
-	fill: #FFF;
-}
-
-.share-viz-button {
-	color: #333;
-    background-color: #FFF;
-    border: 1px solid $silver;
-    border-radius: 50px;
-	margin: 0 35px 0 15px;
-	position: relative;
-}
-
-.get-involved-button {
-	width: 205px;
-	border: 1px solid #FFFFFF;
-	border-radius: 50px;
-	display: inline-block;
-	font-weight: 300;
-	font-size: 18px;
-	letter-spacing: 2px;
-	margin: 10px 20px;
-	padding: 10px;
-	color: #FFFFFF;
-	cursor: pointer;
-}
-
-.get-involved-button:hover {
-	background-color: #0C759D;
-	border: 1px solid #0C759D;
-}
-
-.btn-analysis {
-	width: 196px;
-	border-radius: 26px;
-	font-size: 18px;
-	color: #FFFFFF;
-	margin-right: 50px;
-	text-align: center;
-	display: inline-block;
-	letter-spacing: 2px;
-	padding: 10px;
-	border: 1px solid $accent-blue;
-}
-
-.btn-analysis-read-more {
-	background-color: $accent-blue;
-	border: 1px solid $accent-blue;
-}
-
-.btn-analysis-read-more:hover {
-	background-color: #0C759D;
-	border: 1px solid #0C759D;
-}
-
-.btn-analysis-next-analysis {
-	background-color: $button1;
-	border: 1px solid $button1;
-}
-
-.btn-analysis-next-analysis:hover {
-	background-color: #AC2096;
-	border: 1px solid #AC2096;
-}
-
-.read-more-button {
-	width: 325px;
-	border: 1px solid $accent-blue;
-	border-radius: 50px;
-	color: $accent-blue;
-	font-size: 20px;
-	padding: 15px 0;
-	text-transform: uppercase;
-	text-align: center;
-	cursor: pointer;
-}
-
-.read-more-button:hover {
-	background-color: $accent-blue;
-	color: #FFFFFF;
-	border: 1px solid $accent-blue;
-}
-
-.button-instructions {
-    background-color: $button1;
-    display: inline-block;
-    color: #FFFFFF;
-    border-radius: 50px;
-    margin-left: 15px;
-    font-weight: 300;
-    cursor: pointer;
-    padding: 5px 20px;
-    text-transform: uppercase;
-    font-size: 14px;
-	letter-spacing: 1px;
-}
-
-.button-instructions:hover {
-	background-color: #AC2096;
-}
-
-/* Buttons End */
-
 .viz-title-container {
 	text-align: left;
 	color: #5B616B;
@@ -1092,169 +878,16 @@ article > header {
 	display: none;
 }
 
-/* Modal Start */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.2);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 0 auto;
-	width: 600px;
-	line-height: 26px;
-	position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.modal-blue-bar {
-	height: 10px;
-	background-color: $accent-blue;
-}
-
-.modal-body {
-	padding: 60px;
-}
-
-.modal-body-title {
-	color: #5B616B;
-	font-size: 30px;
-	font-weight: 400;
-	line-height: 40px;
-}
-
-.modal-body-content {
-	color: #5B616B;
-	font-size: 16px;
-	font-weight: 300;
-	margin-top: 30px;
-	letter-spacing: 0px;
-	text-align: left;
-	overflow-y: auto;
-	max-height: 400px;
-	margin-bottom: 25px;
-}
-
-.modal-body-content p {
-	margin: 0;
-}
-
-.superscript {
-	vertical-align:super;
-	font-size: smaller;
-}
-
-.homeless-panel-one-info {
-	padding:0 5% 25px 5%;
-}
-
-.homeless-panel-one-info p {
-	font-size: 14px;
-	text-align: left;
-	font-weight: 300;
-	color: #5B616B;
-	margin: 0;
-}
-
-.modal-body-content ul {
-	list-style: disc;
-	padding-left: 20px;
-}
-
-.modal-body-content a {
-	font-weight: 400;
-	color: #5475A4;
-}
-
-.modal-body-close {
-	width: 147px;
-	background-color: #5B616B;
-	color: #FFFFFF;
-	border-radius: 50px;
-	cursor: pointer;
-	display: block;
-	padding: 12px;
-	font-weight: 300;
-	text-transform: uppercase;
-	text-align: center;
-	margin: 0 auto;
-}
-
-.modal-body-close:hover {
-	background-color: #1C1D20;
-}
-
-/* Modal End */
-
-/* Info Banner Start */
-
-.info-banner {
-	min-height: 45px;
-	background: #e1f3f8;
-    width: 100%;
-	border-top: 5px solid #9bdaf1;
-	display: none;
-}
-
-.info-banner__content {
-	text-align: center;
-    position: relative;
-}
-
-.info-banner__alert-icon {
-    background-repeat: no-repeat;
-    width: 26px;
-	height: 26px;
-	display: inline-block;
-	margin-top: 7px;
-	opacity: 0.7;
-}
-
-.info-banner__alert-text {
-	color: #555;
-	display: inline-block;
-	vertical-align: super;
-}
-
-.info-banner__body-text {
-	font-size: 13px;
-	padding: 5px 20px 8px 20px;
-	line-height: 22px;
-	font-weight: 400;
-	letter-spacing: 0;
-}
-
-.info-banner__close-icon {
-    background-repeat: no-repeat;
-    cursor: pointer;
+.sankey-viz-svg {
+	width: 41vw;
+	height: 42vw;
 	position: absolute;
-    right: 18px;
-    top: 13px;
-    width: 18px;
-	height: 18px;
-	stroke: #808080;
-	stroke-width: 2px;
+	left: 0;
 }
-
-.info-banner__body-text > a {
-	color: #5475A4;
-}
-
-/* Info Banner End */
 
 .homelessness-read-more {
 	ul {
 		list-style: disc;
-		// margin-left: 20px;
 		margin-bottom:25px;
 	}
 
@@ -1284,249 +917,6 @@ article > header {
 	}
 }
 
-/* Footer Navigation Start */
-
-.footer-navigation {
-	display: flex;
-    justify-content: space-around;
-	padding: 70px;
-	
-	background-position: center;
-    background-size: cover;
-    background-image: url(/images/analysis.jpg);
-}
-
-.footer-navigation__navigate-button {
-	display: inline-block;
-	width: 64px;
-	height: 64px;
-	vertical-align: sub;
-	margin: 15px 0;
-}
-
-.footer-navigation__navigate-button.btn-prev-viz {
-	margin-right: 40px;
-	margin-right: 2vw;
-}
-
-.footer-navigation__navigate-button.btn-next-viz {
-	margin-left: 40px;
-	margin-left: 2vw;
-}
-
-.footer-navigation__separator {
-	border-right: 1px solid #FFF;
-	height: 75px;
-	align-self: center;
-}
-
-.footer-navigation__title-container {
-	display: inline-block;
-	color: #FFF;
-}
-
-.footer-navigation__container {
-	align-self: center;
-}
-
-.footer-navigation__title {
-    color: inherit;
-    font-weight: 400;
-    font-size: 34px;
-}
-
-.footer-navigation__subtitle {
-    color: inherit;
-	font-weight: 300;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-.footer-navigation__title-container:hover {
-	color: #9BDAF1;
-}
-
-/* Footer Navigation End */
-
-/* Mobile Begin */
-
-@media (max-width: 1400px) {
-	.spotlight .content {
-		padding: 1% 2% 2% 2%;
-	}
-
-	.how-we-conducted-this-analysis {
-		margin-right: 0;
-		margin-bottom: 25px;
-	}
-}
-
-@media (max-width: 1000px) {
-	.spotlight {
-		flex-direction: column !important;
-	}
-
-	.footer-navigation, #top-footer, ul.icons.major {
-		flex-direction: column;
-	}
-
-	.footer-navigation {
-		padding: 25px;
-	}
-
-	.footer-navigation__separator {
-		visibility: hidden;
-	}
-
-	.spotlight .content {
-		width: 100%;
-		box-sizing: border-box;
-		padding: 40px;
-	}
-
-	.spotlight .image {
-		width: 100%;
-	}
-
-	.copyright, #footer {
-		flex-direction: column;
-		margin-bottom: 0;
-	}
-
-	.footer-important-info {
-		justify-content: center;
-		margin-bottom: 15px;
-	}
-
-	#footer .copyright li:before {
-		content: ""
-	}
-
-	.top-footer-column {
-		width: 100%;
-	}
-
-	ul.icons {
-		margin-bottom: 60px;
-	}
-
-	#top-footer {
-		padding: 25px;
-	}
-
-	#footer-logo {
-		bottom: 25px;
-		left: 25px;
-	}
-
-	.link-group {
-		margin: 15px 0;
-	}
-}
-
-@media (max-width: 787px) {
-	#banner, .how-analysis-container, #main > header {
-		background-attachment: scroll;
-	}
-
-	.spotlight > .content > h2 {
-		margin: 25px 0;
-	}
-
-	.spotlight > .content > p {
-		margin-bottom: 25px;
-	}
-
-	.usaspending-logo {
-		margin-left: 0;
-	}
-
-	.index-header {
-		width: 90%;
-		font-size: 54px;
-	}
-
-	.index-sub-header {
-		width: 95%;
-	}
-
-	#banner {
-		padding-left: 25px;
-	}
-
-	.header-box {
-		margin-left: 25px;
-		width: calc(100% - 50px);
-	}
-
-	.entry-about-container {
-		flex-direction: column;
-		padding: 30px;
-	}
-
-	.entry-about-title-container {
-		margin-right: 0;
-		margin-bottom: 25px;
-		width: 100%;
-	}
-
-	.entry-about-body-container {
-		width: 100%;
-	}
-
-	.mask {
-		display: none;
-	}
-
-	.viz-mobile-message {
-		display: block;
-		margin-top: 25px;
-		border-radius: 10px;
-		border: 1px solid #f0e2c5;
-		text-align: center;
-		background-color: #fcf8e4;
-		font-weight: 300;
-		width: 100%;
-		font-size: 14px;
-		line-height: 22px;
-		padding: 15px 30px;
-		box-sizing: border-box;
-	}
-
-	.button-instructions {
-		margin: 25px 0;
-	}
-
-	.btn-analysis {
-		margin-bottom: 25px;
-	}
-
-	.modal-content {
-		width: 90%;
-	}
-
-	.modal-body {
-		padding: 20px;
-	}
-
-	.how-analysis-inner-container {
-		padding: 30px;
-	}
-
-	.read-more-content {
-		width: 85%;
-	}
-
-	.homeless-analysis d3-tip {
-		display: none;
-	}
-
-	.important-db-info {
-		margin-right: 0;
-	}
-}
-
-/* Mobile End */
 
 .icon-chevron-up {
 	width: 20px;
@@ -1566,3 +956,10 @@ article > header {
 	height: inherit;
 	fill: inherit;
 }
+
+@import 'website/popup';
+@import 'website/info-banner';
+@import 'website/buttons';
+@import 'website/footer-navigation';
+@import 'website/modal';
+@import 'website/mobile';

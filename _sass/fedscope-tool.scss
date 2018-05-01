@@ -5,7 +5,7 @@
   .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #inherit;
+    background-color: inherit;
     margin-top: 10px;
   }
 
@@ -101,6 +101,11 @@
     color: white;
   }
 
+  #mapSvg, #treemapSvg, #barchartSvg {
+    width: 100%;
+    height: 100%;
+  }
+
   #mapToolbar {
     padding: 20px;
   }
@@ -137,5 +142,15 @@
 
   option {
     font-size: 12px;
+  }
+
+  .select-title {
+    text-align: center;
+  }
+
+  @media (max-width: 1000px) { 
+    #mapToolbar, #barchartToolbar {
+      flex-direction: column !important;
+    }
   }
 }

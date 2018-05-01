@@ -9,9 +9,7 @@ alt: Competition in Contracting
 permalink: competition-in-contracting.html
 category: entry
 ---
-<!-- // comments so cloudfront will change the <fieldset>
-	//
-	// -->
+
 </fieldset>
 {% include viz-header-info.html
 	title="Why does the government use competition when awarding contracts?"
@@ -40,7 +38,7 @@ category: entry
 
           <div id="summary">
             <!-- tooltip -->
-            <div id="tooltip" class="homeless-analysis d3-tip n" style="opacity: 0; position: absolute; top: 1726px; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(51, 51, 51); border: 1px solid rgb(191, 188, 188); padding: 25px; width: 300px; left: 486.128px;"></div>
+            <div id="tooltip" class="tooltip-module"></div>
 
             <!-- summary -->
 						<div class="summary-item">
@@ -63,13 +61,13 @@ category: entry
           <!-- toolbar -->
           <div>
 						<div class="legend" id="notCompeted">
-							<svg height="15" width="10%">
+							<svg height="15" width="15">
 							  <circle cx="7.5" cy="7.5" r="7.5" fill="#D334BA" />
 							</svg>
 							<label for="notCompeted" style="font-size:12px; vertical-align: bottom">Not Competed</label>
 						</div>
 						<div class="legend" id="competed">
-							<svg height="15" width="10%">
+							<svg height="15" width="15">
 							  <circle cx="7.5" cy="7.5" r="7.5" fill="#0071bc" />
 							</svg>
 							<label for="contactChoice1" style="font-size:12px; vertical-align: bottom">Competed</label>
@@ -94,7 +92,7 @@ category: entry
 
           <!-- barchart -->
           <div>
-            <svg width="1200" height="700" id="barchartSvg"></svg>
+            <svg width="1200" height="700" viewBox="0 0 1200 700" id="barchartSvg"></svg>
           </div>
 
         </div>
@@ -114,12 +112,16 @@ category: entry
   next-link="federal-account-explorer.html"
 %}
 
-<!-- d3 -->
+<!-- vendor scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/jquery-3.3.1.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/helperFunctionModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/dataModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/summaryTableModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/tooltipModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/barchartModule.js"></script>
-<script src="{{site.baseurl}}/assets/js/competition-in-contracting/compiled-code/competitionInContracting.js"></script>
+
+<!-- shared module scripts -->
+<script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
+
+<!-- competition in contracting module scripts -->
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/helperFunctionModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/dataModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/summaryTableModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/barchartModule.js"></script>
+<script src="{{site.baseurl}}/assets/js/competition-in-contracting/competitionInContracting.js"></script>

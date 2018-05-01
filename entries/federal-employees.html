@@ -25,7 +25,7 @@ category: entry
     <div class="mask">
       {% include action-buttons.html %}
       <div class="visContainer">
-        <svg width="1200" height="700" id="treemapSvg"></svg>
+        <svg width="1200" height="700" viewBox="0 0 1200 700" id="treemapSvg"></svg>
       </div>
       
     </div>
@@ -44,19 +44,19 @@ category: entry
       %}
       <form id="mapToolbar" class="toolbar">
         <div class="formItem">
-          Agencies:<br>
+          <div class="select-title">Agencies:</div>
           <select multiple id="mapAgencyDropdown"></select>
           <br>
         </div>
         <div class="formItem">
-          Occupation Types:<br>
+          <div class="select-title">Occupation Types:</div>
           <select multiple id="mapOccupationDropdown"></select>
           <br>
         </div>
       </form>
       
       <div class="visContainer">
-        <svg width="900" height="562" id="mapSvg"></svg>
+        <svg width="900" height="562" viewBox="0 0 900 562" id="mapSvg"></svg>
       </div>
     </div>
 </div>
@@ -80,12 +80,12 @@ category: entry
     %}
     <form id="barchartToolbar" class="toolbar">
       <div class="formItem">
-        Agencies:<br>
+        <div class="select-title">Agencies:</div>
         <select multiple="" id="barchartAgencyDropdown"></select>
         <br>
       </div>
       <div class="formItem">  
-        States:<br>
+        <div class="select-title">States:</div>
         <select multiple="" id="barchartStateDropdown"></select>
         <br>
       </div>
@@ -93,7 +93,7 @@ category: entry
 
     <div class="visContainer">
       <svg id="barchartKey"></svg>
-      <svg width="900" height="500" id="barchartSvg"></svg>
+      <svg width="900" height="500" viewBox="0 0 900 500" id="barchartSvg"></svg>
     </div>
 	</div>
 </div>

@@ -1,70 +1,61 @@
 ---
 ---
 
-const dataModule = (function() {
-  const mem = {};
+window.dataModule = {
+    mem: {},
 
-  function loadStates(cb) {
-    d3.json("../../../data-lab-data/fedscope-tool/states.json", function(
-      error,
-      data
-    ) {
-      if (error) throw error;
-      mem.states = data;
-      cb(data);
-    });
-  }
+    loadStates: (cb) => {
+        d3.json("../../../data-lab-data/fedscope-tool/states.json", (
+            error,
+            data
+        ) => {
+            if (error) throw error;
+            window.dataModule.mem.states = data;
+            cb(data);
+        });
+    },
 
-  function loadAgencies(cb) {
-    d3.json("../../../data-lab-data/fedscope-tool/agencies.json", function(
-      error,
-      data
-    ) {
-      if (error) throw error;
-      mem.agencies = data;
-      cb(data);
-    });
-  }
+    loadAgencies: (cb) => {
+        d3.json("../../../data-lab-data/fedscope-tool/agencies.json", (
+            error,
+            data
+        ) => {
+            if (error) throw error;
+            window.dataModule.mem.agencies = data;
+            cb(data);
+        });
+    },
 
-  function loadOccupationCategories(cb) {
-    d3.json(
-      "../../../data-lab-data/fedscope-tool/occupationCategories.json",
-      function(error, data) {
-        if (error) throw error;
-        mem.occupationCategories = data;
-        cb(data);
-      }
-    );
-  }
+    loadOccupationCategories: (cb) => {
+        d3.json(
+            "../../../data-lab-data/fedscope-tool/occupationCategories.json",
+            (error, data) => {
+                if (error) throw error;
+                window.dataModule.mem.occupationCategories = data;
+                cb(data);
+            }
+        );
+    },
 
-  function loadEmployeeCountData(cbs, props) {
-    d3.json("../../../data-lab-data/fedscope-tool/employees.json", function(
-      error,
-      data
-    ) {
-      if (error) throw error;
-      mem.employeeCounts = data;
-      cbs.forEach(cb => cb(data, props));
-    });
-  }
+    loadEmployeeCountData: (cbs, props) => {
+        d3.json("../../../data-lab-data/fedscope-tool/employees.json", (
+            error,
+            data
+        ) => {
+            if (error) throw error;
+            window.dataModule.mem.employeeCounts = data;
+            cbs.forEach((cb) => cb(data, props));
+        });
+    },
 
-  function loadEmployeeSalaryData(cbs, props) {
-    d3.json(
-      "../../../data-lab-data/fedscope-tool/employeeSalaries.json",
-      function(error, data) {
-        if (error) throw error;
-        mem.employeeSalaries = data;
-        cbs.forEach(cb => cb(data, props));
-      }
-    );
-  }
-
-  return {
-    loadEmployeeCountData,
-    loadEmployeeSalaryData,
-    loadStates,
-    loadAgencies,
-    loadOccupationCategories,
-    mem
-  };
-})();
+    loadEmployeeSalaryData: (cbs, props) => {
+        d3.json(
+            "../../../data-lab-data/fedscope-tool/employeeSalaries.json",
+            (error, data) => {
+                if (error) throw error;
+                window.dataModule.mem.employeeSalaries = data;
+                cbs.forEach((cb) => cb(data, props));
+            }
+        );
+    }
+};

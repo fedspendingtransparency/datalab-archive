@@ -56,10 +56,10 @@ $(function() {
   function setDimsOfSvg(id) {
     const windowWidth = $(window).width();
     const windowHeight = $(window).height();
-    const windowMargin = 100;
+    const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth * .7 - 2 * windowMargin;
+    const svgWidth = windowWidth * .8 - 2 * windowMargin;
 
     $(id)
       .attr("height", svgHeight)

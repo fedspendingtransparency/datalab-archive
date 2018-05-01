@@ -102,10 +102,15 @@
 }
 
 .contract-explorer .psc-card {
-  margin-bottom: 35px;
+  margin-bottom: 1vw;
   width: 50%;
   display: inline-flex;
   align-items: center;
+}
+
+.contract-explorer #sunburstSvg {
+  width: 100%;
+  height: 100%;
 }
 
 .contract-explorer .psc-card-item {
@@ -114,12 +119,12 @@
   width: 250px;
 }
 .contract-explorer .psc-card .name{
-  font-size: 16px;
+  font-size: 1vw;
   font-weight: 550;
   color: #20A4D5;
 }
 .contract-explorer .psc-card .obligation{
-  font-size: 24px;
+  font-size: 1.5vw;
   font-weight: 400;
 }
 
@@ -154,9 +159,9 @@
   color: #20A4D5; }
 .contract-explorer #sunburst-panel h4 {
   font-family: Source Sans Pro;
-  margin-top: 10px;
+  margin-top: 0.625vw;
   margin-bottom: 0px;
-  font-size: 10px;
+  font-size:  10px;
   text-transform: capitalize;
   font-style: inherit;
   color: #555555; }
@@ -190,8 +195,8 @@
   margin: 0px 0px 0px 0px; }
 .contract-explorer .psc-icon {
   position: relative;
-  height: 40px;
-  width: 40px;
+  height: 3vw;
+  width: 3vw;
   margin-right: 10px; }
 .contract-explorer .val {
   font-size: 1.3em;
@@ -250,7 +255,7 @@
   margin-top: 30px;
   font-family: Source Sans Pro;
   color: black;
-  font-size: 16px;
+  font-size: 1vw;
 }
 .contract-explorer .controls-row {
   display: flex;
