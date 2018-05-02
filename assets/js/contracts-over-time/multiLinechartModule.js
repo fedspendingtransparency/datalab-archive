@@ -15,6 +15,7 @@ const multiLinechartModule = (function() {
     var svg = d3
       .select("#svg-1")
       .append("g")
+      .attr('class','frame')
       .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>

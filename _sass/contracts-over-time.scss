@@ -123,6 +123,11 @@
   
   .focus, .context{
     position: relative;
+    max-width: 900px;
+  }
+
+  .frame{
+    max-width: 900px;
   }
 
   #svg-1{
