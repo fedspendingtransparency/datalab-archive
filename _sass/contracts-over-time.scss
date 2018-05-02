@@ -125,6 +125,15 @@
     position: relative;
   }
 
+  #svg-1{
+    overflow: visible;
+    // margin: -20px 0 -30px 0;
+  }
+
+  .xAxis{
+    stroke: lightgrey;
+  }
+
   svg {
     text {
       fill: #D0CCCC;

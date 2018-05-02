@@ -3,11 +3,11 @@
 
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
-    const svgMargin = { top: 10, right: 0, bottom: 90, left: 40 },
-      svgMargin2 = {top: 475, right: 0, bottom: 30, left: 40},
+    const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
+      svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
-      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom,
-      height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom;
+      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 70,
+      height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
@@ -38,13 +38,17 @@ const multiLinechartModule = (function() {
     // define the lines
     var line = d3
       .line()
+      .defined(function(d) { return !isNaN(d.val); })
       .x(d => x(d.parsedDate))
       .y(d => y(d.val));
+      // .interpolate("cubic");
     
     var line2 = d3
       .line()
+      .defined(function(d) { return !isNaN(d.val); })
       .x(d => x2(d.parsedDate))
       .y(d => y2(d.val));
+      // .interpolate("cubic");
 
     // Scale the domains
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
@@ -72,16 +76,16 @@ const multiLinechartModule = (function() {
 
     var LineChart = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
+      .attr("transform", "translate(0,0)")
       .attr("clip-path", "url(#clip)");
 
     var focus = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")");
+      .attr("transform", "translate(0,0)");
 
     var context = svg.append("g")
       .attr("class", "context")
-      .attr("transform", "translate(" + svgMargin2.left + "," + svgMargin2.top + ")");
+      .attr("transform", "translate(0," + (svgMargin2.top+60) + ")");
 
     function brushed() {
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
@@ -127,7 +131,7 @@ const multiLinechartModule = (function() {
 
     context.append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height2 + ")")
+      .attr("transform", "translate(50," + height2 + ")")
       .call(xAxis2);
 
     context.append("g")
@@ -137,20 +141,20 @@ const multiLinechartModule = (function() {
 
     focus.append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(50," + height + ")")
       .call(xAxis);
 
     focus.append("g")
       .attr("class", "axis axis--y")
       .call(yAxis);
 
-    svg.append("rect")
-      .attr("class", "zoom")
-      .attr("width", width)
-      .attr("height", height)
-      .style('opacity','0')
-      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
-      .call(zoom);
+    // svg.append("rect")
+    //   .attr("class", "zoom")
+    //   .attr("width", width)
+    //   .attr("height", height)
+    //   .style('opacity','0')
+    //   .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
+    //   .call(zoom);
 
     // draw lines
     LineChart
@@ -193,22 +197,6 @@ const multiLinechartModule = (function() {
 
     // draw data points
     Object.entries(data.lineData).forEach((l, i) => {
-      LineChart
-        .append("g")
-        .attr("class", "data-points")
-        .selectAll(".data-point")
-        .data(l[1])
-        .enter()
-        .append("circle")
-        .attr("class", "data-point")
-        .attr("cx", d => x(d.parsedDate))
-        .attr("cy", d => y(d.val))
-        .attr("r", 10)
-        .attr("fill-opacity", "0")
-        .on("mouseover", d => handleMouseOver(d, l[0]))
-        .on("mouseout", handleMouseOut)
-        .on("mousemove", handleMouseMove);
-
       context
         .append("g")
         .attr("class", "data-points")
@@ -219,6 +207,19 @@ const multiLinechartModule = (function() {
         .attr("class", "data-point")
         .attr("cx", d => x2(d.parsedDate))
         .attr("cy", d => y2(d.val))
+        .attr("r", 10)
+        .attr("fill-opacity", "0");
+        
+      LineChart
+        .append("g")
+        .attr("class", "data-points")
+        .selectAll(".data-point")
+        .data(l[1])
+        .enter()
+        .append("circle")
+        .attr("class", "data-point")
+        .attr("cx", d => x(d.parsedDate))
+        .attr("cy", d => y(d.val))
         .attr("r", 10)
         .attr("fill-opacity", "0")
         .on("mouseover", d => handleMouseOver(d, l[0]))
@@ -268,7 +269,7 @@ const multiLinechartModule = (function() {
     });
 
     // draw gridlines
-    chartModule.drawYAxisGridlines(svg, y, width, 10);
+    chartModule.drawYAxisGridlines(svg, y, (width+50), 10);
 
     // Add X Axis
     // svg
@@ -312,29 +313,29 @@ const multiLinechartModule = (function() {
         .text(d => d)
         .on("mouseover",(d) => {
           if(d === "Contract Modification"){
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
           }else if (d === "New Contract"){
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
           }else if (d === "Equipment/Facilities/Construction/Vehicles"){
-            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
           }else if (d === "Miscellaneous"){
-            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
           }else if (d === "Professional Services"){
-            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
+            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
           }else if (d === "Telecomm & IT"){
-            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
           }else if (d === "Weapons"){
-            d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
+            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
           }
         })
-        .on("mouseout",() => d3.selectAll("#svg-1 > g > g.line-paths > path").style("stroke-width","1px"));
+        .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
 
       const legendDims = legend.node().getBBox();
 
