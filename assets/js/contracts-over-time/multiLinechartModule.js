@@ -1,10 +1,13 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
-    const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
-      svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
+    const svgMargin = { top: 0, right: 10, bottom: 90, left: 40 },
+      svgMargin2 = {top: 405, right: 10, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 70,
       height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70;
@@ -16,6 +19,7 @@ const multiLinechartModule = (function() {
       .select("#svg-1")
       .append("g")
       .attr('class','frame')
+      .attr('max-width','70%')
       .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>
@@ -149,13 +153,13 @@ const multiLinechartModule = (function() {
       .attr("class", "axis axis--y")
       .call(yAxis);
 
-    // svg.append("rect")
-    //   .attr("class", "zoom")
-    //   .attr("width", width)
-    //   .attr("height", height)
-    //   .style('opacity','0')
-    //   .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
-    //   .call(zoom);
+    svg.append("rect")
+      .attr("class", "zoom")
+      .attr("width", width)
+      .attr("height", height)
+      // .style('opacity','0')
+      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
+      .call(zoom);
 
     // draw lines
     LineChart
