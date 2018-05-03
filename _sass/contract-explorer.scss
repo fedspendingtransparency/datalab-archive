@@ -138,6 +138,8 @@
     margin: 0;
     padding: 20px 0;
     margin-top: -30px;
+    line-height: 50px;
+    word-wrap: break-word;
     color: black;
     border-bottom: 1px solid #aaa; }
 .contract-explorer #sunburst-panel h2 {
@@ -281,7 +283,7 @@
   border: 1px solid #aaa;
   color: black;
   border-radius: 24px;
-  width: 100%;
+  width: 85%;
  }
  .contract-explorer .clear-button {
    fill: #fff;
@@ -356,5 +358,15 @@
 
     .contract-explorer #sunburst-panel {
       margin-top: -80px;
+    }
+
+    .contract-explorer .subagency-card {
+      margin-bottom: 15px;
+      width: unset;
+    }
+
+    .contract-explorer .psc-card {
+      margin-bottom: 5px;
+      width: unset;
     }
   }

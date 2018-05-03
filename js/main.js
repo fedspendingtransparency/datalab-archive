@@ -23,6 +23,27 @@ function getCookie(name) {
     return null;
 }
 
+function getURLParams() {
+    let match;
+    const pl = /\+/g;
+    const search = /([^&=]+)=?([^&]*)/g;
+    const decode = (s) => { return decodeURIComponent(s.replace(pl, " ")); };
+    const query = window.location.search.substring(1);
+  
+    let urlParams = {};
+    while (match = search.exec(query)) {
+      urlParams[decode(match[1])] = decode(match[2]);
+    }
+    return urlParams;
+}
+
+function jsonToQueryString(json) {
+    return '?' + 
+        Object.keys(json).map(key => {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(json[key]);
+        }).join('&');
+}
+
 function closeInfoBanner() {
     document.querySelector('.info-banner').style.display = 'none';
 

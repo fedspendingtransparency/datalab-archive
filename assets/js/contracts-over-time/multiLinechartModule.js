@@ -91,6 +91,7 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + (svgMargin2.top+60) + ")");
 
     function brushed() {
+      console.log('asdf');
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
       var s = d3.event.selection || x2.range();
       x.domain(s.map(x2.invert, x2));
@@ -201,6 +202,9 @@ const multiLinechartModule = (function() {
 
     // draw data points
     Object.entries(data.lineData).forEach((l, i) => {
+
+      console.log(l);
+
       context
         .append("g")
         .attr("class", "data-points")
