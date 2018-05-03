@@ -59,12 +59,15 @@ $(function() {
     const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth * .8 - 2 * windowMargin;
+    const svgWidth = windowWidth * .6 - 2 * windowMargin;
 
     $(id)
       .attr("height", svgHeight)
       .attr("width", svgWidth);
-
+// 
+// 
+// 
+// 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
     $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);

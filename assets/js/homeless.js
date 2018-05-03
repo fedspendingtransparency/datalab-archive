@@ -1496,10 +1496,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                             return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster4.svg');
                                         }
                                         else if (d === "2b") {
-                                            return ('/images/homelessness/cluserV2_2b.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster8.svg');
                                         }
                                         else if (d === "2c") {
-                                            return ('/images/homelessness/cluserV2_2c.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster10.svg');
                                         }
                                         else if (d === "3a") {
                                             return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster5.svg');
@@ -1511,7 +1511,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                             return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster7.svg');
                                         }
                                         else if (d === "4c") {
-                                            return ('/images/homelessness/cluserV2_4c.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster11.svg');
                                         }
                                         else if (d === "5a") {
                                             return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster3.svg');
@@ -1520,7 +1520,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                             return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster6.svg');
                                         }
                                         else if (d === "5c") {
-                                            return ('/images/homelessness/cluserV2_5c.jpg');
+                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster9.svg');
                                         }
                                         return '';
                                     }
