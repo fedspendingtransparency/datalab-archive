@@ -46,14 +46,12 @@ const multiLinechartModule = (function() {
       .defined(function(d) { return !isNaN(d.val); })
       .x(d => x(d.parsedDate))
       .y(d => y(d.val));
-      // .interpolate("cubic");
     
     var line2 = d3
       .line()
       .defined(function(d) { return !isNaN(d.val); })
       .x(d => x2(d.parsedDate))
       .y(d => y2(d.val));
-      // .interpolate("cubic");
 
     // Scale the domains
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
@@ -153,11 +151,12 @@ const multiLinechartModule = (function() {
       .attr("class", "axis axis--y")
       .call(yAxis);
 
+    const el = d3.select('.focus').node();
+
     svg.append("rect")
       .attr("class", "zoom")
-      .attr("width", width)
-      .attr("height", height)
-      // .style('opacity','0')
+      .attr("width", el.getBBox().width)
+      .attr("height", el.getBBox().height)
       .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
       .call(zoom);
 
@@ -275,17 +274,6 @@ const multiLinechartModule = (function() {
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, (width+50), 10);
-
-    // Add X Axis
-    // svg
-    //   .append("g")
-    //   .attr("class", "axis")
-    //   .attr("transform", "translate(0," + height + ")")
-    //   .call(
-    //     xAxisFormat === "week"
-    //       ? d3.axisBottom(x).tickFormat(d3.timeFormat("%B"))
-    //       : d3.axisBottom(x).tickFormat(d3.timeFormat("%Y"))
-    //   );
 
     function addLegend(legendName, legendData, colorScale, position) {
       const legendSpace = 10;
