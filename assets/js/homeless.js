@@ -1655,7 +1655,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                         $(".tablinks > .cocButton").first().addClass("active");
 
-                                        $(".tablinks > .cocButton").click(() => {
+                                        $(".tablinks > .cocButton").click( function() {
                                             $(".tablinks > .cocButton").removeClass("active");
                                             $(this).addClass("active");
                                         });
@@ -1693,7 +1693,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                     $(".cell ").first().addClass("active");
 
-                                    $(".cell").click(() => {
+                                    $(".cell").click(function() {
                                         $(".cell").removeClass("active");
                                         $(this).addClass("active");
                                     });
