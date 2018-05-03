@@ -12,6 +12,27 @@ import Tooltip from "components/Tooltip";
 import formatDataHierarchy from "helpers/formatDataHierarchy.js";
 import { partition } from "helpers/d3Helpers.js";
 
+function getURLParams() {
+  let match;
+  let pl     = /\+/g;
+  let search = /([^&=]+)=?([^&]*)/g;
+  let decode = s => { return decodeURIComponent(s.replace(pl, " ")); };
+  let query  = window.location.search.substring(1);
+
+  let urlParams = {};
+  while (match = search.exec(query)) {
+    urlParams[decode(match[1])] = decode(match[2]);
+  }
+  return urlParams;
+}
+
+function jsonToQueryString(json) {
+  return '?' + 
+    Object.keys(json).map(key => {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(json[key]);
+    }).join('&');
+}
+
 class SunburstContainer extends Component {
   constructor(props) {
     super(props);
@@ -142,6 +163,11 @@ class SunburstContainer extends Component {
             PSCs
           }
         });
+
+        let o = getURLParams();
+        if (o != null && !isNaN(o.id) && !isNaN(o.depth)) {
+          this.filterSunburst({id: +o.id, depth: +o.depth});
+        }
       }
     );
   };
@@ -193,6 +219,8 @@ class SunburstContainer extends Component {
         category: 'Contract Explorer - Click Node',
         action: selectedName
     });
+
+    window.history.replaceState(null, null, jsonToQueryString({depth: depth, id: id}));
 
     const hierarchy = formatDataHierarchy(filteredData);
     const root = partition.nodes(hierarchy);
