@@ -3,7 +3,8 @@
 // 
 // 
 // 
-// 
+//
+
 const multiLinechartModule = (function() {
   function draw(data, xAxisFormat) {
     const svgMargin = { top: 0, right: 10, bottom: 90, left: 40 },
@@ -43,13 +44,11 @@ const multiLinechartModule = (function() {
     // define the lines
     var line = d3
       .line()
-      .defined(function(d) { return !isNaN(d.val); })
       .x(d => x(d.parsedDate))
       .y(d => y(d.val));
     
     var line2 = d3
       .line()
-      .defined(function(d) { return !isNaN(d.val); })
       .x(d => x2(d.parsedDate))
       .y(d => y2(d.val));
 
@@ -91,29 +90,52 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + (svgMargin2.top+60) + ")");
 
     function brushed() {
-      console.log('asdf');
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
       var s = d3.event.selection || x2.range();
       x.domain(s.map(x2.invert, x2));
-      LineChart.select(".line").attr("d", line);
+      LineChart.select(".line").attr("d", d => line(d[1]));
       focus.select(".axis--x").call(xAxis);
       svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
           .scale(width / (s[1] - s[0]))
           .translate(-s[0], 0));
+
+          /*
+        LineChart.selectAll(".line").remove();
+
+        // draw lines
+        LineChart
+        .append("g")
+        .attr("class", "line-paths")
+        .selectAll(".line")
+        .data(Object.entries(data.lineData))
+        .enter()
+        .append("path")
+        .attr("class", "line")
+        .style("stroke", (d, i) => lineColor(i))
+        .attr("d", d => line(d[1]))
+        .each(function(d) {
+          d.totalLength = this.getTotalLength();
+        })
+        .attr("stroke-dasharray", d => d.totalLength)
+        .attr("stroke-dashoffset", d => d.totalLength)
+        .transition()
+        .duration(4000)
+        .attr("stroke-dashoffset", "0");
+        */
     }
     
     function zoomed() {
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
       var t = d3.event.transform;
       x.domain(t.rescaleX(x2).domain());
-      LineChart.select(".line").attr("d", line);
+      LineChart.select(".line").attr("d", d => line(d[1]));
       focus.select(".axis--x").call(xAxis);
       context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
     }
 
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
-      .on("brush end", brushed);
+      .on("start brush end", brushed);
 
     var zoom = d3.zoom()
       .scaleExtent([1, Infinity])
@@ -202,9 +224,6 @@ const multiLinechartModule = (function() {
 
     // draw data points
     Object.entries(data.lineData).forEach((l, i) => {
-
-      console.log(l);
-
       context
         .append("g")
         .attr("class", "data-points")
