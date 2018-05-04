@@ -235,7 +235,7 @@ const multiLinechartModule = (function() {
     });
 
     // draw gridlines
-    chartModule.drawYAxisGridlines(svg, y, (width+50), 10);
+    chartModule.drawYAxisGridlines(svg, y, width, 10);
 
     function addLegend(legendName, legendData, colorScale, position) {
       const legendSpace = 10;
