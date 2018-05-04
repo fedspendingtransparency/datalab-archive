@@ -312,7 +312,7 @@ const multiLinechartModule = (function() {
         .attr("width", legendDims.width)
         .attr("height", legendDims.height + 20)
         .attr("x", position === "right" ? -legendDims.width : -40)
-        .attr("y", -10);
+        .attr("y", -20);
     }
 
     addLegend(
