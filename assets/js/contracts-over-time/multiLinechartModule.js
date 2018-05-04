@@ -93,25 +93,46 @@ const multiLinechartModule = (function() {
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
       var s = d3.event.selection || x2.range();
       x.domain(s.map(x2.invert, x2));
-      LineChart.select(".line").attr("d", d => line(d[1]));
+      LineChart.selectAll(".line").attr("d", d => line(d[1]));
+      // LineChart.selectAll(".data-point").attr("d", d => d[1]);
       focus.select(".axis--x").call(xAxis);
+      focus.select(".axis--y").call(yAxis);
       svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
           .scale(width / (s[1] - s[0]))
           .translate(-s[0], 0));
+      LineChart.selectAll('.data-point').remove();
+      DrawPoints();
+      // Object.entries(data.lineData).forEach((l, i) => {
+      //   LineChart
+      //     .append("g")
+      //     .attr("class", "data-points")
+      //     .selectAll(".data-point")
+      //     .data(l[1])
+      //     .enter()
+      //     .append("circle")
+      //     .attr("class", "data-point")
+      //     .attr("cx", d => x(d.parsedDate))
+      //     .attr("cy", d => y(d.val))
+      //     .attr("r", 10)
+      //     // .attr("fill-opacity", "0")
+      //     .on("mouseover", d => handleMouseOver(d, l[0]))
+      //     .on("mouseout", handleMouseOut)
+      //     .on("mousemove", handleMouseMove);
+      // });
     }
     
     function zoomed() {
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
       var t = d3.event.transform;
       x.domain(t.rescaleX(x2).domain());
-      LineChart.select(".line").attr("d", d => line(d[1]));
+      LineChart.selectAll(".line").attr("d", d => line(d[1]));
       focus.select(".axis--x").call(xAxis);
       context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
     }
 
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
-      .on("start brush end", brushed);
+      .on("brush end", brushed);
 
     var zoom = d3.zoom()
       .scaleExtent([1, Infinity])
@@ -199,36 +220,27 @@ const multiLinechartModule = (function() {
       .attr("stroke-dashoffset", "0");
 
     // draw data points
-    Object.entries(data.lineData).forEach((l, i) => {
-      context
-        .append("g")
-        .attr("class", "data-points")
-        .selectAll(".data-point")
-        .data(l[1])
-        .enter()
-        .append("circle")
-        .attr("class", "data-point")
-        .attr("cx", d => x2(d.parsedDate))
-        .attr("cy", d => y2(d.val))
-        .attr("r", 10)
-        .attr("fill-opacity", "0");
-        
-      LineChart
-        .append("g")
-        .attr("class", "data-points")
-        .selectAll(".data-point")
-        .data(l[1])
-        .enter()
-        .append("circle")
-        .attr("class", "data-point")
-        .attr("cx", d => x(d.parsedDate))
-        .attr("cy", d => y(d.val))
-        .attr("r", 10)
-        .attr("fill-opacity", "0")
-        .on("mouseover", d => handleMouseOver(d, l[0]))
-        .on("mouseout", handleMouseOut)
-        .on("mousemove", handleMouseMove);
-    });
+    function DrawPoints(){
+      Object.entries(data.lineData).forEach((l, i) => {
+          
+        LineChart
+          .append("g")
+          .attr("class", "data-points")
+          .selectAll(".data-point")
+          .data(l[1])
+          .enter()
+          .append("circle")
+          .attr("class", "data-point")
+          .attr("cx", d => x(d.parsedDate))
+          .attr("cy", d => y(d.val))
+          .attr("r", 10)
+          // .attr("fill-opacity", "0")
+          .on("mouseover", d => handleMouseOver(d, l[0]))
+          .on("mouseout", handleMouseOut)
+          .on("mousemove", handleMouseMove);
+      });
+    }
+    DrawPoints();
 
     function handleMouseOver(d, title) {
       tooltipModule.draw("#tooltip", title, {
@@ -348,7 +360,7 @@ const multiLinechartModule = (function() {
       legendBackground
         .attr("width", legendDims.width)
         .attr("height", legendDims.height + 20)
-        .attr("x", position === "right" ? -legendDims.width : 0)
+        .attr("x", position === "right" ? -legendDims.width : -40)
         .attr("y", -10);
     }
 

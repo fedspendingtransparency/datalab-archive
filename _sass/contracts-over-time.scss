@@ -124,8 +124,8 @@
   .focus, .context{
     position: relative;
     max-width: 900px;
+    overflow: visible;
   }
-
 
   #svg-1{
     overflow: visible;
@@ -144,5 +144,9 @@
 
   #svg-1 > g > g.legend.legend-1 > g > text{
     cursor: pointer;
+  }
+
+  .selection{
+    pointer-events: all;
   }
 }
