@@ -98,30 +98,6 @@ const multiLinechartModule = (function() {
       svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
           .scale(width / (s[1] - s[0]))
           .translate(-s[0], 0));
-
-          /*
-        LineChart.selectAll(".line").remove();
-
-        // draw lines
-        LineChart
-        .append("g")
-        .attr("class", "line-paths")
-        .selectAll(".line")
-        .data(Object.entries(data.lineData))
-        .enter()
-        .append("path")
-        .attr("class", "line")
-        .style("stroke", (d, i) => lineColor(i))
-        .attr("d", d => line(d[1]))
-        .each(function(d) {
-          d.totalLength = this.getTotalLength();
-        })
-        .attr("stroke-dasharray", d => d.totalLength)
-        .attr("stroke-dashoffset", d => d.totalLength)
-        .transition()
-        .duration(4000)
-        .attr("stroke-dashoffset", "0");
-        */
     }
     
     function zoomed() {
@@ -176,12 +152,12 @@ const multiLinechartModule = (function() {
 
     const el = d3.select('.focus').node();
 
-    svg.append("rect")
-      .attr("class", "zoom")
-      .attr("width", el.getBBox().width)
-      .attr("height", el.getBBox().height)
-      .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
-      .call(zoom);
+    // svg.append("rect")
+    //   .attr("class", "zoom")
+    //   .attr("width", el.getBBox().width)
+    //   .attr("height", el.getBBox().height)
+    //   .attr("transform", "translate(" + svgMargin.left + "," + svgMargin.top + ")")
+    //   .call(zoom);
 
     // draw lines
     LineChart
