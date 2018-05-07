@@ -2,7 +2,7 @@
 ---
 
 const multiLinechartModule = (function() {
-  function draw(data, xAxisFormat) {
+  function draw(data) {
     const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
       svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
@@ -54,11 +54,11 @@ const multiLinechartModule = (function() {
     x2.domain(x.domain());
     y2.domain(y.domain());
 
-    let xAxis = d3.axisBottom(x)
-      .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
+    let xAxis = d3.axisBottom(x);
+      // .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
 
-    let xAxis2 = d3.axisBottom(x2)
-      .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
+    let xAxis2 = d3.axisBottom(x2);
+      // .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
 
     let yAxis = d3.axisLeft(y)
       .ticks(10)
@@ -92,8 +92,7 @@ const multiLinechartModule = (function() {
     var zoom = d3.zoom()
       .scaleExtent([1, Infinity])
       .translateExtent([[0, 0], [width, height]])
-      .extent([[0, 0], [width, height]])
-      .on("zoom", zoomed);
+      .extent([[0, 0], [width, height]]);
     
     var lineColor = d3
       .scaleLinear()
@@ -116,7 +115,7 @@ const multiLinechartModule = (function() {
       .attr("class", "brush")
       .call(brush)
       .call(brush.move, x.range());
-
+    
     focus.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
@@ -128,7 +127,6 @@ const multiLinechartModule = (function() {
 
     // draw lines
     function DrawLines(t){
-      console.log(t)
       return LineChart
         .append("g")
         .attr("class", "line-paths")
@@ -330,29 +328,17 @@ const multiLinechartModule = (function() {
     );
 
     function brushed() {
-      console.log("in brushed")
       if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
       var s = d3.event.selection || x2.range();
       x.domain(s.map(x2.invert, x2));
       LineChart.selectAll('.line').remove();
       DrawLines(0);
-      // LineChart.selectAll(".line").attr("d", d => line(d[1]));
-      // LineChart.selectAll(".data-point").attr("d", d => d[1]);
       focus.select(".axis--x").call(xAxis);
       svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
           .scale(width / (s[1] - s[0]))
           .translate(-s[0], 0));
       LineChart.selectAll('.data-point').remove();
       DrawPoints();
-    }
-    
-    function zoomed() {
-      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
-      var t = d3.event.transform;
-      x.domain(t.rescaleX(x2).domain());
-      LineChart.selectAll(".line").attr("d", d => line(d[1]));
-      focus.select(".axis--x").call(xAxis);
-      context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
     }
   }
 
