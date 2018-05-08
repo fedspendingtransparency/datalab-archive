@@ -940,11 +940,14 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 homeless_unaccompanied_youth: 0
                             };
 
-                            d3.select('#container')
-                                .attr('height', '100%')
-                                .attr('width', '100%');
+                            const w1 = $('#container').width();
+                            const h1 = $('#container').height();
+                            // d3.select('#container')
+                            //     .attr('height', '100%')
+                            //     .attr('width', '100%');
 
-                            d3.select('#container').append('div')
+                            d3.select('#container')
+                                .append('div')
                                 .attr('id', 'viz_container');
 
                             d3.select('#viz_container').append('div')
@@ -968,7 +971,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             d3.select('#viz_container').append('div')
                                 .attr('id', 'table_container');
 
-                            const table = d3.select('#table_container').append('table').attr('id', 'tab');
+                            const table = d3.select('#table_container')
+                                .append('table')
+                                .attr('id', 'tab');
+                            
                             table.append('thead').append('tr');
 
                             const headers = table.select('tr').selectAll('th')
