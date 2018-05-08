@@ -703,12 +703,6 @@
     margin-top:30px;
   }
 
-  @media (max-width: 1000px) {
-    #container2_2 {
-      margin-top: 50px;
-    }
-  }
-
   #left_column {
     margin: 5px 2.5px 0 0;
   }
@@ -799,7 +793,10 @@
     fill:#FFF;
   }
   
-  @media (max-width: 1000px) {
+  @media (max-width: 1150px) {
+    .cocTable {
+      flex-direction: column;
+    }
     .panel2_container {
       width: 100% !important;
     }
@@ -954,12 +951,6 @@
     fill-opacity: .75;
     stroke-width:3;
     stroke:#FFF;
-  }
-
-  @media (max-width: 1100px) {
-    .cocTable {
-      flex-direction: column;
-    }
   }
 }
 
