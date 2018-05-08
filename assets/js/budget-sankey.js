@@ -470,17 +470,21 @@ function makeSankey(data, sPanel, sTitle, descriptions) {
         d3.select(`#link-${id}`).style("stroke-opacity", opacity);
     }
 
-    function removeHighlight(node) {
+    let lastClickedNode = null;
+
+    function removeHighlight(node, savedThis) {
         let remainingNodes = [];
         let nextNodes = [];
 
+        if (savedThis == null) { return; }
+
         let strokeOpacity = 0;
-        if (d3.select(this).attr("data-clicked") === "1") {
-            d3.select(this).attr("data-clicked", "0");
+        if (d3.select(savedThis).attr("data-clicked") === "1") {
+            d3.select(savedThis).attr("data-clicked", "0");
             strokeOpacity = 0.1;
         }
         else {
-            d3.select(this).attr("data-clicked", "1");
+            d3.select(savedThis).attr("data-clicked", "1");
             strokeOpacity = 0.3;
         }
 
@@ -523,7 +527,16 @@ function makeSankey(data, sPanel, sTitle, descriptions) {
         link.attr("d", path);
     }
 
+    let savedThis = null;
+
     function highlightNodeLinks(innerNode) {
+        if (lastClickedNode != null) {
+            removeHighlight(lastClickedNode, savedThis);
+        }
+
+        lastClickedNode = innerNode;
+        savedThis = this;
+
         let remainingNodes = [];
         let nextNodes = [];
 
@@ -547,6 +560,15 @@ function makeSankey(data, sPanel, sTitle, descriptions) {
                     .html(`<p class='body_text'>${descriptions[j].desc}</p>`);
             }
         }
+
+        /*
+        $(".sankey-viz-svg .node").first().addClass("active");
+
+        $(".tablinks > .cocButton").click( function() {
+            $(".tablinks > .cocButton").removeClass("active");
+            $(this).addClass("active");
+        });
+        */
 
         let strokeOpacity = 0;
         if (d3.select(this).attr("data-clicked") === "1") {
@@ -614,11 +636,11 @@ function makeSankey(data, sPanel, sTitle, descriptions) {
         .append("g")
         .attr("class", "node")
         .attr("transform", (d) => `translate(${d.x},${d.y})`)
-        .on("mouseover", highlightNodeLinks)
-        .on("mouseout", removeHighlight)
-        .call(d3.behavior.drag()
+        .on("click", highlightNodeLinks);
+        // .on("mouseout", removeHighlight)
+        /* .call(d3.behavior.drag()
             .origin((d) => d)
-            .on("drag", dragmove));
+            .on("drag", dragmove)); */
 
     node.append("rect")
         .attr("height", (d) => d.dy)
