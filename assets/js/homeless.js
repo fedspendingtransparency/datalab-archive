@@ -1444,11 +1444,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                             const svg = d3.select("#tree").append("div")
                                 .attr("class", "chart")
-                                .style("width", `${w}px`)
-                                .style("height", `${h}px`)
                                 .append("svg:svg")
-                                .attr("width", w)
-                                .attr("height", h)
+                                .attr("viewBox", `0 0 ${w} ${h}`)
                                 .append("svg:g")
                                 .attr("transform", "translate(.5,.5)");
 
@@ -1482,9 +1479,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                     d3.select('#infographic').attr('height', h2).attr('width', w2)
                                         .append('div')
-                                        .attr('id', 'picture')
-                                        .attr('height', h2)
-                                        .attr('height', w2);
+                                        .attr('id', 'picture');
 
                                     d3.select("#cocTab").append("div").attr("class", "cocTable");
 
@@ -1531,11 +1526,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         d3.select('#picture')
                                             .append('svg')
                                             .attr('id', 'imagebox')
-                                            .attr('height', h2)
-                                            .attr('width', w2)
+                                            .attr('width', '100%')
                                             .append('svg:image')
-                                            .attr('width', w2)
-                                            .attr('height', h2)
+                                            .attr("viewBox", `0 0 ${w2} ${h2}`)
+                                            .attr('width', '100%')
                                             .attr('xlink:href', getInfographic(d));
                                     }
 
@@ -1586,8 +1580,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     }
 
                                     function makeCoCTable(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
+                                        d3.select(".cocTab")
+                                            .insert("div", ":first-child")
                                             .attr("class", "cocTabTitle")
                                             .html(makeCoCTableTitle(d));
                                     }
