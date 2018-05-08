@@ -13,7 +13,7 @@ const multiLinechartModule = (function() {
     const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
       svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
-      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 70,
+      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -118,6 +118,11 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
+    context.append("text")             
+      .attr("transform","translate(" + (width/2) + " , 120)")
+      .style("text-anchor", "middle")
+      .text("Date");
+
     context.append("g")
       .attr("class", "brush")
       .call(brush)
@@ -131,6 +136,14 @@ const multiLinechartModule = (function() {
     focus.append("g")
       .attr("class", "axis axis--y")
       .call(yAxis);
+
+    focus.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y",'-110px')
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1vw")
+      .style("text-anchor", "middle")
+      .text("Total Obligations");     
 
     // draw lines
     function DrawLines(t){
