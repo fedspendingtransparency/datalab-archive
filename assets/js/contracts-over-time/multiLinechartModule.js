@@ -1,6 +1,13 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// Changing file size for AWS
+// 
+// 
+// 
 const multiLinechartModule = (function() {
   function draw(data) {
     const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },

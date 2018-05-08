@@ -1,7 +1,13 @@
 .homeless-analysis {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: #FFFFFF;
-
+// 
+// 
+// 
+// changing file size for AWS
+// 
+// 
+// 
   & p.subheading {
     font-size: 1.75rem;
     color: #525252;
@@ -338,8 +344,12 @@
     margin-top: 0;
     margin-bottom: 35px;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     background-color: inherit;
+  }
+
+  #panel_matrix{
+    overflow: hidden;
   }
 
   #p2_4_legend {
@@ -900,7 +910,7 @@
   }
 
   .CocTileTitle{
-    margin: 5px -10px 0 -10px;
+    margin: 5px -10px 7px -10px;
     padding: 0 0 0 0;
     height: 10px;
   }
