@@ -773,10 +773,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         }
 
                         function GenMap() {
-                            d3.select('#container').append('div').attr('id', 'legend_title');
-                            d3.select('#container').append('div').attr('id', 'legend_subtitle');
                             d3.select('#container').append('div').attr('id', 'viz_container');
-                            d3.select('#container').append('div').attr('id', 'legend');
 
                             const width = 1000;
                             const height = 600;
@@ -1409,7 +1406,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function mapIconFunction() {
                             d3.selectAll('#viz_container').remove();
-                            d3.selectAll('legend_subtitle').remove();
                             d3.selectAll('#counties_mini').remove();
 
                             GenMap();
@@ -1418,9 +1414,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function tableIconFunction() {
                             d3.selectAll('#viz_container').remove();
-                            d3.selectAll('#legend').remove();
-                            d3.selectAll('#legend_title').remove();
-                            d3.selectAll('#legend_subtitle').remove();
                             d3.selectAll('#counties_mini').remove();
 
                             GenTable();
@@ -1435,7 +1428,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function infographicYeah() {
                             const w = $('#panel_3b').width();
-                            const h = $('#panel_3b').height() * 0.2;
+                            const h = 340;
                             const color = d3.scale.ordinal().range(['#280c60', '#2f1868', '#372c7a', '#4d4d8c',
                                 '#5e5e96', '#26660c', '#587c13', '#789e25', '#e55c00', '#e8751a', '#ffad29']);
                             let root;
@@ -1530,13 +1523,13 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         d3.select('#imagebox').remove();
 
                                         d3.select('#picture')
-                                            .append('svg')
-                                            .attr('id', 'imagebox')
-                                            .attr('width', '100%')
-                                            .append('svg:image')
-                                            .attr("viewBox", `0 0 ${w2} ${h2}`)
-                                            .attr('width', '100%')
-                                            .attr('xlink:href', getInfographic(d));
+                                          .append('img')
+                                          .attr('id', 'imagebox')
+                                          .style('width', '100%')
+                                          .style('height', 'auto')
+                                          .attr('width', w2)
+                                          .attr('height', h2)
+                                          .attr('src', getInfographic(d));
                                     }
 
                                     function makeCoCTableTitle(d) {
@@ -1731,9 +1724,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function change() {
                             d3.selectAll('#viz_container').remove();
-                            d3.selectAll('#legend').remove();
-                            d3.selectAll('#legend_title').remove();
-                            d3.selectAll('#legend_subtitle').remove();
                             d3.selectAll('#counties_mini').remove();
                             d3.select('#imagebox').remove();
                             d3.selectAll('.panel').remove();
