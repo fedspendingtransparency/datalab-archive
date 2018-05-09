@@ -43,7 +43,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         let map1Centered = null;
                         let map2Centered = la[0];
                         const formatNumber = d3.format('$,.0f');
-                        const OtherformatNumber = d3.format(',');
+                        const OtherformatNumber = d3.format(',.0f');
                         const panel2Width = absWidth - margin.left - margin.right;
                         const panel2Height = absHeight - margin.top - margin.bottom;
                         const matrixWidth = (absWidth / 1.85) - margin.left - margin.right;
@@ -1555,9 +1555,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     }
 
                                     function makeCoCTableInfoCol1(d) {
-                                        return `${'<table class="InfoTable">' +
+                                        return '<table class="InfoTable">' +
                                         '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
-                                        '<tr><td class="infoAmount">'}${OtherformatNumber(d.total_homeless)}</td></tr>` +
+                                        `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
                                         `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
                                         `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
                                         `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
@@ -1567,9 +1567,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     }
 
                                     function makeCoCTableInfoCol2(d) {
-                                        return `${'<table class="InfoTable">' +
+                                        return '<table class="InfoTable">' +
                                         '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
-                                        '<tr><td class="infoAmount">'}${OtherformatNumber(d.density)}</td></tr>` +
+                                        `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
                                         `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
                                         `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
                                         `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
@@ -1579,9 +1579,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     }
 
                                     function makeCoCTableInfoCol3(d) {
-                                        return `${'<table class="InfoTable">' +
+                                        return '<table class="InfoTable">' +
                                         '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
-                                        '<tr><td class="infoAmount">'}${OtherformatNumber(d.land_area)}</td></tr>` +
+                                        `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr>` +
                                         `<tr><th class="fundingTitle">PROPERTY CRIME RATE: PER 100K</th></tr>` +
                                         `<tr><td class="infoAmount">${OtherformatNumber(d.Property_crime_rate)}</td></tr></table>`;
                                     }
