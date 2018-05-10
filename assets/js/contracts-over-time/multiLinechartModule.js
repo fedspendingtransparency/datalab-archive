@@ -58,10 +58,8 @@ const multiLinechartModule = (function() {
     y2.domain(y.domain());
 
     let xAxis = d3.axisBottom(x);
-      // .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
 
     let xAxis2 = d3.axisBottom(x2);
-      // .tickFormat(xAxisFormat === "week" ? d3.timeFormat("%B") : d3.timeFormat("%Y"));
 
     let yAxis = d3.axisLeft(y)
       .ticks(10)
@@ -163,8 +161,6 @@ const multiLinechartModule = (function() {
         .attr("stroke-dashoffset", "0");
       };
 
-    DrawLines(4000);
-
     context
       .append("g")
       .attr("class", "line-paths")
@@ -205,7 +201,6 @@ const multiLinechartModule = (function() {
           .on("mousemove", handleMouseMove);
       });
     }
-    DrawPoints();
 
     function handleMouseOver(d, title) {
       tooltipModule.draw("#tooltip", title, {
@@ -348,7 +343,7 @@ const multiLinechartModule = (function() {
       var s = d3.event.selection || x2.range();
       x.domain(s.map(x2.invert, x2));
       LineChart.selectAll('.line').remove();
-      DrawLines(0);
+      DrawLines(4000);
       focus.select(".axis--x").call(xAxis);
       svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
           .scale(width / (s[1] - s[0]))
