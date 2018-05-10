@@ -1,13 +1,6 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// Changing file size for AWS
-// 
-// 
-// 
+
 const multiLinechartModule = (function() {
   function draw(data) {
 

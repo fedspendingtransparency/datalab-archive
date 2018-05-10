@@ -3,6 +3,9 @@
 
 const barchartModule = (function() {
   function draw(data) {
+
+    $("#svg-1").empty();
+
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
       width = $("#svg-1").width() - margin.left - margin.right,
       height = $("#svg-1").height() - margin.top - margin.bottom;
