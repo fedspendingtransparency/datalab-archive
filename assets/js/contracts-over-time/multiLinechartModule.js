@@ -10,6 +10,9 @@
 // 
 const multiLinechartModule = (function() {
   function draw(data) {
+
+    $("#svg-1").empty();
+
     const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
       svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
