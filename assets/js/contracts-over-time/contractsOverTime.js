@@ -1,7 +1,12 @@
 ---
 ---
 
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
 $(function() {
+
   const {
     orientParallaxSection,
     findParallaxStatus,
@@ -64,10 +69,7 @@ $(function() {
     $(id)
       .attr("height", svgHeight)
       .attr("width", svgWidth);
-// 
-// 
-// 
-// 
+
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
     $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);
