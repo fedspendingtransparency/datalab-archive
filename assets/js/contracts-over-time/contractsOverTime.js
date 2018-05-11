@@ -106,6 +106,9 @@ $(function() {
         p => p.id === preChange.activePanel.id
       );
 
+      console.log('pre: ',preChangePanel);
+      console.log('post: ',postChangePanel);
+
       if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
@@ -119,6 +122,7 @@ $(function() {
 
       setTimeout(() => module.draw(mem[dataset], xAxis, 400));
     };
+
 
     // parallax variables
     findParallaxStatus(onChangeCB);

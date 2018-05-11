@@ -2,7 +2,7 @@
 ---
 
 const multiLinechartModule = (function() {
-  function draw(data) {
+  function draw(data,axisText) {
 
     $("#svg-1").empty();
 
@@ -115,7 +115,7 @@ const multiLinechartModule = (function() {
     context.append("text")             
       .attr("transform","translate(" + (width/2) + " , 120)")
       .style("text-anchor", "middle")
-      .text("Date");
+      .text(axisText);
 
     context.append("g")
       .attr("class", "brush")
