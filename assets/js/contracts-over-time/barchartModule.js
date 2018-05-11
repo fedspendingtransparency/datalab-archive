@@ -8,7 +8,7 @@ const barchartModule = (function() {
 
     const margin = { top: 10, right: 10, bottom: 30, left: 100 },
       width = $("#svg-1").width() - margin.left - margin.right,
-      height = $("#svg-1").height() - margin.top - margin.bottom;
+      height = $("#svg-1").height() - margin.top - margin.bottom - 50;
     
     var x = d3
       .scaleBand()
@@ -59,6 +59,19 @@ const barchartModule = (function() {
       .transition()
       .duration(800)
       .style("opacity", 1);
+
+    svg.append("text")             
+      .attr("transform","translate(" + (width/2) + " ," + (height+50) + ")")
+      .style("text-anchor", "middle")
+      .text("year");
+
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y",'-110px')
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1vw")
+      .style("text-anchor", "middle")
+      .text("Total Obligations");   
   }
 
   function remove(cb) {
