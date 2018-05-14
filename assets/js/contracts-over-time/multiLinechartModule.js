@@ -256,7 +256,7 @@ const multiLinechartModule = (function() {
 
       const legendBackground = legend
         .append("rect")
-        .attr("fill", "#333333")
+        .attr("fill", "#fff")
         .attr("class", `${legendName}-background`);
 
       legend

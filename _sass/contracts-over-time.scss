@@ -99,7 +99,7 @@
   }
 
   .grid line {
-    stroke: lightgrey;
+    stroke: #5B616B;
     stroke-opacity: 0.7;
     shape-rendering: crispEdges;
   }
@@ -113,7 +113,7 @@
   }
 
   .viz-section {
-    background-color: #333333 !IMPORTANT;
+    background-color: #fff !IMPORTANT;
   }
 
   .zoom {
@@ -138,12 +138,12 @@
   }
 
   .xAxis{
-    stroke: lightgrey;
+    stroke: #5B616B;
   }
 
   svg {
     text {
-      fill: #D0CCCC;
+      fill: #5B616B;
     }
   }
 
@@ -152,6 +152,18 @@
   }
 
   .selection{
+    fill-opacity: 0.1;
+    stroke:#5B616B;
     pointer-events: all;
+  }
+  .textBackground{
+    width: 30%;
+    height: 90%;
+    float:right;
+    z-index: 0;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    fill:#5B616B;
   }
 }
