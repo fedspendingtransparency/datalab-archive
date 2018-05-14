@@ -165,9 +165,7 @@ class SunburstContainer extends Component {
         });
 
         let o = getURLParams();
-        if (o != null && !isNaN(o.id) && !isNaN(o.depth)) {
-          this.filterSunburst({id: +o.id, depth: +o.depth});
-        } else if (o != null && o.search) {
+        if (o != null && o.search) {
           this.handleSearchbarSelect(o.search);
         }
       }
@@ -224,7 +222,7 @@ class SunburstContainer extends Component {
     });
     */
 
-    window.history.replaceState(null, null, jsonToQueryString({selectedName: depth, id: id}));
+    window.history.replaceState(null, null, jsonToQueryString({search: selectedName}));
 
     const hierarchy = formatDataHierarchy(filteredData);
     const root = partition.nodes(hierarchy);
