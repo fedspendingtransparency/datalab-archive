@@ -167,6 +167,8 @@ class SunburstContainer extends Component {
         let o = getURLParams();
         if (o != null && !isNaN(o.id) && !isNaN(o.depth)) {
           this.filterSunburst({id: +o.id, depth: +o.depth});
+        } else if (o != null && o.search) {
+          this.handleSearchbarSelect(o.search);
         }
       }
     );
@@ -215,12 +217,14 @@ class SunburstContainer extends Component {
         console.log("something went wrong", { selected });
     }
 
+    /*
     window.Analytics.event({
         category: 'Contract Explorer - Click Node',
         action: selectedName
     });
+    */
 
-    window.history.replaceState(null, null, jsonToQueryString({depth: depth, id: id}));
+    window.history.replaceState(null, null, jsonToQueryString({selectedName: depth, id: id}));
 
     const hierarchy = formatDataHierarchy(filteredData);
     const root = partition.nodes(hierarchy);
@@ -250,15 +254,19 @@ class SunburstContainer extends Component {
 
     this.setState({ searchbarText: selected }, () => {
       const { recipients, agencies, subagencies } = this.state.staticData;
-      const filteredData = awardsContracts.filter(d => {
-        if (this.state.searchbarOptionSelected === "Contractors") {
-          return selected === recipients[d.recip];
-        } else {
-          return (
-            agencies[d.agen] === selected || subagencies[d.sub] === selected
-          );
-        }
+
+      let filteredData;
+
+      filteredData = awardsContracts.filter(d => {
+        return agencies[d.agen] === selected || subagencies[d.sub] === selected;
       });
+
+      if (!filteredData.length) {
+        filteredData = awardsContracts.filter(d => {
+          return selected === recipients[d.recip];
+        });
+      }
+
       if (!filteredData.length) return;
       const hierarchy = formatDataHierarchy({
         key: selected,
@@ -270,6 +278,18 @@ class SunburstContainer extends Component {
       const activePanelNode = root[0];
       // const activePanelNode = root.find(e => e.name === selected);
       const sunburstFilterByText = selected;
+
+      let node = activePanelNode.children[0];
+      
+      /*
+      window.Analytics.event({
+        category: 'Contract Explorer - Search Node',
+        action: sunburstFilterByText
+      });
+      */
+
+      window.history.replaceState(null, null, jsonToQueryString({search: selected}));
+
 
       this.setState({ hierarchy, root, activePanelNode, sunburstFilterByText });
     });

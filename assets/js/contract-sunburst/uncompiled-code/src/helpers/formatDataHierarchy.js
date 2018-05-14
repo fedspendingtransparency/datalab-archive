@@ -33,6 +33,7 @@ function formatDataHierarchy({ data, key }) {
       }
     });
   });
+
   return hierarchy;
 }
 
