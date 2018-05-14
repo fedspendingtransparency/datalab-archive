@@ -83,7 +83,7 @@
     background: #fff;
     border-radius: 10px;
     line-height: 22px;
-    color: #5B616B;
+    color: rgb(159, 162, 168);
     padding: 30px;
  }
 
@@ -99,7 +99,7 @@
   }
 
   .grid line {
-    stroke: #5B616B;
+    stroke: rgb(159, 162, 168);
     stroke-opacity: 0.7;
     shape-rendering: crispEdges;
   }
@@ -138,12 +138,12 @@
   }
 
   .xAxis{
-    stroke: #5B616B;
+    stroke: rgb(159, 162, 168);
   }
 
   svg {
     text {
-      fill: #5B616B;
+      fill: rgb(159, 162, 168);
     }
   }
 

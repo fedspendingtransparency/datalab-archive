@@ -63,15 +63,18 @@ const barchartModule = (function() {
     svg.append("text")             
       .attr("transform","translate(" + (width/2) + " ," + (height+50) + ")")
       .style("text-anchor", "middle")
+      .attr("dx", "0vw")
+      .style("font-size","10px")   
       .text("year");
 
     svg.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y",'-110px')
       .attr("x",0 - (height / 2))
-      .attr("dy", "1vw")
+      .attr("dy", "0vw")
+      .style("font-size","10px")
       .style("text-anchor", "middle")
-      .text("Total Obligations");   
+      .text("Total Obligations");     
   }
 
   function remove(cb) {
