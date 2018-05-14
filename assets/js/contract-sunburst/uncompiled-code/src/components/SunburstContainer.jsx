@@ -215,12 +215,10 @@ class SunburstContainer extends Component {
         console.log("something went wrong", { selected });
     }
 
-    /*
     window.Analytics.event({
         category: 'Contract Explorer - Click Node',
         action: selectedName
     });
-    */
 
     window.history.replaceState(null, null, jsonToQueryString({search: selectedName}));
 
@@ -279,15 +277,12 @@ class SunburstContainer extends Component {
 
       let node = activePanelNode.children[0];
       
-      /*
       window.Analytics.event({
         category: 'Contract Explorer - Search Node',
         action: sunburstFilterByText
       });
-      */
 
       window.history.replaceState(null, null, jsonToQueryString({search: selected}));
-
 
       this.setState({ hierarchy, root, activePanelNode, sunburstFilterByText });
     });
