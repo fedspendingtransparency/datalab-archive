@@ -20,6 +20,7 @@
 
   .parallax-container {
     width: 70%;
+    height: 90%;
     margin-left: 30%;
     z-index: 2;
     display: flex;
@@ -82,7 +83,7 @@
     background: #fff;
     border-radius: 10px;
     line-height: 22px;
-    color: #5B616B;
+    color: rgb(159, 162, 168);
     padding: 30px;
  }
 
@@ -98,7 +99,7 @@
   }
 
   .grid line {
-    stroke: lightgrey;
+    stroke: rgb(159, 162, 168);
     stroke-opacity: 0.7;
     shape-rendering: crispEdges;
   }
@@ -112,7 +113,7 @@
   }
 
   .viz-section {
-    background-color: #333333 !IMPORTANT;
+    background-color: #fff !IMPORTANT;
   }
 
   .zoom {
@@ -137,12 +138,12 @@
   }
 
   .xAxis{
-    stroke: lightgrey;
+    stroke: rgb(159, 162, 168);
   }
 
   svg {
     text {
-      fill: #D0CCCC;
+      fill: rgb(159, 162, 168);
     }
   }
 
@@ -151,6 +152,18 @@
   }
 
   .selection{
+    fill-opacity: 0.1;
+    stroke:#5B616B;
     pointer-events: all;
+  }
+  .textBackground{
+    width: 30%;
+    height: 90%;
+    float:right;
+    z-index: 0;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    fill:#5B616B;
   }
 }

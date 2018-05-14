@@ -2,7 +2,7 @@
 ---
 
 const multiLinechartModule = (function() {
-  function draw(data) {
+  function draw(data,axisText) {
 
     $("#svg-1").empty();
 
@@ -97,7 +97,7 @@ const multiLinechartModule = (function() {
     
     var lineColor = d3
       .scaleLinear()
-      .range(["#93DFB8", "#E3AAD6", "#FFC8BA", "#B5D8EB"])
+      .range(["#027693", "#db5000", "#FFC8BA", "#B5D8EB"])
       .domain([0, Object.keys(data.lineData).length - 1])
       .interpolate(d3.interpolateHcl);
 
@@ -115,7 +115,9 @@ const multiLinechartModule = (function() {
     context.append("text")             
       .attr("transform","translate(" + (width/2) + " , 120)")
       .style("text-anchor", "middle")
-      .text("Date");
+      .style("font-size","10px")
+      .attr("dx", "0vw")
+      .text(axisText);
 
     context.append("g")
       .attr("class", "brush")
@@ -135,7 +137,8 @@ const multiLinechartModule = (function() {
       .attr("transform", "rotate(-90)")
       .attr("y",'-110px')
       .attr("x",0 - (height / 2))
-      .attr("dy", "1vw")
+      .attr("dy", "0vw")
+      .style("font-size","10px")
       .style("text-anchor", "middle")
       .text("Total Obligations");     
 
@@ -157,7 +160,7 @@ const multiLinechartModule = (function() {
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
         .transition()
-        .duration(t)
+        .duration(0)
         .attr("stroke-dashoffset", "0");
       };
 
@@ -177,7 +180,7 @@ const multiLinechartModule = (function() {
       .attr("stroke-dasharray", d => d.totalLength)
       .attr("stroke-dashoffset", d => d.totalLength)
       .transition()
-      .duration(4000)
+      .duration(0)
       .attr("stroke-dashoffset", "0");
 
     // draw data points
@@ -192,10 +195,12 @@ const multiLinechartModule = (function() {
           .enter()
           .append("circle")
           .attr("class", "data-point")
+          .style("stroke", (d, i) => lineColor(i))
+          .style("fill","#fff")
           .attr("cx", d => x(d.parsedDate))
           .attr("cy", d => y(d.val))
-          .attr("r", 10)
-          .attr("fill-opacity", "0")
+          .attr("r", 3)
+          // .attr("fill-opacity", "")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
           .on("mousemove", handleMouseMove);
@@ -256,7 +261,7 @@ const multiLinechartModule = (function() {
 
       const legendBackground = legend
         .append("rect")
-        .attr("fill", "#333333")
+        .attr("fill", "#fff")
         .attr("class", `${legendName}-background`);
 
       legend
@@ -343,7 +348,7 @@ const multiLinechartModule = (function() {
       var s = d3.event.selection || x2.range();
       x.domain(s.map(x2.invert, x2));
       LineChart.selectAll('.line').remove();
-      DrawLines(4000);
+      DrawLines(0);
       focus.select(".axis--x").call(xAxis);
       svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
           .scale(width / (s[1] - s[0]))
