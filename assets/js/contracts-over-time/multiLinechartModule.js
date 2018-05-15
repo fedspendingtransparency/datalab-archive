@@ -115,7 +115,7 @@ const multiLinechartModule = (function() {
     context.append("text")             
       .attr("transform","translate(" + (width/2) + " , 120)")
       .style("text-anchor", "middle")
-      .style("font-size","10px")
+      .style("font-size","15px")
       .attr("dx", "0vw")
       .text(axisText);
 
@@ -138,7 +138,7 @@ const multiLinechartModule = (function() {
       .attr("y",'-110px')
       .attr("x",0 - (height / 2))
       .attr("dy", "0vw")
-      .style("font-size","10px")
+      .style("font-size","15px")
       .style("text-anchor", "middle")
       .text("Total Obligations");     
 

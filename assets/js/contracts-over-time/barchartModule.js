@@ -64,7 +64,7 @@ const barchartModule = (function() {
       .attr("transform","translate(" + (width/2) + " ," + (height+50) + ")")
       .style("text-anchor", "middle")
       .attr("dx", "0vw")
-      .style("font-size","10px")   
+      .style("font-size","15px")   
       .text("year");
 
     svg.append("text")
@@ -72,7 +72,7 @@ const barchartModule = (function() {
       .attr("y",'-110px')
       .attr("x",0 - (height / 2))
       .attr("dy", "0vw")
-      .style("font-size","10px")
+      .style("font-size","15px")
       .style("text-anchor", "middle")
       .text("Total Obligations");     
   }
