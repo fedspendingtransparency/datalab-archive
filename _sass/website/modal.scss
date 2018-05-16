@@ -1,0 +1,102 @@
+/* Modal Start */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+	width: 600px;
+	line-height: 26px;
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal-blue-bar {
+	height: 10px;
+	background-color: $accent-blue;
+}
+
+.modal-body {
+	padding: 60px;
+}
+
+.modal-body-title {
+	color: #5B616B;
+	font-size: 30px;
+	font-weight: 400;
+	line-height: 40px;
+}
+
+.modal-body-content {
+	color: #5B616B;
+	font-size: 16px;
+	font-weight: 300;
+	margin-top: 30px;
+	letter-spacing: 0px;
+	text-align: left;
+	overflow-y: auto;
+	max-height: 400px;
+	margin-bottom: 25px;
+}
+
+.modal-body-content p {
+	margin: 0;
+}
+
+.superscript {
+	vertical-align:super;
+	font-size: smaller;
+}
+
+.homeless-panel-one-info {
+	padding:0 5% 25px 5%;
+}
+
+.homeless-panel-one-info p {
+	font-size: 14px;
+	text-align: left;
+	font-weight: 300;
+	color: #5B616B;
+	margin: 0;
+}
+
+.modal-body-content ul {
+	list-style: disc;
+	padding-left: 20px;
+}
+
+.modal-body-content a {
+	font-weight: 400;
+	color: #5475A4;
+}
+
+.modal-body-close {
+	width: 147px;
+	background-color: #5B616B;
+	color: #FFFFFF;
+	border-radius: 50px;
+	cursor: pointer;
+	display: block;
+	padding: 12px;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.modal-body-close:hover {
+	background-color: #1C1D20;
+}
+
+/* Modal End */

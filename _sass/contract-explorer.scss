@@ -102,10 +102,15 @@
 }
 
 .contract-explorer .psc-card {
-  margin-bottom: 35px;
+  margin-bottom: 16px;
   width: 50%;
   display: inline-flex;
   align-items: center;
+}
+
+.contract-explorer #sunburstSvg {
+  width: 100%;
+  height: 100%;
 }
 
 .contract-explorer .psc-card-item {
@@ -133,6 +138,8 @@
     margin: 0;
     padding: 20px 0;
     margin-top: -30px;
+    line-height: 50px;
+    word-wrap: break-word;
     color: black;
     border-bottom: 1px solid #aaa; }
 .contract-explorer #sunburst-panel h2 {
@@ -156,7 +163,7 @@
   font-family: Source Sans Pro;
   margin-top: 10px;
   margin-bottom: 0px;
-  font-size: 10px;
+  font-size:  10px;
   text-transform: capitalize;
   font-style: inherit;
   color: #555555; }
@@ -190,8 +197,8 @@
   margin: 0px 0px 0px 0px; }
 .contract-explorer .psc-icon {
   position: relative;
-  height: 40px;
-  width: 40px;
+  height: 48px;
+  width: 48px;
   margin-right: 10px; }
 .contract-explorer .val {
   font-size: 1.3em;
@@ -235,7 +242,7 @@
 .contract-explorer .psc-obligation {
   color: #0071BC; }
 .contract-explorer .sunburst-panel-col {
-  width: 600px; }
+  width: 49%; }
 .contract-explorer .sunburst-panel-col-item {
   width: 100%; }
 .contract-explorer .sunburst-panel-grid {
@@ -266,7 +273,7 @@
   width: 350px; }
 .contract-explorer .react-autosuggest__container {
   position: relative;
-  width: 100%;
+  width: 49%;
 }
 .contract-explorer .react-autosuggest__input {
   padding: 10px 30px;
@@ -276,7 +283,7 @@
   border: 1px solid #aaa;
   color: black;
   border-radius: 24px;
-  width: 100%;
+  width: 85%;
  }
  .contract-explorer .clear-button {
    fill: #fff;
@@ -327,4 +334,39 @@
   font-weight: bold; }
 .modal-body-content b {
   	font-style: bold;
+  }
+
+
+  @media (max-width: 1000px) {
+    .contract-explorer .sunburst-panel-grid {
+      flex-direction: column-reverse;
+    }
+
+    .contract-explorer .sunburst-panel-col {
+      width: unset;
+      padding: 25px;
+      padding-top: 0;
+    }
+
+    .contract-explorer .controls {
+      padding: 0 25px;
+    }
+
+    .contract-explorer .react-autosuggest__container {
+      width: 90%;
+    }
+
+    .contract-explorer #sunburst-panel {
+      margin-top: -80px;
+    }
+
+    .contract-explorer .subagency-card {
+      margin-bottom: 15px;
+      width: unset;
+    }
+
+    .contract-explorer .psc-card {
+      margin-bottom: 5px;
+      width: unset;
+    }
   }

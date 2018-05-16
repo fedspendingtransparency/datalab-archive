@@ -1,7 +1,12 @@
 ---
 ---
 
+window.onbeforeunload = function() {
+  window.scrollTo(0, 0);
+};
+
 $(function() {
+
   const {
     orientParallaxSection,
     findParallaxStatus,
@@ -56,10 +61,10 @@ $(function() {
   function setDimsOfSvg(id) {
     const windowWidth = $(window).width();
     const windowHeight = $(window).height();
-    const windowMargin = 100;
+    const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth * .7 - 2 * windowMargin;
+    const svgWidth = windowWidth * .6 - 2 * windowMargin;
 
     $(id)
       .attr("height", svgHeight)
@@ -101,6 +106,9 @@ $(function() {
         p => p.id === preChange.activePanel.id
       );
 
+      console.log('pre: ',preChangePanel);
+      console.log('post: ',postChangePanel);
+
       if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
@@ -114,6 +122,7 @@ $(function() {
 
       setTimeout(() => module.draw(mem[dataset], xAxis, 400));
     };
+
 
     // parallax variables
     findParallaxStatus(onChangeCB);

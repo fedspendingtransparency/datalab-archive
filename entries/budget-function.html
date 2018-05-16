@@ -65,13 +65,14 @@ category: entry
 					{% include share-menu.html %}
 				</div>
 			</div>
-			<div class="viz-container" style="height: 900px">
+			<div class="viz-container">
 				<element class="budget-sankey">
-					<div id="sankey-container" style="padding:10px">
-						<div class="sankey-brackets">
-							{% include svgs/sankey-brackets.svg %}
+					<div id="sankey-container">
+						<div id="sankey-viz">
+							<div class="sankey-brackets">
+								{% include svgs/sankey-brackets.svg %}
+							</div>
 						</div>
-						<div id="sankey-viz"></div>
 						<div id="sankey-table"></div>
 					</div>
 				</element>

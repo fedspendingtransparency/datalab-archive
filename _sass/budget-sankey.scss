@@ -29,7 +29,7 @@
 		-moz-column-count: 1; /* Firefox */
 	}
 	.node rect {
-		cursor: move;
+		cursor: pointer;
 		fill-opacity: .9;
 		shape-rendering: crispEdges;
 	}
@@ -42,30 +42,20 @@
 		stroke: #000;
 		stroke-opacity: .1;
 	}
-	#sankey-container {
-		position: relative;
-	}
 	#sankey-viz {
-		width: 600px;
-		height: 100%;
-		margin: 25px 0 0 15px;
-		position: absolute;
+
+	}
+	#sankey-container {
+		padding: 10px;
+		display: flex;
+		justify-content: space-around;
 	}
 	#sankey-table {
 		text-align:left;
-		/*left:730px;
-		padding-right:20px;
-		padding-left:40px;*/
 		height: 100%;
-		// margin-left:0px;
 		background-color: inherit;
 		display: inline-block;
-   		margin-bottom: 310px;
-		float: right;
-		// margin-top: 40px;
-		// margin-right: 380px;
-		// margin-bottom: 500px;
-		width:50%
+		width:45%
 	}
 	.panel_desc{
 		margin-top: 10px;
@@ -103,19 +93,11 @@
 	}
 	table > tbody > tr {
 		border: none;
-		display: inline-block;
-		width: 260px;
+		display: block;
 	}
 	#tab_2 {
-		width:600px;
 		margin-top:-20px;
 		margin-bottom:-15px;
-	}
-	#sankey-table #tab {
-		width: 600px;
-	}
-	#sankey-table #description {
-		width: 600px;
 	}
 	#sankey-table h1 {
 		margin-top: 0;
@@ -166,6 +148,7 @@
 		font-family: "Source Sans Pro";
 		font-size: 15px;
 		line-height: 18px;
+		padding-left: 0;
 	}
 	#tite_text {
 		margin-top: 10px;
@@ -199,11 +182,21 @@
 	}
 	.sankey-brackets {
 		background-repeat: no-repeat;
-		width: 650px;
-		height: 675px;
-		position: absolute;
-		left: 0;
-		top: 0;
+		width: 590px;
 	}
 	
+
+  @media (max-width: 1000px) { 
+    #sankey-container {
+      flex-direction: column;
+		}
+		#sankey-table {
+			width: 100%;
+			margin-top: 35px;
+		}
+		#viz-container {
+			height: 100%;
+		}
+  }
+
 }

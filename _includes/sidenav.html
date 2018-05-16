@@ -12,9 +12,9 @@
 </script>
 
 <div id="menu">
-    <a href="javascript:void(0)" onclick="closeNav()">
+    <span onclick="closeNav()">
         {% include svgs/close.svg class="sidenav-close" %}
-    </a>
+    </span>
     <ul>
         <li><a href="index.html">Home</a></li>
         {% assign sorted_pages = site.pages | sort:"menuorder" %}

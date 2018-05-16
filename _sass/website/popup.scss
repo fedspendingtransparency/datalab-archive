@@ -1,0 +1,30 @@
+#button-instructions {
+	position: static;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 135px;
+	background-color: #fff;
+	border: 1px $silver solid;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 100;
+    top: 65px;
+}
+
+.popup .popuptext.right {
+	right: 0px;
+    top: 50px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}

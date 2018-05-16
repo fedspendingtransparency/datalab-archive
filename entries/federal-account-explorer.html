@@ -2,8 +2,8 @@
 layout: page
 menuname: Federal Account Explorer
 menuorder: 1
-title: Did you know that the government has almost 2,000 federal spending accounts?
-description: Federal accounts are what the government uses to spend money. We've created this visualization to provide an all-in-one view of these accounts and help you explore how much is being used. The dendrogram (tree diagram) shows how each agency's accounts are organized. The first branch of the diagram shows agencies, the second shows sub-agencies, and the third shows the federal accounts.
+title: Did you know that the government has almost 2,000 federal bank accounts?
+description: Federal accounts, which are similar to bank accounts, are what the government uses to spend money. We've created this visualization to provide an all-in-one view of these accounts and help you explore how much is being used. The dendrogram (tree diagram) shows how each agency's accounts are organized. The first branch of the diagram shows agencies, the second shows sub-agencies, and the third shows the federal accounts.
 banner: landings/federal.jpg
 alt: Federal Spending Accounts
 permalink: federal-account-explorer.html
@@ -42,6 +42,8 @@ category: entry
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
+        <!-- tooltip -->
+        <div id="tooltip" class="tooltip-module"></div>
         <element class="dendrogram">
           <div id="tree-container"></div>
         </element>
@@ -62,7 +64,12 @@ category: entry
   next-link="contract-explorer.html"
 %}
 
-<!-- d3 -->
+<!-- vendor scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+
+<!-- shared scripts -->
+<script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
+
+<!-- federal-account-explorer scripts -->
 <script src="{{site.baseurl}}/assets/js/dendrogram.js"></script>

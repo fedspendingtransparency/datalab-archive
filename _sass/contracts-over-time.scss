@@ -20,6 +20,7 @@
 
   .parallax-container {
     width: 70%;
+    height: 90%;
     margin-left: 30%;
     z-index: 2;
     display: flex;
@@ -78,18 +79,18 @@
   .panel-text {
     margin: 10px;
     padding: 10px;
-    font-size: 12px;
+    font-size: 15px;
     background: #fff;
     border-radius: 10px;
     line-height: 22px;
-    color: #5B616B;
+    color: rgb(159, 162, 168);
     padding: 30px;
  }
 
   .line {
     fill: none;
     stroke: steelblue;
-    stroke-width: 3px;
+    stroke-width: 1px;
   }
 
   line {
@@ -98,7 +99,7 @@
   }
 
   .grid line {
-    stroke: lightgrey;
+    stroke: rgb(159, 162, 168);
     stroke-opacity: 0.7;
     shape-rendering: crispEdges;
   }
@@ -112,12 +113,91 @@
   }
 
   .viz-section {
-    background-color: #333333 !IMPORTANT;
+    background-color: #fff !IMPORTANT;
+  }
+
+  .zoom {
+    cursor: move;
+    fill: none;
+    pointer-events: all;
+  }
+  
+  .focus, .context{
+    position: relative;
+    max-width: 900px;
+    // overflow: visible;
+  }
+
+  .context{
+    max-height: 80px;
+  }
+
+  #svg-1{
+    overflow: visible;
+    max-width: 70%;
+  }
+
+  .xAxis{
+    stroke: rgb(159, 162, 168);
   }
 
   svg {
     text {
-      fill: #D0CCCC;
+      fill: rgb(159, 162, 168);
     }
   }
+
+  #svg-1 > g > g.legend.legend-1 > g > text{
+    cursor: pointer;
+  }
+
+  .selection{
+    fill-opacity: 0.1;
+    stroke:#5B616B;
+    pointer-events: all;
+  }
+  .textBackground{
+    width: 30%;
+    height: 90%;
+    float:right;
+    z-index: 0;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    fill:#5B616B;
+  }
+  .navbar {
+    overflow: hidden;
+    // margin-top: 650px;
+    // z-index: 99;
+    background-color: #D1D6DC;
+    // position: fixed; /* Set the navbar to fixed position */
+    // top: 0; /* Position the navbar at the top of the page */
+    height: 50px;
+    width: 100%; /* Full width */
+  }
+
+  ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    // background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 15px;
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
 }

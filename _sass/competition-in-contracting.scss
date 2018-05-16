@@ -55,28 +55,17 @@
   }
 
   .select-wrapper1, .select-wrapper2 {
-    padding-top: .75%;
-    width:25%;
-  }
-
-  .select-wrapper1{
-    position: relative;
-    float:left;
-  }
-  .select-wrapper2{
-    position: relative;
-    float:left;
+    display: inline-block;
+    padding-top: 15px;
   }
 
   .legend{
-    width:15%;
-    float:left;
-    position: relative;
-    padding-top: 1%;
+    padding-top: 25px;
+    display: inline-block;
   }
 
   #competed{
-    margin-left: -6%;
+    
   }
 
   #one > div > div.mask > div.viz-container > div > div:nth-child(2) > form > div.select-wrapper1 > label,
@@ -115,6 +104,11 @@
   #summary > div:nth-child(4),
   #summary > div:nth-child(5){
     margin-top:0;
+  }
+
+  #barchartSvg {
+    width: 100%;
+    height: 100%;
   }
 
 }
