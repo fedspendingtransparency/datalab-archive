@@ -169,10 +169,10 @@
   .navbar {
     overflow: hidden;
     // margin-top: 650px;
-    // z-index: 99;
+    z-index: 1;
     background-color: #D1D6DC;
-    // position: fixed; /* Set the navbar to fixed position */
-    // top: 0; /* Position the navbar at the top of the page */
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
     height: 50px;
     width: 100%; /* Full width */
   }
