@@ -125,48 +125,17 @@ const barchartModule = (function() {
       .style("text-anchor", "middle")
       .text("Total Obligations");     
 
-    var svgLegned = d3.select(".legend").append("svg")
-      .attr("width", width)
-      .attr("height", legendHeight)
-      .style("overflow","visible");
-  
-    var dataL = 0;
-    var offset = 125;
-
     var legendVals = ["Yearly Average Spending"];
+  
+    var legend = d3.select('.legend').selectAll("legends")
+      .data(legendVals)
+      .enter().append("div")
+      .attr("class","legends");
     
-    var legend = svgLegned.selectAll('.legend')
-        .data(legendVals)
-        .enter().append('g')
-        .attr("class", "legends")
-        .attr("transform", function (d, i) {
-          if (i === 0) {
-            dataL = d.length + offset - 63;
-            return "translate(" + (width/2 - dataL) +", 10)"
-        } else { 
-          var newdataL = dataL;
-          dataL +=  d.length + offset;
-          return "translate(" + (width/2 - dataL) + ", 10)"
-        }
-    })
-    
-    legend.append('rect')
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", 10)
-        .attr("height", 10)
-        .style("fill", "url(#mainGradient)")
-    
-    legend.append('text')
-        .attr("x", 20)
-        .attr("y", 10)
-        .text(function (d, i) {
-          return d
-      })
-        .attr("class", "textselected")
-        .style("text-anchor", "start")
-        .style("font-size", "10px")
-    
+    var p = legend.append("p").attr("class","title")
+    p.append("span").attr("class","key-dot").style("background","#1A8FBF");
+    p.insert("text").attr("class","title").text(function(d,i) { return d } );
+
     }
 
   function remove(cb) {
