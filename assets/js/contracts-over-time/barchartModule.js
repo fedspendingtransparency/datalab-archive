@@ -76,7 +76,7 @@ const barchartModule = (function() {
 
       function handleMouseOver(d) {
         tooltipModule.draw("#tooltip", d.fiscalYear, {
-          "Avergae Spending Value": chartModule.formatNumberAsText(d.val)
+          "Average Spending Value": chartModule.formatNumberAsText(d.val)
         });
       }
   
