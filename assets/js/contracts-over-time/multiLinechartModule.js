@@ -266,51 +266,19 @@ const multiLinechartModule = (function() {
     LineChart.selectAll('.data-point').remove();
     DrawPoints();
   }
-
-  var svgLegned = d3.select(".legend").append("svg")
-    .attr("width", width)
-    .attr("height", legendHeight)
-    .style("overflow","visible");
-
-  var dataL = 0;
-  var offset = 125;
   
   var legendVals = Object.keys(data.lineData);
   // legendVals.sort((a, b) => b.length - a.length);
 
-  var legend = svgLegned.selectAll('.legend')
-      .data(legendVals)
-      .enter().append('g')
-      .attr("class", "legends")
-      .attr("transform", function (d, i) {
-        if (i === 0) {
-          dataL = d.length + offset - 35;
-          return "translate(" + (width - dataL) +", 20)"
-      } else { 
-        var newdataL = dataL;
-        dataL +=  d.length + offset;
-        return "translate(" + (width - dataL) + ", 20)"
-      }
-  })
+  var legend = d3.select('.legend').selectAll("legends")
+    .data(legendVals)
+    .enter().append("div")
+    .attr("class","legends");
   
-  legend.append('rect')
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("width", 10)
-      .attr("height", 10)
-      .style("fill",function (d, i) {
-        return lineColor(i);
-    })
-  
-  legend.append('text')
-      .attr("x", 20)
-      .attr("y", 10)
-      .text(function (d, i) {
-        return d
-    })
-      .attr("class", "textselected")
-      .style("text-anchor", "start")
-      .style("font-size", "10px")
+  var p = legend.append("p").attr("class","title")
+  p.append("span").attr("class","key-dot").style("background",function(d,i) { return lineColor(i) } );
+  p.insert("text").attr("class","title").text(function(d,i) { return d } );
+
   }
 
   function remove(cb) {

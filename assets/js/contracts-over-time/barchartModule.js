@@ -9,8 +9,8 @@ const barchartModule = (function() {
 
     const margin = { top: 0, right: 0, bottom: 30, left: 40 },
       width = $("#svg-1").width() - margin.left - margin.right,
-      height = $("#svg-1").height() - margin.top - margin.bottom - 100,
-      legendHeight = 50;
+      height = $("#svg-1").height() - margin.top - margin.bottom - 50,
+      legendHeight = 33;
     
     var x = d3
       .scaleBand()
@@ -141,12 +141,12 @@ const barchartModule = (function() {
         .attr("class", "legends")
         .attr("transform", function (d, i) {
           if (i === 0) {
-            dataL = d.length + offset - 35;
-            return "translate(" + (width - dataL) +", 20)"
+            dataL = d.length + offset - 63;
+            return "translate(" + (width/2 - dataL) +", 10)"
         } else { 
           var newdataL = dataL;
           dataL +=  d.length + offset;
-          return "translate(" + (width - dataL) + ", 20)"
+          return "translate(" + (width/2 - dataL) + ", 10)"
         }
     })
     

@@ -214,4 +214,20 @@ ul.breadcrumb li a:hover {
     color: #01447e;
     text-decoration: underline;
 }
+.legends {
+  float:right;
+  margin-left: 1em;
+}
+.key-dot {
+  display: inline-block;
+  height: 10px;
+  margin-right: .5em;
+  width: 10px;
+}
+.title{
+  margin: 0 !IMPORTANT;
+  font-family: inherit;
+  font-size: 10px;
+  color: rgb(159, 162, 168);
+}
 }
