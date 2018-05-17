@@ -21,6 +21,26 @@ const barchartModule = (function() {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    var svgDefs = svg.append('defs');
+
+    var mainGradient = svgDefs.append('linearGradient')
+        .attr('id', 'mainGradient')
+        .attr('x1', "0%") 
+        .attr('y1', "0%") 
+        .attr('x2',"100%") 
+        .attr('y2',"100%") 
+        .attr('spreadMethod', "pad"); 
+
+    // Create the stops of the main gradient. Each stop will be assigned
+    // a class to style the stop using CSS.
+    mainGradient.append('stop')
+        .attr('class', 'stop-top')
+        .attr('offset', '0%');
+
+    mainGradient.append('stop')
+        .attr('class', 'stop-bottom')
+        .attr('offset', '100%');
+
     x.domain(data.map(d => d.fiscalYear));
     y.domain([0, d3.max(data, d => d.val)]);
 
@@ -35,11 +55,38 @@ const barchartModule = (function() {
       .attr("y", height)
       .attr("height", 0)
       .style("opacity", 0)
+      .on("mouseover",function(d){
+        d3.selectAll('#svg-1 > g > rect')
+          .classed('active',true);
+        d3.select(this)
+          .classed('active',false);
+        handleMouseOver(d);
+      })
+      .on("mouseout", function(){
+        d3.selectAll('#svg-1 > g > rect')
+        .classed('active',false);
+        handleMouseOut();
+      })
+      .on("mousemove", handleMouseMove)
       .transition()
       .duration(800)
       .style("opacity", 1)
       .attr("y", d => y(d.val))
       .attr("height", d => height - y(d.val));
+
+      function handleMouseOver(d) {
+        tooltipModule.draw("#tooltip", d.fiscalYear, {
+          Value: chartModule.formatNumberAsText(d.val)
+        });
+      }
+  
+      function handleMouseOut() {
+        tooltipModule.remove("#tooltip");
+      }
+  
+      function handleMouseMove() {
+        tooltipModule.move("#tooltip");
+      }
 
     svg
       .append("g")

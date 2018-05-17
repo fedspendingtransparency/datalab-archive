@@ -107,9 +107,20 @@
   .grid path {
     stroke-width: 0;
   }
+  .stop-top {
+    stop-color:#1A8FBF;  
+  }
+
+  .stop-bottom {
+      stop-color: #38C2E1;  
+  }
 
   .bar {
-    fill: #1cb2ee;
+    fill: url(#mainGradient);
+  }
+
+  #svg-1 > g > rect.active, #svg-1 > g > rect:active {
+    fill: #84e8f9;
   }
 
   .viz-section {
