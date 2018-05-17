@@ -6,7 +6,7 @@
 
   .left {
     // height: 800px;
-    width: 30%;
+    width: 32%;
     display: block;
     display: flex;
     flex-direction: column;
@@ -20,13 +20,15 @@
 
   .parallax-container {
     width: 70%;
-    height: 90%;
+    height: 100%;
     margin-left: 30%;
+    margin-bottom: 75px;
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #FFF;
   }
 
   .fixed {
@@ -77,14 +79,13 @@
   }
 
   .panel-text {
-    margin: 10px;
-    padding: 10px;
+    margin: 10px 10px 10px 40px;
     font-size: 15px;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 0px;
     line-height: 22px;
     color: rgb(159, 162, 168);
-    padding: 30px;
+    padding: 10px;
  }
 
   .line {
@@ -125,7 +126,8 @@
   }
 
   .viz-section {
-    background-color: #fff !IMPORTANT;
+    background-color: #4a4a4a !IMPORTANT;
+    // opacity: 0.3;
   }
 
   .zoom {
@@ -218,6 +220,9 @@ ul.breadcrumb li a:hover {
   float:right;
   margin-left: 1em;
   margin-right: 0;
+}
+.legend{
+  margin-top: -50px;
 }
 .key-dot {
   display: inline-block;
