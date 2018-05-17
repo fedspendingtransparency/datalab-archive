@@ -147,6 +147,8 @@ const barchartModule = (function() {
       .style("opacity", 0)
       .remove();
 
+    $('.legend').empty();
+
     setTimeout(cb, 400);
   }
 

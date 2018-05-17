@@ -278,7 +278,7 @@ const multiLinechartModule = (function() {
   var p = legend.append("p").attr("class","title")
   p.append("span").attr("class","key-dot").style("background",function(d,i) { return lineColor(i) } );
   p.insert("text").attr("class","title").text(function(d,i) { return d } );
-  
+
   p.on("mouseover",(d) => {
     if(d === "Contract Modification"){
       d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
@@ -330,6 +330,8 @@ const multiLinechartModule = (function() {
       .duration(400)
       .style("opacity", 0)
       .remove();
+
+    $('.legend').empty();
 
     setTimeout(cb, 400);
   }
