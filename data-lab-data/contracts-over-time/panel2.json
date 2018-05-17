@@ -216,5 +216,6 @@
       }
     ]
   },
+  "title": "Weekly Average Spending",
   "trigger cloudfront": "1"
 }

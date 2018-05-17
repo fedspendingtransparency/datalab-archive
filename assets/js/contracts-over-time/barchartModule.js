@@ -4,11 +4,13 @@
 const barchartModule = (function() {
   function draw(data) {
 
+    $('.legend').empty();
     $("#svg-1").empty();
 
-    const margin = { top: 10, right: 10, bottom: 30, left: 100 },
+    const margin = { top: 0, right: 0, bottom: 30, left: 40 },
       width = $("#svg-1").width() - margin.left - margin.right,
-      height = $("#svg-1").height() - margin.top - margin.bottom - 50;
+      height = $("#svg-1").height() - margin.top - margin.bottom - 100,
+      legendHeight = 50;
     
     var x = d3
       .scaleBand()
@@ -122,7 +124,50 @@ const barchartModule = (function() {
       .style("font-size","15px")
       .style("text-anchor", "middle")
       .text("Total Obligations");     
-  }
+
+    var svgLegned = d3.select(".legend").append("svg")
+      .attr("width", width)
+      .attr("height", legendHeight)
+      .style("overflow","visible");
+  
+    var dataL = 0;
+    var offset = 125;
+
+    var legendVals = ["Yearly Average Spending"];
+    
+    var legend = svgLegned.selectAll('.legend')
+        .data(legendVals)
+        .enter().append('g')
+        .attr("class", "legends")
+        .attr("transform", function (d, i) {
+          if (i === 0) {
+            dataL = d.length + offset - 35;
+            return "translate(" + (width - dataL) +", 20)"
+        } else { 
+          var newdataL = dataL;
+          dataL +=  d.length + offset;
+          return "translate(" + (width - dataL) + ", 20)"
+        }
+    })
+    
+    legend.append('rect')
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", 10)
+        .attr("height", 10)
+        .style("fill", "url(#mainGradient)")
+    
+    legend.append('text')
+        .attr("x", 20)
+        .attr("y", 10)
+        .text(function (d, i) {
+          return d
+      })
+        .attr("class", "textselected")
+        .style("text-anchor", "start")
+        .style("font-size", "10px")
+    
+    }
 
   function remove(cb) {
     d3

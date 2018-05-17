@@ -4,13 +4,15 @@
 const multiLinechartModule = (function() {
   function draw(data,axisText) {
 
+    $('.legend').empty();
     $("#svg-1").empty();
 
     const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
       svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
-      height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70;
+      height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70,
+      legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
@@ -251,111 +253,64 @@ const multiLinechartModule = (function() {
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
-    function addLegend(legendName, legendData, colorScale, position) {
-      const legendSpace = 10;
+  function brushed() {
+    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+    var s = d3.event.selection || x2.range();
+    x.domain(s.map(x2.invert, x2));
+    LineChart.selectAll('.line').remove();
+    DrawLines(0);
+    focus.select(".axis--x").call(xAxis);
+    svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
+        .scale(width / (s[1] - s[0]))
+        .translate(-s[0], 0));
+    LineChart.selectAll('.data-point').remove();
+    DrawPoints();
+  }
 
-      const legend = svg
-        .append("g")
-        .attr("class", `legend ${legendName}`)
-        .attr("transform", `translate(${position === "right" ? width : 0},0)`);
+  var svgLegned = d3.select(".legend").append("svg")
+    .attr("width", width)
+    .attr("height", legendHeight)
+    .style("overflow","visible");
 
-      const legendBackground = legend
-        .append("rect")
-        .attr("fill", "#fff")
-        .attr("class", `${legendName}-background`);
+  var dataL = 0;
+  var offset = 125;
+  
+  var legendVals = Object.keys(data.lineData);
+  // legendVals.sort((a, b) => b.length - a.length);
 
-      legend
-        .append("g")
-        .attr("class", `legend-items ${legendName}-items`)
-        .selectAll(`.${legendName}-item`)
-        .data(legendData)
-        .enter()
-        .append("text")
-        .attr("class", `legend-item ${legendName}-item`)
-        .attr("x", 0)
-        .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
-        .style("fill", (d, i) => colorScale(i))
-        .style("font-size", "12px")
-        .style("font-family", "sans-serif")
-        .style("text-anchor", position === "right" ? "end" : "start")
-        .style("alignment-baseline", "hanging")
-        .text(d => d)
-        .on("mouseover",(d) => {
-          if(d === "Contract Modification"){
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-          }else if (d === "New Contract"){
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-          }else if (d === "Equipment/Facilities/Construction/Vehicles"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-          }else if (d === "Miscellaneous"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-          }else if (d === "Professional Services"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-          }else if (d === "Telecomm & IT"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-          }else if (d === "Weapons"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
-          }
-        })
-        .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
-
-      const legendDims = legend.node().getBBox();
-
-      legendBackground
-        .attr("width", legendDims.width)
-        .attr("height", legendDims.height + 20)
-        .attr("x", position === "right" ? -legendDims.width : -40)
-        .attr("y", -20);
-    }
-
-    addLegend(
-      "legend-1", 
-      Object.keys(data.lineData), 
-      lineColor, 
-      "right"
-    );
-
-    addLegend(
-      "legend-2",
-      Object.keys(data.verticalLineData),
-      verticalLineColor,
-      "left"
-    );
-
-    function brushed() {
-      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
-      var s = d3.event.selection || x2.range();
-      x.domain(s.map(x2.invert, x2));
-      LineChart.selectAll('.line').remove();
-      DrawLines(0);
-      focus.select(".axis--x").call(xAxis);
-      svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
-          .scale(width / (s[1] - s[0]))
-          .translate(-s[0], 0));
-      LineChart.selectAll('.data-point').remove();
-      DrawPoints();
-    }
+  var legend = svgLegned.selectAll('.legend')
+      .data(legendVals)
+      .enter().append('g')
+      .attr("class", "legends")
+      .attr("transform", function (d, i) {
+        if (i === 0) {
+          dataL = d.length + offset - 35;
+          return "translate(" + (width - dataL) +", 20)"
+      } else { 
+        var newdataL = dataL;
+        dataL +=  d.length + offset;
+        return "translate(" + (width - dataL) + ", 20)"
+      }
+  })
+  
+  legend.append('rect')
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 10)
+      .attr("height", 10)
+      .style("fill",function (d, i) {
+        return lineColor(i);
+    })
+  
+  legend.append('text')
+      .attr("x", 20)
+      .attr("y", 10)
+      .text(function (d, i) {
+        return d
+    })
+      .attr("class", "textselected")
+      .style("text-anchor", "start")
+      .style("font-size", "10px")
   }
 
   function remove(cb) {
