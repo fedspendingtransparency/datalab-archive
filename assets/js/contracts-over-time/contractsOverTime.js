@@ -72,7 +72,7 @@ $(function() {
 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
-    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);
+    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .2);
 
     $("<style>")
     .prop("type", "text/css")
@@ -112,6 +112,8 @@ $(function() {
       if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
+
+      $('.legend').empty();
 
       d3
         .select("#svg-1")
