@@ -1457,7 +1457,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .attr("transform", "translate(.5,.5)");
 
                             d3.json('/data-lab-data/homeless_cluster_v2.json', (treeData) => {
-                                d3.csv('/data-lab-data/cluster_data_v2.csv', (cluster) => {
+                                d3.csv('/data-lab-data/cluster_data_v4.csv', (cluster) => {
                                     const percentFormat = d3.format(",.1%");
 
                                     cluster.forEach((d) => {
@@ -1475,7 +1475,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         d.Property_crime_rate = +d.Property_crime_rate;
                                         d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
                                         d.CoC_program_funding = +d.CoC_program_funding;
-                                        d.Other_program_funding = +d.Other_program_funding;
+                                        d.other_fed_funding = +d.other_fed_funding;
                                         d.Total_funding = +d.Total_funding;
                                     });
 
@@ -1551,7 +1551,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
                                         `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
                                         `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
-                                        `<tr><td class="fundingAmount">${formatNumber(d.Other_program_funding)}</td></tr></table>`;
+                                        `<tr><td class="fundingAmount">${formatNumber(d.other_fed_funding)}</td></tr></table>`;
                                     }
 
                                     function makeCoCTableInfoCol1(d) {
