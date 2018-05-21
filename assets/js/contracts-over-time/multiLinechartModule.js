@@ -4,19 +4,18 @@
 const multiLinechartModule = (function() {
   function draw(data,axisText,id) {
 
-    console.log("id: ", id);
+    console.log("multi line chart id: ", id);
 
     $('.legend').empty();
     $("#svg-1").empty();
 
     const svgMargin = { top: 20, right: 0, bottom: 130, left: 40 },
       svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
-      width = $("#svg-1").width(), //- svgMargin.left - svgMargin.right,
+      width = $("#svg-1").width(),
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70,
       legendHeight = 50;
 
-    console.log("height2: ",height2);
     var parseDate = d3.timeParse("%Y-%m-%d");
 
     // Add SVG

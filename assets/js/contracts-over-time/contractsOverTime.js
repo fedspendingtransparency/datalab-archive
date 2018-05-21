@@ -28,7 +28,7 @@ $(function() {
     },
     {
       id: "panel-2",
-      module: multiLinechartModule,
+      module: singleYearLinechartModule,
       dataset: "panel2",
       xAxis: "week"
     },
