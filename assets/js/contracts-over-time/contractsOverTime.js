@@ -64,7 +64,7 @@ $(function() {
     const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth * .6 - 2 * windowMargin;
+    const svgWidth = windowWidth - 2 * windowMargin;
 
     $(id)
       .attr("height", svgHeight)

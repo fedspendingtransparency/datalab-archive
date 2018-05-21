@@ -9,13 +9,14 @@ const multiLinechartModule = (function() {
     $('.legend').empty();
     $("#svg-1").empty();
 
-    const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
+    const svgMargin = { top: 20, right: 0, bottom: 130, left: 40 },
       svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
-      width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
+      width = $("#svg-1").width(), //- svgMargin.left - svgMargin.right,
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70,
       legendHeight = 50;
 
+    console.log("height2: ",height2);
     var parseDate = d3.timeParse("%Y-%m-%d");
 
     // Add SVG
@@ -88,7 +89,7 @@ const multiLinechartModule = (function() {
 
     var context = svg.append("g")
       .attr("class", "context")
-      .attr("transform", "translate(0," + (svgMargin2.top+60) + ")");
+      .attr("transform", "translate(0," + (svgMargin2.top) + ")");
 
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
@@ -280,6 +281,7 @@ const multiLinechartModule = (function() {
     }else if(id === "panel-6"){
       return "Do congressional budget actions affect how agencies spend money on contracts?";
     }
+    return "";
   }
   
   var legendVals = Object.keys(data.lineData);
@@ -288,8 +290,6 @@ const multiLinechartModule = (function() {
   var subTitle = d3.select('.subTitleDiv')
     .append("div")
     .attr("class","subTitle")
-    .attr("height","25px")
-    .attr("width","100%")
     .text(getSubTitle(id));
 
   var legend = d3.select('.legend').selectAll("legends")
