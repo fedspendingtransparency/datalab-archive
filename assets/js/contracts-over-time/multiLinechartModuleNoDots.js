@@ -234,32 +234,34 @@ const multiLinechartModuleNoDots = (function() {
       tooltipModule.move("#tooltip");
     }
 
-    // draw vertical lines
-    Object.entries(data.verticalLineData).forEach((l, i) => {
-        svg
-          .append("g")
-          .attr("class", "vertical-line-paths")
-          .selectAll(`.vertical-line-${i}`)
-          .data(l[1])
-          .enter()
-          .append("line")
-          .attr("class", `.vertical-line-${i}`)
-          .style("stroke", () => verticalLineColor(i))
-          .attr("x1", d => x(d.parsedDate))
-          .attr("y1", height)
-          .attr("x2", d => x(d.parsedDate))
-          .attr("y2", 0)
-          .each(function(d) {
-            d.totalLength = this.getTotalLength();
-          })
-          .style("stroke-dasharray", ("3,3"))
-          .attr("stroke-dashoffset", d => d.totalLength)
-          .style("stroke-width","1px")
-          .style("stroke-opacity",".6")
-          .transition()
-          .duration(0)
-          .attr("stroke-dashoffset", "0");
-      });
+    function DrawVerticalLines(){
+        // draw vertical lines
+        Object.entries(data.verticalLineData).forEach((l, i) => {
+            LineChart
+            .append("g")
+            .attr("class", "vertical-line-paths")
+            .selectAll(`.vertical-line-${i}`)
+            .data(l[1])
+            .enter()
+            .append("line")
+            .attr("class", `.vertical-line-${i}`)
+            .style("stroke", () => verticalLineColor(i))
+            .attr("x1", d => x(d.parsedDate))
+            .attr("y1", height)
+            .attr("x2", d => x(d.parsedDate))
+            .attr("y2", 0)
+            .each(function(d) {
+                d.totalLength = this.getTotalLength();
+            })
+            .style("stroke-dasharray", ("3,3"))
+            .attr("stroke-dashoffset", d => d.totalLength)
+            .style("stroke-width","1px")
+            .style("stroke-opacity",".6")
+            .transition()
+            .duration(0)
+            .attr("stroke-dashoffset", "0");
+        });
+    }
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
@@ -269,13 +271,15 @@ const multiLinechartModuleNoDots = (function() {
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
     LineChart.selectAll('.line').remove();
+    d3.selectAll("#svg-1 > g > g:nth-child(2) > g").remove();
     DrawLines(0);
+    DrawVerticalLines(0);
     focus.select(".axis--x").call(xAxis);
     svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
         .scale(width / (s[1] - s[0]))
         .translate(-s[0], 0));
     LineChart.selectAll('.data-point').remove();
-    DrawPoints();
+    DrawPoints(0);
   }
 
   function getSubTitle(id){
@@ -319,22 +323,22 @@ const multiLinechartModuleNoDots = (function() {
   k.append("span").attr("class","key-dot").style("background",function(d,i) {
     return d === "Continuing Resolution" ? "#FF7C7E" : "#6F6F6F"; 
   });
-  
+
   k.insert("text").attr("class","title").text(function(d,i) { return d } );
 
   k.on("mouseover",(d) => {
       console.log(d);
     if(d === "Continuing Resolution"){
-        d3.selectAll("#svg-1 > g > g:nth-child(5) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(6) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
     }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-1 > g > g:nth-child(6) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(5) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
     }
   })
   .on("mouseout",() => {
-      d3.selectAll("#svg-1 > g > g:nth-child(6) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g:nth-child(5) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
     }); 
   
   p.on("mouseover",(d) => {
