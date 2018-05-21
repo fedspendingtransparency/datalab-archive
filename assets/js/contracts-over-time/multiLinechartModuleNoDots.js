@@ -157,7 +157,7 @@ const multiLinechartModuleNoDots = (function() {
       .text("Total Obligations");     
 
     // draw lines
-    function DrawLines(t){
+    function DrawLines(){
       return LineChart
         .append("g")
         .attr("class", "line-paths")
@@ -236,30 +236,30 @@ const multiLinechartModuleNoDots = (function() {
 
     // draw vertical lines
     Object.entries(data.verticalLineData).forEach((l, i) => {
-      svg
-        .append("g")
-        .attr("class", "vertical-line-paths")
-        .selectAll(`.vertical-line-${i}`)
-        .data(l[1])
-        .enter()
-        .append("line")
-        .attr("class", `.vertical-line-${i}`)
-        .style("stroke", () => verticalLineColor(i))
-        .attr("x1", d => x(d.parsedDate))
-        .attr("y1", height)
-        .attr("x2", d => x(d.parsedDate))
-        .attr("y2", 0)
-        .each(function(d) {
-          d.totalLength = this.getTotalLength();
-        })
-        .style("stroke-dasharray", ("3,3"))
-        .attr("stroke-dashoffset", d => d.totalLength)
-        .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
-    });
+        svg
+          .append("g")
+          .attr("class", "vertical-line-paths")
+          .selectAll(`.vertical-line-${i}`)
+          .data(l[1])
+          .enter()
+          .append("line")
+          .attr("class", `.vertical-line-${i}`)
+          .style("stroke", () => verticalLineColor(i))
+          .attr("x1", d => x(d.parsedDate))
+          .attr("y1", height)
+          .attr("x2", d => x(d.parsedDate))
+          .attr("y2", 0)
+          .each(function(d) {
+            d.totalLength = this.getTotalLength();
+          })
+          .style("stroke-dasharray", ("3,3"))
+          .attr("stroke-dashoffset", d => d.totalLength)
+          .style("stroke-width","1px")
+          .style("stroke-opacity",".6")
+          .transition()
+          .duration(0)
+          .attr("stroke-dashoffset", "0");
+      });
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
@@ -316,21 +316,11 @@ const multiLinechartModuleNoDots = (function() {
   
   var k = legend2.append("p").attr("class","title");
 
-  k.append("line")//making a line for legend
-  .attr("x1", legendWidth - 28)
-  .attr("x2", legendWidth)
-  .attr("y1", 10)
-  .attr("y2", 10)
-  .style("stroke-dasharray","3,3")//dashed array for line
-  .style("stroke",function(d,i) { return verticalLineColor(i) });
- 
-  k.append("text")
-  .attr("class","title")
-  .attr("x", legendWidth - 44)
-  .attr("y", 9)
-  .attr("dy", ".35em")
-  .style("text-anchor", "end")
-  .text(function(d) { return d; });
+  k.append("span").attr("class","key-dot").style("background",function(d,i) {
+    return d === "Continuing Resolution" ? "#FF7C7E" : "#6F6F6F"; 
+  });
+  
+  k.insert("text").attr("class","title").text(function(d,i) { return d } );
 
   k.on("mouseover",(d) => {
       console.log(d);
