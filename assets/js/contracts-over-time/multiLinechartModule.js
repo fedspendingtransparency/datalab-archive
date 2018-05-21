@@ -2,7 +2,9 @@
 ---
 
 const multiLinechartModule = (function() {
-  function draw(data,axisText) {
+  function draw(data,axisText,id) {
+
+    console.log("id: ", id);
 
     $('.legend').empty();
     $("#svg-1").empty();

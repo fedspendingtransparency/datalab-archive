@@ -113,6 +113,7 @@ $(function() {
 
       const { module, dataset, xAxis } = postChangePanel;
 
+
       $('.legend').empty();
 
       d3
@@ -122,7 +123,7 @@ $(function() {
         .style("opacity", 0)
         .remove();
 
-      setTimeout(() => module.draw(mem[dataset], xAxis, 400));
+      setTimeout(() => module.draw(mem[dataset], xAxis, postChangePanel.id, 400));
     };
 
 
