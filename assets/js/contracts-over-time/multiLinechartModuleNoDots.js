@@ -290,6 +290,7 @@ const multiLinechartModuleNoDots = (function() {
   }
   
   var legendVals = Object.keys(data.lineData);
+  var legendVals2 = Object.keys(data.verticalLineData);
   // legendVals.sort((a, b) => b.length - a.length);
 
   var subTitle = d3.select('.subTitleDiv')
@@ -306,6 +307,46 @@ const multiLinechartModuleNoDots = (function() {
   p.append("span").attr("class","key-dot").style("background",function(d,i) { return lineColor(i) } );
   p.insert("text").attr("class","title").text(function(d,i) { return d } );
 
+  var legendWidth = 200;
+
+  var legend2 = d3.select('.legend').selectAll("legends2")
+    .data(legendVals2)
+    .enter().append("div")
+    .attr("class","legends2");
+  
+  var k = legend2.append("p").attr("class","title");
+
+  k.append("line")//making a line for legend
+  .attr("x1", legendWidth - 28)
+  .attr("x2", legendWidth)
+  .attr("y1", 10)
+  .attr("y2", 10)
+  .style("stroke-dasharray","3,3")//dashed array for line
+  .style("stroke",function(d,i) { return verticalLineColor(i) });
+ 
+  k.append("text")
+  .attr("class","title")
+  .attr("x", legendWidth - 44)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "end")
+  .text(function(d) { return d; });
+
+  k.on("mouseover",(d) => {
+      console.log(d);
+    if(d === "Continuing Resolution"){
+        d3.selectAll("#svg-1 > g > g:nth-child(5) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-1 > g > g:nth-child(6) > line").style("stroke-width","0px");
+    }else if(d === "Budget Legislation"){
+        d3.selectAll("#svg-1 > g > g:nth-child(6) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-1 > g > g:nth-child(5) > line").style("stroke-width","0px");
+    }
+  })
+  .on("mouseout",() => {
+      d3.selectAll("#svg-1 > g > g:nth-child(6) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g:nth-child(5) > line").style("stroke-width","1px");
+    }); 
+  
   p.on("mouseover",(d) => {
     if(d === "Contract Modification"){
       d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
