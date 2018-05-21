@@ -1,9 +1,10 @@
 ---
 ---
 
-const multiLinechartModule = (function() {
+const multiLinechartModuleNoDots = (function() {
   function draw(data,axisText,id) {
 
+    console.log("multi line chart id: ", id);
     $('.subTitleDiv').empty();
     $('.legend').empty();
     $("#svg-1").empty();
@@ -98,11 +99,27 @@ const multiLinechartModule = (function() {
       .translateExtent([[0, 0], [width, height]])
       .extent([[0, 0], [width, height]]);
     
-    var lineColor = d3
-      .scaleLinear()
-      .range(["#027693", "#db5000", "#FFC8BA", "#B5D8EB"])
-      .domain([0, Object.keys(data.lineData).length - 1])
-      .interpolate(d3.interpolateHcl);
+    if(id === "panel-4"){
+        var lineColor = d3
+        .scaleOrdinal()
+        .range(["#ED460F", "#6f6f6f"])
+        .domain([0, Object.keys(data.lineData).length - 1]);
+    }else if(id === "panel-5"){
+        var lineColor = d3
+        .scaleOrdinal()
+        .range(["#009292","#9C27B0","#FF7043","#E91E63"])
+        .domain([0, Object.keys(data.lineData).length - 1]);
+    }else if(id === "panel-6"){
+        var lineColor = d3
+        .scaleOrdinal()
+        .range(["#027693"])
+        .domain([0, Object.keys(data.lineData).length - 1]);
+    }
+
+    var verticalLineColor = d3
+      .scaleOrdinal()
+      .range(["#FF7C7E","#6F6F6F"])
+      .domain([0, Object.keys(data.verticalLineData).length - 1]);
 
     context.append("g")
       .attr("class", "axis axis--x")
@@ -193,11 +210,10 @@ const multiLinechartModule = (function() {
           .append("circle")
           .attr("class", "data-point")
           .style("stroke", (d, i) => lineColor(i))
-          .style("fill","#fff")
           .attr("cx", d => x(d.parsedDate))
           .attr("cy", d => y(d.val))
-          .attr("r", 3)
-          // .attr("fill-opacity", "")
+          .attr("r", 2)
+          .attr("opacity", "0")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
           .on("mousemove", handleMouseMove);
@@ -218,6 +234,33 @@ const multiLinechartModule = (function() {
       tooltipModule.move("#tooltip");
     }
 
+    // draw vertical lines
+    Object.entries(data.verticalLineData).forEach((l, i) => {
+      svg
+        .append("g")
+        .attr("class", "vertical-line-paths")
+        .selectAll(`.vertical-line-${i}`)
+        .data(l[1])
+        .enter()
+        .append("line")
+        .attr("class", `.vertical-line-${i}`)
+        .style("stroke", () => verticalLineColor(i))
+        .attr("x1", d => x(d.parsedDate))
+        .attr("y1", height)
+        .attr("x2", d => x(d.parsedDate))
+        .attr("y2", 0)
+        .each(function(d) {
+          d.totalLength = this.getTotalLength();
+        })
+        .style("stroke-dasharray", ("3,3"))
+        .attr("stroke-dashoffset", d => d.totalLength)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
+        .transition()
+        .duration(0)
+        .attr("stroke-dashoffset", "0");
+    });
+
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
@@ -236,10 +279,7 @@ const multiLinechartModule = (function() {
   }
 
   function getSubTitle(id){
-    if(id === "panel-2"){
-      return "How does spending on federal contracts vary within a year?";
-    }
-    else if(id === "panel-3" | id === "panel-4"){
+    if(id === "panel-3" | id === "panel-4"){
       return "Do end-of-year spikes occur reliably every year?";
     }else if(id === "panel-5"){
       return "Are spending patterns different depending on the type of good or service purchased?";
@@ -265,6 +305,42 @@ const multiLinechartModule = (function() {
   var p = legend.append("p").attr("class","title")
   p.append("span").attr("class","key-dot").style("background",function(d,i) { return lineColor(i) } );
   p.insert("text").attr("class","title").text(function(d,i) { return d } );
+
+  p.on("mouseover",(d) => {
+    if(d === "Contract Modification"){
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+    }else if (d === "New Contract"){
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+    }else if (d === "Equipment/Facilities/Construction/Vehicles"){
+      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+    }else if (d === "Professional Services"){
+      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+    }else if (d === "Telecomm & IT"){
+      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
+    }else if (d === "Weapons"){
+      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+    }
+  })
+  .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
+
 
   }
 

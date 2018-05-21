@@ -4,8 +4,7 @@
 const singleYearLinechartModule = (function() {
   function draw(data,axisText,id) {
 
-    console.log("single year id: ", id);
-
+    $('.subTitleDiv').empty();
     $('.legend').empty();
     $("#svg-1").empty();
 

@@ -148,7 +148,6 @@ table td {
 	padding: 20px;
 	justify-content: space-between;
 	position: relative;
-	z-index: 99;
 }
 
 /* Banner */
@@ -189,7 +188,6 @@ table td {
 	display: -ms-flexbox;
 	-ms-flex-pack: center;
 	position: relative;
-	z-index: 99;
 }
 
 /* Footer */
@@ -253,13 +251,11 @@ table td {
 
 .info-banner{
 	position: relative;
-	z-index: 99;
 }
 
 /* Official Banner */
 .official-banner{
 	position: relative;
-	z-index: 99;
 }
 
 /* Additions */

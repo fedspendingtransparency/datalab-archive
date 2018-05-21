@@ -23,7 +23,6 @@
     height: 100%;
     margin-left: 30%;
     margin-bottom: 75px;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +32,7 @@
 
   .fixed {
     position: fixed;
-  //   top: 100px;
+    top: 0px;
   }
 
   .absolute {
@@ -74,7 +73,6 @@
    position: relative;
    height: 25px;
    width: 100%;
-   margin-top: -26px;
    margin-bottom: 5px;
   }
 

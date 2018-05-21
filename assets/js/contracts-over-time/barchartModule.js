@@ -3,7 +3,8 @@
 
 const barchartModule = (function() {
   function draw(data) {
-
+    
+    $('.subTitleDiv').empty();
     $('.legend').empty();
     $("#svg-1").empty();
 

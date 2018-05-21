@@ -40,19 +40,19 @@ $(function() {
     },
     {
       id: "panel-4",
-      module: multiLinechartModule,
+      module: multiLinechartModuleNoDots,
       dataset: "panel4",
       xAxis: "year"
     },
     {
       id: "panel-5",
-      module: multiLinechartModule,
+      module: multiLinechartModuleNoDots,
       dataset: "panel5",
       xAxis: "year"
     },
     {
       id: "panel-6",
-      module: multiLinechartModule,
+      module: multiLinechartModuleNoDots,
       dataset: "panel6",
       xAxis: "year"
     }
