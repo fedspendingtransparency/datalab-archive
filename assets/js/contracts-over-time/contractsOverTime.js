@@ -113,7 +113,7 @@ $(function() {
 
       const { module, dataset, xAxis } = postChangePanel;
 
-
+      $('.subTitleDiv').empty();
       $('.legend').empty();
 
       d3

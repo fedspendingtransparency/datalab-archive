@@ -268,9 +268,29 @@ const multiLinechartModule = (function() {
     LineChart.selectAll('.data-point').remove();
     DrawPoints();
   }
+
+  function getSubTitle(id){
+    if(id === "panel-2"){
+      return "How does spending on federal contracts vary within a year?";
+    }
+    else if(id === "panel-3" | id === "panel-4"){
+      return "Do end-of-year spikes occur reliably every year?";
+    }else if(id === "panel-5"){
+      return "Are spending patterns different depending on the type of good or service purchased?";
+    }else if(id === "panel-6"){
+      return "Do congressional budget actions affect how agencies spend money on contracts?";
+    }
+  }
   
   var legendVals = Object.keys(data.lineData);
   // legendVals.sort((a, b) => b.length - a.length);
+
+  var subTitle = d3.select('.subTitleDiv')
+    .append("div")
+    .attr("class","subTitle")
+    .attr("height","25px")
+    .attr("width","100%")
+    .text(getSubTitle(id));
 
   var legend = d3.select('.legend').selectAll("legends")
     .data(legendVals)
@@ -334,6 +354,7 @@ const multiLinechartModule = (function() {
       .remove();
 
     $('.legend').empty();
+    $('.subTitleDiv').empty();
 
     setTimeout(cb, 400);
   }

@@ -123,7 +123,14 @@ const barchartModule = (function() {
       .attr("dy", "0vw")
       .style("font-size","15px")
       .style("text-anchor", "middle")
-      .text("Total Obligations");     
+      .text("Total Obligations");    
+      
+    var subTitle = d3.select('.subTitleDiv')
+      .append("div")
+      .attr("class","subTitle")
+      .attr("height","25px")
+      .attr("width","100%")
+      .text("How does spending on federal contracts change over the past 10 years?");
 
     var legendVals = ["Yearly Average Spending"];
   
@@ -148,6 +155,7 @@ const barchartModule = (function() {
       .remove();
 
     $('.legend').empty();
+    $('.subTitleDiv').empty();
 
     setTimeout(cb, 400);
   }

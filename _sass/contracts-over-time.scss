@@ -61,6 +61,19 @@
     top: 0;
   }
 
+  .subTitle{
+    color: #4A4A4A;	
+    font-family: "Source Sans Pro";	
+    font-size: 18.48px;	
+    font-weight: 600;	
+    line-height: 23px;
+    float: left;
+    margin-top: -55px;
+  }
+  .subTitleDiv{
+   position: relative;
+  }
+
   // #scroll-breakpoint-1 {
   //   padding-top: 100px;
   // }
@@ -179,46 +192,11 @@
     flex-direction: column;
     fill:#5B616B;
   }
-  .navbar {
-    overflow: hidden;
-    // margin-top: 650px;
-    z-index: 1;
-    background-color: #D1D6DC;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    height: 50px;
-    width: 100%; /* Full width */
-    display: flex;
-    flex-direction: column;
-  }
-
-  ul.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    // background-color: #eee;
-}
-
-/* Display list items side by side */
-ul.breadcrumb li {
-    display: inline;
-    font-size: 15px;
-}
-
-/* Add a color to all links inside the list */
-ul.breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-ul.breadcrumb li a:hover {
-    color: #01447e;
-    text-decoration: underline;
-}
 .legends {
   float:right;
   margin-left: 1em;
   margin-right: 0;
+  margin-top: 10px;
 }
 .legend{
   margin-top: -50px;
