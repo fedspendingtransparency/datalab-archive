@@ -1,6 +1,11 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -24,37 +29,37 @@ $(function() {
       id: "panel-1",
       module: barchartModule,
       dataset: "panel1",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-2",
       module: singleYearLinechartModule,
       dataset: "panel2",
-      xAxis: "week"
+      xAxis: "Fiscal Year Starting 9/30"
     },
     {
       id: "panel-3",
       module: multiLinechartModule,
       dataset: "panel3",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-4",
       module: multiLinechartModuleNoDots,
       dataset: "panel4",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-5",
       module: multiLinechartModuleNoDots,
       dataset: "panel5",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-6",
       module: multiLinechartModuleNoDots,
       dataset: "panel6",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     }
   ];
 

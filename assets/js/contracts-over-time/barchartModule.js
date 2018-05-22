@@ -115,7 +115,7 @@ const barchartModule = (function() {
       .style("text-anchor", "middle")
       .attr("dx", "0vw")
       .style("font-size","15px")   
-      .text("year");
+      .text("Fiscal Year 2007 - 2017");
 
     svg.append("text")
       .attr("transform", "rotate(-90)")
