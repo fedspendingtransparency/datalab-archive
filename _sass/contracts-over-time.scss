@@ -1,10 +1,4 @@
 .contracts-over-time {
-  // 
-  // 
-  // 
-  // 
-  // 
-  // 
   * {
     margin: 0;
     padding: 0;
@@ -96,7 +90,7 @@
   }
 
   .panel-title{
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 10px 10px;
     background: #fff;
     color: #5B616B;
     font-family: "Source Sans Pro";
@@ -107,12 +101,12 @@
 
   hr{
     color: #5B616B;	
-    margin: 0 10px 0 0;
+    margin: 0 10px 0 10px;
   }
   
   .container-text {
     background: #fff;
-    padding: 10px 10px 0 0;
+    padding: 10px 10px 10px 10px;
     color: #5B616B;
     font-family: "Source Sans Pro";
     font-size: 14px;
