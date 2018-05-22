@@ -1,0 +1,135 @@
+<style>
+  .redirect-modal {
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    color: #555;
+    letter-spacing: normal;
+    box-sizing: border-box;
+  }
+
+  .redirect-modal .redirect-modal__header {
+    background-color: #0071bc;
+    display: box;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .redirect-modal .redirect-modal__body {
+    text-align: center;
+    padding: 30px 45px 45px;
+  }
+
+  .redirect-modal .redirect-modal__header .redirect-modal__close-button {
+    flex: 0 0 auto;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .redirect-modal .usa-da-icon-close {
+    width: 16px;
+    height: 16px;
+    fill: white;
+    cursor: pointer;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__explanation {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__directions {
+    font-size: 14px;
+    padding-bottom: 2px;
+    font-weight: 600;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__link {
+    font-weight: 600;
+    font-size: 21px;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__title .redirect-modal__title-icon {
+    flex: 0 0 35px;
+    padding-right: 10px;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__title .redirect-modal__title-text {
+    flex: 1 1 auto;
+    font-weight: 600;
+    font-size: 34px;
+  }
+
+  .redirect-modal .redirect-modal__body .redirect-modal__title .redirect-modal__title-icon svg {
+    width: 25px;
+    height: 25px;
+    fill: #5b616b;
+  }
+
+  .redirect-modal a:visited {
+      color: #4c2c92;
+  }
+
+  .redirect-modal a {
+      color: #0071bc;
+      text-decoration: none;
+  }
+</style>
+
+<div id="leave-modal" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1050; overflow-x: hidden; overflow-y: auto; text-align: center; background: rgba(0, 0, 0, 0.5); cursor: pointer;">
+  <div style="display: inline-block; height: 100%; vertical-align: middle;"></div>
+  <div role="dialog" id="react-aria-modal-dialog" class="redirect-modal" aria-label="You're leaving a Bureau of the Fiscal Service website." style="display: inline-block; text-align: left; top: 0px; max-width: 100%; cursor: default; vertical-align: middle;">
+     <div class="redirect-modal">
+        <div class="redirect-modal__header">
+           <button class="redirect-modal__close-button" title="Close" aria-label="Close">
+              <svg class="usa-da-icon-close" viewBox="0 0 512 512" aria-label="Close modal">
+                 <title>Close modal</title>
+                 <g>
+                    <path d="M256 212L50 6 6 50l206 206L6 462l44 44 206-206 206 206 44-44-206-206L506 50 462 6"></path>
+                 </g>
+              </svg>
+           </button>
+        </div>
+        <div class="redirect-modal__body">
+           <div class="redirect-modal__title">
+              <div class="redirect-modal__title-icon">
+                 <i class="usa-da-icon">
+                    <svg class="usa-da-icon-exclamation-triangle" viewBox="0 0 512 512" aria-label="Exclamation Mark Icon">
+                       <title>Exclamation Mark Icon</title>
+                       <g>
+                          <path d="M502.7 491.8l-240-480c-4-8-10.3-8-14.3 0l-240 480c-3.8 7.8 0 14.2 9 14.2h476.3c9 0 13-6.4 9-14.2zM282 438c0 .6-.3 1-1 1h-51.4c-.6 0-1-.4-1-1v-47h-.3c0-.5.4-1 1-1H281c.7 0 1 .5 1 1v47zm2-74.7h-57l-7-178.5h71l-7 178.5z"></path>
+                       </g>
+                    </svg>
+                 </i>
+              </div>
+              <div class="redirect-modal__title-text">You're leaving a Bureau of the Fiscal Service website.</div>
+           </div>
+           <div class="redirect-modal__explanation">
+              You're going to a website that is not managed or controlled by the Bureau of the Fiscal Service.<br>Its privacy policies may differ from ours.
+           </div>
+           <div class="redirect-modal__directions">Click this link to go to the website you have selected.</div>
+           <div class="redirect-modal__link"><a href="{{include.outbound}}" target="_blank" rel="noopener noreferrer">{{include.outbound}}</a></div>
+        </div>
+     </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('leave-modal').querySelector(".redirect-modal__close-button").onclick = function() {
+    document.getElementById('leave-modal').style.display = "none";
+  }
+</script>
