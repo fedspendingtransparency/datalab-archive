@@ -1,6 +1,12 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 const multiLinechartModule = (function() {
   function draw(data,axisText,id) {
 
@@ -88,7 +94,7 @@ const multiLinechartModule = (function() {
 
     var context = svg.append("g")
       .attr("class", "context")
-      .attr("transform", "translate(0," + (svgMargin2.top + 65) + ")");
+      .attr("transform", "translate(0," + (svgMargin2.top + 70) + ")");
 
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
@@ -111,7 +117,7 @@ const multiLinechartModule = (function() {
       .call(xAxis2);
 
     context.append("text")             
-      .attr("transform","translate(" + (width/2) + " , 135)")
+      .attr("transform","translate(" + (width/2) + " , 125)")
       .style("text-anchor", "middle")
       .style("font-size","15px")
       .attr("dx", "0vw")
