@@ -5,6 +5,12 @@
             action: actionName
         });
     }
+
+    function leaveSiteLink(outbound) {
+        document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+        document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+        document.getElementById('leave-modal').style.display = 'block';
+    }
 </script>
 
 <div id="top-footer">
@@ -31,7 +37,7 @@
             <div class="group-title">Get Involved</div>
             <div class="top-footer-group-separator"></div>
             <ul class="links">
-                <li><a onclick="trackLinkClick('Tester Signup')" href="https://airtable.com/shrVMcNncc32AEum7">Tester Sign-up</a></li>
+                <li><a onclick="leaveSiteLink('https://airtable.com/shrVMcNncc32AEum7'); trackLinkClick('Tester Signup'); return false;" href="https://airtable.com/shrVMcNncc32AEum7">Tester Sign-up</a></li>
                 <li><a onclick="trackLinkClick('Send Feedback')" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Send Feedback</a></li>
             </ul>
         </div>

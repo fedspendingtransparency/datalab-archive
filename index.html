@@ -2,6 +2,11 @@
 layout: landing
 ---
 
+{% include leave-modal.html
+	identifier="leaveModal"
+	outbound="https://aws.amazon.com/public-datasets/usaspending/"
+%}
+
 <section id="banner">
 	<p class="index-header">{{ site.description }}</p>
 	<p class="index-sub-header">Data visualizations to help you understand government spending.</p>
