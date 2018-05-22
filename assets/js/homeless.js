@@ -1435,6 +1435,20 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         tableIcon.on('click', tableIconFunction);
 
                         function infographicYeah() {
+
+                            var modal = d3.select("#panel3InstructionsModal > div > div.modal-body > div.modal-body-content")
+                                .append("div")
+                                .attr("id","p3Modal")
+
+                            modal.append('img')
+                                .attr('class', 'picture')
+                                .attr('src','/images/homelessness/region_guide_full.jpg')
+                                .style("display","block")
+                                .style("max-width","480px")
+                                .style("max-height","500px")
+                                .style("width","auto")
+                                .style("height","auto");
+
                             const w = $('#panel_3b').width();
                             const h = 340;
                             const color = d3.scale.ordinal().range(['#280c60', '#2f1868', '#372c7a', '#4d4d8c',
