@@ -1,13 +1,7 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-const multiLinechartModuleNoDots = (function() {
+
+const timeline = (function() {
   function draw(data,axisText,id) {
 
     console.log("data ", data);

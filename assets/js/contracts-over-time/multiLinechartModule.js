@@ -20,7 +20,6 @@ const multiLinechartModule = (function() {
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
       legendHeight = 50;
-      console.log(height2);
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
