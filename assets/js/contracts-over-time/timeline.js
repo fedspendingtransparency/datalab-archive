@@ -246,10 +246,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
   
   var legendVals2 = Object.keys(data.verticalLineData);
 
-  var legend2 = d3.select('.legend').selectAll("legends2")
+  var legend2 = d3.select('.timelineLegend').selectAll("tlegends")
     .data(legendVals2)
     .enter().append("div")
-    .attr("class","legends2");
+    .attr("class","tlegends");
   
   var k = legend2.append("p").attr("class","title");
 
