@@ -3,8 +3,7 @@
 d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data) {
 
     console.log("data ", data);
-    // $('.subTitleDiv').empty();
-    // $('.legend').empty();
+
     $("#svg-2").empty();
 
     function setDimsOfSvg(id) {
@@ -68,17 +67,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
     var x2 = d3.scaleTime().range([0, width]);
     var y2 = d3.scaleLinear().range([height2, 0]);
 
-    // // define the lines
-    // var line = d3
-    //   .line()
-    //   .x(d => x(d.parsedDate))
-    //   .y(d => y(d.val));
-    
-    // var line2 = d3
-    //   .line()
-    //   .x(d => x2(d.parsedDate))
-    //   .y(d => y2(d.val));
-
     // Scale the domains
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
@@ -88,10 +76,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
     let xAxis = d3.axisBottom(x);
 
     let xAxis2 = d3.axisBottom(x2);
-
-    // let yAxis = d3.axisLeft(y)
-    //   .ticks(10)
-    //   .tickFormat(chartModule.formatNumberAsText);
 
     var clip = svg.append("defs").append("svg:clipPath")
       .attr("id", "clip")
@@ -122,24 +106,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
       .scaleExtent([1, Infinity])
       .translateExtent([[0, 0], [width, height]])
       .extent([[0, 0], [width, height]]);
-    
-    // if(id === "panel-4"){
-    //     var lineColor = d3
-    //     .scaleOrdinal()
-    //     .range(["#ED460F", "#6f6f6f"])
-    //     .domain([0, Object.keys(data.lineData).length - 1]);
-    // }else if(id === "panel-5"){
-    //     var lineColor = d3
-    //     .scaleOrdinal()
-    //     .range(["#009292","#9C27B0","#FF7043","#E91E63"])
-    //     .domain([0, Object.keys(data.lineData).length - 1]);
-    // }else if(id === "panel-6"){
-    //     var lineColor = d3
-    //     .scaleOrdinal()
-    //     .range(["#027693"])
-    //     .domain([0, Object.keys(data.lineData).length - 1]);
-    // }
-
+   
     var verticalLineColor = d3
       .scaleOrdinal()
       .range(["#FF7C7E","#6F6F6F"])
@@ -166,83 +133,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
-
-    // focus.append("g")
-    //   .attr("class", "axis axis--y")
-    //   .call(yAxis);
-
-    // focus.append("text")
-    //   .attr("transform", "rotate(-90)")
-    //   .attr("y",'-110px')
-    //   .attr("x",0 - (height / 2))
-    //   .attr("dy", "0vw")
-    //   .style("font-size","15px")
-    //   .style("text-anchor", "middle")
-    //   .text("Total Obligations");     
-
-    // // draw lines
-    // function DrawLines(){
-    //   return LineChart
-    //     .append("g")
-    //     .attr("class", "line-paths")
-    //     .selectAll(".line")
-    //     .data(Object.entries(data.lineData))
-    //     .enter()
-    //     .append("path")
-    //     .attr("class", "line")
-    //     .style("stroke", (d, i) => lineColor(i))
-    //     .attr("d", d => line(d[1]))
-    //     .each(function(d) {
-    //       d.totalLength = this.getTotalLength();
-    //     })
-    //     .attr("stroke-dasharray", d => d.totalLength)
-    //     .attr("stroke-dashoffset", d => d.totalLength)
-    //     .transition()
-    //     .duration(0)
-    //     .attr("stroke-dashoffset", "0");
-    //   };
-
-    // context
-    //   .append("g")
-    //   .attr("class", "line-paths")
-    //   .selectAll(".line")
-    //   .data(Object.entries(data.lineData))
-    //   .enter()
-    //   .append("path")
-    //   .attr("class", "line")
-    //   .style("stroke", (d, i) => lineColor(i))
-    //   .attr("d", d => line2(d[1]))
-    //   .each(function(d) {
-    //     d.totalLength = this.getTotalLength();
-    //   })
-    //   .attr("stroke-dasharray", d => d.totalLength)
-    //   .attr("stroke-dashoffset", d => d.totalLength)
-    //   .transition()
-    //   .duration(0)
-    //   .attr("stroke-dashoffset", "0");
-
-    // draw data points
-    // function DrawPoints(){
-    //   Object.entries(data.lineData).forEach((l, i) => {
-          
-    //     LineChart
-    //       .append("g")
-    //       .attr("class", "data-points")
-    //       .selectAll(".data-point")
-    //       .data(l[1])
-    //       .enter()
-    //       .append("circle")
-    //       .attr("class", "data-point")
-    //       .style("stroke", (d, i) => verticalLineColor(i))
-    //       .attr("cx", d => x(d.parsedDate))
-    //       .attr("cy", d => y(d.val))
-    //       .attr("r", 2)
-    //       .attr("opacity", "1")
-    //       .on("mouseover", d => handleMouseOver(d, l[0]))
-    //       .on("mouseout", handleMouseOut)
-    //       .on("mousemove", handleMouseMove);
-    //   });
-    // }
 
     function handleMouseOver(d, title) {
       tooltipModule.draw("#tooltip", title, {
@@ -284,34 +174,56 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
             .transition()
             .duration(0)
             .attr("stroke-dashoffset", "0");
-
-        context
-            .append("g")
-            .attr("class", "vertical-line-paths")
-            .selectAll(`.vertical-line-${i}`)
-            .data(l[1])
-            .enter()
-            .append("line")
-            .attr("class", `.vertical-line-${i}`)
-            .style("stroke", () => verticalLineColor(i))
-            .attr("x1", d => x(d.parsedDate))
-            .attr("y1", 80)
-            .attr("x2", d => x(d.parsedDate))
-            .attr("y2", 0)
-            .each(function(d) {
-                d.totalLength = this.getTotalLength();
-            })
-            .style("stroke-dasharray", ("3,3"))
-            .attr("stroke-dashoffset",80)
-            .style("stroke-width","1px")
-            .style("stroke-opacity",".6")
-            .transition()
-            .duration(0)
-            .attr("stroke-dashoffset", "0");
         });
     }
 
-
+    context
+        .append("g")
+        .attr("class", "vertical-line-paths")
+        .selectAll('.vertical-line-0')
+        .data(data.verticalLineData["Budget Legislation"])
+        .enter()
+        .append("line")
+        .attr("class", '.vertical-line-0')
+        .style("stroke","#FF7C7E")
+        .attr("x1", d => x(d.parsedDate))
+        .attr("y1", 80)
+        .attr("x2", d => x(d.parsedDate))
+        .attr("y2", 0)
+        .each(function(d) {
+            d.totalLength = this.getTotalLength();
+        })
+        .style("stroke-dasharray", ("3,3"))
+        .attr("stroke-dashoffset",80)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
+        .transition()
+        .duration(0)
+        .attr("stroke-dashoffset", "0");
+    
+    context
+        .append("g")
+        .attr("class", "vertical-line-paths")
+        .selectAll('.vertical-line-1')
+        .data(data.verticalLineData["Continuing Resolution"])
+        .enter()
+        .append("line")
+        .attr("class", '.vertical-line-1')
+        .style("stroke","#6F6F6F")
+        .attr("x1", d => x(d.parsedDate))
+        .attr("y1", 80)
+        .attr("x2", d => x(d.parsedDate))
+        .attr("y2", 0)
+        .each(function(d) {
+            d.totalLength = this.getTotalLength();
+        })
+        .style("stroke-dasharray", ("3,3"))
+        .attr("stroke-dashoffset",80)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
+        .transition()
+        .duration(0)
+        .attr("stroke-dashoffset", "0");
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
@@ -322,7 +234,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
     x.domain(s.map(x2.invert, x2));
     // LineChart.selectAll('.line').remove();
     d3.selectAll("#svg-2 > g > g:nth-child(2) > g").remove();
-    d3.selectAll("#svg-2 > g > g.context > g > line").remove();
     // DrawLines(0);
     DrawVerticalLines(0);
     focus.select(".axis--x").call(xAxis);
@@ -351,16 +262,16 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
   k.on("mouseover",(d) => {
       console.log(d);
     if(d === "Continuing Resolution"){
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
     }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
     }
   })
   .on("mouseout",() => {
-      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
     }); 
 
 });

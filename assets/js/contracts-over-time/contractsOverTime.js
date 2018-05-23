@@ -111,9 +111,6 @@ $(function() {
         p => p.id === preChange.activePanel.id
       );
 
-      console.log('pre: ',preChangePanel);
-      console.log('post: ',postChangePanel);
-
       if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
