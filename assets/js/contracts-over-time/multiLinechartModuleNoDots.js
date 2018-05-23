@@ -382,24 +382,24 @@ const multiLinechartModuleNoDots = (function() {
   })
   .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
 
-    var budget = data.verticalLineData["Budget Legislation"];
-    var cr = data.verticalLineData["Continuing Resolution"];
+    // var budget = data.verticalLineData["Budget Legislation"];
+    // var cr = data.verticalLineData["Continuing Resolution"];
 
-    var VertDates = [];
+    // var VertDates = [];
 
-    for(var i=0; i<budget.length; i++){
-        VertDates.push(budget[i].date);
-    }
-    for(var i=0; i<cr.length; i++){
-        VertDates.push(cr[i].date);
-    }
+    // for(var i=0; i<budget.length; i++){
+    //     VertDates.push(budget[i].date);
+    // }
+    // for(var i=0; i<cr.length; i++){
+    //     VertDates.push(cr[i].date);
+    // }
 
-    var counts = {};
-    VertDates.forEach(function(x) { counts[x] = (counts[x] || 0) + 1; });
+    // var counts = {};
+    // VertDates.forEach(function(x) { counts[x] = (counts[x] || 0) + 1; });
 
 
-    console.log("result: ",counts);
-        console.log("result1: ",VertDates);
+    // console.log("result: ",counts);
+    //     console.log("result1: ",VertDates);
     }
 
 

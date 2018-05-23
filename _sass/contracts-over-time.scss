@@ -328,14 +328,32 @@
   background: inherit;
 }
 .timelineContainer{
-  height: 909px;	
+  margin-left: -250px;
+  width:120vw;
+  height: 800px;	
   background: linear-gradient(153.43deg, #00AADF 0%, #0071BC 100%);	
   box-shadow: 0 2px 50px 0 rgba(0,0,0,0.1);
   transform: rotateX(24deg) rotateY(23deg);
 }
 .timeline{
-  position: absolute;
+  width:100vw;
   height: 667px;
+  margin-left: 190px;
   background: #FFFFFF;
+  transform: rotateX(24deg) rotateY(-23deg);
 }
+.carousel{
+  float: right;
+  width: 30vw;
+  height: 667px;
+  border-radius: 0 5px 5px 0;	
+  background-color: #F0F0F0;
+  margin-top: -20px;
+}
+#svg-2{
+  float: left;
+  overflow: visible;
+  max-width: 70vw;
+}
+
 }
