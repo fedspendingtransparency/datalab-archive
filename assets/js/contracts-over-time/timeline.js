@@ -117,12 +117,12 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
-    context.append("text")             
-      .attr("transform","translate(" + (width/2) + " , 125)")
-      .style("text-anchor", "middle")
-      .style("font-size","15px")
-      .attr("dx", "0vw")
-      .text("X Axis Text");
+    // context.append("text")             
+    //   .attr("transform","translate(" + (width/2) + " , 125)")
+    //   .style("text-anchor", "middle")
+    //   .style("font-size","15px")
+    //   .attr("dx", "0vw")
+    //   .text("X Axis Text");
 
     context.append("g")
       .attr("class", "brush")
