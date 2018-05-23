@@ -1,6 +1,6 @@
 ---
 ---
-d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data) {
+d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
 
     console.log("data ", data);
 
@@ -163,7 +163,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
             .attr("x1", d => x(d.parsedDate))
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
-            .attr("y2", 0)
+            .attr("y2", d => d.val)
             .each(function(d) {
                 d.totalLength = this.getTotalLength();
             })
@@ -187,9 +187,9 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
         .attr("class", '.vertical-line-0')
         .style("stroke","#FF7C7E")
         .attr("x1", d => x(d.parsedDate))
-        .attr("y1", 80)
+        .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
-        .attr("y2", 0)
+        .attr("y2", d => d.val*.177)
         .each(function(d) {
             d.totalLength = this.getTotalLength();
         })
@@ -211,9 +211,9 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', function (data
         .attr("class", '.vertical-line-1')
         .style("stroke","#6F6F6F")
         .attr("x1", d => x(d.parsedDate))
-        .attr("y1", 80)
+        .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
-        .attr("y2", 0)
+        .attr("y2", d => d.val*.177)
         .each(function(d) {
             d.totalLength = this.getTotalLength();
         })
