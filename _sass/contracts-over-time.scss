@@ -216,15 +216,12 @@
   }
 .legends {
   float:right;
-  margin-left: 1em;
-  margin-right: 0;
-  margin-top: -10px;
+  margin-left: -50px;
 }
 .legends2 {
   float:right;
   margin-left: 1em;
   margin-right: 0;
-  margin-top: -10px;
   stroke-width: 2px;
 }
 .legend{
@@ -239,19 +236,24 @@
   width: 10px;
 }
 .title{
-  margin: 0 !IMPORTANT;
-  font-family: inherit;
-  font-size: 10px;
-  color: rgb(159, 162, 168);
+  height: 15px;	
+  width: 270px;	
+  color: #4A4A4A;	
+  font-family: "Source Sans Pro";	
+  font-size: 12px;	
+  font-weight: 600;	
+  letter-spacing: 0.7px;	
+  line-height: 15px;	
+  text-align: center;
   cursor: pointer;
 }
-.blue-banner {
+.blue-banner1 {
 	height: 550px;
 	width: 100%;
 	background: linear-gradient(153.43deg, #00AADF 0%, #0071BC 100%);
 }
 
-.blue-banner-subheader {
+.blue-banner-subheader1 {
   height: 70px;	
   width: 1037px;	
   color: #FFFFFF;	
@@ -263,13 +265,13 @@
   text-shadow: 0 2px 10px 0 rgba(0,0,0,0.5), 0 2px 11px 0 rgba(0,0,0,0.5), 0 2px 4px 0 rgba(0,0,0,0.5);
   margin: 100px auto auto auto;
 }
-.blue-banner-subdivider {
+.blue-banner-subdivider1 {
 	height: 1px;
 	width: 150px;
   border-bottom: 1px solid #FFFFFF;
   margin: 40px auto;
 }
-.blue-banner-description {
+.blue-banner-description1 {
 	width: 680px;
 	color: #FFFFFF;
 	font-size: 14px;
@@ -280,7 +282,7 @@
   margin: 0 auto;
 }
 
-.blue-banner-container {
+.blue-banner-container1 {
   padding: 50px;
   margin: 0 auto;
 }
