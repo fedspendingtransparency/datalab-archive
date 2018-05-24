@@ -419,5 +419,27 @@
   margin-left: 3em;
   margin-right: 50px;
 }
-
+.timeTitle{
+  // height: 19px;	
+  // width: 115px;	
+  color: #FFFFFF;	
+  font-family: "Source Sans Pro";	
+  font-size: 15px;	
+  font-weight: 600;	
+  line-height: 19px;	
+  text-align: center;
+}
+.timeValue{
+  // height: 15px;	
+  // width: 57px;	
+  color: #FFFFFF;	
+  font-family: "Source Sans Pro";	
+  font-size: 12px;	
+  line-height: 15px;	
+  text-align: center;
+}
+.timelineDateContainer{
+  height:50px;
+  width:135px;
+}
 }

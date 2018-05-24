@@ -151,6 +151,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     function DrawVerticalLines(){
         // draw vertical lines
         Object.entries(data.verticalLineData).forEach((l, i) => {
+
+            console.log("l: ",l)
            LineChart
             .append("g")
             .attr("class", "vertical-line-paths")
@@ -171,6 +173,35 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .transition()
             .duration(0)
             .attr("stroke-dashoffset", "0");
+
+           LineChart
+            .append("g")
+            .attr("class", "vertical-line-tags")
+            .selectAll(`.vertical-line-tag${i}`)
+            .data(l[1])
+            .enter()
+            .append("rect")
+                .attr("class", `.vertical-line-tag${i}`)
+                .style("fill", () => verticalLineColor(i))
+                .attr("x", d => x(d.parsedDate))
+                .attr("y", d => d.val-50)
+                .attr("height", "50px")
+                .attr("width","135px" )
+                .style("border-radius", "25px")
+                .style("stroke-width","1px")
+                .style("stroke-opacity","1");
+
+           LineChart
+            .append("g")
+            .attr("class", "vertical-line-text")
+            .selectAll('.timelineDateContainer')
+            .data(l[1])
+            .enter()
+            .append("div")
+                .attr('class','timelineDateContainer')
+                .attr("x", d => x(d.parsedDate))
+                .attr("y", d => d.val-50)
+                .html(`<p class='timeTitle'>${l[0]}</p><br/><p class='timeValue'>${l[1][i]["date"]}</p>`);
         });
     }
 
