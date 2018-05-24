@@ -137,12 +137,13 @@
   .grid line {
     stroke: rgb(159, 162, 168);
     stroke-opacity: 0.7;
-    shape-rendering: crispEdges;
+    // shape-rendering: crispEdges;
   }
 
   .grid path {
     stroke-width: 0;
   }
+
   .stop-top {
     stop-color:#1A8FBF;  
   }
@@ -488,7 +489,7 @@
   margin: 0 10px;
 }
 .carouselTitle{
-  width: 32%;
+  width: 30%;
   color: #666666;
   font-family: "Source Sans Pro";
   font-size: 20px;
@@ -525,7 +526,7 @@
   font-family: "Source Sans Pro";	
   font-size: 20px;	
   font-weight: 600;	
-  line-height: 31px;
+  line-height: 33px;
 }
 .timelineLegend{
   float: left;
@@ -539,8 +540,6 @@
   margin-right: 50px;
 }
 .timeTitle{
-  // height: 19px;	
-  // width: 115px;	
   color: #FFFFFF;	
   font-family: "Source Sans Pro";	
   font-size: 15px;	
@@ -549,8 +548,6 @@
   text-align: center;
 }
 .timeValue{
-  // height: 15px;	
-  // width: 57px;	
   color: #FFFFFF;	
   font-family: "Source Sans Pro";	
   font-size: 12px;	

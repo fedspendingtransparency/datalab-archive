@@ -169,7 +169,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
-            .style("stroke-opacity",".6")
+            .style("stroke-opacity","1")
             .transition()
             .duration(0)
             .attr("stroke-dashoffset", "0");
@@ -189,8 +189,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
                 .attr("width",(width*.15)+"px")
                 .style("border-radius", "25px")
                 .style("stroke-width","1px")
-                .style("opacity","1")
-                .style("z-index","999")
+                .style("fill-opacity","1")
                 .html(`<p class='timeValue'>${l[1][i]["date"]}</p><br/><p class='timeTitle'>${l[0]}</p>`);
 
         
@@ -243,7 +242,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
+        .style("stroke-opacity","1")
         .transition()
         .duration(0)
         .attr("stroke-dashoffset", "0");
@@ -263,8 +262,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .attr("width",(width*.025)+"px")
             .style("border-radius", "25px")
             .style("stroke-width","1px")
-            .style("opacity","1")
-            .style("z-index","999");
+            .style("fill-opacity","1");
 
     context
         .append("g")
