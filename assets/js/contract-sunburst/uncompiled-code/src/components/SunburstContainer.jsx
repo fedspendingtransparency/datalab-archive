@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 // import components
+import BreadCrumbs from "./BreadCrumbs";
 import Sunburst from "components/Sunburst";
 import SunburstSearchbar from "components/SunburstSearchbar";
 import SunburstPanel from "components/SunburstPanel";
@@ -214,7 +215,7 @@ class SunburstContainer extends Component {
       default:
         console.log("something went wrong", { selected });
     }
-
+    
     window.Analytics.event({
         category: 'Contract Explorer - Click Node',
         action: selectedName
@@ -368,6 +369,12 @@ class SunburstContainer extends Component {
             />
           </div>
           <div className="sunburst-panel-col">
+            <BreadCrumbs
+            root={root}
+            activePanelNode={activePanelNode}
+            staticData={staticData}
+            colors={staticData.colors}
+            />
             <Sunburst
               root={root}
               handleClick={handleClick}
