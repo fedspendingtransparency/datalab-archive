@@ -4,7 +4,6 @@
 const multiLinechartModuleNoDots = (function() {
   function draw(data,axisText,id) {
 
-    console.log("data ", data);
     $('.subTitleDiv').empty();
     $('.legend').empty();
     $("#svg-1").empty();
@@ -15,8 +14,6 @@ const multiLinechartModuleNoDots = (function() {
       svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 40},
       width = $("#svg-1").width(),
       legendHeight = 50;
-
-      console.log("height: ",height);
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 

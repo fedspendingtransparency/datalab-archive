@@ -184,25 +184,25 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
                 .attr("class", `.vertical-line-tag${i}`)
                 .style("fill", () => verticalLineColor(i))
                 .attr("x", d => x(d.parsedDate))
-                .attr("y", d => d.val-50)
-                .attr("height", "50px")
-                .attr("width","135px" )
+                .attr("y", d => d.val-(height*.1))
+                .attr("height", (height*.1)+"px")
+                .attr("width",(width*.15)+"px")
                 .style("border-radius", "25px")
                 .style("stroke-width","1px")
                 .style("opacity","1")
-                .style("z-index","999");
+                .style("z-index","999")
+                .html(`<p class='timeValue'>${l[1][i]["date"]}</p><br/><p class='timeTitle'>${l[0]}</p>`);
 
-           LineChart
-            .append("g")
-            .attr("class", "vertical-line-text")
-            .selectAll('.timelineDateContainer')
-            .data(l[1])
-            .enter()
-            .append("div")
-                .attr('class','timelineDateContainer')
-                .attr("x", d => x(d.parsedDate))
-                .attr("y", d => d.val-50)
-                .html(`<p class='timeTitle'>${l[0]}</p><br/><p class='timeValue'>${l[1][i]["date"]}</p>`);
+        
+        //    LineChart
+        //    g.append("text") // content of text will be defined later
+        //     .attr("x", d => x(d.parsedDate))
+        //     .attr("y", d => d.val-50)
+        //     .attr("fill", "#FFF")
+        //     .attr("text-anchor", "middle");
+
+        //    LineChart.selectAll('text')
+        //     .text("text in a box"); //
         });
     }
 
@@ -247,6 +247,42 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .transition()
         .duration(0)
         .attr("stroke-dashoffset", "0");
+
+    context
+        .append("g")
+        .attr("class", "vertical-line-tags")
+        .selectAll(`.vertical-line-tag${i}`)
+        .data(data.verticalLineData["Budget Legislation"])
+        .enter()
+        .append("rect")
+            .attr("class", `.vertical-line-tag${i}`)
+            .style("fill", "#FF7C7E")
+            .attr("x", d => x(d.parsedDate))
+            .attr("y", d => d.val*.177-(height2*.1))
+            .attr("height", (height2*.1)+"px")
+            .attr("width",(width*.025)+"px")
+            .style("border-radius", "25px")
+            .style("stroke-width","1px")
+            .style("opacity","1")
+            .style("z-index","999");
+
+    context
+        .append("g")
+        .attr("class", "vertical-line-tags")
+        .selectAll(`.vertical-line-tag${i}`)
+        .data(data.verticalLineData["Continuing Resolution"])
+        .enter()
+        .append("rect")
+            .attr("class", `.vertical-line-tag${i}`)
+            .style("fill", "#6F6F6F")
+            .attr("x", d => x(d.parsedDate))
+            .attr("y", d => d.val*.177-(height2*.1))
+            .attr("height", (height2*.1)+"px")
+            .attr("width",(width*.025)+"px")
+            .style("border-radius", "25px")
+            .style("stroke-width","1px")
+            .style("opacity","1")
+            .style("z-index","999");
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
