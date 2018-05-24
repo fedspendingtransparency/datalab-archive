@@ -252,9 +252,6 @@ const multiLinechartModuleNoDots = (function() {
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
             .attr("y2", 0)
-            .each(function(d) {
-                d.totalLength = this.getTotalLength();
-            })
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
@@ -264,6 +261,48 @@ const multiLinechartModuleNoDots = (function() {
             .attr("stroke-dashoffset", "0");
         });
     }
+
+    context
+        .append("g")
+        .attr("class", "vertical-line-paths")
+        .selectAll('.vertical-line-0')
+        .data(data.verticalLineData["Budget Legislation"])
+        .enter()
+        .append("line")
+        .attr("class", '.vertical-line-0')
+        .style("stroke","#FF7C7E")
+        .attr("x1", d => x(d.parsedDate))
+        .attr("y1", height2)
+        .attr("x2", d => x(d.parsedDate))
+        .attr("y2", d => d.val*.177)
+        .style("stroke-dasharray", ("3,3"))
+        .attr("stroke-dashoffset",80)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
+        .transition()
+        .duration(0)
+        .attr("stroke-dashoffset", "0");
+    
+    context
+        .append("g")
+        .attr("class", "vertical-line-paths")
+        .selectAll('.vertical-line-1')
+        .data(data.verticalLineData["Continuing Resolution"])
+        .enter()
+        .append("line")
+        .attr("class", '.vertical-line-1')
+        .style("stroke","#6F6F6F")
+        .attr("x1", d => x(d.parsedDate))
+        .attr("y1", height2)
+        .attr("x2", d => x(d.parsedDate))
+        .attr("y2", d => d.val*.177)
+        .style("stroke-dasharray", ("3,3"))
+        .attr("stroke-dashoffset",80)
+        .style("stroke-width","1px")
+        .style("stroke-opacity",".6")
+        .transition()
+        .duration(0)
+        .attr("stroke-dashoffset", "0");
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
@@ -297,7 +336,6 @@ const multiLinechartModuleNoDots = (function() {
   
   var legendVals = Object.keys(data.lineData);
   var legendVals2 = Object.keys(data.verticalLineData);
-  // legendVals.sort((a, b) => b.length - a.length);
 
   var subTitle = d3.select('.subTitleDiv')
     .append("div")

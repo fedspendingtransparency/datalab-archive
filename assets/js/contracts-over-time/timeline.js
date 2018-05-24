@@ -164,9 +164,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
             .attr("y2", d => d.val)
-            .each(function(d) {
-                d.totalLength = this.getTotalLength();
-            })
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
@@ -190,9 +187,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
         .attr("y2", d => d.val*.177)
-        .each(function(d) {
-            d.totalLength = this.getTotalLength();
-        })
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
@@ -214,9 +208,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
         .attr("y2", d => d.val*.177)
-        .each(function(d) {
-            d.totalLength = this.getTotalLength();
-        })
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
