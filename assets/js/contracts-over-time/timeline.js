@@ -189,7 +189,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
                 .attr("width","135px" )
                 .style("border-radius", "25px")
                 .style("stroke-width","1px")
-                .style("stroke-opacity","1");
+                .style("opacity","1")
+                .style("z-index","999");
 
            LineChart
             .append("g")
