@@ -262,15 +262,15 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
   k.on("mouseover",(d) => {
       console.log(d);
     if(d === "Continuing Resolution"){
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
-    }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+    }else if(d === "Budget Legislation"){
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","0px");
     }
   })
   .on("mouseout",() => {
-      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
     }); 
 
