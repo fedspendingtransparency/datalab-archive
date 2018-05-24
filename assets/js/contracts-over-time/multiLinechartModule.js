@@ -1,12 +1,6 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
 const multiLinechartModule = (function() {
   function draw(data,axisText,id) {
 
@@ -15,10 +9,10 @@ const multiLinechartModule = (function() {
     $("#svg-1").empty();
 
     const svgMargin = { top: 20, right: 0, bottom: 80, left: 40 },
-      svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
-      width = $("#svg-1").width(),
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
+      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 40},
+      width = $("#svg-1").width(),   
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -93,7 +87,7 @@ const multiLinechartModule = (function() {
 
     var context = svg.append("g")
       .attr("class", "context")
-      .attr("transform", "translate(0," + (svgMargin2.top + 70) + ")");
+      .attr("transform", "translate(0," + svgMargin2.top + ")");
 
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
