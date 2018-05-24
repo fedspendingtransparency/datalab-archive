@@ -1,6 +1,11 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -24,37 +29,37 @@ $(function() {
       id: "panel-1",
       module: barchartModule,
       dataset: "panel1",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-2",
-      module: multiLinechartModule,
+      module: singleYearLinechartModule,
       dataset: "panel2",
-      xAxis: "week"
+      xAxis: "Fiscal Year Starting 9/30"
     },
     {
       id: "panel-3",
       module: multiLinechartModule,
       dataset: "panel3",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-4",
-      module: multiLinechartModule,
+      module: multiLinechartModuleNoDots,
       dataset: "panel4",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-5",
-      module: multiLinechartModule,
+      module: multiLinechartModuleNoDots,
       dataset: "panel5",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     },
     {
       id: "panel-6",
-      module: multiLinechartModule,
+      module: multiLinechartModuleNoDots,
       dataset: "panel6",
-      xAxis: "year"
+      xAxis: "Fiscal Year 2007 - 2017"
     }
   ];
 
@@ -64,7 +69,7 @@ $(function() {
     const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth * .6 - 2 * windowMargin;
+    const svgWidth = windowWidth - 2 * windowMargin;
 
     $(id)
       .attr("height", svgHeight)
@@ -72,7 +77,7 @@ $(function() {
 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
-    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);
+    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .2);
 
     $("<style>")
     .prop("type", "text/css")
@@ -106,12 +111,12 @@ $(function() {
         p => p.id === preChange.activePanel.id
       );
 
-      console.log('pre: ',preChangePanel);
-      console.log('post: ',postChangePanel);
-
       if (!postChangePanel || !preChangePanel) return;
 
       const { module, dataset, xAxis } = postChangePanel;
+
+      $('.subTitleDiv').empty();
+      $('.legend').empty();
 
       d3
         .select("#svg-1")
@@ -120,7 +125,7 @@ $(function() {
         .style("opacity", 0)
         .remove();
 
-      setTimeout(() => module.draw(mem[dataset], xAxis, 400));
+      setTimeout(() => module.draw(mem[dataset], xAxis, postChangePanel.id, 400));
     };
 
 

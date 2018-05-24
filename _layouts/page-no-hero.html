@@ -1,0 +1,102 @@
+---
+layout: default
+---
+<!--  -->
+<!--  -->
+<!--  -->
+<style>
+.blue-banner {
+	height: 550px;
+	width: 100%;
+	background: linear-gradient(153.43deg, #00AADF 0%, #0071BC 100%);
+}
+.blue-banner-header {
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0.49px;
+	line-height: 23px;
+  text-shadow: 0 0 7px 0 rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+}
+.blue-banner-subheader {
+	height: 50px;
+	width: 928px;
+	color: #FFFFFF;
+	font-size: 40px;
+	font-weight: 100;
+	letter-spacing: 0.65px;
+	line-height: 50px;
+	text-align: center;
+  text-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+  margin: 0 auto;
+}
+.blue-banner-subdivider {
+	height: 1px;
+	width: 150px;
+  border-bottom: 1px solid #FFFFFF;
+  margin: 40px auto;
+}
+.blue-banner-description {
+	width: 680px;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 33px;
+	text-align: center;
+  text-shadow: 0 0 8px 0 rgba(0,0,0,0.1), 0 2px 15px 0 rgba(0,0,0,0.5), 0 2px 4px 0 rgba(0,0,0,0.5);
+  margin: 0 auto;
+}
+
+.blue-banner-container {
+  padding: 50px;
+  margin: 0 auto;
+}
+.oval-4 {
+	box-sizing: border-box;
+	height: 54px;
+	width: 54px;
+	border: 3px solid #FFFFFF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+.blue-banner-down-arrow-new {
+    text-align: center;
+    display: block;
+    margin: 75px auto;
+    width: 53px;
+    height: 53px;
+    fill: white;
+}
+.blue-banner-link {
+  display: block;
+  cursor: pointer;
+  width: 53px;
+  z-index: 500;
+  line-height: 53px;
+}
+
+</style>
+
+<article id="main">
+  <div class="blue-banner">
+    <div class="blue-banner-container">
+        <div class="blue-banner-header">Contract Spending Analysis</div>
+        <div class="blue-banner-subheader">How does <b>contract spending</b> change <b>over time?</b></div>
+        <div class="blue-banner-subdivider"></div>
+        <div class="blue-banner-description">
+          <b>Curious to see how this money was spent?</b>   We hope so — we’ve opened the conversation around federal 
+          spending and provide the tools to help you navigate the budget from top to bottom.
+        </div>
+        <a href="#one" class="scrolly blue-banner-link">
+          <span>
+            {% include svgs/down-arrow-new.svg class="blue-banner-down-arrow-new" %}
+          </span>
+        </a>
+    </div>
+  </div>
+  <section class="wrapper">
+    {{ content }}
+  </section>
+</article>

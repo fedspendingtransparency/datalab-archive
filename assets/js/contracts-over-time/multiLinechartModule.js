@@ -2,15 +2,18 @@
 ---
 
 const multiLinechartModule = (function() {
-  function draw(data,axisText) {
+  function draw(data,axisText,id) {
 
+    $('.subTitleDiv').empty();
+    $('.legend').empty();
     $("#svg-1").empty();
 
-    const svgMargin = { top: 0, right: 0, bottom: 90, left: 40 },
-      svgMargin2 = {top: 405, right: 0, bottom: 30, left: 40},
-      width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
+    const svgMargin = { top: 20, right: 0, bottom: 80, left: 40 },
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
-      height2 = $("#svg-1").height() - svgMargin2.top - svgMargin2.bottom - 70;
+      height2 = 80,
+      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 40},
+      width = $("#svg-1").width(),   
+      legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
@@ -84,7 +87,7 @@ const multiLinechartModule = (function() {
 
     var context = svg.append("g")
       .attr("class", "context")
-      .attr("transform", "translate(0," + (svgMargin2.top+60) + ")");
+      .attr("transform", "translate(0," + svgMargin2.top + ")");
 
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
@@ -101,19 +104,13 @@ const multiLinechartModule = (function() {
       .domain([0, Object.keys(data.lineData).length - 1])
       .interpolate(d3.interpolateHcl);
 
-    var verticalLineColor = d3
-      .scaleLinear()
-      .range(["#69D2E7", "#D1F2A5", "#E8BF56", "#EF746F"])
-      .domain([0, Object.keys(data.verticalLineData).length - 1])
-      .interpolate(d3.interpolateHcl);
-
     context.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
     context.append("text")             
-      .attr("transform","translate(" + (width/2) + " , 120)")
+      .attr("transform","translate(" + (width/2) + " , 125)")
       .style("text-anchor", "middle")
       .style("font-size","15px")
       .attr("dx", "0vw")
@@ -221,141 +218,54 @@ const multiLinechartModule = (function() {
       tooltipModule.move("#tooltip");
     }
 
-    // draw vertical lines
-    Object.entries(data.verticalLineData).forEach((l, i) => {
-      svg
-        .append("g")
-        .attr("class", "vertical-line-paths")
-        .selectAll(`.vertical-line-${i}`)
-        .data(l[1])
-        .enter()
-        .append("line")
-        .attr("class", `.vertical-line-${i}`)
-        .style("stroke", () => verticalLineColor(i))
-        .attr("x1", d => x(d.parsedDate))
-        .attr("y1", height)
-        .attr("x2", d => x(d.parsedDate))
-        .attr("y2", 0)
-        .each(function(d) {
-          d.totalLength = this.getTotalLength();
-        })
-        .attr("stroke-dasharray", d => d.totalLength)
-        .attr("stroke-dashoffset", d => d.totalLength)
-        .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(4000)
-        .attr("stroke-dashoffset", "0");
-    });
-
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
-    function addLegend(legendName, legendData, colorScale, position) {
-      const legendSpace = 10;
+  function brushed() {
+    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+    var s = d3.event.selection || x2.range();
+    x.domain(s.map(x2.invert, x2));
+    LineChart.selectAll('.line').remove();
+    DrawLines(0);
+    focus.select(".axis--x").call(xAxis);
+    svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
+        .scale(width / (s[1] - s[0]))
+        .translate(-s[0], 0));
+    LineChart.selectAll('.data-point').remove();
+    DrawPoints();
+  }
 
-      const legend = svg
-        .append("g")
-        .attr("class", `legend ${legendName}`)
-        .attr("transform", `translate(${position === "right" ? width : 0},0)`);
-
-      const legendBackground = legend
-        .append("rect")
-        .attr("fill", "#fff")
-        .attr("class", `${legendName}-background`);
-
-      legend
-        .append("g")
-        .attr("class", `legend-items ${legendName}-items`)
-        .selectAll(`.${legendName}-item`)
-        .data(legendData)
-        .enter()
-        .append("text")
-        .attr("class", `legend-item ${legendName}-item`)
-        .attr("x", 0)
-        .attr("y", (d, i) => legendSpace * i * 2 + svgMargin.top / 2)
-        .style("fill", (d, i) => colorScale(i))
-        .style("font-size", "12px")
-        .style("font-family", "sans-serif")
-        .style("text-anchor", position === "right" ? "end" : "start")
-        .style("alignment-baseline", "hanging")
-        .text(d => d)
-        .on("mouseover",(d) => {
-          if(d === "Contract Modification"){
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-          }else if (d === "New Contract"){
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-          }else if (d === "Equipment/Facilities/Construction/Vehicles"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-          }else if (d === "Miscellaneous"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-          }else if (d === "Professional Services"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-          }else if (d === "Telecomm & IT"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-          }else if (d === "Weapons"){
-            d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
-            d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-            d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
-          }
-        })
-        .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
-
-      const legendDims = legend.node().getBBox();
-
-      legendBackground
-        .attr("width", legendDims.width)
-        .attr("height", legendDims.height + 20)
-        .attr("x", position === "right" ? -legendDims.width : -40)
-        .attr("y", -20);
+  function getSubTitle(id){
+    if(id === "panel-2"){
+      return "How does spending on federal contracts vary within a year?";
     }
-
-    addLegend(
-      "legend-1", 
-      Object.keys(data.lineData), 
-      lineColor, 
-      "right"
-    );
-
-    addLegend(
-      "legend-2",
-      Object.keys(data.verticalLineData),
-      verticalLineColor,
-      "left"
-    );
-
-    function brushed() {
-      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
-      var s = d3.event.selection || x2.range();
-      x.domain(s.map(x2.invert, x2));
-      LineChart.selectAll('.line').remove();
-      DrawLines(0);
-      focus.select(".axis--x").call(xAxis);
-      svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
-          .scale(width / (s[1] - s[0]))
-          .translate(-s[0], 0));
-      LineChart.selectAll('.data-point').remove();
-      DrawPoints();
+    else if(id === "panel-3" | id === "panel-4"){
+      return "Do end-of-year spikes occur reliably every year?";
+    }else if(id === "panel-5"){
+      return "Are spending patterns different depending on the type of good or service purchased?";
+    }else if(id === "panel-6"){
+      return "Do congressional budget actions affect how agencies spend money on contracts?";
     }
+    return "";
+  }
+  
+  var legendVals = Object.keys(data.lineData);
+  // legendVals.sort((a, b) => b.length - a.length);
+
+  var subTitle = d3.select('.subTitleDiv')
+    .append("div")
+    .attr("class","subTitle")
+    .text(getSubTitle(id));
+
+  var legend = d3.select('.legend').selectAll("legends")
+    .data(legendVals)
+    .enter().append("div")
+    .attr("class","legends");
+  
+  var p = legend.append("p").attr("class","title")
+  p.append("span").attr("class","key-dot").style("background",function(d,i) { return lineColor(i) } );
+  p.insert("text").attr("class","title").text(function(d,i) { return d } );
+
   }
 
   function remove(cb) {
@@ -366,6 +276,9 @@ const multiLinechartModule = (function() {
       .duration(400)
       .style("opacity", 0)
       .remove();
+
+    $('.legend').empty();
+    $('.subTitleDiv').empty();
 
     setTimeout(cb, 400);
   }

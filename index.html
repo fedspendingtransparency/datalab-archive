@@ -2,6 +2,11 @@
 layout: landing
 ---
 
+{% include leave-modal.html
+	identifier="leaveModal"
+	outbound="https://aws.amazon.com/public-datasets/usaspending/"
+%}
+
 <section id="banner">
 	<p class="index-header">{{ site.description }}</p>
 	<p class="index-sub-header">Data visualizations to help you understand government spending.</p>
@@ -57,6 +62,14 @@ layout: landing
 			<a href="competition-in-contracting.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
 		</div>
 	</section>
+	<section class="spotlight">
+			<div class="image"><img src="images/homepage/contracts-over-time.png" alt="Contracts over time" /></div><div class="content">
+				<h3>Contracts over Time</h3>
+				<h2><a href="contracts-over-time.html">How does contract spending change over time?</h2></a>
+				<p>This analysis looks into a decade of data on federal government contract spending, exploring seasonal and year over year trends. We also look into the relationship between the timing and length of spending legislation and whether it can predict any changes in contract spending.</p>
+				<a href="contracts-over-time.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+			</div>
+		</section>
 </section>
 
 {% include resources.html %}

@@ -1435,6 +1435,20 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         tableIcon.on('click', tableIconFunction);
 
                         function infographicYeah() {
+
+                            var modal = d3.select("#panel3InstructionsModal > div > div.modal-body > div.modal-body-content")
+                                .append("div")
+                                .attr("id","p3Modal")
+
+                            modal.append('img')
+                                .attr('class', 'picture')
+                                .attr('src','/images/homelessness/region_guide_full.jpg')
+                                .style("display","block")
+                                .style("max-width","480px")
+                                .style("max-height","500px")
+                                .style("width","auto")
+                                .style("height","auto");
+
                             const w = $('#panel_3b').width();
                             const h = 340;
                             const color = d3.scale.ordinal().range(['#280c60', '#2f1868', '#372c7a', '#4d4d8c',
@@ -1457,7 +1471,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .attr("transform", "translate(.5,.5)");
 
                             d3.json('/data-lab-data/homeless_cluster_v2.json', (treeData) => {
-                                d3.csv('/data-lab-data/cluster_data_v2.csv', (cluster) => {
+                                d3.csv('/data-lab-data/cluster_data_v4.csv', (cluster) => {
                                     const percentFormat = d3.format(",.1%");
 
                                     cluster.forEach((d) => {
@@ -1475,7 +1489,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         d.Property_crime_rate = +d.Property_crime_rate;
                                         d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
                                         d.CoC_program_funding = +d.CoC_program_funding;
-                                        d.Other_program_funding = +d.Other_program_funding;
+                                        d.other_fed_funding = +d.other_fed_funding;
                                         d.Total_funding = +d.Total_funding;
                                     });
 
@@ -1551,7 +1565,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
                                         `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
                                         `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
-                                        `<tr><td class="fundingAmount">${formatNumber(d.Other_program_funding)}</td></tr></table>`;
+                                        `<tr><td class="fundingAmount">${formatNumber(d.other_fed_funding)}</td></tr></table>`;
                                     }
 
                                     function makeCoCTableInfoCol1(d) {
