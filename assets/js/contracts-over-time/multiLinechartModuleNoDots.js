@@ -261,7 +261,9 @@ const multiLinechartModuleNoDots = (function() {
             .attr("stroke-dashoffset", "0");
         });
     }
-
+  
+  if(data.verticalLineData["Budget Legislation"]){
+    
     context
         .append("g")
         .attr("class", "vertical-line-paths")
@@ -282,7 +284,7 @@ const multiLinechartModuleNoDots = (function() {
         .transition()
         .duration(0)
         .attr("stroke-dashoffset", "0");
-    
+
     context
         .append("g")
         .attr("class", "vertical-line-paths")
@@ -303,6 +305,7 @@ const multiLinechartModuleNoDots = (function() {
         .transition()
         .duration(0)
         .attr("stroke-dashoffset", "0");
+  }
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
