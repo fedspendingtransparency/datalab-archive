@@ -157,22 +157,39 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
                 .attr("x", d => x(d.parsedDate))
                 .attr("y", d => d.val-(height*.1))
                 .attr("height", (height*.1)+"px")
-                .attr("width",(width*.15)+"px")
+                .attr("width",(width*.2)+"px")
                 .style("border-radius", "25px")
                 .style("stroke-width","1px")
                 .style("fill-opacity","1")
                 .html(`<p class='timeValue'>${l[1][i]["date"]}</p><br/><p class='timeTitle'>${l[0]}</p>`);
 
-        
-        //    LineChart
-        //    g.append("text") // content of text will be defined later
-        //     .attr("x", d => x(d.parsedDate))
-        //     .attr("y", d => d.val-50)
-        //     .attr("fill", "#FFF")
-        //     .attr("text-anchor", "middle");
+            LineChart
+              .append("g")
+              .attr("class", ".vertical-line-text")
+              .selectAll(`.vertical-line-text${i}`)
+              .data(l[1])
+              .enter()
+              .append("text")
+                .attr("class", `.vertical-line-text${i}`)
+                .attr("x", d => x(d.parsedDate)+10)
+                .attr("y", d => d.val-(height*.065))
+                .attr("height", (height*.1)+"px")
+                .attr("width",(width*.15)+"px")
+                .text(() => ` ${l[1][i]["date"]}`);
 
-        //    LineChart.selectAll('text')
-        //     .text("text in a box"); //
+            LineChart
+              .append("g")
+              .attr("class", ".vertical-line-title")
+              .selectAll(`.vertical-line-title${i}`)
+              .data(l[1])
+              .enter()
+              .append("text")
+                .attr("class", `.vertical-line-title${i}`)
+                .attr("x", d => x(d.parsedDate)+10)
+                .attr("y", d => d.val-(height*.025))
+                .attr("height", (height*.1)+"px")
+                .attr("width",(width*.15)+"px")
+                .text(() => `${l[0]}`);
         });
     }
 
@@ -205,7 +222,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')
-        .style("stroke","#FF7C7E")
+        .style("stroke","#6F6F6F")
         .attr("x1", d => x(d.parsedDate))
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
@@ -223,7 +240,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .enter()
         .append("line")
         .attr("class", '.vertical-line-1')
-        .style("stroke","#6F6F6F")
+        .style("stroke","#FF7C7E")
         .attr("x1", d => x(d.parsedDate))
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
@@ -241,7 +258,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .enter()
         .append("rect")
             .attr("class", `.vertical-line-tag0`)
-            .style("fill", "#FF7C7E")
+            .style("fill", "#6F6F6F")
             .attr("x", d => x(d.parsedDate))
             .attr("y", d => d.val*.177-(height2*.1))
             .attr("height", (height2*.1)+"px")
@@ -258,7 +275,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .enter()
         .append("rect")
             .attr("class", `.vertical-line-tag1`)
-            .style("fill", "#6F6F6F")
+            .style("fill", "#FF7C7E")
             .attr("x", d => x(d.parsedDate))
             .attr("y", d => d.val*.177-(height2*.1))
             .attr("height", (height2*.1)+"px")
@@ -304,15 +321,23 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       console.log(d);
     if(d === "Continuing Resolution"){
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","0");
     }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","0");
     }
   })
   .on("mouseout",() => {
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","1");
     }); 
 
 });

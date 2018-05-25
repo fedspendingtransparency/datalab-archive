@@ -1,6 +1,6 @@
 {
   "verticalLineData": {
-    "Budget Legislation": [
+    "Continuing Resolution": [
       {
         "date": "2006-10-01",
         "val": 90
@@ -23,7 +23,7 @@
       },
       {
         "date": "2007-11-11",
-        "val": 90
+        "val": 120
       },
       {
         "date": "2007-12-09",
@@ -150,18 +150,18 @@
         "val": 180
       }
     ],
-    "Continuing Resolution": [
+    "Budget Legislation": [
       {
         "date": "2008-01-01",
         "val": 360
       },
       {
         "date": "2009-12-13",
-        "val": 180
+        "val": 360
       },
       {
         "date": "2011-12-18",
-        "val": 270
+        "val": 410
       },
       {
         "date": "2014-01-19",

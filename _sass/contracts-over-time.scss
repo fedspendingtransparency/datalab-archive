@@ -539,16 +539,18 @@
   margin-left: 3em;
   margin-right: 50px;
 }
-.timeTitle{
-  color: #FFFFFF;	
+#svg-2 > g > g:nth-child(2) > g:nth-child(4) > text,
+#svg-2 > g > g:nth-child(2) > g:nth-child(8) > text{
+  fill: #FFFFFF;	
   font-family: "Source Sans Pro";	
   font-size: 15px;	
   font-weight: 600;	
   line-height: 19px;	
   text-align: center;
 }
-.timeValue{
-  color: #FFFFFF;	
+#svg-2 > g > g:nth-child(2) > g:nth-child(3) > text,
+#svg-2 > g > g:nth-child(2) > g:nth-child(7) > text{
+  fill: #FFFFFF;	
   font-family: "Source Sans Pro";	
   font-size: 12px;	
   line-height: 15px;	
