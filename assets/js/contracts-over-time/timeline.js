@@ -157,11 +157,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
                 .attr("x", d => x(d.parsedDate))
                 .attr("y", d => d.val-(height*.1))
                 .attr("height", (height*.1)+"px")
-                .attr("width",(width*.2)+"px")
-                .style("border-radius", "25px")
-                .style("stroke-width","1px")
-                .style("fill-opacity","1")
-                .html(`<p class='timeValue'>${l[1][i]["date"]}</p><br/><p class='timeTitle'>${l[0]}</p>`);
+                .attr("width",(width*.2)+"px");
 
             LineChart
               .append("g")
@@ -286,7 +282,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .style("z-index","999");
 
     // draw gridlines
-    chartModule.drawYAxisGridlines(svg, y, width, 10);
+    // chartModule.drawYAxisGridlines(svg, y, width, 10);
 
     
 
