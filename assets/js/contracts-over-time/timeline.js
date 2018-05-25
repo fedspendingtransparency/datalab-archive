@@ -2,8 +2,6 @@
 ---
 d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
 
-    console.log("data ", data);
-
     $("#svg-2").empty();
 
     function setDimsOfSvg(id) {
@@ -101,11 +99,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
       .on("brush", brushed);
-
-    var zoom = d3.zoom()
-      .scaleExtent([1, Infinity])
-      .translateExtent([[0, 0], [width, height]])
-      .extent([[0, 0], [width, height]]);
    
     var verticalLineColor = d3
       .scaleOrdinal()
@@ -117,13 +110,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
-    // context.append("text")             
-    //   .attr("transform","translate(" + (width/2) + " , 125)")
-    //   .style("text-anchor", "middle")
-    //   .style("font-size","15px")
-    //   .attr("dx", "0vw")
-    //   .text("X Axis Text");
-
     context.append("g")
       .attr("class", "brush")
       .call(brush)
@@ -134,25 +120,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-    function handleMouseOver(d, title) {
-      tooltipModule.draw("#tooltip", title, {
-        Value: chartModule.formatNumberAsText(d.val)
-      });
-    }
-
-    function handleMouseOut() {
-      tooltipModule.remove("#tooltip");
-    }
-
-    function handleMouseMove() {
-      tooltipModule.move("#tooltip");
-    }
-
     function DrawVerticalLines(){
         // draw vertical lines
         Object.entries(data.verticalLineData).forEach((l, i) => {
 
-            console.log("l: ",l)
            LineChart
             .append("g")
             .attr("class", "vertical-line-paths")
@@ -205,6 +176,27 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         });
     }
 
+    // draw data points
+    function DrawPoints(){
+      Object.entries(data.verticalLineData).forEach((l, i) => {
+          console.log("i ",i);
+        LineChart
+          .append("g")
+          .attr("class", "data-points")
+          .selectAll(".data-point")
+          .data(l[1])
+          .enter()
+          .append("circle")
+          .attr("class", "data-point")
+          .style("stroke", () => verticalLineColor(i))
+          .style("fill", () => verticalLineColor(i))
+          .attr("cx", d => x(d.parsedDate))
+          .attr("cy", (height*.99))
+          .attr("r", 5);
+
+      });
+    }
+
     context
         .append("g")
         .attr("class", "vertical-line-paths")
@@ -221,10 +213,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
+        .style("stroke-opacity",".6");
     
     context
         .append("g")
@@ -242,10 +231,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
-        .style("stroke-opacity","1")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
+        .style("stroke-opacity","1");
 
     context
         .append("g")
@@ -285,20 +271,18 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
+    
+
   function brushed() {
-    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
     // LineChart.selectAll('.line').remove();
     d3.selectAll("#svg-2 > g > g:nth-child(2) > g").remove();
     // DrawLines(0);
-    DrawVerticalLines(0);
+    DrawVerticalLines();
     focus.select(".axis--x").call(xAxis);
-    svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
-        .scale(width / (s[1] - s[0]))
-        .translate(-s[0], 0));
-    // LineChart.selectAll('.data-point').remove();
-    // DrawPoints(0);
+    LineChart.selectAll('.data-point').remove();
+    DrawPoints();
   }
   
   var legendVals2 = Object.keys(data.verticalLineData);
