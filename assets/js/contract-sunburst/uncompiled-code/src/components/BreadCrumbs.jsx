@@ -116,7 +116,15 @@ class BreadCrumbs extends Component {
     }
 
     shouldComponentUpdate(nextProps){
-        if (nextProps.root === this.props.root) return false;
+        
+      if (nextProps.activePanelNode === this.props.activeNode) return false;
+      
+      if (!nextProps.tooltipShown && Object.keys(nextProps.lastNodeClicked).length > 0) {
+        getTrailHierarchy(nextProps.lastNodeClicked, nextProps.colors, nextProps.staticData);
+        return false;
+      }
+
+      
 
         getTrailHierarchy(nextProps.activePanelNode,nextProps.colors, nextProps.staticData);
       
