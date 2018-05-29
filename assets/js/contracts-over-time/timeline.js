@@ -85,8 +85,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
 
     var LineChart = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(0,0)")
-      .attr("clip-path", "url(#clip)");
+      .attr("transform", "translate(0,0)");
 
     var focus = svg.append("g")
       .attr("class", "focus")

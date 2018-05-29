@@ -215,16 +215,6 @@
     flex-direction: column;
     fill:#5B616B;
   }
-.legends {
-  float:right;
-  margin-left: -50px;
-}
-#one > div.parallax-container.fixed > div.legend > div:nth-child(4){
-  margin-right: -125px;
-}
-#one > div.parallax-container.fixed > div.legend > div:nth-child(3){
-  margin-right: -90px;
-}
 
 .legends2 {
   float:right;
@@ -232,10 +222,15 @@
   margin-right: 0;
   stroke-width: 2px;
 }
+.legends {
+  margin-left: 15px;
+}
 .legend{
-  margin-right: 200px;
-  height:20px;
-  width: 100%;
+  height: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
 }
 .key-dot {
   display: inline-block;
@@ -244,8 +239,7 @@
   width: 10px;
 }
 .title{
-  height: 15px;	
-  width: 270px;	
+  height: 15px;
   color: #4A4A4A;	
   font-family: "Source Sans Pro";	
   font-size: 12px;	
@@ -380,7 +374,7 @@
 }
 .timeline{
   width:100vw;
-  height: 667px;
+  height: 100%;
   margin-left: 190px;
   background: #FFFFFF;
   transform: rotateX(24deg) rotateY(-23deg);
