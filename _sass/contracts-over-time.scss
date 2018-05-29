@@ -372,6 +372,9 @@
   box-shadow: 0 2px 50px 0 rgba(0,0,0,0.1);
   transform: rotateX(24deg) rotateY(23deg);
 }
+#scroll-breakpoint-2 {
+  z-index: -1;
+}
 .timeline{
   width:100vw;
   height: 100%;
