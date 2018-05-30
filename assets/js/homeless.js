@@ -1550,7 +1550,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     function makeCoCTableTitle(d) {
                                         const textColor = color(d.cluster_final);
                                         return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster}: </p>` +
-                                        `<p class="cocTabTitleCity" style=color:white;background:${textColor}>${d.coc_name}</p>`;
+                                        `<p class="cocTabTitleCity">${d.coc_name}</p>`;
                                     }
 
                                     function makeCoCTableFund(d) {
