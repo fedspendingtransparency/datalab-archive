@@ -42,6 +42,7 @@ class SunburstContainer extends Component {
       hierarchy: {},
       root: [],
       activePanelNode: {},
+      lastNodeClicked: {},
       searchbarText: "",
       tooltipShown: false,
       tooltipCoordinates: { x: 0, y: 0 },
@@ -174,6 +175,7 @@ class SunburstContainer extends Component {
   };
 
   handleClick = selected => {
+    this.setState({ lastNodeClicked: selected });
     this.filterSunburst(selected);
   };
 
@@ -316,6 +318,7 @@ class SunburstContainer extends Component {
       unfilteredSearchbarSuggestions,
       searchbarText,
       sunburstFilterByText,
+      lastNodeClicked,
       staticData,
       searchbarOptionSelected,
       tooltipShown,
@@ -372,6 +375,11 @@ class SunburstContainer extends Component {
             <BreadCrumbs
             root={root}
             activePanelNode={activePanelNode}
+            lastNodeClicked = {lastNodeClicked}
+            tooltipShown={tooltipShown}
+            handleClick={handleClick}
+            handleHover={handleHover}
+            handleUnhover={handleUnhover}
             staticData={staticData}
             colors={staticData.colors}
             />

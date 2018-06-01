@@ -6,6 +6,7 @@ const width = 600, height = 50, homeColor = "#923068";
 const  b = {
     w: 125, h: 30, s: 3, t: 10
   };
+var handleClick, handleHover, handleUnhover;
 
 const drawbread = (d, i) => {
   var points = [];
@@ -39,11 +40,31 @@ const getNodeNames = (nameData, aNode) => {
 
 const getTrailHierarchy = (activeNode, colors, staticData, RArray) => {
   let HArray = RArray || [];
+  
+  if(activeNode.depth >= 3){
+   
+      HArray.push({name: getNodeNames(staticData, activeNode),
+         depth: activeNode.depth, 
+         id: activeNode.id, 
+         parent: activeNode.parent, 
+         value: activeNode.value});
+   
+  } else if ((activeNode.depth === 2) || 1) {
 
-  if (activeNode.depth > 1) {
-    HArray.push({name: getNodeNames(staticData, activeNode), depth: activeNode.depth, id: activeNode.id, parent: activeNode.parent});
-  }else {
-    HArray.push({name: getNodeNames(staticData, activeNode), depth: activeNode.depth, id: activeNode.id});
+      HArray.push({name: getNodeNames(staticData, activeNode), 
+        depth: activeNode.depth, 
+        id: activeNode.id, 
+        parent: activeNode.parent, 
+        children: activeNode.children, 
+        value: activeNode.value});
+
+  } else if ( activeNode.depth < 1) {
+
+      HArray.push({name: getNodeNames(staticData, activeNode), 
+        depth: activeNode.depth, 
+        id: activeNode.id, 
+        value: activeNode.value});
+
   }
   
   if(activeNode.depth > 0){
@@ -73,7 +94,8 @@ const updateBreadcrumbs = (colors, root) => {
         } else {
           return findColor(d, colors);
         }
-        });
+        })
+        .on("click", d => {handleHover(d); handleClick(d)});
 
   entering.append("svg:text")
       .attr("x", (b.w + b.t) / 2)
@@ -84,7 +106,8 @@ const updateBreadcrumbs = (colors, root) => {
       .text(function(d) { return String(d.name)
         .substring(0,4)
         .trimRight() + "..." +
-        String(d.name).substr(String(d.name).length-4);});
+        String(d.name).substr(String(d.name).length-4);})
+        .on("click", d => {handleHover(d); handleClick(d)});;
 
   // Set position for entering and updating nodes.
   g.attr("transform", function(d, i) {
@@ -112,14 +135,32 @@ class BreadCrumbs extends Component {
       }
 
     componentDidMount() {
-        getTrailHierarchy(this.props.activePanelNode, this.props.colors, this.props.staticData);
+      
+      handleClick = this.props.handleClick;
+      handleHover = this.props.handleHover;
+      handleUnhover = this.props.handleUnhover;
+
+      getTrailHierarchy(this.props.activePanelNode, this.props.colors, this.props.staticData);
+
     }
 
     shouldComponentUpdate(nextProps){
-        if (nextProps.root === this.props.root) return false;
+        
+      if (nextProps.activePanelNode === this.props.activeNode) return false;
+      
+      handleClick = this.props.handleClick
+      handleHover = this.props.handleHover;
+      handleUnhover = this.props.handleUnhover;
+
+      if (!nextProps.tooltipShown && Object.keys(nextProps.lastNodeClicked).length > 0) {
+        getTrailHierarchy(nextProps.lastNodeClicked, nextProps.colors, nextProps.staticData);
+        return false;
+      }
+
+      
 
         getTrailHierarchy(nextProps.activePanelNode,nextProps.colors, nextProps.staticData);
-      
+        
         return false;
     }
 
