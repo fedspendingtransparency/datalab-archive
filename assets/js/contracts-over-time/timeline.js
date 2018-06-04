@@ -109,10 +109,15 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
-    context.append("g")
-      .attr("class", "brush")
+    let contextG = context.append("g");
+
+    contextG.attr("class", "brush")
       .call(brush)
       .call(brush.move, x.range());
+
+    setTimeout(function() {
+      contextG.call(brush.move, [350, 525]);
+    }, 2000);
     
     focus.append("g")
       .attr("class", "axis axis--x")
@@ -283,8 +288,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     // draw gridlines
     // chartModule.drawYAxisGridlines(svg, y, width, 10);
 
-    
-
   function brushed() {
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
@@ -334,6 +337,5 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","1");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","1");
     }); 
-
 });
     
