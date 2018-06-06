@@ -578,8 +578,13 @@ z-index: 9999;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
+//  
+// 
+// 
+// 
+// 
 
-.active, .dot2:hover {
+.active, .dot1:hover, .dot2:hover, .dot3:hover {
   background-color: #4A90E2;
 }
 /* Next & previous buttons */
