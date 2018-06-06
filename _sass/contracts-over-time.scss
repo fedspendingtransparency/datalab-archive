@@ -579,11 +579,6 @@ z-index: 9999;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-//  
-// 
-// 
-// 
-// 
 
 .active, .dot1:hover, .dot2:hover, .dot3:hover {
   background-color: #4A90E2;
@@ -640,16 +635,16 @@ z-index: 9999;
   clip: rect(0px, 65px, 65px, 0px);
 }
 #svg-3{
-  display: flex;
-  justify-content: space-around;
   overflow: visible;
 }
 .control-group1{
   padding-left: 160px;
   display: inline-block;
+  z-index: 999;
 }
 .control-group2{
   padding-left: 20px;
   display: inline-block;
+  z-index: 999;
 }
 }

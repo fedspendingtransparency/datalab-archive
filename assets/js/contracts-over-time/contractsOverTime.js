@@ -81,6 +81,10 @@ $(function() {
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
     $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .2);
 
+    $("#scroll-breakpoint-1").css("z-index",-10);
+    $("#scroll-breakpoint-2").css("z-index",-10);
+    $("#scroll-triggerpoint").css("z-index",-10);
+
     $("<style>")
     .prop("type", "text/css")
     .html(`

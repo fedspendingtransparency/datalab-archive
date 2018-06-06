@@ -302,12 +302,12 @@ category: nonentry
             <span class="dot1" onclick="showMicroSlides(1,2)"></span>
           </div>
         </div>
-        <div class="part2legend">
+        <div class="part2legend1">
           <div class="control-group1">
             <span class="key-dot" style="background: #6F6F6F"></span>
             <label class="title">
               Budget Legislation
-              <input class="box" type="checkbox" checked="checked" value="budget" />
+              <input class="box1" type="checkbox" checked="checked" value="budget" />
               <div class="control_indicator"></div>
             </label>
           </div>
@@ -316,12 +316,12 @@ category: nonentry
             <span class="key-dot" style="background: #FF7C7E"></span>
             <label class="title">
               Continuing Resolution
-              <input class="box" type="checkbox" checked="checked" value="resolution" />
+              <input class="box1" type="checkbox" checked="checked" value="resolution" />
               <div class="control_indicator"></div>
             </label>
           </div>
         </div>
-        <svg id="svg-3"></svg>
+        <svg id="svg-3" class="svgPart2"></svg>
       </div>
 
       <div class="mySlidesOutter">
@@ -356,12 +356,12 @@ category: nonentry
             <span class="dot2" onclick="showMicroSlides(2,3)"></span>
           </div>
         </div>
-        <div class="part2legend">
+        <div class="part2legend2">
           <div class="control-group1">
             <span class="key-dot" style="background: #6F6F6F"></span>
             <label class="title">
               Budget Legislation
-              <input class="box" type="checkbox" checked="checked" value="budget" />
+              <input class="box2" type="checkbox" checked="checked" value="budget" />
               <div class="control_indicator"></div>
             </label>
           </div>
@@ -370,12 +370,12 @@ category: nonentry
             <span class="key-dot" style="background: #FF7C7E"></span>
             <label class="title">
               Continuing Resolution
-              <input class="box" type="checkbox" checked="checked" value="resolution" />
+              <input class="box2" type="checkbox" checked="checked" value="resolution" />
               <div class="control_indicator"></div>
             </label>
           </div>
         </div>
-        <svg id="svg-4"></svg>
+        <svg id="svg-4" class="svgPart2"></svg>
       </div>
 
       <div class="mySlidesOutter">
@@ -419,12 +419,12 @@ category: nonentry
             <span class="dot3" onclick="showMicroSlides(3,4)"></span>
           </div>
         </div>
-        <div class="part2legend">
+        <div class="part2legend3">
           <div class="control-group1">
             <span class="key-dot" style="background: #6F6F6F"></span>
             <label class="title">
               Budget Legislation
-              <input class="box" type="checkbox" checked="checked" value="budget" />
+              <input class="box3" type="checkbox" checked="checked" value="budget" />
               <div class="control_indicator"></div>
             </label>
           </div>
@@ -433,12 +433,12 @@ category: nonentry
             <span class="key-dot" style="background: #FF7C7E"></span>
             <label class="title">
               Continuing Resolution
-              <input class="box" type="checkbox" checked="checked" value="resolution" />
+              <input class="box3" type="checkbox" checked="checked" value="resolution" />
               <div class="control_indicator"></div>
             </label>
           </div>
         </div>
-        <svg id="svg-5"></svg>
+        <svg id="svg-5" class="svgPart2"></svg>
       </div>
 
       <!-- Next and previous buttons -->
@@ -458,6 +458,7 @@ category: nonentry
 
       function showMacroSlides(n) {
         var k;
+        var lchart = document.getElementsByClassName('svgPart2');
         var macroSlides = document.getElementsByClassName("mySlidesOutter");
         var microIndex = 1;
         if (n > macroSlides.length) {
@@ -469,7 +470,11 @@ category: nonentry
         for (k = 0; k < macroSlides.length; k++) {
           macroSlides[k].style.display = "none";
         }
+        for (k = 0; k < lchart.length; k++) {
+          lchart[k].style.display = "none";
+        }
         macroSlides[macroIndex - 1].style.display = "block";
+        lchart[n - 1].style.display = "block";
         showMicroSlides(macroIndex, microIndex);
       }
 
@@ -514,3 +519,5 @@ or Continuing Resolutions might impact specific types of contracts." link="contr
 <script src="{{site.baseurl}}/assets/js/contracts-over-time/timeline.js"></script>
 <script src="{{site.baseurl}}/assets/js/contracts-over-time/contractsOverTime.js"></script>
 <script src="{{site.baseurl}}/assets/js/contracts-over-time/part2LineChart1.js"></script>
+<script src="{{site.baseurl}}/assets/js/contracts-over-time/part2LineChart2.js"></script>
+<script src="{{site.baseurl}}/assets/js/contracts-over-time/part2LineChart3.js"></script>

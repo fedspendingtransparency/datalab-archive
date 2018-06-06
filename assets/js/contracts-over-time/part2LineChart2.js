@@ -1,14 +1,8 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
-// 
+
+d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
+
     // $('.part2legend').empty();
     // $("#svg-3").empty();
     // $("#svg-4").empty();
@@ -35,20 +29,20 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
         .appendTo("head");
       }
     
-    setDimsOfSvg("#svg-3");
+    setDimsOfSvg("#svg-4");
 
     const svgMargin = { top: 20, right: 0, bottom: 80, left: 200 },
-      height = $("#svg-3").height() - svgMargin.top - svgMargin.bottom - 55,
+      height = $("#svg-4").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
       svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 200},
-      width = $("#svg-3").width() - svgMargin.right - svgMargin.left,
+      width = $("#svg-4").width() - svgMargin.right - svgMargin.left,
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
     // Add SVG
     var svg = d3
-      .select("#svg-3")
+      .select("#svg-4")
       .append("g")
       .attr('class','frame')
       .attr('max-width','70%')
@@ -127,22 +121,11 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
       .translateExtent([[0, 0], [width, height]])
       .extent([[0, 0], [width, height]]);
     
-    // if(id === "panel-4"){
-    //     var lineColor = d3
-    //     .scaleOrdinal()
-    //     .range(["#ED460F", "#6f6f6f"])
-    //     .domain([0, Object.keys(data.lineData).length - 1]);
-    // }else if(id === "panel-5"){
-    //     var lineColor = d3
-    //     .scaleOrdinal()
-    //     .range(["#009292","#9C27B0","#FF7043","#E91E63"])
-    //     .domain([0, Object.keys(data.lineData).length - 1]);
-    // }else if(id === "panel-6"){
-        var lineColor = d3
+    var lineColor = d3
         .scaleOrdinal()
-        .range(["#027693"])
+        .range(["#ED460F", "#6f6f6f"])
         .domain([0, Object.keys(data.lineData).length - 1]);
-    // }
+ 
 
     var verticalLineColor = d3
       .scaleOrdinal()
@@ -341,7 +324,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
     LineChart.selectAll('.line').remove();
-    d3.selectAll("#svg-3 > g > g:nth-child(2) > g").remove();
+    d3.selectAll("#svg-4 > g > g:nth-child(2) > g").remove();
     DrawLines(0);
     DrawVerticalLines(0);
     focus.select(".axis--x").call(xAxis);
@@ -361,7 +344,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     .attr("class","subTitle")
     .text("Do congressional budget actions affect how agencies spend money on contracts?");
 
-  var legend = d3.select('.part2legend1').selectAll("legends")
+  var legend = d3.select('.part2legend2').selectAll("legends")
     .data(legendVals)
     .enter().append("div")
     .attr("class","legends");
@@ -373,58 +356,38 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
   var legendWidth = 200;
 
   $(".part2legend > div > label > input:checkbox").on("click", (e) => {
-    const checkedVals = $('.box1:checkbox:checked').map(function () {
+    const checkedVals = $('.box2:checkbox:checked').map(function () {
         return this.value;
     }).get();
 
     console.log("checked vals: ", checkedVals);
     if(checkedVals.length===2){
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
     }else if(checkedVals[0]==="resolution"){
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
     }else if(checkedVals[0]==="budget"){
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
     }else{
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
-        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-4 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
     }
 });
   
-//   p.on("mouseover",(d) => {
-//     if(d === "Contract Modification"){
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-//     }else if (d === "New Contract"){
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-//     }else if (d === "Equipment/Facilities/Construction/Vehicles"){
-//       d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-//       d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-//     }else if (d === "Professional Services"){
-//       d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-//       d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-//     }else if (d === "Telecomm & IT"){
-//       d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-//       d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-//     }else if (d === "Weapons"){
-//       d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-//       d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-//       d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-//     }
-//   })
-//   .on("mouseout",() => d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","1px"));
+  p.on("mouseover",(d) => {
+    if(d === "Contract Modification"){
+      d3.select("#svg-4 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.select("#svg-4 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+      d3.select("#svg-4 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.select("#svg-4 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+    }else if (d === "New Contract"){
+      d3.select("#svg-4 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+      d3.select("#svg-4 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.select("#svg-4 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+      d3.select("#svg-4 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+    }
+  })
+  .on("mouseout",() => d3.selectAll("#svg-4 > g > g > g.line-paths > path").style("stroke-width","1px"));
 });
