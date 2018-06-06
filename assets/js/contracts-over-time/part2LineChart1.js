@@ -1,25 +1,49 @@
 ---
 ---
 
-const multiLinechartModuleNoDots = (function() {
-  function draw(data,axisText,id) {
+d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
-    $('.subTitleDiv').empty();
-    $('.legend').empty();
-    $("#svg-1").empty();
+    // $('.subTitleDiv').empty();
+    // $('.legend').empty();
+    $("#svg-3").empty();
+    $("#svg-4").empty();
+    $("#svg-5").empty();
 
-    const svgMargin = { top: 20, right: 0, bottom: 80, left: 40 },
-      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
+    function setDimsOfSvg(id) {
+        const windowWidth = $(window).width();
+        const windowHeight = $(window).height();
+        const windowMargin = 50;
+    
+        const svgHeight = windowHeight - 2 * windowMargin;
+        const svgWidth = windowWidth - 8 * windowMargin;
+    
+        $(id)
+          .attr("height", svgHeight)
+          .attr("width", svgWidth);
+    
+        $("<style>")
+        .prop("type", "text/css")
+        .html(`
+          .fixed {top: ${windowMargin}px;}
+          .left {height: ${svgHeight}px;}
+        `)
+        .appendTo("head");
+      }
+    
+    setDimsOfSvg("#svg-3");
+
+    const svgMargin = { top: 20, right: 0, bottom: 80, left: 200 },
+      height = $("#svg-3").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
-      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 40},
-      width = $("#svg-1").width(),
+      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 200},
+      width = $("#svg-3").width() - svgMargin.right - svgMargin.left,
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
     // Add SVG
     var svg = d3
-      .select("#svg-1")
+      .select("#svg-3")
       .append("g")
       .attr('class','frame')
       .attr('max-width','70%')
@@ -98,22 +122,22 @@ const multiLinechartModuleNoDots = (function() {
       .translateExtent([[0, 0], [width, height]])
       .extent([[0, 0], [width, height]]);
     
-    if(id === "panel-4"){
-        var lineColor = d3
-        .scaleOrdinal()
-        .range(["#ED460F", "#6f6f6f"])
-        .domain([0, Object.keys(data.lineData).length - 1]);
-    }else if(id === "panel-5"){
-        var lineColor = d3
-        .scaleOrdinal()
-        .range(["#009292","#9C27B0","#FF7043","#E91E63"])
-        .domain([0, Object.keys(data.lineData).length - 1]);
-    }else if(id === "panel-6"){
+    // if(id === "panel-4"){
+    //     var lineColor = d3
+    //     .scaleOrdinal()
+    //     .range(["#ED460F", "#6f6f6f"])
+    //     .domain([0, Object.keys(data.lineData).length - 1]);
+    // }else if(id === "panel-5"){
+    //     var lineColor = d3
+    //     .scaleOrdinal()
+    //     .range(["#009292","#9C27B0","#FF7043","#E91E63"])
+    //     .domain([0, Object.keys(data.lineData).length - 1]);
+    // }else if(id === "panel-6"){
         var lineColor = d3
         .scaleOrdinal()
         .range(["#027693"])
         .domain([0, Object.keys(data.lineData).length - 1]);
-    }
+    // }
 
     var verticalLineColor = d3
       .scaleOrdinal()
@@ -130,7 +154,7 @@ const multiLinechartModuleNoDots = (function() {
       .style("text-anchor", "middle")
       .style("font-size","15px")
       .attr("dx", "0vw")
-      .text(axisText);
+      .text("Fiscal Year 2007 - 2017");
 
     context.append("g")
       .attr("class", "brush")
@@ -312,7 +336,7 @@ const multiLinechartModuleNoDots = (function() {
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
     LineChart.selectAll('.line').remove();
-    d3.selectAll("#svg-1 > g > g:nth-child(2) > g").remove();
+    d3.selectAll("#svg-3 > g > g:nth-child(2) > g").remove();
     DrawLines(0);
     DrawVerticalLines(0);
     focus.select(".axis--x").call(xAxis);
@@ -323,16 +347,16 @@ const multiLinechartModuleNoDots = (function() {
     DrawPoints(0);
   }
 
-  function getSubTitle(id){
-    if(id === "panel-3" | id === "panel-4"){
-      return "Do end-of-year spikes occur reliably every year?";
-    }else if(id === "panel-5"){
-      return "Are spending patterns different depending on the type of good or service purchased?";
-    }else if(id === "panel-6"){
-      return "Do congressional budget actions affect how agencies spend money on contracts?";
-    }
-    return "";
-  }
+//   function getSubTitle(id){
+//     // if(id === "panel-3" | id === "panel-4"){
+//     //   return "Do end-of-year spikes occur reliably every year?";
+//     // }else if(id === "panel-5"){
+//     //   return "Are spending patterns different depending on the type of good or service purchased?";
+//     // }else if(id === "panel-6"){
+//       return "Do congressional budget actions affect how agencies spend money on contracts?";
+//     // }
+//     // return "";
+//   }
   
   var legendVals = Object.keys(data.lineData);
   var legendVals2 = Object.keys(data.verticalLineData);
@@ -340,7 +364,7 @@ const multiLinechartModuleNoDots = (function() {
   var subTitle = d3.select('.subTitleDiv')
     .append("div")
     .attr("class","subTitle")
-    .text(getSubTitle(id));
+    .text("Do congressional budget actions affect how agencies spend money on contracts?");
 
   var legend = d3.select('.legend').selectAll("legends")
     .data(legendVals)
@@ -369,69 +393,50 @@ const multiLinechartModuleNoDots = (function() {
   k.on("mouseover",(d) => {
       console.log(d);
     if(d === "Continuing Resolution"){
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
     }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
     }
   })
   .on("mouseout",() => {
-      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
     }); 
   
   p.on("mouseover",(d) => {
     if(d === "Contract Modification"){
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","0px");
     }else if (d === "New Contract"){
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
     }else if (d === "Equipment/Facilities/Construction/Vehicles"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
     }else if (d === "Professional Services"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
     }else if (d === "Telecomm & IT"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
     }else if (d === "Weapons"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+      d3.selectAll("#svg-3 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-3 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
     }
   })
-  .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
-  }
-
-
-  function remove(cb) {
-    d3
-      .select("#svg-1")
-      .selectAll("*")
-      .transition()
-      .duration(400)
-      .style("opacity", 0)
-      .remove();
-
-    $('.legend').empty();
-    $('.subTitleDiv').empty();
-
-    setTimeout(cb, 400);
-  }
-
-  return { draw, remove };
-})();
+  .on("mouseout",() => d3.selectAll("#svg-3 > g > g > g.line-paths > path").style("stroke-width","1px"));
+});

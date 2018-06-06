@@ -607,11 +607,6 @@ z-index: 9999;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-// .prev2:hover, .next2:hover {
-//   background-color: rgba(0, 204, 255, 0.1);
-// }
-
 .prev2:after{
   content: '';
   position: absolute;
@@ -637,5 +632,9 @@ z-index: 9999;
   background: #4A90E2;
   border-radius: 50%;
   clip: rect(0px, 65px, 65px, 0px);
+}
+#svg-3{
+  display: flex;
+  justify-content: space-around;
 }
 }
