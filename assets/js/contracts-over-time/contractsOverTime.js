@@ -54,14 +54,16 @@ $(function() {
       module: multiLinechartModuleNoDots,
       dataset: "panel5",
       xAxis: "Fiscal Year 2007 - 2017"
-    },
-    {
-      id: "panel-6",
-      module: multiLinechartModuleNoDots,
-      dataset: "panel6",
-      xAxis: "Fiscal Year 2007 - 2017"
     }
   ];
+
+  // ,
+  //   {
+  //     id: "panel-6",
+  //     module: multiLinechartModuleNoDots,
+  //     dataset: "panel6",
+  //     xAxis: "Fiscal Year 2007 - 2017"
+  //   }
 
   function setDimsOfSvg(id) {
     const windowWidth = $(window).width();
