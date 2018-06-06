@@ -14,8 +14,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
         const windowHeight = $(window).height();
         const windowMargin = 50;
     
-        const svgHeight = windowHeight - 2 * windowMargin;
-        const svgWidth = windowWidth - 8 * windowMargin;
+        const svgHeight = windowHeight - windowMargin;
+        const svgWidth = windowWidth - 4 * windowMargin;
     
         $(id)
           .attr("height", svgHeight)
