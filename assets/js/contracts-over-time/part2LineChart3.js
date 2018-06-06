@@ -309,7 +309,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
     LineChart.selectAll('.line').remove();
-    d3.selectAll("#svg-5 > g > g:nth-child(2) > g").remove();
+    d3.selectAll("#svg-5 > g > g:nth-child(1) > g").remove();
     DrawLines(0);
     DrawVerticalLines(0);
     focus.select(".axis--x").call(xAxis);
@@ -334,24 +334,24 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
 
   var legendWidth = 200;
 
-  $(".part2legend > div > label > input:checkbox").on("click", (e) => {
+  $(".part2legend3 > div > label > input:checkbox").on("click", (e) => {
     const checkedVals = $('.box1:checkbox:checked').map(function () {
         return this.value;
     }).get();
 
     console.log("checked vals: ", checkedVals);
     if(checkedVals.length===2){
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(2) > line").style("stroke-width","1px");
     }else if(checkedVals[0]==="resolution"){
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(3) > line").style("stroke-width","0px");
     }else if(checkedVals[0]==="budget"){
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(3) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(2) > line").style("stroke-width","0px");
     }else{
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
-        d3.selectAll("#svg-5 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(3) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-5 > g > g:nth-child(1) > g:nth-child(2) > line").style("stroke-width","0px");
     }
 });
   
