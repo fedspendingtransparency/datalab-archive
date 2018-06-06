@@ -377,7 +377,7 @@
 }
 .timeline{
   width:100vw;
-  height: 700px;
+  height: 100%;
   margin-left: 190px;
   background: #FFFFFF;
   transform: rotateX(24deg) rotateY(-23deg);
@@ -393,10 +393,20 @@
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
+  position: absolute;
+  top: 8%;
+  padding: 16px;
+  margin-top: -22px;
+  font-weight: bold;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  opacity: 0.5;
-  color: #4A90E2;
+  height: 20px;	
+  width: 20px;	
+  opacity: 0.5;	
+  color: #4A90E2;	
+  font-family: simple-line-icons;
+  font-size: 20px;	
+  line-height: NaNpx;
 }
 
 /* Position the "next button" to the right */
@@ -471,17 +481,20 @@
 
 #svg-2{
   float: left;
-  overflow: hidden;
+  overflow: visible;
   max-width: 70vw;
   margin: 0 10px;
 }
 .carouselTitle{
-    color: #666666;
-    font-weight: 600;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 30%;
+  color: #666666;
+  font-family: "Source Sans Pro";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  margin: 20px auto 40px;
+  padding: 7%;
+  text-align: center;
 }
 .carouselText{
   color: #4A4A4A;
@@ -496,15 +509,21 @@
   width: 100%;
   margin: auto;
 }
-.carouselTitleContainer {
-  display: flex;
-}
 .carouselNumber{	
+  float: left;
   color: #9B9B9B;	
-  margin-right: 5px;
+  font-family: "Source Sans Pro";	
+  font-size: 24px;	
+  font-weight: 600;	
+  line-height: 31px;
 }
 .carouselTitleText{
+  float: right;
   color: #666666;	
+  font-family: "Source Sans Pro";	
+  font-size: 20px;	
+  font-weight: 600;	
+  line-height: 33px;
 }
 .timelineLegend{
   float: left;
