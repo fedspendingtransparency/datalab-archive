@@ -10,6 +10,7 @@
 d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
     // $('.subTitleDiv').empty();
+    // asd
     // $('.legend').empty();
     $("#svg-3").empty();
     $("#svg-4").empty();
