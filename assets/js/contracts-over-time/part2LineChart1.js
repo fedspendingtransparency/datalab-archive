@@ -347,17 +347,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     DrawPoints(0);
   }
 
-//   function getSubTitle(id){
-//     // if(id === "panel-3" | id === "panel-4"){
-//     //   return "Do end-of-year spikes occur reliably every year?";
-//     // }else if(id === "panel-5"){
-//     //   return "Are spending patterns different depending on the type of good or service purchased?";
-//     // }else if(id === "panel-6"){
-//       return "Do congressional budget actions affect how agencies spend money on contracts?";
-//     // }
-//     // return "";
-//   }
-  
+
   var legendVals = Object.keys(data.lineData);
   var legendVals2 = Object.keys(data.verticalLineData);
 
