@@ -595,7 +595,7 @@ z-index: 9999;
   height: 20px;	
   width: 20px;	
   opacity: 0.5;	
-  color: #4A90E2;	
+  color:#000;	
   font-family: simple-line-icons;
   font-size: 20px;	
   line-height: NaNpx;
@@ -608,7 +608,34 @@ z-index: 9999;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev2:hover, .next2:hover {
-  background-color: rgba(0, 204, 255, 0.1);
+// .prev2:hover, .next2:hover {
+//   background-color: rgba(0, 204, 255, 0.1);
+// }
+
+.prev2:after{
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0; left: -20px;
+  width: 65px;
+  height: 65px;
+  opacity: 0.5;
+  background: #4A90E2;	
+  // border: 1px solid red;
+  border-radius: 50%;
+  clip: rect(0px, 75px, 75px, 20px);
+}
+.next2:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0px;
+  width: 65px;
+  height: 65px;
+  opacity: 0.5;
+  background: #4A90E2;
+  border-radius: 50%;
+  clip: rect(0px, 65px, 65px, 0px);
 }
 }
