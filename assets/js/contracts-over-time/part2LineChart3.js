@@ -1,18 +1,7 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
 d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
-// 
-    // $('.part2legend').empty();
-    // $("#svg-5").empty();
-    // $("#svg-4").empty();
-    // $("#svg-5").empty();
 
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
@@ -97,18 +86,9 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
       .ticks(10)
       .tickFormat(chartModule.formatNumberAsText);
 
-    var clip = svg.append("defs").append("svg:clipPath")
-      .attr("id", "clip")
-      .append("svg:rect")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("x", 0)
-      .attr("y", 0); 
-
     var LineChart = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(0,0)")
-      .attr("clip-path", "url(#clip)");
+      .attr("transform", "translate(0,0)");
 
     var focus = svg.append("g")
       .attr("class", "focus")
@@ -126,12 +106,11 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
       .scaleExtent([1, Infinity])
       .translateExtent([[0, 0], [width, height]])
       .extent([[0, 0], [width, height]]);
-{
+    
     var lineColor = d3
         .scaleOrdinal()
         .range(["#009292","#9C27B0","#FF7043","#E91E63"])
         .domain([0, Object.keys(data.lineData).length - 1]);
-    }
 
     var verticalLineColor = d3
       .scaleOrdinal()
@@ -341,14 +320,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
     DrawPoints(0);
   }
 
-
   var legendVals = Object.keys(data.lineData);
   var legendVals2 = Object.keys(data.verticalLineData);
-
-  var subTitle = d3.select('.subTitleDiv')
-    .append("div")
-    .attr("class","subTitle")
-    .text("Do congressional budget actions affect how agencies spend money on contracts?");
 
   var legend = d3.select('.part2legend3').selectAll("legends")
     .data(legendVals)

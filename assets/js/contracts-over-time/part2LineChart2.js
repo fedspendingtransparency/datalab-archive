@@ -3,11 +3,6 @@
 
 d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
 
-    // $('.part2legend').empty();
-    // $("#svg-3").empty();
-    // $("#svg-4").empty();
-    // $("#svg-5").empty();
-
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
@@ -91,18 +86,9 @@ d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
       .ticks(10)
       .tickFormat(chartModule.formatNumberAsText);
 
-    var clip = svg.append("defs").append("svg:clipPath")
-      .attr("id", "clip")
-      .append("svg:rect")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("x", 0)
-      .attr("y", 0); 
-
     var LineChart = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(0,0)")
-      .attr("clip-path", "url(#clip)");
+      .attr("transform", "translate(0,0)");
 
     var focus = svg.append("g")
       .attr("class", "focus")
@@ -335,14 +321,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
     DrawPoints(0);
   }
 
-
   var legendVals = Object.keys(data.lineData);
   var legendVals2 = Object.keys(data.verticalLineData);
-
-  var subTitle = d3.select('.subTitleDiv')
-    .append("div")
-    .attr("class","subTitle")
-    .text("Do congressional budget actions affect how agencies spend money on contracts?");
 
   var legend = d3.select('.part2legend2').selectAll("legends")
     .data(legendVals)
