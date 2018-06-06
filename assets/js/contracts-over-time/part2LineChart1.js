@@ -1,6 +1,12 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
     // $('.subTitleDiv').empty();
