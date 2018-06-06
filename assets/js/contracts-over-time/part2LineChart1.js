@@ -363,7 +363,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     .attr("class","subTitle")
     .text("Do congressional budget actions affect how agencies spend money on contracts?");
 
-  var legend = d3.select('.legend').selectAll("legends")
+  var legend = d3.select('.part2legend').selectAll("legends")
     .data(legendVals)
     .enter().append("div")
     .attr("class","legends");
@@ -374,18 +374,18 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
   var legendWidth = 200;
 
-  var legend2 = d3.select('.legend').selectAll("legends2")
-    .data(legendVals2)
-    .enter().append("div")
-    .attr("class","legends2");
+//   var legend2 = d3.select('.part2legend').selectAll("legends2")
+//     .data(legendVals2)
+//     .enter().append("div")
+//     .attr("class","legends2");
   
-  var k = legend2.append("p").attr("class","title");
+//   var k = legend2.append("p").attr("class","title");
 
-  k.append("span").attr("class","key-dot").style("background",function(d,i) {
-    return d === "Continuing Resolution" ? "#FF7C7E" : "#6F6F6F"; 
-  });
+//   k.append("span").attr("class","key-dot").style("background",function(d,i) {
+//     return d === "Continuing Resolution" ? "#FF7C7E" : "#6F6F6F"; 
+//   });
 
-  k.insert("text").attr("class","title").text(function(d,i) { return d } );
+//   k.insert("text").attr("class","title").text(function(d,i) { return d } );
 
   k.on("mouseover",(d) => {
       console.log(d);

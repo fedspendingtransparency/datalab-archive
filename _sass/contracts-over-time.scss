@@ -224,6 +224,7 @@
 }
 .legends {
   margin-left: 15px;
+  display: inline-block;
 }
 .legend{
   height: 20px;
@@ -642,5 +643,13 @@ z-index: 9999;
   display: flex;
   justify-content: space-around;
   overflow: visible;
+}
+.control-group1{
+  padding-left: 160px;
+  display: inline-block;
+}
+.control-group2{
+  padding-left: 20px;
+  display: inline-block;
 }
 }
