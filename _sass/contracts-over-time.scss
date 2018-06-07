@@ -514,7 +514,8 @@
   width: 70vw;
 }
 .tlegends {
-  float:right;
+  display: inline-flex;
+  padding: 20px;
 }
 #svg-2 > g > g:nth-child(2) > g:nth-child(4) > text,
 #svg-2 > g > g:nth-child(2) > g:nth-child(8) > text{

@@ -77,9 +77,14 @@ const barchartModule = (function() {
       .attr("y", d => y(d.val))
       .attr("height", d => height - y(d.val));
 
+      var TooltipFormatNumberAsText = d =>
+      d3.format("$.2s")(d)
+        .replace("G", " Billion")
+        .replace("M", " Million");
+
       function handleMouseOver(d) {
         tooltipModule.draw("#tooltip", d.fiscalYear, {
-          "Average Spending Value": chartModule.formatNumberAsText(d.val)
+          "Average Spending Value": TooltipFormatNumberAsText(d.val)
         });
       }
   

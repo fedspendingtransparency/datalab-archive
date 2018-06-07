@@ -204,9 +204,14 @@ const multiLinechartModule = (function() {
       });
     }
 
+    var TooltipFormatNumberAsText = d =>
+      d3.format("$.2s")(d)
+        .replace("G", " Billion")
+        .replace("M", " Million");
+
     function handleMouseOver(d, title) {
       tooltipModule.draw("#tooltip", title, {
-        Value: chartModule.formatNumberAsText(d.val)
+        Value: TooltipFormatNumberAsText(d.val)
       });
     }
 
