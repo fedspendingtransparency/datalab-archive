@@ -127,7 +127,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     function DrawVerticalLines(){
         // draw vertical lines
         Object.entries(data.verticalLineData).forEach((l, i) => {
-
+          console.log(l);
+          console.log(i);
            LineChart
             .append("g")
             .attr("class", "vertical-line-paths")
@@ -175,7 +176,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
                 .attr("y", d => d.val-(height*.065))
                 .attr("height", (height*.1)+"px")
                 .attr("width",(width*.15)+"px")
-                .text(() => ` ${l[1][i]["date"]}`);
+                .text((d) => d.date);
 
             LineChart
               .append("g")
