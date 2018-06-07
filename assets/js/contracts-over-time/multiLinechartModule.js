@@ -230,7 +230,7 @@ const multiLinechartModule = (function() {
     // draw gridlines
   chartModule.drawYAxisGridlines(svg, y, width, 10);
 
-  setTimeout(brush.on("brush", brushed),8000);
+  setTimeout(brush.on("brush", brushed),0);
 
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
