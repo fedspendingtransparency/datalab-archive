@@ -100,7 +100,7 @@ const multiLinechartModuleNoDots = (function() {
     if(id === "panel-4"){
         var lineColor = d3
         .scaleOrdinal()
-        .range(["#ED460F", "#6f6f6f"])
+        .range(["#49A5B6", "#F5A623"])
         .domain([0, Object.keys(data.lineData).length - 1]);
     }else if(id === "panel-5"){
         var lineColor = d3

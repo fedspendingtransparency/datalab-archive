@@ -111,7 +111,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
     
     var lineColor = d3
         .scaleOrdinal()
-        .range(["#ED460F", "#6f6f6f"])
+        .range(["#49A5B6", "#F5A623"])
         .domain([0, Object.keys(data.lineData).length - 1]);
  
 
