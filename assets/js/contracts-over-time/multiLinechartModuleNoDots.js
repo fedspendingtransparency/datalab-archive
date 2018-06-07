@@ -90,8 +90,7 @@ const multiLinechartModuleNoDots = (function() {
       .attr("transform", "translate(0," + svgMargin2.top + ")");
 
     var brush = d3.brushX()
-      .extent([[0, 0], [width, height2]])
-      .on("brush", brushed);
+      .extent([[0, 0], [width, height2]]);
 
     var zoom = d3.zoom()
       .scaleExtent([1, Infinity])
@@ -156,7 +155,7 @@ const multiLinechartModuleNoDots = (function() {
       .text("Total Obligations");     
 
     // draw lines
-    function DrawLines(){
+    function DrawLines(t){
       return LineChart
         .append("g")
         .attr("class", "line-paths")
@@ -173,9 +172,11 @@ const multiLinechartModuleNoDots = (function() {
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
         .transition()
-        .duration(0)
+        .duration(t)
         .attr("stroke-dashoffset", "0");
       };
+
+    DrawLines(4000);
 
     context
       .append("g")
@@ -311,6 +312,8 @@ const multiLinechartModuleNoDots = (function() {
 
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
+
+  setTimeout(brush.on("brush", brushed),8000);
 
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom

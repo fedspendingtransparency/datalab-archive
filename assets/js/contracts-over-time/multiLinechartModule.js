@@ -90,8 +90,7 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + svgMargin2.top + ")");
 
     var brush = d3.brushX()
-      .extent([[0, 0], [width, height2]])
-      .on("brush", brushed);
+      .extent([[0, 0], [width, height2]]);
 
     var zoom = d3.zoom()
       .scaleExtent([1, Infinity])
@@ -157,9 +156,30 @@ const multiLinechartModule = (function() {
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
         .transition()
-        .duration(0)
+        .duration(t)
         .attr("stroke-dashoffset", "0");
       };
+
+      DrawLines(4000);
+
+    var TooltipFormatNumberAsText = d =>
+      d3.format("$.2s")(d)
+        .replace("G", " Billion")
+        .replace("M", " Million");
+
+    function handleMouseOver(d, title) {
+      tooltipModule.draw("#tooltip", title, {
+        Value: TooltipFormatNumberAsText(d.val)
+      });
+    }
+
+    function handleMouseOut() {
+      tooltipModule.remove("#tooltip");
+    }
+
+    function handleMouseMove() {
+      tooltipModule.move("#tooltip");
+    }
 
     context
       .append("g")
@@ -181,7 +201,7 @@ const multiLinechartModule = (function() {
       .attr("stroke-dashoffset", "0");
 
     // draw data points
-    function DrawPoints(){
+    function DrawPoints(t){
       Object.entries(data.lineData).forEach((l, i) => {
           
         LineChart
@@ -197,34 +217,20 @@ const multiLinechartModule = (function() {
           .attr("cx", d => x(d.parsedDate))
           .attr("cy", d => y(d.val))
           .attr("r", 3)
-          // .attr("fill-opacity", "")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
-          .on("mousemove", handleMouseMove);
+          .on("mousemove", handleMouseMove)
+          .transition()
+          .duration(t);
       });
     }
-
-    var TooltipFormatNumberAsText = d =>
-      d3.format("$.2s")(d)
-        .replace("G", " Billion")
-        .replace("M", " Million");
-
-    function handleMouseOver(d, title) {
-      tooltipModule.draw("#tooltip", title, {
-        Value: TooltipFormatNumberAsText(d.val)
-      });
-    }
-
-    function handleMouseOut() {
-      tooltipModule.remove("#tooltip");
-    }
-
-    function handleMouseMove() {
-      tooltipModule.move("#tooltip");
-    }
+  
+    DrawPoints(4000);
 
     // draw gridlines
-    chartModule.drawYAxisGridlines(svg, y, width, 10);
+  chartModule.drawYAxisGridlines(svg, y, width, 10);
+
+  setTimeout(brush.on("brush", brushed),8000);
 
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
@@ -237,7 +243,7 @@ const multiLinechartModule = (function() {
         .scale(width / (s[1] - s[0]))
         .translate(-s[0], 0));
     LineChart.selectAll('.data-point').remove();
-    DrawPoints();
+    DrawPoints(0);
   }
 
   function getSubTitle(id){
