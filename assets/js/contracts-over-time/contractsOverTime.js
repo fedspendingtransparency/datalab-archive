@@ -79,7 +79,7 @@ $(function() {
 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
-    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .2);
+    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);
 
     $("#scroll-breakpoint-1").css("z-index",-10);
     $("#scroll-breakpoint-2").css("z-index",-10);

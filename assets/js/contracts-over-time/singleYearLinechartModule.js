@@ -80,7 +80,7 @@ const singleYearLinechartModule = (function() {
 
     var lineColor = d3
       .scaleLinear()
-      .range(["#027693", "#db5000", "#FFC8BA", "#B5D8EB"])
+      .range(["#027693"])
       .domain([0, Object.keys(data.lineData).length - 1])
       .interpolate(d3.interpolateHcl);
 
@@ -101,7 +101,7 @@ const singleYearLinechartModule = (function() {
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
         .transition()
-        .duration(0)
+        .duration(4000)
         .attr("stroke-dashoffset", "0");
 
     // draw data points
