@@ -1,11 +1,6 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
+ 
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -79,7 +74,7 @@ $(function() {
 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
-    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .3);
+    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .5);
 
     $("#scroll-breakpoint-1").css("z-index",-10);
     $("#scroll-breakpoint-2").css("z-index",-10);
