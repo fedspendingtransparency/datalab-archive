@@ -38,6 +38,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     // Add SVG
     var svg = d3
       .select("#svg-3")
+      .html('<defs><clipPath id="clipPath"><rect x="0" y="0" width="1024" height="495"></rect></clipPath></defs>')
       .append("g")
       .attr('class','frame')
       .attr('max-width','70%')
@@ -88,7 +89,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
     var LineChart = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(0,0)");
+      .attr("transform", "translate(0,0)")
+      .style("clip-path", "url(#clipPath)");
 
     var focus = svg.append("g")
       .attr("class", "focus")
