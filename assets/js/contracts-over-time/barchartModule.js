@@ -129,7 +129,7 @@ const barchartModule = (function() {
       .attr("dy", "0vw")
       .style("font-size","15px")
       .style("text-anchor", "middle")
-      .text("Total Obligations");    
+      .text("Total Contract Dollars Awarded");    
       
     var subTitle = d3.select('.subTitleDiv')
       .append("div")

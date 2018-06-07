@@ -152,7 +152,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
       .attr("dy", "0vw")
       .style("font-size","15px")
       .style("text-anchor", "middle")
-      .text("Total Obligations");     
+      .text("Contract Dollars Awarded by Week");     
 
     // draw lines
     function DrawLines(){

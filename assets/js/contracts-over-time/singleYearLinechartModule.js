@@ -76,7 +76,7 @@ const singleYearLinechartModule = (function() {
       .attr("dy", "0vw")
       .style("font-size","15px")
       .style("text-anchor", "middle")
-      .text("Total Obligations");     
+      .text("Contract Dollars Awarded by Week");     
 
     var lineColor = d3
       .scaleLinear()
