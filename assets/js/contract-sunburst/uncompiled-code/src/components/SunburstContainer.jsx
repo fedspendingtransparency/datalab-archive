@@ -218,10 +218,10 @@ class SunburstContainer extends Component {
         console.log("something went wrong", { selected });
     }
     
-    window.Analytics.event({
-        category: 'Contract Explorer - Click Node',
-        action: selectedName
-    });
+    // window.Analytics.event({
+    //     category: 'Contract Explorer - Click Node',
+    //     action: selectedName
+    // });
 
     window.history.replaceState(null, null, jsonToQueryString({search: selectedName}));
 
@@ -280,10 +280,10 @@ class SunburstContainer extends Component {
 
       let node = activePanelNode.children[0];
       
-      window.Analytics.event({
-        category: 'Contract Explorer - Search Node',
-        action: sunburstFilterByText
-      });
+      // window.Analytics.event({
+      //   category: 'Contract Explorer - Search Node',
+      //   action: sunburstFilterByText
+      // });
 
       window.history.replaceState(null, null, jsonToQueryString({search: selected}));
 
@@ -337,18 +337,10 @@ class SunburstContainer extends Component {
       handleMouseMove
     } = this;
 
-    let searchbarSuggestions;
-    switch (this.state.searchbarOptionSelected) {
-      case "Agencies":
-        searchbarSuggestions = this.state.searchbarSuggestions.Agencies;
-        break;
-      case "Contractors":
-        searchbarSuggestions = this.state.searchbarSuggestions.Contractors;
-        break;
-      default:
-        console.log("option not accounted for");
-    }
+    let searchbarSuggestions = this.state.searchbarSuggestions.Agencies
+        .concat(this.state.searchbarSuggestions.Contractors);
 
+        
     return (
       <div>
         <SunburstSearchbar
