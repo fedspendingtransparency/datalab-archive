@@ -1,6 +1,12 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
 
     function setDimsOfSvg(id) {
