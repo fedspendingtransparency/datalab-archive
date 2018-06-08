@@ -38,7 +38,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     // Add SVG
     var svg = d3
       .select("#svg-3")
-      .html('<defs><clipPath id="clipPath"><rect x="0" y="0" width="1024" height="495"></rect></clipPath></defs>')
+      .html(`<defs><clipPath id="clipPath"><rect x="0" y="0" width=${width} height=${height}></rect></clipPath></defs>`)
       .append("g")
       .attr('class','frame')
       .attr('max-width','70%')
@@ -109,10 +109,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
       .translateExtent([[0, 0], [width, height]])
       .extent([[0, 0], [width, height]]);
 
-        var lineColor = d3
-        .scaleOrdinal()
-        .range(["#027693"])
-        .domain([0, Object.keys(data.lineData).length - 1]);
+    var lineColor = d3
+      .scaleOrdinal()
+      .range(["#027693"])
+      .domain([0, Object.keys(data.lineData).length - 1]);
 
     var verticalLineColor = d3
       .scaleOrdinal()

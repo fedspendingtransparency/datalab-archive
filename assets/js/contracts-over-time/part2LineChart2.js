@@ -38,7 +38,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
     // Add SVG
     var svg = d3
       .select("#svg-4")
-      .html('<defs><clipPath id="clipPath2"><rect x="0" y="0" width="1024" height="495"></rect></clipPath></defs>')
+      .html(`<defs><clipPath id="clipPath2"><rect x="0" y="0" width=${width} height=${height}></rect></clipPath></defs>`)
       .append("g")
       .attr('class','frame')
       .attr('max-width','70%')
