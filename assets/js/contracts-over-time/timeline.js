@@ -1,5 +1,15 @@
 ---
 ---
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
 
     $("#svg-2").empty();
@@ -323,11 +333,15 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","0px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","0");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(3) > line").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(5) > rect").style("opacity","0");
     }else if(d === "Budget Legislation"){
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","0px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","0");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(4) > line").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(6) > rect").style("opacity","0");
     }
   })
   .on("mouseout",() => {
@@ -337,6 +351,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","1");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","1");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(3) > line").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(5) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(4) > line").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(6) > rect").style("opacity","1");
     }); 
 });
     
