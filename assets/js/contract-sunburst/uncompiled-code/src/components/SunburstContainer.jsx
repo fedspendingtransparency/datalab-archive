@@ -340,23 +340,24 @@ class SunburstContainer extends Component {
     let searchbarSuggestions = this.state.searchbarSuggestions.Agencies
         .concat(this.state.searchbarSuggestions.Contractors);
 
-        
+
     return (
       <div>
-        <SunburstSearchbar
-          unfilteredSearchbarSuggestions={unfilteredSearchbarSuggestions}
-          searchbarSuggestions={searchbarSuggestions}
-          searchbarText={searchbarText}
-          handleSearchbarSelect={handleSearchbarSelect}
-          handleSearchbarTextChange={handleSearchbarTextChange}
-          setSearchbarSuggestions={setSearchbarSuggestions}
-          staticData={staticData}
-          clearSunburstFilters={clearSunburstFilters}
-          searchbarOptionSelected={searchbarOptionSelected}
-          handleSearchbarOptionChange={handleSearchbarOptionChange}
-        />
+
         <div className="sunburst-panel-grid">
           <div className="sunburst-panel-col">
+            <SunburstSearchbar
+            unfilteredSearchbarSuggestions={unfilteredSearchbarSuggestions}
+            searchbarSuggestions={searchbarSuggestions}
+            searchbarText={searchbarText}
+            handleSearchbarSelect={handleSearchbarSelect}
+            handleSearchbarTextChange={handleSearchbarTextChange}
+            setSearchbarSuggestions={setSearchbarSuggestions}
+            staticData={staticData}
+            clearSunburstFilters={clearSunburstFilters}
+            searchbarOptionSelected={searchbarOptionSelected}
+            handleSearchbarOptionChange={handleSearchbarOptionChange}
+          />
             <SunburstPanel
               activePanelNode={activePanelNode}
               sunburstFilterByText={sunburstFilterByText}
