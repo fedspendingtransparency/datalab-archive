@@ -253,12 +253,13 @@
   cursor: pointer;
 }
 .blue-banner1 {
-	height: 600px;
-  margin-left: -220px;
+  position: absolute;
+  height: 600px;
   margin-top: -100px;
+  margin-left: -159px;
   width: 121%;
   background-color: #F0F0F0;
-  transform: rotateX(24deg) rotateY(23deg);
+  transform: rotateX(24deg) rotateY(23deg) translateZ(-216px);
 }
 .blue-banner-subheader1 {
   height: 70px;	
@@ -296,9 +297,8 @@
 }
 
 .blue-banner-container1 {
+  position: relative;
   padding: 50px;
-  margin: 0 0 0 180px;
-  transform: rotateX(24deg) rotateY(-23deg);
 }
 
 .part2{
@@ -308,9 +308,16 @@
 
 .part2Container{
   background: #FFF;
-  width:100%;
-  height:100%;
-  padding-top: 56px;
+  width: 100%;
+  height: 100%;
+  margin-top: -100px;
+  display: block;
+}
+.part2Container2{
+  background: #FFF;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .part2Header{
   // width:75%;
@@ -332,6 +339,7 @@
   margin: 50px auto 17px;
 }
 .part2HeaderDescription{
+  display: block;
   height: 125px;	
   // width: 100%;	
   color: #666666;	
