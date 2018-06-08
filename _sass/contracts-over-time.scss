@@ -116,6 +116,7 @@
 
  .panel-text {
   margin: 10px 20px 10px 30px;
+  display: block;
   background: #fff;
   padding: 20px 20px;
   color: #5B616B;	
@@ -261,7 +262,7 @@
 }
 .blue-banner-subheader1 {
   height: 70px;	
-  width: 1200px;	// // // // // //
+  width: 1037px;
   color: #4A4A4A;	
   font-family: "Source Sans Pro";	
   font-size: 40px;	
@@ -269,6 +270,14 @@
   line-height: 70px;	
   text-align: center;	
   margin: 100px auto auto auto;
+}
+.blue-banner-link1 {
+  margin: 220px auto;
+  display: block;
+  cursor: pointer;
+  width: 53px;
+  z-index: 500;
+  line-height: 53px;
 }
 .blue-banner-subdivider1 {
 	height: 1px;
