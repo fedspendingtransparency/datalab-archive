@@ -3,22 +3,17 @@
 
 d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
 
-  const reduce = Function.bind.call(Function.call, Array.prototype.reduce);
-  const isEnumerable = Function.bind.call(Function.call, Object.prototype.propertyIsEnumerable);
-  const concat = Function.bind.call(Function.call, Array.prototype.concat);
-  const keys = Reflect.ownKeys;
+  if (!Object.entries)
+  Object.entries = function( obj ){
+    var ownProps = Object.keys( obj ),
+        i = ownProps.length,
+        resArray = new Array(i); // preallocate the Array
+    while (i--)
+      resArray[i] = [ownProps[i], obj[ownProps[i]]];
 
-  if (!Object.values) {
-  Object.values = function values(O) {
-    return reduce(keys(O), (v, k) => concat(v, typeof k === 'string' && isEnumerable(O, k) ? [O[k]] : []), []);
+    return resArray;
   };
-  }
 
-  if (!Object.entries) {
-  Object.entries = function entries(O) {
-    return reduce(keys(O), (e, k) => concat(e, typeof k === 'string' && isEnumerable(O, k) ? [[k, O[k]]] : []), []);
-  };
-  }
 
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
