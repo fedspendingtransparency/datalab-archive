@@ -22,10 +22,12 @@
     cursor: pointer;
   }
   .overlay{
+    /*
     width: 100%;
     height: 100%;
+    fill: none;
+    */
     background-color:inherit;
-    /*fill: none;*/
     pointer-events: all;
   }
   button {
