@@ -341,8 +341,8 @@
   margin: 50px auto 17px;
 }
 .part2HeaderDescription{
-  display: -webkit-box;
   display: block;
+  display: -webkit-box;
   height: 125px;	
   // width: 100%;	
   color: #666666;	
@@ -406,10 +406,11 @@
 .carousel{
   float: right;
   width: 28vw;
-  height: 667px;
+  height: inherit;
   border-radius: 0 5px 5px 0;	
   background-color: #F0F0F0;
   margin-top: -20px;
+  box-shadow: -20px 0px 67px -15px #aaaaaa;
 }
 /* Next & previous buttons */
 .prev, .next {
@@ -490,7 +491,7 @@
 }
 .carouselTextContainer{
   background: white;
-  height: 460px;
+  height: 490px;
   width: 100%;
   margin: auto;
 }
