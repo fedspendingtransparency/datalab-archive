@@ -4,7 +4,7 @@ import { findColor } from "helpers/d3Helpers.js";
 
 const width = 600, height = 50, homeColor = "#923068";
 const  b = {
-    w: 125, h: 30, s: 3, t: 10
+    w: 125, h: 30, s: 3, t: 10, homeW: 40
   };
 var handleClick, handleHover, handleUnhover;
 
@@ -103,7 +103,10 @@ const updateBreadcrumbs = (colors, root) => {
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
       .attr("fill", "white")
-      .text(function(d) { return String(d.name)
+      .attr("font-family", d => {if (d.depth === 0) return 'FontAwesome'; return  '';})
+      .text(function(d) { 
+        if(d.depth === 0) return '\uf015'; 
+        return String(d.name)
         .substring(0,4)
         .trimRight() + "..." +
         String(d.name).substr(String(d.name).length-4);})
