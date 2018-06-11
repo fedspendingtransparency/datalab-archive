@@ -187,7 +187,8 @@ const multiLinechartModuleNoDots = (function() {
       .duration(0)
       .attr("stroke-dashoffset", "0");
 
-    // draw data points
+
+      // draw data points
     function DrawPoints(){
       Object.entries(data.lineData).forEach((l, i) => {
           
@@ -202,13 +203,15 @@ const multiLinechartModuleNoDots = (function() {
           .style("stroke", (d, i) => lineColor(i))
           .attr("cx", d => x(d.parsedDate))
           .attr("cy", d => y(d.val))
-          .attr("r", 2)
+          .attr("r", 3)
           .attr("opacity", "0")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
           .on("mousemove", handleMouseMove);
       });
     }
+
+    DrawPoints();
 
     var TooltipFormatNumberAsText = d =>
     d3.format("$.2s")(d)
@@ -318,7 +321,7 @@ const multiLinechartModuleNoDots = (function() {
         .scale(width / (s[1] - s[0]))
         .translate(-s[0], 0));
     LineChart.selectAll('.data-point').remove();
-    DrawPoints(0);
+    DrawPoints();
   }
 
   function getSubTitle(id){

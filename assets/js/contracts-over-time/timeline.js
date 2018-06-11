@@ -196,7 +196,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     // draw data points
     function DrawPoints(){
       Object.entries(data.verticalLineData).forEach((l, i) => {
-          console.log("i ",i);
+
         LineChart
           .append("g")
           .attr("class", "data-points")
@@ -311,7 +311,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
   k.insert("text").attr("class","title").text(function(d,i) { return d } );
 
   k.on("mouseover",(d) => {
-      console.log(d);
     if(d === "Continuing Resolution"){
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","0px");
