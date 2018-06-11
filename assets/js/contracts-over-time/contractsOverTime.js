@@ -52,21 +52,14 @@ $(function() {
     }
   ];
 
-  // ,
-  //   {
-  //     id: "panel-6",
-  //     module: multiLinechartModuleNoDots,
-  //     dataset: "panel6",
-  //     xAxis: "Fiscal Year 2007 - 2017"
-  //   }
-
   function setDimsOfSvg(id) {
     const windowWidth = $(window).width();
     const windowHeight = $(window).height();
     const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth - 2 * windowMargin;
+    const svgWidth = windowWidth;
+
 
     $(id)
       .attr("height", svgHeight)

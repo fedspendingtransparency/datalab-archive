@@ -149,16 +149,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
 
     focus.append("g")
       .attr("class", "axis axis--y")
-      .call(yAxis);
-
-    focus.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y",'-110px')
-      .attr("x",0 - (height / 2))
-      .attr("dy", "0vw")
-      .style("font-size","15px")
-      .style("text-anchor", "middle")
-      .text("Contract Dollars Awarded by Week");     
+      .call(yAxis); 
 
     // draw lines
     function DrawLines(){

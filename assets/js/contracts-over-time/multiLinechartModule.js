@@ -8,10 +8,10 @@ const multiLinechartModule = (function() {
     $('.legend').empty();
     $("#svg-1").empty();
 
-    const svgMargin = { top: 20, right: 0, bottom: 80, left: 40 },
+    const svgMargin = { top: 20, right: 0, bottom: 80, left: 0 },
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
-      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 40},
+      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 0},
       width = $("#svg-1").width(),   
       legendHeight = 50;
 
@@ -127,16 +127,7 @@ const multiLinechartModule = (function() {
 
     focus.append("g")
       .attr("class", "axis axis--y")
-      .call(yAxis);
-
-    focus.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y",'-110px')
-      .attr("x",0 - (height / 2))
-      .attr("dy", "0vw")
-      .style("font-size","15px")
-      .style("text-anchor", "middle")
-      .text("Contract Dollars Awarded by Week");     
+      .call(yAxis);   
 
     // draw lines
     function DrawLines(t){
@@ -217,6 +208,7 @@ const multiLinechartModule = (function() {
           .attr("cx", d => x(d.parsedDate))
           .attr("cy", d => y(d.val))
           .attr("r", 3)
+          .attr("opacity", "0")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
           .on("mousemove", handleMouseMove)
