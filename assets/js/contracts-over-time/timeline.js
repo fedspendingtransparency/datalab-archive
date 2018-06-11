@@ -137,8 +137,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     function DrawVerticalLines(){
         // draw vertical lines
         Object.entries(data.verticalLineData).forEach((l, i) => {
-          console.log(l);
-          console.log(i);
+        
            LineChart
             .append("g")
             .attr("class", "vertical-line-paths")
@@ -296,15 +295,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .style("opacity","1")
             .style("z-index","999");
 
-    // draw gridlines
-    // chartModule.drawYAxisGridlines(svg, y, width, 10);
-
   function brushed() {
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
-    // LineChart.selectAll('.line').remove();
     d3.selectAll("#svg-2 > g > g:nth-child(2) > g").remove();
-    // DrawLines(0);
     DrawVerticalLines();
     focus.select(".axis--x").call(xAxis);
     LineChart.selectAll('.data-point').remove();

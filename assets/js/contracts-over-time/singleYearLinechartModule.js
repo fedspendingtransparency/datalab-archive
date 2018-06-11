@@ -8,7 +8,7 @@ const singleYearLinechartModule = (function() {
     $('.legend').empty();
     $("#svg-1").empty();
 
-    const svgMargin = { top: 0, right: 0, bottom: 30, left: 40 },
+    const svgMargin = { top: 0, right: 0, bottom: 30, left: 0 },
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 50,
       legendHeight = 33;
@@ -67,16 +67,7 @@ const singleYearLinechartModule = (function() {
 
     svg.append("g")
       .attr("class", "axis axis--y")
-      .call(yAxis);
-
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y",'-110px')
-      .attr("x",0 - (height / 2))
-      .attr("dy", "0vw")
-      .style("font-size","15px")
-      .style("text-anchor", "middle")
-      .text("Contract Dollars Awarded by Week");     
+      .call(yAxis);   
 
     var lineColor = d3
       .scaleLinear()
