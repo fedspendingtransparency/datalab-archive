@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   {% include head.html %}
+  {% include scripts.html %}
   <body class="landing">
     <div id="page-wrapper">
         {% include header.html %}
         <span id="return-to-top">{% include svgs/chevron-up.svg class="icon-chevron-up" %}</span>
         {{ content }}
         {% include footer.html %}
-        {% include scripts.html %}
     </div>
     {% include sidenav.html %}
   </body>
