@@ -114,13 +114,6 @@ const barchartModule = (function() {
       .transition()
       .duration(800)
       .style("opacity", 1);
-
-    svg.append("text")             
-      .attr("transform","translate(" + (width/2) + " ," + (height+50) + ")")
-      .style("text-anchor", "middle")
-      .attr("dx", "0vw")
-      .style("font-size","15px")   
-      .text("Fiscal Year 2007 - 2017");
       
     var subTitle = d3.select('.subTitleDiv')
       .append("div")

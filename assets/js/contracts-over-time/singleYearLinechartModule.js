@@ -57,13 +57,6 @@ const singleYearLinechartModule = (function() {
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-    svg.append("text")             
-      .attr("transform","translate(" + (width/2) + " ," + (height+50) + ")")
-      .style("text-anchor", "middle")
-      .attr("dx", "0vw")
-      .style("font-size","15px") 
-      .text(axisText);
-
     svg.append("g")
       .attr("class", "axis axis--y")
       .call(yAxis);   

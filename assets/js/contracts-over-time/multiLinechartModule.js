@@ -108,13 +108,6 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
-    context.append("text")             
-      .attr("transform","translate(" + (width/2) + " , 125)")
-      .style("text-anchor", "middle")
-      .style("font-size","15px")
-      .attr("dx", "0vw")
-      .text(axisText);
-
     context.append("g")
       .attr("class", "brush")
       .call(brush)
