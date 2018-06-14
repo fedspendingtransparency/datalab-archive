@@ -1569,7 +1569,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
                                         `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
                                         `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">BEDS AVAILABLE:</th></tr>` +
+                                        `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
                                         `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
                                     }
 
