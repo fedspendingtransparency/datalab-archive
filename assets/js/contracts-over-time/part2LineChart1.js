@@ -241,6 +241,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
             .attr("y2", 0)
+            .on("mouseover",(d) => vertToolTip(d,l[0]))
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
@@ -251,6 +252,16 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
         });
     }
   
+  function vertToolTip(x,d){
+    console.log("x: ",x);
+    console.log("d: ",d);
+    
+  }
+
+  function removeVertTip(){
+
+  }
+
   if(data.verticalLineData["Budget Legislation"]){
     
     context

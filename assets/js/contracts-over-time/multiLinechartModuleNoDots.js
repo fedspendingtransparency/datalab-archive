@@ -386,41 +386,21 @@ const multiLinechartModuleNoDots = (function() {
       d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
       d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","0px");
       d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-    }else if (d === "Facilities, Equipment & Construction"){
+    }else if (d === "Weapons & Ammunition"){
       d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
       d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-    }else if (d === "Information Technology & Electronics"){
+    }else if (d === "Professional Services, Education & Training"){
       d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
       d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-    }else if (d === "Miscellaneous S&E, Clothing, Textiles"){
+    }else if (d === "Facilities, Equipment & Construction"){
       d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
       d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-    }else if (d === "Professional Services, Education & Training"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
-    }else if (d === "Research and Development"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
-    }else if (d === "Transportation and Logistics Services"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(6)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(6)").style("stroke-width","1px");
-    }else if (d === "Weapons & Ammunition"){
-      d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g > g.line-paths > path:nth-child(7)").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g.context > g.line-paths > path").style("stroke-width","0px");
-      d3.select("#svg-1 > g > g.context > g.line-paths > path:nth-child(7)").style("stroke-width","1px");
     }
   })
   .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
