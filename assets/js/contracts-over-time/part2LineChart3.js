@@ -110,7 +110,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
     
     var lineColor = d3
         .scaleOrdinal()
-        .range(["#009292","#9C27B0","#FF7043","#E91E63"])
+        .range(["#009292","#9C27B0","#FF7043","#E91E63","#F5A623"])
         .domain([0, Object.keys(data.lineData).length - 1]);
 
     var verticalLineColor = d3
@@ -256,7 +256,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')
-        .style("stroke","#FF7C7E")
+        .style("stroke","#6F6F6F")
         .attr("x1", d => x(d.parsedDate))
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
@@ -277,7 +277,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
         .enter()
         .append("line")
         .attr("class", '.vertical-line-1')
-        .style("stroke","#6F6F6F")
+        .style("stroke","#FF7C7E")
         .attr("x1", d => x(d.parsedDate))
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
@@ -347,26 +347,31 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
 });
   
   p.on("mouseover",(d) => {
-    if (d === "Equipment/Facilities/Construction/Vehicles"){
+    if (d === "Professional Services, Education & Training"){
       d3.selectAll("#svg-5 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
       d3.selectAll("#svg-5 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g.context > g.line-paths > path:nth-child(1)").style("stroke-width","1px");
-    }else if (d === "Professional Services"){
+    }else if (d === "Facilities, Equipment & Construction"){
       d3.selectAll("#svg-5 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
       d3.selectAll("#svg-5 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g.context > g.line-paths > path:nth-child(2)").style("stroke-width","1px");
-    }else if (d === "Telecomm & IT"){
+    }else if (d === "Information Technology & Electronics"){
       d3.selectAll("#svg-5 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
       d3.selectAll("#svg-5 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g.context > g.line-paths > path:nth-child(3)").style("stroke-width","1px");
-    }else if (d === "Weapons"){
+    }else if (d === "Miscellaneous S&E, Clothing, Textiles"){
       d3.selectAll("#svg-5 > g > g > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
       d3.selectAll("#svg-5 > g > g.context > g.line-paths > path").style("stroke-width","0px");
       d3.select("#svg-5 > g > g.context > g.line-paths > path:nth-child(4)").style("stroke-width","1px");
+    }else if (d === "Transportation and Logistics Services"){
+      d3.selectAll("#svg-5 > g > g > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-5 > g > g > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
+      d3.selectAll("#svg-5 > g > g.context > g.line-paths > path").style("stroke-width","0px");
+      d3.select("#svg-5 > g > g.context > g.line-paths > path:nth-child(5)").style("stroke-width","1px");
     }
   })
   .on("mouseout",() => d3.selectAll("#svg-5 > g > g > g.line-paths > path").style("stroke-width","1px"));

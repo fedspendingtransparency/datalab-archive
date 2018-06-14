@@ -116,7 +116,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       .call(brush.move, x.range());
 
     setTimeout(function() {
-      contextG.call(brush.move, [350, 505]);
+      contextG.call(brush.move, [325, 455]);
     }, 2000);
     
     focus.append("g")
