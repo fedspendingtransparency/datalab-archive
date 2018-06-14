@@ -1,6 +1,13 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();

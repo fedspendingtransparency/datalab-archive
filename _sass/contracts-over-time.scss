@@ -4,7 +4,14 @@
     margin: 0;
     padding: 0;
   }
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
   .left {
     height: 800px;
     width: 32%;
@@ -545,7 +552,7 @@ z-index: 9999;
 .carouselInner{
   width:100%;
 }
-.dot1, .dot2, .dot3 {
+.dot1, .dot2, .dot3, .dot4 {
   cursor: pointer;
   height: 15px;
   width: 15px;
@@ -556,7 +563,7 @@ z-index: 9999;
   transition: background-color 0.6s ease;
 }
 
-.active, .dot1:hover, .dot2:hover, .dot3:hover {
+.active, .dot1:hover, .dot2:hover, .dot3:hover,.dot4:hover {
   background-color: #4A90E2;
 }
 /* Next & previous buttons */
@@ -605,7 +612,7 @@ z-index: 9999;
   background: #4A90E2;
   border-radius: 50%;
 }
-#svg-3, #svg-4, #svg-5{
+#svg-3, #svg-4, #svg-5,#svg-6{
   overflow: visible;
 }
 .control-group1{
