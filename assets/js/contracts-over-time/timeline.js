@@ -1,6 +1,16 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
     $("#svg-2").empty();
 
