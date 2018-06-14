@@ -569,7 +569,7 @@ z-index: 9999;
 
 /* Next & previous buttons */
 .prev2, .next2 {
-  width: 100px;
+  width: 200px;
   height: 107px;
   background-color: rgba(74,144,226,0.5);
   cursor: pointer;
@@ -577,6 +577,7 @@ z-index: 9999;
   padding-top: 79px;
   display: block;
   align-self: center;
+  color: #FFF;
 }
 .prev2{
   border-top-right-radius: 110px;
@@ -585,6 +586,7 @@ z-index: 9999;
 .next2 {
   border-top-left-radius: 110px;
   border-bottom-left-radius: 110px;
+  text-align: right;
 }
 
 #svg-3, #svg-4, #svg-5,#svg-6{
