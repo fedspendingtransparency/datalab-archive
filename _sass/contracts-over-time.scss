@@ -547,7 +547,7 @@ fill-opacity: 1;
 z-index: 9999;
 }          
 .carouselPart2{
-  width:100%;
+  display: flex;
 }
 .carouselInner{
   width:100%;
@@ -568,31 +568,23 @@ z-index: 9999;
 }
 
 /* Next & previous buttons */
-.prev2{
+.prev2, .next2 {
   width: 100px;
-    height: 107px;
-    background-color: rgba(74,144,226,0.5);
-    border-top-right-radius: 110px;
-    border-bottom-right-radius: 110px;
-    margin-top: 500px;
-    cursor: pointer;
-    position: absolute;
-    font-size: 72px;
-    padding-top: 79px;
-    display: block;
+  height: 107px;
+  background-color: rgba(74,144,226,0.5);
+  cursor: pointer;
+  font-size: 72px;
+  padding-top: 79px;
+  display: block;
+  align-self: center;
+}
+.prev2{
+  border-top-right-radius: 110px;
+  border-bottom-right-radius: 110px;
 }
 .next2 {
-  width: 100px;
-    height: 107px;
-    background-color: rgba(74,144,226,0.5);
-    border-top-left-radius: 110px;
-    border-bottom-left-radius: 110px;
-    margin-top: 500px;
-    cursor: pointer;
-    position: absolute;
-    font-size: 72px;
-    padding-top: 79px;
-    display: block;
+  border-top-left-radius: 110px;
+  border-bottom-left-radius: 110px;
 }
 
 #svg-3, #svg-4, #svg-5,#svg-6{
