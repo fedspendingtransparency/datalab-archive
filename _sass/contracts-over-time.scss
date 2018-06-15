@@ -561,7 +561,7 @@ z-index: 9999;
 
 /* Next & previous buttons */
 .prev2, .next2 {
-  width: 200px;
+  width: 100px;
   height: 107px;
   background-color: rgba(74,144,226,0.5);
   cursor: pointer;
@@ -581,7 +581,7 @@ z-index: 9999;
   text-align: right;
 }
 
-#svg-3, #svg-4, #svg-5,#svg-6{
+#svg-3, #svg-4, #svg-5, #svg-6{
   overflow: visible;
 }
 .control-group1{
@@ -610,5 +610,11 @@ z-index: 9999;
   font-weight: 600;
   display: block;
   padding-left: 68px;
+}
+.slidecontainer{
+  display: block;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 25px;
 }
 }
