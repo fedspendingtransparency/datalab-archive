@@ -221,7 +221,30 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
     function DrawVerticalLines(){
         // draw vertical lines
+
+        var tip = d3.tip()
+          .attr('class', 'd3-tip')
+          .offset([10, 0])
+          .html(function(d) {
+            return "<span style='color:#FFF; background-color:#000;padding:0 5px;'>" + d.date + "</span>";
+          })
+
+        LineChart.call(tip);
+
         Object.entries(data.verticalLineData).forEach((l, i) => {
+
+          var tip = d3.tip()
+          .attr('class', `d3-tip${i}`)
+          .offset([-5, 0])
+          .html(function(d) {
+            return `<span style='color:#FFF; background-color:${verticalLineColor(i)};padding:0 5px;'>` + d.date + "</span>";
+          })
+
+          LineChart.call(tip);
+
+          d3.selectAll("body > div.d3-tip0").style("color","#FF7C7E");
+          d3.selectAll("body > div.d3-tip1").style("color","#6F6F6F");
+
             LineChart
             .append("g")
             .attr("class", "vertical-line-paths")
@@ -235,8 +258,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
             .attr("y2", 0)
-            // .on('mouseover', tip.show)
-            // .on('mouseout', tip.hide)
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide)
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")

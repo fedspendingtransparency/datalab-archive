@@ -264,11 +264,13 @@
     function initNode() {
       var div = d3Selection.select(document.createElement('div'))
       div
+      .attr('class','d3-tip')
         .style('position', 'absolute')
         .style('top', 0)
         .style('opacity', 0)
         .style('pointer-events', 'none')
         .style('box-sizing', 'border-box')
+        .style('font-size','11px')
 
       return div.node()
     }

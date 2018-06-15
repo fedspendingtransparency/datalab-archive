@@ -1,3 +1,29 @@
+body > div.d3-tip0 ,body > div.d3-tip1{
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px 12px 2px 12px;;
+  border-radius: 2px;
+}
+
+body > div.d3-tip1:after, body > div.d3-tip0:after{
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: inherit;
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+  
+}
+body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+  color:inherit;
+}
+
 .contracts-over-time {
  
   * {
