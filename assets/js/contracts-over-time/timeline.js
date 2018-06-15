@@ -1,16 +1,6 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
 d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
     $("#svg-2").empty();
 
@@ -270,7 +260,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .attr("class", `.vertical-line-tag0`)
             .style("fill", "#6F6F6F")
             .attr("x", d => x(d.parsedDate))
-            .attr("y", d => d.val*.177-(height2*.1))
+            .attr("y", d => d.val*.177-(height2*.15))
             .attr("height", (height2*.1)+"px")
             .attr("width",(width*.025)+"px")
             .style("border-radius", "25px")
@@ -287,7 +277,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .attr("class", `.vertical-line-tag1`)
             .style("fill", "#FF7C7E")
             .attr("x", d => x(d.parsedDate))
-            .attr("y", d => d.val*.177-(height2*.1))
+            .attr("y", d => d.val*.177-(height2*.15))
             .attr("height", (height2*.1)+"px")
             .attr("width",(width*.025)+"px")
             .style("border-radius", "25px")
