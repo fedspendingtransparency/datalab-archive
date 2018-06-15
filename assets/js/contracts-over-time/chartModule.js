@@ -1,6 +1,10 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
 const chartModule = (function() {
   function drawYAxisGridlines(svg, y, width, ticks) {
     svg
@@ -32,7 +36,7 @@ const chartModule = (function() {
   var parseTime = d3.timeParse("%Y-%m-%d");
 
   var formatNumberAsText = d =>
-    d3.format("$.0s")(d)
+    d3.format("$.2s")(d)
       .replace("G", " B")
       .replace("M", " M");
 

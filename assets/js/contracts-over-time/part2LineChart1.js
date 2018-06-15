@@ -1,6 +1,9 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
@@ -25,7 +28,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     
     setDimsOfSvg("#svg-3");
 
-    const svgMargin = { top: 20, right: 0, bottom: 80, left: 75 },
+    const svgMargin = { top: 20, right: 0, bottom: 80, left: 50 },
       height = $("#svg-3").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
       svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 200},
@@ -40,7 +43,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
       .html(`<defs><clipPath id="clipPath"><rect x="0" y="0" width=${width} height=${height}></rect></clipPath></defs>`)
       .append("g")
       .attr('class','frame')
-      .attr('max-width','70%')
       .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>
@@ -236,7 +238,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
             .attr("y2", 0)
-            .on("mouseover",(d) => vertToolTip(d,l[0]))
+            // .on('mouseover', tip.show)
+            // .on('mouseout', tip.hide)
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
@@ -246,16 +249,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
             .attr("stroke-dashoffset", "0");
         });
     }
-  
-  function vertToolTip(x,d){
-    console.log("x: ",x);
-    console.log("d: ",d);
-    
-  }
-
-  function removeVertTip(){
-
-  }
 
   if(data.verticalLineData["Budget Legislation"]){
     
