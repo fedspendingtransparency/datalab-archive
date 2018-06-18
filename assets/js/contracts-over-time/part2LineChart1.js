@@ -348,7 +348,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
 
   var legendWidth = 200;
 
-  $(".part2legend1 > div > label > input:checkbox").on("click", (e) => {
+  $(".part2control-group1 > div > label > input:checkbox").on("click", (e) => {
     const checkedVals = $('.box1:checkbox:checked').map(function () {
         return this.value;
     }).get();

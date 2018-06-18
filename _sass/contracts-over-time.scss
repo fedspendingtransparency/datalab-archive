@@ -643,4 +643,11 @@ z-index: 9999;
   margin: 0 auto;
   padding: 0 25px;
 }
+.legendcontainer{
+  display:block;
+}
+.part2legend1, .part2legend2, .part2legend3, .part2legend4{
+  float: right;
+  display: inline-flex;
+}
 }
