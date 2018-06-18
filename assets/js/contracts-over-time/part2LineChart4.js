@@ -1,6 +1,12 @@
 ---
 ---
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
@@ -88,7 +94,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
     var LineChart = svg.append("g")
       .attr("class", "focus")
       .attr("transform", "translate(0,0)")
-      .style("clip-path", "url(#clipPath3)");
+      .style("clip-path", "url(#clipPath4)");
 
     var focus = svg.append("g")
       .attr("class", "focus")
