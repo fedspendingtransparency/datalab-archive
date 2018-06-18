@@ -73,6 +73,10 @@ $(function() {
     $("#scroll-breakpoint-2").css("z-index",-10);
     $("#scroll-triggerpoint").css("z-index",-10);
 
+    $("#scroll-breakpoint-1").css("overflow","hidden");
+    $("#scroll-breakpoint-2").css("overflow","hidden");
+    $("#scroll-triggerpoint").css("overflow","hidden");
+
     $("<style>")
     .prop("type", "text/css")
     .html(`
