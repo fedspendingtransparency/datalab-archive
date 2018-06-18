@@ -513,53 +513,60 @@ category: nonentry
     <a class="next2" onclick="nextSlide(1)">&#10095;</a>
 
     </div>
+    <script type="text/javascript">var runFancy = true;</script>
+    <!--[if IE]>
+    <script type="text/babel">
+      runFancy = false;
+      var macroIndex=1;showMacroSlides(macroIndex);function nextSlide(n){showMacroSlides(macroIndex+=n)}function showMacroSlides(n){var k;var lchart=document.getElementsByClassName('svgPart2');var macroSlides=document.getElementsByClassName("mySlidesOutter");var microIndex=1;if(n>macroSlides.length){macroIndex=1}if(n<1){macroIndex=macroSlides.length}for(k=0;k<macroSlides.length;k++){macroSlides[k].style.display="none"}for(k=0;k<lchart.length;k++){lchart[k].style.display="none"}macroSlides[macroIndex-1].style.display="block";lchart[macroIndex-1].style.display="block";showMicroSlides(macroIndex,microIndex)}function showMicroSlides(j,n){var h;var microSlides=document.getElementsByClassName(`mySlidesInner${j}`);var dot=document.getElementsByClassName(`dot${j}`);for(h=0;h<microSlides.length;h++){microSlides[h].style.display="none"}for(h=0;h<dot.length;h++){dot[h].className=dot[h].className.replace(" active","")}microSlides[n-1].style.display="block";dot[n-1].className+=" active"}
+    </script>
+    <![endif]-->
+    <script type="text/javascript">
+      if (runFancy) {
+        var macroIndex = 1;
+        showMacroSlides(macroIndex);
 
-    <script>
+        // Next/previous controls
+        function nextSlide(n) {
+          showMacroSlides(macroIndex += n);
+        }
 
-      var macroIndex = 1;
-      showMacroSlides(macroIndex);
+        function showMacroSlides(n) {
+          var k;
+          var lchart = document.getElementsByClassName('svgPart2');
+          var macroSlides = document.getElementsByClassName("mySlidesOutter");
+          var microIndex = 1;
 
-      // Next/previous controls
-      function nextSlide(n) {
-        showMacroSlides(macroIndex += n);
-      }
+          if (n > macroSlides.length) {
+            macroIndex = 1
+          }
+          if (n < 1) {
+            macroIndex = macroSlides.length
+          }
+          for (k = 0; k < macroSlides.length; k++) {
+            macroSlides[k].style.display = "none";
+          }
+          for (k = 0; k < lchart.length; k++) {
+            lchart[k].style.display = "none";
+          }
+          macroSlides[macroIndex - 1].style.display = "block";
+          lchart[macroIndex - 1].style.display = "block";
+          showMicroSlides(macroIndex, microIndex);
+        }
 
-      function showMacroSlides(n) {
-        var k;
-        var lchart = document.getElementsByClassName('svgPart2');
-        var macroSlides = document.getElementsByClassName("mySlidesOutter");
-        var microIndex = 1;
-
-        if (n > macroSlides.length) {
-          macroIndex = 1
+        function showMicroSlides(j, n) {
+          var h;
+          var microSlides = document.getElementsByClassName(`mySlidesInner${j}`);
+          var dot = document.getElementsByClassName(`dot${j}`);
+          for (h = 0; h < microSlides.length; h++) {
+            microSlides[h].style.display = "none";
+          }
+          for (h = 0; h < dot.length; h++) {
+            dot[h].className = dot[h].className.replace(" active", "");
+          }
+          microSlides[n - 1].style.display = "block";
+          dot[n - 1].className += " active";
         }
-        if (n < 1) {
-          macroIndex = macroSlides.length
         }
-        for (k = 0; k < macroSlides.length; k++) {
-          macroSlides[k].style.display = "none";
-        }
-        for (k = 0; k < lchart.length; k++) {
-          lchart[k].style.display = "none";
-        }
-        macroSlides[macroIndex - 1].style.display = "block";
-        lchart[macroIndex - 1].style.display = "block";
-        showMicroSlides(macroIndex, microIndex);
-      }
-
-      function showMicroSlides(j, n) {
-        var h;
-        var microSlides = document.getElementsByClassName(`mySlidesInner${j}`);
-        var dot = document.getElementsByClassName(`dot${j}`);
-        for (h = 0; h < microSlides.length; h++) {
-          microSlides[h].style.display = "none";
-        }
-        for (h = 0; h < dot.length; h++) {
-          dot[h].className = dot[h].className.replace(" active", "");
-        }
-        microSlides[n - 1].style.display = "block";
-        dot[n - 1].className += " active";
-      }
     </script>
     <script type="text/javascript">
       if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
