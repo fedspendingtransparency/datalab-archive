@@ -23,7 +23,14 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   left: 0;
   color:inherit;
 }
-
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 .contracts-over-time {
  
   * {
@@ -648,6 +655,9 @@ z-index: 9999;
 }
 .part2legend1, .part2legend2, .part2legend3, .part2legend4{
   float: right;
+  display: inline-block;
+}
+.part2control-group1,.part2control-group2,.part2control-group3,.part2control-group4{
   display: inline-flex;
 }
 }
