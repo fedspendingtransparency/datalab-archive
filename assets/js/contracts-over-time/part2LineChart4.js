@@ -344,7 +344,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
         return this.value;
     }).get();
 
-    console.log("checked vals: ", checkedVals);
     if(checkedVals.length===2){
         d3.selectAll("#svg-6 > g > g:nth-child(1) > g:nth-child(3) > line").style("stroke-width","1px");
         d3.selectAll("#svg-6 > g > g:nth-child(1) > g:nth-child(2) > line").style("stroke-width","1px");
