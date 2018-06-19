@@ -1,13 +1,23 @@
 ---
 ---
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 
 d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
-        const windowMargin = 100;
+        const windowMargin = 50;
     
-        const svgHeight = windowHeight - windowMargin;
+        const svgHeight = windowHeight - 5 * windowMargin;
         const svgWidth = windowWidth - 4 * windowMargin;
     
         $(id)
@@ -27,7 +37,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel9.json', (data) => {
 
     const svgMargin = { top: 20, right: 25, bottom: 80, left: 45 },
       height = $("#svg-4").height() - svgMargin.top - svgMargin.bottom - 55,
-      height2 = 80,
+      height2 = 50,
       svgMargin2 = {top: (height+20), right: 25, bottom: "auto", left: 45},
       width = $("#svg-4").width() - svgMargin.right - svgMargin.left,
       legendHeight = 50;
