@@ -1,17 +1,11 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
 d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
-        const windowMargin = 50;
+        const windowMargin = 100;
     
         const svgHeight = windowHeight - windowMargin;
         const svgWidth = windowWidth - 4 * windowMargin;
