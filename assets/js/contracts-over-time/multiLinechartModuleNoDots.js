@@ -27,9 +27,6 @@ const multiLinechartModuleNoDots = (function() {
     Object.entries(data.lineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
     );
-    Object.entries(data.verticalLineData).forEach(d =>
-      d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
-    );
 
     const combinedLineData = Object.entries(data.lineData).reduce((a, c) => {
       const a2 = [...a, ...c[1]];
@@ -112,11 +109,6 @@ const multiLinechartModuleNoDots = (function() {
         .range(["#027693"])
         .domain([0, Object.keys(data.lineData).length - 1]);
     }
-
-    var verticalLineColor = d3
-      .scaleOrdinal()
-      .range(["#FF7C7E","#6F6F6F"])
-      .domain([0, Object.keys(data.verticalLineData).length - 1]);
 
     context.append("g")
       .attr("class", "axis axis--x")
@@ -225,77 +217,6 @@ const multiLinechartModuleNoDots = (function() {
       tooltipModule.move("#tooltip");
     }
 
-    function DrawVerticalLines(){
-        // draw vertical lines
-        Object.entries(data.verticalLineData).forEach((l, i) => {
-            LineChart
-            .append("g")
-            .attr("class", "vertical-line-paths")
-            .selectAll(`.vertical-line-${i}`)
-            .data(l[1])
-            .enter()
-            .append("line")
-            .attr("class", `.vertical-line-${i}`)
-            .style("stroke", () => verticalLineColor(i))
-            .attr("x1", d => x(d.parsedDate))
-            .attr("y1", height)
-            .attr("x2", d => x(d.parsedDate))
-            .attr("y2", 0)
-            .style("stroke-dasharray", ("3,3"))
-            .attr("stroke-dashoffset", d => d.totalLength)
-            .style("stroke-width","1px")
-            .style("stroke-opacity",".6")
-            .transition()
-            .duration(0)
-            .attr("stroke-dashoffset", "0");
-        });
-    }
-  
-  if(data.verticalLineData["Budget Legislation"]){
-    
-    context
-        .append("g")
-        .attr("class", "vertical-line-paths")
-        .selectAll('.vertical-line-0')
-        .data(data.verticalLineData["Budget Legislation"])
-        .enter()
-        .append("line")
-        .attr("class", '.vertical-line-0')
-        .style("stroke","#FF7C7E")
-        .attr("x1", d => x(d.parsedDate))
-        .attr("y1", height2)
-        .attr("x2", d => x(d.parsedDate))
-        .attr("y2", d => d.val*.177)
-        .style("stroke-dasharray", ("3,3"))
-        .attr("stroke-dashoffset",80)
-        .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
-
-    context
-        .append("g")
-        .attr("class", "vertical-line-paths")
-        .selectAll('.vertical-line-1')
-        .data(data.verticalLineData["Continuing Resolution"])
-        .enter()
-        .append("line")
-        .attr("class", '.vertical-line-1')
-        .style("stroke","#6F6F6F")
-        .attr("x1", d => x(d.parsedDate))
-        .attr("y1", height2)
-        .attr("x2", d => x(d.parsedDate))
-        .attr("y2", d => d.val*.177)
-        .style("stroke-dasharray", ("3,3"))
-        .attr("stroke-dashoffset",80)
-        .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
-  }
-
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
@@ -329,7 +250,6 @@ const multiLinechartModuleNoDots = (function() {
   }
   
   var legendVals = Object.keys(data.lineData);
-  var legendVals2 = Object.keys(data.verticalLineData);
 
   var subTitle = d3.select('.subTitleDiv')
     .append("div")
@@ -344,36 +264,6 @@ const multiLinechartModuleNoDots = (function() {
   var p = legend.append("p").attr("class","title")
   p.append("span").attr("class","key-dot").style("background",function(d,i) { return lineColor(i) } );
   p.insert("text").attr("class","title").text(function(d,i) { return d } );
-
-  var legendWidth = 200;
-
-  var legend2 = d3.select('.legend').selectAll("legends2")
-    .data(legendVals2)
-    .enter().append("div")
-    .attr("class","legends2");
-  
-  var k = legend2.append("p").attr("class","title");
-
-  k.append("span").attr("class","key-dot").style("background",function(d,i) {
-    return d === "Continuing Resolution" ? "#FF7C7E" : "#6F6F6F"; 
-  });
-
-  k.insert("text").attr("class","title").text(function(d,i) { return d } );
-
-  k.on("mouseover",(d) => {
-      console.log(d);
-    if(d === "Continuing Resolution"){
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","0px");
-    }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
-    }
-  })
-  .on("mouseout",() => {
-      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(3) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-1 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
-    }); 
   
   p.on("mouseover",(d) => {
     if(d === "Contract Modification"){
@@ -405,7 +295,6 @@ const multiLinechartModuleNoDots = (function() {
   })
   .on("mouseout",() => d3.selectAll("#svg-1 > g > g > g.line-paths > path").style("stroke-width","1px"));
   }
-
 
   function remove(cb) {
     d3

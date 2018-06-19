@@ -28,9 +28,6 @@ const multiLinechartModule = (function() {
     Object.entries(data.lineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
     );
-    Object.entries(data.verticalLineData).forEach(d =>
-      d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
-    );
 
     const combinedLineData = Object.entries(data.lineData).reduce((a, c) => {
       const a2 = [...a, ...c[1]];
