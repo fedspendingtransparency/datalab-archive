@@ -39,6 +39,8 @@ const multiLinechartModuleNoDots = (function() {
     var x2 = d3.scaleTime().range([0, width]);
     var y2 = d3.scaleLinear().range([height2, 0]);
 
+    console.log("y2: ",y2);
+
     // define the lines
     var line = d3
       .line()
@@ -174,7 +176,7 @@ const multiLinechartModuleNoDots = (function() {
 
 
       // draw data points
-    function DrawPoints(){
+    function DrawPoints(t){
       Object.entries(data.lineData).forEach((l, i) => {
           
         LineChart
@@ -192,11 +194,13 @@ const multiLinechartModuleNoDots = (function() {
           .attr("opacity", "0")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
-          .on("mousemove", handleMouseMove);
+          .on("mousemove", handleMouseMove)
+          .transition()
+          .duration(t);
       });
     }
 
-    DrawPoints();
+    DrawPoints(0);
 
     var TooltipFormatNumberAsText = d =>
     d3.format("$.2s")(d)
@@ -220,22 +224,20 @@ const multiLinechartModuleNoDots = (function() {
     // draw gridlines
     chartModule.drawYAxisGridlines(svg, y, width, 10);
 
-  setTimeout(brush.on("brush", brushed),0);
+  setTimeout(brush.on("brush", brushed),1);
 
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
+    LineChart.selectAll('.data-point').remove();
     LineChart.selectAll('.line').remove();
-    d3.selectAll("#svg-1 > g > g:nth-child(2) > g").remove();
     DrawLines(0);
-    DrawVerticalLines(0);
+    DrawPoints(0);
     focus.select(".axis--x").call(xAxis);
     svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
         .scale(width / (s[1] - s[0]))
         .translate(-s[0], 0));
-    LineChart.selectAll('.data-point').remove();
-    DrawPoints();
   }
 
   function getSubTitle(id){
