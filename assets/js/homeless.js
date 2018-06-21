@@ -1,8 +1,15 @@
 ---
 ---
 // 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
-    d3.csv('/data-lab-data/2017statecfdafunding.csv', (cfdaState) => {
+    d3.csv('/data-lab-data/statecfda.csv', (cfdaState) => {
         d3.csv('/data-lab-data/CFDACOCAward_Updated.csv', (barChrt) => {
             d3.csv('/data-lab-data/State_crosswalk.csv', (state) => {
                 d3.csv('/data-lab-data/cfda_acronyms.csv', (acr) => {
