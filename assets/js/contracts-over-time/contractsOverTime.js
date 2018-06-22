@@ -1,6 +1,14 @@
 ---
 ---
+<<<<<<< HEAD
 
+=======
+//  
+// 
+// 
+// 
+// 
+>>>>>>> dd34247b4cced77379300907df99313ca021d39e
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -92,7 +100,7 @@ $(function() {
   findAndOriendParallax();
 
   // load dataset 1 and draw barchart
-  loadPanelData("panel1", barchartModule.draw);
+  loadPanelData("panel1a", barchartModule.draw);
 
   // load remaining datasets
   panels.forEach(p => loadPanelData(p.dataset));
