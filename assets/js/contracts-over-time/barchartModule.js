@@ -3,7 +3,7 @@
 
 const barchartModule = (function() {
   function draw(data) {
-    
+
     $('.subTitleDiv').empty();
     $('.legend').empty();
     $("#svg-1").empty();
@@ -12,7 +12,7 @@ const barchartModule = (function() {
       width = $("#svg-1").width() - margin.left - margin.right,
       height = $("#svg-1").height() - margin.top - margin.bottom - 50,
       legendHeight = 33;
-    
+
     var x = d3
       .scaleBand()
       .range([0, width])
@@ -28,11 +28,11 @@ const barchartModule = (function() {
 
     var mainGradient = svgDefs.append('linearGradient')
         .attr('id', 'mainGradient')
-        .attr('x1', "0%") 
-        .attr('y1', "0%") 
-        .attr('x2',"100%") 
-        .attr('y2',"100%") 
-        .attr('spreadMethod', "pad"); 
+        .attr('x1', "0%")
+        .attr('y1', "0%")
+        .attr('x2',"100%")
+        .attr('y2',"100%")
+        .attr('spreadMethod', "pad");
 
     // Create the stops of the main gradient. Each stop will be assigned
     // a class to style the stop using CSS.
@@ -84,14 +84,14 @@ const barchartModule = (function() {
 
       function handleMouseOver(d) {
         tooltipModule.draw("#tooltip", d.fiscalYear, {
-          "Average Spending Value": TooltipFormatNumberAsText(d.val)
+          "Total Contract Spending Value": TooltipFormatNumberAsText(d.val)
         });
       }
-  
+
       function handleMouseOut() {
         tooltipModule.remove("#tooltip");
       }
-  
+
       function handleMouseMove() {
         tooltipModule.move("#tooltip");
       }
@@ -114,7 +114,7 @@ const barchartModule = (function() {
       .transition()
       .duration(800)
       .style("opacity", 1);
-      
+
     var subTitle = d3.select('.subTitleDiv')
       .append("div")
       .attr("class","subTitle")
@@ -122,13 +122,13 @@ const barchartModule = (function() {
       .attr("width","100%")
       .text("How does spending on federal contracts change over the past 10 years?");
 
-    var legendVals = ["Yearly Average Spending"];
-  
+    var legendVals = ["Total Contract Spending"];
+
     var legend = d3.select('.legend').selectAll("legends")
       .data(legendVals)
       .enter().append("div")
       .attr("class","legends");
-    
+
     var p = legend.append("p").attr("class","title")
     p.append("span").attr("class","key-dot").style("background","#1A8FBF");
     p.insert("text").attr("class","title").text(function(d,i) { return d } );
