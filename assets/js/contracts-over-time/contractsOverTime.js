@@ -1,6 +1,10 @@
 ---
 ---
- 
+//  
+// 
+// 
+// 
+// 
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -23,7 +27,7 @@ $(function() {
     {
       id: "panel-1",
       module: barchartModule,
-      dataset: "panel1",
+      dataset: "panel1a",
       xAxis: "Fiscal Year 2007 - 2017"
     },
     {
@@ -92,7 +96,7 @@ $(function() {
   findAndOriendParallax();
 
   // load dataset 1 and draw barchart
-  loadPanelData("panel1", barchartModule.draw);
+  loadPanelData("panel1a", barchartModule.draw);
 
   // load remaining datasets
   panels.forEach(p => loadPanelData(p.dataset));
