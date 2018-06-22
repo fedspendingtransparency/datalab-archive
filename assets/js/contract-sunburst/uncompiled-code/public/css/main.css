@@ -1160,12 +1160,22 @@
 .contract-explorer .psc-obligation {
   color: #0071BC; }
 .contract-explorer .sunburst-panel-col {
-  width: 600px; }
+  position: relative;
+  border: 1px solid #ccc!important;
+  padding: 15px;
+  width: 654px; }
 .contract-explorer .sunburst-panel-col-item {
   width: 100%; }
 .contract-explorer .sunburst-panel-grid {
   display: flex;
-  justify-content: space-evenly;
+
+}
+.contract-explorer .sunburst-panel-col .prime-badge {
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+  color: #20A4D5;
+
 }
 .contract-explorer .controls {
   margin-top: 30px;

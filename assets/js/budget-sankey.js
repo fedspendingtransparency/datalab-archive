@@ -1,3 +1,6 @@
+---
+---
+
 const margin = {
     top: 0,
     right: 0,
@@ -101,33 +104,33 @@ d3.sankey = () => {
     let nodes = [];
     let links = [];
 
-    sankey.nodeWidth = function sNodeWidth(_) {
-        if (!arguments.length) return nodeWidth;
-        nodeWidth = +_;
+    sankey.nodeWidth = function sNodeWidth(nArg) {
+        if (nArg == null) { return nodeWidth; }
+        nodeWidth = +nArg;
         return sankey;
     };
 
-    sankey.nodePadding = function sNodePadding(_) {
-        if (!arguments.length) return nodePadding;
-        nodePadding = +_;
+    sankey.nodePadding = function sNodePadding(nArg) {
+        if (nArg == null) { return nodePadding; }
+        nodePadding = +nArg;
         return sankey;
     };
 
-    sankey.nodes = function sNodes(_) {
-        if (!arguments.length) return nodes;
-        nodes = _;
+    sankey.nodes = function sNodes(nArg) {
+        if (nArg == null) { return nodes; }
+        nodes = nArg;
         return sankey;
     };
 
-    sankey.links = function sLinks(_) {
-        if (!arguments.length) return links;
-        links = _;
+    sankey.links = function sLinks(nArg) {
+        if (nArg == null) { return links; }
+        links = nArg;
         return sankey;
     };
 
-    sankey.size = function sSize(_) {
-        if (!arguments.length) return size;
-        size = _;
+    sankey.size = function sSize(nArg) {
+        if (nArg == null) { return size; }
+        size = nArg;
         return sankey;
     };
 
@@ -148,9 +151,9 @@ d3.sankey = () => {
             } ${x1},${y1}`;
         }
 
-        link.curvature = (_) => {
-            if (!arguments.length) return curvature;
-            curvature = +_;
+        link.curvature = (nArg) => {
+            if (nArg == null) { return curvature; }
+            curvature = +nArg;
             return link;
         };
 
@@ -679,9 +682,9 @@ function RadioSankeyFY17() {
 }
 
 function RadioSankeyFY18() {
-    d3.csv("/data-lab-data/sankey_panel_v2_FY18.csv", (error1, data) => {
-        d3.csv("/data-lab-data/sankey_v16_FY18.csv", (error2, sPanel) => {
-            d3.csv("/data-lab-data/sankey_titles_v2_FY18.csv", (error3, sTitle) => {
+    d3.csv("/data-lab-data/sankey_panel_v3_FY18.csv", (error1, data) => {
+        d3.csv("/data-lab-data/sankey_v17_FY18.csv", (error2, sPanel) => {
+            d3.csv("/data-lab-data/sankey_titles_v3_FY18.csv", (error3, sTitle) => {
                 d3.csv("/data-lab-data/descriptions.csv", (error4, descriptions) => {
                     makeSankey(data, sPanel, sTitle, descriptions);
                 });

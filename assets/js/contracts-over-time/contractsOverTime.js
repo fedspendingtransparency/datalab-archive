@@ -1,7 +1,6 @@
 ---
 ---
-// 
-// 
+//  
 // 
 // 
 // 
@@ -28,7 +27,7 @@ $(function() {
     {
       id: "panel-1",
       module: barchartModule,
-      dataset: "panel1",
+      dataset: "panel1a",
       xAxis: "Fiscal Year 2007 - 2017"
     },
     {
@@ -54,12 +53,6 @@ $(function() {
       module: multiLinechartModuleNoDots,
       dataset: "panel5",
       xAxis: "Fiscal Year 2007 - 2017"
-    },
-    {
-      id: "panel-6",
-      module: multiLinechartModuleNoDots,
-      dataset: "panel6",
-      xAxis: "Fiscal Year 2007 - 2017"
     }
   ];
 
@@ -69,7 +62,8 @@ $(function() {
     const windowMargin = 50;
 
     const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth - 2 * windowMargin;
+    const svgWidth = windowWidth;
+
 
     $(id)
       .attr("height", svgHeight)
@@ -77,7 +71,15 @@ $(function() {
 
     $("#scroll-breakpoint-1").css("padding-top", windowMargin);
     $("#scroll-breakpoint-2").css("padding-top", windowMargin + svgHeight);
-    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .2);
+    $("#scroll-triggerpoint").css("padding-top", windowMargin + svgHeight * .5);
+
+    $("#scroll-breakpoint-1").css("z-index",-10);
+    $("#scroll-breakpoint-2").css("z-index",-10);
+    $("#scroll-triggerpoint").css("z-index",-10);
+
+    $("#scroll-breakpoint-1").css("overflow","hidden");
+    $("#scroll-breakpoint-2").css("overflow","hidden");
+    $("#scroll-triggerpoint").css("overflow","hidden");
 
     $("<style>")
     .prop("type", "text/css")
@@ -94,7 +96,7 @@ $(function() {
   findAndOriendParallax();
 
   // load dataset 1 and draw barchart
-  loadPanelData("panel1", barchartModule.draw);
+  loadPanelData("panel1a", barchartModule.draw);
 
   // load remaining datasets
   panels.forEach(p => loadPanelData(p.dataset));

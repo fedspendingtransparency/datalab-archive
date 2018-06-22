@@ -1,13 +1,7 @@
 .homeless-analysis {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: #FFFFFF;
-// 
-// 
-// 
-// changing file size for AWS
-// 
-// 
-// 
+
   & p.subheading {
     font-size: 1.75rem;
     color: #525252;
@@ -831,6 +825,7 @@
     margin: 0;
     line-height: 50px;
     border-bottom: 1px solid #eee;
+    padding: 0 10px 0 10px;
   }
 
   .cocTabTitleCity{
@@ -840,6 +835,7 @@
     margin: 0;
     line-height: 50px;
     border-bottom: 1px solid #eee;
+    padding: 0 10px 0 10px;
   }
 
   .cocTabFund{

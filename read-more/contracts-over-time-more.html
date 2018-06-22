@@ -1,0 +1,51 @@
+---
+layout: read-more
+menuname: Contracts over Time
+title: Contracts over Time
+description: How We Conducted This Analysis
+parent: contracts-over-time.html
+permalink: contracts-over-time-more.html
+category: read-more
+---
+
+<p>
+    This analysis was conducted using government-wide contract acquisition and spending data. 
+    An additional dataset was compiled identifying the timing of continuing resolutions and appropriations 
+    legislation enacted by Congress from fiscal year 2007 through the first quarter of 2018. 
+    Contract spending data for all agencies was used for the same time period.
+</p>
+<p>
+    Several models were estimated to determine if a relationship could be identified between Congressional 
+    budget actions and contract spending across the government. 
+    The primary model estimated was a semi-log linear model which was used to estimate the effect 
+    that continuing resolutions and appropriations legislation had on total contract spending. 
+    The outcome measured was total contract spending by week. 
+    The model included several additional predictor variables including lagged values of 
+    total weekly contract spending and total yearly obligations government-wide, which was used 
+    to proxy the trend in overall spending over time. 
+    Due to the nature of the data certain corrections had to be implemented to ensure in the integrity of the 
+    estimates and results, this includes use of logged values for total spending and total obligations variables. 
+    Additionally, in the calculation of hypothesis test results, the Newey-West estimator was used to correct 
+    estimate standard errors for heteroskedasticity and autocorrelation.
+</p>
+<p>
+    Additional models were also estimated to examine more closely subsets of the contracts spending data 
+    and determine if the effects of Congressional budget actions differed among specific subsets of contracts. 
+    Models were estimated to estimate how passage of continuing resolutions and appropriations legislation 
+    affected the value of new contracts awarded and the value of contract modifications awarded. 
+    These models also used a semi-log linear model format and included total obligations as a proxy for yearly trend in spending. 
+</p>
+<p>
+    Models were also developed to examine how Congressional budget actions affected the specific types of goods and services 
+    that the government issued contracts to purchase. Contracts data was separated into one of five product and services groups, 
+    Equipment and Facilities, Information Technology, Professional Services, Miscellaneous, or Weapons related goods and services. 
+    Models were estimated to evaluate the impact of Congressional budget actions on each group. 
+    These models followed the same structure for all but two models. 
+    Models used to estimate the effect on weapons related contracts and miscellaneous goods and services were nominal linear models. 
+    Not all models showed the same residual heteroskedasticity and potential for residual autocorrelation and therefore White-Huber or 
+    Newey-West corrected standard errors were used as appropriate to test the significance of the model results.
+</p>
+<p>
+    The model specifications and data transformations necessary to execute the analysis are discussed in more detail here: 
+    <a style="color:blue" href="assets/contracts-over-time-methodology-white-paper.docx.pdf">Methodology White Paper</a>
+</p>

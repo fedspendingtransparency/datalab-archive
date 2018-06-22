@@ -10,6 +10,23 @@ permalink: contract-explorer.html
 category: entry
 ---
 
+<style>
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
 {% include viz-header-info.html
 	title="How does the government buy things?"
   body="The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services ranging from internet to research and development. Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing the goods and services they purchase using Product and Service Codes (PSC)."
@@ -44,7 +61,9 @@ category: entry
        %}
       <div class="mask">
         <div class="viz-container">
-          <div id="root"></div>
+          <div id="root">
+            <div class="loader"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,6251 @@
+{
+  "verticalLineData": {
+    "Continuing Resolution": [
+      {
+        "date": "2006-10-01"
+      },
+      {
+        "date": "2006-11-18"
+      },
+      {
+        "date": "2006-12-09"
+      },
+      {
+        "date": "2007-02-16"
+      },
+      {
+        "date": "2007-10-01"
+      },
+      {
+        "date": "2007-11-17"
+      },
+      {
+        "date": "2007-12-15"
+      },
+      {
+        "date": "2007-12-22"
+      },
+      {
+        "date": "2008-10-01"
+      },
+      {
+        "date": "2009-03-07"
+      },
+      {
+        "date": "2009-10-01"
+      },
+      {
+        "date": "2009-11-01"
+      },
+      {
+        "date": "2010-10-01"
+      },
+      {
+        "date": "2010-12-04"
+      },
+      {
+        "date": "2010-12-19"
+      },
+      {
+        "date": "2010-12-22"
+      },
+      {
+        "date": "2011-03-05"
+      },
+      {
+        "date": "2011-03-19"
+      },
+      {
+        "date": "2011-04-09"
+      },
+      {
+        "date": "2011-04-16"
+      },
+      {
+        "date": "2011-10-01"
+      },
+      {
+        "date": "2011-10-05"
+      },
+      {
+        "date": "2011-11-19"
+      },
+      {
+        "date": "2011-12-17"
+      },
+      {
+        "date": "2011-12-18"
+      },
+      {
+        "date": "2012-10-01"
+      },
+      {
+        "date": "2013-03-28"
+      },
+      {
+        "date": "2013-10-17"
+      },
+      {
+        "date": "2014-01-16"
+      },
+      {
+        "date": "2014-10-01"
+      },
+      {
+        "date": "2014-12-12"
+      },
+      {
+        "date": "2014-12-14"
+      },
+      {
+        "date": "2015-10-01"
+      },
+      {
+        "date": "2015-12-12"
+      },
+      {
+        "date": "2015-12-17"
+      },
+      {
+        "date": "2016-10-01"
+      },
+      {
+        "date": "2016-12-10"
+      },
+      {
+        "date": "2017-05-01"
+      },
+      {
+        "date": "2017-10-01"
+      },
+      {
+        "date": "2017-12-08"
+      },
+      {
+        "date": "2017-12-22"
+      },
+      {
+        "date": "2018-01-22"
+      },
+      {
+        "date": "2018-02-09"
+      }
+    ],
+    "Budget Legislation": [
+      {
+        "date": "2008-01-01"
+      },
+      {
+        "date": "2009-03-12"
+      },
+      {
+        "date": "2009-12-19"
+      },
+      {
+        "date": "2011-12-24"
+      },
+      {
+        "date": "2014-01-19"
+      },
+      {
+        "date": "2014-12-18"
+      },
+      {
+        "date": "2015-12-23"
+      },
+      {
+        "date": "2017-05-06"
+      },
+      {
+        "date": "2018-03-23"
+      }
+    ]
+  },
+
+  "lineData": {
+    "Research and Development":[
+        {
+          "date": "2006-10-01",
+          "pscCategory": "Research and Development",
+          "val": 975211855.94
+        },
+        {
+          "date": "2006-10-08",
+          "pscCategory": "Research and Development",
+          "val": 1605458958.8
+        },
+        {
+          "date": "2006-10-15",
+          "pscCategory": "Research and Development",
+          "val": 1345481044.97
+        },
+        {
+          "date": "2006-10-22",
+          "pscCategory": "Research and Development",
+          "val": 1019996495.76
+        },
+        {
+          "date": "2006-10-29",
+          "pscCategory": "Research and Development",
+          "val": 2186472421.82
+        },
+        {
+          "date": "2006-11-05",
+          "pscCategory": "Research and Development",
+          "val": 513213228.51
+        },
+        {
+          "date": "2006-11-12",
+          "pscCategory": "Research and Development",
+          "val": 936837603.84
+        },
+        {
+          "date": "2006-11-19",
+          "pscCategory": "Research and Development",
+          "val": 565574606.66
+        },
+        {
+          "date": "2006-11-26",
+          "pscCategory": "Research and Development",
+          "val": 1272640747.42
+        },
+        {
+          "date": "2006-12-03",
+          "pscCategory": "Research and Development",
+          "val": 1773854077.47
+        },
+        {
+          "date": "2006-12-10",
+          "pscCategory": "Research and Development",
+          "val": 1758825739.75
+        },
+        {
+          "date": "2006-12-17",
+          "pscCategory": "Research and Development",
+          "val": 1354279522.08
+        },
+        {
+          "date": "2006-12-24",
+          "pscCategory": "Research and Development",
+          "val": 351602184.16
+        },
+        {
+          "date": "2006-12-31",
+          "pscCategory": "Research and Development",
+          "val": 2386575.42
+        },
+        {
+          "date": "2007-01-01",
+          "pscCategory": "Research and Development",
+          "val": 640887611.21
+        },
+        {
+          "date": "2007-01-07",
+          "pscCategory": "Research and Development",
+          "val": 609582727.24
+        },
+        {
+          "date": "2007-01-14",
+          "pscCategory": "Research and Development",
+          "val": 784352344.62
+        },
+        {
+          "date": "2007-01-21",
+          "pscCategory": "Research and Development",
+          "val": 992413709.04
+        },
+        {
+          "date": "2007-01-28",
+          "pscCategory": "Research and Development",
+          "val": 1136648712.67
+        },
+        {
+          "date": "2007-02-04",
+          "pscCategory": "Research and Development",
+          "val": 966048795.3
+        },
+        {
+          "date": "2007-02-11",
+          "pscCategory": "Research and Development",
+          "val": 1046350037.76
+        },
+        {
+          "date": "2007-02-18",
+          "pscCategory": "Research and Development",
+          "val": 558391441.16
+        },
+        {
+          "date": "2007-02-25",
+          "pscCategory": "Research and Development",
+          "val": 1000892347.09
+        },
+        {
+          "date": "2007-03-04",
+          "pscCategory": "Research and Development",
+          "val": 602044090.95
+        },
+        {
+          "date": "2007-03-11",
+          "pscCategory": "Research and Development",
+          "val": 980933749.26
+        },
+        {
+          "date": "2007-03-18",
+          "pscCategory": "Research and Development",
+          "val": 1171648705.38
+        },
+        {
+          "date": "2007-03-25",
+          "pscCategory": "Research and Development",
+          "val": 1133665924.73
+        },
+        {
+          "date": "2007-04-01",
+          "pscCategory": "Research and Development",
+          "val": 637526054.64
+        },
+        {
+          "date": "2007-04-08",
+          "pscCategory": "Research and Development",
+          "val": 592163309.82
+        },
+        {
+          "date": "2007-04-15",
+          "pscCategory": "Research and Development",
+          "val": 625775044.71
+        },
+        {
+          "date": "2007-04-22",
+          "pscCategory": "Research and Development",
+          "val": 630248364.51
+        },
+        {
+          "date": "2007-04-29",
+          "pscCategory": "Research and Development",
+          "val": 681582873.44
+        },
+        {
+          "date": "2007-05-06",
+          "pscCategory": "Research and Development",
+          "val": 454625157.68
+        },
+        {
+          "date": "2007-05-13",
+          "pscCategory": "Research and Development",
+          "val": 311588443.4
+        },
+        {
+          "date": "2007-05-20",
+          "pscCategory": "Research and Development",
+          "val": 615301866.16
+        },
+        {
+          "date": "2007-05-27",
+          "pscCategory": "Research and Development",
+          "val": 846507637.48
+        },
+        {
+          "date": "2007-06-03",
+          "pscCategory": "Research and Development",
+          "val": 549614938.45
+        },
+        {
+          "date": "2007-06-10",
+          "pscCategory": "Research and Development",
+          "val": 629815617.77
+        },
+        {
+          "date": "2007-06-17",
+          "pscCategory": "Research and Development",
+          "val": 739652924
+        },
+        {
+          "date": "2007-06-24",
+          "pscCategory": "Research and Development",
+          "val": 985463383.37
+        },
+        {
+          "date": "2007-07-01",
+          "pscCategory": "Research and Development",
+          "val": 516267652.8
+        },
+        {
+          "date": "2007-07-08",
+          "pscCategory": "Research and Development",
+          "val": 425385951.66
+        },
+        {
+          "date": "2007-07-15",
+          "pscCategory": "Research and Development",
+          "val": 691384018.03
+        },
+        {
+          "date": "2007-07-22",
+          "pscCategory": "Research and Development",
+          "val": 728279935.68
+        },
+        {
+          "date": "2007-07-29",
+          "pscCategory": "Research and Development",
+          "val": 916105673.14
+        },
+        {
+          "date": "2007-08-05",
+          "pscCategory": "Research and Development",
+          "val": 845074598.38
+        },
+        {
+          "date": "2007-08-12",
+          "pscCategory": "Research and Development",
+          "val": 563784180.14
+        },
+        {
+          "date": "2007-08-19",
+          "pscCategory": "Research and Development",
+          "val": 658109088.59
+        },
+        {
+          "date": "2007-08-26",
+          "pscCategory": "Research and Development",
+          "val": 781202059.07
+        },
+        {
+          "date": "2007-09-02",
+          "pscCategory": "Research and Development",
+          "val": 625554658.19
+        },
+        {
+          "date": "2007-09-09",
+          "pscCategory": "Research and Development",
+          "val": 1674355906.78
+        },
+        {
+          "date": "2007-09-16",
+          "pscCategory": "Research and Development",
+          "val": 1280775244.68
+        },
+        {
+          "date": "2007-09-23",
+          "pscCategory": "Research and Development",
+          "val": 2851981329.64
+        },
+        {
+          "date": "2007-09-30",
+          "pscCategory": "Research and Development",
+          "val": 757245628.36
+        },
+        {
+          "date": "2007-10-07",
+          "pscCategory": "Research and Development",
+          "val": 382801497.17
+        },
+        {
+          "date": "2007-10-14",
+          "pscCategory": "Research and Development",
+          "val": 998958757.59
+        },
+        {
+          "date": "2007-10-21",
+          "pscCategory": "Research and Development",
+          "val": 810659393.96
+        },
+        {
+          "date": "2007-10-28",
+          "pscCategory": "Research and Development",
+          "val": 1248213769.97
+        },
+        {
+          "date": "2007-11-04",
+          "pscCategory": "Research and Development",
+          "val": 646013387.22
+        },
+        {
+          "date": "2007-11-11",
+          "pscCategory": "Research and Development",
+          "val": 375724488.76
+        },
+        {
+          "date": "2007-11-18",
+          "pscCategory": "Research and Development",
+          "val": 969724381.71
+        },
+        {
+          "date": "2007-11-25",
+          "pscCategory": "Research and Development",
+          "val": 1083141496.25
+        },
+        {
+          "date": "2007-12-02",
+          "pscCategory": "Research and Development",
+          "val": 1636444750.56
+        },
+        {
+          "date": "2007-12-09",
+          "pscCategory": "Research and Development",
+          "val": 1652474696.87
+        },
+        {
+          "date": "2007-12-16",
+          "pscCategory": "Research and Development",
+          "val": 1923299691.5
+        },
+        {
+          "date": "2007-12-23",
+          "pscCategory": "Research and Development",
+          "val": 359868060.48
+        },
+        {
+          "date": "2007-12-30",
+          "pscCategory": "Research and Development",
+          "val": 120100929.68
+        },
+        {
+          "date": "2008-01-01",
+          "pscCategory": "Research and Development",
+          "val": 236815068.68
+        },
+        {
+          "date": "2008-01-06",
+          "pscCategory": "Research and Development",
+          "val": 1289304837.05
+        },
+        {
+          "date": "2008-01-13",
+          "pscCategory": "Research and Development",
+          "val": 1312281024.29
+        },
+        {
+          "date": "2008-01-20",
+          "pscCategory": "Research and Development",
+          "val": 768003358.4
+        },
+        {
+          "date": "2008-01-27",
+          "pscCategory": "Research and Development",
+          "val": 1928446686.56
+        },
+        {
+          "date": "2008-02-03",
+          "pscCategory": "Research and Development",
+          "val": 1084581088.53
+        },
+        {
+          "date": "2008-02-10",
+          "pscCategory": "Research and Development",
+          "val": 1112309914.41
+        },
+        {
+          "date": "2008-02-17",
+          "pscCategory": "Research and Development",
+          "val": 1592447562.4
+        },
+        {
+          "date": "2008-02-24",
+          "pscCategory": "Research and Development",
+          "val": 1512391801.61
+        },
+        {
+          "date": "2008-03-02",
+          "pscCategory": "Research and Development",
+          "val": 877976098.93
+        },
+        {
+          "date": "2008-03-09",
+          "pscCategory": "Research and Development",
+          "val": 1319661920.24
+        },
+        {
+          "date": "2008-03-16",
+          "pscCategory": "Research and Development",
+          "val": 1027974610.43
+        },
+        {
+          "date": "2008-03-23",
+          "pscCategory": "Research and Development",
+          "val": 1010515330.94
+        },
+        {
+          "date": "2008-03-30",
+          "pscCategory": "Research and Development",
+          "val": 1551110321.59
+        },
+        {
+          "date": "2008-04-06",
+          "pscCategory": "Research and Development",
+          "val": 419151091.91
+        },
+        {
+          "date": "2008-04-13",
+          "pscCategory": "Research and Development",
+          "val": 795071212.29
+        },
+        {
+          "date": "2008-04-20",
+          "pscCategory": "Research and Development",
+          "val": 952221037.11
+        },
+        {
+          "date": "2008-04-27",
+          "pscCategory": "Research and Development",
+          "val": 913279428.97
+        },
+        {
+          "date": "2008-05-04",
+          "pscCategory": "Research and Development",
+          "val": 636637832.4
+        },
+        {
+          "date": "2008-05-11",
+          "pscCategory": "Research and Development",
+          "val": 877373236.7
+        },
+        {
+          "date": "2008-05-18",
+          "pscCategory": "Research and Development",
+          "val": 602880494.37
+        },
+        {
+          "date": "2008-05-25",
+          "pscCategory": "Research and Development",
+          "val": 903633230.06
+        },
+        {
+          "date": "2008-06-01",
+          "pscCategory": "Research and Development",
+          "val": 585165962.94
+        },
+        {
+          "date": "2008-06-08",
+          "pscCategory": "Research and Development",
+          "val": 782474941.28
+        },
+        {
+          "date": "2008-06-15",
+          "pscCategory": "Research and Development",
+          "val": 860609866.23
+        },
+        {
+          "date": "2008-06-22",
+          "pscCategory": "Research and Development",
+          "val": 876987408.25
+        },
+        {
+          "date": "2008-06-29",
+          "pscCategory": "Research and Development",
+          "val": 775566033.67
+        },
+        {
+          "date": "2008-07-06",
+          "pscCategory": "Research and Development",
+          "val": 347545599.31
+        },
+        {
+          "date": "2008-07-13",
+          "pscCategory": "Research and Development",
+          "val": 783561781.22
+        },
+        {
+          "date": "2008-07-20",
+          "pscCategory": "Research and Development",
+          "val": 638943004.12
+        },
+        {
+          "date": "2008-07-27",
+          "pscCategory": "Research and Development",
+          "val": 834473697.08
+        },
+        {
+          "date": "2008-08-03",
+          "pscCategory": "Research and Development",
+          "val": 610509757.21
+        },
+        {
+          "date": "2008-08-10",
+          "pscCategory": "Research and Development",
+          "val": 539750006.16
+        },
+        {
+          "date": "2008-08-17",
+          "pscCategory": "Research and Development",
+          "val": 661829541.56
+        },
+        {
+          "date": "2008-08-24",
+          "pscCategory": "Research and Development",
+          "val": 1258810865.71
+        },
+        {
+          "date": "2008-08-31",
+          "pscCategory": "Research and Development",
+          "val": 564818137.2
+        },
+        {
+          "date": "2008-09-07",
+          "pscCategory": "Research and Development",
+          "val": 890898863.29
+        },
+        {
+          "date": "2008-09-14",
+          "pscCategory": "Research and Development",
+          "val": 1293420504.12
+        },
+        {
+          "date": "2008-09-21",
+          "pscCategory": "Research and Development",
+          "val": 2136895331.81
+        },
+        {
+          "date": "2008-09-28",
+          "pscCategory": "Research and Development",
+          "val": 2182540999.67
+        },
+        {
+          "date": "2008-10-05",
+          "pscCategory": "Research and Development",
+          "val": 1135671266.75
+        },
+        {
+          "date": "2008-10-12",
+          "pscCategory": "Research and Development",
+          "val": 1442303265.71
+        },
+        {
+          "date": "2008-10-19",
+          "pscCategory": "Research and Development",
+          "val": 1955522479.85
+        },
+        {
+          "date": "2008-10-26",
+          "pscCategory": "Research and Development",
+          "val": 2028082783.87
+        },
+        {
+          "date": "2008-11-02",
+          "pscCategory": "Research and Development",
+          "val": 808236112.69
+        },
+        {
+          "date": "2008-11-09",
+          "pscCategory": "Research and Development",
+          "val": 2084478027.72
+        },
+        {
+          "date": "2008-11-16",
+          "pscCategory": "Research and Development",
+          "val": 1138390318.28
+        },
+        {
+          "date": "2008-11-23",
+          "pscCategory": "Research and Development",
+          "val": 954785263.76
+        },
+        {
+          "date": "2008-11-30",
+          "pscCategory": "Research and Development",
+          "val": 1636693026.11
+        },
+        {
+          "date": "2008-12-07",
+          "pscCategory": "Research and Development",
+          "val": 1233076645.28
+        },
+        {
+          "date": "2008-12-14",
+          "pscCategory": "Research and Development",
+          "val": 1765190931.12
+        },
+        {
+          "date": "2008-12-21",
+          "pscCategory": "Research and Development",
+          "val": 746888322.9
+        },
+        {
+          "date": "2008-12-28",
+          "pscCategory": "Research and Development",
+          "val": 468839701.64
+        },
+        {
+          "date": "2009-01-01",
+          "pscCategory": "Research and Development",
+          "val": 38085970.46
+        },
+        {
+          "date": "2009-01-04",
+          "pscCategory": "Research and Development",
+          "val": 1085071722.77
+        },
+        {
+          "date": "2009-01-11",
+          "pscCategory": "Research and Development",
+          "val": 1333078360.69
+        },
+        {
+          "date": "2009-01-18",
+          "pscCategory": "Research and Development",
+          "val": 692310048.13
+        },
+        {
+          "date": "2009-01-25",
+          "pscCategory": "Research and Development",
+          "val": 1786566809.39
+        },
+        {
+          "date": "2009-02-01",
+          "pscCategory": "Research and Development",
+          "val": 976522634.2
+        },
+        {
+          "date": "2009-02-08",
+          "pscCategory": "Research and Development",
+          "val": 1133534385.3
+        },
+        {
+          "date": "2009-02-15",
+          "pscCategory": "Research and Development",
+          "val": 669520311.29
+        },
+        {
+          "date": "2009-02-22",
+          "pscCategory": "Research and Development",
+          "val": 1852274698.17
+        },
+        {
+          "date": "2009-03-01",
+          "pscCategory": "Research and Development",
+          "val": 1007602708.05
+        },
+        {
+          "date": "2009-03-08",
+          "pscCategory": "Research and Development",
+          "val": 1197753553.95
+        },
+        {
+          "date": "2009-03-15",
+          "pscCategory": "Research and Development",
+          "val": 1164953672.52
+        },
+        {
+          "date": "2009-03-22",
+          "pscCategory": "Research and Development",
+          "val": 1056177159.1
+        },
+        {
+          "date": "2009-03-29",
+          "pscCategory": "Research and Development",
+          "val": 761788495.75
+        },
+        {
+          "date": "2009-04-05",
+          "pscCategory": "Research and Development",
+          "val": 767256363.07
+        },
+        {
+          "date": "2009-04-12",
+          "pscCategory": "Research and Development",
+          "val": 1325230680.37
+        },
+        {
+          "date": "2009-04-19",
+          "pscCategory": "Research and Development",
+          "val": 1400945526.88
+        },
+        {
+          "date": "2009-04-26",
+          "pscCategory": "Research and Development",
+          "val": 1001940296.25
+        },
+        {
+          "date": "2009-05-03",
+          "pscCategory": "Research and Development",
+          "val": 1239681145.88
+        },
+        {
+          "date": "2009-05-10",
+          "pscCategory": "Research and Development",
+          "val": 622075328.25
+        },
+        {
+          "date": "2009-05-17",
+          "pscCategory": "Research and Development",
+          "val": 666643635.66
+        },
+        {
+          "date": "2009-05-24",
+          "pscCategory": "Research and Development",
+          "val": 682427864.78
+        },
+        {
+          "date": "2009-05-31",
+          "pscCategory": "Research and Development",
+          "val": 654446432.22
+        },
+        {
+          "date": "2009-06-07",
+          "pscCategory": "Research and Development",
+          "val": 802935038
+        },
+        {
+          "date": "2009-06-14",
+          "pscCategory": "Research and Development",
+          "val": 954117376.01
+        },
+        {
+          "date": "2009-06-21",
+          "pscCategory": "Research and Development",
+          "val": 1006595770.36
+        },
+        {
+          "date": "2009-06-28",
+          "pscCategory": "Research and Development",
+          "val": 834665716.28
+        },
+        {
+          "date": "2009-07-05",
+          "pscCategory": "Research and Development",
+          "val": 727566584.7
+        },
+        {
+          "date": "2009-07-12",
+          "pscCategory": "Research and Development",
+          "val": 959386471.2
+        },
+        {
+          "date": "2009-07-19",
+          "pscCategory": "Research and Development",
+          "val": 597643095.6
+        },
+        {
+          "date": "2009-07-26",
+          "pscCategory": "Research and Development",
+          "val": 760039559.4
+        },
+        {
+          "date": "2009-08-02",
+          "pscCategory": "Research and Development",
+          "val": 815933041.81
+        },
+        {
+          "date": "2009-08-09",
+          "pscCategory": "Research and Development",
+          "val": 641810927.51
+        },
+        {
+          "date": "2009-08-16",
+          "pscCategory": "Research and Development",
+          "val": 1087356695.75
+        },
+        {
+          "date": "2009-08-23",
+          "pscCategory": "Research and Development",
+          "val": 1021587928.07
+        },
+        {
+          "date": "2009-08-30",
+          "pscCategory": "Research and Development",
+          "val": 988543873.14
+        },
+        {
+          "date": "2009-09-06",
+          "pscCategory": "Research and Development",
+          "val": 367270095.79
+        },
+        {
+          "date": "2009-09-13",
+          "pscCategory": "Research and Development",
+          "val": 1474575065.28
+        },
+        {
+          "date": "2009-09-20",
+          "pscCategory": "Research and Development",
+          "val": 2475130304.19
+        },
+        {
+          "date": "2009-09-27",
+          "pscCategory": "Research and Development",
+          "val": 2490478917.44
+        },
+        {
+          "date": "2009-10-04",
+          "pscCategory": "Research and Development",
+          "val": 417511168.33
+        },
+        {
+          "date": "2009-10-11",
+          "pscCategory": "Research and Development",
+          "val": 465868554.51
+        },
+        {
+          "date": "2009-10-18",
+          "pscCategory": "Research and Development",
+          "val": 474539038.51
+        },
+        {
+          "date": "2009-10-25",
+          "pscCategory": "Research and Development",
+          "val": 1870615950.73
+        },
+        {
+          "date": "2009-11-01",
+          "pscCategory": "Research and Development",
+          "val": 728416819.16
+        },
+        {
+          "date": "2009-11-08",
+          "pscCategory": "Research and Development",
+          "val": 802741514.9
+        },
+        {
+          "date": "2009-11-15",
+          "pscCategory": "Research and Development",
+          "val": 950499206
+        },
+        {
+          "date": "2009-11-22",
+          "pscCategory": "Research and Development",
+          "val": 1126440738.82
+        },
+        {
+          "date": "2009-11-29",
+          "pscCategory": "Research and Development",
+          "val": 1887206118.25
+        },
+        {
+          "date": "2009-12-06",
+          "pscCategory": "Research and Development",
+          "val": 676125977.87
+        },
+        {
+          "date": "2009-12-13",
+          "pscCategory": "Research and Development",
+          "val": 1272808285.78
+        },
+        {
+          "date": "2009-12-20",
+          "pscCategory": "Research and Development",
+          "val": 833169795.97
+        },
+        {
+          "date": "2009-12-27",
+          "pscCategory": "Research and Development",
+          "val": 279264674.68
+        },
+        {
+          "date": "2010-01-01",
+          "pscCategory": "Research and Development",
+          "val": 24244973.17
+        },
+        {
+          "date": "2010-01-03",
+          "pscCategory": "Research and Development",
+          "val": 499226520.53
+        },
+        {
+          "date": "2010-01-10",
+          "pscCategory": "Research and Development",
+          "val": 1089961907.83
+        },
+        {
+          "date": "2010-01-17",
+          "pscCategory": "Research and Development",
+          "val": 1782218585.62
+        },
+        {
+          "date": "2010-01-24",
+          "pscCategory": "Research and Development",
+          "val": 3765853728.33
+        },
+        {
+          "date": "2010-01-31",
+          "pscCategory": "Research and Development",
+          "val": 1060425297.77
+        },
+        {
+          "date": "2010-02-07",
+          "pscCategory": "Research and Development",
+          "val": 909389239.45
+        },
+        {
+          "date": "2010-02-14",
+          "pscCategory": "Research and Development",
+          "val": 2023887739.17
+        },
+        {
+          "date": "2010-02-21",
+          "pscCategory": "Research and Development",
+          "val": 1505029523.83
+        },
+        {
+          "date": "2010-02-28",
+          "pscCategory": "Research and Development",
+          "val": 1221546255.31
+        },
+        {
+          "date": "2010-03-07",
+          "pscCategory": "Research and Development",
+          "val": 991187038.31
+        },
+        {
+          "date": "2010-03-14",
+          "pscCategory": "Research and Development",
+          "val": 1431766324.37
+        },
+        {
+          "date": "2010-03-21",
+          "pscCategory": "Research and Development",
+          "val": 1478285893.03
+        },
+        {
+          "date": "2010-03-28",
+          "pscCategory": "Research and Development",
+          "val": 1168766785.73
+        },
+        {
+          "date": "2010-04-04",
+          "pscCategory": "Research and Development",
+          "val": 663386190.87
+        },
+        {
+          "date": "2010-04-11",
+          "pscCategory": "Research and Development",
+          "val": 993313624.88
+        },
+        {
+          "date": "2010-04-18",
+          "pscCategory": "Research and Development",
+          "val": 1032585153.74
+        },
+        {
+          "date": "2010-04-25",
+          "pscCategory": "Research and Development",
+          "val": 1161411993.02
+        },
+        {
+          "date": "2010-05-02",
+          "pscCategory": "Research and Development",
+          "val": 750290192.39
+        },
+        {
+          "date": "2010-05-09",
+          "pscCategory": "Research and Development",
+          "val": 536480667.35
+        },
+        {
+          "date": "2010-05-16",
+          "pscCategory": "Research and Development",
+          "val": 798404873.96
+        },
+        {
+          "date": "2010-05-23",
+          "pscCategory": "Research and Development",
+          "val": 992517784.64
+        },
+        {
+          "date": "2010-05-30",
+          "pscCategory": "Research and Development",
+          "val": 736068881.99
+        },
+        {
+          "date": "2010-06-06",
+          "pscCategory": "Research and Development",
+          "val": 568682535.16
+        },
+        {
+          "date": "2010-06-13",
+          "pscCategory": "Research and Development",
+          "val": 832088454.51
+        },
+        {
+          "date": "2010-06-20",
+          "pscCategory": "Research and Development",
+          "val": 1469252535.44
+        },
+        {
+          "date": "2010-06-27",
+          "pscCategory": "Research and Development",
+          "val": 1249977068.72
+        },
+        {
+          "date": "2010-07-04",
+          "pscCategory": "Research and Development",
+          "val": 691898037.06
+        },
+        {
+          "date": "2010-07-11",
+          "pscCategory": "Research and Development",
+          "val": 565857212.72
+        },
+        {
+          "date": "2010-07-18",
+          "pscCategory": "Research and Development",
+          "val": 834549056.64
+        },
+        {
+          "date": "2010-07-25",
+          "pscCategory": "Research and Development",
+          "val": 1006275658.84
+        },
+        {
+          "date": "2010-08-01",
+          "pscCategory": "Research and Development",
+          "val": 576258376.84
+        },
+        {
+          "date": "2010-08-08",
+          "pscCategory": "Research and Development",
+          "val": 747615288.77
+        },
+        {
+          "date": "2010-08-15",
+          "pscCategory": "Research and Development",
+          "val": 762427983.65
+        },
+        {
+          "date": "2010-08-22",
+          "pscCategory": "Research and Development",
+          "val": 1185219327.96
+        },
+        {
+          "date": "2010-08-29",
+          "pscCategory": "Research and Development",
+          "val": 750689779.01
+        },
+        {
+          "date": "2010-09-05",
+          "pscCategory": "Research and Development",
+          "val": 831164384.52
+        },
+        {
+          "date": "2010-09-12",
+          "pscCategory": "Research and Development",
+          "val": 1348103500.5
+        },
+        {
+          "date": "2010-09-19",
+          "pscCategory": "Research and Development",
+          "val": 2401477964.59
+        },
+        {
+          "date": "2010-09-26",
+          "pscCategory": "Research and Development",
+          "val": 3239036087.57
+        },
+        {
+          "date": "2010-10-03",
+          "pscCategory": "Research and Development",
+          "val": 581901873.98
+        },
+        {
+          "date": "2010-10-10",
+          "pscCategory": "Research and Development",
+          "val": 1034148256.18
+        },
+        {
+          "date": "2010-10-17",
+          "pscCategory": "Research and Development",
+          "val": 711088353.2
+        },
+        {
+          "date": "2010-10-24",
+          "pscCategory": "Research and Development",
+          "val": 1094652155.77
+        },
+        {
+          "date": "2010-10-31",
+          "pscCategory": "Research and Development",
+          "val": 529575182.31
+        },
+        {
+          "date": "2010-11-07",
+          "pscCategory": "Research and Development",
+          "val": 153806159.56
+        },
+        {
+          "date": "2010-11-14",
+          "pscCategory": "Research and Development",
+          "val": 598652315.51
+        },
+        {
+          "date": "2010-11-21",
+          "pscCategory": "Research and Development",
+          "val": 827366414.54
+        },
+        {
+          "date": "2010-11-28",
+          "pscCategory": "Research and Development",
+          "val": 723700070.83
+        },
+        {
+          "date": "2010-12-05",
+          "pscCategory": "Research and Development",
+          "val": 654612227.62
+        },
+        {
+          "date": "2010-12-12",
+          "pscCategory": "Research and Development",
+          "val": 1236456183.39
+        },
+        {
+          "date": "2010-12-19",
+          "pscCategory": "Research and Development",
+          "val": 760062229.6
+        },
+        {
+          "date": "2010-12-19",
+          "pscCategory": "Research and Development",
+          "val": 760062229.6
+        },
+        {
+          "date": "2010-12-26",
+          "pscCategory": "Research and Development",
+          "val": 495902228.43
+        },
+        {
+          "date": "2011-01-01",
+          "pscCategory": "Research and Development",
+          "val": 7745316.6
+        },
+        {
+          "date": "2011-01-02",
+          "pscCategory": "Research and Development",
+          "val": 759820842.18
+        },
+        {
+          "date": "2011-01-09",
+          "pscCategory": "Research and Development",
+          "val": 1174875157.19
+        },
+        {
+          "date": "2011-01-16",
+          "pscCategory": "Research and Development",
+          "val": 825610666.27
+        },
+        {
+          "date": "2011-01-23",
+          "pscCategory": "Research and Development",
+          "val": 1328898237.72
+        },
+        {
+          "date": "2011-01-30",
+          "pscCategory": "Research and Development",
+          "val": 1032874209.72
+        },
+        {
+          "date": "2011-02-06",
+          "pscCategory": "Research and Development",
+          "val": 691558681.16
+        },
+        {
+          "date": "2011-02-13",
+          "pscCategory": "Research and Development",
+          "val": 626378451.26
+        },
+        {
+          "date": "2011-02-20",
+          "pscCategory": "Research and Development",
+          "val": 1291580592.27
+        },
+        {
+          "date": "2011-02-27",
+          "pscCategory": "Research and Development",
+          "val": 1430812015.43
+        },
+        {
+          "date": "2011-03-06",
+          "pscCategory": "Research and Development",
+          "val": 895400716.07
+        },
+        {
+          "date": "2011-03-13",
+          "pscCategory": "Research and Development",
+          "val": 1243901787.98
+        },
+        {
+          "date": "2011-03-20",
+          "pscCategory": "Research and Development",
+          "val": 930144365.13
+        },
+        {
+          "date": "2011-03-27",
+          "pscCategory": "Research and Development",
+          "val": 1113215243.97
+        },
+        {
+          "date": "2011-04-03",
+          "pscCategory": "Research and Development",
+          "val": 1210130143.62
+        },
+        {
+          "date": "2011-04-10",
+          "pscCategory": "Research and Development",
+          "val": 576555581.57
+        },
+        {
+          "date": "2011-04-17",
+          "pscCategory": "Research and Development",
+          "val": 708730790.84
+        },
+        {
+          "date": "2011-04-24",
+          "pscCategory": "Research and Development",
+          "val": 743419565.91
+        },
+        {
+          "date": "2011-05-01",
+          "pscCategory": "Research and Development",
+          "val": 521591515.71
+        },
+        {
+          "date": "2011-05-08",
+          "pscCategory": "Research and Development",
+          "val": 664213185.15
+        },
+        {
+          "date": "2011-05-15",
+          "pscCategory": "Research and Development",
+          "val": 1315545843.82
+        },
+        {
+          "date": "2011-05-22",
+          "pscCategory": "Research and Development",
+          "val": 1277045298.99
+        },
+        {
+          "date": "2011-05-29",
+          "pscCategory": "Research and Development",
+          "val": 1398878767.41
+        },
+        {
+          "date": "2011-06-05",
+          "pscCategory": "Research and Development",
+          "val": 1705048956.48
+        },
+        {
+          "date": "2011-06-12",
+          "pscCategory": "Research and Development",
+          "val": 1250674707.85
+        },
+        {
+          "date": "2011-06-19",
+          "pscCategory": "Research and Development",
+          "val": 1437138672.29
+        },
+        {
+          "date": "2011-06-26",
+          "pscCategory": "Research and Development",
+          "val": 1618561052.31
+        },
+        {
+          "date": "2011-07-03",
+          "pscCategory": "Research and Development",
+          "val": 406253636.24
+        },
+        {
+          "date": "2011-07-10",
+          "pscCategory": "Research and Development",
+          "val": 927335047.66
+        },
+        {
+          "date": "2011-07-17",
+          "pscCategory": "Research and Development",
+          "val": 1618508553.65
+        },
+        {
+          "date": "2011-07-24",
+          "pscCategory": "Research and Development",
+          "val": 964775372.83
+        },
+        {
+          "date": "2011-07-31",
+          "pscCategory": "Research and Development",
+          "val": 903882104.8
+        },
+        {
+          "date": "2011-08-07",
+          "pscCategory": "Research and Development",
+          "val": 887138358.47
+        },
+        {
+          "date": "2011-08-14",
+          "pscCategory": "Research and Development",
+          "val": 1147261848.65
+        },
+        {
+          "date": "2011-08-21",
+          "pscCategory": "Research and Development",
+          "val": 966582543.23
+        },
+        {
+          "date": "2011-08-28",
+          "pscCategory": "Research and Development",
+          "val": 1783775623.62
+        },
+        {
+          "date": "2011-09-04",
+          "pscCategory": "Research and Development",
+          "val": 749678908.38
+        },
+        {
+          "date": "2011-09-11",
+          "pscCategory": "Research and Development",
+          "val": 1518834243.12
+        },
+        {
+          "date": "2011-09-18",
+          "pscCategory": "Research and Development",
+          "val": 1734866142.11
+        },
+        {
+          "date": "2011-09-25",
+          "pscCategory": "Research and Development",
+          "val": 2534474232.79
+        },
+        {
+          "date": "2011-10-02",
+          "pscCategory": "Research and Development",
+          "val": 415270634.05
+        },
+        {
+          "date": "2011-10-09",
+          "pscCategory": "Research and Development",
+          "val": 411757740.21
+        },
+        {
+          "date": "2011-10-16",
+          "pscCategory": "Research and Development",
+          "val": 660168182.2
+        },
+        {
+          "date": "2011-10-23",
+          "pscCategory": "Research and Development",
+          "val": 620170964.77
+        },
+        {
+          "date": "2011-10-30",
+          "pscCategory": "Research and Development",
+          "val": 615455856.83
+        },
+        {
+          "date": "2011-11-06",
+          "pscCategory": "Research and Development",
+          "val": 391990581.67
+        },
+        {
+          "date": "2011-11-13",
+          "pscCategory": "Research and Development",
+          "val": 710816530.3
+        },
+        {
+          "date": "2011-11-20",
+          "pscCategory": "Research and Development",
+          "val": 796663627.36
+        },
+        {
+          "date": "2011-11-27",
+          "pscCategory": "Research and Development",
+          "val": 722655408.05
+        },
+        {
+          "date": "2011-12-04",
+          "pscCategory": "Research and Development",
+          "val": 874208919.13
+        },
+        {
+          "date": "2011-12-11",
+          "pscCategory": "Research and Development",
+          "val": 1331625660.9
+        },
+        {
+          "date": "2011-12-18",
+          "pscCategory": "Research and Development",
+          "val": 1108722347.58
+        },
+        {
+          "date": "2011-12-18",
+          "pscCategory": "Research and Development",
+          "val": 1108722347.58
+        },
+        {
+          "date": "2011-12-25",
+          "pscCategory": "Research and Development",
+          "val": 490803663.76
+        },
+        {
+          "date": "2012-01-01",
+          "pscCategory": "Research and Development",
+          "val": 597489162.72
+        },
+        {
+          "date": "2012-01-08",
+          "pscCategory": "Research and Development",
+          "val": 1152974082.48
+        },
+        {
+          "date": "2012-01-15",
+          "pscCategory": "Research and Development",
+          "val": 1089267568.56
+        },
+        {
+          "date": "2012-01-22",
+          "pscCategory": "Research and Development",
+          "val": 2358748249.35
+        },
+        {
+          "date": "2012-01-29",
+          "pscCategory": "Research and Development",
+          "val": 1623208460.72
+        },
+        {
+          "date": "2012-02-05",
+          "pscCategory": "Research and Development",
+          "val": 705786943.74
+        },
+        {
+          "date": "2012-02-12",
+          "pscCategory": "Research and Development",
+          "val": 1269469828.65
+        },
+        {
+          "date": "2012-02-19",
+          "pscCategory": "Research and Development",
+          "val": 1386176169.47
+        },
+        {
+          "date": "2012-02-26",
+          "pscCategory": "Research and Development",
+          "val": 1294578977.12
+        },
+        {
+          "date": "2012-03-04",
+          "pscCategory": "Research and Development",
+          "val": 953173657.31
+        },
+        {
+          "date": "2012-03-11",
+          "pscCategory": "Research and Development",
+          "val": 938243465.86
+        },
+        {
+          "date": "2012-03-18",
+          "pscCategory": "Research and Development",
+          "val": 1121180804.67
+        },
+        {
+          "date": "2012-03-25",
+          "pscCategory": "Research and Development",
+          "val": 1570502244.34
+        },
+        {
+          "date": "2012-04-01",
+          "pscCategory": "Research and Development",
+          "val": 1038192619.93
+        },
+        {
+          "date": "2012-04-08",
+          "pscCategory": "Research and Development",
+          "val": 825467833.88
+        },
+        {
+          "date": "2012-04-15",
+          "pscCategory": "Research and Development",
+          "val": 476217250.53
+        },
+        {
+          "date": "2012-04-22",
+          "pscCategory": "Research and Development",
+          "val": 1038688489
+        },
+        {
+          "date": "2012-04-29",
+          "pscCategory": "Research and Development",
+          "val": 800510401.28
+        },
+        {
+          "date": "2012-05-06",
+          "pscCategory": "Research and Development",
+          "val": 588410255.3
+        },
+        {
+          "date": "2012-05-13",
+          "pscCategory": "Research and Development",
+          "val": 630735642.01
+        },
+        {
+          "date": "2012-05-20",
+          "pscCategory": "Research and Development",
+          "val": 878810151.04
+        },
+        {
+          "date": "2012-05-27",
+          "pscCategory": "Research and Development",
+          "val": 1161550828.69
+        },
+        {
+          "date": "2012-06-03",
+          "pscCategory": "Research and Development",
+          "val": 678237006.7
+        },
+        {
+          "date": "2012-06-10",
+          "pscCategory": "Research and Development",
+          "val": 767142409.93
+        },
+        {
+          "date": "2012-06-17",
+          "pscCategory": "Research and Development",
+          "val": 840299743.25
+        },
+        {
+          "date": "2012-06-24",
+          "pscCategory": "Research and Development",
+          "val": 1122113754.81
+        },
+        {
+          "date": "2012-07-01",
+          "pscCategory": "Research and Development",
+          "val": 308842309.9
+        },
+        {
+          "date": "2012-07-08",
+          "pscCategory": "Research and Development",
+          "val": 544326300.23
+        },
+        {
+          "date": "2012-07-15",
+          "pscCategory": "Research and Development",
+          "val": 737027171.32
+        },
+        {
+          "date": "2012-07-22",
+          "pscCategory": "Research and Development",
+          "val": 1165004011.48
+        },
+        {
+          "date": "2012-07-29",
+          "pscCategory": "Research and Development",
+          "val": 948215269.55
+        },
+        {
+          "date": "2012-08-05",
+          "pscCategory": "Research and Development",
+          "val": 577172921.01
+        },
+        {
+          "date": "2012-08-12",
+          "pscCategory": "Research and Development",
+          "val": 554498994.73
+        },
+        {
+          "date": "2012-08-19",
+          "pscCategory": "Research and Development",
+          "val": 1067462924.26
+        },
+        {
+          "date": "2012-08-26",
+          "pscCategory": "Research and Development",
+          "val": 1072830351.72
+        },
+        {
+          "date": "2012-09-02",
+          "pscCategory": "Research and Development",
+          "val": 682824631.28
+        },
+        {
+          "date": "2012-09-09",
+          "pscCategory": "Research and Development",
+          "val": 1087923809.62
+        },
+        {
+          "date": "2012-09-16",
+          "pscCategory": "Research and Development",
+          "val": 1897773699.2
+        },
+        {
+          "date": "2012-09-23",
+          "pscCategory": "Research and Development",
+          "val": 3180154717.19
+        },
+        {
+          "date": "2012-09-30",
+          "pscCategory": "Research and Development",
+          "val": 642322565.48
+        },
+        {
+          "date": "2012-10-07",
+          "pscCategory": "Research and Development",
+          "val": 957989630.56
+        },
+        {
+          "date": "2012-10-14",
+          "pscCategory": "Research and Development",
+          "val": 940828668.6
+        },
+        {
+          "date": "2012-10-21",
+          "pscCategory": "Research and Development",
+          "val": 599288576.36
+        },
+        {
+          "date": "2012-10-28",
+          "pscCategory": "Research and Development",
+          "val": 1001069177.91
+        },
+        {
+          "date": "2012-11-04",
+          "pscCategory": "Research and Development",
+          "val": 520936764.24
+        },
+        {
+          "date": "2012-11-11",
+          "pscCategory": "Research and Development",
+          "val": 1343881872.43
+        },
+        {
+          "date": "2012-11-18",
+          "pscCategory": "Research and Development",
+          "val": 488828115.78
+        },
+        {
+          "date": "2012-11-25",
+          "pscCategory": "Research and Development",
+          "val": 788124338.75
+        },
+        {
+          "date": "2012-12-02",
+          "pscCategory": "Research and Development",
+          "val": 591687870.57
+        },
+        {
+          "date": "2012-12-09",
+          "pscCategory": "Research and Development",
+          "val": 1840650955.35
+        },
+        {
+          "date": "2012-12-16",
+          "pscCategory": "Research and Development",
+          "val": 1215061521.91
+        },
+        {
+          "date": "2012-12-23",
+          "pscCategory": "Research and Development",
+          "val": 558957013.58
+        },
+        {
+          "date": "2012-12-30",
+          "pscCategory": "Research and Development",
+          "val": 319461110.81
+        },
+        {
+          "date": "2013-01-01",
+          "pscCategory": "Research and Development",
+          "val": 143808254.45
+        },
+        {
+          "date": "2013-01-06",
+          "pscCategory": "Research and Development",
+          "val": 439475907.86
+        },
+        {
+          "date": "2013-01-13",
+          "pscCategory": "Research and Development",
+          "val": 362938221.98
+        },
+        {
+          "date": "2013-01-20",
+          "pscCategory": "Research and Development",
+          "val": 588654556.24
+        },
+        {
+          "date": "2013-01-27",
+          "pscCategory": "Research and Development",
+          "val": 517605726.66
+        },
+        {
+          "date": "2013-02-03",
+          "pscCategory": "Research and Development",
+          "val": 498718444.57
+        },
+        {
+          "date": "2013-02-10",
+          "pscCategory": "Research and Development",
+          "val": 828597206.85
+        },
+        {
+          "date": "2013-02-17",
+          "pscCategory": "Research and Development",
+          "val": 311860287.96
+        },
+        {
+          "date": "2013-02-24",
+          "pscCategory": "Research and Development",
+          "val": 654118932.66
+        },
+        {
+          "date": "2013-03-03",
+          "pscCategory": "Research and Development",
+          "val": 418581874.98
+        },
+        {
+          "date": "2013-03-10",
+          "pscCategory": "Research and Development",
+          "val": 666018326.3
+        },
+        {
+          "date": "2013-03-17",
+          "pscCategory": "Research and Development",
+          "val": 753356578.91
+        },
+        {
+          "date": "2013-03-24",
+          "pscCategory": "Research and Development",
+          "val": 769334632.74
+        },
+        {
+          "date": "2013-03-31",
+          "pscCategory": "Research and Development",
+          "val": 536307719.23
+        },
+        {
+          "date": "2013-04-07",
+          "pscCategory": "Research and Development",
+          "val": 201022275.26
+        },
+        {
+          "date": "2013-04-14",
+          "pscCategory": "Research and Development",
+          "val": 826657791.1
+        },
+        {
+          "date": "2013-04-21",
+          "pscCategory": "Research and Development",
+          "val": 549709029.47
+        },
+        {
+          "date": "2013-04-28",
+          "pscCategory": "Research and Development",
+          "val": 540220350.7
+        },
+        {
+          "date": "2013-05-05",
+          "pscCategory": "Research and Development",
+          "val": 937978121.69
+        },
+        {
+          "date": "2013-05-12",
+          "pscCategory": "Research and Development",
+          "val": 492500926.04
+        },
+        {
+          "date": "2013-05-19",
+          "pscCategory": "Research and Development",
+          "val": 1265581522.3
+        },
+        {
+          "date": "2013-05-26",
+          "pscCategory": "Research and Development",
+          "val": 860663405.8
+        },
+        {
+          "date": "2013-06-02",
+          "pscCategory": "Research and Development",
+          "val": 868549846.78
+        },
+        {
+          "date": "2013-06-09",
+          "pscCategory": "Research and Development",
+          "val": 1153485281.96
+        },
+        {
+          "date": "2013-06-16",
+          "pscCategory": "Research and Development",
+          "val": 1031004122.26
+        },
+        {
+          "date": "2013-06-23",
+          "pscCategory": "Research and Development",
+          "val": 1365831242.65
+        },
+        {
+          "date": "2013-06-30",
+          "pscCategory": "Research and Development",
+          "val": 507260941.11
+        },
+        {
+          "date": "2013-07-07",
+          "pscCategory": "Research and Development",
+          "val": 953812650.82
+        },
+        {
+          "date": "2013-07-14",
+          "pscCategory": "Research and Development",
+          "val": 861894661.9
+        },
+        {
+          "date": "2013-07-21",
+          "pscCategory": "Research and Development",
+          "val": 710552685.81
+        },
+        {
+          "date": "2013-07-28",
+          "pscCategory": "Research and Development",
+          "val": 1346376466.97
+        },
+        {
+          "date": "2013-08-04",
+          "pscCategory": "Research and Development",
+          "val": 430057161.46
+        },
+        {
+          "date": "2013-08-11",
+          "pscCategory": "Research and Development",
+          "val": 835786006.29
+        },
+        {
+          "date": "2013-08-18",
+          "pscCategory": "Research and Development",
+          "val": 917323923.25
+        },
+        {
+          "date": "2013-08-25",
+          "pscCategory": "Research and Development",
+          "val": 922817049.49
+        },
+        {
+          "date": "2013-09-01",
+          "pscCategory": "Research and Development",
+          "val": 812346058.26
+        },
+        {
+          "date": "2013-09-08",
+          "pscCategory": "Research and Development",
+          "val": 952240435.39
+        },
+        {
+          "date": "2013-09-15",
+          "pscCategory": "Research and Development",
+          "val": 1868273541.17
+        },
+        {
+          "date": "2013-09-22",
+          "pscCategory": "Research and Development",
+          "val": 2290885919.21
+        },
+        {
+          "date": "2013-09-29",
+          "pscCategory": "Research and Development",
+          "val": 561692018.34
+        },
+        {
+          "date": "2013-10-06",
+          "pscCategory": "Research and Development",
+          "val": 80952731.08
+        },
+        {
+          "date": "2013-10-13",
+          "pscCategory": "Research and Development",
+          "val": 423758529.18
+        },
+        {
+          "date": "2013-10-20",
+          "pscCategory": "Research and Development",
+          "val": 517745362.52
+        },
+        {
+          "date": "2013-10-27",
+          "pscCategory": "Research and Development",
+          "val": 778445266.02
+        },
+        {
+          "date": "2013-11-03",
+          "pscCategory": "Research and Development",
+          "val": 712681334.38
+        },
+        {
+          "date": "2013-11-10",
+          "pscCategory": "Research and Development",
+          "val": 861150634.81
+        },
+        {
+          "date": "2013-11-17",
+          "pscCategory": "Research and Development",
+          "val": 548073582.42
+        },
+        {
+          "date": "2013-11-24",
+          "pscCategory": "Research and Development",
+          "val": 526975818.97
+        },
+        {
+          "date": "2013-12-01",
+          "pscCategory": "Research and Development",
+          "val": 629201144.16
+        },
+        {
+          "date": "2013-12-08",
+          "pscCategory": "Research and Development",
+          "val": 413153945.32
+        },
+        {
+          "date": "2013-12-15",
+          "pscCategory": "Research and Development",
+          "val": 993600822.29
+        },
+        {
+          "date": "2013-12-22",
+          "pscCategory": "Research and Development",
+          "val": 236605899.43
+        },
+        {
+          "date": "2013-12-29",
+          "pscCategory": "Research and Development",
+          "val": 89251021.39
+        },
+        {
+          "date": "2014-01-01",
+          "pscCategory": "Research and Development",
+          "val": 56478693.11
+        },
+        {
+          "date": "2014-01-05",
+          "pscCategory": "Research and Development",
+          "val": 636155367.54
+        },
+        {
+          "date": "2014-01-12",
+          "pscCategory": "Research and Development",
+          "val": 590312172.79
+        },
+        {
+          "date": "2014-01-19",
+          "pscCategory": "Research and Development",
+          "val": 341902989.87
+        },
+        {
+          "date": "2014-01-26",
+          "pscCategory": "Research and Development",
+          "val": 663534973.56
+        },
+        {
+          "date": "2014-02-02",
+          "pscCategory": "Research and Development",
+          "val": 437078357.24
+        },
+        {
+          "date": "2014-02-09",
+          "pscCategory": "Research and Development",
+          "val": 666181526.99
+        },
+        {
+          "date": "2014-02-16",
+          "pscCategory": "Research and Development",
+          "val": 407635610.33
+        },
+        {
+          "date": "2014-02-23",
+          "pscCategory": "Research and Development",
+          "val": 1668699962.54
+        },
+        {
+          "date": "2014-03-02",
+          "pscCategory": "Research and Development",
+          "val": 884489325.85
+        },
+        {
+          "date": "2014-03-09",
+          "pscCategory": "Research and Development",
+          "val": 1856318527.02
+        },
+        {
+          "date": "2014-03-16",
+          "pscCategory": "Research and Development",
+          "val": 1606961033.32
+        },
+        {
+          "date": "2014-03-23",
+          "pscCategory": "Research and Development",
+          "val": 1115730797.6
+        },
+        {
+          "date": "2014-03-30",
+          "pscCategory": "Research and Development",
+          "val": 1170124871.99
+        },
+        {
+          "date": "2014-04-06",
+          "pscCategory": "Research and Development",
+          "val": 1315489346.31
+        },
+        {
+          "date": "2014-04-13",
+          "pscCategory": "Research and Development",
+          "val": 1318997705.1
+        },
+        {
+          "date": "2014-04-20",
+          "pscCategory": "Research and Development",
+          "val": 941922264.13
+        },
+        {
+          "date": "2014-04-27",
+          "pscCategory": "Research and Development",
+          "val": 741264140.11
+        },
+        {
+          "date": "2014-05-04",
+          "pscCategory": "Research and Development",
+          "val": 565900437.71
+        },
+        {
+          "date": "2014-05-11",
+          "pscCategory": "Research and Development",
+          "val": 707210679.26
+        },
+        {
+          "date": "2014-05-18",
+          "pscCategory": "Research and Development",
+          "val": 706826940.75
+        },
+        {
+          "date": "2014-05-25",
+          "pscCategory": "Research and Development",
+          "val": 882287156.05
+        },
+        {
+          "date": "2014-06-01",
+          "pscCategory": "Research and Development",
+          "val": 1001977486.17
+        },
+        {
+          "date": "2014-06-08",
+          "pscCategory": "Research and Development",
+          "val": 755865137.19
+        },
+        {
+          "date": "2014-06-15",
+          "pscCategory": "Research and Development",
+          "val": 658720519.55
+        },
+        {
+          "date": "2014-06-22",
+          "pscCategory": "Research and Development",
+          "val": 674270544.01
+        },
+        {
+          "date": "2014-06-29",
+          "pscCategory": "Research and Development",
+          "val": 645881482.51
+        },
+        {
+          "date": "2014-07-06",
+          "pscCategory": "Research and Development",
+          "val": 389980424.66
+        },
+        {
+          "date": "2014-07-13",
+          "pscCategory": "Research and Development",
+          "val": 601713066.46
+        },
+        {
+          "date": "2014-07-20",
+          "pscCategory": "Research and Development",
+          "val": 665328617.6
+        },
+        {
+          "date": "2014-07-27",
+          "pscCategory": "Research and Development",
+          "val": 776007779.08
+        },
+        {
+          "date": "2014-08-03",
+          "pscCategory": "Research and Development",
+          "val": 523117854.03
+        },
+        {
+          "date": "2014-08-10",
+          "pscCategory": "Research and Development",
+          "val": 715995902.6
+        },
+        {
+          "date": "2014-08-17",
+          "pscCategory": "Research and Development",
+          "val": 606485890.29
+        },
+        {
+          "date": "2014-08-24",
+          "pscCategory": "Research and Development",
+          "val": 843169972.23
+        },
+        {
+          "date": "2014-08-31",
+          "pscCategory": "Research and Development",
+          "val": 433458093.43
+        },
+        {
+          "date": "2014-09-07",
+          "pscCategory": "Research and Development",
+          "val": 842889885.76
+        },
+        {
+          "date": "2014-09-14",
+          "pscCategory": "Research and Development",
+          "val": 1501058593.75
+        },
+        {
+          "date": "2014-09-21",
+          "pscCategory": "Research and Development",
+          "val": 1728185112.85
+        },
+        {
+          "date": "2014-09-28",
+          "pscCategory": "Research and Development",
+          "val": 951691112.73
+        },
+        {
+          "date": "2014-10-05",
+          "pscCategory": "Research and Development",
+          "val": 505615639.51
+        },
+        {
+          "date": "2014-10-12",
+          "pscCategory": "Research and Development",
+          "val": 898294613.13
+        },
+        {
+          "date": "2014-10-19",
+          "pscCategory": "Research and Development",
+          "val": 541642390.47
+        },
+        {
+          "date": "2014-10-26",
+          "pscCategory": "Research and Development",
+          "val": 877511518.63
+        },
+        {
+          "date": "2014-11-02",
+          "pscCategory": "Research and Development",
+          "val": 365841239.92
+        },
+        {
+          "date": "2014-11-09",
+          "pscCategory": "Research and Development",
+          "val": 453417728.02
+        },
+        {
+          "date": "2014-11-16",
+          "pscCategory": "Research and Development",
+          "val": 590052791.81
+        },
+        {
+          "date": "2014-11-23",
+          "pscCategory": "Research and Development",
+          "val": 341650997.39
+        },
+        {
+          "date": "2014-11-30",
+          "pscCategory": "Research and Development",
+          "val": 499269315.43
+        },
+        {
+          "date": "2014-12-07",
+          "pscCategory": "Research and Development",
+          "val": 584887143.5
+        },
+        {
+          "date": "2014-12-14",
+          "pscCategory": "Research and Development",
+          "val": 632150851.79
+        },
+        {
+          "date": "2014-12-14",
+          "pscCategory": "Research and Development",
+          "val": 632150851.79
+        },
+        {
+          "date": "2014-12-21",
+          "pscCategory": "Research and Development",
+          "val": 566584095.86
+        },
+        {
+          "date": "2014-12-28",
+          "pscCategory": "Research and Development",
+          "val": 289252111.41
+        },
+        {
+          "date": "2015-01-01",
+          "pscCategory": "Research and Development",
+          "val": 14811124.04
+        },
+        {
+          "date": "2015-01-04",
+          "pscCategory": "Research and Development",
+          "val": 528448412.17
+        },
+        {
+          "date": "2015-01-11",
+          "pscCategory": "Research and Development",
+          "val": 381406263.15
+        },
+        {
+          "date": "2015-01-18",
+          "pscCategory": "Research and Development",
+          "val": 501331697.03
+        },
+        {
+          "date": "2015-01-25",
+          "pscCategory": "Research and Development",
+          "val": 1464067738.44
+        },
+        {
+          "date": "2015-02-01",
+          "pscCategory": "Research and Development",
+          "val": 1348230935.72
+        },
+        {
+          "date": "2015-02-08",
+          "pscCategory": "Research and Development",
+          "val": 1120263375.79
+        },
+        {
+          "date": "2015-02-15",
+          "pscCategory": "Research and Development",
+          "val": 1300140223.65
+        },
+        {
+          "date": "2015-02-22",
+          "pscCategory": "Research and Development",
+          "val": 1616501419.87
+        },
+        {
+          "date": "2015-03-01",
+          "pscCategory": "Research and Development",
+          "val": 752373135.58
+        },
+        {
+          "date": "2015-03-08",
+          "pscCategory": "Research and Development",
+          "val": 820895000.61
+        },
+        {
+          "date": "2015-03-15",
+          "pscCategory": "Research and Development",
+          "val": 861588260.68
+        },
+        {
+          "date": "2015-03-22",
+          "pscCategory": "Research and Development",
+          "val": 938922474.96
+        },
+        {
+          "date": "2015-03-29",
+          "pscCategory": "Research and Development",
+          "val": 956433874.87
+        },
+        {
+          "date": "2015-04-05",
+          "pscCategory": "Research and Development",
+          "val": 621132850.92
+        },
+        {
+          "date": "2015-04-12",
+          "pscCategory": "Research and Development",
+          "val": 743595926.7
+        },
+        {
+          "date": "2015-04-19",
+          "pscCategory": "Research and Development",
+          "val": 627427139.37
+        },
+        {
+          "date": "2015-04-26",
+          "pscCategory": "Research and Development",
+          "val": 912547894.74
+        },
+        {
+          "date": "2015-05-03",
+          "pscCategory": "Research and Development",
+          "val": 499339240.34
+        },
+        {
+          "date": "2015-05-10",
+          "pscCategory": "Research and Development",
+          "val": 755473789.11
+        },
+        {
+          "date": "2015-05-17",
+          "pscCategory": "Research and Development",
+          "val": 656079009.13
+        },
+        {
+          "date": "2015-05-24",
+          "pscCategory": "Research and Development",
+          "val": 595721357.05
+        },
+        {
+          "date": "2015-05-31",
+          "pscCategory": "Research and Development",
+          "val": 515315659.42
+        },
+        {
+          "date": "2015-06-07",
+          "pscCategory": "Research and Development",
+          "val": 395287104.43
+        },
+        {
+          "date": "2015-06-14",
+          "pscCategory": "Research and Development",
+          "val": 645299776.78
+        },
+        {
+          "date": "2015-06-21",
+          "pscCategory": "Research and Development",
+          "val": 582324409.96
+        },
+        {
+          "date": "2015-06-28",
+          "pscCategory": "Research and Development",
+          "val": 658559699.92
+        },
+        {
+          "date": "2015-07-05",
+          "pscCategory": "Research and Development",
+          "val": 425107566.83
+        },
+        {
+          "date": "2015-07-12",
+          "pscCategory": "Research and Development",
+          "val": 480909694.2
+        },
+        {
+          "date": "2015-07-19",
+          "pscCategory": "Research and Development",
+          "val": 639327354.11
+        },
+        {
+          "date": "2015-07-26",
+          "pscCategory": "Research and Development",
+          "val": 813291749.49
+        },
+        {
+          "date": "2015-08-02",
+          "pscCategory": "Research and Development",
+          "val": 660299135.15
+        },
+        {
+          "date": "2015-08-09",
+          "pscCategory": "Research and Development",
+          "val": 496632567.26
+        },
+        {
+          "date": "2015-08-16",
+          "pscCategory": "Research and Development",
+          "val": 579295477.82
+        },
+        {
+          "date": "2015-08-23",
+          "pscCategory": "Research and Development",
+          "val": 823032753.69
+        },
+        {
+          "date": "2015-08-30",
+          "pscCategory": "Research and Development",
+          "val": 806308523.91
+        },
+        {
+          "date": "2015-09-06",
+          "pscCategory": "Research and Development",
+          "val": 580561783.88
+        },
+        {
+          "date": "2015-09-13",
+          "pscCategory": "Research and Development",
+          "val": 1037713320.8
+        },
+        {
+          "date": "2015-09-20",
+          "pscCategory": "Research and Development",
+          "val": 1445804791.29
+        },
+        {
+          "date": "2015-09-27",
+          "pscCategory": "Research and Development",
+          "val": 1191206905.17
+        },
+        {
+          "date": "2015-10-04",
+          "pscCategory": "Research and Development",
+          "val": 637729877.83
+        },
+        {
+          "date": "2015-10-11",
+          "pscCategory": "Research and Development",
+          "val": 257063738
+        },
+        {
+          "date": "2015-10-18",
+          "pscCategory": "Research and Development",
+          "val": 640502075.86
+        },
+        {
+          "date": "2015-10-25",
+          "pscCategory": "Research and Development",
+          "val": 1067639277.59
+        },
+        {
+          "date": "2015-11-01",
+          "pscCategory": "Research and Development",
+          "val": 484735453.75
+        },
+        {
+          "date": "2015-11-08",
+          "pscCategory": "Research and Development",
+          "val": 364745391.43
+        },
+        {
+          "date": "2015-11-15",
+          "pscCategory": "Research and Development",
+          "val": 422099292.63
+        },
+        {
+          "date": "2015-11-22",
+          "pscCategory": "Research and Development",
+          "val": 439842727.74
+        },
+        {
+          "date": "2015-11-29",
+          "pscCategory": "Research and Development",
+          "val": 417722233.23
+        },
+        {
+          "date": "2015-12-06",
+          "pscCategory": "Research and Development",
+          "val": 521709399.03
+        },
+        {
+          "date": "2015-12-13",
+          "pscCategory": "Research and Development",
+          "val": 550131614.95
+        },
+        {
+          "date": "2015-12-20",
+          "pscCategory": "Research and Development",
+          "val": 511557982.13
+        },
+        {
+          "date": "2015-12-27",
+          "pscCategory": "Research and Development",
+          "val": 154609280.87
+        },
+        {
+          "date": "2016-01-01",
+          "pscCategory": "Research and Development",
+          "val": 1091577.55
+        },
+        {
+          "date": "2016-01-03",
+          "pscCategory": "Research and Development",
+          "val": 334794142.61
+        },
+        {
+          "date": "2016-01-10",
+          "pscCategory": "Research and Development",
+          "val": 708173929.51
+        },
+        {
+          "date": "2016-01-17",
+          "pscCategory": "Research and Development",
+          "val": 672467196.89
+        },
+        {
+          "date": "2016-01-24",
+          "pscCategory": "Research and Development",
+          "val": 538260595.27
+        },
+        {
+          "date": "2016-01-31",
+          "pscCategory": "Research and Development",
+          "val": 586587180.86
+        },
+        {
+          "date": "2016-02-07",
+          "pscCategory": "Research and Development",
+          "val": 875777788.87
+        },
+        {
+          "date": "2016-02-14",
+          "pscCategory": "Research and Development",
+          "val": 1054937297.63
+        },
+        {
+          "date": "2016-02-21",
+          "pscCategory": "Research and Development",
+          "val": 1183481703.24
+        },
+        {
+          "date": "2016-02-28",
+          "pscCategory": "Research and Development",
+          "val": 1440720924.91
+        },
+        {
+          "date": "2016-03-06",
+          "pscCategory": "Research and Development",
+          "val": 1108748387.34
+        },
+        {
+          "date": "2016-03-13",
+          "pscCategory": "Research and Development",
+          "val": 1100657947.94
+        },
+        {
+          "date": "2016-03-20",
+          "pscCategory": "Research and Development",
+          "val": 901564096.38
+        },
+        {
+          "date": "2016-03-27",
+          "pscCategory": "Research and Development",
+          "val": 1048139649.43
+        },
+        {
+          "date": "2016-04-03",
+          "pscCategory": "Research and Development",
+          "val": 577233113.53
+        },
+        {
+          "date": "2016-04-10",
+          "pscCategory": "Research and Development",
+          "val": 1141482846.82
+        },
+        {
+          "date": "2016-04-17",
+          "pscCategory": "Research and Development",
+          "val": 679090569.59
+        },
+        {
+          "date": "2016-04-24",
+          "pscCategory": "Research and Development",
+          "val": 618238450.32
+        },
+        {
+          "date": "2016-05-01",
+          "pscCategory": "Research and Development",
+          "val": 656517936.67
+        },
+        {
+          "date": "2016-05-08",
+          "pscCategory": "Research and Development",
+          "val": 440408921.47
+        },
+        {
+          "date": "2016-05-15",
+          "pscCategory": "Research and Development",
+          "val": 605906858.08
+        },
+        {
+          "date": "2016-05-22",
+          "pscCategory": "Research and Development",
+          "val": 698369866.51
+        },
+        {
+          "date": "2016-05-29",
+          "pscCategory": "Research and Development",
+          "val": 514054109.3
+        },
+        {
+          "date": "2016-06-05",
+          "pscCategory": "Research and Development",
+          "val": 570604763.85
+        },
+        {
+          "date": "2016-06-12",
+          "pscCategory": "Research and Development",
+          "val": 558358709.54
+        },
+        {
+          "date": "2016-06-19",
+          "pscCategory": "Research and Development",
+          "val": 704126522.98
+        },
+        {
+          "date": "2016-06-26",
+          "pscCategory": "Research and Development",
+          "val": 672978917.04
+        },
+        {
+          "date": "2016-07-03",
+          "pscCategory": "Research and Development",
+          "val": 243602217.96
+        },
+        {
+          "date": "2016-07-10",
+          "pscCategory": "Research and Development",
+          "val": 164330504.47
+        },
+        {
+          "date": "2016-07-17",
+          "pscCategory": "Research and Development",
+          "val": 173495602
+        },
+        {
+          "date": "2016-07-24",
+          "pscCategory": "Research and Development",
+          "val": 282169523
+        },
+        {
+          "date": "2016-07-31",
+          "pscCategory": "Research and Development",
+          "val": 124381610.99
+        },
+        {
+          "date": "2016-08-07",
+          "pscCategory": "Research and Development",
+          "val": 157497934.13
+        },
+        {
+          "date": "2016-08-14",
+          "pscCategory": "Research and Development",
+          "val": 259148641.09
+        },
+        {
+          "date": "2016-08-21",
+          "pscCategory": "Research and Development",
+          "val": 206524095.09
+        },
+        {
+          "date": "2016-08-28",
+          "pscCategory": "Research and Development",
+          "val": 261672879.68
+        },
+        {
+          "date": "2016-09-04",
+          "pscCategory": "Research and Development",
+          "val": 150981774.18
+        },
+        {
+          "date": "2016-09-11",
+          "pscCategory": "Research and Development",
+          "val": 341052755.69
+        },
+        {
+          "date": "2016-09-18",
+          "pscCategory": "Research and Development",
+          "val": 514734940.06
+        },
+        {
+          "date": "2016-09-25",
+          "pscCategory": "Research and Development",
+          "val": 523412919.6
+        },
+        {
+          "date": "2016-10-02",
+          "pscCategory": "Research and Development",
+          "val": 162625927.73
+        },
+        {
+          "date": "2016-10-09",
+          "pscCategory": "Research and Development",
+          "val": 981643590.78
+        },
+        {
+          "date": "2016-10-16",
+          "pscCategory": "Research and Development",
+          "val": 528327136.34
+        },
+        {
+          "date": "2016-10-23",
+          "pscCategory": "Research and Development",
+          "val": 903518368.15
+        },
+        {
+          "date": "2016-10-30",
+          "pscCategory": "Research and Development",
+          "val": 1506586812.49
+        },
+        {
+          "date": "2016-11-06",
+          "pscCategory": "Research and Development",
+          "val": 436719794.09
+        },
+        {
+          "date": "2016-11-13",
+          "pscCategory": "Research and Development",
+          "val": 1021214386.21
+        },
+        {
+          "date": "2016-11-20",
+          "pscCategory": "Research and Development",
+          "val": 771519162.64
+        },
+        {
+          "date": "2016-11-27",
+          "pscCategory": "Research and Development",
+          "val": 796540885.83
+        },
+        {
+          "date": "2016-12-04",
+          "pscCategory": "Research and Development",
+          "val": 821913609.89
+        },
+        {
+          "date": "2016-12-11",
+          "pscCategory": "Research and Development",
+          "val": 1121725938.86
+        },
+        {
+          "date": "2016-12-18",
+          "pscCategory": "Research and Development",
+          "val": 1774502655.25
+        },
+        {
+          "date": "2016-12-25",
+          "pscCategory": "Research and Development",
+          "val": 812794367.1
+        },
+        {
+          "date": "2017-01-01",
+          "pscCategory": "Research and Development",
+          "val": 364045890.73
+        },
+        {
+          "date": "2017-01-08",
+          "pscCategory": "Research and Development",
+          "val": 1120936046.96
+        },
+        {
+          "date": "2017-01-15",
+          "pscCategory": "Research and Development",
+          "val": 776115323.22
+        },
+        {
+          "date": "2017-01-15",
+          "pscCategory": "Research and Development",
+          "val": 776115323.22
+        },
+        {
+          "date": "2017-01-22",
+          "pscCategory": "Research and Development",
+          "val": 917564632.03
+        },
+        {
+          "date": "2017-01-29",
+          "pscCategory": "Research and Development",
+          "val": 945313797.31
+        },
+        {
+          "date": "2017-02-05",
+          "pscCategory": "Research and Development",
+          "val": 1035840734
+        },
+        {
+          "date": "2017-02-12",
+          "pscCategory": "Research and Development",
+          "val": 1551163480.9
+        },
+        {
+          "date": "2017-02-19",
+          "pscCategory": "Research and Development",
+          "val": 914813380.05
+        },
+        {
+          "date": "2017-02-26",
+          "pscCategory": "Research and Development",
+          "val": 944966243.22
+        },
+        {
+          "date": "2017-03-05",
+          "pscCategory": "Research and Development",
+          "val": 844908827.44
+        },
+        {
+          "date": "2017-03-12",
+          "pscCategory": "Research and Development",
+          "val": 910519081.78
+        },
+        {
+          "date": "2017-03-19",
+          "pscCategory": "Research and Development",
+          "val": 1063251769.6
+        },
+        {
+          "date": "2017-03-26",
+          "pscCategory": "Research and Development",
+          "val": 743747417.26
+        },
+        {
+          "date": "2017-04-02",
+          "pscCategory": "Research and Development",
+          "val": 622756826.45
+        },
+        {
+          "date": "2017-04-09",
+          "pscCategory": "Research and Development",
+          "val": 973175990.68
+        },
+        {
+          "date": "2017-04-16",
+          "pscCategory": "Research and Development",
+          "val": 777086460.28
+        },
+        {
+          "date": "2017-04-23",
+          "pscCategory": "Research and Development",
+          "val": 1007528085.01
+        },
+        {
+          "date": "2017-04-30",
+          "pscCategory": "Research and Development",
+          "val": 503770897.77
+        },
+        {
+          "date": "2017-04-30",
+          "pscCategory": "Research and Development",
+          "val": 503770897.77
+        },
+        {
+          "date": "2017-05-07",
+          "pscCategory": "Research and Development",
+          "val": 672506635.55
+        },
+        {
+          "date": "2017-05-14",
+          "pscCategory": "Research and Development",
+          "val": 936632313.58
+        },
+        {
+          "date": "2017-05-21",
+          "pscCategory": "Research and Development",
+          "val": 740790975.02
+        },
+        {
+          "date": "2017-05-28",
+          "pscCategory": "Research and Development",
+          "val": 1104750423.14
+        },
+        {
+          "date": "2017-06-04",
+          "pscCategory": "Research and Development",
+          "val": 1537175444.74
+        },
+        {
+          "date": "2017-06-11",
+          "pscCategory": "Research and Development",
+          "val": 1739323976.29
+        },
+        {
+          "date": "2017-06-18",
+          "pscCategory": "Research and Development",
+          "val": 679171668.1
+        },
+        {
+          "date": "2017-06-25",
+          "pscCategory": "Research and Development",
+          "val": 2374831490.58
+        },
+        {
+          "date": "2017-07-02",
+          "pscCategory": "Research and Development",
+          "val": 534292904.2
+        },
+        {
+          "date": "2017-07-09",
+          "pscCategory": "Research and Development",
+          "val": 768353653.68
+        },
+        {
+          "date": "2017-07-16",
+          "pscCategory": "Research and Development",
+          "val": 1003655037.63
+        },
+        {
+          "date": "2017-07-23",
+          "pscCategory": "Research and Development",
+          "val": 1268859911.04
+        },
+        {
+          "date": "2017-07-30",
+          "pscCategory": "Research and Development",
+          "val": 847316767.81
+        },
+        {
+          "date": "2017-08-06",
+          "pscCategory": "Research and Development",
+          "val": 1352923142.53
+        },
+        {
+          "date": "2017-08-13",
+          "pscCategory": "Research and Development",
+          "val": 1104468829.99
+        },
+        {
+          "date": "2017-08-20",
+          "pscCategory": "Research and Development",
+          "val": 1007772514.42
+        },
+        {
+          "date": "2017-08-27",
+          "pscCategory": "Research and Development",
+          "val": 1201201671.3
+        },
+        {
+          "date": "2017-09-03",
+          "pscCategory": "Research and Development",
+          "val": 918480384.83
+        },
+        {
+          "date": "2017-09-10",
+          "pscCategory": "Research and Development",
+          "val": 1217768450.96
+        },
+        {
+          "date": "2017-09-17",
+          "pscCategory": "Research and Development",
+          "val": 1903199007.12
+        },
+        {
+          "date": "2017-09-24",
+          "pscCategory": "Research and Development",
+          "val": 2933816974.48
+        },
+        {
+          "date": "2017-10-01",
+          "pscCategory": "Research and Development",
+          "val": 642894292.69
+        },
+        {
+          "date": "2017-10-08",
+          "pscCategory": "Research and Development",
+          "val": 201335514.92
+        },
+        {
+          "date": "2017-10-15",
+          "pscCategory": "Research and Development",
+          "val": 823539491.64
+        },
+        {
+          "date": "2017-10-22",
+          "pscCategory": "Research and Development",
+          "val": 536770614.52
+        },
+        {
+          "date": "2017-10-29",
+          "pscCategory": "Research and Development",
+          "val": 1137487887.08
+        },
+        {
+          "date": "2017-11-05",
+          "pscCategory": "Research and Development",
+          "val": 537616700.15
+        },
+        {
+          "date": "2017-11-12",
+          "pscCategory": "Research and Development",
+          "val": 418362339.63
+        },
+        {
+          "date": "2017-11-19",
+          "pscCategory": "Research and Development",
+          "val": 42553934.33
+        },
+        {
+          "date": "2017-11-26",
+          "pscCategory": "Research and Development",
+          "val": 334362242.19
+        },
+        {
+          "date": "2017-12-03",
+          "pscCategory": "Research and Development",
+          "val": 77278357.99
+        },
+        {
+          "date": "2017-12-10",
+          "pscCategory": "Research and Development",
+          "val": 150844649.55
+        },
+        {
+          "date": "2017-12-17",
+          "pscCategory": "Research and Development",
+          "val": 222624621.08
+        },
+        {
+          "date": "2017-12-24",
+          "pscCategory": "Research and Development",
+          "val": 181551269.14
+        },
+        {
+          "date": "2017-12-31",
+          "pscCategory": "Research and Development",
+          "val": 0
+        },
+        {
+          "date": "2018-01-01",
+          "pscCategory": "Research and Development",
+          "val": 46069603.7
+        },
+        {
+          "date": "2018-01-07",
+          "pscCategory": "Research and Development",
+          "val": 389718185.76
+        },
+        {
+          "date": "2018-01-14",
+          "pscCategory": "Research and Development",
+          "val": 312629699.87
+        },
+        {
+          "date": "2018-01-22",
+          "pscCategory": "Research and Development",
+          "val": 337114751.72
+        },
+        {
+          "date": "2018-01-28",
+          "pscCategory": "Research and Development",
+          "val": 664013484.53
+        },
+        {
+          "date": "2018-02-04",
+          "pscCategory": "Research and Development",
+          "val": 291788702.32
+        },
+        {
+          "date": "2018-02-11",
+          "pscCategory": "Research and Development",
+          "val": 61183915.11
+        }
+      ],
+      "Weapons & Ammunition":[
+        {
+          "date": "2006-10-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 30950527.5
+        },
+        {
+          "date": "2006-10-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 116826456.41
+        },
+        {
+          "date": "2006-10-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 163013098.72
+        },
+        {
+          "date": "2006-10-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 344927376.94
+        },
+        {
+          "date": "2006-10-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 229484471.54
+        },
+        {
+          "date": "2006-11-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 127533374.18
+        },
+        {
+          "date": "2006-11-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1014966685.99
+        },
+        {
+          "date": "2006-11-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 31633691.78
+        },
+        {
+          "date": "2006-11-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 111595716.6
+        },
+        {
+          "date": "2006-12-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 433595077
+        },
+        {
+          "date": "2006-12-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 329473967.91
+        },
+        {
+          "date": "2006-12-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1306393835.21
+        },
+        {
+          "date": "2006-12-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 296391645.59
+        },
+        {
+          "date": "2007-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 63223534.68
+        },
+        {
+          "date": "2007-01-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1084427225.42
+        },
+        {
+          "date": "2007-01-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 169972081.14
+        },
+        {
+          "date": "2007-01-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 490157772.88
+        },
+        {
+          "date": "2007-01-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 687338501.87
+        },
+        {
+          "date": "2007-02-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 371004717.79
+        },
+        {
+          "date": "2007-02-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 146747295.53
+        },
+        {
+          "date": "2007-02-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 715155977.08
+        },
+        {
+          "date": "2007-02-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 894924060.12
+        },
+        {
+          "date": "2007-03-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 138520147.99
+        },
+        {
+          "date": "2007-03-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 341830058.1
+        },
+        {
+          "date": "2007-03-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 308175985.01
+        },
+        {
+          "date": "2007-03-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 314321379.19
+        },
+        {
+          "date": "2007-04-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 575414096
+        },
+        {
+          "date": "2007-04-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 275619489.1
+        },
+        {
+          "date": "2007-04-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 109040236.19
+        },
+        {
+          "date": "2007-04-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 349028709.46
+        },
+        {
+          "date": "2007-04-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 193551996.42
+        },
+        {
+          "date": "2007-05-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 359239901.14
+        },
+        {
+          "date": "2007-05-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 41138960.61
+        },
+        {
+          "date": "2007-05-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 126817009.45
+        },
+        {
+          "date": "2007-05-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 306274177.3
+        },
+        {
+          "date": "2007-06-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 143860472.74
+        },
+        {
+          "date": "2007-06-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 196341687.08
+        },
+        {
+          "date": "2007-06-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 386545304.61
+        },
+        {
+          "date": "2007-06-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1064301482.66
+        },
+        {
+          "date": "2007-07-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 199245573.77
+        },
+        {
+          "date": "2007-07-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 136355011.48
+        },
+        {
+          "date": "2007-07-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 333064130.79
+        },
+        {
+          "date": "2007-07-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 209034781.23
+        },
+        {
+          "date": "2007-07-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 233192854.15
+        },
+        {
+          "date": "2007-08-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 266166108.95
+        },
+        {
+          "date": "2007-08-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 93056802.69
+        },
+        {
+          "date": "2007-08-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 200945366.22
+        },
+        {
+          "date": "2007-08-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 366983844.89
+        },
+        {
+          "date": "2007-09-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 156927536.57
+        },
+        {
+          "date": "2007-09-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 248700759.75
+        },
+        {
+          "date": "2007-09-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 468113516.31
+        },
+        {
+          "date": "2007-09-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 595763178.03
+        },
+        {
+          "date": "2007-09-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 328356164.83
+        },
+        {
+          "date": "2007-10-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 20979881.03
+        },
+        {
+          "date": "2007-10-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 189797338.47
+        },
+        {
+          "date": "2007-10-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 48168112
+        },
+        {
+          "date": "2007-10-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 372716725.3
+        },
+        {
+          "date": "2007-11-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 71039756.73
+        },
+        {
+          "date": "2007-11-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 426766699.62
+        },
+        {
+          "date": "2007-11-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 98192068.11
+        },
+        {
+          "date": "2007-11-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 639354740.42
+        },
+        {
+          "date": "2007-12-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 439982279.03
+        },
+        {
+          "date": "2007-12-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1145142374.04
+        },
+        {
+          "date": "2007-12-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1051456642.9
+        },
+        {
+          "date": "2007-12-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 787503635.2
+        },
+        {
+          "date": "2007-12-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 112511050.5
+        },
+        {
+          "date": "2008-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 42765582.19
+        },
+        {
+          "date": "2008-01-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 341132248.61
+        },
+        {
+          "date": "2008-01-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 101810670.87
+        },
+        {
+          "date": "2008-01-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 355521353.11
+        },
+        {
+          "date": "2008-01-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1101904573.63
+        },
+        {
+          "date": "2008-02-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 415237934.14
+        },
+        {
+          "date": "2008-02-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 278709714.05
+        },
+        {
+          "date": "2008-02-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 393180109.82
+        },
+        {
+          "date": "2008-02-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 397129226.86
+        },
+        {
+          "date": "2008-03-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 486694159.59
+        },
+        {
+          "date": "2008-03-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 420111076.15
+        },
+        {
+          "date": "2008-03-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 216317522.9
+        },
+        {
+          "date": "2008-03-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 826213461.41
+        },
+        {
+          "date": "2008-03-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 415336385.34
+        },
+        {
+          "date": "2008-04-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 440619164.84
+        },
+        {
+          "date": "2008-04-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 408731225.9
+        },
+        {
+          "date": "2008-04-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 336328394.86
+        },
+        {
+          "date": "2008-04-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 287609557.05
+        },
+        {
+          "date": "2008-05-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 192691913.73
+        },
+        {
+          "date": "2008-05-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 138582410.15
+        },
+        {
+          "date": "2008-05-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 318668404.71
+        },
+        {
+          "date": "2008-05-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 994745947.8
+        },
+        {
+          "date": "2008-06-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 192342789.4
+        },
+        {
+          "date": "2008-06-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 312975472.14
+        },
+        {
+          "date": "2008-06-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 123804921.08
+        },
+        {
+          "date": "2008-06-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 232021664.14
+        },
+        {
+          "date": "2008-06-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 467378827.15
+        },
+        {
+          "date": "2008-07-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 96477743.11
+        },
+        {
+          "date": "2008-07-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 187829768.74
+        },
+        {
+          "date": "2008-07-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 274888580.44
+        },
+        {
+          "date": "2008-07-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 857058073.79
+        },
+        {
+          "date": "2008-08-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 328468304.62
+        },
+        {
+          "date": "2008-08-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 431711176.37
+        },
+        {
+          "date": "2008-08-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 151549895.1
+        },
+        {
+          "date": "2008-08-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 536297816.87
+        },
+        {
+          "date": "2008-08-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 177157774.9
+        },
+        {
+          "date": "2008-09-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 484654255.75
+        },
+        {
+          "date": "2008-09-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 592488082.56
+        },
+        {
+          "date": "2008-09-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1151152099.43
+        },
+        {
+          "date": "2008-09-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 851926627.78
+        },
+        {
+          "date": "2008-10-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 231835889.99
+        },
+        {
+          "date": "2008-10-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 39758993.68
+        },
+        {
+          "date": "2008-10-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 74715385.7
+        },
+        {
+          "date": "2008-10-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 136305194.23
+        },
+        {
+          "date": "2008-11-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 224072175.66
+        },
+        {
+          "date": "2008-11-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 118029968.41
+        },
+        {
+          "date": "2008-11-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 244575655.9
+        },
+        {
+          "date": "2008-11-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 255311290.94
+        },
+        {
+          "date": "2008-11-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 560689191.76
+        },
+        {
+          "date": "2008-12-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 418808717.4
+        },
+        {
+          "date": "2008-12-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 655614738.12
+        },
+        {
+          "date": "2008-12-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1142949868.94
+        },
+        {
+          "date": "2008-12-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 775627977.6
+        },
+        {
+          "date": "2009-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 17665.51
+        },
+        {
+          "date": "2009-01-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 142514614.72
+        },
+        {
+          "date": "2009-01-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 366508199.37
+        },
+        {
+          "date": "2009-01-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 247064562.44
+        },
+        {
+          "date": "2009-01-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 393862391.05
+        },
+        {
+          "date": "2009-02-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 272595393.15
+        },
+        {
+          "date": "2009-02-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 218731283.69
+        },
+        {
+          "date": "2009-02-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 133633750.77
+        },
+        {
+          "date": "2009-02-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 642412952.39
+        },
+        {
+          "date": "2009-03-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1101637783.23
+        },
+        {
+          "date": "2009-03-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 256950911.34
+        },
+        {
+          "date": "2009-03-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 264477535.61
+        },
+        {
+          "date": "2009-03-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1034148519.18
+        },
+        {
+          "date": "2009-03-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 472735451.29
+        },
+        {
+          "date": "2009-04-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 75360018.08
+        },
+        {
+          "date": "2009-04-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 214625303.24
+        },
+        {
+          "date": "2009-04-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 162244627.67
+        },
+        {
+          "date": "2009-04-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 351059806.13
+        },
+        {
+          "date": "2009-05-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 191562923.66
+        },
+        {
+          "date": "2009-05-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1305044853.68
+        },
+        {
+          "date": "2009-05-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 347827896.56
+        },
+        {
+          "date": "2009-05-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 242594825.19
+        },
+        {
+          "date": "2009-05-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 261712850.11
+        },
+        {
+          "date": "2009-06-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 344438941.36
+        },
+        {
+          "date": "2009-06-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 324240655.59
+        },
+        {
+          "date": "2009-06-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 245521823.82
+        },
+        {
+          "date": "2009-06-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 277140608.51
+        },
+        {
+          "date": "2009-07-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 273361188.56
+        },
+        {
+          "date": "2009-07-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 368643473.53
+        },
+        {
+          "date": "2009-07-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 178305339.73
+        },
+        {
+          "date": "2009-07-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 360609379.54
+        },
+        {
+          "date": "2009-08-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 290832292.05
+        },
+        {
+          "date": "2009-08-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 108726396.01
+        },
+        {
+          "date": "2009-08-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 502478404.27
+        },
+        {
+          "date": "2009-08-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 496214091.48
+        },
+        {
+          "date": "2009-08-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 220044617.15
+        },
+        {
+          "date": "2009-09-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 606233359.4
+        },
+        {
+          "date": "2009-09-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 355889168.84
+        },
+        {
+          "date": "2009-09-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1137280284.1
+        },
+        {
+          "date": "2009-09-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 867933633.69
+        },
+        {
+          "date": "2009-10-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 35624984.95
+        },
+        {
+          "date": "2009-10-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 131024468.04
+        },
+        {
+          "date": "2009-10-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 212918876.4
+        },
+        {
+          "date": "2009-10-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 174124608.29
+        },
+        {
+          "date": "2009-11-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 107624472.5
+        },
+        {
+          "date": "2009-11-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 144915017.73
+        },
+        {
+          "date": "2009-11-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 152986613.18
+        },
+        {
+          "date": "2009-11-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 389699437.28
+        },
+        {
+          "date": "2009-11-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 311358622.53
+        },
+        {
+          "date": "2009-12-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 384487233.22
+        },
+        {
+          "date": "2009-12-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 431445475.1
+        },
+        {
+          "date": "2009-12-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 618865508.11
+        },
+        {
+          "date": "2009-12-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1140986453.94
+        },
+        {
+          "date": "2010-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1000
+        },
+        {
+          "date": "2010-01-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 27133278.39
+        },
+        {
+          "date": "2010-01-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 64547440.46
+        },
+        {
+          "date": "2010-01-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 234313312.56
+        },
+        {
+          "date": "2010-01-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 601211536.75
+        },
+        {
+          "date": "2010-01-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 489167427.48
+        },
+        {
+          "date": "2010-02-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 370924670.59
+        },
+        {
+          "date": "2010-02-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 251357538.71
+        },
+        {
+          "date": "2010-02-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 497858631.96
+        },
+        {
+          "date": "2010-02-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 330663715.18
+        },
+        {
+          "date": "2010-03-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 427876059.22
+        },
+        {
+          "date": "2010-03-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 499749081.7
+        },
+        {
+          "date": "2010-03-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 804207461.81
+        },
+        {
+          "date": "2010-03-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1108676045.01
+        },
+        {
+          "date": "2010-04-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 202888668.18
+        },
+        {
+          "date": "2010-04-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 259593225.39
+        },
+        {
+          "date": "2010-04-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 123251717.91
+        },
+        {
+          "date": "2010-04-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 410133905.82
+        },
+        {
+          "date": "2010-05-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 441352955.15
+        },
+        {
+          "date": "2010-05-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 320170288.23
+        },
+        {
+          "date": "2010-05-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 440203463.86
+        },
+        {
+          "date": "2010-05-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 335050145.64
+        },
+        {
+          "date": "2010-05-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 487677974.77
+        },
+        {
+          "date": "2010-06-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 141674406.97
+        },
+        {
+          "date": "2010-06-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 178002220.61
+        },
+        {
+          "date": "2010-06-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 356803749.06
+        },
+        {
+          "date": "2010-06-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 653914049.18
+        },
+        {
+          "date": "2010-07-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 84736259.42
+        },
+        {
+          "date": "2010-07-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 685436291.59
+        },
+        {
+          "date": "2010-07-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 115495724.33
+        },
+        {
+          "date": "2010-07-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 542233036.75
+        },
+        {
+          "date": "2010-08-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 675608851.65
+        },
+        {
+          "date": "2010-08-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 541186346.89
+        },
+        {
+          "date": "2010-08-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 178073631.11
+        },
+        {
+          "date": "2010-08-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 264935701.49
+        },
+        {
+          "date": "2010-08-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 355121636.97
+        },
+        {
+          "date": "2010-09-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 209258117.29
+        },
+        {
+          "date": "2010-09-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 462765851.12
+        },
+        {
+          "date": "2010-09-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 794116130.33
+        },
+        {
+          "date": "2010-09-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 521527343.28
+        },
+        {
+          "date": "2010-10-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 31773827.37
+        },
+        {
+          "date": "2010-10-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 160301496.35
+        },
+        {
+          "date": "2010-10-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 120796472.92
+        },
+        {
+          "date": "2010-10-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 98788969.74
+        },
+        {
+          "date": "2010-10-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 223911395.55
+        },
+        {
+          "date": "2010-11-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 23966037.55
+        },
+        {
+          "date": "2010-11-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 59659397.69
+        },
+        {
+          "date": "2010-11-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 113101432.54
+        },
+        {
+          "date": "2010-11-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 166134747.16
+        },
+        {
+          "date": "2010-12-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 431898331.51
+        },
+        {
+          "date": "2010-12-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 326596254.42
+        },
+        {
+          "date": "2010-12-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1493573141.86
+        },
+        {
+          "date": "2010-12-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1493573141.86
+        },
+        {
+          "date": "2010-12-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 166355445.99
+        },
+        {
+          "date": "2011-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 3960
+        },
+        {
+          "date": "2011-01-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 107426966.14
+        },
+        {
+          "date": "2011-01-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 142722836.07
+        },
+        {
+          "date": "2011-01-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 125884285.81
+        },
+        {
+          "date": "2011-01-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 440123431.75
+        },
+        {
+          "date": "2011-01-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 317053084.78
+        },
+        {
+          "date": "2011-02-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 294250225.45
+        },
+        {
+          "date": "2011-02-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 253567444.98
+        },
+        {
+          "date": "2011-02-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 529706923.59
+        },
+        {
+          "date": "2011-02-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 562090005.28
+        },
+        {
+          "date": "2011-03-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 198262960.75
+        },
+        {
+          "date": "2011-03-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 939198654.1
+        },
+        {
+          "date": "2011-03-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 125168693.98
+        },
+        {
+          "date": "2011-03-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 998858994.64
+        },
+        {
+          "date": "2011-04-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 506047245.64
+        },
+        {
+          "date": "2011-04-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 125328794.89
+        },
+        {
+          "date": "2011-04-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 83624286.92
+        },
+        {
+          "date": "2011-04-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 126804452.74
+        },
+        {
+          "date": "2011-05-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 143064558.07
+        },
+        {
+          "date": "2011-05-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 108151039.38
+        },
+        {
+          "date": "2011-05-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 159619469.5
+        },
+        {
+          "date": "2011-05-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1018460149.14
+        },
+        {
+          "date": "2011-05-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 321027983.92
+        },
+        {
+          "date": "2011-06-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1091113926.54
+        },
+        {
+          "date": "2011-06-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 272056464.6
+        },
+        {
+          "date": "2011-06-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 370475744.5
+        },
+        {
+          "date": "2011-06-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 696888113.57
+        },
+        {
+          "date": "2011-07-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 207584794.03
+        },
+        {
+          "date": "2011-07-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 187355779.66
+        },
+        {
+          "date": "2011-07-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 143789399.6
+        },
+        {
+          "date": "2011-07-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 770475281.87
+        },
+        {
+          "date": "2011-07-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 210562174.63
+        },
+        {
+          "date": "2011-08-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 159211816.66
+        },
+        {
+          "date": "2011-08-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 557197308.01
+        },
+        {
+          "date": "2011-08-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 261833425.15
+        },
+        {
+          "date": "2011-08-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 875547596.92
+        },
+        {
+          "date": "2011-09-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 71756551.18
+        },
+        {
+          "date": "2011-09-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 355375333.67
+        },
+        {
+          "date": "2011-09-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 627030437.84
+        },
+        {
+          "date": "2011-09-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 872387461.67
+        },
+        {
+          "date": "2011-10-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 75672192.88
+        },
+        {
+          "date": "2011-10-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 43447638.6
+        },
+        {
+          "date": "2011-10-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 363379053.3
+        },
+        {
+          "date": "2011-10-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 239774803.01
+        },
+        {
+          "date": "2011-10-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 295841380.8
+        },
+        {
+          "date": "2011-11-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 158574944.88
+        },
+        {
+          "date": "2011-11-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 332876349.57
+        },
+        {
+          "date": "2011-11-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 101946450.78
+        },
+        {
+          "date": "2011-11-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 340045565.16
+        },
+        {
+          "date": "2011-12-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 252546102.17
+        },
+        {
+          "date": "2011-12-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 988523514.9
+        },
+        {
+          "date": "2011-12-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 519012014.27
+        },
+        {
+          "date": "2011-12-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 519012014.27
+        },
+        {
+          "date": "2011-12-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 339805142.58
+        },
+        {
+          "date": "2012-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 83301784.65
+        },
+        {
+          "date": "2012-01-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 206067626.49
+        },
+        {
+          "date": "2012-01-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 288488556.52
+        },
+        {
+          "date": "2012-01-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 150747542.17
+        },
+        {
+          "date": "2012-01-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 308859042.6
+        },
+        {
+          "date": "2012-02-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 196654531.7
+        },
+        {
+          "date": "2012-02-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 876822364.85
+        },
+        {
+          "date": "2012-02-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 405113784.75
+        },
+        {
+          "date": "2012-02-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 750307576.77
+        },
+        {
+          "date": "2012-03-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 211830693.93
+        },
+        {
+          "date": "2012-03-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 125111965.04
+        },
+        {
+          "date": "2012-03-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 342567036.52
+        },
+        {
+          "date": "2012-03-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 2089404412.91
+        },
+        {
+          "date": "2012-04-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 293803994.52
+        },
+        {
+          "date": "2012-04-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 132346715.96
+        },
+        {
+          "date": "2012-04-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 377037630.85
+        },
+        {
+          "date": "2012-04-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 187326484.52
+        },
+        {
+          "date": "2012-04-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 463642204.33
+        },
+        {
+          "date": "2012-05-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 284422113.9
+        },
+        {
+          "date": "2012-05-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 464234703.49
+        },
+        {
+          "date": "2012-05-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 239958931.13
+        },
+        {
+          "date": "2012-05-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 331054182.37
+        },
+        {
+          "date": "2012-06-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 567129760.75
+        },
+        {
+          "date": "2012-06-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 378355944.37
+        },
+        {
+          "date": "2012-06-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 151129652.85
+        },
+        {
+          "date": "2012-06-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1069180188.68
+        },
+        {
+          "date": "2012-07-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 275075690.03
+        },
+        {
+          "date": "2012-07-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 208780201.07
+        },
+        {
+          "date": "2012-07-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 494125782.66
+        },
+        {
+          "date": "2012-07-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 313114654
+        },
+        {
+          "date": "2012-07-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 311641850.57
+        },
+        {
+          "date": "2012-08-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 122997991.47
+        },
+        {
+          "date": "2012-08-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 152999229.31
+        },
+        {
+          "date": "2012-08-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1019100146.3
+        },
+        {
+          "date": "2012-08-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 456611788.69
+        },
+        {
+          "date": "2012-09-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 115607650.78
+        },
+        {
+          "date": "2012-09-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 247742067.99
+        },
+        {
+          "date": "2012-09-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 631409172.32
+        },
+        {
+          "date": "2012-09-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1244693277.64
+        },
+        {
+          "date": "2012-09-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 29251319.61
+        },
+        {
+          "date": "2012-10-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 11487084.98
+        },
+        {
+          "date": "2012-10-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 21029237.1
+        },
+        {
+          "date": "2012-10-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 309420129.25
+        },
+        {
+          "date": "2012-10-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 219712955.9
+        },
+        {
+          "date": "2012-11-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 179224632.63
+        },
+        {
+          "date": "2012-11-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 159435244.01
+        },
+        {
+          "date": "2012-11-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 238277306.24
+        },
+        {
+          "date": "2012-11-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 400560657.08
+        },
+        {
+          "date": "2012-12-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 102301679.24
+        },
+        {
+          "date": "2012-12-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 607185081.15
+        },
+        {
+          "date": "2012-12-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1623057747.82
+        },
+        {
+          "date": "2012-12-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 824652962.68
+        },
+        {
+          "date": "2012-12-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 107912031.27
+        },
+        {
+          "date": "2013-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 27749092.9
+        },
+        {
+          "date": "2013-01-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 110285851.36
+        },
+        {
+          "date": "2013-01-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 26971267.56
+        },
+        {
+          "date": "2013-01-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 27243017.65
+        },
+        {
+          "date": "2013-01-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 243840904.69
+        },
+        {
+          "date": "2013-02-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 81489680.68
+        },
+        {
+          "date": "2013-02-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 123159795.61
+        },
+        {
+          "date": "2013-02-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 189975348.03
+        },
+        {
+          "date": "2013-02-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 178021192.44
+        },
+        {
+          "date": "2013-03-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 400119523.94
+        },
+        {
+          "date": "2013-03-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 137728330.21
+        },
+        {
+          "date": "2013-03-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 144833631.97
+        },
+        {
+          "date": "2013-03-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 486144024.68
+        },
+        {
+          "date": "2013-03-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 156694331.92
+        },
+        {
+          "date": "2013-04-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 625401783.28
+        },
+        {
+          "date": "2013-04-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 134239738.44
+        },
+        {
+          "date": "2013-04-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 128598720.95
+        },
+        {
+          "date": "2013-04-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 439976963.85
+        },
+        {
+          "date": "2013-05-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 34781861.65
+        },
+        {
+          "date": "2013-05-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 156248345.39
+        },
+        {
+          "date": "2013-05-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 367072481.46
+        },
+        {
+          "date": "2013-05-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 205923599.5
+        },
+        {
+          "date": "2013-06-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 251559158.36
+        },
+        {
+          "date": "2013-06-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 187381928.36
+        },
+        {
+          "date": "2013-06-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 846172252.2
+        },
+        {
+          "date": "2013-06-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 436946418.9
+        },
+        {
+          "date": "2013-06-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 321677509.56
+        },
+        {
+          "date": "2013-07-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 173704880.71
+        },
+        {
+          "date": "2013-07-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 411946853.28
+        },
+        {
+          "date": "2013-07-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 175523836.33
+        },
+        {
+          "date": "2013-07-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 523166228.67
+        },
+        {
+          "date": "2013-08-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 411388148.83
+        },
+        {
+          "date": "2013-08-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 309347379.86
+        },
+        {
+          "date": "2013-08-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 585525678.25
+        },
+        {
+          "date": "2013-08-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 494853304.05
+        },
+        {
+          "date": "2013-09-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 223932012.25
+        },
+        {
+          "date": "2013-09-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 378023390.37
+        },
+        {
+          "date": "2013-09-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 449604242.5
+        },
+        {
+          "date": "2013-09-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1426533107.19
+        },
+        {
+          "date": "2013-09-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 183294520.23
+        },
+        {
+          "date": "2013-10-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 48948577.27
+        },
+        {
+          "date": "2013-10-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 54876499.17
+        },
+        {
+          "date": "2013-10-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 168107458.68
+        },
+        {
+          "date": "2013-10-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 138823767.74
+        },
+        {
+          "date": "2013-11-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 423245447.45
+        },
+        {
+          "date": "2013-11-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 35022533.01
+        },
+        {
+          "date": "2013-11-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 366649499.14
+        },
+        {
+          "date": "2013-11-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 109155551.16
+        },
+        {
+          "date": "2013-12-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 390678905.79
+        },
+        {
+          "date": "2013-12-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 127729675.05
+        },
+        {
+          "date": "2013-12-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1154500665.05
+        },
+        {
+          "date": "2013-12-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 425637932.37
+        },
+        {
+          "date": "2013-12-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 82851496.07
+        },
+        {
+          "date": "2014-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 32827568.22
+        },
+        {
+          "date": "2014-01-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 149630192.76
+        },
+        {
+          "date": "2014-01-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 127076162.08
+        },
+        {
+          "date": "2014-01-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 68946092.8
+        },
+        {
+          "date": "2014-01-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 121371829.48
+        },
+        {
+          "date": "2014-02-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 168645729.64
+        },
+        {
+          "date": "2014-02-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 219947022.53
+        },
+        {
+          "date": "2014-02-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 137938370.29
+        },
+        {
+          "date": "2014-02-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 543522786.03
+        },
+        {
+          "date": "2014-03-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 477646767.99
+        },
+        {
+          "date": "2014-03-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 178783442.64
+        },
+        {
+          "date": "2014-03-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 500221081.1
+        },
+        {
+          "date": "2014-03-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 902025752.93
+        },
+        {
+          "date": "2014-03-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 763427617.5
+        },
+        {
+          "date": "2014-04-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 122345052.33
+        },
+        {
+          "date": "2014-04-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 133499891.24
+        },
+        {
+          "date": "2014-04-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 140401761.88
+        },
+        {
+          "date": "2014-04-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 584820840.1
+        },
+        {
+          "date": "2014-05-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1103170100.94
+        },
+        {
+          "date": "2014-05-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 97545029.3
+        },
+        {
+          "date": "2014-05-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 479097755.15
+        },
+        {
+          "date": "2014-05-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 300592645.93
+        },
+        {
+          "date": "2014-06-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 158210661.71
+        },
+        {
+          "date": "2014-06-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 72360383.51
+        },
+        {
+          "date": "2014-06-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 616121844.69
+        },
+        {
+          "date": "2014-06-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 367337684.05
+        },
+        {
+          "date": "2014-06-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 354126662.89
+        },
+        {
+          "date": "2014-07-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 97597186.23
+        },
+        {
+          "date": "2014-07-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 127176531.84
+        },
+        {
+          "date": "2014-07-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 145034051.86
+        },
+        {
+          "date": "2014-07-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 94017686.03
+        },
+        {
+          "date": "2014-08-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 310522123.24
+        },
+        {
+          "date": "2014-08-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 112375548.02
+        },
+        {
+          "date": "2014-08-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 199418346.7
+        },
+        {
+          "date": "2014-08-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 433677212.77
+        },
+        {
+          "date": "2014-08-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 267165656.08
+        },
+        {
+          "date": "2014-09-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 225637054.83
+        },
+        {
+          "date": "2014-09-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 661293837.68
+        },
+        {
+          "date": "2014-09-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1237204715.49
+        },
+        {
+          "date": "2014-09-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 451747335.55
+        },
+        {
+          "date": "2014-10-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 13206856.62
+        },
+        {
+          "date": "2014-10-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 137109923.07
+        },
+        {
+          "date": "2014-10-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 211434706.47
+        },
+        {
+          "date": "2014-10-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 213919504.7
+        },
+        {
+          "date": "2014-11-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 149478032.94
+        },
+        {
+          "date": "2014-11-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 224282033.53
+        },
+        {
+          "date": "2014-11-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 145581157.71
+        },
+        {
+          "date": "2014-11-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 548007535.52
+        },
+        {
+          "date": "2014-11-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 120539528.58
+        },
+        {
+          "date": "2014-12-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 439289017.86
+        },
+        {
+          "date": "2014-12-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 443865094.01
+        },
+        {
+          "date": "2014-12-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 443865094.01
+        },
+        {
+          "date": "2014-12-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 700836395.3
+        },
+        {
+          "date": "2014-12-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 147807992.54
+        },
+        {
+          "date": "2015-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": -164123.76
+        },
+        {
+          "date": "2015-01-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 94612638.21
+        },
+        {
+          "date": "2015-01-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 77621638.43
+        },
+        {
+          "date": "2015-01-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 83452439.76
+        },
+        {
+          "date": "2015-01-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 284983703.3
+        },
+        {
+          "date": "2015-02-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 252373669.04
+        },
+        {
+          "date": "2015-02-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 532142765.55
+        },
+        {
+          "date": "2015-02-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 392332032.71
+        },
+        {
+          "date": "2015-02-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 589337004.65
+        },
+        {
+          "date": "2015-03-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 197541321
+        },
+        {
+          "date": "2015-03-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 111124137.81
+        },
+        {
+          "date": "2015-03-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 311705226.69
+        },
+        {
+          "date": "2015-03-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1203249630.98
+        },
+        {
+          "date": "2015-03-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 566553560.22
+        },
+        {
+          "date": "2015-04-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 133456034.86
+        },
+        {
+          "date": "2015-04-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 78319197.55
+        },
+        {
+          "date": "2015-04-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 172813313.49
+        },
+        {
+          "date": "2015-04-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 646879036.91
+        },
+        {
+          "date": "2015-05-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 86674885.52
+        },
+        {
+          "date": "2015-05-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 94460260.08
+        },
+        {
+          "date": "2015-05-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 107012125.96
+        },
+        {
+          "date": "2015-05-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 583627065.61
+        },
+        {
+          "date": "2015-05-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 150148311.78
+        },
+        {
+          "date": "2015-06-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 264252308.61
+        },
+        {
+          "date": "2015-06-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 64880849.38
+        },
+        {
+          "date": "2015-06-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 409783579.08
+        },
+        {
+          "date": "2015-06-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 186865104.62
+        },
+        {
+          "date": "2015-07-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 113128803.9
+        },
+        {
+          "date": "2015-07-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 69574826.7
+        },
+        {
+          "date": "2015-07-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 307374209.06
+        },
+        {
+          "date": "2015-07-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 345481943.55
+        },
+        {
+          "date": "2015-08-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 40613312.58
+        },
+        {
+          "date": "2015-08-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 161210656.57
+        },
+        {
+          "date": "2015-08-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 236440873.64
+        },
+        {
+          "date": "2015-08-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 148344193.29
+        },
+        {
+          "date": "2015-08-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 424221274.11
+        },
+        {
+          "date": "2015-09-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 170248169.3
+        },
+        {
+          "date": "2015-09-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 460513495.66
+        },
+        {
+          "date": "2015-09-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 796272642.18
+        },
+        {
+          "date": "2015-09-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 575398810.56
+        },
+        {
+          "date": "2015-10-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 46404327.9
+        },
+        {
+          "date": "2015-10-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 54656667.67
+        },
+        {
+          "date": "2015-10-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 394283345.18
+        },
+        {
+          "date": "2015-10-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 181449332.64
+        },
+        {
+          "date": "2015-11-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 298882749.04
+        },
+        {
+          "date": "2015-11-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 72092484.39
+        },
+        {
+          "date": "2015-11-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 129663113.92
+        },
+        {
+          "date": "2015-11-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 111155628.48
+        },
+        {
+          "date": "2015-11-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 399387567.03
+        },
+        {
+          "date": "2015-12-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 490843087.64
+        },
+        {
+          "date": "2015-12-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 339549026.82
+        },
+        {
+          "date": "2015-12-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 123855154.56
+        },
+        {
+          "date": "2015-12-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 444485089.59
+        },
+        {
+          "date": "2016-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 0
+        },
+        {
+          "date": "2016-01-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 111909066.24
+        },
+        {
+          "date": "2016-01-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 59132432.98
+        },
+        {
+          "date": "2016-01-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 241359677.07
+        },
+        {
+          "date": "2016-01-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 130926739.98
+        },
+        {
+          "date": "2016-01-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 431320098.69
+        },
+        {
+          "date": "2016-02-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 124335704
+        },
+        {
+          "date": "2016-02-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 179519412.62
+        },
+        {
+          "date": "2016-02-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 512135906.11
+        },
+        {
+          "date": "2016-02-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 240261644.32
+        },
+        {
+          "date": "2016-03-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 269957797.98
+        },
+        {
+          "date": "2016-03-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 253894811.82
+        },
+        {
+          "date": "2016-03-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 454350128.24
+        },
+        {
+          "date": "2016-03-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1018967945.55
+        },
+        {
+          "date": "2016-04-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 605862947.37
+        },
+        {
+          "date": "2016-04-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 251180400.29
+        },
+        {
+          "date": "2016-04-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 140969292.82
+        },
+        {
+          "date": "2016-04-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 419879971
+        },
+        {
+          "date": "2016-05-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 79368186.34
+        },
+        {
+          "date": "2016-05-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 494394997.91
+        },
+        {
+          "date": "2016-05-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 110375142.24
+        },
+        {
+          "date": "2016-05-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 362321854.16
+        },
+        {
+          "date": "2016-05-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 383746224.98
+        },
+        {
+          "date": "2016-06-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 224362670.82
+        },
+        {
+          "date": "2016-06-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 88408989.66
+        },
+        {
+          "date": "2016-06-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 341938551.65
+        },
+        {
+          "date": "2016-06-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 309157007.14
+        },
+        {
+          "date": "2016-07-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 93545416.59
+        },
+        {
+          "date": "2016-07-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 44380097.43
+        },
+        {
+          "date": "2016-07-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 11149139.69
+        },
+        {
+          "date": "2016-07-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 2882844
+        },
+        {
+          "date": "2016-07-31",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 7317458.51
+        },
+        {
+          "date": "2016-08-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 2258432.26
+        },
+        {
+          "date": "2016-08-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 3085108.32
+        },
+        {
+          "date": "2016-08-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 2375402.59
+        },
+        {
+          "date": "2016-08-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 4797611.86
+        },
+        {
+          "date": "2016-09-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 3946197.06
+        },
+        {
+          "date": "2016-09-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 7722503.22
+        },
+        {
+          "date": "2016-09-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 22298921.03
+        },
+        {
+          "date": "2016-09-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 14214987.23
+        },
+        {
+          "date": "2016-10-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 43342186.15
+        },
+        {
+          "date": "2016-10-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 295102641.64
+        },
+        {
+          "date": "2016-10-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 118010004.18
+        },
+        {
+          "date": "2016-10-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 154035411.71
+        },
+        {
+          "date": "2016-10-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 208062715.68
+        },
+        {
+          "date": "2016-11-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 160767037.13
+        },
+        {
+          "date": "2016-11-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 376125251.56
+        },
+        {
+          "date": "2016-11-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 45708436.71
+        },
+        {
+          "date": "2016-11-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 169746229.66
+        },
+        {
+          "date": "2016-12-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 182448825.4
+        },
+        {
+          "date": "2016-12-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 248946887.03
+        },
+        {
+          "date": "2016-12-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 281567049.98
+        },
+        {
+          "date": "2016-12-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 276142079.73
+        },
+        {
+          "date": "2017-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 19978846.04
+        },
+        {
+          "date": "2017-01-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 135232105.56
+        },
+        {
+          "date": "2017-01-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 54605735.14
+        },
+        {
+          "date": "2017-01-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 54605735.14
+        },
+        {
+          "date": "2017-01-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 313663140.66
+        },
+        {
+          "date": "2017-01-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 89554345.19
+        },
+        {
+          "date": "2017-02-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 132768951.05
+        },
+        {
+          "date": "2017-02-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 280673925.48
+        },
+        {
+          "date": "2017-02-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 193131360.7
+        },
+        {
+          "date": "2017-02-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 225547453.62
+        },
+        {
+          "date": "2017-03-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 291271352.3
+        },
+        {
+          "date": "2017-03-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 201685666.02
+        },
+        {
+          "date": "2017-03-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 442295146.04
+        },
+        {
+          "date": "2017-03-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 529101606.32
+        },
+        {
+          "date": "2017-04-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 165786982.04
+        },
+        {
+          "date": "2017-04-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 381850822.01
+        },
+        {
+          "date": "2017-04-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 152354531.48
+        },
+        {
+          "date": "2017-04-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 480103844.99
+        },
+        {
+          "date": "2017-04-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 53691075.45
+        },
+        {
+          "date": "2017-04-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 53691075.45
+        },
+        {
+          "date": "2017-05-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 103502545.81
+        },
+        {
+          "date": "2017-05-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 181070538.83
+        },
+        {
+          "date": "2017-05-21",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 229605911.56
+        },
+        {
+          "date": "2017-05-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 133734526.54
+        },
+        {
+          "date": "2017-06-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 257545013.81
+        },
+        {
+          "date": "2017-06-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 300531134.99
+        },
+        {
+          "date": "2017-06-18",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 322431223.43
+        },
+        {
+          "date": "2017-06-25",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 523565857.25
+        },
+        {
+          "date": "2017-07-02",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 30142519.91
+        },
+        {
+          "date": "2017-07-09",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 82584505.33
+        },
+        {
+          "date": "2017-07-16",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 336259080.12
+        },
+        {
+          "date": "2017-07-23",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 579477926.78
+        },
+        {
+          "date": "2017-07-30",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 238050283.31
+        },
+        {
+          "date": "2017-08-06",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 297110222.43
+        },
+        {
+          "date": "2017-08-13",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 180167794.82
+        },
+        {
+          "date": "2017-08-20",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 188538836.66
+        },
+        {
+          "date": "2017-08-27",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 512638655.34
+        },
+        {
+          "date": "2017-09-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 291639976.34
+        },
+        {
+          "date": "2017-09-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 317041880.46
+        },
+        {
+          "date": "2017-09-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 526439081.06
+        },
+        {
+          "date": "2017-09-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1127334048.84
+        },
+        {
+          "date": "2017-10-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 80827226.95
+        },
+        {
+          "date": "2017-10-08",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 48460072.47
+        },
+        {
+          "date": "2017-10-15",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 137306803.59
+        },
+        {
+          "date": "2017-10-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 57409178.35
+        },
+        {
+          "date": "2017-10-29",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 956439063.01
+        },
+        {
+          "date": "2017-11-05",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 127876009.35
+        },
+        {
+          "date": "2017-11-12",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 56220721.96
+        },
+        {
+          "date": "2017-11-19",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 124136.84
+        },
+        {
+          "date": "2017-11-26",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 513532.43
+        },
+        {
+          "date": "2017-12-03",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1300528.61
+        },
+        {
+          "date": "2017-12-10",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 3421760.01
+        },
+        {
+          "date": "2017-12-17",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 276368.45
+        },
+        {
+          "date": "2017-12-24",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 153292.15
+        },
+        {
+          "date": "2018-01-01",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 161143.14
+        },
+        {
+          "date": "2018-01-07",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1919965.95
+        },
+        {
+          "date": "2018-01-14",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1430237.49
+        },
+        {
+          "date": "2018-01-22",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 466671.25
+        },
+        {
+          "date": "2018-01-28",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 1330434.79
+        },
+        {
+          "date": "2018-02-04",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 2989328.33
+        },
+        {
+          "date": "2018-02-11",
+          "pscCategory": "Weapons & Ammunition",
+          "val": 511217.03
+        }
+      ]
+  }
+}

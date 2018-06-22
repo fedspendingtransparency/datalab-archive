@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 // import components
+import BreadCrumbs from "./BreadCrumbs";
 import Sunburst from "components/Sunburst";
 import SunburstSearchbar from "components/SunburstSearchbar";
 import SunburstPanel from "components/SunburstPanel";
@@ -41,6 +42,7 @@ class SunburstContainer extends Component {
       hierarchy: {},
       root: [],
       activePanelNode: {},
+      lastNodeClicked: {},
       searchbarText: "",
       tooltipShown: false,
       tooltipCoordinates: { x: 0, y: 0 },
@@ -173,6 +175,7 @@ class SunburstContainer extends Component {
   };
 
   handleClick = selected => {
+    this.setState({ lastNodeClicked: selected });
     this.filterSunburst(selected);
   };
 
@@ -214,7 +217,7 @@ class SunburstContainer extends Component {
       default:
         console.log("something went wrong", { selected });
     }
-
+    
     window.Analytics.event({
         category: 'Contract Explorer - Click Node',
         action: selectedName
@@ -315,6 +318,7 @@ class SunburstContainer extends Component {
       unfilteredSearchbarSuggestions,
       searchbarText,
       sunburstFilterByText,
+      lastNodeClicked,
       staticData,
       searchbarOptionSelected,
       tooltipShown,
@@ -333,34 +337,27 @@ class SunburstContainer extends Component {
       handleMouseMove
     } = this;
 
-    let searchbarSuggestions;
-    switch (this.state.searchbarOptionSelected) {
-      case "Agencies":
-        searchbarSuggestions = this.state.searchbarSuggestions.Agencies;
-        break;
-      case "Contractors":
-        searchbarSuggestions = this.state.searchbarSuggestions.Contractors;
-        break;
-      default:
-        console.log("option not accounted for");
-    }
+    let searchbarSuggestions = this.state.searchbarSuggestions.Agencies
+        .concat(this.state.searchbarSuggestions.Contractors);
+
 
     return (
       <div>
-        <SunburstSearchbar
-          unfilteredSearchbarSuggestions={unfilteredSearchbarSuggestions}
-          searchbarSuggestions={searchbarSuggestions}
-          searchbarText={searchbarText}
-          handleSearchbarSelect={handleSearchbarSelect}
-          handleSearchbarTextChange={handleSearchbarTextChange}
-          setSearchbarSuggestions={setSearchbarSuggestions}
-          staticData={staticData}
-          clearSunburstFilters={clearSunburstFilters}
-          searchbarOptionSelected={searchbarOptionSelected}
-          handleSearchbarOptionChange={handleSearchbarOptionChange}
-        />
+
         <div className="sunburst-panel-grid">
           <div className="sunburst-panel-col">
+            <SunburstSearchbar
+            unfilteredSearchbarSuggestions={unfilteredSearchbarSuggestions}
+            searchbarSuggestions={searchbarSuggestions}
+            searchbarText={searchbarText}
+            handleSearchbarSelect={handleSearchbarSelect}
+            handleSearchbarTextChange={handleSearchbarTextChange}
+            setSearchbarSuggestions={setSearchbarSuggestions}
+            staticData={staticData}
+            clearSunburstFilters={clearSunburstFilters}
+            searchbarOptionSelected={searchbarOptionSelected}
+            handleSearchbarOptionChange={handleSearchbarOptionChange}
+          />
             <SunburstPanel
               activePanelNode={activePanelNode}
               sunburstFilterByText={sunburstFilterByText}
@@ -368,6 +365,17 @@ class SunburstContainer extends Component {
             />
           </div>
           <div className="sunburst-panel-col">
+            <BreadCrumbs
+            root={root}
+            activePanelNode={activePanelNode}
+            lastNodeClicked = {lastNodeClicked}
+            tooltipShown={tooltipShown}
+            handleClick={handleClick}
+            handleHover={handleHover}
+            handleUnhover={handleUnhover}
+            staticData={staticData}
+            colors={staticData.colors}
+            />
             <Sunburst
               root={root}
               handleClick={handleClick}
@@ -377,6 +385,7 @@ class SunburstContainer extends Component {
               handleUnhover={handleUnhover}
               handleMouseMove={handleMouseMove}
             />
+            <span className="prime-badge"> Prime Contracts </span>
           </div>
           {this.state.tooltipShown ? (
             <Tooltip

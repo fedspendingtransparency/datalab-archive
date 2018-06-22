@@ -73,7 +73,6 @@
                   <clipPath id="t">
                      <use xlink:href="#s" overflow="visible"/>
                   </clipPath>
-                  <path clip-path="url(#t)" fill="#0c99cd" d="M-63-1310.8H3v41h-66z"/>
                </g>
             </g>
          </g>

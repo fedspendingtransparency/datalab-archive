@@ -1,3 +1,6 @@
+---
+---
+
 // Width and height of map
 const width = document.getElementById("container").offsetWidth;
 const height = 800;

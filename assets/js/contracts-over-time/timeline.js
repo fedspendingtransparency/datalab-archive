@@ -1,14 +1,12 @@
 ---
 ---
+
 d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
-
-    console.log("data ", data);
-
     $("#svg-2").empty();
 
     function setDimsOfSvg(id) {
-        const windowWidth = $(window).width();
-        const windowHeight = $(window).height();
+        const windowWidth = 1250;
+        const windowHeight = 780;
         const windowMargin = 50;
     
         const svgHeight = windowHeight - 2 * windowMargin;
@@ -87,8 +85,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
 
     var LineChart = svg.append("g")
       .attr("class", "focus")
-      .attr("transform", "translate(0,0)")
-      .attr("clip-path", "url(#clip)");
+      .attr("transform", "translate(0,0)");
 
     var focus = svg.append("g")
       .attr("class", "focus")
@@ -101,11 +98,6 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
     var brush = d3.brushX()
       .extent([[0, 0], [width, height2]])
       .on("brush", brushed);
-
-    var zoom = d3.zoom()
-      .scaleExtent([1, Infinity])
-      .translateExtent([[0, 0], [width, height]])
-      .extent([[0, 0], [width, height]]);
    
     var verticalLineColor = d3
       .scaleOrdinal()
@@ -117,40 +109,25 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
-    // context.append("text")             
-    //   .attr("transform","translate(" + (width/2) + " , 125)")
-    //   .style("text-anchor", "middle")
-    //   .style("font-size","15px")
-    //   .attr("dx", "0vw")
-    //   .text("X Axis Text");
+    let contextG = context.append("g");
 
-    context.append("g")
-      .attr("class", "brush")
+    contextG.attr("class", "brush")
       .call(brush)
       .call(brush.move, x.range());
+
+    setTimeout(function() {
+      contextG.call(brush.move, [325, 455]);
+    }, 2000);
     
     focus.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-    function handleMouseOver(d, title) {
-      tooltipModule.draw("#tooltip", title, {
-        Value: chartModule.formatNumberAsText(d.val)
-      });
-    }
-
-    function handleMouseOut() {
-      tooltipModule.remove("#tooltip");
-    }
-
-    function handleMouseMove() {
-      tooltipModule.move("#tooltip");
-    }
-
     function DrawVerticalLines(){
         // draw vertical lines
         Object.entries(data.verticalLineData).forEach((l, i) => {
+        
            LineChart
             .append("g")
             .attr("class", "vertical-line-paths")
@@ -167,11 +144,74 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
-            .style("stroke-opacity",".6")
+            .style("stroke-opacity","1")
             .transition()
             .duration(0)
             .attr("stroke-dashoffset", "0");
+
+           LineChart
+            .append("g")
+            .attr("class", "vertical-line-tags")
+            .selectAll(`.vertical-line-tag${i}`)
+            .data(l[1])
+            .enter()
+            .append("rect")
+                .attr("class", `.vertical-line-tag${i}`)
+                .style("fill", () => verticalLineColor(i))
+                .attr("x", d => x(d.parsedDate))
+                .attr("y", d => d.val-(height*.1))
+                .attr("height", (height*.1)+"px")
+                .attr("width",(width*.2)+"px");
+
+            LineChart
+              .append("g")
+              .attr("class", ".vertical-line-text")
+              .selectAll(`.vertical-line-text${i}`)
+              .data(l[1])
+              .enter()
+              .append("text")
+                .attr("class", `.vertical-line-text${i}`)
+                .attr("x", d => x(d.parsedDate)+10)
+                .attr("y", d => d.val-(height*.065))
+                .attr("height", (height*.1)+"px")
+                .attr("width",(width*.15)+"px")
+                .text((d) => d.date);
+
+            LineChart
+              .append("g")
+              .attr("class", ".vertical-line-title")
+              .selectAll(`.vertical-line-title${i}`)
+              .data(l[1])
+              .enter()
+              .append("text")
+                .attr("class", `.vertical-line-title${i}`)
+                .attr("x", d => x(d.parsedDate)+10)
+                .attr("y", d => d.val-(height*.025))
+                .attr("height", (height*.1)+"px")
+                .attr("width",(width*.15)+"px")
+                .text(() => `${l[0]}`);
         });
+    }
+
+    // draw data points
+    function DrawPoints(){
+      Object.entries(data.verticalLineData).forEach((l, i) => {
+
+        LineChart
+          .append("g")
+          .attr("class", "data-points")
+          .selectAll(".data-point")
+          .data(l[1])
+          .enter()
+          .append("circle")
+          .attr("class", "data-point")
+          .style("stroke", () => verticalLineColor(i))
+          .style("fill", () => verticalLineColor(i))
+          .attr("cx", d => x(d.parsedDate))
+          .attr("cy", (height*.99))
+          .attr("r", 5);
+
+      });
     }
 
     context
@@ -182,7 +222,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')
-        .style("stroke","#FF7C7E")
+        .style("stroke","#6F6F6F")
         .attr("x1", d => x(d.parsedDate))
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
@@ -190,10 +230,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
+        .style("stroke-opacity",".6");
     
     context
         .append("g")
@@ -203,7 +240,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .enter()
         .append("line")
         .attr("class", '.vertical-line-1')
-        .style("stroke","#6F6F6F")
+        .style("stroke","#FF7C7E")
         .attr("x1", d => x(d.parsedDate))
         .attr("y1", height2)
         .attr("x2", d => x(d.parsedDate))
@@ -211,28 +248,51 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .style("stroke-dasharray", ("3,3"))
         .attr("stroke-dashoffset",80)
         .style("stroke-width","1px")
-        .style("stroke-opacity",".6")
-        .transition()
-        .duration(0)
-        .attr("stroke-dashoffset", "0");
+        .style("stroke-opacity","1");
 
-    // draw gridlines
-    chartModule.drawYAxisGridlines(svg, y, width, 10);
+    context
+        .append("g")
+        .attr("class", "vertical-line-tags")
+        .selectAll(`.vertical-line-tag0`)
+        .data(data.verticalLineData["Budget Legislation"])
+        .enter()
+        .append("rect")
+            .attr("class", `.vertical-line-tag0`)
+            .style("fill", "#6F6F6F")
+            .attr("x", d => x(d.parsedDate))
+            .attr("y", d => d.val*.177-(height2*.15))
+            .attr("height", (height2*.1)+"px")
+            .attr("width",(width*.025)+"px")
+            .style("border-radius", "25px")
+            .style("stroke-width","1px")
+            .style("fill-opacity","1");
+
+    context
+        .append("g")
+        .attr("class", "vertical-line-tags")
+        .selectAll(`.vertical-line-tag1`)
+        .data(data.verticalLineData["Continuing Resolution"])
+        .enter()
+        .append("rect")
+            .attr("class", `.vertical-line-tag1`)
+            .style("fill", "#FF7C7E")
+            .attr("x", d => x(d.parsedDate))
+            .attr("y", d => d.val*.177-(height2*.15))
+            .attr("height", (height2*.1)+"px")
+            .attr("width",(width*.025)+"px")
+            .style("border-radius", "25px")
+            .style("stroke-width","1px")
+            .style("opacity","1")
+            .style("z-index","999");
 
   function brushed() {
-    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
-    // LineChart.selectAll('.line').remove();
     d3.selectAll("#svg-2 > g > g:nth-child(2) > g").remove();
-    // DrawLines(0);
-    DrawVerticalLines(0);
+    DrawVerticalLines();
     focus.select(".axis--x").call(xAxis);
-    svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
-        .scale(width / (s[1] - s[0]))
-        .translate(-s[0], 0));
-    // LineChart.selectAll('.data-point').remove();
-    // DrawPoints(0);
+    LineChart.selectAll('.data-point').remove();
+    DrawPoints();
   }
   
   var legendVals2 = Object.keys(data.verticalLineData);
@@ -251,19 +311,33 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
   k.insert("text").attr("class","title").text(function(d,i) { return d } );
 
   k.on("mouseover",(d) => {
-      console.log(d);
     if(d === "Continuing Resolution"){
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(3) > line").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(5) > rect").style("opacity","0");
     }else if(d === "Budget Legislation"){
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(4) > line").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g.context > g:nth-child(6) > rect").style("opacity","0");
     }
   })
   .on("mouseout",() => {
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(3) > line").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(5) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(4) > line").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g.context > g:nth-child(6) > rect").style("opacity","1");
     }); 
-
 });
     

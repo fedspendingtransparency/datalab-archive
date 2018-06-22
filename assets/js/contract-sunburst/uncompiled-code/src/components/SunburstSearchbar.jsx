@@ -17,11 +17,7 @@ class SunburstSearchbar extends Component {
     // ignore case
     const regex = new RegExp(`${escapedValue}`, "i");
 
-    const searchBy = this.props.searchbarOptionSelected;
-
-    return this.props.staticData.unfilteredSearchbarSuggestions[
-      searchBy
-    ].filter(e => regex.test(e));
+    return this.props.searchbarSuggestions.filter(e => regex.test(e));
   }
 
   getSuggestionValue(suggestion) {
@@ -75,17 +71,15 @@ class SunburstSearchbar extends Component {
   onSuggestionsClearRequested = () => {};
 
   render() {
-    const searchbarOptions = ["Agencies", "Contractors"];
 
     const {
       searchbarText,
       searchbarSuggestions,
-      searchbarOptionSelected,
       handleSearchbarOptionChange
     } = this.props;
 
     const inputProps = {
-      placeholder: `Search by ${searchbarOptionSelected === "Agencies" ? "agency" : "contractor"}`,
+      placeholder: 'Search Contracts and Agencies',
       value: searchbarText,
       onChange: this.onChange
     };
@@ -105,22 +99,6 @@ class SunburstSearchbar extends Component {
         </div>
         <div className="controls-row">
           <button onClick={this.props.clearSunburstFilters} className="clear-button">Clear</button>
-          <div>
-            <p className="radio-button-label">Search by: </p>
-            {searchbarOptions.map((c, i) => (
-              <div key={i} className="radio-button">
-                <input
-                  type="radio"
-                  id={`searchBy${c}`}
-                  name="searchBy"
-                  value={c}
-                  checked={searchbarOptionSelected === c}
-                  onChange={handleSearchbarOptionChange}
-                />
-                <label htmlFor={`searchBy${c}`}>{c}</label>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     );

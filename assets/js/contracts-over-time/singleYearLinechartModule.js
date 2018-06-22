@@ -3,12 +3,11 @@
 
 const singleYearLinechartModule = (function() {
   function draw(data,axisText,id) {
-
     $('.subTitleDiv').empty();
     $('.legend').empty();
     $("#svg-1").empty();
 
-    const svgMargin = { top: 0, right: 0, bottom: 30, left: 40 },
+    const svgMargin = { top: 0, right: 0, bottom: 30, left: 0 },
       width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 50,
       legendHeight = 33;
@@ -22,9 +21,6 @@ const singleYearLinechartModule = (function() {
         .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>
-        d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
-    );
-    Object.entries(data.verticalLineData).forEach(d =>
         d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
     );
 
@@ -58,29 +54,13 @@ const singleYearLinechartModule = (function() {
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-    svg.append("text")             
-      .attr("transform","translate(" + (width/2) + " ," + (height+50) + ")")
-      .style("text-anchor", "middle")
-      .attr("dx", "0vw")
-      .style("font-size","15px") 
-      .text(axisText);
-
     svg.append("g")
       .attr("class", "axis axis--y")
-      .call(yAxis);
-
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y",'-110px')
-      .attr("x",0 - (height / 2))
-      .attr("dy", "0vw")
-      .style("font-size","15px")
-      .style("text-anchor", "middle")
-      .text("Total Obligations");     
+      .call(yAxis);   
 
     var lineColor = d3
       .scaleLinear()
-      .range(["#027693", "#db5000", "#FFC8BA", "#B5D8EB"])
+      .range(["#027693"])
       .domain([0, Object.keys(data.lineData).length - 1])
       .interpolate(d3.interpolateHcl);
 
@@ -101,7 +81,7 @@ const singleYearLinechartModule = (function() {
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
         .transition()
-        .duration(0)
+        .duration(4000)
         .attr("stroke-dashoffset", "0");
 
     // draw data points
@@ -125,9 +105,14 @@ const singleYearLinechartModule = (function() {
         .on("mousemove", handleMouseMove);
     });
 
+    var TooltipFormatNumberAsText = d =>
+      d3.format("$.2s")(d)
+        .replace("G", " Billion")
+        .replace("M", " Million");
+
     function handleMouseOver(d, title) {
       tooltipModule.draw("#tooltip", title, {
-        Value: chartModule.formatNumberAsText(d.val)
+        Value: TooltipFormatNumberAsText(d.val)
       });
     }
 

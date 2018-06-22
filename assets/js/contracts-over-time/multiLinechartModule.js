@@ -8,10 +8,10 @@ const multiLinechartModule = (function() {
     $('.legend').empty();
     $("#svg-1").empty();
 
-    const svgMargin = { top: 20, right: 0, bottom: 80, left: 40 },
+    const svgMargin = { top: 20, right: 0, bottom: 80, left: 0 },
       height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
       height2 = 80,
-      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 40},
+      svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 0},
       width = $("#svg-1").width(),   
       legendHeight = 50;
 
@@ -26,9 +26,6 @@ const multiLinechartModule = (function() {
       .attr("transform", `translate(${svgMargin.left},${svgMargin.top})`);
 
     Object.entries(data.lineData).forEach(d =>
-      d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
-    );
-    Object.entries(data.verticalLineData).forEach(d =>
       d[1].forEach(e => (e.parsedDate = parseDate(e.date)))
     );
 
@@ -90,8 +87,7 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + svgMargin2.top + ")");
 
     var brush = d3.brushX()
-      .extent([[0, 0], [width, height2]])
-      .on("brush", brushed);
+      .extent([[0, 0], [width, height2]]);
 
     var zoom = d3.zoom()
       .scaleExtent([1, Infinity])
@@ -109,13 +105,6 @@ const multiLinechartModule = (function() {
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
-    context.append("text")             
-      .attr("transform","translate(" + (width/2) + " , 125)")
-      .style("text-anchor", "middle")
-      .style("font-size","15px")
-      .attr("dx", "0vw")
-      .text(axisText);
-
     context.append("g")
       .attr("class", "brush")
       .call(brush)
@@ -128,16 +117,7 @@ const multiLinechartModule = (function() {
 
     focus.append("g")
       .attr("class", "axis axis--y")
-      .call(yAxis);
-
-    focus.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y",'-110px')
-      .attr("x",0 - (height / 2))
-      .attr("dy", "0vw")
-      .style("font-size","15px")
-      .style("text-anchor", "middle")
-      .text("Total Obligations");     
+      .call(yAxis);   
 
     // draw lines
     function DrawLines(t){
@@ -157,9 +137,30 @@ const multiLinechartModule = (function() {
         .attr("stroke-dasharray", d => d.totalLength)
         .attr("stroke-dashoffset", d => d.totalLength)
         .transition()
-        .duration(0)
+        .duration(t)
         .attr("stroke-dashoffset", "0");
       };
+
+      DrawLines(4000);
+
+    var TooltipFormatNumberAsText = d =>
+      d3.format("$.2s")(d)
+        .replace("G", " Billion")
+        .replace("M", " Million");
+
+    function handleMouseOver(d, title) {
+      tooltipModule.draw("#tooltip", title, {
+        Value: TooltipFormatNumberAsText(d.val)
+      });
+    }
+
+    function handleMouseOut() {
+      tooltipModule.remove("#tooltip");
+    }
+
+    function handleMouseMove() {
+      tooltipModule.move("#tooltip");
+    }
 
     context
       .append("g")
@@ -181,7 +182,7 @@ const multiLinechartModule = (function() {
       .attr("stroke-dashoffset", "0");
 
     // draw data points
-    function DrawPoints(){
+    function DrawPoints(t){
       Object.entries(data.lineData).forEach((l, i) => {
           
         LineChart
@@ -197,29 +198,21 @@ const multiLinechartModule = (function() {
           .attr("cx", d => x(d.parsedDate))
           .attr("cy", d => y(d.val))
           .attr("r", 3)
-          // .attr("fill-opacity", "")
+          .attr("opacity", "0")
           .on("mouseover", d => handleMouseOver(d, l[0]))
           .on("mouseout", handleMouseOut)
-          .on("mousemove", handleMouseMove);
+          .on("mousemove", handleMouseMove)
+          .transition()
+          .duration(t);
       });
     }
-
-    function handleMouseOver(d, title) {
-      tooltipModule.draw("#tooltip", title, {
-        Value: chartModule.formatNumberAsText(d.val)
-      });
-    }
-
-    function handleMouseOut() {
-      tooltipModule.remove("#tooltip");
-    }
-
-    function handleMouseMove() {
-      tooltipModule.move("#tooltip");
-    }
+  
+    DrawPoints(4000);
 
     // draw gridlines
-    chartModule.drawYAxisGridlines(svg, y, width, 10);
+  chartModule.drawYAxisGridlines(svg, y, width, 10);
+
+  setTimeout(brush.on("brush", brushed),1);
 
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
@@ -232,7 +225,7 @@ const multiLinechartModule = (function() {
         .scale(width / (s[1] - s[0]))
         .translate(-s[0], 0));
     LineChart.selectAll('.data-point').remove();
-    DrawPoints();
+    DrawPoints(0);
   }
 
   function getSubTitle(id){
