@@ -1,6 +1,6 @@
 ---
 ---
- 
+
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -23,7 +23,7 @@ $(function() {
     {
       id: "panel-1",
       module: barchartModule,
-      dataset: "panel1",
+      dataset: "panel1a",
       xAxis: "Fiscal Year 2007 - 2017"
     },
     {
