@@ -10,8 +10,8 @@ const barchartModule = (function() {
     $("#svg-1").empty();
 
     const margin = { top: 0, right: 0, bottom: 30, left: 0 },
-      width = $("#svg-1").width() - margin.left - margin.right,
-      height = $("#svg-1").height() - margin.top - margin.bottom - 50,
+      width = 816,
+      height = 530,
       legendHeight = 33;
 
     var x = d3
@@ -22,6 +22,7 @@ const barchartModule = (function() {
 
     var svg = d3
       .select("#svg-1")
+      .attr("viewBox", `0 0 816 530`)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

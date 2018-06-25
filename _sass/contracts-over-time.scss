@@ -225,6 +225,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   #svg-1{
     overflow: visible;
     max-width: 70%;
+    width: 100%;
   }
 
   .xAxis{
@@ -300,8 +301,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   transform: rotateX(24deg) rotateY(23deg) translateZ(-216px);
 }
 .blue-banner-subheader1 {
-  height: 70px;	
-  width: 1037px;
+  height: 70px;
   color: #4A4A4A;	
   font-family: "Source Sans Pro";	
   font-size: 40px;	
@@ -358,8 +358,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   display: block;
 }
 .part2Header{
-  // width:75%;
-  height: 100px;	
+  // width:75%;	
   color: #666666;	
   font-family: "Source Sans Pro";	
   font-size: 40px;	
@@ -374,13 +373,12 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   width: 150px;	
   border: 1px solid #979797;	
   background: #979797;
-  margin: 50px auto 17px;
+  margin: 20px auto 17px;
 }
 .part2HeaderDescription{
   display: block;
   display: -webkit-box;
-  height: 125px;	
-  width: 1000px;	
+  padding-bottom: 50px;
   color: #666666;	
   font-family: "Source Sans Pro";	
   font-size: 20px;	
@@ -620,6 +618,7 @@ z-index: 9999;
 
 #svg-3, #svg-4, #svg-5, #svg-6{
   overflow: visible;
+  width: 100%;
 }
 .control-group1{
   padding-left: 68px;

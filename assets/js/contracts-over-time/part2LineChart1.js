@@ -15,8 +15,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
         const windowHeight = $(window).height();
         const windowMargin = 50;
     
-        const svgHeight = windowHeight - 5 * windowMargin;
-        const svgWidth = windowWidth - 4 * windowMargin;
+        const svgHeight = 556;
+        const svgWidth = 1465;
     
         $(id)
           .attr("height", svgHeight)
@@ -45,6 +45,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     // Add SVG
     var svg = d3
       .select("#svg-3")
+      .attr("viewBox", `0 0 1465 556`)
       .html(`<defs><clipPath id="clipPath"><rect x="0" y="0" width=${width} height=${height}></rect></clipPath></defs>`)
       .append("g")
       .attr('class','frame')

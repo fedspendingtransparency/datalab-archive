@@ -9,10 +9,10 @@ const multiLinechartModule = (function() {
     $("#svg-1").empty();
 
     const svgMargin = { top: 20, right: 0, bottom: 80, left: 0 },
-      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 55,
+      height = 530,
       height2 = 80,
       svgMargin2 = {top: (height+20), right: 0, bottom: "auto", left: 0},
-      width = $("#svg-1").width(),   
+      width = 816,   
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
