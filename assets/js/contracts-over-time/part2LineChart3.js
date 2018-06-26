@@ -8,14 +8,14 @@
 // 
 // 
 
-d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
+d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {    
+    const svgHeight = 556;
+    const svgWidth = 1465;
+
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
         const windowMargin = 50;
-    
-        const svgHeight = windowHeight - 5 * windowMargin;
-        const svgWidth = windowWidth - 4 * windowMargin;
     
         $(id)
           .attr("height", svgHeight)
@@ -33,10 +33,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel8.json', (data) => {
     setDimsOfSvg("#svg-5");
 
     const svgMargin = { top: 20, right: 25, bottom: 80, left: 45 },
-      height = $("#svg-5").height() - svgMargin.top - svgMargin.bottom - 55,
+      height = svgHeight,
       height2 = 50,
       svgMargin2 = {top: (height+20), right: 25, bottom: "auto", left: 45},
-      width = $("#svg-5").width() - svgMargin.right - svgMargin.left,
+      width = svgWidth,
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
