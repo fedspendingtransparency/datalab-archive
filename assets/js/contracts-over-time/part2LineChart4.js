@@ -12,7 +12,7 @@
 
 d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
     const svgHeight = 556;
-    const svgWidth = 1465;
+    const svgWidth = 1400;
 
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
