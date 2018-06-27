@@ -96,9 +96,7 @@ class SunburstSearchbar extends Component {
             renderSuggestion={this.renderSuggestion}
             inputProps={inputProps}
           />
-        </div>
-        <div className="controls-row">
-          <button onClick={this.props.clearSunburstFilters} className="clear-button">Clear</button>
+          <button onClick={this.props.clearSunburstFilters} className="clear-button">X</button>
         </div>
       </div>
     );
