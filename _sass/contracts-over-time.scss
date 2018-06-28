@@ -381,6 +381,11 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   text-align: center;
   background: inherit;
 }
+.part2HeaderList {
+  display: inline-block;
+  text-align: left;
+  margin-top: 25px;
+}
 .part2Header2{
   color: #666666;	
   font-family: "Source Sans Pro";	
@@ -496,6 +501,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 }
 .carouselTitleContainer {
     display: flex;
+    text-align: center;
 }
 .carouselTitle{
   color: #666666;

@@ -122,7 +122,7 @@ const barchartModule = (function() {
       .attr("class","subTitle")
       .attr("height","25px")
       .attr("width","100%")
-      .text("How does spending on federal contracts change over the past 10 years?");
+      .text("Total Contracts Awarded");
 
     var legendVals = ["Total Contract Spending"];
 

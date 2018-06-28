@@ -133,7 +133,7 @@ const singleYearLinechartModule = (function() {
     var subTitle = d3.select('.subTitleDiv')
         .append("div")
         .attr("class","subTitle")
-        .text("How does spending on federal contracts vary within a year?");
+        .text("Seasonality of contract spending in the average year");
 
     var legend = d3.select('.legend').selectAll("legends")
         .data(legendVals)
