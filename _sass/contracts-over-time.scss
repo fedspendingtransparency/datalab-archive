@@ -61,10 +61,9 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
     width: 70%;
     height: 100%;
     margin-left: 30%;
-    margin-bottom: 75px;
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #FFF;
   }
@@ -100,19 +99,15 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   }
 
   .subTitle{
-    color: #4A4A4A;	
-    font-family: "Source Sans Pro";	
-    font-size: 18.48px;	
+    color: #4A4A4A;
     font-weight: 600;	
     line-height: 23px;
     float: left;
-    margin-left: 80px;
+    padding: 15px;
   }
 
   .subTitleDiv{
    position: relative;
-   height: 25px;
-   width: 100%;
    margin-bottom: 5px;
   }
 
@@ -134,7 +129,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
     font-family: "Source Sans Pro";
     font-size: 20px;
     font-weight: 600;
-    line-height: 31px;
+    line-height: 45px;
   }
 
   hr{
@@ -153,7 +148,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
  }
 
  .panel-text {
-  margin: 10px 20px 10px 30px;
+  margin: 10px 0px 0px 10px;
   display: block;
   background: #fff;
   padding: 20px 20px;
@@ -224,7 +219,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 
   #svg-1{
     overflow: visible;
-    max-width: 70%;
+    max-width: 85%;
     width: 100%;
   }
 
@@ -265,7 +260,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   stroke-width: 2px;
 }
 .legends {
-  margin-left: 15px;
+  margin-left: 5px;
   display: inline-block;
 }
 .legend{
@@ -294,14 +289,13 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 .blue-banner1 {
   position: absolute;
   height: 600px;
-  margin-top: -100px;
+  margin-top: -50px;
   margin-left: -159px;
-  width: 121%;
+  width: 200%;
   background-color: #F0F0F0;
   transform: rotateX(24deg) rotateY(23deg) translateZ(-216px);
 }
 .blue-banner-subheader1 {
-  height: 70px;
   color: #4A4A4A;	
   font-family: "Source Sans Pro";	
   font-size: 40px;	
@@ -311,7 +305,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   margin: 100px auto auto auto;
 }
 .blue-banner-link1 {
-  margin: 220px auto;
+  margin: 25px auto 100px auto;
   display: block;
   cursor: pointer;
   width: 53px;
@@ -366,7 +360,8 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 50px;	
   text-align: center;	
   margin: 0 auto;
-  padding: 0 150px;
+  padding: 0 25px;
+  margin-top: 50px;
 }
 .part2HeaderSubdivider{
   height: 2px;	
@@ -378,33 +373,29 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 .part2HeaderDescription{
   display: block;
   display: -webkit-box;
-  padding-bottom: 50px;
+  padding-bottom: 115px;
   color: #666666;	
   font-family: "Source Sans Pro";	
   font-size: 20px;	
   line-height: 25px;	
   text-align: center;
-  margin: 0 auto 55px;
   background: inherit;
 }
 .part2Header2{
-  // width:75%;
-  height: 100px;	
   color: #666666;	
   font-family: "Source Sans Pro";	
   font-size: 40px;	
   font-weight: 100;	
   line-height: 50px;	
   text-align: center;	
-  margin: 0 auto;
-  padding: 0 130px;
+  margin: 25px auto;
 }
 .part2HeaderSubdivider2{
   height: 2px;	
   width: 150px;	
   border: 1px solid #979797;	
   background: #979797;
-  margin: 50px auto 17px;
+  margin: 17px auto 17px;
 }
 .part2HeaderDescription2{
   height: 125px;	
@@ -420,7 +411,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 }
 .timelineContainer{
   margin-left: -175px;
-  width: 123%;
+  width: 150%;
   height: 800px;	
   background: linear-gradient(153.43deg, #00AADF 0%, #0071BC 100%);	
   box-shadow: 0 2px 50px 0 rgba(0,0,0,0.1);
@@ -438,7 +429,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 }
 .carousel{
   float: right;
-  width: 28vw;
+  width: 25%;
   height: inherit;
   border-radius: 0 5px 5px 0;	
   background-color: #F0F0F0;
@@ -509,7 +500,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 .carouselTitle{
   color: #666666;
   font-weight: 600;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -527,6 +518,8 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   height: 490px;
   width: 100%;
   margin: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .carouselNumber{	
   color: #9B9B9B;	
@@ -605,6 +598,7 @@ z-index: 9999;
   padding-top: 79px;
   display: block;
   align-self: center;
+  margin-top: 250px;
   color: #FFF;
 }
 .prev2{
@@ -615,14 +609,16 @@ z-index: 9999;
   border-top-left-radius: 110px;
   border-bottom-left-radius: 110px;
   text-align: right;
+  margin-left: 3%;
 }
 
 #svg-3, #svg-4, #svg-5, #svg-6{
   overflow: visible;
   width: 100%;
+  height: 40vw;
 }
 .control-group1{
-  padding-left: 68px;
+  padding-left: 25px;
   display: inline-block;
   z-index: 999;
 }
@@ -632,31 +628,29 @@ z-index: 9999;
   z-index: 999;
 }
 .part2FinalDivider{
-  height: 1px;	
-  width: 1100px;	
+  height: 1px;
   // border: 1px solid #979797;	
   background: #979797;
   margin: 50px auto 17px;
 }
 .part2subtitle{
-  height: 31px;	
-  width: 750px;	
-  color: #666666;	
-  font-family: "Source Sans Pro";	
+  color: #666666;
   font-size: 20px;	
   font-weight: 600;
   display: block;
-  padding-left: 68px;
+  padding-left: 20px;
 }
 .slidecontainer{
   display: block;
   justify-content: center;
   margin: 0 auto;
+  /*
   padding: 0 25px;
+  margin-right: 15px;
+  */
 }
 .legendcontainer{
   display:block;
-  padding-right: 20px;
 }
 .part2legend1, .part2legend2, .part2legend4{
   float: right;
@@ -670,4 +664,23 @@ z-index: 9999;
 .part2control-group1,.part2control-group2,.part2control-group3,.part2control-group4{
   display: inline-flex;
 }
+
+
+@media (max-width: 600px) { 
+  /*
+  .left {
+    width: 50%;
+  }
+
+  .parallax-container {
+    width: 55%;
+  }
+  */
+
+  .panel-container {
+    margin: 0px 0px 30px 15px;
+    padding: 3px;
+  }
 }
+}
+
