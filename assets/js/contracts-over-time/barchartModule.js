@@ -85,7 +85,7 @@ const barchartModule = (function() {
         .replace("M", " Million");
 
       function handleMouseOver(d) {
-        tooltipModule.draw("#tooltip", d.fiscalYear, {
+        tooltipModule.draw("#tooltip", "FY " + d.fiscalYear, {
           "Total Contract Spending Value": TooltipFormatNumberAsText(d.val)
         });
       }
