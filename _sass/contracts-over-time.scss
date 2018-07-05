@@ -286,6 +286,27 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 15px;	
   cursor: pointer;
 }
+.test-new-banner {
+  background-image: linear-gradient(315deg, #F7F7F7 0%, #E1E1E1 100%);
+  height: 732px;
+}
+.test-new-banner-blue {
+  background-image: linear-gradient(180deg, #00AADF 0%, #0071BC 100%);
+  height: 1044px;
+}
+.test-new-banner .banner-triangle {
+  width: 100%;
+  height: 10vw;
+}
+.test-new-banner h1 {
+  color: #4A4A4A;
+  font-family: "Source Sans Pro";
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 70px;
+  text-align: center;
+  padding: 50px 0 0 0;
+}
 .blue-banner1 {
   position: absolute;
   height: 600px;
@@ -335,7 +356,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 
 .part2{
   // width:100%;
-  padding: 50px 60px;
+  // padding: 50px 60px;
 }
 
 .part2Container{
@@ -380,6 +401,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 25px;	
   text-align: center;
   background: inherit;
+  padding: 25px;
 }
 .part2HeaderList {
   display: inline-block;
@@ -428,9 +450,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 .timeline{
   width:100vw;
   height: 700px;
-  margin-left: 115px;
   background: #FFFFFF;
-  transform: rotateX(24deg) rotateY(-23deg);
 }
 .carousel{
   float: right;

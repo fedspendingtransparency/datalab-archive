@@ -93,15 +93,21 @@ category: nonentry
   <div id="verttooltip" class="vertTooltip"></div>
   
   <div class="banner-container">
-    <svg class="blue-banner1"></svg>
-    <div class="blue-banner-container1">
-      <div class="blue-banner-subheader1">Now let’s explore the relationship between the type of Congressional appropriations passed and the amount spent on federal contracts.</div>
-      <a href="#two" class="scrolly blue-banner-link1">
-          <span>
-            {% include svgs/Scroll-Down-Button-gray.svg class="blue-banner-down-arrow-new" %}
-          </span>
-        </a>
-    </div>
+
+      <div class="test-new-banner">
+          <svg class="banner-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="top: 0;transform: rotateX(180deg);">
+              <polygon fill="white" points="0,100 100,0 100,100"></polygon>
+            </svg>
+          <h1>Now let’s explore the relationship between the type of Congressional appropriations passed and the amount spent on federal contracts.</h1>
+          <a href="#two" class="scrolly blue-banner-link1">
+            <span>
+              {% include svgs/Scroll-Down-Button-gray.svg class="blue-banner-down-arrow-new" %}
+            </span>
+          </a>
+          <svg class="banner-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="white" points="0,0 0,100 100,100"/>
+          </svg>
+      </div>
   </div>
   <div id="two" class="part2">
     <div class="part2Container">
@@ -112,113 +118,124 @@ category: nonentry
       <div class="part2HeaderDescription">
         We investigated the impact of the passage of new appropriations and continuing resolutions on the amount of contract spending across the federal government. Here are our results. 
       </div>
-      <div class="timelineContainer">
-        <div class="timeline">
-          <div class="timelineLegend"></div>
-          <svg id="svg-2"></svg>
-          <div class="carousel">
-            <!-- Full-width images with number and caption text -->
-            <div class="mySlides fade">
-              <!-- <div class="numbertext">1 / 3</div> -->
-              <div class="carouselTitle">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <span class="carouselTitleContainer">
-                  <p class='carouselTitleText'>1. Congressional Appropriations</p>
-                </span>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="test-new-banner test-new-banner-blue">
+          <svg class="banner-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="top: 0;transform: rotateX(180deg);">
+            <polygon fill="white" points="0,100 100,0 100,100"></polygon>
+          </svg>
+          
+
+          <div class="timeline">
+              <div class="timelineLegend"></div>
+              <svg id="svg-2"></svg>
+              <div class="carousel">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                  <!-- <div class="numbertext">1 / 3</div> -->
+                  <div class="carouselTitle">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <span class="carouselTitleContainer">
+                      <p class='carouselTitleText'>1. Congressional Appropriations</p>
+                    </span>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+                  <div class='carouselTextContainer'>
+                    <p class='carouselText'>The federal government receives funding through Congressional appropriations, which can come in the form of short-term continuing resolutions and new appropriations. For the purpose of our analysis, we distinguished between new appropriations and continuing resolutions by investigating the text of passed appropriations legislation for the past ten years.</p>
+                  </div>
+                </div>
+    
+                <div class="mySlides fade">
+                  <!-- <div class="numbertext">2 / 3</div> -->
+                  <div class="carouselTitle">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <span class="carouselTitleContainer">
+                      <p class='carouselTitleText'>2. New Appropriations</p>
+                    </span>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+                  <div class='carouselTextContainer'>
+                    <p class='carouselText'>Here are the dates when <b>new appropriations</b> were passed over the last 10 years.</p>
+                  </div>
+                </div>
+    
+                <div class="mySlides fade">
+                  <!-- <div class="numbertext">3 / 3</div> -->
+                  <div class="carouselTitle">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <span class="carouselTitleContainer">
+                      <p class='carouselTitleText'>3. Continuing Resolutions</p>
+                    </span>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+                  <div class='carouselTextContainer'>
+                    <p class='carouselText'>Here are the dates when <b>continuing resolutions</b> were passed over the last 10 years.</p>
+                  </div>
+                </div>
+    
+                <div class="mySlides fade">
+                  <!-- <div class="numbertext">3 / 3</div> -->
+                  <div class="carouselTitle">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <span class="carouselTitleContainer">
+                      <p class='carouselTitleText'>4. Investigating the Impact of Congressional Appropriations</p>
+                    </span>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+                  <div class='carouselTextContainer'>
+                    <p class='carouselText'>We decided to <b>test the relationship</b> between the passage of continuing resolutions and new appropriations and the amount of spending on contracts across the government. <b>Check out our results below.</b></p>
+                  </div>
+                </div>
+                <br/>
+    
+                <!-- The dots/circles -->
+                <div style="text-align:center;padding-top:30px;">
+                  <span class="dot" onclick="currentSlide(1)"></span>
+                  <span class="dot" onclick="currentSlide(2)"></span>
+                  <span class="dot" onclick="currentSlide(3)"></span>
+                  <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
               </div>
-              <div class='carouselTextContainer'>
-                <p class='carouselText'>The federal government receives funding through Congressional appropriations, which can come in the form of short-term continuing resolutions and new appropriations. For the purpose of our analysis, we distinguished between new appropriations and continuing resolutions by investigating the text of passed appropriations legislation for the past ten years.</p>
-              </div>
+              <script>
+                var slideIndex = 1;
+                showSlides(slideIndex);
+    
+                // Next/previous controls
+                function plusSlides(n) {
+                  showSlides(slideIndex += n);
+                }
+    
+                // Thumbnail image controls
+                function currentSlide(n) {
+                  showSlides(slideIndex = n);
+                }
+    
+                function showSlides(n) {
+                  var i;
+                  var slides = document.getElementsByClassName("mySlides");
+                  var dots = document.getElementsByClassName("dot");
+                  if (n > slides.length) {
+                    slideIndex = 1
+                  }
+                  if (n < 1) {
+                    slideIndex = slides.length
+                  }
+                  for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                  }
+                  for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                  }
+                  slides[slideIndex - 1].style.display = "block";
+                  dots[slideIndex - 1].className += " active";
+                }
+              </script>
+    
             </div>
 
-            <div class="mySlides fade">
-              <!-- <div class="numbertext">2 / 3</div> -->
-              <div class="carouselTitle">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <span class="carouselTitleContainer">
-                  <p class='carouselTitleText'>2. New Appropriations</p>
-                </span>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-              </div>
-              <div class='carouselTextContainer'>
-                <p class='carouselText'>Here are the dates when <b>new appropriations</b> were passed over the last 10 years.</p>
-              </div>
-            </div>
 
-            <div class="mySlides fade">
-              <!-- <div class="numbertext">3 / 3</div> -->
-              <div class="carouselTitle">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <span class="carouselTitleContainer">
-                  <p class='carouselTitleText'>3. Continuing Resolutions</p>
-                </span>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-              </div>
-              <div class='carouselTextContainer'>
-                <p class='carouselText'>Here are the dates when <b>continuing resolutions</b> were passed over the last 10 years.</p>
-              </div>
-            </div>
-
-            <div class="mySlides fade">
-              <!-- <div class="numbertext">3 / 3</div> -->
-              <div class="carouselTitle">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <span class="carouselTitleContainer">
-                  <p class='carouselTitleText'>4. Investigating the Impact of Congressional Appropriations</p>
-                </span>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-              </div>
-              <div class='carouselTextContainer'>
-                <p class='carouselText'>We decided to <b>test the relationship</b> between the passage of continuing resolutions and new appropriations and the amount of spending on contracts across the government. <b>Check out our results below.</b></p>
-              </div>
-            </div>
-            <br/>
-
-            <!-- The dots/circles -->
-            <div style="text-align:center;padding-top:30px;">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
-              <span class="dot" onclick="currentSlide(4)"></span>
-            </div>
-          </div>
-          <script>
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            // Next/previous controls
-            function plusSlides(n) {
-              showSlides(slideIndex += n);
-            }
-
-            // Thumbnail image controls
-            function currentSlide(n) {
-              showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-              var i;
-              var slides = document.getElementsByClassName("mySlides");
-              var dots = document.getElementsByClassName("dot");
-              if (n > slides.length) {
-                slideIndex = 1
-              }
-              if (n < 1) {
-                slideIndex = slides.length
-              }
-              for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-              }
-              for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-              }
-              slides[slideIndex - 1].style.display = "block";
-              dots[slideIndex - 1].className += " active";
-            }
-          </script>
-
-        </div>
+          <svg class="banner-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="white" points="0,0 0,100 100,100"/>
+          </svg>
       </div>
     </div>
   </div>
