@@ -89,7 +89,7 @@ const barchartModule = (function() {
         var fyText = "FY " + d.fiscalYear;
         
         if (d.fiscalYear === 2018) {
-          fyText += " (to April)";
+          fyText += " (as of 3-31-18)";
         }
 
         tooltipModule.draw("#tooltip", fyText, {

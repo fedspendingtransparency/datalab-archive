@@ -700,6 +700,18 @@ z-index: 9999;
 .part2control-group1,.part2control-group2,.part2control-group3,.part2control-group4{
   display: inline-flex;
 }
+.slide-2-ol {
+  display: inline-block;
+  text-align: left;
+  margin-left: 175px;
+}
+.slide-3-table {
+  margin: 0 auto;
+}
+.slide-3-table td, .slide-3-table th {
+  text-align: left;
+  padding: 3px;
+}
 
 
 @media (max-width: 600px) { 
