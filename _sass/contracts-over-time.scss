@@ -536,7 +536,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .carouselText{
   color: #4A4A4A;
@@ -545,7 +545,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 23px;
   padding: 10% 5%;
   display: -webkit-box;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .carouselTextContainer{
   background: white;
