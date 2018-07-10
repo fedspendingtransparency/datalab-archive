@@ -129,7 +129,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
     font-family: "Source Sans Pro";
     font-size: 20px;
     font-weight: 600;
-    line-height: 45px;
+    line-height: 25px;
   }
 
   hr{
@@ -145,6 +145,9 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
     font-size: 14px;
     line-height: 25px;
     display: -webkit-box;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-right: 0px;
  }
 
  .panel-text {
@@ -157,6 +160,8 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   font-size: 14px;	
   line-height: 25px;
   display: -webkit-box;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
   .line {
@@ -454,7 +459,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 }
 .carousel{
   float: right;
-  width: 25%;
+  width: 22%;
   height: inherit;
   border-radius: 0 5px 5px 0;	
   background-color: #F0F0F0;
@@ -530,6 +535,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow-x: scroll;
 }
 .carouselText{
   color: #4A4A4A;
@@ -538,6 +544,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 23px;
   padding: 10% 5%;
   display: -webkit-box;
+  overflow-x: scroll;
 }
 .carouselTextContainer{
   background: white;
@@ -704,10 +711,30 @@ z-index: 9999;
   }
   */
 
+  .carouselText {
+    line-height: 18px;
+    font-size: 14px;
+  }
+
+  .panel-title {
+    font-size: 14px;
+    margin: 0px 0px 5px 5px;
+  }
+
+  .panel-container {
+    padding: 0px;
+  }
+
+  #panel-4 .container-text, #panel-5 .container-text {
+    max-height: 200px;
+  }
+
+  /*
   .panel-container {
     margin: 0px 0px 30px 15px;
     padding: 3px;
   }
+  */
 }
 }
 
