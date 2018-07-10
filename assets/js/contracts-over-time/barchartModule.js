@@ -85,7 +85,14 @@ const barchartModule = (function() {
         .replace("M", " Million");
 
       function handleMouseOver(d) {
-        tooltipModule.draw("#tooltip", "FY " + d.fiscalYear, {
+
+        var fyText = "FY " + d.fiscalYear;
+        
+        if (d.fiscalYear === 2018) {
+          fyText += " (to April)";
+        }
+
+        tooltipModule.draw("#tooltip", fyText, {
           "Total Contract Spending Value": TooltipFormatNumberAsText(d.val)
         });
       }

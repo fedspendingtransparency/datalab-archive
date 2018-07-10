@@ -117,9 +117,10 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   }
 
   .panel-container{
-    margin: 10px 20px 10px 30px;
+    margin: 0px 0px 0px 10px;
     background: #fff;
     padding: 10px;
+    padding-right: 30px;
   }
 
   .panel-title{
@@ -139,7 +140,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   
   .container-text {
     background: #fff;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 0px 10px;
     color: #5B616B;
     font-family: "Source Sans Pro";
     font-size: 14px;
@@ -151,7 +152,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
  }
 
  .panel-text {
-  margin: 10px 0px 0px 10px;
+  margin: 10px 0px 0px 0px;
   display: block;
   background: #fff;
   padding: 20px 20px;
@@ -724,18 +725,19 @@ z-index: 9999;
 
   .panel-container {
     padding: 0px;
+    margin: 0px 0px 0px 0px;
   }
 
   #panel-4 .container-text, #panel-5 .container-text {
     max-height: 200px;
   }
 
-  /*
-  .panel-container {
-    margin: 0px 0px 30px 15px;
-    padding: 3px;
+  .container-text {
+    margin: 3px 0px 10px 5px;
   }
-  */
+  hr {
+    margin: 0;
+  }
 }
 }
 
