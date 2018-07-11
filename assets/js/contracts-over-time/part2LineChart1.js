@@ -1,15 +1,7 @@
 ---
 ---
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
+
+d3.json('../../../data-lab-data/contracts-over-time/panel6a.json', (data) => {
     const svgHeight = 556;
     const svgWidth = 1400;
 
