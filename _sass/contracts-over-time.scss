@@ -109,6 +109,8 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   .subTitleDiv{
    position: relative;
    margin-bottom: 5px;
+   align-self: flex-start;
+   margin-left: 6%;
   }
 
   #counter {
