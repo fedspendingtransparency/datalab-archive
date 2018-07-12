@@ -77,6 +77,12 @@ class SunburstContainer extends Component {
     const subagenciesPromise = axios
       .get("./../../data-lab-data/sunburst/subagencies_.json")
       .then(({ data }) => data);
+    const subagenciesAbbrvPromise = axios
+    .get("./../../data-lab-data/sunburst/subagencies_abbrv_.json")
+    .then(({ data }) => data);
+    const agenciesAbbrvPromise = axios
+    .get("./../../data-lab-data/sunburst/agencies_abbrv_.json")
+    .then(({ data }) => data);
     const recipientsPromise = axios
       .get("./../../data-lab-data/sunburst/recipients_.json")
       .then(({ data }) => data);
@@ -94,6 +100,8 @@ class SunburstContainer extends Component {
       colorsPromise,
       agenciesPromise,
       subagenciesPromise,
+      agenciesAbbrvPromise,
+      subagenciesAbbrvPromise,
       recipientsPromise,
       awardsContractsAgenciesPromise,
       awardsContractsRecipeintsPromise
@@ -103,6 +111,8 @@ class SunburstContainer extends Component {
         colors,
         agencies,
         subagencies,
+        agenciesAbbrv,
+        subagenciesAbbrv,
         recipients,
         awardsContractsAgencies,
         awardsContractsRecipeints
@@ -135,6 +145,8 @@ class SunburstContainer extends Component {
           colors,
           agencies,
           subagencies,
+          agenciesAbbrv,
+          subagenciesAbbrv,
           recipients
         }
       });
@@ -385,7 +397,7 @@ class SunburstContainer extends Component {
               handleUnhover={handleUnhover}
               handleMouseMove={handleMouseMove}
             />
-            <span className="prime-badge"> Prime Contracts </span>
+            <span className="prime-badge"> This visualization contains data on primary awards to recipients. Sub-awards are not included.</span>
           </div>
           {this.state.tooltipShown ? (
             <Tooltip

@@ -1,7 +1,7 @@
 ---
 ---
 
-d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data) {
+d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (data) {
     $("#svg-2").empty();
 
     function setDimsOfSvg(id) {
@@ -218,7 +218,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .append("g")
         .attr("class", "vertical-line-paths")
         .selectAll('.vertical-line-0')
-        .data(data.verticalLineData["Budget Legislation"])
+        .data(data.verticalLineData["New Appropriations"])
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')
@@ -254,7 +254,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         .append("g")
         .attr("class", "vertical-line-tags")
         .selectAll(`.vertical-line-tag0`)
-        .data(data.verticalLineData["Budget Legislation"])
+        .data(data.verticalLineData["New Appropriations"])
         .enter()
         .append("rect")
             .attr("class", `.vertical-line-tag0`)
@@ -318,7 +318,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7.json', function (data
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","0");
         d3.selectAll("#svg-2 > g > g.context > g:nth-child(3) > line").style("opacity","0");
         d3.selectAll("#svg-2 > g > g.context > g:nth-child(5) > rect").style("opacity","0");
-    }else if(d === "Budget Legislation"){
+    }else if(d === "New Appropriations"){
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","0px");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","0");

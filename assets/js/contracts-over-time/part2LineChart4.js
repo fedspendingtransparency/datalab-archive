@@ -9,8 +9,21 @@
 // 
 // 
 // 
-
-d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+d3.json('../../../data-lab-data/contracts-over-time/panel10a.json', (data) => {
     const svgHeight = 556;
     const svgWidth = 1400;
 
@@ -269,13 +282,13 @@ d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
         });
     }
   
-  if(data.verticalLineData["Budget Legislation"]){
+  if(data.verticalLineData["New Appropriations"]){
     
     context
         .append("g")
         .attr("class", "vertical-line-paths")
         .selectAll('.vertical-line-0')
-        .data(data.verticalLineData["Budget Legislation"])
+        .data(data.verticalLineData["New Appropriations"])
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')

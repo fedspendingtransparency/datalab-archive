@@ -117,9 +117,10 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   }
 
   .panel-container{
-    margin: 10px 20px 10px 30px;
+    margin: 0px 0px 0px 10px;
     background: #fff;
     padding: 10px;
+    padding-right: 30px;
   }
 
   .panel-title{
@@ -129,7 +130,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
     font-family: "Source Sans Pro";
     font-size: 20px;
     font-weight: 600;
-    line-height: 45px;
+    line-height: 25px;
   }
 
   hr{
@@ -139,16 +140,19 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   
   .container-text {
     background: #fff;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 0px 10px;
     color: #5B616B;
     font-family: "Source Sans Pro";
     font-size: 14px;
     line-height: 25px;
     display: -webkit-box;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-right: 0px;
  }
 
  .panel-text {
-  margin: 10px 0px 0px 10px;
+  margin: 10px 0px 0px 0px;
   display: block;
   background: #fff;
   padding: 20px 20px;
@@ -157,6 +161,8 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   font-size: 14px;	
   line-height: 25px;
   display: -webkit-box;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
   .line {
@@ -221,6 +227,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
     overflow: visible;
     max-width: 85%;
     width: 100%;
+    height: 65%;
   }
 
   .xAxis{
@@ -286,6 +293,28 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 15px;	
   cursor: pointer;
 }
+.test-new-banner {
+  background-image: linear-gradient(315deg, #F7F7F7 0%, #E1E1E1 100%);
+  height: 100%;
+}
+.test-new-banner-blue {
+  background-image: linear-gradient(180deg, #00AADF 0%, #0071BC 100%);
+  height: 100%;
+}
+.test-new-banner .banner-triangle {
+  width: 100%;
+  height: 10vw;
+  vertical-align: top;
+}
+.test-new-banner h1 {
+  color: #4A4A4A;
+  font-family: "Source Sans Pro";
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 70px;
+  text-align: center;
+  padding: 50px 0 0 0;
+}
 .blue-banner1 {
   position: absolute;
   height: 600px;
@@ -335,7 +364,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 
 .part2{
   // width:100%;
-  padding: 50px 60px;
+  // padding: 50px 60px;
 }
 
 .part2Container{
@@ -380,6 +409,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 25px;	
   text-align: center;
   background: inherit;
+  padding: 25px;
 }
 .part2HeaderList {
   display: inline-block;
@@ -426,15 +456,12 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   z-index: -1;
 }
 .timeline{
-  width:100vw;
   height: 700px;
-  margin-left: 115px;
   background: #FFFFFF;
-  transform: rotateX(24deg) rotateY(-23deg);
 }
 .carousel{
   float: right;
-  width: 25%;
+  width: 22%;
   height: inherit;
   border-radius: 0 5px 5px 0;	
   background-color: #F0F0F0;
@@ -510,6 +537,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow-x: auto;
 }
 .carouselText{
   color: #4A4A4A;
@@ -518,6 +546,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   line-height: 23px;
   padding: 10% 5%;
   display: -webkit-box;
+  overflow-x: auto;
 }
 .carouselTextContainer{
   background: white;
@@ -622,6 +651,7 @@ z-index: 9999;
   overflow: visible;
   width: 100%;
   height: 40vw;
+  
 }
 .control-group1{
   padding-left: 25px;
@@ -670,6 +700,18 @@ z-index: 9999;
 .part2control-group1,.part2control-group2,.part2control-group3,.part2control-group4{
   display: inline-flex;
 }
+.slide-2-ol {
+  display: inline-block;
+  text-align: left;
+  margin-left: 175px;
+}
+.slide-3-table {
+  margin: 0 auto;
+}
+.slide-3-table td, .slide-3-table th {
+  text-align: left;
+  padding: 3px;
+}
 
 
 @media (max-width: 600px) { 
@@ -683,9 +725,30 @@ z-index: 9999;
   }
   */
 
+  .carouselText {
+    line-height: 18px;
+    font-size: 14px;
+  }
+
+  .panel-title {
+    font-size: 14px;
+    margin: 0px 0px 5px 5px;
+  }
+
   .panel-container {
-    margin: 0px 0px 30px 15px;
-    padding: 3px;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  #panel-4 .container-text, #panel-5 .container-text {
+    max-height: 200px;
+  }
+
+  .container-text {
+    margin: 3px 0px 10px 5px;
+  }
+  hr {
+    margin: 0;
   }
 }
 }
