@@ -133,7 +133,7 @@ const singleYearLinechartModule = (function() {
     var subTitle = d3.select('.subTitleDiv')
         .append("div")
         .attr("class","subTitle")
-        .text("Seasonality of contract spending in the average year");
+        .text("Average Value of Contracts Awarded");
 
     var legend = d3.select('.legend').selectAll("legends")
         .data(legendVals)
