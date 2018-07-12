@@ -8,8 +8,8 @@ const singleYearLinechartModule = (function() {
     $("#svg-1").empty();
 
     const svgMargin = { top: 0, right: 0, bottom: 30, left: 0 },
-      width = $("#svg-1").width() - svgMargin.left - svgMargin.right,
-      height = $("#svg-1").height() - svgMargin.top - svgMargin.bottom - 50,
+      width = 816,
+      height = 530,
       legendHeight = 33;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -133,7 +133,7 @@ const singleYearLinechartModule = (function() {
     var subTitle = d3.select('.subTitleDiv')
         .append("div")
         .attr("class","subTitle")
-        .text("How does spending on federal contracts vary within a year?");
+        .text("Seasonality of contract spending in the average year");
 
     var legend = d3.select('.legend').selectAll("legends")
         .data(legendVals)

@@ -9,14 +9,20 @@
 // 
 // 
 // 
-d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
+// 
+// 
+// 
+// 
+// 
+// 
+d3.json('../../../data-lab-data/contracts-over-time/panel6a.json', (data) => {
+    const svgHeight = 556;
+    const svgWidth = 1400;
+
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
         const windowMargin = 50;
-    
-        const svgHeight = windowHeight - 5 * windowMargin;
-        const svgWidth = windowWidth - 4 * windowMargin;
     
         $(id)
           .attr("height", svgHeight)
@@ -34,10 +40,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     setDimsOfSvg("#svg-3");
 
     const svgMargin = { top: 20, right: 25, bottom: 80, left: 45 },
-      height = $("#svg-3").height() - svgMargin.top - svgMargin.bottom - 55,
+      height = svgHeight,
       height2 = 50,
       svgMargin2 = {top: (height+20), right: 25, bottom: "auto", left: 45},
-      width = $("#svg-3").width() - svgMargin.right - svgMargin.left,
+      width = svgWidth,
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -45,6 +51,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
     // Add SVG
     var svg = d3
       .select("#svg-3")
+      .attr("viewBox", `0 0 1400 556`)
       .html(`<defs><clipPath id="clipPath"><rect x="0" y="0" width=${width} height=${height}></rect></clipPath></defs>`)
       .append("g")
       .attr('class','frame')
@@ -278,13 +285,13 @@ d3.json('../../../data-lab-data/contracts-over-time/panel6.json', (data) => {
         });
     }
 
-  if(data.verticalLineData["Budget Legislation"]){
+  if(data.verticalLineData["New Appropriations"]){
     
     context
         .append("g")
         .attr("class", "vertical-line-paths")
         .selectAll('.vertical-line-0')
-        .data(data.verticalLineData["Budget Legislation"])
+        .data(data.verticalLineData["New Appropriations"])
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')

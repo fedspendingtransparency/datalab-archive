@@ -27,10 +27,10 @@ const getNodeNames = (nameData, aNode) => {
     return nameData.recipients[aNode.id];
    
     case 2:
-    return nameData.subagencies[aNode.id];
+    return nameData.subagenciesAbbrv[aNode.id];
 
     case 1:
-    return nameData.agencies[aNode.id];
+    return nameData.agenciesAbbrv[aNode.id];
     break;
 
     default:
@@ -106,6 +106,9 @@ const updateBreadcrumbs = (colors, root) => {
       .attr("font-family", d => {if (d.depth === 0) return 'FontAwesome'; return  '';})
       .text(function(d) { 
         if(d.depth === 0) return '\uf015'; 
+        if(d.depth < 3){
+          return String(d.name);
+        }
         return String(d.name)
         .substring(0,4)
         .trimRight() + "..." +

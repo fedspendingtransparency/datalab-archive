@@ -10,8 +10,8 @@ const barchartModule = (function() {
     $("#svg-1").empty();
 
     const margin = { top: 0, right: 0, bottom: 30, left: 0 },
-      width = $("#svg-1").width() - margin.left - margin.right,
-      height = $("#svg-1").height() - margin.top - margin.bottom - 50,
+      width = 816,
+      height = 530,
       legendHeight = 33;
 
     var x = d3
@@ -22,6 +22,7 @@ const barchartModule = (function() {
 
     var svg = d3
       .select("#svg-1")
+      .attr("viewBox", `0 0 816 530`)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -84,7 +85,14 @@ const barchartModule = (function() {
         .replace("M", " Million");
 
       function handleMouseOver(d) {
-        tooltipModule.draw("#tooltip", d.fiscalYear, {
+
+        var fyText = "FY " + d.fiscalYear;
+        
+        if (d.fiscalYear === 2018) {
+          fyText += " (as of 3-31-18)";
+        }
+
+        tooltipModule.draw("#tooltip", fyText, {
           "Total Contract Spending Value": TooltipFormatNumberAsText(d.val)
         });
       }
@@ -121,7 +129,7 @@ const barchartModule = (function() {
       .attr("class","subTitle")
       .attr("height","25px")
       .attr("width","100%")
-      .text("How does spending on federal contracts change over the past 10 years?");
+      .text("Total Contracts Awarded");
 
     var legendVals = ["Total Contract Spending"];
 

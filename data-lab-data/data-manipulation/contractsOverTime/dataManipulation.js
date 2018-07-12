@@ -96,7 +96,7 @@ panel6_.lineData["Weekly Totals"] = panel6_l1.map(c => ({
   date: c.date,
   val: c.contractdollars
 }));
-panel6_.verticalLineData["Budget Legislation"] = panel6_v1.map(c => ({
+panel6_.verticalLineData["New Appropriations"] = panel6_v1.map(c => ({
   date: c.date
 }));
 panel6_.verticalLineData["Continuing Resolution"] = panel6_v2.map(c => ({

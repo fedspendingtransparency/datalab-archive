@@ -9,15 +9,28 @@
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+d3.json('../../../data-lab-data/contracts-over-time/panel10a.json', (data) => {
+    const svgHeight = 556;
+    const svgWidth = 1400;
 
-d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
     function setDimsOfSvg(id) {
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
         const windowMargin = 50;
-    
-        const svgHeight = windowHeight - 5 * windowMargin;
-        const svgWidth = windowWidth - 4 * windowMargin;
     
         $(id)
           .attr("height", svgHeight)
@@ -35,10 +48,10 @@ d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
     setDimsOfSvg("#svg-6");
 
     const svgMargin = { top: 20, right: 25, bottom: 80, left: 45 },
-      height = $("#svg-6").height() - svgMargin.top - svgMargin.bottom - 55,
+      height = svgHeight,
       height2 = 50,
       svgMargin2 = {top: (height+20), right: 25, bottom: "auto", left: 45},
-      width = $("#svg-6").width() - svgMargin.right - svgMargin.left,
+      width = svgWidth,
       legendHeight = 50;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -269,13 +282,13 @@ d3.json('../../../data-lab-data/contracts-over-time/panel10.json', (data) => {
         });
     }
   
-  if(data.verticalLineData["Budget Legislation"]){
+  if(data.verticalLineData["New Appropriations"]){
     
     context
         .append("g")
         .attr("class", "vertical-line-paths")
         .selectAll('.vertical-line-0')
-        .data(data.verticalLineData["Budget Legislation"])
+        .data(data.verticalLineData["New Appropriations"])
         .enter()
         .append("line")
         .attr("class", '.vertical-line-0')

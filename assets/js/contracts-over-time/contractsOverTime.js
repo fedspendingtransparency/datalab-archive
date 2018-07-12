@@ -1,10 +1,7 @@
 ---
 ---
-//  
-// 
-// 
-// 
-// 
+
+
 window.onbeforeunload = function() {
   window.scrollTo(0, 0);
 };
@@ -57,12 +54,12 @@ $(function() {
   ];
 
   function setDimsOfSvg(id) {
-    const windowWidth = $(window).width();
-    const windowHeight = $(window).height();
+    const windowWidth = 800;
+    const windowHeight = 600;
     const windowMargin = 50;
 
-    const svgHeight = windowHeight - 2 * windowMargin;
-    const svgWidth = windowWidth;
+    const svgHeight = 530;
+    const svgWidth = 816;
 
 
     $(id)
