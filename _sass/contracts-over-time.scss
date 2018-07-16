@@ -34,13 +34,21 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 // 
 // 
 // 
-// 
+
+
+.conclusion-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
 .contracts-over-time {
  
   * {
     margin: 0;
     padding: 0;
   }
+
 
   .left {
     height: 800px;
@@ -715,7 +723,6 @@ z-index: 9999;
   text-align: left;
   padding: 3px;
 }
-
 
 @media (max-width: 600px) { 
   /*
