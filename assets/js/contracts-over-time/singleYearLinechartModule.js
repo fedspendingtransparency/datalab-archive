@@ -43,7 +43,7 @@ const singleYearLinechartModule = (function() {
     x.domain(d3.extent(combinedLineData, d => d.parsedDate));
     y.domain([0, d3.max(combinedLineData, d => d.val)]);
 
-    let xAxis = d3.axisBottom(x);
+    let xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%B"));
 
     let yAxis = d3.axisLeft(y)
     .ticks(10)
