@@ -34,13 +34,21 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
 // 
 // 
 // 
-// 
+
+
+.conclusion-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
 .contracts-over-time {
  
   * {
     margin: 0;
     padding: 0;
   }
+
 
   .left {
     height: 800px;
@@ -556,7 +564,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   width: 100%;
   margin: auto;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .carouselNumber{	
   color: #9B9B9B;	
@@ -585,7 +593,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   text-align: center;
 }
 #svg-2 > g > g:nth-child(2) > g:nth-child(3) > text,
-#svg-2 > g > g:nth-child(2) > g:nth-child(7) > text{
+#svg-2 > g > g:nth-child(2) > g:nth-child(6) > text{
   fill: #FFFFFF;	
   font-family: "Source Sans Pro";	
   font-size: 12px;	
@@ -597,7 +605,7 @@ body > div.d3-tip1.n:after, body > div.d3-tip0.n:after{
   width:135px;
 }
 #svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect,
-#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect{
+#svg-2 > g > g:nth-child(2) > g:nth-child(5) > rect{
 border-radius: 25px;
 stroke-width: 1px;
 fill-opacity: 1;
@@ -709,12 +717,12 @@ z-index: 9999;
 }
 .slide-3-table {
   margin: 0 auto;
+  display: inline;
 }
 .slide-3-table td, .slide-3-table th {
   text-align: left;
   padding: 3px;
 }
-
 
 @media (max-width: 600px) { 
   /*

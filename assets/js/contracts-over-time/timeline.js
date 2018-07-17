@@ -140,7 +140,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
             .attr("x1", d => x(d.parsedDate))
             .attr("y1", height)
             .attr("x2", d => x(d.parsedDate))
-            .attr("y2", d => d.val)
+            .attr("y2", d => d.val - 30)
             .style("stroke-dasharray", ("3,3"))
             .attr("stroke-dashoffset", d => d.totalLength)
             .style("stroke-width","1px")
@@ -160,8 +160,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
                 .style("fill", () => verticalLineColor(i))
                 .attr("x", d => x(d.parsedDate))
                 .attr("y", d => d.val-(height*.1))
-                .attr("height", (height*.1)+"px")
-                .attr("width",(width*.2)+"px");
+                .attr("height", (height*.05)+"px")
+                .attr("width",(width*.08)+"px");
 
             LineChart
               .append("g")
@@ -177,6 +177,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
                 .attr("width",(width*.15)+"px")
                 .text((d) => d.date);
 
+                /*
             LineChart
               .append("g")
               .attr("class", ".vertical-line-title")
@@ -190,6 +191,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
                 .attr("height", (height*.1)+"px")
                 .attr("width",(width*.15)+"px")
                 .text(() => `${l[0]}`);
+                */
         });
     }
 

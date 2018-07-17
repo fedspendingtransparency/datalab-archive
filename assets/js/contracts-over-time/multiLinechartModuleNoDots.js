@@ -241,10 +241,12 @@ const multiLinechartModuleNoDots = (function() {
   }
 
   function getSubTitle(id){
-    if(id === "panel-3" | id === "panel-4"){
-      return "Do end-of-year spikes occur reliably every year?";
-    }else if(id === "panel-5"){
-      return "Are spending patterns different depending on the type of good or service purchased?";
+    if(id === "panel-3") {
+      return "Total Contract Spending by Week";
+    } else if (id === "panel-4") {
+      return "Spending by Contract Type";
+    } else if(id === "panel-5"){
+      return "Spending by Types of Goods and Services Purchased";
     }else if(id === "panel-6"){
       return "Do congressional budget actions affect how agencies spend money on contracts?";
     }
