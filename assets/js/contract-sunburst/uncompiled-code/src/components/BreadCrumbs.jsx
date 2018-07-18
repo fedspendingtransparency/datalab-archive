@@ -10,11 +10,20 @@ var handleClick, handleHover, handleUnhover;
 
 const drawbread = (d, i) => {
   var points = [];
-  points.push("0,0");
-  points.push(b.w + ",0");
-  points.push(b.w + b.t + "," + (b.h / 2));
-  points.push(b.w + "," + b.h);
-  points.push("0," + b.h);
+  if (i === 0) {
+    points.push("0,0");
+    points.push(b.homeW + ",0");
+    points.push(b.homeW + b.t + "," + (b.h / 2));
+    points.push(b.homeW + "," + b.h);
+    points.push("0," + b.h);
+  } else {
+    points.push("0,0");
+    points.push(b.w + ",0");
+    points.push(b.w + b.t + "," + (b.h / 2));
+    points.push(b.w + "," + b.h);
+    points.push("0," + b.h);
+  }
+ 
   if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
     points.push(b.t + "," + (b.h / 2));
   }
@@ -103,7 +112,9 @@ const updateBreadcrumbs = (colors, root) => {
         .on("click", d => {handleHover(d); handleClick(d)});
 
   entering.append("svg:text")
-      .attr("x", (b.w + b.t) / 2)
+      .attr("x", d => {
+        return ((d.depth === 0 ? b.homeW : b.w) + b.t) / 2;
+      })
       .attr("y", b.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
@@ -121,11 +132,13 @@ const updateBreadcrumbs = (colors, root) => {
         .substring(0,4)
         .trimRight() + "..." +
         String(d.name).substr(String(d.name).length-4);})
-        .on("click", d => {handleHover(d); handleClick(d)});;
+        .on("click", d => {handleHover(d); handleClick(d)});
 
   // Set position for entering and updating nodes.
   g.attr("transform", function(d, i) {
-    return "translate(" + i * (b.w + b.s) + ", 0)";
+    var trans =  "translate(" + i * (b.w + b.s) + ", 0)";
+    var hometrans =  "translate(" + (i * (b.w + b.s) - (b.w - b.homeW)) + ", 0)";
+    return (d.depth > 0 ? hometrans : trans)
   });
 
   // Remove exiting nodes.
