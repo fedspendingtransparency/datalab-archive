@@ -95,6 +95,11 @@ const updateBreadcrumbs = (colors, root) => {
           return findColor(d, colors);
         }
         })
+        .style("opacity", d => {
+          if (d.depth === 0) return 0;
+
+          return 1;
+        })
         .on("click", d => {handleHover(d); handleClick(d)});
 
   entering.append("svg:text")
@@ -102,7 +107,10 @@ const updateBreadcrumbs = (colors, root) => {
       .attr("y", b.h / 2)
       .attr("dy", "0.35em")
       .attr("text-anchor", "middle")
-      .attr("fill", "white")
+      .attr("fill", d => {
+        if (d.depth === 0) return "black";
+        return "white";
+      })
       .attr("font-family", d => {if (d.depth === 0) return 'FontAwesome'; return  '';})
       .text(function(d) { 
         if(d.depth === 0) return '\uf015'; 
