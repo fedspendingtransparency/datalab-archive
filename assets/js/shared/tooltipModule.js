@@ -2,6 +2,33 @@
 ---
 
 window.tooltipModule = (() => {
+    function getLeftPosition() {
+        let curX = d3.event.clientX;
+        let pageX = d3.event.pageX;
+        let tooltipWidth = document.getElementById("tooltip").clientWidth;
+        let paddingX = 20;
+
+        if (curX + tooltipWidth + paddingX > window.innerWidth) {
+            return pageX - tooltipWidth + "px";
+        } else {
+            return pageX + "px";
+        }
+    }
+
+    function getTopPosition() {
+        let curY = d3.event.clientY;
+        let pageY = d3.event.pageY;
+        let tooltipHeight = document.getElementById("tooltip").clientHeight;
+        let paddingY = 10;
+        let cursorPadding = 20;
+
+        if (curY + tooltipHeight + paddingY + cursorPadding > window.innerHeight) {
+            return pageY - tooltipHeight - cursorPadding + "px";
+        } else {
+            return pageY + cursorPadding + "px";
+        }
+    }
+
     function draw(tooltipId, title, information, disclaimers) {
         d3
             .select(tooltipId)
@@ -35,8 +62,8 @@ window.tooltipModule = (() => {
         d3
             .select(tooltipId)
             .html(toolTipHtml(title, information, disclaimers))
-            .style("left", `${d3.event.pageX}px`)
-            .style("top", `${d3.event.pageY}px`);
+            .style("left", getLeftPosition)
+            .style("top", getTopPosition);
     }
 
     function remove(tooltipId) {
@@ -51,9 +78,10 @@ window.tooltipModule = (() => {
     function move(tooltipId) {
         d3
             .select(tooltipId)
-            .style("left", `${d3.event.pageX + 15}px`)
-            .style("top", `${d3.event.pageY + 15}px`);
+            .style("left", getLeftPosition)
+            .style("top", getTopPosition);
     }
 
     return { draw, remove, move };
 })();
+
