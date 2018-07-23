@@ -974,6 +974,51 @@ article > header {
 	fill: inherit;
 }
 
+.playbook-container {
+	width: 800px;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding: 25px;
+
+	h1 {
+		font-size: 38px;
+	}
+
+	a {
+		color: #0000A8;
+		text-decoration: underline;
+	}
+
+	.playbook-projects {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.playbook-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.playbook-image img {
+		width: 400px;
+		height: 300px;
+	}
+
+	.playbook-project {
+		width: 47%;
+	}
+
+	.playbook-indent {
+		margin-left: 50px;
+	}
+
+	.playbook-project-subtext {
+		color: #bbbbbb;
+		font-size: 16px;
+	}
+}
+
 @import 'website/popup';
 @import 'website/info-banner';
 @import 'website/buttons';
