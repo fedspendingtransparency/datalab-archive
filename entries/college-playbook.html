@@ -15,7 +15,7 @@ category: entry
     text-align: right;
     top: calc(60vh - 269px);
     position: fixed;
-    left: calc(100vw - 320px);
+    left: calc(100vw - 430px);
 }
 
 #playbook-nav li {
@@ -41,6 +41,11 @@ category: entry
     margin-bottom: -8px;
 }
 
+#playbook-nav li .current-circle {
+    background-color: #0078AC;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
 #playbook-nav li div {
     display: inline-block;
 }
@@ -49,13 +54,12 @@ category: entry
 <div style="position: fixed">
 	<ul id="playbook-nav">
 			<li> Intro <a href="#intro"><div class="dark-circle"></div></a></li>
-			<li> 01 Choose a Problem <a href="#01"><div class="dark-circle"></div></a></li>
-			<li> 02 Form a Team<a href="#02"><div class="dark-circle"></div></a></li>
-			<li> 03 Conduct User Research<a href="#03"><div class="dark-circle"></div></a></li>
-			<li> 04 Explore Data<a href="#04"><div class="dark-circle"></div></a></li>
-			<li> 05 Design and Build<a href="#05"><div class="dark-circle current-circle"></div></a></li>
-			<li> 06 Share the Product<a href="#06"><div class="dark-circle"></div></a></li>
-			<li> 07 Keep Improving<a href="#section-07"><div class="dark-circle"></div></a></li>
+			<li> I. Types of Engagements <a href="#01"><div class="dark-circle"></div></a></li>
+			<li> II. Roles, Responsibilities and Expectations<a href="#02"><div class="dark-circle"></div></a></li>
+			<li> III. About the Data<a href="#03"><div class="dark-circle"></div></a></li>
+			<li> IV. Final Product<a href="#04"><div class="dark-circle"></div></a></li>
+			<li> V. Projects<a href="#05"><div class="dark-circle current-circle"></div></a></li>
+			<li> VI. Resources to Get You Going<a href="#06"><div class="dark-circle"></div></a></li>
 	</ul>
 </div>
 
@@ -63,253 +67,261 @@ category: entry
 
 	<div class="playbook-container">
 
-		<h3>What is the College Playbook?</h3>
+		<section id="intro" class="snap-scroll">
+			<h3>What is the College Playbook?</h3>
 
-		<br clear="all"/>
-		<p>
-				The College Playbook is an initiative that connects students and faculty
-				with data from the U.S. Treasury for the purpose of developing analyses,
-				conducting research, and facilitating learning about the federal budget and
-				federal spending.
-		</p>
-		<p>
-				The intended audience for this playbook includes instructors of federal
-				policy and budgeting, directors of graduate programs, librarians dealing
-				with data analysis and visualization, and students looking for a real-world
-				project to flex their skills or to develop data-driven solutions.
-		</p>
-		
-				Intro
-		
-		<ol>
-				<li>Types of Engagements</li>                                                                                       
-				<li>Roles, Responsibilities and Expectations</li>
-				<li>About the Data</li>
-				<li>Final Product</li>
-				<li>Projects</li>
-				<li>Resources to Get You Going</li>
-		</ol>
-		<h1>
-				I. TYPES OF ENGAGEMENTS
-		</h1>
-		<p>
-				We offer three main ways for us to connect, and we are happy to keep this
-				list dynamic and growing! Let us know if you have suggestions for another
-				type of engagement that better fits your needs.
-		</p>
-		<h2>
-				Engagement 1: Use the data to learn about something else (e.g. statistics,
-				econometrics)
-		</h2>
-		<p>
-				Quantitative courses at every level require datasets for classroom lessons,
-				homework and problem sets, exams, and more. Courses we believe are good
-				fits for our data include those that focus on probability, statistics,
-				econometrics, economics, federal budgeting, and data science.
-		</p>
-		<p>
-				There are two high level options: (1) a prepared, clean dataset and (2) a
-				real-world, messy dataset. Below we explain what we mean by clean and
-				messy, as well as the circumstances that would call for each. Both options
-				would involve students using Python, R, Stata, SAS, Excel, or some other
-				software to analyze (or clean then analyze) the data.
-		</p>
-		<h3>
-				<i>Option 1) Prepared dataset</i>
-		</h3>
-		<p>
-				A prepared and clean dataset is one that is easier to use out of the gate
-				because it is smaller in size and requires no data cleaning or data
-				wrangling on the student’s part. That is, the data is in the desired
-				format/shape to begin doing the desired analysis immediately. For example,
-				there are no missing or duplicate values, and contain a limited number of
-				fields/columns. These types of canned datasets are best for teaching
-				materials in order to learn other concepts (e.g. regression analysis) and
-				you don’t want to overwhelm the student with the pre-cleaning steps, where
-				you risk losing the forest for the trees. They’re also helpful for problem
-				sets or homework for these types of classes.
-		</p>
-		<h3>
-				<i>Option 2) Data cleaning required</i>
-		</h3>
-		<p>
-				In more advanced classes, the goal is to help the student understand how
-				data will actually look when they first get it. This may require the
-				student to handle missing values or de-duplicate records. Often original
-				owners of data have it structured in a way to serve their own business
-				purposes, and so data analysis may require the student to change the shape
-				of the data entirely in a processing stage before they can begin any
-				analysis. This is useful for students learning data wrangling and data
-				cleaning techniques, learning more “real-world” data handling skills to
-				prep datasets before they can apply statistical techniques, or those
-				learning different languages typical to data science, e.g. R or Python.
-		</p>
-		<h2>
-				Engagement 2: Use the data to learn about federal budgeting and/or federal
-				spending
-		</h2>
-		<p>
-				While the engagement above focuses on learning skills related to data and
-				analysis, the courses mentioned are often agnostic to the actual content of
-				the dataset. A second option is to use USAspending data to specifically
-				focus on its content, such as courses touching on federal budgeting or
-				federal spending processes. Programs interested in the data itself may
-				include both undergraduate and graduate levels for finance, accounting,
-				public administration, public policy, or business schools.
-		</p>
-		<p>
-				Similar to above, this engagement would include two options: a prepared
-				dataset or messy data that would require cleaning and preparation prior to
-				consumption.
-		</p>
-		<h3>
-				<i>Option 1) Prepared dataset</i>
-		</h3>
-		<p>
-				See Engagement 1, Option 2.
-		</p>
-		<h3>
-				<i>Option 2) Data cleaning required</i>
-		</h3>
-		<p>
-				See Engagement 1, Option 2.
-		</p>
-		<h2>
-				<strong>
-						Engagement 3: Use the data for a consulting or capstone project (given
-						a problem statement or question)
-				</strong>
-		</h2>
-		<p>
-				In this engagement, a student or student team uses data from the U.S.
-				Treasury to identify a -world question to answer. Using the principles of
-				user-centered design as outlined in the Resources section, the student team
-				will identify a “client,” and the student or team will act as analysts or
-				consultants. The team will conduct initial interviews with the client to
-				determine how U.S. Treasury data can help answer a question or solve a
-				problem, and the student team will research, perform analysis, and provide
-				recommendations in order to answer the question or advise a particular
-				course of action. While this type of structure is common for public policy
-				students, it could easily be applied to a wide variety of settings where a
-				“real-world” project is the goal, ranging from business to data science
-				students, or even an interdisciplinary team. Students may form teams for
-				classes or extracurricular clubs.
-		</p>
-		<p>
-				The student team could, in consultation with their “client,” decide to
-				produce a product or visualization instead of an analysis or
-				recommendation. The focus on this would be less about gathering data to
-				answer a specific question and provide a recommendation, and more on
-				creating a product, tool, visualization, or other part of our team’s
-				website and portfolio. Students of a wide range of backgrounds could
-				contribute to this type of engagement, including: quantitative analysis,
-				graphic design, UX, UI, design, data visualization, data science, computer
-				science, and more. Students may form teams for classes or extracurricular
-				clubs.
-				
-				Examples of software/languages used for executing tasks or analysis
-				include: Tableau, R and R Shiny, Python, Stata, JavaScript, HTML, CSS,
-				D3, React, and we’d be open to more!
-		</p>
-		<h1>
-				II. ROLES, RESPONSIBILITIES, AND EXPECTATIONS
-		</h1>
-		<p>
-				The roles, responsibilities, academic and time expectations vary for each
-				type of engagement. We sketch these out below for each type of engagement,
-				but these are not set in stone. These are completely open to discussion to
-				ensure both the institution’s and our teams’ needs are being fulfilled.
-		</p>
-		<h2>
-				Engagements 1 and 2: Using the data to learn (e.g. statistics or budgeting)
-		</h2>
-		<h3>
-				<i>Roles &amp; Responsibilities</i>
-		</h3>
-		<p>
-				Our team works with a professor to develop a useful dataset for their
-				course, whether they need a clean and canned dataset or messy dataset. We
-				would work with that professor to answer any questions and ensure she felt
-				comfortable with the content and data structure in order to incorporate it
-				into their teaching. These interactions can be via email, phone, screen
-				shares, or video conferences—whatever works best.
-		</p>
-		<h3>
-				<i>Academic &amp; Time Expectations</i>
-		</h3>
-		<p>
-				Providing professors datasets and assistance through Engagements 1 and 2 is
-				mainly an up-front, pre-semester activity, giving enough time for
-				professors to ask questions, understand the data, and incorporate the
-				dataset into their curriculum. Our team would work with the professor
-				during this time, and then the professor uses the dataset during the
-				semester at her leisure. We’re happy to field questions as they arise, but
-				for the most part, the time required or interactions are mainly prior to a
-				semester in order to get the right dataset for the course prepped,
-				explained, and incorporated into the syllabus. We consider this a low level
-				of commitment for both the institution and our team.
-		</p>
-		<h2>
-				Engagements 3: Use the data for a consulting or capstone project
-		</h2>
-		<h3>
-				<i>Roles &amp; Responsibilities</i>
-		</h3>
-		<p>
-				Both the roles/responsibilities and time expectations are similar to above,
-				with the expectation of slightly less “hand-holding” in this engagement.
-				This engagement may be useful for substantial, long-term, and student
-				driven projects, such as an undergraduate thesis, master’s capstone
-				project, or even PhD thesis.
-		</p>
-		<p>
-				We again would be happy to meet with the students to get them started, but
-				we will not offer a problem statement or task to execute. We would be
-				available for questions and regular communication and would like progress
-				reports on a regular basis (e.g., once every two weeks). We would answer ad
-				hoc questions in the interim. Lastly, we would attend a final presentation
-				or demonstration of a final product.
-		</p>
-		<p>
-				The students will be exploring the data themselves in order to decide on a
-				problem they would like to explore and answer, or a visualization/tool they
-				would like to build. The onus is on the student for the thought leadership
-				and drive to push the project along.
-		</p>
-		<p>
-				In this engagement, there may likely be an undergraduate or graduate
-				advisor assisting the student. We would work with the professor, advisor,
-				etc. to establish expectations regarding evaluation (e.g. grades, surveys,
-				etc.).
-		</p>
-		<h3>
-				<i>Academic &amp; Time Expectations</i>
-		</h3>
-		<p>
-				These types of real world projects typically span a full semester, and the
-				students would likely be in a course or club that provided expectations and
-				support for this time period. Students may have academic requirements for
-				the course that are not necessarily required by our team (e.g. course
-				readings, literature reviews, etc.) and students are expected to complete
-				both these and to provide a final product. A student on this type of
-				engagement would be expected to put in the regular amount of hours expected
-				for one semester-long course, or about 8-12 hour a week, including classes,
-				coursework, meetings, and work time.
-		</p>
-		<p>
-				Our team would put in more time up front to get the student group launched
-				and answer any questions. Once they understand the task and scope, we would
-				like a meeting on a regular basis (e.g., once a week or once every two
-				weeks) and would respond to ad hoc communication in the interim. Finally,
-				we would attend the final presentation and/or demonstration of the final
-				product.
-		</p>
-		<p>
-				The professors and our team would work together to establish what role our
-				team would play in any evaluations (e.g. providing grades, answering
-				surveys, etc.). We would like to remind you that this is up for
-				negotiation, depending on your institution’s needs!
-		</p>
+			<br clear="all"/>
+			<p>
+					The College Playbook is an initiative that connects students and faculty
+					with data from the U.S. Treasury for the purpose of developing analyses,
+					conducting research, and facilitating learning about the federal budget and
+					federal spending.
+			</p>
+			<p>
+					The intended audience for this playbook includes instructors of federal
+					policy and budgeting, directors of graduate programs, librarians dealing
+					with data analysis and visualization, and students looking for a real-world
+					project to flex their skills or to develop data-driven solutions.
+			</p>
+			
+					Intro
+			
+			<ol>
+					<li>Types of Engagements</li>                                                                                       
+					<li>Roles, Responsibilities and Expectations</li>
+					<li>About the Data</li>
+					<li>Final Product</li>
+					<li>Projects</li>
+					<li>Resources to Get You Going</li>
+			</ol>
+		</section>
+
+		<section id="01" class="gray playbook-section snap-scroll">
+			<h1>
+					I. TYPES OF ENGAGEMENTS
+			</h1>
+			<p>
+					We offer three main ways for us to connect, and we are happy to keep this
+					list dynamic and growing! Let us know if you have suggestions for another
+					type of engagement that better fits your needs.
+			</p>
+			<h2>
+					Engagement 1: Use the data to learn about something else (e.g. statistics,
+					econometrics)
+			</h2>
+			<p>
+					Quantitative courses at every level require datasets for classroom lessons,
+					homework and problem sets, exams, and more. Courses we believe are good
+					fits for our data include those that focus on probability, statistics,
+					econometrics, economics, federal budgeting, and data science.
+			</p>
+			<p>
+					There are two high level options: (1) a prepared, clean dataset and (2) a
+					real-world, messy dataset. Below we explain what we mean by clean and
+					messy, as well as the circumstances that would call for each. Both options
+					would involve students using Python, R, Stata, SAS, Excel, or some other
+					software to analyze (or clean then analyze) the data.
+			</p>
+			<h3>
+					<i>Option 1) Prepared dataset</i>
+			</h3>
+			<p>
+					A prepared and clean dataset is one that is easier to use out of the gate
+					because it is smaller in size and requires no data cleaning or data
+					wrangling on the student’s part. That is, the data is in the desired
+					format/shape to begin doing the desired analysis immediately. For example,
+					there are no missing or duplicate values, and contain a limited number of
+					fields/columns. These types of canned datasets are best for teaching
+					materials in order to learn other concepts (e.g. regression analysis) and
+					you don’t want to overwhelm the student with the pre-cleaning steps, where
+					you risk losing the forest for the trees. They’re also helpful for problem
+					sets or homework for these types of classes.
+			</p>
+			<h3>
+					<i>Option 2) Data cleaning required</i>
+			</h3>
+			<p>
+					In more advanced classes, the goal is to help the student understand how
+					data will actually look when they first get it. This may require the
+					student to handle missing values or de-duplicate records. Often original
+					owners of data have it structured in a way to serve their own business
+					purposes, and so data analysis may require the student to change the shape
+					of the data entirely in a processing stage before they can begin any
+					analysis. This is useful for students learning data wrangling and data
+					cleaning techniques, learning more “real-world” data handling skills to
+					prep datasets before they can apply statistical techniques, or those
+					learning different languages typical to data science, e.g. R or Python.
+			</p>
+			<h2>
+					Engagement 2: Use the data to learn about federal budgeting and/or federal
+					spending
+			</h2>
+			<p>
+					While the engagement above focuses on learning skills related to data and
+					analysis, the courses mentioned are often agnostic to the actual content of
+					the dataset. A second option is to use USAspending data to specifically
+					focus on its content, such as courses touching on federal budgeting or
+					federal spending processes. Programs interested in the data itself may
+					include both undergraduate and graduate levels for finance, accounting,
+					public administration, public policy, or business schools.
+			</p>
+			<p>
+					Similar to above, this engagement would include two options: a prepared
+					dataset or messy data that would require cleaning and preparation prior to
+					consumption.
+			</p>
+			<h3>
+					<i>Option 1) Prepared dataset</i>
+			</h3>
+			<p>
+					See Engagement 1, Option 2.
+			</p>
+			<h3>
+					<i>Option 2) Data cleaning required</i>
+			</h3>
+			<p>
+					See Engagement 1, Option 2.
+			</p>
+			<h2>
+					<strong>
+							Engagement 3: Use the data for a consulting or capstone project (given
+							a problem statement or question)
+					</strong>
+			</h2>
+			<p>
+					In this engagement, a student or student team uses data from the U.S.
+					Treasury to identify a -world question to answer. Using the principles of
+					user-centered design as outlined in the Resources section, the student team
+					will identify a “client,” and the student or team will act as analysts or
+					consultants. The team will conduct initial interviews with the client to
+					determine how U.S. Treasury data can help answer a question or solve a
+					problem, and the student team will research, perform analysis, and provide
+					recommendations in order to answer the question or advise a particular
+					course of action. While this type of structure is common for public policy
+					students, it could easily be applied to a wide variety of settings where a
+					“real-world” project is the goal, ranging from business to data science
+					students, or even an interdisciplinary team. Students may form teams for
+					classes or extracurricular clubs.
+			</p>
+			<p>
+					The student team could, in consultation with their “client,” decide to
+					produce a product or visualization instead of an analysis or
+					recommendation. The focus on this would be less about gathering data to
+					answer a specific question and provide a recommendation, and more on
+					creating a product, tool, visualization, or other part of our team’s
+					website and portfolio. Students of a wide range of backgrounds could
+					contribute to this type of engagement, including: quantitative analysis,
+					graphic design, UX, UI, design, data visualization, data science, computer
+					science, and more. Students may form teams for classes or extracurricular
+					clubs.
+					
+					Examples of software/languages used for executing tasks or analysis
+					include: Tableau, R and R Shiny, Python, Stata, JavaScript, HTML, CSS,
+					D3, React, and we’d be open to more!
+			</p>
+		</section>
+		<section id="02" class="white playbook-section snap-scroll">
+			<h1>
+					II. ROLES, RESPONSIBILITIES, AND EXPECTATIONS
+			</h1>
+			<p>
+					The roles, responsibilities, academic and time expectations vary for each
+					type of engagement. We sketch these out below for each type of engagement,
+					but these are not set in stone. These are completely open to discussion to
+					ensure both the institution’s and our teams’ needs are being fulfilled.
+			</p>
+			<h2>
+					Engagements 1 and 2: Using the data to learn (e.g. statistics or budgeting)
+			</h2>
+			<h3>
+					<i>Roles &amp; Responsibilities</i>
+			</h3>
+			<p>
+					Our team works with a professor to develop a useful dataset for their
+					course, whether they need a clean and canned dataset or messy dataset. We
+					would work with that professor to answer any questions and ensure she felt
+					comfortable with the content and data structure in order to incorporate it
+					into their teaching. These interactions can be via email, phone, screen
+					shares, or video conferences—whatever works best.
+			</p>
+			<h3>
+					<i>Academic &amp; Time Expectations</i>
+			</h3>
+			<p>
+					Providing professors datasets and assistance through Engagements 1 and 2 is
+					mainly an up-front, pre-semester activity, giving enough time for
+					professors to ask questions, understand the data, and incorporate the
+					dataset into their curriculum. Our team would work with the professor
+					during this time, and then the professor uses the dataset during the
+					semester at her leisure. We’re happy to field questions as they arise, but
+					for the most part, the time required or interactions are mainly prior to a
+					semester in order to get the right dataset for the course prepped,
+					explained, and incorporated into the syllabus. We consider this a low level
+					of commitment for both the institution and our team.
+			</p>
+			<h2>
+					Engagements 3: Use the data for a consulting or capstone project
+			</h2>
+			<h3>
+					<i>Roles &amp; Responsibilities</i>
+			</h3>
+			<p>
+					Both the roles/responsibilities and time expectations are similar to above,
+					with the expectation of slightly less “hand-holding” in this engagement.
+					This engagement may be useful for substantial, long-term, and student
+					driven projects, such as an undergraduate thesis, master’s capstone
+					project, or even PhD thesis.
+			</p>
+			<p>
+					We again would be happy to meet with the students to get them started, but
+					we will not offer a problem statement or task to execute. We would be
+					available for questions and regular communication and would like progress
+					reports on a regular basis (e.g., once every two weeks). We would answer ad
+					hoc questions in the interim. Lastly, we would attend a final presentation
+					or demonstration of a final product.
+			</p>
+			<p>
+					The students will be exploring the data themselves in order to decide on a
+					problem they would like to explore and answer, or a visualization/tool they
+					would like to build. The onus is on the student for the thought leadership
+					and drive to push the project along.
+			</p>
+			<p>
+					In this engagement, there may likely be an undergraduate or graduate
+					advisor assisting the student. We would work with the professor, advisor,
+					etc. to establish expectations regarding evaluation (e.g. grades, surveys,
+					etc.).
+			</p>
+			<h3>
+					<i>Academic &amp; Time Expectations</i>
+			</h3>
+			<p>
+					These types of real world projects typically span a full semester, and the
+					students would likely be in a course or club that provided expectations and
+					support for this time period. Students may have academic requirements for
+					the course that are not necessarily required by our team (e.g. course
+					readings, literature reviews, etc.) and students are expected to complete
+					both these and to provide a final product. A student on this type of
+					engagement would be expected to put in the regular amount of hours expected
+					for one semester-long course, or about 8-12 hour a week, including classes,
+					coursework, meetings, and work time.
+			</p>
+			<p>
+					Our team would put in more time up front to get the student group launched
+					and answer any questions. Once they understand the task and scope, we would
+					like a meeting on a regular basis (e.g., once a week or once every two
+					weeks) and would respond to ad hoc communication in the interim. Finally,
+					we would attend the final presentation and/or demonstration of the final
+					product.
+			</p>
+			<p>
+					The professors and our team would work together to establish what role our
+					team would play in any evaluations (e.g. providing grades, answering
+					surveys, etc.). We would like to remind you that this is up for
+					negotiation, depending on your institution’s needs!
+			</p>
+		</section>
+		<section id="03" class="grey playbook-section snap-scroll">
 		<h1>
 				III. ABOUT THE DATA
 		</h1>
@@ -319,39 +331,43 @@ category: entry
 		<h2>
 				2. <a href="https://www.fiscal.treasury.gov/fsservices/gov/data-trans/dt-daims.htm">Data Dictionary</a>
 		</h2>
-		<h1>
-				IV. FINAL PRODUCT
-		</h1>
-		<p>
-				The possible projects using this data could range from written analysis and
-				recommendations to creating visualizations to creating a web-based tool to
-				allow others to explore the data in a new way. Perhaps the final product
-				answers a specific question, or it may allow others with subject matter
-				expertise to discover insights themselves.
-		</p>
-		<p>
-				While the final deliverable itself could range quite a bit, we expect three
-				main components for any final product. First, the final product itself.
-				Second, any code used to produce the final product. Third, a presentation
-				on the process or journey the student/team took to arrive at their final
-				conclusion or creation. We would expect that all three of these products
-				could be made publicly available and potentially published to our main Data
-				Lab website. Ideally, the student, school, or library would also be able to
-				host these products so that they do not disappear within months, or when
-				the student moves on. The school is welcome to publish and promote these
-				products themselves as a way to tout the value of real-world partnerships,
-				and we could link to these permanent locations where the student work
-				lives.
-		</p>
-		<p>
-				In summary, the three components of final products will be:
-		</p>
-		<ol>
-			<li>Product/application/analysis (hosted on a school server and/or published
-					to our site)</li>
-			<li>Code</li>
-			<li>Presentation on process</li>
-		</ol>
+		</section>
+		<section id="04" class="white playbook-section snap-scroll">
+			<h1>
+					IV. FINAL PRODUCT
+			</h1>
+			<p>
+					The possible projects using this data could range from written analysis and
+					recommendations to creating visualizations to creating a web-based tool to
+					allow others to explore the data in a new way. Perhaps the final product
+					answers a specific question, or it may allow others with subject matter
+					expertise to discover insights themselves.
+			</p>
+			<p>
+					While the final deliverable itself could range quite a bit, we expect three
+					main components for any final product. First, the final product itself.
+					Second, any code used to produce the final product. Third, a presentation
+					on the process or journey the student/team took to arrive at their final
+					conclusion or creation. We would expect that all three of these products
+					could be made publicly available and potentially published to our main Data
+					Lab website. Ideally, the student, school, or library would also be able to
+					host these products so that they do not disappear within months, or when
+					the student moves on. The school is welcome to publish and promote these
+					products themselves as a way to tout the value of real-world partnerships,
+					and we could link to these permanent locations where the student work
+					lives.
+			</p>
+			<p>
+					In summary, the three components of final products will be:
+			</p>
+			<ol>
+				<li>Product/application/analysis (hosted on a school server and/or published
+						to our site)</li>
+				<li>Code</li>
+				<li>Presentation on process</li>
+			</ol>
+		</section>
+		<section id="05" class="grey playbook-section snap-scroll">
 		<h1>
 				V. PROJECTS
 		</h1>
@@ -386,8 +402,10 @@ category: entry
 				<u> <strong>(pdf)</strong></u>
 				<strong><u>Full Report (pdf)</u></strong>
 		</p>
+		</section>
+		<section id="06" class="white playbook-section snap-scroll">
 		<p>	
-				<h2>III. Resources to get you going:</h2>
+				<h2>VI. Resources to get you going:</h2>
 		</p>
 				<h3>User-Centered Design Principles (picture)</h3>
 		<p>
@@ -540,6 +558,86 @@ category: entry
 				<strong>Raw Data Sets (Option 2): </strong>
 				For data cleaning projects - Coming soon
 		</p>
+	</section>
+</div>
+</div>
 
-</div>
-</div>
+
+<script>
+		function touching(div1, div2) { 
+
+			console.log(div1);
+
+			console.log(document.getElementById('intro'));
+
+			var div1_top = div1.offset().top;
+			var div2_top = div2.offset().top;
+	
+			var div1_bottom = div1_top + div1.height();
+			var div2_bottom = div2_top + div2.height();
+	
+			if (div1_bottom >= div2_top && div1_top < div2_bottom) {
+				return true;
+			}
+			return false;
+		}
+		function currentSection(section, string) {
+			console.log('aaa');
+			if (touching(section, $("#playbook-nav"))){
+				console.log(string);
+					$( "#playbook-nav > li > a > div" ).removeClass( "current-circle" );
+					$('a[href="'+string+'"] > div').addClass( "current-circle" );
+			}
+		}
+	
+		/*
+		function currentSectionMobile(section, string) {
+			if (touching(section, $("#mobile-playbook-nav"))){
+					$('#playbook-mobile-nav-top-text').text(string);
+			}
+		}
+	
+		$("#playbook-mobile-nav-top").click(function(){
+			if($( "#playbook-mobile-nav-top i" ).hasClass( "fa-caret-up" )){
+				$('#playbook-mobile-nav-top i').addClass("fa-caret-down");
+				$('#playbook-mobile-nav-top i').removeClass("fa-caret-up");
+				$('#mobile-playbook-nav ul').show();
+			}
+			else{
+				$('#playbook-mobile-nav-top i').addClass("fa-caret-up");
+				$('#playbook-mobile-nav-top i').removeClass("fa-caret-down");    
+				$('#mobile-playbook-nav ul').hide();
+			}
+		})
+	
+		$("#mobile-playbook-nav a").click(function(){
+				$('#mobile-playbook-nav ul').hide();
+		})
+		*/
+	
+		function setNav(){
+				currentSection($("#intro"), "#intro");
+				currentSection($("#01"), "#01");
+				currentSection($("#02"), "#02");
+				currentSection($("#03"), "#03");
+				currentSection($("#04"), "#04");
+				currentSection($("#05"), "#05");
+				currentSection($("#06"), "#06");
+				/*
+				currentSectionMobile($("#intro"), "Intro");
+				currentSectionMobile($("#01"), "I. - Types of Engagements");
+				currentSectionMobile($("#02"), "II. - Roles, Responsibilities and Expectations");
+				currentSectionMobile($("#03"), "III. - About the Data");
+				currentSectionMobile($("#04"), "IV. - Final Product");
+				currentSectionMobile($("#05"), "V. - Projects");
+				currentSectionMobile($("#06"), "VI. - Resources to Get You Going");
+				*/
+		}
+	
+		$(document).ready(function(){
+			setNav();
+			$(window).scroll(function() {
+					setNav();
+				});
+		});
+	</script>
