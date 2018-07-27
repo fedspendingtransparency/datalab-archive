@@ -24,15 +24,15 @@ setwd(local_dir)
 
 #################################################
 # Import Historical Product and Service Code Master list
-codelist <- read.csv("RawData\\PSC_data_Oct012015FY2016_editted.csv", header = TRUE, 
+codelist <- read.csv("PSC_data_Oct012015FY2016_editted.csv", header = TRUE, 
                      na.strings = c("NA", " ", ""))
 
 # Import Categorized PSC list tables and classifications from GSA/Acquisitions.gov
-newcodes <- read.csv("RawData\\AcquisitionsGovPSCIndex.csv", header = TRUE, na.strings = c("NA"))
+newcodes <- read.csv("AcquisitionsGovPSCIndex.csv", header = TRUE, na.strings = c("NA"))
 newcodes <- newcodes[, -(7:23)]
 
 # Index of Level 1 Category to Model Classification
-index <- read.csv("RawData\\PSCCategory_ModelClassIndex.csv", header = TRUE, na.strings = c("NA", " ", ""))
+index <- read.csv("PSCCategory_ModelClassIndex.csv", header = TRUE, na.strings = c("NA", " ", ""))
 
 # Remove observations with incomplete fields
 index <- index[complete.cases(index),]
@@ -86,6 +86,7 @@ codelistM$PRODUCT.AND.SERVICE.CODE.NAME[which(codelistM$parentCode == "F2" | cod
 
 codelistM$PRODUCT.AND.SERVICE.CODE.NAME[which(is.na(codelistM$PRODUCT.AND.SERVICE.CODE.NAME))] <-
   codelistM$PRODUCT.AND.SERVICE.CODE.NAME.x[which(is.na(codelistM$PRODUCT.AND.SERVICE.CODE.NAME))]
+
 # remove unneeded columns
 codelistM <- codelistM[, c(1:4,6)]
 
@@ -194,7 +195,7 @@ names(codes)
 codes <- codes[(names(codes) %in% c("Level1Category", "parentCode", "psCode", "pscName", 
                                          "Model.Categorization"))]
 # Save the PSC Code Index
-saveRDS(codes, file = "Part_II_Data\\NewPSCCodeIndex.RData")
+saveRDS(codes, file = "NewPSCCodeIndex.RData")
 
 # remove the unneeded lists
 rm(codelist, codelistMerge, longIndex, newcodes)
