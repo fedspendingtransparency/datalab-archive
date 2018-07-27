@@ -11,4 +11,4 @@ description: This is the text that goes in the meta description tag
 
 <div id="viz"></div>
 
-<script src="/assets/outlays.js" />
+<script src="./assets/outlays.js" />

@@ -11,4 +11,4 @@ description: This is the text that goes in the meta description tag
 
 <div id="viz"></div>
 
-<script src="/assets/receipts.js" />
+<script src="./assets/receipts.js" />
