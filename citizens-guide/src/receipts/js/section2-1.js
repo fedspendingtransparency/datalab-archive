@@ -1,10 +1,10 @@
 import { select, selectAll } from 'd3-selection';
 import { line, linkVertical } from 'd3-shape';
-import { ribbon } from 'd3-chord';
 import { getElementBox, translator } from '../../utils';
 import { receiptsConstants } from './receipts-utils';
+import { section2_2_init } from './section2-2';
 
-const d3 = { select, selectAll, line, ribbon, linkVertical },
+const d3 = { select, selectAll, line, linkVertical },
     data = [
         [47.88, 'Individual Income Taxes', '$1.6 T'],
         [33.54, 'Employment and General Retirement', '$1.1 T'],
@@ -24,11 +24,7 @@ function widthCalculator(d) {
 
 function linkTest() {
     const line = d3.line();
-    var link = d3.linkVertical()
-        // .x(function (d, i) { 
-        //     console.log('d', d, i)
-        //     return d.x; })
-        // .y(function (d, i) { return d.y; });
+    var link = d3.linkVertical();
 
     var line1 = link({
         source: [0, 0],
@@ -134,6 +130,8 @@ function addDetails() {
         .attr('opacity', 1)
         // .on('end', linkTest)
         .ease()
+
+    section2_2_init(dotContainer);
 }
 
 function moveBarGroup(d, i) {

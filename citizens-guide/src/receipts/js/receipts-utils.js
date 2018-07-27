@@ -8,6 +8,7 @@ export const receiptsConstants = {
         y: 8
     },
     xStart: 2,
+    headingHeight: 70,
     dotsPerRow: 170,
     dotContainerClass: 'dot-container',
     incomeContainerClass: 'income-container'

@@ -88,7 +88,7 @@ function setDotContainer() {
 
     dotContainer = svg.append('g')
         .classed(receiptsConstants.dotContainerClass, true)
-        .attr('transform', translator(xOffset,70));
+        .attr('transform', translator(xOffset,receiptsConstants.headingHeight));
 }
 
 export function section1_1() {

@@ -26,7 +26,7 @@ function addLegend() {
             .attr('y', height/2)
             .style('font-size', '18px')
 
-    legendBox.attr('transform', translator(1200 - margin + 5, 70))
+    legendBox.attr('transform', translator(1200 - margin + 5, receiptsConstants.headingHeight))
 
     legendBox.append('path')
             .classed('reset', true)

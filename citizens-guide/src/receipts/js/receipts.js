@@ -4,8 +4,9 @@ import { section1_1 } from './section1-1';
 import { section1_2 } from './section1-2';
 import { section1_3 } from './section1-3';
 import { section2_1 } from './section2-1';
+import { section2_2 } from './section2-2';
 
-let steps = [section1_2, section1_3, section2_1];
+let steps = [section1_2, section1_3, section2_1, section2_2];
 
 function proceed() {
     const next = steps.shift();
@@ -39,4 +40,3 @@ window.addEventListener('wheel', proceed);
 window.addEventListener('click', proceed);
 
 //fastForward();
-
