@@ -1,9 +1,9 @@
-import { select } from 'd3-selection';
+import { select, create } from 'd3-selection';
 import { line } from 'd3-shape';
 import { getElementBox, translator } from '../../utils';
-import { dotFactory, establishContainer, receiptsConstants } from './receipts-utils';
+import { dotFactory, establishContainer, receiptsConstants, dotPositionAccessor } from './receipts-utils';
 
-const d3 = { select, line };
+const d3 = { select, line, create };
 let svg, dotContainer;
 
 function addLegend() {
@@ -15,65 +15,103 @@ function addLegend() {
             .x(function (d) { return d.x; })
             .y(function (d) { return d.y; }),
         lineData = [
-            {x: 0, y: 0},
-            {x: 3, y: 0},
-            {x: 3, y: height},
-            {x: 0, y: height}
+            { x: 0, y: 0 },
+            { x: 3, y: 0 },
+            { x: 3, y: height },
+            { x: 0, y: height }
         ],
         text = legendBox.append('text')
             .classed('reset', true)
             .attr('text-anchor', 'middle')
-            .attr('y', height/2)
+            .attr('y', height / 2)
             .style('font-size', '18px')
 
     legendBox.attr('transform', translator(1200 - margin + 5, receiptsConstants.headingHeight))
 
     legendBox.append('path')
-            .classed('reset', true)
-            .attr('d', line(lineData))
-            .attr('fill', 'none')
-              .attr('stroke', '#dddddd')
-              .attr('stroke-width', 1);
+        .classed('reset', true)
+        .attr('d', line(lineData))
+        .attr('fill', 'none')
+        .attr('stroke', '#aaa')
+        .attr('stroke-width', 1);
 
     text.append('tspan')
         .text('Total GDP')
         .style('font-weight', 'bold')
-        .attr('x', 50)
+        .attr('x', 45)
         .attr('dy', -20)
-    
+
     text.append('tspan')
         .text('$19.4 T')
-        .attr('x', 50)
+        .attr('x', 45)
         .attr('dy', 20)
-        
-
 }
 
 function setGdpDots() {
-    const IncomeHeightOffset = getElementBox(d3.select('g.' + receiptsConstants.incomeContainerClass)).height + 5;
-
-    const gdpContainer = dotContainer.append('g')
-        .classed('gdp reset', true)
-        .attr('transform', translator(0, IncomeHeightOffset) + ' scale(1.3)')
+    const incomeHeightOffset = getElementBox(d3.select('g.' + receiptsConstants.incomeContainerClass)).height + 5,
+        gdpDotCount = 16000,
+        gdpDotColor = 'rgba(200,200,200,1)',
+        dotPositionStart = dotPositionAccessor.get(),
+        firstRowCount = receiptsConstants.dotsPerRow - dotPositionStart.startIndex,
+        fullRows = Math.floor(gdpDotCount / receiptsConstants.dotsPerRow),
+        lastRowCount = gdpDotCount - dotPositionStart.startIndex - (fullRows * receiptsConstants.dotsPerRow),
+        gdpContainer = dotContainer.append('g')
+            .classed('gdp reset', true)
+            .attr('transform', 'scale(1.3)'),
+        rowOne = gdpContainer.append('g')
+            .attr('transform', function () {
+                return translator(0, incomeHeightOffset)
+            });
 
     let i = 0,
-        top = 16000,
-        x = receiptsConstants.xStart,
-        y = 2;
+        r = 0,
+        rowCount = 1,
+        rowPosition = dotPositionStart.startIndex,
+        x = dotPositionStart.x,
+        y = dotPositionStart.y;
 
-    for (i; i < top; i++) {
-        dotFactory(gdpContainer, x, y, i, 'rgba(214,214,214,0.5)');
+    // first row
+
+    for (i; i < firstRowCount; i++) {
+        dotFactory(gdpContainer, x, y, i, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
 
-        if ((i + 1) % receiptsConstants.dotsPerRow === 0) {
-            y += receiptsConstants.dotOffset.y;
-            x = receiptsConstants.xStart;
-        }
+        rowPosition += 1;
+    }
+
+    // first full row
+
+    x = 2;
+
+    for (r; r < receiptsConstants.dotsPerRow; r++) {
+        dotFactory(rowOne, x, 2, r, gdpDotColor);
+        x += receiptsConstants.dotOffset.x;
+    }
+
+    // clone rows
+
+    for (rowCount; rowCount < (fullRows); rowCount++) {
+        rowOne.clone(true)
+            .attr('transform', translator(0, (rowCount * receiptsConstants.dotOffset.y) + incomeHeightOffset))
+    }
+
+    // final row
+
+    i = 0;
+    x = 2;
+
+    const lastRow = gdpContainer.append('g')
+        .classed('last-row', true)
+        .attr('transform', translator(0, (rowCount * receiptsConstants.dotOffset.y) + incomeHeightOffset));
+
+    for (i; i < lastRowCount; i++) {
+        dotFactory(lastRow, x, 2, i, gdpDotColor);
+        x += receiptsConstants.dotOffset.x;
     }
 
     gdpContainer.transition()
         .duration(1000)
-        .attr('transform', translator(0, IncomeHeightOffset) + ' scale(1)')
+        .attr('transform', 'scale(1)')
         .on('end', addLegend)
         .ease();
 }

@@ -28,24 +28,24 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['@babel/preset-env']
                     }
                 }
+            },
+            {
+                test: /\.(css|scss)$/,
+                use: [
+                    'style-loader',
+                    //MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
-        ],
-        rules: [{
-            test: /\.(css|scss)$/,
-            use: [
-                'style-loader',
-                //MiniCssExtractPlugin.loader,
-                'css-loader',
-                'sass-loader'
-            ]
-        }]
+        ]
     },
     plugins: [
         new MiniCssExtractPlugin({

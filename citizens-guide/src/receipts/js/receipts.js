@@ -6,7 +6,9 @@ import { section1_3 } from './section1-3';
 import { section2_1 } from './section2-1';
 import { section2_2 } from './section2-2';
 
-let steps = [section1_2, section1_3, section2_1, section2_2];
+let steps = [section1_2, section1_3, section2_1, section2_2],
+    counter = 0,
+    debounce;
 
 function proceed() {
     const next = steps.shift();
@@ -15,7 +17,7 @@ function proceed() {
     if (!next) {
         return;
     }
-    
+
     subSteps = next();
 
     if (Array.isArray(subSteps)) {
@@ -24,19 +26,31 @@ function proceed() {
     }
 }
 
-function fastForward(){
+function fastForward() {
     proceed();
 
+    counter += 1;
+
     setTimeout(() => {
-        if (steps.length) {
+        if (counter < max) {
             fastForward();
         }
-    }, 500)
+    }, 1000)
+}
+
+
+function onWheel(){
+    if (debounce) {
+        clearTimeout(debounce);
+    }
+    
+    debounce = setTimeout(proceed, 300)
 }
 
 section1_1();
 
-window.addEventListener('wheel', proceed);
+window.addEventListener('wheel', onWheel);
+
 window.addEventListener('click', proceed);
 
 //fastForward();

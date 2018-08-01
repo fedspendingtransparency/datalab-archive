@@ -1,7 +1,7 @@
 import { select } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { getElementBox, translator } from '../../utils';
-import { dotFactory, establishContainer, receiptsConstants } from './receipts-utils';
+import { dotFactory, establishContainer, receiptsConstants, dotPositionAccessor } from './receipts-utils';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,
@@ -15,7 +15,7 @@ let svg,
 function setIncomeDots() {
     const incomeContainer = dotContainer.append('g')
         .classed(receiptsConstants.incomeContainerClass, true)
-        .attr('transform', 'scale(1.3)')
+        .attr('transform', 'scale(1.3)');
 
     let i = 0,
         top = 3400,
@@ -31,6 +31,8 @@ function setIncomeDots() {
             x = xStart;
         }
     }
+
+    dotPositionAccessor.set([x, y], i % dotsPerRow);
 
     incomeContainer.transition()
         .duration(1000)

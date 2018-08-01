@@ -144,7 +144,7 @@ function moveBarGroup(d, i) {
 
     dotContainer.transition()
         .duration(1000)
-        .attr('transform', translator(Number(originalTransform[0]), 260 + Number(originalTransform[1])))
+        .attr('transform', translator(Number(originalTransform[0]), 290 + Number(originalTransform[1])))
         .on('end', addDetails)
         .ease()
 }
@@ -171,8 +171,9 @@ function addSegments() {
 
             return x;
         })
+        .attr('y', -2)
         .attr('width', widthCalculator)
-        .attr('height', dotBoxSize.height)
+        .attr('height', dotBoxSize.height + 5)
         .attr('fill', '#49A5B6')
         .attr('opactity', 0)
         .transition()
