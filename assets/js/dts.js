@@ -9,6 +9,7 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
    */
 
   chartObj.data = dataset;
+  let masterData = dataset.slice(0);
   chartObj.margin = {top: 15, right: 60, bottom: 30, left: 50};
   chartObj.width = 650 - chartObj.margin.left - chartObj.margin.right;
   chartObj.height = 480 - chartObj.margin.top - chartObj.margin.bottom;
@@ -21,6 +22,12 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
       return function (d) {
           return d[column];
       };
+  }
+
+  
+
+  function cullDates(minimumDate) {
+    chartObj.data = masterData.filter(n => n.date > minimumDate);
   }
 
 // Object instead of array
@@ -72,6 +79,9 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
           return chartObj.yScale(yObjs[yObj].yFunct(d));
       };
   }
+
+  console.log(yObjs);
+
   for (var yObj in yObjs) {
       yObjs[yObj].line = d3.svg.line().interpolate("cardinal").x(function (d) {
           return chartObj.xScale(chartObj.xFunct(d));
@@ -102,6 +112,7 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
 
       /* Force D3 to recalculate and update the line */
       for (var y  in yObjs) {
+
           yObjs[y].path.attr("d", yObjs[y].line);
       }
       
@@ -117,6 +128,16 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
   chartObj.bind = function (selector) {
       chartObj.mainDiv = d3.select(selector);
       // Add all the divs to make it centered and responsive
+      var timeFrames = chartObj.mainDiv.append("div").attr("class", "timeframe-container");
+
+      timeFrames.append("div").attr("class", "timeframe").text("30D").on("mousedown", function() {
+        alert("3000");
+      });
+      timeFrames.append("div").attr("class", "timeframe").text("90D");
+      timeFrames.append("div").attr("class", "timeframe").text("1Y");
+      timeFrames.append("div").attr("class", "timeframe").text("5Y");
+      timeFrames.append("div").attr("class", "timeframe").text("10Y");
+
       chartObj.mainDiv.append("div").attr("class", "inner-wrapper").append("div").attr("class", "outer-box").append("div").attr("class", "inner-box");
       chartSelector = selector + " .inner-box";
       chartObj.chartDiv = d3.select(chartSelector);
@@ -125,6 +146,8 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
       return chartObj;
   };
 
+  let currentColumn = "Marketplace Payments";
+
 // Render the chart
   chartObj.render = function () {
       //Create SVG element
@@ -132,10 +155,17 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
 
       // Draw Lines
       for (var y  in yObjs) {
-          console.log(y);
-          console.log(yObjs[y]);
+          // if (yObjs[y].name !== currentColumn) { continue; }
+
           console.log(chartObj.data);
-          yObjs[y].path = chartObj.svg.append("path").datum(chartObj.data).attr("class", "line").attr("d", yObjs[y].line).style("stroke", color(y)).attr("data-series", y).on("mouseover", function () {
+
+          yObjs[y].path = chartObj.svg.append("path")
+                                      .datum(chartObj.data)
+                                      .attr("class", "line asdfasdf")
+                                      .attr("d", yObjs[y].line).style("stroke", color(y))
+                                      .attr("id", 'tag'+yObjs[y].name.replace(/\s+/g, ''))
+                                      .attr("data-series", y)
+                                      .on("mouseover", function () {
               focus.style("display", null);
           }).on("mouseout", function () {
               focus.transition().delay(700).style("display", "none");
@@ -152,6 +182,8 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
       var focus = chartObj.svg.append("g").attr("class", "focus").style("display", "none");
 
       for (var y  in yObjs) {
+          // if (yObjs[y].name !== currentColumn) { continue; }
+
           yObjs[y].tooltip = focus.append("g");
           yObjs[y].tooltip.append("circle").attr("r", 5);
           yObjs[y].tooltip.append("rect").attr("x", 8).attr("y","-5").attr("width",22).attr("height",'0.75em');
@@ -166,8 +198,17 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
       //Draw legend
       var legend = chartObj.mainDiv.append('div').attr("class", "legend");
       for (var y  in yObjs) {
+          // if (yObjs[y].name !== currentColumn) { continue; }
+
           series = legend.append('div');
-          series.append('div').attr("class", "series-marker").style("background-color", color(y));
+          let cacheName = yObjs[y].name;
+          series.append('div').attr("class", "series-marker").style("background-color", color(y)).on("mousedown", () => {
+            currentColumn = cacheName;
+            d3.selectAll(".asdfasdf").transition().duration(100).style("opacity", 0);
+            d3.select("#tag"+cacheName.replace(/\s+/g, ''))
+                    .transition().duration(100) 
+                    .style("opacity", 1);
+          });
           series.append('p').text(y);
           yObjs[y].legend = series;
       }
@@ -187,6 +228,8 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
           } catch (e) { return;}
           minY = chartObj.height;
           for (var y  in yObjs) {
+              if (yObjs[y].name !== currentColumn) { continue; }
+
               yObjs[y].tooltip.attr("transform", "translate(" + chartObj.xScale(chartObj.xFunct(d)) + "," + chartObj.yScale(yObjs[y].yFunct(d)) + ")");
               yObjs[y].tooltip.select("text").text(chartObj.yFormatter(yObjs[y].yFunct(d)));
               minY = Math.min(minY, chartObj.yScale(yObjs[y].yFunct(d)));

@@ -73,11 +73,8 @@ d3.csv('/data-lab-data/dts/dts-health3.csv', function(error, data) {
   for (let key in dateToValues) {
     let val = dateToValues[key];
     val.date = d3.time.format("%Y%m%d").parse(key); // d3.time.format("%m/%d/%y").parse(key); // new Date(key).getTime(); // Math.floor(Math.random() * 10000);
-    console.log(val.date);
     dateToValuesArray.push(val);
   }
-
-  console.log(dateToValuesArray);
 
   // first create a hashmap mapping from date to values, then afterwards convert it to an array
 
