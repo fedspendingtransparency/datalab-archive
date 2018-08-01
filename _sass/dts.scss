@@ -78,6 +78,29 @@ stroke-width: 1px;
   margin-bottom: -0.16rem;
 }
 
+.chart-wrapper .timeframe-container {
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+  padding: 10px 40px;
+}
+
+.chart-wrapper .timeframe-container > div {
+  margin: 0px 25px 10px 0px;
+  flex-grow: 0;
+}
+
+.chart-wrapper .timeframe-container .timeframe {
+  padding: 0px 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #777;
+  box-shadow: 0px 1px 5px #BBB;
+  display: inline-block;
+}
+
 .chart-wrapper .overlay {
 fill: none;
 pointer-events: all;
