@@ -25,7 +25,8 @@ export const receiptsConstants = {
     headingHeight: 70,
     dotsPerRow: 203,
     dotContainerClass: 'dot-container',
-    incomeContainerClass: 'income-container'
+    incomeContainerClass: 'income-container',
+    shaderContainerClass: 'shader-container'
 }
 
 export function dotFactory(container, x, y, i, color) {

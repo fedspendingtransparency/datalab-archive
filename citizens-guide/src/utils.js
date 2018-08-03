@@ -1,7 +1,9 @@
 export function getElementBox(d3Selection) {
+    const rect = d3Selection.node().getBoundingClientRect();
+
     return {
-        width: Math.ceil(d3Selection.node().getBoundingClientRect().width),
-        height: Math.ceil(d3Selection.node().getBoundingClientRect().height)
+        width: Math.ceil(rect.width),
+        height: Math.ceil(rect.height)
     }
 }
 

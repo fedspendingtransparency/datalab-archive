@@ -2,6 +2,7 @@ import { select, create } from 'd3-selection';
 import { line } from 'd3-shape';
 import { getElementBox, translator } from '../../utils';
 import { dotFactory, establishContainer, receiptsConstants, dotPositionAccessor } from './receipts-utils';
+import { showDetail } from './section2-2';
 
 const d3 = { select, line, create };
 let svg, dotContainer;

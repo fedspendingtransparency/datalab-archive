@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { line, linkVertical } from 'd3-shape';
 import { getElementBox, translator } from '../../utils';
 import { receiptsConstants } from './receipts-utils';
-import { section2_2_init } from './section2-2';
+import { section2_2_init, showDetail } from './section2-2';
 
 const d3 = { select, selectAll, line, linkVertical },
     data = [
@@ -151,9 +151,9 @@ function moveBarGroup(d, i) {
 
 function addSegments() {
     dotContainer = d3.select('.' + receiptsConstants.dotContainerClass),
-        incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
+    incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
 
-    const shaderContainer = dotContainer.append('g');
+    const shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
 
     let accumulator = 0;
 
@@ -176,6 +176,9 @@ function addSegments() {
         .attr('height', dotBoxSize.height + 5)
         .attr('fill', '#49A5B6')
         .attr('opactity', 0)
+        .on('click', function (d, i) {
+            showDetail(i);
+        })
         .transition()
         .duration(1000)
         .on('end', moveBarGroup)
