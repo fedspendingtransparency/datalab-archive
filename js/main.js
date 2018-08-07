@@ -144,6 +144,11 @@ $(".share-viz-button").click(function() {
 
     $(() => {
         $('.scrolly').scrolly({ speed: 1500, offset: 0 });
+
+        $('#return-to-top').click(() => {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
     });
 
     window.onscroll = function debugOnScroll() {
@@ -161,8 +166,6 @@ $(".share-viz-button").click(function() {
         }
     };
 
-    $('#return-to-top').click(() => {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
+    
+
 }(jQuery));
