@@ -129,7 +129,8 @@ const updateBreadcrumbs = (colors, root) => {
         .trimRight() + "..." +
         String(d.name).substr(String(d.name).length-4);
       })
-        .on("click", d => {handleHover(d); handleClick(d)});
+      .style("cursor", "pointer")
+      .on("click", d => {handleHover(d); handleClick(d)});
           
         
   // Set position for entering and updating nodes.
