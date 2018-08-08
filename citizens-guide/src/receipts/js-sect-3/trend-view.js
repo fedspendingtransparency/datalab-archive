@@ -6,6 +6,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { translator, simplifyBillions, wordWrap, getElementBox } from '../../utils';
 import { setLabelActive, setLabelInactive } from './labelStates';
+import { showDetail } from './detail-pane';
 
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     colors = [
@@ -26,21 +27,24 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
         left: 400,
         top: 10
     },
-    height = 700,
-    width = 300,
-    x = d3.scaleLinear().range([0, width]),
-    y = d3.scaleLinear().range([height, 0]),
-    lineFn = d3.line()
-        .x(function (d) { return x(d.year); })
-        .y(function (d) { return y(d.amount); });
-
-const threshold = 200000000000;
-
-let g,
+    labelWidth = 300;
+    
+    const threshold = 200000000000;
+    
+    let g,
+    x,
+    y,
+    labelContainer,
+    labelGroups,
+    width,
+    height,
     yTicks,
     data;
 
 function setScales() {
+    x = d3.scaleLinear().range([0, width]),
+        y = d3.scaleLinear().range([height, 0]);
+
     x.domain([2013, 2017]);
 
     y.domain([
@@ -56,7 +60,7 @@ function processData(_data) {
 
     data = _data.map(row => {
         return {
-            name: row.activity,
+            name: row.name,
             values: valueKeys.map(k => {
                 return {
                     year: Number(k.replace('fy', '20')),
@@ -142,6 +146,10 @@ function addHorizontalGridlines() {
 }
 
 function renderLines() {
+    const lineFn = d3.line()
+        .x(function (d) { return x(d.year); })
+        .y(function (d) { return y(d.amount); });
+
     const city = g.selectAll('.lines')
         .data(data)
         .enter().append('g')
@@ -173,16 +181,17 @@ function renderLines() {
 function placeLabels() {
     const filteredData = data.filter(d => (d3.max(d.values, r => r.amount) > threshold));
 
-    const labelGroups = g.append('g')
-        .classed('labels', true)
-        .selectAll('g')
+    labelContainer = g.append('g')
+        .classed('labels', true);
+
+    labelGroups = labelContainer.selectAll('g')
         .data(filteredData)
         .enter()
         .append('g')
-        .attr('style', 'cursor:pointer')
         .attr('transform', function (d) {
-            return translator(-80, y(d.values[0].amount));
-        })
+            d.yPos = y(d.values[0].amount);
+            return translator(-80, d.yPos);
+        });
 
     labelGroups.append('text')
         .text(function (d) {
@@ -193,11 +202,7 @@ function placeLabels() {
             const t = d3.select(this);
 
             wordWrap(t, 200);
-        })
-
-    labelGroups
-        .on('mouseover', setLabelActive)
-        .on('mouseout', setLabelInactive);
+        });
 
 
     // color bar
@@ -212,6 +217,7 @@ function placeLabels() {
         .attr('fill', function (d) {
             return d.color;
         })
+        .attr('opacity', 1)
         .each(function () {
             d3.select(this).lower();
         })
@@ -238,9 +244,42 @@ function placeLabels() {
         })
 }
 
+function nudge() {
+    d3.selectAll('.labels > g')
+        .sort(function (a, b) {
+            a = a.values[0].amount;
+            b = b.values[0].amount;
+
+            if (a < b) {
+                return 1;
+            }
+
+            if (a > b) {
+                return -1;
+            }
+
+            return 0;
+        })
+        .each(function (d, i) {
+            const self = this,
+                initialPause = 2000;
+
+            setTimeout(function () {
+                setLabelActive.bind(self)();
+            }, initialPause + i * 150)
+
+            setTimeout(function () {
+                setLabelInactive.bind(self)();
+            }, initialPause + i * 150)
+        })
+}
 
 export function trendView(_data, container, config) {
-    g = container.append('g').attr('transform', translator(margin.left, margin.top));
+    g = container.append('g').attr('transform', translator(labelWidth, margin.top));
+
+    config = config || {};
+    height = config.height || 700;
+    width = config.width || 300;
 
     processData(_data);
     setScales();
@@ -250,5 +289,15 @@ export function trendView(_data, container, config) {
     renderLines();
     placeLabels();
 
-    console.log('trend view data', data)
+    if (!config.noDrillown) {
+        labelGroups
+            .attr('style', 'cursor:pointer')
+            .on('click', function (d) {
+                showDetail(d.name, d.yPos)
+            })
+            .on('mouseover', setLabelActive)
+            .on('mouseout', setLabelInactive);
+
+        nudge();
+    }
 }

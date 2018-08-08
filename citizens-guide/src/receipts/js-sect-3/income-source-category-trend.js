@@ -4,7 +4,6 @@ import { establishContainer } from '../../utils';
 import { trendView } from './trend-view';
 import { getSummary } from './trendData';
 
-
 const data = getSummary(),
     svg = establishContainer();
 

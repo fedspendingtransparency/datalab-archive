@@ -15,6 +15,7 @@ function _setInactive(g) {
         .duration(700)
         .attr('width', 10)
         .attr('x', 5)
+        .attr('opacity', 1)      
         .ease()
 }
 
@@ -37,6 +38,7 @@ export function setLabelActive() {
         .duration(300)
         .attr('width', targetWidth)
         .attr('x', 15 - targetWidth)
+        .attr('opacity', 0.3)
         .ease()
 }
 
