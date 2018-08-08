@@ -4,8 +4,8 @@ import { scaleLinear } from 'd3-scale';
 import { line } from 'd3-shape';
 import { min } from 'd3-array';
 import { easeCubicOut as connectorEase } from 'd3-ease';
-import { dotFactory, establishContainer, receiptsConstants } from './receipts-utils';
-import { getElementBox, translator, getTransform } from '../../utils';
+import { dotFactory, receiptsConstants } from './receipts-utils';
+import { getElementBox, translator, getTransform, establishContainer } from '../../utils';
 import { getData } from './section2-data';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },

@@ -37,21 +37,6 @@ export function dotFactory(container, x, y, i, color) {
         .style('fill', color)
 }
 
-export function establishContainer() {
-    const viz = d3.select('#viz');
-
-    let svg = viz.select('svg');
-
-    if (svg.size() === 0) {
-        return viz.append('svg')
-            .attr('shape-rendering', 'geometricPrecision')
-            .attr('height', '400px')
-            .attr('width', '1200px');
-    } else {
-        return svg;
-    }
-}
-
 export const dotPositionAccessor = {
     get: dotPositionGetter,
     set: dotPositionSetter

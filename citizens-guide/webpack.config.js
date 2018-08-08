@@ -6,6 +6,7 @@ module.exports = {
     entry: {
         overview: './src/overview/js/overview.js',
         receipts: './src/receipts/js/receipts.js',
+        receiptsTrend: './src/receipts/js-sect-3/income-source-category-trend.js',
         outlays: './src/outlays/js/outlays.js'
     },
     devtool: 'inline-source-map',

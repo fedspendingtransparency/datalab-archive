@@ -1,7 +1,8 @@
 import { select } from 'd3-selection';
 import { createDonut } from './donut';
 import { getElementBox, translator } from '../../utils';
-import { establishContainer, receiptsConstants } from './receipts-utils';
+import { receiptsConstants } from './receipts-utils';
+import { establishContainer } from '../../utils';
 
 const d3 = { select },
     boxHeight = 100,

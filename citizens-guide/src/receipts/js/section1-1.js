@@ -1,7 +1,8 @@
 import { select } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { getElementBox, translator } from '../../utils';
-import { dotFactory, establishContainer, receiptsConstants, dotPositionAccessor } from './receipts-utils';
+import { dotFactory, receiptsConstants, dotPositionAccessor } from './receipts-utils';
+import { establishContainer } from '../../utils';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,

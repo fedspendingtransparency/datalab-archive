@@ -53,4 +53,4 @@ section1_1();
 window.addEventListener('wheel', onWheel);
 window.addEventListener('click', proceed);
 
-fastForward();
+//fastForward();
