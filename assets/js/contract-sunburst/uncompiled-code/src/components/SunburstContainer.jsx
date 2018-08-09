@@ -46,17 +46,11 @@ class SunburstContainer extends Component {
       searchbarText: "",
       tooltipShown: false,
       tooltipCoordinates: { x: 0, y: 0 },
-      searchbarSuggestions: {
-        Agencies: [],
-        Contractors: []
-      },
+      searchbarSuggestions: [],
       searchbarOptionSelected: "Agencies",
       sunburstFilterByText: "",
       staticData: {
-        unfilteredSearchbarSuggestions: {
-          Agencies: [],
-          Contractors: []
-        },
+        unfilteredSearchbarSuggestions: [],
         others: [],
         PSCByRecip: {},
         recipDetails: []
@@ -131,16 +125,12 @@ class SunburstContainer extends Component {
         hierarchy,
         root,
         activePanelNode,
-        searchbarSuggestions: {
-          Agencies: awardsContractsAgencies,
-          Contractors: awardsContractsRecipeints
-        },
+        searchbarSuggestions: awardsContractsAgencies
+        .concat(awardsContractsRecipeints),
         staticData: {
           ...currState.staticData,
-          unfilteredSearchbarSuggestions: {
-            Agencies: awardsContractsAgencies,
-            Contractors: awardsContractsRecipeints
-          },
+          unfilteredSearchbarSuggestions: awardsContractsAgencies
+          .concat(awardsContractsRecipeints),
           awardsContracts,
           colors,
           agencies,
@@ -308,9 +298,7 @@ class SunburstContainer extends Component {
   };
 
   setSearchbarSuggestions = suggestions => {
-    let searchbarSuggestions = { ...this.state.searchbarSuggestions };
-    searchbarSuggestions[this.state.searchbarOptionSelected] = suggestions;
-    this.setState({ searchbarSuggestions });
+    this.setState({ searchbarSuggestions: suggestions });
   };
 
   clearSunburstFilters = () => {
@@ -328,6 +316,7 @@ class SunburstContainer extends Component {
       root,
       activePanelNode,
       unfilteredSearchbarSuggestions,
+      searchbarSuggestions,
       searchbarText,
       sunburstFilterByText,
       lastNodeClicked,
@@ -349,8 +338,8 @@ class SunburstContainer extends Component {
       handleMouseMove
     } = this;
 
-    let searchbarSuggestions = this.state.searchbarSuggestions.Agencies
-        .concat(this.state.searchbarSuggestions.Contractors);
+    // let searchbarSuggestions = this.state.searchbarSuggestions.Agencies
+    //     .concat(this.state.searchbarSuggestions.Contractors);
 
 
     return (
