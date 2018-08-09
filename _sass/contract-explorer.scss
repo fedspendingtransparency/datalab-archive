@@ -279,7 +279,8 @@
 .contract-explorer .searchbar {
   width: 350px; }
 .contract-explorer .react-autosuggest__container {
-  width: 90%;
+  position: relative;
+  width: 100%;
 }
 .contract-explorer .react-autosuggest__input {
   padding: 10px 30px;
