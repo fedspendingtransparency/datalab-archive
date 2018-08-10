@@ -1,12 +1,13 @@
 import '../sass/income/detail-pane.scss';
 import { select } from 'd3-selection';
-import { establishContainer, translator } from '../../utils';
+import { establishContainer, translator, getElementBox } from '../../utils';
 import { getByCategory } from './trendData';
-import { trendView } from './trend-view';
+import { trendView } from './trendView';
 
 const d3 = { select };
 
-const svg = establishContainer();
+const svg = establishContainer(),
+    h = 600;
 
 let data,
     pane,
@@ -14,11 +15,13 @@ let data,
     chartContainer,
     container;
 
-function buildDString(yPos) {
+function buildDString(yPos, _height) {
+
     const radius = 6,
         triangle = { height: 15, width: 18 },
         width = 530,
-        height = 700,
+        defaultHeight = h + 100,
+        height = (_height > defaultHeight) ? _height : defaultHeight,
         leg = height - yPos;
 
     return `M 0,${radius}
@@ -35,8 +38,8 @@ function buildDString(yPos) {
         Z`;
 }
 
-function modifyRect(sourceY) {
-    const dString = buildDString(sourceY);
+function modifyRect(sourceY, height) {
+    const dString = buildDString(sourceY, height);
 
     if (callout) {
         callout.transition()
@@ -56,18 +59,22 @@ function modifyRect(sourceY) {
 
 function init(sourceY) {
     const config = {
-        height: 600,
-        width: 200,
+        height: h,
+        width: 240,
         simple: true
     };
 
-    modifyRect(Math.round(sourceY));
+    let chartHeight;
 
     trendView(data, chartContainer, config);
-
+    
     chartContainer.transition()
-        .duration(300)
-        .attr('opacity', 1)
+    .duration(300)
+    .attr('opacity', 1)
+    
+    chartHeight = getElementBox(chartContainer).height + 50;
+    
+    modifyRect(Math.round(sourceY), chartHeight);
 }
 
 export function destroyDetailPane() {
@@ -100,7 +107,7 @@ export function showDetail(name, sourceY) {
             })
     } else {
         container = svg.append('g').attr('transform', translator(630, 1));
-        chartContainer = container.append('g').attr('opacity', 0).attr('transform',translator(0,10));
+        chartContainer = container.append('g').attr('opacity', 0).attr('transform',translator(10,10));
 
         init(sourceY);
     }

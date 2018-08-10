@@ -72,7 +72,7 @@ export function wordWrap(text, maxWidth) {
         tspan = text.append("tspan")
             .attr("x", 0)
             .attr("y", y)
-            .attr("dy", ++lineNumber * lineHeight + "em")
+            .attr("dy", lineHeight + "em")
             .text(word);
       }
     }

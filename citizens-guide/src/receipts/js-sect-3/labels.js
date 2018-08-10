@@ -54,6 +54,8 @@ export function placeLabels(globals) {
     const labelContainer = globals.chart.append('g')
         .classed('labels', true);
 
+    let runningY = 0
+
     globals.labelGroups = labelContainer.selectAll('g')
         .data(globals.data)
         .enter()
@@ -64,11 +66,6 @@ export function placeLabels(globals) {
             }
 
             return 0;
-        })
-        .attr('transform', function (d) {
-            d.y0 = globals.y(d.values[0].amount);
-            d.y1 = globals.y(d.values[d.values.length-1].amount);
-            return translator(-globals.labelPadding, d.y0);
         });
 
     globals.labelGroups.append('text')
@@ -122,4 +119,23 @@ export function placeLabels(globals) {
             d3.select(this).lower();
         })
     }
+
+    globals.labelGroups.attr('transform', function (d) {
+        const box = getElementBox(d3.select(this));
+
+        let yTranslate;
+        
+        d.y0 = globals.y(d.values[0].amount);
+        d.y1 = globals.y(d.values[d.values.length-1].amount);
+        
+        if (d.y0 - box.height < runningY) {
+            yTranslate = runningY + box.height;
+        } else {
+            yTranslate = d.y0
+        }
+        
+        runningY = yTranslate;
+
+        return translator(-globals.labelPadding, yTranslate);
+    });
 }

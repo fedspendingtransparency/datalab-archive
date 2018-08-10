@@ -6,7 +6,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { translator, simplifyBillions, getElementBox } from '../../utils';
 import { setLabelActive, setLabelInactive, placeLabels } from './labels';
-import { showDetail, destroyDetailPane } from './detail-pane';
+import { showDetail, destroyDetailPane } from './detailPane';
 import { trigger } from './zoomTrigger';
 import { addHorizontalGridlines, addVerticalShading } from './ink'
 import { processDataForChart } from './trendData';

@@ -23,6 +23,21 @@ function cleanData() {
 
 cleanData();
 
+function sortFn(a, b) {
+    a = a.values[0].amount;
+    b = b.values[0].amount;
+
+    if (a > b) {
+        return -1;
+    }
+
+    if (a < b) {
+        return 1;
+    }
+
+    return 0;
+}
+
 export function getSummary() {
     const d = data.filter(row => !row.sub_activity);
 
@@ -35,7 +50,7 @@ export function getSummary() {
 
 export function getByCategory(cateogry) {
     const d = data.filter(row => row.activity === cateogry && row.sub_activity)
-    
+
     d.forEach(r => {
         r.name = r.sub_activity;
     })
@@ -47,16 +62,28 @@ export function processDataForChart(_data) {
     const valueKeys = Object.keys(_data[0]).filter(k => {
         return k.includes('fy') && !k.includes('percent')
     });
+    
+    let data = _data.map(row => {
+            return {
+                name: row.name,
+                values: valueKeys.map(k => {
+                    if (isNaN(row[k])) {
+                        return;
+                    }
+                    
+                    return {
+                        year: Number(k.replace('fy', '20')),
+                        amount: row[k]
+                    }
+                })
+            }
+        })
 
-    return _data.map(row => {
-        return {
-            name: row.name,
-            values: valueKeys.map(k => {
-                return {
-                    year: Number(k.replace('fy', '20')),
-                    amount: row[k]
-                }
-            })
-        }
+    data.forEach(r => {
+        r.values = r.values.filter(v => v);
     })
+
+    
+
+    return data.sort(sortFn);
 }
