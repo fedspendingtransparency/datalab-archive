@@ -159,6 +159,8 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
 
           console.log(chartObj.data);
 
+          console.log(yObjs[y]);
+
           yObjs[y].path = chartObj.svg.append("path")
                                       .datum(chartObj.data)
                                       .attr("class", "line asdfasdf")
@@ -202,12 +204,18 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
 
           series = legend.append('div');
           let cacheName = yObjs[y].name;
-          series.append('div').attr("class", "series-marker").style("background-color", color(y)).on("mousedown", () => {
-            currentColumn = cacheName;
-            d3.selectAll(".asdfasdf").transition().duration(100).style("opacity", 0);
-            d3.select("#tag"+cacheName.replace(/\s+/g, ''))
-                    .transition().duration(100) 
-                    .style("opacity", 1);
+          var seriesDiv = series.append('div').attr("class", "series-marker").style("background-color", color(y));
+
+          seriesDiv.append("div").attr("class", "series-marker-check").text("");
+          seriesDiv
+            .on("mousedown", function() {
+              currentColumn = cacheName;
+              d3.selectAll(".asdfasdf").transition().duration(100).style("opacity", 0);
+              d3.select("#tag"+cacheName.replace(/\s+/g, ''))
+                      .transition().duration(100) 
+                      .style("opacity", 1);
+              d3.selectAll(".series-marker-check").text("");
+              d3.select(this).select(".series-marker-check").text("✔");
           });
           series.append('p').text(y);
           yObjs[y].legend = series;
