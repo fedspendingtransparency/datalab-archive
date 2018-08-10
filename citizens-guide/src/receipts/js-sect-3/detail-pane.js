@@ -16,8 +16,8 @@ let data,
 
 function buildDString(yPos) {
     const radius = 6,
-        triangle = { height: 20, width: 30 },
-        width = 600,
+        triangle = { height: 15, width: 18 },
+        width = 530,
         height = 700,
         leg = height - yPos;
 
@@ -56,9 +56,9 @@ function modifyRect(sourceY) {
 
 function init(sourceY) {
     const config = {
-        height: 400,
+        height: 600,
         width: 200,
-        noDrillown: true
+        simple: true
     };
 
     modifyRect(Math.round(sourceY));
@@ -68,6 +68,23 @@ function init(sourceY) {
     chartContainer.transition()
         .duration(300)
         .attr('opacity', 1)
+}
+
+export function destroyDetailPane() {
+    if (!chartContainer) {
+        return;
+    }
+    
+    chartContainer.transition()
+        .duration(300)
+        .attr('opacity', 0)
+        .on('end', function(){
+            if (container) {
+                container.remove();
+            }
+            container = null;
+            callout = null;
+        })
 }
 
 export function showDetail(name, sourceY) {
@@ -82,7 +99,7 @@ export function showDetail(name, sourceY) {
                 init(sourceY);
             })
     } else {
-        container = svg.append('g').attr('transform', translator(660, 0));
+        container = svg.append('g').attr('transform', translator(630, 1));
         chartContainer = container.append('g').attr('opacity', 0).attr('transform',translator(0,10));
 
         init(sourceY);

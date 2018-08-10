@@ -34,11 +34,29 @@ export function getSummary() {
 }
 
 export function getByCategory(cateogry) {
-    const d = data.filter(row => row.activity === cateogry)
+    const d = data.filter(row => row.activity === cateogry && row.sub_activity)
     
     d.forEach(r => {
         r.name = r.sub_activity;
     })
 
     return d;
+}
+
+export function processDataForChart(_data) {
+    const valueKeys = Object.keys(_data[0]).filter(k => {
+        return k.includes('fy') && !k.includes('percent')
+    });
+
+    return _data.map(row => {
+        return {
+            name: row.name,
+            values: valueKeys.map(k => {
+                return {
+                    year: Number(k.replace('fy', '20')),
+                    amount: row[k]
+                }
+            })
+        }
+    })
 }

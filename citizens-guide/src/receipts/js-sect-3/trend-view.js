@@ -1,14 +1,17 @@
-import { select, selectAll } from 'd3-selection';
+import { select, selectAll, create } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min, max, range } from 'd3-array';
 import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { transition } from 'd3-transition';
-import { translator, simplifyBillions, wordWrap, getElementBox } from '../../utils';
-import { setLabelActive, setLabelInactive } from './labelStates';
-import { showDetail } from './detail-pane';
+import { translator, simplifyBillions, getElementBox } from '../../utils';
+import { setLabelActive, setLabelInactive, placeLabels } from './labels';
+import { showDetail, destroyDetailPane } from './detail-pane';
+import { trigger } from './zoomTrigger';
+import { addHorizontalGridlines, addVerticalShading } from './ink'
+import { processDataForChart } from './trendData';
 
-const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
+const d3 = { select, selectAll, create, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     colors = [
         '#2E8540',
         '#49A5B6',
@@ -25,67 +28,40 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
     ],
     margin = {
         left: 400,
-        top: 10
-    },
-    labelWidth = 300;
-    
-    const threshold = 200000000000;
-    
-    let g,
-    x,
-    y,
-    labelContainer,
-    labelGroups,
-    width,
-    height,
-    yTicks,
-    data;
+        top: 40
+    };
 
-function setScales() {
-    x = d3.scaleLinear().range([0, width]),
-        y = d3.scaleLinear().range([height, 0]);
+function setScales(globals) {
+    globals.x = d3.scaleLinear().range([0, globals.width])
 
-    x.domain([2013, 2017]);
+    globals.y = d3.scaleLinear().range([globals.height, 0]);
 
-    y.domain([
-        d3.min([0, d3.min(data.map(row => d3.min(row.values.map(v => v.amount))))]),
-        d3.max(data.map(row => d3.max(row.values.map(v => v.amount)))),
+    globals.x.domain([2013, 2017]);
+
+    globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
+
+    globals.y.domain([
+        d3.min([0, d3.min(globals.data.map(row => d3.min(row.values.map(v => v.amount))))]),
+        globals.domainMax,
     ]).nice()
 }
 
-function processData(_data) {
-    const valueKeys = Object.keys(_data[0]).filter(k => {
-        return k.includes('fy') && !k.includes('percent')
-    });
-
-    data = _data.map(row => {
-        return {
-            name: row.name,
-            values: valueKeys.map(k => {
-                return {
-                    year: Number(k.replace('fy', '20')),
-                    amount: row[k]
-                }
-            })
-        }
-    })
-}
-
-function renderScales() {
-    const yTicks = d3.range(0, y.domain()[1], 100000000000),
-        xAxis = g.append('g')
+function renderScales(globals) {
+    const yTicks = d3.range(0, globals.y.domain()[1], 100000000000),
+        xAxis = globals.chart.append('g')
             .attr('class', 'axis axis--x')
-            .attr('transform', 'translate(0,' + height + ')')
-            .call(d3.axisBottom(x).tickValues([2013, 2014, 2015, 2016, 2017]).tickFormat(t => parseInt(t)));
+            .attr('transform', 'translate(0,' + globals.height + ')')
+            .call(d3.axisBottom(globals.x).tickValues([2013, 2014, 2015, 2016, 2017]).tickFormat(t => parseInt(t)));
 
-    yTicks.push(y.domain()[1]);
+    yTicks.push(globals.y.domain()[1]);
 
-    const yAxis = g.append('g')
+    globals.yAxis = d3.axisLeft(globals.y)
+        .tickValues(yTicks)
+        .tickFormat(simplifyBillions)
+
+    globals.yAxisDom = globals.chart.append('g')
         .attr('class', 'axis axis--y')
-        .call(d3.axisLeft(y)
-            .tickValues(yTicks)
-            .tickFormat(simplifyBillions)
-        );
+        .call(globals.yAxis);
 
     xAxis.selectAll('text')
         .attr('font-size', 16)
@@ -93,12 +69,12 @@ function renderScales() {
 
     xAxis.selectAll('.tick line').remove();
 
-    yAxis.selectAll('.tick text')
+    globals.yAxisDom.selectAll('.tick text')
         .attr('style', function (d, i) {
             return (d % 200000000000) ? 'fill:#eee' : 'fill:#666';
         })
 
-    yAxis.selectAll('.tick line')
+    globals.yAxisDom.selectAll('.tick line')
         .attr('stroke-width', 1)
         .attr('stroke', function (d, i) {
             return (d % 200000000000) ? '#ddd' : '#666';
@@ -111,51 +87,20 @@ function renderScales() {
             }
         })
 
-    yAxis.select('.domain').raise();
+    globals.yAxisDom.select('.domain').raise();
 }
 
-function addVerticalShading() {
-    const ctrl = [2014, 2016];
-
-    g.selectAll('.shading')
-        .data(ctrl)
-        .enter()
-        .append('rect')
-        .attr('x', function (d) { return x(d) })
-        .attr('y', 0)
-        .attr('width', width / 4)
-        .attr('height', height)
-        .attr('fill', '#FAFAFA')
+function lineFn(d, globals) {
+    return d3.line()
+        .x(function (d) { return globals.x(d.year); })
+        .y(function (d) { return globals.y(d.amount); })(d);
 }
 
-function addHorizontalGridlines() {
-    const ctrl = d3.range(0, y.domain()[1], 200000000000).map(d => {
-        return [
-            [x(2013), y(d)],
-            [x(2017), y(d)]
-        ]
-    })
-
-    g.append('g').selectAll('path')
-        .data(ctrl)
+function renderLines(globals) {
+    globals.lines = globals.chart.selectAll('.line')
+        .data(globals.data)
         .enter()
         .append('path')
-        .attr('d', d3.line())
-        .attr('stroke', '#ddd')
-        .attr('stroke-width', 1)
-}
-
-function renderLines() {
-    const lineFn = d3.line()
-        .x(function (d) { return x(d.year); })
-        .y(function (d) { return y(d.amount); });
-
-    const city = g.selectAll('.lines')
-        .data(data)
-        .enter().append('g')
-        .attr('class', 'lines');
-
-    const lines = city.append('path')
         .attr('class', 'line')
         .attr('d', function (d) {
             return lineFn(d.values.map(r => {
@@ -163,85 +108,19 @@ function renderLines() {
                     year: r.year,
                     amount: 0
                 }
-            }));
+            }), globals);
         })
         .style('fill', 'none')
         .style('stroke', function (d, i) {
             d.color = colors[i];
-            return (d3.max(d.values, r => r.amount) < threshold) ? '#ddd' : colors[i];
+            return (globals.simple || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? d.color : '#ddd';
         })
         .attr('stroke-width', 2)
 
-    lines.transition()
+    globals.lines.transition()
         .duration(1000)
-        .attr('d', function (d) { return lineFn(d.values); })
+        .attr('d', function (d) { return lineFn(d.values, globals); })
         .ease()
-}
-
-function placeLabels() {
-    const filteredData = data.filter(d => (d3.max(d.values, r => r.amount) > threshold));
-
-    labelContainer = g.append('g')
-        .classed('labels', true);
-
-    labelGroups = labelContainer.selectAll('g')
-        .data(filteredData)
-        .enter()
-        .append('g')
-        .attr('transform', function (d) {
-            d.yPos = y(d.values[0].amount);
-            return translator(-80, d.yPos);
-        });
-
-    labelGroups.append('text')
-        .text(function (d) {
-            return d.name;
-        })
-        .attr('text-anchor', 'end')
-        .each(function (d) {
-            const t = d3.select(this);
-
-            wordWrap(t, 200);
-        });
-
-
-    // color bar
-    labelGroups.append('rect')
-        .classed('color-bar', true)
-        .attr('width', 10)
-        .attr('height', function () {
-            return this.previousSibling.getBoundingClientRect().height + 20;
-        })
-        .attr('x', 5)
-        .attr('y', -25)
-        .attr('fill', function (d) {
-            return d.color;
-        })
-        .attr('opacity', 1)
-        .each(function () {
-            d3.select(this).lower();
-        })
-
-    // ghost rectangle
-    labelGroups.append('rect')
-        .attr('width', function () {
-            return this.previousSibling.getBoundingClientRect().width + 30;
-        })
-        .attr('height', function () {
-            return this.previousSibling.getBoundingClientRect().height + 20;
-        })
-        .attr('x', function () {
-            return 0 - this.previousSibling.getBoundingClientRect().width - 15;
-        })
-        .attr('y', function () {
-            return - 25;
-        })
-        .attr('fill', function (d) {
-            return 'white';
-        })
-        .each(function () {
-            d3.select(this).lower();
-        })
 }
 
 function nudge() {
@@ -274,30 +153,97 @@ function nudge() {
         })
 }
 
+function toggleZoom(globals) {
+    const duration = 1000,
+        yMax = (globals.y.domain()[1] >= globals.domainMax) ? globals.zoomThreshold : globals.domainMax;
+
+    globals.y.domain([0, yMax]);
+
+    globals.yAxisDom.transition()
+        .duration(duration)
+        .call(globals.yAxis)
+        .ease()
+
+    globals.lines.transition()
+        .duration(1000)
+        .attr('d', function (d) { return lineFn(d.values, globals); })
+        .style('stroke', function (d, i) {
+            if (yMax === globals.zoomThreshold || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+                return d.color;
+            }
+
+            return '#ddd';
+        })
+        .ease()
+
+    globals.labelGroups
+        .transition()
+        .duration(duration)
+        .attr('opacity', function (d) {
+            if (globals.simple || yMax === globals.zoomThreshold || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+                return 1;
+            }
+
+            return 0;
+        })
+        .attr('transform', function (d) {
+            return translator(-globals.labelPadding, globals.y(d.values[0].amount));
+        });
+}
+
+function addZoomTrigger(globals) {
+    const zoomTrigger = trigger.init(globals);
+
+    zoomTrigger
+        .on('click', function () {
+            trigger.toggle();
+            toggleZoom(globals);
+            destroyDetailPane();
+        })
+}
+
 export function trendView(_data, container, config) {
-    g = container.append('g').attr('transform', translator(labelWidth, margin.top));
+    const globals = config || {};
 
-    config = config || {};
-    height = config.height || 700;
-    width = config.width || 300;
+    let chartXTranslate;
 
-    processData(_data);
-    setScales();
-    addVerticalShading();
-    addHorizontalGridlines();
-    renderScales();
-    renderLines();
-    placeLabels();
 
-    if (!config.noDrillown) {
-        labelGroups
+    globals.height = globals.height || 650;
+    globals.width = globals.width || 300;
+    globals.labelWidth = 200;
+    globals.labelPadding = 60;
+    globals.zoomThreshold = 200000000000;
+    globals.data = processDataForChart(_data);
+    globals.chart = container
+        .append('g')
+        .classed('trend-chart', true);
+
+    chartXTranslate = globals.labelWidth + globals.labelPadding;
+
+    if (!globals.simple) {
+        chartXTranslate += 35; // leave room for the zoom trigger in 'zoomed in' state;
+    }
+
+    globals.chart
+        .attr('transform', translator(chartXTranslate, margin.top));
+
+    setScales(globals);
+    addVerticalShading(globals);
+    addHorizontalGridlines(globals);
+    renderScales(globals);
+    renderLines(globals);
+    placeLabels(globals);
+
+    if (!globals.simple) {
+        globals.labelGroups
             .attr('style', 'cursor:pointer')
             .on('click', function (d) {
-                showDetail(d.name, d.yPos)
+                showDetail(d.name, globals.y(d.values[d.values.length-1].amount) + 48)
             })
             .on('mouseover', setLabelActive)
             .on('mouseout', setLabelInactive);
 
         nudge();
+        addZoomTrigger(globals);
     }
 }
