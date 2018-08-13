@@ -1,7 +1,7 @@
-import { select } from "d3-selection";
+import { select, merge } from "d3-selection";
 import { translator } from "../../utils";
 
-const d3 = { select },
+const d3 = { select, merge },
     trianglePoints = {
         in: {
             top: '155,21 158,15 152,15',
@@ -11,15 +11,39 @@ const d3 = { select },
             top: '155,10 158,15 152,15',
             bottom: '155,32 158,27 152,27'
         }
-    }
+    },
+    overlayOpacity = 0.2,
+    labelWidthOffset = 10;
+
+function addOverlay(self, globals, triggerTop, triggerHeight) {
+    const boxTop = globals.y(globals.zoomThreshold),
+        boxBottom = globals.y(0),
+        triggerX = globals.labelPadding - labelWidthOffset,
+        triggerBottom = triggerTop + triggerHeight,
+        points = `0,${boxTop} ${globals.width},${boxTop} ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}`;
+    
+    self.overlayPoints = {
+        in: `0,0 ${globals.width},0 ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}`,
+        out: points
+    };
+
+    self.overlay = globals.chart.append('polygon')
+        .attr('fill', '#ccc')
+        .attr('opacity', overlayOpacity)
+        .attr('points', points)
+}
 
 export const trigger = {
     init: function (globals) {
         const self = this,
-            rectWidth = 180,
+            rect = {
+                width: 180,
+                height: 42
+            },
+            triggerTop = globals.y(globals.zoomThreshold / 2) - rect.height / 2,
             trigger = globals.chart.append('g')
                 .attr('style', 'cursor:pointer')
-                .attr('transform', translator(-globals.labelPadding - rectWidth + 10, globals.y(globals.zoomThreshold / 2)))
+                .attr('transform', translator(-globals.labelPadding - rect.width + labelWidthOffset, triggerTop));
 
         let text;
 
@@ -28,8 +52,8 @@ export const trigger = {
         this.box = this.triggerWrapper.append('g');
 
         this.box.append('rect')
-            .attr('width', rectWidth)
-            .attr('height', 42)
+            .attr('width', rect.width)
+            .attr('height', rect.height)
             .attr('fill', '#4A90E2')
 
         text = this.box.append('text')
@@ -103,6 +127,8 @@ export const trigger = {
 
         this.trigger = trigger;
 
+        addOverlay(self, globals, triggerTop, rect.height);
+
         return trigger;
     },
     toggle: function () {
@@ -118,6 +144,12 @@ export const trigger = {
         this.box.transition()
             .duration(300)
             .attr('opacity', 0)
+            .ease();
+
+        this.overlay.transition()
+            .duration(1000)
+            .attr('opacity', 0)
+            .attr('points', this.overlayPoints.in)
             .ease();
 
         this.triggerWrapper.transition()
@@ -140,6 +172,12 @@ export const trigger = {
             .delay(500)
             .duration(500)
             .attr('opacity', 1)
+            .ease();
+
+        this.overlay.transition()
+            .duration(1000)
+            .attr('opacity', overlayOpacity)
+            .attr('points', this.overlayPoints.out)
             .ease();
 
         this.triggerWrapper.transition()
