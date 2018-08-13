@@ -10,6 +10,7 @@ import { showDetail, destroyDetailPane } from './detailPane';
 import { trigger } from './zoomTrigger';
 import { addHorizontalGridlines, addVerticalShading } from './ink'
 import { processDataForChart } from './trendData';
+import { addTooltips, repositionDataDots } from './addTooltips';
 
 const d3 = { select, selectAll, create, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     colors = [
@@ -159,6 +160,8 @@ function toggleZoom(globals) {
 
     globals.y.domain([0, yMax]);
 
+    globals.zoomState = (globals.zoomState === 'out') ? 'in' : 'out';
+
     globals.yAxisDom.transition()
         .duration(duration)
         .call(globals.yAxis)
@@ -168,7 +171,7 @@ function toggleZoom(globals) {
         .duration(1000)
         .attr('d', function (d) { return lineFn(d.values, globals); })
         .style('stroke', function (d, i) {
-            if (yMax === globals.zoomThreshold || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return d.color;
             }
 
@@ -180,7 +183,7 @@ function toggleZoom(globals) {
         .transition()
         .duration(duration)
         .attr('opacity', function (d) {
-            if (globals.simple || yMax === globals.zoomThreshold || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.simple || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
             }
 
@@ -189,6 +192,8 @@ function toggleZoom(globals) {
         .attr('transform', function (d) {
             return translator(-globals.labelPadding, globals.y(d.values[0].amount));
         });
+
+    repositionDataDots(duration, globals);
 }
 
 function addZoomTrigger(globals) {
@@ -213,6 +218,7 @@ export function trendView(_data, container, config) {
     globals.labelWidth = 200;
     globals.labelPadding = 60;
     globals.zoomThreshold = 200000000000;
+    globals.zoomState = 'out',
     globals.data = processDataForChart(_data);
     globals.chart = container
         .append('g')
@@ -233,12 +239,13 @@ export function trendView(_data, container, config) {
     renderScales(globals);
     renderLines(globals);
     placeLabels(globals);
+    addTooltips(globals);
 
     if (!globals.simple) {
         globals.labelGroups
             .attr('style', 'cursor:pointer')
             .on('click', function (d) {
-                showDetail(d.name, globals.y(d.values[d.values.length-1].amount) + 48)
+                showDetail(d.name, globals.y(d.values[d.values.length - 1].amount) + 48)
             })
             .on('mouseover', setLabelActive)
             .on('mouseout', setLabelInactive);
