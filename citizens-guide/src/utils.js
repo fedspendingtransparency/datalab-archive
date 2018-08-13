@@ -7,7 +7,8 @@ export function getElementBox(d3Selection) {
 
     return {
         width: Math.ceil(rect.width),
-        height: Math.ceil(rect.height)
+        height: Math.ceil(rect.height),
+        right: Math.ceil(rect.right)
     }
 }
 
@@ -46,6 +47,25 @@ export function simplifyBillions(n) {
     return `$${Math.round(n / billion * 10) / 10} B`;
 }
 
+export function simplifyNumber(n) {
+    const trillion = 1000000000000,
+        billion = 1000000000,
+        million = 1000000;
+
+    let simplifier = million,
+        letter = 'M';
+
+    if (n > trillion) {
+        simplifier = trillion;
+        letter = 'T'
+    } else if (n > billion) {
+        simplifier = billion;
+        letter = 'B';
+    }
+
+    return `$${Math.round(n / simplifier * 10) / 10} ${letter}`;    
+}
+
 export function wordWrap(text, maxWidth) {
     var words = text.text().split(/\s+/).reverse(),
         word,
@@ -62,18 +82,30 @@ export function wordWrap(text, maxWidth) {
     // .attr("dy", dy + "em");
 
     while (words.length > 0) {
-      word = words.pop();
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > maxWidth) {
-        line.pop();
+        word = words.pop();
+        line.push(word);
         tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan")
-            .attr("x", 0)
-            .attr("y", y)
-            .attr("dy", lineHeight + "em")
-            .text(word);
-      }
+        if (tspan.node().getComputedTextLength() > maxWidth) {
+            line.pop();
+            tspan.text(line.join(" "));
+            line = [word];
+            tspan = text.append("tspan")
+                .attr("x", 0)
+                .attr("y", y)
+                .attr("dy", lineHeight + "em")
+                .text(word);
+        }
     }
-  }
+}
+
+export function initDropShadow(){
+ const svg = establishContainer(),
+    filter = svg.append('defs').append('filter')
+        .attr('id', 'drop1')
+
+    filter.append('feDropShadow')
+        .attr('dx', 0)
+        .attr('dy', 0)
+        .attr('stdDeviation', 5)
+        .attr('flood-opacity', 0.2)
+}

@@ -1,5 +1,6 @@
 import { trendCsv } from './trendCsv';
 import { csvParse } from 'd3-dsv';
+import 'babel-polyfill';
 
 const d3 = { csvParse },
     data = d3.csvParse(trendCsv);

@@ -52,6 +52,7 @@ function modifyRect(sourceY, height) {
             .attr('stroke-width', 1)
             .attr('fill', 'white')
             .attr('d', dString)
+            .attr('filter', 'url(#drop1)')
 
         callout.lower()
     }
@@ -106,8 +107,10 @@ export function showDetail(name, sourceY) {
                 init(sourceY);
             })
     } else {
-        container = svg.append('g').attr('transform', translator(630, 1));
+        container = svg.append('g').attr('transform', translator(635, 5));
         chartContainer = container.append('g').attr('opacity', 0).attr('transform',translator(10,10));
+
+        container.lower();
 
         init(sourceY);
     }
