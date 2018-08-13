@@ -97,7 +97,7 @@ export function addTooltips(globals) {
                 color: d.color
             }
         }))
-    }
+    };
 
     globals.dataDots = globals.chart.selectAll('g.dataDots')
         .data(globals.data.reduce(dataReducer, []))
