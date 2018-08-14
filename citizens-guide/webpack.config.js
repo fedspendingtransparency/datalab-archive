@@ -5,8 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: {
         overview: './src/overview/js/overview.js',
-        receipts: './src/receipts/js/receipts.js',
-        receiptsTrend: './src/receipts/js-sect-3/index.js',
+        receipts: './src/receipts/sect-1-2/index.js',
+        receiptsTrend: './src/receipts/sect-3/index.js',
+        receiptsCountryComparison: './src/receipts/sect-4/index.js',
         outlays: './src/outlays/js/outlays.js'
     },
     devtool: 'inline-source-map',
@@ -45,7 +46,17 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.csv$/,
+                use: {
+                    loader: 'csv-loader',
+                    options: {
+                        dynamicTyping: true,
+                        header: true
+                    }
+                }
+            },
         ]
     },
     plugins: [
