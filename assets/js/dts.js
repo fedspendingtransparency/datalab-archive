@@ -161,8 +161,10 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
 
           console.log(yObjs[y]);
 
+          console.log(chartObj.data.filter(x => x[y] != null));
+
           yObjs[y].path = chartObj.svg.append("path")
-                                      .datum(chartObj.data)
+                                      .datum(chartObj.data.filter(x => x[y] != null && x[y] != 0))
                                       .attr("class", "line asdfasdf")
                                       .attr("d", yObjs[y].line).style("stroke", color(y))
                                       .attr("id", 'tag'+yObjs[y].name.replace(/\s+/g, ''))
