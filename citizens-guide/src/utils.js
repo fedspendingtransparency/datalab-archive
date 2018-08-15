@@ -26,15 +26,17 @@ export function getTransform(d3Selection) {
     }
 }
 
-export function establishContainer() {
+export function establishContainer(height) {
     const viz = d3.select('#viz');
 
     let svg = viz.select('svg');
 
+    height = height || 400;
+
     if (svg.size() === 0) {
         return viz.append('svg')
             .attr('shape-rendering', 'geometricPrecision')
-            .attr('height', '400px')
+            .attr('height', height)
             .attr('width', '1200px');
     } else {
         return svg;

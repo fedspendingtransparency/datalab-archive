@@ -1,4 +1,4 @@
-import { select, selectAll, create } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min, max, range } from 'd3-array';
 import { line } from 'd3-shape';
@@ -12,7 +12,7 @@ import { addHorizontalGridlines, addVerticalShading } from './ink'
 import { processDataForChart } from './trendData';
 import { addTooltips, repositionDataDots } from './addTooltips';
 
-const d3 = { select, selectAll, create, scaleLinear, min, max, range, line, axisBottom, axisLeft },
+const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     colors = [
         '#2E8540',
         '#49A5B6',

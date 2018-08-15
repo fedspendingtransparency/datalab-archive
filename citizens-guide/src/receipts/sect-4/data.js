@@ -1,6 +1,4 @@
 export function prepareData(_data){
-    console.log('data', _data);
-    
     const data = {
             indexed: {},
             countryList: []
