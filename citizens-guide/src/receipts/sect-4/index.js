@@ -5,7 +5,7 @@ import { prepareData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';
 
-const masterData = prepareData(CountryData),
+export const masterData = prepareData(CountryData),
     svg = establishContainer(600),
     defaultCountries = [
         'United States',

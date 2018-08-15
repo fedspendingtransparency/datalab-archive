@@ -5,6 +5,7 @@ import { translator, simplifyNumber } from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink } from './ink';
+import { selectCountryInit } from './selectCountry'
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
@@ -210,6 +211,15 @@ function placeLegends() {
         .attr('x', 1200 - dimensions.gdpColumnWidth / 2)
 }
 
+export const countryList = {
+    get: function(){
+        return data;
+    },
+    set: function(list){
+        console.log('set, TBD', list)
+    }
+}
+
 export function chartInit(_data, container) {
     data = _data;
 
@@ -226,4 +236,5 @@ export function chartInit(_data, container) {
     placeCountryLabels();
     placeGdpFigures();
     placeLegends();
+    selectCountryInit();
 }

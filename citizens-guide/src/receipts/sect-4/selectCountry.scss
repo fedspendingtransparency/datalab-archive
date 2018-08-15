@@ -1,0 +1,72 @@
+$primaryColor: #4A90E2;
+
+.select-country {
+    position: relative;
+    transform: translate(0,39px)
+}
+
+.trigger-button {
+    background-color: $primaryColor;
+    border: 1px solid $primaryColor;
+    border-radius: 3px;
+    color: white;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    width: 210px;
+    text-align: left;
+    transition: background-color 0.2s ease-in;
+
+    svg {
+        float: right;
+    }
+
+    &:hover {
+        background-color: darken($primaryColor, 10);
+    }
+}
+
+.list-div {
+    width: 300px;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    display: none; 
+    position: absolute;
+    top: 40px;
+    box-shadow: 0 0 10px rgba(0,0,10,0.2);
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        background-color: $primaryColor;
+        display: inline-block;
+        margin: 3px;
+        padding: 2px 1rem;
+        color: white;
+        border-radius: 2px;
+
+
+        &:hover {
+            background-color: darken($primaryColor, 10);
+        }
+    }
+}
+
+.select-country.active .list-div {
+    display: block;
+}
+
+.available {
+    padding: 0.2rem 0;
+}
+
+.see-more {
+    color: #aaa;
+    font-style: italic;
+}
