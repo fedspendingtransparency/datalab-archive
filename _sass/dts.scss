@@ -5,6 +5,11 @@
   background-color: #FAF7F7;
 }
 
+#chooser-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
 .chart-wrapper .inner-wrapper {
   position: relative;
   padding-bottom: 50%;
