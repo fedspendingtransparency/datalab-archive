@@ -1,6 +1,38 @@
 .contract-explorer {
   color: black;
 }
+.radioPad {
+  display: inline-block;
+}
+.radioPad vertical-align middle {
+  height: 20px;
+  width: 33.333333333333336%;
+}
+.radioPad__wrapper {
+  display: block;
+  cursor: pointer;
+  background: #fff;
+  color: #d1d1d1;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin: 0.1rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 2px;
+}
+.radioPad__wrapper:active,
+.radioPad__wrapper--selected {
+  background: #2da4ff !important;
+}
+.radioPad__wrapper:hover {
+  background: #6abfff;
+}
+.radioPad__radio {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
 
 .contract-explorer #legend_scaleKey {
   width: 225px;

@@ -1,6 +1,7 @@
 // import libraries
 import React, { Component } from "react";
 import axios from "axios";
+import d3 from 'd3';
 
 // import components
 import BreadCrumbs from "./BreadCrumbs";
@@ -8,6 +9,7 @@ import Sunburst from "components/Sunburst";
 import SunburstSearchbar from "components/SunburstSearchbar";
 import SunburstPanel from "components/SunburstPanel";
 import Tooltip from "components/Tooltip";
+import DataToggle from "./SunburstDataToggle";
 
 // import helper functions
 import formatDataHierarchy from "helpers/formatDataHierarchy.js";
@@ -47,7 +49,8 @@ class SunburstContainer extends Component {
       tooltipShown: false,
       tooltipCoordinates: { x: 0, y: 0 },
       searchbarSuggestions: [],
-      searchbarOptionSelected: "Agencies",
+      dataTypes: ['Contracts', 'Grants'],
+      currentDataType: 'Contracts',
       sunburstFilterByText: "",
       staticData: {
         unfilteredSearchbarSuggestions: [],
@@ -88,9 +91,17 @@ class SunburstContainer extends Component {
     const awardsContractsRecipeintsPromise = axios
       .get("./../../data-lab-data/sunburst/awards_contracts_recipients_.json")
       .then(({ data }) => data);
+    const awardsGrantsPromise =  new Promise(((rec, rej) => {
+        d3.csv('./../../data-lab-data/sunburst/awardsGrants.csv', (err, data) => {
+          if(data) { 
+            rec(data); }
+          else { rej();}
+        })}));
+    
 
     Promise.all([
       awardsContractsPromise,
+      awardsGrantsPromise,
       colorsPromise,
       agenciesPromise,
       subagenciesPromise,
@@ -102,6 +113,7 @@ class SunburstContainer extends Component {
     ]).then(values => {
       const [
         awardsContracts,
+        awardsGrants,
         colors,
         agencies,
         subagencies,
@@ -113,10 +125,19 @@ class SunburstContainer extends Component {
       ] = values;
       const currState = this.state;
 
-      const hierarchy = formatDataHierarchy({
-        key: "Contract spending in Fiscal Year 2017",
-        data: awardsContracts
+      Object.keys(agencies).forEach(k => {
+        awardsGrants.forEach(g => {
+          if(g.agen === agencies[k]) {
+            g.agen = parseInt(k);
+          }
+        })
       });
+
+      const hierarchy = formatDataHierarchy({
+        key: "Contracts spending in Fiscal Year 2017",
+        data: awardsContracts
+      });    
+      
       const root = partition.nodes(hierarchy);
       const activePanelNode = root[0];
 
@@ -132,6 +153,7 @@ class SunburstContainer extends Component {
           unfilteredSearchbarSuggestions: awardsContractsAgencies
           .concat(awardsContractsRecipeints),
           awardsContracts,
+          awardsGrants,
           colors,
           agencies,
           subagencies,
@@ -181,13 +203,21 @@ class SunburstContainer extends Component {
     this.filterSunburst(selected);
   };
 
-  filterSunburst = selected => {
+  filterSunburst = (selected, dataType) => {
+  
+    dataType = dataType ? dataType : this.state.currentDataType;
+   
     const {
       awardsContracts,
+      awardsGrants,
       agencies,
       subagencies,
       recipients
     } = this.state.staticData;
+
+    let dataToFilter = dataType === "Contracts" ?
+    awardsContracts : awardsGrants;
+
     let selectedName;
     const { id, depth } = selected;
     let filteredData = {
@@ -197,23 +227,23 @@ class SunburstContainer extends Component {
 
     switch (depth) {
       case 0: // root
-        filteredData.data = [...awardsContracts];
+        filteredData.data = [...dataToFilter];
         selectedName = "Contract spending in Fiscal Year 2017";
         break;
 
       case 1: // agency
-        filteredData.data = awardsContracts.filter(d => d.agen === id);
+        filteredData.data = dataToFilter.filter(d => d.agen === id);
         selectedName = agencies[id];
         break;
 
       case 2: // subagency
-        filteredData.data = awardsContracts.filter(d => d.sub === id);
-        selectedName = subagencies[id];
+        filteredData.data = dataToFilter.filter(d => d.sub === id);
+        selectedName = dataType === "Contracts" ? subagencies[id] : id;
         break;
 
       case 3: // contractor
-        filteredData.data = awardsContracts.filter(d => d.recip === id);
-        selectedName = recipients[id];
+        filteredData.data = dataToFilter.filter(d => d.recip === id);
+        selectedName = dataType === "Contracts" ? recipients[id] : id;
         break;
 
       default:
@@ -230,7 +260,7 @@ class SunburstContainer extends Component {
     const hierarchy = formatDataHierarchy(filteredData);
     const root = partition.nodes(hierarchy);
     const sunburstFilterByText =
-      selectedName === "Contract spending in Fiscal Year 2017"
+      selectedName === `${dataType.slice(0, -1)} spending in Fiscal Year 2017`
         ? ""
         : selectedName;
     const searchbarText = "";
@@ -252,6 +282,8 @@ class SunburstContainer extends Component {
 
   handleSearchbarSelect = selected => {
     const { awardsContracts } = this.state.staticData;
+
+    if (awardsContracts != undefined) {
 
     this.setState({ searchbarText: selected }, () => {
       const { recipients, agencies, subagencies } = this.state.staticData;
@@ -290,7 +322,9 @@ class SunburstContainer extends Component {
       window.history.replaceState(null, null, jsonToQueryString({search: selected}));
 
       this.setState({ hierarchy, root, activePanelNode, sunburstFilterByText });
+    
     });
+  } //only execute if awards is loaded
   };
 
   handleSearchbarTextChange = selected => {
@@ -305,8 +339,9 @@ class SunburstContainer extends Component {
     this.filterSunburst(this.state.root[0]);
   };
 
-  handleSearchbarOptionChange = e => {
-    this.setState({ searchbarOptionSelected: e.target.value });
+  handleDataTypeChange = e => {
+    this.setState({ currentDataType: e.target.value });
+    this.filterSunburst({ id: e.target.value, depth:0 }, e.target.value)
   };
 
   render() {
@@ -321,9 +356,10 @@ class SunburstContainer extends Component {
       sunburstFilterByText,
       lastNodeClicked,
       staticData,
-      searchbarOptionSelected,
+      currentDataType,
       tooltipShown,
-      tooltipCoordinates
+      tooltipCoordinates,
+      dataTypes
     } = this.state;
 
     const {
@@ -334,12 +370,9 @@ class SunburstContainer extends Component {
       setSearchbarSuggestions,
       handleSearchbarTextChange,
       clearSunburstFilters,
-      handleSearchbarOptionChange,
+      handleDataTypeChange,
       handleMouseMove
     } = this;
-
-    // let searchbarSuggestions = this.state.searchbarSuggestions.Agencies
-    //     .concat(this.state.searchbarSuggestions.Contractors);
 
 
     return (
@@ -356,9 +389,14 @@ class SunburstContainer extends Component {
             setSearchbarSuggestions={setSearchbarSuggestions}
             staticData={staticData}
             clearSunburstFilters={clearSunburstFilters}
-            searchbarOptionSelected={searchbarOptionSelected}
-            handleSearchbarOptionChange={handleSearchbarOptionChange}
+            searchbarOptionSelected={currentDataType}
+            handleSearchbarOptionChange={handleDataTypeChange}
           />
+          <DataToggle
+            currentDataType={currentDataType}
+            dataTypes={dataTypes}
+            handleDataTypeChange={handleDataTypeChange}
+            />
             <SunburstPanel
               activePanelNode={activePanelNode}
               sunburstFilterByText={sunburstFilterByText}
