@@ -4,7 +4,7 @@ import { scaleLinear } from 'd3-scale';
 import { translator, simplifyNumber, establishContainer } from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
-import { ink } from './ink';
+import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { masterData } from '.';
 import { selectedCountries } from './selectedCountryManager';
@@ -18,9 +18,9 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         header: 50,
         barYOffset: 3
     },
+    addRemoveDuration = 1000,
     scales = {},
     containers = {},
-    addRemoveDuration = 1000,
     map = {
         income: {
             data: 'receipts',
@@ -52,7 +52,7 @@ function establishContainers(container) {
     containers.legends = containers.chart.append('g').classed('legends', true);
 }
 
-function addText(g, data, keys) {
+function addBarLabels(g, data, keys) {
     const text = g.selectAll('text')
         .data(keys.map(k => map[k].data))
         .enter()
@@ -76,15 +76,27 @@ function addText(g, data, keys) {
 }
 
 function addBarGroups() {
-    containers.data.selectAll('g.bar-group')
-        .data(data)
-        .enter()
+    const groups = containers.data.selectAll('g.bar-group')
+        .data(data, function (d) { return d.country });
+
+    if (groups.size()) {
+        groups.transition()
+            .duration(addRemoveDuration)
+            .attr('transform', function (d, i) {
+                return translator(0, (i * dimensions.rowHeight))
+            })
+            .ease();
+    }
+
+    groups.exit().remove();
+
+    groups.enter()
         .append('g')
         .classed('bar-group', true)
         .attr('transform', function (d, i) {
-            return translator(0, (i * dimensions.rowHeight))
+            return translator(0, i * dimensions.rowHeight)
         })
-        .each(drawBars);
+        .each(drawBars)
 }
 
 function drawBars(data, i) {
@@ -116,7 +128,7 @@ function drawBars(data, i) {
         .ease();
 
     setTimeout(function () {
-        addText(group, data, keys);
+        addBarLabels(group, data, keys);
     }, transitionDuration);
 }
 
@@ -133,7 +145,6 @@ function setScales() {
 
 function drawXAxis() {
     const xAxis = d3.axisBottom(scales.x)
-        // .tickValues(yTicks)
         .tickFormat(function (n) {
             if (n === 0) {
                 return 0
@@ -153,42 +164,71 @@ function drawXAxis() {
     containers.axisGroup.selectAll('.domain').remove();
 }
 
-function createCountryText(d, i) {
-    const index = i;
-
-    d3.select(this)
-        .text(d.country)
-        .attr('y', dimensions.rowHeight / 2 + 8)
-        .attr('transform', translator(0, index * dimensions.rowHeight))
-        .attr('x', 20)
-        .attr('font-size', 16)
-}
-
 function placeCountryLabels() {
-    containers.country.selectAll('text')
-        .data(data)
-        .enter()
-        .append('text')
-        .each(createCountryText)
-}
+    const countryLabels = containers.country.selectAll('text')
+        .data(data, function (d) { return d.country });
 
-function createGdpText(d, i) {
-    const index = i;
+    let timeoutForAdd = 0;
 
-    d3.select(this)
-        .text(d.receipts_gdp)
-        .attr('y', dimensions.rowHeight / 2 + 8)
-        .attr('transform', translator(0, index * dimensions.rowHeight))
-        .attr('x', 50)
-        .attr('font-size', 16)
+    if (countryLabels.size()) {
+        timeoutForAdd = 500;
+
+        countryLabels.transition()
+            .duration(addRemoveDuration)
+            .attr('transform', function (d, i) {
+                return translator(0, (i * dimensions.rowHeight))
+            })
+            .ease();
+    }
+
+    countryLabels.exit().remove();
+
+    setTimeout(function () {
+        countryLabels.enter()
+            .append('text')
+            .attr('transform', function (d, i) {
+                return translator(0, i * dimensions.rowHeight)
+            })
+            .text(d => d.country)
+            .attr('y', dimensions.rowHeight / 2 + 8)
+            .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
+            .attr('x', 20)
+            .attr('font-size', 16);
+    }, timeoutForAdd)
+
 }
 
 function placeGdpFigures() {
-    containers.gdp.selectAll('text')
-        .data(data)
-        .enter()
-        .append('text')
-        .each(createGdpText)
+    const gdpText = containers.gdp.selectAll('text')
+        .data(data, function (d) { return d.country });
+
+    let timeoutForAdd = 0;
+
+    if (gdpText.size()) {
+        timeoutForAdd = 500;
+
+        gdpText.transition()
+            .duration(addRemoveDuration)
+            .attr('transform', function (d, i) {
+                return translator(0, (i * dimensions.rowHeight))
+            })
+            .ease();
+    }
+
+    gdpText.exit().remove();
+
+    setTimeout(function () {
+        gdpText.enter()
+            .append('text')
+            .attr('transform', function (d, i) {
+                return translator(0, i * dimensions.rowHeight)
+            })
+            .text(d => d.receipts_gdp)
+            .attr('y', dimensions.rowHeight / 2 + 8)
+            .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
+            .attr('x', 50)
+            .attr('font-size', 16);
+    }, timeoutForAdd)
 }
 
 function placeLegends() {
@@ -240,7 +280,7 @@ function placeLegends() {
 }
 
 function sizeSvg(transitionTime) {
-    establishContainer(transitionTime).transition().duration(500).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30);
+    establishContainer().transition().duration(transitionTime).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30);
 }
 
 function setData() {
@@ -253,17 +293,6 @@ function setData() {
     }).filter(r => r);
 
     dimensions.totalHeight = dimensions.rowHeight * data.length;
-}
-
-function reposition(dom, i, delay) {
-    delay = delay || 0;
-
-    d3.select(dom)
-        .transition()
-        .duration(1000)
-        .delay(delay)
-        .attr('transform', translator(0, i * dimensions.rowHeight))
-        .ease();
 }
 
 function repositionXAxis() {
@@ -281,120 +310,14 @@ function repositionXAxis() {
         .attr('height', dimensions.totalHeight);
 }
 
-function removeHandler(d, i, position) {
-    if (i === -1) {
-        d3.select(this)
-            .transition()
-            .duration(200)
-            .attr('opacity', 0)
-            .on('end', function () {
-                d3.select(this).remove();
-            })
-    } else {
-        d = d || { country: d3.select(this).attr('data-country')};
-        reposition(this, getPosition(d.country), 500);
-    }
-}
-
-function removeRow(country) {
-    const position = data.map(r => r.country).indexOf(country),
-        countryText = containers.country.selectAll('text'),
-        gdpText = containers.gdp.selectAll('text'),
-        barGroups = d3.selectAll('g.bar-group');
-
-    barGroups.each(function (d) {
-        d = d || { country: d3.select(this).attr('data-country')};
-        const i = getPosition(d.country);
-        removeHandler.bind(this)(d, i, position);
-    });
-
-    countryText.each(function (d) {
-        d = d || { country: d3.select(this).attr('data-country')};
-        const i = getPosition(d.country);
-        removeHandler.bind(this)(d, i, position);
-    });
-
-    gdpText.each(function (d) {
-        d = d || { country: d3.select(this).attr('data-country')};
-        const i = getPosition(d.country);
-        removeHandler.bind(this)(d, i, position);
-    });
-
-    setTimeout(function () {
-        setData()
-        repositionXAxis();
-    }, 500);
-
-    setTimeout(sizeSvg, 1500);
-}
-
-function getPosition(country){
-    return selectedCountries.list.indexOf(country);
-}
-
-function addRow(country) {
-    const countryText = containers.country.selectAll('text'),
-        gdpText = containers.gdp.selectAll('text'),
-        barGroups = d3.selectAll('g.bar-group');
-
-    let position;
-
-    setData();
-
-    position = data.map(r => r.country).indexOf(country);
-
-    barGroups.each(function (d, i) {
-        d = d || { country: d3.select(this).attr('data-country')};
-        reposition(this, getPosition(d.country))
-    })
-
-    gdpText.each(function (d, i) {
-        d = d || { country: d3.select(this).attr('data-country')};
-        reposition(this, getPosition(d.country))
-    })
-
-    countryText.each(function (d, i) {
-        d = d || { country: d3.select(this).attr('data-country')};
-        reposition(this, getPosition(d.country))
-    })
-
-    sizeSvg();
-    repositionXAxis();
-
-    setTimeout(function () {
-        containers.data.append('g').classed('bar-group', true)
-            .attr('data-country', data[position].country)
-            .attr('transform', translator(0, (position * dimensions.rowHeight)))
-            .call(function (dom) {
-                drawBars.bind(dom.node())(data[position], position)
-            })
-
-        containers.country.append('text')
-        .attr('data-country', data[position].country)
-        .call(function (dom) {
-            createCountryText.bind(dom.node())(data[position], position);
-        })
-
-        containers.gdp.append('text')
-        .attr('data-country', data[position].country)
-        .call(function (dom) {
-            createGdpText.bind(dom.node())(data[position], position);
-        })
-
-        createGdpText(data[position], position);
-    }, 1000)
-
-}
-
 export function refreshData() {
-    const lastUpdate = selectedCountries.lastUpdate;
-
-    const actions = {
-        remove: removeRow,
-        add: addRow
-    }
-
-    actions[lastUpdate.action](lastUpdate.country);
+    setData();
+    addBarGroups();
+    placeCountryLabels();
+    placeGdpFigures();
+    repositionXAxis();
+    sizeSvg(addRemoveDuration);
+    placeHorizontalStripes(data.length);
 }
 
 export function chartInit(container) {

@@ -26,12 +26,15 @@ function buildGdpBox() {
         .style('filter', 'url(#drop-shadow)');
 }
 
-function placeHorizontalStripes(dataLength) {
-    containers.stripes = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
+export function placeHorizontalStripes(dataLength) {
+    let stripes;
 
-    containers.stripes.selectAll('line')
-        .data(d3.range(dataLength + 1))
-        .enter()
+    stripes = containers.stripes.selectAll('line')
+        .data(d3.range(dataLength + 1), function(d){ return d; })
+
+    stripes.exit().remove();
+
+    stripes.enter()
         .append('line')
         .attr('x1', 0)
         .attr('y1', function(d){
@@ -63,6 +66,8 @@ function placeMask() {
 export function ink(_containers, _dimensions, dataLength) { 
     containers = _containers;
     dimensions = _dimensions;
+
+    containers.stripes = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
 
     initDropShadow();
     buildCountryBox();
