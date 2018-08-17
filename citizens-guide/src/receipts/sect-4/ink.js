@@ -8,6 +8,7 @@ let containers, dimensions;
 
 function buildCountryBox() {
     containers.country.append('rect')
+        .attr('class', 'drop-shadow-base')
         .attr('width', dimensions.countryColumnWidth)
         .attr('height', dimensions.totalHeight)
         .attr('fill', 'white')
@@ -17,6 +18,7 @@ function buildCountryBox() {
 
 function buildGdpBox() {
     containers.gdp.append('rect')
+        .attr('class', 'drop-shadow-base')
         .attr('width', dimensions.gdpColumnWidth)
         .attr('height', dimensions.totalHeight)
         .attr('fill', 'white')
@@ -25,9 +27,9 @@ function buildGdpBox() {
 }
 
 function placeHorizontalStripes(dataLength) {
-    const stripes = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
+    containers.stripes = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
 
-    stripes.selectAll('line')
+    containers.stripes.selectAll('line')
         .data(d3.range(dataLength + 1))
         .enter()
         .append('line')
@@ -44,7 +46,14 @@ function placeHorizontalStripes(dataLength) {
 }
 
 function placeMask() {
+    // clip the drop shadow
+    
+    if (containers.legends.selectAll('rect.mask').size()) {
+        return;
+    }
+    
     containers.legends.append('rect')
+        .classed('mask', true)
         .attr('width', 1200)
         .attr('height', dimensions.header)
         .attr('stroke', 'none')

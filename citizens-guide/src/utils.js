@@ -29,12 +29,13 @@ export function getTransform(d3Selection) {
 export function establishContainer(height) {
     const viz = d3.select('#viz');
 
-    let svg = viz.select('svg');
+    let svg = viz.select('svg.main');
 
     height = height || 400;
 
     if (svg.size() === 0) {
         return viz.append('svg')
+            .classed('main', true)
             .attr('shape-rendering', 'geometricPrecision')
             .attr('height', height)
             .attr('width', '1200px');

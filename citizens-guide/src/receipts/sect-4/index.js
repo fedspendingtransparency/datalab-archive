@@ -4,9 +4,10 @@ import CountryData from '../../../public/csv/income-country-comparison.csv';
 import { prepareData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';
+import { selectedCountries } from './selectedCountryManager';
 
 export const masterData = prepareData(CountryData),
-    svg = establishContainer(600),
+    svg = establishContainer(),
     defaultCountries = [
         'United States',
         'China',
@@ -17,18 +18,6 @@ export const masterData = prepareData(CountryData),
         'France'
     ];
 
-function filterData(list) {
-    const data = [];
-    
-    list = list || defaultCountries;
+selectedCountries.set(defaultCountries);
 
-    return list.map(c => {
-        if (masterData.indexed[c]) {
-            return masterData.indexed[c];
-        } else {
-            console.warn('no data for ' + c);
-        }
-    }).filter(r => r);
-}
-
-chartInit(filterData(), svg);
+chartInit(svg);

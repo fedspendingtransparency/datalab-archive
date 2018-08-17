@@ -1,41 +1,16 @@
+import './selectCountry.scss';
 import { select } from 'd3-selection';
 import { establishContainer } from '../../utils';
-import './selectCountry.scss';
-import { countryList } from './chart';
+import { countryList, refreshData } from './chart';
 import { masterData } from '.';
+import { addXIcon, addButtonIcon, addSearchIcon } from './iconGenerators';
+import { selectedCountries } from './selectedCountryManager';
 
 const d3 = { select }
 
-let activeCountries,
-    parentDiv,
+let parentDiv,
     listDiv,
     trigger;
-
-function addButtonIcon(svg) {
-    svg.append('circle')
-        .attr('r', 9)
-        .attr('stroke', 'white')
-        .attr('stroke-width', 1)
-        .attr('fill', 'none')
-        .attr('cx', 10)
-        .attr('cy', 10)
-
-    svg.append('line')
-        .attr('x1', 5)
-        .attr('x2', 15)
-        .attr('y1', 10)
-        .attr('y2', 10)
-        .attr('stroke', 'white')
-        .attr('stroke-width', 1)
-
-    svg.append('line')
-        .attr('x1', 10)
-        .attr('x2', 10)
-        .attr('y1', 5)
-        .attr('y2', 15)
-        .attr('stroke', 'white')
-        .attr('stroke-width', 1)
-}
 
 function createTrigger() {
     let svg;
@@ -58,31 +33,64 @@ function createTrigger() {
 }
 
 function establishInupt() {
-    listDiv.append('input')
+    const wrapper = listDiv.append('div').classed('search-wrapper', true);
+    let icon;
+    
+    wrapper.append('input')
+        .attr('placeholder', 'search for a country')
+        .on('input', function () {
+            listAvailableCountries(this.value);
+        })
+
+    icon = wrapper.append('svg');
+
+    addSearchIcon(icon);
 }
 
-function listActiveCountries() {
-    activeCountries = countryList.get();
+function listselectedCountries() {
+    const ul = listDiv.select('ul');
 
-    listDiv.append('ul').selectAll('li')
-        .data(activeCountries)
+    let items, svg;
+
+    ul.selectAll('*').remove();
+
+    items = ul.selectAll('li')
+        .data(selectedCountries.list)
         .enter()
         .append('li')
+        .on('click', removeCountry)
         .each(function (d) {
-            this.innerText = d.country;
+            this.innerText = d;
         })
+
+    svg = items.append('svg');
+
+    addXIcon(svg);
 }
 
-function getAvailableCountries() {
-    const activeList = activeCountries.map(r => r.country);
+function getAvailableCountries(filterStr) {
+    if (filterStr) {
+        filterStr = filterStr.toLowerCase();
+    }
 
     return masterData.countryList.filter(c => {
-        return activeList.indexOf(c) === -1;
+        return (c && selectedCountries.list.indexOf(c) === -1 && (!filterStr || c.toLowerCase().indexOf(filterStr) !== -1))
     }).sort();
 }
 
-function listAvailableCountries() {
-    const list = getAvailableCountries(),
+function addCountry(d) {
+    selectedCountries.add(d);
+    onListUpdated();
+}
+
+function removeCountry(d) {
+    selectedCountries.remove(d);
+    onListUpdated();
+}
+
+function listAvailableCountries(filterStr) {
+    const list = getAvailableCountries(filterStr),
+        availableContainer = listDiv.select('.available-container'),
         max = 10;
 
     let more, remainder;
@@ -93,19 +101,27 @@ function listAvailableCountries() {
         list.length = max;
     }
 
-    listDiv.selectAll('div.available')
+    availableContainer.selectAll('*').remove();
+
+    availableContainer.selectAll('div.available')
         .data(list)
         .enter()
         .append('div')
         .classed('available', true)
-        .each(function(d){
+        .on('click', addCountry)
+        .each(function (d) {
             this.innerText = d;
+
+            d3.select(this).append('button')
+                .classed('add-button', true)
+                .node()
+                .innerText = 'add';
         })
 
     if (more) {
-        listDiv.append('div')
+        availableContainer.append('div')
             .classed('see-more', true)
-            .each(function(){
+            .each(function () {
                 this.innerText = `${remainder} more countries are available. Search to find more.`;
             })
     }
@@ -115,12 +131,21 @@ function createListDiv() {
     listDiv = parentDiv.append('div')
         .classed('list-div', true);
 
+
+    listDiv.append('ul');
+    listDiv.append('hr');
     establishInupt();
-    listActiveCountries();
+    listDiv.append('div').classed('available-container', true)
 
-    listDiv.append('hr')
-
+    listselectedCountries();
     listAvailableCountries();
+}
+
+function onListUpdated() {
+    parentDiv.classed('active', false);
+    listselectedCountries();
+    listAvailableCountries();
+    refreshData();
 }
 
 export function selectCountryInit() {
