@@ -40,7 +40,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         }
     };
 
-let data;
+let xAxis, data;
 
 dimensions.dataWidth = 1200 - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
@@ -99,7 +99,7 @@ function addBarGroups() {
         .each(drawBars)
 }
 
-function drawBars(data, i) {
+function drawBars(data) {
     const transitionDuration = 1000,
         group = d3.select(this),
         keys = ['gdp', 'income'],
@@ -143,8 +143,16 @@ function setScales() {
         .range([0, dimensions.dataWidth]);
 }
 
+function xAxisMods() {
+    containers.axisGroup.selectAll('.tick line')
+        .attr('y1', 0 - dimensions.totalHeight)
+        .attr('stroke', '#eee');
+
+    containers.axisGroup.selectAll('.domain').remove();
+}
+
 function drawXAxis() {
-    const xAxis = d3.axisBottom(scales.x)
+    xAxis = d3.axisBottom(scales.x)
         .tickFormat(function (n) {
             if (n === 0) {
                 return 0
@@ -157,11 +165,7 @@ function drawXAxis() {
         .attr('transform', translator(0, dimensions.totalHeight))
         .call(xAxis);
 
-    containers.axisGroup.selectAll('.tick line')
-        .attr('y1', 0 - dimensions.totalHeight)
-        .attr('stroke', '#eee');
-
-    containers.axisGroup.selectAll('.domain').remove();
+    xAxisMods();
 }
 
 function placeCountryLabels() {
@@ -279,8 +283,9 @@ function placeLegends() {
         .attr('x', 1200 - dimensions.gdpColumnWidth / 2)
 }
 
-function sizeSvg(transitionTime) {
-    establishContainer().transition().duration(transitionTime).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30);
+function sizeSvg(transitionTime, delay) {
+    delay = delay || 0;
+    establishContainer().transition().delay(delay).duration(transitionTime).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30 );
 }
 
 function setData() {
@@ -310,14 +315,79 @@ function repositionXAxis() {
         .attr('height', dimensions.totalHeight);
 }
 
+function rescale() {
+    const previousMax = scales.x.domain()[1];
+
+    setScales();
+
+    if (previousMax === scales.x.domain()[1]) {
+        return;
+    }
+
+    xAxis.scale(scales.x);
+
+    containers.data.selectAll('g.bar-group')
+        .each(function (data) {
+            const group = d3.select(this),
+                keys = ['gdp', 'income'],
+                labels = group.selectAll('text'),
+                bars = group.selectAll('rect');
+
+            bars.transition()
+                .duration(addRemoveDuration)
+                .attr('width', function (d) {
+                    return scales.x(data[map[d].data]);
+                })
+                .ease();
+
+            labels.transition()
+                .duration(addRemoveDuration)
+                .attr('x', function (d) {
+                    return scales.x(data[d]) + 20;
+                })
+        })
+
+    containers.axisGroup.transition()
+        .duration(addRemoveDuration)
+        .call(xAxis)
+        .ease();
+
+    xAxisMods();
+
+    return true;
+}
+
 export function refreshData() {
+    const action = selectedCountries.lastUpdate.action;
+
+    let duration = addRemoveDuration;
+
     setData();
-    addBarGroups();
-    placeCountryLabels();
-    placeGdpFigures();
-    repositionXAxis();
-    sizeSvg(addRemoveDuration);
-    placeHorizontalStripes(data.length);
+
+    if (action === 'add') {
+        sizeSvg(addRemoveDuration);
+        duration = (rescale()) ? duration : 0;
+
+        setTimeout(function () {
+            repositionXAxis();
+            addBarGroups();
+            placeCountryLabels();
+            placeGdpFigures();
+            placeHorizontalStripes(data.length);
+        }, duration)
+    } else {
+        addBarGroups();
+        placeCountryLabels();
+        placeGdpFigures();
+
+        duration = (rescale()) ? duration : 0;
+        
+        setTimeout(function () {
+            sizeSvg(300, addRemoveDuration);
+            repositionXAxis();
+            placeHorizontalStripes(data.length);            
+        }, duration)
+    }
 }
 
 export function chartInit(container) {
@@ -327,11 +397,9 @@ export function chartInit(container) {
     ink(containers, dimensions, data.length);
     setScales();
     drawXAxis();
-
     addBarGroups();
     placeCountryLabels();
     placeGdpFigures();
-
     placeLegends();
     selectCountryInit();
 }
