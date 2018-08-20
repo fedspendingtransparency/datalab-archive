@@ -1,5 +1,3 @@
-import '../../../node_modules/normalize-css/normalize.css';
-import '../sass/receipts.scss';
 import { establishContainer, initDropShadow } from '../../utils';
 import { trendView } from './trendView';
 import { getSummary } from './trendData';
