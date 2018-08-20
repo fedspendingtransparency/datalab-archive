@@ -102,16 +102,17 @@ $primaryColor: #4A90E2;
 .search-wrapper {
     border: 1px solid #ddd;
     border-radius: 2px;
-    padding: 4px;
+    padding: 0;
 
     svg {
         float: right;
-        margin-top: 1px;
+        margin: 5px;
     }
 
     input {
         box-sizing: border-box;
-        width: 90%;
+        width: 85%;
         border: none;
+        padding: 5px;
     }
 }

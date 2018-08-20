@@ -9,6 +9,7 @@ import { selectedCountries } from './selectedCountryManager';
 const d3 = { select }
 
 let parentDiv,
+    input,
     listDiv,
     trigger;
 
@@ -19,7 +20,14 @@ function createTrigger() {
         .classed('trigger-button', true)
         .on('click', function () {
             parentDiv.classed('active', function () {
-                return !parentDiv.classed('active');
+                if (parentDiv.classed('active')) {
+                    return false;
+                } else {
+                    setTimeout(function () {
+                        input.node().focus()
+                    }, 10)
+                    return true;
+                }
             })
         })
 
@@ -35,8 +43,8 @@ function createTrigger() {
 function establishInupt() {
     const wrapper = listDiv.append('div').classed('search-wrapper', true);
     let icon;
-    
-    wrapper.append('input')
+
+    input = wrapper.append('input')
         .attr('placeholder', 'search for a country')
         .on('input', function () {
             listAvailableCountries(this.value);
@@ -131,7 +139,6 @@ function createListDiv() {
     listDiv = parentDiv.append('div')
         .classed('list-div', true);
 
-
     listDiv.append('ul');
     listDiv.append('hr');
     establishInupt();
@@ -143,6 +150,7 @@ function createListDiv() {
 
 function onListUpdated() {
     parentDiv.classed('active', false);
+    input.node().value = null;
     listselectedCountries();
     listAvailableCountries();
     refreshData();
