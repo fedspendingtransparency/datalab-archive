@@ -82,12 +82,6 @@ body {
         let timeFrameValue = d3.select('#select-timeframe').property('value');
         let selectValue = d3.select('#item-selector').property('value');
 
-        console.log(timeFrameValue);
-        console.log(selectValue);
-
-        console.log(optionsDict);
-        console.log(optionsDict[selectValue][timeFrameValue]);
-
         createGraph(optionsDict[selectValue][timeFrameValue]);
       }
     }
@@ -188,8 +182,6 @@ body {
   d3.csv("/data-lab-data/dts/dts-full.csv", function(error, data) {
     if (error) throw error;
 
-    console.log(data);
-
     var optionsData = [];
 
     optionsDict = {};
@@ -219,16 +211,9 @@ body {
 
     createSelect(uniqData);
 
-    console.log(optionsDict);
-  
-    /*
-    data.sort(function(a, b) {
-      return a.date - b.date;
-    });
-    */
-    // sort somehow
-
-    console.log(data);
+    //data.sort(function(a, b) {
+    //  return a.date - b.date;
+    //});
   
     createGraph(optionsDict["Medicaid"].today);
   });
