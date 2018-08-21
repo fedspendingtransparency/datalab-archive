@@ -16,3 +16,18 @@ Members of the public and US government employees who wish to contribute are enc
 ## Privacy
 
 Comments, pull requests and any other messages received through this repository may be subject to the [Presidential Records Act](http://www.archives.gov/about/laws/presidential-records.html) and may be archived. Learn more at http://WhiteHouse.gov/privacy
+
+#Debugging
+
+## Install
+Ruby Gem  - https://rubygems.org/pages/download
+
+## Commands
+gem install jekyll bundler  
+(https://bundler.io/)
+(https://jekyllrb.com/)
+
+bundle exec jekyll serve
+
+
+

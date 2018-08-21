@@ -17,7 +17,7 @@ class SunburstSearchbar extends Component {
     // ignore case
     const regex = new RegExp(`${escapedValue}`, "i");
 
-    return this.props.searchbarSuggestions.filter(e => regex.test(e));
+    return this.props.staticData.unfilteredSearchbarSuggestions.filter(e => regex.test(e));
   }
 
   getSuggestionValue(suggestion) {

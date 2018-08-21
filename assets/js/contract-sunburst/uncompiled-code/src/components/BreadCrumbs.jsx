@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import d3 from "d3";
 import { findColor } from "helpers/d3Helpers.js";
 
-const width = 600, height = 50, homeColor = "#923068";
+const width = 600, height = 50;
+const lightColors = [
+  d3.rgb(255, 224, 146).toString(),
+  d3.rgb(255, 223, 156).toString(),
+  d3.rgb(255, 224, 142).toString(),
+  d3.rgb(255, 224, 137).toString(),
+  d3.rgb(255, 223, 151).toString()
+];
 const  b = {
     w: 125, h: 30, s: 3, t: 10, homeW: 40
   };
@@ -89,7 +96,7 @@ const updateBreadcrumbs = (colors, root) => {
   // Data join; key function combines name and depth (= position in sequence).
   var g = d3.select("#trail")
       .selectAll("g")
-      .data(root, function(d) { return d.name + d.depth; });
+      .data(root, d => { return d.name + d.depth; });
 
   var entering = g.enter().append("svg:g");
   // Add breadcrumb and label for entering nodes.
@@ -97,33 +104,22 @@ const updateBreadcrumbs = (colors, root) => {
 
   entering.append("svg:polygon")
       .attr("points", drawbread)
-      .style("fill", d => {
-        if (d.depth === 0){
-          return homeColor;
-        } else {
-          return findColor(d, colors);
-        }
-        })
-        .style("opacity", d => {
-          if (d.depth === 0) return 0;
+      .style("fill", d => findColor(d, colors))
+      .style("opacity", d => { return (d.depth === 0 ? 0 : 1) })
+      .on("click", d => {handleHover(d); handleClick(d)});
 
-          return 1;
-        })
-        .on("click", d => {handleHover(d); handleClick(d)});
 
-  entering.append("svg:text")
-      .attr("x", d => {
-        return ((d.depth === 0 ? b.homeW : b.w) + b.t) / 2;
-      })
+  entering.append( "svg:text")
+      .attr("x", d => { return ((d.depth === 0 ? b.homeW : b.w) + b.t) / 2; })
       .attr("y", b.h / 2)
-      .attr("dy", "0.35em")
+      .attr("dy", "0.35em" ) 
       .attr("text-anchor", "middle")
-      .attr("fill", d => {
-        if (d.depth === 0) return "black";
-        return "white";
+      .attr("fill", d => 
+      { 
+        return (d.depth === 0 || lightColors.includes(findColor(d, colors).toString())  ? "black" : "white") 
       })
-      .attr("font-family", d => {if (d.depth === 0) return 'FontAwesome'; return  '';})
-      .text(function(d) { 
+      .attr("font-family", d => { return (d.depth === 0 ? "FontAwesome" : ""); })
+      .text( d => { 
         if(d.depth === 0) return '\uf015'; 
         if(d.depth < 3){
           return String(d.name);
@@ -131,9 +127,12 @@ const updateBreadcrumbs = (colors, root) => {
         return String(d.name)
         .substring(0,4)
         .trimRight() + "..." +
-        String(d.name).substr(String(d.name).length-4);})
-        .on("click", d => {handleHover(d); handleClick(d)});
-
+        String(d.name).substr(String(d.name).length-4);
+      })
+      .style("cursor", "pointer")
+      .on("click", d => {handleHover(d); handleClick(d)});
+          
+        
   // Set position for entering and updating nodes.
   g.attr("transform", function(d, i) {
     var trans =  "translate(" + i * (b.w + b.s) + ", 0)";

@@ -1,0 +1,90 @@
+---
+layout: page
+menuname: DTS
+menuorder: 20
+header: DTS
+description: DTS
+banner: landings/federal.jpg
+alt: DTS
+permalink: dts.html
+category: entry
+---
+
+<div class="chart-wrapper" id="chart-line1"></div>
+
+<!--<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/_sass/dts.scss">-->
+<script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+<script src="{{site.baseurl}}/assets/js/dts.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+/*
+  d3.csv('/data-lab-data/dts/test.csv', function(error, data) {
+
+  data.forEach(function (d) {
+      d.year = +d.year;
+      d.variableA = +d.variableA;
+      d.variableB = +d.variableB;
+      d.variableC = +d.variableC;
+      d.variableD = +d.variableD;
+  });
+
+  // read in all the files, then make a new data array that we will actually use.
+
+  // {year: 1980, variableA: 70, variableB: 52, variableC: 145, variableD: 75}
+
+console.log(data);
+
+  // {year: 1981, variableA: 77, variableB: 51, variableC: 156, variableD: 80}
+
+  var chart = makeLineChart(data, 'year', {
+      'Variable A': {column: 'variableA'},
+      'Variable B': {column: 'variableB'},
+      'Variable C': {column: 'variableC'},
+      'Variable D': {column: 'variableD'}
+  }, {xAxis: 'Years', yAxis: 'Amount'});
+  chart.bind("#chart-line1");
+  chart.render();
+
+});
+*/
+
+
+d3.csv('/data-lab-data/dts/dts-health4.csv', function(error, data) {
+  let dateToValues = {};
+
+  data.forEach(function (d) {
+    if (!dateToValues.hasOwnProperty(d.date)) {
+      dateToValues[d.date] = {
+        'Marketplace Payments': null,
+        'Medicaid': null,
+        'Medicare': null,
+        'Medicare Advantage Part C D Payments': null
+      };
+    }
+    
+    dateToValues[d.date][d.name] = +d.amount;
+  });
+
+  let dateToValuesArray = [];
+
+  // { date: '10/1/2014', 'Medicare': 515, 'Medicaid': 1193, 'Advantage': 11 }
+
+  for (let key in dateToValues) {
+    let val = dateToValues[key];
+    val.date = d3.time.format("%Y%m%d").parse(key); // d3.time.format("%m/%d/%y").parse(key); // new Date(key).getTime(); // Math.floor(Math.random() * 10000);
+    dateToValuesArray.push(val);
+  }
+
+  // first create a hashmap mapping from date to values, then afterwards convert it to an array
+
+  var chart = makeLineChart(dateToValuesArray, 'date', {
+      'Marketplace Payments': {column: 'Marketplace Payments'},
+      'Medicaid': {column: 'Medicaid'},
+      'Medicare': {column: 'Medicare'},
+      'Medicare Advantage Part C D Payments': {column: 'Medicare Advantage Part C D Payments'}
+  }, {xAxis: 'Date', yAxis: 'Amount'});
+  chart.bind("#chart-line1");
+  chart.render();
+});
+</script>

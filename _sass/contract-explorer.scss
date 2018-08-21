@@ -1,6 +1,38 @@
 .contract-explorer {
   color: black;
 }
+.radioPad {
+  display: inline-block;
+}
+.radioPad vertical-align middle {
+  height: 20px;
+  width: 33.333333333333336%;
+}
+.radioPad__wrapper {
+  display: block;
+  cursor: pointer;
+  background: #fff;
+  color: #d1d1d1;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin: 0.1rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 2px;
+}
+.radioPad__wrapper:active,
+.radioPad__wrapper--selected {
+  background: #2da4ff !important;
+}
+.radioPad__wrapper:hover {
+  background: #6abfff;
+}
+.radioPad__radio {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
 
 .contract-explorer #legend_scaleKey {
   width: 225px;
@@ -253,11 +285,7 @@
 }
 
 .contract-explorer .sunburst-panel-col .prime-badge {
-  position: absolute;
-  bottom: 0px;
-  right: 15px;
   color: #20A4D5;
-
 }
 
 .contract-explorer .controls {
@@ -284,7 +312,7 @@
   width: 350px; }
 .contract-explorer .react-autosuggest__container {
   position: relative;
-  width: 49%;
+  width: 100%;
 }
 .contract-explorer .react-autosuggest__input {
   padding: 10px 30px;
@@ -293,7 +321,7 @@
   font-size: 16px;
   border: 1px solid #aaa;
   color: black;
-  width: 112%;
+  width: 100%;
   margin-right: -20px;
  }
  .contract-explorer .clear-button {
@@ -367,10 +395,6 @@
 
     .contract-explorer .react-autosuggest__container {
       width: 90%;
-    }
-
-    .contract-explorer #sunburst-panel {
-      margin-top: -80px;
     }
 
     .contract-explorer .subagency-card {

@@ -12,6 +12,9 @@
 @import 'contracts-over-time';
 @import 'universal-banner';
 @import 'tooltip-module';
+@import 'dts';
+
+@import url('css/font-awesome.min.css');
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
 
@@ -742,10 +745,11 @@ header.major h2 {
 	transition: all 0.3s ease;
 	z-index: 1000;
 	opacity: 0.8;
+	cursor: pointer;
 }
 
 #return-to-top:hover .icon-chevron-up {
-    margin-top: 10px;
+		margin-top: 10px;
 }
 
 .resources-icon {
@@ -972,6 +976,51 @@ article > header {
 	width: inherit;
 	height: inherit;
 	fill: inherit;
+}
+
+.playbook-container {
+	width: 800px;
+	margin: 0 5%;
+	background-color: #FFF;
+	padding: 25px;
+
+	h1 {
+		font-size: 38px;
+	}
+
+	a {
+		color: #0000A8;
+		text-decoration: underline;
+	}
+
+	.playbook-projects {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.playbook-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.playbook-image img {
+		width: 400px;
+		height: 300px;
+	}
+
+	.playbook-project {
+		width: 47%;
+	}
+
+	.playbook-indent {
+		margin-left: 50px;
+	}
+
+	.playbook-project-subtext {
+		color: #bbbbbb;
+		font-size: 16px;
+	}
 }
 
 @import 'website/popup';

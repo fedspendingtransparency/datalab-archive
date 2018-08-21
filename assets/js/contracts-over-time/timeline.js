@@ -161,7 +161,7 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
                 .attr("x", d => x(d.parsedDate))
                 .attr("y", d => d.val-(height*.1))
                 .attr("height", (height*.05)+"px")
-                .attr("width",(width*.08)+"px");
+                .attr("width",(width*.085)+"px");
 
             LineChart
               .append("g")
