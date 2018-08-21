@@ -91,17 +91,17 @@ class SunburstContainer extends Component {
     const awardsContractsRecipeintsPromise = axios
       .get("./../../data-lab-data/sunburst/awards_contracts_recipients_.json")
       .then(({ data }) => data);
-    const awardsGrantsPromise =  new Promise(((rec, rej) => {
-        d3.csv('./../../data-lab-data/sunburst/awardsGrants.csv', (err, data) => {
-          if(data) { 
-            rec(data); }
-          else { rej();}
-        })}));
+    // const awardsGrantsPromise =  new Promise(((rec, rej) => {
+    //     d3.csv('./../../data-lab-data/sunburst/awardsGrants.csv', (err, data) => {
+    //       if(data) { 
+    //         rec(data); }
+    //       else { rej();}
+    //     })}));
     
 
     Promise.all([
       awardsContractsPromise,
-      awardsGrantsPromise,
+      //awardsGrantsPromise,
       colorsPromise,
       agenciesPromise,
       subagenciesPromise,
@@ -113,7 +113,7 @@ class SunburstContainer extends Component {
     ]).then(values => {
       const [
         awardsContracts,
-        awardsGrants,
+        //awardsGrants,
         colors,
         agencies,
         subagencies,
@@ -125,13 +125,13 @@ class SunburstContainer extends Component {
       ] = values;
       const currState = this.state;
 
-      Object.keys(agencies).forEach(k => {
-        awardsGrants.forEach(g => {
-          if(g.agen === agencies[k]) {
-            g.agen = parseInt(k);
-          }
-        })
-      });
+      // Object.keys(agencies).forEach(k => {
+      //   awardsGrants.forEach(g => {
+      //     if(g.agen === agencies[k]) {
+      //       g.agen = parseInt(k);
+      //     }
+      //   })
+      // });
 
       const hierarchy = formatDataHierarchy({
         key: "Contracts spending in Fiscal Year 2017",
@@ -153,7 +153,7 @@ class SunburstContainer extends Component {
           unfilteredSearchbarSuggestions: awardsContractsAgencies
           .concat(awardsContractsRecipeints),
           awardsContracts,
-          awardsGrants,
+          //awardsGrants,
           colors,
           agencies,
           subagencies,
@@ -209,14 +209,14 @@ class SunburstContainer extends Component {
    
     const {
       awardsContracts,
-      awardsGrants,
+      //awardsGrants,
       agencies,
       subagencies,
       recipients
     } = this.state.staticData;
 
-    let dataToFilter = dataType === "Contracts" ?
-    awardsContracts : awardsGrants;
+    let dataToFilter =  awardsContracts
+  
 
     let selectedName;
     const { id, depth } = selected;
@@ -392,11 +392,11 @@ class SunburstContainer extends Component {
             searchbarOptionSelected={currentDataType}
             handleSearchbarOptionChange={handleDataTypeChange}
           />
-          <DataToggle
+          {/* <DataToggle
             currentDataType={currentDataType}
             dataTypes={dataTypes}
             handleDataTypeChange={handleDataTypeChange}
-            />
+            /> */}
             <SunburstPanel
               activePanelNode={activePanelNode}
               sunburstFilterByText={sunburstFilterByText}
