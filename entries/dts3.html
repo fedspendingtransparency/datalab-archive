@@ -25,6 +25,8 @@ category: entry
         <span class="checkmark"></span>
       </label>
   </div>
+  <label class="label-popular"><input type="checkbox" name="checkbox" id="checkbox-popular" checked value="value">Condensed</label>
+  <select class="select" id="item-selector"></select>
 </div>
 
 <svg id="svg-wrapper" width="960" height="500"></svg>
@@ -32,22 +34,34 @@ category: entry
 
 <script>
 
-function createSelect(uniqData) {
+var allOptions, condensedOptions;
+
+function addOptions(sel, opt) {
+  sel.selectAll('*').remove();
+  sel
+    .selectAll('option')
+    .data(opt).enter()
+    .append('option')
+    .text(d => d);
+}
+
+function createSelect() {
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
 
-  var select = d3.select('#chooser-wrapper')
-    .append('select')
-    .attr('class', 'select')
-    .attr("id", "item-selector")
-    .on('change', onDataChange)
+  var select = d3.select('#item-selector')
+    .on('change', onDataChange);
 
-  var options = select
-    .selectAll('option')
-    .data(uniqData).enter()
-    .append('option')
-    .text(function(d) {
-      return d;
-    });
+  addOptions(select, condensedOptions);
+
+  d3.select("#checkbox-popular").on('change', function() {
+    if (d3.select("#checkbox-popular").property("checked")) {
+      addOptions(select, condensedOptions);
+    } else {
+      addOptions(select, allOptions);
+    }
+
+    onDataChange();
+  });
 
   function onDataChange() {
     let timeFrameValue = d3.select('input[name="timeframe"]:checked').node().value;
@@ -217,7 +231,7 @@ function createGraph(data) {
     .style("display", "none");
 
   mouseOverDataPoint.append("circle")
-    .attr("r", 3);
+    .attr("r", 4);
 
   var textContainer = d3.select("body").append("div")
     .attr("class", "text-container");
@@ -263,11 +277,13 @@ function createGraph(data) {
     context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
   }
 
+  var parseTimeFormat = d3.timeFormat("%B %d, %Y");
+
   function mouseMove() {
     var x0 = x.invert(d3.mouse(this)[0]),
         i = bisectDate(data, x0, 1),
         d0 = data[i - 1],
-        d1 = data[i],
+        d1 = data[i];
         d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 
     mouseOverDataPoint.select("circle")
@@ -277,8 +293,10 @@ function createGraph(data) {
       .style("left", d3.event.pageX + "px")
       .style("top", (d3.event.pageY) + "px");
 
+    var mouseOverDateText = parseTimeFormat(d.date);
+
     textContainer.select(".amount")
-      .text("Today: $" + d.value);
+      .text(mouseOverDateText + ": $" + d.value);
 
     let timeFrameValue = d3.select('input[name="timeframe"]:checked').node().value;
 
@@ -326,7 +344,10 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   var uniqData = [...new Set(optionsData)];
 
-  createSelect(uniqData);
+  allOptions = uniqData;
+  condensedOptions = uniqData.slice(0, 10);
+
+  createSelect();
 
   // data.sort(function(a, b) { return a.date - b.date; });
 

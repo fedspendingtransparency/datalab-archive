@@ -39,7 +39,7 @@
 
 .text-container {
   position: absolute;
-  width: 150px;
+  width: 300px;
   padding: 5px;
   background: rgb(255, 255, 255);
   color: rgb(51, 51, 51);
@@ -129,4 +129,17 @@
 .radio-timeframe {
   display: flex;
   margin-right: 50px;
+}
+
+.label-popular {
+  margin-right: 5px;
+}
+
+#item-selector {
+  width: 450px;
+}
+
+#checkbox-popular {
+  width: 22px;
+  height: 18px;
 }
