@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
+        nav: './src/nav.js',
         overview: './src/overview/js/overview.js',
         receipts: './src/receipts/sect-1-2/index.js',
         receiptsTrend: './src/receipts/sect-3/index.js',
@@ -20,6 +21,14 @@ module.exports = {
     // plugins: [
     //     new webpack.HotModuleReplacementPlugin()
     // ],
+    plugins: [
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
     output: {
         filename: '[name].js',
         path: __dirname + '/public/assets',
@@ -59,10 +68,4 @@ module.exports = {
             },
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        })
-    ]
 }
