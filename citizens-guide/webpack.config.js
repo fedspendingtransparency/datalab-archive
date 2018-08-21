@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        nav: './src/nav.js',
         overview: './src/overview/js/overview.js',
         receipts: './src/receipts/sect-1-2/index.js',
         receiptsTrend: './src/receipts/sect-3/index.js',

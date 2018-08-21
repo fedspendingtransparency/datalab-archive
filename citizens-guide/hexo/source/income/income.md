@@ -1,7 +1,7 @@
 ---
 title: receipts
 date: 2018-06-29 15:54:40
-permalink: /receipts.html
+permalink: /income.html
 description: This is the text that goes in the meta description tag
 ---
 
