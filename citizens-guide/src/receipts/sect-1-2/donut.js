@@ -7,7 +7,7 @@ var radius = 100;
 
 var arcFn = d3.arc()
     .outerRadius(radius - 10)
-    .innerRadius(radius - 70);
+    .innerRadius(radius - 40);
 
 var pieFn = d3.pie()
     .sort(null)

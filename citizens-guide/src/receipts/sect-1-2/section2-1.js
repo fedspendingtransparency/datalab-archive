@@ -53,6 +53,44 @@ function linkTest() {
         .style('stroke', 'blue')
 }
 
+function showZoomTrigger() {
+    const g = d3.select('svg').append('g')
+        .attr('transform', translator(930, 375))
+
+    g.append('rect')
+        .attr('width', 160)
+        .attr('height', 72)
+        .attr('fill', '#49A5B6')
+        .attr('x', 0)
+        .attr('y', 0)
+
+    g.append('text')
+        .text('zoom to view')
+        .attr('style', 'fill:white')
+        .attr('font-size', 14)
+        .attr('x', 10)
+        .attr('y', 30)
+
+    g.append('text')
+        .text('7 additional categories')
+        .attr('style', 'fill:white')
+        .attr('font-size', 14)
+        .attr('x', 10)
+        .attr('dy', 50)
+
+    g.on('click', function(){
+        g.remove();
+        const c = d3.select('.dot-container');
+
+        c.selectAll('circle').remove();
+        c.selectAll('path').remove();
+
+        c.transition()
+            .duration(1000)
+            .attr('transform', 'scale(15, 1) ' + translator(-940,160))
+    })
+}
+
 function addDetails() {
     const line = d3.line(),
         detailsGroup = dotContainer
@@ -63,7 +101,7 @@ function addDetails() {
         textPosition = 0;
 
     texts = detailsGroup.selectAll('g')
-        .data(data)
+        .data(data.filter((d, i) => i < 4))
         .enter()
         .append('g')
         .attr('transform', function (d, i) {
@@ -111,6 +149,8 @@ function addDetails() {
         .attr('stroke', '#4a4a4a')
         .attr('stroke-width', 1)
         .attr('d', function (d, i) {
+            if (i > 1) { return }
+
             const prev = data.slice(0, i + 2).reduce((accumulator, row, i) => {
                 return accumulator + row[0];
             }, 0),
@@ -128,7 +168,7 @@ function addDetails() {
     detailsGroup.transition()
         .duration(500)
         .attr('opacity', 1)
-        // .on('end', linkTest)
+        .on('end', showZoomTrigger)
         .ease()
 
     section2_2_init(dotContainer);
@@ -144,14 +184,14 @@ function moveBarGroup(d, i) {
 
     dotContainer.transition()
         .duration(1000)
-        .attr('transform', translator(Number(originalTransform[0]), 290 + Number(originalTransform[1])))
+        .attr('transform', translator(Number(originalTransform[0]), 220 + Number(originalTransform[1])))
         .on('end', addDetails)
         .ease()
 }
 
 function addSegments() {
     dotContainer = d3.select('.' + receiptsConstants.dotContainerClass),
-    incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
+        incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
 
     const shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
 
@@ -206,5 +246,14 @@ function reset() {
 }
 
 export function section2_1() {
-    reset();
+    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass),
+        prevTransform = dotContainer.attr('transform').slice(0, 20);
+
+    d3.selectAll('.gdp-legend').remove();
+    d3.selectAll('.box-group').remove();
+
+    dotContainer.transition()
+        .duration(1000)
+        .attr('transform', prevTransform)
+        .on('end', reset);
 }
