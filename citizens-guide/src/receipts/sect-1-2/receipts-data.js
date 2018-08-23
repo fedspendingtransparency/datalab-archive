@@ -23,10 +23,6 @@ function simplifyValue(n) {
     // }
 }
 
-function mergeCategories(categories) {
-
-}
-
 export function getSubCategoriesByYear(column) {
     const obj = {
         categories: {},

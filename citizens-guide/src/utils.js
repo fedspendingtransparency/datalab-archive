@@ -113,6 +113,11 @@ export function initDropShadow() {
         .attr('flood-opacity', 0.2)
 }
 
-export function fractionToPercent(n) {
-    return parseInt(n * 100) + '%';
+export function fractionToPercent(n, precision) {
+    if (!precision) {
+        return parseInt(n * 100) + '%';
+    }
+
+    // TODO: handle precision
+    console.warn('need to handle precision')
 }

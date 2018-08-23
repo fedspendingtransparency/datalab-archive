@@ -5,7 +5,7 @@ import { line } from 'd3-shape';
 import { min } from 'd3-array';
 import { easeCubicOut as connectorEase } from 'd3-ease';
 import { dotFactory, receiptsConstants } from './receipts-utils';
-import { getElementBox, translator, getTransform, establishContainer } from '../../utils';
+import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../utils';
 import { getData } from './section2-data';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
@@ -25,6 +25,7 @@ let resolver,
     connectors,
     clearance,
     yOffset,
+    parentRect,
     dotContainerBox;
 
 function printCoords(coords, shift) {
@@ -37,10 +38,10 @@ function setDomain() {
     const domain = [0, 0];
 
     data.forEach(row => {
-        if (row.percent < 0) {
-            domain[0] += row.percent;
+        if (row.percent_total < 0) {
+            domain[0] += row.percent_total;
         } else {
-            domain[1] += row.percent;
+            domain[1] += row.percent_total;
         }
     })
 
@@ -49,13 +50,10 @@ function setDomain() {
 
 function setScales() {
     const xOffset = getTransform(dotContainer).x,
-        selectedSourceBox = d3.selectAll('.' + receiptsConstants.shaderContainerClass + ' rect').filter((d, i) => {
-            return (currentDetailIndex === i)
-        }),
         domain = setDomain();
 
-    sourceBox.left = Number(selectedSourceBox.attr('x')) + xOffset;
-    sourceBox.right = sourceBox.left + Number(selectedSourceBox.attr('width'));
+    sourceBox.left = Number(parentRect.attr('x')) + xOffset;
+    sourceBox.right = sourceBox.left + Number(parentRect.attr('width'));
 
     x = d3.scaleLinear()
         .domain(domain)
@@ -176,14 +174,14 @@ function addText() {
 
     texts.append('tspan')
         .text(function (d) {
-            return d.percentStr;
+            return d.percent_total + '%';
         })
         .attr('x', 0)
         .attr('dy', 20)
 
     texts.append('tspan')
         .text(function (d) {
-            return d.name;
+            return d.sub_activity;
         })
         .attr('x', 0)
         .attr('dy', 20)
@@ -191,7 +189,7 @@ function addText() {
 
     texts.append('tspan')
         .text(function (d) {
-            return d.valueStr;
+            return simplifyNumber(d.amount);
         })
         .attr('x', 0)
         .attr('dy', 20)
@@ -215,7 +213,7 @@ function renderDetailBoxes() {
         .append('rect')
         .attr('height', detailBoxHeight)
         .attr('fill', function (d) {
-            return (d.percent < 0) ? 'rgba(227,28,61,0.3)' : 'rgba(46,133,64,0.5)'
+            return (d.percent_total < 0) ? 'rgba(227,28,61,0.3)' : 'rgba(46,133,64,0.5)'
         })
         .attr('stroke', 'white')
         .attr('stroke-width', 2)
@@ -271,7 +269,7 @@ function renderDetailContainer() {
 }
 
 function transitionDetailContainer() {
-    const yPos = receiptsConstants.headingHeight + dotContainerBox.height,
+    const yPos = 360,
         width = sourceBox.right - sourceBox.left,
         initialSubcategoryScaleFactor = width / 1200;
 
@@ -307,13 +305,15 @@ export function section2_2_init(_dotContainer) {
     resolver();
 }
 
-export function showDetail(i) {
-    currentDetailIndex = i;
-    data = getData(i);
+export function showDetail(d) {
+    data = d.subcategories;
+    parentRect = d3.select(this);
 
     if (dotContainer) {
-        renderDetail()
+        renderDetail(d)
     } else {
-        waitForReady.then(renderDetail)
+        waitForReady.then(function(){
+            renderDetail(d);
+        })
     }
 };
