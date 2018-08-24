@@ -11,9 +11,6 @@ const d3 = { select, selectAll, line },
         return i < 3;
     });
 
-console.log(categoryData);
-
-
 let dotContainer,
     incomeContainer,
     dotBoxSize,
