@@ -20,6 +20,7 @@ let resolver,
     detailContainer,
     currentDetailIndex,
     data,
+    indexed,
     x,
     x0,
     connectors,
@@ -299,14 +300,15 @@ let waitForReady = new Promise(resolve => {
     resolver = resolve;
 })
 
-export function section2_2_init(_dotContainer) {
+export function section2_2_init(_dotContainer, _indexed) {
     dotContainer = _dotContainer;
+    indexed = _indexed;
 
     resolver();
 }
 
 export function showDetail(d) {
-    data = d.subcategories;
+    data = indexed[d.key].subcategories;
     parentRect = d3.select(this);
 
     if (dotContainer) {

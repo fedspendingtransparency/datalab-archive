@@ -1,5 +1,4 @@
 import CategoryData from '../../../public/csv/receipts.csv';
-// import { getSubCategoriesByYear } from './receipts-data';
 import { max } from 'd3-array';
 
 const d3 = { max };

@@ -25,19 +25,6 @@ function proceed() {
     }
 }
 
-function fastForward() {
-    proceed();
-
-    counter += 1;
-
-    setTimeout(() => {
-        if (counter < max) {
-            fastForward();
-        }
-    }, 1000)
-}
-
-
 function onWheel(){
     if (debounce) {
         clearTimeout(debounce);
@@ -51,4 +38,7 @@ section1_1();
 // window.addEventListener('wheel', onWheel);
 window.addEventListener('click', proceed);
 
-//fastForward();
+setTimeout(proceed, 100)
+setTimeout(proceed, 400)
+
+

@@ -1,15 +1,22 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
+import { scaleLinear } from 'd3-scale';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { receiptsConstants } from './receipts-utils';
 import { section2_2_init, showDetail } from './section2-2';
 import { getDataByYear } from './section2-data';
+import { stack } from 'd3-shape';
 
-const d3 = { select, selectAll, line },
+const d3 = { select, selectAll, line, scaleLinear, stack },
     categoryData = getDataByYear(2017),
-    topCategories = categoryData.filter((d, i) => {
-        return i < 3;
-    });
+    indexed = categoryData.reduce((a, c) => {
+        a[c.activity] = c;
+        return a;
+    }, {}),
+    topCategories = categoryData.slice(0, 3),
+    moreCategories = categoryData.slice(3, categoryData.length),
+    totalAmount = categoryData.reduce((a, c) => a += c.amount, 0),
+    moreAmount = moreCategories.reduce((a, c) => a += c.amount, 0);
 
 let dotContainer,
     incomeContainer,
@@ -130,7 +137,7 @@ function addDetails() {
         .on('end', showZoomTrigger)
         .ease()
 
-    section2_2_init(dotContainer);
+    section2_2_init(dotContainer, indexed);
 }
 
 function moveBarGroup(d, i) {
@@ -144,10 +151,29 @@ function moveBarGroup(d, i) {
         .ease()
 }
 
+function buildStack(data) {
+    const keys = data.map(r => r.activity);
+
+    let reduced;
+
+    keys.push('more');
+
+    reduced = keys.reduce((a, c, i) => {
+        a[c] = (c === 'more') ? moreAmount : data[i].amount;
+        return a;
+    }, {});
+
+    return d3.stack()
+        .keys(keys)([reduced]);
+}
+
 function addSegments() {
+    const series = buildStack(topCategories);
+
     const duration = 1000;
 
     let shaderContainer,
+        xScale,
         accumulator = 0;
 
     dotContainer = d3.select('.' + receiptsConstants.dotContainerClass);
@@ -157,20 +183,22 @@ function addSegments() {
     dotBoxSize = getElementBox(dotContainer);
     incomeContainerSize = getElementBox(incomeContainer);
 
+    xScale = d3.scaleLinear()
+        .range([0, dotBoxSize.width])
+        .domain([0, totalAmount]);
+
     shaderContainer.selectAll('rect')
-        .data(topCategories)
+        .data(series)
         .enter()
         .append('rect')
         .attr('x', function (d) {
-            const x = accumulator;
-
-            accumulator += widthCalculator(d.percent_total);
-
-            return x;
+            return xScale(d[0][0])
         })
         .attr('y', -2)
         .attr('width', function (d) {
-            return widthCalculator(d.percent_total);
+            const amount = (d.key === 'more') ? moreAmount : indexed[d.key].amount;
+
+            return xScale(amount);
         })
         .attr('height', incomeContainerSize.height + 5)
         .attr('fill', '#49A5B6')
