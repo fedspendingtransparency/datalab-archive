@@ -1,8 +1,8 @@
 import { establishContainer, initDropShadow } from '../../utils';
 import { trendView } from './trendView';
-import { getSummary } from './trendData';
+import { trendData } from './trendData';
 
-const data = getSummary(),
+const data = trendData(),
     svg = establishContainer();
 
 svg.attr('height', 1200);

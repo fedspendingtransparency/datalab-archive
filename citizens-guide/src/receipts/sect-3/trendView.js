@@ -212,14 +212,13 @@ export function trendView(_data, container, config) {
 
     let chartXTranslate;
 
-
     globals.height = globals.height || 650;
     globals.width = globals.width || 300;
     globals.labelWidth = 200;
     globals.labelPadding = 60;
     globals.zoomThreshold = 200000000000;
-    globals.zoomState = 'out',
-    globals.data = processDataForChart(_data);
+    globals.zoomState = 'out';
+    globals.data = _data;
     globals.chart = container
         .append('g')
         .classed('trend-chart', true);
@@ -245,7 +244,7 @@ export function trendView(_data, container, config) {
         globals.labelGroups
             .attr('style', 'cursor:pointer')
             .on('click', function (d) {
-                showDetail(d.name, globals.y(d.values[d.values.length - 1].amount) + 48)
+                showDetail(d.subcategories, globals.y(d.values[d.values.length - 1].amount) + 48)
             })
             .on('mouseover', setLabelActive)
             .on('mouseout', setLabelInactive);

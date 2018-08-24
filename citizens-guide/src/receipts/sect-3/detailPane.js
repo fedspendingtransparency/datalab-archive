@@ -1,7 +1,6 @@
 import '../sass/income/detail-pane.scss';
 import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
-import { getByCategory } from './trendData';
 import { trendView } from './trendView';
 
 const d3 = { select };
@@ -9,8 +8,7 @@ const d3 = { select };
 const svg = establishContainer(),
     h = 600;
 
-let data,
-    pane,
+let pane,
     callout,
     chartContainer,
     container;
@@ -58,7 +56,7 @@ function modifyRect(sourceY, height) {
     }
 }
 
-function init(sourceY) {
+function init(data, sourceY) {
     const config = {
         height: h,
         width: 240,
@@ -95,16 +93,14 @@ export function destroyDetailPane() {
         })
 }
 
-export function showDetail(name, sourceY) {
-    data = getByCategory(name);
-
+export function showDetail(data, sourceY) {
     if (container) {
         chartContainer.transition()
             .duration(300)
             .attr('opacity', 0)
             .on('end', function () {
                 chartContainer.selectAll('*').remove();
-                init(sourceY);
+                init(data, sourceY);
             })
     } else {
         container = svg.append('g').attr('transform', translator(635, 5));
@@ -112,6 +108,6 @@ export function showDetail(name, sourceY) {
 
         container.lower();
 
-        init(sourceY);
+        init(data, sourceY);
     }
 }
