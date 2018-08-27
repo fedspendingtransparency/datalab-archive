@@ -1,8 +1,9 @@
 import { select } from 'd3-selection';
 import { createDonut } from './donut';
-import { getElementBox, translator } from '../../utils';
+import { getElementBox, translator, simplifyNumber, fractionToPercent } from '../../utils';
 import { receiptsConstants } from './receipts-utils';
 import { establishContainer } from '../../utils';
+import { sectionOneData } from './section1-data';
 
 const d3 = { select },
     boxHeight = 100,
@@ -81,7 +82,7 @@ function buildRoundedRectangle(container) {
         .attr('width', boxWidth)
         .attr('height', boxHeight)
         .attr('fill', 'white')
-        .attr('stroke', 'none')
+        .attr('stroke', '#ddd');
 }
 
 function createBoxOne() {
@@ -110,7 +111,7 @@ function createBoxOne() {
     text
         .append('tspan')
         .style('font-weight', 'bold')
-        .text('$19.6 Trillion')
+        .text(simplifyNumber(sectionOneData.gdp))
 }
 
 function createBoxTwo() {
@@ -145,7 +146,7 @@ function createBoxTwo() {
         .attr('x', boxMargin.side + 70)
         .attr('dy', 30)
         .style('font-weight', 'bold')
-        .text('17.4 % of Gross Domestic Product.')
+        .text(fractionToPercent(sectionOneData.receipts_gdp) + ' of Gross Domestic Product.')
 
 }
 
@@ -189,11 +190,35 @@ function createBoxThree() {
         .text('Cateogories')
 }
 
+function placeContinue() {
+    // boxThree.append('text')
+    //     .attr('transform', translator(350, 70))
+    //     .text('continue >>');
+
+    const g = boxThree.append('g')
+        .attr('class', 'continue-button')
+        .attr('transform', translator(350, 50))
+
+    g.append('circle')
+        .attr('r', 20)
+        .attr('fill', '#49A5B6')
+        .attr('cx', 20)
+        .attr('cy', 20)
+
+    g.append('polygon')
+        .attr('fill', 'white')
+        .attr('points', '14,10 28,20 14,30')
+}
+
 export function section1_3() {
+    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass),
+        dotsRect = getElementBox(dotContainer);
+
     svg = establishContainer();
+
     boxGroup = svg.append('g')
-        .classed('reset', true)
-        .attr('transform', translator(600 - (boxWidth / 2), 100))
+        .classed('reset box-group', true)
+        .attr('transform', translator(dotsRect.right + 110, 65))
         .attr('opacity', 0);
 
     boxGroup.transition()
@@ -205,14 +230,17 @@ export function section1_3() {
     createBoxTwo();
     createBoxThree();
 
-    setTimeout(setActive, 500, 1);
+    setTimeout(setActive, 1, 1);
+    setTimeout(setActive, 1500, 2);
+    setTimeout(setActive, 3000, 3);
+    setTimeout(placeContinue, 3500)
 
-    return [
-        function(){
-            setActive(2);
-        },
-        function(){
-            setActive(3);
-        }
-    ];
+    // return [
+    //     function () {
+    //         setActive(2);
+    //     },
+    //     function () {
+    //         setActive(3);
+    //     }
+    // ];
 }

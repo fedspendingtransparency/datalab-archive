@@ -10,42 +10,23 @@ permalink: dts3.html
 category: entry
 ---
 
-<style>
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.zoom {
-  cursor: move;
-  fill: none;
-  pointer-events: all;
-}
-
-#svg-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.grid line {
-  stroke: lightgrey;
-  stroke-opacity: 0.35;
-  shape-rendering: crispEdges;
-}
-
-.grid path {
-  stroke-width: 0;
-}
-</style>
-
 <div id="chooser-wrapper">
-  <select id="select-timeframe">
-    <option value="today">today</option>
-    <option value="mtd">mtd</option>
-    <option value="fytd">fytd</option>
-  </select>
+  <div class="radio-timeframe">
+    <label class="radio-container">Today
+        <input type="radio" checked="checked" name="timeframe" value="today">
+        <span class="checkmark"></span>
+      </label>
+      <label class="radio-container">MTD
+        <input type="radio" name="timeframe" value="mtd">
+        <span class="checkmark"></span>
+      </label>
+      <label class="radio-container">FYTD
+        <input type="radio" name="timeframe" value="fytd">
+        <span class="checkmark"></span>
+      </label>
+  </div>
+  <label class="label-popular"><input type="checkbox" name="checkbox" id="checkbox-popular" checked value="value">Condensed</label>
+  <select class="select" id="item-selector"></select>
 </div>
 
 <svg id="svg-wrapper" width="960" height="500"></svg>
@@ -53,26 +34,37 @@ category: entry
 
 <script>
 
-function createSelect(uniqData) {
-  var timeFrameSelect = d3.select('#select-timeframe')
+var allOptions, condensedOptions;
+
+function addOptions(sel, opt) {
+  sel.selectAll('*').remove();
+  sel
+    .selectAll('option')
+    .data(opt).enter()
+    .append('option')
+    .text(d => d);
+}
+
+function createSelect() {
+  d3.selectAll("input[name='timeframe']").on("change", onDataChange);
+
+  var select = d3.select('#item-selector')
     .on('change', onDataChange);
 
-  var select = d3.select('#chooser-wrapper')
-    .append('select')
-    .attr('class', 'select')
-    .attr("id", "item-selector")
-    .on('change', onDataChange)
+  addOptions(select, condensedOptions);
 
-  var options = select
-    .selectAll('option')
-    .data(uniqData).enter()
-    .append('option')
-    .text(function(d) {
-      return d;
-    });
+  d3.select("#checkbox-popular").on('change', function() {
+    if (d3.select("#checkbox-popular").property("checked")) {
+      addOptions(select, condensedOptions);
+    } else {
+      addOptions(select, allOptions);
+    }
+
+    onDataChange();
+  });
 
   function onDataChange() {
-    let timeFrameValue = d3.select('#select-timeframe').property('value');
+    let timeFrameValue = d3.select('input[name="timeframe"]:checked').node().value;
     let selectValue = d3.select('#item-selector').property('value');
 
     createGraph(optionsDict[selectValue][timeFrameValue]);
@@ -96,7 +88,8 @@ var svg = d3.select("#svg-wrapper"),
   height = +svg.attr("height") - margin.top - margin.bottom,
   height2 = +svg.attr("height") - margin2.top - margin2.bottom;
 
-var parseDate = d3.timeParse("%d-%b-%y");
+var parseDate = d3.timeParse("%-m/%-d/%y");
+var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 var x = d3.scaleTime().range([0, width]),
   x2 = d3.scaleTime().range([0, width]),
@@ -107,20 +100,22 @@ var xAxis = d3.axisBottom(x),
   xAxis2 = d3.axisBottom(x2),
   yAxis = d3.axisLeft(y);
 
-// gridlines in x axis function
 function makeXGridLines() {		
   return d3.axisBottom(x);
 }
 
-// gridlines in y axis function
 function makeYGridLines() {		
   return d3.axisLeft(y);
 }
 
 var optionsDict;
 
+var firstTime = true;
+
 function createGraph(data) {
-  d3.select("#svg-wrapper").selectAll("*").remove();
+  var allSvgChildren = d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)"); // ignore the-axes
+
+  allSvgChildren.remove();
 
   var brush = d3.brushX()
     .extent([
@@ -157,6 +152,41 @@ function createGraph(data) {
       return y2(d.value);
     });
 
+    var focus = svg.append("g")
+      .attr("class", "focus")
+      .attr("id", "the-axes")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var context = svg.append("g")
+      .attr("class", "context")
+      .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+    x.domain(d3.extent(data, function(d) {
+      return d.date;
+    }));
+    y.domain([0, d3.max(data, function(d) {
+      return d.value;
+    })]);
+    x2.domain(x.domain());
+    y2.domain(y.domain());
+
+    if (firstTime) {
+      focus.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+      focus.append("g")
+        .attr("class", "axis axis--y")
+        .call(yAxis);
+
+        firstTime = false;
+    } else {
+      d3.select(".axis--x").transition().duration(1500).call(xAxis);
+      d3.select(".axis--y").transition().duration(1500).call(yAxis);
+    }
+
+
 
   // add the X gridlines
   svg.append("g")			
@@ -167,7 +197,6 @@ function createGraph(data) {
         .tickFormat("")
     );
 
-  // these are the ones messed up
   // add the Y gridlines
   svg.append("g")			
     .attr("class", "grid y-grid")
@@ -190,32 +219,6 @@ function createGraph(data) {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .attr("clip-path", "url(#clip)");
 
-  var focus = svg.append("g")
-    .attr("class", "focus")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  var context = svg.append("g")
-    .attr("class", "context")
-    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-
-  x.domain(d3.extent(data, function(d) {
-    return d.date;
-  }));
-  y.domain([0, d3.max(data, function(d) {
-    return d.value;
-  })]);
-  x2.domain(x.domain());
-  y2.domain(y.domain());
-
-  focus.append("g")
-    .attr("class", "axis axis--x")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-  focus.append("g")
-    .attr("class", "axis axis--y")
-    .call(yAxis);
-
   lineChart.append("path")
     .datum(data)
     .attr("class", "line")
@@ -236,21 +239,44 @@ function createGraph(data) {
     .call(brush)
     .call(brush.move, x.range());
 
+  var mouseOverDataPoint = svg.append("g")
+    .attr("class", "mouse-over-data-point")
+    .style("display", "none");
+
+  mouseOverDataPoint.append("circle")
+    .attr("r", 4);
+
+  var textContainer = d3.select("body").append("div")
+    .attr("class", "text-container");
+
+  textContainer.append("div")
+    .attr("class", "amount");
+
+  textContainer.append("div")
+    .attr("class", "timeframe");
+
   svg.append("rect")
     .attr("class", "zoom")
     .attr("width", width)
     .attr("height", height)
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .on("mouseover", function() { textContainer.style("display", null); mouseOverDataPoint.style("display", null); })
+    .on("mouseout", function() { textContainer.style("display", "none"); mouseOverDataPoint.style("display", "none"); })
+    .on("mousemove", mouseMove)
     .call(zoom);
+
+  function adjustLines() {
+    lineChart.select(".line").attr("d", line);
+    focus.select(".axis--x").call(xAxis);
+    svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
+    svg.select(".y-grid").call(makeYGridLines().tickSize(-width).tickFormat(""));
+  }
 
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     var s = d3.event.selection || x2.range();
     x.domain(s.map(x2.invert, x2));
-    lineChart.select(".line").attr("d", line);
-    focus.select(".axis--x").call(xAxis);
-    svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
-    svg.select(".y-grid").call(makeYGridLines().tickSize(-width).tickFormat(""));
+    adjustLines();
     svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
       .scale(width / (s[1] - s[0]))
       .translate(-s[0], 0));
@@ -260,53 +286,70 @@ function createGraph(data) {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
     var t = d3.event.transform;
     x.domain(t.rescaleX(x2).domain());
-    lineChart.select(".line").attr("d", line);
-    focus.select(".axis--x").call(xAxis);
-    svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
-    svg.select(".y-grid").call(makeYGridLines().tickSize(-width).tickFormat(""));
+    adjustLines();
     context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+  }
+
+  var parseTimeFormat = d3.timeFormat("%B %d, %Y");
+
+  function mouseMove() {
+    var x0 = x.invert(d3.mouse(this)[0]),
+        i = bisectDate(data, x0, 1),
+        d0 = data[i - 1],
+        d1 = data[i];
+        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+    mouseOverDataPoint.select("circle")
+      .attr("transform", "translate(" + (margin.left + x(d.date)) + "," + (margin.top + y(d.value)) + ")");
+
+    textContainer
+      .style("left", d3.event.pageX + "px")
+      .style("top", (d3.event.pageY) + "px");
+
+    var mouseOverDateText = parseTimeFormat(d.date);
+
+    textContainer.select(".amount")
+      .text(mouseOverDateText + ": $" + d.value);
+
+    let timeFrameValue = d3.select('input[name="timeframe"]:checked').node().value;
+
+    textContainer.select(".timeframe")
+      .text("(" + timeFrameValue + " amount)");
   }
 }
 
-d3.csv("/data-lab-data/dts/dts-full.csv", type, function(error, data) {
+d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   if (error) throw error;
 
   var optionsData = [];
 
   optionsDict = {};
 
-  var i = 0;
-
   data.forEach(function(d) {
-    if (i % 500 === 0) {
-      //console.log(parseDate(d.date));
-    }
-
-    i++;
     //d.date = parseDate(d.date);
     d.today = +d.today;
     d.mtd = +d.mtd;
     d.fytd = +d.fytd;
 
-    optionsData.push(d.item);
+    optionsData.push(d.item_raw);
 
-    if (!optionsDict.hasOwnProperty(d.item)) {
-      optionsDict[d.item] = {
+    if (!optionsDict.hasOwnProperty(d.item_raw)) {
+      optionsDict[d.item_raw] = {
         today: [],
         mtd: [],
         fytd: []
       };
     }
 
-    optionsDict[d.item]['today'].push({
+    optionsDict[d.item_raw]['today'].push({
       date: d.date,
       value: d.today 
     });
-    optionsDict[d.item]['mtd'].push({
+    optionsDict[d.item_raw]['mtd'].push({
       date: d.date,
       value: d.mtd
     });
-    optionsDict[d.item]['fytd'].push({
+    optionsDict[d.item_raw]['fytd'].push({
       date: d.date,
       value: d.fytd
     });
@@ -314,11 +357,12 @@ d3.csv("/data-lab-data/dts/dts-full.csv", type, function(error, data) {
 
   var uniqData = [...new Set(optionsData)];
 
-  createSelect(uniqData);
+  allOptions = uniqData;
+  condensedOptions = uniqData.slice(0, 10);
 
-  //data.sort(function(a, b) {
-  //  return a.date - b.date;
-  //});
+  createSelect();
+
+  // data.sort(function(a, b) { return a.date - b.date; });
 
   createGraph(optionsDict["Medicaid"].today);
 });

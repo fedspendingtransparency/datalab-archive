@@ -1,3 +1,4 @@
+import './selectCountry.scss';
 import CountryData from '../../../public/csv/income-country-comparison.csv';
 import { prepareData } from './data';
 import { establishContainer } from '../../utils';

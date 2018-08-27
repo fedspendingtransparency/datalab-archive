@@ -1,8 +1,9 @@
 import { select } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { getElementBox, translator } from '../../utils';
+import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { dotFactory, receiptsConstants, dotPositionAccessor } from './receipts-utils';
 import { establishContainer } from '../../utils';
+import { sectionOneData } from './section1-data';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,
@@ -43,6 +44,7 @@ function setIncomeDots() {
 
 function buildHeader() {
     const text = svg.append('text')
+        .attr('class', 'total-gov-revenue')
         .attr('text-anchor', 'middle')
         .style('font-size', '18px')
     
@@ -54,7 +56,7 @@ function buildHeader() {
         .attr('transform', 'translate(0, 20)')
     
     text.append('tspan')
-        .text('$3.4 T')
+        .text(simplifyNumber(sectionOneData.receipts))
         .attr('y', 40)
         .attr('x', 600)
 }
@@ -94,10 +96,27 @@ function setDotContainer() {
         .attr('transform', translator(xOffset,receiptsConstants.headingHeight));
 }
 
+function placeContinue(){
+    const g = svg.append('g')
+        .attr('class', 'continue-button')
+        .attr('transform', translator(550, 230))
+    
+    g.append('circle')
+        .attr('r', 20)
+        .attr('fill', '#49A5B6')
+        .attr('cx', 20)
+        .attr('cy', 20)
+
+    g.append('polygon')
+        .attr('fill', 'white')
+        .attr('points', '14,10 28,20 14,30')
+}
+
 export function section1_1() {
     svg = establishContainer();
     buildHeader();
     setDotContainer();
     setIncomeDots();
     buildLegend();
+    setTimeout(placeContinue, 800)
 }

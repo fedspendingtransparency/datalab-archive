@@ -50,6 +50,15 @@ export function setLabelInactive() {
     pendingInactive = setTimeout(_setInactive, 200, g);
 }
 
+function sortByFirstYear(a, b){
+    a = a.values[0].amount;
+    b = b.values[0].amount;
+
+    if (a > b) { return -1 }
+    if (a < b) { return 1 }
+    return 0;
+}
+
 export function placeLabels(globals) {
     const labelContainer = globals.chart.append('g')
         .classed('labels', true);
@@ -57,7 +66,7 @@ export function placeLabels(globals) {
     let runningY = 0
 
     globals.labelGroups = labelContainer.selectAll('g')
-        .data(globals.data)
+        .data(globals.data.sort(sortByFirstYear))
         .enter()
         .append('g')
         .attr('opacity', function (d) {
@@ -124,7 +133,7 @@ export function placeLabels(globals) {
         const box = getElementBox(d3.select(this));
 
         let yTranslate;
-        
+
         d.y0 = globals.y(d.values[0].amount);
         d.y1 = globals.y(d.values[d.values.length-1].amount);
         

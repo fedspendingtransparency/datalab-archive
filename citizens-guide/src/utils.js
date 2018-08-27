@@ -66,7 +66,7 @@ export function simplifyNumber(n) {
         letter = 'B';
     }
 
-    return `$${Math.round(n / simplifier * 10) / 10} ${letter}`;    
+    return `$${Math.round(n / simplifier * 10) / 10} ${letter}`;
 }
 
 export function wordWrap(text, maxWidth) {
@@ -101,14 +101,23 @@ export function wordWrap(text, maxWidth) {
     }
 }
 
-export function initDropShadow(){
- const svg = establishContainer(),
-    filter = svg.append('defs').append('filter')
-        .attr('id', 'drop1')
+export function initDropShadow() {
+    const svg = establishContainer(),
+        filter = svg.append('defs').append('filter')
+            .attr('id', 'drop1')
 
     filter.append('feDropShadow')
         .attr('dx', 0)
         .attr('dy', 0)
         .attr('stdDeviation', 5)
         .attr('flood-opacity', 0.2)
+}
+
+export function fractionToPercent(n, precision) {
+    if (!precision) {
+        return parseInt(n * 100) + '%';
+    }
+
+    // TODO: handle precision
+    console.warn('need to handle precision')
 }

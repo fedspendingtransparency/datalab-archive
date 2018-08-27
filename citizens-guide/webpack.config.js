@@ -20,6 +20,14 @@ module.exports = {
     // plugins: [
     //     new webpack.HotModuleReplacementPlugin()
     // ],
+    plugins: [
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
     output: {
         filename: '[name].js',
         path: __dirname + '/public/assets',
@@ -59,10 +67,4 @@ module.exports = {
             },
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        })
-    ]
 }

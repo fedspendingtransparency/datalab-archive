@@ -6,26 +6,26 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
         <link rel="stylesheet" href="assets/normalize.css">
         <link rel="stylesheet" href="assets/cg.css">
+        <link rel="stylesheet" href="assets/nav/nav.css">
     </head>
-<body>
-    <h1 id="Citizen’s-Guide"><a href="#Citizen’s-Guide" class="headerlink" title="Citizen’s Guide"></a>Citizen’s Guide</h1><p>This is the overview Page</p>
-
-    future nav component
-<nav>
-    <ul>
-        <li><a href="./">big picture</a></li>
+    <body>
+        <nav class="site-nav">
+    <img src="assets/nav/income.svg" class="site-nav__section-icon" alt="" role="presentation">
+    <ul class="site-nav__primary-list">
         <li>
-            <a href="./receipts.html">Income Sections I & II</a>
-            <ul>
-                <li><a href="./income-source-category-trend.html">Section III: Source Category Trend</a></li>
-                <li><a href="./income-country-comparison.html">Section IV: Country Comprarison</a></li>
+            <a href="./income.html" class="site-nav__section-heading">Income</a>
+            <ul class="site-nav__secondary-list">
+                <li><a href="./income.html">Federal Income and GDP</a></li>
+                <li><a href="./income.html?categories">Income Categories</a></li>
+                <li><a href="./income-source-category-trend.html">Trends Over Time</a></li>
+                <li><a href="./income-country-comparison.html">Country Comprarison</a></li>
             </ul>
         </li>
-        <li><a href="./outlays.html">outlays</a></li>
-        <li><a href="./deficit.html">deficit</a></li>
-        <li><a href="./debt.html">debt</a></li>
     </ul>
 </nav>
+        <h1 id="Citizen’s-Guide"><a href="#Citizen’s-Guide" class="headerlink" title="Citizen’s Guide"></a>Citizen’s Guide</h1><p>This is the overview Page</p>
+
+        <script src="assets/nav/nav.js"></script>
 </body>
 
 </html>

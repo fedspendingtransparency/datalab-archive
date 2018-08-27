@@ -1,11 +1,13 @@
-import { select, create } from 'd3-selection';
+import { select, selectAll, create } from 'd3-selection';
 import { line } from 'd3-shape';
-import { getElementBox, translator } from '../../utils';
+import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { dotFactory, receiptsConstants, dotPositionAccessor } from './receipts-utils';
 import { establishContainer } from '../../utils';
 import { showDetail } from './section2-2';
+import { section1_3 } from './section1-3';
+import { sectionOneData } from './section1-data';
 
-const d3 = { select, line, create };
+const d3 = { select, selectAll, line, create };
 let svg, dotContainer;
 
 function addLegend() {
@@ -22,13 +24,14 @@ function addLegend() {
             { x: 3, y: height },
             { x: 0, y: height }
         ],
+        dotsRect = getElementBox(dotContainer),
         text = legendBox.append('text')
             .classed('reset', true)
             .attr('text-anchor', 'middle')
             .attr('y', height / 2)
-            .style('font-size', '18px')
+            .style('font-size', '18px');
 
-    legendBox.attr('transform', translator(1200 - margin + 5, receiptsConstants.headingHeight))
+    legendBox.attr('transform', translator(505, receiptsConstants.headingHeight))
 
     legendBox.append('path')
         .classed('reset', true)
@@ -44,7 +47,7 @@ function addLegend() {
         .attr('dy', -20)
 
     text.append('tspan')
-        .text('$19.4 T')
+        .text(simplifyNumber(sectionOneData.gdp))
         .attr('x', 45)
         .attr('dy', 20)
 }
@@ -114,17 +117,41 @@ function setGdpDots() {
     gdpContainer.transition()
         .duration(1000)
         .attr('transform', 'scale(1)')
-        .on('end', addLegend)
         .ease();
+}
+
+function zoomOutDots() {
+    const prevTransform = dotContainer.attr('transform'),
+        zoomDuration = 2000,
+        title = d3.select('.total-gov-revenue');
+
+    title.transition()
+        .duration(500)
+        .attr('opacity', 0)
+        .on('end', function(){
+            title.remove()
+        })
+        .ease();
+
+    dotContainer.transition()
+        .duration(zoomDuration)
+        .attr('transform', prevTransform + ' scale(0.4)')
+        .on('end', addLegend)
+        .ease()
 }
 
 export function section1_2() {
     svg = establishContainer();
+
+    d3.selectAll('.continue-button').remove();
 
     svg.transition()
         .duration(200)
         .attr('height', '1000px')
 
     dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass)
+    zoomOutDots();
     setGdpDots();
+
+    setTimeout(section1_3, 3000);
 }
