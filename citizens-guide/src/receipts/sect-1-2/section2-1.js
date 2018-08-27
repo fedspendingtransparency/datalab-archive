@@ -13,13 +13,16 @@ const d3 = { select, selectAll, line, scaleLinear, stack },
         a[c.activity] = c;
         return a;
     }, {}),
+    xScale = d3.scaleLinear(),
     topCategories = categoryData.slice(0, 3),
     moreCategories = categoryData.slice(3, categoryData.length),
     totalAmount = categoryData.reduce((a, c) => a += c.amount, 0),
+    topAmount = topCategories.reduce((a, c) => a += c.amount, 0),
     moreAmount = moreCategories.reduce((a, c) => a += c.amount, 0);
 
 let dotContainer,
     incomeContainer,
+    shaderContainer,
     dotBoxSize,
     incomeContainerSize,
     addedSegments;
@@ -64,6 +67,15 @@ function showZoomTrigger() {
             .duration(1000)
             .attr('transform', 'scale(15, 1) ' + translator(-940, 160))
     })
+}
+
+function zoomToMoreCategories() {
+    rescale('in')
+}
+
+function rescale(zoomIn) {
+    const low = (zoomIn) ? topAmount : 0;
+    xScale.domain([low, totalAmount]);
 }
 
 function addDetails() {
@@ -172,21 +184,6 @@ function addSegments() {
 
     const duration = 1000;
 
-    let shaderContainer,
-        xScale,
-        accumulator = 0;
-
-    dotContainer = d3.select('.' + receiptsConstants.dotContainerClass);
-    incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
-    shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
-    addedSegments = true;
-    dotBoxSize = getElementBox(dotContainer);
-    incomeContainerSize = getElementBox(incomeContainer);
-
-    xScale = d3.scaleLinear()
-        .range([0, dotBoxSize.width])
-        .domain([0, totalAmount]);
-
     shaderContainer.selectAll('rect')
         .data(series)
         .enter()
@@ -222,6 +219,19 @@ function remove() {
     }
 }
 
+function setContainers() {
+    dotContainer = d3.select('.' + receiptsConstants.dotContainerClass);
+    incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
+    shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
+    addedSegments = true;
+    dotBoxSize = getElementBox(dotContainer);
+    incomeContainerSize = getElementBox(incomeContainer);
+
+    xScale.range([0, dotBoxSize.width])
+
+    rescale();
+}
+
 function reset() {
     const duration = 500
 
@@ -234,7 +244,10 @@ function reset() {
         })
         .ease();
 
-    setTimeout(addSegments, duration)
+    setTimeout(function(){
+        setContainers()
+        addSegments()
+    }, duration)
 }
 
 export function section2_1() {

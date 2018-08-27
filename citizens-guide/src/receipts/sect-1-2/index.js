@@ -38,7 +38,7 @@ section1_1();
 // window.addEventListener('wheel', onWheel);
 window.addEventListener('click', proceed);
 
-setTimeout(proceed, 100)
-setTimeout(proceed, 400)
+// setTimeout(proceed, 100)
+// setTimeout(proceed, 400)
 
 
