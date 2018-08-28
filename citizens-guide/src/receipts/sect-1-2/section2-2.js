@@ -300,6 +300,12 @@ let waitForReady = new Promise(resolve => {
     resolver = resolve;
 })
 
+export function clearDetails() {
+    if (detailContainer) {
+        detailContainer.remove();
+    }
+}
+
 export function section2_2_init(_dotContainer, _indexed) {
     dotContainer = _dotContainer;
     indexed = _indexed;
@@ -308,14 +314,14 @@ export function section2_2_init(_dotContainer, _indexed) {
 }
 
 export function showDetail(d) {
-    data = indexed[d.key].subcategories;
+    data = d.subcategories;
     parentRect = d3.select(this);
 
     if (dotContainer) {
-        renderDetail(d)
+        renderDetail()
     } else {
         waitForReady.then(function(){
-            renderDetail(d);
+            renderDetail();
         })
     }
 };

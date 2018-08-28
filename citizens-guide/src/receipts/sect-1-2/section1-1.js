@@ -62,7 +62,7 @@ function buildHeader() {
 }
 
 function buildLegend(){
-    const g = svg.append('g');
+    const g = svg.append('g').classed('reset', true);
     let w, xOffset;
 
     g.append('circle')

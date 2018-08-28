@@ -1,34 +1,49 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
+import { min } from 'd3-array';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { receiptsConstants } from './receipts-utils';
-import { section2_2_init, showDetail } from './section2-2';
+import { section2_2_init, showDetail, clearDetails } from './section2-2';
 import { getDataByYear } from './section2-data';
 import { stack } from 'd3-shape';
 
-const d3 = { select, selectAll, line, scaleLinear, stack },
+const d3 = { select, selectAll, line, scaleLinear, min, stack },
     categoryData = getDataByYear(2017),
     indexed = categoryData.reduce((a, c) => {
         a[c.activity] = c;
         return a;
     }, {}),
+    topAmount = categoryData.slice(0, 3).reduce((a, c) => a += c.amount, 0),
     xScale = d3.scaleLinear(),
-    topCategories = categoryData.slice(0, 3),
-    moreCategories = categoryData.slice(3, categoryData.length),
-    totalAmount = categoryData.reduce((a, c) => a += c.amount, 0),
-    topAmount = topCategories.reduce((a, c) => a += c.amount, 0),
-    moreAmount = moreCategories.reduce((a, c) => a += c.amount, 0);
+    totalAmount = categoryData.reduce((a, c) => a += c.amount, 0);
 
 let dotContainer,
     incomeContainer,
     shaderContainer,
+    detailsGroup,
+    shaders,
     dotBoxSize,
     incomeContainerSize,
     addedSegments;
 
-function widthCalculator(d) {
-    return dotBoxSize.width * d / 100;
+function stackData(series) {
+    let tracker;
+
+    series.forEach((r, i) => {
+        if (i === 0) {
+            tracker = d3.min([0, series.filter(r => r.amount < 0).reduce((a, c) => a += c.amount, 0)]);
+        }
+
+        r.x0 = tracker;
+
+        tracker += Math.abs(r.amount);
+
+        if (r.subcategories) {
+            stackData(r.subcategories)
+        }
+
+    })
 }
 
 function showZoomTrigger() {
@@ -63,43 +78,78 @@ function showZoomTrigger() {
         c.selectAll('circle').remove();
         c.selectAll('path').remove();
 
-        c.transition()
-            .duration(1000)
-            .attr('transform', 'scale(15, 1) ' + translator(-940, 160))
+        zoomToMoreCategories();
     })
 }
 
 function zoomToMoreCategories() {
-    rescale('in')
+    const textFade = 500,
+        zoom = 1000;
+
+    rescale('in');
+    clearDetails();
+
+    detailsGroup.transition()
+        .duration(textFade)
+        .attr('opacity', 0)
+        .on('end', function () {
+            detailsGroup.selectAll('*').remove();
+        })
+
+    shaders.transition()
+        .delay(textFade)
+        .duration(zoom)
+        .attr('x', function (d) {
+            return xScale(d.x0)
+        })
+        .attr('width', function (d) {
+            const x1 = d.x0 + d.amount,
+                width = xScale(x1) - xScale(d.x0);
+
+            return width;
+        })
+        .attr('opacity', function (d, i) {
+            if (i < 3) {
+                return 0;
+            } else {
+                i -= 3;
+                return 0.8 - i / 7;
+            }
+        })
+        .attr('fill', '#49A5B6');
+
+    setTimeout(function () {
+        detailsGroup.attr('opacity', 1);
+        addDetails('more')
+    }, textFade + zoom)
 }
 
 function rescale(zoomIn) {
     const low = (zoomIn) ? topAmount : 0;
+
     xScale.domain([low, totalAmount]);
 }
 
-function addDetails() {
+function addDetails(more) {
     const line = d3.line(),
-        detailsGroup = dotContainer
-            .append('g')
-            .attr('opacity', 0);
+        details = (more) ? categoryData.slice(3) : categoryData.slice(0, 3);
 
-    let texts,
-        textPosition = 0;
+    let t, textGroup;
 
-    texts = detailsGroup.selectAll('g')
-        .data(topCategories)
+    textGroup = detailsGroup.selectAll('g')
+        .data(details)
         .enter()
         .append('g')
         .attr('transform', function (d, i) {
-            const x = textPosition + (widthCalculator(d.percent_total) / 2),
-                y = (i < 2) ? (incomeContainerSize.height / 2) - 30 : ((i - 1) * -70) - 20;
-
-            textPosition += widthCalculator(d.percent_total);
+            const x1 = d.x0 + d.amount,
+                width = xScale(x1) - xScale(d.x0),
+                x = xScale(d.x0) + width / 2,
+                y = (i < 2) ? (incomeContainerSize.height / 2) - 30 : ((i - 1) * -50) - 20;
 
             return translator(x, y);
         })
-        .append('text')
+
+    t = textGroup.append('text')
         .attr('text-anchor', function (d, i) {
             return (i < 2) ? 'middle' : 'end';
         })
@@ -107,14 +157,16 @@ function addDetails() {
             return (i < 2) ? 'fill:white' : null;
         })
 
-    texts.append('tspan')
-        .text(function (d) {
-            return d.percent_total + '%';
+    t.append('tspan')
+        .text(function (d, i) {
+            if (i < 2) {
+                return d.percent_total + '%';
+            }
         })
         .attr('x', 0)
         .attr('dy', 20)
 
-    texts.append('tspan')
+    t.append('tspan')
         .text(function (d) {
             return d.activity;
         })
@@ -122,23 +174,29 @@ function addDetails() {
         .attr('dy', 20)
         .attr('style', 'font-weight: bold')
 
-    texts.append('tspan')
-        .text(function (d) {
-            return simplifyNumber(d.amount);
+    t.append('tspan')
+        .text(function (d, i) {
+            if (i < 2) {
+                return simplifyNumber(d.amount);
+            } else {
+                return simplifyNumber(d.amount) + ' | ' + d.percent_total + '%';
+            }
         })
         .attr('x', 0)
         .attr('dy', 20)
 
-    detailsGroup.append('path')
+    textGroup.append('path')
         .attr('stroke', '#4a4a4a')
         .attr('stroke-width', 1)
-        .attr('d', function () {
-            const x = widthCalculator(topCategories.slice(0, 3).map(d => d.percent_total).reduce((a, c) => a + c, 0)) - widthCalculator(topCategories[2].percent_total) / 2,
-                y = -20,
+        .attr('d', function (d, i) {
+            const x1 = d.x0 + d.amount,
+                y = ((i - 1) * 50) + 18,
                 points = [
-                    [x, -2],
-                    [x, y]
+                    [0, 44],
+                    [0, y]
                 ];
+
+            if (i < 2) { return }
 
             return line(points);
         });
@@ -179,50 +237,54 @@ function buildStack(data) {
         .keys(keys)([reduced]);
 }
 
-function addSegments() {
-    const series = buildStack(topCategories);
-
+function addSegments(more) {
     const duration = 1000;
 
-    shaderContainer.selectAll('rect')
-        .data(series)
+    shaders = shaderContainer.selectAll('rect')
+        .data(categoryData)
         .enter()
         .append('rect')
-        .attr('x', function (d) {
-            return xScale(d[0][0])
+        .attr('y', function (d, i) {
+            return -2;
         })
-        .attr('y', -2)
+        .attr('x', function (d) {
+            return xScale(d.x0)
+        })
         .attr('width', function (d) {
-            const amount = (d.key === 'more') ? moreAmount : indexed[d.key].amount;
-
-            return xScale(amount);
+            return xScale(d.amount);
         })
         .attr('height', incomeContainerSize.height + 5)
-        .attr('fill', '#49A5B6')
+        .attr('fill', function (d, i) {
+            return (i < 3) ? '#49A5B6' : '#ccc';
+        })
         .attr('opactity', 0)
-        .on('click', showDetail)
-        .transition()
+        .on('click', showDetail);
+
+    shaders.transition()
         .duration(1000)
         .attr('opacity', function (d, i) {
+            if (i > 3) {
+                i = 3;
+            }
+
             return (i) ? 0.8 - i / 7 : 0.8;
         })
         .ease()
 
-    setTimeout(moveBarGroup, duration)
+    if (!more) {
+        setTimeout(moveBarGroup, duration)
+    }
 }
 
 function remove() {
     d3.select(this).remove();
-
-    if (!d3.selectAll('.reset').size() && !addedSegments) {
-        addSegments();
-    }
 }
 
 function setContainers() {
     dotContainer = d3.select('.' + receiptsConstants.dotContainerClass);
     incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
     shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
+    detailsGroup = dotContainer.append('g').attr('opacity', 0);
     addedSegments = true;
     dotBoxSize = getElementBox(dotContainer);
     incomeContainerSize = getElementBox(incomeContainer);
@@ -244,7 +306,7 @@ function reset() {
         })
         .ease();
 
-    setTimeout(function(){
+    setTimeout(function () {
         setContainers()
         addSegments()
     }, duration)
@@ -253,6 +315,8 @@ function reset() {
 export function section2_1() {
     const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass),
         prevTransform = dotContainer.attr('transform').slice(0, 20);
+
+    stackData(categoryData);
 
     d3.selectAll('.gdp-legend').remove();
     d3.selectAll('.box-group').remove();
