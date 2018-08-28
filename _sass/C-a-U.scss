@@ -2,22 +2,23 @@ $orange: #D04C02;
 $grey: #555555;
 $background: #FBFBFB;
 
-.landing {
-    text-align: center;
-        align-content: inherit;
-        padding: 100px;
-        background: $background;
-        margin: 5%;
 
-        h1 {
-            line-height: 60px;
-            font-weight: 100;
-        }
-        strong {
-            color: $orange;
-        }
-}
 .CU{
+    .landing {
+        text-align: center;
+            align-content: inherit;
+            padding: 100px;
+            background: $background;
+            margin: 5%;
+    
+            h1 {
+                line-height: 60px;
+                font-weight: 100;
+            }
+            strong {
+                color: $orange;
+            }
+    }
     .sectionHeader{
         text-align: center;
         align-content: inherit;
