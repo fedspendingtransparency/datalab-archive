@@ -92,5 +92,10 @@ $background: #FBFBFB;
         color: $orange;
         font-weight: bold;
     }
+
+    a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
   }
 }
