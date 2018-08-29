@@ -23,7 +23,7 @@ category: entry
 }
 
 .active, .collapsible:hover {
-  background-color: rgb(237, 239, 249);
+  background-color: #f5faff;
 }
 
 .collapsible:after {
@@ -42,7 +42,7 @@ category: entry
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f9f9f9;
+  background-color: #fcfcfc;
 }
 
 .playbook-page-wrapper {
@@ -128,6 +128,12 @@ category: entry
 .playbook-suggestions-contact {
 	color: #71a6d5;
 	font-size: 17px;
+}
+
+.suggestions-separator {
+	width: 300px;
+	border-bottom: 3px solid #6db6dd;
+	margin-top: 57px;
 }
 </style>
 
@@ -215,8 +221,8 @@ category: entry
 	</div>
 
 	<div class="playbook-suggestions-column">
+		<div class="suggestions-separator"></div>
 		<h3>Any suggestions?</h3>
-
 		<div class="playbook-suggestions-contact">Call us: (000) 000-0000</div>
 		<div class="playbook-suggestions-contact">Email us: info@datalab.com</div>
 	</div>
