@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<style>
+.inno-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.inno-left-column {
+  padding: 25px 25px 25px 85px;
+  background-color: #1c3342;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inno-left-column-header {
+  color: white;
+  margin-bottom: 35px;
+  font-size: 32px;
+}
+
+.inno-left-column-subheader {
+  color: #b2d7ff;
+  margin-bottom: 35px;
+  font-size: 22px;
+}
+
+.inno-right-column {
+  width: 61%;
+}
+
+.inno-header, .inno-header img {
+  height: 450px;
+}
+</style>
+
+<article id="main">
+  <div class="inno-header">
+    <div class="inno-left-column">
+      <div class="inno-left-column-header">Student Innovator's Toolbox</div>
+      <div class="inno-left-column-subheader">Creating real-world projects and data-driven solutions ipsom lorem</div>
+    </div>
+    <div class="inno-right-column">
+      <img src="images/{{ page.banner }}" alt={{page.alt}} />
+    </div>
+  </div>
+  <section class="wrapper">
+    {{ content }}
+  </section>
+</article>

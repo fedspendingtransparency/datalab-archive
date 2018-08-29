@@ -30,7 +30,7 @@ export const receiptsConstants = {
 }
 
 export function dotFactory(container, x, y, i, color) {
-    const c = container.append('circle')
+    container.append('circle')
         .attr('cx', x)
         .attr('cy', y)
         .attr('r', 1.5)

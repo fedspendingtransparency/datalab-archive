@@ -5,7 +5,7 @@ import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { translator, simplifyBillions, getElementBox } from '../../utils';
-import { setLabelActive, setLabelInactive, placeLabels } from './labels';
+import { setLabelActive, setLabelInactive, placeLabels, deselectOthers } from './labels';
 import { showDetail, destroyDetailPane } from './detailPane';
 import { trigger } from './zoomTrigger';
 import { addHorizontalGridlines, addVerticalShading } from './ink'
@@ -244,10 +244,18 @@ export function trendView(_data, container, config) {
         globals.labelGroups
             .attr('style', 'cursor:pointer')
             .on('click', function (d) {
+                deselectOthers(globals);
+
+                this.classList.add('selected');
+                
                 showDetail(d.subcategories, globals.y(d.values[d.values.length - 1].amount) + 48)
             })
             .on('mouseover', setLabelActive)
-            .on('mouseout', setLabelInactive);
+            .on('mouseout', function () {
+                if (!d3.select(this).classed('selected')) {
+                    setLabelInactive.bind(this)();
+                }
+            });
 
         nudge();
         addZoomTrigger(globals);
