@@ -16,8 +16,14 @@ function _setInactive(g) {
         .duration(700)
         .attr('width', 3)
         .attr('x', 5)
-        .attr('opacity', 1)      
+        .attr('opacity', 1)
         .ease()
+}
+
+export function deselectOthers(globals) {
+    globals.labelGroups.filter('.selected')
+        .classed('selected', false)
+        .each(setLabelInactive);
 }
 
 export function setLabelActive() {
@@ -50,7 +56,7 @@ export function setLabelInactive() {
     pendingInactive = setTimeout(_setInactive, 200, g);
 }
 
-function sortByFirstYear(a, b){
+function sortByFirstYear(a, b) {
     a = a.values[0].amount;
     b = b.values[0].amount;
 
@@ -107,26 +113,26 @@ export function placeLabels(globals) {
         })
 
     // ghost rectangle
-    if (!globals.simple){
+    if (!globals.simple) {
         globals.labelGroups.append('rect')
-        .attr('width', function () {
-            return this.previousSibling.getBoundingClientRect().width + 10;
-        })
-        .attr('height', function () {
-            return this.previousSibling.getBoundingClientRect().height + 10;
-        })
-        .attr('x', function () {
-            return 0 - this.previousSibling.getBoundingClientRect().width - 5;
-        })
-        .attr('y', function () {
-            return - 20;
-        })
-        .attr('fill', function (d) {
-            return 'white';
-        })
-        .each(function () {
-            d3.select(this).lower();
-        })
+            .attr('width', function () {
+                return this.previousSibling.getBoundingClientRect().width + 10;
+            })
+            .attr('height', function () {
+                return this.previousSibling.getBoundingClientRect().height + 10;
+            })
+            .attr('x', function () {
+                return 0 - this.previousSibling.getBoundingClientRect().width - 5;
+            })
+            .attr('y', function () {
+                return - 20;
+            })
+            .attr('fill', function (d) {
+                return 'white';
+            })
+            .each(function () {
+                d3.select(this).lower();
+            })
     }
 
     globals.labelGroups.attr('transform', function (d) {
@@ -135,14 +141,14 @@ export function placeLabels(globals) {
         let yTranslate;
 
         d.y0 = globals.y(d.values[0].amount);
-        d.y1 = globals.y(d.values[d.values.length-1].amount);
-        
+        d.y1 = globals.y(d.values[d.values.length - 1].amount);
+
         if (d.y0 - box.height < runningY) {
             yTranslate = runningY + box.height;
         } else {
             yTranslate = d.y0
         }
-        
+
         runningY = yTranslate;
 
         return translator(-globals.labelPadding, yTranslate);
