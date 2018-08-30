@@ -20,12 +20,15 @@ const d3 = { select },
     labelWidthOffset = 10;
 
 function getTriggerTop(globals) {
-    return globals.scales.y(globals.zoomThreshold / 2) - rect.height / 2;
+    const floor = globals.scales.y(globals.scales.y.domain()[0]),
+        top = globals.scales.y(globals.zoomThreshold);
+    
+    return top + (floor-top)/2 - rect.height/2;
 }
 
 function setOverlayPoints(globals, overlayConstants) {
     const boxTop = globals.scales.y(globals.zoomThreshold),
-        boxBottom = globals.scales.y(0),
+        boxBottom = globals.scales.y(globals.scales.y.domain()[0]),
         triggerX = globals.labelPadding - labelWidthOffset;
 
     return (globals.zoomState === 'out') ? `0,${boxTop} ${globals.width},${boxTop} ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${overlayConstants.triggerBottom} -${triggerX},${overlayConstants.triggerTop}` :
@@ -41,8 +44,6 @@ function addOverlay(globals, overlayConstants) {
 
 function rescaleOverlay(globals, duration) {
     const overlayConstants = this;
-
-    console.log('oc', overlayConstants)
 
     overlayConstants.overlay.transition()
         .duration(duration)
@@ -163,7 +164,7 @@ function setTriggerState(globals, selections, overlayConstants) {
         .duration(1000)
         .delay(triggerWrapperDelay)
         .attr('transform', function () {
-            const x = (globals.zoomState === 'in') ? -180 : 0;
+            const x = (globals.zoomState === 'in') ? -150 : 0;
 
             return translator(x, 0);
         });
@@ -185,7 +186,7 @@ export function zoomTrigger(globals) {
         overlayConstants = {
             triggerTop: triggerTop,
             triggerBottom: triggerTop + rect.height
-        }
+        };
 
     selections.overlay = overlayConstants.overlay = addOverlay(globals, overlayConstants);
 

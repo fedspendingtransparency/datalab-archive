@@ -23,9 +23,10 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
 
 function toggleZoom(globals) {
     const duration = 1000,
+        yMin = globals.scales.y.domain()[0],
         yMax = (globals.scales.y.domain()[1] >= globals.domainMax) ? globals.zoomThreshold : globals.domainMax;
 
-    globals.scales.y.domain([0, yMax]);
+    globals.scales.y.domain([yMin, yMax]);
     globals.zoomState = (globals.zoomState === 'out') ? 'in' : 'out';
 
     globals.yAxis.rescale(duration);
@@ -53,12 +54,15 @@ function transformChart(globals) {
 
 function onDrilldown(d) {
     transformChart(this);
-    showDetail(d.subcategories, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+    showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
 }
 
 function onZoom() {
     toggleZoom(this);
-    destroyDetailPane();
+
+    if (!this.noDrilldown) {
+        destroyDetailPane();
+    }
 }
 
 function initGlobals(config) {
@@ -67,18 +71,21 @@ function initGlobals(config) {
     globals.scales = globals.scales || {};
     globals.height = globals.height || 650;
     globals.width = globals.width || 300;
+    globals.zoomThreshold = globals.zoomThreshold || 200000000000;
     globals.labelWidth = 150;
     globals.labelPadding = 60;
-    globals.zoomThreshold = 200000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
     globals.baseXTranslate = globals.labelWidth + globals.labelPadding;
     globals.centeredXTranslate = globals.baseXTranslate + (1200 - globals.totalWidth) / 2;
 
-    if (globals.simple) {
+    if (globals.noDrilldown) {
         globals.initialXTranslate = globals.baseXTranslate;
     } else {
         globals.initialXTranslate = globals.centeredXTranslate;
+    }
+    
+    if (!globals.noZoom) {
         globals.baseXTranslate += 35; // leave room for the zoom trigger in 'zoomed in' state;
     }
 
@@ -107,5 +114,8 @@ export function trendView(_data, container, config) {
     globals.trendLines = trendLines(globals);
     globals.dataDots = addTooltips(globals);
     globals.labels = renderLabels(globals);
-    globals.zoomTrigger = zoomTrigger(globals);
+
+    if (!globals.noZoom) {
+        globals.zoomTrigger = zoomTrigger(globals);
+    }
 }

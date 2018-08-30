@@ -77,7 +77,7 @@ function placeLabels(globals) {
         .enter()
         .append('g')
         .attr('opacity', function (d) {
-            if (globals.simple || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
             }
 
@@ -114,7 +114,7 @@ function placeLabels(globals) {
         })
 
     // ghost rectangle
-    if (!globals.simple) {
+    if (!globals.noDrilldown) {
         labelGroups.append('rect')
             .attr('width', function () {
                 return this.previousSibling.getBoundingClientRect().width + 10;
@@ -210,7 +210,7 @@ function rescale(globals, duration) {
     this.transition()
         .duration(duration)
         .attr('opacity', function (d) {
-            if (globals.simple || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.noZoom || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
             }
 
@@ -224,7 +224,7 @@ function rescale(globals, duration) {
 export function renderLabels(globals) {
     const labels = placeLabels(globals);
 
-    if (!globals.simple) {
+    if (!globals.noDrilldown) {
         enableDrilldown(labels, globals);
     }
 

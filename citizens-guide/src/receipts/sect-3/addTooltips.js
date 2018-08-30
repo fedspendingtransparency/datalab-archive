@@ -111,7 +111,7 @@ function rescale(globals, duration) {
     dataDots.selectAll('circle').transition()
         .duration(duration)
         .style('opacity', function (d, i) {
-            if (globals.simple || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
+            if (globals.noZoom || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
                 return 1;
             }
 
@@ -142,7 +142,7 @@ export function addTooltips(globals) {
         .attr('cy', 0)
         .classed('pointer', true)
         .style('opacity', function (d, i) {
-            if (globals.simple || d.amount > globals.zoomThreshold) {
+            if (globals.noZoom || d.amount > globals.zoomThreshold) {
                 return 1;
             }
 

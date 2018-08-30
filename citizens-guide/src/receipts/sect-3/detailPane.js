@@ -3,10 +3,14 @@ import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
 import { trendView } from './trendView';
 
-const d3 = { select };
-
-const svg = establishContainer(),
-    h = 600;
+const d3 = { select },
+    svg = establishContainer(),
+    h = 600,
+    zoomThresholds = {
+        'Employment and General Retirement': 50000000000,
+        'Excise Taxes': 3000000000,
+        'Unemployment Insurance': 5000000000
+    }
 
 let pane,
     callout,
@@ -56,16 +60,22 @@ function modifyRect(sourceY, height) {
     }
 }
 
-function init(data, sourceY) {
+function init(d, sourceY) {
     const config = {
         height: h,
         width: 240,
-        simple: true
+        noDrilldown: true
     };
+
+    config.zoomThreshold = zoomThresholds[d.name];
+
+    if (!config.zoomThreshold) {
+        config.noZoom = true;
+    }
 
     let chartHeight;
 
-    trendView(data, chartContainer, config);
+    trendView(d.subcategories, chartContainer, config);
 
     chartContainer.transition()
         .duration(300)
