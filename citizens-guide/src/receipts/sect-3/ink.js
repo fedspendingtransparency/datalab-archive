@@ -6,11 +6,11 @@ const d3 = { line, range };
 export function addVerticalShading(globals) {
     const ctrl = [2014, 2016];
 
-    globals.chart.selectAll('.shading')
+    globals.verticalStripes = globals.chart.selectAll('.shading')
         .data(ctrl)
         .enter()
         .append('rect')
-        .attr('x', function (d) { return globals.x(d) })
+        .attr('x', function (d) { return globals.scales.x(d) })
         .attr('y', 0)
         .attr('width', globals.width / 4)
         .attr('height', globals.height)
@@ -18,18 +18,48 @@ export function addVerticalShading(globals) {
 }
 
 export function addHorizontalGridlines(globals) {
-    const ctrl = d3.range(0, globals.y.domain()[1], 200000000000).map(d => {
-        return [
-            [globals.x(2013), globals.y(d)],
-            [globals.x(2017), globals.y(d)]
-        ]
-    })
+    const ctrl = d3.range(0, globals.scales.y.domain()[1], 200000000000);
 
-    globals.chart.append('g').selectAll('path')
+    globals.horizontalGridlines = globals.chart.append('g').selectAll('.gridlines')
         .data(ctrl)
         .enter()
         .append('path')
-        .attr('d', d3.line())
+        .classed('gridlines', true)
+        .attr('d', function (d) {
+            const points = [
+                [globals.scales.x(2013), globals.scales.y(d)],
+                [globals.scales.x(2017), globals.scales.y(d)]
+            ]
+
+            return d3.line()(points);
+        })
         .attr('stroke', '#ddd')
         .attr('stroke-width', 1)
+}
+
+function rescale(globals, duration) {
+    globals.verticalStripes.transition()
+        .duration(duration)
+        .attr('x', function (d) { return globals.scales.x(d) })
+        .attr('width', globals.width / 4);
+
+    globals.horizontalGridlines.transition()
+        .duration(duration)
+        .attr('d', function (d) {
+            const points = [
+                [globals.scales.x(2013), globals.scales.y(d)],
+                [globals.scales.x(2017), globals.scales.y(d)]
+            ]
+
+            return d3.line()(points);
+        })
+}
+
+export function ink(globals) {
+    addVerticalShading(globals);
+    addHorizontalGridlines(globals);
+
+    return {
+        rescale: rescale
+    }
 }

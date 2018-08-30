@@ -9,4 +9,6 @@ svg.attr('height', 1200);
 
 initDropShadow();
 
-trendView(data, svg);
+trendView(data, svg, {
+    width: 500
+});

@@ -66,13 +66,13 @@ function init(data, sourceY) {
     let chartHeight;
 
     trendView(data, chartContainer, config);
-    
+
     chartContainer.transition()
-    .duration(300)
-    .attr('opacity', 1)
-    
+        .duration(300)
+        .attr('opacity', 1)
+
     chartHeight = getElementBox(chartContainer).height + 50;
-    
+
     modifyRect(Math.round(sourceY), chartHeight);
 }
 
@@ -80,11 +80,11 @@ export function destroyDetailPane() {
     if (!chartContainer) {
         return;
     }
-    
+
     chartContainer.transition()
         .duration(300)
         .attr('opacity', 0)
-        .on('end', function(){
+        .on('end', function () {
             if (container) {
                 container.remove();
             }
@@ -104,7 +104,7 @@ export function showDetail(data, sourceY) {
             })
     } else {
         container = svg.append('g').attr('transform', translator(635, 5));
-        chartContainer = container.append('g').attr('opacity', 0).attr('transform',translator(10,10));
+        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 10));
 
         container.lower();
 

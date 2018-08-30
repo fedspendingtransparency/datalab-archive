@@ -86,30 +86,52 @@ function showTooltip(d) {
         once: true,
         capture: true
     })
+};
+
+function dataReducer(accumulator, d) {
+    return accumulator.concat(d.values.map(v => {
+        return {
+            year: v.year,
+            amount: v.amount,
+            color: d.color
+        }
+    }))
+};
+
+function rescale(globals, duration) {
+    const dataDots = this;
+    
+    dataDots.transition()
+        .duration(duration)
+        .attr('transform', function (d) {
+            return translator(globals.scales.x(d.year), globals.scales.y(d.amount));
+        })
+        .ease();
+
+    dataDots.selectAll('circle').transition()
+        .duration(duration)
+        .style('opacity', function (d, i) {
+            if (globals.simple || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
+                return 1;
+            }
+
+            return 0;
+        })
+        .ease();
 }
 
 export function addTooltips(globals) {
-    function dataReducer(accumulator, d) {
-        return accumulator.concat(d.values.map(v => {
-            return {
-                year: v.year,
-                amount: v.amount,
-                color: d.color
-            }
-        }))
-    };
-
-    globals.dataDots = globals.chart.selectAll('g.dataDots')
+    const dataDots = globals.chart.selectAll('g.dataDots')
         .data(globals.data.reduce(dataReducer, []))
         .enter()
         .append('g')
         .classed('dataDots', true)
         .attr('transform', function (d) {
-            return translator(globals.x(d.year), globals.y(0));
+            return translator(globals.scales.x(d.year), globals.scales.y(0));
         })
         .on('click', showTooltip);
 
-    globals.dataDots.append('circle')
+    dataDots.append('circle')
         .attr('stroke', function (d) {
             return d.color;
         })
@@ -127,25 +149,10 @@ export function addTooltips(globals) {
             return 0;
         })
 
-    repositionDataDots(1000, globals);
+    rescale.bind(dataDots)(globals, 1000);
+
+    return {
+        rescale: rescale.bind(dataDots)
+    }
 }
 
-export function repositionDataDots(duration, globals) {
-    globals.dataDots.transition()
-        .duration(duration)
-        .attr('transform', function (d) {
-            return translator(globals.x(d.year), globals.y(d.amount));
-        })
-        .ease();
-
-    globals.dataDots.selectAll('circle').transition()
-        .duration(duration)
-        .style('opacity', function (d, i) {
-            if (globals.simple || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
-                return 1;
-            }
-
-            return 0;
-        })
-        .ease();
-}
