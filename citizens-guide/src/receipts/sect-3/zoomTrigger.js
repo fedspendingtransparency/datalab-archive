@@ -23,28 +23,30 @@ function getTriggerTop(globals) {
     return globals.scales.y(globals.zoomThreshold / 2) - rect.height / 2;
 }
 
-function setOverlayPoints(globals) {
+function setOverlayPoints(globals, overlayConstants) {
     const boxTop = globals.scales.y(globals.zoomThreshold),
         boxBottom = globals.scales.y(0),
-        triggerTop = getTriggerTop(globals),
-        triggerX = globals.labelPadding - labelWidthOffset,
-        triggerBottom = triggerTop + rect.height;
+        triggerX = globals.labelPadding - labelWidthOffset;
 
-    return (globals.zoomState === 'out') ? `0,${boxTop} ${globals.width},${boxTop} ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}` :
-        `0,0 ${globals.width},0 ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}`;
+    return (globals.zoomState === 'out') ? `0,${boxTop} ${globals.width},${boxTop} ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${overlayConstants.triggerBottom} -${triggerX},${overlayConstants.triggerTop}` :
+        `0,0 ${globals.width},0 ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${overlayConstants.triggerBottom} -${triggerX},${overlayConstants.triggerTop}`;
 }
 
-function addOverlay(globals) {
+function addOverlay(globals, overlayConstants) {
     return globals.chart.append('polygon')
         .attr('fill', '#ccc')
         .attr('opacity', overlayOpacity)
-        .attr('points', setOverlayPoints(globals))
+        .attr('points', setOverlayPoints(globals, overlayConstants))
 }
 
 function rescaleOverlay(globals, duration) {
-    this.overlay.transition()
+    const overlayConstants = this;
+
+    console.log('oc', overlayConstants)
+
+    overlayConstants.overlay.transition()
         .duration(duration)
-        .attr('points', setOverlayPoints(globals))
+        .attr('points', setOverlayPoints(globals, overlayConstants))
         .ease();
 }
 
@@ -137,7 +139,7 @@ function addHoverEffects(trigger) {
     });
 }
 
-function setTriggerState(globals, selections) {
+function setTriggerState(globals, selections, overlayConstants) {
     const boxTiming = (globals.zoomState === 'in') ? [300, 0] : [500, 500],
         triggerWrapperDelay = (globals.zoomState === 'in') ? 300 : 0;
 
@@ -154,7 +156,7 @@ function setTriggerState(globals, selections) {
         .attr('opacity', function () {
             return (globals.zoomState === 'in') ? 0 : overlayOpacity;
         })
-        .attr('points', setOverlayPoints(globals))
+        .attr('points', setOverlayPoints(globals, overlayConstants))
         .ease();
 
     selections.triggerWrapper.transition()
@@ -178,18 +180,23 @@ function setTriggerState(globals, selections) {
 }
 
 export function zoomTrigger(globals) {
-    const selections = createTrigger(globals);
+    const selections = createTrigger(globals),
+        triggerTop = getTriggerTop(globals),
+        overlayConstants = {
+            triggerTop: triggerTop,
+            triggerBottom: triggerTop + rect.height
+        }
 
-    selections.overlay = addOverlay(globals);
+    selections.overlay = overlayConstants.overlay = addOverlay(globals, overlayConstants);
 
     addHoverEffects(selections.trigger);
 
     selections.trigger.on('click', function () {
         globals.onZoom();
-        setTriggerState(globals, selections);
+        setTriggerState(globals, selections, overlayConstants);
     })
 
     return {
-        rescale: rescaleOverlay.bind(selections)
+        rescale: rescaleOverlay.bind(overlayConstants)
     }
 }
