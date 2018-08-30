@@ -1,7 +1,11 @@
-import { select, merge } from "d3-selection";
+import { select } from "d3-selection";
 import { translator } from "../../utils";
 
-const d3 = { select, merge },
+const d3 = { select },
+    rect = {
+        width: 180,
+        height: 42
+    },
     trianglePoints = {
         in: {
             top: '155,21 158,15 152,15',
@@ -15,183 +19,177 @@ const d3 = { select, merge },
     overlayOpacity = 0.2,
     labelWidthOffset = 10;
 
-function addOverlay(self, globals, triggerTop, triggerHeight) {
-    const boxTop = globals.y(globals.zoomThreshold),
-        boxBottom = globals.y(0),
-        triggerX = globals.labelPadding - labelWidthOffset,
-        triggerBottom = triggerTop + triggerHeight,
-        points = `0,${boxTop} ${globals.width},${boxTop} ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}`;
-    
-    self.overlayPoints = {
-        in: `0,0 ${globals.width},0 ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}`,
-        out: points
-    };
-
-    self.overlay = globals.chart.append('polygon')
-        .attr('fill', '#ccc')
-        .attr('opacity', overlayOpacity)
-        .attr('points', points)
+function getTriggerTop(globals) {
+    return globals.scales.y(globals.zoomThreshold / 2) - rect.height / 2;
 }
 
-export const trigger = {
-    init: function (globals) {
-        const self = this,
-            rect = {
-                width: 180,
-                height: 42
-            },
-            triggerTop = globals.y(globals.zoomThreshold / 2) - rect.height / 2,
-            trigger = globals.chart.append('g')
-                .attr('style', 'cursor:pointer')
-                .attr('transform', translator(-globals.labelPadding - rect.width + labelWidthOffset, triggerTop));
+function setOverlayPoints(globals) {
+    const boxTop = globals.scales.y(globals.zoomThreshold),
+        boxBottom = globals.scales.y(0),
+        triggerTop = getTriggerTop(globals),
+        triggerX = globals.labelPadding - labelWidthOffset,
+        triggerBottom = triggerTop + rect.height;
 
-        let text;
+    return (globals.zoomState === 'out') ? `0,${boxTop} ${globals.width},${boxTop} ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}` :
+        `0,0 ${globals.width},0 ${globals.width},${boxBottom} 0,${boxBottom} -${triggerX},${triggerBottom} -${triggerX},${triggerTop}`;
+}
 
-        this.triggerWrapper = trigger.append('g');
-        this.state = 'out';
-        this.box = this.triggerWrapper.append('g');
+function addOverlay(globals) {
+    return globals.chart.append('polygon')
+        .attr('fill', '#ccc')
+        .attr('opacity', overlayOpacity)
+        .attr('points', setOverlayPoints(globals))
+}
 
-        this.box.append('rect')
-            .attr('width', rect.width)
-            .attr('height', rect.height)
-            .attr('fill', '#4A90E2')
+function rescaleOverlay(globals, duration) {
+    this.overlay.transition()
+        .duration(duration)
+        .attr('points', setOverlayPoints(globals))
+        .ease();
+}
 
-        text = this.box.append('text')
-            .attr('style', 'fill:white');
+function createTrigger(globals) {
+    const selections = {},
+        triggerTop = getTriggerTop(globals);
 
-        text.append('tspan')
-            .text('Zoom for')
-            .attr('x', 10)
-            .attr('dy', 16)
-            .attr('font-size', 11);
+    selections.trigger = globals.chart.append('g');
+    selections.triggerWrapper = selections.trigger.append('g');
+    selections.box = selections.triggerWrapper.append('g');
+    selections.disc = selections.triggerWrapper.append('g');
 
-        text.append('tspan')
-            .text('More Categories')
-            .attr('x', 10)
-            .attr('dy', 16)
-            .attr('font-size', 18);
+    selections.trigger.attr('style', 'cursor:pointer')
+        .attr('transform', translator(-globals.labelPadding - rect.width + labelWidthOffset, triggerTop));
 
-        this.disc = this.triggerWrapper.append('g');
+    selections.box.append('rect')
+        .attr('width', rect.width)
+        .attr('height', rect.height)
+        .attr('fill', '#4A90E2');
 
-        this.disc.append('circle')
-            .attr('fill', '#205493')
-            .attr('r', 16)
-            .attr('cx', 155)
-            .attr('cy', 21)
+    selections.text = selections.box.append('text')
+        .attr('style', 'fill:white');
 
-        this.disc.append('line')
-            .attr('stroke', 'white')
-            .attr('x1', 155)
-            .attr('y1', 11)
-            .attr('x2', 155)
-            .attr('y2', 31)
-            .attr('stroke-width', 1)
+    selections.text.append('tspan')
+        .text('Zoom for')
+        .attr('x', 10)
+        .attr('dy', 16)
+        .attr('font-size', 11);
 
-        this.triangleTop = this.disc.append('polygon')
-            .attr('points', trianglePoints.out.top)
-            .attr('fill', 'white')
+    selections.text.append('tspan')
+        .text('More Categories')
+        .attr('x', 10)
+        .attr('dy', 16)
+        .attr('font-size', 18);
 
-        this.triangleBottom = this.disc.append('polygon')
-            .attr('points', trianglePoints.out.bottom)
-            .attr('fill', 'white')
+    selections.disc.append('circle')
+        .attr('fill', '#205493')
+        .attr('r', 16)
+        .attr('cx', 155)
+        .attr('cy', 21);
 
-        trigger.on('mouseover', function () {
-            d3.select(this).select('rect')
-                .transition()
-                .duration(300)
-                .attr('fill', '#0068e2')
-                .ease();
+    selections.disc.append('line')
+        .attr('stroke', 'white')
+        .attr('x1', 155)
+        .attr('y1', 11)
+        .attr('x2', 155)
+        .attr('y2', 31)
+        .attr('stroke-width', 1);
 
-            d3.select(this).select('circle')
-                .transition()
-                .duration(300)
-                .attr('fill', function () {
-                    return (self.state === 'in') ? '#4A90E2' : '#205493';
-                })
-                .ease();
-        })
+    selections.triangleTop = selections.disc.append('polygon')
+        .attr('points', trianglePoints.out.top)
+        .attr('fill', 'white');
 
-        trigger.on('mouseout', function () {
-            d3.select(this).select('rect')
-                .transition()
-                .duration(500)
-                .attr('fill', '#4A90E2')
-                .ease();
+    selections.triangleBottom = selections.disc.append('polygon')
+        .attr('points', trianglePoints.out.bottom)
+        .attr('fill', 'white');
 
-            d3.select(this).select('circle')
-                .transition()
-                .duration(300)
-                .attr('fill', '#205493')
-                .ease();
-        })
+    return selections;
+}
 
-        this.trigger = trigger;
-
-        addOverlay(self, globals, triggerTop, rect.height);
-
-        return trigger;
-    },
-    toggle: function () {
-        if (this.state === 'out') {
-            this.state = 'in';
-            this.setStateIn();
-        } else {
-            this.state = 'out';
-            this.setStateOut();
-        }
-    },
-    setStateIn: function () {
-        this.box.transition()
+function addHoverEffects(trigger) {
+    trigger.on('mouseover', function () {
+        d3.select(this).select('rect')
+            .transition()
             .duration(300)
-            .attr('opacity', 0)
+            .attr('fill', '#0068e2')
             .ease();
 
-        this.overlay.transition()
-            .duration(1000)
-            .attr('opacity', 0)
-            .attr('points', this.overlayPoints.in)
+        d3.select(this).select('circle')
+            .transition()
+            .duration(300)
+            .attr('fill', function () {
+                return (self.state === 'in') ? '#4A90E2' : '#205493';
+            })
+            .ease();
+    });
+
+    trigger.on('mouseout', function () {
+        d3.select(this).select('rect')
+            .transition()
+            .duration(500)
+            .attr('fill', '#4A90E2')
             .ease();
 
-        this.triggerWrapper.transition()
-            .duration(1000)
-            .delay(300)
-            .attr('transform', translator(-180, 0));
-
-        this.triangleTop.transition()
-            .duration(500)
-            .delay(1300)
-            .attr('points', trianglePoints.in.top);
-
-        this.triangleBottom.transition()
-            .duration(500)
-            .delay(1300)
-            .attr('points', trianglePoints.in.bottom);
-    },
-    setStateOut: function () {
-        this.box.transition()
-            .delay(500)
-            .duration(500)
-            .attr('opacity', 1)
+        d3.select(this).select('circle')
+            .transition()
+            .duration(300)
+            .attr('fill', '#205493')
             .ease();
+    });
+}
 
-        this.overlay.transition()
-            .duration(1000)
-            .attr('opacity', overlayOpacity)
-            .attr('points', this.overlayPoints.out)
-            .ease();
+function setTriggerState(globals, selections) {
+    const boxTiming = (globals.zoomState === 'in') ? [300, 0] : [500, 500],
+        triggerWrapperDelay = (globals.zoomState === 'in') ? 300 : 0;
 
-        this.triggerWrapper.transition()
-            .duration(1000)
-            .attr('transform', translator(0, 0));
+    selections.box.transition()
+        .duration(boxTiming[0])
+        .delay(boxTiming[1])
+        .attr('opacity', function () {
+            return (globals.zoomState === 'in') ? 0 : 1;
+        })
+        .ease();
 
-        this.triangleTop.transition()
-            .duration(500)
-            .delay(1300)
-            .attr('points', trianglePoints.out.top);
+    selections.overlay.transition()
+        .duration(1000)
+        .attr('opacity', function () {
+            return (globals.zoomState === 'in') ? 0 : overlayOpacity;
+        })
+        .attr('points', setOverlayPoints(globals))
+        .ease();
 
-        this.triangleBottom.transition()
-            .duration(500)
-            .delay(1300)
-            .attr('points', trianglePoints.out.bottom);
+    selections.triggerWrapper.transition()
+        .duration(1000)
+        .delay(triggerWrapperDelay)
+        .attr('transform', function () {
+            const x = (globals.zoomState === 'in') ? -180 : 0;
+
+            return translator(x, 0);
+        });
+
+    selections.triangleTop.transition()
+        .duration(500)
+        .delay(1300)
+        .attr('points', trianglePoints[globals.zoomState].top);
+
+    selections.triangleBottom.transition()
+        .duration(500)
+        .delay(1300)
+        .attr('points', trianglePoints[globals.zoomState].bottom);
+}
+
+export function zoomTrigger(globals) {
+    const selections = createTrigger(globals);
+
+    selections.overlay = addOverlay(globals);
+
+    addHoverEffects(selections.trigger);
+
+    selections.trigger.on('click', function () {
+        globals.onZoom();
+        setTriggerState(globals, selections);
+    })
+
+    return {
+        rescale: rescaleOverlay.bind(selections)
     }
 }
