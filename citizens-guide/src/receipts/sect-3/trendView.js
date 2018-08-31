@@ -81,7 +81,7 @@ function initGlobals(config) {
     globals.labelWidth = 150;
     globals.labelPadding = 60;
     globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding)*2;
-    globals.widthOnDrilldown = 300,
+    globals.widthOnDrilldown = 360,
     globals.width = globals.originalWidth,
     globals.zoomThreshold = globals.zoomThreshold || 200000000000;
     globals.zoomState = 'out';

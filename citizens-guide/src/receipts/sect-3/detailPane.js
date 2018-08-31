@@ -112,10 +112,18 @@ export function showDetail(data, sourceY) {
                 init(data, sourceY);
             })
     } else {
-        container = svg.append('g').attr('transform', translator(635, 5));
+        container = svg.append('g')
+            .attr('transform', translator(400, 5))
+            .attr('opacity', 0)
+            
+        container.transition()
+            .duration(1000)
+            .attr('transform', translator(635, 5))
+            .attr('opacity', 1)
+                        
         chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 10));
 
-        container.lower();
+        //container.lower();
 
         init(data, sourceY);
     }
