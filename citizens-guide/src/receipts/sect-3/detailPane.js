@@ -63,7 +63,6 @@ function modifyRect(sourceY, height) {
 function init(d, sourceY) {
     const config = {
         height: h,
-        width: 240,
         noDrilldown: true
     };
 

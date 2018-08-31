@@ -35,10 +35,11 @@ function toggleZoom(globals) {
     globals.labels.rescale(globals, duration);
 }
 
-function transformChart(globals) {
-    const duration = 700;
+function transformChart(globals, reset) {
+    const duration = 700,
+        xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
 
-    globals.width = 300;
+    globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
     globals.scales.x.range([0, globals.width]);
 
     globals.yAxis.rescale(globals, duration);
@@ -53,15 +54,21 @@ function transformChart(globals) {
         .attr('transform', translator(globals.baseXTranslate, margin.top));
 }
 
-function onDrilldown(d) {
-    transformChart(this);
-    showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+function onDrilldown(d, reset) {
+    if (reset) {
+        destroyDetailPane();
+    } else {
+        showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+        transformChart(this);
+    }
+    
 }
 
 function onZoom() {
     toggleZoom(this);
 
     if (!this.noDrilldown) {
+        transformChart(this, 'reset');        
         destroyDetailPane();
     }
 }
@@ -71,24 +78,28 @@ function initGlobals(config) {
 
     globals.scales = globals.scales || {};
     globals.height = globals.height || 650;
-    globals.width = globals.width || 300;
-    globals.zoomThreshold = globals.zoomThreshold || 200000000000;
     globals.labelWidth = 150;
     globals.labelPadding = 60;
+    globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding)*2;
+    globals.widthOnDrilldown = 300,
+    globals.width = globals.originalWidth,
+    globals.zoomThreshold = globals.zoomThreshold || 200000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
     globals.baseXTranslate = globals.labelWidth + globals.labelPadding;
-    globals.centeredXTranslate = globals.baseXTranslate + (1200 - globals.totalWidth) / 2;
+    globals.centeredXTranslate = (1200 - globals.width) / 2;
+
+    if (!globals.noZoom) {
+        globals.baseXTranslate += 35; // leave room for the zoom trigger in 'zoomed in' state;
+    }
 
     if (globals.noDrilldown) {
         globals.initialXTranslate = globals.baseXTranslate;
     } else {
-        globals.initialXTranslate = globals.centeredXTranslate;
+        globals.initialXTranslate = globals.baseXTranslate;
+        // globals.initialXTranslate = globals.centeredXTranslate;
     }
     
-    if (!globals.noZoom) {
-        globals.baseXTranslate += 35; // leave room for the zoom trigger in 'zoomed in' state;
-    }
 
     globals.zoomState = 'out';
 
