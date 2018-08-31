@@ -29,7 +29,7 @@ function toggleZoom(globals) {
     globals.scales.y.domain([yMin, yMax]);
     globals.zoomState = (globals.zoomState === 'out') ? 'in' : 'out';
 
-    globals.yAxis.rescale(duration);
+    globals.yAxis.rescale(globals, duration);
     globals.trendLines.rescale(globals, duration);
     globals.dataDots.rescale(globals, duration);
     globals.labels.rescale(globals, duration);
@@ -41,6 +41,7 @@ function transformChart(globals) {
     globals.width = 300;
     globals.scales.x.range([0, globals.width]);
 
+    globals.yAxis.rescale(globals, duration);
     globals.xAxis.rescale(globals, duration);
     globals.dataDots.rescale(globals, duration);
     globals.ink.rescale(globals, duration);
@@ -109,8 +110,9 @@ export function trendView(_data, container, config) {
 
     // draw the chart
     globals.xAxis = xAxis(globals);
-    globals.yAxis = yAxis(globals);
     globals.ink = ink(globals);
+    globals.xAxis.render(globals);
+    globals.yAxis = yAxis(globals);
     globals.trendLines = trendLines(globals);
     globals.dataDots = addTooltips(globals);
     globals.labels = renderLabels(globals);

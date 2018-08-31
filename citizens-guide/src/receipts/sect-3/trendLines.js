@@ -39,11 +39,11 @@ function rescale(globals, duration) {
 }
 
 export function trendLines(globals) {
-    const trendLines = globals.chart.selectAll('.line')
+    const trendLines = globals.chart.selectAll('.trend-line')
         .data(globals.data)
         .enter()
         .append('path')
-        .attr('class', 'line')
+        .attr('class', 'trend-line')
         .attr('d', function (d) {
             return lineFn(d.values.map(r => {
                 return {

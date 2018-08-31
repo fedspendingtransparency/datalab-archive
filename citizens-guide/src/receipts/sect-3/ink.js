@@ -43,21 +43,21 @@ function rescale(globals, duration) {
         .attr('x', function (d) { return globals.scales.x(d) })
         .attr('width', globals.width / 4);
 
-    globals.horizontalGridlines.transition()
-        .duration(duration)
-        .attr('d', function (d) {
-            const points = [
-                [globals.scales.x(2013), globals.scales.y(d)],
-                [globals.scales.x(2017), globals.scales.y(d)]
-            ]
+    // globals.horizontalGridlines.transition()
+    //     .duration(duration)
+    //     .attr('d', function (d) {
+    //         const points = [
+    //             [globals.scales.x(2013), globals.scales.y(d)],
+    //             [globals.scales.x(2017), globals.scales.y(d)]
+    //         ]
 
-            return d3.line()(points);
-        })
+    //         return d3.line()(points);
+    //     })
 }
 
 export function ink(globals) {
     addVerticalShading(globals);
-    addHorizontalGridlines(globals);
+    //addHorizontalGridlines(globals);
 
     return {
         rescale: rescale

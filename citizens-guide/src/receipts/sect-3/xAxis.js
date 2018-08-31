@@ -10,7 +10,7 @@ function init(globals) {
 }
 
 function render(globals) {
-    const x = {};
+    const x = this;
     
     x.xAxis = d3.axisBottom(globals.scales.x)
         .tickValues([2013, 2014, 2015, 2016, 2017])
@@ -26,8 +26,6 @@ function render(globals) {
         .attr('dy', 20)
 
     x.xAxisDom.selectAll('.tick line').remove();
-
-    return x;
 }
 
 function rescale(globals, duration) {
@@ -40,13 +38,12 @@ function rescale(globals, duration) {
 }
 
 export function xAxis(globals) {
-    let x;
+    let x = {};
     
     init(globals);
     
-    x = render(globals);
-    
     return {
-        rescale: rescale.bind(x)
+        rescale: rescale.bind(x),
+        render: render.bind(x)
     }
 }
