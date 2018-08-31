@@ -61,6 +61,10 @@ function modify(y, globals) {
 
     y.yAxisDom.selectAll('.tick line')
         .attr('stroke', function (d, i) {
+            if (d === 0) {
+                return "#888";
+            }
+
             return (i % 2) ? 'none' : '#ddd';
         })
 }
