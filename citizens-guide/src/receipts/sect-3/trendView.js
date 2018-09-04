@@ -125,10 +125,11 @@ export function trendView(_data, container, config) {
     globals.xAxis.render(globals);
     globals.yAxis = yAxis(globals);
     globals.trendLines = trendLines(globals);
-    globals.dataDots = addTooltips(globals);
     globals.labels = renderLabels(globals);
-
+    
     if (!globals.noZoom) {
         globals.zoomTrigger = zoomTrigger(globals);
     }
+    
+    globals.dataDots = addTooltips(globals);
 }

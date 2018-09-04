@@ -66,6 +66,16 @@ function init(d, sourceY) {
         noDrilldown: true
     };
 
+    container.selectAll('.detail-pane-title')
+        .remove();
+
+    container.append('text')
+        .classed('detail-pane-title', true)
+        .text(d.name)
+        .attr('font-size', 18)
+        .attr('x', 20)
+        .attr('y', 30);
+
     config.zoomThreshold = zoomThresholds[d.name];
 
     if (!config.zoomThreshold) {
@@ -80,7 +90,7 @@ function init(d, sourceY) {
         .duration(300)
         .attr('opacity', 1)
 
-    chartHeight = getElementBox(chartContainer).height + 50;
+    chartHeight = getElementBox(chartContainer).height + 80;
 
     modifyRect(Math.round(sourceY), chartHeight);
 }
@@ -121,7 +131,7 @@ export function showDetail(data, sourceY) {
             .attr('transform', translator(635, 5))
             .attr('opacity', 1)
                         
-        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 10));
+        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 30));
 
         //container.lower();
 
