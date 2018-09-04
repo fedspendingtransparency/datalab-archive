@@ -19,19 +19,19 @@ function addLegend() {
             .x(function (d) { return d.x; })
             .y(function (d) { return d.y; }),
         lineData = [
-            { x: 0, y: 0 },
-            { x: 3, y: 0 },
-            { x: 3, y: height },
-            { x: 0, y: height }
+            { x: 87, y: 0 },
+            { x: 84, y: 0 },
+            { x: 84, y: height },
+            { x: 87, y: height }
         ],
         dotsRect = getElementBox(dotContainer),
         text = legendBox.append('text')
             .classed('reset', true)
             .attr('text-anchor', 'middle')
-            .attr('y', height / 2)
+            .attr('y', 0)
             .style('font-size', '18px');
 
-    legendBox.attr('transform', translator(505, receiptsConstants.headingHeight))
+    legendBox.attr('transform', translator(0, receiptsConstants.headingHeight))
 
     legendBox.append('path')
         .classed('reset', true)
@@ -43,13 +43,15 @@ function addLegend() {
     text.append('tspan')
         .text('Total GDP')
         .style('font-weight', 'bold')
-        .attr('x', 45)
-        .attr('dy', -20)
+        .attr('x', 40)
+        .attr('dy', height / 2);
 
     text.append('tspan')
         .text(simplifyNumber(sectionOneData.gdp))
-        .attr('x', 45)
-        .attr('dy', 20)
+        .attr('x', 40)
+        .attr('dy', 20);
+
+    section1_3();
 }
 
 function setGdpDots() {
@@ -78,7 +80,7 @@ function setGdpDots() {
     // first row
 
     for (i; i < firstRowCount; i++) {
-        dotFactory(gdpContainer, x, y, i, gdpDotColor);
+        dotFactory(gdpContainer, x, y, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
 
         rowPosition += 1;
@@ -89,7 +91,7 @@ function setGdpDots() {
     x = 2;
 
     for (r; r < receiptsConstants.dotsPerRow; r++) {
-        dotFactory(rowOne, x, 2, r, gdpDotColor);
+        dotFactory(rowOne, x, -1, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
     }
 
@@ -110,7 +112,7 @@ function setGdpDots() {
         .attr('transform', translator(0, (rowCount * receiptsConstants.dotOffset.y) + incomeHeightOffset));
 
     for (i; i < lastRowCount; i++) {
-        dotFactory(lastRow, x, 2, i, gdpDotColor);
+        dotFactory(lastRow, x, -1, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
     }
 
@@ -128,7 +130,7 @@ function zoomOutDots() {
     title.transition()
         .duration(500)
         .attr('opacity', 0)
-        .on('end', function(){
+        .on('end', function () {
             title.remove()
         })
         .ease();
@@ -152,6 +154,4 @@ export function section1_2() {
     dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass)
     zoomOutDots();
     setGdpDots();
-
-    setTimeout(section1_3, 3000);
 }

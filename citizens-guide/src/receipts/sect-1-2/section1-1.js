@@ -25,7 +25,7 @@ function setIncomeDots() {
         y = 2;
 
     for (i; i < top; i++) {
-        dotFactory(incomeContainer, x, y, i, '#49A5B6');
+        dotFactory(incomeContainer, x, y);
         x += dotOffset.x;
 
         if ((i + 1) % dotsPerRow === 0) {
@@ -65,18 +65,13 @@ function buildLegend(){
     const g = svg.append('g').classed('reset', true);
     let w, xOffset;
 
-    g.append('circle')
-        .attr('r', 4.5)
-        .attr('cx', 5)
-        .attr('cy', 11)
-        .attr('stroke', '#979797')
-        .attr('fill', '#d8d8d8');
+    dotFactory(g, 0, 0);
 
     g.append('text')
         .text('= 1 Billion Dollar')
-        .style('font-size', '16px')        
-        .attr('y', '16px')
-        .attr('x', '15px')
+        .style('font-size', 16)        
+        .attr('y', 6)
+        .attr('x', 7)
 
     w = getElementBox(g).width;
 
@@ -96,27 +91,10 @@ function setDotContainer() {
         .attr('transform', translator(xOffset,receiptsConstants.headingHeight));
 }
 
-function placeContinue(){
-    const g = svg.append('g')
-        .attr('class', 'continue-button')
-        .attr('transform', translator(550, 230))
-    
-    g.append('circle')
-        .attr('r', 20)
-        .attr('fill', '#49A5B6')
-        .attr('cx', 20)
-        .attr('cy', 20)
-
-    g.append('polygon')
-        .attr('fill', 'white')
-        .attr('points', '14,10 28,20 14,30')
-}
-
 export function section1_1() {
     svg = establishContainer();
     buildHeader();
     setDotContainer();
     setIncomeDots();
     buildLegend();
-    setTimeout(placeContinue, 800)
 }
