@@ -23,23 +23,26 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
 
 function toggleZoom(globals) {
     const duration = 1000,
+        yMin = globals.scales.y.domain()[0],
         yMax = (globals.scales.y.domain()[1] >= globals.domainMax) ? globals.zoomThreshold : globals.domainMax;
 
-    globals.scales.y.domain([0, yMax]);
+    globals.scales.y.domain([yMin, yMax]);
     globals.zoomState = (globals.zoomState === 'out') ? 'in' : 'out';
 
-    globals.yAxis.rescale(duration);
+    globals.yAxis.rescale(globals, duration);
     globals.trendLines.rescale(globals, duration);
     globals.dataDots.rescale(globals, duration);
     globals.labels.rescale(globals, duration);
 }
 
-function transformChart(globals) {
-    const duration = 700;
+function transformChart(globals, reset) {
+    const duration = 700,
+        xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
 
-    globals.width = 300;
+    globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
     globals.scales.x.range([0, globals.width]);
 
+    globals.yAxis.rescale(globals, duration);
     globals.xAxis.rescale(globals, duration);
     globals.dataDots.rescale(globals, duration);
     globals.ink.rescale(globals, duration);
@@ -51,14 +54,23 @@ function transformChart(globals) {
         .attr('transform', translator(globals.baseXTranslate, margin.top));
 }
 
-function onDrilldown(d) {
-    transformChart(this);
-    showDetail(d.subcategories, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+function onDrilldown(d, reset) {
+    if (reset) {
+        destroyDetailPane();
+    } else {
+        showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+        transformChart(this);
+    }
+    
 }
 
 function onZoom() {
     toggleZoom(this);
-    destroyDetailPane();
+
+    if (!this.noDrilldown) {
+        transformChart(this, 'reset');        
+        destroyDetailPane();
+    }
 }
 
 function initGlobals(config) {
@@ -66,21 +78,28 @@ function initGlobals(config) {
 
     globals.scales = globals.scales || {};
     globals.height = globals.height || 650;
-    globals.width = globals.width || 300;
     globals.labelWidth = 150;
     globals.labelPadding = 60;
-    globals.zoomThreshold = 200000000000;
+    globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding)*2;
+    globals.widthOnDrilldown = 360,
+    globals.width = globals.originalWidth,
+    globals.zoomThreshold = globals.zoomThreshold || 200000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
     globals.baseXTranslate = globals.labelWidth + globals.labelPadding;
-    globals.centeredXTranslate = globals.baseXTranslate + (1200 - globals.totalWidth) / 2;
+    globals.centeredXTranslate = (1200 - globals.width) / 2;
 
-    if (globals.simple) {
-        globals.initialXTranslate = globals.baseXTranslate;
-    } else {
-        globals.initialXTranslate = globals.centeredXTranslate;
+    if (!globals.noZoom) {
         globals.baseXTranslate += 35; // leave room for the zoom trigger in 'zoomed in' state;
     }
+
+    if (globals.noDrilldown) {
+        globals.initialXTranslate = globals.baseXTranslate;
+    } else {
+        globals.initialXTranslate = globals.baseXTranslate;
+        // globals.initialXTranslate = globals.centeredXTranslate;
+    }
+    
 
     globals.zoomState = 'out';
 
@@ -102,10 +121,15 @@ export function trendView(_data, container, config) {
 
     // draw the chart
     globals.xAxis = xAxis(globals);
-    globals.yAxis = yAxis(globals);
     globals.ink = ink(globals);
+    globals.xAxis.render(globals);
+    globals.yAxis = yAxis(globals);
     globals.trendLines = trendLines(globals);
-    globals.dataDots = addTooltips(globals);
     globals.labels = renderLabels(globals);
-    globals.zoomTrigger = zoomTrigger(globals);
+    
+    if (!globals.noZoom) {
+        globals.zoomTrigger = zoomTrigger(globals);
+    }
+    
+    globals.dataDots = addTooltips(globals);
 }

@@ -58,10 +58,14 @@ export function simplifyNumber(n) {
     let simplifier = million,
         letter = 'M';
 
-    if (n > trillion) {
+    if (n === 0) {
+        return '$0';
+    }
+
+    if (Math.abs(n) >= trillion) {
         simplifier = trillion;
         letter = 'T'
-    } else if (n > billion) {
+    } else if (Math.abs(n) >= billion) {
         simplifier = billion;
         letter = 'B';
     }

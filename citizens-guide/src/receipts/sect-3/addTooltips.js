@@ -14,7 +14,7 @@ function blankAllDiscs() {
     d3.selectAll('.' + dataDisc).attr('fill', 'white')
 }
 
-function showTooltip(d) {
+function showTooltip(d, i) {
     const g = d3.select(this),
         tooltip = g.append('g').classed(tooltipGroup, true).attr('opacity', 0),
         padding = { top: 30, left: 14 },
@@ -74,14 +74,14 @@ function showTooltip(d) {
     tooltip.attr('transform', function () {
 
         if (getElementBox(tooltip).right > getElementBox(d3.select('svg')).right) {
-            return translator(getElementBox(d3.select('svg')).right - getElementBox(tooltip).right, 0)
+            return translator(getElementBox(d3.select('svg')).right - getElementBox(tooltip).right, 10)
         } else {
             return translator(10, 0)
         }
     })
 
     tooltip.transition().duration(200).attr('opacity', 1);
-    
+
     document.addEventListener('click', destroyTooltip, {
         once: true,
         capture: true
@@ -100,7 +100,7 @@ function dataReducer(accumulator, d) {
 
 function rescale(globals, duration) {
     const dataDots = this;
-    
+
     dataDots.transition()
         .duration(duration)
         .attr('transform', function (d) {
@@ -111,7 +111,7 @@ function rescale(globals, duration) {
     dataDots.selectAll('circle').transition()
         .duration(duration)
         .style('opacity', function (d, i) {
-            if (globals.simple || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
+            if (globals.noZoom || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
                 return 1;
             }
 
@@ -129,20 +129,37 @@ export function addTooltips(globals) {
         .attr('transform', function (d) {
             return translator(globals.scales.x(d.year), globals.scales.y(0));
         })
-        .on('click', showTooltip);
+        .on('click', showTooltip)
+        .on('mouseover', showTooltip)
+        .on('mouseout', destroyTooltip)
 
     dataDots.append('circle')
         .attr('stroke', function (d) {
             return d.color;
         })
-        .classed(dataDisc, true)        
+        .classed(dataDisc, true)
         .attr('fill', 'white')
         .attr('r', 3)
         .attr('cx', 0)
         .attr('cy', 0)
         .classed('pointer', true)
         .style('opacity', function (d, i) {
-            if (globals.simple || d.amount > globals.zoomThreshold) {
+            if (globals.noZoom || d.amount > globals.zoomThreshold) {
+                return 1;
+            }
+
+            return 0;
+        })
+
+    dataDots.append('circle')
+        .classed('ghost-disc', true)
+        .attr('fill', 'transparent')
+        .attr('r', 8)
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .classed('pointer', true)
+        .style('opacity', function (d, i) {
+            if (globals.noZoom || d.amount > globals.zoomThreshold) {
                 return 1;
             }
 

@@ -29,7 +29,7 @@ function rescale(globals, duration) {
         .duration(duration)
         .attr('d', function (d) { return lineFn(d.values, globals); })
         .style('stroke', function (d, i) {
-            if (globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.noZoom || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return d.color;
             }
 
@@ -39,11 +39,11 @@ function rescale(globals, duration) {
 }
 
 export function trendLines(globals) {
-    const trendLines = globals.chart.selectAll('.line')
+    const trendLines = globals.chart.selectAll('.trend-line')
         .data(globals.data)
         .enter()
         .append('path')
-        .attr('class', 'line')
+        .attr('class', 'trend-line')
         .attr('d', function (d) {
             return lineFn(d.values.map(r => {
                 return {
@@ -55,9 +55,9 @@ export function trendLines(globals) {
         .style('fill', 'none')
         .style('stroke', function (d, i) {
             d.color = colors[i];
-            return (globals.simple || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? d.color : '#ddd';
+            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? d.color : '#ddd';
         })
-        .attr('stroke-width', 2)
+        .attr('stroke-width', 2);
 
     rescale.bind(trendLines)(globals, 1000);
 

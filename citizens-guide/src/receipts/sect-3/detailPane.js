@@ -3,10 +3,14 @@ import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
 import { trendView } from './trendView';
 
-const d3 = { select };
-
-const svg = establishContainer(),
-    h = 600;
+const d3 = { select },
+    svg = establishContainer(),
+    h = 600,
+    zoomThresholds = {
+        'Employment and General Retirement': 7000000000,
+        'Excise Taxes': 3000000000,
+        'Unemployment Insurance': 300000000
+    }
 
 let pane,
     callout,
@@ -56,22 +60,37 @@ function modifyRect(sourceY, height) {
     }
 }
 
-function init(data, sourceY) {
+function init(d, sourceY) {
     const config = {
         height: h,
-        width: 240,
-        simple: true
+        noDrilldown: true
     };
+
+    container.selectAll('.detail-pane-title')
+        .remove();
+
+    container.append('text')
+        .classed('detail-pane-title', true)
+        .text(d.name)
+        .attr('font-size', 18)
+        .attr('x', 20)
+        .attr('y', 30);
+
+    config.zoomThreshold = zoomThresholds[d.name];
+
+    if (!config.zoomThreshold) {
+        config.noZoom = true;
+    }
 
     let chartHeight;
 
-    trendView(data, chartContainer, config);
+    trendView(d.subcategories, chartContainer, config);
 
     chartContainer.transition()
         .duration(300)
         .attr('opacity', 1)
 
-    chartHeight = getElementBox(chartContainer).height + 50;
+    chartHeight = getElementBox(chartContainer).height + 80;
 
     modifyRect(Math.round(sourceY), chartHeight);
 }
@@ -103,10 +122,18 @@ export function showDetail(data, sourceY) {
                 init(data, sourceY);
             })
     } else {
-        container = svg.append('g').attr('transform', translator(635, 5));
-        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 10));
+        container = svg.append('g')
+            .attr('transform', translator(400, 5))
+            .attr('opacity', 0)
+            
+        container.transition()
+            .duration(1000)
+            .attr('transform', translator(635, 5))
+            .attr('opacity', 1)
+                        
+        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 30));
 
-        container.lower();
+        //container.lower();
 
         init(data, sourceY);
     }

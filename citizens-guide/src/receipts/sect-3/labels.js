@@ -56,6 +56,28 @@ function setLabelInactive() {
     pendingInactive = setTimeout(_setInactive, 200, g);
 }
 
+function setLabelYTranslate(d, elem, runningY, globals) {
+    const box = getElementBox(d3.select(elem));
+
+    let yTranslate;
+
+    d.y0 = globals.scales.y(d.values[0].amount);
+    d.y1 = globals.scales.y(d.values[d.values.length - 1].amount);
+
+    runningY = runningY || d.y0;
+
+    if (d.y0 < runningY) {
+        yTranslate = runningY + 5;
+    } else {
+        yTranslate = d.y0
+    }
+
+    return {
+        yTranslate: yTranslate,
+        boxHeight: box.height
+    };
+}
+
 function sortByFirstYear(a, b) {
     a = a.values[0].amount;
     b = b.values[0].amount;
@@ -69,7 +91,7 @@ function placeLabels(globals) {
     const labelContainer = globals.chart.append('g')
         .classed('labels', true);
 
-    let runningY = 0,
+    let runningY,
         labelGroups;
 
     labelGroups = labelContainer.selectAll('g')
@@ -77,7 +99,7 @@ function placeLabels(globals) {
         .enter()
         .append('g')
         .attr('opacity', function (d) {
-            if (globals.simple || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
             }
 
@@ -114,7 +136,7 @@ function placeLabels(globals) {
         })
 
     // ghost rectangle
-    if (!globals.simple) {
+    if (!globals.noDrilldown) {
         labelGroups.append('rect')
             .attr('width', function () {
                 return this.previousSibling.getBoundingClientRect().width + 10;
@@ -137,22 +159,11 @@ function placeLabels(globals) {
     }
 
     labelGroups.attr('transform', function (d) {
-        const box = getElementBox(d3.select(this));
+        const yTranslate = setLabelYTranslate(d, this, runningY, globals);
 
-        let yTranslate;
+        runningY = yTranslate.yTranslate + yTranslate.boxHeight;
 
-        d.y0 = globals.scales.y(d.values[0].amount);
-        d.y1 = globals.scales.y(d.values[d.values.length - 1].amount);
-
-        if (d.y0 - box.height < runningY) {
-            yTranslate = runningY + box.height;
-        } else {
-            yTranslate = d.y0
-        }
-
-        runningY = yTranslate;
-
-        return translator(-globals.labelPadding, yTranslate);
+        return translator(-globals.labelPadding, yTranslate.yTranslate);
     });
 
     return labelGroups;
@@ -161,11 +172,16 @@ function placeLabels(globals) {
 function enableDrilldown(labelGroups, globals) {
     labelGroups.attr('style', 'cursor:pointer')
         .on('click', function (d) {
-            deselectOthers(labelGroups);
-
-            this.classList.add('selected');
-
-            globals.onDrilldown(d);
+            if (d3.select(this).classed('selected')) {
+                // toggle off
+                deselectOthers(labelGroups);
+                globals.onDrilldown(d, 'reset');
+            } else {
+                // toggle on
+                deselectOthers(labelGroups);
+                this.classList.add('selected');
+                globals.onDrilldown(d);
+            }
         })
         .on('mouseover', setLabelActive)
         .on('mouseout', function () {
@@ -207,24 +223,31 @@ function nudge(labelGroups) {
 }
 
 function rescale(globals, duration) {
+    let runningY;
+    
     this.transition()
         .duration(duration)
         .attr('opacity', function (d) {
-            if (globals.simple || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
+            if (globals.noZoom || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
             }
 
             return 0;
         })
         .attr('transform', function (d) {
-            return translator(-globals.labelPadding, globals.scales.y(d.values[0].amount));
-        });
+            const yTranslate = setLabelYTranslate(d, this, runningY, globals);
+
+            runningY = yTranslate.yTranslate + yTranslate.boxHeight;
+
+            return translator(-globals.labelPadding, yTranslate.yTranslate);
+        })
+        .ease();
 }
 
 export function renderLabels(globals) {
     const labels = placeLabels(globals);
 
-    if (!globals.simple) {
+    if (!globals.noDrilldown) {
         enableDrilldown(labels, globals);
     }
 
