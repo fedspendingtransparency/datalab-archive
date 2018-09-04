@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { min, max } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { translator, simplifyNumber, establishContainer } from '../../utils';
+import { translator, simplifyNumber, establishContainer, fractionToPercent } from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
@@ -11,6 +11,7 @@ import { selectedCountries } from './selectedCountryManager';
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
+        chartWidth: 800,
         rowHeight: 72,
         barHeight: 16,
         countryColumnWidth: 210,
@@ -21,28 +22,23 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     addRemoveDuration = 1000,
     scales = {},
     containers = {},
-    map = {
-        income: {
-            data: 'receipts',
-            class: 'receipts',
-            stroke: '#2E8540',
-            fill: 'rgba(46,133,64,0.5)',
-            yOffset: 3,
-            legend: 'Income'
-        },
-        gdp: {
-            data: 'gdp',
-            class: 'gdp',
-            stroke: '#4A90E2',
-            fill: 'rgba(74,144,226,0.5)',
-            yOffset: 0 - dimensions.barHeight - 3,
-            legend: 'GDP - Gross Domestic Product'
+    chartedData = [
+        {
+            key: 'income',
+            config: {
+                data: 'receipts',
+                class: 'receipts',
+                stroke: '#2E8540',
+                fill: 'rgba(46,133,64,0.5)',
+                yOffset: 3,
+                legend: 'Income'
+            }
         }
-    };
+    ];
 
 let xAxis, data;
 
-dimensions.dataWidth = 1200 - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
+dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
 function establishContainers(container) {
     containers.chart = container.append('g');
@@ -54,7 +50,7 @@ function establishContainers(container) {
 
 function addBarLabels(g, data, keys) {
     const text = g.selectAll('text')
-        .data(keys.map(k => map[k].data))
+        .data(keys.map(k => k.config.data))
         .enter()
         .append('text')
         .text(function (d) {
@@ -65,7 +61,7 @@ function addBarLabels(g, data, keys) {
             return scales.x(data[d]) + 20;
         })
         .attr('y', function (d, i) {
-            return (dimensions.rowHeight / 2 - dimensions.barHeight - dimensions.barYOffset) + i * (dimensions.barYOffset * 2 + dimensions.barHeight) + 12;
+            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2);
         })
         .attr('opacity', 0)
 
@@ -102,8 +98,8 @@ function addBarGroups() {
 function drawBars(data) {
     const transitionDuration = 1000,
         group = d3.select(this),
-        keys = ['gdp', 'income'],
-        bars = group.selectAll('rect')
+        keys = chartedData;
+    const bars = group.selectAll('rect')
             .data(keys)
             .enter()
             .append('rect')
@@ -111,19 +107,19 @@ function drawBars(data) {
             .attr('height', dimensions.barHeight)
             .attr('x', 0)
             .attr('y', function (d, i) {
-                return (dimensions.rowHeight / 2 - dimensions.barHeight - dimensions.barYOffset) + i * (dimensions.barYOffset * 2 + dimensions.barHeight);
+                return dimensions.rowHeight / 2 - dimensions.barHeight / 4;
             })
             .attr('fill', function (d) {
-                return map[d].fill;
+                return d.config.fill;
             })
             .attr('stroke', function (d) {
-                return map[d].stroke;
+                return d.config.stroke;
             })
 
     bars.transition()
         .duration(transitionDuration)
         .attr('width', function (d) {
-            return scales.x(data[map[d].data]);
+            return scales.x(data[d.config.data]);
         })
         .ease();
 
@@ -135,8 +131,8 @@ function drawBars(data) {
 function setScales() {
     const receiptsVals = data.map(r => r.receipts),
         gdpVals = data.map(r => r.gdp),
-        min = d3.min([0, d3.min(receiptsVals.concat(gdpVals))]),
-        max = d3.max(receiptsVals.concat(gdpVals)) * 1.1;
+        min = d3.min([0, d3.min(receiptsVals)]),
+        max = d3.max(receiptsVals) * 1.1;
 
     scales.x = d3.scaleLinear()
         .domain([min, max]).nice()
@@ -194,7 +190,7 @@ function placeCountryLabels() {
                 return translator(0, i * dimensions.rowHeight)
             })
             .text(d => d.country)
-            .attr('y', dimensions.rowHeight / 2 + 8)
+            .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2)
             .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
             .attr('x', 20)
             .attr('font-size', 16);
@@ -227,7 +223,7 @@ function placeGdpFigures() {
             .attr('transform', function (d, i) {
                 return translator(0, i * dimensions.rowHeight)
             })
-            .text(d => d.receipts_gdp)
+            .text(d => fractionToPercent(d.receipts_gdp))
             .attr('y', dimensions.rowHeight / 2 + 8)
             .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
             .attr('x', 50)
@@ -236,7 +232,7 @@ function placeGdpFigures() {
 }
 
 function placeLegends() {
-    const keys = Object.keys(map).sort(),
+    const keys = chartedData,
         legendSpacing = 240;
 
     containers.legends.selectAll('rect.legend')
@@ -251,10 +247,10 @@ function placeLegends() {
         })
         .attr('y', 15)
         .attr('stroke', function (d) {
-            return map[d].stroke;
+            return d.config.stroke;
         })
         .attr('fill', function (d) {
-            return map[d].fill;
+            return d.config.fill;
         })
 
     containers.legends.selectAll('text.legend')
@@ -262,7 +258,7 @@ function placeLegends() {
         .enter()
         .append('text')
         .text(function (d) {
-            return map[d].legend;
+            return d.config.legend;
         })
         .attr('font-size', 12)
         .classed('legend', true)
@@ -274,13 +270,13 @@ function placeLegends() {
     containers.legends.append('text')
         .text('Federal Income as')
         .attr('text-anchor', 'middle')
-        .attr('x', 1200 - dimensions.gdpColumnWidth / 2)
+        .attr('x', dimensions.chartWidth - dimensions.gdpColumnWidth / 2)
         .attr('y', 26)
         .attr('font-size', 12)
         .append('tspan')
         .text('Percent of GDP')
         .attr('dy', 12)
-        .attr('x', 1200 - dimensions.gdpColumnWidth / 2)
+        .attr('x', dimensions.chartWidth - dimensions.gdpColumnWidth / 2)
 }
 
 function sizeSvg(transitionTime, delay) {
@@ -329,14 +325,14 @@ function rescale() {
     containers.data.selectAll('g.bar-group')
         .each(function (data) {
             const group = d3.select(this),
-                keys = ['gdp', 'income'],
+                keys = chartedData.map(d => d.key).sort(),
                 labels = group.selectAll('text'),
                 bars = group.selectAll('rect');
 
             bars.transition()
                 .duration(addRemoveDuration)
                 .attr('width', function (d) {
-                    return scales.x(data[map[d].data]);
+                    return scales.x(data[d.config.data]);
                 })
                 .ease();
 
