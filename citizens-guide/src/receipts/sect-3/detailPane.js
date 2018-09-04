@@ -8,7 +8,7 @@ const d3 = { select },
     h = 600,
     zoomThresholds = {
         'Employment and General Retirement': 7000000000,
-        'Excise Taxes': 3000000000,
+        'Excise Taxes': 1000000000,
         'Unemployment Insurance': 300000000
     }
 
