@@ -1,9 +1,48 @@
 $orange: #D04C02;
 $grey: #555555;
 $background: #FBFBFB;
+$green: #50604f;
 
 
 .CU{
+  .sectionLanding {
+
+    img {
+      position: absolute;
+
+    } 
+
+    .blue {
+      width: 15%;
+      top: 132px;
+      min-width: 145px;
+      right: 2%;
+    }
+
+    .yellow { 
+      top: 495px;
+      right: 11%;
+      width: 9%;
+    }
+
+    .green { 
+      top: 273px;
+      left: 1%;
+      width: 11%;
+    }
+
+    .orange {
+      top: 600px;
+      left: 14%;
+      width: 11%;
+    }
+
+    .red {
+      top: 693px;
+      left: 50%;
+      width: 4%;
+    }
+    
     .landing {
         text-align: center;
             align-content: inherit;
@@ -19,6 +58,8 @@ $background: #FBFBFB;
                 color: $orange;
             }
     }
+  }
+  
     .sectionHeader{
         text-align: center;
         align-content: inherit;
@@ -63,9 +104,6 @@ $background: #FBFBFB;
     margin-top:50px;
     padding:5%;
    
-    div {
-      height:120px
-    }
     span {
       display: inline-block;
     }
@@ -98,5 +136,50 @@ $background: #FBFBFB;
         cursor: pointer;
         text-decoration: underline;
     }
+  }
+
+  .overview_information { 
+    width:70%;
+    margin-left: 15%;
+
+    h2 {
+      color: $orange;
+      font-size: 21px;
+    }
+    
+    .graph {
+      font-size: 0;
+      letter-spacing: 0;
+
+      span {
+        display:inline-block;
+        
+        height:60px;
+        width: 30%;
+      }
+
+      .contracts {
+        background-color: $green;
+      }
+
+      .grants {
+        background-color: lighten($green, 50%)
+      }
+
+      .studentAid {
+        background-color: lighten($green, 60%);
+      }
+    }
+    .breakdown {
+
+      span {
+        display: inline-block;
+
+        h2 {
+          font-size: 18px;
+        }
+      }
+    }
+
   }
 }
