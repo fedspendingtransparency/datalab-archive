@@ -28,4 +28,10 @@ export function createDonut(container, percent, diameter) {
         .style("fill", function(d, i){
             return (i === 0) ? '#dd6666' : '#dddddd'
         });
+
+    container.append('text')
+        .text(percent + '%')
+        .attr('text-anchor', 'middle')
+        .attr('y', 4)
+        .attr('')
 }

@@ -92,7 +92,10 @@ function setDotContainer() {
 }
 
 export function section1_1() {
-    svg = establishContainer();
+    svg = establishContainer(300);
+
+    svg.attr('height', 250);
+
     buildHeader();
     setDotContainer();
     setIncomeDots();

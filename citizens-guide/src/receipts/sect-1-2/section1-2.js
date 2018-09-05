@@ -148,8 +148,8 @@ export function section1_2() {
     d3.selectAll('.continue-button').remove();
 
     svg.transition()
-        .duration(200)
-        .attr('height', '1000px')
+        .duration(1000)
+        .attr('height', 450)
 
     dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass)
     zoomOutDots();
