@@ -7,6 +7,7 @@ import { receiptsConstants } from './receipts-utils';
 import { section2_2_init, showDetail, clearDetails } from './section2-2';
 import { getDataByYear } from './section2-data';
 import { stack } from 'd3-shape';
+import { establishContainer } from '../../utils';
 
 const d3 = { select, selectAll, line, scaleLinear, min, stack },
     categoryData = getDataByYear(2017),
@@ -18,7 +19,8 @@ const d3 = { select, selectAll, line, scaleLinear, min, stack },
     xScale = d3.scaleLinear(),
     totalAmount = categoryData.reduce((a, c) => a += c.amount, 0);
 
-let dotContainer,
+let svg,
+    dotContainer,
     incomeContainer,
     shaderContainer,
     detailsGroup,
@@ -315,6 +317,12 @@ function reset() {
 export function section2_1() {
     const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass),
         prevTransform = dotContainer.attr('transform').slice(0, 20);
+
+    svg = establishContainer();
+
+    svg.transition()
+        .duration(500)
+        .attr('height', 700)
 
     stackData(categoryData);
 
