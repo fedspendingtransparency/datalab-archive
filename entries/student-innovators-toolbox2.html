@@ -140,6 +140,38 @@ category: entry
 	border-bottom: 3px solid #6db6dd;
 	margin-top: 57px;
 }
+
+.playbook-projects {
+	display: flex;
+	flex-direction: row;
+	margin-top: 25px;
+}
+
+.playbook-item {
+	display: flex;
+	flex-direction: column;
+	margin-right: 40px;
+}
+
+.playbook-image img {
+	width: 380px;
+	height: 230px;
+}
+
+.playbook-project {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.playbook-project h5, .playbook-project h3 {
+	letter-spacing: 0;
+}
+
+.playbook-project-subtext {
+	color: #bbbbbb;
+	font-size: 16px;
+}
 </style>
 
 {% include viz-header-info.html
@@ -273,6 +305,30 @@ category: entry
 			<p><b>USAspending.gov Downloadable Data Sets:</b> Are you interested in creating a data visualization to answer questions like “How much does the federal government spend to combat the opioid crisis?”, or to learn how much is spent on border security, housing, or violence against women? Check out our <a href="https://registry.opendata.aws/usaspending/">USAspending.gov database</a> to get started!</p>
 			<p><b>Clean Data Sets (Option 1):</b> For analysis and data visualization projects - Coming soon</p>
 			<p><b>Raw Data Sets (Option 2):</b> For data cleaning projects - Coming soon</p>
+		</div>
+
+		<div class="playbook-section-header">PROJECTS</div>
+		<div class="playbook-projects">
+			<div class="playbook-item">
+					<div class="playbook-image">
+						<a href="https://raw.githubusercontent.com/USAspendingexplorer/USAspending-explorer/master/Images/Screenshots/Screen%20Shot%202017-06-16%20at%202.57.19%20PM.png"><img src="images/college-playbook/capstone.png"></a>
+					</div>	
+					<div class="playbook-project">
+						<h3>The DATA Act Capstone Project</h3>
+						<h5>Building an open source tool to make federal spending data more accessible and easy to navigate.</h5>
+						<p class="playbook-project-subtext">Syracuse University | Maxwell School of Citizenship and Public Affairs</p>
+					</div>
+			</div>
+			<div class="playbook-item">
+					<div class="playbook-image">
+						<img src="images/college-playbook/masters.png">
+					</div>	
+					<div class="playbook-project">
+						<h3>Master’s Project: Unspent Funds Across Federal Agencies</h3>
+						<h5 style="margin-top: -5px">Analysis and policy recommendations to address unspent money in federal agencies.</h5>
+						<p class="playbook-project-subtext">Duke University | Sanford School of Public Policy</p>
+					</div>
+			</div>
 		</div>
 	</div>
 
