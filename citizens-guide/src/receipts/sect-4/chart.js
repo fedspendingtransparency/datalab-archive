@@ -198,10 +198,11 @@ function placeCountryLabels() {
     }, timeoutForAdd)
 
 }
-
 function placeGdpFigures() {
-    const gdpText = containers.gdp.selectAll('text')
-        .data(data, function (d) { return d.country });
+    const gdpText = containers.gdp.selectAll('.donutContainer')
+        .data(data, function (d) {
+            return d.country
+        });
 
     let timeoutForAdd = 0;
 
@@ -211,9 +212,10 @@ function placeGdpFigures() {
         gdpText.transition()
             .duration(addRemoveDuration)
             .attr('transform', function (d, i) {
-                return translator(0, (i * dimensions.rowHeight))
+                return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
             })
             .ease();
+
     }
 
     gdpText.exit().remove();
@@ -221,13 +223,14 @@ function placeGdpFigures() {
     setTimeout(function () {
         gdpText.enter()
             .append('g')
+            .attr('class', 'donutContainer')
             .attr('transform', function (d, i) {
-                return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
-            })
-            .each((d,i,j) => {
-            createDonut(d3.select(j[i]),d.receipts_gdp,70)
+            return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
+        })
+        .each((d, i, j) => {
+            createDonut(d3.select(j[i]), d.receipts_gdp, 70)
         });
-    }, timeoutForAdd)
+    }, timeoutForAdd);
 }
 
 function placeLegends() {
@@ -376,11 +379,11 @@ export function refreshData() {
         placeGdpFigures();
 
         duration = (rescale()) ? duration : 0;
-        
+
         setTimeout(function () {
             sizeSvg(300, addRemoveDuration);
             repositionXAxis();
-            placeHorizontalStripes(data.length);            
+            placeHorizontalStripes(data.length);
         }, duration)
     }
 }
