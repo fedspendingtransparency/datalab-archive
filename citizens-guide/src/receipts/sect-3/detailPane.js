@@ -1,4 +1,3 @@
-import '../sass/income/detail-pane.scss';
 import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
 import { trendView } from './trendView';

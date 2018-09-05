@@ -25,11 +25,11 @@ function proceed() {
     }
 }
 
-function onWheel(){
+function onWheel() {
     if (debounce) {
         clearTimeout(debounce);
     }
-    
+
     debounce = setTimeout(proceed, 300)
 }
 
@@ -41,6 +41,12 @@ function next() {
 
 function prev() {
     console.log('prev');
+}
+
+document.body.onkeyup = function (e) {
+    if (e.keyCode === 32 || e.key === 32) {
+        next();
+    }
 }
 
 pagerInit(next, prev);

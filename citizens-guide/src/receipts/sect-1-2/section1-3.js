@@ -153,7 +153,7 @@ function drawDonut(y) {
     const donutGroup = boxGroup.append('g')
         .attr('transform', translator(60, y + 36));
 
-    createDonut(donutGroup, 17.4, 90);
+    createDonut(donutGroup, .174, 90);
 }
 
 export function section1_3() {
