@@ -35,6 +35,5 @@ export function createDonut(container, percent, diameter) {
         .text(fractionToPercent(percent))
         .attr('text-anchor', 'middle')
         .attr('font-weight', 'bold')
-        .attr('y', 4)
-        .attr('')
+        .attr('y', 4);
 }

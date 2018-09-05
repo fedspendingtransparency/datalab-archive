@@ -219,13 +219,13 @@ function placeGdpFigures() {
     gdpText.exit().remove();
 
     setTimeout(function () {
-        const gVals = gdpText.enter()
+        gdpText.enter()
             .append('g')
             .attr('transform', function (d, i) {
                 return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
             })
             .each((d,i,j) => {
-            createDonut(d3.select(j[i]),d.receipts_gdp * 100,50)
+            createDonut(d3.select(j[i]),d.receipts_gdp,70)
         });
     }, timeoutForAdd)
 }
