@@ -1,13 +1,14 @@
 import { select, selectAll } from 'd3-selection';
 import { min, max } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { translator, simplifyNumber, establishContainer, fractionToPercent } from '../../utils';
+import { translator, simplifyNumber, establishContainer } from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { masterData } from '.';
 import { selectedCountries } from './selectedCountryManager';
+import { createDonut } from "../sect-1-2/donut";
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
@@ -218,16 +219,14 @@ function placeGdpFigures() {
     gdpText.exit().remove();
 
     setTimeout(function () {
-        gdpText.enter()
-            .append('text')
+        const gVals = gdpText.enter()
+            .append('g')
             .attr('transform', function (d, i) {
-                return translator(0, i * dimensions.rowHeight)
+                return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
             })
-            .text(d => fractionToPercent(d.receipts_gdp))
-            .attr('y', dimensions.rowHeight / 2 + 8)
-            .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
-            .attr('x', 50)
-            .attr('font-size', 16);
+            .each((d,i,j) => {
+            createDonut(d3.select(j[i]),d.receipts_gdp * 100,50)
+        });
     }, timeoutForAdd)
 }
 

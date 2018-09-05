@@ -17,21 +17,20 @@ export function createDonut(container, percent, diameter) {
     const data = [percent, 100 - percent];
 
     var g = container.selectAll(".arc")
-        .data(pieFn(data))
-        .enter()
-        .append("g")
+            .data(pieFn(data))
+            .enter()
+            .append("g")
             .attr("class", "arc")
-            .attr('transform', `scale(${diameter/200})`)
+            .attr('transform', `scale(${diameter/200})`);
 
-    g.append("path")
-        .attr("d", arcFn)
-        .style("fill", function(d, i){
-            return (i === 0) ? '#dd6666' : '#dddddd'
-        });
+        g.append("path")
+            .attr("d", arcFn)
+            .style("fill", function (d, i) {
+                return (i === 0) ? '#dd6666' : '#dddddd'
+            });
 
-    container.append('text')
-        .text(percent + '%')
-        .attr('text-anchor', 'middle')
-        .attr('y', 4)
-        .attr('')
+        container.append('text')
+            .text(percent + '%')
+            .attr('text-anchor', 'middle')
+        .attr('y', 4);
 }
