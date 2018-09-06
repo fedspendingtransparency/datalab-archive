@@ -64,16 +64,25 @@ function init(d, sourceY) {
         height: h,
         noDrilldown: true
     };
+    
+    let title;
 
     container.selectAll('.detail-pane-title')
         .remove();
 
-    container.append('text')
+    title = container.append('text')
         .classed('detail-pane-title', true)
-        .text(d.name)
-        .attr('font-size', 18)
+        .text('View subcategories found within')
+        .attr('font-size', 14)
         .attr('x', 20)
         .attr('y', 30);
+
+    title.append('tspan')
+        .text(d.name)
+        .attr('font-size', 20)
+        .attr('font-weight', 'bold')
+        .attr('x', 20)
+        .attr('dy', 24);
 
     config.zoomThreshold = zoomThresholds[d.name];
 
@@ -127,10 +136,10 @@ export function showDetail(data, sourceY) {
             
         container.transition()
             .duration(1000)
-            .attr('transform', translator(635, 5))
+            .attr('transform', translator(640, 5))
             .attr('opacity', 1)
                         
-        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 30));
+        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 40));
 
         //container.lower();
 

@@ -36,7 +36,7 @@ function toggleZoom(globals) {
 }
 
 function transformChart(globals, reset) {
-    const duration = 700,
+    const duration = 1000,
         xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
 
     globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
@@ -59,8 +59,9 @@ function onDrilldown(d, reset) {
         destroyDetailPane();
     } else {
         showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
-        transformChart(this);
     }
+
+    transformChart(this, reset);
     
 }
 
@@ -78,12 +79,12 @@ function initGlobals(config) {
 
     globals.scales = globals.scales || {};
     globals.height = globals.height || 650;
-    globals.labelWidth = 150;
+    globals.labelWidth = 160;
     globals.labelPadding = 60;
     globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding)*2;
     globals.widthOnDrilldown = 360,
     globals.width = globals.originalWidth,
-    globals.zoomThreshold = globals.zoomThreshold || 200000000000;
+    globals.zoomThreshold = globals.zoomThreshold || 180000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
     globals.baseXTranslate = globals.labelWidth + globals.labelPadding;

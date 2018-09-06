@@ -1,22 +1,9 @@
 import { selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { max } from 'd3-array';
+import { colors } from '../../colors';
 
-const d3 = { selectAll, line, max },
-    colors = [
-        '#2E8540',
-        '#49A5B6',
-        '#F5A623',
-        '#852E6C',
-        '#853F2E',
-        '#D0021B',
-        '#2E8540',
-        '#49A5B6',
-        '#F5A623',
-        '#852E6C',
-        '#853F2E',
-        '#D0021B'
-    ];
+const d3 = { selectAll, line, max };
 
 function lineFn(d, globals) {
     return d3.line()
@@ -30,7 +17,7 @@ function rescale(globals, duration) {
         .attr('d', function (d) { return lineFn(d.values, globals); })
         .style('stroke', function (d, i) {
             if (globals.noZoom || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
-                return d.color;
+                return colors.colorPrimaryDarker;
             }
 
             return '#ddd';
@@ -54,10 +41,9 @@ export function trendLines(globals) {
         })
         .style('fill', 'none')
         .style('stroke', function (d, i) {
-            d.color = colors[i];
-            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? d.color : '#ddd';
+            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? colors.colorPrimaryDarker : '#ddd';
         })
-        .attr('stroke-width', 2);
+        .attr('stroke-width', 3);
 
     rescale.bind(trendLines)(globals, 1000);
 
