@@ -33,7 +33,7 @@ function render(globals) {
     yTicks.push(globals.scales.y.domain()[1]);
 
     y.yAxis = d3.axisLeft(globals.scales.y)
-        // .tickValues(yTicks)
+        .tickPadding(10)
         .tickFormat(simplifyNumber)
         .tickSize(0 - globals.width)
 

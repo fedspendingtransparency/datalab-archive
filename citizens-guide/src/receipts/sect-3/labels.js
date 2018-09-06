@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { max } from 'd3-array';
 import { getElementBox, translator, wordWrap } from '../../utils';
+import { colors } from '../../colors';
 
 const d3 = { select, selectAll, max };
 
@@ -11,6 +12,11 @@ function _setInactive(g) {
     const bar = g.select('.color-bar');
 
     g.classed('active', false)
+
+    g.select('text').transition()
+        .duration(300)
+        .attr('style', 'fill:#4a4a4a')
+        .ease();
 
     bar.transition()
         .duration(700)
@@ -39,13 +45,17 @@ function setLabelActive() {
         return;
     }
 
-    g.classed('active', true)
+    g.classed('active', true);
+
+    g.select('text').transition()
+        .duration(300)
+        .attr('style', 'fill:white')
+        .ease();
 
     bar.transition()
         .duration(300)
         .attr('width', targetWidth)
         .attr('x', 8 - targetWidth)
-        .attr('opacity', 0.3)
         .ease()
 }
 
@@ -110,6 +120,7 @@ function placeLabels(globals) {
         .text(function (d) {
             return d.name;
         })
+        .attr('font-size', 14)
         .attr('text-anchor', 'end')
         .each(function (d) {
             const t = d3.select(this);
@@ -127,10 +138,7 @@ function placeLabels(globals) {
         })
         .attr('x', 5)
         .attr('y', -20)
-        .attr('fill', function (d) {
-            return d.color;
-        })
-        .attr('opacity', 1)
+        .attr('fill', colors.colorPrimaryDarker)
         .each(function () {
             d3.select(this).lower();
         })
@@ -179,7 +187,7 @@ function enableDrilldown(labelGroups, globals) {
             } else {
                 // toggle on
                 deselectOthers(labelGroups);
-                this.classList.add('selected');
+                d3.select(this).classed('selected', true);
                 globals.onDrilldown(d);
             }
         })
@@ -224,7 +232,7 @@ function nudge(labelGroups) {
 
 function rescale(globals, duration) {
     let runningY;
-    
+
     this.transition()
         .duration(duration)
         .attr('opacity', function (d) {
