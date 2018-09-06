@@ -63,9 +63,6 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
 
     totalinvestmentPar.innerHTML = `$${totalInvestment.formatMoney(2)}`;
 
-
-    console.log(totalContracts)
-    console.log(eduCsv);
 });
 
 
