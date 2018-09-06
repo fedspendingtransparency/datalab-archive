@@ -32,17 +32,17 @@ $green: #50604f;
     }
 
     .orange {
-      top: 600px;
-      left: 14%;
-      width: 11%;
-    }
-
-    .red {
       top: 693px;
       left: 50%;
       width: 4%;
     }
-    
+
+    .red {
+      top: 600px;
+      left: 7%;
+      width: 11%;
+    }
+
     .landing {
         text-align: center;
             align-content: inherit;
@@ -141,6 +141,14 @@ $green: #50604f;
   .overview_information { 
     width:70%;
     margin-left: 15%;
+
+    .totalInvesmentDollarAmount {
+      font-size: 52px;
+      font-weight: 100;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      color: $grey;
+    }
 
     h2 {
       color: $orange;
