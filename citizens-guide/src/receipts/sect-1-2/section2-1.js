@@ -15,19 +15,17 @@ const d3 = { select, selectAll, line, scaleLinear, min, stack },
         a[c.activity] = c;
         return a;
     }, {}),
+    baseTranslate = { x: 91, y: 70 },
+    baseDimensions = { width: 1014, height: 100 },
     topAmount = categoryData.slice(0, 3).reduce((a, c) => a += c.amount, 0),
     xScale = d3.scaleLinear(),
     totalAmount = categoryData.reduce((a, c) => a += c.amount, 0);
 
 let svg,
-    dotContainer,
-    incomeContainer,
+    baseContainer,
     shaderContainer,
     detailsGroup,
-    shaders,
-    dotBoxSize,
-    incomeContainerSize,
-    addedSegments;
+    shaders;
 
 function stackData(series) {
     let tracker;
@@ -146,7 +144,7 @@ function addDetails(more) {
             const x1 = d.x0 + d.amount,
                 width = xScale(x1) - xScale(d.x0),
                 x = xScale(d.x0) + width / 2,
-                y = (i < 2) ? (incomeContainerSize.height / 2) - 30 : ((i - 1) * -50) - 20;
+                y = (i < 2) ? (baseDimensions.height / 2) - 30 : ((i - 1) * -50) - 20;
 
             return translator(x, y);
         })
@@ -209,16 +207,13 @@ function addDetails(more) {
         .on('end', showZoomTrigger)
         .ease()
 
-    section2_2_init(dotContainer, indexed);
+    section2_2_init(baseContainer, indexed);
 }
 
 function moveBarGroup(d, i) {
-    const re = /(\d)+/g
-    const originalTransform = dotContainer.attr('transform').match(re);
-
-    dotContainer.transition()
+    baseContainer.transition()
         .duration(1000)
-        .attr('transform', translator(Number(originalTransform[0]), 220 + Number(originalTransform[1])))
+        .attr('transform', translator(baseTranslate.x, baseTranslate.y))
         .on('end', addDetails)
         .ease()
 }
@@ -255,7 +250,7 @@ function addSegments(more) {
         .attr('width', function (d) {
             return xScale(d.amount);
         })
-        .attr('height', incomeContainerSize.height + 5)
+        .attr('height', baseDimensions.height + 5)
         .attr('fill', function (d, i) {
             return (i < 3) ? '#49A5B6' : '#ccc';
         })
@@ -283,40 +278,41 @@ function remove() {
 }
 
 function setContainers() {
-    dotContainer = d3.select('.' + receiptsConstants.dotContainerClass);
-    incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
-    shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
-    detailsGroup = dotContainer.append('g').attr('opacity', 0);
-    addedSegments = true;
-    dotBoxSize = getElementBox(dotContainer);
-    incomeContainerSize = getElementBox(incomeContainer);
+    baseContainer = svg.append('g')
+        .classed('base-category-container', true)
+        .attr('transform', translator(baseTranslate.x, baseTranslate.y));
 
-    xScale.range([0, dotBoxSize.width])
+    shaderContainer = baseContainer.append('g')
+        .classed(receiptsConstants.shaderContainerClass, true);
+
+    detailsGroup = baseContainer.append('g')
+        .attr('opacity', 0);
+
+    xScale.range([0, baseDimensions.width])
 
     rescale();
 }
 
-function reset() {
-    const duration = 500
+function init() {
+    setContainers();
+    addSegments();
+}
 
+function reset() {
     d3.selectAll('.reset')
+        .attr('opacity', 1)
         .transition()
-        .duration(duration)
+        .delay(1000)
+        .duration(1000)
         .attr('opacity', 0)
         .on('end', function () {
             d3.select(this).remove();
         })
         .ease();
-
-    setTimeout(function () {
-        setContainers()
-        addSegments()
-    }, duration)
 }
 
 export function section2_1() {
-    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass),
-        prevTransform = dotContainer.attr('transform').slice(0, 20);
+    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass);
 
     svg = establishContainer();
 
@@ -329,8 +325,22 @@ export function section2_1() {
     d3.selectAll('.gdp-legend').remove();
     d3.selectAll('.box-group').remove();
 
-    dotContainer.transition()
-        .duration(1000)
-        .attr('transform', prevTransform)
-        .on('end', reset);
+    if (dotContainer.size()) {
+        dotContainer.transition()
+            .duration(700)
+            .attr('transform', translator(baseTranslate.x, baseTranslate.y))
+            .on('end', function(){
+                init();
+                reset();
+            });
+
+        dotContainer.select('.gdp').transition()
+            .duration(500)
+            .attr('opacity', 0)
+            .on('end', function(){
+                d3.select(this).remove();
+            })
+        } else {
+        init();
+    }
 }

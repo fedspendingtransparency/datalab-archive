@@ -7,7 +7,9 @@ description: This is the text that goes in the meta description tag
 
 # In 2017, the government collected <span class="strong">$3.4 trillion</span>.
 
-<p id="lead-in">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis vitae. Donec sagittis faucibus lacus eget blandit. Mauris vitae ultricies metus, at condimentum nulla. Donec quis ornare lacus. Etiam gravida mollis tortor quis porttitor.</p>
+<div id="lead-in">Each dot in the chart represents $1 billion. Each dot represents contributions by you, your family, your neighbors, your place of business, and the various corporations you deal with every day.
+
+For context, $3.3 trillion divided by the U.S. population in 2017 (326.4 million), is equivalent to a little more than $10,000 for every individual counted in the 2017 U.S. Census.</div>
 
 <div id="viz"></div>
 
