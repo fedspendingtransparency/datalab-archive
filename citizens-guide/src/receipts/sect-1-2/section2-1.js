@@ -8,6 +8,8 @@ import { section2_2_init, showDetail, clearDetails } from './section2-2';
 import { getDataByYear } from './section2-data';
 import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
+import { colors } from '../../colors';
+import { zoomInit } from './zoom';
 
 const d3 = { select, selectAll, line, scaleLinear, min, stack },
     categoryData = getDataByYear(2017),
@@ -25,6 +27,7 @@ let svg,
     baseContainer,
     shaderContainer,
     detailsGroup,
+    zoomComponent,
     shaders;
 
 function stackData(series) {
@@ -43,42 +46,6 @@ function stackData(series) {
             stackData(r.subcategories)
         }
 
-    })
-}
-
-function showZoomTrigger() {
-    const g = d3.select('svg').append('g')
-        .attr('transform', translator(930, 375))
-
-    g.append('rect')
-        .attr('width', 160)
-        .attr('height', 72)
-        .attr('fill', '#49A5B6')
-        .attr('x', 0)
-        .attr('y', 0)
-
-    g.append('text')
-        .text('zoom to view')
-        .attr('style', 'fill:white')
-        .attr('font-size', 14)
-        .attr('x', 10)
-        .attr('y', 30)
-
-    g.append('text')
-        .text('7 additional categories')
-        .attr('style', 'fill:white')
-        .attr('font-size', 14)
-        .attr('x', 10)
-        .attr('dy', 50)
-
-    g.on('click', function () {
-        g.remove();
-        const c = d3.select('.dot-container');
-
-        c.selectAll('circle').remove();
-        c.selectAll('path').remove();
-
-        zoomToMoreCategories();
     })
 }
 
@@ -204,7 +171,11 @@ function addDetails(more) {
     detailsGroup.transition()
         .duration(500)
         .attr('opacity', 1)
-        .on('end', showZoomTrigger)
+        .on('end', function(){
+            if (!zoomComponent) {
+                zoomComponent = zoomInit(baseContainer, baseDimensions, xScale(categoryData[3].x0), zoomToMoreCategories);
+            }
+        })
         .ease()
 
     section2_2_init(baseContainer, indexed);
@@ -213,7 +184,7 @@ function addDetails(more) {
 function moveBarGroup(d, i) {
     baseContainer.transition()
         .duration(1000)
-        .attr('transform', translator(baseTranslate.x, baseTranslate.y))
+        .attr('transform', translator(baseTranslate.x, baseTranslate.y + 100))
         .on('end', addDetails)
         .ease()
 }
@@ -241,18 +212,16 @@ function addSegments(more) {
         .data(categoryData)
         .enter()
         .append('rect')
-        .attr('y', function (d, i) {
-            return -2;
-        })
+        .attr('y', 0)
         .attr('x', function (d) {
             return xScale(d.x0)
         })
         .attr('width', function (d) {
             return xScale(d.amount);
         })
-        .attr('height', baseDimensions.height + 5)
+        .attr('height', baseDimensions.height)
         .attr('fill', function (d, i) {
-            return (i < 3) ? '#49A5B6' : '#ccc';
+            return (i < 3) ? colors.colorPrimaryDarker : '#ccc';
         })
         .attr('opactity', 0)
         .on('click', showDetail);
@@ -329,7 +298,7 @@ export function section2_1() {
         dotContainer.transition()
             .duration(700)
             .attr('transform', translator(baseTranslate.x, baseTranslate.y))
-            .on('end', function(){
+            .on('end', function () {
                 init();
                 reset();
             });
@@ -337,10 +306,10 @@ export function section2_1() {
         dotContainer.select('.gdp').transition()
             .duration(500)
             .attr('opacity', 0)
-            .on('end', function(){
+            .on('end', function () {
                 d3.select(this).remove();
             })
-        } else {
+    } else {
         init();
     }
 }
