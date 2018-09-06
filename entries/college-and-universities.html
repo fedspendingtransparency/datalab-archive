@@ -82,8 +82,9 @@ permalink: college-and-universities.html
         <h3>How Much was invested in colleges & Universities?</h3>
         <p>Some Text</p>
     </div>
-    <div id="totlaInvestment" class="overview_information">
+    <div class="overview_information">
         <h2>Total Investment</h2>
+        <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount"></p>
         <h1 id="investment_spending_total"></h1>
         <div id="totalInvestments_Graph" class="graph">
                 <span id="totalInvestments_graph_Contracts" class="contracts"></span>
@@ -161,3 +162,10 @@ permalink: college-and-universities.html
         </div>
 </div>
 </div>
+
+
+<!--scripts -->
+<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+<script src="{{site.baseurl}}/js/jquery.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script>
