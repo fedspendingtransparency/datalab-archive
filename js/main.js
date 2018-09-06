@@ -135,8 +135,10 @@ function handleInfoBarVisibility() {
     }
 }
 
-$(".share-viz-button").click(function() {
-    $(this).find('span.popuptext.right').toggleClass('show');
+$(function() {
+    $(".share-viz-button").click(function() {
+        $(this).find('span.popuptext.right').toggleClass('show');
+    });
 });
 
 (function debugOnLoad($) {
