@@ -6,7 +6,7 @@ header: DTS
 description: DTS
 banner: landings/federal.jpg
 alt: DTS
-permalink: dts3.html
+permalink: dts4.html
 category: nonentry
 ---
 
@@ -41,6 +41,28 @@ category: nonentry
   font-weight: 200;
   font-size: 16px;
 }
+
+.dts-header {
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.daily-spending {
+  margin-left: 25px;
+}
+
+.daily-spending-amount {
+  font-size: 34px;
+}
+
+.daily-spending-subtext {
+  text-transform: uppercase;
+  color: #ca6969;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 </style>
 
 <div class="header-container">
@@ -50,25 +72,32 @@ category: nonentry
   <div class="header-updated-when">Updated Friday, August 20, 2018 at 4:00 PM ET</div>
 </div>
 
+<div class="dts-header">
+  <div id="chooser-wrapper">
+      <div class="radio-timeframe">
+        <label class="radio-container">Today
+            <input type="radio" checked="checked" name="timeframe" value="today">
+            <span class="checkmark"></span>
+          </label>
+          <label class="radio-container">MTD
+            <input type="radio" name="timeframe" value="mtd">
+            <span class="checkmark"></span>
+          </label>
+          <label class="radio-container">FYTD
+            <input type="radio" name="timeframe" value="fytd">
+            <span class="checkmark"></span>
+          </label>
+      </div>
+      <label class="label-popular"><input type="checkbox" name="checkbox" id="checkbox-popular" checked value="value">Condensed</label>
+      <select class="select" id="item-selector"></select>
+    </div>
 
-<div id="chooser-wrapper">
-  <div class="radio-timeframe">
-    <label class="radio-container">Today
-        <input type="radio" checked="checked" name="timeframe" value="today">
-        <span class="checkmark"></span>
-      </label>
-      <label class="radio-container">MTD
-        <input type="radio" name="timeframe" value="mtd">
-        <span class="checkmark"></span>
-      </label>
-      <label class="radio-container">FYTD
-        <input type="radio" name="timeframe" value="fytd">
-        <span class="checkmark"></span>
-      </label>
-  </div>
-  <label class="label-popular"><input type="checkbox" name="checkbox" id="checkbox-popular" checked value="value">Condensed</label>
-  <select class="select" id="item-selector"></select>
+    <div class="daily-spending">
+      <div class="daily-spending-amount">$0</div>
+      <div class="daily-spending-subtext">Today Amount Spent</div>
+    </div>
 </div>
+
 
 <svg id="svg-wrapper" width="960" height="500"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -366,11 +395,22 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   optionsDict = {};
 
+  let lastDate = data[data.length - 1].date;
+  // let currentDate = new Date().format('m-d-Y h:i:s');
+  let totalDailySpending = 0;
+
+  console.log(lastDate);
+
   data.forEach(function(d) {
     //d.date = parseDate(d.date);
     d.today = +d.today;
     d.mtd = +d.mtd;
     d.fytd = +d.fytd;
+
+    if (d.date.getTime() == lastDate.getTime()) {
+      console.log(d.today);
+      totalDailySpending += d.today;
+    }
 
     optionsData.push(d.item_raw);
 
@@ -402,6 +442,12 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   condensedOptions = uniqData.slice(0, 10);
 
   createSelect();
+
+  console.log(totalDailySpending);
+
+  console.log(optionsDict);
+
+  d3.select(".daily-spending-amount").text("$" + totalDailySpending.toLocaleString() + "M");
 
   // data.sort(function(a, b) { return a.date - b.date; });
 

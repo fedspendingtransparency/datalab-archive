@@ -8,6 +8,8 @@ import { section2_2_init, showDetail, clearDetails } from './section2-2';
 import { getDataByYear } from './section2-data';
 import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
+import { colors } from '../../colors';
+import { zoomInit } from './zoom';
 
 const d3 = { select, selectAll, line, scaleLinear, min, stack },
     categoryData = getDataByYear(2017),
@@ -15,19 +17,18 @@ const d3 = { select, selectAll, line, scaleLinear, min, stack },
         a[c.activity] = c;
         return a;
     }, {}),
+    baseTranslate = { x: 91, y: 70 },
+    baseDimensions = { width: 1014, height: 100 },
     topAmount = categoryData.slice(0, 3).reduce((a, c) => a += c.amount, 0),
     xScale = d3.scaleLinear(),
     totalAmount = categoryData.reduce((a, c) => a += c.amount, 0);
 
 let svg,
-    dotContainer,
-    incomeContainer,
+    baseContainer,
     shaderContainer,
     detailsGroup,
-    shaders,
-    dotBoxSize,
-    incomeContainerSize,
-    addedSegments;
+    zoomComponent,
+    shaders;
 
 function stackData(series) {
     let tracker;
@@ -45,42 +46,6 @@ function stackData(series) {
             stackData(r.subcategories)
         }
 
-    })
-}
-
-function showZoomTrigger() {
-    const g = d3.select('svg').append('g')
-        .attr('transform', translator(930, 375))
-
-    g.append('rect')
-        .attr('width', 160)
-        .attr('height', 72)
-        .attr('fill', '#49A5B6')
-        .attr('x', 0)
-        .attr('y', 0)
-
-    g.append('text')
-        .text('zoom to view')
-        .attr('style', 'fill:white')
-        .attr('font-size', 14)
-        .attr('x', 10)
-        .attr('y', 30)
-
-    g.append('text')
-        .text('7 additional categories')
-        .attr('style', 'fill:white')
-        .attr('font-size', 14)
-        .attr('x', 10)
-        .attr('dy', 50)
-
-    g.on('click', function () {
-        g.remove();
-        const c = d3.select('.dot-container');
-
-        c.selectAll('circle').remove();
-        c.selectAll('path').remove();
-
-        zoomToMoreCategories();
     })
 }
 
@@ -146,7 +111,7 @@ function addDetails(more) {
             const x1 = d.x0 + d.amount,
                 width = xScale(x1) - xScale(d.x0),
                 x = xScale(d.x0) + width / 2,
-                y = (i < 2) ? (incomeContainerSize.height / 2) - 30 : ((i - 1) * -50) - 20;
+                y = (i < 2) ? (baseDimensions.height / 2) - 30 : ((i - 1) * -50) - 20;
 
             return translator(x, y);
         })
@@ -206,19 +171,20 @@ function addDetails(more) {
     detailsGroup.transition()
         .duration(500)
         .attr('opacity', 1)
-        .on('end', showZoomTrigger)
+        .on('end', function(){
+            if (!zoomComponent) {
+                zoomComponent = zoomInit(baseContainer, baseDimensions, xScale(categoryData[3].x0), zoomToMoreCategories);
+            }
+        })
         .ease()
 
-    section2_2_init(dotContainer, indexed);
+    section2_2_init(baseContainer, indexed);
 }
 
 function moveBarGroup(d, i) {
-    const re = /(\d)+/g
-    const originalTransform = dotContainer.attr('transform').match(re);
-
-    dotContainer.transition()
+    baseContainer.transition()
         .duration(1000)
-        .attr('transform', translator(Number(originalTransform[0]), 220 + Number(originalTransform[1])))
+        .attr('transform', translator(baseTranslate.x, baseTranslate.y + 100))
         .on('end', addDetails)
         .ease()
 }
@@ -246,18 +212,16 @@ function addSegments(more) {
         .data(categoryData)
         .enter()
         .append('rect')
-        .attr('y', function (d, i) {
-            return -2;
-        })
+        .attr('y', 0)
         .attr('x', function (d) {
             return xScale(d.x0)
         })
         .attr('width', function (d) {
             return xScale(d.amount);
         })
-        .attr('height', incomeContainerSize.height + 5)
+        .attr('height', baseDimensions.height)
         .attr('fill', function (d, i) {
-            return (i < 3) ? '#49A5B6' : '#ccc';
+            return (i < 3) ? colors.colorPrimaryDarker : '#ccc';
         })
         .attr('opactity', 0)
         .on('click', showDetail);
@@ -283,40 +247,41 @@ function remove() {
 }
 
 function setContainers() {
-    dotContainer = d3.select('.' + receiptsConstants.dotContainerClass);
-    incomeContainer = d3.select('.' + receiptsConstants.incomeContainerClass);
-    shaderContainer = dotContainer.append('g').classed(receiptsConstants.shaderContainerClass, true);
-    detailsGroup = dotContainer.append('g').attr('opacity', 0);
-    addedSegments = true;
-    dotBoxSize = getElementBox(dotContainer);
-    incomeContainerSize = getElementBox(incomeContainer);
+    baseContainer = svg.append('g')
+        .classed('base-category-container', true)
+        .attr('transform', translator(baseTranslate.x, baseTranslate.y));
 
-    xScale.range([0, dotBoxSize.width])
+    shaderContainer = baseContainer.append('g')
+        .classed(receiptsConstants.shaderContainerClass, true);
+
+    detailsGroup = baseContainer.append('g')
+        .attr('opacity', 0);
+
+    xScale.range([0, baseDimensions.width])
 
     rescale();
 }
 
-function reset() {
-    const duration = 500
+function init() {
+    setContainers();
+    addSegments();
+}
 
+function reset() {
     d3.selectAll('.reset')
+        .attr('opacity', 1)
         .transition()
-        .duration(duration)
+        .delay(1000)
+        .duration(1000)
         .attr('opacity', 0)
         .on('end', function () {
             d3.select(this).remove();
         })
         .ease();
-
-    setTimeout(function () {
-        setContainers()
-        addSegments()
-    }, duration)
 }
 
 export function section2_1() {
-    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass),
-        prevTransform = dotContainer.attr('transform').slice(0, 20);
+    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass);
 
     svg = establishContainer();
 
@@ -329,8 +294,22 @@ export function section2_1() {
     d3.selectAll('.gdp-legend').remove();
     d3.selectAll('.box-group').remove();
 
-    dotContainer.transition()
-        .duration(1000)
-        .attr('transform', prevTransform)
-        .on('end', reset);
+    if (dotContainer.size()) {
+        dotContainer.transition()
+            .duration(700)
+            .attr('transform', translator(baseTranslate.x, baseTranslate.y))
+            .on('end', function () {
+                init();
+                reset();
+            });
+
+        dotContainer.select('.gdp').transition()
+            .duration(500)
+            .attr('opacity', 0)
+            .on('end', function () {
+                d3.select(this).remove();
+            })
+    } else {
+        init();
+    }
 }

@@ -26,6 +26,7 @@ function render(globals) {
         .attr('dy', 20)
 
     x.xAxisDom.selectAll('.tick line').remove();
+    x.xAxisDom.selectAll('path').remove();
 }
 
 function rescale(globals, duration) {
@@ -35,6 +36,9 @@ function rescale(globals, duration) {
         .duration(duration)
         .call(x.xAxis)
         .ease();
+
+    x.xAxisDom.selectAll('path').remove();
+        
 }
 
 export function xAxis(globals) {

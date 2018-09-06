@@ -55,7 +55,7 @@ function addLegend() {
 }
 
 function setGdpDots() {
-    const incomeHeightOffset = getElementBox(d3.select('g.' + receiptsConstants.incomeContainerClass)).height + 5,
+    const incomeHeightOffset = 100,
         gdpDotCount = 16000,
         gdpDotColor = 'rgba(200,200,200,1)',
         dotPositionStart = dotPositionAccessor.get(),

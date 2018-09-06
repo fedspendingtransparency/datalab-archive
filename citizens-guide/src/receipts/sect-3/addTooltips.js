@@ -1,5 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox } from '../../utils';
+import { colors } from '../../colors';
 
 const d3 = { select, selectAll },
     dataDisc = 'data-disc',
@@ -26,9 +27,7 @@ function showTooltip(d, i) {
     g.raise()
 
     g.select('circle')
-        .attr('fill', function (d) {
-            return d.color;
-        })
+        .attr('fill', colors.colorPrimaryDarker)
 
     tooltip.append('rect')
         .attr('width', width)
@@ -93,7 +92,6 @@ function dataReducer(accumulator, d) {
         return {
             year: v.year,
             amount: v.amount,
-            color: d.color
         }
     }))
 };
@@ -134,12 +132,10 @@ export function addTooltips(globals) {
         .on('mouseout', destroyTooltip)
 
     dataDots.append('circle')
-        .attr('stroke', function (d) {
-            return d.color;
-        })
+        .attr('stroke', colors.colorPrimaryDarker)
         .classed(dataDisc, true)
         .attr('fill', 'white')
-        .attr('r', 3)
+        .attr('r', 4)
         .attr('cx', 0)
         .attr('cy', 0)
         .classed('pointer', true)

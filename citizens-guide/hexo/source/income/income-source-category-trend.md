@@ -5,10 +5,16 @@ permalink: /income-source-category-trend.html
 description: This is the text that goes in the meta description tag
 ---
 
-# Income part III: Source Category Trend
-## 2012 - 2017
+# Income Over Time
 
-<p id="lead-in">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis vitae. Donec sagittis faucibus lacus eget blandit. Mauris vitae ultricies metus, at condimentum nulla. Donec quis ornare lacus. Etiam gravida mollis tortor quis porttitor.</p>
+<div id="lead-in">
+The chart below displays trends in government income over time. From the chart below, it looks like income generated from tax revenue has grown. Does this mean you've been paying more? Not necessarily. What this chart shows is that economic growth has been on the rise. 
+
+The U.S. economy has been growing steadily since 2013.  As we previously learned in the sections above, taxes are a percent of income for people and businesses.  If an economy is performing well, people and businesses earn more, and income generated from taxes increase.
+</div>
+
+## Receipts by Source Categories
+<div class="hint">Click a category name to explore subcategories</div>
 
 <div id="viz"></div>
 
