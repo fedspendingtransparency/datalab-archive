@@ -1,8 +1,24 @@
 import { colors } from "../../colors";
 import { translator } from "../../utils";
+import { select } from 'd3-selection';
 
-const outGroupClass = 'out-group',
-    discGroupClass = 'disc-group';
+const d3 = { select },
+    triangleLeftClass = 'triangle-left',
+    triangleRightClass = 'triangle-right',
+    outGroupClass = 'out-group',
+    discGroupClass = 'disc-group',
+    trianglePoints = {
+        in: {
+            left: '16,16 10,13 10,19',
+            right: '16,16 22,13 22,19'
+        },
+        out: {
+            left: '5,16 10,13 10,19',
+            right: '27,16 22,13 22,19'
+        }
+    };
+
+let triangleLeft, triangleRight;
 
 function zoomOut(g) {
     g.select('.' + outGroupClass)
@@ -10,30 +26,57 @@ function zoomOut(g) {
         .transition()
         .duration(1000)
         .attr('opacity', 0)
+        .on('end', function () {
+            d3.select(this).attr('transform', 'scale(0)')
+        })
+
+    g.select('.' + discGroupClass)
+        .transition()
+        .delay(500)
+        .duration(700)
+        .attr('transform', translator(0, -140))
+
+    triangleLeft.transition()
+        .delay(1200)
+        .duration(500)
+        .attr('points', trianglePoints.in.left);
+
+    triangleRight.transition()
+        .delay(1200)
+        .duration(500)
+        .attr('points', trianglePoints.in.right)
 }
 
 function zoomIn(g) {
     g.select('.' + outGroupClass)
+        .attr('transform', 'scale(1)')
         .transition()
+        .delay(500)
         .duration(1000)
         .attr('opacity', 1)
+
+    g.select('.' + discGroupClass)
+        .transition()
+        .delay(1000)
+        .duration(700)
+        .attr('transform', translator(10, 7));
+
+    triangleLeft.transition()
+        .delay(1700)
+        .duration(500)
+        .attr('points', trianglePoints.out.left);
+
+    triangleRight.transition()
+        .delay(1700)
+        .duration(500)
+        .attr('points', trianglePoints.out.right)
 }
 
 function init(g, baseDimensions, zoomTriggerX) {
     const outGroup = g.append('g')
-        .classed(outGroupClass, true),
-        trianglePoints = {
-            in: {
-                left: '155,21 158,15 152,15',
-                right: '155,21 158,27 152,27'
-            },
-            out: {
-                left: '5,16 10,13 10,19',
-                right: '27,16 22,13 22,19'
-            }
-        };
+        .classed(outGroupClass, true);
 
-    let text, triangleLeft, triangleRight, disc;
+    let text, disc;
 
     outGroup.append('rect')
         .attr('width', baseDimensions.width - zoomTriggerX)
@@ -106,7 +149,7 @@ export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallba
     let state = 'out';
     g.on('click', function () {
         state = (state === 'out') ? 'in' : 'out';
-        
+
         zoomCallback(state);
         transformTrigger(state, g)
     })

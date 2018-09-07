@@ -5,35 +5,34 @@ import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } fro
 const d3 = { select, selectAll, line },
     noFitOffset = 50;
 
-let xScale,
-    noFitClimb,
-    foundFit;
+// let noFitClimb,
+//     foundFit;
 
 function resetNoFits() {
     noFitClimb = 14 - noFitOffset,
         foundFit = false;
 }
 
-function processNoFits(d, i) {
-    const textGroup = d3.select(this),
+function processNoFits(d, elem, config) {
+    const textGroup = d3.select(elem),
         noFit = textGroup.classed('no-fit');
 
     let prevTranslate;
 
     if (!noFit) {
-        foundFit = true;
+        config.foundFit = true;
         return;
     }
 
     prevTranslate = getTransform(textGroup);
 
     textGroup.selectAll('text').attr('text-anchor', function () {
-        return (foundFit) ? 'end' : 'start';
+        return (config.foundFit) ? 'end' : 'start';
     })
 
-    textGroup.attr('transform', translator(prevTranslate.x, noFitClimb))
+    textGroup.attr('transform', translator(prevTranslate.x, config.noFitClimb))
 
-    noFitClimb -= noFitOffset;
+    config.noFitClimb -= noFitOffset;
 
     textGroup.append('path')
         .attr('stroke', '#4a4a4a')
@@ -41,7 +40,7 @@ function processNoFits(d, i) {
         .attr('d', function () {
             const points = [
                 [0, 22],
-                [0, Math.abs(noFitClimb) - 50]
+                [0, Math.abs(config.noFitClimb) - 50]
             ];
 
             return d3.line()(points);
@@ -72,29 +71,27 @@ function tryWrappingActivity(dom, d, boxWidth) {
     }
 }
 
-function checkFit(d) {
+function checkFit(d, elem, xScale) {
     const x1 = d.x0 + d.amount,
         boxWidth = xScale(x1) - xScale(d.x0),
-    textWidth = this.getBoundingClientRect().width;
+    textWidth = elem.getBoundingClientRect().width;
 
     if (boxWidth > textWidth) {
         return;
     }
 
-    tryWrappingActivity(this, d, boxWidth);
+    tryWrappingActivity(elem, d, boxWidth);
 
 }
 
-export function addTextElements(categoryData, detailsGroup, _xScale, baseDimensions, more) {
+export function addTextElements(categoryData, detailsGroup, xScale, baseDimensions, more) {
     const line = d3.line(),
-        details = (more) ? categoryData.slice(3) : categoryData.slice(0, 3);
+        details = (more) ? categoryData.slice(3) : categoryData.slice(0, 3),
+        noFitConfig = {
+            noFitClimb: 14 - noFitOffset
+        };
 
     let t, textGroup;
-
-
-    resetNoFits();
-
-    xScale = _xScale;
 
     textGroup = detailsGroup.selectAll('g')
         .data(details)
@@ -128,11 +125,13 @@ export function addTextElements(categoryData, detailsGroup, _xScale, baseDimensi
             return simplifyNumber(d.amount) + ' / ' + d.percent_total + '%';
         })
 
-    textGroup.each(checkFit);
+    textGroup.each(function(d) {
+        checkFit(d, this, xScale);
+    });
 
-    foundFit = false;
-
-    textGroup.each(processNoFits)
+    textGroup.each(function(d) {
+        processNoFits(d, this, noFitConfig)
+    })
 
     detailsGroup.transition()
         .duration(500)
