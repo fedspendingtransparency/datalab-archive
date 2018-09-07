@@ -42,7 +42,7 @@ function addSortButtons(){
                 } else {
                     parentDiv.selectAll('svg').remove();
                             svg = obj.append('svg')
-                            .attr('width', 20)
+                            .attr('width', 15)
                             .attr('height', 20);
 
                             addCaretIcon(svg);
@@ -79,7 +79,7 @@ export function setDefaultSort(){
     );
 
     const svg = incomeButton.append('svg')
-        .attr('width', 20)
+        .attr('width', 15)
         .attr('height', 20);
 
         addCaretIcon(svg);

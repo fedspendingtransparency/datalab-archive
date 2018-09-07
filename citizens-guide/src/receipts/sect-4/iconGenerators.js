@@ -1,5 +1,5 @@
-
 import { select } from 'd3-selection';
+import { colors } from '../../colors';
 
 const d3 = { select }
 
@@ -74,20 +74,21 @@ export function addSearchIcon(svg) {
 }
 
 export function addCaretIcon(svg) {
-    const lineColor = 'white';
+    const lineColor = colors.colorPrimaryAltDarkest;
+
     svg.append('line')
         .attr('x1', 0)
-        .attr('y1', 5)
-        .attr('x2', 8)
-        .attr('y2', 11)
+        .attr('y1', 13)
+        .attr('x2', 7)
+        .attr('y2', 8)
         .attr('stroke', lineColor)
         .attr('stroke-width', 1);
 
     svg.append('line')
-        .attr('x1', 8)
-        .attr('y1', 11)
-        .attr('x2', 16)
-        .attr('y2', 5)
+        .attr('x1', 7)
+        .attr('y1', 8)
+        .attr('x2', 14)
+        .attr('y2', 13)
         .attr('stroke', lineColor)
         .attr('stroke-width', 1)
 }
@@ -95,45 +96,46 @@ export function addCaretIcon(svg) {
 export function adjustCaretIcon(svg, direction) {
     var lines = svg.selectAll('line');
     lines.exit().remove();
+
     if (direction === 'up') {
-        lines.each(function(d,i,j){
-            const curLine = d3.select(j[i]);
-            if(i === 0){
-            curLine.transition()
-            .duration(500)
-            .attr('x1', 0)
-            .attr('y1', 11)
-            .attr('x2', 8)
-            .attr('y2', 6)
+        lines.each(function (d, i) {
+            const curLine = d3.select(this);
+            if (i === 0) {
+                curLine.transition()
+                    .duration(500)
+                    .attr('x1', 0)
+                    .attr('y1', 13)
+                    .attr('x2', 7)
+                    .attr('y2', 8)
             }
             else {
                 curLine.transition()
-                .duration(500)
-                .attr('x1', 8)
-                .attr('y1', 6)
-                .attr('x2', 16)
-                .attr('y2', 11);
+                    .duration(500)
+                    .attr('x1', 7)
+                    .attr('y1', 8)
+                    .attr('x2', 14)
+                    .attr('y2', 13);
             }
         });
     } else {
-        lines.each(function(d,i,j){
+        lines.each(function (d, i) {
             const curLine = d3.select(this);
-            if(i === 1){
+            if (i === 1) {
                 curLine.transition()
-                .duration(500)
-                .attr('x1', 8)
-                .attr('y1', 11)
-                .attr('x2', 16)
-                .attr('y2', 6);
-                
+                    .duration(500)
+                    .attr('x1', 7)
+                    .attr('y1', 13)
+                    .attr('x2', 14)
+                    .attr('y2', 8);
+
             }
             else {
                 curLine.transition()
-                .duration(500)
-                .attr('x1', 0)
-                .attr('y1', 6)
-                .attr('x2', 8)
-                .attr('y2', 11)
+                    .duration(500)
+                    .attr('x1', 0)
+                    .attr('y1', 8)
+                    .attr('x2', 7)
+                    .attr('y2', 13)
             }
         });
     }
