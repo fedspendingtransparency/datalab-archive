@@ -96,7 +96,7 @@ function zoomToMoreCategories(state) {
 
     setTimeout(function () {
         detailsGroup.attr('opacity', 1);
-        addDetails(more)
+        addDetails(state)
     }, textFade + zoom)
 }
 
@@ -106,8 +106,8 @@ function rescale(state) {
     xScale.domain([low, totalAmount]);
 }
 
-function addDetails(more) {
-    textElements = addTextElements(categoryData, detailsGroup, xScale, baseDimensions, more);
+function addDetails(state) {
+    textElements = addTextElements(categoryData, detailsGroup, xScale, baseDimensions, state);
 
     if (!zoomComponent) {
         zoomComponent = zoomInit(baseContainer, baseDimensions, xScale(categoryData[3].x0), zoomToMoreCategories);
@@ -187,6 +187,7 @@ function setContainers() {
         .attr('transform', translator(baseTranslate.x, baseTranslate.y));
 
     shaderContainer = baseContainer.append('g')
+        .attr('style', 'cursor:pointer')
         .classed(receiptsConstants.shaderContainerClass, true);
 
     detailsGroup = baseContainer.append('g')

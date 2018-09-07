@@ -144,6 +144,7 @@ function transformTrigger(state, g) {
 
 export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallback) {
     const g = baseContainer.append('g')
+        .attr('style','cursor:pointer')
         .attr('transform', translator(zoomTriggerX, 0));
 
     let state = 'out';
