@@ -8,7 +8,8 @@ export function getElementBox(d3Selection) {
     return {
         width: Math.ceil(rect.width),
         height: Math.ceil(rect.height),
-        right: Math.ceil(rect.right)
+        right: Math.ceil(rect.right),
+        bottom: Math.ceil(rect.bottom)
     }
 }
 

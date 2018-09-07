@@ -4,13 +4,19 @@ import { translator } from "../../utils";
 const outGroupClass = 'out-group',
     discGroupClass = 'disc-group';
 
-function zoomOut() {
-    console.log(this)
-    this.select('.' + outGroupClass)
+function zoomOut(g) {
+    g.select('.' + outGroupClass)
         .attr('opacity', 1)
         .transition()
         .duration(1000)
         .attr('opacity', 0)
+}
+
+function zoomIn(g) {
+    g.select('.' + outGroupClass)
+        .transition()
+        .duration(1000)
+        .attr('opacity', 1)
 }
 
 function init(g, baseDimensions, zoomTriggerX) {
@@ -85,13 +91,24 @@ function init(g, baseDimensions, zoomTriggerX) {
         .attr('fill', 'white');
 }
 
+function transformTrigger(state, g) {
+    if (state === 'out') {
+        zoomIn(g);
+    } else {
+        zoomOut(g);
+    }
+}
+
 export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallback) {
     const g = baseContainer.append('g')
         .attr('transform', translator(zoomTriggerX, 0));
 
+    let state = 'out';
     g.on('click', function () {
-        zoomCallback();
-        zoomOut.bind(g)();
+        state = (state === 'out') ? 'in' : 'out';
+        
+        zoomCallback(state);
+        transformTrigger(state, g)
     })
 
     init(g, baseDimensions, zoomTriggerX);

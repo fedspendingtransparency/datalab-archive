@@ -1,5 +1,4 @@
 import { select, selectAll } from 'd3-selection';
-import { line } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
 import { min } from 'd3-array';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
@@ -10,8 +9,9 @@ import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
 import { colors } from '../../colors';
 import { zoomInit } from './zoom';
+import { addTextElements } from './section2-textElements';
 
-const d3 = { select, selectAll, line, scaleLinear, min, stack },
+const d3 = { select, selectAll, scaleLinear, min, stack },
     categoryData = getDataByYear(2017),
     indexed = categoryData.reduce((a, c) => {
         a[c.activity] = c;
@@ -28,6 +28,7 @@ let svg,
     shaderContainer,
     detailsGroup,
     zoomComponent,
+    textElements,
     shaders;
 
 function stackData(series) {
@@ -49,20 +50,7 @@ function stackData(series) {
     })
 }
 
-function zoomToMoreCategories() {
-    const textFade = 500,
-        zoom = 1000;
-
-    rescale('in');
-    clearDetails();
-
-    detailsGroup.transition()
-        .duration(textFade)
-        .attr('opacity', 0)
-        .on('end', function () {
-            detailsGroup.selectAll('*').remove();
-        })
-
+function zoomShaders(state, textFade, zoom) {
     shaders.transition()
         .delay(textFade)
         .duration(zoom)
@@ -76,107 +64,54 @@ function zoomToMoreCategories() {
             return width;
         })
         .attr('opacity', function (d, i) {
-            if (i < 3) {
+            if (state === 'in') {
+                i -= 3;
+            }
+
+            if (state === 'in' && i < 0) {
                 return 0;
             } else {
-                i -= 3;
-                return 0.8 - i / 7;
+                return (i) ? 1 - i / 7 : 1;
             }
         })
-        .attr('fill', '#49A5B6');
+        .attr('fill', colors.colorPrimaryDarker);
+}
+
+function zoomToMoreCategories(state) {
+    const textFade = 500,
+        more = (state === 'in'),
+        zoom = 1000;
+
+    rescale(state);
+    clearDetails();
+
+    detailsGroup.transition()
+        .duration(textFade)
+        .attr('opacity', 0)
+        .on('end', function () {
+            detailsGroup.selectAll('*').remove();
+        })
+
+    zoomShaders(state, textFade, zoom);
 
     setTimeout(function () {
         detailsGroup.attr('opacity', 1);
-        addDetails('more')
+        addDetails(more)
     }, textFade + zoom)
 }
 
-function rescale(zoomIn) {
-    const low = (zoomIn) ? topAmount : 0;
+function rescale(state) {
+    const low = (state === 'in') ? topAmount : 0;
 
     xScale.domain([low, totalAmount]);
 }
 
 function addDetails(more) {
-    const line = d3.line(),
-        details = (more) ? categoryData.slice(3) : categoryData.slice(0, 3);
+    textElements = addTextElements(categoryData, detailsGroup, xScale, baseDimensions, more);
 
-    let t, textGroup;
-
-    textGroup = detailsGroup.selectAll('g')
-        .data(details)
-        .enter()
-        .append('g')
-        .attr('transform', function (d, i) {
-            const x1 = d.x0 + d.amount,
-                width = xScale(x1) - xScale(d.x0),
-                x = xScale(d.x0) + width / 2,
-                y = (i < 2) ? (baseDimensions.height / 2) - 30 : ((i - 1) * -50) - 20;
-
-            return translator(x, y);
-        })
-
-    t = textGroup.append('text')
-        .attr('text-anchor', function (d, i) {
-            return (i < 2) ? 'middle' : 'end';
-        })
-        .attr('style', function (d, i) {
-            return (i < 2) ? 'fill:white' : null;
-        })
-
-    t.append('tspan')
-        .text(function (d, i) {
-            if (i < 2) {
-                return d.percent_total + '%';
-            }
-        })
-        .attr('x', 0)
-        .attr('dy', 20)
-
-    t.append('tspan')
-        .text(function (d) {
-            return d.activity;
-        })
-        .attr('x', 0)
-        .attr('dy', 20)
-        .attr('style', 'font-weight: bold')
-
-    t.append('tspan')
-        .text(function (d, i) {
-            if (i < 2) {
-                return simplifyNumber(d.amount);
-            } else {
-                return simplifyNumber(d.amount) + ' | ' + d.percent_total + '%';
-            }
-        })
-        .attr('x', 0)
-        .attr('dy', 20)
-
-    textGroup.append('path')
-        .attr('stroke', '#4a4a4a')
-        .attr('stroke-width', 1)
-        .attr('d', function (d, i) {
-            const x1 = d.x0 + d.amount,
-                y = ((i - 1) * 50) + 18,
-                points = [
-                    [0, 44],
-                    [0, y]
-                ];
-
-            if (i < 2) { return }
-
-            return line(points);
-        });
-
-    detailsGroup.transition()
-        .duration(500)
-        .attr('opacity', 1)
-        .on('end', function(){
-            if (!zoomComponent) {
-                zoomComponent = zoomInit(baseContainer, baseDimensions, xScale(categoryData[3].x0), zoomToMoreCategories);
-            }
-        })
-        .ease()
+    if (!zoomComponent) {
+        zoomComponent = zoomInit(baseContainer, baseDimensions, xScale(categoryData[3].x0), zoomToMoreCategories);
+    }
 
     section2_2_init(baseContainer, indexed);
 }
@@ -233,7 +168,7 @@ function addSegments(more) {
                 i = 3;
             }
 
-            return (i) ? 0.8 - i / 7 : 0.8;
+            return (i) ? 1 - i / 7 : 1;
         })
         .ease()
 

@@ -7,6 +7,7 @@ import { easeCubicOut as connectorEase } from 'd3-ease';
 import { dotFactory, receiptsConstants } from './receipts-utils';
 import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../utils';
 import { getData } from './section2-data';
+import { colors } from '../../colors';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
     svg = establishContainer(),
@@ -15,19 +16,18 @@ const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
     detailBoxHeight = 100;
 
 let resolver,
-    dotContainer,
+    baseContainer,
     textContainer,
     detailContainer,
     currentDetailIndex,
     data,
-    indexed,
     x,
     x0,
     connectors,
     clearance,
     yOffset,
     parentRect,
-    dotContainerBox;
+    baseContainerBox;
 
 function printCoords(coords, shift) {
     const y = shift || coords[1];
@@ -50,7 +50,7 @@ function setDomain() {
 }
 
 function setScales() {
-    const xOffset = getTransform(dotContainer).x,
+    const xOffset = getTransform(baseContainer).x,
         domain = setDomain();
 
     sourceBox.left = Number(parentRect.attr('x')) + xOffset;
@@ -87,7 +87,7 @@ function fancyShape(d, i) {
 }
 
 function widthCalculator(d) {
-    return dotContainerBox.width * d[0] / 100;
+    return baseContainerBox.width * d[0] / 100;
 }
 
 function offsetText(d, w, textSelection) {
@@ -208,13 +208,24 @@ function addText() {
 }
 
 function renderDetailBoxes() {
+    let opacityTracker = 0;
+    
     detailContainer.append('g').attr('transform', translator(0, 150)).selectAll('rect')
         .data(data)
         .enter()
         .append('rect')
         .attr('height', detailBoxHeight)
         .attr('fill', function (d) {
-            return (d.percent_total < 0) ? 'rgba(227,28,61,0.3)' : 'rgba(46,133,64,0.5)'
+            return (d.percent_total < 0) ? colors.colorGrayDark : colors.colorPrimaryDarker;
+        })
+        .attr('opacity', function(d){
+            if (d.percent_total < 0) {
+                return 1;
+            } else {
+                const o = (opacityTracker) ? 1 - opacityTracker / 7 : 1;
+                opacityTracker += 1;
+                return o;
+            }
         })
         .attr('stroke', 'white')
         .attr('stroke-width', 2)
@@ -259,7 +270,7 @@ function renderDetailContainer() {
         detailContainer.remove();
     }
 
-    dotContainerBox = getElementBox(dotContainer);
+    baseContainerBox = getElementBox(baseContainer);
 
     x0.range([0, 1200]);
 
@@ -270,7 +281,7 @@ function renderDetailContainer() {
 }
 
 function transitionDetailContainer() {
-    const yPos = 360,
+    const yPos = 272,
         width = sourceBox.right - sourceBox.left,
         initialSubcategoryScaleFactor = width / 1200;
 
@@ -291,7 +302,7 @@ function renderDetail() {
     setScales();
     renderDetailContainer();
     renderDetailBoxes();
-    addText();
+    // addText();
     renderConnectors();
     transitionDetailContainer();
 }
@@ -306,9 +317,8 @@ export function clearDetails() {
     }
 }
 
-export function section2_2_init(_dotContainer, _indexed) {
-    dotContainer = _dotContainer;
-    indexed = _indexed;
+export function section2_2_init(_baseContainer) {
+    baseContainer = _baseContainer;
 
     resolver();
 }
@@ -317,7 +327,7 @@ export function showDetail(d) {
     data = d.subcategories;
     parentRect = d3.select(this);
 
-    if (dotContainer) {
+    if (baseContainer) {
         renderDetail()
     } else {
         waitForReady.then(function(){
