@@ -5,43 +5,50 @@ import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } fro
 const d3 = { select, selectAll, line },
     noFitOffset = 50;
 
-// let noFitClimb,
-//     foundFit;
-
-function resetNoFits() {
-    noFitClimb = 14 - noFitOffset,
-        foundFit = false;
-}
-
 function processNoFits(d, elem, config) {
     const textGroup = d3.select(elem),
+        lookahead = textGroup.classed('lookahead'),
         noFit = textGroup.classed('no-fit');
 
     let prevTranslate;
 
     if (!noFit) {
-        config.foundFit = true;
+        config.noFitClimb = (config.state === 'details') ? 280 : 14 - noFitOffset;
         return;
     }
 
+    if (lookahead) {
+        config.noFitClimb = 280 + (noFitOffset * (config.lookaheadCount -1 ));
+        config.lookaheadCount -= 1;
+    }
+    
     prevTranslate = getTransform(textGroup);
 
     textGroup.selectAll('text').attr('text-anchor', function () {
-        return (config.foundFit) ? 'end' : 'start';
+        return (textGroup.classed('lookahead')) ? 'start' : 'end';
     })
 
     textGroup.attr('transform', translator(prevTranslate.x, config.noFitClimb))
 
-    config.noFitClimb -= noFitOffset;
+    if (config.state === 'details') {
+        config.noFitClimb += noFitOffset;
+    } else {
+        config.noFitClimb -= noFitOffset;
+    }
 
     textGroup.append('path')
         .attr('stroke', '#4a4a4a')
         .attr('stroke-width', 1)
         .attr('d', function () {
-            const points = [
+            const mainPoints = [
                 [0, 22],
                 [0, Math.abs(config.noFitClimb) - 50]
-            ];
+            ],
+                detailPoints = [
+                    [0,-20],
+                    [0,-config.noFitClimb + 300]
+                ],
+                points = (config.state === 'details') ? detailPoints : mainPoints;
 
             return d3.line()(points);
         });
@@ -55,43 +62,63 @@ function acceptWordWrap(textGroup) {
     details.attr('y', 28);
 }
 
-function tryWrappingActivity(dom, d, boxWidth) {
+function tryWrappingActivity(dom, d, boxWidth, config) {
     const textGroup = d3.select(dom),
         activity = textGroup.select('.activity');
 
+    let tSpanSize;
+
     wordWrap(activity, boxWidth);
 
-    if (getElementBox(textGroup).width > boxWidth) {
+    tSpanSize = activity.selectAll('tspan').size();
+
+    if (getElementBox(textGroup).width > boxWidth || tSpanSize > 2) {
         activity.selectAll('*').remove();
-        activity.text(d.activity);
+        activity.text(function (d) {
+            return (config.state === 'details') ? d.sub_activity : d.activity;
+        })
         textGroup.classed('no-fit', true);
+        textGroup.classed('lookahead', function(){
+            return (!config.foundFit);
+        })
         textGroup.selectAll('text').attr('style', null);
     } else {
+        config.foundFit = true;
         acceptWordWrap(textGroup);
     }
 }
 
-function checkFit(d, elem, xScale) {
+function checkFit(d, elem, xScale, config) {
     const x1 = d.x0 + d.amount,
-        boxWidth = xScale(x1) - xScale(d.x0),
-    textWidth = elem.getBoundingClientRect().width;
+        boxWidth = (config.state === 'details') ? d.width : xScale(x1) - xScale(d.x0),
+        textWidth = elem.getBoundingClientRect().width;
 
     if (boxWidth > textWidth) {
+        config.foundFit = true;
         return;
     }
 
-    tryWrappingActivity(elem, d, boxWidth);
+    tryWrappingActivity(elem, d, boxWidth, config);
 
 }
 
-export function addTextElements(categoryData, detailsGroup, xScale, baseDimensions, more) {
+export function addTextElements(data, detailsGroup, xScale, baseDimensions, state) {
     const line = d3.line(),
-        details = (more) ? categoryData.slice(3) : categoryData.slice(0, 3),
-        noFitConfig = {
-            noFitClimb: 14 - noFitOffset
+        noFitClimb = (state === 'details') ? 280 : 14 - noFitOffset,
+        config = {
+            noFitClimb: noFitClimb,
+            state: state
         };
 
-    let t, textGroup;
+    let t, textGroup, details;
+
+    if (state === 'out' || !state) {
+        details = data.slice(0, 3);
+    } else if (state === 'in') {
+        details = data.slice(3);
+    } else {
+        details = data;
+    }
 
     textGroup = detailsGroup.selectAll('g')
         .data(details)
@@ -103,14 +130,18 @@ export function addTextElements(categoryData, detailsGroup, xScale, baseDimensio
                 x = xScale(d.x0) + width / 2,
                 y = baseDimensions.height / 2;
 
+            if (state === 'details') {
+                return translator(d.xStart + d.width / 2, 202)
+            }
+
             return translator(x, y);
         })
 
     textGroup.append('text')
         .text(function (d) {
-            return d.activity;
+            return (state === 'details') ? d.sub_activity : d.activity;
         })
-        .attr('font-weight', 'bold')        
+        .attr('font-weight', 'bold')
         .classed('activity', true)
         .attr('text-anchor', 'middle')
         .attr('style', 'font-weight: bold')
@@ -122,15 +153,23 @@ export function addTextElements(categoryData, detailsGroup, xScale, baseDimensio
         .attr('style', 'fill:white')
         .attr('y', 20)
         .text(function (d, i) {
-            return simplifyNumber(d.amount) + ' / ' + d.percent_total + '%';
+            let p = parseInt(d.percent_total);
+
+            if (p < 1) {
+                p = '<1'
+            }
+            
+            return simplifyNumber(d.amount) + ' (' + p + '%)';
         })
 
-    textGroup.each(function(d) {
-        checkFit(d, this, xScale);
+    textGroup.each(function (d) {
+        checkFit(d, this, xScale, config);
     });
 
-    textGroup.each(function(d) {
-        processNoFits(d, this, noFitConfig)
+    config.lookaheadCount = detailsGroup.selectAll('.lookahead').size();
+
+    textGroup.each(function (d) {
+        processNoFits(d, this, config)
     })
 
     detailsGroup.transition()

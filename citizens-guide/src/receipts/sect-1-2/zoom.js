@@ -82,26 +82,25 @@ function init(g, baseDimensions, zoomTriggerX) {
         .attr('width', baseDimensions.width - zoomTriggerX)
         .attr('height', baseDimensions.height)
         .attr('fill', colors.colorPrimaryDarker)
-        .attr('stroke', colors.colorPrimaryDarker)
         .attr('x', 0)
         .attr('y', 0);
 
     text = outGroup.append('text')
-        .text('zoom for')
+        .text('Zoom for')
         .attr('style', 'fill:white')
         .attr('font-size', 12)
         .attr('x', 10)
         .attr('y', 56);
 
     text.append('tspan')
-        .text('More')
+        .text('more')
         .attr('style', 'fill:white')
         .attr('font-size', 18)
         .attr('x', 10)
         .attr('dy', 18);
 
     text.append('tspan')
-        .text('Categories')
+        .text('categories')
         .attr('style', 'fill:white')
         .attr('font-size', 18)
         .attr('x', 10)
@@ -144,6 +143,7 @@ function transformTrigger(state, g) {
 
 export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallback) {
     const g = baseContainer.append('g')
+        .attr('style','cursor:pointer')
         .attr('transform', translator(zoomTriggerX, 0));
 
     let state = 'out';

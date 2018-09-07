@@ -55,7 +55,7 @@ function createTrigger(globals) {
     const selections = {},
         triggerTop = getTriggerTop(globals);
 
-    selections.trigger = globals.chart.append('g');
+    selections.trigger = globals.chart.append('g').attr('style','cursor:pointer');
     selections.triggerWrapper = selections.trigger.append('g');
     selections.box = selections.triggerWrapper.append('g');
     selections.disc = selections.triggerWrapper.append('g');
