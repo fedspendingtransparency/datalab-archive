@@ -29,6 +29,9 @@ export function getTransform(d3Selection) {
 
 export function establishContainer(height) {
     const viz = d3.select('#viz');
+    viz.attr('translate',() => {
+     return translator(500,0)
+    });
 
     let svg = viz.select('svg.main');
 

@@ -1,11 +1,13 @@
 // @import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 // @import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
-
+@value cgChartWidth: 800px;
 $primaryColor: #4A90E2;
+
 
 .select-country {
     position: relative;
-    transform: translate(0,39px)
+    transform: translate(0,39px);
+    margin-left: calc((1200px - #{cgChartWidth})/2);
 }
 
 .trigger-button {

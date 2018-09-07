@@ -9,10 +9,13 @@ import { selectCountryInit } from './selectCountry'
 import { masterData } from '.';
 import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../sect-1-2/donut";
+import { initSortButtons } from './sortButton';
+
+const styles = require('../sect-4/selectCountry.scss');
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
-        chartWidth: 800,
+        chartWidth: parseInt(styles.cgChartWidth,10),
         rowHeight: 72,
         barHeight: 16,
         countryColumnWidth: 210,
@@ -37,7 +40,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         }
     ];
 
-let xAxis, data;
+let xAxis, data, sortFunction;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
@@ -101,21 +104,21 @@ function drawBars(data) {
         group = d3.select(this),
         keys = chartedData;
     const bars = group.selectAll('rect')
-            .data(keys)
-            .enter()
-            .append('rect')
-            .attr('width', scales.x(0))
-            .attr('height', dimensions.barHeight)
-            .attr('x', 0)
-            .attr('y', function (d, i) {
-                return dimensions.rowHeight / 2 - dimensions.barHeight / 4;
-            })
-            .attr('fill', function (d) {
-                return d.config.fill;
-            })
-            .attr('stroke', function (d) {
-                return d.config.stroke;
-            })
+        .data(keys)
+        .enter()
+        .append('rect')
+        .attr('width', scales.x(0))
+        .attr('height', dimensions.barHeight)
+        .attr('x', 0)
+        .attr('y', function (d, i) {
+            return dimensions.rowHeight / 2 - dimensions.barHeight / 4;
+        })
+        .attr('fill', function (d) {
+            return d.config.fill;
+        })
+        .attr('stroke', function (d) {
+            return d.config.stroke;
+        })
 
     bars.transition()
         .duration(transitionDuration)
@@ -199,17 +202,17 @@ function placeCountryLabels() {
 
 }
 function placeGdpFigures() {
-    const gdpText = containers.gdp.selectAll('.donutContainer')
+    const gdpG = containers.gdp.selectAll('.donut-container')
         .data(data, function (d) {
             return d.country
         });
 
     let timeoutForAdd = 0;
 
-    if (gdpText.size()) {
+    if (gdpG.size()) {
         timeoutForAdd = 500;
 
-        gdpText.transition()
+        gdpG.transition()
             .duration(addRemoveDuration)
             .attr('transform', function (d, i) {
                 return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
@@ -218,18 +221,18 @@ function placeGdpFigures() {
 
     }
 
-    gdpText.exit().remove();
+    gdpG.exit().remove();
 
     setTimeout(function () {
-        gdpText.enter()
+        gdpG.enter()
             .append('g')
-            .attr('class', 'donutContainer')
+            .attr('class', 'donut-container')
             .attr('transform', function (d, i) {
-            return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
-        })
-        .each((d, i, j) => {
-            createDonut(d3.select(j[i]), d.receipts_gdp, 70)
-        });
+                return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
+            })
+            .each((d, i, j) => {
+                createDonut(d3.select(j[i]), d.receipts_gdp, 70);
+            });
     }, timeoutForAdd);
 }
 
@@ -283,18 +286,21 @@ function placeLegends() {
 
 function sizeSvg(transitionTime, delay) {
     delay = delay || 0;
-    establishContainer().transition().delay(delay).duration(transitionTime).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30 );
+    establishContainer().transition().delay(delay).duration(transitionTime).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30);
 }
 
 function setData() {
+    const sortFunction = getSortFunction();
     data = selectedCountries.list.map(c => {
         if (masterData.indexed[c]) {
             return masterData.indexed[c];
         } else {
             console.warn('no data for ' + c);
         }
-    }).filter(r => r);
-
+    });
+    if(sortFunction){
+        data.sort(sortFunction);
+    }
     dimensions.totalHeight = dimensions.rowHeight * data.length;
 }
 
@@ -371,7 +377,7 @@ export function refreshData() {
             addBarGroups();
             placeCountryLabels();
             placeGdpFigures();
-            placeHorizontalStripes(data.length);
+            placeHorizontalStripes(data.length, dimensions);
         }, duration)
     } else {
         addBarGroups();
@@ -383,12 +389,13 @@ export function refreshData() {
         setTimeout(function () {
             sizeSvg(300, addRemoveDuration);
             repositionXAxis();
-            placeHorizontalStripes(data.length);
+            placeHorizontalStripes(data.length, dimensions);
         }, duration)
     }
 }
 
 export function chartInit(container) {
+    initSortButtons();
     setData();
     sizeSvg(800);
     establishContainers(container);
@@ -400,4 +407,12 @@ export function chartInit(container) {
     placeGdpFigures();
     placeLegends();
     selectCountryInit();
+}
+
+export function getSortFunction(){
+    return sortFunction;
+}
+
+export function setSortFunction(desiredSort){
+    sortFunction = desiredSort;
 }
