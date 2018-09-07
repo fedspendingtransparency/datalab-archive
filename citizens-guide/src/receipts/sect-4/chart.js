@@ -62,7 +62,7 @@ function addBarLabels(g, data, keys) {
         })
         .attr('font-size', 12)
         .attr('x', function (d) {
-            return scales.x(data[d]) + 20;
+            return scales.x(data[d]) + 10;
         })
         .attr('y', function (d, i) {
             return (dimensions.rowHeight / 2 + dimensions.barHeight / 2);
