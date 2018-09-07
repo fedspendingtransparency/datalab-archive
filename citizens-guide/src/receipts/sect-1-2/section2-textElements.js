@@ -153,7 +153,13 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, stat
         .attr('style', 'fill:white')
         .attr('y', 20)
         .text(function (d, i) {
-            return simplifyNumber(d.amount) + ' / ' + d.percent_total + '%';
+            let p = parseInt(d.percent_total);
+
+            if (p < 1) {
+                p = '<1'
+            }
+            
+            return simplifyNumber(d.amount) + ' (' + p + '%)';
         })
 
     textGroup.each(function (d) {
