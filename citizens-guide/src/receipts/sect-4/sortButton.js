@@ -47,12 +47,9 @@ function addSortButtons(){
 
                             addCaretIcon(svg);
                 }
-                setSortFunction(function(a,b){
-                    if(sortDirection === 'asc'){
-                        return a[sortOption.dataField] - b[sortOption.dataField];
-                    }
-                    return b[sortOption.dataField] - a[sortOption.dataField];
-                });
+                setSortFunction(
+                    createSort(sortOption.dataField, sortDirection)
+                );
                 
                 refreshData();
             });
@@ -65,10 +62,21 @@ function addSortButtons(){
     }
 }
 
+function createSort(sortField, sortDirection){
+    if(sortDirection === 'asc'){
+        return function(a,b){
+            return a[sortField] - b[sortField];
+        }
+    }
+    return function(a,b){
+        return b[sortField] - a[sortField]
+    }
+}
+
 export function setDefaultSort(){
-    setSortFunction(function(a,b){
-        return b[sortOptions[0].dataField] - a[sortOptions[0].dataField];
-    });
+    setSortFunction(
+        createSort(sortOptions[0].dataField, 'desc')
+    );
 
     const svg = incomeButton.append('svg')
         .attr('width', 20)
