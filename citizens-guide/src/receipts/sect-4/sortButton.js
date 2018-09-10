@@ -2,7 +2,7 @@ import './sortButton.scss';
 import { establishContainer } from '../../utils';
 import { refreshData, setSortFunction } from './chart';
 import { select } from 'd3-selection';
-import { addCaretIcon, adjustCaretIcon } from './iconGenerators';
+import { addCaretIcon } from './iconGenerators';
 
 const d3 = { select }
 
@@ -32,21 +32,22 @@ function addSortButtons(){
                     if(obj.classed('up')){
                         obj.classed('up',false).classed('down',true);
                         svg = obj.select('svg');
-                        adjustCaretIcon(svg, 'down');
+                        addCaretIcon(svg, 'down');
                     } else {
                         obj.classed('down',false).classed('up',true);
                         svg = obj.select('svg');
-                        adjustCaretIcon(svg, 'up');
+                        addCaretIcon(svg, 'up');
                         sortDirection = 'asc';
                     }
                 } else {
                     parentDiv.selectAll('svg').remove();
                             svg = obj.append('svg')
-                            .attr('width', 15)
+                            .attr('width', 20)
                             .attr('height', 20);
 
                             addCaretIcon(svg);
                 }
+                
                 setSortFunction(
                     createSort(sortOption.dataField, sortDirection)
                 );
@@ -79,7 +80,7 @@ export function setDefaultSort(){
     );
 
     const svg = incomeButton.append('svg')
-        .attr('width', 15)
+        .attr('width', 20)
         .attr('height', 20);
 
         addCaretIcon(svg);

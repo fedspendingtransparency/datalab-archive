@@ -73,70 +73,23 @@ export function addSearchIcon(svg) {
         .attr('stroke-width', 1)
 }
 
-export function addCaretIcon(svg) {
-    const lineColor = colors.colorPrimaryAltDarkest;
+export function addCaretIcon(svg, direction){
+    const caretYOffset = 6;
+    const caretWidth = 18;
+    const caretHeight = 8;
+    const caretDown = `M0,${caretYOffset} l${caretWidth / 2},${caretHeight} l${caretWidth / 2},-${caretHeight}`;
+    const caretUp = `M0,${caretHeight + caretYOffset} l${caretWidth / 2},-${caretHeight} l${caretWidth / 2},${caretHeight}`;
+    const caretD = direction === 'up' ? caretUp : caretDown;
+    const existing = svg.selectAll('path');
 
-    svg.append('line')
-        .attr('x1', 0)
-        .attr('y1', 13)
-        .attr('x2', 7)
-        .attr('y2', 8)
-        .attr('stroke', lineColor)
-        .attr('stroke-width', 1);
-
-    svg.append('line')
-        .attr('x1', 7)
-        .attr('y1', 8)
-        .attr('x2', 14)
-        .attr('y2', 13)
-        .attr('stroke', lineColor)
-        .attr('stroke-width', 1)
-}
-
-export function adjustCaretIcon(svg, direction) {
-    var lines = svg.selectAll('line');
-    lines.exit().remove();
-
-    if (direction === 'up') {
-        lines.each(function (d, i) {
-            const curLine = d3.select(this);
-            if (i === 0) {
-                curLine.transition()
-                    .duration(500)
-                    .attr('x1', 0)
-                    .attr('y1', 13)
-                    .attr('x2', 7)
-                    .attr('y2', 8)
-            }
-            else {
-                curLine.transition()
-                    .duration(500)
-                    .attr('x1', 7)
-                    .attr('y1', 8)
-                    .attr('x2', 14)
-                    .attr('y2', 13);
-            }
-        });
+    if(existing.size()){
+        existing.transition()
+        .duration(500)
+        .attr('d', caretD);
     } else {
-        lines.each(function (d, i) {
-            const curLine = d3.select(this);
-            if (i === 1) {
-                curLine.transition()
-                    .duration(500)
-                    .attr('x1', 7)
-                    .attr('y1', 13)
-                    .attr('x2', 14)
-                    .attr('y2', 8);
-
-            }
-            else {
-                curLine.transition()
-                    .duration(500)
-                    .attr('x1', 0)
-                    .attr('y1', 8)
-                    .attr('x2', 7)
-                    .attr('y2', 13)
-            }
-        });
+        svg.append('path')
+        .attr('d', caretD)
+        .attr('fill','none')
+        .attr('stroke', colors.colorPrimaryAltDarkest);
     }
 }
