@@ -1,4 +1,4 @@
-import CategoryData from '../../../public/csv/receipts.csv';
+import CategoryData from '../../../public/csv/fy13_fy17_sept_mts_receipts.csv';
 
 export function trendData(){
     const indexed = {};
@@ -6,30 +6,30 @@ export function trendData(){
     let arr;
 
     CategoryData.forEach(r => {
-        if (isNaN(r.amount)) {
+        if (isNaN(r.income)) {
             return;
         }
         
-        indexed[r.activity] = indexed[r.activity] || {
-            name: r.activity,
+        indexed[r.activity_plain] = indexed[r.activity_plain] || {
+            name: r.activity_plain,
             values: [],
             subcategories: {}
         };
 
-        if (r.sub_activity) {
-            indexed[r.activity].subcategories[r.sub_activity] = indexed[r.activity].subcategories[r.sub_activity] || {
-                name: r.sub_activity,
+        if (r.sub_activity_plain) {
+            indexed[r.activity_plain].subcategories[r.sub_activity_plain] = indexed[r.activity_plain].subcategories[r.sub_activity_plain] || {
+                name: r.sub_activity_plain,
                 values: [],
             };
 
-            indexed[r.activity].subcategories[r.sub_activity].values.push({
+            indexed[r.activity_plain].subcategories[r.sub_activity_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.amount
+                amount: r.income
             })
         } else {
-            indexed[r.activity].values.push({
+            indexed[r.activity_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.amount
+                amount: r.income
             })
         }
     })
