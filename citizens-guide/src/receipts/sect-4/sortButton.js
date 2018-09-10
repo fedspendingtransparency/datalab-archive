@@ -10,11 +10,11 @@ let parentDiv, incomeButton;
 const sortOptions = [
     {
         label: 'Income',
-        dataField: 'receipts'
+        dataField: 'income_usd'
     },
     {
         label: 'GDP',
-        dataField: 'receipts_gdp'
+        dataField: 'income_gdp'
     }
 ];
 

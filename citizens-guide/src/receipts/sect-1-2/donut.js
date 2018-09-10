@@ -14,7 +14,7 @@ function setArcRadius(radius) {
         .innerRadius((radius - 10) * .8)
 }
 
-export function createDonut(container, percent, diameter) {
+export function createDonut(container, percent, diameter, fillColor) {
     const data = [percent * 100, 100 - percent * 100];
 
     setArcRadius(diameter/2);
@@ -25,11 +25,13 @@ export function createDonut(container, percent, diameter) {
         .append("g")
         .attr("class", "arc");
 
-    g.append("path")
-        .attr("d", arcFn)
-        .style("fill", function (d, i) {
-            return (i === 0) ? '#dd6666' : '#dddddd'
-        });
+    var donut = g.append("path")
+        .attr("d", arcFn);
+
+    donut.style("fill", function (d, i) {
+           const shadedColor = fillColor || '#dd6666';
+           return (i === 0) ? shadedColor : '#dddddd'
+       });
 
     container.append('text')
         .text(fractionToPercent(percent))

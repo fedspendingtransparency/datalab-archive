@@ -1,5 +1,5 @@
 import './selectCountry.scss';
-import CountryData from '../../../public/csv/income-country-comparison.csv';
+import CountryData from '../../../public/csv/income-debt-spending-by-country.csv';
 import { prepareData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';

@@ -11,13 +11,14 @@ import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../sect-1-2/donut";
 import { initSortButtons } from './sortButton';
 
+const colors = require('../../colors.scss');
 const styles = require('../sect-4/selectCountry.scss');
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
         chartWidth: parseInt(styles.cgChartWidth,10),
         rowHeight: 72,
-        barHeight: 16,
+        barHeight: 22,
         countryColumnWidth: 210,
         gdpColumnWidth: 130,
         header: 50,
@@ -30,10 +31,10 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         {
             key: 'income',
             config: {
-                data: 'receipts',
+                data: 'income_usd',
                 class: 'receipts',
-                stroke: '#2E8540',
-                fill: 'rgba(46,133,64,0.5)',
+                stroke: colors.CGIncome,
+                fill: colors.CGIncome,
                 yOffset: 3,
                 legend: 'Income'
             }
@@ -116,9 +117,11 @@ function drawBars(data) {
         .attr('fill', function (d) {
             return d.config.fill;
         })
+        .attr('fill-opacity', 0.5)
         .attr('stroke', function (d) {
             return d.config.stroke;
         })
+        .attr('stroke-width', 1);
 
     bars.transition()
         .duration(transitionDuration)
@@ -133,7 +136,7 @@ function drawBars(data) {
 }
 
 function setScales() {
-    const receiptsVals = data.map(r => r.receipts),
+    const receiptsVals = data.map(r => r.income_usd),
         gdpVals = data.map(r => r.gdp),
         min = d3.min([0, d3.min(receiptsVals)]),
         max = d3.max(receiptsVals) * 1.1;
@@ -141,31 +144,6 @@ function setScales() {
     scales.x = d3.scaleLinear()
         .domain([min, max]).nice()
         .range([0, dimensions.dataWidth]);
-}
-
-function xAxisMods() {
-    containers.axisGroup.selectAll('.tick line')
-        .attr('y1', 0 - dimensions.totalHeight)
-        .attr('stroke', '#eee');
-
-    containers.axisGroup.selectAll('.domain').remove();
-}
-
-function drawXAxis() {
-    xAxis = d3.axisBottom(scales.x)
-        .tickFormat(function (n) {
-            if (n === 0) {
-                return 0
-            } else {
-                return simplifyNumber(n);
-            }
-        })
-
-    containers.axisGroup = containers.data.append('g')
-        .attr('transform', translator(0, dimensions.totalHeight))
-        .call(xAxis);
-
-    xAxisMods();
 }
 
 function placeCountryLabels() {
@@ -231,7 +209,7 @@ function placeGdpFigures() {
                 return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
             })
             .each((d, i, j) => {
-                createDonut(d3.select(j[i]), d.receipts_gdp, 70);
+                createDonut(d3.select(j[i]), d.income_gdp, 70, colors.CGMainParentOne);
             });
     }, timeoutForAdd);
 }
@@ -251,12 +229,15 @@ function placeLegends() {
             return dimensions.countryColumnWidth + 20 + i * legendSpacing;
         })
         .attr('y', 15)
-        .attr('stroke', function (d) {
-            return d.config.stroke;
-        })
         .attr('fill', function (d) {
             return d.config.fill;
         })
+        .attr('fill-opacity', 0.5)
+        .attr('stroke', function (d) {
+            return d.config.stroke;
+        })
+        .attr('stroke-width', 1)
+        .attr('stroke-alignment', 'outer');
 
     containers.legends.selectAll('text.legend')
         .data(keys)
@@ -305,15 +286,6 @@ function setData() {
 }
 
 function repositionXAxis() {
-    containers.axisGroup.transition()
-        .duration(addRemoveDuration)
-        .attr('transform', translator(0, dimensions.totalHeight))
-        .ease();
-
-    containers.axisGroup.selectAll('.tick line').transition()
-        .duration(addRemoveDuration)
-        .attr('y1', 0 - dimensions.totalHeight);
-
     containers.chart.selectAll('.drop-shadow-base').transition()
         .duration(addRemoveDuration)
         .attr('height', dimensions.totalHeight);
@@ -327,8 +299,6 @@ function rescale() {
     if (previousMax === scales.x.domain()[1]) {
         return;
     }
-
-    xAxis.scale(scales.x);
 
     containers.data.selectAll('g.bar-group')
         .each(function (data) {
@@ -349,14 +319,7 @@ function rescale() {
                 .attr('x', function (d) {
                     return scales.x(data[d]) + 20;
                 })
-        })
-
-    containers.axisGroup.transition()
-        .duration(addRemoveDuration)
-        .call(xAxis)
-        .ease();
-
-    xAxisMods();
+        });
 
     return true;
 }
@@ -401,7 +364,6 @@ export function chartInit(container) {
     establishContainers(container);
     ink(containers, dimensions, data.length);
     setScales();
-    drawXAxis();
     addBarGroups();
     placeCountryLabels();
     placeGdpFigures();

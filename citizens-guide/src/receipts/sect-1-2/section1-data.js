@@ -1,4 +1,4 @@
-import CountryData from '../../../public/csv/income-country-comparison.csv';
+import CountryData from '../../../public/csv/income-debt-spending-by-country.csv';
 
 let source;
 
