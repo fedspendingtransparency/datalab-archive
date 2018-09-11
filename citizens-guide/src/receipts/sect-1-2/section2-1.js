@@ -109,6 +109,15 @@ function rescale(state) {
 function addDetails(state) {
     textElements = addTextElements(categoryData, detailsGroup, xScale, baseDimensions, state);
 
+    textElements
+        .attr('style', 'cursor:pointer')
+        .on('click', function (d, i) {
+            const n = (state) ? i + 3 : i,
+                rect = shaders.filter(function (d, j) { return j === n }).node();
+
+            showDetail.bind(rect)(d);
+        });
+
     if (!zoomComponent) {
         zoomComponent = zoomInit(baseContainer, baseDimensions, xScale(categoryData[3].x0), zoomToMoreCategories);
     }

@@ -177,4 +177,6 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, stat
         .duration(500)
         .attr('opacity', 1)
         .ease()
+
+    return textGroup;
 }
