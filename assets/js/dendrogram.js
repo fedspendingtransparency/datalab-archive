@@ -1,7 +1,7 @@
 ---
 ---
 
-d3.csv('/data-lab-data/accounts_obligations_revised_180618.csv', (error, newData) => {
+d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) => {
     newData.forEach((d) => {
         d.Obligation = +d.Obligation;
         d.Unobligated = +d.Unobligated;
@@ -59,7 +59,7 @@ d3.csv('/data-lab-data/accounts_obligations_revised_180618.csv', (error, newData
             // This is a leaf, so add the last element to the specified branch
             if (depth === levels.length - 1) {
                 depthCursor.push({
-                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.accountID
+                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.federal_account_id
                 });
             }
         });
