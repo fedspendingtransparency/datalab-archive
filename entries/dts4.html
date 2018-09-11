@@ -82,6 +82,34 @@ category: nonentry
   margin: 75px 0 25px 0;
   font-size: 32px;
 }
+
+.period-container {
+  display: flex;
+}
+
+.period-container .period-button {
+  border: 1px solid #ccc;
+  border-right: none;
+  font-size: 12px;
+  padding: 0px 10px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.period-button:hover {
+  background-color: #e2e2e2;
+}
+
+.period-button:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.period-button:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid #ccc;
+}
 </style>
 
 <div class="header-container">
@@ -111,6 +139,13 @@ category: nonentry
       <select class="select" id="item-selector"></select>
     </div>
 
+    <div class="period-container">
+        <div class="period-button" data-range="30d">30D</div>
+        <div class="period-button" data-range="90d">90D</div>
+        <div class="period-button" data-range="ytd">YTD</div>
+        <div class="period-button" data-range="5y">5Y</div>
+    </div>
+
     <div class="daily-spending">
       <div class="daily-spending-amount">$0</div>
       <div class="daily-spending-subtext">Today Amount Spent</div>
@@ -129,8 +164,6 @@ category: nonentry
 function createBarChart(yearToSpendingArray) {
 
   let data = yearToSpendingArray;
-
-  console.log(data);
 
   var svg = d3.select("#bar-chart-wrapper"),
     margin = {top: 20, right: 20, bottom: 30, left: 100},
@@ -262,6 +295,28 @@ function createGraph(data) {
       [width, height2]
     ])
     .on("brush end", brushed);
+
+  console.log(data);
+
+  d3.selectAll(".period-button").on("click", function() {
+    let lastDate = data[data.length - 1].date.getTime();
+
+    let leftDate = new Date(lastDate);
+    let rightDate = new Date(lastDate);
+
+    let t = this.dataset.range;
+
+    switch (t) {
+      case "30d": leftDate.setMonth(leftDate.getMonth() - 1); break;
+      case "90d": leftDate.setMonth(leftDate.getMonth() - 3); break;
+      case "ytd": leftDate.setFullYear(leftDate.getFullYear() - 1); break;
+      case "5y": leftDate.setFullYear(leftDate.getFullYear() - 5); break;
+    }
+
+    d3.select(".brush").call(brush.move, null);
+    
+    d3.select(".brush").call(brush.move, [x(leftDate), x(rightDate)]);
+  });
 
   var zoom = d3.zoom()
     .scaleExtent([1, Infinity])
@@ -468,8 +523,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   // let currentDate = new Date().format('m-d-Y h:i:s');
   let totalDailySpending = 0;
 
-  console.log(lastDate);
-
   let yearToSpending = {};
 
   data.forEach(function(d) {
@@ -514,10 +567,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   condensedOptions = uniqData.slice(0, 10);
 
   createSelect();
-
-  console.log(totalDailySpending);
-
-  console.log(optionsDict);
 
   d3.select(".daily-spending-amount").text("$" + totalDailySpending.toLocaleString() + "M");
 
