@@ -56,10 +56,12 @@ function transformChart(globals, reset) {
 
 function onDrilldown(d, reset) {
     if (reset) {
-        this.trendLines.deEmphasize();
+        this.activeDrilldown = null;
+        this.trendLines.deEmphasize(null, this);
         destroyDetailPane();
     } else {
-        this.trendLines.deEmphasize(d.name);
+        this.activeDrilldown = d.name;        
+        this.trendLines.deEmphasize(d.name, this);
         showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
     }
 
@@ -68,7 +70,10 @@ function onDrilldown(d, reset) {
 }
 
 function onZoom() {
+    this.activeDrilldown = null;
+    this.trendLines.deEmphasize(null, this);    
     toggleZoom(this);
+
 
     if (!this.noDrilldown) {
         transformChart(this, 'reset');        

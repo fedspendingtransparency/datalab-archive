@@ -192,8 +192,13 @@ function enableDrilldown(labelGroups, globals) {
                 globals.onDrilldown(d);
             }
         })
-        .on('mouseover', setLabelActive)
-        .on('mouseout', function () {
+        .on('mouseover', function (d) {
+            setLabelActive.bind(this)();
+            globals.trendLines.deEmphasize(d.name, globals, 'on')
+        })
+        .on('mouseout', function (d) {
+            globals.trendLines.deEmphasize(d.name, globals, 'off')
+            
             if (!d3.select(this).classed('selected')) {
                 setLabelInactive.bind(this)();
             }

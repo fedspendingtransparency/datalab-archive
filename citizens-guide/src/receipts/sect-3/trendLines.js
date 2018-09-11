@@ -1,9 +1,9 @@
-import { selectAll } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { max } from 'd3-array';
 import { colors } from '../../colors';
 
-const d3 = { selectAll, line, max };
+const d3 = { select, selectAll, line, max };
 
 function lineFn(d, globals) {
     return d3.line()
@@ -25,14 +25,14 @@ function rescale(globals, duration) {
         .ease()
 }
 
-function deEmphasize(keep) {
+function deEmphasize(keep, globals, hover) {
     this.attr('stroke-width', function (d) {
-            if (keep && keep !== d.name) {
-                return 0.5;
-            }
-
+        if (!globals.activeDrilldown || globals.activeDrilldown === d.name || (keep === d.name && hover === 'on')) {
             return 3;
-        });
+        }
+
+        return 0.5;
+    });
 }
 
 export function trendLines(globals) {
