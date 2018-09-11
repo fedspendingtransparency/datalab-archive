@@ -14,7 +14,7 @@ function _setInactive(g) {
     g.classed('active', false)
 
     g.select('text').transition()
-        .duration(300)
+        .duration(500)
         .attr('fill', colors.textColorParagraph)
         .ease();
 
@@ -218,7 +218,7 @@ function nudge(labelGroups) {
     })
         .each(function (d, i) {
             const self = this,
-                initialPause = 2000;
+                initialPause = 1000;
 
             setTimeout(function () {
                 setLabelActive.bind(self)();
