@@ -84,13 +84,11 @@ function init(d, sourceY) {
         .attr('x', 20)
         .attr('dy', 24);
 
-    config.zoomThreshold = zoomThresholds[d.name];
+    config.zoomThreshold = zoomThresholds[d.officialName];
 
     if (!config.zoomThreshold) {
         config.noZoom = true;
     }
-
-    let chartHeight;
 
     trendView(d.subcategories, chartContainer, config);
 
@@ -98,9 +96,7 @@ function init(d, sourceY) {
         .duration(300)
         .attr('opacity', 1)
 
-    chartHeight = getElementBox(chartContainer).height + 80;
-
-    modifyRect(Math.round(sourceY), chartHeight);
+    modifyRect(Math.round(sourceY), 750);
 }
 
 export function destroyDetailPane() {

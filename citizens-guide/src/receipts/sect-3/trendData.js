@@ -12,13 +12,15 @@ export function trendData(){
         
         indexed[r.activity_plain] = indexed[r.activity_plain] || {
             name: r.activity_plain,
+            officialName: r.activity,
             values: [],
             subcategories: {}
         };
 
-        if (r.sub_activity_plain) {
+        if (r.sub_activity) {
             indexed[r.activity_plain].subcategories[r.sub_activity_plain] = indexed[r.activity_plain].subcategories[r.sub_activity_plain] || {
                 name: r.sub_activity_plain,
+                officialName: r.sub_activity,
                 values: [],
             };
 
