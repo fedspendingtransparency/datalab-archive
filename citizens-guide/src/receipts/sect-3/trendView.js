@@ -89,20 +89,7 @@ function initGlobals(config) {
     globals.zoomThreshold = globals.zoomThreshold || 180000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
-    globals.baseXTranslate = globals.labelWidth + globals.labelPadding;
-    globals.centeredXTranslate = (1200 - globals.width) / 2;
-
-    if (!globals.noZoom) {
-        globals.baseXTranslate += 35; // leave room for the zoom trigger in 'zoomed in' state;
-    }
-
-    if (globals.noDrilldown) {
-        globals.initialXTranslate = globals.baseXTranslate;
-    } else {
-        globals.initialXTranslate = globals.baseXTranslate;
-        // globals.initialXTranslate = globals.centeredXTranslate;
-    }
-    
+    globals.baseXTranslate = globals.labelWidth + globals.labelPadding + 35;
 
     globals.zoomState = 'out';
 
@@ -120,7 +107,7 @@ export function trendView(_data, container, config) {
 
     globals.chart = container.append('g')
         .classed('trend-chart', true)
-        .attr('transform', translator(globals.initialXTranslate, margin.top));
+        .attr('transform', translator(globals.baseXTranslate, margin.top));
 
     // draw the chart
     globals.xAxis = xAxis(globals);
