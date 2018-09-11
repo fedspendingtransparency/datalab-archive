@@ -231,11 +231,12 @@ function renderDetailContainer() {
     // render invisible container first at 100% scale for accurate rendering of child elements
     detailContainer = svg.append('g')
         .classed('detail-container', true)
+        .lower()
         .attr('opacity', 0);
 }
 
 function transitionDetailContainer() {
-    const yPos = 272,
+    const yPos = 270,
         width = sourceBox.right - sourceBox.left,
         initialSubcategoryScaleFactor = width / 1200;
 
