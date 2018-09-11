@@ -15,7 +15,7 @@ function _setInactive(g) {
 
     g.select('text').transition()
         .duration(300)
-        .attr('style', 'fill:#4a4a4a')
+        .attr('fill', colors.textColorParagraph)
         .ease();
 
     bar.transition()
@@ -49,7 +49,7 @@ function setLabelActive() {
 
     g.select('text').transition()
         .duration(300)
-        .attr('style', 'fill:white')
+        .attr('fill', 'white')
         .ease();
 
     bar.transition()

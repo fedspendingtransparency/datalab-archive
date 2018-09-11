@@ -56,8 +56,10 @@ function transformChart(globals, reset) {
 
 function onDrilldown(d, reset) {
     if (reset) {
+        this.trendLines.deEmphasize();
         destroyDetailPane();
     } else {
+        this.trendLines.deEmphasize(d.name);
         showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
     }
 

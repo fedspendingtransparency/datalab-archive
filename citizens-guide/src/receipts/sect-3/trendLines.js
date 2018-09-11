@@ -25,6 +25,16 @@ function rescale(globals, duration) {
         .ease()
 }
 
+function deEmphasize(keep) {
+    this.attr('stroke-width', function (d) {
+            if (keep && keep !== d.name) {
+                return 0.5;
+            }
+
+            return 3;
+        });
+}
+
 export function trendLines(globals) {
     const trendLines = globals.chart.selectAll('.trend-line')
         .data(globals.data)
@@ -48,6 +58,7 @@ export function trendLines(globals) {
     rescale.bind(trendLines)(globals, 1000);
 
     return {
-        rescale: rescale.bind(trendLines)
+        rescale: rescale.bind(trendLines),
+        deEmphasize: deEmphasize.bind(trendLines)
     }
 }
