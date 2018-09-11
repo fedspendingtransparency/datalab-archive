@@ -234,14 +234,45 @@ $green: #50604f;
 
 .investmentCategories { 
 
+  padding-left: 5%;
+  padding-right: 5%;
+
+  .panel {
+
+    display: none;
+    width: 25%;
+    height:615px;
+    box-shadow: 17px 0 10px -4px #eee;
+    vertical-align: top;
+    min-width: 350px;
+
+    span {
+      top: 50%;
+      position: relative;
+      color: $orange;
+      display: inline-block;
+    }
+
+    span:hover { 
+      color: lighten($orange, 25%);
+      cursor: pointer;
+    }
+
+    .panelChart {
+      display: inline-block;
+      text-align: center;
+      margin-left: 40px;
+    }
+
+  }
   .chartContainer{
+    display: inline-block;
     text-align: center;
     margin:auto;
     width: 50%;
 
     svg {
-      height: 200px;
-      width: 200px;
+      text-align: center;
     }
 
      path.slice{

@@ -4,17 +4,32 @@
 *--------------------------------------------------------------------------------------------------------------------
 */
 const graphContainer = document.getElementById('categoriesChartContainer');
+const panelBack = document.getElementById('categories_panel_back_btn');
+const panel = document.getElementById('categoriesPanel');
+const panelChartContainer = document.getElementById('investmentCategories_panel_chart');
+
+
+/*
+purporse : hide given element
+*/
+const hideElement = (element) => {
+    element.style.display = 'none';
+}
 
 /*
 purporse : creates graph for infomation passed 
 and append the graph to the passed in element
 */
-const drawGraph = (container, data) => {
+const drawGraph = (container, data, size, clickable) => {
 
     let nodeDiv = document.createElement("div");
+    nodeDiv.style.height = `${size.height}px`;
+    nodeDiv.style.width = `${size.width}px`;
 
    var svg = d3.select(nodeDiv)
        .append("svg")
+       .style("width", `${size.width}px`)
+       .style("height", `${size.height}px`)
        .append("g");
 
    svg.append("g")
@@ -24,8 +39,25 @@ const drawGraph = (container, data) => {
    svg.append("g")
        .attr("class", "lines");
 
-   var width = 200,
-       height = 200,
+if (clickable) {
+    nodeDiv.onclick = () => {
+       if(panel.style.display === 'none' || panel.style.display === "") {
+        
+        while (panelChartContainer.firstChild) {
+            panelChartContainer.removeChild(panelChartContainer.firstChild);
+        }
+
+        drawGraph(panelChartContainer, data, {height:300, width:300}, false)
+           panel.style.display = 'inline-block';
+       }
+   }
+}
+
+   nodeDiv.style.cursor = 'pointer';
+
+
+   var width = size.width,
+       height = size.height,
        radius = Math.min(width, height) / 2;
 
    var pie = d3.layout.pie()
@@ -79,11 +111,20 @@ const drawGraph = (container, data) => {
 
    let title = document.createElement('p');
    title.innerText = data.name;
-
+   
    nodeDiv.appendChild(title);  
 
    container.appendChild(nodeDiv)
 }
+
+/*
+  --------------------------------------------------------------------------------------------------------------------
+*   EVENT LISTENERS
+*--------------------------------------------------------------------------------------------------------------------
+*/
+panelBack.onclick = () => { hideElement(panel) };
+
+
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -120,6 +161,6 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
     categoriesData.forEach(n  => {n.percentage = (n.total/total)})
     categoriesData.sort((a, b) => { return b.percentage - a.percentage})
     
-drawGraph(graphContainer, categoriesData[0]);              //draw donut chart in charts container
+drawGraph(graphContainer, categoriesData[0], {height:200, width:200}, true);              //draw donut chart in charts container
 
 });
