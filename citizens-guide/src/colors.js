@@ -6,5 +6,7 @@ export const colors = {
     colorGrayDark: '#323a45',
     colorPrimaryAltDarkest: '#046b99',
     colorPrimaryAltLight: '#9bdaf1',
-    colorPrimaryAltLightest: '#e1f3f8'
+    colorPrimaryAltLightest: '#e1f3f8',
+    textColorHeading: '#555555',
+    textColorParagraph: '#666666'    
 }
