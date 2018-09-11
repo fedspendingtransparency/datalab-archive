@@ -3,6 +3,7 @@ import { axisLeft } from 'd3-axis';
 import { min, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import { simplifyNumber } from '../../utils';
+import { colors } from '../../colors';
 
 const d3 = { select, selectAll, axisLeft, min, range, scaleLinear };
 
@@ -55,8 +56,8 @@ function render(globals) {
 
 function modify(y, globals) {
     y.yAxisDom.selectAll('.tick text')
-        .attr('style', function (d, i) {
-            return (i % 2) ? 'fill:#eee' : 'fill:#666';
+        .attr('fill', function (d, i) {
+            return (i % 2 && d !== 0) ? '#eee' : colors.textColorParagraph;
         })
 
     y.yAxisDom.selectAll('.tick line')
@@ -66,6 +67,11 @@ function modify(y, globals) {
             }
 
             return (i % 2) ? 'none' : '#ddd';
+        })
+        .attr('stroke-width', function (d, i) {
+            if (d === 0) {
+                return 2;
+            }
         })
 }
 
