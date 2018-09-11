@@ -128,7 +128,7 @@ function offsetText(d, w, textSelection) {
 
 function drawTextConnector(d, i, textSelection) {
     textContainer.append('path')
-        .attr('stroke', '#4a4a4a')
+        .attr('stroke', colors.textColorParagraph)
         .attr('stroke-width', 1)
         .attr('d', function () {
             const textY = Number(textSelection.attr('y'));

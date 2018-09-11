@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } from '../../utils';
+import { colors } from '../../colors';
 
 const d3 = { select, selectAll, line },
     noFitOffset = 50;
@@ -37,7 +38,7 @@ function processNoFits(d, elem, config) {
     }
 
     textGroup.append('path')
-        .attr('stroke', '#4a4a4a')
+        .attr('stroke', colors.textColorParagraph)
         .attr('stroke-width', 1)
         .attr('d', function () {
             const mainPoints = [
