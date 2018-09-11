@@ -57,7 +57,8 @@ export function simplifyBillions(n) {
 export function simplifyNumber(n) {
     const trillion = 1000000000000,
         billion = 1000000000,
-        million = 1000000;
+        million = 1000000,
+        negativeSign = (n < 0) ? '-' : '';
 
     let simplifier = million,
         letter = 'M';
@@ -74,7 +75,7 @@ export function simplifyNumber(n) {
         letter = 'B';
     }
 
-    return `$${Math.round(n / simplifier * 10) / 10} ${letter}`;
+    return `${negativeSign}$${Math.round(Math.abs(n) / simplifier * 10) / 10} ${letter}`;
 }
 
 export function wordWrap(text, maxWidth) {
