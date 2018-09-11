@@ -9,6 +9,7 @@ const addRadius = (nodes) => {
     //total obligation
     let totalSpent = nodes.reduce((a, b) => {  return a + b.total  }, 0)
 
+    //sized by percentage clamp at 10 - 100 px
     nodes.forEach(n => {
         let percentage = ((n.total/totalSpent)*400);
         if (percentage < 10) {
@@ -26,7 +27,7 @@ const drawChart = (container, data) => {
    
     var width = 960, height = 500;
 
-// 200 bolinhas (range) de mesmo tamanho (radius)
+ 
 var nodes = data,
     root = nodes[0],  
     color = d3.scale.category10(); 
@@ -36,7 +37,7 @@ root.fixed = true;
 
 var force = d3.layout.force()
     .gravity(0.05)
-    .charge(function(d, i) { return -10; })// i ? 0 : -2000; })
+    .charge(function(d, i) { return -10; })
     .nodes(nodes)
     .size([width, height]);
 
