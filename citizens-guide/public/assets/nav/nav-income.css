@@ -1,3 +1,7 @@
+body {
+    margin-bottom: 4rem;
+}
+
 .income-nav {
     position: fixed;
     bottom: 0;
@@ -72,6 +76,11 @@
 
     .income-nav li {
         width: 25%;
+        border-right: #ffff52 1px solid;
+    }
+
+    .income-nav li:last-of-type {
+        border-right: none;
     }
 
     .income-nav li a {
