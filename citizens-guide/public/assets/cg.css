@@ -3,6 +3,11 @@ body {
     color: #666;
 }
 
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 h1 {
     font-weight: normal;
     text-align: center;
