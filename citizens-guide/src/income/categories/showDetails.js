@@ -4,14 +4,14 @@ import { scaleLinear } from 'd3-scale';
 import { line } from 'd3-shape';
 import { min } from 'd3-array';
 import { easeCubicOut as connectorEase } from 'd3-ease';
-import { dotFactory, receiptsConstants } from './receipts-utils';
+import { dotFactory, receiptsConstants } from '../receipts-utils';
 import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../utils';
-import { getData } from './section2-data';
+import { getData } from './data';
 import colors from '../../colors.scss';
-import { addTextElements } from './section2-textElements';
+import { addTextElements } from './textElements';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
-    svg = establishContainer(),
+    svg = establishContainer(700),
     sourceBox = {},
     subCategoryBoxWidths = [],
     detailBoxHeight = 100;

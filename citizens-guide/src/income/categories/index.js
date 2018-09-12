@@ -1,17 +1,18 @@
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min } from 'd3-array';
+import { transition } from 'd3-transition';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
-import { receiptsConstants } from './receipts-utils';
-import { section2_2_init, showDetail, clearDetails } from './section2-2';
-import { getDataByYear } from './section2-data';
+import { receiptsConstants } from '../receipts-utils';
+import { getDataByYear } from './data';
 import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
-import colors from '../../colors.scss';
 import { zoomInit } from './zoom';
-import { addTextElements } from './section2-textElements';
+import { addTextElements } from './textElements';
+import colors from '../../colors.scss';
+import { showDetail, section2_2_init, clearDetails } from './showDetails';
 
-const d3 = { select, selectAll, scaleLinear, min, stack },
+const d3 = { select, selectAll, scaleLinear, min, stack, transition },
     categoryData = getDataByYear(2017),
     indexed = categoryData.reduce((a, c) => {
         a[c.activity] = c;
@@ -170,6 +171,8 @@ function addSegments(more) {
         .attr('opactity', 0)
         .on('click', showDetail);
 
+
+
     shaders.transition()
         .duration(1000)
         .attr('opacity', function (d, i) {
@@ -208,53 +211,10 @@ function setContainers() {
 }
 
 function init() {
+    stackData(categoryData);
+    svg = establishContainer(700);  
     setContainers();
     addSegments();
 }
 
-function reset() {
-    d3.selectAll('.reset')
-        .attr('opacity', 1)
-        .transition()
-        .delay(1000)
-        .duration(1000)
-        .attr('opacity', 0)
-        .on('end', function () {
-            d3.select(this).remove();
-        })
-        .ease();
-}
-
-export function section2_1() {
-    const dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass);
-
-    svg = establishContainer();
-
-    svg.transition()
-        .duration(500)
-        .attr('height', 700)
-
-    stackData(categoryData);
-
-    d3.selectAll('.gdp-legend').remove();
-    d3.selectAll('.box-group').remove();
-
-    if (dotContainer.size()) {
-        dotContainer.transition()
-            .duration(700)
-            .attr('transform', translator(baseTranslate.x, baseTranslate.y))
-            .on('end', function () {
-                init();
-                reset();
-            });
-
-        dotContainer.select('.gdp').transition()
-            .duration(500)
-            .attr('opacity', 0)
-            .on('end', function () {
-                d3.select(this).remove();
-            })
-    } else {
-        init();
-    }
-}
+init();

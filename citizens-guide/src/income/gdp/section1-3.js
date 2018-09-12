@@ -1,7 +1,7 @@
 import { select } from 'd3-selection';
-import { createDonut } from './donut';
+import { createDonut } from '../donut';
 import { getElementBox, translator, simplifyNumber, fractionToPercent, getTransform, initDropShadow } from '../../utils';
-import { receiptsConstants } from './receipts-utils';
+import { receiptsConstants } from '../receipts-utils';
 import { establishContainer } from '../../utils';
 import { sectionOneData } from './section1-data';
 

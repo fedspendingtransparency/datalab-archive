@@ -4,11 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        overview: './src/overview/js/overview.js',
-        receipts: './src/receipts/sect-1-2/index.js',
-        receiptsTrend: './src/receipts/sect-3/index.js',
-        receiptsCountryComparison: './src/receipts/sect-4/index.js',
-        outlays: './src/outlays/js/outlays.js'
+        intro: './src/income/intro/index.js',
+        incomeToGdp: './src/income/gdp/index.js',
+        categories: './src/income/categories/index.js',
+        trend: './src/income/trends/index.js',
+        countryComparison: './src/income/countries/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -30,8 +30,8 @@ module.exports = {
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/assets',
-        publicPath: '/assets/'
+        path: __dirname + '/public/assets/income/',
+        publicPath: '/assets/income/'
     },
     mode: 'development',
     module: {

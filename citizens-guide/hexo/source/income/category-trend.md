@@ -1,7 +1,7 @@
 ---
-title: source category trend
+title: Trends in Federal Income Categories
 date: 2018-06-29 15:54:40
-permalink: /income-source-category-trend.html
+permalink: /income/trends-categories.html
 description: This is the text that goes in the meta description tag
 ---
 
@@ -18,4 +18,4 @@ The U.S. economy has been growing steadily since 2013.  As we previously learned
 
 <div id="viz"></div>
 
-<script src="./assets/receiptsTrend.js" />
+<script src="../assets/income/trend.js" />

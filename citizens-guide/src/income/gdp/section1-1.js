@@ -1,7 +1,7 @@
 import { select } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
-import { dotFactory, receiptsConstants, dotPositionAccessor } from './receipts-utils';
+import { dotFactory, receiptsConstants, dotPositionAccessor } from '../receipts-utils';
 import { establishContainer } from '../../utils';
 import { sectionOneData } from './section1-data';
 

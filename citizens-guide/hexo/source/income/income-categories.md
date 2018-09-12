@@ -1,7 +1,7 @@
 ---
-title: receipts
+title: Federal Income Categories
 date: 2018-06-29 15:54:40
-permalink: /income.html
+permalink: /income/categories.html
 description: This is the text that goes in the meta description tag
 ---
 
@@ -21,4 +21,4 @@ For context, $3.3 trillion divided by the U.S. population in 2017 (326.4 million
 
 <div id="gdp-fact-three" class="sr-only">Total government revenue made up roughly 17.4 percent of the GDP.</div>
 
-<script src="./assets/receipts.js" />
+<script src="../assets/income/categories.js" />

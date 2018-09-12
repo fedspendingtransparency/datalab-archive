@@ -1,6 +1,6 @@
 import { select } from 'd3-selection';
 import { arc, pie } from 'd3-shape';
-import { fractionToPercent } from '../../utils';
+import { fractionToPercent } from '../utils';
 
 const d3 = { select, arc, pie },
     radius = 45,

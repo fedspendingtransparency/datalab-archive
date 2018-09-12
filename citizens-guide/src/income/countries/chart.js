@@ -8,11 +8,11 @@ import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { masterData } from '.';
 import { selectedCountries } from './selectedCountryManager';
-import { createDonut } from "../sect-1-2/donut";
+import { createDonut } from "../donut";
 import { initSortButtons } from './sortButton';
+import colors from '../../colors.scss';
 
-const colors = require('../../colors.scss');
-const styles = require('../sect-4/selectCountry.scss');
+const styles = require('./selectCountry.scss');
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
