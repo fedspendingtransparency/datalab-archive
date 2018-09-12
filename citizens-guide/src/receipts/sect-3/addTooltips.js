@@ -1,5 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox } from '../../utils';
+import colors from '../../colors.scss';
 
 const d3 = { select, selectAll },
     dataDisc = 'data-disc',
@@ -14,7 +15,7 @@ function blankAllDiscs() {
     d3.selectAll('.' + dataDisc).attr('fill', 'white')
 }
 
-function showTooltip(d) {
+function showTooltip(d, i) {
     const g = d3.select(this),
         tooltip = g.append('g').classed(tooltipGroup, true).attr('opacity', 0),
         padding = { top: 30, left: 14 },
@@ -26,9 +27,7 @@ function showTooltip(d) {
     g.raise()
 
     g.select('circle')
-        .attr('fill', function (d) {
-            return d.color;
-        })
+        .attr('fill', colors.colorPrimaryDarker)
 
     tooltip.append('rect')
         .attr('width', width)
@@ -74,78 +73,99 @@ function showTooltip(d) {
     tooltip.attr('transform', function () {
 
         if (getElementBox(tooltip).right > getElementBox(d3.select('svg')).right) {
-            return translator(getElementBox(d3.select('svg')).right - getElementBox(tooltip).right, 0)
+            return translator(getElementBox(d3.select('svg')).right - getElementBox(tooltip).right, 10)
         } else {
             return translator(10, 0)
         }
     })
 
     tooltip.transition().duration(200).attr('opacity', 1);
-    
+
     document.addEventListener('click', destroyTooltip, {
         once: true,
         capture: true
     })
+};
+
+function dataReducer(accumulator, d) {
+    return accumulator.concat(d.values.map(v => {
+        return {
+            year: v.year,
+            amount: v.amount,
+        }
+    }))
+};
+
+function rescale(globals, duration) {
+    const dataDots = this;
+
+    dataDots.transition()
+        .duration(duration)
+        .attr('transform', function (d) {
+            return translator(globals.scales.x(d.year), globals.scales.y(d.amount));
+        })
+        .ease();
+
+    dataDots.selectAll('circle').transition()
+        .duration(duration)
+        .style('opacity', function (d, i) {
+            if (globals.noZoom || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
+                return 1;
+            }
+
+            return 0;
+        })
+        .ease();
 }
 
 export function addTooltips(globals) {
-    function dataReducer(accumulator, d) {
-        return accumulator.concat(d.values.map(v => {
-            return {
-                year: v.year,
-                amount: v.amount,
-                color: d.color
-            }
-        }))
-    };
-
-    globals.dataDots = globals.chart.selectAll('g.dataDots')
+    const dataDots = globals.chart.selectAll('g.dataDots')
         .data(globals.data.reduce(dataReducer, []))
         .enter()
         .append('g')
         .classed('dataDots', true)
         .attr('transform', function (d) {
-            return translator(globals.x(d.year), globals.y(0));
+            return translator(globals.scales.x(d.year), globals.scales.y(0));
         })
-        .on('click', showTooltip);
+        .on('click', showTooltip)
+        .on('mouseover', showTooltip)
+        .on('mouseout', destroyTooltip)
 
-    globals.dataDots.append('circle')
-        .attr('stroke', function (d) {
-            return d.color;
-        })
-        .classed(dataDisc, true)        
+    dataDots.append('circle')
+        .attr('stroke', colors.colorPrimaryDarker)
+        .classed(dataDisc, true)
         .attr('fill', 'white')
-        .attr('r', 3)
+        .attr('r', 4)
         .attr('cx', 0)
         .attr('cy', 0)
         .classed('pointer', true)
         .style('opacity', function (d, i) {
-            if (globals.simple || d.amount > globals.zoomThreshold) {
+            if (globals.noZoom || d.amount > globals.zoomThreshold) {
                 return 1;
             }
 
             return 0;
         })
 
-    repositionDataDots(1000, globals);
-}
-
-export function repositionDataDots(duration, globals) {
-    globals.dataDots.transition()
-        .duration(duration)
-        .attr('transform', function (d) {
-            return translator(globals.x(d.year), globals.y(d.amount));
-        })
-        .ease();
-
-    globals.dataDots.selectAll('circle').transition()
-        .duration(duration)
+    dataDots.append('circle')
+        .classed('ghost-disc', true)
+        .attr('fill', 'transparent')
+        .attr('r', 8)
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .classed('pointer', true)
         .style('opacity', function (d, i) {
-            if (globals.simple || globals.zoomState === 'in' || d.amount > globals.zoomThreshold) {
+            if (globals.noZoom || d.amount > globals.zoomThreshold) {
                 return 1;
             }
 
             return 0;
         })
-        .ease();
+
+    rescale.bind(dataDots)(globals, 1000);
+
+    return {
+        rescale: rescale.bind(dataDots)
+    }
 }
+

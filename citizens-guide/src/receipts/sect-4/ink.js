@@ -26,8 +26,9 @@ function buildGdpBox() {
         .style('filter', 'url(#drop-shadow)');
 }
 
-export function placeHorizontalStripes(dataLength) {
+export function placeHorizontalStripes(dataLength, dimensions) {
     let stripes;
+    const chartWidth = (dimensions && dimensions.chartWidth) ? dimensions.chartWidth : 1200;
 
     stripes = containers.stripes.selectAll('line')
         .data(d3.range(dataLength + 1), function(d){ return d; })
@@ -40,7 +41,7 @@ export function placeHorizontalStripes(dataLength) {
         .attr('y1', function(d){
             return d * dimensions.rowHeight;
         })
-        .attr('x2', 1200)
+        .attr('x2', chartWidth)
         .attr('y2', function(d){
             return d * dimensions.rowHeight;
         })
@@ -67,11 +68,14 @@ export function ink(_containers, _dimensions, dataLength) {
     containers = _containers;
     dimensions = _dimensions;
 
+    if(dimensions.chartWidth < 1200){
+        containers.chart.attr('transform', translator((1200 - dimensions.chartWidth) / 2,0));
+    }
     containers.stripes = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
 
     initDropShadow();
     buildCountryBox();
     buildGdpBox();
-    placeHorizontalStripes(dataLength);
+    placeHorizontalStripes(dataLength, dimensions);
     placeMask();
 }

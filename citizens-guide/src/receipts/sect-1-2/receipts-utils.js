@@ -19,7 +19,7 @@ function dotPositionSetter(position, startIndex) {
 export const receiptsConstants = {
     dotOffset: {
         x: 5,
-        y: 8
+        y: 6
     },
     xStart: 2,
     headingHeight: 70,
@@ -29,11 +29,13 @@ export const receiptsConstants = {
     shaderContainerClass: 'shader-container'
 }
 
-export function dotFactory(container, x, y, i, color) {
-    const c = container.append('circle')
+export function dotFactory(container, x, y, color) {
+    color = color || '#49A5B6';
+    
+    container.append('circle')
         .attr('cx', x)
         .attr('cy', y)
-        .attr('r', 1.5)
+        .attr('r', 2)
         .style('fill', color)
 }
 

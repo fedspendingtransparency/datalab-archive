@@ -1,0 +1,43 @@
+nav.site-nav {
+    max-width: 220px;
+    background: #0C99CD;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    font-size: 1rem;
+}
+
+nav.site-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.site-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-nav__section-icon {
+    float: left;
+}
+
+nav.site-nav ul.site-nav__primary-list {
+    margin-left: 40px;
+}
+
+nav.site-nav ul.site-nav__secondary-list {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    padding-left: 1rem;
+}
+
+nav.site-nav ul.site-nav__secondary-list li {
+    opacity: 0.5;
+    line-height: 1.5;
+    transition: opacity 0.3s ease;
+}
+
+nav.site-nav ul.site-nav__secondary-list li:hover, nav.site-nav ul.site-nav__secondary-list li.active {
+    opacity: 1;
+}

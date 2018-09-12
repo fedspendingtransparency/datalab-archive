@@ -1,16 +1,17 @@
-import '../sass/income/detail-pane.scss';
 import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
-import { getByCategory } from './trendData';
 import { trendView } from './trendView';
 
-const d3 = { select };
+const d3 = { select },
+    svg = establishContainer(),
+    h = 600,
+    zoomThresholds = {
+        'Employment and General Retirement': 7000000000,
+        'Excise Taxes': 1000000000,
+        'Unemployment Insurance': 300000000
+    }
 
-const svg = establishContainer(),
-    h = 600;
-
-let data,
-    pane,
+let pane,
     callout,
     chartContainer,
     container;
@@ -58,35 +59,55 @@ function modifyRect(sourceY, height) {
     }
 }
 
-function init(sourceY) {
+function init(d, sourceY) {
     const config = {
         height: h,
-        width: 240,
-        simple: true
+        noDrilldown: true
     };
-
-    let chartHeight;
-
-    trendView(data, chartContainer, config);
     
+    let title;
+
+    container.selectAll('.detail-pane-title')
+        .remove();
+
+    title = container.append('text')
+        .classed('detail-pane-title', true)
+        .text('View subcategories found within')
+        .attr('font-size', 14)
+        .attr('x', 20)
+        .attr('y', 30);
+
+    title.append('tspan')
+        .text(d.name)
+        .attr('font-size', 20)
+        .attr('font-weight', 'bold')
+        .attr('x', 20)
+        .attr('dy', 24);
+
+    config.zoomThreshold = zoomThresholds[d.officialName];
+
+    if (!config.zoomThreshold) {
+        config.noZoom = true;
+    }
+
+    trendView(d.subcategories, chartContainer, config);
+
     chartContainer.transition()
-    .duration(300)
-    .attr('opacity', 1)
-    
-    chartHeight = getElementBox(chartContainer).height + 50;
-    
-    modifyRect(Math.round(sourceY), chartHeight);
+        .duration(300)
+        .attr('opacity', 1)
+
+    modifyRect(Math.round(sourceY), 750);
 }
 
 export function destroyDetailPane() {
     if (!chartContainer) {
         return;
     }
-    
+
     chartContainer.transition()
         .duration(300)
         .attr('opacity', 0)
-        .on('end', function(){
+        .on('end', function () {
             if (container) {
                 container.remove();
             }
@@ -95,23 +116,29 @@ export function destroyDetailPane() {
         })
 }
 
-export function showDetail(name, sourceY) {
-    data = getByCategory(name);
-
+export function showDetail(data, sourceY) {
     if (container) {
         chartContainer.transition()
             .duration(300)
             .attr('opacity', 0)
             .on('end', function () {
                 chartContainer.selectAll('*').remove();
-                init(sourceY);
+                init(data, sourceY);
             })
     } else {
-        container = svg.append('g').attr('transform', translator(635, 5));
-        chartContainer = container.append('g').attr('opacity', 0).attr('transform',translator(10,10));
+        container = svg.append('g')
+            .attr('transform', translator(400, 5))
+            .attr('opacity', 0)
+            
+        container.transition()
+            .duration(1000)
+            .attr('transform', translator(640, 5))
+            .attr('opacity', 1)
+                        
+        chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 40));
 
-        container.lower();
+        //container.lower();
 
-        init(sourceY);
+        init(data, sourceY);
     }
 }

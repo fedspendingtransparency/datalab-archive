@@ -13,6 +13,7 @@
 @import 'universal-banner';
 @import 'tooltip-module';
 @import 'dts';
+@import 'C-a-U';
 
 @import url('css/font-awesome.min.css');
 
@@ -863,6 +864,12 @@ article > header {
 	text-align: left;
 }
 
+.header-box-new {
+	margin-left: 90px;
+	width: 600px;
+	text-align: left;
+}
+
 .entry-about-container {
 	padding: 50px;
 	display: flex;
@@ -978,6 +985,8 @@ article > header {
 	fill: inherit;
 }
 
+/*
+
 .playbook-container {
 	width: 800px;
 	margin: 0 5%;
@@ -1022,6 +1031,7 @@ article > header {
 		font-size: 16px;
 	}
 }
+*/
 
 @import 'website/popup';
 @import 'website/info-banner';

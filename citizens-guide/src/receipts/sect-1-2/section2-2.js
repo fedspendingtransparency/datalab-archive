@@ -5,8 +5,10 @@ import { line } from 'd3-shape';
 import { min } from 'd3-array';
 import { easeCubicOut as connectorEase } from 'd3-ease';
 import { dotFactory, receiptsConstants } from './receipts-utils';
-import { getElementBox, translator, getTransform, establishContainer } from '../../utils';
+import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../utils';
 import { getData } from './section2-data';
+import colors from '../../colors.scss';
+import { addTextElements } from './section2-textElements';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
     svg = establishContainer(),
@@ -15,7 +17,7 @@ const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
     detailBoxHeight = 100;
 
 let resolver,
-    dotContainer,
+    baseContainer,
     textContainer,
     detailContainer,
     currentDetailIndex,
@@ -25,7 +27,8 @@ let resolver,
     connectors,
     clearance,
     yOffset,
-    dotContainerBox;
+    parentRect,
+    baseContainerBox;
 
 function printCoords(coords, shift) {
     const y = shift || coords[1];
@@ -37,10 +40,10 @@ function setDomain() {
     const domain = [0, 0];
 
     data.forEach(row => {
-        if (row.percent < 0) {
-            domain[0] += row.percent;
+        if (row.percent_total < 0) {
+            domain[0] += row.percent_total;
         } else {
-            domain[1] += row.percent;
+            domain[1] += row.percent_total;
         }
     })
 
@@ -48,18 +51,15 @@ function setDomain() {
 }
 
 function setScales() {
-    const xOffset = getTransform(dotContainer).x,
-        selectedSourceBox = d3.selectAll('.' + receiptsConstants.shaderContainerClass + ' rect').filter((d, i) => {
-            return (currentDetailIndex === i)
-        }),
+    const xOffset = getTransform(baseContainer).x,
         domain = setDomain();
 
-    sourceBox.left = Number(selectedSourceBox.attr('x')) + xOffset;
-    sourceBox.right = sourceBox.left + Number(selectedSourceBox.attr('width'));
+    sourceBox.left = Number(parentRect.attr('x')) + xOffset;
+    sourceBox.right = sourceBox.left + Number(parentRect.attr('width'));
 
     x = d3.scaleLinear()
         .domain(domain)
-        .range([0, 1200]);
+        .range([0, 1190]);
 
     x0 = d3.scaleLinear()
         .domain(domain)
@@ -88,7 +88,7 @@ function fancyShape(d, i) {
 }
 
 function widthCalculator(d) {
-    return dotContainerBox.width * d[0] / 100;
+    return baseContainerBox.width * d[0] / 100;
 }
 
 function offsetText(d, w, textSelection) {
@@ -128,7 +128,7 @@ function offsetText(d, w, textSelection) {
 
 function drawTextConnector(d, i, textSelection) {
     textContainer.append('path')
-        .attr('stroke', '#4a4a4a')
+        .attr('stroke', colors.textColorParagraph)
         .attr('stroke-width', 1)
         .attr('d', function () {
             const textY = Number(textSelection.attr('y'));
@@ -153,74 +153,38 @@ function drawTextConnector(d, i, textSelection) {
 }
 
 function addText() {
-    let texts;
-
+    const dimensions = {height: 100, width: 1200};
+    
     textContainer = detailContainer.append('g');
 
-    texts = textContainer
-        .attr('transform', translator(0, 150))
-        .selectAll('g')
-        .data(data)
-        .enter()
-        .append('g')
-        .attr('transform', function (d, i) {
-            const xPos = x(d.start) + (x(d.end) - x(d.start)) / 2;
-
-            d.mid = d3.min([1199, Math.round(xPos)]);
-
-            return translator(d.mid, 15);
-        })
-        .append('text')
-        .attr('text-anchor', 'middle')
-        .attr('style', 'fill:white')
-
-    texts.append('tspan')
-        .text(function (d) {
-            return d.percentStr;
-        })
-        .attr('x', 0)
-        .attr('dy', 20)
-
-    texts.append('tspan')
-        .text(function (d) {
-            return d.name;
-        })
-        .attr('x', 0)
-        .attr('dy', 20)
-        .attr('style', 'font-weight: bold')
-
-    texts.append('tspan')
-        .text(function (d) {
-            return d.valueStr;
-        })
-        .attr('x', 0)
-        .attr('dy', 20)
-
-    // check text fit and reposition if needed
-    texts.each(function (d, i) {
-        const w = this.getBoundingClientRect().width;
-
-        if (w > d.width) {
-            const textSelection = d3.select(this)
-            offsetText(d, w, textSelection);
-            drawTextConnector(d, i, textSelection);
-        }
-    })
+    addTextElements(data, textContainer, x, dimensions, 'details');
 }
 
 function renderDetailBoxes() {
+    let opacityTracker = 0;
+    
     detailContainer.append('g').attr('transform', translator(0, 150)).selectAll('rect')
         .data(data)
         .enter()
         .append('rect')
         .attr('height', detailBoxHeight)
         .attr('fill', function (d) {
-            return (d.percent < 0) ? 'rgba(227,28,61,0.3)' : 'rgba(46,133,64,0.5)'
+            return (d.percent_total < 0) ? colors.colorGrayDark : colors.colorPrimaryDarker;
+        })
+        .attr('opacity', function(d){
+            if (d.percent_total < 0) {
+                return 1;
+            } else {
+                const o = (opacityTracker) ? 1 - opacityTracker / 7 : 1;
+                opacityTracker += 1;
+                return o;
+            }
         })
         .attr('stroke', 'white')
         .attr('stroke-width', 2)
         .attr('x', function (d) {
-            return x(d.start)
+            d.xStart = x(d.start);
+            return d.xStart;
         })
         .attr('width', function (d) {
             const w = x(d.end) - x(d.start);
@@ -260,18 +224,19 @@ function renderDetailContainer() {
         detailContainer.remove();
     }
 
-    dotContainerBox = getElementBox(dotContainer);
+    baseContainerBox = getElementBox(baseContainer);
 
     x0.range([0, 1200]);
 
     // render invisible container first at 100% scale for accurate rendering of child elements
     detailContainer = svg.append('g')
         .classed('detail-container', true)
+        .lower()
         .attr('opacity', 0);
 }
 
 function transitionDetailContainer() {
-    const yPos = receiptsConstants.headingHeight + dotContainerBox.height,
+    const yPos = 270,
         width = sourceBox.right - sourceBox.left,
         initialSubcategoryScaleFactor = width / 1200;
 
@@ -301,19 +266,27 @@ let waitForReady = new Promise(resolve => {
     resolver = resolve;
 })
 
-export function section2_2_init(_dotContainer) {
-    dotContainer = _dotContainer;
+export function clearDetails() {
+    if (detailContainer) {
+        detailContainer.remove();
+    }
+}
+
+export function section2_2_init(_baseContainer) {
+    baseContainer = _baseContainer;
 
     resolver();
 }
 
-export function showDetail(i) {
-    currentDetailIndex = i;
-    data = getData(i);
+export function showDetail(d) {
+    data = d.subcategories;
+    parentRect = d3.select(this);
 
-    if (dotContainer) {
+    if (baseContainer) {
         renderDetail()
     } else {
-        waitForReady.then(renderDetail)
+        waitForReady.then(function(){
+            renderDetail();
+        })
     }
 };

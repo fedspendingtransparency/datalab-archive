@@ -1,8 +1,9 @@
 import { select } from 'd3-selection';
 import { createDonut } from './donut';
-import { getElementBox, translator } from '../../utils';
+import { getElementBox, translator, simplifyNumber, fractionToPercent, getTransform, initDropShadow } from '../../utils';
 import { receiptsConstants } from './receipts-utils';
 import { establishContainer } from '../../utils';
+import { sectionOneData } from './section1-data';
 
 const d3 = { select },
     boxHeight = 100,
@@ -17,202 +18,181 @@ const d3 = { select },
     duration = 500,
     boxWidth = 550;
 
-let svg, boxGroup,
-    boxOne,
-    boxTwo,
-    boxThree;
+let svg, dotContainer, boxGroup, dotsRect, fact1, fact2, fact3;
 
-function setInactive(container) {
-    const id = container.attr('data-box-id'),
-        text = container.selectAll('text'),
-        thisOriginalTranslate = originalTranslate[id];
+function initFactBox() {
+    const transform = getTransform(dotContainer);
 
-    container.transition()
-        .duration(duration)
-        .attr('opacity', 0.8)
-        .attr('transform', translator(thisOriginalTranslate.x, thisOriginalTranslate.y) + ' scale(1)')
+    boxGroup = svg.append('g')
+        .classed('reset box-group', true)
+        .attr('transform', translator(transform.x, transform.y) + ' scale(0.5)')
+        .attr('opacity', 0);
 
-    if (text.size() > 0) {
-        container.selectAll('text').transition()
-            .duration(duration)
-            .attr('opacity', 0.5)
-            .ease();
-    }
-}
-
-function setActive(number) {
-    const boxes = [
-        boxOne,
-        boxTwo,
-        boxThree
-    ],
-        active = boxes[number - 1],
-        inactive = boxes.filter((box, i) => { return i !== number - 1 }),
-        thisOriginalTranslate = originalTranslate[number],
-        xOffset = boxWidth * -0.2 / 2,
-        yOffset = boxHeight * -0.2 / 2;
-
-    active.transition()
-        .duration(duration)
-        .attr('opacity', 1)
-        .attr('transform', translator(thisOriginalTranslate.x + xOffset, thisOriginalTranslate.y + yOffset) + ' scale(1.2)')
-        .ease();
-
-    active.selectAll('text').transition()
-        .duration(duration)
-        .attr('opacity', 1)
-        .ease();
-
-    inactive.forEach(setInactive);
-}
-
-function initTextElement(container) {
-    return container.append('text')
-        .attr('x', boxMargin.side)
-        .attr('y', boxMargin.top)
-        .attr('opacity', 0.5)
-        .style('font-size', '25px');
-}
-
-function buildRoundedRectangle(container) {
-    container.append('rect')
+    boxGroup.append('rect')
+        .attr('x', 0)
+        .attr('y', 65)
         .attr('rx', 5)
         .attr('ry', 5)
-        .attr('width', boxWidth)
-        .attr('height', boxHeight)
+        .attr('width', 555)
+        .attr('height', 360)
+        .attr('stroke', '#ccc')
         .attr('fill', 'white')
-        .attr('stroke', 'none')
+        .attr('filter', 'url(#drop1)');
+
+    boxGroup.append('text')
+        .text(`What's GDP?`)
+        .attr('font-size', 20)
+        .attr('font-weight', 'bold')
+        .attr('x', 20)
+        .attr('y', 100);
+
+    boxGroup.transition()
+        .duration(2000)
+        .attr('transform', translator(550, -5) + ' scale(1)')
+        .attr('opacity', 1);
 }
 
-function createBoxOne() {
-    let text;
+function text1() {
+    const words = fact1.split(' '),
+        gdp = words.slice(0, 3).join(' '),
+        continuing1 = words.slice(3, 12).join(' '),
+        continuing2 = words.slice(12, 27).join(' '),
+        continuing3 = words.slice(27, 39).join(' '),
+        continuing4 = words.slice(39).join(' '),
+        text = boxGroup.append('text')
+            .attr('font-size', 16)
+            .attr('x', 20)
+            .attr('y', 140);
 
-    boxOne = boxGroup.append('g')
-        .attr('data-box-id', '1');
+    text.append('tspan')
+        .text(gdp)
+        .attr('x', 20)
+        .attr('font-weight', 'bold');
 
-    setInactive(boxOne);
-    buildRoundedRectangle(boxOne);
+    text.append('tspan')
+        .text(' ' + continuing1);
 
-    text = initTextElement(boxOne);
+    text.append('tspan')
+        .text(' ' + continuing2)
+        .attr('dy', 20)
+        .attr('x', 20);
 
-    text
-        .append('tspan')
-        .attr('x', boxMargin.side)
-        .attr('y', boxMargin.top)
-        .text('In FY 2017, the Total Gross Domestic')
+    text.append('tspan')
+        .text(' ' + continuing3)
+        .attr('dy', 20)
+        .attr('x', 20);
 
-    text
-        .append('tspan')
-        .attr('x', boxMargin.side)
-        .attr('dy', 30)
-        .text('Product was ')
+    text.append('tspan')
+        .text(' ' + continuing4)
+        .attr('dy', 20)
+        .attr('x', 20);
 
-    text
-        .append('tspan')
-        .style('font-weight', 'bold')
-        .text('$19.6 Trillion')
+    return getElementBox(text).height;
 }
 
-function createBoxTwo() {
-    let text, donutBox;
+function text2(y) {
+    let t;
 
-    originalTranslate[2] = {
-        x: 0,
-        y: boxHeight + boxSpacing
-    };
+    boxGroup.append('text')
+        .text(fact2)
+        .attr('y', y + 10)
+        .attr('x', 120)
+        .attr('font-size', 18)
+        .attr('font-weight', 'bold');
 
-    boxTwo = boxGroup.append('g')
-        .attr('data-box-id', '2')
-        .attr('transform', translator(originalTranslate[2].x, originalTranslate[2].y));
+    t = boxGroup.append('text')
+        .attr('y', y + 50)
+        .attr('x', 120)
+        .attr('font-size', 16)
 
-    setInactive(boxTwo);
-    buildRoundedRectangle(boxTwo);
+    t.append('tspan')
+        .text(fact3.split(' ').slice(0, 8).join(' '));
 
-    donutBox = boxTwo.append('g')
-        .attr('transform', translator(62, 45));
-    createDonut(donutBox, 17.4, 60);
+    t.append('tspan')
+        .text(fact3.split(' ').slice(8).join(' '))
+        .attr('dy', 20)
+        .attr('x', 120)
+}
 
-    text = initTextElement(boxTwo);
+function text3(y) {
+    const t = boxGroup.append('text')
+        .attr('font-size', 16)
+        .attr('text-anchor', 'middle')
+        .attr('y', y + 10)
+        .attr('x', boxWidth/2)
 
-    text
-        .append('tspan')
-        .attr('x', boxMargin.side + 70)
-        .attr('y', boxMargin.top)
-        .text('Total Government Revenue is')
+    t.append('tspan')
+        .text(`Now, let's explore the different `)
 
-    text
-        .append('tspan')
-        .attr('x', boxMargin.side + 70)
-        .attr('dy', 30)
-        .style('font-weight', 'bold')
-        .text('17.4 % of Gross Domestic Product.')
+    t.append('tspan')
+        .text('categories')
+        .attr('font-weight', 'bold')
+
+    t.append('tspan')
+        .attr('dy', 20)
+        .attr('x', boxWidth/2)
+        .text('that make up ')
+
+    t.append('tspan')
+        .attr('font-weight', 'bold')
+        .text('Federal Government Revenue')
+
 
 }
 
-function createBoxThree() {
-    let text;
+function drawLine(y) {
+    boxGroup.append('line')
+        .attr('stroke', '#ddd')
+        .attr('x1', 20)
+        .attr('y1', y)
+        .attr('x2', boxWidth - 20)
+        .attr('y2', y)
+}
 
-    originalTranslate[3] = {
-        x: 0,
-        y: (boxHeight + boxSpacing) * 2
-    };
+function drawDonut(y) {
+    const donutGroup = boxGroup.append('g')
+        .attr('transform', translator(60, y + 36));
 
-    boxThree = boxGroup.append('g')
-        .attr('data-box-id', '3')
-        .attr('transform', translator(originalTranslate[3].x, originalTranslate[3].y));
-
-    setInactive(boxThree);
-    buildRoundedRectangle(boxThree);
-
-    text = initTextElement(boxThree);
-
-    text
-        .append('tspan')
-        .attr('x', boxMargin.side)
-        .attr('y', boxMargin.top)
-        .text(`Let's inspect `)
-
-    text
-        .append('tspan')
-        .style('font-weight', 'bold')
-        .text('Government Revenue')
-
-    text
-        .append('tspan')
-        .attr('x', boxMargin.side)
-        .attr('dy', 30)
-        .text('deeper into ')
-
-    text
-        .append('tspan')
-        .style('font-weight', 'bold')
-        .text('Cateogories')
+    createDonut(donutGroup, .174, 90);
 }
 
 export function section1_3() {
+    let text1Height;
+
+    dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass);
+
+    dotsRect = getElementBox(dotContainer);
+
     svg = establishContainer();
-    boxGroup = svg.append('g')
-        .classed('reset', true)
-        .attr('transform', translator(600 - (boxWidth / 2), 100))
-        .attr('opacity', 0);
 
-    boxGroup.transition()
-        .duration(1000)
-        .attr('opacity', 1)
-        .ease()
+    initDropShadow();
 
-    createBoxOne();
-    createBoxTwo();
-    createBoxThree();
+    initFactBox();
 
-    setTimeout(setActive, 500, 1);
+    text1Height = text1();
 
-    return [
-        function(){
-            setActive(2);
-        },
-        function(){
-            setActive(3);
-        }
-    ];
+    drawLine(text1Height + 190);
+
+    drawDonut(text1Height + 210);
+
+    text2(text1Height + 210);
+
+    drawLine(text1Height + 300);
+
+    text3(text1Height + 330);
 }
+
+function scrapeFact(selector) {
+    const dom = d3.select(selector),
+        t = dom.text();
+
+    dom.remove();
+
+    return t;
+}
+
+(function scrapeFacts() {
+    fact1 = scrapeFact('#gdp-fact-one');
+    fact2 = scrapeFact('#gdp-fact-two');
+    fact3 = scrapeFact('#gdp-fact-three');
+})();

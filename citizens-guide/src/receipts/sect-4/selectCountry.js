@@ -5,6 +5,7 @@ import { countryList, refreshData } from './chart';
 import { masterData } from '.';
 import { addXIcon, addButtonIcon, addSearchIcon } from './iconGenerators';
 import { selectedCountries } from './selectedCountryManager';
+import { translate } from '../../utils';
 
 const d3 = { select }
 

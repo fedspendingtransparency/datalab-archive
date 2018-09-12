@@ -10,6 +10,47 @@ permalink: dts3.html
 category: nonentry
 ---
 
+<style>
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  color: #9b9b9b;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.header-subtitle {
+  color: #000000;
+  font-size: 36px;
+}
+
+.header-line-break {    
+    border-bottom: 1px solid #c1c1c1;
+    display: block;
+    width: 70%;
+    margin: 15px 0 5px 0;
+}
+
+.header-updated-when {
+  color: #9b9b9b;
+  font-weight: 200;
+  font-size: 16px;
+}
+</style>
+
+<div class="header-container">
+  <div class="header-title">Interactive Daily Report</div>
+  <div class="header-subtitle">How much money are we spending?</div>
+  <div class="header-line-break"></div>
+  <div class="header-updated-when">Updated Friday, August 20, 2018 at 4:00 PM ET</div>
+</div>
+
+
 <div id="chooser-wrapper">
   <div class="radio-timeframe">
     <label class="radio-container">Today
@@ -110,8 +151,12 @@ function makeYGridLines() {
 
 var optionsDict;
 
+var firstTime = true;
+
 function createGraph(data) {
-  d3.select("#svg-wrapper").selectAll("*").remove();
+  var allSvgChildren = d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)"); // ignore the-axes
+
+  allSvgChildren.remove();
 
   var brush = d3.brushX()
     .extent([
@@ -148,6 +193,41 @@ function createGraph(data) {
       return y2(d.value);
     });
 
+    var focus = svg.append("g")
+      .attr("class", "focus")
+      .attr("id", "the-axes")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var context = svg.append("g")
+      .attr("class", "context")
+      .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+    x.domain(d3.extent(data, function(d) {
+      return d.date;
+    }));
+    y.domain([0, d3.max(data, function(d) {
+      return d.value;
+    })]);
+    x2.domain(x.domain());
+    y2.domain(y.domain());
+
+    if (firstTime) {
+      focus.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+      focus.append("g")
+        .attr("class", "axis axis--y")
+        .call(yAxis);
+
+        firstTime = false;
+    } else {
+      d3.select(".axis--x").transition().duration(1500).call(xAxis);
+      d3.select(".axis--y").transition().duration(1500).call(yAxis);
+    }
+
+
 
   // add the X gridlines
   svg.append("g")			
@@ -179,32 +259,6 @@ function createGraph(data) {
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .attr("clip-path", "url(#clip)");
-
-  var focus = svg.append("g")
-    .attr("class", "focus")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  var context = svg.append("g")
-    .attr("class", "context")
-    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-
-  x.domain(d3.extent(data, function(d) {
-    return d.date;
-  }));
-  y.domain([0, d3.max(data, function(d) {
-    return d.value;
-  })]);
-  x2.domain(x.domain());
-  y2.domain(y.domain());
-
-  focus.append("g")
-    .attr("class", "axis axis--x")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-  focus.append("g")
-    .attr("class", "axis axis--y")
-    .call(yAxis);
 
   lineChart.append("path")
     .datum(data)

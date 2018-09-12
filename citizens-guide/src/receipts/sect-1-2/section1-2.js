@@ -1,11 +1,13 @@
-import { select, create } from 'd3-selection';
+import { select, selectAll, create } from 'd3-selection';
 import { line } from 'd3-shape';
-import { getElementBox, translator } from '../../utils';
+import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { dotFactory, receiptsConstants, dotPositionAccessor } from './receipts-utils';
 import { establishContainer } from '../../utils';
 import { showDetail } from './section2-2';
+import { section1_3 } from './section1-3';
+import { sectionOneData } from './section1-data';
 
-const d3 = { select, line, create };
+const d3 = { select, selectAll, line, create };
 let svg, dotContainer;
 
 function addLegend() {
@@ -17,18 +19,19 @@ function addLegend() {
             .x(function (d) { return d.x; })
             .y(function (d) { return d.y; }),
         lineData = [
-            { x: 0, y: 0 },
-            { x: 3, y: 0 },
-            { x: 3, y: height },
-            { x: 0, y: height }
+            { x: 87, y: 0 },
+            { x: 84, y: 0 },
+            { x: 84, y: height },
+            { x: 87, y: height }
         ],
+        dotsRect = getElementBox(dotContainer),
         text = legendBox.append('text')
             .classed('reset', true)
             .attr('text-anchor', 'middle')
-            .attr('y', height / 2)
-            .style('font-size', '18px')
+            .attr('y', 0)
+            .style('font-size', '18px');
 
-    legendBox.attr('transform', translator(1200 - margin + 5, receiptsConstants.headingHeight))
+    legendBox.attr('transform', translator(0, receiptsConstants.headingHeight))
 
     legendBox.append('path')
         .classed('reset', true)
@@ -40,17 +43,19 @@ function addLegend() {
     text.append('tspan')
         .text('Total GDP')
         .style('font-weight', 'bold')
-        .attr('x', 45)
-        .attr('dy', -20)
+        .attr('x', 40)
+        .attr('dy', height / 2);
 
     text.append('tspan')
-        .text('$19.4 T')
-        .attr('x', 45)
-        .attr('dy', 20)
+        .text(simplifyNumber(sectionOneData.gdp))
+        .attr('x', 40)
+        .attr('dy', 20);
+
+    section1_3();
 }
 
 function setGdpDots() {
-    const incomeHeightOffset = getElementBox(d3.select('g.' + receiptsConstants.incomeContainerClass)).height + 5,
+    const incomeHeightOffset = 100,
         gdpDotCount = 16000,
         gdpDotColor = 'rgba(200,200,200,1)',
         dotPositionStart = dotPositionAccessor.get(),
@@ -75,7 +80,7 @@ function setGdpDots() {
     // first row
 
     for (i; i < firstRowCount; i++) {
-        dotFactory(gdpContainer, x, y, i, gdpDotColor);
+        dotFactory(gdpContainer, x, y, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
 
         rowPosition += 1;
@@ -86,7 +91,7 @@ function setGdpDots() {
     x = 2;
 
     for (r; r < receiptsConstants.dotsPerRow; r++) {
-        dotFactory(rowOne, x, 2, r, gdpDotColor);
+        dotFactory(rowOne, x, -1, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
     }
 
@@ -107,24 +112,46 @@ function setGdpDots() {
         .attr('transform', translator(0, (rowCount * receiptsConstants.dotOffset.y) + incomeHeightOffset));
 
     for (i; i < lastRowCount; i++) {
-        dotFactory(lastRow, x, 2, i, gdpDotColor);
+        dotFactory(lastRow, x, -1, gdpDotColor);
         x += receiptsConstants.dotOffset.x;
     }
 
     gdpContainer.transition()
         .duration(1000)
         .attr('transform', 'scale(1)')
-        .on('end', addLegend)
         .ease();
+}
+
+function zoomOutDots() {
+    const prevTransform = dotContainer.attr('transform'),
+        zoomDuration = 2000,
+        title = d3.select('.total-gov-revenue');
+
+    title.transition()
+        .duration(500)
+        .attr('opacity', 0)
+        .on('end', function () {
+            title.remove()
+        })
+        .ease();
+
+    dotContainer.transition()
+        .duration(zoomDuration)
+        .attr('transform', prevTransform + ' scale(0.4)')
+        .on('end', addLegend)
+        .ease()
 }
 
 export function section1_2() {
     svg = establishContainer();
 
+    d3.selectAll('.continue-button').remove();
+
     svg.transition()
-        .duration(200)
-        .attr('height', '1000px')
+        .duration(1000)
+        .attr('height', 450)
 
     dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass)
+    zoomOutDots();
     setGdpDots();
 }

@@ -1,0 +1,90 @@
+body {
+    margin-bottom: 4rem;
+}
+
+.income-nav {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #4a90E2;
+    width: 100%;
+    min-height: 3.5rem;
+}
+
+.income-nav button {
+    border: 1px solid white;
+    border-radius: 3px;
+    background: transparent;
+    width: 40px;
+    align-self: flex-end;
+    margin: 5px 1rem 11px 5px;
+    padding: 4px 6px
+}
+
+.income-nav button hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.income-nav ul {
+    list-style-type: none;
+    margin: 5px 1rem;
+    padding: 0;
+}
+
+.income-nav li {
+    padding: 0;
+}
+
+.income-nav li a {
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    height: 0rem;
+    line-height: 3rem;
+    overflow: hidden;
+    opacity: .5;
+    transition: height 0.3s ease;
+}
+
+.income-nav .menu-open li a {
+    height: 3rem;
+}
+
+.income-nav li.active a {
+    height: 3rem;
+}
+
+
+.income-nav li.active a, .income-nav li:hover a{
+    opacity: 1;
+}
+
+@media only screen and (min-width: 700px) {
+    .income-nav button {
+        display: none;
+    }
+
+    .income-nav ul {
+        display: flex;
+        width: 100%;
+        max-width: 1200px;
+        margin: 5px auto;
+    }
+
+    .income-nav li {
+        width: 25%;
+        border-right: #ffff52 1px solid;
+    }
+
+    .income-nav li:last-of-type {
+        border-right: none;
+    }
+
+    .income-nav li a {
+        height: 3rem;
+        text-align: center;
+    }
+}

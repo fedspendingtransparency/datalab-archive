@@ -1,8 +1,9 @@
 import { select } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { getElementBox, translator } from '../../utils';
+import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { dotFactory, receiptsConstants, dotPositionAccessor } from './receipts-utils';
 import { establishContainer } from '../../utils';
+import { sectionOneData } from './section1-data';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,
@@ -24,7 +25,7 @@ function setIncomeDots() {
         y = 2;
 
     for (i; i < top; i++) {
-        dotFactory(incomeContainer, x, y, i, '#49A5B6');
+        dotFactory(incomeContainer, x, y);
         x += dotOffset.x;
 
         if ((i + 1) % dotsPerRow === 0) {
@@ -43,38 +44,34 @@ function setIncomeDots() {
 
 function buildHeader() {
     const text = svg.append('text')
+        .attr('class', 'total-gov-revenue')
         .attr('text-anchor', 'middle')
         .style('font-size', '18px')
-    
+
     text.append('tspan')
         .text('Total Government Revenue')
         .style('font-weight', 'bold')
         .attr('y', 20)
         .attr('x', 600)
         .attr('transform', 'translate(0, 20)')
-    
+
     text.append('tspan')
-        .text('$3.4 T')
+        .text(simplifyNumber(sectionOneData.receipts))
         .attr('y', 40)
         .attr('x', 600)
 }
 
-function buildLegend(){
-    const g = svg.append('g');
+function buildLegend() {
+    const g = svg.append('g').classed('reset', true);
     let w, xOffset;
 
-    g.append('circle')
-        .attr('r', 4.5)
-        .attr('cx', 5)
-        .attr('cy', 11)
-        .attr('stroke', '#979797')
-        .attr('fill', '#d8d8d8');
+    dotFactory(g, 0, 0);
 
     g.append('text')
         .text('= 1 Billion Dollar')
-        .style('font-size', '16px')        
-        .attr('y', '16px')
-        .attr('x', '15px')
+        .style('font-size', 16)
+        .attr('y', 6)
+        .attr('x', 7)
 
     w = getElementBox(g).width;
 
@@ -85,19 +82,49 @@ function buildLegend(){
 
 function setDotContainer() {
     let xOffset;
-    
+
     dotsWidth = (dotsPerRow * dotOffset.x) + xStart;
     xOffset = (1200 - dotsWidth) / 2;
 
     dotContainer = svg.append('g')
         .classed(receiptsConstants.dotContainerClass, true)
-        .attr('transform', translator(xOffset,receiptsConstants.headingHeight));
+        .classed('reset', true)
+        .attr('transform', translator(xOffset, receiptsConstants.headingHeight));
 }
 
-export function section1_1() {
-    svg = establishContainer();
+function init() {
     buildHeader();
     setDotContainer();
     setIncomeDots();
     buildLegend();
+}
+
+export function section1_1() {
+    const duration = 300,
+        svgHeight = 250;
+
+    let existing;
+
+    svg = establishContainer(300);
+
+    existing = svg.selectAll('*');
+
+    if (existing.size()) {
+        existing.transition()
+            .duration(duration)
+            .attr('opacity', 0)
+            .on('end', function () {
+                d3.select(this).remove();
+            });
+
+        svg.transition()
+            .duration(duration)
+            .attr('height', svgHeight);
+
+        setTimeout(init, duration)
+
+    } else {
+        svg.attr('height', svgHeight);
+        init();
+    }
 }
