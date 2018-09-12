@@ -7,7 +7,7 @@ import { section2_2_init, showDetail, clearDetails } from './section2-2';
 import { getDataByYear } from './section2-data';
 import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
-import { colors } from '../../colors';
+import colors from '../../colors.scss';
 import { zoomInit } from './zoom';
 import { addTextElements } from './section2-textElements';
 

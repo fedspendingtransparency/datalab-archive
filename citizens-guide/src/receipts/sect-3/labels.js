@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { max } from 'd3-array';
 import { getElementBox, translator, wordWrap } from '../../utils';
-import { colors } from '../../colors';
+import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, max };
 

@@ -33,8 +33,8 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
             config: {
                 data: 'income_usd',
                 class: 'receipts',
-                stroke: colors.CGIncome,
-                fill: colors.CGIncome,
+                stroke: colors.income,
+                fill: colors.income,
                 yOffset: 3,
                 legend: 'Income'
             }

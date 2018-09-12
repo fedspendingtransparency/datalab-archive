@@ -1,7 +1,7 @@
 import { select } from 'd3-selection';
-import { colors } from '../../colors';
+import colors from '../../colors.scss';
 
-const d3 = { select }
+const d3 = { select };
 
 export function addButtonIcon(svg) {
     svg.append('circle')

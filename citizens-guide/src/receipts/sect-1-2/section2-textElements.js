@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } from '../../utils';
-import { colors } from '../../colors';
+import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, line },
     noFitOffset = 50;

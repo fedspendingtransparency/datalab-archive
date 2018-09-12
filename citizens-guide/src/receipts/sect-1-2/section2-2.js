@@ -7,7 +7,7 @@ import { easeCubicOut as connectorEase } from 'd3-ease';
 import { dotFactory, receiptsConstants } from './receipts-utils';
 import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../utils';
 import { getData } from './section2-data';
-import { colors } from '../../colors';
+import colors from '../../colors.scss';
 import { addTextElements } from './section2-textElements';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },

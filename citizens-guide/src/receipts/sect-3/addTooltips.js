@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox } from '../../utils';
-import { colors } from '../../colors';
+import colors from '../../colors.scss';
 
 const d3 = { select, selectAll },
     dataDisc = 'data-disc',

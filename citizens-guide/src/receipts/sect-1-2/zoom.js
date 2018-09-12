@@ -1,4 +1,4 @@
-import { colors } from "../../colors";
+import colors from "../../colors.scss";
 import { translator } from "../../utils";
 import { select } from 'd3-selection';
 
