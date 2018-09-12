@@ -33,6 +33,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
         .attr('width', viewerWidth)
         .attr('height', viewerHeight)
         .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
+        .attr('id', 'svg-dendrogram')
         .attr('class', 'overlay')
         .call(zoomListener);
 
@@ -74,6 +75,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
             .attr('transform', `translate(${x},${y})scale(${scale})`);
         zoomListener.scale(scale);
         zoomListener.translate([x, y]);
+        resetToCenter();
     }
 
     let tree = d3.layout.tree()
@@ -449,6 +451,8 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
             category: 'Federal Account Explorer - Click Node',
             action: d.name
         });
+
+        resetToCenter();
     }
 
     root.x0 = viewerHeight / 2;
@@ -459,4 +463,12 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
     toggle(root);
     update(root);
     centerRootNode(root);
+
+    function resetToCenter() {
+        var theSvg = document.getElementById("svg-dendrogram");
+
+        theSvg.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: true, clientX: 1, clientY: 1, view: window }));
+        theSvg.dispatchEvent(new MouseEvent("mousemove", { bubbles: true, cancelable: true, clientX: 2, clientY: 2, view: window }));
+        theSvg.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, cancelable: true, clientX: 2, clientY: 2, view: window }));
+    }
 });
