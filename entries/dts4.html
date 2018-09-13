@@ -92,22 +92,28 @@ category: nonentry
   border-right: none;
   font-size: 12px;
   padding: 0px 10px;
-  font-weight: 400;
   cursor: pointer;
 }
 
 .period-button:hover {
-  background-color: #e2e2e2;
+  background-color: #00c3c2;
+  color: white;
+}
+
+.period-button-selected {
+  background-color: #00c3c2;
+  font-weight: 600;
+  color: white;
 }
 
 .period-button:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 .period-button:last-child {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
   border: 1px solid #ccc;
 }
 
@@ -146,8 +152,9 @@ category: nonentry
     <div class="period-container">
         <div class="period-button" data-range="30d">30D</div>
         <div class="period-button" data-range="90d">90D</div>
-        <div class="period-button" data-range="ytd">YTD</div>
+        <div class="period-button" data-range="1y">1Y</div>
         <div class="period-button" data-range="5y">5Y</div>
+        <div class="period-button" data-range="10y">10Y</div>
     </div>
 
     <div class="daily-spending">
@@ -310,11 +317,15 @@ function createGraph(data) {
 
     let t = this.dataset.range;
 
+    d3.selectAll(".period-button").classed("period-button-selected", false);
+    d3.select(this).classed("period-button-selected", true);
+
     switch (t) {
       case "30d": leftDate.setMonth(leftDate.getMonth() - 1); break;
       case "90d": leftDate.setMonth(leftDate.getMonth() - 3); break;
-      case "ytd": leftDate.setFullYear(leftDate.getFullYear() - 1); break;
+      case "1y": leftDate.setFullYear(leftDate.getFullYear() - 1); break;
       case "5y": leftDate.setFullYear(leftDate.getFullYear() - 5); break;
+      case "10y": leftDate.setFullYear(leftDate.getFullYear() - 10); break;
     }
 
     d3.select(".brush").call(brush.move, null);
@@ -531,9 +542,9 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   data.forEach(function(d) {
     //d.date = parseDate(d.date);
-    d.today = +d.today;
-    d.mtd = +d.mtd;
-    d.fytd = +d.fytd;
+    d.today = +d.today * 1000000;
+    d.mtd = +d.mtd * 1000000;
+    d.fytd = +d.fytd * 1000000;
 
     let spendingYear = d.date.getFullYear();
     if (yearToSpending.hasOwnProperty(spendingYear)) {
@@ -577,6 +588,8 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   // data.sort(function(a, b) { return a.date - b.date; });
 
   createGraph(optionsDict["Medicaid"].today);
+
+  console.log(yearToSpendingArray);
 
   createBarChart(yearToSpendingArray);
 });
