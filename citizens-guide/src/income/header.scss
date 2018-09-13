@@ -1,0 +1,19 @@
+header {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lead-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .lead {
+        max-width: 66%;
+        padding-right: 2rem;
+        margin-top: 0;
+    }
+
+    .fact-box {
+        max-width: 34%;
+    }
+}

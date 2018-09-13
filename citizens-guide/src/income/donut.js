@@ -1,6 +1,6 @@
 import { select } from 'd3-selection';
 import { arc, pie } from 'd3-shape';
-import { fractionToPercent } from '../utils';
+import { fractionToPercent, translator } from '../utils';
 
 const d3 = { select, arc, pie },
     radius = 45,
@@ -10,30 +10,32 @@ const d3 = { select, arc, pie },
         .value(function (d) { return d; });
 
 function setArcRadius(radius) {
-    arcFn.outerRadius(radius - 10)
-        .innerRadius((radius - 10) * .8)
+    arcFn.outerRadius(radius)
+        .innerRadius((radius) * .8)
 }
 
 export function createDonut(container, percent, diameter, fillColor) {
-    const data = [percent * 100, 100 - percent * 100];
+    const data = [percent * 100, 100 - percent * 100],
+        g = container.append('g')
+            .attr('transform', translator(diameter / 2, diameter / 2));
 
-    setArcRadius(diameter/2);
+    setArcRadius(diameter / 2);
 
-    var g = container.selectAll(".arc")
+    var pie = g.selectAll(".arc")
         .data(pieFn(data))
         .enter()
         .append("g")
-        .attr("class", "arc");
+        .attr("class", "arc")
 
-    var donut = g.append("path")
+    var donut = pie.append("path")
         .attr("d", arcFn);
 
     donut.style("fill", function (d, i) {
-           const shadedColor = fillColor || '#dd6666';
-           return (i === 0) ? shadedColor : '#dddddd'
-       });
+        const shadedColor = fillColor || '#dd6666';
+        return (i === 0) ? shadedColor : '#dddddd'
+    });
 
-    container.append('text')
+    g.append('text')
         .text(fractionToPercent(percent))
         .attr('text-anchor', 'middle')
         .attr('font-weight', 'bold')

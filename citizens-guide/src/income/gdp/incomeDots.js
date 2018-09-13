@@ -3,7 +3,10 @@ import { transition } from 'd3-transition';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { dotFactory, receiptsConstants, dotPositionAccessor } from '../receipts-utils';
 import { establishContainer } from '../../utils';
-import { sectionOneData } from './section1-data';
+import { sectionOneData } from './data';
+import colors from '../../colors.scss';
+import { initGdpDots } from './gdpDots';
+import { tourButton } from '../tourButton/tourButton';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,
@@ -11,13 +14,15 @@ const d3 = { select },
     dotOffset = receiptsConstants.dotOffset;
 
 let svg,
+    incomeContainer,
     dotContainer,
     dotsWidth;
 
-function setIncomeDots() {
-    const incomeContainer = dotContainer.append('g')
+function readyIncomeDots() {
+    incomeContainer = dotContainer.append('g')
+        .attr('opacity', 0)
         .classed(receiptsConstants.incomeContainerClass, true)
-        .attr('transform', 'scale(1.3)');
+        .attr('transform', 'translate(-100, -50), scale(2)');
 
     let i = 0,
         top = 3400,
@@ -35,15 +40,12 @@ function setIncomeDots() {
     }
 
     dotPositionAccessor.set([x, y], i % dotsPerRow);
-
-    incomeContainer.transition()
-        .duration(1000)
-        .attr('transform', 'scale(1)')
-        .ease()
 }
 
 function buildHeader() {
     const text = svg.append('text')
+        .attr('opacity', 0)
+        .attr('fill', colors.textColorParagraph)
         .attr('class', 'total-gov-revenue')
         .attr('text-anchor', 'middle')
         .style('font-size', '18px')
@@ -56,19 +58,28 @@ function buildHeader() {
         .attr('transform', 'translate(0, 20)')
 
     text.append('tspan')
-        .text(simplifyNumber(sectionOneData.receipts))
+        .text(simplifyNumber(sectionOneData.income))
         .attr('y', 40)
         .attr('x', 600)
+
+    text.transition()
+        .duration(400)
+        .attr('opacity', 1)
 }
 
 function buildLegend() {
-    const g = svg.append('g').classed('reset', true);
+    const g = svg.append('g')
+        .attr('opacity', 0)
+        .classed('reset', true)
+        .classed('income-dot-legend', true);
+
     let w, xOffset;
 
     dotFactory(g, 0, 0);
 
     g.append('text')
-        .text('= 1 Billion Dollar')
+        .text('= 1 Billion Dollars')
+        .attr('fill', colors.textColorParagraph)
         .style('font-size', 16)
         .attr('y', 6)
         .attr('x', 7)
@@ -78,6 +89,10 @@ function buildLegend() {
     xOffset = dotsWidth - w + ((1200 - dotsWidth) / 2);
 
     g.attr('transform', translator(xOffset, 30))
+
+    g.transition()
+        .duration(400)
+        .attr('opacity', 1)
 }
 
 function setDotContainer() {
@@ -92,39 +107,46 @@ function setDotContainer() {
         .attr('transform', translator(xOffset, receiptsConstants.headingHeight));
 }
 
-function init() {
-    buildHeader();
-    setDotContainer();
-    setIncomeDots();
-    buildLegend();
+function enableFactBox() {
+    const factBox = d3.select('#income-facts');
+
+    svg.attr('height', 200);
+
+    factBox.classed('fact-box--out-down', null);
 }
 
-export function section1_1() {
-    const duration = 300,
-        svgHeight = 250;
+function addContinueButton() {
+    const factBox = d3.select('#income-facts'),
+        button = tourButton(document.getElementById('continue-1'));
 
-    let existing;
+    button.on('click', function () {
+        factBox.classed('fact-box--out-down', true);
 
-    svg = establishContainer(300);
+        setTimeout(function(){
+            factBox.remove();
+        },500)
 
-    existing = svg.selectAll('*');
+        initGdpDots();
+    });
+}
 
-    if (existing.size()) {
-        existing.transition()
-            .duration(duration)
-            .attr('opacity', 0)
-            .on('end', function () {
-                d3.select(this).remove();
-            });
+export function enterIncomeDots() {
+    incomeContainer.transition()
+        .duration(700)
+        .attr('opacity', 1)
+        .attr('transform', 'translate(0,0), scale(1)')
+        .on('end', function () {
+            buildHeader();
+            buildLegend();
+        })
+        .ease();
 
-        svg.transition()
-            .duration(duration)
-            .attr('height', svgHeight);
+    setTimeout(enableFactBox, 2000);
+}
 
-        setTimeout(init, duration)
-
-    } else {
-        svg.attr('height', svgHeight);
-        init();
-    }
+export function initIncomeDots() {
+    svg = establishContainer();
+    addContinueButton();
+    setDotContainer();
+    readyIncomeDots();
 }

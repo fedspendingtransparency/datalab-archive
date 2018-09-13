@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min } from 'd3-array';
 import { transition } from 'd3-transition';
-import { getElementBox, translator, simplifyNumber } from '../../utils';
+import { getElementBox, translator, simplifyNumber, stripBr } from '../../utils';
 import { receiptsConstants } from '../receipts-utils';
 import { getDataByYear } from './data';
 import { stack } from 'd3-shape';
@@ -11,8 +11,13 @@ import { zoomInit } from './zoom';
 import { addTextElements } from './textElements';
 import colors from '../../colors.scss';
 import { showDetail, section2_2_init, clearDetails } from './showDetails';
+import '../factBox.scss';
+import '../header.scss';
+import { tourButton } from '../tourButton/tourButton';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
+    tour = location.search.includes('tour'),
+    factBox = d3.selectAll('.fact-box'),
     categoryData = getDataByYear(2017),
     indexed = categoryData.reduce((a, c) => {
         a[c.activity] = c;
@@ -25,6 +30,7 @@ const d3 = { select, selectAll, scaleLinear, min, stack, transition },
     totalAmount = categoryData.reduce((a, c) => a += c.amount, 0);
 
 let svg,
+    tourStage2,
     baseContainer,
     shaderContainer,
     detailsGroup,
@@ -116,6 +122,7 @@ function addDetails(state) {
             const n = (state) ? i + 3 : i,
                 rect = shaders.filter(function (d, j) { return j === n }).node();
 
+            setTourStep2();
             showDetail.bind(rect)(d);
         });
 
@@ -169,7 +176,10 @@ function addSegments(more) {
             return (i < 3) ? colors.colorPrimaryDarker : '#ccc';
         })
         .attr('opactity', 0)
-        .on('click', showDetail);
+        .on('click', function(d){
+            setTourStep2();
+            showDetail.bind(this)(d);
+        });
 
 
 
@@ -210,11 +220,38 @@ function setContainers() {
     rescale();
 }
 
+function setTourStep2(){
+    if (tourStage2) {
+        return;
+    }
+
+    tourStage2 = true;
+
+    factBox.html("<strong>When you're done here</strong>, next you'll discover how these values change over time.");
+
+    tourButton(factBox.node(), 'trends-categories.html', 'Trends Over Time', true);
+}
+
+function initTour() {
+    factBox.classed('sr-only', false);
+
+    setTimeout(function () {
+        factBox.classed('fact-box--out-right', false)
+    },1000)
+}
+
 function init() {
+    stripBr();
     stackData(categoryData);
-    svg = establishContainer(700);  
+    svg = establishContainer(700);
     setContainers();
     addSegments();
+
+    if (tour) {
+        initTour();
+    } else {
+        factBox.remove();
+    }
 }
 
 init();

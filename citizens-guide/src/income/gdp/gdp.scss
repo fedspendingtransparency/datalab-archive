@@ -1,0 +1,34 @@
+#income-facts {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#gdp-facts {
+    max-width: 600px;
+    float: right;
+
+    hr {
+        clear: both;
+    }
+}
+
+#donut-row {
+    display: flex;
+
+    p {
+        margin: 0.5rem 0 0.5rem 1rem;
+    }
+}
+
+#donut-placeholder {
+    float: left;
+}
+
+#viz {
+    display: inline-block;
+}
+
+#continue-1, #continue-2 {
+    display: flex;
+    justify-content: center;
+}

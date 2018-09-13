@@ -3,8 +3,9 @@ import { line } from 'd3-shape';
 import { getElementBox, translator, simplifyNumber } from '../../utils';
 import { dotFactory, receiptsConstants, dotPositionAccessor } from '../receipts-utils';
 import { establishContainer } from '../../utils';
-import { section1_3 } from './section1-3';
-import { sectionOneData } from './section1-data';
+import { sectionOneData } from './data';
+import { createDonut } from '../donut';
+import { tourButton } from '../tourButton/tourButton';
 
 const d3 = { select, selectAll, line, create };
 let svg, dotContainer;
@@ -30,8 +31,6 @@ function addLegend() {
             .attr('y', 0)
             .style('font-size', '18px');
 
-    legendBox.attr('transform', translator(0, receiptsConstants.headingHeight))
-
     legendBox.append('path')
         .classed('reset', true)
         .attr('d', line(lineData))
@@ -49,8 +48,6 @@ function addLegend() {
         .text(simplifyNumber(sectionOneData.gdp))
         .attr('x', 40)
         .attr('dy', 20);
-
-    section1_3();
 }
 
 function setGdpDots() {
@@ -121,30 +118,59 @@ function setGdpDots() {
         .ease();
 }
 
+function enableFactBox() {
+    const factBox = d3.select('#gdp-facts'),
+        donutDiameter = 70,
+        donutGroup = d3.select('#donut-placeholder')
+            .append('svg')
+            .attr('width', donutDiameter)
+            .attr('height', donutDiameter);
+
+    tourButton(document.getElementById('continue-2'), 'categories.html', 'Income Categories');
+
+    createDonut(donutGroup, .174, donutDiameter);
+
+    svg.attr('width', 500);
+
+    d3.select('#viz').attr('style', 'float:left');
+
+    factBox.classed('fact-box--out-left', null);
+}
+
+function animationNext() {
+    addLegend();
+    enableFactBox();
+}
+
 function zoomOutDots() {
     const prevTransform = dotContainer.attr('transform'),
-        zoomDuration = 2000,
-        title = d3.select('.total-gov-revenue');
+        zoomDuration = 2000;
 
-    title.transition()
+    d3.select('.total-gov-revenue').transition()
         .duration(500)
         .attr('opacity', 0)
         .on('end', function () {
-            title.remove()
+            d3.select(this).remove();
+        })
+        .ease();
+
+    d3.select('.income-dot-legend').transition()
+        .duration(500)
+        .attr('opacity', 0)
+        .on('end', function () {
+            d3.select(this).remove();
         })
         .ease();
 
     dotContainer.transition()
         .duration(zoomDuration)
-        .attr('transform', prevTransform + ' scale(0.4)')
-        .on('end', addLegend)
+        .attr('transform', translator(92, 0) + ' scale(0.4)')
+        .on('end', animationNext)
         .ease()
 }
 
-export function section1_2() {
+export function initGdpDots() {
     svg = establishContainer();
-
-    d3.selectAll('.continue-button').remove();
 
     svg.transition()
         .duration(1000)

@@ -1,5 +1,19 @@
 @import '../../colors.scss';
 
+#tour-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    opacity: 0;
+    margin-top: -60px;
+    transition: opacity 0.5s ease-in, margin-top 0.5s ease-in;
+}
+
+#tour-container.in {
+    opacity: 1;
+    margin-top: 0;
+}
+
 .tour-link {
     display: inline-block;
     border-radius: 8px;
@@ -18,9 +32,16 @@
 
     svg {
         float: right;
-        margin-left: 10px;
-        margin-top: 10px;
     }
+}
+
+a.tour-link svg {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+button.tour-link svg {
+    margin-top: 2px;
 }
 
 .tour-link__continue {

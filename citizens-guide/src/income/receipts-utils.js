@@ -1,5 +1,7 @@
 import { translator } from '../utils';
 import { select } from 'd3-selection';
+import colors from '../colors.scss';
+
 const d3 = { select };
 
 let dotPosition;
@@ -30,7 +32,7 @@ export const receiptsConstants = {
 }
 
 export function dotFactory(container, x, y, color) {
-    color = color || '#49A5B6';
+    color = color || colors.income;
     
     container.append('circle')
         .attr('cx', x)

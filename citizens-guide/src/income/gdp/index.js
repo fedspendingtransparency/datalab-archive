@@ -1,11 +1,12 @@
-import { select } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { section1_1 } from './section1-1';
-import { section1_2 } from './section1-2';
-import { establishContainer, translator } from '../../utils';
+import { initIncomeDots, enterIncomeDots } from './incomeDots';
+import { establishContainer, translator, stripBr } from '../../utils';
+import '../factBox.scss';
+import './gdp.scss';
 import colors from '../../colors.scss';
 
-const d3 = { select },
+const d3 = { select, selectAll },
     svg = establishContainer(),
     largeDot = svg.append('g')
         .attr('transform', translator(600 - 182, 40)),
@@ -14,8 +15,8 @@ const d3 = { select },
 function phaseTwo() {
     largeDot.selectAll('text')
         .transition()
-        .duration(500)
-        .attr('opacity', 0)        
+        .duration(1000)
+        .attr('opacity', 0)
         .on('end', function () {
             d3.select(this).remove();
         })
@@ -25,13 +26,16 @@ function phaseTwo() {
         .attr('opacity', 1)
         .transition()
         .delay(300)
-        .duration(1500)
+        .duration(2000)
         .attr('opacity', 0)
-        .attr('transform', 'scale(0)')
-        .on('end', function(){
+        .attr('transform', translator(-100, 0))
+        .attr('r', 2)
+        .on('end', function () {
             d3.select(this).remove();
         })
         .ease()
+
+    setTimeout(enterIncomeDots, 1200)
 }
 
 function addText() {
@@ -80,7 +84,13 @@ function addText() {
         .ease();
 }
 
+function stripSr() {
+    d3.selectAll('.fact-box').classed('sr-only', false);
+}
+
 function init() {
+    stripBr();
+
     largeDot.append('circle')
         .attr('cx', radius)
         .attr('cy', radius)
@@ -94,12 +104,11 @@ function init() {
             radius: radius
         }))
         .ease();
+
+    initIncomeDots();
+
+    setTimeout(phaseTwo, 3000);
+    setTimeout(stripSr, 1000)
 }
 
 init();
-
-setTimeout(phaseTwo, 3000);
-
-
-
-

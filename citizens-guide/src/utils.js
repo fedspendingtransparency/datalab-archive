@@ -1,6 +1,6 @@
-import { select } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 
-const d3 = { select };
+const d3 = { select, selectAll };
 
 export function getElementBox(d3Selection) {
     const rect = d3Selection.node().getBoundingClientRect();
@@ -33,7 +33,7 @@ export function establishContainer(height) {
     let svg = viz.select('svg.main');
 
     height = height || 400;
-
+    
     if (svg.size() === 0) {
         return viz.append('svg')
             .classed('main', true)
@@ -41,6 +41,7 @@ export function establishContainer(height) {
             .attr('height', height)
             .attr('width', '1200px');
     } else {
+        svg.attr('height', height);
         return svg;
     }
 }
@@ -126,4 +127,8 @@ export function fractionToPercent(n, precision) {
 
     // TODO: handle precision
     console.warn('need to handle precision')
+}
+
+export function stripBr() {
+    d3.selectAll('br').remove();
 }

@@ -1,8 +1,9 @@
-import { tourButton } from "../tourButton/tourButton";
+import { select } from 'd3-selection';
+import { tourButton } from '../tourButton/tourButton';
+import { transition } from 'd3-transition';
+import './intro.scss';
 
-const buttonContainer = document.createElement('div'),
+const d3 = { select },
     main = document.getElementsByTagName("main")[0];
 
-main.appendChild(buttonContainer);
-
-tourButton(buttonContainer, 'gdp.html', 'Income and GDP')
+tourButton(main, 'gdp.html', 'Income and GDP', true);
