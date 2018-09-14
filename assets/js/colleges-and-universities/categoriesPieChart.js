@@ -23,8 +23,6 @@ and append the graph to the passed in element
 const drawGraph = (container, data, size, clickable) => {
 
     let nodeDiv = document.createElement("div");
-    nodeDiv.style.height = `${size.height}px`;
-    nodeDiv.style.width = `${size.width}px`;
 
    var svg = d3.select(nodeDiv)
        .append("svg")
