@@ -23,7 +23,7 @@ const d3 = { select, selectAll, scaleLinear, min, stack, transition },
         a[c.activity] = c;
         return a;
     }, {}),
-    baseTranslate = { x: 91, y: 70 },
+    baseTranslate = { x: 91, y: 40 },
     baseDimensions = { width: 1014, height: 100 },
     topAmount = categoryData.slice(0, 3).reduce((a, c) => a += c.amount, 0),
     xScale = d3.scaleLinear(),

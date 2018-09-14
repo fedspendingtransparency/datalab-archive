@@ -236,7 +236,7 @@ function renderDetailContainer() {
 }
 
 function transitionDetailContainer() {
-    const yPos = 270,
+    const yPos = 240,
         width = sourceBox.right - sourceBox.left,
         initialSubcategoryScaleFactor = width / 1200;
 
