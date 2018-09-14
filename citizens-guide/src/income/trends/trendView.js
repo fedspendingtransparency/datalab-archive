@@ -14,6 +14,7 @@ import { addTooltips, repositionDataDots } from './addTooltips';
 import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
+import { setTourStage2 } from './tour';
 
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
@@ -55,6 +56,8 @@ function transformChart(globals, reset) {
 }
 
 function onDrilldown(d, reset) {
+    setTourStage2();
+    
     if (reset) {
         this.activeDrilldown = null;
         this.trendLines.deEmphasize(null, this);
