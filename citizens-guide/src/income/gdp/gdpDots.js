@@ -6,6 +6,7 @@ import { establishContainer } from '../../utils';
 import { sectionOneData } from './data';
 import { createDonut } from '../donut';
 import { tourButton } from '../tourButton/tourButton';
+import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, line, create };
 let svg, dotContainer;
@@ -128,7 +129,7 @@ function enableFactBox() {
 
     tourButton(document.getElementById('continue-2'), 'categories.html', 'Income Categories');
 
-    createDonut(donutGroup, .174, donutDiameter);
+    createDonut(donutGroup, .174, donutDiameter, colors.income);
 
     svg.attr('width', 500);
 
