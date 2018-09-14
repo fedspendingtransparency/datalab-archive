@@ -3,7 +3,7 @@
 
 function CreateDendro(newData){
 
-    console.log("before: ",newData);
+    // console.log("before: ",newData);
 
     newData.forEach((d) => {
         d.Obligation = +d.Obligation;
@@ -477,17 +477,17 @@ function CreateDendro(newData){
     }
 }
 
-d3.csv('/data-lab-data/accounts_obligations_link_update_v2.csv', (newData) =>{
+d3.csv('/data-lab-data/accounts_obligations_link_update_v2.csv', (dendroData) =>{
 
-    CreateDendro(newData.filter((d) => d.reporting_period_end === '2018-06-30'));
+    CreateDendro(dendroData.filter((d) => d.reporting_period_end === '2018-06-30'));
 
     $(document).ready(() => {
-        let data;
+        let data = [];
         $("input[type='radio']").change(() => {
             const FiscalYear = $('input[name="FiscalYear"]:checked').val();
-            console.log('Fiscal Year: ',FiscalYear);
+        // console.log('Fiscal Year: ',FiscalYear);
             if (FiscalYear === 'fy17') {
-                console.log('2017 selected')
+                // console.log('2017 selected')
                 d3.selectAll('#svg-dendrogram').remove();
                 const Quarter = $('input[name="Quarter"]:checked').val();
                 if (Quarter == '12-31'){
@@ -501,35 +501,34 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_v2.csv', (newData) =>{
                         .attr('class', 'overlay')
                         .html("<h1>Sorry, our current schema didn't exist for FY17 Q1</h1>");
                 }else if (Quarter == '03-31'){
-                    console.log('FY17 Q2 selected')
-                    data = newData.filter((d) => d.reporting_period_end == '2017-03-31');
+                    // console.log('FY17 Q2 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-03-31');
                     CreateDendro(data);
                 }else if (Quarter == '06-30'){
-                    console.log('FY17 Q3 selected')
-                    data = newData.filter((d) => d.reporting_period_end == '2017-06-30');
+                    // console.log('FY17 Q3 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-06-30');
                     CreateDendro(data);
                 }else {
-                    console.log('FY17 Q4 selected')
-                    data = newData.filter((d) => d.reporting_period_end == '2017-09-30');
+                    // console.log('FY17 Q4 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-09-30');
                     CreateDendro(data);
                 }
             }else if (FiscalYear === 'fy18'){
-                console.log('2018 selected')
+                // console.log('2018 selected')
                 d3.selectAll('#svg-dendrogram').remove();
                 const Quarter = $('input[name="Quarter"]:checked').val();
                 if (Quarter == '12-31'){
-                    console.log('FY18 Q1 selected')
-                    data = newData.filter((d) => d.reporting_period_end == '2017-12-31');
+                    // console.log('FY18 Q1 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-12-31');
                     CreateDendro(data);
                 }else if (Quarter == '03-31'){
-                    console.log('FY18 Q2 selected')
-                    data = newData.filter((d) => d.reporting_period_end == '2018-03-31');
+                    // console.log('FY18 Q2 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2018-03-31');
                     CreateDendro(data);
                 }else if (Quarter == '06-30'){
-                    console.log('FY18 Q3 selected')
-                    // data = newData.filter((d) => d.reporting_period_end == '2018-06-30');
-                    CreateDendro(newData);
-                    // CreateDendro(data);
+                    // console.log('FY18 Q3 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2018-06-30');
+                    CreateDendro(data);
                 }else {
                     const viewerWidth = document.body.clientWidth;
                     const viewerHeight = 300;
