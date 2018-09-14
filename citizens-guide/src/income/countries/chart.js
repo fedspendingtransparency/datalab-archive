@@ -8,16 +8,13 @@ import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
-import { initSortButtons } from './sortButton';
 import colors from '../../colors.scss';
 import { setData } from './data';
 import { config } from './incomeCountryConfig.js';
 
-const styles = require('./selectCountry.scss');
-
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
-        chartWidth: parseInt(styles.cgChartWidth, 10),
+        chartWidth: 800,
         rowHeight: 72,
         barHeight: 22,
         countryColumnWidth: 210,
@@ -46,7 +43,7 @@ let xAxis, data, sortFunction;
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
 function establishContainers(container) {
-    containers.chart = container.append('g');
+    containers.chart = container.append('g').attr('class', 'master');
     containers.data = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth, dimensions.header));
     containers.country = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
     containers.gdp = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth + dimensions.dataWidth, dimensions.header));
@@ -336,6 +333,8 @@ export function refreshData(sortField) {
 }
 
 export function chartInit(container) {
+    container.attr('width', dimensions.chartWidth);
+    
     data = setData();
     dimensions.totalHeight = dimensions.rowHeight * data.length;
     sizeSvg(800);
