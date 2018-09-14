@@ -72,24 +72,3 @@ export function addSearchIcon(svg) {
         .attr('stroke', 'white')
         .attr('stroke-width', 1)
 }
-
-export function addCaretIcon(svg, direction){
-    const caretYOffset = 6;
-    const caretWidth = 18;
-    const caretHeight = 8;
-    const caretDown = `M0,${caretYOffset} l${caretWidth / 2},${caretHeight} l${caretWidth / 2},-${caretHeight}`;
-    const caretUp = `M0,${caretHeight + caretYOffset} l${caretWidth / 2},-${caretHeight} l${caretWidth / 2},${caretHeight}`;
-    const caretD = direction === 'up' ? caretUp : caretDown;
-    const existing = svg.selectAll('path');
-
-    if(existing.size()){
-        existing.transition()
-        .duration(500)
-        .attr('d', caretD);
-    } else {
-        svg.append('path')
-        .attr('d', caretD)
-        .attr('fill','none')
-        .attr('stroke', colors.colorPrimaryAltDarkest);
-    }
-}

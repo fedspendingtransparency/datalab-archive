@@ -10,7 +10,8 @@ import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
 import colors from '../../colors.scss';
 import { setData } from './data';
-import { config } from './incomeCountryConfig.js';
+import { config } from './incomeCountryConfig';
+import { renderSortIcon } from './sortIcon';
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
@@ -38,7 +39,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         }
     ];
 
-let xAxis, data, sortFunction;
+let xAxis, data, sortFunction, amountIcon, gdpIcon;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
@@ -250,6 +251,7 @@ function placeLegends() {
     containers.legends.selectAll('g.legend')
         .on('click', sort)
         .attr('style', 'cursor:pointer')
+        .each(renderSortIcon)
 }
 
 function sizeSvg(transitionTime, delay) {
