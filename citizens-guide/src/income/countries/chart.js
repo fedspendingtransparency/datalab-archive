@@ -16,7 +16,7 @@ const styles = require('./selectCountry.scss');
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
-        chartWidth: parseInt(styles.cgChartWidth,10),
+        chartWidth: parseInt(styles.cgChartWidth, 10),
         rowHeight: 72,
         barHeight: 22,
         countryColumnWidth: 210,
@@ -180,10 +180,11 @@ function placeCountryLabels() {
 
 }
 function placeGdpFigures() {
-    const gdpG = containers.gdp.selectAll('.donut-container')
-        .data(data, function (d) {
-            return d.country
-        });
+    const donutRadius = dimensions.rowHeight / 2 - 10,
+        gdpG = containers.gdp.selectAll('.donut-container')
+            .data(data, function (d) {
+                return d.country
+            });
 
     let timeoutForAdd = 0;
 
@@ -193,7 +194,7 @@ function placeGdpFigures() {
         gdpG.transition()
             .duration(addRemoveDuration)
             .attr('transform', function (d, i) {
-                return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
+                return translator(dimensions.gdpColumnWidth / 2 - donutRadius, i * dimensions.rowHeight + dimensions.rowHeight / 2 - donutRadius);
             })
             .ease();
 
@@ -206,10 +207,10 @@ function placeGdpFigures() {
             .append('g')
             .attr('class', 'donut-container')
             .attr('transform', function (d, i) {
-                return translator(dimensions.gdpColumnWidth / 2, i * dimensions.rowHeight + dimensions.rowHeight / 2)
+                return translator(dimensions.gdpColumnWidth / 2 - donutRadius, i * dimensions.rowHeight + dimensions.rowHeight / 2 - donutRadius);
             })
-            .each((d, i, j) => {
-                createDonut(d3.select(j[i]), d.income_gdp, 70, colors.CGMainParentOne);
+            .each(function (d) {
+                createDonut(d3.select(this), d.income_gdp, donutRadius*2, colors.colorPrimary);
             });
     }, timeoutForAdd);
 }
@@ -279,7 +280,7 @@ function setData() {
             console.warn('no data for ' + c);
         }
     });
-    if(sortFunction){
+    if (sortFunction) {
         data.sort(sortFunction);
     }
     dimensions.totalHeight = dimensions.rowHeight * data.length;
@@ -371,10 +372,10 @@ export function chartInit(container) {
     selectCountryInit();
 }
 
-export function getSortFunction(){
+export function getSortFunction() {
     return sortFunction;
 }
 
-export function setSortFunction(desiredSort){
+export function setSortFunction(desiredSort) {
     sortFunction = desiredSort;
 }

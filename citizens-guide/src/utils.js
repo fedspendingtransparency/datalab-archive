@@ -32,18 +32,19 @@ export function establishContainer(height) {
 
     let svg = viz.select('svg.main');
 
-    height = height || 400;
-    
     if (svg.size() === 0) {
+        height = height || 400;
+
         return viz.append('svg')
             .classed('main', true)
             .attr('shape-rendering', 'geometricPrecision')
             .attr('height', height)
             .attr('width', '1200px');
-    } else {
+    } else if (height) {
         svg.attr('height', height);
-        return svg;
     }
+    
+    return svg;
 }
 
 export function simplifyBillions(n) {
