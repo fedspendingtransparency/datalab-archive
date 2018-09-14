@@ -63,7 +63,7 @@ function addBarLabels(g, data, keys) {
             return scales.x(data[d]) + 10;
         })
         .attr('y', function (d, i) {
-            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2);
+            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 8);
         })
         .attr('opacity', 0)
 
@@ -100,25 +100,25 @@ function addBarGroups() {
 function drawBars(data) {
     const transitionDuration = 1000,
         group = d3.select(this),
-        keys = chartedData;
-    const bars = group.selectAll('rect')
-        .data(keys)
-        .enter()
-        .append('rect')
-        .attr('width', scales.x(0))
-        .attr('height', dimensions.barHeight)
-        .attr('x', 0)
-        .attr('y', function (d, i) {
-            return dimensions.rowHeight / 2 - dimensions.barHeight / 4;
-        })
-        .attr('fill', function (d) {
-            return d.config.fill;
-        })
-        .attr('fill-opacity', 0.5)
-        .attr('stroke', function (d) {
-            return d.config.stroke;
-        })
-        .attr('stroke-width', 1);
+        keys = chartedData,
+        bars = group.selectAll('rect')
+            .data(keys)
+            .enter()
+            .append('rect')
+            .attr('width', scales.x(0))
+            .attr('height', dimensions.barHeight)
+            .attr('x', 0)
+            .attr('y', function (d, i) {
+                return dimensions.rowHeight / 2 - dimensions.barHeight / 2;
+            })
+            .attr('fill', function (d) {
+                return d.config.fill;
+            })
+            .attr('fill-opacity', 0.5)
+            .attr('stroke', function (d) {
+                return d.config.stroke;
+            })
+            .attr('stroke-width', 1);
 
     bars.transition()
         .duration(transitionDuration)
@@ -169,8 +169,7 @@ function placeCountryLabels() {
                 return translator(0, i * dimensions.rowHeight)
             })
             .text(d => d.country)
-            .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2)
-            .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
+            .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 6)
             .attr('x', 20)
             .attr('font-size', 16);
     }, timeoutForAdd)
@@ -215,7 +214,7 @@ function placeGdpFigures() {
 function sort() {
     const g = d3.select(this),
         type = g.attr('data-type')
-    
+
     refreshData(type);
 }
 
@@ -239,7 +238,7 @@ function placeLegends() {
         .attr('data-type', config.gdpField)
         .append('text')
         .attr('x', labelXPadding)
-        .attr('y', 26)        
+        .attr('y', 26)
         .attr('font-weight', 'bold')
         .text('Income as')
         .attr('font-size', 12)
@@ -250,7 +249,7 @@ function placeLegends() {
 
     containers.legends.selectAll('g.legend')
         .on('click', sort)
-        .attr('style', 'cursor:pointer')        
+        .attr('style', 'cursor:pointer')
 }
 
 function sizeSvg(transitionTime, delay) {
@@ -304,7 +303,7 @@ export function refreshData(sortField) {
 
     data = setData(sortField);
     dimensions.totalHeight = dimensions.rowHeight * data.length;
-    
+
 
     if (action === 'add') {
         sizeSvg(addRemoveDuration);
@@ -334,7 +333,7 @@ export function refreshData(sortField) {
 
 export function chartInit(container) {
     container.attr('width', dimensions.chartWidth);
-    
+
     data = setData();
     dimensions.totalHeight = dimensions.rowHeight * data.length;
     sizeSvg(800);
