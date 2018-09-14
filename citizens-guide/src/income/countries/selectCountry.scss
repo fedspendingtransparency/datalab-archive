@@ -6,6 +6,7 @@ $primaryColor: #4A90E2;
     position: relative;
     transform: translate(0,39px);
     margin-left: calc((1200px - #{cgChartWidth})/2);
+    display: inline-block;
 }
 
 .trigger-button {
