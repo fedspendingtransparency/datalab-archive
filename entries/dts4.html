@@ -163,6 +163,14 @@ category: nonentry
     </div>
 </div>
 
+<div class="text-container">
+  <div class="dts-tt-date"></div>
+  <div class="dts-tt-amount"></div>
+  <div class="dts-tt-hr-separator"></div>
+  <div class="dts-tt-mtd"><span class="dts-tt-timeframe-label">MTD: </span><span class="dts-tt-mtd-value"></span></div>
+  <div class="dts-tt-fytd"><span class="dts-tt-timeframe-label">FYTD: </span><span class="dts-tt-fytd-value"></span></div>
+</div>
+
 
 <svg id="svg-wrapper" width="960" height="500"></svg>
 <div class="bar-chart-header">Spending Over Time</div>
@@ -171,6 +179,8 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
+
+let dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
 function createBarChart(yearToSpendingArray) {
 
@@ -187,8 +197,6 @@ function createBarChart(yearToSpendingArray) {
   var g = svg.append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  let millionsFormatter = d3.format(".2s");
-
   x.domain(data.map(function(d) { return d.year; }));
   y.domain([0, d3.max(data, function(d) { return d.spending; })]);
 
@@ -199,7 +207,7 @@ function createBarChart(yearToSpendingArray) {
 
   g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).tickFormat(d => "$" + millionsFormatter(d)))
+      .call(d3.axisLeft(y).tickFormat(dollarFormatter))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
@@ -281,7 +289,7 @@ var x = d3.scaleTime().range([0, width]),
 
 var xAxis = d3.axisBottom(x),
   xAxis2 = d3.axisBottom(x2),
-  yAxis = d3.axisLeft(y);
+  yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
 
 function makeXGridLines() {		
   return d3.axisBottom(x);
@@ -305,9 +313,7 @@ function createGraph(data) {
       [0, 0],
       [width, height2]
     ])
-    .on("brush end", brushed);
-
-  console.log(data);
+    .on("start brush end", brushed);
 
   d3.selectAll(".period-button").on("click", function() {
     let lastDate = data[data.length - 1].date.getTime();
@@ -317,8 +323,8 @@ function createGraph(data) {
 
     let t = this.dataset.range;
 
-    d3.selectAll(".period-button").classed("period-button-selected", false);
-    d3.select(this).classed("period-button-selected", true);
+    // d3.selectAll(".period-button").classed("period-button-selected", false);
+    
 
     switch (t) {
       case "30d": leftDate.setMonth(leftDate.getMonth() - 1); break;
@@ -331,6 +337,8 @@ function createGraph(data) {
     d3.select(".brush").call(brush.move, null);
     
     d3.select(".brush").call(brush.move, [x(leftDate), x(rightDate)]);
+
+    d3.select(this).classed("period-button-selected", true);
   });
 
   var zoom = d3.zoom()
@@ -443,26 +451,39 @@ function createGraph(data) {
     .attr("transform", "translate(0," + height2 + ")")
     .call(xAxis2);
 
-  context.append("g")
+  let gBrush = context.append("g")
     .attr("class", "brush")
     .call(brush)
     .call(brush.move, x.range());
+
+  var handle = gBrush.selectAll(".handle--custom")
+    .data([{type: "w"}, {type: "e"}])
+    .enter().append("path")
+      .attr("class", "handle--custom")
+      .attr("fill", "#aaa")
+      .attr("fill-opacity", 0.8)
+      // .attr("stroke", "#fff")
+      // .attr("stroke-width", 1.0)
+      // .attr("stroke-opacity", 0.8)
+      .attr("cursor", "ew-resize")
+      .attr("d", d3.arc()
+          .innerRadius(0)
+          .outerRadius(height2 / 2)
+          .startAngle(0)
+          .endAngle(function(d, i) { return i ? Math.PI : -Math.PI; }));
+
+  d3.select(".brush").call(brush.move, null);
+  d3.select(".brush").call(brush.move, [0, width]);
 
   var mouseOverDataPoint = svg.append("g")
     .attr("class", "mouse-over-data-point")
     .style("display", "none");
 
   mouseOverDataPoint.append("circle")
-    .attr("r", 4);
-
-  var textContainer = d3.select("body").append("div")
-    .attr("class", "text-container");
-
-  textContainer.append("div")
-    .attr("class", "amount");
-
-  textContainer.append("div")
-    .attr("class", "timeframe");
+    .attr("r", 7)
+    .attr("stroke-width", 1);
+  
+  var textContainer = d3.select(".text-container"); 
 
   svg.append("rect")
     .attr("class", "zoom")
@@ -481,32 +502,63 @@ function createGraph(data) {
     svg.select(".y-grid").call(makeYGridLines().tickSize(-width).tickFormat(""));
   }
 
+  function clearPeriodSelections() {
+    d3.selectAll(".period-button").classed("period-button-selected", false);
+  }
+
+  function updateCustomGrabbers(s) {
+    var handle = svg.selectAll(".handle--custom");
+    if (s == null) {
+      handle.attr("display", "none");
+    } else {
+      handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + s[i] + "," + height2 / 2 + ")"; });
+    }
+  }
+
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     var s = d3.event.selection || x2.range();
+    // var ggg = d3.event.selection;
     x.domain(s.map(x2.invert, x2));
     adjustLines();
+
+    updateCustomGrabbers(s);
+    
     svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
       .scale(width / (s[1] - s[0]))
       .translate(-s[0], 0));
+    clearPeriodSelections();
   }
 
   function zoomed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
-    var t = d3.event.transform;
+    var t = d3.event.transform || x2.range();
     x.domain(t.rescaleX(x2).domain());
     adjustLines();
+
+    let brushSel = d3.select(".brush .selection");
+    let brushSelX = +brushSel.attr("x");
+    let brushSelWidth = +brushSel.attr("width");
+    
+    let s = [Math.round(brushSelX), Math.round(brushSelX + brushSelWidth)];
+    updateCustomGrabbers(s);
+
     context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+    clearPeriodSelections();
   }
 
   var parseTimeFormat = d3.timeFormat("%B %d, %Y");
 
+  function getMouseOverDataPoint(spendingData, context) {
+    let x0 = x.invert(d3.mouse(context)[0]);
+    let i = bisectDate(spendingData, x0, 1);
+    let d0 = spendingData[i - 1];
+    let d1 = spendingData[i];
+    return x0 - d0.date > d1.date - x0 ? d1 : d0;
+  }
+
   function mouseMove() {
-    var x0 = x.invert(d3.mouse(this)[0]),
-        i = bisectDate(data, x0, 1),
-        d0 = data[i - 1],
-        d1 = data[i];
-        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+    let d = getMouseOverDataPoint(data, this);
 
     mouseOverDataPoint.select("circle")
       .attr("transform", "translate(" + (margin.left + x(d.date)) + "," + (margin.top + y(d.value)) + ")");
@@ -517,13 +569,16 @@ function createGraph(data) {
 
     var mouseOverDateText = parseTimeFormat(d.date);
 
-    textContainer.select(".amount")
-      .text(mouseOverDateText + ": $" + d.value);
+    let selectValue = d3.select('#item-selector').property('value');
 
-    let timeFrameValue = d3.select('input[name="timeframe"]:checked').node().value;
+    let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["mtd"], this).value);
+    let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["fytd"], this).value);
 
-    textContainer.select(".timeframe")
-      .text("(" + timeFrameValue + " amount)");
+    textContainer.select(".dts-tt-date").text(mouseOverDateText);
+
+    textContainer.select(".dts-tt-amount").text(dollarFormatter(d.value));
+    textContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
+    textContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
   }
 }
 
@@ -542,9 +597,9 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   data.forEach(function(d) {
     //d.date = parseDate(d.date);
-    d.today = +d.today * 1000000;
-    d.mtd = +d.mtd * 1000000;
-    d.fytd = +d.fytd * 1000000;
+    d.today = +d.today * 100000;
+    d.mtd = +d.mtd * 100000;
+    d.fytd = +d.fytd * 100000;
 
     let spendingYear = d.date.getFullYear();
     if (yearToSpending.hasOwnProperty(spendingYear)) {
@@ -583,13 +638,11 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   createSelect();
 
-  d3.select(".daily-spending-amount").text("$" + totalDailySpending.toLocaleString() + "M");
+  d3.select(".daily-spending-amount").text("$" + (totalDailySpending / 1000000).toLocaleString() + "M");
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
   createGraph(optionsDict["Medicaid"].today);
-
-  console.log(yearToSpendingArray);
 
   createBarChart(yearToSpendingArray);
 });
