@@ -13,7 +13,8 @@ const panelChartContainer = document.getElementById('investmentCategories_panel_
 purporse : hide given element
 */
 const hideElement = (element) => {
-    element.style.display = 'none';
+    element.style.minWidth = '0px';
+    $(element).animate({width: 'toggle'});
 }
 
 /*
@@ -46,6 +47,7 @@ if (clickable) {
         }
 
         drawGraph(panelChartContainer, data, {height:300, width:300}, false)
+           panel.style.minWidth = '350px';
            panel.style.display = 'inline-block';
        }
    }
