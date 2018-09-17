@@ -54,4 +54,11 @@ export function setData(sortField) {
             console.warn('no data for ' + c);
         }
     }).sort(activeSortFn);
+};
+
+export function getActiveSort() {
+    return {
+        activeSortField: activeSortField,
+        activeSortDirection: activeSortDirection
+    }
 }

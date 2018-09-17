@@ -11,7 +11,7 @@ import { createDonut } from "../donut";
 import colors from '../../colors.scss';
 import { setData } from './data';
 import { config } from './incomeCountryConfig';
-import { renderSortIcon } from './sortIcon';
+import { renderSortIcon, updateIcons } from './sortIcon';
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
@@ -26,6 +26,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     addRemoveDuration = 1000,
     scales = {},
     containers = {},
+    sortIcons = {},
     chartedData = [
         {
             key: 'income',
@@ -214,9 +215,11 @@ function placeGdpFigures() {
 
 function sort() {
     const g = d3.select(this),
-        type = g.attr('data-type')
+        type = g.attr('data-type');
 
     refreshData(type);
+
+    updateIcons();
 }
 
 function placeLegends() {
@@ -246,12 +249,16 @@ function placeLegends() {
         .append('tspan')
         .text('Percent of GDP')
         .attr('dy', 12)
-        .attr('x', labelXPadding);
+        .attr('x', labelXPadding)
 
     containers.legends.selectAll('g.legend')
         .on('click', sort)
         .attr('style', 'cursor:pointer')
-        .each(renderSortIcon)
+        .each(function(){
+            renderSortIcon(this, sortIcons);
+        })
+
+    updateIcons();
 }
 
 function sizeSvg(transitionTime, delay) {
@@ -305,7 +312,6 @@ export function refreshData(sortField) {
 
     data = setData(sortField);
     dimensions.totalHeight = dimensions.rowHeight * data.length;
-
 
     if (action === 'add') {
         sizeSvg(addRemoveDuration);
