@@ -44,9 +44,9 @@ category: nonentry
 
 .dts-header {
   display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .daily-spending {
@@ -490,7 +490,7 @@ function createGraph(data) {
     .attr("width", width)
     .attr("height", height)
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    .on("mouseover", function() { textContainer.style("display", null); mouseOverDataPoint.style("display", null); })
+    .on("mouseover", function() { textContainer.style("display", "block"); mouseOverDataPoint.style("display", "block"); })
     .on("mouseout", function() { textContainer.style("display", "none"); mouseOverDataPoint.style("display", "none"); })
     .on("mousemove", mouseMove)
     .call(zoom);
