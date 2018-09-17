@@ -1,10 +1,10 @@
 import CategoryData from '../../../public/csv/receipts.csv';
-import { max } from 'd3-array';
+import { min, max } from 'd3-array';
 
-const d3 = { max };
+const d3 = { min, max };
 
 function enrichData(data) {
-    let tracker = data[0].percent_total;
+    let tracker = d3.min([data[0].percent_total, 0]);
 
     data.forEach(d => {
         d.start = tracker;

@@ -1,11 +1,14 @@
-@import './countryComparison.scss';
 $primaryColor: #4A90E2;
+
+#viz {
+    max-width: 800px;
+}
 
 
 .select-country {
     position: relative;
     transform: translate(0,39px);
-    margin-left: calc((1200px - #{cgChartWidth})/2);
+    display: inline-block;
 }
 
 .trigger-button {
@@ -14,7 +17,7 @@ $primaryColor: #4A90E2;
     border-radius: 3px;
     color: white;
     font-size: 1rem;
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0.6rem;
     width: 210px;
     text-align: left;
     transition: background-color 0.2s ease-in;

@@ -205,7 +205,7 @@ function renderConnectors() {
         .attr('d', fancyShape)
         .attr('stroke', 'white')
         .attr('stroke-width', 2)
-        .attr('fill', 'rgba(100,100,100,0.1)')
+        .attr('fill', colors.colorGrayCoolLight)
 
 
     x0.range([sourceBox.left, sourceBox.right])

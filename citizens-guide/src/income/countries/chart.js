@@ -6,17 +6,16 @@ import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
-import { masterData } from '.';
 import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
-import { initSortButtons } from './sortButton';
 import colors from '../../colors.scss';
-
-const styles = require('./selectCountry.scss');
+import { setData } from './data';
+import { config } from './incomeCountryConfig';
+import { renderSortIcon, updateIcons } from './sortIcon';
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
-        chartWidth: parseInt(styles.cgChartWidth, 10),
+        chartWidth: 800,
         rowHeight: 72,
         barHeight: 22,
         countryColumnWidth: 210,
@@ -27,6 +26,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     addRemoveDuration = 1000,
     scales = {},
     containers = {},
+    sortIcons = {},
     chartedData = [
         {
             key: 'income',
@@ -35,18 +35,17 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
                 class: 'receipts',
                 stroke: colors.income,
                 fill: colors.income,
-                yOffset: 3,
-                legend: 'Income'
+                yOffset: 3
             }
         }
     ];
 
-let xAxis, data, sortFunction;
+let xAxis, data, sortFunction, amountIcon, gdpIcon;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
 function establishContainers(container) {
-    containers.chart = container.append('g');
+    containers.chart = container.append('g').attr('class', 'master');
     containers.data = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth, dimensions.header));
     containers.country = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
     containers.gdp = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth + dimensions.dataWidth, dimensions.header));
@@ -66,7 +65,7 @@ function addBarLabels(g, data, keys) {
             return scales.x(data[d]) + 10;
         })
         .attr('y', function (d, i) {
-            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2);
+            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 8);
         })
         .attr('opacity', 0)
 
@@ -103,25 +102,25 @@ function addBarGroups() {
 function drawBars(data) {
     const transitionDuration = 1000,
         group = d3.select(this),
-        keys = chartedData;
-    const bars = group.selectAll('rect')
-        .data(keys)
-        .enter()
-        .append('rect')
-        .attr('width', scales.x(0))
-        .attr('height', dimensions.barHeight)
-        .attr('x', 0)
-        .attr('y', function (d, i) {
-            return dimensions.rowHeight / 2 - dimensions.barHeight / 4;
-        })
-        .attr('fill', function (d) {
-            return d.config.fill;
-        })
-        .attr('fill-opacity', 0.5)
-        .attr('stroke', function (d) {
-            return d.config.stroke;
-        })
-        .attr('stroke-width', 1);
+        keys = chartedData,
+        bars = group.selectAll('rect')
+            .data(keys)
+            .enter()
+            .append('rect')
+            .attr('width', scales.x(0))
+            .attr('height', dimensions.barHeight)
+            .attr('x', 0)
+            .attr('y', function (d, i) {
+                return dimensions.rowHeight / 2 - dimensions.barHeight / 2;
+            })
+            .attr('fill', function (d) {
+                return d.config.fill;
+            })
+            .attr('fill-opacity', 0.5)
+            .attr('stroke', function (d) {
+                return d.config.stroke;
+            })
+            .attr('stroke-width', 1);
 
     bars.transition()
         .duration(transitionDuration)
@@ -172,8 +171,7 @@ function placeCountryLabels() {
                 return translator(0, i * dimensions.rowHeight)
             })
             .text(d => d.country)
-            .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2)
-            .attr('transform', (d, i) => translator(0, i * dimensions.rowHeight))
+            .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 6)
             .attr('x', 20)
             .attr('font-size', 16);
     }, timeoutForAdd)
@@ -210,80 +208,62 @@ function placeGdpFigures() {
                 return translator(dimensions.gdpColumnWidth / 2 - donutRadius, i * dimensions.rowHeight + dimensions.rowHeight / 2 - donutRadius);
             })
             .each(function (d) {
-                createDonut(d3.select(this), d.income_gdp, donutRadius*2, colors.colorPrimary);
+                createDonut(d3.select(this), d.income_gdp, donutRadius * 2, colors.colorPrimary);
             });
     }, timeoutForAdd);
 }
 
+function sort() {
+    const g = d3.select(this),
+        type = g.attr('data-type');
+
+    refreshData(type);
+
+    updateIcons();
+}
+
 function placeLegends() {
-    const keys = chartedData,
-        legendSpacing = 240;
+    const labelXPadding = 12;
 
-    containers.legends.selectAll('rect.legend')
-        .data(keys)
-        .enter()
-        .append('rect')
+    containers.legends.append('g')
+        .attr('transform', translator(dimensions.countryColumnWidth, 0))
         .classed('legend', true)
-        .attr('width', dimensions.barHeight)
-        .attr('height', dimensions.barHeight)
-        .attr('x', function (d, i) {
-            return dimensions.countryColumnWidth + 20 + i * legendSpacing;
-        })
-        .attr('y', 15)
-        .attr('fill', function (d) {
-            return d.config.fill;
-        })
-        .attr('fill-opacity', 0.5)
-        .attr('stroke', function (d) {
-            return d.config.stroke;
-        })
-        .attr('stroke-width', 1)
-        .attr('stroke-alignment', 'outer');
-
-    containers.legends.selectAll('text.legend')
-        .data(keys)
-        .enter()
+        .attr('data-type', config.amountField)
         .append('text')
-        .text(function (d) {
-            return d.config.legend;
-        })
-        .attr('font-size', 12)
-        .classed('legend', true)
-        .attr('x', function (d, i) {
-            return dimensions.countryColumnWidth + dimensions.barHeight + 30 + i * legendSpacing;
-        })
-        .attr('y', 27)
+        .text('Income')
+        .attr('font-weight', 'bold')
+        .attr('y', 36)
+        .attr('x', labelXPadding)
+        .attr('font-size', 12);
 
-    containers.legends.append('text')
-        .text('Federal Income as')
-        .attr('text-anchor', 'middle')
-        .attr('x', dimensions.chartWidth - dimensions.gdpColumnWidth / 2)
+    containers.legends.append('g')
+        .attr('transform', translator(dimensions.countryColumnWidth + dimensions.dataWidth, 0))
+        .classed('legend', true)
+        .attr('data-type', config.gdpField)
+        .append('text')
+        .attr('x', labelXPadding)
         .attr('y', 26)
+        .attr('font-weight', 'bold')
+        .text('Income as')
         .attr('font-size', 12)
         .append('tspan')
         .text('Percent of GDP')
         .attr('dy', 12)
-        .attr('x', dimensions.chartWidth - dimensions.gdpColumnWidth / 2)
+        .attr('x', labelXPadding)
+
+    containers.legends.selectAll('g.legend')
+        .on('click', sort)
+        .attr('style', 'cursor:pointer')
+        .each(function(){
+            renderSortIcon(this, sortIcons);
+        })
+
+    updateIcons();
 }
 
 function sizeSvg(transitionTime, delay) {
     delay = delay || 0;
     establishContainer().transition().delay(delay).duration(transitionTime).attr('height', dimensions.header + data.length * dimensions.rowHeight + 30);
-}
-
-function setData() {
-    const sortFunction = getSortFunction();
-    data = selectedCountries.list.map(c => {
-        if (masterData.indexed[c]) {
-            return masterData.indexed[c];
-        } else {
-            console.warn('no data for ' + c);
-        }
-    });
-    if (sortFunction) {
-        data.sort(sortFunction);
-    }
-    dimensions.totalHeight = dimensions.rowHeight * data.length;
 }
 
 function repositionXAxis() {
@@ -325,12 +305,13 @@ function rescale() {
     return true;
 }
 
-export function refreshData() {
+export function refreshData(sortField) {
     const action = selectedCountries.lastUpdate.action;
 
     let duration = addRemoveDuration;
 
-    setData();
+    data = setData(sortField);
+    dimensions.totalHeight = dimensions.rowHeight * data.length;
 
     if (action === 'add') {
         sizeSvg(addRemoveDuration);
@@ -359,8 +340,10 @@ export function refreshData() {
 }
 
 export function chartInit(container) {
-    initSortButtons();
-    setData();
+    container.attr('width', dimensions.chartWidth);
+
+    data = setData();
+    dimensions.totalHeight = dimensions.rowHeight * data.length;
     sizeSvg(800);
     establishContainers(container);
     ink(containers, dimensions, data.length);
@@ -370,12 +353,4 @@ export function chartInit(container) {
     placeGdpFigures();
     placeLegends();
     selectCountryInit();
-}
-
-export function getSortFunction() {
-    return sortFunction;
-}
-
-export function setSortFunction(desiredSort) {
-    sortFunction = desiredSort;
 }

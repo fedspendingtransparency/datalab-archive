@@ -9,6 +9,7 @@ $color-gray-dark: #323a45;
 $text-color-heading: #555555;
 $text-color-paragraph: #666666;
 $parent-one: #3673BB;
+$color-gray-cool-light: #dce4ef;
 
 :export {
     colorGrayDark: $color-gray-dark;
@@ -22,4 +23,5 @@ $parent-one: #3673BB;
     parentOne: $parent-one;
     textColorHeading: $text-color-heading;
     textColorParagraph: $text-color-paragraph;
+    colorGrayCoolLight: $color-gray-cool-light;
 }
