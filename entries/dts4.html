@@ -73,13 +73,13 @@ category: nonentry
 }
 
 #bar-chart-wrapper {
-  display: flex;
-  margin: 0 auto;
+  width: 600px;
+  height: 330px;
 }
 
 .bar-chart-header {
   text-align: center;
-  margin: 75px 0 25px 0;
+  margin: 115px 0px 20px 0px;
   font-size: 32px;
 }
 
@@ -119,6 +119,12 @@ category: nonentry
 
 .period-container {
   margin-left: 25px;
+}
+
+.dts-viz-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 </style>
 
@@ -172,9 +178,14 @@ category: nonentry
 </div>
 
 
-<svg id="svg-wrapper" width="960" height="500"></svg>
-<div class="bar-chart-header">Spending Over Time</div>
-<svg id="bar-chart-wrapper" width="960" height="500"></svg>
+<div class="dts-viz-container">
+  <svg id="svg-wrapper" width="960" height="500"></svg>
+  <div class="bar-chart-container">
+    <div class="bar-chart-header">Total Spending By Fiscal Year</div>
+    <svg id="bar-chart-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+  </div>
+</div>
+
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -203,11 +214,13 @@ function createBarChart(yearToSpendingArray) {
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).tickFormat(d => "FY " + d));
+      .call(d3.axisBottom(x).tickFormat(d => "" + d))
+      .attr("font-size", "18");
 
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y).tickFormat(dollarFormatter))
+      .attr("font-size", "18")
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
@@ -571,12 +584,13 @@ function createGraph(data) {
 
     let selectValue = d3.select('#item-selector').property('value');
 
+    let todayDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["today"], this).value);
     let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["mtd"], this).value);
     let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["fytd"], this).value);
 
     textContainer.select(".dts-tt-date").text(mouseOverDateText);
 
-    textContainer.select(".dts-tt-amount").text(dollarFormatter(d.value));
+    textContainer.select(".dts-tt-amount").text(todayDataPoint);
     textContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
     textContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
   }
