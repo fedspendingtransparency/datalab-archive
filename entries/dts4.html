@@ -164,8 +164,8 @@ category: nonentry
     </div>
 
     <div class="daily-spending">
-      <div class="daily-spending-amount">$0</div>
       <div class="daily-spending-subtext">Today Amount Spent</div>
+      <div class="daily-spending-amount">$0</div>
     </div>
 </div>
 
@@ -652,7 +652,7 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   createSelect();
 
-  d3.select(".daily-spending-amount").text("$" + (totalDailySpending / 1000000).toLocaleString() + "M");
+  d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
