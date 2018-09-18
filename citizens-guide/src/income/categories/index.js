@@ -176,7 +176,7 @@ function addSegments(more) {
             return (i < 3) ? colors.colorPrimaryDarker : '#ccc';
         })
         .attr('opactity', 0)
-        .on('click', function(d){
+        .on('click', function (d) {
             setTourStep2();
             showDetail.bind(this)(d);
         });
@@ -220,7 +220,7 @@ function setContainers() {
     rescale();
 }
 
-function setTourStep2(){
+function setTourStep2() {
     if (tourStage2) {
         return;
     }
@@ -235,9 +235,11 @@ function setTourStep2(){
 function initTour() {
     factBox.classed('sr-only', false);
 
+    d3.select('.lead-wrapper').classed('tour-active', true);
+
     setTimeout(function () {
         factBox.classed('fact-box--out-right', false)
-    },1000)
+    }, 1000)
 }
 
 function init() {

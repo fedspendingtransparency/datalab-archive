@@ -25,6 +25,8 @@ trendView(data, svg, {
 function initTour() {
     factBox.classed('sr-only', false);
 
+    d3.select('.lead-wrapper').classed('tour-active', true);    
+
     setTimeout(function () {
         factBox.classed('fact-box--out-right', false)
     }, 1000)

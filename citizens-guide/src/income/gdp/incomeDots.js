@@ -88,7 +88,7 @@ function buildLegend() {
 
     xOffset = dotsWidth - w + ((1200 - dotsWidth) / 2);
 
-    g.attr('transform', translator(xOffset, 30))
+    g.attr('transform', translator(xOffset, 35))
 
     g.transition()
         .duration(400)

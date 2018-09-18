@@ -11,9 +11,14 @@ header {
         max-width: 66%;
         padding-right: 2rem;
         margin-top: 0;
+        text-align: center;
     }
 
     .fact-box {
         max-width: 34%;
     }
+}
+
+.lead-wrapper.tour-active .lead {
+    text-align: left;
 }

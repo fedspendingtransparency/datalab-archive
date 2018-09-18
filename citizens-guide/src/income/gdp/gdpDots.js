@@ -49,6 +49,8 @@ function addLegend() {
         .text(simplifyNumber(sectionOneData.gdp))
         .attr('x', 40)
         .attr('dy', 20);
+
+    legendBox.attr('transform', translator(0,60));
 }
 
 function setGdpDots() {
@@ -165,7 +167,7 @@ function zoomOutDots() {
 
     dotContainer.transition()
         .duration(zoomDuration)
-        .attr('transform', translator(92, 0) + ' scale(0.4)')
+        .attr('transform', translator(92, 60) + ' scale(0.4)')
         .on('end', animationNext)
         .ease()
 }
