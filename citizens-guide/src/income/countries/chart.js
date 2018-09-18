@@ -25,30 +25,18 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     addRemoveDuration = 1000,
     scales = {},
     containers = {},
-    sortIcons = {},
-    chartedData = [
-        {
-            key: 'income',
-            config: {
-                data: 'income_usd',
-                class: 'receipts',
-                stroke: colors.income,
-                fill: colors.income,
-                yOffset: 3
-            }
-        }
-    ];
+    sortIcons = {};
 
-let xAxis, data, sortFunction, amountIcon, gdpIcon;
+let xAxis, data, sortFunction, amountIcon, gdpIcon, config;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
 function establishContainers() {
-    const svg = establishContainer();    
-    
+    const svg = establishContainer();
+
     dimensions.totalHeight = dimensions.rowHeight * data.length;
     sizeSvg(800);
-    svg.attr('width', dimensions.chartWidth);    
+    svg.attr('width', dimensions.chartWidth);
     containers.chart = svg.append('g').attr('class', 'master');
     containers.data = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth, dimensions.header));
     containers.country = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
@@ -80,8 +68,11 @@ function addBarLabels(g, data, keys) {
 }
 
 function addBarGroups() {
-    const groups = containers.data.selectAll('g.bar-group')
-        .data(data, function (d) { return d.country });
+    const barFadeTime = 1000,
+        groups = containers.data.selectAll('g.bar-group')
+            .data(data, function (d) { return d.country });
+
+    let enterGroups;
 
     if (groups.size()) {
         groups.transition()
@@ -94,55 +85,56 @@ function addBarGroups() {
 
     groups.exit().remove();
 
-    groups.enter()
+    enterGroups = groups.enter()
         .append('g')
         .classed('bar-group', true)
         .attr('transform', function (d, i) {
             return translator(0, i * dimensions.rowHeight)
         })
-        .each(drawBars)
-}
 
-function drawBars(data) {
-    const transitionDuration = 1000,
-        group = d3.select(this),
-        keys = chartedData,
-        bars = group.selectAll('rect')
-            .data(keys)
-            .enter()
-            .append('rect')
-            .attr('width', scales.x(0))
-            .attr('height', dimensions.barHeight)
-            .attr('x', 0)
-            .attr('y', function (d, i) {
-                return dimensions.rowHeight / 2 - dimensions.barHeight / 2;
-            })
-            .attr('fill', function (d) {
-                return d.config.fill;
-            })
-            .attr('fill-opacity', 0.5)
-            .attr('stroke', function (d) {
-                return d.config.stroke;
-            })
-            .attr('stroke-width', 1);
+    if (!enterGroups.size()) {
+        return;
+    }
 
-    bars.transition()
-        .duration(transitionDuration)
+    enterGroups.append('rect')
+        .attr('width', scales.x(0))
+        .attr('height', dimensions.barHeight)
+        .attr('x', 0)
+        .attr('y', dimensions.rowHeight / 2 - dimensions.barHeight / 2)
+        .attr('fill', colors.income)
+        .attr('fill-opacity', 0.5)
+        .attr('stroke', colors.income)
+        .attr('stroke-width', 1)
+        .transition()
+        .duration(barFadeTime)
         .attr('width', function (d) {
-            return scales.x(data[d.config.data]);
+            return scales.x(d[config.amountField]);
         })
         .ease();
 
-    setTimeout(function () {
-        addBarLabels(group, data, keys);
-    }, transitionDuration);
+    enterGroups.append('text')
+        .text(function (d) {
+            return simplifyNumber(d[config.amountField])
+        })
+        .attr('font-size', 12)
+        .attr('x', function (d) {
+            return scales.x(d[config.amountField]) + 10;
+        })
+        .attr('y', function (d, i) {
+            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 8);
+        })
+        .attr('opacity', 0)
+        .transition()
+        .delay(barFadeTime)
+        .duration(500)
+        .attr('opacity', 1)
+        .ease();
 }
 
 function setScales() {
-    const receiptsVals = data.map(r => r.income_usd),
-        gdpVals = data.map(r => r.gdp),
-        min = d3.min([0, d3.min(receiptsVals)]),
-        max = d3.max(receiptsVals) * 1.1;
+    const amountVals = data.map(r => r[config.amountField]),
+        min = d3.min([0, d3.min(amountVals)]),
+        max = d3.max(amountVals) * 1.1;
 
     scales.x = d3.scaleLinear()
         .domain([min, max]).nice()
@@ -179,8 +171,8 @@ function placeCountryLabels() {
             .attr('x', 20)
             .attr('font-size', 16);
     }, timeoutForAdd)
-
 }
+
 function placeGdpFigures() {
     const donutRadius = dimensions.rowHeight / 2 - 10,
         gdpG = containers.gdp.selectAll('.donut-container')
@@ -212,7 +204,7 @@ function placeGdpFigures() {
                 return translator(dimensions.gdpColumnWidth / 2 - donutRadius, i * dimensions.rowHeight + dimensions.rowHeight / 2 - donutRadius);
             })
             .each(function (d) {
-                createDonut(d3.select(this), d.income_gdp, donutRadius * 2, colors.colorPrimary);
+                createDonut(d3.select(this), d[config.gdpField], donutRadius * 2, colors.colorPrimary);
             });
     }, timeoutForAdd);
 }
@@ -258,7 +250,7 @@ function placeLegends(config) {
     containers.legends.selectAll('g.legend')
         .on('click', sort)
         .attr('style', 'cursor:pointer')
-        .each(function(){
+        .each(function () {
             renderSortIcon(this, sortIcons);
         })
 
@@ -343,7 +335,9 @@ export function refreshData(sortField) {
     }
 }
 
-export function chartInit(config) {
+export function chartInit(_config) {
+    config = _config;
+
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);
     establishContainers();

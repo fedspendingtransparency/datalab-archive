@@ -1,5 +1,22 @@
-import { select } from 'd3-selection';
+import '../../income/countries/selectCountry.scss';
+import { prepareData } from '../../income/countries/data';
+import { establishContainer } from '../../utils';
+import { chartInit } from '../../income/countries/chart';
+import { selectedCountries } from '../../income/countries/selectedCountryManager';
 
-const d3 = { select };
+const incomeConfig = {
+    amountField: 'spending_usd',
+    gdpField: 'spending_gdp',
+    amountLabel: 'Income',
+    defaultCountries: [
+        'United States',
+        'China',
+        'Japan',
+        'Germany',
+        'United Kingdom',
+        'India',
+        'France'
+    ]
+}
 
-console.log('spending page');
+chartInit(incomeConfig);
