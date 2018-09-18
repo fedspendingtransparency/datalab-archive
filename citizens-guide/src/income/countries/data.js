@@ -1,9 +1,14 @@
-import { masterData } from '.';
-import { config } from './incomeCountryConfig.js';
 import { selectedCountries } from './selectedCountryManager';
+import CountryData from '../../../public/csv/income-debt-spending-by-country.csv';
 
-let activeSortFn,
-    activeSortField = config.amountField,
+const masterData = {
+    indexed: {},
+    countryList: []
+};
+
+let config,
+    activeSortFn,
+    activeSortField,
     activeSortDirection = 'desc';
 
 function flipSortDirection() {
@@ -29,19 +34,22 @@ function setSort(sortField) {
     }
 }
 
-export function prepareData(_data) {
-    const data = {
-        indexed: {},
-        countryList: []
-    }
+export function getCountryList() {
+    return masterData.countryList;
+}
 
-    _data.forEach(r => {
-        data.countryList.push(r.country);
+export function prepareData(_config) {
+    config = _config;
 
-        data.indexed[r.country] = r;
-    });
+    activeSortField = config.amountField,
 
-    return data;
+        CountryData.forEach(r => {
+            masterData.countryList.push(r.country);
+
+            masterData.indexed[r.country] = r;
+        });
+
+    return setData();
 }
 
 export function setData(sortField) {

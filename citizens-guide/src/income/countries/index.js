@@ -1,13 +1,14 @@
 import './selectCountry.scss';
-import CountryData from '../../../public/csv/income-debt-spending-by-country.csv';
 import { prepareData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';
 import { selectedCountries } from './selectedCountryManager';
 
-export const masterData = prepareData(CountryData),
-    svg = establishContainer(),
-    defaultCountries = [
+const incomeConfig = {
+    amountField: 'income_usd',
+    gdpField: 'income_gdp',
+    amountLabel: 'Income',
+    defaultCountries: [
         'United States',
         'China',
         'Japan',
@@ -15,8 +16,7 @@ export const masterData = prepareData(CountryData),
         'United Kingdom',
         'India',
         'France'
-    ];
+    ]
+}
 
-selectedCountries.set(defaultCountries);
-
-chartInit(svg);
+chartInit(incomeConfig);

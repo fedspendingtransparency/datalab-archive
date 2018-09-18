@@ -2,10 +2,10 @@ import './selectCountry.scss';
 import { select } from 'd3-selection';
 import { establishContainer } from '../../utils';
 import { countryList, refreshData } from './chart';
-import { masterData } from '.';
 import { addXIcon, addButtonIcon, addSearchIcon } from './iconGenerators';
 import { selectedCountries } from './selectedCountryManager';
 import { translate } from '../../utils';
+import { getCountryList } from './data';
 
 const d3 = { select }
 
@@ -82,7 +82,7 @@ function getAvailableCountries(filterStr) {
         filterStr = filterStr.toLowerCase();
     }
 
-    return masterData.countryList.filter(c => {
+    return getCountryList().filter(c => {
         return (c && selectedCountries.list.indexOf(c) === -1 && (!filterStr || c.toLowerCase().indexOf(filterStr) !== -1))
     }).sort();
 }
