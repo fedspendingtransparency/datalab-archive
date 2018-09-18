@@ -69,6 +69,6 @@ export function addSearchIcon(svg) {
         .attr('x2', 19)
         .attr('y1', 13)
         .attr('y2', 19)
-        .attr('stroke', 'white')
+        .attr('stroke', lineColor)
         .attr('stroke-width', 1)
 }
