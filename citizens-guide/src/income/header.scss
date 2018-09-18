@@ -6,6 +6,7 @@ header {
 .lead-wrapper {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 
     .lead {
         max-width: 66%;
@@ -16,6 +17,7 @@ header {
 
     .fact-box {
         max-width: 34%;
+        margin-top: 1rem;
     }
 }
 

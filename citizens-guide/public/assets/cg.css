@@ -21,6 +21,12 @@ h2 {
     color: #555;
 }
 
+blockquote {
+    font-size: 1.2rem;
+    text-align: center;
+    font-style: italic;
+}
+
 .hint {
     font-size: 0.8rem;
     color: #aaa;
