@@ -3,6 +3,7 @@ title: Federal Income and the GDP
 date: 2018-06-29 15:54:40
 permalink: /income/gdp.html
 description: The United States collected $3.4 trillion in 2017, 17% of the GDP.
+chapter: income
 ---
 
 # In 2017, the government collected <span class="strong">$3.4 trillion</span>.

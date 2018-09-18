@@ -3,6 +3,7 @@ title: Federal Income Categories
 date: 2018-06-29 15:54:40
 permalink: /income/categories.html
 description: This is the text that goes in the meta description tag
+chapter: income
 ---
 
 <header>

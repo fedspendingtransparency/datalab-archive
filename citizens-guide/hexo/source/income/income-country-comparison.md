@@ -3,6 +3,7 @@ title: Federal Income Country Comparison
 date: 2018-06-29 15:54:40
 permalink: /income/country-comparison.html
 description: This is the text that goes in the meta description tag
+chapter: income
 ---
 
 # How Does the Income of the United States Compare to Other Countries?

@@ -3,6 +3,7 @@ title: Federal Income Intro
 date: 2018-06-29 15:54:40
 permalink: /income/federal-income-intro.html
 description: This is the text that goes in the meta description tag
+chapter: income
 ---
 # In 2017, the government collected $3.3 trillion dollars.  
 
