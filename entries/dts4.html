@@ -47,21 +47,26 @@ category: nonentry
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
+  margin-bottom: 25px;
+  margin: 0 auto;
 }
 
 .daily-spending {
-  margin-left: 25px;
+  margin-right: 50px;
 }
 
 .daily-spending-amount {
-  font-size: 34px;
+  font-size: 58px;
+  line-height: 48px;
 }
 
 .daily-spending-subtext {
   text-transform: uppercase;
   color: #ca6969;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 28px;
 }
 
 .bar {
@@ -72,26 +77,58 @@ category: nonentry
   fill: brown;
 }
 
-#bar-chart-wrapper {
+#viz-tsbfy-wrapper {
   width: 600px;
   height: 330px;
 }
 
-.bar-chart-header {
-  text-align: center;
+.viz-tsbfy-header {
+  display: flex;
   margin: 115px 0px 20px 0px;
+  justify-content: space-around;
+}
+
+.viz-tsbfy-header-text {
   font-size: 32px;
+}
+
+.viz-tsbfy-header-view-buttons {
+  display: flex;
+}
+
+.viz-tsbfy-bar-view, .viz-tsbfy-table-view {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  text-align: center;
+  color: #333;
+  margin: 0 10px;
 }
 
 .period-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.period-button-container {
+  display: flex;
+}
+
+.period-button-header {
+  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
 .period-container .period-button {
   border: 1px solid #ccc;
   border-right: none;
-  font-size: 12px;
-  padding: 0px 10px;
+  font-size: 16px;
+  padding: 6px 16px;
   cursor: pointer;
 }
 
@@ -117,14 +154,40 @@ category: nonentry
   border: 1px solid #ccc;
 }
 
-.period-container {
-  margin-left: 25px;
-}
-
 .dts-viz-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.tsbfy-table {
+  border-radius: 5px;
+  padding: 0.75em 0.75em;
+  width: 600px;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.tsbfy-table {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 28px;
+}
+
+.tsbfy-table, .tsbfy-table th, .tsbfy-table td {
+  border-bottom: 1px solid #ccc;
+}
+
+.tsbfy-table th {
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.tsbfy-table td {
+  padding: 0 10px;
+  line-height: 24px;  
+  font-size: 12px;
+  color: #666;
 }
 </style>
 
@@ -136,6 +199,20 @@ category: nonentry
 </div>
 
 <div class="dts-header">
+  <div class="daily-spending">
+    <div class="daily-spending-subtext">Total Amount Spent</div>
+    <div class="daily-spending-amount">$0</div>
+  </div>
+  <div class="period-container">
+    <div class="period-button-header">Chart Range</div>
+    <div class="period-button-container">
+      <div class="period-button" data-range="30d">30D</div>
+      <div class="period-button" data-range="90d">90D</div>
+      <div class="period-button" data-range="1y">1Y</div>
+      <div class="period-button" data-range="5y">5Y</div>
+      <div class="period-button" data-range="10y">10Y</div>
+    </div>
+  </div>
   <div id="chooser-wrapper">
       <div class="radio-timeframe">
         <label class="radio-container">Today
@@ -154,19 +231,6 @@ category: nonentry
       <label class="label-popular"><input type="checkbox" name="checkbox" id="checkbox-popular" checked value="value">Condensed</label>
       <select class="select" id="item-selector"></select>
     </div>
-
-    <div class="period-container">
-        <div class="period-button" data-range="30d">30D</div>
-        <div class="period-button" data-range="90d">90D</div>
-        <div class="period-button" data-range="1y">1Y</div>
-        <div class="period-button" data-range="5y">5Y</div>
-        <div class="period-button" data-range="10y">10Y</div>
-    </div>
-
-    <div class="daily-spending">
-      <div class="daily-spending-subtext">Today Amount Spent</div>
-      <div class="daily-spending-amount">$0</div>
-    </div>
 </div>
 
 <div class="text-container">
@@ -180,9 +244,18 @@ category: nonentry
 
 <div class="dts-viz-container">
   <svg id="svg-wrapper" width="960" height="500"></svg>
-  <div class="bar-chart-container">
-    <div class="bar-chart-header">Total Spending By Fiscal Year</div>
-    <svg id="bar-chart-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+  <div class="viz-tsbfy-container">
+    <div class="viz-tsbfy-header">
+      <div class="viz-tsbfy-header-text">Total Spending By Fiscal Year</div>
+      <div class="viz-tsbfy-header-view-buttons">
+        <div class="viz-tsbfy-bar-view">B</div>
+        <div class="viz-tsbfy-table-view">T</div>
+      </div>
+    </div>
+    
+    <div class="svg-tsbfy-container">
+      <svg id="viz-tsbfy-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+    </div>
   </div>
 </div>
 
@@ -194,10 +267,17 @@ category: nonentry
 let dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
 function createBarChart(yearToSpendingArray) {
+  d3.select(".svg-tsbfy-container").selectAll("*").remove();
 
+  d3.select(".viz-tsbfy-header").style("margin-top", "115px");
+  
   let data = yearToSpendingArray;
 
-  var svg = d3.select("#bar-chart-wrapper"),
+  var svg = d3.select(".svg-tsbfy-container").append("svg")
+    .attr("id", "viz-tsbfy-wrapper")
+    .attr("width", "960")
+    .attr("height", "500")
+    .attr("viewBox", "0 0 960 500"),
     margin = {top: 20, right: 20, bottom: 30, left: 100},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
@@ -236,6 +316,47 @@ function createBarChart(yearToSpendingArray) {
       .attr("y", function(d) { return y(d.spending); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.spending); });
+}
+
+function createTable(yearToSpendingArray) {
+  d3.select(".svg-tsbfy-container").selectAll("*").remove();
+
+  d3.select(".viz-tsbfy-header").style("margin-top", "50px");
+
+  let table = d3.select(".svg-tsbfy-container").append('table').attr("class", "tsbfy-table");
+  let thead = table.append('thead');
+  let tbody = table.append('tbody');
+
+  let columns = ["Year", "Spending per year", "% of total"];
+
+  let totalSpending = yearToSpendingArray.map(d => d.spending).reduce((a, b) => a + b, 0);
+
+  console.log(yearToSpendingArray);
+  console.log(totalSpending);
+
+  thead.append('tr')
+		   .selectAll('th')
+       .data(columns)
+       .enter()
+		   .append('th')
+         .text(c => c);
+         
+  var rows = tbody.selectAll('tr')
+                  .data(yearToSpendingArray)
+                  .enter()
+                  .append('tr');
+            
+  var cells = rows.selectAll('td')
+		  .data(function (row) {
+        let tdYear = row.year;
+        let tdSpendingPerYear = dollarFormatter(row.spending);
+        let tdPercentOfTotal = ((row.spending / totalSpending) * 100).toFixed(1) + "%";
+        
+        return [ tdYear, tdSpendingPerYear, tdPercentOfTotal ];
+		  })
+		  .enter()
+		  .append('td')
+      .text(function (d) { console.log(d); return d; });
 }
 
 var allOptions, condensedOptions;
@@ -657,6 +778,14 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   // data.sort(function(a, b) { return a.date - b.date; });
 
   createGraph(optionsDict["Medicaid"].today);
+
+  d3.select(".viz-tsbfy-bar-view").on("click", function() {
+    createBarChart(yearToSpendingArray);
+  });
+
+  d3.select(".viz-tsbfy-table-view").on("click", function() {
+    createTable(yearToSpendingArray);
+  });
 
   createBarChart(yearToSpendingArray);
 });
