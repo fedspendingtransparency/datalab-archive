@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { min, max } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { translator, simplifyNumber, establishContainer } from '../../utils';
+import { translator, simplifyNumber, establishContainer, stripBr } from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
@@ -11,6 +11,7 @@ import { createDonut } from "../donut";
 import colors from '../../colors.scss';
 import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
+import { showSources } from './sources';
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
@@ -338,9 +339,11 @@ export function refreshData(sortField) {
 export function chartInit(_config) {
     config = _config;
 
+    stripBr();
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);
     establishContainers();
+    showSources();
     ink(containers, dimensions, data.length);
     setScales();
     addBarGroups();

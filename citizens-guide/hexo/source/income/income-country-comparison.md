@@ -15,6 +15,9 @@ chapter: income
     </div>
 </header>
 
+## Country Comparison
+<div class="hint">All data is FY2017</div>
+
 <div id="viz"></div>
 
 <script src="../assets/income/countryComparison.js" />

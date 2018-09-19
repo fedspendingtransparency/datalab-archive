@@ -8,6 +8,7 @@ const incomeConfig = {
     amountField: 'income_usd',
     gdpField: 'income_gdp',
     amountLabel: 'Income',
+    sourceFields: ['income_source','gdp_source'],
     defaultCountries: [
         'United States',
         'China',

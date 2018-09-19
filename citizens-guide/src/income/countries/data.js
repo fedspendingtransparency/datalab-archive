@@ -3,7 +3,8 @@ import CountryData from '../../../public/csv/income-debt-spending-by-country.csv
 
 const masterData = {
     indexed: {},
-    countryList: []
+    countryList: [],
+    uniqueSources: {}
 };
 
 let config,
@@ -13,6 +14,17 @@ let config,
 
 function flipSortDirection() {
     activeSortDirection = (activeSortDirection === 'desc') ? 'asc' : 'desc';
+}
+
+function captureSources(r) {
+    config.sourceFields.forEach(f => {
+        if (!masterData.uniqueSources[r[f]] && r[f]) {
+            masterData.uniqueSources[r[f]] = {
+                name: r[f],
+                url: r[f + '_url']
+            }
+        }
+    })
 }
 
 function setSort(sortField) {
@@ -38,6 +50,10 @@ export function getCountryList() {
     return masterData.countryList;
 }
 
+export function getSources() {
+    return Object.keys(masterData.uniqueSources).sort().map(k => masterData.uniqueSources[k]);
+}
+
 export function prepareData(_config) {
     config = _config;
 
@@ -47,6 +63,9 @@ export function prepareData(_config) {
             masterData.countryList.push(r.country);
 
             masterData.indexed[r.country] = r;
+
+            captureSources(r);
+
         });
 
     return setData();

@@ -11,6 +11,9 @@ description: This is the text that goes in the meta description tag
 The chart below shows the money spent by the U.S. government compared to 188 other countries in 2017.
 </div>
 
+## Country Comparison
+<div class="hint">All data is FY2017</div>
+
 <div id="viz"></div>
 
 <script src="../assets/spending/countryComparison.js" />
