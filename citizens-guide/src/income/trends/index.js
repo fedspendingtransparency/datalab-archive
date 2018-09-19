@@ -8,11 +8,9 @@ import { tourButton } from '../tourButton/tourButton';
 
 const data = trendData(),
     d3 = { select, selectAll },
-    tour = location.search.includes('tour'),
+    tour = location.search.indexOf('tour') !== -1,
     factBox = d3.selectAll('.fact-box'),
     svg = establishContainer(1200);
-
-// svg.attr('height', 1200);
 
 initDropShadow();
 

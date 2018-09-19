@@ -2,7 +2,7 @@ import { selectAll } from 'd3-selection';
 import { tourButton } from '../tourButton/tourButton';
 
 const d3 = { selectAll },
-    tour = location.search.includes('tour'),
+    tour = location.search.indexOf('tour') !== -1,
     factBox = d3.selectAll('.fact-box');
 
 let tourStage2;
