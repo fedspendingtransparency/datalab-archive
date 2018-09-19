@@ -7,6 +7,7 @@ function addLink(source, i, list) {
     const hint = this,
         length = list.length,
         a = hint.append('a')
+            .attr('target', '_blank')
             .attr('href', source.url);
 
     a.node().innerText = source.name;
