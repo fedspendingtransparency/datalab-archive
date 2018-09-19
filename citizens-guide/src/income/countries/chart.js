@@ -227,11 +227,11 @@ function placeLegends(config) {
         .classed('legend', true)
         .attr('data-type', config.amountField)
         .append('text')
-        .text('Income')
+        .text(config.amountLabel)
         .attr('font-weight', 'bold')
-        .attr('y', 36)
+        .attr('y', 38)
         .attr('x', labelXPadding)
-        .attr('font-size', 12);
+        .attr('font-size', 14);
 
     containers.legends.append('g')
         .attr('transform', translator(dimensions.countryColumnWidth + dimensions.dataWidth, 0))
@@ -239,13 +239,13 @@ function placeLegends(config) {
         .attr('data-type', config.gdpField)
         .append('text')
         .attr('x', labelXPadding)
-        .attr('y', 26)
+        .attr('y', 24)
         .attr('font-weight', 'bold')
-        .text('Income as')
-        .attr('font-size', 12)
+        .text(config.amountLabel + ' as')
+        .attr('font-size', 14)
         .append('tspan')
         .text('Percent of GDP')
-        .attr('dy', 12)
+        .attr('dy', 14)
         .attr('x', labelXPadding)
 
     containers.legends.selectAll('g.legend')

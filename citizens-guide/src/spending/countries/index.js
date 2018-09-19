@@ -7,7 +7,7 @@ import { selectedCountries } from '../../income/countries/selectedCountryManager
 const incomeConfig = {
     amountField: 'spending_usd',
     gdpField: 'spending_gdp',
-    amountLabel: 'Income',
+    amountLabel: 'Spending',
     sourceFields: ['spending_source','gdp_source'],    
     defaultCountries: [
         'United States',
