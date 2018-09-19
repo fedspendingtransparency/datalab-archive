@@ -77,7 +77,7 @@ export function renderSortIcon(container) {
     const parent = d3.select(container),
         parentBox = getElementBox(parent),
         sortType = parent.attr('data-type'),
-        iconGroup = parent.append('g').attr('transform', translator(parentBox.width + 20, 8 + iconHeight));
+        iconGroup = parent.append('g').attr('transform', translator(parentBox.width + 16, 8 + iconHeight));
 
     iconGroup.append('rect')
         .attr('fill', 'white')
