@@ -52,7 +52,7 @@ category: nonentry
   margin: 0 auto;
 }
 
-.daily-spending {
+.daily-spending-container {
   margin-right: 50px;
 }
 
@@ -189,6 +189,38 @@ category: nonentry
   font-size: 12px;
   color: #666;
 }
+
+.custom-select {
+  padding: 5px 30px;
+  border-radius: 25px;
+  position: relative;
+  color: white;
+  background-color: #00c3c2;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-align-last: center;
+  margin: 0 auto;
+}
+
+.custom-select:focus {
+  outline: none;
+}
+
+.frequency-container, .category-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.frequency-container {
+  margin-right: 50px;
+}
+
+.select-timeframe-label, .category-select-label {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
 </style>
 
 <div class="header-container">
@@ -199,7 +231,7 @@ category: nonentry
 </div>
 
 <div class="dts-header">
-  <div class="daily-spending">
+  <div class="daily-spending-container">
     <div class="daily-spending-subtext">Total Amount Spent</div>
     <div class="daily-spending-amount">$0</div>
   </div>
@@ -213,24 +245,18 @@ category: nonentry
       <div class="period-button" data-range="10y">10Y</div>
     </div>
   </div>
-  <div id="chooser-wrapper">
-      <div class="radio-timeframe">
-        <label class="radio-container">Today
-            <input type="radio" checked="checked" name="timeframe" value="today">
-            <span class="checkmark"></span>
-          </label>
-          <label class="radio-container">MTD
-            <input type="radio" name="timeframe" value="mtd">
-            <span class="checkmark"></span>
-          </label>
-          <label class="radio-container">FYTD
-            <input type="radio" name="timeframe" value="fytd">
-            <span class="checkmark"></span>
-          </label>
-      </div>
-      <label class="label-popular"><input type="checkbox" name="checkbox" id="checkbox-popular" checked value="value">Condensed</label>
-      <select class="select" id="item-selector"></select>
-    </div>
+  <div class="frequency-container">
+      <div class="select-timeframe-label">Frequency</div>
+      <select id="select-timeframe" class="custom-select">
+        <option value="today">DAILY</option>
+        <option value="mtd">MTD</option>
+        <option value="fytd">FYTD</option>
+      </select>
+  </div>
+  <div class="category-container">
+    <div class="category-select-label">Categories</div>
+    <select class="custom-select" id="item-selector"></select>
+  </div>
 </div>
 
 <div class="text-container">
@@ -371,6 +397,9 @@ function addOptions(sel, opt) {
 }
 
 function createSelect() {
+  var timeFrameSelect = d3.select('#select-timeframe')
+        .on('change', onDataChange);
+
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
 
   var select = d3.select('#item-selector')
@@ -378,18 +407,8 @@ function createSelect() {
 
   addOptions(select, condensedOptions);
 
-  d3.select("#checkbox-popular").on('change', function() {
-    if (d3.select("#checkbox-popular").property("checked")) {
-      addOptions(select, condensedOptions);
-    } else {
-      addOptions(select, allOptions);
-    }
-
-    onDataChange();
-  });
-
   function onDataChange() {
-    let timeFrameValue = d3.select('input[name="timeframe"]:checked').node().value;
+    let timeFrameValue = d3.select('#select-timeframe').property('value');
     let selectValue = d3.select('#item-selector').property('value');
 
     createGraph(optionsDict[selectValue][timeFrameValue]);
