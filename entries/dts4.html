@@ -387,13 +387,21 @@ function createTable(yearToSpendingArray) {
 
 var allOptions, condensedOptions;
 
-function addOptions(sel, opt) {
+function addOptions(sel) {
   sel.selectAll('*').remove();
   sel
-    .selectAll('option')
-    .data(opt).enter()
-    .append('option')
-    .text(d => d);
+    .append("optgroup").attr("label", "Top 10 Categories")
+      .selectAll('option')
+      .data(condensedOptions).enter()
+      .append('option')
+      .text(d => d);
+
+  sel
+    .append("optgroup").attr("label", "All Categories")
+      .selectAll('option')
+      .data(allOptions).enter()
+      .append('option')
+      .text(d => d);
 }
 
 function createSelect() {
@@ -405,7 +413,7 @@ function createSelect() {
   var select = d3.select('#item-selector')
     .on('change', onDataChange);
 
-  addOptions(select, condensedOptions);
+  addOptions(select);
 
   function onDataChange() {
     let timeFrameValue = d3.select('#select-timeframe').property('value');
