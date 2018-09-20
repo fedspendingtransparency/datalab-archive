@@ -70,7 +70,6 @@ category: nonentry
   </div>
 </div>
 
-
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
@@ -205,18 +204,8 @@ function createSelect() {
 }
 
 var svg = d3.select("#svg-wrapper"),
-  margin = {
-    top: 20,
-    right: 20,
-    bottom: 110,
-    left: 60
-  },
-  margin2 = {
-    top: 430,
-    right: 20,
-    bottom: 30,
-    left: 60
-  },
+  margin = { top: 20, right: 20, bottom: 110, left: 60 },
+  margin2 = { top: 430, right: 20, bottom: 30, left: 60 },
   width = +svg.attr("width") - margin.left - margin.right,
   height = +svg.attr("height") - margin.top - margin.bottom,
   height2 = +svg.attr("height") - margin2.top - margin2.bottom;
@@ -346,7 +335,7 @@ function createGraph(data) {
       d3.select(".axis--x").transition().duration(1500).call(xAxis);
       d3.select(".axis--y").transition().duration(1500).call(yAxis);
     }
-    
+
   // add the X gridlines
   svg.append("g")			
     .attr("class", "grid x-grid")
