@@ -10,232 +10,6 @@ permalink: dts4.html
 category: nonentry
 ---
 
-<style>
-.header-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header-title {
-  color: #9b9b9b;
-  text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-
-.header-subtitle {
-  color: #000000;
-  font-size: 36px;
-}
-
-.header-line-break {    
-    border-bottom: 1px solid #c1c1c1;
-    display: block;
-    width: 70%;
-    margin: 15px 0 5px 0;
-}
-
-.header-updated-when {
-  color: #9b9b9b;
-  font-weight: 200;
-  font-size: 16px;
-}
-
-.dts-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  margin-bottom: 25px;
-  margin: 0 auto;
-}
-
-.daily-spending-container {
-  margin-right: 50px;
-}
-
-.daily-spending-amount {
-  font-size: 58px;
-  line-height: 48px;
-}
-
-.daily-spending-subtext {
-  text-transform: uppercase;
-  color: #ca6969;
-  font-size: 18px;
-  letter-spacing: 0px;
-  line-height: 28px;
-}
-
-.bar {
-  fill: #00c3c2;
-}
-
-.bar:hover {
-  fill: brown;
-}
-
-#viz-tsbfy-wrapper {
-  width: 600px;
-  height: 330px;
-}
-
-.viz-tsbfy-header {
-  display: flex;
-  margin: 115px 0px 20px 0px;
-  justify-content: space-around;
-}
-
-.viz-tsbfy-header-text {
-  font-size: 32px;
-}
-
-.viz-tsbfy-header-view-buttons {
-  display: flex;
-}
-
-.viz-tsbfy-bar-view, .viz-tsbfy-table-view {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background-color: #ddd;
-  cursor: pointer;
-  text-align: center;
-  color: #333;
-  margin: 0 10px;
-  padding-left: 2px;
-}
-
-.period-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 50px;
-}
-
-.period-button-container {
-  display: flex;
-}
-
-.period-button-header {
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.period-container .period-button {
-  border: 1px solid #ccc;
-  border-right: none;
-  font-size: 16px;
-  padding: 6px 16px;
-  cursor: pointer;
-}
-
-.period-button:hover {
-  background-color: #00c3c2;
-  color: white;
-}
-
-.period-button-selected {
-  background-color: #00c3c2;
-  font-weight: 600;
-  color: white;
-}
-
-.period-button:first-child {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-
-.period-button:last-child {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border: 1px solid #ccc;
-}
-
-.dts-viz-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.tsbfy-table {
-  border-radius: 5px;
-  padding: 0.75em 0.75em;
-  width: 600px;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.tsbfy-table {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 28px;
-}
-
-.tsbfy-table, .tsbfy-table th, .tsbfy-table td {
-  border-bottom: 1px solid #ccc;
-}
-
-.tsbfy-table th {
-  padding: 0 10px;
-  font-size: 16px;
-}
-
-.tsbfy-table td {
-  padding: 0 10px;
-  line-height: 24px;  
-  font-size: 12px;
-  color: #666;
-}
-
-.custom-select::-ms-expand {
-  display: none;
-}
-
-.custom-select {
-  padding: 5px 30px 5px 15px;
-  border-radius: 25px;
-  position: relative;
-  color: white;
-  background-color: #00c3c2;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  text-transform: uppercase;
-  text-align: center;
-  text-align-last: center;
-  margin: 0 auto;
-  cursor: pointer;
-
-  background-image: linear-gradient(45deg, #908d8d00 50%, #ffffff 50%), linear-gradient(135deg, white 50%, transparent 50%);
-  background-position: calc(100% - 20px) calc(1em), calc(100% - 15px) calc(1em), calc(100% - .5em) .5em;
-  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
-  background-repeat: no-repeat;
-}
-
-.custom-select:focus {
-  outline: none;
-}
-
-.frequency-container, .category-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.frequency-container {
-  margin-right: 50px;
-}
-
-.select-timeframe-label, .category-select-label {
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-</style>
-
 <div class="header-container">
   <div class="header-title">Interactive Daily Report</div>
   <div class="header-subtitle">How much money are we spending?</div>
@@ -280,7 +54,6 @@ category: nonentry
   <div class="dts-tt-fytd"><span class="dts-tt-timeframe-label">FYTD: </span><span class="dts-tt-fytd-value"></span></div>
 </div>
 
-
 <div class="dts-viz-container">
   <svg id="svg-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
   <div class="viz-tsbfy-container">
@@ -291,7 +64,6 @@ category: nonentry
         <div class="viz-tsbfy-table-view">T</div>
       </div>
     </div>
-    
     <div class="svg-tsbfy-container">
       <svg id="viz-tsbfy-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
     </div>
@@ -302,7 +74,6 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
-
 let dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
 function createBarChart(yearToSpendingArray) {
@@ -370,9 +141,6 @@ function createTable(yearToSpendingArray) {
 
   let totalSpending = yearToSpendingArray.map(d => d.spending).reduce((a, b) => a + b, 0);
 
-  console.log(yearToSpendingArray);
-  console.log(totalSpending);
-
   thead.append('tr')
 		   .selectAll('th')
        .data(columns)
@@ -395,7 +163,7 @@ function createTable(yearToSpendingArray) {
 		  })
 		  .enter()
 		  .append('td')
-      .text(function (d) { console.log(d); return d; });
+      .text(function (d) { return d; });
 }
 
 var allOptions, condensedOptions;
@@ -474,8 +242,8 @@ function makeYGridLines() {
 }
 
 var optionsDict;
-
 var firstTime = true;
+var lastPeriodContext;
 
 function createGraph(data) {
   var allSvgChildren = d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)"); // ignore the-axes
@@ -489,16 +257,13 @@ function createGraph(data) {
     ])
     .on("start brush end", brushed);
 
-  d3.selectAll(".period-button").on("click", function() {
+  function choosePeriodButton(context) {
     let lastDate = data[data.length - 1].date.getTime();
 
     let leftDate = new Date(lastDate);
     let rightDate = new Date(lastDate);
 
-    let t = this.dataset.range;
-
-    // d3.selectAll(".period-button").classed("period-button-selected", false);
-    
+    let t = context.dataset.range;
 
     switch (t) {
       case "30d": leftDate.setMonth(leftDate.getMonth() - 1); break;
@@ -512,7 +277,12 @@ function createGraph(data) {
     
     d3.select(".brush").call(brush.move, [x(leftDate), x(rightDate)]);
 
-    d3.select(this).classed("period-button-selected", true);
+    d3.select(context).classed("period-button-selected", true);
+  }
+
+  d3.selectAll(".period-button").on("click", function() {
+    choosePeriodButton(this);
+    lastPeriodContext = this;
   });
 
   var zoom = d3.zoom()
@@ -576,9 +346,7 @@ function createGraph(data) {
       d3.select(".axis--x").transition().duration(1500).call(xAxis);
       d3.select(".axis--y").transition().duration(1500).call(yAxis);
     }
-
-
-
+    
   // add the X gridlines
   svg.append("g")			
     .attr("class", "grid x-grid")
@@ -692,7 +460,6 @@ function createGraph(data) {
   function brushed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     var s = d3.event.selection || x2.range();
-    // var ggg = d3.event.selection;
     x.domain(s.map(x2.invert, x2));
     adjustLines();
 
@@ -710,14 +477,11 @@ function createGraph(data) {
     x.domain(t.rescaleX(x2).domain());
     adjustLines();
 
-    let brushSel = d3.select(".brush .selection");
-    let brushSelX = +brushSel.attr("x");
-    let brushSelWidth = +brushSel.attr("width");
-    
-    let s = [Math.round(brushSelX), Math.round(brushSelX + brushSelWidth)];
-    updateCustomGrabbers(s);
+    let brushRegion = x.range().map(t.invertX, t);
 
-    context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+    updateCustomGrabbers(brushRegion);
+    context.select(".brush").call(brush.move, brushRegion);
+
     clearPeriodSelections();
   }
 
@@ -755,6 +519,10 @@ function createGraph(data) {
     textContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
     textContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
   }
+
+  if (lastPeriodContext != null) {
+    choosePeriodButton(lastPeriodContext);
+  }
 }
 
 d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
@@ -765,7 +533,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   optionsDict = {};
 
   let lastDate = data[data.length - 1].date;
-  // let currentDate = new Date().format('m-d-Y h:i:s');
   let totalDailySpending = 0;
 
   let yearToSpending = {};
@@ -835,5 +602,4 @@ function type(d) {
   d.value = +d.value;
   return d;
 }
-
 </script>

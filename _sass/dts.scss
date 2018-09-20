@@ -52,28 +52,252 @@
   letter-spacing: 0.5px;
 }
 
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  color: #9b9b9b;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.header-subtitle {
+  color: #000000;
+  font-size: 36px;
+}
+
+.header-line-break {    
+    border-bottom: 1px solid #c1c1c1;
+    display: block;
+    width: 70%;
+    margin: 15px 0 5px 0;
+}
+
+.header-updated-when {
+  color: #9b9b9b;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.dts-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 25px;
+  margin: 0 auto;
+}
+
+.daily-spending-container {
+  margin-right: 50px;
+}
+
+.daily-spending-amount {
+  font-size: 58px;
+  line-height: 48px;
+}
+
+.daily-spending-subtext {
+  text-transform: uppercase;
+  color: #ca6969;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 28px;
+}
+
+.bar {
+  fill: #00c3c2;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+#viz-tsbfy-wrapper {
+  width: 600px;
+  height: 330px;
+}
+
+.viz-tsbfy-header {
+  display: flex;
+  margin: 115px 0px 20px 0px;
+  justify-content: space-around;
+}
+
+.viz-tsbfy-header-text {
+  font-size: 32px;
+}
+
+.viz-tsbfy-header-view-buttons {
+  display: flex;
+}
+
+.viz-tsbfy-bar-view, .viz-tsbfy-table-view {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  text-align: center;
+  color: #333;
+  margin: 0 10px;
+  padding-left: 2px;
+}
+
+.period-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.period-button-container {
+  display: flex;
+}
+
+.period-button-header {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.period-container .period-button {
+  border: 1px solid #ccc;
+  border-right: none;
+  font-size: 16px;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.period-button:hover {
+  background-color: #00c3c2;
+  color: white;
+}
+
+.period-button-selected {
+  background-color: #00c3c2;
+  font-weight: 600;
+  color: white;
+}
+
+.period-button:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.period-button:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: 1px solid #ccc;
+}
+
+.dts-viz-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tsbfy-table {
+  border-radius: 5px;
+  padding: 0.75em 0.75em;
+  width: 600px;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.tsbfy-table {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 28px;
+}
+
+.tsbfy-table, .tsbfy-table th, .tsbfy-table td {
+  border-bottom: 1px solid #ccc;
+}
+
+.tsbfy-table th {
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.tsbfy-table td {
+  padding: 0 10px;
+  line-height: 24px;  
+  font-size: 12px;
+  color: #666;
+}
+
+.custom-select::-ms-expand {
+  display: none;
+}
+
+.custom-select {
+  padding: 5px 30px 5px 15px;
+  border-radius: 25px;
+  position: relative;
+  color: white;
+  background-color: #00c3c2;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-align-last: center;
+  margin: 0 auto;
+  cursor: pointer;
+
+  background-image: linear-gradient(45deg, #908d8d 50%, #ffffff 50%), linear-gradient(135deg, white 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em), calc(100% - 15px) calc(1em), calc(100% - .5em) .5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+.custom-select:focus {
+  outline: none;
+}
+
+.frequency-container, .category-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.frequency-container {
+  margin-right: 50px;
+}
+
+.select-timeframe-label, .category-select-label {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
 .dts-tt-date {
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 15px;
 }
 
 .dts-tt-amount {
   font-weight: 600;
   line-height: 25px;
-  margin-bottom: 3px;
   font-size: 18px;
 }
 
 .dts-tt-hr-separator {
   border-bottom: 1px solid #ccc;
   width: 100%;
-  margin-bottom: 1px;
+  padding-top: 2px;
+  margin-bottom: 2px;
 }
 
 .dts-tt-mtd, .dts-tt-fytd {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .dts-tt-timeframe-label {
@@ -83,7 +307,7 @@
 
 .dts-tt-mtd {
   line-height: 22px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .dts-tt-fytd {
