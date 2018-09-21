@@ -122,8 +122,6 @@ function addDetails(state) {
             const n = (state === 'in') ? i + 3 : i,
                 rect = shaders.filter(function (d, j) { return j === n }).node();
 
-            console.log(n, state)
-
             setTourStep2();
             showDetail.bind(rect)(d);
         });
