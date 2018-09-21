@@ -682,9 +682,9 @@ function RadioSankeyFY17() {
 }
 
 function RadioSankeyFY18() {
-    d3.csv("/data-lab-data/sankey_panel_v3_FY18.csv", (error1, data) => {
-        d3.csv("/data-lab-data/sankey_v17_FY18.csv", (error2, sPanel) => {
-            d3.csv("/data-lab-data/sankey_titles_v3_FY18.csv", (error3, sTitle) => {
+    d3.csv("/data-lab-data/sankey_panel_v4_FY18.csv", (error1, data) => {
+        d3.csv("/data-lab-data/sankey_v18_FY18.csv", (error2, sPanel) => {
+            d3.csv("/data-lab-data/sankey_titles_v4_FY18.csv", (error3, sTitle) => {
                 d3.csv("/data-lab-data/descriptions.csv", (error4, descriptions) => {
                     makeSankey(data, sPanel, sTitle, descriptions);
                 });
