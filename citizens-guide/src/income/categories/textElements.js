@@ -2,6 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { translator, simplifyNumber, getElementBox, wordWrap, getTransform } from '../../utils';
 import colors from '../../colors.scss';
+import { getZoomState } from './zoom';
 
 const d3 = { select, selectAll, line },
     noFitOffset = 50;
@@ -14,7 +15,7 @@ function processNoFits(d, elem, config) {
     let prevTranslate;
 
     if (!noFit) {
-        config.noFitClimb = (config.state === 'details') ? 280 : 14 - noFitOffset;
+        config.noFitClimb = (config.tierTwo) ? 280 : 14 - noFitOffset;
         return;
     }
 
@@ -31,7 +32,7 @@ function processNoFits(d, elem, config) {
 
     textGroup.attr('transform', translator(prevTranslate.x, config.noFitClimb))
 
-    if (config.state === 'details') {
+    if (config.tierTwo) {
         config.noFitClimb += noFitOffset;
     } else {
         config.noFitClimb -= noFitOffset;
@@ -49,7 +50,7 @@ function processNoFits(d, elem, config) {
                     [0,-20],
                     [0,-config.noFitClimb + 300]
                 ],
-                points = (config.state === 'details') ? detailPoints : mainPoints;
+                points = (config.tierTwo) ? detailPoints : mainPoints;
 
             return d3.line()(points);
         });
@@ -76,7 +77,7 @@ function tryWrappingActivity(dom, d, boxWidth, config) {
     if (getElementBox(textGroup).width > boxWidth || tSpanSize > 2) {
         activity.selectAll('*').remove();
         activity.text(function (d) {
-            return (config.state === 'details') ? d.sub_activity : d.activity;
+            return (config.tierTwo) ? d.sub_activity : d.activity;
         })
         textGroup.classed('no-fit', true);
         textGroup.classed('lookahead', function(){
@@ -91,7 +92,7 @@ function tryWrappingActivity(dom, d, boxWidth, config) {
 
 function checkFit(d, elem, xScale, config) {
     const x1 = d.x0 + d.amount,
-        boxWidth = (config.state === 'details') ? d.width : xScale(x1) - xScale(d.x0),
+        boxWidth = (config.tierTwo) ? d.width : xScale(x1) - xScale(d.x0),
         textWidth = elem.getBoundingClientRect().width;
 
     if (boxWidth > textWidth) {
@@ -103,22 +104,24 @@ function checkFit(d, elem, xScale, config) {
 
 }
 
-export function addTextElements(data, detailsGroup, xScale, baseDimensions, state) {
+export function addTextElements(data, detailsGroup, xScale, baseDimensions, tierTwo) {
     const line = d3.line(),
-        noFitClimb = (state === 'details') ? 280 : 14 - noFitOffset,
+        zoomState = getZoomState(),
+        noFitClimb = (tierTwo) ? 280 : 14 - noFitOffset,
         config = {
             noFitClimb: noFitClimb,
-            state: state
+            tierTwo: tierTwo
         };
 
     let t, textGroup, details;
 
-    if (state === 'out' || !state) {
-        details = data.slice(0, 3);
-    } else if (state === 'in') {
-        details = data.slice(3);
-    } else {
+    
+    if (tierTwo) {
         details = data;
+    } else if (zoomState === 'out') {
+        details = data.slice(0, 3);
+    } else {
+        details = data.slice(3);
     }
 
     textGroup = detailsGroup.selectAll('g')
@@ -131,7 +134,7 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, stat
                 x = xScale(d.x0) + width / 2,
                 y = baseDimensions.height / 2;
 
-            if (state === 'details') {
+            if (tierTwo) {
                 return translator(d.xStart + d.width / 2, 202)
             }
 
@@ -140,7 +143,7 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, stat
 
     textGroup.append('text')
         .text(function (d) {
-            return (state === 'details') ? d.sub_activity : d.activity;
+            return (tierTwo) ? d.sub_activity : d.activity;
         })
         .attr('font-weight', 'bold')
         .classed('activity', true)

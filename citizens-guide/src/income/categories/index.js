@@ -7,7 +7,7 @@ import { receiptsConstants } from '../receipts-utils';
 import { getDataByYear } from './data';
 import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
-import { zoomInit } from './zoom';
+import { zoomInit, getZoomState } from './zoom';
 import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails } from './showDetails';
 import colors from '../../colors.scss';
@@ -115,13 +115,13 @@ function rescale(state) {
     xScale.domain([low, totalAmount]);
 }
 
-function addDetails(state) {
-    textElements = addTextElements(categoryData, detailsGroup, xScale, baseDimensions, state);
+function addDetails() {
+    textElements = addTextElements(categoryData, detailsGroup, xScale, baseDimensions);
 
     textElements
         .attr('style', 'cursor:pointer')
         .on('click', function (d, i) {
-            const n = (state === 'in') ? i + 3 : i,
+            const n = (getZoomState() === 'in') ? i + 3 : i,
                 rect = shaders.filter(function (d, j) { return j === n }).node();
 
             setTourStep2();
