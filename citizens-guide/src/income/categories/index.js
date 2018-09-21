@@ -101,8 +101,8 @@ function zoomToMoreCategories(state) {
         })
 
     zoomShaders(state, textFade, zoom);
-    moveBarGroup(state);
-    
+    moveBarGroup();
+
     setTimeout(function () {
         detailsGroup.attr('opacity', 1);
         addDetails(state)
@@ -135,12 +135,21 @@ function addDetails() {
     section2_2_init(baseContainer, indexed);
 }
 
-function moveBarGroup(state) {
-    const yTrans = (state === 'in') ? baseTranslate.y + 100 : baseTranslate.y,
-        delay = (state !== 'in') ? 1000 : 0;
+function moveBarGroup(init) {
+    const state = getZoomState(),
+        yTrans = (state === 'in') ? baseTranslate.y + 100 : baseTranslate.y,
+        delay = (state !== 'in' && !init) ? 1000 : 0;
+
+    let barDuration = 1200;
+
+    if (init) {
+        barDuration = 0;
+    } else if (state === 'out') {
+        barDuration = 800;
+    }
 
     baseContainer.transition()
-        .duration(1000)
+        .duration(barDuration)
         .delay(delay)
         .attr('transform', translator(baseTranslate.x, yTrans))
         .on('end', addDetails)
@@ -218,7 +227,8 @@ function setContainers() {
     xScale.range([0, baseDimensions.width])
 
     rescale();
-    moveBarGroup();
+    moveBarGroup(true);
+    addDetails();
 }
 
 function setTourStep2() {
