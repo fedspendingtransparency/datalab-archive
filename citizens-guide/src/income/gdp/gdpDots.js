@@ -50,7 +50,7 @@ function addLegend() {
         .attr('x', 40)
         .attr('dy', 20);
 
-    legendBox.attr('transform', translator(0,60));
+    legendBox.attr('transform', translator(0,70));
 }
 
 function setGdpDots() {
@@ -133,7 +133,7 @@ function enableFactBox() {
 
     createDonut(donutGroup, .174, donutDiameter, colors.income);
 
-    svg.attr('width', 500);
+    svg.attr('width', 600);
 
     d3.select('#viz').attr('style', 'float:left');
 
@@ -167,7 +167,7 @@ function zoomOutDots() {
 
     dotContainer.transition()
         .duration(zoomDuration)
-        .attr('transform', translator(92, 60) + ' scale(0.4)')
+        .attr('transform', translator(92, 70) + ' scale(0.5)')
         .on('end', animationNext)
         .ease()
 }
