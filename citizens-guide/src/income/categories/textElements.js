@@ -159,7 +159,7 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, tier
         .text(function (d, i) {
             let p = parseInt(d.percent_total);
 
-            if (p < 1) {
+            if (Math.abs(p) < 1) {
                 p = '<1'
             }
             
