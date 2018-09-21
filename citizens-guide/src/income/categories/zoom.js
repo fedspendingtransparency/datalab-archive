@@ -18,7 +18,8 @@ const d3 = { select },
         }
     };
 
-let triangleLeft, triangleRight;
+let triangleLeft, triangleRight, 
+    state = 'out';
 
 function zoomOut(g) {
     g.select('.' + outGroupClass)
@@ -145,8 +146,7 @@ export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallba
     const g = baseContainer.append('g')
         .attr('style','cursor:pointer')
         .attr('transform', translator(zoomTriggerX, 0));
-
-    let state = 'out';
+    
     g.on('click', function () {
         state = (state === 'out') ? 'in' : 'out';
 
@@ -157,4 +157,8 @@ export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallba
     init(g, baseDimensions, zoomTriggerX);
 
     return 'zoomComponent';
+}
+
+export function getZoomState() {
+    return state;
 }

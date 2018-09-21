@@ -9,6 +9,7 @@ import { getElementBox, translator, getTransform, establishContainer, simplifyNu
 import { getData } from './data';
 import colors from '../../colors.scss';
 import { addTextElements } from './textElements';
+import { getZoomState } from './zoom';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
     svg = establishContainer(700),
@@ -236,7 +237,7 @@ function renderDetailContainer() {
 }
 
 function transitionDetailContainer() {
-    const yPos = 240,
+    const yPos = (getZoomState() === 'in') ? 250 : 150,
         width = sourceBox.right - sourceBox.left,
         initialSubcategoryScaleFactor = width / 1200;
 
@@ -244,7 +245,7 @@ function transitionDetailContainer() {
         .attr('transform', `${translator(sourceBox.left, yPos)} scale(${initialSubcategoryScaleFactor}, 0)`);
 
     detailContainer.transition()
-        .duration(1000)
+        .duration(1200)
         .attr('opacity', 1)
         .attr('transform', translator(0, yPos) + ' scale(1)')
         .ease();

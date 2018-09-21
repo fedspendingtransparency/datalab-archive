@@ -9,10 +9,11 @@ import { stack } from 'd3-shape';
 import { establishContainer } from '../../utils';
 import { zoomInit } from './zoom';
 import { addTextElements } from './textElements';
-import colors from '../../colors.scss';
 import { showDetail, section2_2_init, clearDetails } from './showDetails';
+import colors from '../../colors.scss';
 import '../factBox.scss';
 import '../header.scss';
+import './categories.scss';
 import { tourButton } from '../tourButton/tourButton';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
@@ -23,7 +24,7 @@ const d3 = { select, selectAll, scaleLinear, min, stack, transition },
         a[c.activity] = c;
         return a;
     }, {}),
-    baseTranslate = { x: 91, y: 40 },
+    baseTranslate = { x: 91, y: 50 },
     baseDimensions = { width: 1014, height: 100 },
     topAmount = categoryData.slice(0, 3).reduce((a, c) => a += c.amount, 0),
     xScale = d3.scaleLinear(),
@@ -100,7 +101,8 @@ function zoomToMoreCategories(state) {
         })
 
     zoomShaders(state, textFade, zoom);
-
+    moveBarGroup(state);
+    
     setTimeout(function () {
         detailsGroup.attr('opacity', 1);
         addDetails(state)
@@ -133,10 +135,14 @@ function addDetails(state) {
     section2_2_init(baseContainer, indexed);
 }
 
-function moveBarGroup(d, i) {
+function moveBarGroup(state) {
+    const yTrans = (state === 'in') ? baseTranslate.y + 100 : baseTranslate.y,
+        delay = (state !== 'in') ? 1000 : 0;
+
     baseContainer.transition()
         .duration(1000)
-        .attr('transform', translator(baseTranslate.x, baseTranslate.y + 100))
+        .delay(delay)
+        .attr('transform', translator(baseTranslate.x, yTrans))
         .on('end', addDetails)
         .ease()
 }
@@ -181,8 +187,6 @@ function addSegments(more) {
             showDetail.bind(this)(d);
         });
 
-
-
     shaders.transition()
         .duration(1000)
         .attr('opacity', function (d, i) {
@@ -193,10 +197,6 @@ function addSegments(more) {
             return (i) ? 1 - i / 7 : 1;
         })
         .ease()
-
-    if (!more) {
-        setTimeout(moveBarGroup, duration)
-    }
 }
 
 function remove() {
@@ -218,6 +218,7 @@ function setContainers() {
     xScale.range([0, baseDimensions.width])
 
     rescale();
+    moveBarGroup();
 }
 
 function setTourStep2() {
