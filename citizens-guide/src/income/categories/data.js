@@ -1,9 +1,11 @@
-import CategoryData from '../../../public/csv/receipts.csv';
+import CategoryData from '../../../public/csv/fy13_fy17_sept_mts_receipts.csv';
 import { min, max } from 'd3-array';
 
 const d3 = { min, max };
 
 function enrichData(data) {
+    
+    
     let tracker = d3.min([data[0].percent_total, 0]);
 
     data.forEach(d => {
@@ -15,32 +17,32 @@ function enrichData(data) {
 }
 
 function sortSubcategories(a, b) {
-        a = a.percent_total;
-        b = b.percent_total;
+    a = a.percent_total;
+    b = b.percent_total;
 
-        if (a < 0) {
-            if (a < b) {
-                return -1
-            }
-
-            if (a > b) {
-                return 1;
-            }
-        }
-
-        if (b < 0) {
-            return 1;
+    if (a < 0) {
+        if (a < b) {
+            return -1
         }
 
         if (a > b) {
-            return -1;
-        }
-
-        if (a < b) {
             return 1;
         }
+    }
 
-        return 0;
+    if (b < 0) {
+        return 1;
+    }
+
+    if (a > b) {
+        return -1;
+    }
+
+    if (a < b) {
+        return 1;
+    }
+
+    return 0;
 }
 
 function sortByAmount(a, b) {
@@ -53,19 +55,29 @@ function sortByAmount(a, b) {
 }
 
 function addSubcategories(categoryRow) {
+    
     categoryRow.subcategories = CategoryData.filter(r => {
-        return (r.fiscal_year === 2017 && r.sub_activity && r.activity === categoryRow.activity)
-    }).sort(sortSubcategories);
-
+        return (r.fiscal_year === 2017 && r.sub_activity && r.activity_plain === categoryRow.activity)
+    }).map(dataMapper).sort(sortSubcategories);
+    
     enrichData(categoryRow.subcategories);
+}
+
+function dataMapper(r) {
+    return {
+        activity: r.activity_plain,
+        sub_activity: r.sub_activity_plain,
+        amount: r.income_adjusted,
+        percent_total: r.percent_total
+    }
 }
 
 export function getDataByYear(year) {
     const categories = CategoryData.filter(r => {
         return (r.fiscal_year === 2017 && !r.sub_activity)
-    }).sort(sortByAmount);
+    }).map(dataMapper).sort(sortByAmount);
 
-    categories.forEach(addSubcategories)
+    categories.forEach(addSubcategories);
 
     return categories;
 }
