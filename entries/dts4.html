@@ -169,12 +169,20 @@ var allOptions, condensedOptions;
 
 function addOptions(sel) {
   sel.selectAll('*').remove();
+
+  sel.append('option').text('All Categories');
+  sel.append('option').attr('disabled', 'true').text('──────────────────────────');
+
+  let previousYear = new Date().getFullYear() - 1;
+
   sel
-    .append("optgroup").attr("label", "Top 10 Categories")
+    .append("optgroup").attr("label", "Top 10 (Spending in FY " + previousYear + ")")
       .selectAll('option')
       .data(condensedOptions).enter()
       .append('option')
       .text(d => d);
+
+  sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
   sel
     .append("optgroup").attr("label", "All Categories")
@@ -514,17 +522,36 @@ function createGraph(data) {
   }
 }
 
+/*
+function getTop10Categories(allCategories) {
+  var sortable = [];
+  for (var c in allCategories) {
+      sortable.push([c, allCategories[c]]);
+  }
+
+  sortable.sort(function(a, b) {
+      return a[1] - b[1];
+  });
+
+  console.log(sortable);
+
+  return sortable.slice(0, 10);
+}
+*/
+
 d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   if (error) throw error;
 
-  let optionsData = [];
+  let optionsData = [ ];
 
-  optionsDict = {};
+  optionsDict = { };
 
   let lastDate = data[data.length - 1].date;
   let totalDailySpending = 0;
 
   let yearToSpending = {};
+  let categoryToSpendingPrevFY = {};
+  let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
 
   data.forEach(function(d) {
     //d.date = parseDate(d.date);
@@ -533,13 +560,23 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
     d.fytd = +d.fytd * 100000;
 
     let spendingYear = d.date.getFullYear();
-    if (yearToSpending.hasOwnProperty(spendingYear)) {
-      yearToSpending[spendingYear] += d.today;
-    } else {
-      yearToSpending[spendingYear] = 0;
+
+    yearToSpending[spendingYear] = (yearToSpending[spendingYear] || 0) + d.today;
+
+    let currentYear = new Date().getFullYear();
+    let prevFYStart = new Date("10/01/" + (currentYear - 2)).getTime();
+    let prevFYEnd = new Date("09/30/" + (currentYear - 1)).getTime();
+    let dDate = d.date.getTime();
+
+    if (dDate >= prevFYStart && dDate <= prevFYEnd) {
+      categoryToSpendingPrevFY[d.item_raw] = (categoryToSpendingPrevFY[d.item_raw] || 0) + d.today;
     }
 
-    if (d.date.getTime() == lastDate.getTime()) {
+    allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
+    allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
+    allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
+
+    if (dDate == lastDate.getTime()) {
       totalDailySpending += d.today;
     }
 
@@ -562,10 +599,20 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
     return { year: k, spending: yearToSpending[k] }
   });
 
-  var uniqData = [...new Set(optionsData)];
+  function transposeKVToArray(frequency) {
+    return Object.keys(allToSpending[frequency]).map(k => ({ date: new Date(k), value: allToSpending[frequency][k] }));
+  }
 
-  allOptions = uniqData;
-  condensedOptions = uniqData.slice(0, 10);
+  allToSpending["today"] = transposeKVToArray("today");
+  allToSpending["mtd"] = transposeKVToArray("mtd");
+  allToSpending["fytd"] = transposeKVToArray("fytd");
+
+  optionsDict["All Categories"] = allToSpending;
+
+  allOptions = [...new Set(optionsData)];
+  allOptions.sort();
+
+  condensedOptions = Object.keys(categoryToSpendingPrevFY).sort((a,b) => categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a]).slice(0, 10);
 
   createSelect();
 
@@ -573,7 +620,7 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
-  createGraph(optionsDict["Medicaid"].today);
+  createGraph(optionsDict["All Categories"].today);
 
   d3.select(".viz-tsbfy-bar-view").on("click", function() {
     createBarChart(yearToSpendingArray);
