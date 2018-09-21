@@ -119,8 +119,10 @@ function addDetails(state) {
     textElements
         .attr('style', 'cursor:pointer')
         .on('click', function (d, i) {
-            const n = (state) ? i + 3 : i,
+            const n = (state === 'in') ? i + 3 : i,
                 rect = shaders.filter(function (d, j) { return j === n }).node();
+
+            console.log(n, state)
 
             setTourStep2();
             showDetail.bind(rect)(d);
