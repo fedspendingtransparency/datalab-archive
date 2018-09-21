@@ -68,31 +68,36 @@ function buildHeader() {
 }
 
 function buildLegend() {
-    const g = svg.append('g')
-        .attr('opacity', 0)
-        .classed('reset', true)
-        .classed('income-dot-legend', true);
+    const g = d3.select('.income-dot-legend'),
+        duration = 2000,
+        w = 126,
+        xOffset = dotsWidth - w + ((1200 - dotsWidth) / 2);
 
-    let w, xOffset;
+    g.transition()
+        .duration(duration)
+        .attr('transform', translator(xOffset, 35));
 
-    dotFactory(g, 0, 0);
+    g.select('circle')
+        .attr('opacity', 1)
+        .transition()
+        .duration(duration)
+        .attr('r', 3)
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .ease()
 
     g.append('text')
         .text('= 1 Billion Dollars')
         .attr('fill', colors.textColorParagraph)
+        .attr('opacity', 0)
         .style('font-size', 16)
-        .attr('y', 6)
+        .attr('y', 5)
         .attr('x', 7)
-
-    w = getElementBox(g).width;
-
-    xOffset = dotsWidth - w + ((1200 - dotsWidth) / 2);
-
-    g.attr('transform', translator(xOffset, 35))
-
-    g.transition()
-        .duration(400)
+        .transition()
+        .delay(duration * 0.7)
+        .duration(duration / 2)
         .attr('opacity', 1)
+        .ease();
 }
 
 function setDotContainer() {
@@ -122,9 +127,9 @@ function addContinueButton() {
     button.on('click', function () {
         factBox.classed('fact-box--out-down', true);
 
-        setTimeout(function(){
+        setTimeout(function () {
             factBox.remove();
-        },500)
+        }, 500)
 
         initGdpDots();
     });
@@ -132,14 +137,16 @@ function addContinueButton() {
 
 export function enterIncomeDots() {
     incomeContainer.transition()
+        .delay(1000)
         .duration(700)
         .attr('opacity', 1)
         .attr('transform', 'translate(0,0), scale(1)')
         .on('end', function () {
             buildHeader();
-            buildLegend();
         })
         .ease();
+
+    buildLegend();
 
     setTimeout(enableFactBox, 2000);
 }

@@ -9,6 +9,7 @@ import colors from '../../colors.scss';
 const d3 = { select, selectAll },
     svg = establishContainer(),
     largeDot = svg.append('g')
+        .classed('income-dot-legend', true)        
         .attr('transform', translator(600 - 182, 40)),
     radius = 75;
 
@@ -22,20 +23,7 @@ function phaseTwo() {
         })
         .ease();
 
-    largeDot.select('circle')
-        .attr('opacity', 1)
-        .transition()
-        .delay(300)
-        .duration(2000)
-        .attr('opacity', 0)
-        .attr('transform', translator(-100, 0))
-        .attr('r', 2)
-        .on('end', function () {
-            d3.select(this).remove();
-        })
-        .ease()
-
-    setTimeout(enterIncomeDots, 1200)
+    enterIncomeDots();
 }
 
 function addText() {
