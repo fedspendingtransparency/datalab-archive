@@ -19,19 +19,21 @@ chapter: income
 
 <section id="gdp-facts" class="sr-only fact-box fact-box--out-left">
     
+    <div id="donut-row">
+        <div id="donut-placeholder"></div>
+        <div id="donut-row-text">
+            <h1>In *Fiscal Year* 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
+            <p>The government collected the equivalent of 17% of GDP.</p>
+        </div>
+    </div>
+    <hr />
+
     <h1>What's GDP?</h1>
 
     **Gross Domestic Product (GDP)** measures the size of the nation’s economy in terms of the total value of goods and services that are produced in a year. Measuring the money collected by the government relative to GDP is a helpful indicator of the economy’s capacity to sustain the programs the government provides for the people and the government’s success in helping the economy grow.
     
     <hr />
 
-    <div id="donut-row">
-        <div id="donut-placeholder"></div>
-        <div>
-            <p>In *Fiscal Year* 2017, the total GDP of the U.S. was $19.5 trillion. The government collected the equivalent of 17% of GDP.</p>
-        </div>
-    </div>
-    <hr />
     <p>Let's explore the various income categories that make up Federal Government Revenue.</p>
     <p><em>How Does Government Income Break Down?</em></p>
 
