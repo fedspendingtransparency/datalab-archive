@@ -235,6 +235,7 @@ $green: #50604f;
 
   padding-left: 5%;
   padding-right: 5%;
+  text-align: center;
 
   .panel {
 
@@ -249,6 +250,7 @@ $green: #50604f;
       top: 50%;
       position: relative;
       width: 30%;
+      left: -45%;
       color: #D04C02;
       display: inline-block;
     }
@@ -269,10 +271,45 @@ $green: #50604f;
     display: inline-block;
     text-align: center;
     margin:auto;
-    width: 50%;
+    width: 59%;
+    position: relative;
+
+    .categoriesParent{
+      width:210px;
+      margin: 0px;
+      display: inline-block;
+    }
+
+    .chv {
+      position: absolute;
+      top:50%;
+      font-size: 32px;
+      opacity: 0.5;
+    }
+
+    .left {
+      left: 5px;
+    }
+
+    .right {
+      right: 5px;
+    }
+
 
     svg {
       text-align: center;
+    }
+
+    .catDollarClass {
+      font-size: 18px;
+      fill: black;
+    }
+
+    .catPercentageClass {
+      font-size: 23px;
+      fill: $orange;
+      font-weight: 100;
+      padding-left: 30px;
     }
 
      path.slice{
