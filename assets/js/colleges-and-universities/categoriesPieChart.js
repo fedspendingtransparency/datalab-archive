@@ -188,7 +188,11 @@ if (clickable) {
         })
         .attr("class", d => {
             return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
+        })
+        .attr("x", d => {
+            return (d.label === "" ? '20' : '55');
         });
+
    };
 
    let title = document.createElement('p');
