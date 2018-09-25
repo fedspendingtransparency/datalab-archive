@@ -6,6 +6,12 @@
 const bubbleColor = '#C3DBB5';
 const bubbleChartContainer = document.getElementById('bubbleChartContainer');
 
+/*
+  --------------------------------------------------------------------------------------------------------------------
+*   functions
+*--------------------------------------------------------------------------------------------------------------------
+*/
+
 //takes bubble nodes information and sets radius between 10 and 60
 //based on percentage of total spending
 const addRadius = (nodes) => {
