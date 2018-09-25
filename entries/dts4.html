@@ -78,6 +78,10 @@ const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
 var allOptions, condensedOptions;
 
+function getQueryStringValue(key) {  
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+}
+
 function createBarChart(yearToSpendingArray) {
   d3.select(".svg-tsbfy-container").selectAll("*").remove();
 
@@ -244,6 +248,9 @@ var firstTime = true;
 var lastPeriodContext;
 
 function createGraph(data) {
+  let startDate = getQueryStringValue("start");
+  let endDate = getQueryStringValue("end");
+
   var allSvgChildren = d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)"); // ignore the-axes
 
   allSvgChildren.remove();
@@ -430,7 +437,13 @@ function createGraph(data) {
           .endAngle(function(d, i) { return i ? Math.PI : -Math.PI; }));
 
   d3.select(".brush").call(brush.move, null);
-  d3.select(".brush").call(brush.move, [0, width]);
+
+  if (startDate == "" || endDate == "") { // change this to not a valid date range instead
+    d3.select(".brush").call(brush.move, [0, width]);
+    console.log('aa');
+  } else {
+    d3.select(".brush").call(brush.move, [x(new Date(+startDate)), x(new Date(+endDate))]);
+  }
 
   var mouseOverDataPoint = svg.append("g")
     .attr("class", "mouse-over-data-point")
@@ -661,6 +674,8 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   createSelect();
 
+  modifyVizToMatchQueryParams(allOptions);
+
   d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
@@ -677,6 +692,24 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   createBarChart(yearToSpendingArray);
 });
+
+function modifyVizToMatchQueryParams(allOptions) {
+  let frequency = getQueryStringValue('frequency');
+  let category = getQueryStringValue('category');
+
+  let possibleFrequencies = [ "today", "mtd", "fytd" ]
+
+  if (!possibleFrequencies.includes(frequency)) {
+    frequency = "today";
+  }
+
+  if (!allOptions.includes(category)) {
+    category = "All Categories";
+  }
+
+  d3.select('#select-timeframe').property('value', frequency);
+  d3.select('#item-selector').property('value', category);
+}
 
 function type(d) {
   d.date = parseDate(d.date);
