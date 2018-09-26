@@ -247,6 +247,14 @@ var optionsDict;
 var firstTime = true;
 var lastPeriodContext;
 
+function parseYYYYMMDD(dateString) {
+  var year        = dateString.substring(0, 4);
+  var month       = dateString.substring(4, 6);
+  var day         = dateString.substring(6, 8);
+
+  return new Date(year, month - 1, day);
+}
+
 function createGraph(data) {
   let startDate = getQueryStringValue("start");
   let endDate = getQueryStringValue("end");
@@ -440,9 +448,8 @@ function createGraph(data) {
 
   if (startDate == "" || endDate == "") { // change this to not a valid date range instead
     d3.select(".brush").call(brush.move, [0, width]);
-    console.log('aa');
   } else {
-    d3.select(".brush").call(brush.move, [x(new Date(+startDate)), x(new Date(+endDate))]);
+    d3.select(".brush").call(brush.move, [x(parseYYYYMMDD(startDate)), x(parseYYYYMMDD(endDate))]);
   }
 
   var mouseOverDataPoint = svg.append("g")
@@ -496,10 +503,12 @@ function createGraph(data) {
   }
 
   function updateHistoryWithNewBrush(s) {
-    let start = x2.invert(s[0]).getTime();
-    let end = x2.invert(s[1]).getTime();
+    let start = x2.invert(s[0]).toISOString().slice(0,10).replace(/-/g,"");
+    let end = x2.invert(s[1]).toISOString().slice(0,10).replace(/-/g,"");
     let frequency = d3.select('#select-timeframe').property('value');
     let category = d3.select('#item-selector').property('value');
+
+    console.log(start);
 
     let theQueryString = "?" + serialize({
       start: start,
