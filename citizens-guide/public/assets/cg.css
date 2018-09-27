@@ -1,70 +1,57 @@
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #666;
-}
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #666; }
 
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+  max-width: 1200px;
+  margin: 0 auto; }
 
 h1 {
-    font-weight: normal;
-    text-align: center;
-    font-size: 40px;
-    color: #555;
-}
+  font-weight: normal;
+  text-align: center;
+  font-size: 40px;
+  color: #555; }
 
 h2 {
-    text-align: left;
-    margin-bottom: 0;
-    color: #555;
-}
+  text-align: left;
+  margin-bottom: 0;
+  color: #555; }
 
 blockquote {
-    font-size: 1.2rem;
-    text-align: center;
-    font-style: italic;
-}
+  font-size: 1.2rem;
+  text-align: center;
+  font-style: italic; }
 
 .hint {
-    font-size: 0.8rem;
-    color: #aaa;
-}
+  font-size: 0.8rem;
+  color: #aaa; }
 
 .strong {
-    font-weight: bold;
-}
+  font-weight: bold; }
 
 .pointer {
-    cursor: pointer;
-}
+  cursor: pointer; }
 
 #lead-in {
-    text-align: center;
-    max-width: 800px;
-    margin: 1rem auto;
-}
+  text-align: center;
+  max-width: 800px;
+  margin: 1rem auto; }
 
 #viz {
-    max-width: 1200px;
-    margin: 2rem auto;
-}
+  max-width: 1200px;
+  margin: 2rem auto; }
 
 .sr-only {
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    clip: rect(1px,1px,1px,1px);
-    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-    overflow: hidden !important;
-}
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  overflow: hidden !important; }
 
 @media only screen and (min-width: 1200px) {
-    h2, .hint {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+  h2, .hint {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; } }

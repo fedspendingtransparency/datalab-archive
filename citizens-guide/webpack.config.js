@@ -87,4 +87,34 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
+},{
+    entry: ['./src/globalSass/cg.scss'],
+    output: {
+		path: path.resolve(__dirname, 'public/assets'),
+	},
+    mode: 'development',
+    module: {
+		rules: [
+			{
+				test: /\.scss$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].css',
+						}
+					},
+					{
+						loader: 'extract-loader'
+					},
+					{
+						loader: 'css-loader?-url'
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
+			}
+		]
+	}
 }]
