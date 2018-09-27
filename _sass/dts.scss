@@ -26,6 +26,16 @@
   shape-rendering: crispEdges;
 }
 
+.axis text {
+  font-family: "Source Sans Pro";
+  fill: #494949;
+  font-size: 14px;
+}
+
+.bar-axis text {
+  font-size: 36px;
+}
+
 .grid path {
   stroke-width: 0;
 }
@@ -283,6 +293,7 @@
   width: 75%;
   font-size: 16px;
   line-height: 20px;
+  color: #00c3c2;
 }
 
 .dts-tt-date {

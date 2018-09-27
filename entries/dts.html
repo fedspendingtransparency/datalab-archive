@@ -110,15 +110,13 @@ function createBarChart(yearToSpendingArray) {
   y.domain([0, d3.max(data, function(d) { return d.spending; })]);
 
   g.append("g")
-      .attr("class", "axis axis--x")
+      .attr("class", "axis bar-axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).tickFormat(d => "" + d.substring(2)))
-      .attr("font-size", "36");
+      .call(d3.axisBottom(x).tickFormat(d => "" + d.substring(2)));
 
   g.append("g")
-      .attr("class", "axis axis--y")
+      .attr("class", "axis bar-axis axis--y")
       .call(d3.axisLeft(y).tickFormat(dollarFormatter))
-      .attr("font-size", "36")
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
