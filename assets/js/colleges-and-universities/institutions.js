@@ -16,12 +16,12 @@ const mapContainer = document.getElementById('collegesMap');
 purporse : draws map and appends to given container
 */
 const drawMap = (container) => {
-    var width = 960,
-    height = 500,
+    var width = 1920,
+    height = 1000,
     centered;
 
 var projection = d3.geo.albersUsa()
-    .scale(1070)
+    .scale(1500)
     .translate([width / 2, height / 2]);
 
 var path = d3.geo.path()
