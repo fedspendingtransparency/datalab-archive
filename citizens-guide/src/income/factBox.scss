@@ -1,0 +1,43 @@
+.fact-box {
+    border-radius: 8px;
+    padding: 2rem;
+    border: #ccc;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    opacity: 1;
+    display: block;
+    transform: translate(0,0);
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+
+    hr {
+        color: #f0f0f0;
+        background: #f0f0f0;
+        border: 0;
+        height: 1px;
+        margin: 1rem 0;
+    }
+
+    h1 {
+        font-size: 18px;
+        text-align: left;
+        font-weight: bold;
+        margin-top: 0;
+    }
+}
+
+.fact-box--out-left {
+    opacity: 0;
+    transform: translate(-30px);
+    margin-top: -400px;
+}
+
+.fact-box--out-right {
+    opacity: 0;
+    transform: translate(30px);
+    margin-top: -400px;
+}
+
+.fact-box--out-down {
+    opacity: 0;
+    transform: translate(0,10px);
+    margin-top: -400px;
+}

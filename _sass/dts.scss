@@ -5,7 +5,7 @@
 
 .line {
   fill: none;
-  stroke: steelblue;
+  stroke: #00c3c2;
   stroke-width: 1.5px;
 }
 
@@ -17,8 +17,7 @@
 
 #svg-wrapper {
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
+  margin-right: 50px;
 }
 
 .grid line {
@@ -33,101 +32,296 @@
 
 .mouse-over-data-point circle {
   fill: orange;
-  stroke: orange;
+  stroke: white;
 }
 
 .text-container {
+  display: none;
   position: absolute;
-  width: 300px;
-  padding: 5px;
+  min-width: 150px;
+  padding: 7px;
   background: rgb(255, 255, 255);
   color: rgb(51, 51, 51);
   border: 1px solid #D9D9D9;
   pointer-events: none;
   box-sizing: border-box;
-  text-align: center;
+  text-align: left;
   box-shadow: 0px 1px 5px 0px #DDD;
   border-radius: 1px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.text-container .amount {
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  color: #9b9b9b;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.header-subtitle {
+  color: #000000;
+  font-size: 36px;
+}
+
+.header-line-break {    
+    border-bottom: 1px solid #c1c1c1;
+    display: block;
+    width: 70%;
+    margin: 15px 0 5px 0;
+}
+
+.header-updated-when {
+  color: #9b9b9b;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.dts-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 25px;
+  margin: 0 auto;
+}
+
+.daily-spending-container {
+  margin-right: 50px;
+}
+
+.daily-spending-amount {
+  font-size: 58px;
+  line-height: 48px;
+}
+
+.daily-spending-subtext {
+  text-transform: uppercase;
+  color: #000;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 28px;
+}
+
+.bar {
+  fill: #00c3c2;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.viz-tsbfy-container {
+  width: 300px;
+}
+
+#viz-tsbfy-wrapper {
+  width: 300px;
+  height: 156px;
+}
+
+.viz-tsbfy-header {
+  display: flex;
+  margin: 240px 0px 20px 0px;
+  justify-content: space-around;
+}
+
+.viz-tsbfy-header-text {
+  font-size: 20px;
+}
+
+.viz-tsbfy-header-view-buttons {
+  display: flex;
+}
+
+.viz-tsbfy-bar-view, .viz-tsbfy-table-view {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  text-align: center;
+  color: #333;
+  margin: 0 10px;
+  padding-left: 2px;
+}
+
+.period-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.period-button-container {
+  display: flex;
+}
+
+.period-button-header {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.period-container .period-button {
+  border: 1px solid #ccc;
+  border-right: none;
+  font-size: 16px;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.period-button:hover {
+  background-color: #00c3c2;
+  color: white;
+}
+
+.period-button-selected {
+  background-color: #00c3c2;
   font-weight: 600;
+  color: white;
+}
+
+.period-button:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.period-button:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: 1px solid #ccc;
+}
+
+.dts-viz-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tsbfy-table {
+  padding: 0.75em 0.75em;
+  width: 300px;
+  text-align: left;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+}
+
+.tsbfy-table, .tsbfy-table th, .tsbfy-table td {
+  border-bottom: 1px solid #ccc;
+}
+
+.tsbfy-table th {
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.tsbfy-table td {
+  padding: 0 5px;
+  line-height: 18px;  
+  font-size: 12px;
+  color: #666;
+}
+
+.tsbfy-table td:last-child {
+  text-align: right;
+}
+
+.custom-select::-ms-expand {
+  display: none;
+}
+
+.custom-select {
+  padding: 5px 30px 5px 15px;
+  border-radius: 25px;
+  position: relative;
+  color: white;
+  background-color: #00c3c2;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+  text-align-last: center;
+  margin: 0 auto;
+  cursor: pointer;
+
+  background-image: linear-gradient(45deg, #908d8d 50%, #ffffff 50%), linear-gradient(135deg, white 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em), calc(100% - 15px) calc(1em), calc(100% - .5em) .5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+.custom-select:focus {
+  outline: none;
+}
+
+.frequency-container, .category-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.frequency-container {
+  margin-right: 50px;
+}
+
+.select-timeframe-label, .category-select-label {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.dts-tt-category {
+  text-transform: none;
+  letter-spacing: 0.25px;
+  width: 75%;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.dts-tt-date {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.dts-tt-amount {
+  font-weight: 600;
+  line-height: 25px;
   font-size: 18px;
 }
 
-.text-container .timeframe {
+.dts-tt-hr-separator {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding-top: 2px;
+  margin-bottom: 2px;
+}
+
+.dts-tt-mtd, .dts-tt-fytd {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
 }
 
-/* The container */
-.radio-container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin-right: 15px;
+.dts-tt-timeframe-label {
+  font-weight: 200;
+  color: #999;
 }
 
-/* Hide the browser's default radio button */
-.radio-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+.dts-tt-mtd {
+  line-height: 22px;
+  margin-bottom: 5px;
 }
 
-/* Create a custom radio button */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin-top: 3px;
-}
-
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.radio-container input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radio-container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.radio-container .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
-}
-
-.radio-timeframe {
-  display: flex;
-  margin-right: 50px;
+.dts-tt-fytd {
+  line-height: 5px;
+  margin-bottom: 4px;
 }
 
 .label-popular {
@@ -135,7 +329,11 @@
 }
 
 #item-selector {
-  width: 450px;
+  width: 100%;
+  font-size: 16px;
+  height: 45px;
+
+  background-position: calc(100% - 20px) calc(1em + 5px), calc(100% - 15px) calc(1em + 5px), calc(100% - .5em) .5em;
 }
 
 #checkbox-popular {

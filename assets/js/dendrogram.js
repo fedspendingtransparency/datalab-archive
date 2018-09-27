@@ -1,7 +1,10 @@
 ---
 ---
 
-d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) => {
+function CreateDendro(newData){
+
+    // console.log("before: ",newData);
+
     newData.forEach((d) => {
         d.Obligation = +d.Obligation;
         d.Unobligated = +d.Unobligated;
@@ -33,6 +36,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
         .attr('width', viewerWidth)
         .attr('height', viewerHeight)
         .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
+        .attr('id', 'svg-dendrogram')
         .attr('class', 'overlay')
         .call(zoomListener);
 
@@ -59,7 +63,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
             // This is a leaf, so add the last element to the specified branch
             if (depth === levels.length - 1) {
                 depthCursor.push({
-                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.federal_account_id
+                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.federal_account_id, date: d.reporting_period_end
                 });
             }
         });
@@ -74,6 +78,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
             .attr('transform', `translate(${x},${y})scale(${scale})`);
         zoomListener.scale(scale);
         zoomListener.translate([x, y]);
+        resetToCenter();
     }
 
     let tree = d3.layout.tree()
@@ -182,6 +187,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
         }
 
         function handleMouseOver(d) {
+            console.log('d: ',d);
             if (d.depth === 3) {
                 window.tooltipModule.draw("#tooltip", d.name, {
                     "Total Obligations": formatNumber(d.size),
@@ -449,6 +455,8 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
             category: 'Federal Account Explorer - Click Node',
             action: d.name
         });
+
+        resetToCenter();
     }
 
     root.x0 = viewerHeight / 2;
@@ -459,4 +467,81 @@ d3.csv('/data-lab-data/accounts_obligations_link_update.csv', (error, newData) =
     toggle(root);
     update(root);
     centerRootNode(root);
+
+    function resetToCenter() {
+        var theSvg = document.getElementById("svg-dendrogram");
+
+        theSvg.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: true, clientX: 1, clientY: 1, view: window }));
+        theSvg.dispatchEvent(new MouseEvent("mousemove", { bubbles: true, cancelable: true, clientX: 2, clientY: 2, view: window }));
+        theSvg.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, cancelable: true, clientX: 2, clientY: 2, view: window }));
+    }
+}
+
+d3.csv('/data-lab-data/accounts_obligations_link_update_v2.csv', (dendroData) =>{
+
+    CreateDendro(dendroData.filter((d) => d.reporting_period_end === '2018-06-30'));
+
+    $(document).ready(() => {
+        let data = [];
+        $("input[type='radio']").change(() => {
+            const FiscalYear = $('input[name="FiscalYear"]:checked').val();
+        // console.log('Fiscal Year: ',FiscalYear);
+            if (FiscalYear === 'fy17') {
+                // console.log('2017 selected')
+                d3.selectAll('#svg-dendrogram').remove();
+                const Quarter = $('input[name="Quarter"]:checked').val();
+                if (Quarter == '12-31'){
+                    const viewerWidth = document.body.clientWidth;
+                    const viewerHeight = 300;
+                    d3.select('#tree-container').append('html')
+                        .attr('width', viewerWidth)
+                        .attr('height', viewerHeight)
+                        .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
+                        .attr('id', 'svg-dendrogram')
+                        .attr('class', 'overlay')
+                        .html("<h1>Sorry, our current schema didn't exist for FY17 Q1</h1>");
+                }else if (Quarter == '03-31'){
+                    // console.log('FY17 Q2 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-03-31');
+                    CreateDendro(data);
+                }else if (Quarter == '06-30'){
+                    // console.log('FY17 Q3 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-06-30');
+                    CreateDendro(data);
+                }else {
+                    // console.log('FY17 Q4 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-09-30');
+                    CreateDendro(data);
+                }
+            }else if (FiscalYear === 'fy18'){
+                // console.log('2018 selected')
+                d3.selectAll('#svg-dendrogram').remove();
+                const Quarter = $('input[name="Quarter"]:checked').val();
+                if (Quarter == '12-31'){
+                    // console.log('FY18 Q1 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2017-12-31');
+                    CreateDendro(data);
+                }else if (Quarter == '03-31'){
+                    // console.log('FY18 Q2 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2018-03-31');
+                    CreateDendro(data);
+                }else if (Quarter == '06-30'){
+                    // console.log('FY18 Q3 selected')
+                    data = dendroData.filter((d) => d.reporting_period_end == '2018-06-30');
+                    CreateDendro(data);
+                }else {
+                    const viewerWidth = document.body.clientWidth;
+                    const viewerHeight = 300;
+                    d3.select('#tree-container').append('html')
+                        .attr('width', viewerWidth)
+                        .attr('height', viewerHeight)
+                        .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
+                        .attr('id', 'svg-dendrogram')
+                        .attr('class', 'overlay')
+                        .html('<h1>Sorry, the data for FY18 Q4 has not been submitted yet.</h1>');
+                }             
+            }
+        })
+    });
 });
+

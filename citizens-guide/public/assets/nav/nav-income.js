@@ -4,12 +4,7 @@
     }
 
     function setCurrentPageActive() {
-        var filename = getFilename(window.location.pathname),
-            search = window.location.search;
-
-        if (search) {
-            filename = filename + search;
-        }
+        var filename = getFilename(window.location.pathname);
 
         var ul = document.getElementsByClassName('site-nav__primary-list'),
             allSecondaryLi = ul.item(0).children,
@@ -21,7 +16,7 @@
             var current = allSecondaryLi.item(i),
                 href = getFilename(current.firstChild.href);
 
-            if (href === filename) {
+            if (filename === href) {
                 current.classList.add('active');
                 break;
             }

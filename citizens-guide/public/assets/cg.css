@@ -3,6 +3,11 @@ body {
     color: #666;
 }
 
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 h1 {
     font-weight: normal;
     text-align: center;
@@ -14,6 +19,12 @@ h2 {
     text-align: left;
     margin-bottom: 0;
     color: #555;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    text-align: center;
+    font-style: italic;
 }
 
 .hint {
@@ -36,7 +47,7 @@ h2 {
 }
 
 #viz {
-    width: 1200px;
+    max-width: 1200px;
     margin: 2rem auto;
 }
 

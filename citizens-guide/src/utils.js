@@ -1,6 +1,6 @@
-import { select } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 
-const d3 = { select };
+const d3 = { select, selectAll };
 
 export function getElementBox(d3Selection) {
     const rect = d3Selection.node().getBoundingClientRect();
@@ -29,23 +29,22 @@ export function getTransform(d3Selection) {
 
 export function establishContainer(height) {
     const viz = d3.select('#viz');
-    viz.attr('translate',() => {
-     return translator(500,0)
-    });
 
     let svg = viz.select('svg.main');
 
-    height = height || 400;
-
     if (svg.size() === 0) {
+        height = height || 400;
+
         return viz.append('svg')
             .classed('main', true)
             .attr('shape-rendering', 'geometricPrecision')
             .attr('height', height)
             .attr('width', '1200px');
-    } else {
-        return svg;
+    } else if (height) {
+        svg.attr('height', height);
     }
+    
+    return svg;
 }
 
 export function simplifyBillions(n) {
@@ -129,4 +128,8 @@ export function fractionToPercent(n, precision) {
 
     // TODO: handle precision
     console.warn('need to handle precision')
+}
+
+export function stripBr() {
+    d3.selectAll('br').remove();
 }
