@@ -1,9 +1,19 @@
 /*
-Local declarations
+  --------------------------------------------------------------------------------------------------------------------
+*   Local declarations
+*--------------------------------------------------------------------------------------------------------------------
 */
 const bubbleColor = '#C3DBB5';
 const bubbleChartContainer = document.getElementById('bubbleChartContainer');
-//takes node and sets radius between 10 and 60
+
+/*
+  --------------------------------------------------------------------------------------------------------------------
+*   functions
+*--------------------------------------------------------------------------------------------------------------------
+*/
+
+//takes bubble nodes information and sets radius between 10 and 60
+//based on percentage of total spending
 const addRadius = (nodes) => {
 
     //total obligation
@@ -23,6 +33,10 @@ const addRadius = (nodes) => {
     return nodes;
 };
 
+/*
+purporse : this method is passed a div container and will append
+a bubble chart tot he given container
+*/
 const drawChart = (container, data) => {
    
     var width = 960, height = 500;
@@ -70,7 +84,6 @@ force.on("tick", function(e) {
       .attr("cy", function(d) { return d.y; });
 });
 
-/////
 
 svg.on("click", function() {
   var p1 = d3.mouse(this);
@@ -114,12 +127,11 @@ function tick() {
 
 }
 
-
-
-/* 
-Main function
+/*
+--------------------------------------------------------------------------------------------------------------------
+*   Main Method
+*--------------------------------------------------------------------------------------------------------------------
 */
-
 d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to data files
 
     var agenciesData = data.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
