@@ -64,7 +64,8 @@ module.exports = [{
     },
 },{
     entry: {
-        countryComparison: './src/spending/countries/index.js'
+        countryComparison: './src/spending/countries/index.js',
+        categories: './src/spending/categories/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
