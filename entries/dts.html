@@ -18,31 +18,35 @@ category: nonentry
 </div>
 
 <div class="dts-header">
-  <div class="daily-spending-container">
-    <div class="daily-spending-subtext">Total Amount Spent</div>
-    <div class="daily-spending-amount">$0</div>
-  </div>
-  <div class="period-container">
-    <div class="period-button-header">Chart Range</div>
-    <div class="period-button-container">
-      <div class="period-button" data-range="30d">30D</div>
-      <div class="period-button" data-range="90d">90D</div>
-      <div class="period-button" data-range="1y">1Y</div>
-      <div class="period-button" data-range="5y">5Y</div>
-      <div class="period-button" data-range="10y">10Y</div>
+  <div class="dts-left-column">
+    <div class="daily-spending-container">
+      <div class="daily-spending-subtext">Total Amount Spent</div>
+      <div class="daily-spending-amount">$0</div>
+    </div>
+    <div class="period-container">
+      <div class="period-button-header">Chart Range</div>
+      <div class="period-button-container">
+        <div class="period-button" data-range="30d">30D</div>
+        <div class="period-button" data-range="90d">90D</div>
+        <div class="period-button" data-range="1y">1Y</div>
+        <div class="period-button" data-range="5y">5Y</div>
+        <div class="period-button" data-range="10y">10Y</div>
+      </div>
     </div>
   </div>
-  <div class="frequency-container">
-      <div class="select-timeframe-label">Frequency</div>
-      <select id="select-timeframe" class="custom-select">
-        <option value="today">DAILY</option>
-        <option value="mtd">MTD</option>
-        <option value="fytd">FYTD</option>
-      </select>
-  </div>
-  <div class="category-container">
-    <div class="category-select-label">Categories</div>
-    <select class="custom-select custom-select-start" id="item-selector"></select>
+  <div class="dts-right-column">
+    <div class="frequency-container">
+        <div class="select-timeframe-label">Frequency</div>
+        <select id="select-timeframe" class="custom-select">
+          <option value="today">DAILY</option>
+          <option value="mtd">MTD</option>
+          <option value="fytd">FYTD</option>
+        </select>
+    </div>
+    <div class="category-container">
+      <div class="category-select-label">Categories</div>
+      <select class="custom-select custom-select-start" id="item-selector"></select>
+    </div>
   </div>
 </div>
 
@@ -86,8 +90,6 @@ function getQueryStringValue(key) {
 
 function createBarChart(yearToSpendingArray) {
   d3.select(".svg-tsbfy-container").selectAll("*").remove();
-
-  d3.select(".viz-tsbfy-header").style("margin-top", "115px");
 
   let data = yearToSpendingArray.slice(-10);
 
@@ -136,8 +138,6 @@ function createBarChart(yearToSpendingArray) {
 
 function createTable(yearToSpendingArray) {
   d3.select(".svg-tsbfy-container").selectAll("*").remove();
-
-  d3.select(".viz-tsbfy-header").style("margin-top", "50px");
 
   let table = d3.select(".svg-tsbfy-container").append('table').attr("class", "tsbfy-table");
   let tbody = table.append('tbody');
