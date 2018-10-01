@@ -71,8 +71,10 @@ export function prepareData(_config) {
     return setData();
 }
 
-export function setData(sortField) {
-    setSort(sortField);
+export function setData(sortField, countriesUpdated) {
+    if (!countriesUpdated) {
+        setSort(sortField);
+    }
 
     return selectedCountries.list.map(c => {
         if (masterData.indexed[c]) {

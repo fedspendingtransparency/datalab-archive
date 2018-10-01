@@ -302,12 +302,12 @@ function rescale() {
     return true;
 }
 
-export function refreshData(sortField) {
+export function refreshData(sortField, countriesUpdated) {
     const action = selectedCountries.lastUpdate.action;
 
     let duration = addRemoveDuration;
 
-    data = setData(sortField);
+    data = setData(sortField, countriesUpdated);
     dimensions.totalHeight = dimensions.rowHeight * data.length;
 
     if (action === 'add') {

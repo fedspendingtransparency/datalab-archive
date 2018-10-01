@@ -154,7 +154,7 @@ function onListUpdated() {
     input.node().value = null;
     listselectedCountries();
     listAvailableCountries();
-    refreshData();
+    refreshData(null, true);
 }
 
 export function selectCountryInit() {
