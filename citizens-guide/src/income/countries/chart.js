@@ -18,7 +18,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         chartWidth: 800,
         rowHeight: 72,
         barHeight: 22,
-        countryColumnWidth: 200,
+        countryColumnWidth: 210,
         gdpColumnWidth: 140,
         header: 50,
         barYOffset: 3
