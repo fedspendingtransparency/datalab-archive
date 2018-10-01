@@ -42,7 +42,7 @@ function initFactBox() {
     boxGroup.append('text')
         .text(`What's GDP?`)
         .attr('font-size', 20)
-        .attr('font-weight', 'bold')
+        .attr('font-weight', '600')
         .attr('x', 20)
         .attr('y', 100);
 
@@ -67,7 +67,7 @@ function text1() {
     text.append('tspan')
         .text(gdp)
         .attr('x', 20)
-        .attr('font-weight', 'bold');
+        .attr('font-weight', '600');
 
     text.append('tspan')
         .text(' ' + continuing1);
@@ -98,7 +98,7 @@ function text2(y) {
         .attr('y', y + 10)
         .attr('x', 120)
         .attr('font-size', 18)
-        .attr('font-weight', 'bold');
+        .attr('font-weight', '600');
 
     t = boxGroup.append('text')
         .attr('y', y + 50)
@@ -126,7 +126,7 @@ function text3(y) {
 
     t.append('tspan')
         .text('categories')
-        .attr('font-weight', 'bold')
+        .attr('font-weight', '600')
 
     t.append('tspan')
         .attr('dy', 20)
@@ -134,7 +134,7 @@ function text3(y) {
         .text('that make up ')
 
     t.append('tspan')
-        .attr('font-weight', 'bold')
+        .attr('font-weight', '600')
         .text('Federal Government Revenue')
 
 

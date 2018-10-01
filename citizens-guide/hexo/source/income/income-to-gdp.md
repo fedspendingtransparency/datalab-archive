@@ -10,12 +10,20 @@ chapter: income
 
 <div id="viz"></div>
 
-<section id="income-facts" class="sr-only fact-box fact-box--out-down">
-    <p>Each dot in the chart represents $1 billion. Each dot represents contributions to the government made by you, your family, your neighbors, your place of business, and the various corporations you deal with every day.</p>
-    <p>For context, $3.3 trillion divided by the U.S. population in 2017 (326.4 million U.S. Census Bureau*), is equivalent to a little more than $10,000 for every individual.</p>
-    <p><em>How Does Government Income Relate to Our Economy?</em></p>
-    <div id="continue-1"></div>
-</section>
+<div class="copy-tour-row initial-hide">
+    <section id="income-facts" class="copy-tour-row__copy">
+        <p>Each dot in the chart represents $1 billion. Each dot represents contributions to the government made by you, your family, your neighbors, your place of business, and the various corporations you deal with every day.</p>
+        <p>For context, $3.3 trillion divided by the U.S. population in 2017 (326.4 million U.S. Census Bureau*), is equivalent to a little more than $10,000 for every individual.</p>
+        <p><em>How Does Government Income Relate to Our Economy?</em></p>
+    </section>
+    <div class="copy-tour-row__tour">
+        <section class="tour">
+            <h1>How does the amount of federal income compare to the size of the economy?</h1>
+            <button class="tour__link">Continue &gt;</button>
+        </section>
+    </div>
+</div>
+
 
 <section id="gdp-facts" class="sr-only fact-box fact-box--out-left">
     

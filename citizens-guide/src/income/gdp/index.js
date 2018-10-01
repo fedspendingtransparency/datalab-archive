@@ -42,7 +42,7 @@ function addText() {
         .attr('x', 0)
         .attr('dy', 28)
         .attr('font-size', 24)
-        .attr('font-weight', 'bold')
+        .attr('font-weight', '600')
         .text('This Dot')
 
     explanation.append('tspan')
@@ -52,7 +52,7 @@ function addText() {
     explanation.append('tspan')
         .attr('x', 0)
         .attr('font-size', 24)
-        .attr('font-weight', 'bold')
+        .attr('font-weight', '600')
         .attr('dy', 30)
         .text('One Billion Dollars')
 

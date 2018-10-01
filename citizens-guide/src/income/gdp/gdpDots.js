@@ -41,7 +41,7 @@ function addLegend() {
 
     text.append('tspan')
         .text('Total GDP')
-        .style('font-weight', 'bold')
+        .style('font-weight', '600')
         .attr('x', 40)
         .attr('dy', height / 2);
 
