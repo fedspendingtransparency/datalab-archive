@@ -1,3 +1,8 @@
+@import 'generalVars';
+@import 'headings';
+@import 'tour';
+@import 'copyTourRow';
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     color: #666;
@@ -6,19 +11,7 @@ body {
 main {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-h1 {
-    font-weight: normal;
-    text-align: center;
-    font-size: 40px;
-    color: #555;
-}
-
-h2 {
-    text-align: left;
-    margin-bottom: 0;
-    color: #555;
+    padding: 0 1rem;
 }
 
 blockquote {
