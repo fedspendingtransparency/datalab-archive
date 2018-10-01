@@ -42,7 +42,7 @@ category: nonentry
   </div>
   <div class="category-container">
     <div class="category-select-label">Categories</div>
-    <select class="custom-select" id="item-selector"></select>
+    <select class="custom-select custom-select-start" id="item-selector"></select>
   </div>
 </div>
 
@@ -193,15 +193,21 @@ function addOptions(sel) {
 }
 
 function createSelect() {
-  var timeFrameSelect = d3.select('#select-timeframe')
-        .on('change', onDataChange);
-
+  d3.select('#select-timeframe').on('change', onFrequencyChange);
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
-
-  var select = d3.select('#item-selector')
-    .on('change', onDataChange);
+  let select = d3.select('#item-selector').on('change', onCategoryChange);
 
   addOptions(select);
+
+  function onFrequencyChange() { 
+    onDataChange();
+  }
+
+  function onCategoryChange() {
+    d3.select("#item-selector").classed('custom-select-start', false);
+
+    onDataChange();
+  }
 
   function onDataChange() {
     let timeFrameValue = d3.select('#select-timeframe').property('value');
@@ -649,6 +655,8 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   allToSpending["fytd"] = transposeKVToArray("fytd");
 
   optionsDict["All Categories"] = allToSpending;
+
+  console.log(optionsDict);
 
   allOptions = [...new Set(optionsData)];
   allOptions.sort();
