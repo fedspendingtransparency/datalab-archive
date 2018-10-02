@@ -32,8 +32,8 @@ function deselectOthers(labelGroups) {
         .each(setLabelInactive);
 }
 
-function setLabelActive() {
-    const g = d3.select(this),
+function setLabelActive(name) {
+    const g = (name && typeof name === 'string') ? this.filter(`g[data-id="${name}"]`) : d3.select(this),
         bar = g.select('.color-bar'),
         targetWidth = getElementBox(g).width;
 
@@ -59,8 +59,12 @@ function setLabelActive() {
         .ease()
 }
 
-function setLabelInactive() {
-    const g = d3.select(this);
+function setLabelInactive(name, source) {
+    const g = (name && typeof name === 'string') ? this.filter(`g[data-id="${name}"]`) : d3.select(this);
+
+    if (source === 'tooltip' && g.classed('selected')) {
+        return;
+    }
 
     pendingTransitionParent = this;
     pendingInactive = setTimeout(_setInactive, 200, g);
@@ -108,6 +112,9 @@ function placeLabels(globals) {
         .data(globals.data.sort(sortByFirstYear))
         .enter()
         .append('g')
+        .attr('data-id', function(d){
+            return d.name
+        })
         .attr('opacity', function (d) {
             if (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
@@ -267,6 +274,8 @@ export function renderLabels(globals) {
     }
 
     return {
-        rescale: rescale.bind(labels)
+        rescale: rescale.bind(labels),
+        setLabelActive: setLabelActive.bind(labels),
+        setLabelInactive: setLabelInactive.bind(labels)
     }
 }
