@@ -468,7 +468,7 @@ function createGraph(data) {
     .on("mouseover", function() { textContainer.style("display", "block"); mouseOverDataPoint.style("display", "block"); })
     .on("mouseout", function() { textContainer.style("display", "none"); mouseOverDataPoint.style("display", "none"); })
     .on("mousemove", mouseMove)
-    .call(zoom);
+    .call(zoom).on("wheel.zoom", null);
 
   function adjustLines() {
     lineChart.select(".line").attr("d", line);
@@ -532,6 +532,7 @@ function createGraph(data) {
 
   function zoomed() {
     if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
+
     var t = d3.event.transform || x2.range();
     x.domain(t.rescaleX(x2).domain());
     adjustLines();
