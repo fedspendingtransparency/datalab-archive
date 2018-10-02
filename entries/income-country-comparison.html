@@ -1,0 +1,36 @@
+--- 
+layout: page title: Data Lab - Income Country Comparison – U.S. Treasury 
+excerpt: excerpt
+header: Understanding federal spending related to the government's main functions 
+description: description 
+permalink: income-country-comparison.html 
+category: entry 
+---
+
+<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/normalize.css"  type="text/css">
+<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/cg.css"  type="text/css">
+<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/nav/nav-income.css"  type="text/css">
+
+<main>
+	<header>
+		<h1>How Does Government Income Relate to GDP?</h1>
+		<div class="lead-wrapper">
+			<div class="lead">
+				<p>The income the U.S. government collects helps finance the various goods and services that are then reinvested back as
+					goods and services to the public and businesses who helped generate the taxes themselves. When you explore government
+					income as a portion of GDP, you are looking at a snapshot of the available financial resources of the country.</p>
+				<p>The chart below shows income collected by the U.S. government compared to 171 other countries in 2017.</p>
+			</div>
+		</div>
+	</header>
+
+	<h2 id="Country-Comparison">Country Comparison</h2>
+	<div class="hint">All data is FY2017</div>
+
+	<div id="viz"></div>
+</main>
+
+{% include income-nav.html %}
+
+<script src="{{site.baseurl}}/assets/cg/income/countryComparison.js"></script>
+<script src="{{site.baseurl}}/assets/cg/nav/nav-income.js"></script>
