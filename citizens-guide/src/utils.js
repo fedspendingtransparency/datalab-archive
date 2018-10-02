@@ -83,14 +83,11 @@ export function wordWrap(text, maxWidth) {
         line = [],
         lineNumber = 0,
         lineHeight = 1.1,
-        y = text.attr("y"),
         tspan;
 
     tspan = text.text(null)
         .append("tspan")
         .attr("x", 0);
-    // .attr("y", y);
-    // .attr("dy", dy + "em");
 
     while (words.length > 0) {
         word = words.pop();
@@ -102,7 +99,6 @@ export function wordWrap(text, maxWidth) {
             line = [word];
             tspan = text.append("tspan")
                 .attr("x", 0)
-                .attr("y", y)
                 .attr("dy", lineHeight + "em")
                 .text(word);
         }
