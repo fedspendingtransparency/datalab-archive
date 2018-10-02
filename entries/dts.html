@@ -260,9 +260,9 @@ function createGraph(data) {
   let startDate = getQueryStringValue("start");
   let endDate = getQueryStringValue("end");
 
-  var allSvgChildren = d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)"); // ignore the-axes
+  d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)").remove(); // ignore the-axes
 
-  allSvgChildren.remove();
+  // d3.select("#svg-wrapper").selectAll("*").remove();
 
   var brush = d3.brushX()
     .extent([
@@ -657,8 +657,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   optionsDict["All Categories"] = allToSpending;
 
-  console.log(optionsDict);
-
   allOptions = [...new Set(optionsData)];
   allOptions.sort();
 
@@ -666,13 +664,19 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   createSelect();
 
-  modifyVizToMatchQueryParams(allOptions);
+  let theFrequency = getFrequencyFromURL();
+  let theCategory = getCategoryFromURL(allOptions);
+
+  d3.select('#select-timeframe').property('value', theFrequency);
+  d3.select('#item-selector').property('value', theCategory);
 
   d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
-  createGraph(optionsDict["All Categories"].today);
+  // should be creating graph of url category
+
+  createGraph(optionsDict[theCategory][theFrequency]);
 
   d3.select(".viz-tsbfy-bar-view").on("click", function() {
     createBarChart(yearToSpendingArray);
@@ -685,22 +689,25 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   createBarChart(yearToSpendingArray);
 });
 
-function modifyVizToMatchQueryParams(allOptions) {
+function getFrequencyFromURL() {
   let frequency = getQueryStringValue('frequency');
-  let category = getQueryStringValue('category');
-
-  let possibleFrequencies = [ "today", "mtd", "fytd" ]
+  let possibleFrequencies = [ "today", "mtd", "fytd" ];
 
   if (!possibleFrequencies.includes(frequency)) {
     frequency = "today";
   }
 
+  return frequency;
+}
+
+function getCategoryFromURL(allOptions) {
+  let category = getQueryStringValue('category');
+
   if (!allOptions.includes(category)) {
     category = "All Categories";
   }
 
-  d3.select('#select-timeframe').property('value', frequency);
-  d3.select('#item-selector').property('value', category);
+  return category;
 }
 
 function type(d) {
