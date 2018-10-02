@@ -2,7 +2,8 @@ import { initDropShadow } from "./dropShadow";
 import { range } from 'd3-array';
 import { translator } from "../../utils";
 
-const d3 = { range };
+const d3 = { range },
+    maskClass = 'drop-shadow-mask';
 
 let containers, dimensions;
 
@@ -52,12 +53,12 @@ export function placeHorizontalStripes(dataLength, dimensions) {
 function placeMask() {
     // clip the drop shadow
     
-    if (containers.legends.selectAll('rect.mask').size()) {
+    if (containers.legends.selectAll('rect.' + maskClass).size()) {
         return;
     }
     
     containers.legends.append('rect')
-        .classed('mask', true)
+        .classed(maskClass, true)
         .attr('width', 1200)
         .attr('height', dimensions.header)
         .attr('stroke', 'none')
