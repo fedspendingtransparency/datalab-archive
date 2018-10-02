@@ -245,7 +245,6 @@ function makeYGridLines() {
 }
 
 var optionsDict;
-var firstTime = true;
 var lastPeriodContext;
 
 function parseYYYYMMDD(dateString) {
@@ -260,9 +259,7 @@ function createGraph(data) {
   let startDate = getQueryStringValue("start");
   let endDate = getQueryStringValue("end");
 
-  d3.select("#svg-wrapper").selectAll("svg > :not(:first-child)").remove(); // ignore the-axes
-
-  // d3.select("#svg-wrapper").selectAll("*").remove();
+  d3.select("#svg-wrapper").selectAll("*").remove();
 
   var brush = d3.brushX()
     .extent([
@@ -362,21 +359,14 @@ function createGraph(data) {
     x2.domain(x.domain());
     y2.domain(y.domain());
 
-    if (firstTime) {
-      focus.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+    focus.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
 
-      focus.append("g")
-        .attr("class", "axis axis--y")
-        .call(yAxis);
-
-        firstTime = false;
-    } else {
-      d3.select(".axis--x").transition().duration(1500).call(xAxis);
-      d3.select(".axis--y").transition().duration(1500).call(yAxis);
-    }
+    focus.append("g")
+      .attr("class", "axis axis--y")
+      .call(yAxis);
 
   // add the X gridlines
   svg.append("g")			
@@ -673,8 +663,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
-
-  // should be creating graph of url category
 
   createGraph(optionsDict[theCategory][theFrequency]);
 
