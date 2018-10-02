@@ -35,6 +35,8 @@ dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - d
 function establishContainers() {
     const svg = establishContainer();
 
+    d3.select('#viz').classed('country', true);
+
     dimensions.totalHeight = dimensions.rowHeight * data.length;
     sizeSvg(800);
     svg.attr('width', dimensions.chartWidth);

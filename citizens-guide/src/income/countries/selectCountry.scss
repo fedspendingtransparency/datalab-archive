@@ -1,6 +1,6 @@
 $primaryColor: #4A90E2;
 
-#viz {
+#viz.country {
     max-width: 800px;
     margin-top: 0;
 }
@@ -9,7 +9,6 @@ $primaryColor: #4A90E2;
 .select-country {
     position: relative;
     transform: translate(0,39px);
-    display: inline-block;
 }
 
 .trigger-button {
