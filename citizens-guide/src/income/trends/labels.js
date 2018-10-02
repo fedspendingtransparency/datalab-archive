@@ -179,18 +179,18 @@ function placeLabels(globals) {
     return labelGroups;
 }
 
-function enableDrilldown(labelGroups, globals) {
+function enableSelect(labelGroups, globals) {
     labelGroups.attr('style', 'cursor:pointer')
         .on('click', function (d) {
             if (d3.select(this).classed('selected')) {
                 // toggle off
                 deselectOthers(labelGroups);
-                globals.onDrilldown(d, 'reset');
+                globals.onSelect(d, 'reset');
             } else {
                 // toggle on
                 deselectOthers(labelGroups);
                 d3.select(this).classed('selected', true);
-                globals.onDrilldown(d);
+                globals.onSelect(d);
             }
         })
         .on('mouseover', function (d) {
@@ -204,8 +204,6 @@ function enableDrilldown(labelGroups, globals) {
                 setLabelInactive.bind(this)();
             }
         });
-
-    nudge(labelGroups);
 }
 
 function nudge(labelGroups) {
@@ -261,9 +259,11 @@ function rescale(globals, duration) {
 
 export function renderLabels(globals) {
     const labels = placeLabels(globals);
-
+    
+    enableSelect(labels, globals);  
+    
     if (!globals.noDrilldown) {
-        enableDrilldown(labels, globals);
+        nudge(labels);
     }
 
     return {

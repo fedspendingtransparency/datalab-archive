@@ -55,31 +55,34 @@ function transformChart(globals, reset) {
         .attr('transform', translator(globals.baseXTranslate, margin.top));
 }
 
-function onDrilldown(d, reset) {
+function onSelect(d, reset) {
     setTourStage2();
-    
+
     if (reset) {
         this.activeDrilldown = null;
         this.trendLines.deEmphasize(null, this);
-        destroyDetailPane();
     } else {
-        this.activeDrilldown = d.name;        
+        this.activeDrilldown = d.name;
         this.trendLines.deEmphasize(d.name, this);
-        showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
     }
 
-    transformChart(this, reset);
-    
+    if (reset && !this.noDrilldown) {
+        destroyDetailPane();
+        transformChart(this, reset);
+    } else if (!this.noDrilldown) {
+        showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+        transformChart(this, reset);
+    }
 }
 
 function onZoom() {
     this.activeDrilldown = null;
-    this.trendLines.deEmphasize(null, this);    
+    this.trendLines.deEmphasize(null, this);
     toggleZoom(this);
 
 
     if (!this.noDrilldown) {
-        transformChart(this, 'reset');        
+        transformChart(this, 'reset');
         destroyDetailPane();
     }
 }
@@ -91,17 +94,17 @@ function initGlobals(config) {
     globals.height = globals.height || 650;
     globals.labelWidth = 160;
     globals.labelPadding = 60;
-    globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding)*2;
+    globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding) * 2;
     globals.widthOnDrilldown = 360,
-    globals.width = globals.originalWidth,
-    globals.zoomThreshold = globals.zoomThreshold || 180000000000;
+        globals.width = globals.originalWidth,
+        globals.zoomThreshold = globals.zoomThreshold || 180000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
     globals.baseXTranslate = globals.labelWidth + globals.labelPadding + 35;
 
     globals.zoomState = 'out';
 
-    globals.onDrilldown = onDrilldown.bind(globals);
+    globals.onSelect = onSelect.bind(globals);
     globals.onZoom = onZoom.bind(globals);
 
     return globals;
@@ -124,10 +127,10 @@ export function trendView(_data, container, config) {
     globals.yAxis = yAxis(globals);
     globals.trendLines = trendLines(globals);
     globals.labels = renderLabels(globals);
-    
+
     if (!globals.noZoom) {
         globals.zoomTrigger = zoomTrigger(globals);
     }
-    
+
     globals.dataDots = addTooltips(globals);
 }
