@@ -81,7 +81,7 @@ function createTrigger(globals) {
         .text('More Categories')
         .attr('x', 10)
         .attr('dy', 16)
-        .attr('font-size', 18);
+        .attr('font-size', 16);
 
     selections.disc.append('circle')
         .attr('fill', '#205493')

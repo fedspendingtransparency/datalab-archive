@@ -120,6 +120,7 @@ function placeLabels(globals) {
         .text(function (d) {
             return d.name;
         })
+        .attr('fill', colors.textColorHeading)
         .attr('y', -2)
         .attr('font-size', 14)
         .attr('text-anchor', 'end')
