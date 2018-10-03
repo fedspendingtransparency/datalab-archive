@@ -271,13 +271,17 @@ $green: #50604f;
     display: inline-block;
     text-align: center;
     margin:auto;
-    width: 59%;
+    width: 85%;
     position: relative;
 
     .categoriesParent{
       width:210px;
       margin: 0px;
       display: inline-block;
+
+      p {
+        font-size: 16px;
+      }
     }
 
     .chv {
