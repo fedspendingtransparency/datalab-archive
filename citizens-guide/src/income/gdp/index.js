@@ -76,9 +76,7 @@ function stripSr() {
     d3.selectAll('.fact-box').classed('sr-only', false);
 }
 
-function init() {
-    stripBr();
-
+function initDot() {
     largeDot.append('circle')
         .attr('cx', radius)
         .attr('cy', radius)
@@ -92,7 +90,11 @@ function init() {
             radius: radius
         }))
         .ease();
+}
 
+function init() {
+    stripBr();
+    initDot();
     initIncomeDots();
 
     setTimeout(phaseTwo, 3000);
