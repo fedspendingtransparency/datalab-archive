@@ -118,6 +118,9 @@ blockquote {
 .pointer {
   cursor: pointer; }
 
+.chart-title {
+  font-weight: 600; }
+
 #lead-in {
   text-align: center;
   max-width: 800px;
