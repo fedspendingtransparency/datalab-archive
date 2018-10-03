@@ -1,6 +1,7 @@
 import { select } from 'd3-selection';
 import { arc, pie } from 'd3-shape';
 import { fractionToPercent, translator } from '../utils';
+import colors from '../colors.scss';
 
 const d3 = { select, arc, pie },
     radius = 45,
@@ -37,6 +38,7 @@ export function createDonut(container, percent, diameter, fillColor) {
 
     g.append('text')
         .text(fractionToPercent(percent))
+        .attr('fill', colors.textColorParagraph)
         .attr('font-size', diameter/4)
         .attr('text-anchor', 'middle')
         .attr('font-weight', 'bold')

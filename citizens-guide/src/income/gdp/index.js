@@ -2,6 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { initIncomeDots, enterIncomeDots } from './incomeDots';
 import { establishContainer, translator, stripBr } from '../../utils';
+import '../../infoBox';
 import '../factBox.scss';
 import './gdp.scss';
 import colors from '../../colors.scss';

@@ -17,11 +17,16 @@ $tourButtonColor: #0D7040;
         background: $tourButtonColor;
         color: white;
         transition: background 0.2s ease;
-        display: block;
+        display: inline-block;
         text-decoration: none;
 
         &:hover {
             background: lighten($tourButtonColor, 5)
         }
+    }
+
+    i {
+        font-size: 12px;
+        margin-left: 0.75rem;
     }
 }

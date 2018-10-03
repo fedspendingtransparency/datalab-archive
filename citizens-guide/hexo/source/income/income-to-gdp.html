@@ -6,7 +6,11 @@ description: The United States collected $3.4 trillion in 2017, 17% of the GDP.
 chapter: income
 ---
 
-<h1>In 2017, the government collected <span class="strong">$3.3 trillion</span>.</h1>
+<h1>In 2017, the government collected <span class="strong">$3.3 trillion</span> 
+    <button class="info-box-trigger" data-box-id="per-individual">
+        <img src="../assets/icons/anecdote.svg" alt="definition icon">
+    </button>
+</h1>
 
 <div id="viz"></div>
 
@@ -19,7 +23,7 @@ chapter: income
     <div class="copy-tour-row__tour">
         <section class="tour">
             <h1>How does the amount of federal income compare to the size of the economy?</h1>
-            <button id="tour-continue" class="tour__link">Compare &gt;</button>
+            <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
         </section>
     </div>
 </div>
@@ -28,13 +32,25 @@ chapter: income
     <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
     <p>The government collected the equivalent of 17% of GDP.</p>
 
-    <h1>What's GDP?</h1>
-    <p>Gross Domestic Product (GDP)** measures the size of the nation’s economy in terms of the total value of goods and services that are produced in a year. Measuring the money collected by the government relative to GDP is a helpful indicator of the economy’s capacity to sustain the programs the government provides for the people and the government’s success in helping the economy grow.</p>
+    <strong>What's GDP? 
+        <button class="info-box-trigger" data-box-id="gdp-info">
+            <img src="../assets/icons/definition.svg" alt="definition icon">
+        </button>
+    </strong>
     
     <section class="tour">
         <h1 class="tour__heading">What are the sources of government income?</h1>
-        <a id="tour-continue" class="tour__link" href="./categories.html">Continue &gt;</button>
+        <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
     </section>
 </section>
+
+<div class="info-box" id="per-individual">
+    <i class="fas fa-street-view"></i>
+    <p>$3.3 trillion divided by the U.S. population in 2017 (326.4 million U.S. Census Bureau*), is equivalent to a little more than $10,000 for every individual.</p>
+</div>
+<div class="info-box" id="gdp-info">
+    <img src="../assets/icons/definition.svg" alt="definition icon">
+    <p><strong>Gross Domestic Product (GDP)</strong> measures the size of the nation's economy in terms of the total value of goods and services that are produced in a year. Measuring the money collected by the government relative to GDP is a helpful indicator of the economy's capacity to sustain the programs the government provides for the people and the government's success in helping the economy grow.</p>
+</div>
 
 <script src="../assets/income/incomeToGdp.js" />
