@@ -2,6 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { initIncomeDots, enterIncomeDots } from './incomeDots';
 import { establishContainer, translator, stripBr } from '../../utils';
+import '../../infoBox';
 import '../factBox.scss';
 import './gdp.scss';
 import colors from '../../colors.scss';
@@ -76,9 +77,7 @@ function stripSr() {
     d3.selectAll('.fact-box').classed('sr-only', false);
 }
 
-function init() {
-    stripBr();
-
+function initDot() {
     largeDot.append('circle')
         .attr('cx', radius)
         .attr('cy', radius)
@@ -92,7 +91,11 @@ function init() {
             radius: radius
         }))
         .ease();
+}
 
+function init() {
+    stripBr();
+    initDot();
     initIncomeDots();
 
     setTimeout(phaseTwo, 3000);

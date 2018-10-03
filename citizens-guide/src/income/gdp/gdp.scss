@@ -1,24 +1,25 @@
-#donut-row {
-    display: flex;
+@import '../../../src/globalSass/generalVars';
+
+#gdp-facts {
+    clear: both;
+    
+    > h1 {
+        font-size: 24px;
+        font-weight: $boldWeight;
+        text-align: left;
+    }
+
+    .tour {
+        margin-top: 2rem;
+        max-width: 300px;
+    }
 }
 
-#donut-row-text {
-    padding-left: 1rem;
-}
+@media only screen and (min-width: 920px) {
+    #gdp-facts {
+        clear: none;
+        margin-top: 130px;
+        margin-left: 670px;
+    }
 
-#donut-placeholder {
-    float: left;
-}
-
-#viz {
-    display: inline-block;
-}
-
-#continue-1, #continue-2 {
-    display: flex;
-    justify-content: center;
-}
-
-.fact-box--out-left {
-    margin-top: -1000px;
 }

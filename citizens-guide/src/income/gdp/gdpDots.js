@@ -28,9 +28,10 @@ function addLegend() {
         dotsRect = getElementBox(dotContainer),
         text = legendBox.append('text')
             .classed('reset', true)
+            .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'middle')
             .attr('y', 0)
-            .style('font-size', '18px');
+            .style('font-size', '16px');
 
     legendBox.append('path')
         .classed('reset', true)
@@ -49,8 +50,6 @@ function addLegend() {
         .text(simplifyNumber(sectionOneData.gdp))
         .attr('x', 40)
         .attr('dy', 20);
-
-    legendBox.attr('transform', translator(0,70));
 }
 
 function setGdpDots() {
@@ -122,22 +121,13 @@ function setGdpDots() {
 }
 
 function enableFactBox() {
-    const factBox = d3.select('#gdp-facts'),
-        donutDiameter = 100,
-        donutGroup = d3.select('#donut-placeholder')
-            .append('svg')
-            .attr('width', donutDiameter)
-            .attr('height', donutDiameter);
+    const factBox = d3.select('#gdp-facts')
+        .classed('temporary-hide--show', true);
 
-    tourButton(document.getElementById('continue-2'), 'categories.html', 'Income Categories');
-
-    createDonut(donutGroup, .174, donutDiameter, colors.income);
-
-    svg.attr('width', 600);
+    svg.attr('width', 670);
+    svg.attr('height', 300);
 
     d3.select('#viz').attr('style', 'float:left');
-
-    factBox.classed('fact-box--out-left', null);
 }
 
 function animationNext() {
@@ -167,9 +157,39 @@ function zoomOutDots() {
 
     dotContainer.transition()
         .duration(zoomDuration)
-        .attr('transform', translator(92, 70) + ' scale(0.5)')
+        .attr('transform', translator(92, 0) + ' scale(0.5)')
         .on('end', animationNext)
         .ease()
+}
+
+function enterDonut() {
+    const r = 120,
+        donutGroup = dotContainer.append('g');
+
+    let donutContainer;
+
+    donutGroup.append('circle')
+        .attr('fill', 'white')
+        .attr('opacity', 0.85)
+        .attr('r', r)
+        .attr('cx', r)
+        .attr('cy', r);
+
+    donutGroup
+        .attr('transform', 'scale(1.5) ' + translator(600, 0))
+        .attr('opacity', 0)
+
+    donutContainer = donutGroup.append('g')
+        .attr('transform', translator(20, 20));
+
+    createDonut(donutContainer, .174, 200, colors.income);
+
+    donutGroup.transition()
+        .delay(2500)
+        .duration(1500)
+        .attr('opacity', 1)
+        .attr('transform', 'scale(1) ' + translator(900, 100))
+        .ease();
 }
 
 export function initGdpDots() {
@@ -182,4 +202,5 @@ export function initGdpDots() {
     dotContainer = d3.select('g.' + receiptsConstants.dotContainerClass)
     zoomOutDots();
     setGdpDots();
+    enterDonut();
 }

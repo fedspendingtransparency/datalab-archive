@@ -32,8 +32,8 @@ function deselectOthers(labelGroups) {
         .each(setLabelInactive);
 }
 
-function setLabelActive() {
-    const g = d3.select(this),
+function setLabelActive(name) {
+    const g = (name && typeof name === 'string') ? this.filter(`g[data-id="${name}"]`) : d3.select(this),
         bar = g.select('.color-bar'),
         targetWidth = getElementBox(g).width;
 
@@ -59,8 +59,12 @@ function setLabelActive() {
         .ease()
 }
 
-function setLabelInactive() {
-    const g = d3.select(this);
+function setLabelInactive(name, source) {
+    const g = (name && typeof name === 'string') ? this.filter(`g[data-id="${name}"]`) : d3.select(this);
+
+    if (source === 'tooltip' && g.classed('selected')) {
+        return;
+    }
 
     pendingTransitionParent = this;
     pendingInactive = setTimeout(_setInactive, 200, g);
@@ -108,6 +112,9 @@ function placeLabels(globals) {
         .data(globals.data.sort(sortByFirstYear))
         .enter()
         .append('g')
+        .attr('data-id', function(d){
+            return d.name
+        })
         .attr('opacity', function (d) {
             if (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
                 return 1;
@@ -120,6 +127,7 @@ function placeLabels(globals) {
         .text(function (d) {
             return d.name;
         })
+        .attr('fill', colors.textColorHeading)
         .attr('y', -2)
         .attr('font-size', 14)
         .attr('text-anchor', 'end')
@@ -178,18 +186,18 @@ function placeLabels(globals) {
     return labelGroups;
 }
 
-function enableDrilldown(labelGroups, globals) {
+function enableSelect(labelGroups, globals) {
     labelGroups.attr('style', 'cursor:pointer')
         .on('click', function (d) {
             if (d3.select(this).classed('selected')) {
                 // toggle off
                 deselectOthers(labelGroups);
-                globals.onDrilldown(d, 'reset');
+                globals.onSelect(d, 'reset');
             } else {
                 // toggle on
                 deselectOthers(labelGroups);
                 d3.select(this).classed('selected', true);
-                globals.onDrilldown(d);
+                globals.onSelect(d);
             }
         })
         .on('mouseover', function (d) {
@@ -203,8 +211,6 @@ function enableDrilldown(labelGroups, globals) {
                 setLabelInactive.bind(this)();
             }
         });
-
-    nudge(labelGroups);
 }
 
 function nudge(labelGroups) {
@@ -260,12 +266,16 @@ function rescale(globals, duration) {
 
 export function renderLabels(globals) {
     const labels = placeLabels(globals);
-
+    
+    enableSelect(labels, globals);  
+    
     if (!globals.noDrilldown) {
-        enableDrilldown(labels, globals);
+        nudge(labels);
     }
 
     return {
-        rescale: rescale.bind(labels)
+        rescale: rescale.bind(labels),
+        setLabelActive: setLabelActive.bind(labels),
+        setLabelInactive: setLabelInactive.bind(labels)
     }
 }

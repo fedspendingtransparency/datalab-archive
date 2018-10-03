@@ -260,11 +260,7 @@ function init() {
     setContainers();
     addSegments();
 
-    if (tour) {
-        initTour();
-    } else {
-        factBox.remove();
-    }
+    initTour();
 }
 
 init();

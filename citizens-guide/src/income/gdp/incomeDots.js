@@ -14,6 +14,7 @@ const d3 = { select },
     dotOffset = receiptsConstants.dotOffset;
 
 let svg,
+    factBox,
     incomeContainer,
     dotContainer,
     dotsWidth;
@@ -112,24 +113,22 @@ function setDotContainer() {
         .attr('transform', translator(xOffset, receiptsConstants.headingHeight));
 }
 
-function enableFactBox() {
-    const factBox = d3.select('#income-facts');
+function showText() {
+    svg.attr('height', 180);
 
-    svg.attr('height', 200);
-
-    factBox.classed('fact-box--out-down', null);
+    factBox = d3.select('#income-facts')
+        .classed('temporary-hide--show', true);
 }
 
-function addContinueButton() {
-    const factBox = d3.select('#income-facts'),
-        button = tourButton(document.getElementById('continue-1'));
+function initContinueButton() {
+    const button = d3.select('#tour-continue');
 
     button.on('click', function () {
-        factBox.classed('fact-box--out-down', true);
+        factBox.classed('temporary-hide--show', null);
 
         setTimeout(function () {
             factBox.remove();
-        }, 500)
+        }, 1000)
 
         initGdpDots();
     });
@@ -148,12 +147,12 @@ export function enterIncomeDots() {
 
     buildLegend();
 
-    setTimeout(enableFactBox, 2000);
+    setTimeout(showText, 2000);
 }
 
 export function initIncomeDots() {
     svg = establishContainer();
-    addContinueButton();
+    initContinueButton();
     setDotContainer();
     readyIncomeDots();
 }

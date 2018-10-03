@@ -1,6 +1,7 @@
 import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
 import { trendView } from './trendView';
+import colors from '../../colors.scss';
 
 const d3 = { select },
     svg = establishContainer(),
@@ -72,6 +73,7 @@ function init(d, sourceY) {
 
     title = container.append('text')
         .classed('detail-pane-title', true)
+        .attr('fill', colors.textColorHeading)
         .text('View subcategories found within')
         .attr('font-size', 14)
         .attr('x', 20)

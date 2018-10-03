@@ -27,7 +27,15 @@ function rescale(globals, duration) {
 
 function deEmphasize(keep, globals, hover) {
     this.attr('stroke-width', function (d) {
-        if (!globals.activeDrilldown || globals.activeDrilldown === d.name || (keep === d.name && hover === 'on')) {
+        if (globals.noDrilldown && hover === 'on' && keep === d.name) {
+            return 3;
+        }
+        
+        if (globals.noDrilldown && hover === 'on') {
+            return 0.5;
+        }
+        
+        if ((globals.noDrilldown && hover === 'on') || (!globals.activeDrilldown) || globals.activeDrilldown === d.name || (keep === d.name && hover === 'on')) {
             return 3;
         }
 

@@ -1,7 +1,10 @@
+// @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600");
 @import 'generalVars';
 @import 'headings';
 @import 'tour';
 @import 'copyTourRow';
+@import 'infoBox';
+@import '../colors';
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -12,6 +15,10 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+p {
+    color: $text-color-paragraph;
 }
 
 blockquote {
@@ -26,7 +33,7 @@ blockquote {
 }
 
 .strong {
-    font-weight: bold;
+    font-weight: $boldWeight;
 }
 
 .pointer {
@@ -41,7 +48,7 @@ blockquote {
 
 #viz {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem;
 }
 
 .sr-only {
@@ -52,6 +59,15 @@ blockquote {
     clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
     -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
     overflow: hidden !important;
+}
+
+.temporary-hide {
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    &.temporary-hide--show {
+        opacity: 1;        
+    }
 }
 
 @media only screen and (min-width: 1200px) {

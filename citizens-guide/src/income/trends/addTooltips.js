@@ -40,6 +40,7 @@ function showTooltip(d, i) {
         .text(function (d) {
             return 'FY ' + d.year;
         })
+        .attr('fill', colors.textColorParagraph)        
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', padding.top)
@@ -55,7 +56,7 @@ function showTooltip(d, i) {
 
     tooltip.append('text')
         .text('Value')
-        .attr('style', 'fill:#4A90E2')
+        .attr('fill', colors.textColorParagraph)
         .attr('font-weight', 'bold')
         .attr('font-size', 12)
         .attr('dy', 60)
@@ -65,6 +66,7 @@ function showTooltip(d, i) {
         .text(function (d) {
             return simplifyNumber(d.amount);
         })
+        .attr('fill', colors.textColorParagraph)        
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', 80)
@@ -92,6 +94,8 @@ function dataReducer(accumulator, d) {
         return {
             year: v.year,
             amount: v.amount,
+            name: d.name,
+            officialName: d.officialName
         }
     }))
 };
@@ -127,9 +131,29 @@ export function addTooltips(globals) {
         .attr('transform', function (d) {
             return translator(globals.scales.x(d.year), globals.scales.y(0));
         })
-        .on('click', showTooltip)
-        .on('mouseover', showTooltip)
-        .on('mouseout', destroyTooltip)
+        .on('click', function(d, i){
+            if (globals.noDrilldown) {
+                globals.trendLines.deEmphasize(d.name, globals, 'on')
+            }
+            
+            showTooltip.bind(this)(d, i)
+        })
+        .on('mouseover', function(d, i){
+            if (globals.noDrilldown) {
+                globals.trendLines.deEmphasize(d.name, globals, 'on')
+                globals.labels.setLabelActive(d.name)
+            }
+            
+            showTooltip.bind(this)(d, i)
+        })
+        .on('mouseout', function(d, i){
+            if (globals.noDrilldown) {
+                globals.trendLines.deEmphasize(d.name, globals, 'off')
+                globals.labels.setLabelInactive(d.name, 'tooltip')                
+            }
+            
+            destroyTooltip.bind(this)()
+        })
 
     dataDots.append('circle')
         .attr('stroke', colors.colorPrimaryDarker)

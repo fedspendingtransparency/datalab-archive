@@ -1,18 +1,32 @@
-.tour {
-    border-radius: 4px;
-    box-shadow: 0 0 10px 2px rgba(80, 80, 80, 0.15);
-    padding: 1rem;
+$tourButtonColor: #0D7040;
 
-    h1 {
-        font-size: 18px;
+.tour {
+    @extend %info-box;
+
+    h1, h1.tour__heading {
+        font-size: 17px;
         font-weight: $boldWeight;
         margin-top: 0;
         text-align: left;
     }
 
-    button {
+    .tour__link {
         line-height: 3;
         border: none;
         padding: 0 2rem;
+        background: $tourButtonColor;
+        color: white;
+        transition: background 0.2s ease;
+        display: inline-block;
+        text-decoration: none;
+
+        &:hover {
+            background: lighten($tourButtonColor, 5)
+        }
+    }
+
+    i {
+        font-size: 12px;
+        margin-left: 0.75rem;
     }
 }
