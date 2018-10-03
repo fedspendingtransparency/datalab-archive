@@ -79,6 +79,11 @@ blockquote {
     margin-top: 2rem;
 }
 
+.tighter-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 @media only screen and (min-width: 1200px) {
     h2, .hint {
         max-width: 1200px;

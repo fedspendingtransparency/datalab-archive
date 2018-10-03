@@ -61,6 +61,15 @@ function setSortDirection(k) {
     }
 }
 
+(function addIconToLegend(){
+    const placeholder = d3.select('.sort-button-placeholder');
+
+    renderSortIcon(placeholder, 'legend');
+
+    placeholder.selectAll('line').attr('stroke', colors.colorPrimary);
+    placeholder.selectAll('polygon').attr('fill', colors.colorPrimary);
+})();
+
 export function updateIcons() {
     const activeSort = getActiveSort(),
         iconKeys = Object.keys(sortIcons);
@@ -73,11 +82,15 @@ export function updateIcons() {
 
 }
 
-export function renderSortIcon(container) {
-    const parent = d3.select(container),
-        parentBox = getElementBox(parent),
+export function renderSortIcon(container, legend) {
+    const parent = (legend) ? container.append('svg').attr('width', 18).attr('height', 16) : d3.select(container),
+        parentBox = (legend) ? null : getElementBox(parent),
         sortType = parent.attr('data-type'),
-        iconGroup = parent.append('g').attr('transform', translator(parentBox.width + 16, 8 + iconHeight));
+        iconGroup = parent.append('g');
+
+    if (!legend) {
+        iconGroup.attr('transform', translator(parentBox.width + 16, 8 + iconHeight));
+    }
 
     iconGroup.append('rect')
         .attr('fill', 'white')
@@ -114,5 +127,7 @@ export function renderSortIcon(container) {
             return lineYOffset * d + 1;
         })
 
-    sortIcons[sortType] = iconGroup;
+    if (!legend) {
+        sortIcons[sortType] = iconGroup;
+    }
 }

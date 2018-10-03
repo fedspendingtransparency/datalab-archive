@@ -3,6 +3,7 @@ import { prepareData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';
 import { selectedCountries } from './selectedCountryManager';
+import { renderSortIcon } from './sortIcon';
 
 const incomeConfig = {
     amountField: 'income_usd',

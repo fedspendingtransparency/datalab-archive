@@ -230,7 +230,7 @@ function placeLegends(config) {
         .attr('data-type', config.amountField)
         .append('text')
         .text(config.amountLabel)
-        .attr('font-weight', 'bold')
+        .attr('font-weight', 600)
         .attr('y', 38)
         .attr('x', labelXPadding)
         .attr('font-size', 14);
@@ -242,7 +242,7 @@ function placeLegends(config) {
         .append('text')
         .attr('x', labelXPadding)
         .attr('y', 24)
-        .attr('font-weight', 'bold')
+        .attr('font-weight', 600)
         .text(config.amountLabel + ' as')
         .attr('font-size', 14)
         .append('tspan')
@@ -254,7 +254,7 @@ function placeLegends(config) {
         .on('click', sort)
         .attr('style', 'cursor:pointer')
         .each(function () {
-            renderSortIcon(this, sortIcons);
+            renderSortIcon(this);
         })
 
     updateIcons();
