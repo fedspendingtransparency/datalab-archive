@@ -15,19 +15,21 @@ h2 {
   border-radius: 4px;
   box-shadow: 0 0 10px 2px rgba(80, 80, 80, 0.15);
   padding: 1rem; }
-  .tour h1 {
+  .tour h1, .tour h1.tour__heading {
     font-size: 17px;
     font-weight: 600;
     margin-top: 0;
     text-align: left; }
-  .tour button {
+  .tour .tour__link {
     line-height: 3;
     border: none;
     padding: 0 2rem;
     background: #0D7040;
     color: white;
-    transition: background 0.2s ease; }
-    .tour button:hover {
+    transition: background 0.2s ease;
+    display: block;
+    text-decoration: none; }
+    .tour .tour__link:hover {
       background: #10874d; }
 
 @media only screen and (min-width: 600px) {
@@ -50,6 +52,9 @@ main {
   margin: 0 auto;
   padding: 0 1rem; }
 
+p {
+  color: #666666; }
+
 blockquote {
   font-size: 1.2rem;
   text-align: center;
@@ -60,7 +65,7 @@ blockquote {
   color: #aaa; }
 
 .strong {
-  font-weight: bold; }
+  font-weight: 600; }
 
 .pointer {
   cursor: pointer; }
