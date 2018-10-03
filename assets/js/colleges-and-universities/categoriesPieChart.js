@@ -63,11 +63,18 @@ const hideElement = (element) => {
     $(element).animate({width: 'toggle'});
 }
 
+var pscs = {};
+
+d3.json("/data-lab-data/pscskv.json", function(data) {
+    pscs = data;
+});
+
 /*
 purporse : creates graph for infomation passed 
 and append the graph to the passed in element
 */
 const drawGraph = (container, nodeData, size, clickable) => {
+    let svgIcon = pscs[nodeData.name];
 
     let nodeDiv = document.createElement("div");
     nodeDiv.style.cursor = 'pointer';
@@ -84,6 +91,13 @@ const drawGraph = (container, nodeData, size, clickable) => {
        .attr("class", "labels");
    svg.append("g")
        .attr("class", "lines");
+
+    svg.append("svg:image")
+    .attr('x', -25)
+    .attr('y', -55)
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("xlink:href", "/images/psc-svgs/" + svgIcon);
 
 if (clickable) {
 
@@ -173,7 +187,7 @@ if (clickable) {
             class:'legend',
             transform:function(d,i){
                 //Just a calculation for x & y position
-                return 'translate(-85,' + ((i*legendHeight)-10) + ')';
+                return 'translate(-80,' + ((i*legendHeight)+10) + ')';
             }
         });
 
