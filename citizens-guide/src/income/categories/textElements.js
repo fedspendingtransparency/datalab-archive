@@ -83,7 +83,7 @@ function tryWrappingActivity(dom, d, boxWidth, config) {
         textGroup.classed('lookahead', function(){
             return (!config.foundFit);
         })
-        textGroup.selectAll('text').attr('style', null);
+        textGroup.selectAll('text').attr('fill', colors.textColorParagraph);
     } else {
         config.foundFit = true;
         acceptWordWrap(textGroup);
@@ -149,12 +149,12 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, tier
         .classed('activity', true)
         .attr('text-anchor', 'middle')
         .attr('style', 'font-weight: bold')
-        .attr('style', 'fill:white');
+        .attr('fill', 'white');
 
     textGroup.append('text')
         .classed('details', true)
         .attr('text-anchor', 'middle')
-        .attr('style', 'fill:white')
+        .attr('fill', 'white')
         .attr('y', 20)
         .text(function (d, i) {
             let p = parseInt(d.percent_total);

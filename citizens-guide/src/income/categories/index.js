@@ -11,10 +11,10 @@ import { zoomInit, getZoomState } from './zoom';
 import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails } from './showDetails';
 import colors from '../../colors.scss';
-import '../factBox.scss';
 import '../header.scss';
 import './categories.scss';
-import { tourButton } from '../tourButton/tourButton';
+import '../../infoBox';
+import { initTwoPartTour, activateTourPartTwo } from '../tour';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
     tour = location.search.includes('tour'),
@@ -238,29 +238,15 @@ function setTourStep2() {
 
     tourStage2 = true;
 
-    factBox.html("<strong>When you're done here</strong>, next you'll discover how these values change over time.");
-
-    tourButton(factBox.node(), 'trends-categories.html', 'Trends Over Time', true);
-}
-
-function initTour() {
-    factBox.classed('sr-only', false);
-
-    d3.select('.lead-wrapper').classed('tour-active', true);
-
-    setTimeout(function () {
-        factBox.classed('fact-box--out-right', false)
-    }, 1000)
+    activateTourPartTwo();
 }
 
 function init() {
-    stripBr();
     stackData(categoryData);
-    svg = establishContainer(700);
+    svg = establishContainer(170);
     setContainers();
     addSegments();
-
-    initTour();
+    initTwoPartTour();
 }
 
 init();

@@ -6,7 +6,6 @@ import { establishContainer } from '../../utils';
 import { sectionOneData } from './data';
 import colors from '../../colors.scss';
 import { initGdpDots } from './gdpDots';
-import { tourButton } from '../tourButton/tourButton';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,

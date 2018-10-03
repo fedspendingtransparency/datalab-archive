@@ -39,9 +39,21 @@ h2 {
   .tour .tour__link:hover {
     background: #10874d; }
 
+.tour .tour__link.tour__link--disabled {
+  background: #1a6440;
+  cursor: default;
+  color: #ccc;
+  opacity: 0.5; }
+
 .tour i {
   font-size: 12px;
   margin-left: 0.75rem; }
+
+.tour .tour__part-two {
+  display: none; }
+
+.tour .tour__part-two.active {
+  display: block; }
 
 @media only screen and (min-width: 600px) {
   .copy-tour-row {
@@ -129,6 +141,10 @@ blockquote {
   transition: opacity 1s ease; }
   .temporary-hide.temporary-hide--show {
     opacity: 1; }
+
+.footnote {
+  text-align: center;
+  margin-top: 2rem; }
 
 @media only screen and (min-width: 1200px) {
   h2, .hint {

@@ -70,6 +70,11 @@ blockquote {
     }
 }
 
+.footnote {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 @media only screen and (min-width: 1200px) {
     h2, .hint {
         max-width: 1200px;

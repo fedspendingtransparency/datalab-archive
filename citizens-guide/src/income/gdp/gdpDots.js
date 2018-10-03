@@ -5,7 +5,6 @@ import { dotFactory, receiptsConstants, dotPositionAccessor } from '../receipts-
 import { establishContainer } from '../../utils';
 import { sectionOneData } from './data';
 import { createDonut } from '../donut';
-import { tourButton } from '../tourButton/tourButton';
 import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, line, create };

@@ -12,7 +12,7 @@ import { addTextElements } from './textElements';
 import { getZoomState } from './zoom';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
-    svg = establishContainer(700),
+    svg = establishContainer(),
     sourceBox = {},
     subCategoryBoxWidths = [],
     detailBoxHeight = 100;
@@ -261,6 +261,13 @@ function renderDetail() {
     addText();
     renderConnectors();
     transitionDetailContainer();
+    resizeSvg();
+}
+
+function resizeSvg() {
+    svg.transition()
+        .duration(1200)
+        .attr('height', 650);
 }
 
 let waitForReady = new Promise(resolve => {

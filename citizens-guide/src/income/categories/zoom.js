@@ -1,5 +1,5 @@
 import colors from "../../colors.scss";
-import { translator } from "../../utils";
+import { translator, establishContainer } from "../../utils";
 import { select } from 'd3-selection';
 
 const d3 = { select },
@@ -18,7 +18,9 @@ const d3 = { select },
         }
     };
 
-let triangleLeft, triangleRight, 
+let triangleLeft,
+    triangleRight,
+    svg,
     state = 'out';
 
 function zoomOut(g) {
@@ -142,13 +144,28 @@ function transformTrigger(state, g) {
     }
 }
 
+function resizeSvg() {
+    const height = (state === 'in') ? 270 : 170,
+        delay = (state === 'in') ? 0 : 1000,
+        duration = (state === 'in') ? 1000 : 750;
+
+    svg.transition()
+        .duration(duration)
+        .delay(delay)
+        .attr('height', height);
+}
+
 export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallback) {
     const g = baseContainer.append('g')
-        .attr('style','cursor:pointer')
+        .attr('style', 'cursor:pointer')
         .attr('transform', translator(zoomTriggerX, 0));
-    
+
+    svg = establishContainer();
+
     g.on('click', function () {
         state = (state === 'out') ? 'in' : 'out';
+
+        resizeSvg()
 
         zoomCallback(state);
         transformTrigger(state, g)

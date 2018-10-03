@@ -35,7 +35,6 @@ const moduleRules = [
 
 module.exports = [{
     entry: {
-        intro: './src/income/intro/index.js',
         incomeToGdp: './src/income/gdp/index.js',
         categories: './src/income/categories/index.js',
         trend: './src/income/trends/index.js',

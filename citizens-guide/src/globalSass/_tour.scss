@@ -25,8 +25,24 @@ $tourButtonColor: #0D7040;
         }
     }
 
+    .tour__link.tour__link--disabled {
+        background: desaturate($tourButtonColor, 20%);
+        cursor: default;
+        color: #ccc;
+        opacity: 0.5;
+    }
+
     i {
         font-size: 12px;
         margin-left: 0.75rem;
     }
+
+    .tour__part-two {
+        display:none;
+    }
+
+    .tour__part-two.active {
+        display:block;
+    }
+
 }
