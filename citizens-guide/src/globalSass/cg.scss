@@ -1,7 +1,10 @@
+// @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600");
 @import 'generalVars';
 @import 'headings';
 @import 'tour';
 @import 'copyTourRow';
+@import 'infoBox';
+@import '../colors';
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -12,6 +15,10 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+p {
+    color: $text-color-paragraph;
 }
 
 blockquote {
@@ -26,7 +33,7 @@ blockquote {
 }
 
 .strong {
-    font-weight: bold;
+    font-weight: $boldWeight;
 }
 
 .pointer {
