@@ -138,13 +138,17 @@ blockquote {
 
 .temporary-hide {
   opacity: 0;
-  transition: opacity 1s ease; }
+  transition: opacity 1s ease;
+  max-height: 10px;
+  overflow: hidden; }
   .temporary-hide.temporary-hide--show {
-    opacity: 1; }
+    opacity: 1;
+    max-height: none; }
 
 .footnote {
   text-align: center;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  margin-bottom: 3rem; }
 
 .tighter-text {
   max-width: 800px;
