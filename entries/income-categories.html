@@ -1,0 +1,52 @@
+--- 
+layout: cg 
+title: Data Lab - Income By Category – U.S. Treasury 
+excerpt: excerpt
+header: Understanding federal spending related to the government's main functions 
+description: description 
+permalink: income-categories.html
+category: entry 
+---
+
+<h1>Here's how $3.3 trillion breaks down.</h1>
+
+<h2 class="chart-title">Income by Source Categories</h2>
+<div class="hint">Click <span class="category-bar-legend"></span> to dive deeper into income</div>
+
+<div id="viz"></div>
+
+<div class="copy-tour-row" id="income-facts">
+    <section class="copy-tour-row__copy">
+        <p>The $3.3 trillion the government collected last year keeps the federal government in operation.</p>
+        <p>The majority of government income collected comes from individual taxpayers and small businesses. The second largest category comes from those taxes that come directly from your paycheck. These taxes support programs such as Social Security, Medicare, and Unemployment compensation.</p>
+        <p>Other sources of income include revenue collected from excise taxes, estate taxes, and customs duties. Government income also comes from payments made to federal agencies like the Post Office who sell products or services to the public, like stamps.</p>
+        <p>We encourage you to explore the bar chart below.  It breaks down the various federal government income categories both in total dollars as well as by percent of income. What makes up individual income taxes? What exactly makes up Employment and General Retirement? What makes up the 12% of federal income that doesn’t come from individuals or corporations?</p>
+        <p>Have you visited a national park recently?
+            <button class="info-box-trigger" data-box-id="income-anecdote">
+                <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anectode icon">
+            </button>
+        </p>
+    </section>
+    <div class="copy-tour-row__tour">
+        <section class="tour">
+            <div class="tour__part-one">
+                <h1>How does the amount of federal income compare to the size of the economy?</h1>
+                <p>Click the chart to dive deeper into the various sources of government income, including additional income sources outside of federal taxes.</p>
+            </div>
+            <div class="tour__part-two">
+                <h1>How has government income changed over time?</h1>
+                <p>Next we will explore, trends in federal income over the past 5 years.</p>
+            </div>
+            <a class="tour__link" href="./trends-categories.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </div>
+</div>
+
+<div class="info-box" id="income-anecdote">
+    <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
+    <p>$3.3 trillion divided by the U.S. population in 2017 (326.4 million U.S. Census Bureau*), is equivalent to a little more than $10,000 for every individual.</p>
+</div>
+
+<div class="footnote">All data is representative of FY 2017 and provided by the Bureau of the Fiscal Service and Department of the Treasury.</div>
+
+<script src="{{site.baseurl}}/assets/cg/income/categories.js" />
