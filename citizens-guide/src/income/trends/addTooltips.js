@@ -73,9 +73,8 @@ function showTooltip(d, i) {
         .attr('dx', padding.left)
 
     tooltip.attr('transform', function () {
-
-        if (getElementBox(tooltip).right > getElementBox(d3.select('svg')).right) {
-            return translator(getElementBox(d3.select('svg')).right - getElementBox(tooltip).right, 10)
+        if (getElementBox(tooltip).right > getElementBox(d3.select('svg.main')).right) {
+            return translator(getElementBox(d3.select('svg.main')).right - getElementBox(tooltip).right, 10)
         } else {
             return translator(10, 0)
         }
