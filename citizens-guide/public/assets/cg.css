@@ -124,6 +124,8 @@ blockquote {
 #viz {
   max-width: 1200px;
   margin: 2rem auto 1rem; }
+  #viz svg {
+    letter-spacing: normal; }
 
 .sr-only {
   position: absolute;

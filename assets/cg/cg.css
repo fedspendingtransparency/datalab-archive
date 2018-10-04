@@ -95,11 +95,6 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #666; }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem; }
-
 p {
   color: #666666; }
 
@@ -129,6 +124,8 @@ blockquote {
 #viz {
   max-width: 1200px;
   margin: 2rem auto 1rem; }
+  #viz svg {
+    letter-spacing: normal; }
 
 .sr-only {
   position: absolute;
