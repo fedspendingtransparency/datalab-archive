@@ -6,6 +6,7 @@ import { establishContainer } from '../../utils';
 import { sectionOneData } from './data';
 import colors from '../../colors.scss';
 import { initGdpDots } from './gdpDots';
+import { triggerInfoBox } from '../../infoBox';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,
@@ -93,6 +94,22 @@ function buildLegend() {
         .style('font-size', 16)
         .attr('y', 5)
         .attr('x', 7)
+        .transition()
+        .delay(duration * 0.7)
+        .duration(duration / 2)
+        .attr('opacity', 1)
+        .ease();
+
+    g.append('image')
+        .attr('height', 16)
+        .attr('width', 20)
+        .attr('x', 122)
+        .attr('y', -14)
+        .attr('opacity', 0)        
+        .attr('data-box-id', 'billion-dollars')
+        .attr('xlink:href', '../assets/icons/anecdote.svg')
+        .attr('style', 'cursor:pointer')
+        .on('click', triggerInfoBox)
         .transition()
         .delay(duration * 0.7)
         .duration(duration / 2)

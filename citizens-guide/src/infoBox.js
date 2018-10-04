@@ -23,7 +23,7 @@ function closeBox(trigger, box) {
     trigger.classed(triggerClassActive, null);
 }
 
-function triggerInfoBox() {
+export function triggerInfoBox() {
     const trigger = d3.select(this),
         id = trigger.attr('data-box-id'),
         box = d3.select('#' + id),
