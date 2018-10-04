@@ -20,10 +20,10 @@ function processNoFits(d, elem, config) {
     }
 
     if (lookahead) {
-        config.noFitClimb = 280 + (noFitOffset * (config.lookaheadCount -1 ));
+        config.noFitClimb = 280 + (noFitOffset * (config.lookaheadCount - 1));
         config.lookaheadCount -= 1;
     }
-    
+
     prevTranslate = getTransform(textGroup);
 
     textGroup.selectAll('text').attr('text-anchor', function () {
@@ -47,8 +47,8 @@ function processNoFits(d, elem, config) {
                 [0, Math.abs(config.noFitClimb) - 50]
             ],
                 detailPoints = [
-                    [0,-20],
-                    [0,-config.noFitClimb + 300]
+                    [0, -20],
+                    [0, -config.noFitClimb + 300]
                 ],
                 points = (config.tierTwo) ? detailPoints : mainPoints;
 
@@ -80,7 +80,7 @@ function tryWrappingActivity(dom, d, boxWidth, config) {
             return (config.tierTwo) ? d.sub_activity : d.activity;
         })
         textGroup.classed('no-fit', true);
-        textGroup.classed('lookahead', function(){
+        textGroup.classed('lookahead', function () {
             return (!config.foundFit);
         })
         textGroup.selectAll('text').attr('fill', colors.textColorParagraph);
@@ -115,7 +115,7 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, tier
 
     let t, textGroup, details;
 
-    
+
     if (tierTwo) {
         details = data;
     } else if (zoomState === 'out') {
@@ -145,13 +145,14 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, tier
         .text(function (d) {
             return (tierTwo) ? d.sub_activity : d.activity;
         })
-        .attr('font-weight', 'bold')
+        .attr('font-size', 16)
         .classed('activity', true)
         .attr('text-anchor', 'middle')
-        .attr('style', 'font-weight: bold')
+        .attr('font-weight', '600')
         .attr('fill', 'white');
 
     textGroup.append('text')
+        .attr('font-size', 16)
         .classed('details', true)
         .attr('text-anchor', 'middle')
         .attr('fill', 'white')
@@ -162,7 +163,7 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, tier
             if (Math.abs(p) < 1) {
                 p = '<1'
             }
-            
+
             return simplifyNumber(d.amount) + ' (' + p + '%)';
         })
 
