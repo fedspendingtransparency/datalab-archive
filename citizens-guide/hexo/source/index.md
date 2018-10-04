@@ -6,5 +6,5 @@ layout: 'default'
 
 # Citizen's Guide
 
-<a style="display:block; text-align:center" href="./income/federal-income-intro.html">Income Chapter</a>
+<a style="display:block; text-align:center" href="./income/gdp.html">Income Chapter</a>
 <a style="display:block; text-align:center" href="./spending/federal-spending-intro.html">Spending Chapter</a>
