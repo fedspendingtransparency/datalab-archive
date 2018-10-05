@@ -155,10 +155,16 @@ function drawTextConnector(d, i, textSelection) {
 
 function addText() {
     const dimensions = {height: 100, width: 1200};
+
+    let textContainerHeight;
     
     textContainer = detailContainer.append('g');
 
     addTextElements(data, textContainer, x, dimensions, 'details');
+
+    textContainerHeight = getElementBox(textContainer).height;
+
+    resizeSvg(textContainerHeight);
 }
 
 function renderDetailBoxes() {
@@ -261,13 +267,15 @@ function renderDetail() {
     addText();
     renderConnectors();
     transitionDetailContainer();
-    resizeSvg();
 }
 
-function resizeSvg() {
+function resizeSvg(baseHeight) {
+    const baseCategoryHeight = getElementBox(d3.select('.base-category-container')).height,
+        height = baseCategoryHeight + baseHeight + 200;
+
     svg.transition()
         .duration(1200)
-        .attr('height', 650);
+        .attr('height', height);
 }
 
 let waitForReady = new Promise(resolve => {
