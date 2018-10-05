@@ -7,7 +7,6 @@ description: description
 permalink: income-gdp.html
 category: entry
 ---
-
 <h1>In 2017, the government collected <span class="strong">$3.3 trillion</span> 
     <button class="info-box-trigger" data-box-id="per-individual">
         <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
@@ -16,19 +15,22 @@ category: entry
 
 <div id="viz"></div>
 
-<div class="copy-tour-row temporary-hide" id="income-facts">
-    <section class="copy-tour-row__copy">
-        <p>Most of the federal government's income comes from federal taxes.</p>
-        <p>Taxes from individuals and small businesses make up a little less than half of all federal income. Besides income taxes, federal revenue comes from payroll taxes which are taken out of your paycheck to help fund programs such as Social Security, Medicare, and Unemployment Insurance. Also, corporations pay taxes as part of doing business in the United States.</p>
-        <p>The remaining sources of government income consist of excise, estate, and other taxes and fees.</p>
+<section class="temporary-hide" id="income-facts">
+        <div class="copy-tour-row">
+            <section class="copy-tour-row__copy">
+                <p>Most of the federal government's income comes from federal taxes.</p>
+                <p>Most federal income comes from contributions from individuals and small businesses. Along with federal income taxes, the government collects payroll taxes. You may recognize these taxes on your paycheck that help fund programs such as Social Security, Medicare, and Unemployment Insurance. Also, corporations pay taxes as part of doing business in the United States.</p>
+                <p>The remaining sources of government income consist of excise, estate, and other taxes and fees.</p>
+            </section>
+            <div class="copy-tour-row__tour">
+                <section class="tour">
+                    <h1>How does the amount of federal income compare to the size of the economy?</h1>
+                    <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
+                </section>
+            </div>
+        </div>
+        <div class="footnote">Data Provided by: <a target="_blank" href="https://www.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=3&isuri=1&1921=survey&1903=5">Bureau of Economic Analysis</a></div>
     </section>
-    <div class="copy-tour-row__tour">
-        <section class="tour">
-            <h1>How does the amount of federal income compare to the size of the economy?</h1>
-            <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
-        </section>
-    </div>
-</div>
 
 <section id="gdp-facts" class="temporary-hide">
     <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
@@ -44,18 +46,19 @@ category: entry
         <h1 class="tour__heading">What are the sources of government income?</h1>
         <a id="tour-continue" class="tour__link" href="./income-categories.html">Continue<i class="fas fa-chevron-right"></i></a>
     </section>
+    <div class="footnote">Data Provided by: <a target="_blank" href="https://www.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=3&isuri=1&1921=survey&1903=5">Bureau of Economic Analysis</a></div>    
 </section>
 
 <div class="info-box" id="per-individual">
     <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
-    <p>$3.3 trillion divided by the U.S. population in 2017 (326.4 million U.S. Census Bureau*), is equivalent to a little more than $10,000 for every individual.</p>
+    <p>How much is $3.3 trillion? It is equivalent to a little more than $10,000 for every individual in the U.S. ($3.3 trillion divided by the U.S. population estimate in 2017, 325.7 million <a target="_blank" href="https:\www.census.gov\quickfacts\fact\table\US\PST045217">U.S. Census Bureau.</a>) </p>
 </div>
 <div class="info-box" id="gdp-info">
-    <img src="{{site.baseurl}}/assets/cg/icons/definition.svg" alt="definition icon">
+    <img src="../assets/icons/definition.svg" alt="definition icon">
     <p><strong>Gross Domestic Product (GDP)</strong> measures the size of the nation's economy in terms of the total value of goods and services that are produced in a year. Measuring the money collected by the government relative to GDP is a helpful indicator of the economy's capacity to sustain the programs the government provides for the people and the government's success in helping the economy grow.</p>
 </div>
 <div class="info-box" id="billion-dollars">
     <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
-    <p>Each dot represents contributions to the government made by you, your family, your neighbors, your place of business, and the corporations you deal with every day.  In this analysis, each dot represents $1 billion dollars.</p>
+    <p>In this analysis, each dot represents $1 billion. Each dot represents contributions to the government from you, your family, your neighbors, your place of business, and the corporations you deal with every day.</p>
 </div>
 <script src="{{site.baseurl}}/assets/cg/income/incomeToGdp.js" />

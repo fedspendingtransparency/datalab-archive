@@ -74,17 +74,18 @@ function init(d, sourceY) {
     title = container.append('text')
         .classed('detail-pane-title', true)
         .attr('fill', colors.textColorHeading)
-        .text('View subcategories found within')
-        .attr('font-size', 14)
+        .text(d.name)
+        .attr('font-size', 20)
+        .attr('font-weight', 600)        
         .attr('x', 20)
         .attr('y', 30);
 
     title.append('tspan')
-        .text(d.name)
-        .attr('font-size', 20)
-        .attr('font-weight', 'bold')
+        .text('View and analyze subcategory level trends')
+        .attr('font-size', 14)
+        .attr('font-weight', 300)
         .attr('x', 20)
-        .attr('dy', 24);
+        .attr('dy', 18);
 
     config.zoomThreshold = zoomThresholds[d.officialName];
 
