@@ -20,12 +20,6 @@ body {
     }
 }
 
-// main {
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     padding: 0 1rem;
-// }
-
 p {
     color: $text-color-paragraph;
 }
@@ -60,7 +54,9 @@ blockquote {
 }
 
 #viz {
-    max-width: 1200px;
+    width: 1200px;
+    max-width: 100%;
+    overflow-x: auto;
     margin: 2rem auto 1rem;
 
     svg {
@@ -97,7 +93,7 @@ blockquote {
 }
 
 .tighter-text {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 

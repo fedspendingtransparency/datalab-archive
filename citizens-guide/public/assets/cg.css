@@ -124,7 +124,9 @@ blockquote {
   margin: 1rem auto; }
 
 #viz {
-  max-width: 1200px;
+  width: 1200px;
+  max-width: 100%;
+  overflow-x: auto;
   margin: 2rem auto 1rem; }
   #viz svg {
     letter-spacing: normal; }
@@ -153,7 +155,7 @@ blockquote {
   margin-bottom: 3rem; }
 
 .tighter-text {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto; }
 
 @media only screen and (min-width: 1200px) {
