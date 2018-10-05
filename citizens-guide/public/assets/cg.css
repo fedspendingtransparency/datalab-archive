@@ -95,8 +95,8 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #666; }
   body .cg-content {
-    letter-spacing: normal !important;
-    line-height: 1 !important;
+    letter-spacing: normal;
+    line-height: 1;
     font-weight: 300; }
     body .cg-content p {
       margin-bottom: 1rem; }
