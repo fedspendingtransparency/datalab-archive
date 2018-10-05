@@ -283,21 +283,20 @@ function rescale() {
     containers.data.selectAll('g.bar-group')
         .each(function (data) {
             const group = d3.select(this),
-                keys = chartedData.map(d => d.key).sort(),
                 labels = group.selectAll('text'),
                 bars = group.selectAll('rect');
 
             bars.transition()
                 .duration(addRemoveDuration)
                 .attr('width', function (d) {
-                    return scales.x(data[d.config.data]);
+                    return scales.x(d[config.amountField]);
                 })
                 .ease();
 
             labels.transition()
                 .duration(addRemoveDuration)
                 .attr('x', function (d) {
-                    return scales.x(data[d]) + 20;
+                    return scales.x(d[config.amountField]) + 20;
                 })
         });
 

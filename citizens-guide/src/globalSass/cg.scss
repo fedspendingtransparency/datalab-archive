@@ -11,11 +11,11 @@ body {
     color: #666;
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
+// main {
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     padding: 0 1rem;
+// }
 
 p {
     color: $text-color-paragraph;
@@ -53,6 +53,10 @@ blockquote {
 #viz {
     max-width: 1200px;
     margin: 2rem auto 1rem;
+
+    svg {
+        letter-spacing: normal;
+    }
 }
 
 .sr-only {
@@ -68,15 +72,19 @@ blockquote {
 .temporary-hide {
     opacity: 0;
     transition: opacity 1s ease;
+    max-height: 10px;
+    overflow: hidden;
 
     &.temporary-hide--show {
-        opacity: 1;        
+        opacity: 1;
+        max-height: none;   
     }
 }
 
 .footnote {
     text-align: center;
     margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 .tighter-text {

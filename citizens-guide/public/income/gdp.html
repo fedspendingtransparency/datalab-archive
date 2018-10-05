@@ -18,7 +18,23 @@
 </head>
 
 <body>
-    <main>
+    
+    <nav class="income-nav">
+    <ul class="site-nav__primary-list">
+        <li><a href="./gdp.html">Income and GDP</a></li>
+        <li><a href="./categories.html">Income Categories</a></li>
+        <li><a href="./trends-categories.html">Trends Over Time</a></li>
+        <li><a href="./country-comparison.html">Country Comprarison</a></li>
+    </ul>
+    <button class="income-nav-trigger">
+        <hr>
+        <hr>
+        <hr>
+    </button>
+</nav>
+    <script src="../assets/nav/nav-income.js"></script>
+
+<main>
     
 <h1>In 2017, the government collected <span class="strong">$3.3 trillion</span> 
     <button class="info-box-trigger" data-box-id="per-individual">
@@ -59,33 +75,20 @@
 </section>
 
 <div class="info-box" id="per-individual">
-    <i class="fas fa-street-view"></i>
+    <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
     <p>$3.3 trillion divided by the U.S. population in 2017 (326.4 million U.S. Census Bureau*), is equivalent to a little more than $10,000 for every individual.</p>
 </div>
 <div class="info-box" id="gdp-info">
     <img src="../assets/icons/definition.svg" alt="definition icon">
     <p><strong>Gross Domestic Product (GDP)</strong> measures the size of the nation's economy in terms of the total value of goods and services that are produced in a year. Measuring the money collected by the government relative to GDP is a helpful indicator of the economy's capacity to sustain the programs the government provides for the people and the government's success in helping the economy grow.</p>
 </div>
-
+<div class="info-box" id="billion-dollars">
+    <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
+    <p>Each dot represents contributions to the government made by you, your family, your neighbors, your place of business, and the corporations you deal with every day.  In this analysis, each dot represents $1 billion dollars.</p>
+</div>
 <script src="../assets/income/incomeToGdp.js">
 </script>
 </main>
-
-<nav class="income-nav">
-    <ul class="site-nav__primary-list">
-        <li><a href="./gdp.html">Income and GDP</a></li>
-        <li><a href="./categories.html">Income Categories</a></li>
-        <li><a href="./trends-categories.html">Trends Over Time</a></li>
-        <li><a href="./country-comparison.html">Country Comprarison</a></li>
-    </ul>
-    <button class="income-nav-trigger">
-        <hr>
-        <hr>
-        <hr>
-    </button>
-</nav>
-<script src="../assets/nav/nav-income.js"></script>
-
 </body>
 
 </html>

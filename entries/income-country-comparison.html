@@ -1,37 +1,29 @@
 --- 
-layout: cg 
-title: Data Lab - Income Country Comparison – U.S. Treasury 
+layout: cg
+title: Data Lab - Income Country Comparison – U.S. Treasury
 excerpt: excerpt
-header: Understanding federal spending related to the government's main functions 
-description: description 
+header: Understanding federal spending related to the government's main functions
+description: description
 permalink: income-country-comparison.html
-category: entry 
+category: entry
 ---
 
-<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/normalize.css"  type="text/css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/cg.css"  type="text/css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/nav/nav-income.css"  type="text/css">
+<h1>Compare the income of the United States to other countries.</h1>
 
-<main>
-	<header>
-		<h1>How Does Government Income Relate to GDP?</h1>
-		<div class="lead-wrapper">
-			<div class="lead">
-				<p>The income the U.S. government collects helps finance the various goods and services that are then reinvested back as
-					goods and services to the public and businesses who helped generate the taxes themselves. When you explore government
-					income as a portion of GDP, you are looking at a snapshot of the available financial resources of the country.</p>
-				<p>The chart below shows income collected by the U.S. government compared to 171 other countries in 2017.</p>
-			</div>
-		</div>
-	</header>
+<div class="tighter-text">
+    <p>The chart below shows income collected by the U.S. government compared to 171 other countries in 2017.</p>
+    <p>As we previously learned the $3.3 trillion in income that was collected was equivalent to 17.4% of the total GDP of the United States, which as $19.5 trillion.</p>
+    <p>Relative in size, the United States collected the most out of any country and has one of the highest GDP.  But in comparison, government income as a comparison to GDP was only a small portion.</p>
+    <p>How does the U.S. compare to other countries? We encourage you to check out the chart below to see for yourself. You can compare total income to other countries vs. income as a percent of GDP. What changes do you see? How does the U.S. match up to countries of similar economic size and population? Pick a country of interest or curiosity and compare for yourself.</p>
+</div>
 
-	<h2 id="Country-Comparison">Country Comparison</h2>
-	<div class="hint">All data is FY2017</div>
+<h2 class="chart-title">Country Comparison</h2>
+<div class="hint">You can sort this list in a variety of ways. Click the sort button <span class="sort-button-placeholder"></span> to adjust.</div>
 
-	<div id="viz"></div>
-</main>
+<div id="viz"></div>
 
-{% include income-nav.html %}
+<div class="footnote">
+All data is representative of FY 2017. Data provided by
+</div>
 
 <script src="{{site.baseurl}}/assets/cg/income/countryComparison.js"></script>
-<script src="{{site.baseurl}}/assets/cg/nav/nav-income.js"></script>
