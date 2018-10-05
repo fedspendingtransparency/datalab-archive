@@ -36,8 +36,8 @@ category: nonentry
   </div>
   <div class="dts-right-column">
     <div class="frequency-container">
-        <div class="select-timeframe-label">Frequency</div>
-        <select id="select-timeframe" class="custom-select">
+        <div class="frequency-selector-label">Frequency</div>
+        <select id="frequency-selector" class="custom-select">
           <option value="today">DAILY</option>
           <option value="mtd">MTD</option>
           <option value="fytd">FYTD</option>
@@ -45,12 +45,12 @@ category: nonentry
     </div>
     <div class="category-container">
       <div class="category-select-label">Categories</div>
-      <select class="custom-select custom-select-start" id="item-selector"></select>
+      <select class="custom-select custom-select-start" id="category-selector"></select>
     </div>
   </div>
 </div>
 
-<div class="text-container">
+<div class="dts-tt-container">
   <div class="dts-tt-date"></div>
   <div class="dts-tt-hr-separator"></div>
   <div class="dts-tt-category"></div>
@@ -77,12 +77,30 @@ category: nonentry
 </div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-
 <script>
 
 const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
-var allOptions, condensedOptions;
+const svg = d3.select("#svg-wrapper"),
+  margin = { top: 20, right: 20, bottom: 110, left: 60 },
+  margin2 = { top: 430, right: 20, bottom: 30, left: 60 },
+  width = +svg.attr("width") - margin.left - margin.right,
+  height = +svg.attr("height") - margin.top - margin.bottom,
+  height2 = +svg.attr("height") - margin2.top - margin2.bottom;
+
+const parseDate = d3.timeParse("%-m/%-d/%y");
+const bisectDate = d3.bisector(d => d.date).left;
+
+const x = d3.scaleTime().range([0, width]),
+  x2 = d3.scaleTime().range([0, width]),
+  y = d3.scaleLinear().range([height, 0]),
+  y2 = d3.scaleLinear().range([height2, 0]);
+
+const xAxis = d3.axisBottom(x),
+  xAxis2 = d3.axisBottom(x2),
+  yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
+
+var allOptions, condensedOptions, optionsDict, lastPeriodContext;
 
 function getQueryStringValue(key) {  
   return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
@@ -108,8 +126,8 @@ function createBarChart(yearToSpendingArray) {
   var g = svg.append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  x.domain(data.map(function(d) { return d.year; }));
-  y.domain([0, d3.max(data, function(d) { return d.spending; })]);
+  x.domain(data.map(d => d.year));
+  y.domain([0, d3.max(data, d => d.spending)]);
 
   g.append("g")
       .attr("class", "axis bar-axis axis--x")
@@ -130,10 +148,10 @@ function createBarChart(yearToSpendingArray) {
     .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.year); })
-      .attr("y", function(d) { return y(d.spending); })
+      .attr("x", d => x(d.year))
+      .attr("y", d => y(d.spending))
       .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.spending); });
+      .attr("height", d => height - y(d.spending));
 }
 
 function createTable(yearToSpendingArray) {
@@ -164,7 +182,7 @@ function createTable(yearToSpendingArray) {
 		  })
 		  .enter()
 		  .append('td')
-      .text(function (d) { return d; });
+      .text(d => d);
 }
 
 function addOptions(sel) {
@@ -193,9 +211,9 @@ function addOptions(sel) {
 }
 
 function createSelect() {
-  d3.select('#select-timeframe').on('change', onFrequencyChange);
+  d3.select('#frequency-selector').on('change', onFrequencyChange);
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
-  let select = d3.select('#item-selector').on('change', onCategoryChange);
+  let select = d3.select('#category-selector').on('change', onCategoryChange);
 
   addOptions(select);
 
@@ -204,37 +222,18 @@ function createSelect() {
   }
 
   function onCategoryChange() {
-    d3.select("#item-selector").classed('custom-select-start', false);
+    d3.select("#category-selector").classed('custom-select-start', false);
 
     onDataChange();
   }
 
   function onDataChange() {
-    let timeFrameValue = d3.select('#select-timeframe').property('value');
-    let selectValue = d3.select('#item-selector').property('value');
+    let timeFrameValue = d3.select('#frequency-selector').property('value');
+    let selectValue = d3.select('#category-selector').property('value');
 
     createGraph(optionsDict[selectValue][timeFrameValue]);
   }
 }
-
-var svg = d3.select("#svg-wrapper"),
-  margin = { top: 20, right: 20, bottom: 110, left: 60 },
-  margin2 = { top: 430, right: 20, bottom: 30, left: 60 },
-  width = +svg.attr("width") - margin.left - margin.right,
-  height = +svg.attr("height") - margin.top - margin.bottom,
-  height2 = +svg.attr("height") - margin2.top - margin2.bottom;
-
-var parseDate = d3.timeParse("%-m/%-d/%y");
-var bisectDate = d3.bisector(function(d) { return d.date; }).left;
-
-var x = d3.scaleTime().range([0, width]),
-  x2 = d3.scaleTime().range([0, width]),
-  y = d3.scaleLinear().range([height, 0]),
-  y2 = d3.scaleLinear().range([height2, 0]);
-
-var xAxis = d3.axisBottom(x),
-  xAxis2 = d3.axisBottom(x2),
-  yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
 
 function makeXGridLines() {		
   return d3.axisBottom(x);
@@ -243,9 +242,6 @@ function makeXGridLines() {
 function makeYGridLines() {		
   return d3.axisLeft(y);
 }
-
-var optionsDict;
-var lastPeriodContext;
 
 function parseYYYYMMDD(dateString) {
   var year        = dateString.substring(0, 4);
@@ -326,20 +322,12 @@ function createGraph(data) {
     });
 
   var line = d3.line()
-    .x(function(d) {
-      return x(d.date);
-    })
-    .y(function(d) {
-      return y(d.value);
-    });
+    .x(d =>  x(d.date))
+    .y(d =>  y(d.value));
 
   var line2 = d3.line()
-    .x(function(d) {
-      return x2(d.date);
-    })
-    .y(function(d) {
-      return y2(d.value);
-    });
+    .x(d => x2(d.date))
+    .y(d => y2(d.value));
 
     var focus = svg.append("g")
       .attr("class", "focus")
@@ -350,12 +338,8 @@ function createGraph(data) {
       .attr("class", "context")
       .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-    x.domain(d3.extent(data, function(d) {
-      return d.date;
-    }));
-    y.domain([0, d3.max(data, function(d) {
-      return d.value;
-    })]);
+    x.domain(d3.extent(data, d => d.date));
+    y.domain([0, d3.max(data, d => d.value)]);
     x2.domain(x.domain());
     y2.domain(y.domain());
 
@@ -448,15 +432,15 @@ function createGraph(data) {
     .attr("r", 7)
     .attr("stroke-width", 1);
   
-  var textContainer = d3.select(".text-container"); 
+  var ttContainer = d3.select(".dts-tt-container"); 
 
   svg.append("rect")
     .attr("class", "zoom")
     .attr("width", width)
     .attr("height", height)
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    .on("mouseover", function() { textContainer.style("display", "block"); mouseOverDataPoint.style("display", "block"); })
-    .on("mouseout", function() { textContainer.style("display", "none"); mouseOverDataPoint.style("display", "none"); })
+    .on("mouseover", function() { ttContainer.style("display", "block"); mouseOverDataPoint.style("display", "block"); })
+    .on("mouseout", function() { ttContainer.style("display", "none"); mouseOverDataPoint.style("display", "none"); })
     .on("mousemove", mouseMove)
     .call(zoom).on("wheel.zoom", null);
 
@@ -493,8 +477,8 @@ function createGraph(data) {
   function updateHistoryWithNewBrush(s) {
     let start = x2.invert(s[0]).toISOString().slice(0,10).replace(/-/g,"");
     let end = x2.invert(s[1]).toISOString().slice(0,10).replace(/-/g,"");
-    let frequency = d3.select('#select-timeframe').property('value');
-    let category = d3.select('#item-selector').property('value');
+    let frequency = d3.select('#frequency-selector').property('value');
+    let category = d3.select('#category-selector').property('value');
 
     let theQueryString = "?" + serialize({
       start: start,
@@ -552,24 +536,24 @@ function createGraph(data) {
     mouseOverDataPoint.select("circle")
       .attr("transform", "translate(" + (margin.left + x(d.date)) + "," + (margin.top + y(d.value)) + ")");
 
-    textContainer
+    ttContainer
       .style("left", d3.event.pageX + "px")
       .style("top", (d3.event.pageY) + "px");
 
     var mouseOverDateText = parseTimeFormat(d.date);
 
-    let selectValue = d3.select('#item-selector').property('value');
+    let selectValue = d3.select('#category-selector').property('value');
 
     let todayDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["today"], this).value);
     let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["mtd"], this).value);
     let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["fytd"], this).value);
 
-    textContainer.select(".dts-tt-category").text(selectValue);
-    textContainer.select(".dts-tt-date").text(mouseOverDateText);
+    ttContainer.select(".dts-tt-category").text(selectValue);
+    ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
-    textContainer.select(".dts-tt-amount").text(todayDataPoint);
-    textContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
-    textContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
+    ttContainer.select(".dts-tt-amount").text(todayDataPoint);
+    ttContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
+    ttContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
   }
 
   if (lastPeriodContext != null) {
@@ -580,9 +564,9 @@ function createGraph(data) {
 d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   if (error) throw error;
 
-  let optionsData = [ ];
+  let optionsData = [];
 
-  optionsDict = { };
+  optionsDict = {};
 
   let lastDate = data[data.length - 1].date;
   let totalDailySpending = 0;
@@ -657,8 +641,8 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   let theFrequency = getFrequencyFromURL();
   let theCategory = getCategoryFromURL(allOptions);
 
-  d3.select('#select-timeframe').property('value', theFrequency);
-  d3.select('#item-selector').property('value', theCategory);
+  d3.select('#frequency-selector').property('value', theFrequency);
+  d3.select('#category-selector').property('value', theCategory);
 
   d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
 

@@ -47,7 +47,7 @@
   stroke: white;
 }
 
-.text-container {
+.dts-tt-container {
   display: none;
   position: absolute;
   min-width: 150px;
@@ -306,7 +306,7 @@
   margin-right: 50px;
 }
 
-.select-timeframe-label, .category-select-label {
+.frequency-selector-label, .category-select-label {
   text-transform: uppercase;
   margin-bottom: 5px;
 }
@@ -363,7 +363,7 @@
   margin-right: 5px;
 }
 
-#item-selector {
+#category-selector {
   width: 100%;
   font-size: 16px;
   height: 45px;
