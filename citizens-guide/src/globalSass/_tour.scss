@@ -2,6 +2,7 @@ $tourButtonColor: #0D7040;
 
 .tour {
     @extend %info-box;
+    margin: 10px;
 
     h1, h1.tour__heading {
         font-size: 17px;

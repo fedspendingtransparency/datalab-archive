@@ -21,39 +21,36 @@ h2 {
   margin-bottom: 0;
   color: #555; }
 
-.tour h1, .tour h1.tour__heading {
-  font-size: 17px;
-  font-weight: 600;
-  margin-top: 0;
-  text-align: left; }
-
-.tour .tour__link {
-  line-height: 3;
-  border: none;
-  padding: 0 2rem;
-  background: #0D7040;
-  color: white;
-  transition: background 0.2s ease;
-  display: inline-block;
-  text-decoration: none; }
-  .tour .tour__link:hover {
-    background: #10874d; }
-
-.tour .tour__link.tour__link--disabled {
-  background: #1a6440;
-  cursor: default;
-  color: #ccc;
-  opacity: 0.5; }
-
-.tour i {
-  font-size: 12px;
-  margin-left: 0.75rem; }
-
-.tour .tour__part-two {
-  display: none; }
-
-.tour .tour__part-two.active {
-  display: block; }
+.tour {
+  margin: 10px; }
+  .tour h1, .tour h1.tour__heading {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 0;
+    text-align: left; }
+  .tour .tour__link {
+    line-height: 3;
+    border: none;
+    padding: 0 2rem;
+    background: #0D7040;
+    color: white;
+    transition: background 0.2s ease;
+    display: inline-block;
+    text-decoration: none; }
+    .tour .tour__link:hover {
+      background: #10874d; }
+  .tour .tour__link.tour__link--disabled {
+    background: #1a6440;
+    cursor: default;
+    color: #ccc;
+    opacity: 0.5; }
+  .tour i {
+    font-size: 12px;
+    margin-left: 0.75rem; }
+  .tour .tour__part-two {
+    display: none; }
+  .tour .tour__part-two.active {
+    display: block; }
 
 @media only screen and (min-width: 600px) {
   .copy-tour-row {
@@ -94,6 +91,11 @@ h2 {
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #666; }
+  body .cg-content {
+    letter-spacing: normal !important;
+    line-height: 1 !important; }
+    body .cg-content p {
+      margin-bottom: 1rem; }
 
 p {
   color: #666666; }

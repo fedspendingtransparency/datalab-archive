@@ -9,6 +9,15 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     color: #666;
+
+    .cg-content {
+        letter-spacing: normal !important;
+        line-height: 1 !important;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 // main {
