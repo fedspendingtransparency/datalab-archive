@@ -97,7 +97,8 @@ body {
   body .cg-content {
     letter-spacing: normal;
     line-height: 1;
-    font-weight: 300; }
+    font-weight: 300;
+    font-size: 16px; }
     body .cg-content p {
       margin-bottom: 1rem; }
 
@@ -131,7 +132,7 @@ blockquote {
   width: 1200px;
   max-width: 100%;
   overflow-x: auto;
-  overflow-x: hidden;
+  overflow-y: hidden;
   margin: 2rem auto 1rem; }
   #viz svg {
     letter-spacing: normal; }
