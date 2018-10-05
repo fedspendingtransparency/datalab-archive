@@ -337,8 +337,9 @@ function createGraph(data) {
     var context = svg.append("g")
       .attr("class", "context")
       .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+  
+    x.domain([d3.min(data, d => d.date), d3.max(data, d => d.date)])
 
-    x.domain(d3.extent(data, d => d.date));
     y.domain([0, d3.max(data, d => d.value)]);
     x2.domain(x.domain());
     y2.domain(y.domain());
