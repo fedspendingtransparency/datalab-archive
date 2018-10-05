@@ -39,7 +39,7 @@ export function triggerInfoBox() {
     box.classed(activeClass, true);
     trigger.classed(triggerClassActive, true);
 
-    box.attr('style', `top:${coords.y-18}px;left:${x}px`);
+    box.attr('style', `top:${coords.y-18+window.pageYOffset}px;left:${x}px`);
 
     box.select('.' + closeButtonClass)
         .on('click', null)
