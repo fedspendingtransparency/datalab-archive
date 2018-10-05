@@ -79,6 +79,7 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
+const brushDateFormatter = d3.timeFormat("%x");
 const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
 const svg = d3.select("#svg-wrapper"),
@@ -329,6 +330,18 @@ function createGraph(data) {
     .x(d => x2(d.date))
     .y(d => y2(d.value));
 
+    svg.append("text")
+      .attr("x", margin.left + 15)
+      .attr("y", margin.top - 5)
+      .attr("class", "dts-label-brush-start")
+      .text("mm/dd/yyyy");
+
+    svg.append("text")
+      .attr("x", width - 15)
+      .attr("y", margin.top - 5)
+      .attr("class", "dts-label-brush-end")
+      .text("mm/dd/yyyy");
+
     var focus = svg.append("g")
       .attr("class", "focus")
       .attr("id", "the-axes")
@@ -337,7 +350,7 @@ function createGraph(data) {
     var context = svg.append("g")
       .attr("class", "context")
       .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-  
+    
     x.domain([d3.min(data, d => d.date), d3.max(data, d => d.date)])
 
     y.domain([0, d3.max(data, d => d.value)]);
@@ -498,6 +511,9 @@ function createGraph(data) {
     adjustLines();
 
     updateCustomGrabbers(s);
+
+    d3.select(".dts-label-brush-start").text(brushDateFormatter(x.domain()[0]));
+    d3.select(".dts-label-brush-end").text(brushDateFormatter(x.domain()[1]));
     
     svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
       .scale(width / (s[1] - s[0]))
