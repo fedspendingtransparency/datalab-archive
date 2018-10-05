@@ -79,6 +79,9 @@ h2 {
   max-width: 300px;
   display: none; }
 
+.info-box-trigger img, .info-box img {
+  height: 16px; }
+
 .info-box.info-box--active {
   display: block;
   position: absolute; }
@@ -127,6 +130,7 @@ blockquote {
   width: 1200px;
   max-width: 100%;
   overflow-x: auto;
+  overflow-x: hidden;
   margin: 2rem auto 1rem; }
   #viz svg {
     letter-spacing: normal; }

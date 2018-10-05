@@ -126,7 +126,8 @@ function enableFactBox() {
     svg.attr('width', 670);
     svg.attr('height', 300);
 
-    d3.select('#viz').attr('style', 'float:left');
+    d3.select('#viz')
+        .attr('style', 'float:left;width:auto');
 }
 
 function animationNext() {
@@ -175,7 +176,7 @@ function enterDonut() {
         .attr('cy', r);
 
     donutGroup
-        .attr('transform', 'scale(1.5) ' + translator(600, 0))
+        .attr('transform', 'scale(1.5) ' + translator(400, 0))
         .attr('opacity', 0)
 
     donutContainer = donutGroup.append('g')

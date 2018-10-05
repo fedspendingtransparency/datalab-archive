@@ -20,6 +20,10 @@
     display: none;
 }
 
+.info-box-trigger img, .info-box img {
+    height: 16px;
+}
+
 .info-box.info-box--active {
     display: block;
     position: absolute;
