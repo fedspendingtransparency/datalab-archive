@@ -1,8 +1,10 @@
-@media only screen and (min-width: 600px) {
+.copy-tour-row {
+    margin: 0 1rem;
+}
+
+@media only screen and (min-width: 660px) {
     .copy-tour-row {
         display: flex;
-        max-width: 1100px;
-        margin: 0 auto;
     }
 
     .copy-tour-row__tour {
@@ -12,5 +14,13 @@
 
     .copy-tour-row__copy {
         width: 66%;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .copy-tour-row {
+        max-width: 900px;
+        margin: 0 auto;
     }
 }

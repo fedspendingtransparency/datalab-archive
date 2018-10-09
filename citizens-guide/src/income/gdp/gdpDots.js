@@ -121,6 +121,7 @@ function setGdpDots() {
 
 function enableFactBox() {
     const factBox = d3.select('#gdp-facts')
+        .classed('out', null)
         .classed('temporary-hide--show', true);
 
     svg.attr('width', 670);

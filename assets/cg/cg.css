@@ -52,16 +52,23 @@ h2 {
   .tour .tour__part-two.active {
     display: block; }
 
-@media only screen and (min-width: 600px) {
+.copy-tour-row {
+  margin: 0 1rem; }
+
+@media only screen and (min-width: 660px) {
   .copy-tour-row {
-    display: flex;
-    max-width: 1100px;
-    margin: 0 auto; }
+    display: flex; }
   .copy-tour-row__tour {
     margin-left: 1rem;
     width: 34%; }
   .copy-tour-row__copy {
-    width: 66%; } }
+    width: 66%;
+    margin: 0; } }
+
+@media only screen and (min-width: 900px) {
+  .copy-tour-row {
+    max-width: 900px;
+    margin: 0 auto; } }
 
 .info-box-trigger {
   vertical-align: super;
@@ -91,6 +98,60 @@ h2 {
   background: white;
   border: none; }
 
+.hwcta {
+  max-width: 900px;
+  margin: 1rem auto;
+  transition: opacity 1s ease; }
+
+.hwcta__heading {
+  padding: 20px;
+  font-size: 24px;
+  text-align: left;
+  border: 1px solid #eee;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; }
+
+.hwcta__copy {
+  padding: 20px;
+  border: 1px solid transparent;
+  border-top: none;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.5s ease;
+  opacity: 0; }
+
+.hwcta__toggle {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  float: right;
+  width: 26px; }
+
+.hwcta__plus {
+  display: block; }
+
+.hwcta__minus {
+  display: none; }
+
+.hwcta--staged {
+  opacity: 0; }
+
+.hwcta--open .hwcta__copy {
+  line-height: 1.2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: #eee;
+  opacity: 1; }
+
+.hwcta--open .hwcta__plus {
+  display: none; }
+
+.hwcta--open .hwcta__minus {
+  display: block; }
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #666; }
@@ -101,6 +162,17 @@ body {
     font-size: 16px; }
     body .cg-content p {
       margin-bottom: 1rem; }
+    body .cg-content a, body .cg-content a:visited {
+      color: #205493;
+      text-decoration: none; }
+      body .cg-content a:hover, body .cg-content a:visited:hover {
+        text-decoration: underline; }
+
+a, a:visited, .cg-content a, .cg-content a:visited {
+  color: #205493;
+  text-decoration: none; }
+  a:hover, a:visited:hover, .cg-content a:hover, .cg-content a:visited:hover {
+    text-decoration: underline; }
 
 p {
   color: #666666; }
@@ -164,8 +236,12 @@ blockquote {
   color: #666666; }
 
 .tighter-text {
-  max-width: 1000px;
-  margin: 0 auto; }
+  margin: 0 1rem; }
+
+@media only screen and (min-width: 900px) {
+  .tighter-text {
+    max-width: 900px;
+    margin: 0 auto; } }
 
 @media only screen and (min-width: 1200px) {
   h2, .hint {

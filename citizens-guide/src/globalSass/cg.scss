@@ -5,6 +5,7 @@
 @import 'copyTourRow';
 @import 'infoBox';
 @import '../colors';
+@import 'hwcta';
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -19,6 +20,24 @@ body {
         p {
             margin-bottom: 1rem;
         }
+
+        a, a:visited {
+            color: $color-primary-darker;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+a, a:visited, .cg-content a, .cg-content a:visited {
+    color: $color-primary-darker;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
     }
 }
 
@@ -99,8 +118,14 @@ blockquote {
 }
 
 .tighter-text {
-    max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 1rem;
+}
+
+@media only screen and (min-width: 900px) {
+    .tighter-text {
+        max-width: 900px;
+        margin: 0 auto;
+    }
 }
 
 @media only screen and (min-width: 1200px) {

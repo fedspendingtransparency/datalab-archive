@@ -26,7 +26,7 @@ category: nonentry
     <div class="period-container">
       <div class="period-button-header">Chart Range</div>
       <div class="period-button-container">
-        <div class="period-button" data-range="30d">30D</div>
+        <div class="period-button period-button-default" data-range="30d">30D</div>
         <div class="period-button" data-range="90d">90D</div>
         <div class="period-button" data-range="1y">1Y</div>
         <div class="period-button" data-range="5y">5Y</div>
@@ -101,7 +101,139 @@ const xAxis = d3.axisBottom(x),
   xAxis2 = d3.axisBottom(x2),
   yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
 
-var allOptions, condensedOptions, optionsDict, lastPeriodContext;
+var allOptions, condensedOptions, optionsDict;
+
+const line = d3.line()
+    .x(d =>  x(d.date))
+    .y(d =>  y(d.value));
+
+const line2 = d3.line()
+    .x(d => x2(d.date))
+    .y(d => y2(d.value));
+
+const brush = d3.brushX()
+  .extent([
+    [0, 0],
+    [width, height2]
+  ])
+  .on("start brush end", brushed);
+
+const zoom = d3.zoom()
+  .scaleExtent([1, Infinity])
+  .translateExtent([
+    [0, 0],
+    [width, height]
+  ])
+  .extent([
+    [0, 0],
+    [width, height]
+  ])
+  .on("zoom", zoomed);
+
+function adjustLines() {
+  svg.select(".graph-lines").attr("d", line);
+  svg.select(".brush-lines").attr("d", line2);
+  svg.select(".graph-x-axis").call(xAxis);
+  svg.select(".brush-x-axis").call(xAxis2);
+  svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
+  svg.select(".y-grid").call(makeYGridLines().tickSize(-width).tickFormat(""));
+}
+
+function updateCustomGrabbers(s) {
+  var handle = svg.selectAll(".handle--custom");
+  if (s == null) {
+    handle.attr("display", "none");
+  } else {
+    handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + s[i] + "," + height2 / 2 + ")"; });
+  }
+}
+
+function serialize(obj) {
+  var str = [];
+  for (var p in obj) {
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  }
+  return str.join("&");
+}
+
+function updateHistoryWithNewBrush(s) {
+  let start = x2.invert(s[0]).toISOString().slice(0,10).replace(/-/g,"");
+  let end = x2.invert(s[1]).toISOString().slice(0,10).replace(/-/g,"");
+  let frequency = d3.select('#frequency-selector').property('value');
+  let category = d3.select('#category-selector').property('value');
+
+  let theQueryString = "?" + serialize({
+    start: start,
+    end: end,
+    frequency: frequency,
+    category: category
+  });
+
+  history.replaceState(null, "", theQueryString);
+}
+
+function clearPeriodSelections() {
+  d3.selectAll(".period-button").classed("period-button-selected", false);
+}
+
+function brushed() {
+  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+  
+  var s = d3.event.selection || x2.range();
+  x.domain(s.map(x2.invert, x2)); // x.domain(x2)?
+  adjustLines();
+
+  updateCustomGrabbers(s);
+
+  d3.select(".dts-label-brush-start").text(brushDateFormatter(x.domain()[0]));
+  d3.select(".dts-label-brush-end").text(brushDateFormatter(x.domain()[1]));
+  
+  svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
+    .scale(width / (s[1] - s[0]))
+    .translate(-s[0], 0));
+  clearPeriodSelections();
+}
+
+function zoomed() {
+  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
+
+  var t = d3.event.transform || x2.range();
+  x.domain(t.rescaleX(x2).domain());
+  adjustLines();
+
+  let brushRegion = x.range().map(t.invertX, t);
+
+  updateCustomGrabbers(brushRegion);
+
+  d3.select(".brush").call(brush.move, brushRegion);
+
+  clearPeriodSelections();
+}
+
+function choosePeriodButton(context, data) {
+  let lastDate = data[data.length - 1].date.getTime();
+
+  let leftDate = new Date(lastDate);
+  let rightDate = new Date(lastDate);
+
+  let t = context.dataset.range;
+
+  switch (t) {
+    case "30d": leftDate.setMonth(leftDate.getMonth() - 1); break;
+    case "90d": leftDate.setMonth(leftDate.getMonth() - 3); break;
+    case "1y": leftDate.setFullYear(leftDate.getFullYear() - 1); break;
+    case "5y": leftDate.setFullYear(leftDate.getFullYear() - 5); break;
+    case "10y": leftDate.setFullYear(leftDate.getFullYear() - 10); break;
+  }
+
+  d3.select(".brush").call(brush.move, null);
+  
+  d3.select(".brush").call(brush.move, [x(leftDate), x(rightDate)]);
+
+  d3.select(context).classed("period-button-selected", true);
+}
 
 function getQueryStringValue(key) {  
   return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
@@ -232,7 +364,7 @@ function createSelect() {
     let timeFrameValue = d3.select('#frequency-selector').property('value');
     let selectValue = d3.select('#category-selector').property('value');
 
-    createGraph(optionsDict[selectValue][timeFrameValue]);
+    updateGraph(optionsDict[selectValue][timeFrameValue]);
   }
 }
 
@@ -252,119 +384,79 @@ function parseYYYYMMDD(dateString) {
   return new Date(year, month - 1, day);
 }
 
+function setGraphYDomains(data) {
+  y.domain([0, d3.max(data, d => d.value)]);
+  y2.domain(y.domain());
+}
+
+function updateGraph(data) {
+  d3.select(".graph-lines").datum(data);
+  d3.select(".brush-lines").datum(data);
+
+  setGraphYDomains(data);
+  adjustLines();
+
+  svg.select(".axis--y").transition().duration(1000).call(yAxis).ease(d3.easeLinear);
+}
+
 function createGraph(data) {
   let startDate = getQueryStringValue("start");
   let endDate = getQueryStringValue("end");
 
-  d3.select("#svg-wrapper").selectAll("*").remove();
-
-  var brush = d3.brushX()
-    .extent([
-      [0, 0],
-      [width, height2]
-    ])
-    .on("start brush end", brushed);
-
-  function choosePeriodButton(context) {
-    let lastDate = data[data.length - 1].date.getTime();
-
-    let leftDate = new Date(lastDate);
-    let rightDate = new Date(lastDate);
-
-    let t = context.dataset.range;
-
-    switch (t) {
-      case "30d": leftDate.setMonth(leftDate.getMonth() - 1); break;
-      case "90d": leftDate.setMonth(leftDate.getMonth() - 3); break;
-      case "1y": leftDate.setFullYear(leftDate.getFullYear() - 1); break;
-      case "5y": leftDate.setFullYear(leftDate.getFullYear() - 5); break;
-      case "10y": leftDate.setFullYear(leftDate.getFullYear() - 10); break;
-    }
-
-    d3.select(".brush").call(brush.move, null);
-    
-    d3.select(".brush").call(brush.move, [x(leftDate), x(rightDate)]);
-
-    d3.select(context).classed("period-button-selected", true);
-  }
+  d3.select("#svg-wrapper").selectAll(".line-main").remove();
 
   d3.selectAll(".period-button").on("click", function() {
-    choosePeriodButton(this);
-    lastPeriodContext = this;
+    choosePeriodButton(this, data);
   });
 
-  var zoom = d3.zoom()
-    .scaleExtent([1, Infinity])
-    .translateExtent([
-      [0, 0],
-      [width, height]
-    ])
-    .extent([
-      [0, 0],
-      [width, height]
-    ])
-    .on("zoom", zoomed);
+  brush.on("end", function() {
+    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
 
-    brush.on("end", function() {
-      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+    var s = d3.event.selection || x2.range();
 
-      var s = d3.event.selection || x2.range();
+    updateHistoryWithNewBrush(s);
+  });
 
-      updateHistoryWithNewBrush(s);
-    });
+  zoom.on("end", function() {
+    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
 
-    zoom.on("end", function() {
-      if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
+    var t = d3.event.transform || x2.range();
+    let s = x.range().map(t.invertX, t);
 
-      var t = d3.event.transform || x2.range();
-      let s = x.range().map(t.invertX, t);
+    updateHistoryWithNewBrush(s);
+  });
 
-      updateHistoryWithNewBrush(s);
-    });
+  svg.append("text")
+    .attr("x", margin.left + 15)
+    .attr("y", margin.top - 5)
+    .attr("class", "dts-label-brush-start")
+    .text("mm/dd/yyyy");
 
-  var line = d3.line()
-    .x(d =>  x(d.date))
-    .y(d =>  y(d.value));
+  svg.append("text")
+    .attr("x", width - 15)
+    .attr("y", margin.top - 5)
+    .attr("class", "dts-label-brush-end")
+    .text("mm/dd/yyyy");
 
-  var line2 = d3.line()
-    .x(d => x2(d.date))
-    .y(d => y2(d.value));
+  var focus = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    svg.append("text")
-      .attr("x", margin.left + 15)
-      .attr("y", margin.top - 5)
-      .attr("class", "dts-label-brush-start")
-      .text("mm/dd/yyyy");
+  var context = svg.append("g")
+    .attr("class", "context")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+  
+  setGraphYDomains(data);
+  x2.domain([new Date(2005, 5, 9), d3.max(data, d => d.date)]);
 
-    svg.append("text")
-      .attr("x", width - 15)
-      .attr("y", margin.top - 5)
-      .attr("class", "dts-label-brush-end")
-      .text("mm/dd/yyyy");
+  focus.append("g")
+    .attr("class", "axis axis--x graph-x-axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
 
-    var focus = svg.append("g")
-      .attr("class", "focus")
-      .attr("id", "the-axes")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    var context = svg.append("g")
-      .attr("class", "context")
-      .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-    
-    x.domain([d3.min(data, d => d.date), d3.max(data, d => d.date)])
-
-    y.domain([0, d3.max(data, d => d.value)]);
-    x2.domain(x.domain());
-    y2.domain(y.domain());
-
-    focus.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-    focus.append("g")
-      .attr("class", "axis axis--y")
-      .call(yAxis);
+  focus.append("g")
+    .attr("class", "axis axis--y")
+    .call(yAxis);
 
   // add the X gridlines
   svg.append("g")			
@@ -393,22 +485,22 @@ function createGraph(data) {
     .attr("y", 0);
 
   var lineChart = svg.append("g")
-    .attr("class", "focus")
+    .attr("class", "focus line-chart")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .attr("clip-path", "url(#clip)");
 
   lineChart.append("path")
     .datum(data)
-    .attr("class", "line")
+    .attr("class", "line graph-lines")
     .attr("d", line);
-
+    
   context.append("path")
     .datum(data)
-    .attr("class", "line")
+    .attr("class", "line brush-lines")
     .attr("d", line2);
 
   context.append("g")
-    .attr("class", "axis axis--x")
+    .attr("class", "axis axis--x brush-x-axis")
     .attr("transform", "translate(0," + height2 + ")")
     .call(xAxis2);
 
@@ -434,6 +526,8 @@ function createGraph(data) {
 
   if (startDate == "" || endDate == "") { // change this to not a valid date range instead
     d3.select(".brush").call(brush.move, [0, width]);
+
+    choosePeriodButton(d3.select(".period-button-default").node(), data);
   } else {
     d3.select(".brush").call(brush.move, [x(parseYYYYMMDD(startDate)), x(parseYYYYMMDD(endDate))]);
   }
@@ -457,85 +551,6 @@ function createGraph(data) {
     .on("mouseout", function() { ttContainer.style("display", "none"); mouseOverDataPoint.style("display", "none"); })
     .on("mousemove", mouseMove)
     .call(zoom).on("wheel.zoom", null);
-
-  function adjustLines() {
-    lineChart.select(".line").attr("d", line);
-    focus.select(".axis--x").call(xAxis);
-    svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
-    svg.select(".y-grid").call(makeYGridLines().tickSize(-width).tickFormat(""));
-  }
-
-  function clearPeriodSelections() {
-    d3.selectAll(".period-button").classed("period-button-selected", false);
-  }
-
-  function updateCustomGrabbers(s) {
-    var handle = svg.selectAll(".handle--custom");
-    if (s == null) {
-      handle.attr("display", "none");
-    } else {
-      handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + s[i] + "," + height2 / 2 + ")"; });
-    }
-  }
-
-  function serialize(obj) {
-    var str = [];
-    for (var p in obj) {
-      if (obj.hasOwnProperty(p)) {
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-      }
-    }
-    return str.join("&");
-  }
-
-  function updateHistoryWithNewBrush(s) {
-    let start = x2.invert(s[0]).toISOString().slice(0,10).replace(/-/g,"");
-    let end = x2.invert(s[1]).toISOString().slice(0,10).replace(/-/g,"");
-    let frequency = d3.select('#frequency-selector').property('value');
-    let category = d3.select('#category-selector').property('value');
-
-    let theQueryString = "?" + serialize({
-      start: start,
-      end: end,
-      frequency: frequency,
-      category: category
-    });
-
-    history.replaceState(null, "", theQueryString);
-  }
-
-  function brushed() {
-    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
-    var s = d3.event.selection || x2.range();
-    x.domain(s.map(x2.invert, x2));
-    adjustLines();
-
-    updateCustomGrabbers(s);
-
-    d3.select(".dts-label-brush-start").text(brushDateFormatter(x.domain()[0]));
-    d3.select(".dts-label-brush-end").text(brushDateFormatter(x.domain()[1]));
-    
-    svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
-      .scale(width / (s[1] - s[0]))
-      .translate(-s[0], 0));
-    clearPeriodSelections();
-  }
-
-  function zoomed() {
-    if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
-
-    var t = d3.event.transform || x2.range();
-    x.domain(t.rescaleX(x2).domain());
-    adjustLines();
-
-    let brushRegion = x.range().map(t.invertX, t);
-
-    updateCustomGrabbers(brushRegion);
-
-    context.select(".brush").call(brush.move, brushRegion);
-
-    clearPeriodSelections();
-  }
 
   var parseTimeFormat = d3.timeFormat("%B %d, %Y");
 
@@ -571,10 +586,6 @@ function createGraph(data) {
     ttContainer.select(".dts-tt-amount").text(todayDataPoint);
     ttContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
     ttContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
-  }
-
-  if (lastPeriodContext != null) {
-    choosePeriodButton(lastPeriodContext);
   }
 }
 
@@ -666,6 +677,7 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   // data.sort(function(a, b) { return a.date - b.date; });
 
   createGraph(optionsDict[theCategory][theFrequency]);
+  updateGraph(optionsDict[theCategory][theFrequency]);
 
   d3.select(".viz-tsbfy-bar-view").on("click", function() {
     createBarChart(yearToSpendingArray);

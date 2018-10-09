@@ -13,17 +13,29 @@
         margin-top: 2rem;
         max-width: 300px;
     }
+
+    margin: 0 1rem;
+}
+
+#gdp-facts.out {
+    padding-top: 0;
 }
 
 @media only screen and (min-width: 920px) {
     #gdp-facts {
         clear: none;
-        margin-top: 130px;
+        padding-top: 130px;
         margin-left: 670px;
+        margin-right: 0;
 
         h1 {
             margin-top: 0;
         }
+    }
+
+    .page-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
 }
