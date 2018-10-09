@@ -157,8 +157,11 @@ blockquote {
 
 .footnote {
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 3rem; }
+  margin-top: 50px;
+  margin-bottom: 3rem;
+  font-size: 12px;
+  font-style: italic;
+  color: #666666; }
 
 .tighter-text {
   max-width: 1000px;
