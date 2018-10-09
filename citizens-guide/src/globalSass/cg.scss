@@ -117,8 +117,14 @@ blockquote {
 }
 
 .tighter-text {
-    max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 1rem;
+}
+
+@media only screen and (min-width: 900px) {
+    .tighter-text {
+        max-width: 900px;
+        margin: 0 auto;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
