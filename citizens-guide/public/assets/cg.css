@@ -101,6 +101,17 @@ body {
     font-size: 16px; }
     body .cg-content p {
       margin-bottom: 1rem; }
+    body .cg-content a, body .cg-content a:visited {
+      color: #205493;
+      text-decoration: none; }
+      body .cg-content a:hover, body .cg-content a:visited:hover {
+        text-decoration: underline; }
+
+a, a:visited, .cg-content a, .cg-content a:visited {
+  color: #205493;
+  text-decoration: none; }
+  a:hover, a:visited:hover, .cg-content a:hover, .cg-content a:visited:hover {
+    text-decoration: underline; }
 
 p {
   color: #666666; }

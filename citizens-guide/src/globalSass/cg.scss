@@ -19,6 +19,24 @@ body {
         p {
             margin-bottom: 1rem;
         }
+
+        a, a:visited {
+            color: $color-primary-darker;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+a, a:visited, .cg-content a, .cg-content a:visited {
+    color: $color-primary-darker;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
     }
 }
 
