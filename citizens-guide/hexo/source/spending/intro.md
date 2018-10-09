@@ -8,5 +8,6 @@ description: This is the text that goes in the meta description tag
 # spending chapter
 <ul>
     <li><a href="country-comparison.html">Country Comparison</a></li>
-    <li><a href="categories.html">Categoriesc</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="trends.html">Trends</a></li>
 </ul>

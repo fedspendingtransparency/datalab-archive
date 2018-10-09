@@ -64,7 +64,8 @@ module.exports = [{
 },{
     entry: {
         countryComparison: './src/spending/countries/index.js',
-        categories: './src/spending/categories/index.js'
+        categories: './src/spending/categories/index.js',
+        trends: './src/spending/trends/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -103,9 +104,6 @@ module.exports = [{
 						options: {
 							name: '[name].css',
 						}
-					},
-					{
-						loader: 'extract-loader'
 					},
 					{
 						loader: 'css-loader?-url'
