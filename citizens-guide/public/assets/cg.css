@@ -100,7 +100,8 @@ h2 {
 
 .hwcta {
   max-width: 900px;
-  margin: 1rem auto; }
+  margin: 1rem auto;
+  transition: opacity 1s ease; }
 
 .hwcta__heading {
   padding: 20px;
@@ -134,6 +135,9 @@ h2 {
 
 .hwcta__minus {
   display: none; }
+
+.hwcta--staged {
+  opacity: 0; }
 
 .hwcta--open .hwcta__copy {
   line-height: 1.2;

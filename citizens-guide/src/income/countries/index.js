@@ -4,6 +4,7 @@ import { establishContainer } from '../../utils';
 import { chartInit } from './chart';
 import { selectedCountries } from './selectedCountryManager';
 import { renderSortIcon } from './sortIcon';
+import { revealHwcta } from '../reveal-hwcta';
 
 const incomeConfig = {
     amountField: 'income_usd',
@@ -22,3 +23,5 @@ const incomeConfig = {
 }
 
 chartInit(incomeConfig);
+
+revealHwcta();

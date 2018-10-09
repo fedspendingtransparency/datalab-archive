@@ -15,6 +15,7 @@ import '../header.scss';
 import './categories.scss';
 import '../../infoBox';
 import { initTwoPartTour, activateTourPartTwo } from '../tour';
+import { revealHwcta } from '../reveal-hwcta';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
     tour = location.search.includes('tour'),
@@ -247,6 +248,7 @@ function init() {
     setContainers();
     addSegments();
     initTwoPartTour();
+    revealHwcta();
 }
 
 init();

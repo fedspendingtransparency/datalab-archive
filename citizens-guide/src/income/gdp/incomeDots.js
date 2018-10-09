@@ -7,6 +7,7 @@ import { sectionOneData } from './data';
 import colors from '../../colors.scss';
 import { initGdpDots } from './gdpDots';
 import { triggerInfoBox } from '../../infoBox';
+import { revealHwcta } from '../reveal-hwcta';
 
 const d3 = { select },
     xStart = receiptsConstants.xStart,
@@ -134,6 +135,11 @@ function showText() {
 
     factBox = d3.select('#income-facts')
         .classed('temporary-hide--show', true);
+
+    d3.select('.footnote').classed('temporary-hide', null)
+        .attr('style', 'clear:both')
+
+    revealHwcta();
 }
 
 function initContinueButton() {

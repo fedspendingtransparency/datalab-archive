@@ -41,41 +41,43 @@
     </button>
 </h1>
 
-<div id="viz"></div>
+<div class="page-wrapper">
+    <div id="viz"></div>
 
-<section class="temporary-hide" id="income-facts">
-    <div class="copy-tour-row">
-        <section class="copy-tour-row__copy">
-            <p>Most of the federal government's income comes from federal taxes.</p>
-            <p>Most federal income comes from contributions from individuals and small businesses. Along with federal income taxes, the government collects payroll taxes. You may recognize these taxes on your paycheck that help fund programs such as Social Security, Medicare, and Unemployment Insurance. Also, corporations pay taxes as part of doing business in the United States.</p>
-            <p>The remaining sources of government income consist of excise, estate, and other taxes and fees.</p>
-        </section>
-        <div class="copy-tour-row__tour">
-            <section class="tour">
-                <h1>How does the amount of federal income compare to the size of the economy?</h1>
-                <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
+    <section class="temporary-hide" id="income-facts">
+        <div class="copy-tour-row">
+            <section class="copy-tour-row__copy">
+                <p>Most of the federal government's income comes from federal taxes.</p>
+                <p>Most federal income comes from contributions from individuals and small businesses. Along with federal income taxes, the government collects payroll taxes. You may recognize these taxes on your paycheck that help fund programs such as Social Security, Medicare, and Unemployment Insurance. Also, corporations pay taxes as part of doing business in the United States.</p>
+                <p>The remaining sources of government income consist of excise, estate, and other taxes and fees.</p>
             </section>
+            <div class="copy-tour-row__tour">
+                <section class="tour">
+                    <h1>How does the amount of federal income compare to the size of the economy?</h1>
+                    <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
+                </section>
+            </div>
         </div>
-    </div>
-    <div class="footnote">Data Provided by: <a target="_blank" href="https://www.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=3&isuri=1&1921=survey&1903=5">Bureau of Economic Analysis</a></div>
-</section>
-
-<section id="gdp-facts" class="temporary-hide">
-    <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
-    <p>The government collected the equivalent of 17% of GDP.</p>
-
-    <strong>What's GDP? 
-        <button class="info-box-trigger" data-box-id="gdp-info">
-            <img src="../assets/icons/definition.svg" alt="definition icon">
-        </button>
-    </strong>
-    
-    <section class="tour">
-        <h1 class="tour__heading">What are the sources of government income?</h1>
-        <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
     </section>
-    <div class="footnote">Data Provided by: <a target="_blank" href="https://www.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=3&isuri=1&1921=survey&1903=5">Bureau of Economic Analysis</a></div>    
-</section>
+
+    <section id="gdp-facts" class="temporary-hide out">
+        <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
+        <p>The government collected the equivalent of 17% of GDP.</p>
+
+        <strong>What's GDP? 
+            <button class="info-box-trigger" data-box-id="gdp-info">
+                <img src="../assets/icons/definition.svg" alt="definition icon">
+            </button>
+        </strong>
+        
+        <section class="tour">
+            <h1 class="tour__heading">What are the sources of government income?</h1>
+            <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </section>
+</div>
+
+<div class="footnote temporary-hide" id="gdp-footnote">Data Provided by: <a target="_blank" href="https://www.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=3&isuri=1&1921=survey&1903=5">Bureau of Economic Analysis</a></div>    
 
 <div class="info-box" id="per-individual">
     <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
@@ -93,7 +95,7 @@
 </script>
     
     
-        <section class="hwcta">
+        <section class="hwcta hwcta--staged">
     <h1 class="hwcta__heading">How We Conducted This Analysis
         <button class="hwcta__toggle">
             <i class="fas fa-plus hwcta__plus"></i>
