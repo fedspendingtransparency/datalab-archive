@@ -1,7 +1,12 @@
 <% if (page.chapter === 'income') { %>
     <%- partial('_partial/nav-income') %>
-        <script src="../assets/nav/nav-income.js"></script>
-        <% } %>
-            <main>
-                <%- page.content %>
-            </main>
+    <script src="../assets/nav/nav-income.js"></script>
+<% } %>
+<main>
+    <%- page.content %>
+    
+    <% if (page.chapter === 'income') { %>
+        <%- partial('_partial/hwcta') %>
+        <script src="../assets/hwcta.js"></script>
+    <% } %>
+</main>
