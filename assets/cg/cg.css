@@ -33,7 +33,7 @@ h2 {
     border: none;
     padding: 0 2rem;
     background: #0D7040;
-    color: white;
+    color: white !important;
     transition: background 0.2s ease;
     display: inline-block;
     text-decoration: none; }

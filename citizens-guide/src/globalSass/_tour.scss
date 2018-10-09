@@ -16,7 +16,7 @@ $tourButtonColor: #0D7040;
         border: none;
         padding: 0 2rem;
         background: $tourButtonColor;
-        color: white;
+        color: white !important;
         transition: background 0.2s ease;
         display: inline-block;
         text-decoration: none;
