@@ -53,7 +53,7 @@ function buildHeader() {
         .style('font-size', '18px')
 
     text.append('tspan')
-        .text('Total U.S. Government Revenue')
+        .text('U.S. Government Income')
         .style('font-weight', '600')
         .attr('y', 20)
         .attr('x', 600)

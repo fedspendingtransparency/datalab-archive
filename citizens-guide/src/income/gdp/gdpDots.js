@@ -124,6 +124,8 @@ function enableFactBox() {
         .classed('out', null)
         .classed('temporary-hide--show', true);
 
+    d3.select('#gdp-footnote').attr('style', 'display:block');
+
     svg.attr('width', 670);
     svg.attr('height', 300);
 
