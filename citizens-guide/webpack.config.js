@@ -65,6 +65,7 @@ module.exports = [{
     entry: {
         countryComparison: './src/spending/countries/index.js',
         categories: './src/spending/categories/index.js',
+        categoriesHorizontal: './src/spending/categories-horizontal/index.js',
         trends: './src/spending/trends/index.js'
     },
     devtool: 'inline-source-map',
