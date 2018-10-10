@@ -29,6 +29,7 @@
     "hexo-renderer-marked": "^0.3.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
+    "extract-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.0",
     "papaparse": "^4.6.0",
