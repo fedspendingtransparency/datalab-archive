@@ -1,11 +1,12 @@
 import CategoryData from '../../../public/csv/spending_categories.csv';
 
-export function trendData(){
-    const indexed = {};
+export function trendData(type){
+    const indexed = {},
+        filtered = CategoryData.filter(r => r.category === type);
 
     let arr;
 
-    CategoryData.forEach(r => {
+    filtered.forEach(r => {
         if (isNaN(r.spending)) {
             return;
         }

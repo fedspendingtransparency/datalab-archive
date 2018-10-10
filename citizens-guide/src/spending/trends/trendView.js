@@ -98,7 +98,7 @@ function initGlobals(config) {
     globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding) * 2;
     globals.widthOnDrilldown = 360,
         globals.width = globals.originalWidth,
-        globals.zoomThreshold = globals.zoomThreshold || 180000000000;
+        globals.zoomThreshold = globals.zoomThreshold || 100000000000;
     globals.zoomState = 'out';
     globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
     globals.baseXTranslate = globals.labelWidth + globals.labelPadding + 35;
