@@ -21,13 +21,11 @@ function addLink(source, i, list) {
 
 export function showSources() {
     const sources = getSources(),
-        footnote = d3.select('.footnote');
+        target = d3.select('#sources');
 
     if (!sources.length) {
         return;
     }
 
-    footnote.node().innerText += ' from ';
-
-    sources.forEach(addLink, footnote);
+    sources.forEach(addLink, target);
 }
