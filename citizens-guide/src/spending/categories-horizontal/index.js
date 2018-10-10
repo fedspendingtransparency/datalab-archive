@@ -18,12 +18,7 @@ const zoomIndex = 8;
 const d3 = { select, selectAll, scaleLinear, min, max, transition },
     tour = location.search.includes('tour'),
     factBox = d3.selectAll('.fact-box'),
-    // categoryData = getDataByYear(2017),
-    // indexed = categoryData.reduce((a, c) => {
-    //     a[c.activity] = c;
-    //     return a;
-    // }, {}),
-    baseTranslate = { x: 91, y: 50 },
+    baseTranslate = { x: 91, y: 150 },
     baseDimensions = { width: 1014, height: 100 },
     xScale = d3.scaleLinear();
 
@@ -243,8 +238,8 @@ function sortData(a, b) {
     return b.amount - a.amount;
 }
 
-function init() {
-    const currentYear = indexByYear(2017)['function'],
+function init(dataType) {
+    const currentYear = indexByYear(2017)[dataType],
         currentYearData = Object.keys(currentYear).map(k => currentYear[k]);
 
     currentYearData.forEach(r => {
@@ -259,11 +254,26 @@ function init() {
     totalAmount = categoryData.reduce((a, c) => a += c.amount, 0);
     
     stackData(categoryData);
-    svg = establishContainer(170);
     setContainers();
     addSegments();
     
     console.log(categoryData)
 }
 
-init();
+svg = establishContainer(270);
+
+init('function');
+
+d3.select('#select-budget-function')
+    .on('click', function () {
+        svg.selectAll('*').remove();
+        zoomComponent = null;
+        init('function');
+    })
+
+d3.select('#select-agency')
+    .on('click', function () {
+        svg.selectAll('*').remove();
+        zoomComponent = null;        
+        init('agency');
+    })
