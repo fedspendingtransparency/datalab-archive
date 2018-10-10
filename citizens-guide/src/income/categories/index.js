@@ -249,6 +249,8 @@ function init() {
     addSegments();
     initTwoPartTour();
     revealHwcta();
+
+    console.log(categoryData)
 }
 
 init();

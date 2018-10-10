@@ -6,8 +6,6 @@ import { initTwoPartTour } from '../../income/tour';
 
 const data = trendData(),
     d3 = { select, selectAll },
-    tour = location.search.indexOf('tour') !== -1,
-    factBox = d3.selectAll('.fact-box'),
     svg = establishContainer(780);
 
 initDropShadow();
@@ -15,5 +13,3 @@ initDropShadow();
 trendView(data, svg, {
     width: 500
 });
-
-initTwoPartTour();
