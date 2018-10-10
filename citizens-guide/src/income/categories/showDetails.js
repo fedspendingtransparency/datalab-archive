@@ -29,6 +29,7 @@ let resolver,
     clearance,
     yOffset,
     parentRect,
+    activeCategory,
     baseContainerBox;
 
 function printCoords(coords, shift) {
@@ -154,10 +155,10 @@ function drawTextConnector(d, i, textSelection) {
 }
 
 function addText() {
-    const dimensions = {height: 100, width: 1200};
+    const dimensions = { height: 100, width: 1200 };
 
     let textContainerHeight;
-    
+
     textContainer = detailContainer.append('g');
 
     addTextElements(data, textContainer, x, dimensions, 'details');
@@ -169,7 +170,7 @@ function addText() {
 
 function renderDetailBoxes() {
     let opacityTracker = 0;
-    
+
     detailContainer.append('g').attr('transform', translator(0, 150)).selectAll('rect')
         .data(data)
         .enter()
@@ -178,7 +179,7 @@ function renderDetailBoxes() {
         .attr('fill', function (d) {
             return (d.percent_total < 0) ? colors.colorGrayDark : colors.colorPrimaryDarker;
         })
-        .attr('opacity', function(d){
+        .attr('opacity', function (d) {
             if (d.percent_total < 0) {
                 return 1;
             } else {
@@ -282,10 +283,30 @@ let waitForReady = new Promise(resolve => {
     resolver = resolve;
 })
 
+function resetDetails() {
+    const state = getZoomState(),
+        height = (state === 'in') ? 270 : 170;
+
+    clearDetails();
+
+    svg.transition()
+        .duration(1200)
+        .attr('height', height);
+}
+
 export function clearDetails() {
-    if (detailContainer) {
-        detailContainer.remove();
+    if (!detailContainer) {
+        return;
     }
+
+    detailContainer
+        .attr('opacity', 1)
+        .transition()
+        .duration(500)
+        .attr('opacity', 0)
+        .on('end', function () {
+            detailContainer.remove();
+        })
 }
 
 export function section2_2_init(_baseContainer) {
@@ -295,13 +316,22 @@ export function section2_2_init(_baseContainer) {
 }
 
 export function showDetail(d) {
+    const prevCategory = activeCategory;
+
     data = d.subcategories;
     parentRect = d3.select(this);
+    activeCategory = d.activity;
+
+    if (prevCategory === activeCategory) {
+        resetDetails();
+        activeCategory = null;
+        return;
+    }
 
     if (baseContainer) {
         renderDetail()
     } else {
-        waitForReady.then(function(){
+        waitForReady.then(function () {
             renderDetail();
         })
     }
