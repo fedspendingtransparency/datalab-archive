@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import SpendingData from '../../../public/csv/spending_categories.csv';
+import SpendingData from '../../../csv/spending_categories.csv';
 
 function getByYear(yyyy) {
     return SpendingData.filter(r => r.fiscal_year === yyyy)

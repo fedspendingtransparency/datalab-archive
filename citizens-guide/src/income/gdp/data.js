@@ -1,4 +1,4 @@
-import BigNumbers from '../../../public/csv/mts_mspd_rod_debt.csv';
+import BigNumbers from '../../../csv/mts_mspd_rod_debt.csv';
 
 let source;
 

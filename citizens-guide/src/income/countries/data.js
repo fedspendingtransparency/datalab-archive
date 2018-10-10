@@ -1,5 +1,5 @@
 import { selectedCountries } from './selectedCountryManager';
-import CountryData from '../../../public/csv/income-debt-spending-by-country.csv';
+import CountryData from '../../../csv/income-debt-spending-by-country.csv';
 
 const masterData = {
     indexed: {},

@@ -1,4 +1,4 @@
-import CategoryData from '../../../public/csv/income_categories_2013_2017.csv';
+import CategoryData from '../../../csv/income_categories_2013_2017.csv';
 import { min, max } from 'd3-array';
 
 const d3 = { min, max };
