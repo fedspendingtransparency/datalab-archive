@@ -377,10 +377,10 @@ function createSelect() {
   }
 
   function onDataChange() {
-    let timeFrameValue = d3.select('#frequency-selector').property('value');
-    let selectValue = d3.select('#category-selector').property('value');
+    let frequencyValue = d3.select('#frequency-selector').property('value');
+    let categoryValue = d3.select('#category-selector').property('value');
 
-    updateGraph(optionsDict[selectValue][timeFrameValue]);
+    updateGraph(optionsDict[categoryValue][frequencyValue]);
 
     updateHistoryWithNewFrequencyOrCategory();
   }
@@ -473,7 +473,7 @@ function createGraph(data) {
     .call(xAxis);
 
   focus.append("g")
-    .attr("class", "axis axis--y")
+    .attr("class", "axis axis--y graph-y-axis")
     .call(yAxis);
 
   // add the X gridlines
@@ -572,16 +572,19 @@ function createGraph(data) {
 
   var parseTimeFormat = d3.timeFormat("%B %d, %Y");
 
-  function getMouseOverDataPoint(spendingData, context) {
+  function getMouseOverDataPoint(mouseOverData, context) {
     let x0 = x.invert(d3.mouse(context)[0]);
-    let i = bisectDate(spendingData, x0, 1);
-    let d0 = spendingData[i - 1];
-    let d1 = spendingData[i];
+    let i = bisectDate(mouseOverData, x0, 1);
+    let d0 = mouseOverData[i - 1];
+    let d1 = mouseOverData[i];
     return x0 - d0.date > d1.date - x0 ? d1 : d0;
   }
 
   function mouseMove() {
-    let d = getMouseOverDataPoint(data, this);
+    let categoryValue = d3.select('#category-selector').property('value');
+    let frequencyValue = d3.select('#frequency-selector').property('value');
+
+    let d = getMouseOverDataPoint(optionsDict[categoryValue][frequencyValue], this);
 
     mouseOverDataPoint.select("circle")
       .attr("transform", "translate(" + (margin.left + x(d.date)) + "," + (margin.top + y(d.value)) + ")");
@@ -590,15 +593,13 @@ function createGraph(data) {
       .style("left", d3.event.pageX + "px")
       .style("top", (d3.event.pageY) + "px");
 
-    var mouseOverDateText = parseTimeFormat(d.date);
+    let mouseOverDateText = parseTimeFormat(d.date);
 
-    let selectValue = d3.select('#category-selector').property('value');
+    let todayDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[categoryValue]["today"], this).value);
+    let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[categoryValue]["mtd"], this).value);
+    let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[categoryValue]["fytd"], this).value);
 
-    let todayDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["today"], this).value);
-    let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["mtd"], this).value);
-    let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[selectValue]["fytd"], this).value);
-
-    ttContainer.select(".dts-tt-category").text(selectValue);
+    ttContainer.select(".dts-tt-category").text(categoryValue);
     ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
     ttContainer.select(".dts-tt-amount").text(todayDataPoint);
