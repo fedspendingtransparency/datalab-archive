@@ -30,7 +30,7 @@ export function triggerInfoBox() {
         innerWidth = window.innerWidth,
         coords = trigger.node().getBoundingClientRect();
 
-    let x = coords.x-18;
+    let x = coords.left-10;
 
     if (x > innerWidth - 300) {
         x = innerWidth - 300
@@ -39,7 +39,7 @@ export function triggerInfoBox() {
     box.classed(activeClass, true);
     trigger.classed(triggerClassActive, true);
 
-    box.attr('style', `top:${coords.y-18+window.pageYOffset}px;left:${x}px`);
+    box.attr('style', `top:${coords.top-15+window.pageYOffset}px;left:${x}px`);
 
     box.select('.' + closeButtonClass)
         .on('click', null)
