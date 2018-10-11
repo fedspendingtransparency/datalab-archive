@@ -79,6 +79,9 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
+var allOptions, optionsDict;
+
+const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
 const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
@@ -100,8 +103,6 @@ const x = d3.scaleTime().range([0, width]),
 const xAxis = d3.axisBottom(x),
   xAxis2 = d3.axisBottom(x2),
   yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
-
-var allOptions, condensedOptions, optionsDict;
 
 const line = d3.line()
     .x(d =>  x(d.date))
@@ -164,13 +165,7 @@ function updateHistoryWithNewFrequencyOrCategory() {
   let frequency = d3.select('#frequency-selector').property('value');
   let category = d3.select('#category-selector').property('value');
 
-  let theQueryString = "?" + serialize({
-    start: start,
-    end: end,
-    frequency: frequency,
-    category: category
-  });
-
+  let theQueryString = "?" + serialize({ start, end, frequency, category });
   history.replaceState(null, "", theQueryString);
 }
 
@@ -180,13 +175,7 @@ function updateHistoryWithNewBrush(s) {
   let frequency = d3.select('#frequency-selector').property('value');
   let category = d3.select('#category-selector').property('value');
 
-  let theQueryString = "?" + serialize({
-    start: start,
-    end: end,
-    frequency: frequency,
-    category: category
-  });
-
+  let theQueryString = ("?" + serialize({ start, end, frequency, category }));
   history.replaceState(null, "", theQueryString);
 }
 
@@ -317,12 +306,12 @@ function createTable(yearToSpendingArray) {
 
   let totalSpending = data.map(d => d.spending).reduce((a, b) => a + b, 0);
          
-  var rows = tbody.selectAll('tr')
+  let rows = tbody.selectAll('tr')
                   .data(data)
                   .enter()
                   .append('tr');
             
-  var cells = rows.selectAll('td')
+  let cells = rows.selectAll('td')
 		  .data(function (row) {
         let tdYear = row.year;
         let tdSpendingPerYear = dollarFormatter(row.spending);
@@ -334,7 +323,7 @@ function createTable(yearToSpendingArray) {
       .text(d => d);
 }
 
-function addOptions(sel) {
+function addOptions(sel, condensedOptions) {
   sel.selectAll('*').remove();
 
   sel.append('option').text('All Categories');
@@ -359,12 +348,12 @@ function addOptions(sel) {
       .text(d => d);
 }
 
-function createSelect() {
+function createSelect(condensedOptions) {
   d3.select('#frequency-selector').on('change', onFrequencyChange);
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
   let select = d3.select('#category-selector').on('change', onCategoryChange);
 
-  addOptions(select);
+  addOptions(select, condensedOptions);
 
   function onFrequencyChange() { 
     onDataChange();
@@ -570,8 +559,6 @@ function createGraph(data) {
     .on("mousemove", mouseMove)
     .call(zoom).on("wheel.zoom", null);
 
-  var parseTimeFormat = d3.timeFormat("%B %d, %Y");
-
   function getMouseOverDataPoint(mouseOverData, context) {
     let x0 = x.invert(d3.mouse(context)[0]);
     let i = bisectDate(mouseOverData, x0, 1);
@@ -693,9 +680,9 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   allOptions = [...new Set(optionsData)];
   allOptions.sort();
 
-  condensedOptions = Object.keys(categoryToSpendingPrevFY).sort((a,b) => categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a]).slice(0, 10);
+  let condensedOptions = Object.keys(categoryToSpendingPrevFY).sort((a,b) => categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a]).slice(0, 10);
 
-  createSelect();
+  createSelect(condensedOptions);
 
   let theFrequency = getFrequencyFromURL();
   let theCategory = getCategoryFromURL(allOptions);
