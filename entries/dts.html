@@ -605,9 +605,9 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   data.forEach(function(d) {
     //d.date = parseDate(d.date);
-    d.today = +d.today * 100000;
-    d.mtd = +d.mtd * 100000;
-    d.fytd = +d.fytd * 100000;
+    d.today = +d.today * 1000000;
+    d.mtd = +d.mtd * 1000000;
+    d.fytd = +d.fytd * 1000000;
 
     let spendingYear = d.date.getFullYear();
 
@@ -622,9 +622,21 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
       categoryToSpendingPrevFY[d.item_raw] = (categoryToSpendingPrevFY[d.item_raw] || 0) + d.today;
     }
 
-    allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
-    allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
-    allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
+    if (d.item_raw === "Public Debt Cash Redemp ( Table III B )") {
+      allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) - d.today;
+      allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) - d.mtd;
+      allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) - d.fytd;
+    }
+
+    if (d.item_raw === "Total Withdrawals ( excluding transfers )") {
+      allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
+      allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
+      allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
+    }
+
+    // allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
+    // allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
+    // allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
 
     if (dDate == lastDate.getTime()) {
       totalDailySpending += d.today;
