@@ -158,6 +158,22 @@ function serialize(obj) {
   return str.join("&");
 }
 
+function updateHistoryWithNewFrequencyOrCategory() {
+  let start = getQueryStringValue("start");
+  let end = getQueryStringValue("end");
+  let frequency = d3.select('#frequency-selector').property('value');
+  let category = d3.select('#category-selector').property('value');
+
+  let theQueryString = "?" + serialize({
+    start: start,
+    end: end,
+    frequency: frequency,
+    category: category
+  });
+
+  history.replaceState(null, "", theQueryString);
+}
+
 function updateHistoryWithNewBrush(s) {
   let start = x2.invert(s[0]).toISOString().slice(0,10).replace(/-/g,"");
   let end = x2.invert(s[1]).toISOString().slice(0,10).replace(/-/g,"");
@@ -365,6 +381,8 @@ function createSelect() {
     let selectValue = d3.select('#category-selector').property('value');
 
     updateGraph(optionsDict[selectValue][timeFrameValue]);
+
+    updateHistoryWithNewFrequencyOrCategory();
   }
 }
 
