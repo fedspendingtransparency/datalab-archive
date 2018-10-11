@@ -5,7 +5,7 @@ body {
 .income-nav {
     display: flex;
     justify-content: space-between;
-    background-color: #4a90E2;
+    background-color: #205493;
     width: 100%;
     min-height: 3.5rem;
 }
@@ -74,7 +74,7 @@ body {
 
     .income-nav li {
         width: 25%;
-        border-right: #ffff52 1px solid;
+        border-right: rgba(255,255,255,0.5) 1px solid;
     }
 
     .income-nav li:last-of-type {
