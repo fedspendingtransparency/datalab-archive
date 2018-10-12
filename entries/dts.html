@@ -79,7 +79,7 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var allOptions, optionsDict;
+var allOptions, optionsDict, lastDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
@@ -105,12 +105,10 @@ const xAxis = d3.axisBottom(x),
   yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
 
 const line = d3.line()
-    .curve(d3.curveBasis)
     .x(d => x(d.date))
     .y(d => y(d.value));
 
 const line2 = d3.line()
-    .curve(d3.curveBasis)
     .x(d => x2(d.date))
     .y(d => y2(d.value));
 
@@ -134,7 +132,7 @@ const zoom = d3.zoom()
   .on("zoom", zoomed);
 
 function adjustLines() {
-  svg.select(".graph-lines").attr("d", d => { return line(d.values); });
+  svg.select(".graph-lines").attr("d", d => line(d.values));
   svg.select(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
@@ -189,7 +187,7 @@ function brushed() {
   if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
   
   var s = d3.event.selection || x2.range();
-  x.domain(s.map(x2.invert, x2)); // x.domain(x2)?
+  x.domain(s.map(x2.invert, x2));
   adjustLines();
 
   updateCustomGrabbers(s);
@@ -220,8 +218,6 @@ function zoomed() {
 }
 
 function choosePeriodButton(context, data) {
-  let lastDate = data[data.length - 1].date.getTime();
-
   let leftDate = new Date(lastDate);
   let rightDate = new Date(lastDate);
 
@@ -350,6 +346,20 @@ function addOptions(sel, condensedOptions) {
       .text(d => d);
 }
 
+function getGraphData() {
+  let frequencyValue = d3.select('#frequency-selector').property('value');
+  let categoryValue = d3.select('#category-selector').property('value');
+
+  let wrapper = [
+    { 
+      name: categoryValue,
+      values: optionsDict[categoryValue][frequencyValue]
+    }
+  ];
+
+  return wrapper;
+}
+
 function createSelect(condensedOptions) {
   d3.select('#frequency-selector').on('change', onFrequencyChange);
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
@@ -368,11 +378,7 @@ function createSelect(condensedOptions) {
   }
 
   function onDataChange() {
-    let frequencyValue = d3.select('#frequency-selector').property('value');
-    let categoryValue = d3.select('#category-selector').property('value');
-
-    updateGraph(optionsDict[categoryValue][frequencyValue]);
-
+    updateGraph(getGraphData());
     updateHistoryWithNewFrequencyOrCategory();
   }
 }
@@ -394,18 +400,16 @@ function parseYYYYMMDD(dateString) {
 }
 
 function setGraphYDomains(data) {
-
-  // d3.max(cities, function(c) { return d3.max(c.values, function(d) { return d.temperature; }); })
-
   let yMax = d3.max(data, c => d3.max(c.values, d => d.value));
+  let yMin = d3.min(data, c => d3.min(c.values, d => d.value));
 
-  y.domain([0, yMax]);
+  y.domain([yMin, yMax]);
   y2.domain(y.domain());
 }
 
 function updateGraph(data) {
-  d3.select(".graph-lines").datum(data);
-  d3.select(".brush-lines").datum(data);
+  d3.selectAll(".graph-lines").data(data);
+  d3.selectAll(".brush-lines").data(data);
 
   setGraphYDomains(data);
   adjustLines();
@@ -461,7 +465,7 @@ function createGraph(data) {
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");  
   
   setGraphYDomains(data);
-  x2.domain([new Date(2005, 5, 9), new Date(2018, 7, 15)]); // compute with d3.max(data, c => d3.max(c.values, d => d.date)); ?
+  x2.domain([new Date(2005, 5, 9), lastDate]);
 
   focus.append("g")
     .attr("class", "axis axis--x graph-x-axis")
@@ -503,29 +507,19 @@ function createGraph(data) {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .attr("clip-path", "url(#clip)");
 
-  var categoryLine = lineChart.selectAll('.category-line')
+  var categoryLine = lineChart.selectAll('.category-line-container')
     .data(data)
-    .enter().append("g")
-      .attr("class", "category-line");
+    .enter()
+    .append("path")
+    .attr("d", d => line(d.values))
+    .attr("class", "line graph-lines");
 
-  categoryLine.append("path")
-    .attr("class", "line graph-lines")
-    .attr("d", d => { console.log(d.values); return line(d.values); })
-    .style("stroke", "red");
-
-  /*
-  lineChart.append("path")
-    .datum(data)
-    .attr("class", "line graph-lines")
-    .attr("d", d => line(d.values));
-  */
-
-  // apply same treatment to context/brush
-    
-  context.append("path")
-    .datum(data)
-    .attr("class", "line brush-lines")
-    .attr("d", d => line2(d.values));
+  var brushLine = context.selectAll('.brush-line-container')
+    .data(data)
+    .enter()
+    .append("path")
+    .attr("d", d => line2(d.values))
+    .attr("class", "line brush-lines");
 
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
@@ -594,6 +588,8 @@ function createGraph(data) {
 
     let d = getMouseOverDataPoint(optionsDict[categoryValue][frequencyValue], this);
 
+    // change the above to use the new data format
+
     mouseOverDataPoint.select("circle")
       .attr("transform", "translate(" + (margin.left + x(d.date)) + "," + (margin.top + y(d.value)) + ")");
 
@@ -630,7 +626,7 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   optionsDict = {};
 
-  let lastDate = data[data.length - 1].date;
+  lastDate = data[data.length - 1].date;
   let totalDailySpending = 0;
 
   let yearToSpending = {};
@@ -722,15 +718,10 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
-  let newWrapper = [
-    { 
-      name: theCategory,
-      values: optionsDict[theCategory][theFrequency]
-    }
-  ];
+  let graphData = getGraphData();
 
-  createGraph(newWrapper);
-  updateGraph(newWrapper);
+  createGraph(graphData);
+  updateGraph(graphData);
 
   d3.select(".viz-tsbfy-bar-view").on("click", function() {
     createBarChart(yearToSpendingArray);
