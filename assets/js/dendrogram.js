@@ -63,7 +63,7 @@ function CreateDendro(newData){
             // This is a leaf, so add the last element to the specified branch
             if (depth === levels.length - 1) {
                 depthCursor.push({
-                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.federal_account_id, date: d.reporting_period_end
+                    name: d.Title, size: d.Obligation, unob: d.Unobligated, id: d.federal_account_code, date: d.reporting_period_end
                 });
             }
         });
@@ -477,7 +477,7 @@ function CreateDendro(newData){
     }
 }
 
-d3.csv('/data-lab-data/accounts_obligations_link_update_v2.csv', (dendroData) =>{
+d3.csv('/data-lab-data/accounts_obligations_link_update_v3.csv', (dendroData) =>{
 
     CreateDendro(dendroData.filter((d) => d.reporting_period_end === '2018-06-30'));
 
