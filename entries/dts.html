@@ -147,7 +147,7 @@ function setFancyLines(selector, lineFn) {
 function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
-  
+
   svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
@@ -670,9 +670,9 @@ function createMasterMapping() {
         masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date });
       }
     } else {
-      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"] });
-      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"] });
-      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"] });
+      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01") });
+      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01") });
+      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01") });
     }
   }
 
