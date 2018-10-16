@@ -131,8 +131,23 @@ const zoom = d3.zoom()
   ])
   .on("zoom", zoomed);
 
+function setFancyLines(selector, lineFn) {
+  svg.selectAll(selector).each(function(lineSel) {
+    let d3LineSel = d3.select(this)
+    let d3LineSelData = d3LineSel.data();
+
+    if (d3LineSelData[0].values[0].date.getTime() < d3LineSelData[0].date.getTime()) {
+      d3LineSel.style("stroke-dasharray", ("5, 3"));
+    }
+
+    d3LineSel.attr("d", d => lineFn(d.values));
+  });
+}
+
 function adjustLines() {
-  svg.selectAll(".graph-lines").attr("d", d => line(d.values));
+  setFancyLines(".graph-lines", line);
+  setFancyLines(".brush-lines", line2);
+  
   svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
@@ -349,7 +364,11 @@ function addOptions(sel, condensedOptions) {
 var sharedCategories = [
   {
     categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
-    date: new Date(2010, 3, 1)
+    date: new Date("2010-03-31")
+  },
+  {
+    categories: [ "Medicare", "Medicare Advantage Part C D Payments", "Marketplace Payments", "Medicare and Other CMS Payments" ],
+    date: new Date("2014-10-01")
   }
 ]
 
@@ -417,10 +436,26 @@ function setGraphYDomains(data) {
   y2.domain(y.domain());
 }
 
-function updateGraph(data) {
-  d3.selectAll(".graph-lines").data(data);
-  d3.selectAll(".brush-lines").data(data);
+function updateLines(parent, selector, data, pathClass, classesToRemove, lineFn) {
+  d3.selectAll(classesToRemove).remove();
 
+  var u = d3.select(parent)
+            .selectAll(selector);
+
+  u.data(data)
+    .enter()
+    .append('path')
+    .attr("class", pathClass);
+    // .attr("d", d => lineFn(d.values));  don't need since called in adjustLines
+}
+
+function updateGraphAndBrushLines(data) {
+  updateLines(".line-chart", ".category-line-container", data, "line graph-lines", ".graph-lines", line);
+  updateLines(".context", ".brush-line-container", data, "line brush-lines", ".brush-lines", line2);
+}
+
+function updateGraph(data) {
+  updateGraphAndBrushLines(data);
   setGraphYDomains(data);
   adjustLines();
 
@@ -517,21 +552,7 @@ function createGraph(data) {
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .attr("clip-path", "url(#clip)");
 
-  var categoryLine = lineChart.selectAll('.category-line-container')
-    .data(data)
-    .enter().append("g")
-    .attr("class", "category-line-container");
-
-  categoryLine.append("path")
-    .attr("class", "line graph-lines")
-    .attr("d", d => line(d.values));
-
-  var brushLine = context.selectAll('.brush-line-container')
-    .data(data)
-    .enter()
-    .append("path")
-    .attr("d", d => line2(d.values))
-    .attr("class", "line brush-lines");
+  updateGraphAndBrushLines(data);
 
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
