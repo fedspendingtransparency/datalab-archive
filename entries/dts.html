@@ -132,8 +132,8 @@ const zoom = d3.zoom()
   .on("zoom", zoomed);
 
 function adjustLines() {
-  svg.select(".graph-lines").attr("d", d => line(d.values));
-  svg.select(".brush-lines").attr("d", d => line2(d.values));
+  svg.selectAll(".graph-lines").attr("d", d => line(d.values));
+  svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
   svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
@@ -346,18 +346,28 @@ function addOptions(sel, condensedOptions) {
       .text(d => d);
 }
 
+var sharedCategories = [
+  {
+    categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
+    date: new Date(2010, 3, 1)
+  }
+]
+
+var mapping = {};
+
+for (let item of sharedCategories) {
+  for (let categoryName of item.categories) {
+    mapping[categoryName] = { categories: item.categories, date: item.date };
+  }
+}
+
+console.log(mapping);
+
 function getGraphData() {
-  let frequencyValue = d3.select('#frequency-selector').property('value');
   let categoryValue = d3.select('#category-selector').property('value');
+  let frequencyValue = d3.select('#frequency-selector').property('value');
 
-  let wrapper = [
-    { 
-      name: categoryValue,
-      values: optionsDict[categoryValue][frequencyValue]
-    }
-  ];
-
-  return wrapper;
+  return masterMapping[categoryValue][frequencyValue];
 }
 
 function createSelect(condensedOptions) {
@@ -509,10 +519,12 @@ function createGraph(data) {
 
   var categoryLine = lineChart.selectAll('.category-line-container')
     .data(data)
-    .enter()
-    .append("path")
-    .attr("d", d => line(d.values))
-    .attr("class", "line graph-lines");
+    .enter().append("g")
+    .attr("class", "category-line-container");
+
+  categoryLine.append("path")
+    .attr("class", "line graph-lines")
+    .attr("d", d => line(d.values));
 
   var brushLine = context.selectAll('.brush-line-container')
     .data(data)
@@ -574,21 +586,33 @@ function createGraph(data) {
     .on("mousemove", mouseMove)
     .call(zoom).on("wheel.zoom", null);
 
-  function getMouseOverDataPoint(mouseOverData, context) {
-    let x0 = x.invert(d3.mouse(context)[0]);
-    let i = bisectDate(mouseOverData, x0, 1);
-    let d0 = mouseOverData[i - 1];
-    let d1 = mouseOverData[i];
-    return x0 - d0.date > d1.date - x0 ? d1 : d0;
+  function getMouseOverDataPoint(data, context) {
+    let x0 = x.invert(d3.mouse(context)[0]); // Date at mouse position
+
+    for (let cItem of data) {
+      let mouseOverData = cItem.values;
+
+      let i = bisectDate(mouseOverData, x0, 1); // Index in array of where the date is
+
+      if (i === 1 || i >= mouseOverData.length) { continue; }
+
+      let d0 = mouseOverData[i - 1]; // d value of date
+      let d1 = mouseOverData[i];     // d value of date
+
+      d0.name = cItem.name;
+      d1.name = cItem.name;
+      
+      return x0 - d0.date > d1.date - x0 ? d1 : d0;
+    }
+
+    return { date: data[0].date, value: 0, name: "No Data" }; // No data because of switchover
   }
 
   function mouseMove() {
     let categoryValue = d3.select('#category-selector').property('value');
     let frequencyValue = d3.select('#frequency-selector').property('value');
 
-    let d = getMouseOverDataPoint(optionsDict[categoryValue][frequencyValue], this);
-
-    // change the above to use the new data format
+    let d = getMouseOverDataPoint(masterMapping[categoryValue][frequencyValue], this);
 
     mouseOverDataPoint.select("circle")
       .attr("transform", "translate(" + (margin.left + x(d.date)) + "," + (margin.top + y(d.value)) + ")");
@@ -599,11 +623,11 @@ function createGraph(data) {
 
     let mouseOverDateText = parseTimeFormat(d.date);
 
-    let todayDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[categoryValue]["today"], this).value);
-    let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[categoryValue]["mtd"], this).value);
-    let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(optionsDict[categoryValue]["fytd"], this).value);
+    let todayDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["today"], this).value);
+    let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["mtd"], this).value);
+    let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["fytd"], this).value);
 
-    ttContainer.select(".dts-tt-category").text(categoryValue);
+    ttContainer.select(".dts-tt-category").text(d.name);
     ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
     ttContainer.select(".dts-tt-amount").text(todayDataPoint);
@@ -612,11 +636,26 @@ function createGraph(data) {
   }
 }
 
-var sharedCategories = {
-  "Food Stamps": {
-    categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
-    date: "2008-06-1"
+var masterMapping = {};
+
+function createMasterMapping() {
+  for (let key in optionsDict) {
+    masterMapping[key] = { "today": [], "mtd": [], "fytd": [] };
+
+    if (mapping.hasOwnProperty(key)) {
+      for (let cateName of mapping[key].categories) {
+        masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date });
+        masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date });
+        masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date });
+      }
+    } else {
+      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"] });
+      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"] });
+      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"] });
+    }
   }
+
+  console.log(masterMapping);
 }
 
 d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
@@ -700,6 +739,8 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   allToSpending["fytd"] = transposeKVToArray("fytd");
 
   optionsDict["All Categories"] = allToSpending;
+
+  createMasterMapping();
 
   allOptions = [...new Set(optionsData)];
   allOptions.sort();
