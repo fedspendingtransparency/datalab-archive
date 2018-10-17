@@ -117,7 +117,9 @@ const brush = d3.brushX()
     [0, 0],
     [width, height2]
   ])
-  .on("start brush end", brushed);
+  .on("brush end", brushed);
+
+  brush.on("start", null);
 
 const zoom = d3.zoom()
   .scaleExtent([1, Infinity])
@@ -213,6 +215,7 @@ function brushed() {
   svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
     .scale(width / (s[1] - s[0]))
     .translate(-s[0], 0));
+
   clearPeriodSelections();
 }
 
