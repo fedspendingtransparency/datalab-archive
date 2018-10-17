@@ -287,13 +287,7 @@ function createBarChart(yearToSpendingArray) {
 
   g.append("g")
       .attr("class", "axis bar-axis axis--y")
-      .call(d3.axisLeft(y).tickFormat(dollarFormatter))
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Spending");
+      .call(d3.axisLeft(y).tickFormat(dollarFormatter));
 
   g.selectAll(".bar")
     .data(data)
@@ -379,8 +373,6 @@ for (let item of sharedCategories) {
     mapping[categoryName] = { categories: item.categories, date: item.date };
   }
 }
-
-console.log(mapping);
 
 function getGraphData() {
   let categoryValue = d3.select('#category-selector').property('value');
@@ -609,6 +601,9 @@ function createGraph(data) {
 
   function getMouseOverDataPoint(data, context) {
     let x0 = x.invert(d3.mouse(context)[0]); // Date at mouse position
+    let y0 = y.invert(d3.mouse(context)[1]);
+
+    let categoryPossibilities = [];
 
     for (let cItem of data) {
       let mouseOverData = cItem.values;
@@ -622,11 +617,23 @@ function createGraph(data) {
 
       d0.name = cItem.name;
       d1.name = cItem.name;
-      
-      return x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+      categoryPossibilities.push(x0 - d0.date > d1.date - x0 ? d1 : d0);
     }
 
-    return { date: data[0].date, value: 0, name: "No Data" }; // No data because of switchover
+    if (categoryPossibilities.length === 0) {
+      return { date: data[0].date, value: 0, name: "No Data" }; // No data because of switchover/whatever else
+    }
+
+    let closestItem = categoryPossibilities[0];
+
+    for (let cItem of categoryPossibilities) {
+      if (Math.abs(cItem.value - y0) < Math.abs(closestItem.value - y0)) {
+        closestItem = cItem;
+      }
+    }
+
+    return closestItem;
   }
 
   function mouseMove() {
@@ -675,8 +682,24 @@ function createMasterMapping() {
       masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01") });
     }
   }
+}
 
-  console.log(masterMapping);
+function getYearToSpendingArray(allCategoriesFYTD) {
+  let yearToSpendingArray = [];
+
+  for (let i = 0; i < allCategoriesFYTD.length - 1; i++) {
+    let curItem = allCategoriesFYTD[i];
+    let nextItem = allCategoriesFYTD[i + 1];
+
+    if (nextItem.value < curItem.value) { // End of fiscal year
+      yearToSpendingArray.push({ year: curItem.date.getFullYear().toString(), spending: curItem.value });
+    }
+  }
+
+  let latestForCurrentYear = allCategoriesFYTD[allCategoriesFYTD.length - 1];
+  yearToSpendingArray.push({ year: latestForCurrentYear.date.getFullYear().toString(), spending: latestForCurrentYear.value });
+
+  return yearToSpendingArray;
 }
 
 d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
@@ -689,7 +712,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   lastDate = data[data.length - 1].date;
   let totalDailySpending = 0;
 
-  let yearToSpending = {};
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
 
@@ -698,10 +720,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
     d.today = +d.today * 1000000;
     d.mtd = +d.mtd * 1000000;
     d.fytd = +d.fytd * 1000000;
-
-    let spendingYear = d.date.getFullYear();
-
-    yearToSpending[spendingYear] = (yearToSpending[spendingYear] || 0) + d.today;
 
     let currentYear = new Date().getFullYear();
     let prevFYStart = new Date("10/01/" + (currentYear - 2)).getTime();
@@ -724,10 +742,6 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
       allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
     }
 
-    // allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
-    // allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
-    // allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
-
     if (dDate == lastDate.getTime()) {
       totalDailySpending += d.today;
     }
@@ -735,20 +749,12 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
     optionsData.push(d.item_raw);
 
     if (!optionsDict.hasOwnProperty(d.item_raw)) {
-      optionsDict[d.item_raw] = {
-        today: [],
-        mtd: [],
-        fytd: []
-      };
+      optionsDict[d.item_raw] = { today: [], mtd: [], fytd: [] };
     }
 
     optionsDict[d.item_raw]['today'].push({ date: d.date, value: d.today });
     optionsDict[d.item_raw]['mtd'].push({ date: d.date, value: d.mtd });
     optionsDict[d.item_raw]['fytd'].push({ date: d.date, value: d.fytd });
-  });
-
-  let yearToSpendingArray = Object.keys(yearToSpending).map(k => {
-    return { year: k, spending: yearToSpending[k] }
   });
 
   function transposeKVToArray(frequency) {
@@ -784,6 +790,8 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
 
   createGraph(graphData);
   updateGraph(graphData);
+
+  let yearToSpendingArray = getYearToSpendingArray(optionsDict["All Categories"]["fytd"]);
 
   d3.select(".viz-tsbfy-bar-view").on("click", function() {
     createBarChart(yearToSpendingArray);
