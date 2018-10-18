@@ -129,3 +129,14 @@ export function fractionToPercent(n, precision) {
 export function stripBr() {
     d3.selectAll('br').remove();
 }
+
+export function fadeAndRemove(selection, duration) {
+    duration = duration || 1000;
+    
+    selection.transition()
+        .duration(duration)
+        .attr('opacity', 0)
+        .on('end', function () {
+            d3.select(this).remove();
+        })
+}
