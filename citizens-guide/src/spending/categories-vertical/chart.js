@@ -3,15 +3,24 @@ import { scaleLinear } from 'd3-scale';
 import { extent } from 'd3-array';
 import { establishContainer, translator } from "../../utils";
 import { placeLabels } from './text';
+import colors from '../../colors.scss';
+import { initZoomTrigger } from './zoom';
 
 const d3 = { select, selectAll, scaleLinear, extent },
     height = 1400,
     baseWidth = 400,
-    scales = {};
+    scales = {},
+    zoomItemsMap = {
+        agency: 16
+    },
+    config = {
+        height: height,
+        baseWidth: baseWidth,
+        scales: scales
+    };
 
 let svg,
     mainG,
-    categoryGroups,
     data;
 
 function setScales() {
@@ -26,10 +35,10 @@ function setScales() {
 }
 
 function placeCategories() {
-    let positives = data.filter(r => r.amount >= 0).length,
-        negatives = data.filter(r => r.amount < 0).length;
+    let categoryGroups;
 
-    mainG = svg.append('g');
+    mainG = svg.append('g')
+        .classed('main', true);
 
     categoryGroups = mainG.selectAll('g.category')
         .data(data)
@@ -46,18 +55,29 @@ function placeCategories() {
             return scales.y(d.stack0) - scales.y(d.stack1);
         })
         .attr('fill', function (d) {
-            return d.amount < 0 ? '#333' : 'steelblue';
+            return d.amount < 0 ? 'black' : colors.colorPrimary;
         })
-        .attr('opacity', function (d, i) {
-            return 1 - (0.03 * i);
-        })
+        .attr('opacity', 0.1);
+
+    categoryGroups.append('line')
+        .attr('x1', 0)
+        .attr('y1', 0)
+        .attr('x2', baseWidth)
+        .attr('y2', 0)
+        .attr('stroke', colors.colorPrimary)
+        .attr('stroke-width', 0.5)
 }
 
-export function drawChart(_data) {
+export function drawChart(_data, type) {
     svg = establishContainer(height);
     data = _data;
 
+    config.data = data;
+    config.svg = svg;
+    config.zoomItems = zoomItemsMap[type] || 8;
+
     setScales();
     placeCategories();
-    placeLabels(svg, data, scales.y, baseWidth, height);
+    initZoomTrigger(config);
+    placeLabels(config);
 }

@@ -9,16 +9,20 @@ const d3 = { select, selectAll },
 
 let svg;
 
-drawChart(data['function']);
+function initChart(type) {
+    d3.selectAll('svg').remove();
+    drawChart(data[type], type);
+}
+
 
 d3.select('#select-budget-function')
     .on('click', function () {
-        d3.selectAll('svg').remove();
-        drawChart(data['function']);
+        initChart('function');
     })
 
 d3.select('#select-agency')
     .on('click', function () {
-        d3.selectAll('svg').remove();
-        drawChart(data['agency']);
+        initChart('agency');
     })
+
+initChart('function')
