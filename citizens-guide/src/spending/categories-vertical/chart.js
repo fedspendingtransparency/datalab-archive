@@ -7,19 +7,18 @@ import colors from '../../colors.scss';
 import { initZoomTrigger } from './zoom';
 
 const d3 = { select, selectAll, scaleLinear, extent },
-    height = 1400,
     baseWidth = 400,
     scales = {},
     zoomItemsMap = {
         agency: 16
     },
     config = {
-        height: height,
         baseWidth: baseWidth,
         scales: scales
     };
 
 let svg,
+    height,
     mainG,
     data;
 
@@ -68,10 +67,35 @@ function placeCategories() {
         .attr('stroke-width', 0.5)
 }
 
-export function drawChart(_data, type) {
-    svg = establishContainer(height);
-    data = _data;
+function establishDetailContainer(height, type) {
+    const viz = d3.select('#detail');
 
+    viz.select('h2').text(type);
+
+    viz.select('button')
+        .on('click', null)
+        .on('click', function () {
+            viz.classed('active', null)
+            viz.selectAll('svg').remove();
+        })
+
+    viz.selectAll('svg').remove();
+
+    viz.classed('active', true);
+
+    return viz.append('svg')
+        .attr('shape-rendering', 'geometricPrecision')
+        .attr('height', height)
+        .attr('transform', 'scale(0.8)')
+        .attr('width', 900);
+}
+
+export function drawChart(_data, type, detail) {
+    data = _data;
+    height = detail ? 900 : 1400;
+    svg = detail ? establishDetailContainer(height, type) : establishContainer(height);
+
+    config.height = height;
     config.data = data;
     config.svg = svg;
     config.zoomItems = zoomItemsMap[type] || 8;

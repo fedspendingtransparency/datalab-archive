@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox, wordWrap } from '../../utils';
 import { line } from 'd3-shape';
+import { drawChart } from './chart';
 
 const d3 = { select, selectAll}, 
     fitThreshold = 50,
@@ -52,7 +53,14 @@ function placeText(zoom) {
         .classed('text-elements', true)
         .attr('transform', function (d) {
             return setTextTranslate(d, zoom)
-        });
+        })
+        .on('click', function(d){
+            if (!d.subcategories) {
+                return;
+            }
+
+            drawChart(d.subcategories, d.activity, true)
+        })
 
     const textElements = textGroups.append('text')
         .text(function (d) {
@@ -91,7 +99,7 @@ function placeText(zoom) {
     // remove hidden labels when zoomed out
     if (zoom) return;
 
-    textElements.each(function(d) {
+    textGroups.each(function(d) {
         if (d.markForZoom) {
             d3.select(this).remove();
         }

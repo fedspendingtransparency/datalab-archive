@@ -5,11 +5,25 @@
     margin-top: 0;
 }
 
-.category-bar-legend {
-    display: inline-block;
-    width: 1.5rem;
-    height: 0.75rem;
-    background: $color-primary-darker;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
+#detail {
+    display: none;
+
+    h2 {
+        margin: 0;
+    }
+
+    button {
+        float: right;
+    }
+}
+
+#detail.active {
+    display: block;
+    padding: 1rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 1px solid gray;
+    background: white;
+    border-radius: 1rem;
 }

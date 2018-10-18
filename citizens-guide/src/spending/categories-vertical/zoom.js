@@ -54,7 +54,9 @@ function zoom(rect, config, maskedData) {
 function dataToMask(config) {
     const positives = config.data.filter(r => r.amount >= 0);
 
-    positives.length = config.zoomItems;
+    if (positives.length > config.zoomItems) {
+        positives.length = config.zoomItems;
+    }
 
     positives.forEach(r => r.markForZoom = true);
 
@@ -63,7 +65,7 @@ function dataToMask(config) {
 
 function placeMask(config) {
     const maskedData = dataToMask(config),
-        topItemPosition = maskedData[config.zoomItems - 1].stack1,
+        topItemPosition = maskedData[maskedData.length - 1].stack1,
         rectHeight = config.scales.y(0) - config.scales.y(topItemPosition),
         rectTop = config.scales.y(topItemPosition),
         zoomLayer = config.svg.append('g').classed('zoom-layer', true);
@@ -81,5 +83,9 @@ function placeMask(config) {
 };
 
 export function initZoomTrigger(config) {
+    if (config.data.length < config.zoomItems * 2) {
+        return;
+    }
+    
     placeMask(config);
 }

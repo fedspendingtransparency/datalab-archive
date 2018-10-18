@@ -34,11 +34,12 @@ function sortData(a, b) {
 
 function generateArrayByDataType(dataObj) {
     const currentYearData = objectToArray(dataObj);
-
+    
     currentYearData.forEach(r => {
-        r.subcategories = objectToArray(r.subcategories)
+        r.subcategories = objectToArray(r.subcategories).sort(sortData);
+        stackData(r.subcategories);
     })
-
+    
     currentYearData.sort(sortData)
 
     stackData(currentYearData);
