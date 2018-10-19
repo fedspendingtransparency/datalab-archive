@@ -2,7 +2,11 @@ import 'babel-polyfill';
 import SpendingData from '../../public/csv/spending_categories.csv';
 import { min } from 'd3-array';
 
-const d3 = { min };
+const d3 = { min },
+    dataTypes = [
+        'agency',
+        'function'
+    ];
 
 function stackData(series) {
     let tracker;
@@ -28,21 +32,31 @@ function objectToArray(obj) {
     return Object.keys(obj).map(k => obj[k]);
 }
 
-function sortData(a, b) {
+function sortDataAsc(a, b) {
     return a.amount - b.amount;
 }
 
-function generateArrayByDataType(dataObj) {
-    const currentYearData = objectToArray(dataObj);
+function sortDataDesc(a, b) {
+    return b.amount - a.amount;
+}
+
+function generateArrayByDataType(dataObj, stack) {
+    const currentYearData = objectToArray(dataObj),
+        sortFn = stack ? sortDataAsc : sortDataDesc;
+
+    currentYearData.sort(sortFn)
     
     currentYearData.forEach(r => {
-        r.subcategories = objectToArray(r.subcategories).sort(sortData);
-        stackData(r.subcategories);
-    })
-    
-    currentYearData.sort(sortData)
+        r.subcategories = objectToArray(r.subcategories).sort(sortFn);
 
-    stackData(currentYearData);
+        if (stack) {
+            stackData(r.subcategories);
+        }
+    })
+
+    if (stack) {
+        stackData(currentYearData);
+    }
 
     return currentYearData;
 }
@@ -90,16 +104,12 @@ export function indexByYear(yyyy) {
     return indexed;
 }
 
-export function stackedByYear(yyyy) {
-    const dataTypes = [
-        'agency',
-        'function'
-    ],
-        currentYear = indexByYear(2017),
+export function byYear(yyyy, stacked) {
+    const currentYear = indexByYear(2017),
         result = {};
 
     dataTypes.forEach(t => {
-        result[t] = generateArrayByDataType(currentYear[t])
+        result[t] = generateArrayByDataType(currentYear[t], stacked);
     });
 
     return result;

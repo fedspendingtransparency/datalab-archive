@@ -1,69 +1,18 @@
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
+import { extent } from 'd3-array';
+import { transition } from 'd3-transition';
 import { establishContainer, translator } from "../../utils";
 import { placeLabels } from './text';
 import colors from '../../colors.scss';
-import { initZoomTrigger } from './zoom';
 
-const d3 = { select, selectAll, scaleLinear, extent },
-    baseWidth = 400,
-    scales = {},
-    zoomItemsMap = {
-        agency: 16
-    },
-    config = {
-        baseWidth: baseWidth,
-        scales: scales
-    };
+const d3 = { select, selectAll, scaleLinear, extent, transition },
+    rowHeight = 50;
 
-let svg,
-    height,
-    mainG,
-    data;
-
-function setScales() {
-    const domain = [
-        data[data.length - 1].stack1,
-        data[0].stack0
-    ];
-
-    scales.y = d3.scaleLinear()
-        .range([0, height])
-        .domain(domain);
-}
-
-function placeCategories() {
-    let categoryGroups;
-
-    mainG = svg.append('g')
-        .classed('main', true);
-
-    categoryGroups = mainG.selectAll('g.category')
-        .data(data)
-        .enter()
-        .append('g')
-        .attr('transform', function (d) {
-            return translator(0, scales.y(d.stack1));
-        })
-        .classed('category', true);
-
-    categoryGroups.append('rect')
-        .attr('width', baseWidth)
-        .attr('height', function (d) {
-            return scales.y(d.stack0) - scales.y(d.stack1);
-        })
-        .attr('fill', function (d) {
-            return d.amount < 0 ? 'black' : colors.colorPrimary;
-        })
-        .attr('opacity', 0.1);
-
-    categoryGroups.append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', baseWidth)
-        .attr('y2', 0)
-        .attr('stroke', colors.colorPrimary)
-        .attr('stroke-width', 0.5)
+function setScales(config) {
+    config.scaleX = d3.scaleLinear()
+        .range([0, config.barWidth])
+        .domain(d3.extent(config.data, r => r.amount));
 }
 
 function establishDetailContainer(height, type) {
@@ -89,18 +38,66 @@ function establishDetailContainer(height, type) {
         .attr('width', 900);
 }
 
-export function drawChart(_data, type, detail) {
-    data = _data;
-    height = detail ? 900 : 1400;
-    svg = detail ? establishDetailContainer(height, type) : establishContainer(height);
+function drawBars(containers, config) {
+    const g = containers.append('g');
 
-    config.height = height;
+    g.append('line')
+        .attr('stroke', 'black')
+        .attr('stroke-width', 0.5)
+        .attr('x1', config.scaleX(0))
+        .attr('x2', config.scaleX(0))
+        .attr('y1', rowHeight / 4 - 4)
+        .attr('y2', rowHeight *0.75 + 4)
+
+    g.append('rect')
+        .attr('height', rowHeight / 2)
+        .attr('fill', function (d) {
+            if (d.amount < 0) {
+                return 'gray';
+            }
+
+            return colors.colorPrimary;
+        })
+        .attr('y', rowHeight / 4)
+        .attr('x', config.scaleX(0))
+        .attr('width', 0)
+        .transition()
+        .duration(1000)
+        .attr('x', function (d) {
+            if (d.amount < 0) {
+                return config.scaleX(d.amount)
+            }
+
+            return config.scaleX(0);
+        })
+        .attr('width', function (d) {
+            return config.scaleX(Math.abs(d.amount)) - config.scaleX(0);
+        })
+        .ease();
+}
+
+function placeContainers(config) {
+    const containers = config.svg.selectAll('g')
+        .data(config.data)
+        .enter()
+        .append('g')
+        .attr('transform', function (d, i) {
+            return translator(0, i * rowHeight);
+        })
+
+    drawBars(containers, config);
+    placeLabels(containers, config);
+}
+
+export function drawChart(data, type, detail) {
+    const config = {};
+
+    config.height = detail ? 900 : 1400;
+    config.barWidth = 200;
     config.data = data;
-    config.svg = svg;
-    config.zoomItems = zoomItemsMap[type] || 8;
+    config.svg = detail ? establishDetailContainer(config.height, type) : establishContainer(config.height);
 
-    setScales();
-    placeCategories();
-    initZoomTrigger(config);
-    placeLabels(config);
+    setScales(config);
+
+    placeContainers(config);
 }
