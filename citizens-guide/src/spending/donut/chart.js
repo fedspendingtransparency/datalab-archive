@@ -1,70 +1,42 @@
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { extent } from 'd3-array';
-import { establishContainer, translator } from "../../utils";
+import { simplifyNumber } from "../../utils";
 import { placeLabels } from './text';
 import colors from '../../colors.scss';
 import { initZoomTrigger } from './zoom';
+import { createDonut } from '../../income/donut';
 
-const d3 = { select, selectAll, scaleLinear, extent },
-    baseWidth = 400,
-    scales = {},
-    zoomItemsMap = {
-        agency: 16
-    },
-    config = {
-        baseWidth: baseWidth,
-        scales: scales
-    };
+const d3 = { select, selectAll, scaleLinear, extent };
 
-let svg,
-    height,
-    mainG,
-    data;
+function placeCategories(config) {
+    const donutDiameter = 50,
+        categories = config.svg.selectAll('section.category')
+            .data(config.data)
+            .enter()
+            .append('section')
+            .classed('category', true);
 
-function setScales() {
-    const domain = [
-        data[data.length - 1].stack1,
-        data[0].stack0
-    ];
+    let contents;
 
-    scales.y = d3.scaleLinear()
-        .range([0, height])
-        .domain(domain);
-}
-
-function placeCategories() {
-    let categoryGroups;
-
-    mainG = svg.append('g')
-        .classed('main', true);
-
-    categoryGroups = mainG.selectAll('g.category')
-        .data(data)
-        .enter()
-        .append('g')
-        .attr('transform', function (d) {
-            return translator(0, scales.y(d.stack1));
+    categories.append('svg')
+        .attr('height', donutDiameter)
+        .attr('width', donutDiameter)
+        .each(function (d) {
+            createDonut(d3.select(this), d.percent_total / 100, donutDiameter)
         })
-        .classed('category', true);
 
-    categoryGroups.append('rect')
-        .attr('width', baseWidth)
-        .attr('height', function (d) {
-            return scales.y(d.stack0) - scales.y(d.stack1);
-        })
-        .attr('fill', function (d) {
-            return d.amount < 0 ? 'black' : colors.colorPrimary;
-        })
-        .attr('opacity', 0.1);
+    contents = categories.append('div')
+        .classed('contents', true)
 
-    categoryGroups.append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', baseWidth)
-        .attr('y2', 0)
-        .attr('stroke', colors.colorPrimary)
-        .attr('stroke-width', 0.5)
+    contents.append('h1')
+        .text(function(d){
+            return d.activity;
+        })
+
+    contents.append('p').text(function(d){
+        return simplifyNumber(d.amount);        
+    })
 }
 
 function establishDetailContainer(height, type) {
@@ -90,18 +62,13 @@ function establishDetailContainer(height, type) {
         .attr('width', 900);
 }
 
-export function drawChart(_data, type, detail) {
-    data = _data;
-    height = detail ? 900 : 1400;
-    svg = detail ? establishDetailContainer(height, type) : establishContainer(height);
+export function drawChart(data, type, detail) {
+    const config = {};
 
-    config.height = height;
+    //svg = detail ? establishDetailContainer(height, type) : establishContainer(height);
+
     config.data = data;
-    config.svg = svg;
-    config.zoomItems = zoomItemsMap[type] || 8;
+    config.svg = d3.select('#viz');
 
-    setScales();
-    placeCategories();
-    initZoomTrigger(config);
-    placeLabels(config);
+    placeCategories(config);
 }

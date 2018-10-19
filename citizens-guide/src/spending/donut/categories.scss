@@ -3,27 +3,33 @@
 
 #viz {
     margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: space-between;
 }
 
-#detail {
-    display: none;
 
-    h2 {
+
+section.category {
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 400px;
+    margin-bottom: 2rem;
+
+    svg {
+        float: left;
+    }
+
+    div.contents {
+        margin-left: 60px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: left;
         margin: 0;
     }
-
-    button {
-        float: right;
-    }
 }
 
-#detail.active {
-    display: block;
-    padding: 1rem;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    border: 1px solid gray;
-    background: white;
-    border-radius: 1rem;
-}

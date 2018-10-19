@@ -1,19 +1,18 @@
 import { select, selectAll } from 'd3-selection';
 import './categories.scss';
-import { stackedByYear } from '../data-spending';
+import { byYear } from '../data-spending';
 import { drawChart } from './chart';
 import { establishContainer } from '../../utils';
 
 const d3 = { select, selectAll },
-    data = stackedByYear(2017);
+    data = byYear(2017);
 
 let svg;
 
 function initChart(type) {
-    d3.selectAll('svg').remove();
+    d3.selectAll('#viz').selectAll('*').remove();
     drawChart(data[type], type);
 }
-
 
 d3.select('#select-budget-function')
     .on('click', function () {

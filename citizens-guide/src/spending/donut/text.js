@@ -64,7 +64,7 @@ function placeText(zoom) {
 
     const textElements = textGroups.append('text')
         .text(function (d) {
-            return d.activity; f
+            return d.activity;
         })
         .attr('font-size', 16)
         .attr('opacity', function (d) {
