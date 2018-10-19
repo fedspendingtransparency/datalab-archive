@@ -79,7 +79,7 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var allOptions, optionsDict, lastDate;
+var allOptions, optionsDict, lastDate, verticalLineDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
@@ -119,7 +119,7 @@ const brush = d3.brushX()
   ])
   .on("brush end", brushed);
 
-  brush.on("start", null);
+  // brush.on("start", null);
 
 const zoom = d3.zoom()
   .scaleExtent([1, Infinity])
@@ -149,6 +149,17 @@ function setFancyLines(selector, lineFn) {
 function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
+
+  if (verticalLineDate != null){
+    svg.select(".category-line-separator")
+      .attr("x1", x(verticalLineDate)) 
+      .attr("y1", 0)
+      .attr("x2", x(verticalLineDate))
+      .attr("y2", height)
+      .style("stroke-width", 1)
+      .style("stroke", "#666")
+      .style("fill", "none");
+  }
 
   svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
@@ -505,7 +516,8 @@ function createGraph(data) {
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");  
   
   setGraphYDomains(data);
-  x2.domain([new Date(2005, 5, 9), lastDate]);
+  x.domain([new Date(2005, 5, 9), lastDate]);
+  x2.domain(x.domain());
 
   focus.append("g")
     .attr("class", "axis axis--x graph-x-axis")
@@ -548,6 +560,19 @@ function createGraph(data) {
     .attr("clip-path", "url(#clip)");
 
   updateGraphAndBrushLines(data);
+
+  verticalLineDate = null;
+
+  if (data.length > 1) {
+    verticalLineDate = data[0].date;
+
+    console.log(verticalLineDate);
+    console.log(y(verticalLineDate));
+    console.log(height);
+
+    lineChart.append("line").attr("class", "category-line-separator")
+  }
+
 
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
