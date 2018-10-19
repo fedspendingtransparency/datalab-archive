@@ -83,7 +83,8 @@ function placeMask(config) {
 };
 
 export function initZoomTrigger(config) {
-    if (config.data.length < config.zoomItems * 2) {
+    if (config.data.length < config.zoomItems * 1.5) {
+        console.log(config.data, config.data.length, config.zoomItems)
         return;
     }
     
