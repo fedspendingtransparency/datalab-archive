@@ -85,6 +85,8 @@ const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
 const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
 
+const lineColors = [ "#00c3c2", "#2E7070", "#4CABAC", "#76D2D3" ]
+
 const svg = d3.select("#svg-wrapper"),
   margin = { top: 20, right: 20, bottom: 110, left: 60 },
   margin2 = { top: 430, right: 20, bottom: 30, left: 60 },
@@ -119,8 +121,6 @@ const brush = d3.brushX()
   ])
   .on("brush end", brushed);
 
-  // brush.on("start", null);
-
 const zoom = d3.zoom()
   .scaleExtent([1, Infinity])
   .translateExtent([
@@ -143,6 +143,7 @@ function setFancyLines(selector, lineFn) {
     }
 
     d3LineSel.attr("d", d => lineFn(d.values));
+    d3LineSel.attr("stroke", d => d.color);
   });
 }
 
@@ -150,8 +151,13 @@ function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
 
-  //if (verticalLineDate != null){
+  
+  if (verticalLineDate == null) {
     svg.select(".category-line-separator")
+        .style("display", "none");
+  } else {
+    svg.select(".category-line-separator")
+      .style("display", "block")
       .attr("x1", x(verticalLineDate)) 
       .attr("y1", 0)
       .attr("x2", x(verticalLineDate))
@@ -159,6 +165,10 @@ function adjustLines() {
       .style("stroke-width", 1)
       .style("stroke", "#666")
       .style("fill", "none");
+  }
+
+  //if (verticalLineDate != null){
+
   //}
 
   // svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
@@ -690,15 +700,18 @@ function createMasterMapping() {
     masterMapping[key] = { "today": [], "mtd": [], "fytd": [] };
 
     if (mapping.hasOwnProperty(key)) {
-      for (let cateName of mapping[key].categories) {
-        masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date });
-        masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date });
-        masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date });
+
+      for (let i = 0; i < mapping[key].categories.length; i++) {
+        let cateName = mapping[key].categories[i];
+
+        masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date, color: lineColors[i] });
+        masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date, color: lineColors[i] });
+        masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date, color: lineColors[i] });
       }
     } else {
-      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01") });
-      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01") });
-      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01") });
+      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01"), color: lineColors[0] });
+      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01"), color: lineColors[0] });
+      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01"), color: lineColors[0] });
     }
   }
 }
