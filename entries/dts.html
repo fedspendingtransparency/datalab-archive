@@ -150,7 +150,7 @@ function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
 
-  if (verticalLineDate != null){
+  //if (verticalLineDate != null){
     svg.select(".category-line-separator")
       .attr("x1", x(verticalLineDate)) 
       .attr("y1", 0)
@@ -159,9 +159,9 @@ function adjustLines() {
       .style("stroke-width", 1)
       .style("stroke", "#666")
       .style("fill", "none");
-  }
+  //}
 
-  svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
+  // svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
   svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
@@ -461,6 +461,8 @@ function updateGraphAndBrushLines(data) {
 }
 
 function updateGraph(data) {
+  verticalLineDate = data.length > 1 ? data[0].date : null;
+
   updateGraphAndBrushLines(data);
   setGraphYDomains(data);
   adjustLines();
@@ -561,18 +563,7 @@ function createGraph(data) {
 
   updateGraphAndBrushLines(data);
 
-  verticalLineDate = null;
-
-  if (data.length > 1) {
-    verticalLineDate = data[0].date;
-
-    console.log(verticalLineDate);
-    console.log(y(verticalLineDate));
-    console.log(height);
-
-    lineChart.append("line").attr("class", "category-line-separator")
-  }
-
+  lineChart.append("line").attr("class", "category-line-separator")
 
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
