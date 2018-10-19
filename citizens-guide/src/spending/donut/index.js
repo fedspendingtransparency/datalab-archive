@@ -9,15 +9,17 @@ const d3 = { select, selectAll },
 
 let type;
 
-function initChart(_type) {
-    type = _type;
+function initChart(_type, filteredData) {
+    const chartData = filteredData || data[_type];
     
+    type = _type;
+
     d3.selectAll('#viz').selectAll('*').remove();
-    drawChart(data[type], type);
+    drawChart(chartData, type);
 }
 
 function sortCards(by) {
-    if (by==='name') {
+    if (by === 'name') {
         data[type].sort((a, b) => {
             if (b.activity < a.activity) {
                 return 1;
@@ -36,7 +38,7 @@ function sortCards(by) {
     }
 
     d3.selectAll('section.category')
-        .each(function(d){
+        .each(function (d) {
             d3.select(this).attr('style', 'order:' + data[type].indexOf(d));
         })
 }
@@ -59,6 +61,17 @@ d3.select('#sort-amount')
 d3.select('#sort-name')
     .on('click', function () {
         sortCards('name');
+    })
+
+
+d3.select('#filter-by-name')
+    .on('input', function () {
+        const v = this.value.toLowerCase(),
+            filtered = data[type].filter(r => {
+                return (r.activity.toLowerCase().indexOf(v) !== -1);
+            })
+
+        initChart(type, filtered)
     })
 
 initChart('function')
