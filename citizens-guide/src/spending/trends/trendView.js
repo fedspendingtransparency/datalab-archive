@@ -15,6 +15,7 @@ import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
 import { activateTourPartTwo } from './tour';
+import { showHideInit } from './showHideCategories';
 
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
@@ -134,4 +135,6 @@ export function trendView(_data, container, config) {
     }
 
     globals.dataDots = addTooltips(globals);
+
+    showHideInit(globals.data);
 }
