@@ -16,6 +16,7 @@ section.category {
     margin-bottom: 2rem;
     box-sizing: border-box;
     width: 100%;
+    transition: order 1s ease;
 
     svg {
         float: left;
