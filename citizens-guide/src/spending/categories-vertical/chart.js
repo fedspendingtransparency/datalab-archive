@@ -1,12 +1,11 @@
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
-import { extent } from 'd3-array';
 import { establishContainer, translator } from "../../utils";
 import { placeLabels } from './text';
 import colors from '../../colors.scss';
 import { initZoomTrigger } from './zoom';
 
-const d3 = { select, selectAll, scaleLinear, extent },
+const d3 = { select, selectAll, scaleLinear },
     baseWidth = 400,
     scales = {},
     zoomItemsMap = {
