@@ -5,6 +5,7 @@ import { transition } from 'd3-transition';
 import { establishContainer, translator } from "../../utils";
 import { placeLabels } from './text';
 import colors from '../../colors.scss';
+import { initSort } from './sort';
 
 const d3 = { select, selectAll, scaleLinear, extent, transition },
     rowHeight = 50;
@@ -77,10 +78,11 @@ function drawBars(containers, config) {
 }
 
 function placeContainers(config) {
-    const containers = config.svg.selectAll('g')
+    const containers = config.svg.selectAll('g.row')
         .data(config.data)
         .enter()
         .append('g')
+        .classed('row', true)
         .attr('transform', function (d, i) {
             return translator(0, i * rowHeight);
         })
@@ -95,9 +97,10 @@ export function drawChart(data, type, detail) {
     config.height = detail ? 900 : 1400;
     config.barWidth = 200;
     config.data = data;
+    config.rowHeight = rowHeight;
     config.svg = detail ? establishDetailContainer(config.height, type) : establishContainer(config.height);
 
     setScales(config);
-
+    initSort(config);
     placeContainers(config);
 }

@@ -7,21 +7,36 @@ import { establishContainer } from '../../utils';
 const d3 = { select, selectAll },
     data = byYear(2017);
 
-let svg;
+let svg,
+    type = 'function';
 
-function initChart(type) {
+function initChart(filteredData) {
+    const chartData = filteredData || data[type];
+    
     d3.selectAll('svg').remove();
-    drawChart(data[type], type);
+    drawChart(chartData, type);
 }
 
 d3.select('#select-budget-function')
     .on('click', function () {
-        initChart('function');
+        type = 'function';
+        initChart();
     })
 
 d3.select('#select-agency')
     .on('click', function () {
-        initChart('agency');
+        type = 'agency';
+        initChart();
     })
 
-initChart('function')
+d3.select('#filter-by-name')
+    .on('input', function () {
+        const v = this.value.toLowerCase(),
+            filtered = data[type].filter(r => {
+                return (r.activity.toLowerCase().indexOf(v) !== -1);
+            })
+
+        initChart(filtered)
+    })
+
+initChart()
