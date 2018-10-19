@@ -63,10 +63,12 @@ module.exports = [{
     },
 },{
     entry: {
-        countryComparison: './src/spending/countries/index.js',
+        bars: './src/spending/bars/index.js',
         categories: './src/spending/categories/index.js',
         categoriesHorizontal: './src/spending/categories-horizontal/index.js',
         categoriesVertical: './src/spending/categories-vertical/index.js',
+        countryComparison: './src/spending/countries/index.js',
+        donut: './src/spending/donut/index.js',
         trends: './src/spending/trends/index.js'
     },
     devtool: 'inline-source-map',
