@@ -1,6 +1,6 @@
 import { select } from 'd3-selection';
 import { establishContainer, translator, getElementBox } from '../../utils';
-import { trendView } from './trendView';
+import { trendView } from './chart';
 import colors from '../../colors.scss';
 
 const d3 = { select },
