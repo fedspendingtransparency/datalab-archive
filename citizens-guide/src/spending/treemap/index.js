@@ -23,4 +23,4 @@ d3.select('#select-agency')
         initChart('agency');
     })
 
-initChart('function')
+initChart('function');
