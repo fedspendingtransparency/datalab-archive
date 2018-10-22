@@ -1,29 +1,45 @@
+import { select, selectAll } from 'd3-selection';
 import { treemap, hierarchy } from 'd3-hierarchy';
+import { transition } from 'd3-transition';
 import { establishContainer } from '../../utils';
 import { displayNegatives } from './showNegatives';
 import { placeText } from './text';
+import { zoom } from './zoom';
 
-const d3 = { treemap, hierarchy },
+const d3 = { select, selectAll, treemap, hierarchy, transition },
     height = 700,
-    width = 900;
+    width = 1200;
 
-function drawTreemap(data) {
-    const svg = establishContainer(height);
+function drawTreemap(config) {
+    const svg = establishContainer(height),
+        layer = svg.append('g')
+            .attr('opacity', 0)
+            .classed('layer', true);
 
-    const leaf = svg.selectAll("g")
-        .data(data.leaves())
+    const leaf = layer.selectAll("g")
+        .data(config.data.leaves())
+        .classed('leaf', true)
         .enter().append("g")
         .attr("transform", d => `translate(${d.x0},${d.y0})`);
 
     leaf.append("rect")
-        //.attr("id", d => (d.leafUid = DOM.uid("leaf")).id)
-        // .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
         .attr('fill', '#ccc')
         .attr("fill-opacity", 0.6)
         .attr("width", d => d.x1 - d.x0)
         .attr("height", d => d.y1 - d.y0);
 
     leaf.each(placeText);
+
+    if (!config.drilldown) {
+        leaf.on('click', function (d, i) {
+            zoom(i, leaf, height, width)
+        })
+            .attr('style', 'cursor:pointer');
+    }
+
+    layer.transition()
+        .duration(1000)
+        .attr('opacity', 1);
 }
 
 function prepareData(data) {
@@ -46,13 +62,14 @@ function prepareData(data) {
     return treemap(hierarchy);
 }
 
-export function drawChart(data) {
-    const config = {};
+export function drawChart(data, drilldown) {
+    const config = {},
+        negativeData = data.filter(r => r.amount <= 0);
 
+    config.drilldown = drilldown;
     config.data = prepareData(data.filter(r => r.amount > 0));
-    config.negativeData = data.filter(r => r.amount <= 0);
 
-    displayNegatives(config.negativeData);
+    displayNegatives(negativeData);
 
-    drawTreemap(config.data);
+    drawTreemap(config);
 }
