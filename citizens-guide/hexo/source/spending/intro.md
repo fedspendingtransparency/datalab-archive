@@ -13,5 +13,6 @@ description: This is the text that goes in the meta description tag
     <li><a href="categories-vertical.html">Categories Vertical</a></li>
     <li><a href="country-comparison.html">Country Comparison</a></li>
     <li><a href="donut.html">Donut Cards</a></li>
+    <li><a href="treemap.html">Treemap</a></li>
     <li><a href="trends.html">Trends</a></li>
 </ul>
