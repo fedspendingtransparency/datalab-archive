@@ -1,5 +1,6 @@
 import { treemap, hierarchy } from 'd3-hierarchy';
 import { establishContainer } from '../../utils';
+import { displayNegatives } from './showNegatives';
 
 const d3 = { treemap, hierarchy },
     height = 700,
@@ -48,7 +49,7 @@ export function drawChart(data) {
     config.data = prepareData(data.filter(r => r.amount > 0));
     config.negativeData = data.filter(r => r.amount <= 0);
 
-    console.log(config.data)
+    displayNegatives(config.negativeData);
 
     drawTreemap(config.data);
 }
