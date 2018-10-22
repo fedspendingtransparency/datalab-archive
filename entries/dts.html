@@ -14,7 +14,7 @@ category: nonentry
   <div class="header-title">Interactive Daily Report</div>
   <div class="header-subtitle">How much money are we spending?</div>
   <div class="header-line-break"></div>
-  <div class="header-updated-when">Updated Friday, August 20, 2018 at 4:00 PM ET</div>
+  <div class="header-updated-when"></div>
 </div>
 
 <div class="dts-header">
@@ -151,7 +151,6 @@ function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
 
-  
   if (verticalLineDate == null) {
     svg.select(".category-line-separator")
         .style("display", "none");
@@ -167,11 +166,6 @@ function adjustLines() {
       .style("fill", "none");
   }
 
-  //if (verticalLineDate != null){
-
-  //}
-
-  // svg.selectAll(".brush-lines").attr("d", d => line2(d.values));
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
   svg.select(".x-grid").call(makeXGridLines().tickSize(-height).tickFormat(""));
@@ -734,7 +728,7 @@ function getYearToSpendingArray(allCategoriesFYTD) {
   return yearToSpendingArray;
 }
 
-d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
+d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   if (error) throw error;
 
   let optionsData = [];
@@ -742,6 +736,9 @@ d3.csv("/data-lab-data/dts/dts-full-3.csv", type, function(error, data) {
   optionsDict = {};
 
   lastDate = data[data.length - 1].date;
+
+  d3.select(".header-updated-when").text("Updated " + lastDate.toUTCString());
+  
   let totalDailySpending = 0;
 
   let categoryToSpendingPrevFY = {};
