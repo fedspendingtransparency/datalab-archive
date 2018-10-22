@@ -1,6 +1,7 @@
 import { treemap, hierarchy } from 'd3-hierarchy';
 import { establishContainer } from '../../utils';
 import { displayNegatives } from './showNegatives';
+import { placeText } from './text';
 
 const d3 = { treemap, hierarchy },
     height = 700,
@@ -21,6 +22,8 @@ function drawTreemap(data) {
         .attr("fill-opacity", 0.6)
         .attr("width", d => d.x1 - d.x0)
         .attr("height", d => d.y1 - d.y0);
+
+    leaf.each(placeText);
 }
 
 function prepareData(data) {
