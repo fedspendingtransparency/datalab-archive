@@ -12,7 +12,6 @@ function initChart(type) {
     drawChart(data[type]);
 }
 
-
 d3.select('#select-budget-function')
     .on('click', function () {
         initChart('function');
