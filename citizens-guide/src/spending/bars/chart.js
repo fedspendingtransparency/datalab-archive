@@ -11,9 +11,13 @@ const d3 = { select, selectAll, scaleLinear, extent, transition },
     rowHeight = 50;
 
 function setScales(config) {
+    const extent = d3.extent(config.data, r => r.amount);
+
+    extent[0] = (extent[0] > 0) ? 0 : extent[0];
+    
     config.scaleX = d3.scaleLinear()
         .range([0, config.barWidth])
-        .domain(d3.extent(config.data, r => r.amount));
+        .domain(extent);
 }
 
 function establishDetailContainer(height, type) {
