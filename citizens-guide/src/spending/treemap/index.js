@@ -9,7 +9,7 @@ const d3 = { select, selectAll },
 
 function initChart(type) {
     d3.selectAll('svg').remove();
-    drawChart(data[type], type);
+    drawChart(data[type]);
 }
 
 
