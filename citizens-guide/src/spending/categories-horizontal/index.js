@@ -72,9 +72,14 @@ function zoomShaders(state, textFade, zoom) {
             }
 
             if (state === 'in' && i < 0) {
-                return 0;
+                return 1;
+                //return 0;
             } else {
-                return (i) ? 1 - i / 7 : 1;
+                let val = (i) ? 1 - i / 7 : 1;
+
+                val = (val < 0.3) ? 0.3 : val;
+
+                return val;
             }
         })
         .attr('fill', colors.colorPrimaryDarker);
@@ -256,11 +261,10 @@ function init(dataType) {
     stackData(categoryData);
     setContainers();
     addSegments();
-    
-    console.log(categoryData)
 }
 
-svg = establishContainer(270);
+// svg = establishContainer(270);
+svg = establishContainer(800);
 
 init('function');
 

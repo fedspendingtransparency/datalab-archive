@@ -149,10 +149,12 @@ function resizeSvg() {
         delay = (state === 'in') ? 0 : 1000,
         duration = (state === 'in') ? 1000 : 750;
 
+    //temporarily brute forcing height for prototype/demo
+
     svg.transition()
         .duration(duration)
         .delay(delay)
-        .attr('height', height);
+        .attr('height', 800);
 }
 
 export function zoomInit(baseContainer, baseDimensions, zoomTriggerX, zoomCallback) {
