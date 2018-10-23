@@ -40,7 +40,7 @@ function establishDetailContainer(height, type) {
         .attr('shape-rendering', 'geometricPrecision')
         .attr('height', height)
         .attr('transform', 'scale(0.8)')
-        .attr('width', 900);
+        .attr('width', 500);
 }
 
 function drawBars(containers, config) {
