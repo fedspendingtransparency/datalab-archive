@@ -79,7 +79,7 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var allOptions, optionsDict, lastDate, verticalLineDate;
+var allOptions, optionsDict, lastDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
@@ -150,21 +150,6 @@ function setFancyLines(selector, lineFn) {
 function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
-
-  if (verticalLineDate == null) {
-    svg.select(".category-line-separator")
-        .style("display", "none");
-  } else {
-    svg.select(".category-line-separator")
-      .style("display", "block")
-      .attr("x1", x(verticalLineDate)) 
-      .attr("y1", 0)
-      .attr("x2", x(verticalLineDate))
-      .attr("y2", height)
-      .style("stroke-width", 1)
-      .style("stroke", "#666")
-      .style("fill", "none");
-  }
 
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
@@ -465,8 +450,6 @@ function updateGraphAndBrushLines(data) {
 }
 
 function updateGraph(data) {
-  verticalLineDate = data.length > 1 ? data[0].date : null;
-
   updateGraphAndBrushLines(data);
   setGraphYDomains(data);
   adjustLines();
@@ -567,7 +550,7 @@ function createGraph(data) {
 
   updateGraphAndBrushLines(data);
 
-  lineChart.append("line").attr("class", "category-line-separator")
+ // lineChart.append("line").attr("class", "category-line-separator")
 
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
@@ -738,8 +721,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   lastDate = data[data.length - 1].date;
 
   d3.select(".header-updated-when").text("Updated " + lastDate.toUTCString());
-  
-  let totalDailySpending = 0;
 
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
@@ -769,10 +750,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
       allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
       allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
       allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
-    }
-
-    if (dDate == lastDate.getTime()) {
-      totalDailySpending += d.today;
     }
 
     optionsData.push(d.item_raw);
@@ -811,7 +788,9 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   d3.select('#frequency-selector').property('value', theFrequency);
   d3.select('#category-selector').property('value', theCategory);
 
-  d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
+  let todayAllCategorySpending = allToSpending["today"].last().value;
+
+  d3.select(".daily-spending-amount").text(dollarFormatter(todayAllCategorySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
 

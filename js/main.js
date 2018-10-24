@@ -3,6 +3,10 @@
 
 // Start polyfills for IE
 
+Array.prototype.last = function() {
+    return this[this.length - 1];
+};
+
 if (!Object.entries) {
     Object.entries = function( obj ){
       var ownProps = Object.keys( obj ),
