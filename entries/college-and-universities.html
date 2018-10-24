@@ -6,9 +6,9 @@ permalink: college-and-universities.html
 ---
 
 
-<div class="CU" id="container">
+<div class="CU">
   <div id="sectionLanding" class="sectionLanding">
-    
+
     <img src="../images/college-playbook/gradCap--blue.png" class="blue">
     <img src="../images/college-playbook/gradCap--green.png" class="green">
     <img src="../images/college-playbook/gradCap--orange.png" class="orange">
@@ -16,7 +16,7 @@ permalink: college-and-universities.html
     <img src="../images/college-playbook/gradCap--yellow.png" class="yellow">
 
     <div class="landing">
-      
+
       <h1>Tracking federal investment in <strong>colleges & universities</strong> of the United States</h1>
       <p>Some Text</p>
       <p>Some Text</p>
@@ -24,7 +24,7 @@ permalink: college-and-universities.html
     </div>
   </div>
 
-  <div id="secitonTableOfContents" class="story">
+  <div id="secitonTableOfContents">
     <div class="table-of-contents">
       <div>
         <span class="id marginSmaller" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">01</span>
@@ -77,14 +77,14 @@ permalink: college-and-universities.html
     </div>
   </div>
 
-  <div id="secitonInvestmentOverview" class="story">
-    <div class="sectionHeader">
+  <div id="secitonInvestmentOverview" class="InvestmentOverviewContainer">
+    <div class="sectionHeader" class="story">
       <h1>01</h1>
       <h2>Investment Overview</h2>
       <h3>How Much was invested in colleges & Universities?</h3>
       <p>Some Text</p>
     </div>
-    <div class="overview_information">
+    <div class="overview_information" class="story">
       <h2>Total Investment</h2>
       <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount"></p>
       <h1 id="investment_spending_total"></h1>
@@ -94,21 +94,27 @@ permalink: college-and-universities.html
         <span id="totalInvestments_graph_StudentAid" class="studentAid"></span>
       </div>
       <div id="totalInvestments_breakdown" class="breakdown">
-        <span>
-          <h2>Contracts</h2>
-          <h1 id="totalInvestments_breakdown_contracts_total"></h1>
-          <p></p>
-        </span>
-        <span>
-          <h2>Grants</h2>
-          <h1 id="totalInvestments_breakdown_grants_total"></h1>
-          <p></p>
-        </span>
-        <span>
-          <h2>Student Aid</h2>
-          <h1 id="totalInvestments_breakdown_studentAid_total"></h1>
-          <p></p>
-        </span>
+        <div class="story" id="contracts">
+          <span>
+            <h2>Contracts</h2>
+            <h1 id="totalInvestments_breakdown_contracts_total"></h1>
+            <p></p>
+          </span>
+        </div>
+        <div class="story" id="grants">
+          <span>
+            <h2>Grants</h2>
+            <h1 id="totalInvestments_breakdown_grants_total"></h1>
+            <p></p>
+          </span>
+        </div>
+        <div class="story" id="studentaid">
+          <span>
+            <h2>Student Aid</h2>
+            <h1 id="totalInvestments_breakdown_studentAid_total"></h1>
+            <p></p>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -120,24 +126,23 @@ permalink: college-and-universities.html
       <p>Some Text</p>
     </div>
     <div id="investmentCategories" class="investmentCategories">
-      
+
       <div id="categoriesPanel" class="panel">
         <span id="categories_panel_back_btn">
-          <strong><</strong> Back
-        </span>
-        <div id="investmentCategories_panel_chart" class="panelChart">
+          <strong>
+            <</strong> Back </span> <div id="investmentCategories_panel_chart" class="panelChart">
 
-        </div>
+	    </div>
       </div>
 
       <!-- Where Pie Chart Starts!  -->
       <div id="categoriesChartContainer" class="chartContainer">
-        <span id="cat_rt_pg_turn" class="chv right">
-          <i class="fas fa-chevron-right chv right"></i>   
-        </span>      
-        <span id="cat_lt_pg_turn" class="chv left">
+	<span id="cat_rt_pg_turn" class="chv right">
+          <i class="fas fa-chevron-right chv right"></i>
+	</span>
+	<span id="cat_lt_pg_turn" class="chv left">
           <i class="fas fa-chevron-left"></i>
-        </span>      
+	</span>
       </div>
 
     </div>
@@ -153,9 +158,9 @@ permalink: college-and-universities.html
     <div id="agencies">
       <!-- Where Bubble Chart Starts! -->
       <div id="bubbleChartContainer" class="bubbleChartContainer">
-	
+
       </div>
-      
+
     </div>
   </div>
   <div id="secitonInstitutionInvestment">
@@ -166,7 +171,7 @@ permalink: college-and-universities.html
       <p>Some Text</p>
     </div>
     <div id="collegesMap" class="collegesMap">
-      
+
     </div>
   </div>
   <div id="secitonConclusion">
@@ -207,12 +212,20 @@ permalink: college-and-universities.html
 <script>
 
  // Instantiation
- $(function(){
-     $("#container").scrollStory({
-	 speed: 500;
-     );
-     }));
+ $(function () {
+     $(".InvestmentOverviewContainer").scrollStory({
+	 debug: true,
+	 speed: 800,
+	 itementerviewport: function (e, i) {
+             i.el.append('<p> hey! </p>');
+             console.log('in view!' + i );
+	 },
+	 itemexitviewport: function (e, i) {
+             i.el.append('<p> bye! </p>');
+             console.log('out of view!' + i);
+	 }
+     });
+});
+
 
 </script>
-
-
