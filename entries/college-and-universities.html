@@ -24,7 +24,7 @@ permalink: college-and-universities.html
     </div>
   </div>
 
-  <div id="secitonTableOfContents">
+  <div id="secitonTableOfContents" class="story">
     <div class="table-of-contents">
       <div>
         <span class="id marginSmaller" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">01</span>
@@ -77,7 +77,7 @@ permalink: college-and-universities.html
     </div>
   </div>
 
-  <div id="secitonInvestmentOverview">
+  <div id="secitonInvestmentOverview" class="story">
     <div class="sectionHeader">
       <h1>01</h1>
       <h2>Investment Overview</h2>
@@ -153,7 +153,7 @@ permalink: college-and-universities.html
     <div id="agencies">
       <!-- Where Bubble Chart Starts! -->
       <div id="bubbleChartContainer" class="bubbleChartContainer">
-      
+	
       </div>
       
     </div>
@@ -208,8 +208,10 @@ permalink: college-and-universities.html
 
  // Instantiation
  $(function(){
-     $("#container").scrollStory();
- });
+     $("#container").scrollStory({
+	 speed: 500;
+     );
+     }));
 
 </script>
 
