@@ -477,7 +477,7 @@ function CreateDendro(newData){
     }
 }
 
-d3.csv('/data-lab-data/accounts_obligations_link_update_v3.csv', (dendroData) =>{
+d3.csv('/data-lab-data/accounts_obligations_link_update_v4.csv', (dendroData) =>{
 
     CreateDendro(dendroData.filter((d) => d.reporting_period_end === '2018-06-30'));
 
