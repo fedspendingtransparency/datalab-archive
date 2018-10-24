@@ -439,7 +439,7 @@ function updateLines(parent, selector, data, pathClass, classesToRemove, lineFn)
 
   u.data(data)
     .enter()
-    .append('path')
+    .insert('path', ":first-child")
     .attr("class", pathClass);
     // .attr("d", d => lineFn(d.values));  don't need since called in adjustLines
 }
