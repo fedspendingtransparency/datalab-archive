@@ -79,7 +79,7 @@ category: nonentry
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var allOptions, optionsDict, lastDate, verticalLineDate;
+var allOptions, optionsDict, lastDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
@@ -150,21 +150,6 @@ function setFancyLines(selector, lineFn) {
 function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
-
-  if (verticalLineDate == null) {
-    svg.select(".category-line-separator")
-        .style("display", "none");
-  } else {
-    svg.select(".category-line-separator")
-      .style("display", "block")
-      .attr("x1", x(verticalLineDate)) 
-      .attr("y1", 0)
-      .attr("x2", x(verticalLineDate))
-      .attr("y2", height)
-      .style("stroke-width", 1)
-      .style("stroke", "#666")
-      .style("fill", "none");
-  }
 
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
@@ -348,7 +333,7 @@ function createTable(yearToSpendingArray) {
       .text(d => d);
 }
 
-function addOptions(sel, condensedOptions) {
+function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
   sel.selectAll('*').remove();
 
   sel.append('option').text('All Categories');
@@ -366,9 +351,18 @@ function addOptions(sel, condensedOptions) {
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
   sel
-    .append("optgroup").attr("label", "All Categories")
+    .append("optgroup").attr("label", "Active Categories")
       .selectAll('option')
-      .data(allOptions).enter()
+      .data(activeOptions).enter()
+      .append('option')
+      .text(d => d);
+
+  sel.append('option').attr('disabled', 'true').text('──────────────────────────');
+
+  sel
+    .append("optgroup").attr("label", "Inactive Categories")
+      .selectAll('option')
+      .data(inactiveOptions).enter()
       .append('option')
       .text(d => d);
 }
@@ -399,12 +393,12 @@ function getGraphData() {
   return masterMapping[categoryValue][frequencyValue];
 }
 
-function createSelect(condensedOptions) {
+function createSelect(condensedOptions, activeOptions, inactiveOptions) {
   d3.select('#frequency-selector').on('change', onFrequencyChange);
   d3.selectAll("input[name='timeframe']").on("change", onDataChange);
   let select = d3.select('#category-selector').on('change', onCategoryChange);
 
-  addOptions(select, condensedOptions);
+  addOptions(select, condensedOptions, activeOptions, inactiveOptions);
 
   function onFrequencyChange() { 
     onDataChange();
@@ -454,7 +448,7 @@ function updateLines(parent, selector, data, pathClass, classesToRemove, lineFn)
 
   u.data(data)
     .enter()
-    .append('path')
+    .insert('path', ":first-child")
     .attr("class", pathClass);
     // .attr("d", d => lineFn(d.values));  don't need since called in adjustLines
 }
@@ -465,8 +459,6 @@ function updateGraphAndBrushLines(data) {
 }
 
 function updateGraph(data) {
-  verticalLineDate = data.length > 1 ? data[0].date : null;
-
   updateGraphAndBrushLines(data);
   setGraphYDomains(data);
   adjustLines();
@@ -567,7 +559,7 @@ function createGraph(data) {
 
   updateGraphAndBrushLines(data);
 
-  lineChart.append("line").attr("class", "category-line-separator")
+ // lineChart.append("line").attr("class", "category-line-separator")
 
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
@@ -728,6 +720,8 @@ function getYearToSpendingArray(allCategoriesFYTD) {
   return yearToSpendingArray;
 }
 
+let categoryToActiveWithinAYear = {};
+
 d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   if (error) throw error;
 
@@ -738,8 +732,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   lastDate = data[data.length - 1].date;
 
   d3.select(".header-updated-when").text("Updated " + lastDate.toUTCString());
-  
-  let totalDailySpending = 0;
 
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
@@ -750,12 +742,24 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
     d.mtd = +d.mtd * 1000000;
     d.fytd = +d.fytd * 1000000;
 
+    let lastYear = new Date(lastDate);
+    lastYear.setFullYear(lastYear.getFullYear() - 1);
+
+    if (!categoryToActiveWithinAYear.hasOwnProperty(d.item_raw)) {
+      categoryToActiveWithinAYear[d.item_raw] = false;
+    }
+
+    if (!categoryToActiveWithinAYear[d.item_raw]) {
+      if (Math.abs(d.date.getTime() - lastYear.getTime()) < 31557600000) {
+        categoryToActiveWithinAYear[d.item_raw] = true;
+      }
+    }
+
     let currentYear = new Date().getFullYear();
     let prevFYStart = new Date("10/01/" + (currentYear - 2)).getTime();
     let prevFYEnd = new Date("09/30/" + (currentYear - 1)).getTime();
-    let dDate = d.date.getTime();
 
-    if (dDate >= prevFYStart && dDate <= prevFYEnd) {
+    if (d.date.getTime() >= prevFYStart && d.date.getTime() <= prevFYEnd) {
       categoryToSpendingPrevFY[d.item_raw] = (categoryToSpendingPrevFY[d.item_raw] || 0) + d.today;
     }
 
@@ -771,10 +775,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
       allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
     }
 
-    if (dDate == lastDate.getTime()) {
-      totalDailySpending += d.today;
-    }
-
     optionsData.push(d.item_raw);
 
     if (!optionsDict.hasOwnProperty(d.item_raw)) {
@@ -785,6 +785,8 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
     optionsDict[d.item_raw]['mtd'].push({ date: d.date, value: d.mtd });
     optionsDict[d.item_raw]['fytd'].push({ date: d.date, value: d.fytd });
   });
+
+  console.log(categoryToActiveWithinAYear);
 
   function transposeKVToArray(frequency) {
     return Object.keys(allToSpending[frequency]).map(k => ({ date: new Date(k), value: allToSpending[frequency][k] }));
@@ -803,7 +805,23 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
 
   let condensedOptions = Object.keys(categoryToSpendingPrevFY).sort((a,b) => categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a]).slice(0, 10);
 
-  createSelect(condensedOptions);
+  console.log(condensedOptions);
+
+  let activeOptions = [];
+  let inactiveOptions = [];
+
+  for (let catKey in categoryToActiveWithinAYear) {
+    if (categoryToActiveWithinAYear[catKey]) {
+      activeOptions.push(catKey);
+    } else {
+      inactiveOptions.push(catKey);
+    }
+  }
+
+  activeOptions.sort();
+  inactiveOptions.sort();
+
+  createSelect(condensedOptions, activeOptions, inactiveOptions);
 
   let theFrequency = getFrequencyFromURL();
   let theCategory = getCategoryFromURL(allOptions);
@@ -811,7 +829,9 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   d3.select('#frequency-selector').property('value', theFrequency);
   d3.select('#category-selector').property('value', theCategory);
 
-  d3.select(".daily-spending-amount").text(dollarFormatter(totalDailySpending));
+  let todayAllCategorySpending = allToSpending["today"].last().value;
+
+  d3.select(".daily-spending-amount").text(dollarFormatter(todayAllCategorySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
@@ -856,7 +876,7 @@ function getCategoryFromURL(allOptions) {
 
 function type(d) {
   d.date = parseDate(d.date);
-  d.value = +d.value;
+  d.value = +d.value; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
   return d;
 }
 </script>
