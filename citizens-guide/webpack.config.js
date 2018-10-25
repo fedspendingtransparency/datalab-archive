@@ -35,10 +35,10 @@ const moduleRules = [
 
 module.exports = [{
     entry: {
-        incomeToGdp: './src/income/gdp/index.js',
-        categories: './src/income/categories/index.js',
-        trend: './src/income/trends/index.js',
-        countryComparison: './src/income/countries/index.js'
+        gdp: './src/revenue/gdp/index.js',
+        categories: './src/revenue/categories/index.js',
+        trends: './src/revenue/trends/index.js',
+        countries: './src/revenue/countries/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -54,8 +54,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/assets/income/',
-        publicPath: '/assets/income/'
+        path: __dirname + '/public/revenue/assets/',
+        publicPath: '/revenue/assets/'
     },
     mode: 'development',
     module: {

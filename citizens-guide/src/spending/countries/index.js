@@ -1,10 +1,10 @@
-import '../../income/countries/selectCountry.scss';
-import { prepareData } from '../../income/countries/data';
+import '../../revenue/countries/selectCountry.scss';
+import { prepareData } from '../../revenue/countries/data';
 import { establishContainer } from '../../utils';
-import { chartInit } from '../../income/countries/chart';
-import { selectedCountries } from '../../income/countries/selectedCountryManager';
+import { chartInit } from '../../revenue/countries/chart';
+import { selectedCountries } from '../../revenue/countries/selectedCountryManager';
 
-const incomeConfig = {
+const spendingConfig = {
     amountField: 'spending_usd',
     gdpField: 'spending_gdp',
     amountLabel: 'Spending',
@@ -20,4 +20,4 @@ const incomeConfig = {
     ]
 }
 
-chartInit(incomeConfig);
+chartInit(spendingConfig);

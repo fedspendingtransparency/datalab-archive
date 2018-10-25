@@ -2,7 +2,6 @@ import { select, selectAll } from 'd3-selection';
 import { establishContainer, initDropShadow, stripBr } from '../../utils';
 import { trendView } from './chart';
 import { trendData } from './trendData';
-import { initTwoPartTour } from '../../income/tour';
 import { showHideInit } from './showHideCategories';
 
 const d3 = { select, selectAll },
