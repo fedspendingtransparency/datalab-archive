@@ -3,7 +3,6 @@ import { establishContainer, initDropShadow, stripBr } from '../../utils';
 import { trendView } from './trendView';
 import { trendData } from './trendData';
 import { initTwoPartTour } from '../tour';
-import { revealHwcta } from '../reveal-hwcta';
 
 const data = trendData(),
     d3 = { select, selectAll },
@@ -18,5 +17,3 @@ trendView(data, svg, {
 });
 
 initTwoPartTour();
-
-revealHwcta();
