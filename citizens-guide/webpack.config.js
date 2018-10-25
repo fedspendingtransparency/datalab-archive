@@ -86,8 +86,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/assets/spending/',
-        publicPath: '/assets/spending/'
+        path: __dirname + '/public/spending/assets/',
+        publicPath: '/spending/assets/'
     },
     mode: 'development',
     module: {

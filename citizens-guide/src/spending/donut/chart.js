@@ -5,7 +5,7 @@ import { simplifyNumber } from "../../utils";
 import { placeLabels } from './text';
 import colors from '../../colors.scss';
 import { initZoomTrigger } from './zoom';
-import { createDonut } from '../../spending/donut';
+import { createDonut } from '../../revenue/donut';
 
 const d3 = { select, selectAll, scaleLinear, extent };
 
