@@ -6,10 +6,10 @@ import { selectedCountries } from './selectedCountryManager';
 import { renderSortIcon } from './sortIcon';
 
 const incomeConfig = {
-    amountField: 'income_usd',
-    gdpField: 'income_gdp',
-    amountLabel: 'Income',
-    sourceFields: ['income_source','gdp_source'],
+    amountField: 'revenue_usd',
+    gdpField: 'revenue_gdp',
+    amountLabel: 'Revenue',
+    sourceFields: ['revenue_source','gdp_source'],
     defaultCountries: [
         'United States',
         'China',
