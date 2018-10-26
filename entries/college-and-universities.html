@@ -25,9 +25,9 @@ permalink: college-and-universities.html
   </div>
 
   <div id="secitonTableOfContents">
-    <div class="table-of-contents">
+   <div class="table-of-contents">
       <div>
-        <span class="id marginSmaller" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">01</span>
+        <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">01</span>
         <span class="content">
           <a onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">Investment Overview</a>
           <p>some text</p>
@@ -78,46 +78,50 @@ permalink: college-and-universities.html
   </div>
 
   <div id="secitonInvestmentOverview" class="InvestmentOverviewContainer">
-    <div class="sectionHeader" class="story">
+    <div class="sectionHeader story">
       <h1>01</h1>
       <h2>Investment Overview</h2>
       <h3>How Much was invested in colleges & Universities?</h3>
       <p>Some Text</p>
     </div>
-    <div class="overview_information" class="story">
-      <h2>Total Investment</h2>
+    <div class="overview_information">
+      <h2 class='story' data-aos="fade-right" data-aos-delay="10000">Total Investment</h2>
       <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount"></p>
       <h1 id="investment_spending_total"></h1>
-      <div id="totalInvestments_Graph" class="graph">
+
+      <!-- Graph Starts Here -->
+      <div id="totalInvestments_Graph" class="graph story" data-aos="fade-left" data-aos-delay="10000">
         <span id="totalInvestments_graph_Contracts" class="contracts"></span>
         <span id="totalInvestments_graph_Grants" class="grants"></span>
         <span id="totalInvestments_graph_StudentAid" class="studentAid"></span>
       </div>
+
       <div id="totalInvestments_breakdown" class="breakdown">
         <div class="story" id="contracts">
           <span>
-            <h2>Contracts</h2>
-            <h1 id="totalInvestments_breakdown_contracts_total"></h1>
-            <p></p>
+            <h2 data-aos="fade-left" data-aos-delay="10000">Contracts</h2>
+            <h1 id="totalInvestments_breakdown_contracts_total" data-aos="fade-right" data-aos-delay="10000"></h1>
+            <p data-aos="fade-right" data-aos-delay="10000">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
         <div class="story" id="grants">
           <span>
             <h2>Grants</h2>
             <h1 id="totalInvestments_breakdown_grants_total"></h1>
-            <p></p>
+            <p>PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
         <div class="story" id="studentaid">
           <span>
             <h2>Student Aid</h2>
             <h1 id="totalInvestments_breakdown_studentAid_total"></h1>
-            <p></p>
+            <p>PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
       </div>
     </div>
   </div>
+  
   <div id="secitonInvestmentCategories">
     <div class="sectionHeader">
       <h1>02</h1>
@@ -130,68 +134,67 @@ permalink: college-and-universities.html
       <div id="categoriesPanel" class="panel">
         <span id="categories_panel_back_btn">
           <strong>
-            <</strong> Back </span> <div id="investmentCategories_panel_chart" class="panelChart">
-
-	    </div>
+            </strong> Back </span> <div id="investmentCategories_panel_chart" class="panelChart">
       </div>
-
-      <!-- Where Pie Chart Starts!  -->
-      <div id="categoriesChartContainer" class="chartContainer">
-	<span id="cat_rt_pg_turn" class="chv right">
-          <i class="fas fa-chevron-right chv right"></i>
-	</span>
-	<span id="cat_lt_pg_turn" class="chv left">
-          <i class="fas fa-chevron-left"></i>
-	</span>
-      </div>
-
     </div>
+
+    <!-- Where Pie Chart Starts!  -->
+    <div id="categoriesChartContainer" class="chartContainer">
+      <span id="cat_rt_pg_turn" class="chv right">
+        <i class="fas fa-chevron-right chv right"></i>
+      </span>
+      <span id="cat_lt_pg_turn" class="chv left">
+        <i class="fas fa-chevron-left"></i>
+      </span>
+    </div>
+
   </div>
-  <div id="secitonAgencyInvestment">
-    <div class="sectionHeader">
-      <h1>03</h1>
-      <h2>Agencies</h2>
-      <h3>How much did each agency invest?</h3>
-      <p>Some Text</p>
-    </div>
-
-    <div id="agencies">
-      <!-- Where Bubble Chart Starts! -->
-      <div id="bubbleChartContainer" class="bubbleChartContainer">
-
-      </div>
-
-    </div>
+</div>
+<div id="secitonAgencyInvestment">
+  <div class="sectionHeader">
+    <h1>03</h1>
+    <h2>Agencies</h2>
+    <h3>How much did each agency invest?</h3>
+    <p>Some Text</p>
   </div>
-  <div id="secitonInstitutionInvestment">
-    <div class="sectionHeader">
-      <h1>04</h1>
-      <h2>Institutions</h2>
-      <h3>How much did each <strong>institution</strong> recieve</h3>
-      <p>Some Text</p>
-    </div>
-    <div id="collegesMap" class="collegesMap">
+
+  <div id="agencies">
+    <!-- Where Bubble Chart Starts! -->
+    <div id="bubbleChartContainer" class="bubbleChartContainer">
 
     </div>
+
   </div>
-  <div id="secitonConclusion">
-    <div class="sectionHeader">
-      <h1>05</h1>
-      <h2>Conclusion</h2>
-      <h3>What's next?</h3>
-      <p>Some Text</p>
-      <p>Some Text</p>
-    </div>
+</div>
+<div id="secitonInstitutionInvestment">
+  <div class="sectionHeader">
+    <h1>04</h1>
+    <h2>Institutions</h2>
+    <h3>How much did each <strong>institution</strong> recieve</h3>
+    <p>Some Text</p>
   </div>
-  <div id="secitonAppendixMethodolgy">
-    <div class="sectionHeader">
-      <h1>06</h1>
-      <h2>Appendix: Methodology</h2>
-      <h3>How was this analysis conducted?</h3>
-      <p>Some Text</p>
-      <p>Some Text</p>
-    </div>
+  <div id="collegesMap" class="collegesMap">
+
   </div>
+</div>
+<div id="secitonConclusion">
+  <div class="sectionHeader">
+    <h1>05</h1>
+    <h2>Conclusion</h2>
+    <h3>What's next?</h3>
+    <p>Some Text</p>
+    <p>Some Text</p>
+  </div>
+</div>
+<div id="secitonAppendixMethodolgy">
+  <div class="sectionHeader">
+    <h1>06</h1>
+    <h2>Appendix: Methodology</h2>
+    <h3>How was this analysis conducted?</h3>
+    <p>Some Text</p>
+    <p>Some Text</p>
+  </div>
+</div>
 </div>
 
 
@@ -208,24 +211,28 @@ permalink: college-and-universities.html
 <!-- include scrollstory -->
 <script src="{{site.baseurl}}/js/jquery.scrollstory.js"></script>
 
-<!-- Start Scrollstory! -->
+<!-- Add AOS for fade-in/out jazz -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
 
- // Instantiation
- $(function () {
-     $(".InvestmentOverviewContainer").scrollStory({
-	 debug: true,
-	 speed: 800,
-	 itementerviewport: function (e, i) {
-             i.el.append('<p> hey! </p>');
-             console.log('in view!' + i );
-	 },
-	 itemexitviewport: function (e, i) {
-             i.el.append('<p> bye! </p>');
-             console.log('out of view!' + i);
-	 }
-     });
-});
+  // start AOS
+  AOS.init();
 
+  // Instantiation Scrollstory
+  $(function () {
+    $(".InvestmentOverviewContainer").scrollStory({
+      debug: true,
+      speed: 10000,
+      itemfocus: function (e, i) {
+//        i.el.css("visibility", "visible");
+        console.log('in focus!' + i + e );
+      },
+      itemblur: function (e, i) {
+//        i.el.css('visibility', 'hidden');
+        console.log('out of focus!' + i + 3 );
+      }
+    });
+  });
 
 </script>

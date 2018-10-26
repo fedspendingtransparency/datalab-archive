@@ -8,28 +8,32 @@ const grantsGraphBar = document.getElementById('totalInvestments_graph_Grants');
 const studentAidGraphBar = document.getElementById('totalInvestments_graph_StudentAid');
 const totalinvestmentPar = document.getElementById('totalInvesmentDollarAmount');
 
+const contractsSpan = document.getElementById('totalInvestments_breakdown_contracts_total');
+const grantsSpan = document.getElementById('totalInvestments_breakdown_grants_total');
+const studentaidSpan = document.getElementById('totalInvestments_breakdown_grants_total');
+
 /*
 purpose: utility to return 0 if a number cannot be parsed
  or the parsed float number
 */
-const float = num => {                                          
+const float = num => {
     return (parseFloat(num) > 0 ? parseFloat(num) : 0);
 };
 
-Number.prototype.formatMoney = function(c, d, t){
-    var n = this, 
-    c = isNaN(c = Math.abs(c)) ? 2 : c, 
-    d = d == undefined ? "." : d, 
-    t = t == undefined ? "," : t, 
-    s = n < 0 ? "-" : "", 
-    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
-    j = (j = i.length) > 3 ? j % 3 : 0;
-   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
- };
+Number.prototype.formatMoney = function (c, d, t) {
+    var n = this,
+        c = isNaN(c = Math.abs(c)) ? 2 : c,
+        d = d == undefined ? "." : d,
+        t = t == undefined ? "," : t,
+        s = n < 0 ? "-" : "",
+        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
 
 
- /*
-  --------------------------------------------------------------------------------------------------------------------
+/*
+ --------------------------------------------------------------------------------------------------------------------
 *   Main Method
 *--------------------------------------------------------------------------------------------------------------------
 */
@@ -37,33 +41,33 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
 
     var totalContracts = float(eduCsv.reduce((a, b) => {     //caluculate total contract money given to all universities sum(contracts recived)
         return a + float(b.contracts_received);
-    },0)
-    .toFixed(2));                                        // 2 decimal places
+    }, 0)
+        .toFixed(2));                                        // 2 decimal places
 
     var totalGrants = float(eduCsv.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
         return a + float(b.grants_received) + float(b.research_grants_received);
-    },0)
-    .toFixed(2));
+    }, 0)
+        .toFixed(2));
 
     var totalStudentAid = float(eduCsv.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
-        return a + 
-        float(b.subsidized17) + 
-        float(b.unsubsidized17) +
-        float(b.parent17) +
-        float(b.grad_plus17) + 
-        float(b.grants17) + 
-        float(b.perkins17) + 
-        float(b.FSEOG17) + 
-        float(b.FWS17);
-      
-    },0)
-    .toFixed(2));
+        return a +
+            float(b.subsidized17) +
+            float(b.unsubsidized17) +
+            float(b.parent17) +
+            float(b.grad_plus17) +
+            float(b.grants17) +
+            float(b.perkins17) +
+            float(b.FSEOG17) +
+            float(b.FWS17);
+
+    }, 0)
+        .toFixed(2));
 
     var totalInvestment = totalContracts + totalGrants + totalStudentAid;
 
-    var contractSpendingPercent =  parseInt(((totalContracts/totalInvestment)*100));
-    var grantsSpendingPercent = parseInt(((totalGrants/totalInvestment)*100));
-    var studentAidSpendingPercent = parseInt(((totalStudentAid/totalInvestment)*100));
+    var contractSpendingPercent = parseInt(((totalContracts / totalInvestment) * 100));
+    var grantsSpendingPercent = parseInt(((totalGrants / totalInvestment) * 100));
+    var studentAidSpendingPercent = parseInt(((totalStudentAid / totalInvestment) * 100));
 
     //updatin bar graph to reflect percentages
     contractsGranphBar.style.width = `${contractSpendingPercent}%`;
@@ -71,6 +75,15 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
     studentAidGraphBar.style.width = `${studentAidSpendingPercent}%`;
 
     totalinvestmentPar.innerHTML = `$${totalInvestment.formatMoney(2)}`;
+
+
+/** 
+ * Continuing where he left off...
+ */
+    contractsSpan.innerHTML = `$${totalContracts.formatMoney(2)}`;
+    totalGrants.innerHTML = `$${totalGrants.formatMoney(2)}`;
+    studentaidSpan.innerHTML = `$${totalStudentAid.formatMoney(2)}`; // check if this calculation is okay
+
 
 });
 
