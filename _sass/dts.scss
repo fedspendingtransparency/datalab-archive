@@ -384,6 +384,7 @@
   margin-left: 100px;
   padding-bottom: 25px;
   display: flex;
+  visibility: hidden;
 }
 
 .dts-footnote-rect {
@@ -391,6 +392,12 @@
   height: 32px;
   background-color: #deeded;
   margin-right: 10px;
+}
+
+.dts-footnote-text {
+  width: 75%;
+  font-size: 18px;
+  letter-spacing: .75px;
 }
 
 /* Media Breakpoints */
