@@ -2,7 +2,7 @@ body {
     margin-bottom: 4rem;
 }
 
-.income-nav {
+.revenue-nav {
     display: flex;
     justify-content: space-between;
     background-color: #205493;
@@ -10,7 +10,7 @@ body {
     min-height: 3.5rem;
 }
 
-.income-nav button {
+.revenue-nav button {
     border: 1px solid white;
     border-radius: 3px;
     background: transparent;
@@ -20,22 +20,22 @@ body {
     padding: 4px 6px
 }
 
-.income-nav button hr {
+.revenue-nav button hr {
     margin-top: 4px;
     margin-bottom: 4px;
 }
 
-.income-nav ul {
+.revenue-nav ul {
     list-style-type: none;
     margin: 5px 1rem;
     padding: 0;
 }
 
-.income-nav li {
+.revenue-nav li {
     padding: 0;
 }
 
-.income-nav li a {
+.revenue-nav li a {
     display: block;
     color: white;
     font-weight: bold;
@@ -47,41 +47,41 @@ body {
     transition: height 0.3s ease;
 }
 
-.income-nav .menu-open li a {
+.revenue-nav .menu-open li a {
     height: 3rem;
 }
 
-.income-nav li.active a {
+.revenue-nav li.active a {
     height: 3rem;
 }
 
 
-.income-nav li.active a, .income-nav li:hover a{
+.revenue-nav li.active a, .revenue-nav li:hover a{
     opacity: 1;
 }
 
 @media only screen and (min-width: 700px) {
-    .income-nav button {
+    .revenue-nav button {
         display: none;
     }
 
-    .income-nav ul {
+    .revenue-nav ul {
         display: flex;
         width: 100%;
         max-width: 1200px;
         margin: 5px auto;
     }
 
-    .income-nav li {
+    .revenue-nav li {
         width: 25%;
         border-right: rgba(255,255,255,0.5) 1px solid;
     }
 
-    .income-nav li:last-of-type {
+    .revenue-nav li:last-of-type {
         border-right: none;
     }
 
-    .income-nav li a {
+    .revenue-nav li a {
         height: 3rem;
         text-align: center;
     }
