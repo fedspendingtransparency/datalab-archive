@@ -1,38 +1,42 @@
 --- 
 layout: cg 
-title: Data Lab - Trends in Government Income – U.S. Treasury 
-excerpt: How has federal income changed over the past few years? Explore trends in federal income over a five year period at the income source and sub-category level.
+title: Data Lab - Trends in Government Revenue – U.S. Treasury 
+excerpt: How has federal revenue changed over the past few years? Explore trends in federal revenue over a five year period at the revenue source and sub-category level.
 header: Understanding federal spending related to the government's main functions 
-description: How has federal income changed over the past few years? Explore trends in federal income over a five year period at the income source and sub-category level. 
+description: How has federal revenue changed over the past few years? Explore trends in federal revenue over a five year period at the revenue source and sub-category level. 
 permalink: revenue-trends.html
 category: entry 
 ---
 
-<h1><span class="strong">Federal Income Trends over Time</span> From 2013 – 2017</h1>
+<h1>Federal Revenue Trends</h1>
 
 <div class="copy-tour-row" id="income-facts">
         <section class="copy-tour-row__copy">
-            <p>How has federal income changed over the past few years?</p>
-            <p>The chart below shows the various source categories for federal income over a five year period. Click a category to view income by subcategory.  What changes have occurred over the past five years? What impact do changes in a subcategory have on government income?</p>
+            <p>How has federal revenue changed over the past few years? </p>
+            <p>The chart below shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory.  What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
         </section>
         <div class="copy-tour-row__tour">
             <section class="tour">
                 <div class="tour__part-one">
                     <h1>Explore for yourself!</h1>
-                    <p>Click a category below to see how subcategories have contributed to the trends over the past five years.</p>
+                    <p>Click a category below to see how subcategories have contributed to revenue trends over the past five years.</p>
                 </div>
                 <div class="tour__part-two">
-                    <h1>How does the income of the United States compare to other countries?</h1>
-                    <p>When you're done here, see how income collected by the U.S. government compares to other countries. </p>
+                    <h1>How does the revenue of the United States compare to other countries?</h1>
+                    <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
                 </div>
-                <a class="tour__link" href="./income-country-comparison.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
+                <a class="tour__link" href="./country-comparison.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
             </section>
         </div>
     </div>
 
-<h2 class="chart-title">Income over Time by Category</h2>
-<div class="hint">Click an income category to view more</div>
+<h2 class="chart-title">Federal Revenue Trends over Time by Category</h2>
+<div class="hint">Click a revenue category to view more</div>
 
 <div id="viz"></div>
 
-<script src="{{site.baseurl}}/assets/cg/income/trend.js"></script>
+<section class="hwcta">
+    The visualization was created using <a href="https://www.fiscal.treasury.gov/fsreports/rpt/mthTreasStmt/mts0917.pdf" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. <a href="https://data.bls.gov/cgi-bin/surveymost?bls" target="_blank">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
+</section>
+
+<script src="{{site.baseurl}}/assets/cg/revenue/trends.js"></script>
