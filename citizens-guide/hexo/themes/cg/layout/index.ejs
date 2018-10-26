@@ -1,1 +1,7 @@
-<%- page.content %>
+<% if (page.chapter === 'revenue') { %>
+    <%- partial('_partial/nav-income') %>
+    <script src="../assets/nav/nav-income.js"></script>
+<% } %>
+<main>
+    <%- page.content %>
+</main>

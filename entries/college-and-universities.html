@@ -1,4 +1,3 @@
-<!--
 ---
 layout: default
 menuname: Colleges & Universities
@@ -128,7 +127,12 @@ permalink: college-and-universities.html
                         </div>
                 </div>
                 <div id="categoriesChartContainer" class="chartContainer">
-
+                        <span id="cat_rt_pg_turn" class="chv right">
+                                <i class="fas fa-chevron-right chv right"></i>   
+                        </span>      
+                        <span id="cat_lt_pg_turn" class="chv left">
+                                <i class="fas fa-chevron-left"></i>
+                        </span>      
                 </div>
             </div>
 </div>
@@ -153,7 +157,7 @@ permalink: college-and-universities.html
                 <h3>How much did each <strong>institution</strong> recieve</h3>
                 <p>Some Text</p>
         </div>
-        <div id="collegesMap">
+        <div id="collegesMap" class="collegesMap">
         
         </div>
 </div>
@@ -178,12 +182,13 @@ permalink: college-and-universities.html
 </div>
 
 
---scripts --
+<!--scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="{{site.baseurl}}/js/jquery.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/categoriesPieChart.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/institutions.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
 
--->

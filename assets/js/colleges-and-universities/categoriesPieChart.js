@@ -7,24 +7,77 @@ const graphContainer = document.getElementById('categoriesChartContainer');
 const panelBack = document.getElementById('categories_panel_back_btn');
 const panel = document.getElementById('categoriesPanel');
 const panelChartContainer = document.getElementById('investmentCategories_panel_chart');
+const pageTurnRt = document.getElementById('cat_rt_pg_turn');
+const pageTurnLt = document.getElementById('cat_lt_pg_turn');
+const pageSize = 10;
 
+var currPage = 1
+var categoriesData;
+
+/*
+  --------------------------------------------------------------------------------------------------------------------
+*   functions
+*--------------------------------------------------------------------------------------------------------------------
+*/
+const categoriesSpendingFormat = (num) => {
+
+       // Nine Zeroes for Billions
+       return Math.abs(Number(num)) >= 1.0e+9
+
+       ? `$${round((Math.abs(Number(num)) / 1.0e+9), 1)} Billion`
+       // Six Zeroes for Millions 
+       : round((Math.abs(Number(num)) >= 1.0e+6), 1)
+   
+       ? `$${round((Math.abs(Number(num)) / 1.0e+6), 1)} Million`
+       // Three Zeroes for Thousands
+       : round((Math.abs(Number(num)) >= 1.0e+3), 1)
+   
+       ? `$${round((Math.abs(Number(num)) / 1.0e+3), 1)} Thousand`
+   
+       : Math.abs(Number(num));
+
+}
+
+/*
+purpose: given an array, page siz , and number
+this function returns a subset array of the given page number
+*/
+const paginate = (array, page_size, page_number) => {
+    --page_number; // because pages logically start with 1, but technically with 0
+    return array.slice(page_number * page_size, (page_number + 1) * page_size);
+  }
+
+/*
+purpose: rounds a number to a given percentage
+*/
+const round = (value, precision) => {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}
 
 /*
 purporse : hide given element
 */
 const hideElement = (element) => {
-    element.style.display = 'none';
+    element.style.minWidth = '0px';
+    $(element).animate({width: 'toggle'});
 }
+
+var pscs = {};
+
+d3.json("/data-lab-data/pscskv.json", function(data) {
+    pscs = data;
+});
 
 /*
 purporse : creates graph for infomation passed 
 and append the graph to the passed in element
 */
-const drawGraph = (container, data, size, clickable) => {
+const drawGraph = (container, nodeData, size, clickable) => {
+    let svgIcon = pscs[nodeData.name];
 
     let nodeDiv = document.createElement("div");
-    nodeDiv.style.height = `${size.height}px`;
-    nodeDiv.style.width = `${size.width}px`;
+    nodeDiv.style.cursor = 'pointer';
 
    var svg = d3.select(nodeDiv)
        .append("svg")
@@ -39,7 +92,17 @@ const drawGraph = (container, data, size, clickable) => {
    svg.append("g")
        .attr("class", "lines");
 
+    svg.append("svg:image")
+    .attr('x', -25)
+    .attr('y', -55)
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("xlink:href", "/images/psc-svgs/" + svgIcon);
+
 if (clickable) {
+
+    nodeDiv.className = 'categoriesParent';
+
     nodeDiv.onclick = () => {
        if(panel.style.display === 'none' || panel.style.display === "") {
         
@@ -47,13 +110,16 @@ if (clickable) {
             panelChartContainer.removeChild(panelChartContainer.firstChild);
         }
 
-        drawGraph(panelChartContainer, data, {height:300, width:300}, false)
+           
+
+        drawGraph(panelChartContainer, nodeData, {height:300, width:300}, false)
+           panel.style.minWidth = '350px';
            panel.style.display = 'inline-block';
        }
    }
 }
 
-   nodeDiv.style.cursor = 'pointer';
+   
 
 
    var width = size.width,
@@ -79,8 +145,8 @@ if (clickable) {
        .range(["#C3DBB5", "#F6F6F6"]);
 
    change([
-       { label:"", value:data.percentage },
-       { label:" ", value: 1-data.percentage }
+       { label:"", value:nodeData.percentage },
+       { label:" ", value: 1-nodeData.percentage }
     ]);
 
    function change(data) {
@@ -107,10 +173,44 @@ if (clickable) {
 
        slice.exit()
            .remove();
+
+        /*---------- Legend ----------------------*/
+        let legendRectSize=20;
+        let legendSpacing=7;
+        let legendHeight=legendRectSize+legendSpacing;
+
+        var legend=svg.selectAll('.legend')
+        .data(data)
+        .enter()
+        .append('g')
+        .attr({
+            class:'legend',
+            transform:function(d,i){
+                //Just a calculation for x & y position
+                return 'translate(-80,' + ((i*legendHeight)+10) + ')';
+            }
+        });
+
+    legend.append('text')
+        .attr({
+            x:30,
+            y:15
+        })
+        .text(d => {
+            return (d.label === "" ? `${categoriesSpendingFormat(nodeData.total)}` 
+            : (nodeData.percentage*100 >= 0.1 ? `${round(nodeData.percentage*100,1)}%` : '0.1% >' ));
+        })
+        .attr("class", d => {
+            return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
+        })
+        .attr("x", d => {
+            return (d.label === "" ? '20' : '55');
+        });
+
    };
 
    let title = document.createElement('p');
-   title.innerText = data.name;
+   title.innerText = nodeData.name;
    
    nodeDiv.appendChild(title);  
 
@@ -118,11 +218,48 @@ if (clickable) {
 }
 
 /*
+purpose: take a page direction and moves the categories to the new page
+*/
+const turrnPage = (turnDirection) => {
+
+    currPage = currPage + turnDirection;    //updated current page
+
+    clearCharts(graphContainer);          //clear all charts before appending next page
+
+    paginate(categoriesData, pageSize, currPage)        //redraw graphs
+    .forEach( n => { drawGraph(graphContainer, n, {height:200, width:200}, true); });  
+
+}
+
+/*
+purpose clear all chart from categories contanier
+*/
+const clearCharts = (container) => {
+    
+    let children = [];
+
+    container.childNodes.forEach(child => {
+        if (child.className === 'categoriesParent') {
+            //container.removeChild(child)
+            children.push(child);
+        }
+    })
+
+    children.forEach(child => {
+        container.removeChild(child);
+    });
+};
+
+/*
   --------------------------------------------------------------------------------------------------------------------
 *   EVENT LISTENERS
 *--------------------------------------------------------------------------------------------------------------------
 */
 panelBack.onclick = () => { hideElement(panel) };
+
+pageTurnRt.onclick = () => { turrnPage(1) };
+
+pageTurnLt.onclick = () => { turrnPage(-1) };
 
 
 
@@ -133,7 +270,7 @@ panelBack.onclick = () => { hideElement(panel) };
 */
 d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to data files
 
-    var categoriesData = data.reduce((a, b) => {     //reduce data to categories data sum(obligation) of each parent
+    categoriesData = data.reduce((a, b) => {     //reduce data to categories data sum(obligation) of each parent
     
         if (! (a.reduce((accumBool, node) => { 
             if(b.parent_name === node.name) { 
@@ -161,6 +298,7 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
     categoriesData.forEach(n  => {n.percentage = (n.total/total)})
     categoriesData.sort((a, b) => { return b.percentage - a.percentage})
     
-drawGraph(graphContainer, categoriesData[0], {height:200, width:200}, true);              //draw donut chart in charts container
+    paginate(categoriesData, pageSize, currPage)
+    .forEach( n => { drawGraph(graphContainer, n, {height:200, width:200}, true); });             //draw donut chart in charts container
 
 });

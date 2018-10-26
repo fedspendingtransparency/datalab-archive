@@ -8,16 +8,21 @@
     </title>
     <meta name="description" content="<%- page.description %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="assets/normalize.css">
-    <link rel="stylesheet" href="assets/cg.css">
-    <link rel="stylesheet" href="assets/nav/nav-income.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <% if (page.path === "index.html") { %>
+        <link rel="stylesheet" href="assets/normalize.css" type="text/css">
+        <link rel="stylesheet" href="assets/cg.css"  type="text/css">
+        <link rel="stylesheet" href="assets/nav/nav-income.css"  type="text/css">
+    <% } else { %>
+        <link rel="stylesheet" href="../assets/normalize.css"  type="text/css">
+        <link rel="stylesheet" href="../assets/cg.css"  type="text/css">
+        <link rel="stylesheet" href="../assets/nav/nav-income.css"  type="text/css">
+    <% } %>
 </head>
 
 <body>
-    <%- partial('_partial/nav-income') %>
-    <%- body %>
-    <script src="assets/nav/nav-income.js"></script>
+    <%- body %> 
 </body>
 
 </html>

@@ -1,0 +1,67 @@
+--- 
+layout: cg
+menuname: Citizen's Guide
+menuorder: 0
+title: Data Lab - How the Government Collects Income – U.S. Treasury
+excerpt: In 2017 the government collected $3.3 trillion dollars. The U.S. Treasury's DataLab explores the various sources of federal income, various trends over time, and compares the U.S. total income to GDP.
+header: Understanding federal spending related to the government's main functions
+description: In 2017 the government collected $3.3 trillion dollars. The U.S. Treasury's DataLab explores the various sources of federal income, various trends over time, and compares the U.S. total income to GDP.
+permalink: income-gdp.html
+category: entry
+---
+<h1>In 2017, the government collected <span class="strong">$3.3 trillion</span> 
+    <button class="info-box-trigger" data-box-id="per-individual">
+        <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
+    </button>
+</h1>
+
+<div class="page-wrapper">
+    <div id="viz"></div>
+
+    <section class="temporary-hide" id="income-facts">
+        <div class="copy-tour-row">
+            <section class="copy-tour-row__copy">
+                <p>Most of the federal government's income comes from federal taxes.</p>
+                <p>Most federal income comes from contributions from individuals and small businesses. Along with federal income taxes, the government collects payroll taxes. You may recognize these taxes on your paycheck that help fund programs such as Social Security, Medicare, and Unemployment Insurance. Also, corporations pay taxes as part of doing business in the United States.</p>
+                <p>The remaining sources of government income consist of excise, estate, and other taxes and fees.</p>
+            </section>
+            <div class="copy-tour-row__tour">
+                <section class="tour">
+                    <h1>How does the amount of federal income compare to the size of the economy?</h1>
+                    <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="gdp-facts" class="temporary-hide">
+        <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
+        <p>The government collected the equivalent of 17% of GDP.</p>
+
+        <strong>What's GDP? 
+            <button class="info-box-trigger" data-box-id="gdp-info">
+                <img src="{{site.baseurl}}/assets/cg/icons/definition.svg" alt="definition icon">
+            </button>
+        </strong>
+        
+        <section class="tour">
+            <h1 class="tour__heading">What are the sources of government income?</h1>
+            <a id="tour-continue" class="tour__link" href="./income-categories.html">Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </section>
+</div>
+
+<div class="info-box" id="per-individual">
+    <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
+    <p>How much is $3.3 trillion? It is equivalent to a little more than $10,000 for every individual in the U.S. ($3.3 trillion divided by the U.S. population estimate in 2017, 325.7 million <a target="_blank" href="https://www.census.gov/quickfacts/fact/table/US/PST045217">U.S. Census Bureau.</a>) </p>
+</div>
+<div class="info-box" id="gdp-info">
+    <img src="{{site.baseurl}}/assets/cg/icons/definition.svg" alt="definition icon">
+    <p><strong>Gross Domestic Product (GDP)</strong> measures the size of the nation's economy by the total value of goods and services that are produced in a year. GDP is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.</p>
+</div>
+<div class="info-box" id="billion-dollars">
+    <img src="{{site.baseurl}}/assets/cg/icons/anecdote.svg" alt="anecdote icon">
+    <p>In this analysis, each dot represents $1 billion. Each dot represents contributions to the government from you, your family, your neighbors, your place of business, and the corporations you deal with every day.</p>
+</div>
+<script src="{{site.baseurl}}/assets/cg/income/incomeToGdp.js"></script>
+

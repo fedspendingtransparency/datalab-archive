@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/normalize.css"  type="text/css">
+<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/cg.css"  type="text/css">
+<link rel="stylesheet" href="{{site.baseurl}}/assets/cg/nav/nav-income.css"  type="text/css">
+
+{% include income-nav.html %}
+<script src="{{site.baseurl}}/assets/cg/nav/nav-income.js"></script>
+
+<article id="main">
+  <main class="cg-content">
+    {{ content }}
+
+    {% include hwcta.html %}
+    <script src="{{site.baseurl}}/assets/cg/hwcta.js"></script>
+    
+  </main>
+</article>

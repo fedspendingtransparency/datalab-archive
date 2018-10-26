@@ -15,9 +15,130 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 	<a href="#two" class="scrolly homepage-get-started">Get Started<span class="get-started-arrow">{% include svgs/down-arrow.svg %}</span></a>
 </section>
 
+<style>
+.dts-module {
+	box-sizing: border-box;
+	height: 100px;
+	background-color: #7B919F;
+	padding: 25px 50px;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dtsm-left-column {
+	padding-right: 115px;
+}
+
+.dtsm-right-column {
+	display: flex;
+	align-items: center;
+}
+
+.dtsm-header {
+	line-height: 125%;
+}
+
+.dtsm-header-text {
+	opacity: .8;
+	font-weight: 200;
+	font-size: 14px;
+	line-height: 150%;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+.dtsm-subheader {
+	font-weight: 400;
+	font-size: 24px;
+	opacity: .8;
+	line-height: 125%;
+	letter-spacing: .1px;
+}
+
+.dtsm-vseparator {
+	border-left: 2px solid white;
+	height: 100%;
+	opacity: .4;
+}
+
+.dtsm-img {
+	width: auto;
+	height: 100%;
+}
+
+.dtsm-dollars {
+	font-size: 48px;
+	font-weight: 300;
+	margin-right: 15px;
+	opacity: .75;
+}
+
+.dtsm-tas-header {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 175%;
+	opacity: .8;
+}
+
+.dtsm-tas-subheader {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 175%;
+	opacity: .8;
+}
+
+.dtsm-beta {
+	display: inline-block;
+	border-radius: 5px;
+	background-color: white;
+	color: black;
+	padding: 0px 8px;
+	opacity: 1;
+	font-weight: 500;
+	line-height: 18px;
+	font-size: 12px;
+	margin-right: 5px;
+}
+</style>
+
+<div class="dts-module">
+	<div class="dtsm-left-column">
+		<a href="dts.html">
+			<div class="dtsm-header">
+				<div class="dtsm-beta">BETA</div>
+				<div class="dtsm-header-text">Visualizing the Daily Treasury Statement</div>
+			</div>
+			<div class="dtsm-subheader">How much did the federal government spend today?</div>
+		</a>
+	</div>
+	<div class="dtsm-vseparator"></div>
+	<img class="dtsm-img" src="./images/dts-graph.png" />
+	<div class="dtsm-vseparator"></div>
+	<div class="dtsm-right-column">
+		<div class="dtsm-dollars">$978.4M</div>
+		<div class="dtsm-tas-container">
+			<div class="dtsm-tas-header">Total Amount Spent</div>
+			<div class="dtsm-tas-subheader">August 24, 2018</div>
+		</div>
+	</div>
+</div>
+
 <section id="two" class="wrapper alt style2">
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/contracts-over-time.png" alt="Contracts over time" /></div><div class="content">
+		<div class="image"><img src="images/homepage/cg-income.jpg" alt="Citizen's Guide - Income" /></div>
+		<div class="content">
+			<h3>Federal Income Explorer</h3>
+			<h2><a href="income-gdp.html">Where does the money come from?</h2></a>
+			<p>In 2017, the Federal Government collected $3.3 trillion. If you lived or worked in the United States during this time, you likely contributed to this total in some capacity. Believe it or not, taxes aren’t the only source of federal income.  Discover the various sources of income, examine trends over time, and compare income of the U.S. to other countries.</p>
+			<a href="income-gdp.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+		</div>
+	</section>
+	<section class="spotlight">
+		<div class="image"><img src="images/homepage/contracts-over-time.png" alt="Contracts over time" /></div>
+		<div class="content">
 			<h3>Contract Spending Analysis</h3>
 			<h2><a href="contracts-over-time.html">How has federal contract spending changed over time?</h2></a>
 			<p>We wondered what we could learn by analyzing ten years of USAspending data on federal contract spending. We also wanted to know if we could identify a relationship between the type of funding provided by Congress--new appropriations or continuing resolutions--and the amount the federal government spends on contracts.</p>
@@ -25,7 +146,8 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 		</div>
 	</section>
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/federal.jpg" alt="Federal Spending Accounts" /></div><div class="content">
+		<div class="image"><img src="images/homepage/federal.jpg" alt="Federal Spending Accounts" /></div>
+		<div class="content">
 			<h3>Federal Account Explorer</h3>
 			<h2><a href="federal-account-explorer.html">Discover the federal government’s spending accounts</a></h2>
 			<p>The government has almost 2,000 spending accounts that it uses to spend money. Use this interactive tree-style visualization to explore these accounts and see how much money has been spent.</p>
@@ -33,7 +155,8 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 		</div>
 	</section>
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div><div class="content">
+		<div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div>
+		<div class="content">
 			<h3>Contract Explorer</h3>
 			<h2><a href="contract-explorer.html">Who receives federal contracts?</a></h2>
 			<p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies receive from these contracts.</p>
@@ -41,7 +164,8 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 		</div>
 	</section>
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div><div class="content">
+		<div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div>
+		<div class="content">
 			<h3>Homelessness Analysis</h3>
 			<h2><a href="homelessness-analysis.html">Explore federal programs that address homelessness</a></h2>
 			<p>On a single night in 2016, more than 500,000 people experienced homelessness in the United States. This visualization uses grant data to show the federal government's approach to addressing homelessness.</p>
@@ -49,7 +173,8 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 		</div>
 	</section>
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div><div class="content">
+		<div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div>
+		<div class="content">
 			<h3>Budget Function</h3>
 			<h2><a href="budget-function.html">See how the government categorizes its purchases</a></h2>
 			<p>Data from USAspending.gov allows you to connect two different ways the government categorizes spending: what it pays for and what it's trying to achieve with those purchases. Use this visualization to explore broad spending categories.</p>
@@ -57,7 +182,8 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 		</div>
 	</section>
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div><div class="content">
+		<div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div>
+		<div class="content">
 			<h3>Federal Employees</h3>
 			<h2><a href="federal-employees.html">Who works in government?</h2></a>
 			<p>There are hundreds of types of federal employees - special agents, park rangers, and medical staff who care for veterans, to name just a few - who live all across the United States. Use this visualization to explore federal employees’ occupations, salaries, and locations.</p>
@@ -65,7 +191,8 @@ excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analys
 		</div>
 	</section>
 	<section class="spotlight">
-		<div class="image"><img src="images/homepage/competition.jpg" alt="Stacked Bar Chart" /></div><div class="content">
+		<div class="image"><img src="images/homepage/competition.jpg" alt="Stacked Bar Chart" /></div>
+		<div class="content">
 			<h3>Competition in Contracting</h3>
 			<h2><a href="competition-in-contracting.html">How often do federal agencies compete contracts?</h2></a>
 			<p>The federal government is required to use competition when issuing contracts for goods and services, with a few exceptions.  See which federal agencies employ competitive practices most frequently with this analysis.</p>

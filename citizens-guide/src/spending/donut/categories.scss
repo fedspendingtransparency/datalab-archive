@@ -1,0 +1,57 @@
+@import '../../colors';
+
+
+#viz {
+    margin: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: space-between;
+}
+
+section.category {
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    transition: order 1s ease;
+
+    svg {
+        float: left;
+    }
+
+    div.contents {
+        margin-left: 60px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: left;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    section.category {
+        width: 48%
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+    section.category {
+        width: 32%
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    section.category {
+        width: 23%
+    }
+}

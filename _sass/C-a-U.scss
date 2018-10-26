@@ -231,11 +231,11 @@ $green: #50604f;
 *--------------------------------------------------------------------------------------------------------------------
 */
  
-
 .investmentCategories { 
 
   padding-left: 5%;
   padding-right: 5%;
+  text-align: center;
 
   .panel {
 
@@ -249,7 +249,9 @@ $green: #50604f;
     span {
       top: 50%;
       position: relative;
-      color: $orange;
+      width: 30%;
+      left: -45%;
+      color: #D04C02;
       display: inline-block;
     }
 
@@ -269,10 +271,49 @@ $green: #50604f;
     display: inline-block;
     text-align: center;
     margin:auto;
-    width: 50%;
+    width: 85%;
+    position: relative;
+
+    .categoriesParent{
+      width:210px;
+      margin: 0px;
+      display: inline-block;
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .chv {
+      position: absolute;
+      top:50%;
+      font-size: 32px;
+      opacity: 0.5;
+    }
+
+    .left {
+      left: 5px;
+    }
+
+    .right {
+      right: 5px;
+    }
+
 
     svg {
       text-align: center;
+    }
+
+    .catDollarClass {
+      font-size: 20px;
+      fill: black;
+    }
+
+    .catPercentageClass {
+      font-size: 23px;
+      fill: $orange;
+      font-weight: 100;
+      padding-left: 30px;
     }
 
      path.slice{
@@ -286,6 +327,40 @@ $green: #50604f;
          fill: none;
      }
   }
+}
+
+    /*
+  --------------------------------------------------------------------------------------------------------------------
+*   Instututions
+*--------------------------------------------------------------------------------------------------------------------
+*/
+
+.collegesMap {
+
+  text-align: center;
+  
+  .background {
+    fill: none;
+    pointer-events: all;
+  }
+  
+  #states {
+    fill: #E6E7E5;
+  }
+  
+  #states .active {
+    fill: orange;
+  }
+  
+  #state-borders {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+  }
+
 }
 
 }

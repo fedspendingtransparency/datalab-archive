@@ -136,3 +136,9 @@ text.hover {
   font-style:italic; 
   margin: 0;
 }
+
+.viz-actions > #DendroRadio{
+  display:flex;
+  flex-direction: column;
+  width: 750px;
+}

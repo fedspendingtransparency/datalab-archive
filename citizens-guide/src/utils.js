@@ -1,6 +1,6 @@
-import { select } from 'd3-selection';
+import { select, selectAll } from 'd3-selection';
 
-const d3 = { select };
+const d3 = { select, selectAll };
 
 export function getElementBox(d3Selection) {
     const rect = d3Selection.node().getBoundingClientRect();
@@ -29,23 +29,22 @@ export function getTransform(d3Selection) {
 
 export function establishContainer(height) {
     const viz = d3.select('#viz');
-    viz.attr('translate',() => {
-     return translator(500,0)
-    });
 
     let svg = viz.select('svg.main');
 
-    height = height || 400;
-
     if (svg.size() === 0) {
+        height = height || 400;
+
         return viz.append('svg')
             .classed('main', true)
             .attr('shape-rendering', 'geometricPrecision')
             .attr('height', height)
             .attr('width', '1200px');
-    } else {
-        return svg;
+    } else if (height) {
+        svg.attr('height', height);
     }
+    
+    return svg;
 }
 
 export function simplifyBillions(n) {
@@ -84,14 +83,11 @@ export function wordWrap(text, maxWidth) {
         line = [],
         lineNumber = 0,
         lineHeight = 1.1,
-        y = text.attr("y"),
         tspan;
 
     tspan = text.text(null)
         .append("tspan")
         .attr("x", 0);
-    // .attr("y", y);
-    // .attr("dy", dy + "em");
 
     while (words.length > 0) {
         word = words.pop();
@@ -103,7 +99,6 @@ export function wordWrap(text, maxWidth) {
             line = [word];
             tspan = text.append("tspan")
                 .attr("x", 0)
-                .attr("y", y)
                 .attr("dy", lineHeight + "em")
                 .text(word);
         }
@@ -129,4 +124,19 @@ export function fractionToPercent(n, precision) {
 
     // TODO: handle precision
     console.warn('need to handle precision')
+}
+
+export function stripBr() {
+    d3.selectAll('br').remove();
+}
+
+export function fadeAndRemove(selection, duration) {
+    duration = duration || 1000;
+    
+    selection.transition()
+        .duration(duration)
+        .attr('opacity', 0)
+        .on('end', function () {
+            d3.select(this).remove();
+        })
 }

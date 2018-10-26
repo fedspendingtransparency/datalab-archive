@@ -1,6 +1,8 @@
-//define 
-
-//set page variables to local variables
+/*
+  --------------------------------------------------------------------------------------------------------------------
+*   Local Declarations
+*--------------------------------------------------------------------------------------------------------------------
+*/
 const contractsGranphBar = document.getElementById('totalInvestments_graph_Contracts');
 const grantsGraphBar = document.getElementById('totalInvestments_graph_Grants');
 const studentAidGraphBar = document.getElementById('totalInvestments_graph_StudentAid');
@@ -8,6 +10,7 @@ const totalinvestmentPar = document.getElementById('totalInvesmentDollarAmount')
 
 /*
 purpose: utility to return 0 if a number cannot be parsed
+ or the parsed float number
 */
 const float = num => {                                          
     return (parseFloat(num) > 0 ? parseFloat(num) : 0);
@@ -25,6 +28,11 @@ Number.prototype.formatMoney = function(c, d, t){
  };
 
 
+ /*
+  --------------------------------------------------------------------------------------------------------------------
+*   Main Method
+*--------------------------------------------------------------------------------------------------------------------
+*/
 d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in education data to data files
 
     var totalContracts = float(eduCsv.reduce((a, b) => {     //caluculate total contract money given to all universities sum(contracts recived)
@@ -57,6 +65,7 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
     var grantsSpendingPercent = parseInt(((totalGrants/totalInvestment)*100));
     var studentAidSpendingPercent = parseInt(((totalStudentAid/totalInvestment)*100));
 
+    //updatin bar graph to reflect percentages
     contractsGranphBar.style.width = `${contractSpendingPercent}%`;
     grantsGraphBar.style.width = `${grantsSpendingPercent}%`;
     studentAidGraphBar.style.width = `${studentAidSpendingPercent}%`;

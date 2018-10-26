@@ -29,7 +29,6 @@ category: entry
   <div class="viz-bkgd">
      {% include viz-title.html
         title="Federal Accounts Dendrogram"
-        subtext="Fiscal Year 2018"
         identifier="panel1InstructionsModal"
      %}
      {% include viz-modal.html
@@ -41,8 +40,33 @@ category: entry
              		 <li>Click and drag the visualization to re-center.</li>
 						 		 <li>Use the reset button at the top left corner to reset the visualization.</li></ul>"
      %}
-    <div class="mask">
+    <div class="mask"><div class="viz-actions">
+      <form id="DendroRadio">
+        <div class="select-wrapper1" style="position:relative; margin:10px auto 0px 20px;">
+          <input type="radio" id="contactChoice2" name="FiscalYear" value="fy17">
+          <label for="contactChoice2" style="font-size:12px">FY 17</label>
+
+          <input type="radio" id="contactChoice1" name="FiscalYear" value="fy18" checked>
+          <label for="contactChoice1" style="font-size:12px;">FY 18</label>
+        </div>
+        <div class="select-wrapper2" style="position:relative; margin:10px auto 0px 20px;">
+          <input type="radio" id="contactChoice3" name="Quarter" value="12-31">
+          <label for="contactChoice3" style="font-size:12px;">Q1</label>
+
+          <input type="radio" id="contactChoice4" name="Quarter" value="03-31">
+          <label for="contactChoice4" style="font-size:12px">Q2</label>
+
+          <input type="radio" id="contactChoice5" name="Quarter" value="06-30" checked>
+          <label for="contactChoice5" style="font-size:12px;">Q3</label>
+
+          <input type="radio" id="contactChoice6" name="Quarter" value="09-30">
+          <label for="contactChoice6" style="font-size:12px">Q4</label>
+        </div>
+      </form>
       {% include action-buttons.html %}
+      <div>
+      </div>
+    </div>
       <div class="viz-container">
         <!-- tooltip -->
         <div id="tooltip" class="tooltip-module"></div>
