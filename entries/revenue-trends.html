@@ -1,41 +1,14 @@
-<!doctype html>
-<html lang="en">
+--- 
+layout: cg 
+title: Data Lab - Trends in Government Revenue – U.S. Treasury 
+excerpt: How has federal revenue changed over the past few years? Explore trends in federal revenue over a five year period at the revenue source and sub-category level.
+header: Understanding federal spending related to the government's main functions 
+description: How has federal revenue changed over the past few years? Explore trends in federal revenue over a five year period at the revenue source and sub-category level. 
+permalink: revenue-trends.html
+category: entry 
+---
 
-<head>
-    <meta charset="utf-8">
-    <title>
-        Federal Revenue Trends
-    </title>
-    <meta name="description" content="This is the text that goes in the meta description tag">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    
-        <link rel="stylesheet" href="../assets/normalize.css"  type="text/css">
-        <link rel="stylesheet" href="../assets/cg.css"  type="text/css">
-        <link rel="stylesheet" href="../assets/nav/nav-revenue.css"  type="text/css">
-    
-</head>
-
-<body>
-    
-    <nav class="revenue-nav">
-    <ul class="site-nav__primary-list">
-        <li><a href="./gdp.html">Revenue and GDP</a></li>
-        <li><a href="./categories.html">Revenue Categories</a></li>
-        <li><a href="./trends-categories.html">Federal Revenue Trends</a></li>
-        <li><a href="./country-comparison.html">Country Comparison</a></li>
-    </ul>
-    <button class="revenue-nav-trigger">
-        <hr>
-        <hr>
-        <hr>
-    </button>
-</nav>
-    <script src="../assets/nav/nav-revenue.js"></script>
-
-<main>
-    <h1>Federal Revenue Trends</h1>
+<h1>Federal Revenue Trends</h1>
 
 <div class="copy-tour-row" id="income-facts">
         <section class="copy-tour-row__copy">
@@ -52,7 +25,7 @@
                     <h1>How does the revenue of the United States compare to other countries?</h1>
                     <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
                 </div>
-                <a class="tour__link" href="./country-comparison.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
+                <a class="tour__link" href="./revenue-country-comparison.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
             </section>
         </div>
     </div>
@@ -66,11 +39,4 @@
     The visualization was created using <a href="https://www.fiscal.treasury.gov/fsreports/rpt/mthTreasStmt/mts0917.pdf" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. <a href="https://data.bls.gov/cgi-bin/surveymost?bls" target="_blank">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
 </section>
 
-<script src="../assets/hwcta.js"></script>
-
-<script src="./assets/trends.js">
-</script>
-</main> 
-</body>
-
-</html>
+<script src="{{site.baseurl}}/assets/cg/revenue/trends.js"></script>

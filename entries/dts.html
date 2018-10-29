@@ -76,10 +76,15 @@ category: nonentry
   </div>
 </div>
 
+<div class="dts-footnote">
+  <div class="dts-footnote-rect"></div>
+  <div class="dts-footnote-text"></div>
+</div>
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var allOptions, optionsDict, lastDate;
+var allOptions, optionsDict, lastDate, categorySeparatorDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
@@ -147,9 +152,29 @@ function setFancyLines(selector, lineFn) {
   });
 }
 
+function updateCategoryRectSeparator(sel, xFn, h) {
+  if (categorySeparatorDate == null) {
+    svg.select(sel)
+        .style("display", "none");
+  } else {
+    svg.select(sel)
+      .style("display", "block")
+      .attr("x", 0) 
+      .attr("y", 0)
+      .attr("width", xFn(categorySeparatorDate))
+      .attr("height", h)
+      .attr("opacity", 0.2)
+      .style("stroke-width", 0)
+      .style("fill", "#deeded");
+  }
+}
+
 function adjustLines() {
   setFancyLines(".graph-lines", line);
   setFancyLines(".brush-lines", line2);
+
+  updateCategoryRectSeparator(".category-rect-separator", x, height);
+  updateCategoryRectSeparator(".brush-category-rect-separator", x2, height2);
 
   svg.select(".graph-x-axis").call(xAxis);
   svg.select(".brush-x-axis").call(xAxis2);
@@ -370,11 +395,13 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
 var sharedCategories = [
   {
     categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
-    date: new Date("2010-03-31")
+    date: new Date("2010-03-31"),
+    footnote: "The shaded region indicates inactive or retired programs. Beginning March 31, 2010, the Food Stamp Program has been renamed Supplemental Nutrition Assistance Program (SNAP) on the Daily Treasury Statement. Withdrawals previously reported under the Food Stamp Program are now reported under SNAP."
   },
   {
     categories: [ "Medicare", "Medicare Advantage Part C D Payments", "Marketplace Payments", "Medicare and Other CMS Payments" ],
-    date: new Date("2014-10-01")
+    date: new Date("2014-10-01"),
+    footnote: "The shaded region indicates inactive or retired programs. Beginning October 1, 2014, payments previously reported  under the Medicare line were expanded to three lines:  Medicare and other CMS payments,  Medicare Advantage - Part C&D payments, and Marketplace payments."
   }
 ]
 
@@ -382,7 +409,7 @@ var mapping = {};
 
 for (let item of sharedCategories) {
   for (let categoryName of item.categories) {
-    mapping[categoryName] = { categories: item.categories, date: item.date };
+    mapping[categoryName] = { categories: item.categories, date: item.date, footnote: item.footnote };
   }
 }
 
@@ -459,6 +486,16 @@ function updateGraphAndBrushLines(data) {
 }
 
 function updateGraph(data) {
+  categorySeparatorDate = data.length > 1 ? data[0].date : null;
+
+  if (data.length > 1) {
+    d3.select(".dts-footnote").style("visibility", "visible");
+    d3.select(".dts-footnote-text").text(data[0].footnote);
+  } else {
+    d3.select(".dts-footnote").style("visibility", "hidden");
+    d3.select(".dts-footnote-text").text('');
+  }
+
   updateGraphAndBrushLines(data);
   setGraphYDomains(data);
   adjustLines();
@@ -559,8 +596,6 @@ function createGraph(data) {
 
   updateGraphAndBrushLines(data);
 
- // lineChart.append("line").attr("class", "category-line-separator")
-
   context.append("g")
     .attr("class", "axis axis--x brush-x-axis")
     .attr("transform", "translate(0," + height2 + ")")
@@ -585,6 +620,9 @@ function createGraph(data) {
           .endAngle(function(d, i) { return i ? Math.PI : -Math.PI; }));
 
   d3.select(".brush").call(brush.move, null);
+
+  lineChart.append("rect").attr("class", "category-rect-separator");
+  gBrush.insert("rect", ":first-child").attr("class", "brush-category-rect-separator");
 
   if (startDate == "" || endDate == "") { // change this to not a valid date range instead
     d3.select(".brush").call(brush.move, [0, width]);
@@ -690,14 +728,14 @@ function createMasterMapping() {
       for (let i = 0; i < mapping[key].categories.length; i++) {
         let cateName = mapping[key].categories[i];
 
-        masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date, color: lineColors[i] });
-        masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date, color: lineColors[i] });
-        masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date, color: lineColors[i] });
+        masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
+        masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
+        masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
       }
     } else {
-      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01"), color: lineColors[0] });
-      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01"), color: lineColors[0] });
-      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01"), color: lineColors[0] });
+      masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
+      masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
+      masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
     }
   }
 }
@@ -786,8 +824,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
     optionsDict[d.item_raw]['fytd'].push({ date: d.date, value: d.fytd });
   });
 
-  console.log(categoryToActiveWithinAYear);
-
   function transposeKVToArray(frequency) {
     return Object.keys(allToSpending[frequency]).map(k => ({ date: new Date(k), value: allToSpending[frequency][k] }));
   }
@@ -804,8 +840,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   allOptions.sort();
 
   let condensedOptions = Object.keys(categoryToSpendingPrevFY).sort((a,b) => categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a]).slice(0, 10);
-
-  console.log(condensedOptions);
 
   let activeOptions = [];
   let inactiveOptions = [];

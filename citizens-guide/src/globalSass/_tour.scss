@@ -31,6 +31,10 @@ $tourButtonColor: #0D7040;
         cursor: default;
         color: #ccc;
         opacity: 0.5;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     i {

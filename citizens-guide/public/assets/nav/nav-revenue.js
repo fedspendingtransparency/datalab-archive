@@ -44,7 +44,7 @@
     }
 
     function initButton() {
-        var button = document.getElementsByClassName('income-nav-trigger').item(0);
+        var button = document.getElementsByClassName('revenue-nav-trigger').item(0);
 
         button.addEventListener('click', toggleActiveStatus);
     }

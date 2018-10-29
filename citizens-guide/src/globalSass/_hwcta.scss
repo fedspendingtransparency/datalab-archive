@@ -4,6 +4,10 @@ $padding: 20px;
     max-width: 900px;
     margin: 1rem auto;
     transition: opacity 1s ease;
+
+    ul {
+        list-style-type: disc;
+    }
 }
 
 .hwcta__heading {

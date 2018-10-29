@@ -380,6 +380,26 @@
   height: 18px;
 }
 
+.dts-footnote {
+  margin-left: 100px;
+  padding-bottom: 25px;
+  display: flex;
+  visibility: hidden;
+}
+
+.dts-footnote-rect {
+  width: 32px;
+  height: 32px;
+  background-color: #deeded;
+  margin-right: 10px;
+}
+
+.dts-footnote-text {
+  width: 75%;
+  font-size: 18px;
+  letter-spacing: .75px;
+}
+
 /* Media Breakpoints */
 
 @media (max-width: 870px) {
