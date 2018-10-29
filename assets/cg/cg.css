@@ -44,6 +44,8 @@ h2 {
     cursor: default;
     color: #ccc;
     opacity: 0.5; }
+    .tour .tour__link.tour__link--disabled:hover {
+      text-decoration: none; }
   .tour i {
     font-size: 12px;
     margin-left: 0.75rem; }
@@ -102,6 +104,8 @@ h2 {
   max-width: 900px;
   margin: 1rem auto;
   transition: opacity 1s ease; }
+  .hwcta ul {
+    list-style-type: disc; }
 
 .hwcta__heading {
   padding: 20px;

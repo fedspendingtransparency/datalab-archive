@@ -43,7 +43,7 @@ function addText() {
         .attr('dy', 28)
         .attr('font-size', 24)
         .attr('font-weight', '600')
-        .text('This Dot')
+        .text('One Dot')
 
     explanation.append('tspan')
         .attr('font-size', 24)
