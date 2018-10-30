@@ -170,16 +170,11 @@
 }
 
 .viz-tsbfy-bar-view, .viz-tsbfy-table-view {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background-color: #ddd;
+  height: 40px;
   cursor: pointer;
-  text-align: center;
-  color: #333;
   margin: 0 10px;
-  padding-left: 2px;
+  background-color: #fafafa;
+  border-radius: 50%;
 }
 
 .period-container {

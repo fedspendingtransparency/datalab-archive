@@ -66,8 +66,8 @@ category: nonentry
     <div class="viz-tsbfy-header">
       <div class="viz-tsbfy-header-text">Total Spending By Fiscal Year</div>
       <div class="viz-tsbfy-header-view-buttons">
-        <div class="viz-tsbfy-bar-view">B</div>
-        <div class="viz-tsbfy-table-view">T</div>
+        <div class="viz-tsbfy-bar-view">{% include svgs/bars.svg %}</div>
+        <div class="viz-tsbfy-table-view">{% include svgs/list.svg %}</div>
       </div>
     </div>
     <div class="svg-tsbfy-container">
@@ -876,15 +876,26 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
 
   let yearToSpendingArray = getYearToSpendingArray(optionsDict["All Categories"]["fytd"]);
 
+  function toggleButtonBgColor(context) {
+    d3.select(".viz-tsbfy-bar-view").style("background-color", "rgb(250, 250, 250)");
+    d3.select(".viz-tsbfy-table-view").style("background-color", "rgb(250, 250, 250)");
+
+    d3.select(context).style("background-color", "rgb(255, 255, 255)");
+  }
+
   d3.select(".viz-tsbfy-bar-view").on("click", function() {
+    toggleButtonBgColor(this);
     createBarChart(yearToSpendingArray);
   });
 
   d3.select(".viz-tsbfy-table-view").on("click", function() {
+    toggleButtonBgColor(this);
     createTable(yearToSpendingArray);
   });
 
   createBarChart(yearToSpendingArray);
+
+  d3.select(".viz-tsbfy-bar-view").style("background-color", "rgb(255, 255, 255)");
 });
 
 function getFrequencyFromURL() {
