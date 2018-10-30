@@ -9,10 +9,12 @@ const panel = document.getElementById('categoriesPanel');
 const panelChartContainer = document.getElementById('investmentCategories_panel_chart');
 const pageTurnRt = document.getElementById('cat_rt_pg_turn');
 const pageTurnLt = document.getElementById('cat_lt_pg_turn');
+const categoriesTable = document.getElementById('categoriesTable'); // Table View
 const pageSize = 10;
 
 var currPage = 1;
 var categoriesData;
+
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -130,7 +132,7 @@ const drawGraph = (container, nodeData, size, clickable) => {
   //set Inner and out arc redius of the donut chart
   var arc = d3.svg.arc()
       .outerRadius(radius * 0.85)
-      .innerRadius(radius * 0.75  );
+      .innerRadius(radius * 0.75);
 
   svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -171,11 +173,11 @@ const drawGraph = (container, nodeData, size, clickable) => {
       .remove();
 
     /*---------- Legend ----------------------*/
-    let legendRectSize=20;
-    let legendSpacing=7;
-    let legendHeight=legendRectSize+legendSpacing;
+    let legendRectSize = 20;
+    let legendSpacing = 7;
+    let legendHeight = legendRectSize+legendSpacing;
 
-    var legend=svg.selectAll('.legend')
+    var legend = svg.selectAll('.legend')
         .data(data)
         .enter()
         .append('g')
@@ -246,6 +248,7 @@ const clearCharts = (container) => {
   });
 };
 
+
 /*
   --------------------------------------------------------------------------------------------------------------------
   *   EVENT LISTENERS
@@ -257,6 +260,61 @@ pageTurnRt.onclick = () => { turrnPage(1) };
 
 pageTurnLt.onclick = () => { turrnPage(-1) };
 
+
+
+// Create our "Table View"
+// for PSC!
+function createTable(containerDiv) {
+  d3.text("/data-lab-data/Edu_PSC.csv", function(data) {
+    let parsedCSV = d3.csv.parseRows(data);
+
+    let container = d3.select(containerDiv)
+        .append("table")
+
+        .selectAll("tr")
+        .data(parsedCSV).enter()
+        .append("tr")
+
+        .selectAll("td")
+        .data(function(d) { return d; }).enter()
+        .append("td")
+        .text(function(d) { return d; });
+  });
+
+  // going to set options for the table now...
+  var options = {
+    valueNames: [ { data: ['timestamp'] }, { data: ['status'] }, 'jSortNumber', 'jSortName', 'jSortTotal' ],
+    page: 6,
+    pagination: {
+      innerWindow: 1,
+      left: 0,
+      right: 0,
+      paginationClass: "pagination",
+    }
+  };
+
+  let tableList = new List('tableID', options);
+
+  $('.jPaginateNext').on('click', function(){
+    var list = $('.pagination').find('li');
+    $.each(list, function(position, element){
+      if($(element).is('.active')){
+	$(list[position+1]).trigger('click');
+      }
+    });
+  });
+
+
+  $('.jPaginateBack').on('click', function(){
+    var list = $('.pagination').find('li');
+    $.each(list, function(position, element){
+      if($(element).is('.active')){
+	$(list[position-1]).trigger('click');
+      }
+    });
+  });
+
+};
 
 
 /*
@@ -296,5 +354,8 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
   
   paginate(categoriesData, pageSize, currPage)
     .forEach( n => { drawGraph(graphContainer, n, {height:200, width:200}, true); });             //draw donut chart in charts container
+
+  // Table View!
+  createTable(categoriesTable);
 
 });
