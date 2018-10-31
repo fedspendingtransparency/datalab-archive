@@ -11,8 +11,8 @@ category: nonentry
 ---
 
 <div class="header-container">
-  <div class="header-title">Interactive Daily Report</div>
-  <div class="header-subtitle">How much money are we spending?</div>
+  <div class="header-title">Vizualizing The Daily Treasury Statement</div>
+  <div class="header-subtitle">How much did the federal government spend today?</div>
   <div class="header-line-break"></div>
   <div class="header-updated-when"></div>
 </div>
@@ -20,7 +20,7 @@ category: nonentry
 <div class="dts-header">
   <div class="dts-left-column">
     <div class="daily-spending-container">
-      <div class="daily-spending-subtext">Total Amount Spent</div>
+      <div class="daily-spending-subtext">Total Amount Spent On </div>
       <div class="daily-spending-amount">$0</div>
     </div>
     <div class="period-container">
@@ -719,19 +719,56 @@ function createGraph(data) {
 
 var masterMapping = {};
 
+function getCombinedCategory(combinedArray) {
+  let result = [];
+
+  combinedArray.forEach(obj => {
+    let theDate = obj.date;
+    if (!this[theDate]) { result.push(this[theDate] = obj); }
+    else { this[theDate].value += obj.value; }
+  }, Object.create(null));
+
+  return result;
+}
+
 function createMasterMapping() {
   for (let key in optionsDict) {
     masterMapping[key] = { "today": [], "mtd": [], "fytd": [] };
 
     if (mapping.hasOwnProperty(key)) {
 
+      let combinedToday = [];
+      let combinedMTD = [];
+      let combinedFYTD = [];
+
       for (let i = 0; i < mapping[key].categories.length; i++) {
         let cateName = mapping[key].categories[i];
+
+        // console.log(optionsDict[cateName]["today"]);
+
+        combinedToday.push.apply(combinedToday, optionsDict[cateName]["today"]);
+        combinedMTD.push.apply(combinedMTD, optionsDict[cateName]["mtd"]);
+        combinedFYTD.push.apply(combinedFYTD, optionsDict[cateName]["fytd"]);
 
         masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
         masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
         masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
       }
+
+      let combinedDailyValues = getCombinedCategory(combinedToday);
+      let combinedMTDValues = getCombinedCategory(combinedMTD);
+      let combinedFYTDValues = getCombinedCategory(combinedFYTD);
+
+      // console.log(combinedDailyValues);
+
+      /// console.log(combinedToday);
+      //console.log(masterMapping[key]);
+      /*
+      masterMapping[key]["today"].push({ "name": "Combined", values: combinedToday, date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
+      masterMapping[key]["mtd"].push({ "name": "Combined", values: combinedMTD, date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
+      masterMapping[key]["fytd"].push({ "name": "Combined", values: combinedFYTD, date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
+      */
+
     } else {
       masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
       masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
@@ -768,6 +805,8 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   optionsDict = {};
 
   lastDate = data[data.length - 1].date;
+
+  d3.select(".daily-spending-subtext").text("Total Amount Spent On " + lastDate.toString().substring(0, 15));
 
   d3.select(".header-updated-when").text("Updated " + lastDate.toUTCString());
 
