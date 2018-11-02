@@ -2,28 +2,36 @@
 
 main {
     max-width: 1200px;
-    margin: 0 auto;
-}
-
-#viz-wrapper {
-    width: 66%;
-    margin: 0;
-    padding-left: 2rem;
-    float: right;
-    box-sizing: border-box;
-
-    h2 {
-        margin-top: 0;
-        margin-bottom: 1rem;
-    }
+    margin: 0 1rem;
 }
 
 #bar-controls {
     margin-top: 1rem;
 }
 
-.poc-content {
-    margin-right: 66%;
-    border-right: 1px solid #ccc;
-    padding-right: 2rem;
+@media only screen and (min-width: 800px) {
+    #viz-wrapper {
+        width: 66%;
+        margin: 0;
+        padding-left: 2rem;
+        float: right;
+        box-sizing: border-box;
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .poc-content {
+        margin-right: 66%;
+        border-right: 1px solid #ccc;
+        padding-right: 2rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    main {
+        margin: 0 auto;
+    }
 }

@@ -7,7 +7,7 @@ import { placeLabels } from './text';
 import colors from '../../colors.scss';
 import { initSort } from './sort';
 import { initOverlay } from './detailOverlay';
-import { optimizeWidth } from './optimize-width';
+import { optimizeWidth, scaleToFit } from './optimize-width';
 
 const d3 = { select, selectAll, scaleLinear, extent, transition },
     barAnimationTime = 1000,
@@ -130,10 +130,6 @@ function placeContainers(config, detail) {
     }
 }
 
-function chartInit() {
-
-}
-
 export function drawChart(data, type, detail, parentWidth) {
     const config = {};
 
@@ -154,5 +150,6 @@ export function drawChart(data, type, detail, parentWidth) {
     } else {
         config.svg = establishContainer(config.height, config.width);
         placeContainers(config, detail);
+        //scaleToFit(config.svg);
     }
 }
