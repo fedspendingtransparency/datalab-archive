@@ -102,12 +102,13 @@ const svg = d3.select("#svg-wrapper"),
 const parseDate = d3.timeParse("%-m/%-d/%y");
 const bisectDate = d3.bisector(d => d.date).left;
 
-const x = d3.scaleTime().range([0, width]),
-  x2 = d3.scaleTime().range([0, width]),
-  y = d3.scaleLinear().range([height, 0]),
+let x = d3.scaleTime().range([0, width]),
+  x2 = d3.scaleTime().range([0, width]);
+
+  const y = d3.scaleLinear().range([height, 0]),
   y2 = d3.scaleLinear().range([height2, 0]);
 
-const xAxis = d3.axisBottom(x),
+let xAxis = d3.axisBottom(x),
   xAxis2 = d3.axisBottom(x2),
   yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
 
@@ -212,8 +213,8 @@ function updateHistoryWithNewFrequencyOrCategory() {
 }
 
 function updateHistoryWithNewBrush(s) {
-  let start = x2.invert(s[0]).toISOString().slice(0,10).replace(/-/g,"");
-  let end = x2.invert(s[1]).toISOString().slice(0,10).replace(/-/g,"");
+  let start = new Date(x2.invert(s[0])).toISOString().slice(0,10).replace(/-/g,"");
+  let end = new Date(x2.invert(s[1])).toISOString().slice(0,10).replace(/-/g,"");
   let frequency = d3.select('#frequency-selector').property('value');
   let category = d3.select('#category-selector').property('value');
 
@@ -813,6 +814,8 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
 
+  let dateScaleValues = [];
+
   data.forEach(function(d) {
     //d.date = parseDate(d.date);
     d.today = +d.today * 1000000;
@@ -850,6 +853,10 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
       allToSpending["today"][d.date] = (allToSpending["today"][d.date] || 0) + d.today;
       allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
       allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
+
+
+
+      dateScaleValues.push(d.date);
     }
 
     optionsData.push(d.item_raw);
@@ -862,6 +869,36 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
     optionsDict[d.item_raw]['mtd'].push({ date: d.date, value: d.mtd });
     optionsDict[d.item_raw]['fytd'].push({ date: d.date, value: d.fytd });
   });
+
+  console.log(dateScaleValues);
+
+  x = d3.scaleLinear().domain(dateScaleValues).range([0, width]),
+  x2 = d3.scaleLinear().domain(dateScaleValues).range([0, width]);
+
+  var formatMillisecond = d3.timeFormat(".%L"),
+      formatSecond = d3.timeFormat(":%S"),
+      formatMinute = d3.timeFormat("%I:%M"),
+      formatHour = d3.timeFormat("%I %p"),
+      formatDay = d3.timeFormat("%a %d"),
+      formatWeek = d3.timeFormat("%b %d"),
+      formatMonth = d3.timeFormat("%B"),
+      formatYear = d3.timeFormat("%Y");
+
+  // Define filter conditions
+  function multiFormat(dateMS) {
+    let date = new Date(dateMS);
+
+    console.log(date);
+    console.log(d3.timeMonth(date));
+    console.log(d3.timeMonth(date) < date);
+
+    return (d3.timeMonth(date) < date ? (d3.timeWeek(date) < date ? formatDay : formatWeek)
+      : d3.timeYear(date) < date ? formatMonth
+      : formatYear)(date);
+  }
+
+  xAxis = d3.axisBottom().scale(x).tickFormat(multiFormat);
+  xAxis2 = d3.axisBottom().scale(x2).tickFormat(multiFormat);
 
   function transposeKVToArray(frequency) {
     return Object.keys(allToSpending[frequency]).map(k => ({ date: new Date(k), value: allToSpending[frequency][k] }));
