@@ -27,19 +27,20 @@ export function getTransform(d3Selection) {
     }
 }
 
-export function establishContainer(height) {
+export function establishContainer(height, width) {
     const viz = d3.select('#viz');
 
     let svg = viz.select('svg.main');
 
     if (svg.size() === 0) {
         height = height || 400;
+        width = width || 1200;
 
         return viz.append('svg')
             .classed('main', true)
             .attr('shape-rendering', 'geometricPrecision')
             .attr('height', height)
-            .attr('width', '1200px');
+            .attr('width', width);
     } else if (height) {
         svg.attr('height', height);
     }

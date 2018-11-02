@@ -5,6 +5,8 @@ import { drawChart } from './chart';
 
 const d3 = { select, selectAll };
 
+let maxTextWidth;
+
 function setTextTranslate(d, zoom) {
     const boxHeight = getBoxHeight(d),
         noFit = boxHeight < fitThreshold;
@@ -26,30 +28,32 @@ function setTextTranslate(d, zoom) {
     return translator(x, y);
 }
 
-export function placeLabels(containers, config) {
-    const x = config.barWidth + 10, 
-    text = containers.append('text')
-        .text(function (d) {
-            return d.activity;
-        })
-        .attr('x', x)
-        .attr('y', 20)
-        .attr('font-size', 16)
-        .attr('font-weight', '600')
-        .attr('fill', 'black')
-        .on('click', function (d) {
-            if (!d.subcategories) {
-                return;
-            }
+function findMaxWidth() {
+    const thisWidth = getElementBox(d3.select(this)).width;
 
-            drawChart(d.subcategories, d.activity, true)
-        })
+    maxTextWidth = (thisWidth > maxTextWidth) ? thisWidth : maxTextWidth;
+}
+
+export function placeLabels(containers, config) {
+    const text = containers.append('text')
+            .text(function (d) {
+                return d.activity;
+            })
+            .attr('x', 0)
+            .attr('y', 20)
+            .attr('font-size', 16)
+            .attr('font-weight', '600')
+            .attr('fill', 'black');
+
+    let xOffset;
+
+    maxTextWidth = 0;
 
     text.append('tspan')
         .attr('font-size', 16)
         .classed('details', true)
         .attr('dy', 20)
-        .attr('x', x)
+        .attr('x', 0)
         .text(function (d, i) {
             let p = parseInt(d.percent_total);
 
@@ -59,4 +63,13 @@ export function placeLabels(containers, config) {
 
             return simplifyNumber(d.amount) + ' (' + p + '%)';
         })
+
+    text.each(findMaxWidth);
+
+    xOffset = config.width - maxTextWidth;
+
+    text.attr('x', xOffset);
+    text.selectAll('tspan').attr('x', xOffset);
+
+    return xOffset - 10;
 }

@@ -18,35 +18,54 @@
 <body>
     
     <main>
-        <h1>Spending Categories</h1>
+        <h1>Spending Categories for the Federal Government</h1>
+<div id="viz-wrapper">
+    <h2 class="chart-title">
+        <span class="title-text">Spending By Budget Function</span>
+        <button class="link-button" id="select-budget-function" style="display:none">show by Budget Function</button>
+        <button class="link-button" id="select-agency">show by Agency</button>
+    </h2>
 
-<div>
-    data by:
-    <button id="select-budget-function">Budget Function</button>
-    <button id="select-agency">Agency</button>
-</div>
-
-<div>
-    sort by:
-    <button id="sort-amount">Amount</button>
-    <button id="sort-name">Name</button>
-</div>
-
-<div>filter by name: <input type="text" id="filter-by-name"></div>
-
-<div>
-    viz style:
-    <button id="viz-bars">Bars</button>
-    <button id="viz-tree">Tree</button>
-</div>
-
-<div style="position: relative">
-    <div id="viz"></div>
-    <div id="detail">
-        <button>&times;</button>
-        <h2></h2>
+    <div>
+        <button id="viz-bars">Bars</button>
+        <button id="viz-tree">Tree</button>
     </div>
+    <div id="bar-controls">
+        <div>
+            sort by:
+            <button id="sort-amount">Amount</button>
+            <button id="sort-name">Name</button>
+        </div>
+        <div>filter by name: <input type="text" id="filter-by-name"></div>
+    </div>
+    <div id="viz"></div>
 </div>
+
+<div class="poc-content" id="income-facts">
+        <section class="">
+            <p>The $3.3 trillion the government collected in 2017 keeps the federal government in operation.</p>
+            <p>Most of the revenue the government collects comes from contributions from individual taxpayers, small businesses, and corporations through taxes that get collected on a yearly or quarterly basis. The remaining sources of federal revenue consist of excise, estate, and other taxes and fees.</p>
+            <p>Government revenue also comes from payments to federal agencies like the U.S. Department of the Interior.  Have you visited a national park recently?
+                <button class="info-box-trigger" data-box-id="income-anecdote">
+                    <img src="../assets/icons/anecdote.svg" alt="anectode icon">
+                </button>
+            </p>
+            <p>What makes up individual income taxes? How much money is contributed by Social Security, Medicare, and General Retirement? What's included in the 12% of revenue that doesn't come from taxpayers or corporations? Explore the chart to find out.</p>
+        </section>
+        <div class="">
+            <section class="tour">
+                <div class="tour__part-one">
+                    <h1>Explore for yourself!</h1>
+                    <p>Click a category to see what subcategories make up the various sources of government revenue, including additional revenue sources outside federal taxes.</p>
+                </div>
+                <div class="tour__part-two">
+                    <h1>How has government revenue changed over time?</h1>
+                    <p>When you're done here, explore the trends in federal revenue over the past five years.</p>
+                </div>
+                <a class="tour__link" href="./trends-categories.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
+            </section>
+        </div>
+    </div>
 
 <script src="./assets/categoriesHybrid.js"></script>
  

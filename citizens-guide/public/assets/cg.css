@@ -156,6 +156,13 @@ h2 {
 .hwcta--open .hwcta__minus {
   display: block; }
 
+.link-button {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  color: blue;
+  font-size: 16px; }
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #666; }

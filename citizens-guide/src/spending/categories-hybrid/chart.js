@@ -6,41 +6,22 @@ import { establishContainer, translator } from "../../utils";
 import { placeLabels } from './text';
 import colors from '../../colors.scss';
 import { initSort } from './sort';
+import { initOverlay } from './detailOverlay';
+import { optimizeWidth } from './optimize-width';
 
 const d3 = { select, selectAll, scaleLinear, extent, transition },
+    barAnimationTime = 1000,
+    hoverDuration = 200,
     rowHeight = 50;
 
 function setScales(config) {
     const extent = d3.extent(config.data, r => r.amount);
 
     extent[0] = (extent[0] > 0) ? 0 : extent[0];
-    
+
     config.scaleX = d3.scaleLinear()
         .range([0, config.barWidth])
         .domain(extent);
-}
-
-function establishDetailContainer(height, type) {
-    const viz = d3.select('#detail');
-
-    viz.select('h2').text(type);
-
-    viz.select('button')
-        .on('click', null)
-        .on('click', function () {
-            viz.classed('active', null)
-            viz.selectAll('svg').remove();
-        })
-
-    viz.selectAll('svg').remove();
-
-    viz.classed('active', true);
-
-    return viz.append('svg')
-        .attr('shape-rendering', 'geometricPrecision')
-        .attr('height', height)
-        .attr('transform', 'scale(0.8)')
-        .attr('width', 500);
 }
 
 function drawBars(containers, config) {
@@ -52,7 +33,7 @@ function drawBars(containers, config) {
         .attr('x1', config.scaleX(0))
         .attr('x2', config.scaleX(0))
         .attr('y1', rowHeight / 4 - 4)
-        .attr('y2', rowHeight *0.75 + 4)
+        .attr('y2', rowHeight * 0.75 + 4)
 
     g.append('rect')
         .attr('height', rowHeight / 2)
@@ -66,6 +47,7 @@ function drawBars(containers, config) {
         .attr('y', rowHeight / 4)
         .attr('x', config.scaleX(0))
         .attr('width', 0)
+        .classed('bar', true)
         .transition()
         .duration(1000)
         .attr('x', function (d) {
@@ -81,30 +63,96 @@ function drawBars(containers, config) {
         .ease();
 }
 
-function placeContainers(config) {
+function onMouseover() {
+    const row = d3.select(this);
+
+    row.selectAll('rect.bar').transition()
+        .duration(hoverDuration)
+        .attr('fill', colors.income)
+        .ease()
+
+    row.selectAll('text').transition()
+        .duration(hoverDuration)
+        .attr('fill', '#888')
+        .ease()
+}
+
+function onMouseout() {
+    const row = d3.select(this);
+
+    row.selectAll('rect.bar').transition()
+        .duration(300)
+        .attr('fill', function (d) {
+            if (d.amount < 0) {
+                return 'gray';
+            }
+
+            return colors.colorPrimary;
+        })
+        .ease()
+
+    row.selectAll('text').transition()
+        .duration(300)
+        .attr('fill', 'black')
+        .ease()
+}
+
+function placeContainers(config, detail) {
     const containers = config.svg.selectAll('g.row')
         .data(config.data)
         .enter()
         .append('g')
+        .classed('pointer', !config.detail)
         .classed('row', true)
         .attr('transform', function (d, i) {
             return translator(0, i * rowHeight);
         })
 
-    drawBars(containers, config);
-    placeLabels(containers, config);
-}
-
-export function drawChart(data, type, detail) {
-    const config = {};
-
-    config.height = detail ? 900 : 1400;
-    config.barWidth = 200;
-    config.data = data;
-    config.rowHeight = rowHeight;
-    config.svg = detail ? establishDetailContainer(config.height, type) : establishContainer(config.height);
+    config.barWidth = placeLabels(containers, config);
 
     setScales(config);
+
+    drawBars(containers, config);
+
+    if (!detail) {
+        containers.on('click', function (d) {
+            if (!d.subcategories) {
+                return;
+            }
+
+            drawChart(d.subcategories, d.activity, true, config.width)
+        })
+
+        setTimeout(function () {
+            containers.on('mouseover', onMouseover)
+            containers.on('mouseout', onMouseout)
+        }, barAnimationTime)
+    }
+}
+
+function chartInit() {
+
+}
+
+export function drawChart(data, type, detail, parentWidth) {
+    const config = {};
+
+    if (!data.length) {
+        return;
+    }
+
+    config.height = data.length * rowHeight;
+    config.width = parentWidth || optimizeWidth();
+    config.data = data;
+    config.rowHeight = rowHeight;
+    config.detail = detail;
+
     initSort(config);
-    placeContainers(config);
+
+    if (detail) {
+        initOverlay(type, config, placeContainers);
+    } else {
+        config.svg = establishContainer(config.height, config.width);
+        placeContainers(config, detail);
+    }
 }

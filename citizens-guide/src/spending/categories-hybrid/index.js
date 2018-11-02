@@ -5,6 +5,9 @@ import { drawChart } from './chart';
 import { establishContainer } from '../../utils';
 
 const d3 = { select, selectAll },
+    chartTitle = d3.select('h2.chart-title .title-text'),
+    selectBudgetFunction = d3.select('#select-budget-function'),
+    selectAgency = d3.select('#select-agency'),
     data = byYear(2017);
 
 let svg,
@@ -12,20 +15,26 @@ let svg,
 
 function initChart(filteredData) {
     const chartData = filteredData || data[type];
-    
+
     d3.selectAll('svg').remove();
     drawChart(chartData, type);
 }
 
-d3.select('#select-budget-function')
+selectBudgetFunction
     .on('click', function () {
         type = 'function';
+        chartTitle.text('Spending By Budget Function')
+        selectAgency.attr('style', 'display:inline')
+        selectBudgetFunction.attr('style', 'display:none')
         initChart();
     })
 
-d3.select('#select-agency')
+selectAgency
     .on('click', function () {
         type = 'agency';
+        chartTitle.text('Spending By Agency')
+        selectBudgetFunction.attr('style', 'display:inline')
+        selectAgency.attr('style', 'display:none')
         initChart();
     })
 
@@ -39,4 +48,4 @@ d3.select('#filter-by-name')
         initChart(filtered)
     })
 
-initChart()
+initChart();
