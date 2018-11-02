@@ -1,0 +1,33 @@
+@import '../../colors';
+
+#viz {
+    margin-left: 1rem;
+}
+
+#detail {
+    // display: none;
+    position: absolute;
+    top: 1500px;
+    left: 10px;
+    opacity: 0;
+    
+    h2 {
+        margin: 0;
+    }
+    
+    button {
+        float: right;
+    }
+}
+
+#detail.active {
+    display: block;
+    opacity: 1;    
+    padding: 1rem;
+    top: 0;
+    left: 10px;
+    border: 1px solid gray;
+    background: white;
+    border-radius: 1rem;
+    transition: top 1s ease;
+}

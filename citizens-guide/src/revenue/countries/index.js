@@ -22,3 +22,5 @@ const incomeConfig = {
 }
 
 chartInit(incomeConfig);
+
+console.log('index')

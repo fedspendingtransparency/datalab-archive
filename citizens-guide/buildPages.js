@@ -41,7 +41,7 @@ function buildCompletePage(layout, pageData, pageContent) {
         Object.assign({}, pageData.attributes, {
             body: pageContent,
             chapter: pageData.chapter,
-            navPath: pageData.navPath
+            navPath: pageData.chapterNav
         }),
         {
             filename: pageData.outputFilename
@@ -66,11 +66,10 @@ function buildPage(filePath) {
     pageData.chapter = chapter;
     pageData.chapterNav = chapterNavMap[chapter];
     pageData.outputFilename = `${outputDir}/${fileData.name}.html`;
-
+    
     completePage = buildCompletePage(layout, pageData, pageContent);
 
     if (compareToExisting(pageData.outputFilename, completePage)) {
-        console.log('identical: ', pageData.outputFilename);
         return;
     }
 
