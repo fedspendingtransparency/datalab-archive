@@ -1,7 +1,5 @@
 ---
 title: Federal Spending Categories
-date: 2018-06-29 15:54:40
-permalink: /spending/treemap.html
 description: This is the text that goes in the meta description tag
 ---
 
@@ -10,8 +8,14 @@ description: This is the text that goes in the meta description tag
 <button id="select-budget-function">Budget Function</button>
 <button id="select-agency">Agency</button>
 
-<div id="viz"></div>
+<h2>Categories</h2>
 
-<div id="negative"></div>
+<div style="position: relative">
+    <div id="viz"></div>
+    <div id="detail">
+        <button>&times;</button>
+        <h2></h2>
+    </div>
+</div>
 
-<script src="./assets/treemap.js"></script>
+<script src="./assets/categoriesVertical.js"></script>

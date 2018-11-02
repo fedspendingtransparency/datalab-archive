@@ -6,7 +6,7 @@
     <title>
         Federal Spending Categories
     </title>
-    <meta name="description" content="description">
+    <meta name="description" content="This is the text that goes in the meta description tag">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -18,7 +18,38 @@
 <body>
     
     <main>
-        <h1>HTML Page</h1> 
+        <h1>Spending Categories</h1>
+
+<div>
+    data by:
+    <button id="select-budget-function">Budget Function</button>
+    <button id="select-agency">Agency</button>
+</div>
+
+<div>
+    sort by:
+    <button id="sort-amount">Amount</button>
+    <button id="sort-name">Name</button>
+</div>
+
+<div>filter by name: <input type="text" id="filter-by-name"></div>
+
+<div>
+    viz style:
+    <button id="viz-bars">Bars</button>
+    <button id="viz-tree">Tree</button>
+</div>
+
+<div style="position: relative">
+    <div id="viz"></div>
+    <div id="detail">
+        <button>&times;</button>
+        <h2></h2>
+    </div>
+</div>
+
+<script src="./assets/categoriesHybrid.js"></script>
+ 
     </main>
 </body>
 
