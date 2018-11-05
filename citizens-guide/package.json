@@ -8,6 +8,7 @@
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
     "build": "webpack",
+    "buildDev": "cross-env BUILD=\"Dev\" npm run build",
     "generate": "node buildPages"
   },
   "author": "Brett Turner Francis",
@@ -36,6 +37,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "cross-env": "^5.2.0",
     "d3": "^5.5.0",
     "normalize-css": "^2.3.1"
   }
