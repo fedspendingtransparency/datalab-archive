@@ -9,12 +9,12 @@ const panel = document.getElementById('categoriesPanel');
 const panelChartContainer = document.getElementById('investmentCategories_panel_chart');
 const pageTurnRt = document.getElementById('cat_rt_pg_turn');
 const pageTurnLt = document.getElementById('cat_lt_pg_turn');
-const categoriesTable = document.getElementById('categoriesTable'); // Table View
+const categoriesTable = document.getElementById('table-list'); // Table View
+const tableBtn = document.getElementById('tableBtn'); // table toggle btn
 const pageSize = 10;
 
-var currPage = 1;
-var categoriesData;
-
+let currPage = 1;
+let categoriesData;
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ const hideElement = (element) => {
   $(element).animate({width: 'toggle'});
 };
 
-var pscs = {};
+let pscs = {};
 
 d3.json("/data-lab-data/pscskv.json", function(data) {
   pscs = data;
@@ -218,7 +218,7 @@ const drawGraph = (container, nodeData, size, clickable) => {
 /*
   purpose: take a page direction and moves the categories to the new page
 */
-const turrnPage = (turnDirection) => {
+const turnPage = (turnDirection) => {
 
   currPage = currPage + turnDirection;    //updated current page
 
@@ -256,64 +256,71 @@ const clearCharts = (container) => {
   */
 panelBack.onclick = () => { hideElement(panel) };
 
-pageTurnRt.onclick = () => { turrnPage(1) };
+pageTurnRt.onclick = () => { turnPage(1) };
 
-pageTurnLt.onclick = () => { turrnPage(-1) };
+pageTurnLt.onclick = () => { turnPage(-1) };
+
+//categoriesTable.onclick = () => { showTable() }; // show the table
 
 
+// Show and Hide our Table!
+function showTable() {
+  $(tableBtn).click(function() {
+    createTable(categoriesTable);
+    $(categoriesTable).toggle(); // toggle show hide
+  });
+}
 
 // Create our "Table View"
 // for PSC!
-function createTable(containerDiv) {
-  d3.text("/data-lab-data/Edu_PSC.csv", function(data) {
-    let parsedCSV = d3.csv.parseRows(data);
-
-    let container = d3.select(containerDiv)
-        .append("table")
-
-        .selectAll("tr")
-        .data(parsedCSV).enter()
-        .append("tr")
-
-        .selectAll("td")
-        .data(function(d) { return d; }).enter()
-        .append("td")
-        .text(function(d) { return d; });
+function createTable(container) {
+  d3.csv("/data-lab-data/Edu_PSC.csv", function(error, data) {
+    if (error) throw error;
+    
+    let sortAscending = true;
+    let table = d3.select(container).append('table');
+    let titles = d3.keys(data[0]);
+    console.log(titles);
+    
+    let headers = table.append('thead').append('tr')
+	.selectAll('th')
+	.data(titles).enter()
+	.append('th')
+	.text(function (d) {
+	  return d;
+	})
+	.on('click', function (d) {
+	  headers.attr('class', 'header');
+	  
+	  if (sortAscending) {
+	    rows.sort(function(a, b) { return b[d] < a[d]; });
+	    sortAscending = false;
+	    this.className = 'aes';
+	  } else {
+	    rows.sort(function(a, b) { return b[d] > a[d]; });
+	    sortAscending = true;
+	    this.className = 'des';
+	  }
+	  
+	});
+    
+    let rows = table.append('tbody').selectAll('tr')
+	.data(data).enter()
+	.append('tr');
+    rows.selectAll('td')
+      .data(function (d) {
+	return titles.map(function (k) {
+	  return { 'value': d[k], 'name': k};
+	});
+      }).enter()
+      .append('td')
+      .attr('data-th', function (d) {
+	return d.name;
+      })
+      .text(function (d) {
+	return d.value;
+      });
   });
-
-  // going to set options for the table now...
-  var options = {
-    valueNames: [ { data: ['timestamp'] }, { data: ['status'] }, 'jSortNumber', 'jSortName', 'jSortTotal' ],
-    page: 6,
-    pagination: {
-      innerWindow: 1,
-      left: 0,
-      right: 0,
-      paginationClass: "pagination",
-    }
-  };
-
-  let tableList = new List('tableID', options);
-
-  $('.jPaginateNext').on('click', function(){
-    var list = $('.pagination').find('li');
-    $.each(list, function(position, element){
-      if($(element).is('.active')){
-	$(list[position+1]).trigger('click');
-      }
-    });
-  });
-
-
-  $('.jPaginateBack').on('click', function(){
-    var list = $('.pagination').find('li');
-    $.each(list, function(position, element){
-      if($(element).is('.active')){
-	$(list[position-1]).trigger('click');
-      }
-    });
-  });
-
 };
 
 
@@ -345,7 +352,7 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
     return a;
   },[{total:0}]);
 
-  var total = categoriesData[0].total;
+  let total = categoriesData[0].total;
 
   categoriesData.shift();
 
@@ -356,6 +363,11 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
     .forEach( n => { drawGraph(graphContainer, n, {height:200, width:200}, true); });             //draw donut chart in charts container
 
   // Table View!
-  createTable(categoriesTable);
+//  $(tableBtn).click(function() {
+//    createTable(categoriesTable);
+//    $(categoriesTable).toggle(); // toggle show hide
+//  });
+  
+  // createTable(categoriesTable);
 
 });

@@ -173,6 +173,63 @@ $green: #50604f;
       color: $grey;
     }
 
+
+    .blurbtext {
+      width: 277px;
+      height: 66px;
+      font-family: SourceSansPro;
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.69;
+      letter-spacing: normal;
+      color: #555555;
+    }
+
+    
+    .totalInvestments_breakdown_contracts_total {
+          width: 239px;
+	  height: 49px;
+	  font-family: SourceSansPro;
+	  font-size: 38.9px;
+	  font-weight: 300;
+	  font-style: normal;
+	  font-stretch: normal;
+	  line-height: normal;
+	  letter-spacing: normal;
+	  color: #555555;
+    }
+
+    .totalInvestments_breakdown_grants_total {
+          width: 239px;
+	  height: 49px;
+	  font-family: SourceSansPro;
+	  font-size: 38.9px;
+	  font-weight: 300;
+	  font-style: normal;
+	  font-stretch: normal;
+	  line-height: normal;
+	  letter-spacing: normal;
+	  color: #555555;
+    }
+
+    .totalInvestments_breakdown_studentAid_total {
+          width: 239px;
+	  height: 49px;
+	  font-family: SourceSansPro;
+	  font-size: 38.9px;
+	  font-weight: 300;
+	  font-style: normal;
+	  font-stretch: normal;
+	  line-height: normal;
+	  letter-spacing: normal;
+	  color: #555555;
+    }
+
+
+
+
     h2 {
       color: $orange;
       font-size: 21px;
@@ -444,30 +501,26 @@ $green: #50604f;
   button.sort.asc .caret { display:inline-block; }
   button.sort.desc .caret { display:inline-block; }
 
+
+
   .table-footer { 
     background-color:#fff;
     margin-top:-1px; 
     position:relative; 
     z-index:-1; }
-  
   .table-search {
     width:310px;
     border-left:1px solid #d2d2d2; }
-  
   .table-search .search { 
     width:100%;
     border:none; 
     background:transparent; 
-    box-shadow:none;
-  }
+    box-shadow:none; }
 
-  /**/
-  // Table Pagination
   /**/
 
   .table-pagination {
-    white-space:nowrap;
-  }
+    white-space:nowrap; }
 
   .table-pagination:after {
     display: block;
@@ -495,6 +548,138 @@ $green: #50604f;
     line-height:inherit;
   } 
 
+  .RANK-1-2-3-4-5-6-7-8 {
+    width: 41px;
+    height: 714px;
+    font-family: SourceSansPro;
+    font-size: 16.3px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.09;
+    letter-spacing: normal;
+    color: #555555;
+  }
+
+  .RANK-1-2-3-4-5-6-7-8 .text-style-1 {
+    font-weight: bold;
+  }
+
+  .categories__content {
+    width: 1547px;
+    height: 921px;
+    object-fit: contain;
+  }
+
+  /* 
+	Generic Styling, for Desktops/Laptops 
+ */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+    cursor: s-resize;
+    background-repeat: no-repeat;
+    background-position: 3% center;
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+  
+  th.des:after {
+    content: "\21E9";
+  }
+  
+  th.aes:after {
+    content: "\21E7";
+  }
+  
+  /* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+ */
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    
+    tr { border: 1px solid #ccc; }
+    
+    td { 
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee; 
+      position: relative;
+      padding-left: 50%; 
+    }
+    
+    td:before { 
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding-right: 10px; 
+      white-space: nowrap;
+    }
+    
+    /*
+      Label the data
+   */
+    td:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 6.5em;
+      display: inline-block;
+    }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+  }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+
+  .Rectangle-3 {
+    width: 740px;
+    height: 151px;
+    opacity: 0.9;
+    background-color: #fafafa;
+  }
 
 
 }

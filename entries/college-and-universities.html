@@ -24,7 +24,7 @@ permalink: college-and-universities.html
     </div>
   </div>
 
-  <div id="secitonTableOfContents" data-aos="fade-up" data-aos-delay="3000">
+  <div id="secitonTableOfContents" data-aos="fade-up" data-aos-delay="2000" data-aos-offset='400'>
     <div class="table-of-contents">
       <div>
         <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">01</span>
@@ -78,7 +78,7 @@ permalink: college-and-universities.html
   </div>
 
   <div id="secitonInvestmentOverview" class="InvestmentOverviewContainer">
-    <div class="sectionHeader story" data-aos="fade-down" data-aos-delay="2000">
+    <div class="sectionHeader story" data-aos="fade-down" data-aos-delay="2000" data-aos-offset="250">
       <h1>01</h1>
       <h2>Investment Overview</h2>
       <h3>How Much was invested in colleges & Universities?</h3>
@@ -87,7 +87,7 @@ permalink: college-and-universities.html
     <div class="overview_information">
       <h2 class='story' data-aos="fade-right" data-aos-delay="500">Total Investment</h2>
       <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount" data-aos="fade-left" data-aos-delay="500"></p>
-      <h1 id="investment_spending_total"></h1>
+      <h1 id="investment_spending_total" class="contracts"></h1>
 
       <!-- Graph Starts Here -->
       <div id="totalInvestments_Graph" class="graph story" data-aos="fade-left" data-aos-delay="500">
@@ -100,28 +100,28 @@ permalink: college-and-universities.html
         <div class="story" id="contracts">
           <span>
             <h2 data-aos="fade-left" data-aos-delay="500">Contracts</h2>
-            <h1 id="totalInvestments_breakdown_contracts_total" data-aos="fade-right" data-aos-delay="500"></h1>
-            <p data-aos="fade-right" data-aos-delay="500">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
+            <p id="totalInvestments_breakdown_contracts_total" data-aos="fade-right" data-aos-delay="500"></p>
+            <p class='blurbtext' data-aos="fade-right" data-aos-delay="500">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
         <div class="story" id="grants" data-aos="fade-left" data-aos-delay="500">
           <span>
             <h2 data-aos="fade-left" data-aos-delay="500">Grants</h2>
-            <h1 id="totalInvestments_breakdown_grants_total" data-aos="fade-left" data-aos-delay="500"></h1>
-            <p data-aos="fade-left" data-aos-delay="500">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
+            <p id="totalInvestments_breakdown_grants_total" data-aos="fade-left" data-aos-delay="500"></p>
+            <p class="blurbtext" data-aos="fade-left" data-aos-delay="500">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
         <div class="story" id="studentaid" data-aos="fade-left" data-aos-delay="500">
           <span>
             <h2>Student Aid</h2>
-            <h1 id="totalInvestments_breakdown_studentAid_total"></h1>
-            <p>PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
+            <p id="totalInvestments_breakdown_studentAid_total"></p>
+            <p class="blurbtext">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div id="secitonInvestmentCategories">
     <div class="sectionHeader" data-aos="fade-up" data-aos-delay="500">
       <h1>02</h1>
@@ -135,30 +135,31 @@ permalink: college-and-universities.html
       <div id="categoriesPanel" class="panel" data-aos="fade-right">
         <span id="categories_panel_back_btn">
           <strong>
-          </strong> Back </span> <div id="investmentCategories_panel_chart" class="panelChart">
-	  </div>
+          </strong> Back </span>
+        <div id="investmentCategories_panel_chart" class="panelChart">
+        </div>
       </div>
 
       <!-- 3 Way Menu -->
       <div id="threeMenu">
-	<button onclick="">A</button>
-	<button onclick="">B</button>
-	<button onclick="">C</button>
+        <button id="donutBtn" onclick="">Donut</button>
+        <button id="tableBtn" onclick="">Table</button>
+        <button id="treeBtn" onclick="">Tree</button>
       </div>
 
-      <!-- Table First -->
-      <div id="categoriesTable">
-	Table
+      <!-- Table -->
+      <div id="table-list">
+        cara sucks
       </div>
 
       <!-- Where Pie Chart Starts!  -->
       <div id="categoriesChartContainer" class="chartContainer" data-aos="fade-left" data-aos-delay="1000">
-	<span id="cat_rt_pg_turn" class="chv right">
+        <span id="cat_rt_pg_turn" class="chv right">
           <i class="fas fa-chevron-right chv right"></i>
-	</span>
-	<span id="cat_lt_pg_turn" class="chv left">
+        </span>
+        <span id="cat_lt_pg_turn" class="chv left">
           <i class="fas fa-chevron-left"></i>
-	</span>
+        </span>
       </div>
 
     </div>
@@ -191,8 +192,8 @@ permalink: college-and-universities.html
     <div id="collegesMap" class="collegesMap" data-aos="fade-down" data-aos-delay="1000"> </div>
   </div>
 
-  <div id="secitonConclusion">
-    <div class="sectionHeader" data-aos="fade-left" data-aos-delay="500">
+  <div id="secitonConclusion" data-aos="fade-right" data-aos-delay="1000">
+    <div class="sectionHeader" data-aos="fade-left" data-aos-delay="1000">
       <h1>05</h1>
       <h2>Conclusion</h2>
       <h3>What's next?</h3>
@@ -201,7 +202,7 @@ permalink: college-and-universities.html
     </div>
   </div>
 
-  <div id="secitonAppendixMethodolgy">
+  <div id="secitonAppendixMethodolgy" data-aos="fade-right" data-aos-delay="1000">
     <div class="sectionHeader" data-aos="fade-left" data-aos-delay="1000">
       <h1>06</h1>
       <h2>Appendix: Methodology</h2>
@@ -223,16 +224,18 @@ permalink: college-and-universities.html
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/categoriesPieChart.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/institutions.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/util/listy.js"></script>
 
 <!-- Pagination & Search Filter in Tables can be a headache...This helps! -->
-<script src="{{site.baseurl}}/assets/js/util/list.min.js"</script>
-
-<!-- include scrollstory -->
-<!-- script src="{{site.baseurl}}/js/jquery.scrollstory.js"></script> -->
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/util/list.min.js"></script>
 
 <!-- Add AOS for ScrollStory Jazz -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<!-- Material Design -->
+
+
 <script>
- AOS.init();
+  AOS.init();
 </script>
