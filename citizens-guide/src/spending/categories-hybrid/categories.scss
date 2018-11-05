@@ -1,33 +1,37 @@
 @import '../../colors';
 
-#viz {
-    margin-left: 1rem;
+main {
+    max-width: 1200px;
+    margin: 0 1rem;
 }
 
-#detail {
-    // display: none;
-    position: absolute;
-    top: 1500px;
-    left: 10px;
-    opacity: 0;
-    
-    h2 {
+#bar-controls {
+    margin-top: 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+    #viz-wrapper {
+        width: 66%;
         margin: 0;
-    }
-    
-    button {
+        padding-left: 2rem;
         float: right;
+        box-sizing: border-box;
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .poc-content {
+        margin-right: 66%;
+        border-right: 1px solid #ccc;
+        padding-right: 2rem;
     }
 }
 
-#detail.active {
-    display: block;
-    opacity: 1;    
-    padding: 1rem;
-    top: 0;
-    left: 10px;
-    border: 1px solid gray;
-    background: white;
-    border-radius: 1rem;
-    transition: top 1s ease;
+@media only screen and (min-width: 1200px) {
+    main {
+        margin: 0 auto;
+    }
 }

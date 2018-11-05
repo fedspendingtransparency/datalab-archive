@@ -68,6 +68,7 @@ module.exports = [{
 },{
     entry: {
         bars: './src/spending/bars/index.js',
+        categoriesHybrid: './src/spending/categories-hybrid/index.js',
         categories: './src/spending/categories/index.js',
         categoriesHorizontal: './src/spending/categories-horizontal/index.js',
         categoriesVertical: './src/spending/categories-vertical/index.js',
