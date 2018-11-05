@@ -2,6 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const build = process.env.BUILD ? process.env.BUILD : false;
+const devtool = build ? 'inline-source-map' : '';
+const mode = build ? 'development' : 'production';
+
 const moduleRules = [
     {
         test: /\.js$/,
@@ -40,12 +44,13 @@ module.exports = [{
         trends: './src/revenue/trends/index.js',
         countries: './src/revenue/countries/index.js'
     },
-    devtool: 'inline-source-map',
+    devtool: devtool,
     devServer: {
         contentBase: 'public',
         watchContentBase: true,
         compress: true
     },
+    mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -57,10 +62,9 @@ module.exports = [{
         path: __dirname + '/public/revenue/assets/',
         publicPath: '/revenue/assets/'
     },
-    mode: 'development',
     module: {
         rules: moduleRules
-    },
+    }
 },{
     entry: {
         bars: './src/spending/bars/index.js',
@@ -73,12 +77,13 @@ module.exports = [{
         treemap: './src/spending/treemap/index.js',
         trends: './src/spending/trends/index.js'
     },
-    devtool: 'inline-source-map',
+    devtool: devtool,
     devServer: {
         contentBase: 'public',
         watchContentBase: true,
         compress: true
     },
+    mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -90,7 +95,6 @@ module.exports = [{
         path: __dirname + '/public/spending/assets/',
         publicPath: '/spending/assets/'
     },
-    mode: 'development',
     module: {
         rules: moduleRules
     }
@@ -99,7 +103,7 @@ module.exports = [{
     output: {
 		path: path.resolve(__dirname, 'public/assets'),
 	},
-    mode: 'development',
+    mode: mode,
     module: {
 		rules: [
 			{
@@ -124,4 +128,5 @@ module.exports = [{
 			}
 		]
 	}
-}]
+}];
+
