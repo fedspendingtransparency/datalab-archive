@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
     "build": "webpack",
-    "buildDev": "cross-env BUILD=\"Dev\" npm run build",
+    "buildDebug": "cross-env BUILD=\"Dev\" npm run build",
     "generate": "node buildPages"
   },
   "author": "Brett Turner Francis",
