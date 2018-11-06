@@ -173,8 +173,8 @@ $green: #50604f;
       color: $grey;
     }
 
-
     .blurbtext {
+      flex-wrap: wrap;
       width: 277px;
       height: 66px;
       font-family: SourceSansPro;
@@ -187,9 +187,13 @@ $green: #50604f;
       color: #555555;
     }
 
-    
+    .flexcontainer {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     .totalInvestments_breakdown_contracts_total {
-          width: 239px;
+    width: 239px;
 	  height: 49px;
 	  font-family: SourceSansPro;
 	  font-size: 38.9px;
@@ -675,6 +679,8 @@ $green: #50604f;
   }
 
   .Rectangle-3 {
+    margin-top: 25px;
+    margin-bottom: 50px;
     width: 740px;
     height: 151px;
     opacity: 0.9;

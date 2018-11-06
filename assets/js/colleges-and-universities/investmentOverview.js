@@ -12,6 +12,16 @@ const contractsSpan = document.getElementById('totalInvestments_breakdown_contra
 const grantsSpan = document.getElementById('totalInvestments_breakdown_grants_total');
 const studentaidSpan = document.getElementById('totalInvestments_breakdown_studentAid_total');
 
+/**
+ * JS Event Handling for Scrolling!
+ */
+document.addEventListener('aos:in', function (data) {
+    console.log('aos in!' + data);
+    setTimeout(function () {
+        $('.Rectangle-3').hide();
+    }, 3000);
+});
+
 /*
 purpose: utility to return 0 if a number cannot be parsed
  or the parsed float number
@@ -62,17 +72,19 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
     }, 0)
         .toFixed(2));
 
+
+
     let totalInvestment = totalContracts + totalGrants + totalStudentAid;
 
     let contractSpendingPercent = parseInt(((totalContracts / totalInvestment) * 100));
     let grantsSpendingPercent = parseInt(((totalGrants / totalInvestment) * 100));
     let studentAidSpendingPercent = parseInt(((totalStudentAid / totalInvestment) * 100));
 
-    console.log('aid spending');
-    console.log(totalStudentAid);
-    console.log('grant spending' + totalGrants);
-    console.log('percents:' + "Contracts" + contractSpendingPercent + "\n" + "Grants" + grantsSpendingPercent + "\n" 
-    + "Aid" + studentAidSpendingPercent);
+    //console.log('aid spending');
+    //console.log(totalStudentAid);
+    //console.log('grant spending' + totalGrants);
+    //console.log('percents:' + "Contracts" + contractSpendingPercent + "\n" + "Grants" + grantsSpendingPercent + "\n"
+    //   + "Aid" + studentAidSpendingPercent);
 
     //updatin bar graph to reflect percentages
     contractsGraphBar.style.width = `${contractSpendingPercent}%`;
@@ -81,13 +93,12 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
 
     totalinvestmentBar.innerHTML = `$${totalInvestment.formatMoney(2)}`;
 
-
-/** 
- * Continuing where he left off...
- */
+    /** 
+     * Continuing where he left off...
+     */
     contractsSpan.innerHTML = `$${totalContracts.formatMoney(2)}`;
     grantsSpan.innerHTML = `$${totalGrants.formatMoney(2)}`;
-    studentaidSpan.innerHTML = `$${totalStudentAid.formatMoney(2)}`; // check if this calculation is okay
+    studentaidSpan.innerHTML = `$${totalStudentAid.formatMoney(2)}`; 
 
 });
 
