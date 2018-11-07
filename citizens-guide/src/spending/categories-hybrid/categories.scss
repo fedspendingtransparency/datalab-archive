@@ -9,6 +9,10 @@ main {
     margin-top: 1rem;
 }
 
+#viz {
+    overflow-x: hidden;
+}
+
 @media only screen and (min-width: 800px) {
     #viz-wrapper {
         width: 66%;

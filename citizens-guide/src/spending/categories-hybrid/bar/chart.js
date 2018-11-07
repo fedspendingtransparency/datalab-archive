@@ -2,6 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { extent } from 'd3-array';
 import { transition } from 'd3-transition';
+import { zoom } from 'd3-zoom';
 import { establishContainer, translator } from "../../../utils";
 import { placeLabels } from './text';
 import colors from '../../../colors.scss';
@@ -9,7 +10,7 @@ import { initSort } from './sort';
 import { initOverlay } from './detailOverlay';
 import { optimizeWidth, scaleToFit } from './optimize-width';
 
-const d3 = { select, selectAll, scaleLinear, extent, transition },
+const d3 = { select, selectAll, scaleLinear, extent, transition, zoom },
     barAnimationTime = 1000,
     hoverDuration = 200,
     rowHeight = 50;
@@ -148,8 +149,24 @@ export function drawChart(data, type, detail, parentWidth) {
     if (detail) {
         initOverlay(type, config, placeContainers);
     } else {
-        config.svg = establishContainer(config.height, config.width);
+        config.svg = establishContainer(config.height, config.width)
+            .append('g').classed('pan-listen', true)
+            .append('g').classed('pan-apply', true);
+
         placeContainers(config, detail);
         //scaleToFit(config.svg);
+
+        d3.select('g.pan-listen').call(d3.zoom().on("zoom", function () {
+            let xShift;
+            
+            d3.getEvent = () => require("d3-selection").event;
+
+            xShift = d3.getEvent().transform.x;
+
+            xShift = (xShift > 0) ? 0 : xShift;
+            
+            d3.select('g.pan-apply').attr("transform", translator(xShift, 0))
+        }))
+        .on("wheel.zoom", null);
     }
 }
