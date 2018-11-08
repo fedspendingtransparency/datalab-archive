@@ -9,7 +9,7 @@ const panel = document.getElementById('categoriesPanel');
 const panelChartContainer = document.getElementById('investmentCategories_panel_chart');
 const pageTurnRt = document.getElementById('cat_rt_pg_turn');
 const pageTurnLt = document.getElementById('cat_lt_pg_turn');
-const categoriesTable = document.getElementById('table-list'); // Table View
+const categoriesTable = document.getElementById('tableDiv'); // Table View
 
 const tableBtn = document.getElementById('tableBtn'); // table toggle btn 
 const graphBtn = document.getElementById('donutBtn'); // graph toggle btn (we'll replace with svg or w/e)
@@ -301,8 +301,8 @@ function createTable(container, columns) {
 
     let total = tableData[0].total;
     //console.log(total);
-    
-//    console.log(tableData);
+
+    //    console.log(tableData);
 
     tableData.shift();
 
@@ -313,14 +313,17 @@ function createTable(container, columns) {
     //tableData.forEach(n => { n.percentage = (n.total / total) });
     tableData.sort((a, b) => { return b.percentage - a.percentage });
     tableData.forEach(n => delete n.abbrv); // get rid of abbrev name, we dont need it     
-    
+
     if (error) throw error;
 
     /**
      * Table START
      */
     let sortAscending = true;
-    let table = d3.select(container).append('table');
+    let table = d3.select(container).append('table')
+    .attr('class', 'display compact')
+    .attr('id', 'catTable'); // id given to table for Datatables.js
+
     let titles = ['PSC Name', '% of Total', 'Investment Amount']; // header array (will add Rank and Count of Awards later.. not sure what they are)
 
     let headers = table.append('thead').append('tr')
@@ -344,24 +347,55 @@ function createTable(container, columns) {
         }
       });
 
-    let rows = table.append('tbody').selectAll('tr')
+    let rows = table.append('tbody')
+      .selectAll('tr')
       .data(tableData).enter()
       .append('tr');
-    
+
     rows.selectAll('td')
       .data(function (row) {
         return columns.map(function (column) {
-          return {column: column, value: row[column]}
+          return { column: column, value: row[column] }
         });
       }).enter()
       .append('td')
+      // going to use classed here.. solves what we want to do.
+      .classed('name', function (d) {
+        return d.column == 'name';
+      })
+      .classed('percentage', function (d) {
+        return d.column == 'percentage';
+      })
+      .classed('total', function (d) {
+        return d.column == 'total';
+      })
+      // a little tricky? Dynamically add classes to TD's in table so we can use them for Sorting and Search in List.js
+      // depreciated... writing it in jquery
+      //      .each(function (d) {
+      //        console.log(d);
+      //        //console.log(d.value);
+      //        ['name', 'percentage', 'total'].forEach(function (key) {
+      //          if (key === d.column) {
+      //            d.attr('class', key);
+      //}
+      //})
+      //})
       .text(function (d) {
         return d.value;
       })
       .attr('data-th', function (d) {
         return d.name;
       })
-  });
+      
+      // use DataTables JS and attach in D3 callback - DOM problems begone
+      $(document).ready(function(){
+        $('#catTable').DataTable({
+          searching: true,
+          paging: true,
+          scrollY: true,
+        })
+      })
+    });
 };
 
 
@@ -410,9 +444,9 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
 
   // Table View!
   //$(tableBtn).click(function () {
-//    createTable(categoriesTable, ['name', 'total', 'percentage']);
-    //$(categoriesTable).toggle(); // toggle show hide
-    //$(graphContainer).toggle(); // hide graph when show table
+  //    createTable(categoriesTable, ['name', 'total', 'percentage']);
+  //$(categoriesTable).toggle(); // toggle show hide
+  //$(graphContainer).toggle(); // hide graph when show table
   //});
   createTable(categoriesTable, ['name', 'percentage', 'total']); // table testing
 

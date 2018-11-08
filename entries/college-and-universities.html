@@ -113,7 +113,8 @@ permalink: college-and-universities.html
         <div class="story" id="contracts">
           <span id="flexspan">
             <h2 data-aos="fade-left" data-aos-delay="500" data-aos-offset="200">Contracts</h2>
-            <p id="totalInvestments_breakdown_contracts_total" data-aos="fade-right" data-aos-delay="500" data-aos-offset="200"></p>
+            <p id="totalInvestments_breakdown_contracts_total" data-aos="fade-right" data-aos-delay="500"
+              data-aos-offset="200"></p>
             <p class='blurbtext' data-aos="fade-right" data-aos-delay="500" data-aos-offset="200">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
@@ -127,7 +128,8 @@ permalink: college-and-universities.html
         <div class="story" id="studentaid" data-aos="fade-left" data-aos-delay="500" data-aos-offset="200">
           <span id="flexspan">
             <h2 data-aos="fade-left" data-aos-delay="500" data-aos-offset="200">Student Aid</h2>
-            <p id="totalInvestments_breakdown_studentAid_total" data-aos="fade-left" data-aos-delay="500" data-aos-offset="200"></p>
+            <p id="totalInvestments_breakdown_studentAid_total" data-aos="fade-left" data-aos-delay="500"
+              data-aos-offset="200"></p>
             <p class="blurbtext" data-aos="fade-left" data-aos-delay="500" data-aos-offset="200">PlaceholderPlaceholderPlaceholderPlaceholderPlaceholderPlaceholder</p>
           </span>
         </div>
@@ -161,9 +163,10 @@ permalink: college-and-universities.html
       </div>
 
       <!-- Table -->
-      <div id="table-list">
-      
+      <div id="tableDiv" class="table-list-container">
+
       </div>
+
 
       <!-- Where Pie Chart Starts!  -->
       <div id="categoriesChartContainer" class="chartContainer" data-aos="fade-left" data-aos-delay="1000">
@@ -237,15 +240,10 @@ permalink: college-and-universities.html
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/categoriesPieChart.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/institutions.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/colleges-and-universities/util/listy.js"></script>
-
-<!-- Pagination & Search Filter in Tables can be a headache...This helps! -->
-<script src="{{site.baseurl}}/assets/js/colleges-and-universities/util/list.min.js"></script>
+<script src="{{site.baseurl}}/js/jquery.dataTables.min.js"></script>
 
 <!-- Add AOS for ScrollStory Jazz -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 <script>
   AOS.init();
 </script>
