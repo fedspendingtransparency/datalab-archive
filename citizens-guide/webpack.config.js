@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const build = process.env.BUILD ? process.env.BUILD : false;
-const devtool = build ? 'inline-source-map' : '';
-const mode = build ? 'development' : 'production';
+const devtool = build ? '' : 'inline-source-map';
+const mode = build ? 'production' : 'development';
 
 const moduleRules = [
     {
