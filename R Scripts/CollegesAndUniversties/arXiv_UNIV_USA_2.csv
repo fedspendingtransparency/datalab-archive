@@ -1,0 +1,1759 @@
+recipient,id,year,topic
+California Institute of Technology,0707.0196v3,2007,astro-ph
+California Institute of Technology,0809.0695v2,2008,astro-ph
+Case Western Reserve University,astro-ph/0702333v1,2007,astro-ph
+Columbia University in the City of New York,0807.4697v2,2008,astro-ph
+Cornell University,astro-ph/0701285v1,2007,astro-ph
+Cornell University,0704.0799v3,2007,astro-ph
+Cornell University,0809.3448v2,2008,astro-ph
+Drexel University,0706.1565v2,2007,astro-ph
+Harvard University,0803.3627v1,2008,astro-ph
+Harvard University,astro-ph/0703722v2,2007,astro-ph
+Harvard University,astro-ph/0702298v1,2007,astro-ph
+Massachusetts Institute of Technology,0804.0016v3,2008,astro-ph
+New Mexico State University,0705.4287v3,2007,astro-ph
+Northwestern University,0706.3700v2,2007,astro-ph
+Ohio State University,0706.1824v1,2007,astro-ph
+Ohio State University,astro-ph/0701751v2,2007,astro-ph
+Ohio State University,astro-ph/0702613v3,2007,astro-ph
+Princeton University,0803.0337v1,2008,astro-ph
+Princeton University,0707.1316v2,2007,astro-ph
+Princeton University,0712.3941v1,2007,astro-ph
+San Diego State University,0808.1279v2,2008,astro-ph
+San Diego State University,astro-ph/0702221v1,2007,astro-ph
+San Diego State University,0705.2708v2,2007,astro-ph
+SUNY Buffalo State,astro-ph/0701343v2,2007,astro-ph
+Texas A & M University-Commerce,0801.1653v3,2008,astro-ph
+Texas A & M University-Commerce,0805.1973v2,2008,astro-ph
+The University of Texas at Dallas,0801.3514v2,2008,astro-ph
+The University of Texas at Dallas,0810.4956v2,2008,astro-ph
+University of Arizona,0806.1531v1,2008,astro-ph
+University of California-Berkeley,0803.2397v2,2008,astro-ph
+University of California-Irvine,0812.1920v1,2008,astro-ph
+University of California-Los Angeles,0710.3359v2,2007,astro-ph
+University of California-Los Angeles,astro-ph/0703631v2,2007,astro-ph
+University of California-Santa Barbara,0804.3404v1,2008,astro-ph
+University of Chicago,astro-ph/0702278v2,2007,astro-ph
+University of Chicago,0706.2399v1,2007,astro-ph
+University of Chicago,astro-ph/0701692v1,2007,astro-ph
+University of Florida,0804.3804v3,2008,astro-ph
+University of Kansas,0808.0915v3,2008,astro-ph
+University of Maryland-College Park,0704.0044v4,2007,astro-ph
+University of Maryland-College Park,astro-ph/0702641v2,2007,astro-ph
+University of Maryland-College Park,astro-ph/0703054v2,2007,astro-ph
+University of New Mexico-Main Campus,0806.3538v1,2008,astro-ph
+University of Rochester,0707.3191v2,2007,astro-ph
+University of Virginia,0707.0438v2,2007,astro-ph
+University of Wisconsin-Madison,astro-ph/0702002v2,2007,astro-ph
+Vanderbilt University,astro-ph/0702207v3,2007,astro-ph
+Washburn University,0804.3207v4,2008,astro-ph
+Washburn University,0809.0899v3,2008,astro-ph
+Washburn University,0804.3604v3,2008,astro-ph
+Washington University in St Louis,0711.1677v2,2007,astro-ph
+Arizona State University,1002.1952v2,2010,astro-ph.CO
+Baylor University,1211.3088v2,2012,astro-ph.CO
+California Institute of Technology,1308.3240v2,2013,astro-ph.CO
+California Institute of Technology,1409.7395v2,2014,astro-ph.CO
+California Institute of Technology,1210.0903v3,2012,astro-ph.CO
+Carnegie Mellon University,1112.3108v2,2011,astro-ph.CO
+Carnegie Mellon University,1304.4124v1,2013,astro-ph.CO
+Cornell University,1009.4192v3,2010,astro-ph.CO
+Harvard University,1004.2016v1,2010,astro-ph.CO
+Harvard University,1004.4833v2,2010,astro-ph.CO
+Johns Hopkins University,1609.09377v1,2016,astro-ph.CO
+Massachusetts Institute of Technology,0911.0414v1,2009,astro-ph.CO
+Massachusetts Institute of Technology,1409.0050v1,2014,astro-ph.CO
+Ohio State University,1001.3678v2,2010,astro-ph.CO
+Ohio State University,1006.5751v3,2010,astro-ph.CO
+Stanford University,1304.6401v2,2013,astro-ph.CO
+Syracuse University,1101.5205v1,2011,astro-ph.CO
+The University of Texas at Austin,1006.5457v3,2010,astro-ph.CO
+The University of Texas at Dallas,0905.2470v2,2009,astro-ph.CO
+The University of Texas at Dallas,1005.2989v3,2010,astro-ph.CO
+The University of Texas at Dallas,1203.2138v1,2012,astro-ph.CO
+The University of Texas at Dallas,1212.2298v1,2012,astro-ph.CO
+The University of Texas at Dallas,1104.2590v3,2011,astro-ph.CO
+The University of Texas at Dallas,1205.2422v2,2012,astro-ph.CO
+The University of Texas at Dallas,1006.0014v1,2010,astro-ph.CO
+The University of Texas at Dallas,1109.4896v2,2011,astro-ph.CO
+The University of Texas at Dallas,1307.0723v2,2013,astro-ph.CO
+The University of Texas at Dallas,1311.5651v2,2013,astro-ph.CO
+The University of Texas at Dallas,1311.5936v2,2013,astro-ph.CO
+University of Arizona,1007.3269v1,2010,astro-ph.CO
+University of California-Berkeley,1210.0903v3,2012,astro-ph.CO
+University of California-San Diego,1510.00428v2,2015,astro-ph.CO
+University of California-Santa Cruz,1510.02801v1,2015,astro-ph.CO
+University of California-Santa Cruz,1606.06293v2,2016,astro-ph.CO
+University of Chicago,1604.00886v2,2016,astro-ph.CO
+University of Florida,1405.0393v1,2014,astro-ph.CO
+University of Michigan-Ann Arbor,0909.3308v2,2009,astro-ph.CO
+University of Michigan-Ann Arbor,1205.6476v3,2012,astro-ph.CO
+University of Michigan-Ann Arbor,0908.3988v2,2009,astro-ph.CO
+University of Michigan-Ann Arbor,1109.6936v2,2011,astro-ph.CO
+University of Michigan-Ann Arbor,1010.1162v3,2010,astro-ph.CO
+University of Minnesota-Twin Cities,1304.3706v3,2013,astro-ph.CO
+University of Missouri-Columbia,1212.5278v1,2012,astro-ph.CO
+University of Missouri-Columbia,1407.6667v2,2014,astro-ph.CO
+University of North Carolina at Chapel Hill,1110.4986v2,2011,astro-ph.CO
+University of Oklahoma-Norman Campus,1006.3500v1,2010,astro-ph.CO
+University of Wisconsin-Milwaukee,1204.3117v1,2012,astro-ph.CO
+University of Wisconsin-Milwaukee,1109.1050v2,2011,astro-ph.CO
+Washington University in St Louis,1306.3244v2,2013,astro-ph.CO
+Washington University in St Louis,1307.6946v1,2013,astro-ph.CO
+Yale University,1202.0185v2,2012,astro-ph.CO
+California Institute of Technology,1307.7147v2,2013,astro-ph.EP
+California State University-Long Beach,1506.03793v2,2015,astro-ph.EP
+Harvard University,1301.0818v1,2013,astro-ph.EP
+Harvard University,1707.04253v1,2017,astro-ph.EP
+Massachusetts Institute of Technology,1103.3725v1,2011,astro-ph.EP
+New York University,0903.5308v3,2009,astro-ph.EP
+University of Arizona,1303.4506v1,2013,astro-ph.EP
+University of California-Berkeley,1101.0253v1,2010,astro-ph.EP
+University of California-Berkeley,1012.5077v1,2010,astro-ph.EP
+University of California-San Diego,0902.2873v1,2009,astro-ph.EP
+University of California-Santa Cruz,1003.3969v1,2010,astro-ph.EP
+University of Kansas,0907.1067v4,2009,astro-ph.EP
+University of Kansas,1608.07303v2,2016,astro-ph.EP
+University of Kansas,1406.5141v2,2014,astro-ph.EP
+University of Kansas,1702.04365v2,2017,astro-ph.EP
+University of Kansas,1108.0326v3,2011,astro-ph.EP
+University of Kansas,1409.7049v3,2014,astro-ph.EP
+University of Kansas,1401.7276v1,2014,astro-ph.EP
+University of Kansas,0901.3173v2,2009,astro-ph.EP
+Washburn University,1102.2830v1,2011,astro-ph.EP
+Washburn University,1212.0490v1,2012,astro-ph.EP
+Washburn University,1604.01816v1,2016,astro-ph.EP
+Washburn University,1111.5590v1,2011,astro-ph.EP
+California Institute of Technology,1510.02477v2,2015,astro-ph.GA
+California Institute of Technology,1612.05264v2,2016,astro-ph.GA
+California Institute of Technology,1211.3119v2,2012,astro-ph.GA
+Iowa State University,0906.2777v2,2009,astro-ph.GA
+Princeton University,1502.03360v1,2015,astro-ph.GA
+University of California-Berkeley,1211.3119v2,2012,astro-ph.GA
+University of Minnesota-Twin Cities,1101.3327v1,2011,astro-ph.GA
+University of Missouri-Columbia,1210.6856v1,2012,astro-ph.GA
+California Institute of Technology,1205.6482v1,2012,astro-ph.HE
+California Institute of Technology,1209.1634v3,2012,astro-ph.HE
+California Institute of Technology,1707.01527v2,2017,astro-ph.HE
+California Institute of Technology,1608.08069v1,2016,astro-ph.HE
+California State University-Long Beach,1008.4985v1,2010,astro-ph.HE
+Columbia University in the City of New York,1509.04301v1,2015,astro-ph.HE
+Columbia University in the City of New York,1211.6113v1,2012,astro-ph.HE
+Georgia Institute of Technology,1702.01457v1,2017,astro-ph.HE
+Harvard University,1512.06124v2,2015,astro-ph.HE
+Harvard University,1406.1497v1,2014,astro-ph.HE
+Harvard University,1411.5685v1,2014,astro-ph.HE
+Harvard University,1411.6014v1,2014,astro-ph.HE
+Harvard University,1708.04627v2,2017,astro-ph.HE
+Harvard University,1710.07648v1,2017,astro-ph.HE
+Harvard University,0903.1105v1,2009,astro-ph.HE
+Massachusetts Institute of Technology,1601.05550v1,2016,astro-ph.HE
+Massachusetts Institute of Technology,1306.0151v2,2013,astro-ph.HE
+Massachusetts Institute of Technology,1503.03873v2,2015,astro-ph.HE
+Massachusetts Institute of Technology,1608.08627v2,2016,astro-ph.HE
+Massachusetts Institute of Technology,1612.04962v1,2016,astro-ph.HE
+Michigan State University,0903.3994v2,2009,astro-ph.HE
+Ohio State University,1106.4668v2,2011,astro-ph.HE
+Ohio State University,1004.3311v1,2010,astro-ph.HE
+Ohio State University,1404.2288v3,2014,astro-ph.HE
+Ohio State University,1308.0013v1,2013,astro-ph.HE
+Pennsylvania State University,1305.6606v3,2013,astro-ph.HE
+Pennsylvania State University,1512.07670v1,2015,astro-ph.HE
+Pennsylvania State University,1705.04750v1,2017,astro-ph.HE
+Princeton University,1209.2150v3,2012,astro-ph.HE
+Princeton University,1401.5471v1,2014,astro-ph.HE
+Princeton University,1512.08131v1,2015,astro-ph.HE
+Princeton University,1704.08252v1,2017,astro-ph.HE
+Princeton University,1412.0672v2,2014,astro-ph.HE
+Purdue University,1605.02071v2,2016,astro-ph.HE
+Purdue University,1010.6254v2,2010,astro-ph.HE
+Purdue University,1101.0639v2,2011,astro-ph.HE
+Purdue University,1602.07352v1,2016,astro-ph.HE
+Purdue University,1112.0249v1,2011,astro-ph.HE
+Purdue University,1004.2428v4,2010,astro-ph.HE
+Stanford University,1103.0477v2,2011,astro-ph.HE
+Stanford University,1604.03179v2,2016,astro-ph.HE
+Stanford University,1605.08781v1,2016,astro-ph.HE
+Stanford University,1201.4163v3,2012,astro-ph.HE
+University of Arizona,1008.3902v2,2010,astro-ph.HE
+University of Arizona,1110.4389v2,2011,astro-ph.HE
+University of Arizona,1003.3415v2,2010,astro-ph.HE
+University of Arizona,1012.1602v1,2010,astro-ph.HE
+University of Arizona,1105.5645v1,2011,astro-ph.HE
+University of Arizona,1201.1006v2,2012,astro-ph.HE
+University of Arizona,1210.0916v1,2012,astro-ph.HE
+University of Arizona,1311.5564v1,2013,astro-ph.HE
+University of California-Los Angeles,1105.1495v2,2011,astro-ph.HE
+University of California-Los Angeles,1109.2124v1,2011,astro-ph.HE
+University of California-San Diego,1407.7561v1,2014,astro-ph.HE
+University of Chicago,1006.2391v2,2010,astro-ph.HE
+University of Colorado Boulder,1205.6537v1,2012,astro-ph.HE
+University of Colorado Boulder,1101.2472v1,2011,astro-ph.HE
+University of Colorado Boulder,1703.04688v1,2017,astro-ph.HE
+University of Illinois at Urbana-Champaign,1604.03894v1,2016,astro-ph.HE
+University of Kansas,1211.3962v3,2012,astro-ph.HE
+University of Maryland-College Park,1302.3260v2,2013,astro-ph.HE
+University of Maryland-College Park,1508.02433v1,2015,astro-ph.HE
+University of Maryland-College Park,1606.06526v1,2016,astro-ph.HE
+University of Maryland-College Park,1306.4404v1,2013,astro-ph.HE
+University of Maryland-College Park,1312.0591v1,2013,astro-ph.HE
+University of Maryland-College Park,1508.05323v2,2015,astro-ph.HE
+University of Maryland-College Park,1709.10113v1,2017,astro-ph.HE
+University of Michigan-Ann Arbor,1006.5755v1,2010,astro-ph.HE
+University of Minnesota-Twin Cities,1407.7561v1,2014,astro-ph.HE
+University of Minnesota-Twin Cities,1207.3805v1,2012,astro-ph.HE
+University of Minnesota-Twin Cities,1509.01538v2,2015,astro-ph.HE
+University of Nevada-Las Vegas,1602.04542v4,2016,astro-ph.HE
+University of Virginia,1105.2825v1,2011,astro-ph.HE
+University of Washington,1110.5116v1,2011,astro-ph.HE
+University of Washington,1305.3242v2,2013,astro-ph.HE
+University of Washington,1302.6626v2,2013,astro-ph.HE
+University of Wisconsin-Madison,1503.01696v2,2015,astro-ph.HE
+Washington State,1306.4034v2,2013,astro-ph.HE
+California Institute of Technology,1602.07703v2,2016,astro-ph.IM
+California Institute of Technology,1509.07877v2,2015,astro-ph.IM
+California Institute of Technology,1505.02783v3,2015,astro-ph.IM
+California Institute of Technology,1301.2718v2,2013,astro-ph.IM
+Columbia University in the City of New York,1110.0835v2,2011,astro-ph.IM
+George Mason University,0911.0505v1,2009,astro-ph.IM
+George Mason University,0909.3892v1,2009,astro-ph.IM
+George Mason University,0909.3895v1,2009,astro-ph.IM
+Harvard University,1606.02310v2,2016,astro-ph.IM
+Harvard University,1108.5282v1,2011,astro-ph.IM
+Harvard University,1207.3812v1,2012,astro-ph.IM
+Harvard University,1405.2954v1,2014,astro-ph.IM
+Harvard University,1502.00709v2,2015,astro-ph.IM
+Harvard University,1507.02524v1,2015,astro-ph.IM
+Harvard University,1609.09506v3,2016,astro-ph.IM
+Harvard University,1508.03043v2,2015,astro-ph.IM
+Harvard University,1402.5963v2,2014,astro-ph.IM
+Johns Hopkins University,0909.2925v1,2009,astro-ph.IM
+Louisiana State University,1303.1833v1,2013,astro-ph.IM
+Princeton University,1407.1881v1,2014,astro-ph.IM
+Princeton University,1008.0738v1,2010,astro-ph.IM
+Princeton University,1008.4686v1,2010,astro-ph.IM
+University of Arizona,1512.02223v1,2015,astro-ph.IM
+University of Arizona,1410.4194v2,2014,astro-ph.IM
+University of California-Berkeley,1206.5006v3,2012,astro-ph.IM
+University of California-Los Angeles,1011.0477v3,2010,astro-ph.IM
+university of Chicago,1310.6688v1,2013,astro-ph.IM
+University of Michigan-Ann Arbor,1106.3917v2,2011,astro-ph.IM
+University of Michigan-Ann Arbor,1311.6835v2,2013,astro-ph.IM
+University of Missouri-Columbia,1012.0954v1,2010,astro-ph.IM
+University of Utah,1207.0808v1,2012,astro-ph.IM
+University of Wisconsin-Madison,1106.1392v1,2011,astro-ph.IM
+Boston University,1509.04948v1,2015,astro-ph.SR
+California Institute of Technology,1108.3110v2,2011,astro-ph.SR
+California Institute of Technology,1707.02997v1,2017,astro-ph.SR
+California Institute of Technology,1209.1111v2,2012,astro-ph.SR
+California Institute of Technology,1505.01808v2,2015,astro-ph.SR
+Cornell University,1305.2335v2,2013,astro-ph.SR
+Indiana University-Bloomington,0904.4076v2,2009,astro-ph.SR
+Michigan State University,1107.3843v1,2011,astro-ph.SR
+New York University,1008.4146v2,2010,astro-ph.SR
+North Carolina State University,1001.2917v1,2010,astro-ph.SR
+Oregon State University,1411.3400v2,2014,astro-ph.SR
+Pennsylvania State University,1707.02212v3,2017,astro-ph.SR
+Purdue University,1707.02212v3,2017,astro-ph.SR
+Purdue University,1009.3463v2,2010,astro-ph.SR
+Rochester Institute of Technology,1111.0975v1,2011,astro-ph.SR
+Rochester Institute of Technology,1111.4223v1,2011,astro-ph.SR
+San Diego State University,0906.2427v1,2009,astro-ph.SR
+University of California-Los Angeles,1110.4012v1,2011,astro-ph.SR
+University of California-San Diego,1012.2271v1,2010,astro-ph.SR
+University of Colorado Boulder,1610.07215v3,2016,astro-ph.SR
+University of Colorado Boulder,1611.02671v3,2016,astro-ph.SR
+University of Georgia,1108.3838v1,2011,astro-ph.SR
+University of Minnesota-Twin Cities,1103.1193v2,2011,astro-ph.SR
+University of Minnesota-Twin Cities,1105.2068v2,2011,astro-ph.SR
+University of Minnesota-Twin Cities,1310.4462v1,2013,astro-ph.SR
+University of New Hampshire-Main Campus,1406.5658v2,2014,astro-ph.SR
+University of New Mexico-Main Campus,1401.0535v1,2014,astro-ph.SR
+University of North Carolina at Chapel Hill,1005.4767v1,2010,astro-ph.SR
+University of North Carolina at Chapel Hill,1107.2234v1,2011,astro-ph.SR
+University of Rochester,1402.0933v2,2014,astro-ph.SR
+University of Rochester,1011.4332v1,2010,astro-ph.SR
+University of Virginia,1208.6072v1,2012,astro-ph.SR
+University of Wisconsin-Madison,1111.2282v1,2011,astro-ph.SR
+University of Wisconsin-Madison,1209.5894v1,2012,astro-ph.SR
+University of Wisconsin-Madison,1401.5818v1,2014,astro-ph.SR
+Washburn University,1302.1501v2,2013,astro-ph.SR
+Western Michigan University,1602.03188v1,2016,astro-ph.SR
+Emory University,0710.0041v2,2007,cond-mat.dis-nn
+Emory University,1409.8313v2,2014,cond-mat.dis-nn
+Emory University,0906.1292v2,2009,cond-mat.dis-nn
+Emory University,1011.1603v2,2010,cond-mat.dis-nn
+Emory University,1102.5550v1,2011,cond-mat.dis-nn
+Massachusetts Institute of Technology,1202.5839v1,2012,cond-mat.dis-nn
+Wesleyan University,1406.1860v1,2014,cond-mat.dis-nn
+Butler University,1010.1342v1,2010,cond-mat.mes-hall
+California State University Los Angeles,1704.03026v1,2017,cond-mat.mes-hall
+CUNY Brooklyn College,1607.08639v1,2016,cond-mat.mes-hall
+CUNY City College,0907.2458v2,2009,cond-mat.mes-hall
+Michigan State University,0904.2666v1,2009,cond-mat.mes-hall
+Princeton University,1001.1574v1,2010,cond-mat.mes-hall
+Stanford University,0904.2884v1,2009,cond-mat.mes-hall
+Stanford University,0803.2328v1,2008,cond-mat.mes-hall
+University of California-Irvine,1201.1765v2,2012,cond-mat.mes-hall
+University of Minnesota,0908.3050v1,2009,cond-mat.mes-hall
+University of Minnesota-Twin Cities,0710.2150v3,2007,cond-mat.mes-hall
+University of North Texas,1109.5252v2,2011,cond-mat.mes-hall
+Virginia Polytechnic Institute and State University,1010.0363v3,2010,cond-mat.mes-hall
+Yale University,0910.3039v1,2009,cond-mat.mes-hall
+Boston University,1201.6346v2,2012,cond-mat.mtrl-sci
+Brown University,0903.0288v2,2009,cond-mat.mtrl-sci
+Case Western Reserve University,0807.5054v1,2008,cond-mat.mtrl-sci
+Colorado School of Mines,1504.01819v3,2015,cond-mat.mtrl-sci
+Columbia University in the City of New York,0811.1140v1,2008,cond-mat.mtrl-sci
+Columbia University in the City of New York,0705.3986v1,2007,cond-mat.mtrl-sci
+Cornell University,1111.5186v1,2011,cond-mat.mtrl-sci
+Cornell University,1204.3299v1,2012,cond-mat.mtrl-sci
+Cornell University,1408.2562v1,2014,cond-mat.mtrl-sci
+Duke University,0908.1517v1,2009,cond-mat.mtrl-sci
+Emory University,1509.07423v2,2015,cond-mat.mtrl-sci
+Frostburg State University,1009.4154v1,2010,cond-mat.mtrl-sci
+Georgia Institute of Technology,0708.3229v2,2007,cond-mat.mtrl-sci
+Georgia Institute of Technology,1509.07423v2,2015,cond-mat.mtrl-sci
+Harvard University,0706.2662v1,2007,cond-mat.mtrl-sci
+Harvard University,1709.04094v1,2017,cond-mat.mtrl-sci
+Iowa State University,1612.03166v1,2016,cond-mat.mtrl-sci
+Massachusetts Institute of Technology,1108.2326v1,2011,cond-mat.mtrl-sci
+Massachusetts Institute of Technology,cond-mat/0703289v1,2007,cond-mat.mtrl-sci
+New York University,1012.0967v3,2010,cond-mat.mtrl-sci
+Ohio State University,1001.2066v1,2010,cond-mat.mtrl-sci
+Pennsylvania State University,cond-mat/0702084v1,2007,cond-mat.mtrl-sci
+Pennsylvania State University,0810.0262v1,2008,cond-mat.mtrl-sci
+Princeton University,1611.06052v1,2016,cond-mat.mtrl-sci
+Princeton University,1705.04046v1,2017,cond-mat.mtrl-sci
+Purdue University,1706.01600v2,2017,cond-mat.mtrl-sci
+Rice University,1012.4217v2,2010,cond-mat.mtrl-sci
+Rutgers University-New Brunswick,1503.02925v1,2015,cond-mat.mtrl-sci
+Stanford University,1705.00711v1,2017,cond-mat.mtrl-sci
+Stanford University,0704.0113v1,2007,cond-mat.mtrl-sci
+The University of Texas at Austin,1005.0805v2,2010,cond-mat.mtrl-sci
+The University of Texas at Austin,1708.03849v1,2017,cond-mat.mtrl-sci
+The University of Texas at El Paso,0801.4433v1,2008,cond-mat.mtrl-sci
+The University of Texas at El Paso,0803.2752v1,2008,cond-mat.mtrl-sci
+The University of Texas at El Paso,0706.0555v2,2007,cond-mat.mtrl-sci
+University of Arkansas,1407.8405v1,2014,cond-mat.mtrl-sci
+University of California-Berkeley,0804.0443v3,2008,cond-mat.mtrl-sci
+University of California-Davis,0707.2415v1,2007,cond-mat.mtrl-sci
+University of California-San Diego,1601.02668v1,2016,cond-mat.mtrl-sci
+University of California-San Diego,1109.1274v1,2011,cond-mat.mtrl-sci
+University of California-San Diego,1203.3231v1,2012,cond-mat.mtrl-sci
+University of California-Santa Barbara,0811.0350v2,2008,cond-mat.mtrl-sci
+University of California-Santa Barbara,1607.04738v1,2016,cond-mat.mtrl-sci
+University of California-Santa Barbara,1212.6290v1,2012,cond-mat.mtrl-sci
+University of California-Santa Barbara,1612.04285v1,2016,cond-mat.mtrl-sci
+University of California-Santa Barbara,0811.0353v1,2008,cond-mat.mtrl-sci
+University of Delaware,0704.3928v1,2007,cond-mat.mtrl-sci
+University of Delaware,0704.3949v1,2007,cond-mat.mtrl-sci
+University of Delaware,0705.4260v1,2007,cond-mat.mtrl-sci
+University of Delaware,0706.0866v3,2007,cond-mat.mtrl-sci
+University of Florida,0807.4948v1,2008,cond-mat.mtrl-sci
+University of Houston,0911.4140v1,2009,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,0810.5709v1,2008,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1007.2585v1,2010,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1105.5365v1,2011,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1202.5585v1,2012,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1108.2072v1,2011,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,0901.0861v1,2009,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1008.1256v1,2010,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1106.3610v1,2011,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1308.0613v1,2013,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,1605.03623v2,2016,cond-mat.mtrl-sci
+University of Illinois at Urbana-Champaign,0706.4321v1,2007,cond-mat.mtrl-sci
+University of Maryland-College Park,1108.4907v2,2011,cond-mat.mtrl-sci
+University of Massachusetts-Amherst,0901.1092v1,2009,cond-mat.mtrl-sci
+University of Minnesota-Twin Cities,1210.4233v1,2012,cond-mat.mtrl-sci
+University of North Texas,1109.5260v2,2011,cond-mat.mtrl-sci
+University of North Texas,0910.2839v2,2009,cond-mat.mtrl-sci
+University of Oklahoma-Norman Campus,1511.00042v1,2015,cond-mat.mtrl-sci
+University of Pennsylvania,1405.3699v1,2014,cond-mat.mtrl-sci
+University of South Florida,0809.1657v1,2008,cond-mat.mtrl-sci
+University of Washington,0804.3985v2,2008,cond-mat.mtrl-sci
+Vanderbilt University,1506.08346v3,2015,cond-mat.mtrl-sci
+Virginia Commonwealth University,0804.0361v1,2008,cond-mat.mtrl-sci
+Virginia Commonwealth University,0711.4660v1,2007,cond-mat.mtrl-sci
+Boston University,cond-mat/0702562v2,2007,cond-mat.other
+Cornell University,0711.0182v2,2007,cond-mat.other
+Cornell University,0802.2083v1,2008,cond-mat.other
+Cornell University,0804.1543v1,2008,cond-mat.other
+Cornell University,0902.4707v1,2009,cond-mat.other
+CUNY Queens College,cond-mat/0702218v1,2007,cond-mat.other
+Duke University,0712.0867v1,2007,cond-mat.other
+Harvard University,0809.3193v1,2008,cond-mat.other
+North Carolina State University,cond-mat/0701251v4,2007,cond-mat.other
+Texas A & M University-College Station,0709.3003v1,2007,cond-mat.other
+The University of Texas at Austin,0803.4430v1,2008,cond-mat.other
+The University of Texas at El Paso,cond-mat/0701466v2,2007,cond-mat.other
+University of California-Riverside,1611.08015v1,2016,cond-mat.other
+University of Missouri-Columbia,1208.1041v1,2012,cond-mat.other
+University of South Carolina-Columbia,0901.0691v1,2009,cond-mat.other
+Wesleyan University,1209.2347v1,2012,cond-mat.other
+Cornell University,0901.2945v2,2009,cond-mat.quant-gas
+Cornell University,0806.1517v2,2008,cond-mat.quant-gas
+Louisiana State University,1011.4536v2,2010,cond-mat.quant-gas
+North Carolina State University,1705.08710v1,2017,cond-mat.quant-gas
+North Carolina State University,1008.3876v1,2010,cond-mat.quant-gas
+North Carolina State University,1111.7242v2,2011,cond-mat.quant-gas
+North Carolina State University,1012.0219v1,2010,cond-mat.quant-gas
+North Carolina State University,1308.2004v1,2013,cond-mat.quant-gas
+North Carolina State University,1404.6843v2,2014,cond-mat.quant-gas
+North Carolina State University,1410.2827v1,2014,cond-mat.quant-gas
+North Carolina State University,1505.00846v2,2015,cond-mat.quant-gas
+North Carolina State University,1512.00862v2,2015,cond-mat.quant-gas
+North Carolina State University,1708.01548v1,2017,cond-mat.quant-gas
+North Carolina State University,0912.4236v3,2009,cond-mat.quant-gas
+North Carolina State University,1305.4688v1,2013,cond-mat.quant-gas
+North Carolina State University,1608.05083v2,2016,cond-mat.quant-gas
+North Carolina State University,1209.1006v3,2012,cond-mat.quant-gas
+University of Colorado Boulder,1106.0326v2,2011,cond-mat.quant-gas
+University of Illinois at Urbana-Champaign,1205.1086v3,2012,cond-mat.quant-gas
+University of Massachusetts-Boston,1005.5463v1,2010,cond-mat.quant-gas
+University of Massachusetts-Boston,1706.07114v1,2017,cond-mat.quant-gas
+Brown University,1401.2129v1,2014,cond-mat.soft
+Brown University,0712.0326v1,2007,cond-mat.soft
+College of Staten Island CUNY,0708.2679v1,2007,cond-mat.soft
+Duke University,1406.0475v1,2014,cond-mat.soft
+Emory University,1603.03969v3,2016,cond-mat.soft
+Georgia Institute of Technology,1203.0982v1,2012,cond-mat.soft
+Georgia Institute of Technology,1608.03869v2,2016,cond-mat.soft
+Harvard University,0802.3440v2,2008,cond-mat.soft
+Kent State University,0807.2669v1,2008,cond-mat.soft
+Kent State University,1311.2548v1,2013,cond-mat.soft
+Northwestern University,1706.00864v1,2017,cond-mat.soft
+SUNY Buffalo State,0712.0006v1,2007,cond-mat.soft
+Syracuse University,0801.3661v1,2008,cond-mat.soft
+Syracuse University,1004.0706v1,2010,cond-mat.soft
+Syracuse University,0708.3182v3,2007,cond-mat.soft
+Texas Tech University,1601.02692v2,2016,cond-mat.soft
+University of Arizona,1206.5932v2,2012,cond-mat.soft
+University of Arizona,1308.0941v1,2013,cond-mat.soft
+University of California-Santa Barbara,0705.0718v2,2007,cond-mat.soft
+University of Chicago,1604.01077v1,2016,cond-mat.soft
+University of Colorado Boulder,0709.3665v2,2007,cond-mat.soft
+University of Delaware,0805.0381v1,2008,cond-mat.soft
+University of Delaware,0805.0382v1,2008,cond-mat.soft
+University of Georgia,1102.0308v1,2011,cond-mat.soft
+University of Illinois at Urbana-Champaign,1101.1323v1,2011,cond-mat.soft
+University of Oregon,1112.1464v1,2011,cond-mat.soft
+University of Pennsylvania,1107.2583v1,2011,cond-mat.soft
+Worcester Polytechnic Institute,0705.3222v1,2007,cond-mat.soft
+Yale University,0802.0608v1,2008,cond-mat.soft
+Brigham Young University,0904.0991v1,2009,cond-mat.stat-mech
+Bucknell University,1708.05422v1,2017,cond-mat.stat-mech
+California Institute of Technology,0811.0682v1,2008,cond-mat.stat-mech
+Cornell University,0912.4531v1,2009,cond-mat.stat-mech
+Emory University,1410.2092v1,2014,cond-mat.stat-mech
+Emory University,0902.2262v2,2009,cond-mat.stat-mech
+Emory University,1209.3447v2,2012,cond-mat.stat-mech
+Emory University,1403.6436v2,2014,cond-mat.stat-mech
+Emory University,1505.06395v2,2015,cond-mat.stat-mech
+Florida State University,0809.0523v1,2008,cond-mat.stat-mech
+Florida State University,0908.0758v2,2009,cond-mat.stat-mech
+Georgia Institute of Technology,1305.0718v1,2013,cond-mat.stat-mech
+Mississippi State University,0705.0652v1,2007,cond-mat.stat-mech
+North Carolina State University,1705.10866v1,2017,cond-mat.stat-mech
+North Carolina State University,1103.4869v1,2011,cond-mat.stat-mech
+Northeastern University,1310.3867v2,2013,cond-mat.stat-mech
+Ohio University,0801.3977v1,2008,cond-mat.stat-mech
+Rockefeller University,0705.0148v2,2007,cond-mat.stat-mech
+The University of Texas at Austin,1204.6130v1,2012,cond-mat.stat-mech
+University of Colorado Boulder,1202.4977v2,2012,cond-mat.stat-mech
+University of Illinois at Chicago,0801.0178v1,2007,cond-mat.stat-mech
+University of Illinois at Urbana-Champaign,0812.3969v1,2008,cond-mat.stat-mech
+University of Illinois at Urbana-Champaign,1608.01252v2,2016,cond-mat.stat-mech
+University of Maryland-College Park,1701.05785v1,2017,cond-mat.stat-mech
+University of Notre Dame,cond-mat/0702439v2,2007,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1102.2824v2,2011,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1112.1605v2,2011,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1403.6615v2,2014,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1604.04487v3,2016,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,0804.4127v2,2008,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1206.2303v2,2012,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1405.7261v3,2014,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1505.06240v2,2015,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1007.1929v2,2010,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1708.07055v2,2017,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1606.02971v3,2016,cond-mat.stat-mech
+Virginia Polytechnic Institute and State University,1112.1375v1,2011,cond-mat.stat-mech
+Washington University in St Louis,0907.0733v3,2009,cond-mat.stat-mech
+Wesleyan University,1412.6183v1,2014,cond-mat.stat-mech
+Boston College,cond-mat/0703722v1,2007,cond-mat.str-el
+Boston University,0804.3591v2,2008,cond-mat.str-el
+Boston University,0704.3616v2,2007,cond-mat.str-el
+Boston University,0707.2084v3,2007,cond-mat.str-el
+Boston University,0910.0561v1,2009,cond-mat.str-el
+Case Western Reserve University,0705.2912v7,2007,cond-mat.str-el
+Cornell University,0809.0075v1,2008,cond-mat.str-el
+Cornell University,0811.0395v4,2008,cond-mat.str-el
+Cornell University,0811.0026v3,2008,cond-mat.str-el
+Cornell University,0910.0753v1,2009,cond-mat.str-el
+CUNY Bernard M Baruch College,1207.0455v2,2012,cond-mat.str-el
+Georgetown University,0711.0999v1,2007,cond-mat.str-el
+Georgetown University,1308.6060v1,2013,cond-mat.str-el
+Georgetown University,1308.6066v1,2013,cond-mat.str-el
+Georgetown University,1307.4800v1,2013,cond-mat.str-el
+Georgetown University,0804.3040v1,2008,cond-mat.str-el
+Georgetown University,0708.2748v1,2007,cond-mat.str-el
+Indiana University-Bloomington,1609.04627v2,2016,cond-mat.str-el
+Indiana University-Bloomington,1705.06414v1,2017,cond-mat.str-el
+Iowa State University,0704.1815v3,2007,cond-mat.str-el
+Louisiana State University,1003.5221v1,2010,cond-mat.str-el
+Princeton University,0903.0794v1,2009,cond-mat.str-el
+Rice University,0904.4188v1,2009,cond-mat.str-el
+Rutgers University-New Brunswick,0904.2329v2,2009,cond-mat.str-el
+Stanford University,0805.0175v1,2008,cond-mat.str-el
+Stanford University,0805.0661v1,2008,cond-mat.str-el
+SUNY Buffalo State,cond-mat/0701158v2,2007,cond-mat.str-el
+The University of Tennessee-Knoxville,0906.2951v1,2009,cond-mat.str-el
+University of California-Berkeley,1705.01914v3,2017,cond-mat.str-el
+University of California-Berkeley,1303.4135v2,2013,cond-mat.str-el
+University of California-Davis,0905.0307v2,2009,cond-mat.str-el
+University of California-San Diego,0802.3676v1,2008,cond-mat.str-el
+University of California-Santa Barbara,0806.4395v1,2008,cond-mat.str-el
+University of California-Santa Cruz,1703.02206v3,2017,cond-mat.str-el
+University of Central Florida,0907.1284v2,2009,cond-mat.str-el
+University of Connecticut,1707.04336v1,2017,cond-mat.str-el
+University of Florida,1407.5726v1,2014,cond-mat.str-el
+University of Maryland-College Park,1006.1008v2,2010,cond-mat.str-el
+University of Michigan-Ann Arbor,0706.1364v1,2007,cond-mat.str-el
+University of Michigan-Ann Arbor,0805.0574v1,2008,cond-mat.str-el
+University of Michigan-Ann Arbor,0709.2688v1,2007,cond-mat.str-el
+University of Southern California,0709.3685v1,2007,cond-mat.str-el
+University of Southern California,0708.0644v1,2007,cond-mat.str-el
+University of Tennessee,1706.10242v2,2017,cond-mat.str-el
+University of Tennessee,0906.5182v1,2009,cond-mat.str-el
+University of Utah,0912.2768v1,2009,cond-mat.str-el
+California Institute of Technology,0707.3535v1,2007,cond-mat.supr-con
+California Institute of Technology,0804.0467v1,2008,cond-mat.supr-con
+CUNY City College,1501.06154v1,2015,cond-mat.supr-con
+Florida State University,1301.5341v2,2013,cond-mat.supr-con
+Illinois Institute of Technology,1703.08635v2,2017,cond-mat.supr-con
+Indiana University-Bloomington,1407.2553v2,2014,cond-mat.supr-con
+Louisiana State University,0807.0922v2,2008,cond-mat.supr-con
+New Jersey Institute of Technology,1202.0049v1,2012,cond-mat.supr-con
+New Jersey Institute of Technology,1202.0324v1,2012,cond-mat.supr-con
+New Jersey Institute of Technology,1202.0329v1,2012,cond-mat.supr-con
+New Jersey Institute of Technology,1202.0588v1,2012,cond-mat.supr-con
+New Jersey Institute of Technology,1202.1792v1,2012,cond-mat.supr-con
+New Jersey Institute of Technology,1202.2480v2,2012,cond-mat.supr-con
+North Carolina State University,0704.3439v2,2007,cond-mat.supr-con
+Northeastern University,cond-mat/0701465v1,2007,cond-mat.supr-con
+Northeastern University,cond-mat/0701524v1,2007,cond-mat.supr-con
+Northeastern University,0809.3658v1,2008,cond-mat.supr-con
+Princeton University,0912.3341v1,2009,cond-mat.supr-con
+Stanford University,0811.1720v1,2008,cond-mat.supr-con
+Stony Brook University,0909.3076v1,2009,cond-mat.supr-con
+Syracuse University,1003.0387v2,2010,cond-mat.supr-con
+University of California-Davis,0908.2698v3,2009,cond-mat.supr-con
+University of California-Davis,0808.1733v2,2008,cond-mat.supr-con
+University of California-Davis,0807.3931v1,2008,cond-mat.supr-con
+University of California-San Diego,1503.00779v1,2015,cond-mat.supr-con
+University of Chicago,1702.02522v1,2017,cond-mat.supr-con
+University of Florida,1108.1942v1,2011,cond-mat.supr-con
+University of Houston,0902.0806v1,2009,cond-mat.supr-con
+University of Houston,0902.0809v1,2009,cond-mat.supr-con
+University of Houston,1311.1984v1,2013,cond-mat.supr-con
+University of Houston,1502.04686v1,2015,cond-mat.supr-con
+University of Illinois at Urbana-Champaign,0904.2409v2,2009,cond-mat.supr-con
+University of Illinois at Urbana-Champaign,0712.2596v2,2007,cond-mat.supr-con
+University of Maryland-College Park,0705.4509v2,2007,cond-mat.supr-con
+University of Maryland-College Park,0906.2931v2,2009,cond-mat.supr-con
+University of Virginia,1109.0341v1,2011,cond-mat.supr-con
+Virginia Polytechnic Institute and State University,1606.06100v1,2016,cond-mat.supr-con
+Virginia Polytechnic Institute and State University,0911.4066v1,2009,cond-mat.supr-con
+Yale University,cond-mat/0702445v1,2007,cond-mat.supr-con
+Lebanon Valley College,1412.4880v1,2014,cs.CY
+Cornell University,1108.2700v2,2011,cs.DL
+University of Arizona,cs/0701084v2,2007,cs.IT
+Michigan State University,1710.07236v2,2017,cs.SI
+Michigan State University,1710.07266v1,2017,cs.SI
+Michigan State University,1710.09485v1,2017,cs.SI
+Wake Forest University,1106.0041v3,2011,cs.SI
+Baylor University,1012.2680v1,2010,gr-qc
+Baylor University,0808.3124v2,2008,gr-qc
+Baylor University,0910.0490v2,2009,gr-qc
+Baylor University,0810.0721v3,2008,gr-qc
+Baylor University,1008.1046v5,2010,gr-qc
+Baylor University,1203.5781v2,2012,gr-qc
+Baylor University,1207.1800v4,2012,gr-qc
+Bowdoin College,1403.3653v1,2014,gr-qc
+Brown University,0808.2597v2,2008,gr-qc
+California Institute of Technology,gr-qc/0701134v1,2007,gr-qc
+California Institute of Technology,1502.03809v3,2015,gr-qc
+California Institute of Technology,1507.05587v3,2015,gr-qc
+California Institute of Technology,1108.3174v1,2011,gr-qc
+California Institute of Technology,1009.4923v3,2010,gr-qc
+California Institute of Technology,0712.0417v1,2007,gr-qc
+California Institute of Technology,1406.1164v1,2014,gr-qc
+Carnegie Mellon University,0712.2032v1,2007,gr-qc
+Dartmouth College,0709.0009v1,2007,gr-qc
+Dartmouth College,1609.05901v1,2016,gr-qc
+Duquesne University,0711.0564v1,2007,gr-qc
+Georgia Institute of Technology,1209.3712v2,2012,gr-qc
+Georgia Institute of Technology,1109.5224v1,2011,gr-qc
+Georgia Institute of Technology,1201.2113v2,2012,gr-qc
+Harvard University,gr-qc/0701154v1,2007,gr-qc
+Louisiana State University,0706.3379v1,2007,gr-qc
+Louisiana State University,gr-qc/0701109v2,2007,gr-qc
+Northeastern Illinois University,0807.3785v1,2008,gr-qc
+Pennsylvania State University,0711.1868v1,2007,gr-qc
+Pennsylvania State University,0904.4848v2,2009,gr-qc
+Princeton University,1001.4899v1,2010,gr-qc
+Purdue University,0903.1113v1,2009,gr-qc
+Purdue University,1703.00601v1,2017,gr-qc
+Rochester Institute of Technology,0801.2750v1,2008,gr-qc
+Rochester Institute of Technology,0710.5542v1,2007,gr-qc
+Rochester Institute of Technology,0802.4277v2,2008,gr-qc
+Rochester Institute of Technology,0804.3824v1,2008,gr-qc
+Rochester Institute of Technology,1307.5307v3,2013,gr-qc
+Syracuse University,gr-qc/0703098v1,2007,gr-qc
+Syracuse University,gr-qc/0703099v1,2007,gr-qc
+Syracuse University,0911.1479v3,2009,gr-qc
+The University of Texas at Dallas,0707.1351v2,2007,gr-qc
+University of Arizona,1105.3191v2,2011,gr-qc
+University of Arizona,1210.0483v1,2012,gr-qc
+University of California-Berkeley,0906.1733v3,2009,gr-qc
+University of California-San Diego,0708.2324v2,2007,gr-qc
+University of Chicago,1506.06032v1,2015,gr-qc
+University of Colorado Boulder,0706.3238v2,2007,gr-qc
+University of Florida,1708.03253v1,2017,gr-qc
+University of Florida,1210.6968v1,2012,gr-qc
+University of Florida,1606.05879v2,2016,gr-qc
+University of Florida,1612.07406v2,2016,gr-qc
+University of Florida,1708.06239v1,2017,gr-qc
+University of Florida,1205.4466v1,2012,gr-qc
+University of Florida,1702.05694v2,2017,gr-qc
+University of Florida,1002.4037v1,2010,gr-qc
+University of Florida,1505.06402v1,2015,gr-qc
+University of Florida,0907.4930v1,2009,gr-qc
+University of Florida,1108.4367v1,2011,gr-qc
+University of Florida,1510.03352v1,2015,gr-qc
+University of Maryland-College Park,0707.0301v2,2007,gr-qc
+University of Maryland-College Park,0905.0687v3,2009,gr-qc
+University of Massachusetts-Dartmouth,1701.01137v2,2017,gr-qc
+University of Michigan-Ann Arbor,1710.06185v1,2017,gr-qc
+University of Mississippi,1305.6838v1,2013,gr-qc
+University of Mississippi,1304.0594v1,2013,gr-qc
+University of Missouri-Columbia,1403.3467v2,2014,gr-qc
+University of Missouri-Columbia,1601.00320v2,2016,gr-qc
+University of Missouri-Columbia,0807.4249v1,2008,gr-qc
+University of Missouri-Columbia,1503.02172v1,2015,gr-qc
+University of Missouri-Columbia,0902.2416v2,2009,gr-qc
+University of Missouri-Columbia,1204.3672v2,2012,gr-qc
+University of Missouri-Columbia,0901.4818v2,2009,gr-qc
+University of Missouri-Columbia,gr-qc/0702120v2,2007,gr-qc
+University of Missouri-Columbia,0809.3392v1,2008,gr-qc
+University of Missouri-Columbia,0809.3433v3,2008,gr-qc
+University of Missouri-Columbia,0902.3489v1,2009,gr-qc
+University of Missouri-Columbia,0905.2424v3,2009,gr-qc
+University of Missouri-Columbia,0908.4108v2,2009,gr-qc
+University of Missouri-Columbia,1207.3873v1,2012,gr-qc
+University of Missouri-Columbia,1412.0983v1,2014,gr-qc
+University of Missouri-Columbia,1307.5360v1,2013,gr-qc
+University of Missouri-Columbia,1311.4912v3,2013,gr-qc
+University of New Mexico-Main Campus-Main Campus,0902.1287v2,2009,gr-qc
+University of New Mexico-Main Campus-Main Campus,1001.2578v2,2010,gr-qc
+University of Wisconsin-Milwaukee,1203.6060v3,2012,gr-qc
+Valparaiso University,1501.00488v3,2014,gr-qc
+Valparaiso University,1308.1658v2,2013,gr-qc
+Washington University in St Louis,0906.3602v2,2009,gr-qc
+Washington University in St Louis,gr-qc/0701047v2,2007,gr-qc
+Washington University in St Louis,1205.7063v1,2012,gr-qc
+Washington University in St Louis,0704.2243v2,2007,gr-qc
+Washington University in St Louis,0704.2720v1,2007,gr-qc
+Baylor University,0810.3682v1,2008,hep-ex
+Baylor University,0810.3690v1,2008,hep-ex
+Brown University,0705.2855v1,2007,hep-ex
+Brown University,0808.1867v1,2008,hep-ex
+University of Washington,1503.04858v1,2015,hep-ex
+Duke University,0906.1403v1,2009,hep-ex
+Florida State University,0802.1048v1,2008,hep-ex
+George Washington University,1707.05284v3,2017,hep-ex
+Massachusetts Institute of Technology,1301.1372v2,2013,hep-ex
+Massachusetts Institute of Technology,0708.3189v1,2007,hep-ex
+Massachusetts Institute of Technology,0705.3483v1,2007,hep-ex
+Massachusetts Institute of Technology,0708.3238v1,2007,hep-ex
+Northwestern University,0705.4056v2,2007,hep-ex
+Ohio State University,0810.0315v2,2008,hep-ex
+Purdue University,1308.0843v2,2013,hep-ex
+Southern University at Shreveport,0902.3451v4,2009,hep-ex
+Stony Brook University,0910.3382v1,2009,hep-ex
+SUNY Buffalo State,0809.2955v1,2008,hep-ex
+Temple University,1310.7974v1,2013,hep-ex
+The University of Tennessee-Knoxville,1703.06735v2,2017,hep-ex
+The University of Texas at Arlington,0910.2964v1,2009,hep-ex
+University of California-Santa Barbara,1205.4053v1,2012,hep-ex
+University of California-Santa Barbara,0808.0050v1,2008,hep-ex
+University of California-Santa Barbara,0808.0273v1,2008,hep-ex
+University of California-Santa Cruz,1209.5806v1,2012,hep-ex
+University of Cincinnati,0810.4534v2,2008,hep-ex
+University of Florida,1201.4611v1,2012,hep-ex
+University of Michigan-Ann Arbor,1001.0790v1,2010,hep-ex
+University of Minnesota-Twin Cities,0801.1092v2,2008,hep-ex
+University of New Mexico-Main Campus,1011.5236v1,2010,hep-ex
+University of Oklahoma-Norman Campus,1109.3912v1,2011,hep-ex
+University of South Alabama,1009.3575v2,2010,hep-ex
+University of Washington,1606.07538v1,2016,hep-ex
+University of Wisconsin-Madison,0910.3378v1,2009,hep-ex
+Virginia Polytechnic Institute and State University,0709.3213v1,2007,hep-ex
+Boston University,hep-lat/0701023v2,2007,hep-lat
+Colorado State University-Fort Collins,1010.3396v1,2010,hep-lat
+CUNY Bernard M Baruch College,1210.7791v1,2012,hep-lat
+CUNY Bernard M Baruch College,1311.4192v1,2013,hep-lat
+University of Washington,1203.6843v1,2012,hep-lat
+Duke University,1205.0084v2,2012,hep-lat
+Duke University,1410.6474v1,2014,hep-lat
+Duke University,1511.09071v1,2015,hep-lat
+Duke University,1606.06312v1,2016,hep-lat
+Duke University,0910.5736v1,2009,hep-lat
+Duke University,0810.2423v1,2008,hep-lat
+Duke University,1412.3532v1,2014,hep-lat
+Duke University,0705.0617v1,2007,hep-lat
+Indiana University-Bloomington,0910.0262v1,2009,hep-lat
+Indiana University-Bloomington,1606.09258v1,2016,hep-lat
+Massachusetts Institute of Technology,0710.4423v1,2007,hep-lat
+Massachusetts Institute of Technology,0811.1536v1,2008,hep-lat
+North Carolina State University,1310.8206v1,2013,hep-lat
+Pennsylvania State University,0706.3422v2,2007,hep-lat
+Rutgers University-New Brunswick,0709.4494v1,2007,hep-lat
+Rutgers University-New Brunswick,1410.2820v2,2014,hep-lat
+Rutgers University-New Brunswick,1410.2824v1,2014,hep-lat
+Rutgers University-New Brunswick,0909.4066v1,2009,hep-lat
+Rutgers University-New Brunswick,1206.4015v3,2012,hep-lat
+Rutgers University-New Brunswick,1306.1522v1,2013,hep-lat
+Stony Brook University,1112.0377v1,2011,hep-lat
+University of Arizona,0910.0276v1,2009,hep-lat
+University of Colorado Boulder,0809.2885v2,2008,hep-lat
+University of Connecticut,0709.1002v1,2007,hep-lat
+University of Connecticut,0709.3150v4,2007,hep-lat
+University of Iowa,1307.6543v1,2013,hep-lat
+University of Iowa,1211.3675v2,2012,hep-lat
+University of Iowa,1202.1605v1,2012,hep-lat
+University of Iowa,1202.2109v1,2012,hep-lat
+University of Utah,1411.1389v1,2014,hep-lat
+University of Utah,1101.0208v1,2010,hep-lat
+University of Utah,1101.0212v1,2010,hep-lat
+University of Utah,0710.1660v1,2007,hep-lat
+University of Utah,0811.2429v1,2008,hep-lat
+University of Washington,1304.7761v1,2013,hep-lat
+University of Washington,0711.0696v4,2007,hep-lat
+University of Washington,0808.2056v1,2008,hep-lat
+University of Washington,0807.1275v2,2008,hep-lat
+University of Washington,0811.4141v2,2008,hep-lat
+Yale University,0710.4538v1,2007,hep-lat
+Yale University,0812.2035v1,2008,hep-lat
+Arizona State University,1505.03117v1,2015,hep-ph
+Arizona State University,1009.4666v2,2010,hep-ph
+Baylor University,1412.7246v2,2014,hep-ph
+Baylor University,1412.7417v2,2014,hep-ph
+Baylor University,1507.00661v1,2015,hep-ph
+Baylor University,0707.2101v3,2007,hep-ph
+Baylor University,1201.1322v3,2012,hep-ph
+Baylor University,0707.3424v2,2007,hep-ph
+Baylor University,0804.1528v2,2008,hep-ph
+Baylor University,0908.1764v1,2009,hep-ph
+Baylor University,1005.3394v4,2010,hep-ph
+Baylor University,1008.1052v1,2010,hep-ph
+Boston University,hep-ph/0702005v1,2007,hep-ph
+Boston University,0807.2465v1,2008,hep-ph
+Boston University,0710.3719v1,2007,hep-ph
+Boston University,1311.4889v1,2013,hep-ph
+Brown University,hep-ph/0703003v2,2007,hep-ph
+California Institute of Technology,1703.06544v1,2017,hep-ph
+California Institute of Technology,1307.6213v2,2013,hep-ph
+California Institute of Technology,1207.2529v2,2012,hep-ph
+California Institute of Technology,1002.1754v4,2010,hep-ph
+California Institute of Technology,1106.0343v3,2011,hep-ph
+California Institute of Technology,1303.1452v3,2013,hep-ph
+California Institute of Technology,1006.2372v2,2010,hep-ph
+Carnegie Mellon University,0802.4416v2,2008,hep-ph
+Citadel Military College of South Carolina,1001.1434v2,2010,hep-ph
+Citadel Military College of South Carolina,1001.2730v1,2010,hep-ph
+Citadel Military College of South Carolina,0808.3133v1,2008,hep-ph
+College of William and Mary,0803.3034v1,2008,hep-ph
+College of William and Mary,0812.4976v1,2008,hep-ph
+College of William and Mary,0901.3794v1,2009,hep-ph
+College of William and Mary,0705.0282v1,2007,hep-ph
+College of William and Mary,1702.05775v3,2017,hep-ph
+College of William and Mary,1506.06631v3,2015,hep-ph
+College of William and Mary,0709.4583v2,2007,hep-ph
+College of William and Mary,1502.05314v1,2015,hep-ph
+College of William and Mary,0706.2611v1,2007,hep-ph
+College of William and Mary,0801.3839v2,2008,hep-ph
+College of William and Mary,0804.0214v1,2008,hep-ph
+College of William and Mary,0808.3097v1,2008,hep-ph
+College of William and Mary,0809.4853v1,2008,hep-ph
+College of William and Mary,0906.4500v3,2009,hep-ph
+College of William and Mary,0908.2452v2,2009,hep-ph
+College of William and Mary,1108.2084v3,2011,hep-ph
+College of William and Mary,1601.07199v1,2016,hep-ph
+College of William and Mary,hep-ph/0701272v1,2007,hep-ph
+College of William and Mary,1011.2397v2,2010,hep-ph
+Columbia University in the City of New York,1507.06972v2,2015,hep-ph
+Columbia University in the City of New York,0902.4028v1,2009,hep-ph
+Columbia University in the City of New York,0705.2705v1,2007,hep-ph
+Columbia University in the City of New York,0705.2759v1,2007,hep-ph
+Cornell University,1110.3289v2,2011,hep-ph
+Cornell University,1009.1093v2,2010,hep-ph
+CUNY Bernard M Baruch College,1401.4467v2,2014,hep-ph
+CUNY Bernard M Baruch College,0901.2955v4,2009,hep-ph
+CUNY Bernard M Baruch College,0801.0389v2,2008,hep-ph
+University of Washington,0911.1179v4,2009,hep-ph
+Duke University,hep-ph/0702022v1,2007,hep-ph
+Duke University,1101.5175v1,2011,hep-ph
+Duke University,1110.0265v2,2011,hep-ph
+Duke University,0707.1101v1,2007,hep-ph
+Duke University,0907.4142v1,2009,hep-ph
+Florida State University,1001.1335v2,2010,hep-ph
+Florida State University,0705.0035v2,2007,hep-ph
+Florida State University,1207.6812v1,2012,hep-ph
+George Washington University,1203.4412v2,2012,hep-ph
+George Washington University,1503.06671v2,2015,hep-ph
+George Washington University,0704.3045v2,2007,hep-ph
+George Washington University,1204.2277v1,2012,hep-ph
+George Washington University,1105.0225v1,2011,hep-ph
+George Washington University,1202.0845v1,2012,hep-ph
+George Washington University,1401.3027v1,2014,hep-ph
+George Washington University,1109.0722v1,2011,hep-ph
+George Washington University,1701.00124v1,2016,hep-ph
+George Washington University,0711.3215v1,2007,hep-ph
+George Washington University,0708.2675v1,2007,hep-ph
+Indiana University-Bloomington,0802.3450v1,2008,hep-ph
+Indiana University-Bloomington,1408.3581v1,2014,hep-ph
+Indiana University-Bloomington,0711.1794v2,2007,hep-ph
+Iowa State University,1004.4183v1,2010,hep-ph
+Iowa State University,0707.3150v2,2007,hep-ph
+Iowa State University,0806.1970v1,2008,hep-ph
+Iowa State University,1304.3514v2,2013,hep-ph
+Iowa State University,0811.3101v2,2008,hep-ph
+Iowa State University,0901.2539v1,2009,hep-ph
+Iowa State University,0802.2904v2,2008,hep-ph
+Iowa State University,1102.0741v2,2011,hep-ph
+Iowa State University,1005.4578v1,2010,hep-ph
+Johns Hopkins University,0910.0007v1,2009,hep-ph
+Kent State University,1408.5646v2,2014,hep-ph
+Kent State University,1408.7048v3,2014,hep-ph
+Massachusetts Institute of Technology,hep-ph/0702210v2,2007,hep-ph
+Michigan State University,0708.2588v2,2007,hep-ph
+Michigan State University,1206.6022v2,2012,hep-ph
+New Mexico State University,1011.2220v1,2010,hep-ph
+New York University,1201.1501v2,2012,hep-ph
+New York University,1204.6243v2,2012,hep-ph
+New York University,1209.5056v1,2012,hep-ph
+New York University,1105.5244v1,2011,hep-ph
+North Carolina State University,0707.1173v2,2007,hep-ph
+North Carolina State University,1101.3035v2,2011,hep-ph
+North Carolina State University,0711.0236v2,2007,hep-ph
+North Carolina State University,1403.0653v3,2014,hep-ph
+Northeastern University,0804.2899v3,2008,hep-ph
+Northeastern University,0901.1145v1,2009,hep-ph
+Northeastern University,0910.2219v1,2009,hep-ph
+Northwestern University,0804.3627v2,2008,hep-ph
+Northwestern University,0805.0303v1,2008,hep-ph
+Northwestern University,1007.3664v1,2010,hep-ph
+Ohio State University,0803.3116v1,2008,hep-ph
+Ohio State University,1402.4687v3,2014,hep-ph
+Ohio State University,1503.04823v2,2015,hep-ph
+Oklahoma State University,0812.4419v2,2008,hep-ph
+Oklahoma State University,0910.2948v1,2009,hep-ph
+Oklahoma State University,1101.3301v1,2011,hep-ph
+Pennsylvania State University,1309.7338v1,2013,hep-ph
+Pennsylvania State University,1007.1716v1,2010,hep-ph
+Pennsylvania State University,1106.2091v3,2011,hep-ph
+Pennsylvania State University,0804.4232v1,2008,hep-ph
+Pennsylvania State University,0811.3737v2,2008,hep-ph
+Princeton University,0802.0724v1,2008,hep-ph
+Princeton University,1310.2164v1,2013,hep-ph
+Princeton University,0908.1570v1,2009,hep-ph
+Rochester Institute of Technology,0707.2066v1,2007,hep-ph
+Rochester Institute of Technology,0803.1160v1,2008,hep-ph
+Rutgers University-New Brunswick,0806.2385v1,2008,hep-ph
+Rutgers University-New Brunswick,0811.0569v2,2008,hep-ph
+Rutgers University-New Brunswick,0811.4445v2,2008,hep-ph
+Rutgers University-New Brunswick,0705.2019v2,2007,hep-ph
+Rutgers University-New Brunswick,1102.0736v1,2011,hep-ph
+Rutgers University-New Brunswick,1601.03737v4,2016,hep-ph
+Stony Brook University,0707.2973v2,2007,hep-ph
+Stony Brook University,0711.3476v2,2007,hep-ph
+Stony Brook University,0904.3107v2,2009,hep-ph
+Stony Brook University,0708.2430v2,2007,hep-ph
+Stony Brook University,0705.2770v3,2007,hep-ph
+Stony Brook University,1006.0421v2,2010,hep-ph
+Stony Brook University,0908.3688v1,2009,hep-ph
+Syracuse University,0705.0802v1,2007,hep-ph
+Syracuse University,0704.0602v1,2007,hep-ph
+Syracuse University,1009.0265v1,2010,hep-ph
+Syracuse University,0705.4525v1,2007,hep-ph
+Texas A & M University-College Station,0802.2968v2,2008,hep-ph
+Texas A & M University-College Station,1110.4138v2,2011,hep-ph
+Texas A & M University-College Station,1104.2508v2,2011,hep-ph
+The University of Texas at Arlington,0710.4546v2,2007,hep-ph
+University of Arizona,1205.1011v1,2012,hep-ph
+University of Arizona,0801.0572v1,2008,hep-ph
+University of Arizona,1505.06272v1,2015,hep-ph
+University of Arizona,0912.1689v2,2009,hep-ph
+University of Arizona,0902.3764v2,2009,hep-ph
+University of Arizona,0901.3358v3,2009,hep-ph
+University of Arizona,0812.5054v2,2008,hep-ph
+University of Arizona,1706.05746v2,2017,hep-ph
+University of Arizona,0909.1995v2,2009,hep-ph
+University of California-Davis,0902.1512v2,2009,hep-ph
+University of California-Davis,1002.1971v2,2010,hep-ph
+University of California-Davis,1109.3471v1,2011,hep-ph
+University of California-Davis,0806.0386v3,2008,hep-ph
+University of California-Davis,0807.0490v1,2008,hep-ph
+University of California-Irvine,1108.4071v2,2011,hep-ph
+University of California-Irvine,0908.0123v2,2009,hep-ph
+University of California-Irvine,1108.3093v3,2011,hep-ph
+University of California-Los Angeles,1510.03453v1,2015,hep-ph
+University of California-Los Angeles,0708.0248v1,2007,hep-ph
+University of California-Los Angeles,0809.1666v2,2008,hep-ph
+University of California-Los Angeles,0906.1834v1,2009,hep-ph
+University of California-Los Angeles,1001.5273v1,2010,hep-ph
+University of California-Riverside,1109.4177v2,2011,hep-ph
+University of California-Riverside,hep-ph/0701016v2,2007,hep-ph
+University of California-Riverside,0705.0327v4,2007,hep-ph
+University of California-Riverside,0710.1102v1,2007,hep-ph
+University of California-Riverside,0710.2325v1,2007,hep-ph
+University of California-Riverside,0710.3851v1,2007,hep-ph
+University of California-Riverside,0802.2917v1,2008,hep-ph
+University of California-Riverside,0803.0144v1,2008,hep-ph
+University of California-Riverside,0804.3978v1,2008,hep-ph
+University of California-Riverside,0806.4386v1,2008,hep-ph
+University of California-Riverside,0808.1729v2,2008,hep-ph
+University of California-Riverside,0908.1770v1,2009,hep-ph
+University of California-Riverside,1101.4972v1,2011,hep-ph
+University of California-Riverside,1108.4029v3,2011,hep-ph
+University of California-Riverside,0708.0166v2,2007,hep-ph
+University of California-Riverside,0910.4829v1,2009,hep-ph
+University of California-Riverside,0708.3790v2,2007,hep-ph
+University of Chicago,1309.4092v2,2013,hep-ph
+University of Cincinnati,1011.1398v1,2010,hep-ph
+University of Connecticut,1211.1928v1,2012,hep-ph
+University of Connecticut,0903.1271v1,2009,hep-ph
+University of Connecticut,1406.2056v1,2014,hep-ph
+University of Connecticut,1411.2550v2,2014,hep-ph
+University of Connecticut,0910.1677v1,2009,hep-ph
+University of Connecticut,0912.1761v1,2009,hep-ph
+University of Connecticut,1605.00815v2,2016,hep-ph
+University of Connecticut,1612.06721v1,2016,hep-ph
+University of Delaware,1201.4412v1,2012,hep-ph
+University of Delaware,0804.1356v1,2008,hep-ph
+University of Hawaii at Manoa,0801.0189v2,2007,hep-ph
+University of Hawaii at Manoa,0801.3867v1,2008,hep-ph
+University of Hawaii at Manoa,0802.3384v2,2008,hep-ph
+University of Houston,1704.05558v2,2017,hep-ph
+University of Houston,1412.5934v1,2014,hep-ph
+University of Illinois at Chicago,0806.4647v2,2008,hep-ph
+University of Illinois at Chicago,0808.1288v2,2008,hep-ph
+University of Illinois at Chicago,0807.4319v2,2008,hep-ph
+University of Illinois at Urbana-Champaign,0809.3003v2,2008,hep-ph
+University of Illinois at Urbana-Champaign,0807.1058v2,2008,hep-ph
+University of Iowa,0812.5008v1,2008,hep-ph
+University of Iowa,1001.4175v2,2010,hep-ph
+University of Iowa,1007.1966v1,2010,hep-ph
+University of Kentucky,1108.4601v1,2011,hep-ph
+University of Kentucky,0910.0012v1,2009,hep-ph
+University of Kentucky,0806.2827v1,2008,hep-ph
+University of Kentucky,0909.4002v1,2009,hep-ph
+University of Kentucky,0909.4574v1,2009,hep-ph
+University of Maryland-College Park,0710.1454v2,2007,hep-ph
+University of Maryland-College Park,0804.0268v3,2008,hep-ph
+University of Maryland-College Park,0808.1904v2,2008,hep-ph
+University of Maryland-College Park,0902.2400v2,2009,hep-ph
+University of Michigan-Ann Arbor,1610.01618v1,2016,hep-ph
+University of Minnesota-Twin Cities,0901.3164v1,2009,hep-ph
+University of Minnesota-Twin Cities,1507.08992v1,2015,hep-ph
+University of Minnesota-Twin Cities,1506.08629v1,2015,hep-ph
+University of Minnesota-Twin Cities,hep-ph/0702039v2,2007,hep-ph
+University of New Hampshire,1110.0783v3,2011,hep-ph
+University of New Mexico-Main Campus,0908.0969v1,2009,hep-ph
+University of New Mexico-Main Campus-Main Campus,0907.1486v2,2009,hep-ph
+University of Notre Dame,1009.4622v1,2010,hep-ph
+University of Pittsburgh-Pittsburgh Campus,1607.02169v3,2016,hep-ph
+University of Pittsburgh-Pittsburgh Campus,1503.07763v1,2015,hep-ph
+University of Tennessee,1101.0304v1,2010,hep-ph
+University of Tennessee,1101.0307v1,2010,hep-ph
+University of Virginia,0807.2301v1,2008,hep-ph
+University of Virginia,0908.2215v1,2009,hep-ph
+University of Virginia,1003.5612v3,2010,hep-ph
+University of Wisconsin-Madison,0809.1202v2,2008,hep-ph
+University of Wisconsin-Madison,0710.1321v1,2007,hep-ph
+University of Wisconsin-Madison,0710.0028v2,2007,hep-ph
+University of Wisconsin-Madison,0804.3345v2,2008,hep-ph
+University of Wisconsin-Madison,1312.6858v2,2013,hep-ph
+University of Wisconsin-Madison,1109.5216v2,2011,hep-ph
+University of Wisconsin-Madison,1211.3069v1,2012,hep-ph
+Western Illinois University,0710.2445v1,2007,hep-ph
+Brown University,0707.2408v2,2007,hep-th
+Brown University,0710.4378v3,2007,hep-th
+Brown University,0811.2423v2,2008,hep-th
+Brown University,0903.2644v2,2009,hep-th
+Brown University,1412.2072v3,2014,hep-th
+Bryn Mawr College,1106.6291v4,2011,hep-th
+California Institute of Technology,0811.2514v1,2008,hep-th
+California Polytechnic State University-San Luis Obispo,1504.01417v1,2015,hep-th
+Carnegie Mellon University,1309.2656v1,2013,hep-th
+Citadel Military College of South Carolina,0810.3238v4,2008,hep-th
+Columbia University in the City of New York,0910.1261v3,2009,hep-th
+Columbia University in the City of New York,1003.0914v2,2010,hep-th
+Columbia University in the City of New York,1001.3155v1,2010,hep-th
+Columbia University in the City of New York,0912.4824v3,2009,hep-th
+Columbia University in the City of New York,0810.4962v2,2008,hep-th
+CUNY Bernard M Baruch College,1108.0058v3,2011,hep-th
+CUNY Bernard M Baruch College,1203.5141v2,2012,hep-th
+CUNY Bernard M Baruch College,1403.0276v3,2014,hep-th
+CUNY Bernard M Baruch College,1205.1763v4,2012,hep-th
+Harvard University,0704.0052v1,2007,hep-th
+Massachusetts Institute of Technology,1106.6291v4,2011,hep-th
+Massachusetts Institute of Technology,1411.1887v3,2014,hep-th
+Massachusetts Institute of Technology,1007.0993v2,2010,hep-th
+Massachusetts Institute of Technology,0805.3701v1,2008,hep-th
+Massachusetts Institute of Technology,0811.3624v1,2008,hep-th
+Massachusetts Institute of Technology,hep-th/0701196v1,2007,hep-th
+Massachusetts Institute of Technology,hep-th/0701205v1,2007,hep-th
+Massachusetts Institute of Technology,0809.2020v2,2008,hep-th
+North Carolina State University,1108.4979v1,2011,hep-th
+Northeastern University,hep-th/0703227v1,2007,hep-th
+Rutgers University,1611.08953v2,2016,hep-th
+Rutgers University-New Brunswick,0906.5299v1,2009,hep-th
+Rutgers University-New Brunswick,0806.0149v5,2008,hep-th
+Rutgers University-New Brunswick,0809.1238v3,2008,hep-th
+Rutgers University-New Brunswick,1004.2736v1,2010,hep-th
+Rutgers University-New Brunswick,1506.05777v3,2015,hep-th
+Rutgers University-New Brunswick,0811.0450v1,2008,hep-th
+Stony Brook University,0705.0005v3,2007,hep-th
+The University of Texas at Arlington,1208.2663v2,2012,hep-th
+University of California-Berkeley,0709.3582v2,2007,hep-th
+University of California-Davis,0802.2946v2,2008,hep-th
+University of California-Santa Barbara,0711.1870v2,2007,hep-th
+University of Florida,1506.02210v2,2015,hep-th
+University of Iowa,1203.2256v3,2012,hep-th
+University of Michigan-Ann Arbor,1308.6285v1,2013,hep-th
+University of North Carolina Wilmington,1003.1165v2,2010,hep-th
+University of South Carolina-Columbia,0911.2326v2,2009,hep-th
+University of Southern California,0706.3811v2,2007,hep-th
+Arizona State University,1104.1207v1,2011,math-ph
+California Institute of Technology,0804.3035v2,2008,math-ph
+California Institute of Technology,1102.3462v1,2011,math-ph
+California Institute of Technology,0907.0321v1,2009,math-ph
+California Institute of Technology,0907.3225v1,2009,math-ph
+California Institute of Technology,1003.3662v1,2010,math-ph
+California Institute of Technology,1012.5485v1,2010,math-ph
+California Institute of Technology,1006.1927v3,2010,math-ph
+California State University-Long Beach,1710.01580v1,2017,math-ph
+CUNY Bernard M Baruch College,1203.5134v2,2012,math-ph
+CUNY Brooklyn College,1210.0856v1,2012,math-ph
+Emory University,1607.05168v2,2016,math-ph
+Harvard University,0812.4054v2,2008,math-ph
+Harvard University,0705.0712v2,2007,math-ph
+Johns Hopkins University,1706.00329v2,2017,math-ph
+North Carolina State University,0708.0726v2,2007,math-ph
+North Carolina State University,0902.2546v1,2009,math-ph
+Oklahoma State University,0710.5257v3,2007,math-ph
+Oklahoma State University,0803.3029v4,2008,math-ph
+Oklahoma State University,0906.3153v3,2009,math-ph
+Oklahoma State University,0907.0362v3,2009,math-ph
+Rice University,1408.1796v2,2014,math-ph
+Rice University,1404.7065v2,2014,math-ph
+Rice University,1407.5067v2,2014,math-ph
+Rice University,1407.4924v3,2014,math-ph
+Rutgers University,0909.2695v3,2009,math-ph
+University of California-Berkeley,1506.00338v2,2015,math-ph
+University of California-Irvine,1305.6647v1,2013,math-ph
+University of California-Irvine,1307.0925v2,2013,math-ph
+University of California-Irvine,1210.5753v2,2012,math-ph
+University of California-Riverside,1204.3572v1,2012,math-ph
+University of Dayton,0709.2523v2,2007,math-ph
+University of Hawaii at Manoa,1108.2740v1,2011,math-ph
+University of Hawaii at Manoa,0809.2079v1,2008,math-ph
+University of Illinois at Chicago,1101.3136v2,2011,math-ph
+University of Maryland-College Park,0903.3976v5,2009,math-ph
+University of Maryland-College Park,1207.1729v6,2012,math-ph
+University of Maryland-College Park,1103.2505v9,2011,math-ph
+University of Massachusetts-Boston,1508.05954v1,2015,math-ph
+University of Rhode Island,1104.0719v1,2011,math-ph
+University of San Diego,1408.0054v1,2014,math-ph
+University of South Carolina-Columbia,1505.04200v2,2015,math-ph
+University of Southern California,0905.1382v1,2009,math-ph
+University of Wisconsin-Madison,1011.3859v1,2010,math-ph
+University of Wisconsin-Madison,1012.4783v1,2010,math-ph
+Brigham Young University,0903.3220v2,2009,math.AG
+California Institute of Technology,0901.2107v1,2009,math.AG
+Rice University,1509.07373v1,2015,math.AP
+The University of Texas at Austin,1101.4173v2,2011,math.AP
+University of Michigan-Ann Arbor,0906.4797v2,2009,math.AP
+University of Southern California,0912.1327v1,2009,math.AP
+University of Wisconsin-Madison,0708.2540v1,2007,math.AP
+Northwestern University,math/0701767v1,2007,math.CT
+University of Notre Dame,math/0702196v1,2007,math.DG
+New York University,1107.2609v1,2011,math.DS
+University of California-Santa Cruz,1512.05308v3,2015,math.DS
+University of Maryland-College Park,1011.5330v1,2010,math.DS
+University of Maryland-College Park,1112.4812v2,2011,math.DS
+University of Washington,1306.4284v2,2013,math.DS
+Winston-Salem State University,1304.3707v1,2013,math.DS
+University of Maryland-College Park,1409.6349v2,2014,math.FA
+Carnegie Mellon University,1003.5831v6,2010,math.LO
+New York University,1309.5037v2,2013,math.NA
+New York University,0905.4218v1,2009,math.NA
+University of Washington,1404.7216v1,2014,math.NA
+Columbia University in the City of New York,1611.01558v1,2016,math.OC
+Florida State University,1205.0768v1,2012,math.OC
+Columbia University in the City of New York,1710.02323v1,2017,math.PR
+Columbia University in the City of New York,0806.0158v2,2008,math.PR
+Duke University,0907.0477v1,2009,math.PR
+Purdue University,0801.2478v1,2008,math.PR
+Stanford University,0911.0063v2,2009,math.PR
+University of California-Davis,0909.1881v1,2009,math.QA
+California Institute of Technology,math/0702388v2,2007,math.SP
+Northwestern University,1304.0519v2,2013,math.SP
+Rice University,1107.1094v1,2011,math.SP
+Rice University,1308.1811v2,2013,math.SP
+Rice University,1410.2445v2,2014,math.SP
+Rice University,1403.7823v1,2014,math.SP
+Rice University,1408.4335v2,2014,math.SP
+Rice University,1409.6259v3,2014,math.SP
+Rice University,1409.2147v2,2014,math.SP
+Rice University,1409.2434v3,2014,math.SP
+University of California-Irvine,1212.5844v1,2012,math.SP
+University of California-Irvine,1406.4810v2,2014,math.SP
+Georgia Institute of Technology,0708.1893v1,2007,nlin.CD
+University of Arizona,nlin/0702035v1,2007,nlin.PS
+University of Arizona,nlin/0702049v1,2007,nlin.PS
+Carnegie Mellon University,0705.3311v2,2007,nucl-ex
+Columbia University in the City of New York,1502.02730v1,2015,nucl-ex
+Florida State University,1007.0037v1,2010,nucl-ex
+George Washington University,1512.03046v1,2015,nucl-ex
+George Washington University,0806.1198v2,2008,nucl-ex
+Kent State University,1112.0842v1,2011,nucl-ex
+Massachusetts Institute of Technology,0807.0785v1,2008,nucl-ex
+Massachusetts Institute of Technology,0904.2860v1,2009,nucl-ex
+Massachusetts Institute of Technology,1108.6029v1,2011,nucl-ex
+Massachusetts Institute of Technology,nucl-ex/0701049v2,2007,nucl-ex
+Massachusetts Institute of Technology,0804.3679v1,2008,nucl-ex
+Massachusetts Institute of Technology,0806.2803v1,2008,nucl-ex
+Michigan State University,0811.1352v3,2008,nucl-ex
+Michigan State University,0707.2690v1,2007,nucl-ex
+Michigan State University,0708.3512v6,2007,nucl-ex
+Michigan State University,1301.4153v1,2013,nucl-ex
+Michigan State University,nucl-ex/0701016v1,2007,nucl-ex
+Stony Brook University,1105.3782v2,2011,nucl-ex
+Stony Brook University,1009.5624v1,2010,nucl-ex
+Stony Brook University,0907.4132v3,2009,nucl-ex
+Stony Brook University,0905.4368v2,2009,nucl-ex
+Stony Brook University,1011.3535v2,2010,nucl-ex
+Stony Brook University,1606.08071v4,2016,nucl-ex
+Stony Brook University,1607.02411v1,2016,nucl-ex
+Stony Brook University,1311.1728v2,2013,nucl-ex
+Stony Brook University,1305.3341v3,2013,nucl-ex
+Stony Brook University,1009.5230v2,2010,nucl-ex
+Stony Brook University,1202.5537v1,2012,nucl-ex
+Stony Brook University,nucl-ex/0701026v1,2007,nucl-ex
+Stony Brook University,1512.09152v2,2015,nucl-ex
+Stony Brook University,1408.1343v1,2014,nucl-ex
+Stony Brook University,1411.7931v2,2014,nucl-ex
+Stony Brook University,1005.4979v2,2010,nucl-ex
+Stony Brook University,1203.3605v1,2012,nucl-ex
+Stony Brook University,1207.1886v2,2012,nucl-ex
+Stony Brook University,1301.0165v4,2013,nucl-ex
+Texas A & M University-College Station,0906.3556v2,2009,nucl-ex
+Tulane University,1104.2778v2,2011,nucl-ex
+University of Chicago,0808.1606v1,2008,nucl-ex
+University of Connecticut,1405.7445v1,2014,nucl-ex
+University of Connecticut,1506.04501v1,2015,nucl-ex
+University of Connecticut,1311.1038v2,2013,nucl-ex
+University of Connecticut,1405.7119v1,2014,nucl-ex
+University of Connecticut,1303.4326v1,2013,nucl-ex
+University of Connecticut,0707.0687v1,2007,nucl-ex
+University of Connecticut,nucl-ex/0702018v1,2007,nucl-ex
+University of Illinois at Chicago,nucl-ex/0701051v1,2007,nucl-ex
+University of Maryland-College Park,0903.5509v1,2009,nucl-ex
+University of Notre Dame,1310.3231v1,2013,nucl-ex
+University of Rochester,1707.09375v1,2017,nucl-ex
+University of Utah,1311.6038v1,2013,nucl-ex
+University of Virginia,0711.4413v1,2007,nucl-ex
+University of Virginia,1708.00888v2,2017,nucl-ex
+University of Virginia,1708.00891v1,2017,nucl-ex
+Virginia Polytechnic Institute and State University,1708.00835v1,2017,nucl-ex
+Washington University in St Louis,0708.0081v1,2007,nucl-ex
+Wayne State University,1111.4472v2,2011,nucl-ex
+Yale University,1405.7445v1,2014,nucl-ex
+Yale University,1311.1038v2,2013,nucl-ex
+Yale University,1405.7119v1,2014,nucl-ex
+Yale University,1303.4326v1,2013,nucl-ex
+Yale University,0707.0687v1,2007,nucl-ex
+Yale University,0710.1051v2,2007,nucl-ex
+Yale University,nucl-ex/0702018v1,2007,nucl-ex
+Arizona State University,0809.0446v1,2008,nucl-th
+Arizona State University,1308.3748v3,2013,nucl-th
+Arizona State University,0903.2055v1,2009,nucl-th
+Arizona State University,1102.4313v1,2011,nucl-th
+Arizona State University,1208.1224v1,2012,nucl-th
+Arizona State University,1006.0270v2,2010,nucl-th
+Arizona State University,1307.6234v1,2013,nucl-th
+California State University-Long Beach,1209.4343v1,2012,nucl-th
+California State University-Long Beach,1005.4161v1,2010,nucl-th
+California State University-Long Beach,1008.4806v1,2010,nucl-th
+Columbia University in the City of New York,1004.0237v2,2010,nucl-th
+Columbia University in the City of New York,1508.02455v2,2015,nucl-th
+Columbia University in the City of New York,1602.03788v2,2016,nucl-th
+CUNY Bernard M Baruch College,1008.5162v1,2010,nucl-th
+Dakota State University,0910.1057v1,2009,nucl-th
+Eckerd College,0906.3758v3,2009,nucl-th
+George Washington University,1007.0734v2,2010,nucl-th
+George Washington University,1203.6834v2,2012,nucl-th
+George Washington University,0710.2924v1,2007,nucl-th
+George Washington University,0711.4522v1,2007,nucl-th
+George Washington University,0803.1307v2,2008,nucl-th
+George Washington University,0910.0053v1,2009,nucl-th
+George Washington University,1511.00490v3,2015,nucl-th
+George Washington University,1304.6594v3,2013,nucl-th
+George Washington University,1006.4849v2,2010,nucl-th
+George Washington University,1208.0970v1,2012,nucl-th
+George Washington University,1601.03706v2,2016,nucl-th
+George Washington University,0906.3709v2,2009,nucl-th
+George Washington University,1609.01741v1,2016,nucl-th
+George Washington University,0706.2195v3,2007,nucl-th
+George Washington University,1108.0179v3,2011,nucl-th
+George Washington University,1509.08348v2,2015,nucl-th
+Harvard University,0903.0669v4,2009,nucl-th
+Harvard University,0911.5015v1,2009,nucl-th
+Indiana University-Bloomington,0707.4016v3,2007,nucl-th
+Indiana University-Bloomington,0710.0981v1,2007,nucl-th
+Indiana University-Bloomington,0912.5109v1,2009,nucl-th
+Indiana University-Bloomington,1110.2760v1,2011,nucl-th
+Indiana University-Bloomington,0706.1547v3,2007,nucl-th
+Iowa State University,nucl-th/0701024v2,2007,nucl-th
+Kent State University,1509.05818v1,2015,nucl-th
+Kent State University,1408.0756v1,2014,nucl-th
+Massachusetts Institute of Technology,0907.3463v2,2009,nucl-th
+Massachusetts Institute of Technology,1212.3237v2,2012,nucl-th
+Massachusetts Institute of Technology,1111.6918v2,2011,nucl-th
+Michigan State University,1312.2068v1,2013,nucl-th
+Michigan State University,0711.1812v1,2007,nucl-th
+Michigan State University,1611.06765v1,2016,nucl-th
+Michigan State University,0906.4841v1,2009,nucl-th
+Michigan State University,1003.4011v1,2010,nucl-th
+Michigan State University,0903.2560v1,2009,nucl-th
+Michigan State University,1009.0215v1,2010,nucl-th
+Michigan State University,1612.04874v1,2016,nucl-th
+Michigan State University,0708.2830v1,2007,nucl-th
+Michigan State University,0807.3743v2,2008,nucl-th
+Michigan State University,0707.0377v1,2007,nucl-th
+Mississippi State University,1309.2616v2,2013,nucl-th
+Mississippi State University,1204.4408v1,2012,nucl-th
+Mississippi State University,1411.2436v1,2014,nucl-th
+Mississippi State University,1511.04054v1,2015,nucl-th
+North Carolina State University,1612.03889v1,2016,nucl-th
+North Carolina State University,1612.04564v1,2016,nucl-th
+North Carolina State University,0804.2678v3,2008,nucl-th
+North Carolina State University,0803.1280v2,2008,nucl-th
+North Carolina State University,0804.3501v2,2008,nucl-th
+North Carolina State University,0808.0734v1,2008,nucl-th
+North Carolina State University,nucl-th/0701041v2,2007,nucl-th
+North Carolina State University,1608.05459v2,2016,nucl-th
+North Carolina State University,nucl-th/0701048v1,2007,nucl-th
+North Carolina State University,0707.1504v1,2007,nucl-th
+North Carolina State University,1108.5487v1,2011,nucl-th
+North Carolina State University,1012.3718v1,2010,nucl-th
+North Carolina State University,1210.4113v1,2012,nucl-th
+North Carolina State University,1403.7166v2,2014,nucl-th
+Ohio State University,1011.2783v2,2010,nucl-th
+Ohio State University,1108.5379v2,2011,nucl-th
+Ohio State University,1110.3033v1,2011,nucl-th
+Ohio State University,1104.0650v3,2011,nucl-th
+Ohio State University,1409.8164v3,2014,nucl-th
+Ohio State University,1602.02813v2,2016,nucl-th
+Ohio State University,1605.09418v1,2016,nucl-th
+Ohio State University,1012.0555v2,2010,nucl-th
+Ohio State University,1103.2380v2,2011,nucl-th
+Ohio State University,1010.1856v1,2010,nucl-th
+Ohio State University,1201.5026v1,2012,nucl-th
+Ohio State University,1311.0157v2,2013,nucl-th
+Ohio State University,1207.2396v1,2012,nucl-th
+Ohio State University,0908.3656v1,2009,nucl-th
+Ohio State University,1305.3800v1,2013,nucl-th
+Ohio State University,0709.0742v2,2007,nucl-th
+Ohio State University,1306.1485v1,2013,nucl-th
+Ohio State University,1101.3703v2,2011,nucl-th
+Ohio State University,1012.5941v1,2010,nucl-th
+Ohio State University,1302.3535v2,2013,nucl-th
+Ohio State University,1304.3634v1,2013,nucl-th
+Ohio State University,1403.8101v1,2014,nucl-th
+Ohio State University,1512.08276v2,2015,nucl-th
+Ohio State University,nucl-th/0701058v1,2007,nucl-th
+Ohio State University,0803.0022v2,2008,nucl-th
+Ohio State University,0901.4355v1,2009,nucl-th
+Ohio State University,0907.2262v2,2009,nucl-th
+Ohio State University,0907.4256v2,2009,nucl-th
+Ohio State University,0908.2617v2,2009,nucl-th
+Ohio State University,0909.1549v2,2009,nucl-th
+Ohio State University,0709.3366v1,2007,nucl-th
+Ohio State University,1210.5778v2,2012,nucl-th
+Ohio State University,1210.7010v1,2012,nucl-th
+Ohio University,1509.09177v2,2015,nucl-th
+Ohio University,1511.01952v2,2015,nucl-th
+Ohio University,1409.1512v1,2014,nucl-th
+Ohio University,0803.4190v1,2008,nucl-th
+Ohio University,1302.4762v3,2013,nucl-th
+Ohio University,1209.0837v1,2012,nucl-th
+Ohio University,1302.5959v1,2013,nucl-th
+Ohio University,0903.4439v2,2009,nucl-th
+Ohio University,0710.3597v1,2007,nucl-th
+Pennsylvania State University,1109.3560v2,2011,nucl-th
+Pennsylvania State University,0901.2340v1,2009,nucl-th
+Purdue University,1404.4119v1,2014,nucl-th
+Purdue University,1209.2430v1,2012,nucl-th
+Purdue University,1405.4848v1,2014,nucl-th
+Purdue University,1404.7850v3,2014,nucl-th
+Purdue University,1305.1046v1,2013,nucl-th
+Purdue University,1107.5860v1,2011,nucl-th
+Purdue University,1212.1853v1,2012,nucl-th
+Purdue University,0908.0299v1,2009,nucl-th
+Roosevelt University,1602.08047v1,2016,nucl-th
+San Diego State University,1108.4125v1,2011,nucl-th
+Texas A & M University-College Station,0710.3181v1,2007,nucl-th
+Texas A & M University-College Station,0705.3968v1,2007,nucl-th
+Texas A & M University-College Station,0805.0587v1,2008,nucl-th
+Texas A & M University-College Station,0812.0987v3,2008,nucl-th
+Texas A & M University-College Station,0807.4485v2,2008,nucl-th
+Texas A & M University-College Station,0907.1031v1,2009,nucl-th
+Texas A & M University-Commerce,nucl-th/0702080v2,2007,nucl-th
+The University of Tennessee-Knoxville,1307.1550v1,2013,nucl-th
+The University of Texas MD Anderson Cancer Center,1202.6619v1,2012,nucl-th
+The University of Texas MD Anderson Cancer Center,1202.6617v1,2012,nucl-th
+University of Arizona,1708.08115v1,2017,nucl-th
+University of Arizona,0801.0588v1,2008,nucl-th
+University of Arizona,1106.6119v1,2011,nucl-th
+University of Arizona,0904.0463v1,2009,nucl-th
+University of California-San Diego,1303.3874v1,2013,nucl-th
+University of California-Santa Barbara,0801.4171v1,2008,nucl-th
+University of Idaho,nucl-th/0701077v1,2007,nucl-th
+University of Maryland-College Park,0808.2029v1,2008,nucl-th
+University of South Carolina-Columbia,0704.3757v3,2007,nucl-th
+University of South Carolina-Columbia,1103.4434v2,2011,nucl-th
+University of South Carolina-Columbia,0801.4330v1,2008,nucl-th
+University of South Carolina-Columbia,0901.2366v2,2009,nucl-th
+University of South Carolina-Columbia,0908.3837v1,2009,nucl-th
+University of South Carolina-Columbia,0705.2885v2,2007,nucl-th
+University of South Carolina-Columbia,0710.2927v1,2007,nucl-th
+University of Southern California,1503.03313v2,2015,nucl-th
+University of Virginia,1009.5017v1,2010,nucl-th
+University of Washington,1407.0100v2,2014,nucl-th
+University of Washington,1403.1186v1,2014,nucl-th
+University of Washington,0903.1048v2,2009,nucl-th
+University of Wisconsin-Madison,1301.0911v1,2013,nucl-th
+University of Wisconsin-Madison,0705.1318v1,2007,nucl-th
+University of Wisconsin-Madison,0711.0710v1,2007,nucl-th
+University of Wisconsin-Madison,1007.1180v1,2010,nucl-th
+University of Wisconsin-Madison,1410.5866v1,2014,nucl-th
+University of Wisconsin-Madison,1605.00578v1,2016,nucl-th
+University of Wisconsin-Madison,1404.1393v1,2014,nucl-th
+University of Wisconsin-Madison,1304.1882v1,2013,nucl-th
+University of Wisconsin-Madison,1710.04108v1,2017,nucl-th
+University of Wisconsin-Madison,1609.02207v1,2016,nucl-th
+Washington University in St Louis,0904.2183v1,2009,nucl-th
+Washington University in St Louis,1601.04656v1,2016,nucl-th
+Washington University in St Louis,1505.06935v2,2015,nucl-th
+Washington University in St Louis,0901.1920v1,2009,nucl-th
+Washington University in St Louis,1003.1093v2,2010,nucl-th
+Washington University in St Louis,1009.4182v1,2010,nucl-th
+Wayne State University,1610.02506v2,2016,nucl-th
+Cornell University,1501.07129v1,2015,physics.acc-ph
+Cornell University,1106.0977v1,2011,physics.acc-ph
+Cornell University,0704.0870v2,2007,physics.acc-ph
+Cornell University,0906.4624v1,2009,physics.acc-ph
+Cornell University,1205.6701v1,2012,physics.acc-ph
+Cornell University,1605.01433v1,2016,physics.acc-ph
+Cornell University,1307.6185v1,2013,physics.acc-ph
+Michigan State University,1207.6621v1,2012,physics.acc-ph
+Michigan State University,1404.5637v3,2014,physics.acc-ph
+Michigan State University,1311.0241v1,2013,physics.acc-ph
+Michigan State University,1612.08740v1,2016,physics.acc-ph
+North Carolina State University,1108.1634v1,2011,physics.acc-ph
+Northern Illinois University,1201.5883v1,2012,physics.acc-ph
+Northern Illinois University,1202.2107v1,2012,physics.acc-ph
+Northern Illinois University,1612.07777v1,2016,physics.acc-ph
+Northern Illinois University,1709.05371v1,2017,physics.acc-ph
+Northern Illinois University,1511.02172v1,2015,physics.acc-ph
+Northern Illinois University,1709.04506v1,2017,physics.acc-ph
+Northern Illinois University,1409.5151v1,2014,physics.acc-ph
+Northern Illinois University,1502.02064v1,2015,physics.acc-ph
+Northern Illinois University,1709.02419v1,2017,physics.acc-ph
+Texas A & M University-College Station,1501.07893v1,2015,physics.acc-ph
+Texas A & M University-College Station,1108.1640v1,2011,physics.acc-ph
+The University of Texas at Austin,0709.2753v1,2007,physics.acc-ph
+University of Arizona,0911.5556v1,2009,physics.acc-ph
+University of California-Irvine,1407.0768v1,2014,physics.acc-ph
+University of California-Los Angeles,1411.4386v2,2014,physics.acc-ph
+University of California-Los Angeles,1306.4076v1,2013,physics.acc-ph
+University of California-Los Angeles,1402.5322v1,2014,physics.acc-ph
+University of California-Riverside,1607.00028v1,2016,physics.acc-ph
+University of California-San Diego,1202.0252v1,2012,physics.acc-ph
+University of California-San Diego,1202.1512v1,2012,physics.acc-ph
+University of Maryland-College Park,1207.7058v1,2012,physics.acc-ph
+University of Mississippi,1207.7354v1,2012,physics.acc-ph
+University of Mississippi,1202.0297v1,2012,physics.acc-ph
+University of Mississippi,1612.08960v1,2016,physics.acc-ph
+University of Mississippi,1112.1105v2,2011,physics.acc-ph
+University of Mississippi,0709.2864v1,2007,physics.acc-ph
+University of Southern California,1208.4344v1,2012,physics.acc-ph
+University of Wisconsin-Madison,1205.1777v1,2012,physics.acc-ph
+West Virginia University,1309.4658v1,2013,physics.acc-ph
+Carnegie Mellon University,1607.06702v1,2016,physics.ao-ph
+Columbia University in the City of New York,0706.3720v1,2007,physics.ao-ph
+Duke University,1703.08727v1,2017,physics.ao-ph
+Duke University,1705.04262v1,2017,physics.ao-ph
+Massachusetts Institute of Technology,1504.04193v1,2015,physics.ao-ph
+Pennsylvania State University,1408.4366v1,2014,physics.ao-ph
+University of California-Berkeley,1605.06859v3,2016,physics.ao-ph
+University of Kansas,1606.08792v1,2016,physics.ao-ph
+University of New Mexico-Main Campus-Main Campus,1212.1965v1,2012,physics.ao-ph
+Washburn University,1608.07512v1,2016,physics.ao-ph
+Washburn University,1607.02980v1,2016,physics.ao-ph
+Ohio State University,1211.7041v1,2012,physics.atm-clus
+University of Pittsburgh-Pittsburgh Campus,1706.07902v1,2017,physics.atm-clus
+Bryn Mawr College,0907.5405v2,2009,physics.atom-ph
+Clark Atlanta University,physics/0701024v1,2007,physics.atom-ph
+College of William and Mary,1511.07550v1,2015,physics.atom-ph
+College of William and Mary,0805.2603v1,2008,physics.atom-ph
+Georgia State University,1003.3906v1,2010,physics.atom-ph
+Harvard University,1004.2644v1,2010,physics.atom-ph
+Harvard University,0801.4951v1,2008,physics.atom-ph
+Harvey Mudd College,0708.2477v1,2007,physics.atom-ph
+Kansas State University,1104.4487v1,2011,physics.atom-ph
+Kansas State University,1104.4516v1,2011,physics.atom-ph
+Purdue University,1510.07003v1,2015,physics.atom-ph
+Purdue University,1605.04883v3,2016,physics.atom-ph
+Stony Brook University,0802.1439v1,2008,physics.atom-ph
+The University of Tennessee-Knoxville,0708.2641v1,2007,physics.atom-ph
+University of California-Irvine,0905.1671v2,2009,physics.atom-ph
+University of Central Florida,1102.5174v1,2011,physics.atom-ph
+University of Colorado,physics/0702161v2,2007,physics.atom-ph
+University of Georgia,1307.2820v2,2013,physics.atom-ph
+University of Massachusetts-Boston,1001.0225v1,2010,physics.atom-ph
+University of Michigan,1705.02682v1,2017,physics.atom-ph
+University of Nevada-Reno,0705.4425v1,2007,physics.atom-ph
+University of Oklahoma-Norman Campus,1304.7266v2,2013,physics.atom-ph
+Yale University,1110.3748v1,2011,physics.atom-ph
+Boston University,1405.1788v1,2014,physics.bio-ph
+Harvard University,0808.1563v2,2008,physics.bio-ph
+Harvard University,0912.5370v1,2009,physics.bio-ph
+Haverford College,0808.1134v1,2008,physics.bio-ph
+Massachusetts Institute of Technology,0704.0191v1,2007,physics.bio-ph
+Purdue University,1506.08862v1,2015,physics.bio-ph
+The University of Texas at Austin,1507.08335v2,2015,physics.bio-ph
+University of California-Berkeley,1512.06105v2,2015,physics.bio-ph
+University of California-San Diego,1207.0556v1,2012,physics.bio-ph
+University of Colorado Boulder,1301.2504v4,2013,physics.bio-ph
+University of Hawaii at Manoa,1112.6190v1,2011,physics.bio-ph
+University of Hawaii at Manoa,1307.0536v2,2013,physics.bio-ph
+University of Hawaii at Manoa,1505.07153v1,2015,physics.bio-ph
+University of Michigan-Ann Arbor,physics/0702197v1,2007,physics.bio-ph
+University of Michigan-Ann Arbor,physics/0702200v1,2007,physics.bio-ph
+University of Missouri-Columbia,0807.4358v1,2008,physics.bio-ph
+University of Missouri-Columbia,0706.3678v1,2007,physics.bio-ph
+University of Missouri-Columbia,0706.3693v1,2007,physics.bio-ph
+Washington University in St Louis,0710.3859v2,2007,physics.bio-ph
+Florida State University,1308.4315v1,2013,physics.chem-ph
+Florida State University,1109.1315v2,2011,physics.chem-ph
+Iowa State University,1602.02447v1,2016,physics.chem-ph
+Iowa State University,1602.03267v1,2016,physics.chem-ph
+Tulane University,1410.6209v1,2014,physics.chem-ph
+University of Arizona,1408.2276v1,2014,physics.chem-ph
+University of California-Los Angeles,0706.3061v1,2007,physics.chem-ph
+University of California-San Diego,1212.3024v1,2012,physics.chem-ph
+University of California-Santa Barbara,0901.3224v1,2009,physics.chem-ph
+University of Colorado Boulder,1601.07845v1,2016,physics.chem-ph
+University of Southern California,physics/0702144v1,2007,physics.chem-ph
+University of the Pacific,1709.01966v1,2017,physics.chem-ph
+University of the Pacific,1709.01969v1,2017,physics.chem-ph
+Georgia Institute of Technology-Main Campus,1205.1418v1,2012,physics.class-ph
+Georgia Institute of Technology-Main Campus,1307.5507v3,2013,physics.class-ph
+University of Arizona,1412.2810v2,2014,physics.class-ph
+University of California-Berkeley,1412.1852v2,2014,physics.class-ph
+University of Georgia,1701.00270v1,2017,physics.class-ph
+University of Missouri-Columbia,0911.5175v2,2009,physics.class-ph
+University of Missouri-Columbia,physics/0703116v2,2007,physics.class-ph
+Wesleyan University,1205.1847v1,2012,physics.class-ph
+Harvard University,1305.5536v2,2013,physics.comp-ph
+Kansas State University,1206.3446v1,2012,physics.comp-ph
+Louisiana State University,1307.6488v1,2013,physics.comp-ph
+Rutgers University-New Brunswick,1309.5007v1,2013,physics.comp-ph
+Stanford University,0801.1426v3,2008,physics.comp-ph
+University of California-Berkeley,1012.0697v1,2010,physics.comp-ph
+University of California-Berkeley,1012.3300v1,2010,physics.comp-ph
+University of California-Berkeley,1012.3303v1,2010,physics.comp-ph
+University of California-Berkeley,0912.1703v1,2009,physics.comp-ph
+University of California-Berkeley,0912.1705v1,2009,physics.comp-ph
+University of California-Berkeley,0912.1713v1,2009,physics.comp-ph
+University of California-Berkeley,0912.1724v1,2009,physics.comp-ph
+University of California-Berkeley,1012.0134v1,2010,physics.comp-ph
+University of California-Berkeley,1011.6601v1,2010,physics.comp-ph
+University of California-Berkeley,1012.0139v1,2010,physics.comp-ph
+University of California-San Diego,1202.3424v3,2012,physics.comp-ph
+University of California-San Diego,0904.3950v1,2009,physics.comp-ph
+University of Illinois at Urbana-Champaign,1704.05145v1,2017,physics.comp-ph
+University of Illinois at Urbana-Champaign,0902.1343v1,2009,physics.comp-ph
+University of Massachusetts-Lowell,1303.3765v1,2013,physics.comp-ph
+University of Michigan-Ann Arbor,physics/0702201v1,2007,physics.comp-ph
+University of Michigan-Ann Arbor,physics/0702224v1,2007,physics.comp-ph
+University of New Hampshire,0711.3868v1,2007,physics.comp-ph
+University of New Mexico-Main Campus-Main Campus,1101.0086v2,2010,physics.comp-ph
+University of Utah,0803.2660v1,2008,physics.comp-ph
+California Institute of Technology,0803.0360v1,2008,physics.data-an
+Florida State University,1608.03201v1,2016,physics.data-an
+New York University,0807.4820v1,2008,physics.data-an
+New York University,1205.4446v1,2012,physics.data-an
+Stony Brook University,1710.01717v1,2017,physics.data-an
+University of Washington,0805.0027v3,2008,physics.data-an
+Bridgewater State University,1109.3816v1,2011,physics.ed-ph
+California Institute of Technology,1011.0752v1,2010,physics.ed-ph
+Harvard University,1208.4791v1,2012,physics.ed-ph
+Harvard University,1308.1908v2,2013,physics.ed-ph
+Illinois Institute of Technology,0812.4492v1,2008,physics.ed-ph
+Jacksonville University,1108.1591v1,2011,physics.ed-ph
+Johns Hopkins University,1511.02121v2,2015,physics.ed-ph
+New Mexico State University,1602.02033v2,2016,physics.ed-ph
+New York University,0709.0107v1,2007,physics.ed-ph
+University of California-Davis,0902.3321v2,2009,physics.ed-ph
+University of Oregon,1004.2731v1,2010,physics.ed-ph
+University of Oregon,1011.0663v1,2010,physics.ed-ph
+University of Oregon,1008.4410v1,2010,physics.ed-ph
+Washburn University,0710.2631v2,2007,physics.ed-ph
+Washburn University,1202.0794v1,2012,physics.ed-ph
+Columbia University in the City of New York,1501.07308v2,2015,physics.flu-dyn
+Cornell University,physics/0702082v1,2007,physics.flu-dyn
+Massachusetts Institute of Technology,1108.0871v1,2011,physics.flu-dyn
+Massachusetts Institute of Technology,0908.0575v1,2009,physics.flu-dyn
+North Carolina State University,0906.5399v1,2009,physics.flu-dyn
+Northwestern University,1708.07270v1,2017,physics.flu-dyn
+Princeton University,1403.1203v1,2014,physics.flu-dyn
+University of Arizona,1601.06961v1,2016,physics.flu-dyn
+University of Arizona,1311.4264v1,2013,physics.flu-dyn
+University of California-Los Angeles,1309.2854v1,2013,physics.flu-dyn
+University of California-San Diego,1203.5819v1,2012,physics.flu-dyn
+University of California-San Diego,1203.4437v1,2012,physics.flu-dyn
+University of California-Santa Barbara,1709.02484v1,2017,physics.flu-dyn
+University of Colorado Boulder,1702.03768v1,2017,physics.flu-dyn
+University of Florida,1407.7818v1,2014,physics.flu-dyn
+University of Illinois at Urbana-Champaign,0906.3572v5,2009,physics.flu-dyn
+University of Massachusetts-Amherst,1509.09156v2,2015,physics.flu-dyn
+University of North Carolina at Chapel Hill,0901.1026v1,2009,physics.flu-dyn
+University of Pennsylvania,1704.04551v1,2017,physics.flu-dyn
+CUNY City College,0706.1802v2,2007,physics.gen-ph
+Harvard University,1206.0187v1,2012,physics.gen-ph
+Princeton University,1006.3697v1,2010,physics.gen-ph
+University of California-San Diego,1212.4909v1,2012,physics.gen-ph
+University of California-San Diego,1211.0962v1,2012,physics.gen-ph
+University of California-San Diego,1206.0218v1,2012,physics.gen-ph
+University of Illinois at Chicago,1706.07045v2,2017,physics.gen-ph
+University of Toledo,1109.5652v2,2011,physics.gen-ph
+Victor Valley College,1211.0701v3,2012,physics.gen-ph
+Princeton University,0903.0752v2,2009,physics.geo-ph
+University of California-Los Angeles,0910.4981v1,2009,physics.geo-ph
+University of Kansas,1501.01204v1,2015,physics.geo-ph
+Western Kentucky University,0912.2540v1,2009,physics.geo-ph
+Harvard University,1305.5495v2,2013,physics.hist-ph
+University of California-Berkeley,1508.06627v1,2015,physics.hist-ph
+university of Chicago,physics/0703037v1,2007,physics.hist-ph
+University of Illinois at Urbana-Champaign,1301.7331v1,2013,physics.hist-ph
+University of Rochester,1103.1342v2,2011,physics.hist-ph
+Victor Valley College,1211.2554v1,2012,physics.hist-ph
+Abilene Christian University,physics/0701108v1,2007,physics.ins-det
+California Institute of Technology,0912.4300v1,2009,physics.ins-det
+Boston University,0910.0818v1,2009,physics.ins-det
+Florida Institute of Technology,1007.0256v1,2010,physics.ins-det
+Florida Institute of Technology,0811.0187v1,2008,physics.ins-det
+Illinois Institute of Technology,1607.07434v2,2016,physics.ins-det
+Massachusetts Institute of Technology,1205.5528v2,2012,physics.ins-det
+Michigan State University,1606.07459v1,2016,physics.ins-det
+Ohio State University,1508.05389v2,2015,physics.ins-det
+Pennsylvania State University,1706.07857v1,2017,physics.ins-det
+Princeton University,1006.1061v1,2010,physics.ins-det
+Stony Brook University,1501.03530v3,2015,physics.ins-det
+University of California-Davis,0808.0677v1,2008,physics.ins-det
+University of California-Davis,1106.1613v1,2011,physics.ins-det
+University of California-Los Angeles,1708.01798v1,2017,physics.ins-det
+University of Connecticut,1101.1940v1,2011,physics.ins-det
+University of Hawaii at Manoa,1402.0437v1,2014,physics.ins-det
+University of Iowa,1008.1157v1,2010,physics.ins-det
+University of Michigan-Ann Arbor,1101.0045v1,2010,physics.ins-det
+University of Michigan-Ann Arbor,1709.04391v3,2017,physics.ins-det
+University of Michigan-Ann Arbor,1407.6491v4,2014,physics.ins-det
+University of New Mexico-Main Campus,1210.6102v1,2012,physics.ins-det
+University of Oregon,0902.2192v1,2009,physics.ins-det
+University of Oregon,1703.08605v1,2017,physics.ins-det
+University of Pennsylvania,1307.3241v2,2013,physics.ins-det
+University of Pittsburgh-Pittsburgh Campus,0904.4545v1,2009,physics.ins-det
+University of Virginia,0804.4269v1,2008,physics.ins-det
+University of Virginia,1107.1902v2,2011,physics.ins-det
+University of Washington,1312.0896v2,2013,physics.ins-det
+University of Wisconsin-Madison,0905.0403v3,2009,physics.ins-det
+Vanderbilt University,1410.6437v1,2014,physics.ins-det
+Washington University in St Louis,1401.3374v1,2014,physics.ins-det
+Yale University,1101.1940v1,2011,physics.ins-det
+Yale University,0706.1106v1,2007,physics.ins-det
+University of California-San Diego,1004.0014v1,2010,physics.med-ph
+University of Rochester,0904.2856v1,2009,physics.med-ph
+Arizona State University,0706.3427v1,2007,physics.optics
+Montana State University,1503.00041v1,2015,physics.optics
+Montana State University,1503.00042v1,2015,physics.optics
+North Carolina State University,0802.3506v4,2008,physics.optics
+Pennsylvania State University,0911.4163v1,2009,physics.optics
+Pennsylvania State University,0907.5278v1,2009,physics.optics
+Pennsylvania State University,1004.1930v1,2010,physics.optics
+Pennsylvania State University,physics/0701256v1,2007,physics.optics
+Pennsylvania State University,physics/0702039v1,2007,physics.optics
+Pennsylvania State University,0704.1126v1,2007,physics.optics
+Pennsylvania State University,0806.4660v1,2008,physics.optics
+Pennsylvania State University,0811.2387v1,2008,physics.optics
+Pennsylvania State University,0901.2092v2,2009,physics.optics
+Pennsylvania State University,0905.0176v1,2009,physics.optics
+Pennsylvania State University,0909.5375v1,2009,physics.optics
+Pennsylvania State University,0910.5423v1,2009,physics.optics
+Pennsylvania State University,0912.4138v1,2009,physics.optics
+Pennsylvania State University,1008.4282v1,2010,physics.optics
+Pennsylvania State University,1101.0044v1,2010,physics.optics
+Pennsylvania State University,1108.5936v1,2011,physics.optics
+Pennsylvania State University,1201.5818v1,2012,physics.optics
+Pennsylvania State University,0903.1530v2,2009,physics.optics
+Pennsylvania State University,0709.3691v1,2007,physics.optics
+Pennsylvania State University,1006.0783v1,2010,physics.optics
+Pennsylvania State University,1109.2125v1,2011,physics.optics
+Pennsylvania State University,1408.0601v1,2014,physics.optics
+Pennsylvania State University,1506.07091v3,2015,physics.optics
+Pennsylvania State University,1502.04572v1,2015,physics.optics
+Pennsylvania State University,1505.00030v2,2015,physics.optics
+Pennsylvania State University,1512.06811v1,2015,physics.optics
+Pennsylvania State University,1512.08416v1,2015,physics.optics
+Pennsylvania State University,1709.09038v1,2017,physics.optics
+Pennsylvania State University,physics/0703051v1,2007,physics.optics
+Pennsylvania State University,1007.3113v1,2010,physics.optics
+Stanford University,1405.5964v1,2014,physics.optics
+University of Central Florida,1005.5189v2,2010,physics.optics
+University of Colorado Boulder,1603.01301v1,2016,physics.optics
+University of Michigan,0803.0328v1,2008,physics.optics
+Wesleyan University,1309.7601v3,2013,physics.optics
+Wesleyan University,1301.7337v1,2013,physics.optics
+Wesleyan University,1303.0774v2,2013,physics.optics
+California Institute of Technology,physics/0702215v1,2007,physics.plasm-ph
+New York University,1006.1368v1,2010,physics.plasm-ph
+Princeton University,1508.05988v2,2015,physics.plasm-ph
+Princeton University,1105.2195v1,2011,physics.plasm-ph
+Princeton University,1706.06672v1,2017,physics.plasm-ph
+Princeton University,1505.02204v2,2015,physics.plasm-ph
+Purdue University,1306.4544v1,2013,physics.plasm-ph
+University of Arizona,1310.2002v1,2013,physics.plasm-ph
+University of California-Los Angeles,1407.0272v2,2014,physics.plasm-ph
+University of California-Los Angeles,1110.2840v1,2011,physics.plasm-ph
+University of California-Los Angeles,1611.06281v1,2016,physics.plasm-ph
+University of California-Los Angeles,1510.01445v1,2015,physics.plasm-ph
+University of California-San Diego,1103.2075v1,2011,physics.plasm-ph
+University of Maryland-College Park,1304.5654v1,2013,physics.plasm-ph
+University of Maryland-College Park,0806.1069v2,2008,physics.plasm-ph
+University of Maryland-College Park,0807.4516v1,2008,physics.plasm-ph
+University of Rochester,1301.3562v2,2013,physics.plasm-ph
+University of Rochester,1509.06538v2,2015,physics.plasm-ph
+University of Wisconsin-Madison,1310.8637v3,2013,physics.plasm-ph
+Arizona State University,0808.0128v1,2008,physics.pop-ph
+Harvard University,1608.01731v1,2016,physics.pop-ph
+Harvard University,1706.05959v2,2017,physics.pop-ph
+Harvard University,1607.07478v2,2016,physics.pop-ph
+Massachusetts Institute of Technology,0709.4024v1,2007,physics.pop-ph
+Massachusetts Institute of Technology,0905.1283v1,2009,physics.pop-ph
+Massachusetts Institute of Technology,1405.0493v2,2014,physics.pop-ph
+Massachusetts Institute of Technology,0904.3931v1,2009,physics.pop-ph
+Pennsylvania State University,1101.4968v2,2011,physics.pop-ph
+University of Wisconsin-Madison,1102.0924v1,2011,physics.pop-ph
+Boston University,1301.7173v1,2013,physics.soc-ph
+Cornell University,physics/0701333v1,2007,physics.soc-ph
+Cornell University,0808.2710v1,2008,physics.soc-ph
+Emory University,1109.2950v1,2011,physics.soc-ph
+Massachusetts Institute of Technology,1505.00246v2,2015,physics.soc-ph
+Ohio State University,0912.1855v1,2009,physics.soc-ph
+University of New Mexico-Main Campus,1204.2583v1,2012,physics.soc-ph
+University of New Mexico-Main Campus,1103.3002v1,2011,physics.soc-ph
+Massachusetts Institute of Technology,1309.4660v1,2013,physics.space-ph
+University of New Hampshire,1309.2210v1,2013,physics.space-ph
+Harvard University,1403.4636v1,2014,q-bio.BM
+University of Michigan-Ann Arbor,q-bio/0703026v1,2007,q-bio.BM
+University of Michigan-Ann Arbor,q-bio/0703027v1,2007,q-bio.BM
+University of California-San Diego,0711.0554v1,2007,q-bio.MN
+University of Washington,0705.4316v2,2007,q-bio.NC
+University of Washington,0805.2796v1,2008,q-bio.NC
+Florida State University,0910.4915v1,2009,q-bio.PE
+Florida State University,0911.0406v1,2009,q-bio.PE
+Michigan State University,1706.03058v1,2017,q-bio.PE
+University of Illinois at Urbana-Champaign,q-bio/0702015v2,2007,q-bio.PE
+University of Kansas,0807.4729v6,2008,q-bio.PE
+University of Kansas,0704.1912v4,2007,q-bio.PE
+University of Kansas,0704.2896v3,2007,q-bio.PE
+University of Kansas,1505.08125v4,2015,q-bio.PE
+Virginia Polytechnic Institute and State University,1101.4963v4,2011,q-bio.PE
+Virginia Polytechnic Institute and State University,1111.1674v2,2011,q-bio.PE
+Virginia Polytechnic Institute and State University,1511.05114v3,2015,q-bio.PE
+Virginia Polytechnic Institute and State University,1004.5275v2,2010,q-bio.PE
+Virginia Polytechnic Institute and State University,1105.4242v1,2011,q-bio.PE
+Virginia Polytechnic Institute and State University,1606.08294v2,2016,q-bio.QM
+University of California-Berkeley,1207.4574v2,2012,q-bio.SC
+Virginia Polytechnic Institute and State University,0708.4065v1,2007,q-bio.SC
+Boston University,1504.02435v2,2015,q-fin.ST
+California Institute of Technology,0704.0663v1,2007,quant-ph
+California Institute of Technology,quant-ph/0702057v2,2007,quant-ph
+California Institute of Technology,quant-ph/0703015v3,2007,quant-ph
+California Institute of Technology,0807.1333v3,2008,quant-ph
+California Institute of Technology,0909.0931v2,2009,quant-ph
+California Institute of Technology,0803.4373v1,2008,quant-ph
+College of William and Mary,0903.3937v2,2009,quant-ph
+Emory University,1704.04692v2,2017,quant-ph
+Emory University,1709.06414v2,2017,quant-ph
+Harvard University,quant-ph/0702266v1,2007,quant-ph
+Harvard University,1612.02525v1,2016,quant-ph
+Harvard University,1210.0616v1,2012,quant-ph
+Kansas State University,0809.3779v1,2008,quant-ph
+Massachusetts Institute of Technology,0801.4549v1,2008,quant-ph
+Massachusetts Institute of Technology,0802.0516v2,2008,quant-ph
+Massachusetts Institute of Technology,0803.0779v1,2008,quant-ph
+Massachusetts Institute of Technology,0901.4817v2,2009,quant-ph
+Massachusetts Institute of Technology,0905.2182v2,2009,quant-ph
+Massachusetts Institute of Technology,0707.2593v1,2007,quant-ph
+Northwestern University,1707.08260v3,2017,quant-ph
+Princeton University,0705.0139v2,2007,quant-ph
+Princeton University,0709.0128v3,2007,quant-ph
+Susquehanna University,1701.00664v1,2017,quant-ph
+The University of Texas at Austin,1703.08977v1,2017,quant-ph
+The University of Texas at Austin,0705.1388v2,2007,quant-ph
+University of Arizona,0811.3634v1,2008,quant-ph
+University of California-Berkeley,quant-ph/0703237v3,2007,quant-ph
+University of California-Davis,1112.3333v1,2011,quant-ph
+University of California-Davis,1412.1907v2,2014,quant-ph
+University of California-Santa Barbara,0802.0903v1,2008,quant-ph
+University of California-Santa Barbara,0910.1118v1,2009,quant-ph
+University of California-Santa Barbara,quant-ph/0701158v2,2007,quant-ph
+University of California-Santa Barbara,0806.3776v5,2008,quant-ph
+University of Georgia,0901.0001v1,2008,quant-ph
+University of Georgia,0904.4028v1,2009,quant-ph
+University of Hawaii at Manoa,1605.06719v3,2016,quant-ph
+University of Illinois at Chicago,quant-ph/0703196v3,2007,quant-ph
+University of Illinois at Urbana-Champaign,quant-ph/0703117v2,2007,quant-ph
+University of Maryland-College Park,1004.1834v2,2010,quant-ph
+University of Maryland-College Park,1003.1749v1,2010,quant-ph
+University of Massachusetts-Amherst,0704.0386v4,2007,quant-ph
+University of Massachusetts-Amherst,0711.3562v2,2007,quant-ph
+University of Massachusetts-Amherst,0812.1592v2,2008,quant-ph
+University of Michigan-Ann Arbor,0710.0095v4,2007,quant-ph
+University of South Carolina-Columbia,0910.3425v1,2009,quant-ph
+University of Southern California,0803.4268v1,2008,quant-ph
+University of Southern California,quant-ph/0701058v1,2007,quant-ph
+University of Southern California,0705.0026v2,2007,quant-ph
+University of Southern California,0707.0021v3,2007,quant-ph
+University of Southern California,0707.2096v1,2007,quant-ph
+University of Southern California,0708.1953v2,2007,quant-ph
+University of Utah,0801.2561v3,2008,quant-ph
+"University of Maryland, Baltimore County",1307.6889v1,2013,stat.AP
+University of Illinois at Urbana-Champaign,1706.09396v1,2017,stat.ML
