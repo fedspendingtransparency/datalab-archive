@@ -1,6 +1,24 @@
 header {
+  background: #f6f6f6;
+  padding: 3rem 0; }
+
+.bp-header {
   max-width: 1200px;
   margin: 0 auto; }
+
+.bp-header__text {
+  background: rgba(255, 255, 255, 0.5); }
+
+.bp-header__heading {
+  text-align: left; }
+
+.overview-chart {
+  background: white;
+  border-radius: 6px;
+  padding: 2rem 3rem; }
+
+.overview-chart__contents {
+  height: 400px; }
 
 .chapter .chapter__content {
   max-width: 1200px;
@@ -9,3 +27,12 @@ header {
 
 .chapter--revenue {
   background-color: #f0f0f0; }
+
+@media only screen and (min-width: 800px) {
+  .bp-header {
+    display: flex;
+    align-items: center; }
+  .bp-header__text {
+    width: 60%; }
+  .overview-chart {
+    width: 40%; } }
