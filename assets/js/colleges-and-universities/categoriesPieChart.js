@@ -360,8 +360,8 @@ function createTable(container, columns) {
 //        $(container).css('display', 'inline-block');
 //        $('#tablerowClickContainer').css('display', 'inline-block');
         // add second region (secondaryTable)
-        console.log(d);
-        createSecondaryTableView('#tablerowClickContainer', d); // going to pass in the row value
+        //console.log(d);
+        createSecondaryTableView('#tablerowClickContainer', d.name); // going to pass in the row value
       });
 
     rows.selectAll('td')
@@ -404,18 +404,18 @@ function createTable(container, columns) {
 /**
  * 
  * @param {*} container 
+ * @param {*} parentName - name to search by
  * Secondary Table (Investment) for Click event on table row
  * Need to grab different data than "tableData" in last table draw
  */
-function createSecondaryTableView(container, row) {
+function createSecondaryTableView(container, parentName) {
   d3.csv("/data-lab-data/Edu_PSC.csv", function (error, data) {
-    console.log(data);
     
-    let secondaryTableData = data.filter(function(rowdata) {
-      return rowdata.name === data.parent_name;
+    let secondaryTableData = data.filter(function(d) {
+      return d.parent_name == parentName;
     });
     
-    console.log(secondaryTableData);np
+    console.log(secondaryTableData);
 
     
     //secondaryTableData.shift();
@@ -435,7 +435,7 @@ function createSecondaryTableView(container, row) {
      */
     let subTableDiv = d3.select(container).append('div')
     .attr('id', 'subTableDiv');
-    let subTableHeaderText = subTableDiv.append('h3').html(row.name); //replace with data TR name...
+    let subTableHeaderText = subTableDiv.append('h3').html(name); //replace with data TR name...
     subTableHeaderText.append('hr'); 
     let subTable = subTableDiv.append('table');
 
