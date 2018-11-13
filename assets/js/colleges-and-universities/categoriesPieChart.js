@@ -322,9 +322,9 @@ function createTable(container, columns) {
     let sortAscending = true;
     let table = d3.select(container).append('table')
       .attr('class', 'display compact')
-      .attr('data-aos', 'fade-left')
-      .attr('data-aos-delay', '500')
-      .attr('data-aos-offset', '300')
+//      .attr('data-aos', 'fade-left')
+//      .attr('data-aos-delay', '500')
+//      .attr('data-aos-offset', '300')
       .attr('id', 'catTable'); // id given to table for Datatables.js
 
     let titles = ['PSC Name', '% of Total', 'Investment Amount']; // header array (will add Rank and Count of Awards later.. not sure what they are)
@@ -356,10 +356,12 @@ function createTable(container, columns) {
       .append('tr')
       .on('click', function (d) {
         $(container).prependTo('#tablerowClickContainer');
+        //$("#tableDiv").css('width', '100px');
 //        $(container).css('display', 'inline-block');
 //        $('#tablerowClickContainer').css('display', 'inline-block');
         // add second region (secondaryTable)
-        createSecondaryTableView('#tablerowClickContainer');
+        console.log(d);
+        createSecondaryTableView('#tablerowClickContainer', d); // going to pass in the row value
       });
 
     rows.selectAll('td')
@@ -378,17 +380,6 @@ function createTable(container, columns) {
       .classed('total', function (d) {
         return d.column == 'total';
       })
-      // a little tricky? Dynamically add classes to TD's in table so we can use them for Sorting and Search in List.js
-      // depreciated... writing it in jquery
-      //      .each(function (d) {
-      //        console.log(d);
-      //        //console.log(d.value);
-      //        ['name', 'percentage', 'total'].forEach(function (key) {
-      //          if (key === d.column) {
-      //            d.attr('class', key);
-      //}
-      //})
-      //})
       .text(function (d) {
         return d.value;
       })
@@ -416,42 +407,26 @@ function createTable(container, columns) {
  * Secondary Table (Investment) for Click event on table row
  * Need to grab different data than "tableData" in last table draw
  */
-function createSecondaryTableView(container) {
+function createSecondaryTableView(container, row) {
   d3.csv("/data-lab-data/Edu_PSC.csv", function (error, data) {
-    let secondaryTableData = data.reduce((a, b) => {     //reduce data to categories data sum(obligation) of each parent
-      if (!(a.reduce((accumBool, node) => {
-        if (b.parent_name === node.name) {
-          node.total += parseFloat(b.obligation);
-          accumBool = true;
-        }
-        return accumBool;
-      }, false))) {
-        a.push({
-          name: b.parent_name,
-          total: parseFloat(b.obligation),
-          abbrv: b.parent
-
-        });
-      }
-
-      a[0].total += parseFloat(b.obligation);             //add on to total
-//      console.log(b);
-      //console.log(a);
-      return a;
-    }, [{ total: 0 }]);
+    console.log(data);
     
+    let secondaryTableData = data.filter(function(rowdata) {
+      return rowdata.name === data.parent_name;
+    });
+    
+    console.log(secondaryTableData);np
 
-    let total = secondaryTableData[0].total;
-
-    secondaryTableData.shift();
+    
+    //secondaryTableData.shift();
 
     /**
      * Winter Cleaning...
      */
-    secondaryTableData.forEach(n => { n.percentage = ((n.total / total) * 100) + "%" }); // changing to percent 
+//    secondaryTableData.forEach(n => { n.percentage = ((n.total / total) * 100) + "%" }); // changing to percent 
     //tableData.forEach(n => { n.percentage = (n.total / total) });
-    secondaryTableData.sort((a, b) => { return b.percentage - a.percentage });
-    secondaryTableData.forEach(n => delete n.abbrv); // get rid of abbrev name, we dont need it     
+//    secondaryTableData.sort((a, b) => { return b.percentage - a.percentage });
+    //secondaryTableData.forEach(n => delete n.abbrv); // get rid of abbrev name, we dont need it     
 
     if (error) throw error;
 
@@ -459,10 +434,22 @@ function createSecondaryTableView(container) {
      * Create Secondary Table (Investment Types Table)
      */
     let subTableDiv = d3.select(container).append('div')
-    .style('display', 'flex');
-    let subTableHeader = subTableDiv.append('h2').html('<h2> Hey </h2>');
+    .attr('id', 'subTableDiv');
+    let subTableHeaderText = subTableDiv.append('h3').html(row.name); //replace with data TR name...
+    subTableHeaderText.append('hr'); 
     let subTable = subTableDiv.append('table');
-    //console.log(secondaryTableData);
+
+    let titles = ['Type', 'Awarded Amount', '% of Total']; 
+
+    let headers = subTable.append('thead').append('tr')
+      .selectAll('th')
+      .data(titles).enter()
+      .append('th')
+      .text(function (d) {
+        return d;
+      });
+
+
 
   })
 }

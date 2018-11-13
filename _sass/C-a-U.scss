@@ -425,8 +425,22 @@ $green: #50604f;
   }
 
   .tablerowClickContainer {
-    display: flex;
+    display: inline-flex;
+    flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  // main table div
+  #tableDiv {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }  
+
+  // on row click table div
+  #subTableDiv {
+    display: inline-flex;
+    //flex-direction: column;
   }
 
   .flex-rect {
