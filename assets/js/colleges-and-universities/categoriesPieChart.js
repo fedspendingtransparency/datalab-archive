@@ -321,8 +321,11 @@ function createTable(container, columns) {
      */
     let sortAscending = true;
     let table = d3.select(container).append('table')
-    .attr('class', 'display compact')
-    .attr('id', 'catTable'); // id given to table for Datatables.js
+      .attr('class', 'display compact')
+      .attr('data-aos', 'fade-left')
+      .attr('data-aos-delay', '500')
+      .attr('data-aos-offset', '300')
+      .attr('id', 'catTable'); // id given to table for Datatables.js
 
     let titles = ['PSC Name', '% of Total', 'Investment Amount']; // header array (will add Rank and Count of Awards later.. not sure what they are)
 
@@ -350,7 +353,14 @@ function createTable(container, columns) {
     let rows = table.append('tbody')
       .selectAll('tr')
       .data(tableData).enter()
-      .append('tr');
+      .append('tr')
+      .on('click', function (d) {
+        $(container).prependTo('#tablerowClickContainer');
+//        $(container).css('display', 'inline-block');
+//        $('#tablerowClickContainer').css('display', 'inline-block');
+        // add second region (secondaryTable)
+        createSecondaryTableView('#tablerowClickContainer');
+      });
 
     rows.selectAll('td')
       .data(function (row) {
@@ -359,7 +369,6 @@ function createTable(container, columns) {
         });
       }).enter()
       .append('td')
-      // going to use classed here.. solves what we want to do.
       .classed('name', function (d) {
         return d.column == 'name';
       })
@@ -386,18 +395,77 @@ function createTable(container, columns) {
       .attr('data-th', function (d) {
         return d.name;
       })
-      
-      // use DataTables JS and attach in D3 callback - DOM problems begone
-      $(document).ready(function(){
-        $('#catTable').DataTable({
-          searching: true,
-          paging: true,
-          scrollY: true,
-        })
+
+    // use DataTables JS and attach in D3 callback - DOM problems begone
+    $(document).ready(function () {
+      $('#catTable').DataTable({
+        searching: true,
+        paging: true,
+        scrollY: true,
+        columnDefs: [{
+          className: 'mdl-data-table__cell--non-numeric'
+        }]
       })
-    });
+    })
+  });
 };
 
+/**
+ * 
+ * @param {*} container 
+ * Secondary Table (Investment) for Click event on table row
+ * Need to grab different data than "tableData" in last table draw
+ */
+function createSecondaryTableView(container) {
+  d3.csv("/data-lab-data/Edu_PSC.csv", function (error, data) {
+    let secondaryTableData = data.reduce((a, b) => {     //reduce data to categories data sum(obligation) of each parent
+      if (!(a.reduce((accumBool, node) => {
+        if (b.parent_name === node.name) {
+          node.total += parseFloat(b.obligation);
+          accumBool = true;
+        }
+        return accumBool;
+      }, false))) {
+        a.push({
+          name: b.parent_name,
+          total: parseFloat(b.obligation),
+          abbrv: b.parent
+
+        });
+      }
+
+      a[0].total += parseFloat(b.obligation);             //add on to total
+//      console.log(b);
+      //console.log(a);
+      return a;
+    }, [{ total: 0 }]);
+    
+
+    let total = secondaryTableData[0].total;
+
+    secondaryTableData.shift();
+
+    /**
+     * Winter Cleaning...
+     */
+    secondaryTableData.forEach(n => { n.percentage = ((n.total / total) * 100) + "%" }); // changing to percent 
+    //tableData.forEach(n => { n.percentage = (n.total / total) });
+    secondaryTableData.sort((a, b) => { return b.percentage - a.percentage });
+    secondaryTableData.forEach(n => delete n.abbrv); // get rid of abbrev name, we dont need it     
+
+    if (error) throw error;
+
+    /**
+     * Create Secondary Table (Investment Types Table)
+     */
+    let subTableDiv = d3.select(container).append('div')
+    .style('display', 'flex');
+    let subTableHeader = subTableDiv.append('h2').html('<h2> Hey </h2>');
+    let subTable = subTableDiv.append('table');
+    //console.log(secondaryTableData);
+
+  })
+}
 
 /*
   --------------------------------------------------------------------------------------------------------------------

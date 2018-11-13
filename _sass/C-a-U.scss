@@ -190,6 +190,7 @@ $green: #50604f;
     .flexcontainer {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-evenly;
     }
 
     .totalInvestments_breakdown_contracts_total {
@@ -423,15 +424,42 @@ $green: #50604f;
 
   }
 
+  .tablerowClickContainer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .flex-rect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .Rectangle-3 {
+    display: hidden;
+    align-items: center;
+    justify-content: center;
     margin-top: 25px;
     margin-bottom: 50px;
     width: 740px;
-    height: 151px;
+    height: 160px;
     opacity: 0.9;
     background-color: #fafafa;
   }
 
+  /**
+    For use with ScrollyTelling! Make things appear on viewport! Woo!
+  **/
+  .hiddenScroll {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+  .appearScroll {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+  }
 
 }
 
