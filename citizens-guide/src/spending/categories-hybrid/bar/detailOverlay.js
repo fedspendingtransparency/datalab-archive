@@ -1,4 +1,5 @@
 import { select, selectAll, mouse } from 'd3-selection';
+import { transition } from 'd3-transition';
 import { translator, fadeAndRemove, getElementBox } from '../../../utils';
 import colors from '../../../colors.scss';
 
@@ -11,6 +12,12 @@ function closeOverlay() {
 
     fadeAndRemove(detailLayer, 300);
     fadeAndRemove(mask, 300);
+
+    d3.select('g.pan-apply')
+    .transition()
+    .duration(500)
+    .attr("transform", translator(0, 0))
+    .ease();
 }
 
 function placeCloseButton(container, detailLayer, innerWidth) {
@@ -49,7 +56,7 @@ function renderHeader(detailLayer, title, innerWidth) {
 }
 
 function renderMask() {
-    const parent = d3.select('svg.main'),
+    const parent = d3.select('g.pan-apply'),
         parentBox = getElementBox(parent);
 
     parent.append('rect')
@@ -83,7 +90,7 @@ export function initOverlay(title, config, callback) {
     
     renderMask();
 
-    detailLayer = d3.select('svg.main').append('g')
+    detailLayer = d3.select('g.pan-apply').append('g')
         .classed('detail-layer', true)
         .attr('transform', translator(startCoords[0], startCoords[1]) + ' scale(0)')
         .attr('opacity', 1);

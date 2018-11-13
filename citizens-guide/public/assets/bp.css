@@ -1,0 +1,11 @@
+header {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.chapter .chapter__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0; }
+
+.chapter--revenue {
+  background-color: #f0f0f0; }

@@ -41,7 +41,8 @@ function buildCompletePage(layout, pageData, pageContent) {
         Object.assign({}, pageData.attributes, {
             body: pageContent,
             chapter: pageData.chapter,
-            navPath: pageData.chapterNav
+            navPath: pageData.chapterNav,
+            assetPath: pageData.assetPath
         }),
         {
             filename: pageData.outputFilename
@@ -53,20 +54,27 @@ function buildPage(filePath) {
     const data = fse.readFileSync(path.join('./src', filePath), 'utf-8'),
         pageData = frontMatter(data),
         fileData = path.parse(filePath),
-        chapter = pageData.chapter || fileData.dir.split('/')[0],
-        outputDir = `./public/${chapter}`,
+        chapter = pageData.attributes.chapter || fileData.dir.split('/')[0],
         pageContent = ejs.render(pageData.body, pageData.attributes, {
             filename: `${fileData.name}.html`
         }),
         layoutName = pageData.attributes.layout || 'default',
         layout = loadLayout(layoutName);
 
-    let completePage;
+    let completePage,
+        assetPath = '../assets/',
+        outputDir = `./public/${chapter}`;
+
+    if (chapter === 'bigPicture') {
+        outputDir = './public',
+        assetPath = './assets/'
+    }
 
     pageData.chapter = chapter;
+    pageData.assetPath = assetPath;
     pageData.chapterNav = chapterNavMap[chapter];
     pageData.outputFilename = `${outputDir}/${fileData.name}.html`;
-    
+
     completePage = buildCompletePage(layout, pageData, pageContent);
 
     if (compareToExisting(pageData.outputFilename, completePage)) {

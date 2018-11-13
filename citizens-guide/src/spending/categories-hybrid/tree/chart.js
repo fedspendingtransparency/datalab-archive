@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { treemap, hierarchy } from 'd3-hierarchy';
 import { transition } from 'd3-transition';
-import { establishContainer } from '../../../utils';
+import { establishContainer, getElementBox } from '../../../utils';
 import { displayNegatives } from './showNegatives';
 import { placeText } from './text';
 import { zoom } from './zoom';
@@ -68,7 +68,7 @@ export function drawChart(data, drilldown) {
     const config = {},
         negativeData = data.filter(r => r.amount <= 0);
 
-    width = optimizeWidth(true);
+    width = getElementBox(d3.select('#viz')).width;
 
     config.drilldown = drilldown;
     config.data = prepareData(data.filter(r => r.amount > 0));
