@@ -85,6 +85,29 @@
     font-size: 12px;
     margin-right: 5px;
   }
+
+  .line {
+    stroke: white;
+    stroke-width: 3px;
+  }
+
+  .dtsm-img text {
+    fill: white;
+  }
+
+  .dtsm-img .domain {
+    display: none;
+  }
+
+  .dtsm-img .tick line {
+    stroke: white;
+  }
+
+.dtsm-img circle {
+  fill: orange;
+  stroke: white;
+  stroke-width: 1.5px;
+}
 </style>
   
 <div class="dts-module">
@@ -98,7 +121,7 @@
     </a>
   </div>
   <div class="dtsm-vseparator"></div>
-  <img class="dtsm-img" src="./images/dts-graph.png" />
+  <div class="dtsm-img"></div>
   <div class="dtsm-vseparator"></div>
   <div class="dtsm-right-column">
     <div class="dtsm-dollars">$978.4M</div>
@@ -108,3 +131,73 @@
     </div>
   </div>
 </div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
+const dateFormatter = d3.timeFormat("%B %e, %Y");
+
+var margin = {top: 0, right: 20, bottom: 30, left: 75},
+    width = 300 - margin.left - margin.right,
+    height = 80 - margin.top - margin.bottom;
+
+// parse the date / time
+var parseTime = d3.timeParse("%Y-%m-%d");
+
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
+
+var valueline = d3.line()
+    .x(d => x(d.date))
+    .y(d => y(d.value));
+
+var svg = d3.select(".dtsm-img").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
+  if (error) throw error;
+
+  console.log(data);
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+  let lastEntry = data[data.length - 1];
+  let lastDate = lastEntry.date;
+  let lastValue = lastEntry.value;
+
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
+
+  let yAxis = d3.axisLeft(y).ticks(3).tickFormat(dollarFormatter);
+
+  svg.append("g")
+      .call(yAxis)
+      .attr("transform", "translate(-10)");
+
+  console.log(x(lastDate));
+  console.log(y(lastValue));
+
+  svg.append("circle")
+    .attr("r", 7)
+    .attr("stroke-width", 1)
+    .attr("transform", "translate(" + (x(lastDate)) + "," + (y(lastValue)) + ")");
+
+  d3.select(".dtsm-dollars").text(dollarFormatter(lastValue));
+  d3.select(".dtsm-tas-subheader").text(dateFormatter(lastDate));
+});
+
+function type(d) {
+  d.date = parseTime(d.date);
+  d.value = +d.value * 1000000; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
+  return d;
+}
+</script>
