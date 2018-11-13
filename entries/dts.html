@@ -854,8 +854,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
       allToSpending["mtd"][d.date] = (allToSpending["mtd"][d.date] || 0) + d.mtd;
       allToSpending["fytd"][d.date] = (allToSpending["fytd"][d.date] || 0) + d.fytd;
 
-
-
       dateScaleValues.push(d.date);
     }
 
@@ -872,33 +870,11 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
 
   console.log(dateScaleValues);
 
-  x = d3.scaleLinear().domain(dateScaleValues).range([0, width]),
-  x2 = d3.scaleLinear().domain(dateScaleValues).range([0, width]);
+  x = d3.scaleTime().domain(d3.extent(dateScaleValues)).range([0, width]);
+  x2 = d3.scaleTime().domain(d3.extent(dateScaleValues)).range([0, width]);
 
-  var formatMillisecond = d3.timeFormat(".%L"),
-      formatSecond = d3.timeFormat(":%S"),
-      formatMinute = d3.timeFormat("%I:%M"),
-      formatHour = d3.timeFormat("%I %p"),
-      formatDay = d3.timeFormat("%a %d"),
-      formatWeek = d3.timeFormat("%b %d"),
-      formatMonth = d3.timeFormat("%B"),
-      formatYear = d3.timeFormat("%Y");
-
-  // Define filter conditions
-  function multiFormat(dateMS) {
-    let date = new Date(dateMS);
-
-    console.log(date);
-    console.log(d3.timeMonth(date));
-    console.log(d3.timeMonth(date) < date);
-
-    return (d3.timeMonth(date) < date ? (d3.timeWeek(date) < date ? formatDay : formatWeek)
-      : d3.timeYear(date) < date ? formatMonth
-      : formatYear)(date);
-  }
-
-  xAxis = d3.axisBottom().scale(x).tickFormat(multiFormat);
-  xAxis2 = d3.axisBottom().scale(x2).tickFormat(multiFormat);
+  xAxis = d3.axisBottom(x);
+  xAxis2 = d3.axisBottom(x2); 
 
   function transposeKVToArray(frequency) {
     return Object.keys(allToSpending[frequency]).map(k => ({ date: new Date(k), value: allToSpending[frequency][k] }));
