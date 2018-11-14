@@ -1,30 +1,7 @@
-@import '../globalSass/generalVars';
-
-$revenuePrimary: #585858;
-$spendingPrimary: #686868;
-$deficitPrimary: #787878;
-$debtPrimary: #888;
+@import 'bpVars';
 
 $overviewHeight: 400px;
 $barWidth: 50px;
-
-header {
-    background: #f6f6f6;
-    padding: 3rem 0;
-}
-
-.bp-header {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.bp-header__text {
-    background: rgba(255,255,255,0.5)
-}
-
-.bp-header__heading {
-    text-align: left;
-}
 
 .overview-chart {
     background: white;
@@ -69,31 +46,4 @@ header {
     top: 0;
     left: calc(50% - 60px);
     height: 660/4000 * $overviewHeight;
-}   
-
-.chapter {
-    .chapter__content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 0;
-    }
-}
-
-.chapter--revenue {
-    background-color: $revenuePrimary;
-}
-
-@media only screen and (min-width: 800px) {
-    .bp-header {
-        display: flex;
-        align-items: center;
-    }
-
-    .bp-header__text {
-        width: 60%;
-    }
-    
-    .overview-chart {
-        width: 40%;
-    }
-}
+}  

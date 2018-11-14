@@ -99,7 +99,7 @@ module.exports = [{
         rules: moduleRules
     }
 },{
-    entry: ['./src/globalSass/cg.scss', './src/bigPicture/bp.scss', './src/anecdote/anecdote.scss'],
+    entry: ['./src/globalSass/cg.scss', './src/bigPicture/scss/bp.scss', './src/anecdote/anecdote.scss'],
     output: {
 		path: path.resolve(__dirname, 'public/assets'),
 	},

@@ -24,8 +24,9 @@ chapter: bigPicture
     </div>
 </header>
 
-<section class="chapter chapter--revenue">
+<section class="chapter chapter--revenue" id="revenue-chapter">
     <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'revenue'}) %>
         <h1>In 2017, the federal government collected $3.3 trillion</h1>
         <p>Here is some great copy about revenue.</p>
         
@@ -54,10 +55,26 @@ chapter: bigPicture
     </div>
 </section>
 
-<section class="chapter">
-    <h1>Spending Placeholder</h1>
+<section class="chapter chapter--spending" id="spending-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'spending'}) %>
+        <h1>Spending Placeholder</h1>
+    </div>
 </section>
 
+<section class="chapter chapter--deficit" id="deficit-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'deficit'}) %>
+        <h1>Deficit Placeholder</h1>
+    </div>
+</section>
+
+<section class="chapter chapter--debt" id="debt-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'debt'}) %>
+        <h1>Debt Placeholder</h1>
+    </div>
+</section>
 
 <p>
     <a style="display:block; text-align:center" href="./revenue/gdp.html">Revenue Chapter</a>
