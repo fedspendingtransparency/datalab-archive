@@ -45,6 +45,40 @@
   .toc a.current {
     font-weight: 600; }
 
+.chapter .chapter__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  color: white; }
+  .chapter .chapter__content h1 {
+    text-align: left;
+    color: white; }
+  .chapter .chapter__content p {
+    color: white; }
+
+.chapter__cta {
+  float: right; }
+
+.chapter--revenue {
+  background-color: #585858; }
+
+.chapter--spending {
+  background-color: #686868; }
+
+.chapter--deficit {
+  background-color: #787878; }
+
+.chapter--debt {
+  background-color: #888; }
+
+a.link-button, button.link-button {
+  border: 1px solid white;
+  background: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  display: inline-block; }
+
 header {
   background: #f6f6f6;
   padding: 3rem 0; }
@@ -58,26 +92,6 @@ header {
 
 .bp-header__heading {
   text-align: left; }
-
-.chapter .chapter__content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-  color: white; }
-  .chapter .chapter__content p {
-    color: white; }
-
-.chapter--revenue {
-  background-color: #585858; }
-
-.chapter--spending {
-  background-color: #686868; }
-
-.chapter--deficit {
-  background-color: #787878; }
-
-.chapter--debt {
-  background-color: #888; }
 
 @media only screen and (min-width: 800px) {
   .bp-header {

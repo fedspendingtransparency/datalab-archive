@@ -2,6 +2,8 @@
 @import 'bpVars';
 @import 'overviewChart';
 @import 'toc';
+@import 'chapter';
+@import 'link-button';
 
 header {
     background: #f6f6f6;
@@ -19,35 +21,6 @@ header {
 
 .bp-header__heading {
     text-align: left;
-} 
-
-.chapter {
-    .chapter__content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 0;
-        color: white;
-
-        p {
-            color: white;
-        }
-    }
-}
-
-.chapter--revenue {
-    background-color: $revenuePrimary;
-}
-
-.chapter--spending {
-    background-color: $spendingPrimary;
-}
-
-.chapter--deficit {
-    background-color: $deficitPrimary;
-}
-
-.chapter--debt {
-    background-color: $debtPrimary;
 }
 
 @media only screen and (min-width: 800px) {
