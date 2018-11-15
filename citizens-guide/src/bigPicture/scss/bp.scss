@@ -1,0 +1,39 @@
+@import '../../globalSass/generalVars';
+@import 'bpVars';
+@import 'overviewChart';
+@import 'toc';
+@import 'chapter';
+@import 'link-button';
+
+header {
+    background: #f6f6f6;
+    padding: 3rem 0;
+}
+
+.bp-header {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bp-header__text {
+    background: rgba(255,255,255,0.5)
+}
+
+.bp-header__heading {
+    text-align: left;
+}
+
+@media only screen and (min-width: 800px) {
+    .bp-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .bp-header__text {
+        width: 60%;
+    }
+    
+    .overview-chart {
+        width: 40%;
+    }
+}

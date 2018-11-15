@@ -1,0 +1,49 @@
+@import 'bpVars';
+
+$overviewHeight: 400px;
+$barWidth: 50px;
+
+.overview-chart {
+    background: white;
+    border-radius: 6px;
+    padding: 2rem 3rem;
+}
+
+.overview-chart__heading {
+    text-align: center;
+    font-weight: $boldWeight;
+}
+
+.overview-chart__contents {
+    height: 400px;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.overview-chart__bar {
+    width: $barWidth;
+}
+
+.overview-chart__bar--revenue {
+    background-color: $revenuePrimary;
+    position: absolute;
+    top: 660/4000 * $overviewHeight;
+    left: calc(50% - 60px);
+    height: $overviewHeight - 660/4000 * $overviewHeight;    
+}
+
+.overview-chart__bar--spending {
+    background-color: $spendingPrimary;
+    position: absolute;
+    top: 0;
+    left: calc(50% + 10px);
+    height: $overviewHeight;
+}
+    
+.overview-chart__bar--deficit {
+    background-color: $deficitPrimary;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 60px);
+    height: 660/4000 * $overviewHeight;
+}  

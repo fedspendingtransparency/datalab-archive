@@ -1,11 +1,103 @@
-header {
-  max-width: 1200px;
-  margin: 0 auto; }
+.overview-chart {
+  background: white;
+  border-radius: 6px;
+  padding: 2rem 3rem; }
+
+.overview-chart__heading {
+  text-align: center;
+  font-weight: 600; }
+
+.overview-chart__contents {
+  height: 400px;
+  position: relative;
+  margin-top: 2rem; }
+
+.overview-chart__bar {
+  width: 50px; }
+
+.overview-chart__bar--revenue {
+  background-color: #585858;
+  position: absolute;
+  top: 66px;
+  left: calc(50% - 60px);
+  height: 334px; }
+
+.overview-chart__bar--spending {
+  background-color: #686868;
+  position: absolute;
+  top: 0;
+  left: calc(50% + 10px);
+  height: 400px; }
+
+.overview-chart__bar--deficit {
+  background-color: #787878;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 60px);
+  height: 66px; }
+
+.toc {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .toc a {
+    color: white; }
+  .toc a.current {
+    font-weight: 600; }
 
 .chapter .chapter__content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0; }
+  padding: 2rem 0;
+  color: white; }
+  .chapter .chapter__content h1 {
+    text-align: left;
+    color: white; }
+  .chapter .chapter__content p {
+    color: white; }
+
+.chapter__cta {
+  float: right; }
 
 .chapter--revenue {
-  background-color: #f0f0f0; }
+  background-color: #585858; }
+
+.chapter--spending {
+  background-color: #686868; }
+
+.chapter--deficit {
+  background-color: #787878; }
+
+.chapter--debt {
+  background-color: #888; }
+
+a.link-button, button.link-button {
+  border: 1px solid white;
+  background: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  display: inline-block; }
+
+header {
+  background: #f6f6f6;
+  padding: 3rem 0; }
+
+.bp-header {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.bp-header__text {
+  background: rgba(255, 255, 255, 0.5); }
+
+.bp-header__heading {
+  text-align: left; }
+
+@media only screen and (min-width: 800px) {
+  .bp-header {
+    display: flex;
+    align-items: center; }
+  .bp-header__text {
+    width: 60%; }
+  .overview-chart {
+    width: 40%; } }

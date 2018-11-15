@@ -4,21 +4,32 @@ description: This is the text that goes in the meta description tag
 chapter: bigPicture
 ---
 
-<header class="bp__header">
-    <h1>Your Guide to the Finances of the
-        <strong>Federal Government</strong>
-    </h1>
-    <p>Check it out. Lemme tell you somthin, man.</p>
-    <div>
-        <h2>Overview of Finances of the Federal Government in 2017</h2>
-        <div>check out this really cool chart</div>
+<header>
+    <div class="bp-header">
+        <div class="bp-header__text">
+            <h1 class="bp-header__heading">
+                The <strong>People's Guide</strong> to <strong>U.S. Federal Government Finances</strong>
+            </h1>
+            <p>This site was designed for the people of the United States. The site provides information and data about the annual financial picture of the United States to the public.</p>
+            <p>Where does the money come from? Where does it go? And what are the long-term obligations of the federal government's financial decisions?  We've collected information from various Treasury data sources, to try and answer these questions for you.</p>
+        </div>
+        <div class="overview-chart">
+            <h2 class="overview-chart__heading">Overview of Finances of the Federal Government in 2017</h2>
+            <div class="overview-chart__contents">
+                <div class="overview-chart__bar overview-chart__bar--revenue"></div>
+                <div class="overview-chart__bar overview-chart__bar--spending"></div>
+                <div class="overview-chart__bar overview-chart__bar--deficit"></div>
+            </div>
+        </div>
     </div>
 </header>
 
-<section class="chapter chapter--revenue">
+<section class="chapter chapter--revenue" id="revenue-chapter">
     <div class="chapter__content">
-        <h1>In 2017, the federal government collected $3.3 trillion</h1>
-        <p>Here is some great copy about revenue.</p>
+        <a class="link-button chapter__cta" href="revenue/gdp.html">Go Explore Revenue</a>
+        <%- include('layouts/partials/bpToc.ejs', {section: 'revenue'}) %>
+        <h1>In 2017, the federal government collected $3.3 trillion.</h1>
+        <p>The federal government collects revenue from a variety of sources, including individual income taxes, payroll taxes, corporate income taxes, excise taxes. It also collects revenue from services like admission to national parks and customs duties.</p>
         
         <section class="anecdote">
             <h1 class="anecdote__heading">What is $3.3 trillion equivalent to?</h1>
@@ -36,7 +47,7 @@ chapter: bigPicture
                     <p>some content</p>
                 </div>
             </div>
-            <a class="anecdote__cta" href="revenue/gdp.html">Go Explore Revenue</a>
+            <a class="anecdote__cta link-button" href="revenue/gdp.html">Go Explore Revenue</a>
         </section>
         
         <div class="chapter__chart">
@@ -45,10 +56,27 @@ chapter: bigPicture
     </div>
 </section>
 
-<section class="chapter">
-    <h1>Spending Placeholder</h1>
+<section class="chapter chapter--spending" id="spending-chapter">
+    <div class="chapter__content">
+        <a class="link-button chapter__cta" href="spending/federal-spending-intro.html">Go Explore Spending</a>
+        <%- include('layouts/partials/bpToc.ejs', {section: 'spending'}) %>
+        <h1>Spending Placeholder</h1>
+    </div>
 </section>
 
+<section class="chapter chapter--deficit" id="deficit-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'deficit'}) %>
+        <h1>Deficit Placeholder</h1>
+    </div>
+</section>
+
+<section class="chapter chapter--debt" id="debt-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'debt'}) %>
+        <h1>Debt Placeholder</h1>
+    </div>
+</section>
 
 <p>
     <a style="display:block; text-align:center" href="./revenue/gdp.html">Revenue Chapter</a>
