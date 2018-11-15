@@ -6,12 +6,25 @@
         font-weight: $boldWeight;
     }
 
-    .anecdote__pane {
-        opacity: 0;
-        transition: opacity 0.5s ease;
+    .anecdote__panes {
+        position: relative;
     }
 
-    .anecdote__pane--active {
-        opacity: 1;
+    .anecdote__pane {
+        opacity: 0;
+        position:absolute;
+        transition: opacity 0.5s ease;
+
+        &.anecdote__pane--active {
+            opacity:1;
+        }
+    }
+
+    .anecdote__contents {
+        display:none;
+    }
+
+    .anecdote__contents.anecdote__content--active {
+        display:block;
     }
 }

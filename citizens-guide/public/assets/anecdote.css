@@ -8,3 +8,9 @@
 
 .anecdote .anecdote__pane--active {
   opacity: 1; }
+
+.anecdote .anecdote__contents {
+  display: none; }
+
+.anecdote .anecdote__contents.anecdote__content--active {
+  display: block; }
