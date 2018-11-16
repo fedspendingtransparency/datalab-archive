@@ -1,7 +1,8 @@
 .overview-chart {
   background: white;
   border-radius: 6px;
-  padding: 2rem 3rem; }
+  padding: 2rem 3rem;
+  margin: 0 1rem; }
 
 .overview-chart__heading {
   text-align: center;
@@ -36,6 +37,11 @@
   left: calc(50% - 60px);
   height: 66px; }
 
+@media only screen and (min-width: 800px) {
+  .overview-chart {
+    width: 40%;
+    margin: 0; } }
+
 .toc {
   list-style-type: none;
   margin: 0;
@@ -48,7 +54,7 @@
 .chapter .chapter__content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   color: white; }
   .chapter .chapter__content h1 {
     text-align: left;
@@ -80,12 +86,13 @@ a.link-button, button.link-button {
   display: inline-block; }
 
 header {
-  background: #f6f6f6;
+  background: #e0e0e0;
   padding: 3rem 0; }
 
 .bp-header {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 1rem; }
 
 .bp-header__text {
   background: rgba(255, 255, 255, 0.5); }
@@ -98,6 +105,4 @@ header {
     display: flex;
     align-items: center; }
   .bp-header__text {
-    width: 60%; }
-  .overview-chart {
-    width: 40%; } }
+    width: 60%; } }
