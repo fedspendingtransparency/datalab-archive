@@ -165,3 +165,23 @@ header {
 
 html {
   font-weight: 300; }
+
+.bp-scroll-down {
+  display: block;
+  margin: 0 auto;
+  transform: translateY(84px); }
+
+.historical-quote {
+  margin: 3rem 1rem; }
+  .historical-quote blockquote {
+    font-size: 1.8rem;
+    max-width: 900px;
+    margin: 3rem auto 2rem; }
+  .historical-quote .historical-quote__image {
+    display: block;
+    margin: 0 auto; }
+  .historical-quote .historical-quote__credit {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 0.5rem; }
