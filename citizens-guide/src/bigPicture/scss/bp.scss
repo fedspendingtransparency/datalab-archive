@@ -5,3 +5,7 @@
 @import 'chapter';
 @import 'link-button';
 @import 'header';
+
+html {
+    font-weight: $normalWeight;
+}

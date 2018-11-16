@@ -1,7 +1,7 @@
 .overview-chart {
   background: white;
   border-radius: 6px;
-  padding: 2rem 3rem; }
+  padding: 1rem; }
 
 .overview-chart__heading {
   text-align: center;
@@ -13,35 +13,75 @@
   margin-top: 2rem; }
 
 .overview-chart__bar {
-  width: 50px; }
+  position: absolute;
+  width: 11%; }
 
 .overview-chart__bar--revenue {
   background-color: #585858;
-  position: absolute;
   top: 66px;
-  left: calc(50% - 60px);
+  right: 52%;
   height: 334px; }
 
 .overview-chart__bar--spending {
   background-color: #686868;
-  position: absolute;
   top: 0;
-  left: calc(50% + 10px);
+  left: 52%;
   height: 400px; }
 
 .overview-chart__bar--deficit {
   background-color: #787878;
-  position: absolute;
   top: 0;
-  left: calc(50% - 60px);
+  right: 52%;
   height: 66px; }
+
+.overview-chart__label {
+  position: absolute;
+  font-size: 14px;
+  width: 32%; }
+  .overview-chart__label p {
+    margin: 0; }
+  .overview-chart__label a .fa-stack {
+    transform: scale(0.5) translateX(-20px);
+    margin-right: -18px; }
+
+.overview-chart__label-heading {
+  margin: 0; }
+
+.overview-chart__label--revenue {
+  top: 208px; }
+  .overview-chart__label--revenue > i {
+    float: right;
+    transform: translateY(3px); }
+
+.overview-chart__label--deficit > i {
+  float: right;
+  transform: translateY(3px); }
+
+.overview-chart__label--spending {
+  right: 0;
+  top: 175px;
+  padding-left: 20px;
+  box-sizing: border-box; }
+  .overview-chart__label--spending > i {
+    float: left;
+    transform: translateY(3px);
+    margin-left: -20px; }
+
+@media only screen and (min-width: 600px) and (max-width: 799px) {
+  .overview-chart {
+    padding: 2rem 3rem; } }
 
 @media only screen and (min-width: 800px) {
   .overview-chart {
     width: 40%;
     margin: 0;
     box-sizing: border-box;
-    margin-left: 60%; } }
+    margin-left: 60%;
+    padding: 2rem 1rem; } }
+
+@media only screen and (min-width: 1100px) {
+  .overview-chart {
+    padding: 2rem 3rem; } }
 
 .toc {
   list-style-type: none;
@@ -122,3 +162,6 @@ header {
     margin-top: 6rem; }
   .bp-header__text {
     padding-bottom: 3rem; } }
+
+html {
+  font-weight: 300; }
