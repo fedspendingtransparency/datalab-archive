@@ -4,33 +4,4 @@
 @import 'toc';
 @import 'chapter';
 @import 'link-button';
-
-header {
-    background: #e0e0e0;
-    padding: 3rem 0;
-}
-
-.bp-header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.bp-header__text {
-    background: rgba(255,255,255,0.5)
-}
-
-.bp-header__heading {
-    text-align: left;
-}
-
-@media only screen and (min-width: 800px) {
-    .bp-header {
-        display: flex;
-        align-items: center;
-    }
-
-    .bp-header__text {
-        width: 60%;
-    }
-}
+@import 'header';

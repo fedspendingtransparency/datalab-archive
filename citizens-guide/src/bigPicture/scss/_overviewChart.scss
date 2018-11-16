@@ -7,7 +7,6 @@ $barWidth: 50px;
     background: white;
     border-radius: 6px;
     padding: 2rem 3rem;
-    margin: 0 1rem;
 }
 
 .overview-chart__heading {
@@ -52,6 +51,8 @@ $barWidth: 50px;
 @media only screen and (min-width: 800px) {
     .overview-chart {
         width: 40%;
-        margin: 0;  
+        margin: 0;
+        box-sizing: border-box;
+        margin-left: $col1;
     }
 }
