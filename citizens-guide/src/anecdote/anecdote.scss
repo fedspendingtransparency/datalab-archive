@@ -2,9 +2,13 @@
 
 .anecdote {
     position:relative;
-    .anecdote__heading {
+    width:340px;
+    max-width:100%;
+    h1.anecdote__heading {
         font-size: 1rem;
         font-weight: $boldWeight;
+        margin-top:0;
+        text-align:center;
     }
 
     .anecdote__dots--container {
@@ -39,14 +43,16 @@
     .anecdote__panes {
         position: relative;
         overflow:auto;
+        margin: 0 2rem;
+        cursor:pointer;
     }
 
     .anecdote__pane {
-        opacity: 0;
+        user-select:none;
         position:absolute;
         transition: opacity 0.5s ease;
         color:black;
-        background:white;
+        opacity:0;
 
         &.anecdote__pane--active {
             opacity: 1;
@@ -60,14 +66,29 @@
     .anecdote__contents {
         display:none;
         position:absolute;
-        background:white;
+        background:rgba(255,255,255,0.95);
         color:black;
         top:0;
-        padding:15px;
+        padding:0.85rem 1.3rem;
+        border-radius:4px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .anecdote__contents.anecdote__content--active {
+    .anecdote__contents.anecdote__contents--active {
         display:block;
+    }
+
+    .anecdote__close {
+        float: right;
+        background:none;
+        border: none;
+    }
+
+    .anecdote__link--button {
+        background: url('../assets/icons/anecdote.svg') 20px 13px  no-repeat;
+        background-size: 20px 20px;
+        padding:12px 30px 12px 50px;
     }
 
 /**

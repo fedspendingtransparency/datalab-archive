@@ -1,11 +1,15 @@
 .anecdote {
   position: relative;
+  width: 340px;
+  max-width: 100%;
   /**
  * The following is "throw away" css, as this should be handled by the originator, and not the anecdote module.
  */ }
-  .anecdote .anecdote__heading {
+  .anecdote h1.anecdote__heading {
     font-size: 1rem;
-    font-weight: 600; }
+    font-weight: 600;
+    margin-top: 0;
+    text-align: center; }
   .anecdote .anecdote__dots--container {
     margin-bottom: 10px; }
   .anecdote .anecdote__dots, .anecdote .anecdote__dots--text {
@@ -27,13 +31,15 @@
       background: #205493; }
   .anecdote .anecdote__panes {
     position: relative;
-    overflow: auto; }
+    overflow: auto;
+    margin: 0 2rem;
+    cursor: pointer; }
   .anecdote .anecdote__pane {
-    opacity: 0;
+    user-select: none;
     position: absolute;
     transition: opacity 0.5s ease;
     color: black;
-    background: white; }
+    opacity: 0; }
     .anecdote .anecdote__pane.anecdote__pane--active {
       opacity: 1; }
     .anecdote .anecdote__pane p {
@@ -41,12 +47,23 @@
   .anecdote .anecdote__contents {
     display: none;
     position: absolute;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     color: black;
     top: 0;
-    padding: 15px; }
-  .anecdote .anecdote__contents.anecdote__content--active {
+    padding: 0.85rem 1.3rem;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; }
+  .anecdote .anecdote__contents.anecdote__contents--active {
     display: block; }
+  .anecdote .anecdote__close {
+    float: right;
+    background: none;
+    border: none; }
+  .anecdote .anecdote__link--button {
+    background: url("../assets/icons/anecdote.svg") 20px 13px no-repeat;
+    background-size: 20px 20px;
+    padding: 12px 30px 12px 50px; }
   .anecdote .anecdote__icon {
     height: 20px;
     width: 20px; }
