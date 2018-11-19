@@ -1,0 +1,37 @@
+.chapter {
+    .chapter__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        color: white;
+
+        h1 {
+            text-align: left;
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+    }
+}
+
+.chapter__cta {
+    float: right;
+}
+
+.chapter--revenue {
+    background-color: $revenuePrimary;
+}
+
+.chapter--spending {
+    background-color: $spendingPrimary;
+}
+
+.chapter--deficit {
+    background-color: $deficitPrimary;
+}
+
+.chapter--debt {
+    background-color: $debtPrimary;
+}

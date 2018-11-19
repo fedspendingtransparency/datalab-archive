@@ -1,10 +1,56 @@
-.anecdote .anecdote__heading {
-  font-size: 1rem;
-  font-weight: 600; }
-
-.anecdote .anecdote__pane {
-  opacity: 0;
-  transition: opacity 0.5s ease; }
-
-.anecdote .anecdote__pane--active {
-  opacity: 1; }
+.anecdote {
+  position: relative;
+  /**
+ * The following is "throw away" css, as this should be handled by the originator, and not the anecdote module.
+ */ }
+  .anecdote .anecdote__heading {
+    font-size: 1rem;
+    font-weight: 600; }
+  .anecdote .anecdote__dots--container {
+    margin-bottom: 10px; }
+  .anecdote .anecdote__dots, .anecdote .anecdote__dots--text {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__dots--text {
+    color: #B2C6D8;
+    font-size: 11px; }
+  .anecdote .anecdote__dot {
+    height: 8px;
+    width: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #B2C6D8;
+    margin: 4px;
+    cursor: pointer; }
+    .anecdote .anecdote__dot.anecdote__dot--active {
+      background: #205493; }
+  .anecdote .anecdote__panes {
+    position: relative;
+    overflow: auto; }
+  .anecdote .anecdote__pane {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.5s ease;
+    color: black;
+    background: white; }
+    .anecdote .anecdote__pane.anecdote__pane--active {
+      opacity: 1; }
+    .anecdote .anecdote__pane p {
+      color: black; }
+  .anecdote .anecdote__contents {
+    display: none;
+    position: absolute;
+    background: white;
+    color: black;
+    top: 0;
+    padding: 15px; }
+  .anecdote .anecdote__contents.anecdote__content--active {
+    display: block; }
+  .anecdote .anecdote__icon {
+    height: 20px;
+    width: 20px; }
+  .anecdote h1.anecdote__heading, .anecdote a.anecdote__cta {
+    color: black; }
+  .anecdote a.anecdote__cta {
+    border-color: black; }

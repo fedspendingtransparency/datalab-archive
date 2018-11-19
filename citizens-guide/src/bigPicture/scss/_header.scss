@@ -1,0 +1,53 @@
+$headerBg: rgba(255,255,255,0.5);
+
+header {
+    background: #e0e0e0;
+    padding: 3rem 0;
+}
+
+.bp-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.bp-header__text {
+    order: 2;
+}
+
+.bp-header__heading {
+    text-align: center;
+}
+
+.overview-chart {
+    order: 1;
+}
+
+@media only screen and (min-width: 800px) {
+    %textBox {
+        background: $headerBg;
+        box-sizing: border-box;
+        padding-right: 1rem;
+        width: $col1;
+        float: left;    
+    }
+    
+    .bp-header {
+        display: block;
+    }
+
+    .bp-header__heading {
+        @extend %textBox;
+        text-align: left;
+        padding-top: 3rem;
+        margin-bottom: 0;
+        margin-top: 6rem;
+    }
+
+    .bp-header__text {
+        @extend %textBox;        
+        padding-bottom: 3rem;
+    }
+}

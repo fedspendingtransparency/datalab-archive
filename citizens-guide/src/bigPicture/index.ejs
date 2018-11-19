@@ -1,15 +1,15 @@
 ---
 title: Title Placeholder
-description: This is the text that goes in the meta description tag
+description: In 2017 the United States Federal Government collected $3.3 Trillion and spent $4.0 Trillion. The resulting deficit was $660 Billion, which brought the national debt to $20.2 trillion.
 chapter: bigPicture
 ---
 
 <header>
     <div class="bp-header">
+        <h1 class="bp-header__heading">
+            The <strong>People's Guide</strong> to <strong>U.S. Federal Government Finances</strong>
+        </h1>
         <div class="bp-header__text">
-            <h1 class="bp-header__heading">
-                The <strong>People's Guide</strong> to <strong>U.S. Federal Government Finances</strong>
-            </h1>
             <p>This site was designed for the people of the United States. The site provides information and data about the annual financial picture of the United States to the public.</p>
             <p>Where does the money come from? Where does it go? And what are the long-term obligations of the federal government's financial decisions?  We've collected information from various Treasury data sources, to try and answer these questions for you.</p>
         </div>
@@ -19,33 +19,76 @@ chapter: bigPicture
                 <div class="overview-chart__bar overview-chart__bar--revenue"></div>
                 <div class="overview-chart__bar overview-chart__bar--spending"></div>
                 <div class="overview-chart__bar overview-chart__bar--deficit"></div>
+                <div class="overview-chart__label overview-chart__label--revenue">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <h3 class="overview-chart__label-heading">Revenue</h3>
+                    <p>$3.3 trillion</p>
+                    <a href="#revenue-chapter">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
+                        </span>
+                        Expore Revenue</a>
+                </div>
+                <div class="overview-chart__label overview-chart__label--spending">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <h3 class="overview-chart__label-heading">Spending</h3>
+                    <p>$4.0 trillion</p>
+                    <a href="#spending-chapter">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
+                        </span>
+                        Explore Spending</a>
+                </div>
+                <div class="overview-chart__label overview-chart__label--deficit">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <h3 class="overview-chart__label-heading">Deficit</h3>
+                    <p>$660 billion</p>
+                    <a href="#deficit-chapter">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
+                        </span>
+                        Explore Deficit</a>
+                </div>
             </div>
         </div>
     </div>
+    <img class="bp-scroll-down" src="assets/bp/scroll-down.svg" alt="">
 </header>
 
-<section class="chapter chapter--revenue">
+<section class="chapter chapter--revenue" id="revenue-chapter">
     <div class="chapter__content">
-        <h1>In 2017, the federal government collected $3.3 trillion</h1>
-        <p>Here is some great copy about revenue.</p>
+        <a class="link-button chapter__cta" href="revenue/gdp.html">Go Explore Revenue</a>
+        <%- include('layouts/partials/bpToc.ejs', {section: 'revenue'}) %>
+        <h1>In 2017, the federal government collected $3.3 trillion.</h1>
+        <p>The federal government collects revenue from a variety of sources, including individual income taxes, payroll taxes, corporate income taxes, excise taxes. It also collects revenue from services like admission to national parks and customs duties.</p>
         
         <section class="anecdote">
+            <img class='anecdote__icon' src="../assets/icons/anecdote.svg" alt="anecdote icon">
             <h1 class="anecdote__heading">What is $3.3 trillion equivalent to?</h1>
             <div class="anecdote__panes">
                 <div class="anecdote__pane">
-                    <p>anecdote pane 1</p>
-                    <p>some content</p>
+                    <p>The U.S. government brings in <strong>$105,000</strong> of revenue every second. In the time it takes you to read this statement, the U.S. government has collected roughly $1 million.</p>
                 </div>
                 <div class="anecdote__pane">
-                    <p>anecdote pane 2</p>
-                    <p>some content</p>
+                    <p>It equates to <strong>67 million</strong> individuals earning roughly <strong>$49,000/year</strong>.</p>
                 </div>
                 <div class="anecdote__pane">
-                    <p>anecdote pane 3</p>
-                    <p>some content</p>
+                    <p>The <strong>per person</strong> equivalent to $3.3 T is a little more than <strong>$10,000</strong> for every individual <strong>counted in the 2017 U.S. Census estimate (326.4 million).</strong></p>
+                </div>
+                <div class="anecdote__pane">
+                    <p>It averages to every household contributing <strong>$2,200 each month</strong>. That is roughly equal to <strong>renting a three-bedroom apartment</strong> outside <strong>Tampa, FL</strong> ($2,199).</p>
+                </div>
+                <div class="anecdote__pane">
+                    <p>It equates to the <strong>revenue of the top 18 S&P 500</strong> publicly held companies combined.</p>
+                </div>
+                <div class="anecdote__pane">
+                    <p>In 2017, the U.S. Census Bureau estimated that there were <strong>126,224,000 households</strong> in the United States. That would mean, <strong>on average, each household contributed about $26,000</strong> to the income of the United States.</p>
                 </div>
             </div>
-            <a class="anecdote__cta" href="revenue/gdp.html">Go Explore Revenue</a>
+            <a class="anecdote__cta link-button" href="revenue/gdp.html">Go Explore Revenue</a>
         </section>
         
         <div class="chapter__chart">
@@ -54,13 +97,63 @@ chapter: bigPicture
     </div>
 </section>
 
-<section class="chapter">
-    <h1>Spending Placeholder</h1>
+<section class="chapter chapter--spending" id="spending-chapter">
+    <div class="chapter__content">
+        <a class="link-button chapter__cta" href="spending/federal-spending-intro.html">Go Explore Spending</a>
+        <%- include('layouts/partials/bpToc.ejs', {section: 'spending'}) %>
+        <h1>Spending Placeholder</h1>
+    </div>
 </section>
 
+<section class="chapter chapter--deficit" id="deficit-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'deficit'}) %>
+        <h1>Deficit Placeholder</h1>
+    </div>
+</section>
 
-<p>
-    <a style="display:block; text-align:center" href="./revenue/gdp.html">Revenue Chapter</a>
-    <br>
-    <a style="display:block; text-align:center" href="./spending/federal-spending-intro.html">Spending Chapter</a>
-</p>
+<section class="chapter chapter--debt" id="debt-chapter">
+    <div class="chapter__content">
+        <%- include('layouts/partials/bpToc.ejs', {section: 'debt'}) %>
+        <h1>Debt Placeholder</h1>
+    </div>
+</section>
+
+<div class="historical-quote">
+    <blockquote>&ldquo;We might hope to see the finances of the Union as clear and intelligible as a merchant’s books, so that every member of Congress, and every person of any mind in the Union should be able to comprehend them, to investigate abuses, and consequently to control them.&rdquo;</blockquote>
+    <img class="historical-quote__image" src="assets/bp/jefferson.png" alt="">
+    <p class="historical-quote__credit">Thomas Jefferson</p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://datalab.usaspending.gov/"
+    },
+    "image": "http://datalab.usaspending.gov/images/citizens-guide/2017-federal-government-summary.png",
+    "headline": "The People's Guide to U.S. Federal Government Finances",
+    "datePublished": "2018-11-15T08:00:00+06:00",
+    "dateModified": "2018-11-15T09:20:00+06:00",
+    "author": {
+    "@type": "Organization",
+    "name": "U.S. Treasury",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+        }
+    },
+    "publisher": {
+    "@type": "Organization",
+    "name": "U.S. Treasury",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+        }
+    },
+    "description": "In 2017 the United States Federal Government collected $3.3 Trillion and spent $4.0 Trillion. The resulting deficit was $660 Billion, which brought the national debt to $20.2 trillion."
+}
+</script>
+<script src="./assets/anecdote.js"></script>

@@ -39,6 +39,31 @@ const moduleRules = [
 
 module.exports = [{
     entry: {
+        anecdote: './src/anecdote/anecdote.js'
+    },
+    devtool: devtool,
+    devServer: {
+        contentBase: 'public',
+        watchContentBase: true,
+        compress: true
+    },
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/public/assets/',
+        publicPath: '/assets/'
+    },
+    module: {
+        rules: moduleRules
+    }
+},{
+    entry: {
         gdp: './src/revenue/gdp/index.js',
         categories: './src/revenue/categories/index.js',
         trends: './src/revenue/trends/index.js',
@@ -99,7 +124,7 @@ module.exports = [{
         rules: moduleRules
     }
 },{
-    entry: ['./src/globalSass/cg.scss', './src/bigPicture/bp.scss', './src/anecdote/anecdote.scss'],
+    entry: ['./src/globalSass/cg.scss', './src/bigPicture/scss/bp.scss', './src/anecdote/anecdote.scss'],
     output: {
 		path: path.resolve(__dirname, 'public/assets'),
 	},
