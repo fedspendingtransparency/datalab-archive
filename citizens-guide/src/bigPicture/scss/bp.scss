@@ -4,36 +4,36 @@
 @import 'toc';
 @import 'chapter';
 @import 'link-button';
+@import 'header';
 
-header {
-    background: #f6f6f6;
-    padding: 3rem 0;
+html {
+    font-weight: $normalWeight;
 }
 
-.bp-header {
-    max-width: 1200px;
+.bp-scroll-down {
+    display: block;
     margin: 0 auto;
+    transform: translateY(84px);
 }
 
-.bp-header__text {
-    background: rgba(255,255,255,0.5)
-}
+.historical-quote {
+    margin: 3rem 1rem;
 
-.bp-header__heading {
-    text-align: left;
-}
-
-@media only screen and (min-width: 800px) {
-    .bp-header {
-        display: flex;
-        align-items: center;
+    blockquote {
+        font-size: 1.8rem;
+        max-width: 900px;
+        margin: 3rem auto 2rem;
     }
 
-    .bp-header__text {
-        width: 60%;
+    .historical-quote__image {
+        display: block;
+        margin: 0 auto;
     }
-    
-    .overview-chart {
-        width: 40%;
+
+    .historical-quote__credit {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: $boldWeight;
+        margin-top: 0.5rem;
     }
 }

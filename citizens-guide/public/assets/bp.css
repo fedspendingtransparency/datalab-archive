@@ -1,7 +1,7 @@
 .overview-chart {
   background: white;
   border-radius: 6px;
-  padding: 2rem 3rem; }
+  padding: 1rem; }
 
 .overview-chart__heading {
   text-align: center;
@@ -13,28 +13,75 @@
   margin-top: 2rem; }
 
 .overview-chart__bar {
-  width: 50px; }
+  position: absolute;
+  width: 11%; }
 
 .overview-chart__bar--revenue {
   background-color: #585858;
-  position: absolute;
   top: 66px;
-  left: calc(50% - 60px);
+  right: 52%;
   height: 334px; }
 
 .overview-chart__bar--spending {
   background-color: #686868;
-  position: absolute;
   top: 0;
-  left: calc(50% + 10px);
+  left: 52%;
   height: 400px; }
 
 .overview-chart__bar--deficit {
   background-color: #787878;
-  position: absolute;
   top: 0;
-  left: calc(50% - 60px);
+  right: 52%;
   height: 66px; }
+
+.overview-chart__label {
+  position: absolute;
+  font-size: 14px;
+  width: 32%; }
+  .overview-chart__label p {
+    margin: 0; }
+  .overview-chart__label a .fa-stack {
+    transform: scale(0.5) translateX(-20px);
+    margin-right: -18px; }
+
+.overview-chart__label-heading {
+  margin: 0; }
+
+.overview-chart__label--revenue {
+  top: 208px; }
+  .overview-chart__label--revenue > i {
+    float: right;
+    transform: translateY(3px); }
+
+.overview-chart__label--deficit > i {
+  float: right;
+  transform: translateY(3px); }
+
+.overview-chart__label--spending {
+  right: 0;
+  top: 175px;
+  padding-left: 20px;
+  box-sizing: border-box; }
+  .overview-chart__label--spending > i {
+    float: left;
+    transform: translateY(3px);
+    margin-left: -20px; }
+
+@media only screen and (min-width: 600px) and (max-width: 799px) {
+  .overview-chart {
+    padding: 2rem 3rem; } }
+
+@media only screen and (min-width: 800px) {
+  .overview-chart {
+    width: 40%;
+    margin: 0;
+    box-sizing: border-box;
+    margin-left: 60%;
+    padding: 2rem 1rem; } }
+
+@media only screen and (min-width: 1100px) {
+  .overview-chart {
+    padding: 2rem 3rem; } }
 
 .toc {
   list-style-type: none;
@@ -48,7 +95,7 @@
 .chapter .chapter__content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   color: white; }
   .chapter .chapter__content h1 {
     text-align: left;
@@ -80,24 +127,61 @@ a.link-button, button.link-button {
   display: inline-block; }
 
 header {
-  background: #f6f6f6;
+  background: #e0e0e0;
   padding: 3rem 0; }
 
 .bp-header {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column; }
 
 .bp-header__text {
-  background: rgba(255, 255, 255, 0.5); }
+  order: 2; }
 
 .bp-header__heading {
-  text-align: left; }
+  text-align: center; }
+
+.overview-chart {
+  order: 1; }
 
 @media only screen and (min-width: 800px) {
+  .bp-header__heading, .bp-header__text {
+    background: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    padding-right: 1rem;
+    width: 60%;
+    float: left; }
   .bp-header {
-    display: flex;
-    align-items: center; }
+    display: block; }
+  .bp-header__heading {
+    text-align: left;
+    padding-top: 3rem;
+    margin-bottom: 0;
+    margin-top: 6rem; }
   .bp-header__text {
-    width: 60%; }
-  .overview-chart {
-    width: 40%; } }
+    padding-bottom: 3rem; } }
+
+html {
+  font-weight: 300; }
+
+.bp-scroll-down {
+  display: block;
+  margin: 0 auto;
+  transform: translateY(84px); }
+
+.historical-quote {
+  margin: 3rem 1rem; }
+  .historical-quote blockquote {
+    font-size: 1.8rem;
+    max-width: 900px;
+    margin: 3rem auto 2rem; }
+  .historical-quote .historical-quote__image {
+    display: block;
+    margin: 0 auto; }
+  .historical-quote .historical-quote__credit {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 0.5rem; }
