@@ -18,7 +18,7 @@
 #svg-wrapper {
   display: flex;
   margin-right: 50px;
-  width: 100%;
+  width: 960px;
   height: 100%;
 }
 
@@ -51,7 +51,7 @@
   display: none;
   position: absolute;
   min-width: 150px;
-  padding: 7px;
+  padding: 15px;
   background: rgb(255, 255, 255);
   color: rgb(51, 51, 51);
   border: 1px solid #D9D9D9;
@@ -313,17 +313,21 @@
 
 .dts-tt-category {
   text-transform: none;
-  letter-spacing: 0.25px;
+  letter-spacing: 1px;
   width: 75%;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 23px;
   color: #00c3c2;
 }
 
 .dts-tt-date {
-  font-weight: 300;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 15px;
+  text-transform: none;
+  letter-spacing: .25px;
+  color: #666;
 }
 
 .dts-tt-amount {
@@ -333,30 +337,27 @@
 }
 
 .dts-tt-hr-separator {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   width: 100%;
-  padding-top: 2px;
-  margin-bottom: 2px;
-}
-
-.dts-tt-mtd, .dts-tt-fytd {
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.dts-tt-timeframe-label {
-  font-weight: 200;
-  color: #999;
-}
-
-.dts-tt-mtd {
-  line-height: 22px;
+  padding-top: 7px;
   margin-bottom: 5px;
 }
 
-.dts-tt-fytd {
-  line-height: 5px;
-  margin-bottom: 4px;
+.dts-tt-timeframe {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #bbb;
+}
+
+.dts-tt-timeframe-label {
+  
+}
+
+.dts-tt-timeframe-active {
+  color: #000;
 }
 
 .label-popular {
@@ -417,6 +418,29 @@
 
   .dts-viz-container {
     padding: 5px;
+  }
+
+  .dts-left-column {
+    flex-direction: column;
+  }
+
+  .dts-right-column {
+    flex-direction: column;
+  }
+
+  .daily-spending-container {
+    width: initial;
+    margin-right: 0;
+  }
+
+  .frequency-container {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .daily-spending-amount {
+    margin-top: 5px;
+    text-align: center;
   }
 }
 
