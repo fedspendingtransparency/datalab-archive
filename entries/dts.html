@@ -12,7 +12,7 @@ category: nonentry
 
 <div class="header-container">
   <div class="header-title">Vizualizing The Daily Treasury Statement</div>
-  <div class="header-subtitle">How much did the federal government spend today?</div>
+  <div class="header-subtitle">How much does the federal government spend each day?</div>
   <div class="header-line-break"></div>
   <div class="header-updated-when"></div>
 </div>
@@ -54,10 +54,9 @@ category: nonentry
   <div class="dts-tt-date"></div>
   <div class="dts-tt-hr-separator"></div>
   <div class="dts-tt-category"></div>
-  <div class="dts-tt-amount"></div>
-  <div class="dts-tt-hr-separator"></div>
-  <div class="dts-tt-mtd"><span class="dts-tt-timeframe-label">MTD: </span><span class="dts-tt-mtd-value"></span></div>
-  <div class="dts-tt-fytd"><span class="dts-tt-timeframe-label">FYTD: </span><span class="dts-tt-fytd-value"></span></div>
+  <div class="dts-tt-timeframe dts-tt-timeframe-daily dts-tt-timeframe-active"><span class="dts-tt-timeframe-label">DAILY</span><span class="dts-tt-daily-value"></span></div>
+  <div class="dts-tt-timeframe dts-tt-timeframe-mtd"><span class="dts-tt-timeframe-label">MTD</span><span class="dts-tt-mtd-value"></span></div>
+  <div class="dts-tt-timeframe dts-tt-timeframe-fytd"><span class="dts-tt-timeframe-label">FYTD</span><span class="dts-tt-fytd-value"></span></div>
 </div>
 
 <div class="dts-viz-container">
@@ -89,6 +88,7 @@ var allOptions, optionsDict, lastDate, categorySeparatorDate;
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
 const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
+const dateFormatter = d3.timeFormat("%a, %b %d, %Y");
 
 const lineColors = [ "#00c3c2", "#2E7070", "#4CABAC", "#76D2D3" ]
 
@@ -105,7 +105,7 @@ const bisectDate = d3.bisector(d => d.date).left;
 let x = d3.scaleTime().range([0, width]),
   x2 = d3.scaleTime().range([0, width]);
 
-  const y = d3.scaleLinear().range([height, 0]),
+const y = d3.scaleLinear().range([height, 0]),
   y2 = d3.scaleLinear().range([height2, 0]);
 
 let xAxis = d3.axisBottom(x),
@@ -393,32 +393,23 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .text(d => d);
 }
 
-var sharedCategories = [
-  {
-    categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
-    date: new Date("2010-03-31"),
-    footnote: "The shaded region indicates inactive or retired programs. Beginning March 31, 2010, the Food Stamp Program has been renamed Supplemental Nutrition Assistance Program (SNAP) on the Daily Treasury Statement. Withdrawals previously reported under the Food Stamp Program are now reported under SNAP."
-  },
-  {
-    categories: [ "Medicare", "Medicare Advantage Part C D Payments", "Marketplace Payments", "Medicare and Other CMS Payments" ],
-    date: new Date("2014-10-01"),
-    footnote: "The shaded region indicates inactive or retired programs. Beginning October 1, 2014, payments previously reported  under the Medicare line were expanded to three lines:  Medicare and other CMS payments,  Medicare Advantage - Part C&D payments, and Marketplace payments."
-  }
-]
-
-var mapping = {};
-
-for (let item of sharedCategories) {
-  for (let categoryName of item.categories) {
-    mapping[categoryName] = { categories: item.categories, date: item.date, footnote: item.footnote };
-  }
-}
-
 function getGraphData() {
   let categoryValue = d3.select('#category-selector').property('value');
   let frequencyValue = d3.select('#frequency-selector').property('value');
 
   return masterMapping[categoryValue][frequencyValue];
+}
+
+function setTooltipActiveTimeframe(frequencyValue) {
+  d3.selectAll(".dts-tt-timeframe").classed("dts-tt-timeframe-active", false);
+
+  if (frequencyValue === "today") {
+    d3.select(".dts-tt-timeframe-daily").classed("dts-tt-timeframe-active", true);
+  } else if (frequencyValue === "mtd") {
+    d3.select(".dts-tt-timeframe-mtd").classed("dts-tt-timeframe-active", true);
+  } else if (frequencyValue === "fytd") {
+    d3.select(".dts-tt-timeframe-fytd").classed("dts-tt-timeframe-active", true);
+  }
 }
 
 function createSelect(condensedOptions, activeOptions, inactiveOptions) {
@@ -428,7 +419,7 @@ function createSelect(condensedOptions, activeOptions, inactiveOptions) {
 
   addOptions(select, condensedOptions, activeOptions, inactiveOptions);
 
-  function onFrequencyChange() { 
+  function onFrequencyChange() {
     onDataChange();
   }
 
@@ -441,6 +432,16 @@ function createSelect(condensedOptions, activeOptions, inactiveOptions) {
   function onDataChange() {
     updateGraph(getGraphData());
     updateHistoryWithNewFrequencyOrCategory();
+
+    let categoryValue = d3.select('#category-selector').property('value');
+    let frequencyValue = d3.select('#frequency-selector').property('value');
+
+    let curLastItem = optionsDict[categoryValue][frequencyValue].last();
+
+    setTooltipActiveTimeframe(frequencyValue);
+
+    d3.select(".daily-spending-subtext").text("Total Amount Spent On " + dateFormatter(curLastItem.date)); 
+    d3.select(".daily-spending-amount").text(dollarFormatter(curLastItem.value));
   }
 }
 
@@ -703,7 +704,7 @@ function createGraph(data) {
       .style("left", d3.event.pageX + "px")
       .style("top", (d3.event.pageY) + "px");
 
-    let mouseOverDateText = parseTimeFormat(d.date);
+    let mouseOverDateText = dateFormatter(d.date);
 
     let todayDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["today"], this).value);
     let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["mtd"], this).value);
@@ -712,9 +713,30 @@ function createGraph(data) {
     ttContainer.select(".dts-tt-category").text(d.name);
     ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
-    ttContainer.select(".dts-tt-amount").text(todayDataPoint);
+    ttContainer.select(".dts-tt-daily-value").text(todayDataPoint);
     ttContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
     ttContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
+  }
+}
+
+var sharedCategories = [
+  {
+    categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
+    date: new Date("2010-03-31"),
+    footnote: "The shaded region indicates inactive or retired programs. Beginning March 31, 2010, the Food Stamp Program has been renamed Supplemental Nutrition Assistance Program (SNAP) on the Daily Treasury Statement. Withdrawals previously reported under the Food Stamp Program are now reported under SNAP."
+  },
+  {
+    categories: [ "Medicare", "Medicare Advantage Part C D Payments", "Marketplace Payments", "Medicare and Other CMS Payments" ],
+    date: new Date("2014-10-01"),
+    footnote: "The shaded region indicates inactive or retired programs. Beginning October 1, 2014, payments previously reported  under the Medicare line were expanded to three lines:  Medicare and other CMS payments,  Medicare Advantage - Part C&D payments, and Marketplace payments."
+  }
+]
+
+var mapping = {};
+
+for (let item of sharedCategories) {
+  for (let categoryName of item.categories) {
+    mapping[categoryName] = { categories: item.categories, date: item.date, footnote: item.footnote };
   }
 }
 
@@ -722,12 +744,17 @@ var masterMapping = {};
 
 function getCombinedCategory(combinedArray) {
   let result = [];
+  let remember = {};
 
   combinedArray.forEach(obj => {
-    let theDate = obj.date;
-    if (!this[theDate]) { result.push(this[theDate] = obj); }
-    else { this[theDate].value += obj.value; }
-  }, Object.create(null));
+    if (remember[obj.date]) { 
+      remember[obj.date].value += obj.value;
+    } else { 
+      let clonedObj = Object.assign({}, obj);
+      remember[obj.date] = clonedObj;
+      result.push(clonedObj); 
+    }
+  });
 
   return result;
 }
@@ -737,44 +764,44 @@ function createMasterMapping() {
     masterMapping[key] = { "today": [], "mtd": [], "fytd": [] };
 
     if (mapping.hasOwnProperty(key)) {
-
-      let combinedToday = [];
-      let combinedMTD = [];
-      let combinedFYTD = [];
-
       for (let i = 0; i < mapping[key].categories.length; i++) {
         let cateName = mapping[key].categories[i];
-
-        // console.log(optionsDict[cateName]["today"]);
-
-        combinedToday.push.apply(combinedToday, optionsDict[cateName]["today"]);
-        combinedMTD.push.apply(combinedMTD, optionsDict[cateName]["mtd"]);
-        combinedFYTD.push.apply(combinedFYTD, optionsDict[cateName]["fytd"]);
 
         masterMapping[key]["today"].push({ "name": cateName, values: optionsDict[cateName]["today"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
         masterMapping[key]["mtd"].push({ "name": cateName, values: optionsDict[cateName]["mtd"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
         masterMapping[key]["fytd"].push({ "name": cateName, values: optionsDict[cateName]["fytd"], date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
       }
-
-      let combinedDailyValues = getCombinedCategory(combinedToday);
-      let combinedMTDValues = getCombinedCategory(combinedMTD);
-      let combinedFYTDValues = getCombinedCategory(combinedFYTD);
-
-      // console.log(combinedDailyValues);
-
-      /// console.log(combinedToday);
-      //console.log(masterMapping[key]);
-      /*
-      masterMapping[key]["today"].push({ "name": "Combined", values: combinedToday, date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
-      masterMapping[key]["mtd"].push({ "name": "Combined", values: combinedMTD, date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
-      masterMapping[key]["fytd"].push({ "name": "Combined", values: combinedFYTD, date: mapping[key].date, footnote: mapping[key].footnote, color: lineColors[i] });
-      */
-
     } else {
       masterMapping[key]["today"].push({ "name": key, values: optionsDict[key]["today"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
       masterMapping[key]["mtd"].push({ "name": key, values: optionsDict[key]["mtd"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
       masterMapping[key]["fytd"].push({ "name": key, values: optionsDict[key]["fytd"], date: new Date("1970-01-01"), footnote: "", color: lineColors[0] });
     }
+  }
+
+  let combinedToday = [];
+  let combinedMTD = [];
+  let combinedFYTD = [];
+
+  let medicareGrouping = sharedCategories[1];
+
+  for (let cateName of medicareGrouping.categories) { // Only get combined for the medicare grouping
+    combinedToday.push.apply(combinedToday, optionsDict[cateName]["today"]);
+    combinedMTD.push.apply(combinedMTD, optionsDict[cateName]["mtd"]);
+    combinedFYTD.push.apply(combinedFYTD, optionsDict[cateName]["fytd"]);
+  }
+
+  console.log(combinedToday);
+
+  let combinedDailyValues = getCombinedCategory(combinedToday);
+  let combinedMTDValues = getCombinedCategory(combinedMTD);
+  let combinedFYTDValues = getCombinedCategory(combinedFYTD);
+
+  console.log(combinedDailyValues);
+  
+  for (let cateName of medicareGrouping.categories) { // Only get combined for the medicare grouping
+    masterMapping[cateName]["today"].push({ "name": "Combined", values: combinedDailyValues, date: medicareGrouping.date, footnote: medicareGrouping.footnote, color: lineColors[lineColors.length - 1] });
+    masterMapping[cateName]["mtd"].push({ "name": "Combined", values: combinedMTDValues, date: medicareGrouping.date, footnote: medicareGrouping.footnote, color: lineColors[lineColors.length - 1] });
+    masterMapping[cateName]["fytd"].push({ "name": "Combined", values: combinedFYTDValues, date: medicareGrouping.date, footnote: medicareGrouping.footnote, color: lineColors[lineColors.length - 1] });
   }
 }
 
@@ -868,8 +895,6 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
     optionsDict[d.item_raw]['fytd'].push({ date: d.date, value: d.fytd });
   });
 
-  console.log(dateScaleValues);
-
   x = d3.scaleTime().domain(d3.extent(dateScaleValues)).range([0, width]);
   x2 = d3.scaleTime().domain(d3.extent(dateScaleValues)).range([0, width]);
 
@@ -925,6 +950,8 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
 
   createGraph(graphData);
   updateGraph(graphData);
+
+  setTooltipActiveTimeframe(theFrequency);
 
   let yearToSpendingArray = getYearToSpendingArray(optionsDict["All Categories"]["fytd"]);
 
