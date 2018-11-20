@@ -292,11 +292,21 @@ $green: #50604f;
 *--------------------------------------------------------------------------------------------------------------------
 */
   
+#secitonInvestmentCategories {
+  margin-top: 130px;
+}
+
+
   .investmentCategories { 
 
     padding-left: 5%;
     padding-right: 5%;
     text-align: center;
+
+    .categoriesChartContainer {
+      margin-top: 200px;
+      margin-bottom: 100px;
+    }
 
     .panel {
 
@@ -336,8 +346,8 @@ $green: #50604f;
       position: relative;
 
       .categoriesParent{
-	width:210px;
-	margin: 0px;
+    	width:210px;
+	    margin: 0px;
 	display: inline-block;
 
 	p {
@@ -422,25 +432,62 @@ $green: #50604f;
       pointer-events: none;
     }
 
+    
+
   }
 
-  .tablerowClickContainer {
-    display: inline-flex;
+  #tableContainerDiv {
+    display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    margin: 75px auto;
+    justify-content: space-around;
   }
 
-  // main table div
   #tableDiv {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    width: 60%;
+  }
+
+  .subTableData {
+    //border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0; 
+    height: 60px;
+    font-size: 13pt;
+  }
+
+  .subTableData > th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .subTableData > tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  .subTableData > th:first-child {
+    border-radius: 6px 0 0 0;
+  }
+
+  .subTableData > th:last-child {
+    border-radius: 0 6px 0 0;
+  }
+
+  .subTableData > th:only-child{
+    border-radius: 6px 6px 0 0;
+  }
+
+
+  .investmenth4 {
+    font-size: 11pt;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
   }  
 
   // on row click table div
-  #subTableDiv {
-    display: inline-flex;
-    //flex-direction: column;
+  #sidebarTable {
+    width: 40%;
+    height: 70px;
+    font-size: 15pt;
   }
 
   .flex-rect {
@@ -456,7 +503,7 @@ $green: #50604f;
     margin-top: 25px;
     margin-bottom: 50px;
     width: 740px;
-    height: 160px;
+    height: 170px;
     opacity: 0.9;
     background-color: #fafafa;
   }
@@ -474,6 +521,7 @@ $green: #50604f;
     opacity: 1;
     transition: visibility 0s linear 0s, opacity 300ms;
   }
+
 
 }
 

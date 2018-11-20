@@ -60,7 +60,7 @@ const paginate = (array, page_size, page_number) => {
   purpose: rounds a number to a given percentage
 */
 const round = (value, precision) => {
-  var multiplier = Math.pow(10, precision || 0);
+  let multiplier = Math.pow(10, precision || 0);
   return Math.round(value * multiplier) / multiplier;
 };
 
@@ -322,9 +322,9 @@ function createTable(container, columns) {
     let sortAscending = true;
     let table = d3.select(container).append('table')
       .attr('class', 'display compact')
-//      .attr('data-aos', 'fade-left')
-//      .attr('data-aos-delay', '500')
-//      .attr('data-aos-offset', '300')
+      //      .attr('data-aos', 'fade-left')
+      //      .attr('data-aos-delay', '500')
+      //      .attr('data-aos-offset', '300')
       .attr('id', 'catTable'); // id given to table for Datatables.js
 
     let titles = ['PSC Name', '% of Total', 'Investment Amount']; // header array (will add Rank and Count of Awards later.. not sure what they are)
@@ -355,13 +355,7 @@ function createTable(container, columns) {
       .data(tableData).enter()
       .append('tr')
       .on('click', function (d) {
-        $(container).prependTo('#tablerowClickContainer');
-        //$("#tableDiv").css('width', '100px');
-//        $(container).css('display', 'inline-block');
-//        $('#tablerowClickContainer').css('display', 'inline-block');
-        // add second region (secondaryTable)
-        //console.log(d);
-        createSecondaryTableView('#tablerowClickContainer', d.name); // going to pass in the row value
+        createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
       });
 
     rows.selectAll('td')
@@ -403,43 +397,56 @@ function createTable(container, columns) {
 
 /**
  * 
- * @param {*} container 
  * @param {*} parentName - name to search by
  * Secondary Table (Investment) for Click event on table row
  * Need to grab different data than "tableData" in last table draw
  */
-function createSecondaryTableView(container, parentName) {
+function createSecondaryTableView(parentName, columns) {
   d3.csv("/data-lab-data/Edu_PSC.csv", function (error, data) {
-    
-    let secondaryTableData = data.filter(function(d) {
+
+    let secondaryTableData = data.filter(function (d) {
       return d.parent_name == parentName;
     });
-    
+
     console.log(secondaryTableData);
 
-    
+
     //secondaryTableData.shift();
 
     /**
      * Winter Cleaning...
      */
-//    secondaryTableData.forEach(n => { n.percentage = ((n.total / total) * 100) + "%" }); // changing to percent 
+    //    secondaryTableData.forEach(n => { n.percentage = ((n.total / total) * 100) + "%" }); // changing to percent 
     //tableData.forEach(n => { n.percentage = (n.total / total) });
-//    secondaryTableData.sort((a, b) => { return b.percentage - a.percentage });
+    //    secondaryTableData.sort((a, b) => { return b.percentage - a.percentage });
     //secondaryTableData.forEach(n => delete n.abbrv); // get rid of abbrev name, we dont need it     
 
     if (error) throw error;
 
+    d3.select('#sidebarTable').remove(); // remove on click data 
+
     /**
      * Create Secondary Table (Investment Types Table)
      */
-    let subTableDiv = d3.select(container).append('div')
-    .attr('id', 'subTableDiv');
-    let subTableHeaderText = subTableDiv.append('h3').html(name); //replace with data TR name...
-    subTableHeaderText.append('hr'); 
-    let subTable = subTableDiv.append('table');
+    let subTableDiv = d3.select('#tableContainerDiv').append('div')
+    .attr('id', 'sidebarTable')
+    let subTableHeaderText = subTableDiv.append('h4').html(parentName); //replace with data TR name...
+    subTableHeaderText.append('hr')
+    .style('width', '60%');
+    subTableHeaderText.append('p').html('Investment Types').attr('class', 'investmenth4');
+    let subTable = subTableDiv.append('table')
+    .attr('class', 'subTableData')
+    .attr('align', 'center');
 
-    let titles = ['Type', 'Awarded Amount', '% of Total']; 
+
+    let titles = ['Type', 'Awarded Amount  ', '  % of Total'];
+    let mockData = [
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+    ];
 
     let headers = subTable.append('thead').append('tr')
       .selectAll('th')
@@ -449,9 +456,84 @@ function createSecondaryTableView(container, parentName) {
         return d;
       });
 
+    let rows = subTable.append('tbody')
+      .selectAll('tr')
+      .data(mockData).enter()
+      .append('tr');
 
+    rows.selectAll('td')
+      .data(function (row) {
+        return columns.map(function (column) {
+          return { column: column, value: row[column] }
+        });
+      }).enter()
+      .append('td')
+      .text(function (d) {
+        return d.value;
+      })
+      .attr('data-th', function (d) {
+        return d.name;
+      })
 
   })
+}
+
+/**
+ * Create First TreeMap (could be reusable later)
+ * for Section2 Table/view Toggle
+ */
+function createTreeMap() {
+    var vWidth = 200;
+    let vHeight = 200;
+
+    // Prepare our physical space
+    let g = d3.select('svg').attr('width', vWidth).attr('height', vHeight).select('g');
+
+        // Get the data from our CSV file
+//    d3.csv('data.csv', function(error, vCsvData) {
+//        if (error) throw error;
+//
+        //vData = d3.stratify()(vCsvData);
+        //drawViz(vData);
+    //});
+
+    let mockData = [
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+    ];
+
+    let vData = d3.stratify()(mockData);
+
+
+    function drawViz(vData) {
+        // Declare d3 layout
+        let vLayout = d3.treemap().size([vWidth, vHeight]).paddingOuter(5);
+
+        // Layout + Data
+        let vRoot = d3.hierarchy(vData).sum(function (d) { return d.data.size; });
+        let vNodes = vRoot.descendants();
+        vLayout(vRoot);
+        let vSlices = g.selectAll('rect').data(vNodes).enter().append('rect');
+
+        // Draw on screen
+        vSlices.attr('x', function (d) { return d.x0; })
+            .attr('y', function (d) { return d.y0; })
+            .attr('width', function (d) { return d.x1 - d.x0; })
+            .attr('height', function (d) { return d.y1 - d.y0; });
+    }
+
+    drawViz(vData);
+}
+
+/**
+ * Section 4!
+ */
+
+function createCountryMap() {
+  // TODO
 }
 
 /*

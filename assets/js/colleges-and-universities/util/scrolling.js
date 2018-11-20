@@ -6,6 +6,9 @@ $(function() {
 
     // Section 1: Overview Information : Showing Help Text & Chart
     // We need to break them into tiny tiny little parts as we go across
+    // legit going to make a new scene for everything until we go back and refactor this
+    // super messy.. we can do much better.. need to test how this works for now...
+
     new ScrollMagic.Scene({
         triggerElement: ".overview_information",
     })
@@ -40,10 +43,13 @@ $(function() {
     // Information Rectangle
     let lastSceneOne = new ScrollMagic.Scene({
         triggerElement: '#infoRect',
-        duration: 200
+        duration: 150
     })
     .addIndicators({name: "5"})
     .setClassToggle('#infoRect', 'appearScroll')
+    .on('start', function() {
+        $('#infoRect').show();
+    })
     .on('leave', function() {
         $('#infoRect').hide();
     })
@@ -74,6 +80,7 @@ $(function() {
     })
     .addIndicators({name: "contracts"})
     .setClassToggle('#contractsSpan', 'appearScroll')
+    .offset(100)
     .addTo(controller);
 
     new ScrollMagic.Scene({
@@ -81,6 +88,7 @@ $(function() {
     })
     .addIndicators({name: "grants"})
     .setClassToggle('#grantsSpan', 'appearScroll')
+    .offset(200)
     .addTo(controller);
 
     new ScrollMagic.Scene({
@@ -88,6 +96,7 @@ $(function() {
     })
     .addIndicators({name: "aid"})
     .setClassToggle('#studentaidSpan', 'appearScroll')
+    .offset(300)
     .addTo(controller);
 
 });
