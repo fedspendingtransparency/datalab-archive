@@ -1,23 +1,41 @@
-.chapter {
-    .chapter__content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
+.chapter .anecdote {
+    margin-top: 2rem;
+}
+
+.chapter__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: white;
+
+    h1 {
+        text-align: left;
         color: white;
-
-        h1 {
-            text-align: left;
-            color: white;
-        }
-
-        p {
-            color: white;
-        }
+        font-size: 1.4rem;
     }
+
+    p {
+        color: white;
+    }
+}
+
+.chapter__big-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: $boldWeight;
 }
 
 .chapter__cta {
     float: right;
+}
+
+.chapter__chart {
+    display: none;
+}
+
+.chapter__chart img {
+    width: 100%;
+    height: auto;
 }
 
 .chapter--revenue {
@@ -34,4 +52,26 @@
 
 .chapter--debt {
     background-color: $debtPrimary;
+}
+
+@media only screen and (min-width: 800px) {
+    .chapter__content {
+        h1 {
+            font-size: 2rem;
+        }
+    }
+    
+    .chapter__flex {
+        display: flex;
+    }
+    
+    .chapter__chart {
+        display: block;
+        width: 50%;
+    }
+
+    .chapter__primary {
+        padding-right: 1rem;
+        width: 50%;
+    }
 }
