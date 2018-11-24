@@ -14,7 +14,11 @@ category: nonentry
   <div class="header-title">Vizualizing The Daily Treasury Statement</div>
   <div class="header-subtitle">How much does the federal government spend each day?</div>
   <div class="header-line-break"></div>
-  <div class="header-updated-when"></div>
+  <div class="header-sub-container">
+    <div></div>
+    <div class="header-updated-when"></div>
+    <div><a href="/data-lab-data/dts/dts.csv"><div class="dts-download-data">{% include svgs/download.svg %}</div></a></div>
+  </div>
 </div>
 
 <div class="dts-header">
@@ -60,7 +64,14 @@ category: nonentry
 </div>
 
 <div class="dts-viz-container">
-  <svg id="svg-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+  <div>
+    <div class="dts-brush-date-container">
+      <div class="dts-brush-date-item"><div class="dts-brush-start-date-label">From </div><div class="dts-brush-start-date">mm/dd/yy</div></div>
+      <div class="dts-brush-date-separator">—</div>
+      <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
+    </div>
+    <svg id="svg-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+  </div>
   <div class="viz-tsbfy-container">
     <div class="viz-tsbfy-header">
       <div class="viz-tsbfy-header-text">Total Spending By Fiscal Year</div>
@@ -78,6 +89,13 @@ category: nonentry
 <div class="dts-footnote">
   <div class="dts-footnote-rect"></div>
   <div class="dts-footnote-text"></div>
+</div>
+
+<div class="dts-disclaimer">
+    The Daily Treasury Statement (DTS) is published each working day of the Federal Government. 
+    It provides data on the cash and debt operations of the Treasury based upon reporting of the 
+    Treasury account balances by Federal Reserve banks. 
+    For more information about the dataset used on this story, please go to: https://www.fms.treas.gov/dts/index.html
 </div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -100,6 +118,7 @@ const svg = d3.select("#svg-wrapper"),
   height2 = +svg.attr("height") - margin2.top - margin2.bottom;
 
 const parseDate = d3.timeParse("%-m/%-d/%y");
+const parseDateYMD = d3.timeParse("%Y-%m-%d");
 const bisectDate = d3.bisector(d => d.date).left;
 
 let x = d3.scaleTime().range([0, width]),
@@ -235,8 +254,8 @@ function brushed() {
 
   updateCustomGrabbers(s);
 
-  d3.select(".dts-label-brush-start").text(brushDateFormatter(x.domain()[0]));
-  d3.select(".dts-label-brush-end").text(brushDateFormatter(x.domain()[1]));
+  d3.select(".dts-brush-start-date").text(brushDateFormatter(x.domain()[0]));
+  d3.select(".dts-brush-end-date").text(brushDateFormatter(x.domain()[1]));
   
   svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
     .scale(width / (s[1] - s[0]))
@@ -318,13 +337,15 @@ function createBarChart(yearToSpendingArray) {
       .attr("class", "axis bar-axis axis--y")
       .call(d3.axisLeft(y).tickFormat(dollarFormatter));
 
+  const barSub = 25;
+
   g.selectAll(".bar")
     .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", d => x(d.year))
+      .attr("x", d => x(d.year) + (barSub / 2))
       .attr("y", d => y(d.spending))
-      .attr("width", x.bandwidth())
+      .attr("width", x.bandwidth() - barSub)
       .attr("height", d => height - y(d.spending));
 }
 
@@ -531,18 +552,6 @@ function createGraph(data) {
 
     updateHistoryWithNewBrush(s);
   });
-
-  svg.append("text")
-    .attr("x", margin.left + 15)
-    .attr("y", margin.top - 5)
-    .attr("class", "dts-label-brush-start")
-    .text("mm/dd/yyyy");
-
-  svg.append("text")
-    .attr("x", width - 15)
-    .attr("y", margin.top - 5)
-    .attr("class", "dts-label-brush-end")
-    .text("mm/dd/yyyy");
 
   var focus = svg.append("g")
     .attr("class", "focus")
@@ -825,7 +834,7 @@ function getYearToSpendingArray(allCategoriesFYTD) {
 
 let categoryToActiveWithinAYear = {};
 
-d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
+d3.csv("/data-lab-data/dts/dts.csv", type, function(error, data) {
   if (error) throw error;
 
   let optionsData = [];
@@ -836,7 +845,7 @@ d3.csv("/data-lab-data/dts/dts-full-4.csv", type, function(error, data) {
 
   d3.select(".daily-spending-subtext").text("Total Amount Spent On " + lastDate.toString().substring(0, 15));
 
-  d3.select(".header-updated-when").text("Updated " + lastDate.toUTCString());
+  d3.select(".header-updated-when").text("Updated " + dateFormatter(lastDate));
 
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
@@ -999,7 +1008,7 @@ function getCategoryFromURL(allOptions) {
 }
 
 function type(d) {
-  d.date = parseDate(d.date);
+  d.date = parseDateYMD(d.date);
   d.value = +d.value; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
   return d;
 }
