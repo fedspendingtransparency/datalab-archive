@@ -1,5 +1,5 @@
-import { stepOne } from "./one";
-import { stepTwo } from "./two";
+import { stepOne } from "./one.js";
+import { stepTwo } from "./two.js";
 
 console.log('index');
 
