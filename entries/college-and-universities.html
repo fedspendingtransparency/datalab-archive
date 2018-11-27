@@ -91,7 +91,7 @@ permalink: college-and-universities.html
     <div class="overview_information">
 
       <div id='investmentScrolly'>
-        <h2 id='investmenth2'class='story hiddenScroll'>Total Investment</h2>
+        <h2 id='investmenth2' class='story hiddenScroll'>Total Investment</h2>
         <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount hiddenScroll"></p>
         <h1 id="investment_spending_total" class="contracts hiddenScroll"></h1>
       </div>
@@ -151,19 +151,19 @@ permalink: college-and-universities.html
 
     <div id="investmentCategories" class="investmentCategories">
 
-      <div id="categoriesPanel" class="panel" data-aos="fade-right">
-        <span id="categories_panel_back_btn">
-          <strong>
-          </strong> Back </span>
-        <div id="investmentCategories_panel_chart" class="panelChart">
-        </div>
-      </div>
-
       <!-- 3 Way Menu -->
       <div id="threeMenu">
         <button id="donutBtn" onclick="">Donut</button>
         <button id="tableBtn" onclick="">Table</button>
         <button id="treeBtn" onclick="">Tree</button>
+      </div>
+                
+      <div id="categoriesPanel" class="panel" data-aos="fade-right">
+        <span id="categories_panel_back_btn">
+          <strong>
+          </strong> Back </span>
+        <div id="investmentCategories_panel_chart" class="panelChart"></div>
+        <!--<div id='childrenPanel'></div>-->
       </div>
 
       <!-- Table -->
@@ -172,7 +172,7 @@ permalink: college-and-universities.html
         <!-- Add another div below here in container to have sidebar table-->
       </div>
 
-      
+
 
       <!-- Where Pie Chart Starts!  -->
       <div id="categoriesChartContainer" class="chartContainer" data-aos="fade-left" data-aos-delay="1000">
@@ -210,9 +210,87 @@ permalink: college-and-universities.html
       <p>Some Text</p>
     </div>
 
-    <!-- College Map -->
-    <div id="collegesMap" class="collegesMap"></div>
-    
+    <div id="mapContainerDiv">
+      <div id="filtersDiv">
+
+        <div class="InstitutionFilterSection">
+          <p class="institutionText"><i>Institution Type</i></p>
+          <hr class="halfhr">
+
+          <div class='checkboxpadding'>
+            Public 
+            <label class="switch" id='publicSwitch'>
+              <input type="checkbox" id="publicCheck">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class='checkboxpadding'>
+            Private
+            <label class="switch">
+              <input type="checkbox" id="privateCheck">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class='checkboxpadding'>
+            4 Year
+            <label class="switch">
+              <input type="checkbox" id="4yearCheck">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class='checkboxpadding'>
+            2 Year
+            <label class="switch">
+              <input type="checkbox" id="2yearCheck">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="InvestmentFilterSection">
+
+          <hr class='halfhr' />
+          <p class="institutionText"><i>Investment Type</i></p>
+          <hr class='halfhr' />
+
+          <div class='checkboxpadding'>
+            Grants
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class='checkboxpadding'>
+            Contracts
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class='checkboxpadding'>
+            Loans
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        
+        </div>
+
+        <hr class='halfhr' />
+        <!--dropdown box here -->
+        <p>Colleges</p>
+      </div>
+      <!-- College Map -->
+      <div id="collegesMap" class="collegesMap"></div>
+    </div>
+
   </div>
 
   <div id="secitonConclusion" data-aos="fade-right" data-aos-delay="1000">

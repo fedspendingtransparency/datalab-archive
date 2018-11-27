@@ -28,10 +28,20 @@ const drawMap = (container) => {
   var path = d3.geo.path()
     .projection(projection);
 
+  // D3-tip Tooltip
+  let toolTip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "School: <span style='color:blue'>" + d.Recipient + "</span>" + "<br>"
+    + d.INSTURL + "<br>" + "Students: " + d.Total;
+  });
+
   var svg = d3.select(container).append("svg")
     .attr("width", width)
     .attr("height", height);
 
+  svg.call(toolTip); // add tooltip
 
   //  svg.append("rect")
   //.attr("class", "background")
@@ -42,8 +52,6 @@ const drawMap = (container) => {
 
   // what our map element is drawn on 
   let g = svg.append("g");
-
-
 
   /**
    * us-states holds the mapping in data.features (us.features)
@@ -68,49 +76,127 @@ const drawMap = (container) => {
 
     /**
      * EDU Data Section
+     * 
      */
     d3.csv("../data-lab-data/EDU_v2_base_data.csv", function (error, data) {
       if (error) throw error;
 
-      // just need Lat and Long for now
-      //let LatLongObj = [];
-      //data.forEach(row => {
-      //let obj = { latitude: row.LATITUDE, longitude: row.LONGITUDE }
-      //LatLongObj.push(parseFloat(obj));
-      //console.log(LatLongObj); // need these as numbers not strings
-      //});
+      /**
+       * Filter Boxes
+       */
+      let publicCheck = d3.select("#publicCheck");
+      //let privateCheck = d3.select("#privateCheck");
+      //let fouryearCheck = d3.select("#4yearCheck");
+      //let twoyearCheck = d3.select("#2yearCheck");
+      let filterClearBtn = d3.select('.clearfilter');
+      filterClearBtn
 
-      map.selectAll("circle")
+      // Dropdown Box
+      let dropDown = d3.select("#filtersDiv").append("select")
+        .attr("name", "college-list")
+        .attr('id', 'college-dropdown')
+        .style('width', '200px');
+
+      let options = dropDown.selectAll("option")
+        .data(data)
+        .enter()
+        .append("option");
+
+      options.text(function (d) { return d.Recipient; })
+        .attr("value", function (d) { return d.Recipient; });
+
+      // Clear Filter Box
+      let clearfilter = d3.select('#filtersDiv').append('button')
+        .attr('name', 'clearBtn')
+        .attr('id', 'clearnBtn')
+        .text('Clear Filter')
+        .on('click', function(d) {
+          svg.selectAll('circle').remove();
+
+          svg.selectAll("circle")
+          .data(data)
+          .enter()
+          .append("svg:circle")
+          .attr("transform", function (d) {
+  
+            let long = parseFloat(d.LONGITUDE);
+            let lat = parseFloat(d.LATITUDE);
+            if (isNaN(long || lat)) { long = 0, lat = 0 }
+            //console.log(long, lat);
+            return "translate(" + projection([long, lat]) + ")";
+          })
+          .attr('r', 5)
+          .style("fill", "rgb(217,91,67)")
+          .style("opacity", 0.85)
+          .on('mouseover', toolTip.show)
+          .on('mouseout', toolTip.hide);
+    
+        });
+
+      svg.selectAll("circle")
         .data(data)
         .enter()
         .append("svg:circle")
         .attr("transform", function (d) {
+
           let long = parseFloat(d.LONGITUDE);
           let lat = parseFloat(d.LATITUDE);
-          return "translate(" + projection([d.LONGITUDE, d.LATITUDE]) + ")";
+          if (isNaN(long || lat)) { long = 0, lat = 0 }
+          //console.log(long, lat);
+          return "translate(" + projection([long, lat]) + ")";
         })
-        .attr('r', 4)
-        //      .attr("cx", function (d) {
-        //        console.log(d);
-        //let long = parseFloat(d.LONGITUDE);
-        //let lat = parseFloat(d.LATITUDE);
-        //return projection(long, lat);
-        //})
-        //      .attr("cy", function (d) {
-        //      let long = parseFloat(d.LONGITUDE);
-        //    let lat = parseFloat(d.LATITUDE);
-        //return projection(long, lat);
-        //})
-        //.attr("r", function (d) {
-        //let total = parseFloat(d.Total)
-        //if (isNaN(parseFloat(total))) { total = 0; } // have NaN's in data.. make them 0's for nothin.
-        //console.log(total);
-        //return "translate(" + projection([])
-        //        return Math.sqrt(total) * .1;
-        //})
+        .attr('r', 5)
         .style("fill", "rgb(217,91,67)")
         .style("opacity", 0.85)
+        .on('mouseover', toolTip.show)
+        .on('mouseout', toolTip.hide);
 
+
+      dropDown.on("change", function () {
+        let selected = this.value;
+        displayOthers = this.checked ? "inline" : "none";
+        display = this.checked ? "none" : "inline";
+
+        svg.selectAll("circle")
+          .filter(function (d) { return selected != d.Recipient; })
+          .attr("display", displayOthers);
+
+        svg.selectAll("circle")
+          .filter(function (d) { return selected == d.Recipient; })
+          .attr("display", display);
+      });
+
+      publicCheck.on('change', updateCheck); // on change event
+      //publicCheck.on('click', console.log('clicked'));
+      //updateCheck();
+      //d3.select(publicCheck).on('change', updateCheck); // on change event
+      //d3.select(publicCheck).on('change', updateCheck); // on change event
+      //d3.select(publicCheck).on('change', updateCheck); // on change event
+
+      /**
+       * Section to check for checkbox state
+       */
+      function updateCheck() {
+        if (d3.select(publicCheck).property('checked')) {
+          svg.selectAll('circle')
+            .filter(function (d) {
+              console.log('okok' + d.INST_TYPE);
+              return 'Public 2-year' == d.INST_TYPE;
+            });
+        } else {
+          svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("svg:circle")
+            .attr("transform", function (d) {
+              let long = parseFloat(d.LONGITUDE);
+              let lat = parseFloat(d.LATITUDE);
+              if (isNaN(long || lat)) { long = 0, lat = 0 }
+              return "translate(" + projection([long, lat]) + ")";
+            })
+            .attr('r', 5)
+        }
+      }
 
       //console.log(data['LONGITUDE'], data["LATITUDE"][0]);
 

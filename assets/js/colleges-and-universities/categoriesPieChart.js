@@ -6,6 +6,8 @@
 const graphContainer = document.getElementById('categoriesChartContainer');
 const panelBack = document.getElementById('categories_panel_back_btn');
 const panel = document.getElementById('categoriesPanel');
+const childrenPanel = document.getElementById('childrenPanel');
+//const childrenPanel = document.getElementById('')
 const panelChartContainer = document.getElementById('investmentCategories_panel_chart');
 const pageTurnRt = document.getElementById('cat_rt_pg_turn');
 const pageTurnLt = document.getElementById('cat_lt_pg_turn');
@@ -17,6 +19,7 @@ const pageSize = 10;
 
 let currPage = 1;
 let categoriesData = {};
+let parentdonutData = {};
 
 // Finally see how he does it - going to follow his method to dupe the 
 // pie chart into a table view.
@@ -78,7 +81,6 @@ d3.json("/data-lab-data/pscskv.json", function (data) {
   pscs = data;
 });
 
-
 /*
   purporse : creates graph for infomation passed 
   and append the graph to the passed in element
@@ -88,6 +90,18 @@ const drawGraph = (container, nodeData, size, clickable) => {
 
   let nodeDiv = document.createElement("div");
   nodeDiv.style.cursor = 'pointer';
+
+  // Right side panel being created
+  // ^^ could have just used d3 to create elements.. making things confusing ): oh well
+  //let childPanel = d3.select(childrenPanel)
+  //.append('div')
+  //.text('hi')
+  //.attr('class', 'childrenNodeDiv')
+  //.style('display', 'inline-block')
+  //.style('width', '500px')
+  //.on('click', function(e) {
+  //    childrenPanelData(nodeData.name); // testing
+  //  });
 
   var svg = d3.select(nodeDiv)
     .append("svg")
@@ -112,6 +126,7 @@ const drawGraph = (container, nodeData, size, clickable) => {
   if (clickable) {
 
     nodeDiv.className = 'categoriesParent';
+    //childrenPanel.className = 'childrenPanel';
 
     nodeDiv.onclick = () => {
       if (panel.style.display === 'none' || panel.style.display === "") {
@@ -120,10 +135,16 @@ const drawGraph = (container, nodeData, size, clickable) => {
           panelChartContainer.removeChild(panelChartContainer.firstChild);
         }
 
+        childrenPanelData(nodeData);
         drawGraph(panelChartContainer, nodeData, { height: 300, width: 300 }, false);
         panel.style.minWidth = '350px';
         panel.style.display = 'inline-block';
+        //childPanel.style.minWidth = '400px';
+        //childPanel.style.display = 'inline-block';
+        //childPanel.style.width = '500px';
+        //childPanel.style.margin = '500px 0 0 0'
       }
+
     };
   }
 
@@ -300,9 +321,6 @@ function createTable(container, columns) {
     }, [{ total: 0 }]);
 
     let total = tableData[0].total;
-    //console.log(total);
-
-    //    console.log(tableData);
 
     tableData.shift();
 
@@ -322,9 +340,6 @@ function createTable(container, columns) {
     let sortAscending = true;
     let table = d3.select(container).append('table')
       .attr('class', 'display compact')
-      //      .attr('data-aos', 'fade-left')
-      //      .attr('data-aos-delay', '500')
-      //      .attr('data-aos-offset', '300')
       .attr('id', 'catTable'); // id given to table for Datatables.js
 
     let titles = ['PSC Name', '% of Total', 'Investment Amount']; // header array (will add Rank and Count of Awards later.. not sure what they are)
@@ -410,17 +425,6 @@ function createSecondaryTableView(parentName, columns) {
 
     console.log(secondaryTableData);
 
-
-    //secondaryTableData.shift();
-
-    /**
-     * Winter Cleaning...
-     */
-    //    secondaryTableData.forEach(n => { n.percentage = ((n.total / total) * 100) + "%" }); // changing to percent 
-    //tableData.forEach(n => { n.percentage = (n.total / total) });
-    //    secondaryTableData.sort((a, b) => { return b.percentage - a.percentage });
-    //secondaryTableData.forEach(n => delete n.abbrv); // get rid of abbrev name, we dont need it     
-
     if (error) throw error;
 
     d3.select('#sidebarTable').remove(); // remove on click data 
@@ -429,23 +433,23 @@ function createSecondaryTableView(parentName, columns) {
      * Create Secondary Table (Investment Types Table)
      */
     let subTableDiv = d3.select('#tableContainerDiv').append('div')
-    .attr('id', 'sidebarTable')
+      .attr('id', 'sidebarTable')
     let subTableHeaderText = subTableDiv.append('h4').html(parentName); //replace with data TR name...
     subTableHeaderText.append('hr')
-    .style('width', '60%');
+      .style('width', '60%');
     subTableHeaderText.append('p').html('Investment Types').attr('class', 'investmenth4');
     let subTable = subTableDiv.append('table')
-    .attr('class', 'subTableData')
-    .attr('align', 'center');
+      .attr('class', 'subTableData')
+      .attr('align', 'center');
 
 
     let titles = ['Type', 'Awarded Amount  ', '  % of Total'];
     let mockData = [
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
+      { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+      { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+      { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+      { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+      { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
     ];
 
     let headers = subTable.append('thead').append('tr')
@@ -483,58 +487,177 @@ function createSecondaryTableView(parentName, columns) {
  * for Section2 Table/view Toggle
  */
 function createTreeMap() {
-    var vWidth = 200;
-    let vHeight = 200;
+  var vWidth = 200;
+  let vHeight = 200;
 
-    // Prepare our physical space
-    let g = d3.select('svg').attr('width', vWidth).attr('height', vHeight).select('g');
+  // Prepare our physical space
+  let g = d3.select('svg').attr('width', vWidth).attr('height', vHeight).select('g');
 
-        // Get the data from our CSV file
-//    d3.csv('data.csv', function(error, vCsvData) {
-//        if (error) throw error;
-//
-        //vData = d3.stratify()(vCsvData);
-        //drawViz(vData);
-    //});
+  let mockData = [
+    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
+  ];
 
-    let mockData = [
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-      { "Type" : "Grant: Student", "Awarded Amount" : "$1000", "% of Total": "20%" },
-    ];
-
-    let vData = d3.stratify()(mockData);
+  let vData = d3.stratify()(mockData);
 
 
-    function drawViz(vData) {
-        // Declare d3 layout
-        let vLayout = d3.treemap().size([vWidth, vHeight]).paddingOuter(5);
+  function drawViz(vData) {
+    // Declare d3 layout
+    let vLayout = d3.treemap().size([vWidth, vHeight]).paddingOuter(5);
 
-        // Layout + Data
-        let vRoot = d3.hierarchy(vData).sum(function (d) { return d.data.size; });
-        let vNodes = vRoot.descendants();
-        vLayout(vRoot);
-        let vSlices = g.selectAll('rect').data(vNodes).enter().append('rect');
+    // Layout + Data
+    let vRoot = d3.hierarchy(vData).sum(function (d) { return d.data.size; });
+    let vNodes = vRoot.descendants();
+    vLayout(vRoot);
+    let vSlices = g.selectAll('rect').data(vNodes).enter().append('rect');
 
-        // Draw on screen
-        vSlices.attr('x', function (d) { return d.x0; })
-            .attr('y', function (d) { return d.y0; })
-            .attr('width', function (d) { return d.x1 - d.x0; })
-            .attr('height', function (d) { return d.y1 - d.y0; });
-    }
+    // Draw on screen
+    vSlices.attr('x', function (d) { return d.x0; })
+      .attr('y', function (d) { return d.y0; })
+      .attr('width', function (d) { return d.x1 - d.x0; })
+      .attr('height', function (d) { return d.y1 - d.y0; });
+  }
 
-    drawViz(vData);
+  drawViz(vData);
 }
 
 /**
- * Section 4!
+ * Parent to Child 
+ * Donut View
  */
+function childrenPanelData(clickedElement) {
 
-function createCountryMap() {
-  // TODO
+  d3.csv('/data-lab-data/Edu_PSC.csv', (data) => {
+
+    parentdonutData = data.filter(function (d) {
+      return d.parent_name == clickedElement.name; // clickedElement.name 
+    }); // filter for children based on clicked element in parent view.
+    console.log(parentdonutData);
+  
+    //let total = parentdonutData[0].total;
+    //console.log(parentdonutData); 
+  
+    //parentdonutData.shift();
+  
+    //parentdonutData.forEach(n => { n.percentage = (n.total / total) });
+  //  parentdonutData.sort((a, b) => { return b.percentage - a.percentage });
+      
+    let svgIcon = pscs[clickedElement.name]; // has name property already
+
+    let svg = d3.select('#investmentCategories')
+      .append("svg")
+      .style("width", `300px`)
+      .style("height", `300px`)
+      .append("g");
+
+    svg.append("g")
+      .attr("class", "slices");
+    svg.append("g")
+      .attr("class", "labels");
+    svg.append("g")
+      .attr("class", "lines");
+
+    svg.append("svg:image")
+      .attr('x', -25)
+      .attr('y', -55)
+      .attr('width', 50)
+      .attr('height', 50)
+      .attr("xlink:href", "/images/psc-svgs/" + svgIcon);
+      
+      let width = 300;
+      let height = 300;
+      let radius = Math.min(width, height) / 2;
+
+      var pie = d3.layout.pie()
+      .sort(null)
+      .value(function (d) {
+        return d.value;
+      });
+  
+    //set Inner and out arc redius of the donut chart
+    var arc = d3.svg.arc()
+      .outerRadius(radius * 0.85)
+      .innerRadius(radius * 0.75);
+  
+    svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+  
+    var key = function (d) { return d.data.label; };
+  
+    var color = d3.scale.ordinal()
+      .domain(["", " "])
+      .range(["#C3DBB5", "#F6F6F6"]);
+  
+    change([
+      { label: "", value: clickedElement.percentage },
+      { label: " ", value: 1 - clickedElement.percentage }
+    ]);
+  
+    function change(data) {
+  
+      /*------- PIE SLICES -------*/
+      var slice = svg.select(".slices").selectAll("path.slice")
+        .data(pie(data), key);
+  
+      slice.enter()
+        .insert("path")
+        .style("fill", function (d) { return color(d.data.label); })
+        .attr("class", "slice");
+  
+      slice
+        .transition().duration(1000)
+        .attrTween("d", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            return arc(interpolate(t));
+          };
+        });
+  
+      slice.exit()
+        .remove();
+  
+      /*---------- Legend ----------------------*/
+      let legendRectSize = 20;
+      let legendSpacing = 7;
+      let legendHeight = legendRectSize + legendSpacing;
+  
+      let legend = svg.selectAll('.legend')
+        .data(data)
+        .enter()
+        .append('g')
+        .attr({
+          class: 'legend',
+          transform: function (d, i) {
+            //Just a calculation for x & y position
+            return 'translate(-80,' + ((i * legendHeight) + 10) + ')';
+          }
+        });
+  
+      legend.append('text')
+        .attr({
+          x: 30,
+          y: 15
+        })
+        .text(d => {
+          return (d.label === "" ? `${categoriesSpendingFormat(clickedElement.obligation)}`
+            : (clickedElement.percentage * 100 >= 0.1 ? `${round(clickedElement.percentage * 100, 1)}%` : '0.1% >'));
+        })
+        .attr("class", d => {
+          return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
+        })
+        .attr("x", d => {
+          return (d.label === "" ? '20' : '55');
+        });
+  
+      } // end inner data funct
+
+  });
 }
+
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -555,8 +678,10 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
       a.push({
         name: b.parent_name,
         total: parseFloat(b.obligation),
-        abbrv: b.parent
-
+        abbrv: b.parent,
+        obligation: parseFloat(b.obligation),
+        product: b.product_and_service_description,
+        recipient: b.Recipient
       });
     }
 
@@ -585,7 +710,9 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
   //$(categoriesTable).toggle(); // toggle show hide
   //$(graphContainer).toggle(); // hide graph when show table
   //});
-  createTable(categoriesTable, ['name', 'percentage', 'total']); // table testing
+
+  //createTable(categoriesTable, ['name', 'percentage', 'total']); // table testing
+  //childrenPanelData(); // test
 
   // Graph View (Donut)
   $(graphBtn).click(function () {
