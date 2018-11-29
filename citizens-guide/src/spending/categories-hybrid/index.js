@@ -34,22 +34,6 @@ function initChart(filteredData) {
     barChart(chartData, type);
 }
 
-// selectBudgetFunction
-//     .on('click', function () {
-//         type = 'function';
-//         selectAgency.classed('hidden', false)
-//         selectBudgetFunction.classed('hidden', true)
-//         initChart();
-//     });
-//
-// selectAgency
-//     .on('click', function () {
-//         type = 'agency';
-//         selectAgency.classed('hidden', true)
-//         selectBudgetFunction.classed('hidden', false)
-//         initChart();
-//     });
-
 d3.select('.link-button__div')
     .on('click', function(){
         const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden');

@@ -160,7 +160,7 @@ export function drawChart(data, type, detail, parentWidth) {
     initSort(config);
 
     if (detail) {
-        initOverlay(type, config, placeContainers, config.height);
+        initOverlay(type, config, placeContainers);
     } else {
         config.container = establishContainer(config.height, config.width);
         config.svg = config.container
