@@ -110,7 +110,7 @@ export function initOverlay(title, config, callback) {
 
     detailLayerYOffset = headerHeight + overlayPadding + overlayPadding;
 
-    finalRectHeight = detailLayerYOffset + config.data.length * config.rowHeight + overlayPadding
+    finalRectHeight = detailLayerYOffset + config.data.length * config.rowHeight + overlayPadding;
 
     rect.attr('height', finalRectHeight);
 
