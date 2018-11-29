@@ -99,6 +99,7 @@ module.exports = [{
         categoriesVertical: './src/spending/categories-vertical/index.js',
         countryComparison: './src/spending/countries/index.js',
         donut: './src/spending/donut/index.js',
+        dotsGdp: './src/spending/dots/index.js',
         treemap: './src/spending/treemap/index.js',
         trends: './src/spending/trends/index.js'
     },
