@@ -83,7 +83,7 @@ function setOverlayY(clickY, overlayHeight) {
     return ideal;
 }
 
-export function initOverlay(title, config, callback) {
+export function initOverlay(title, config, callback, defaultDataSize) {
     const startCoords = d3.mouse(d3.select('svg.main').node());
 
     let headerHeight, detailLayerYOffset, rect, detailLayer, finalRectHeight;
@@ -110,8 +110,10 @@ export function initOverlay(title, config, callback) {
 
     detailLayerYOffset = headerHeight + overlayPadding + overlayPadding;
 
-    finalRectHeight = detailLayerYOffset + config.data.length * config.rowHeight + overlayPadding
+    console.log('defaultDataSize:', defaultDataSize);
+    finalRectHeight = detailLayerYOffset + config.data.length * config.rowHeight + overlayPadding;
 
+    //finalRectHeight = Math.min(defaultDataSize, finalRectHeight);
     rect.attr('height', finalRectHeight);
 
     config.svg = detailLayer.append('g')

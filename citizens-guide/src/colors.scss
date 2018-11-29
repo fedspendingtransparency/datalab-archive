@@ -10,6 +10,7 @@ $text-color-heading: #555555;
 $text-color-paragraph: #666666;
 $parent-one: #3673BB;
 $color-gray-cool-light: #dce4ef;
+$color-spending-primary:#00766C;
 
 :export {
     colorGrayDark: $color-gray-dark;
@@ -19,6 +20,7 @@ $color-gray-cool-light: #dce4ef;
     colorPrimaryAltDarkest: $color-primary-alt-darkest;
     colorPrimaryAltLight: $color-primary-alt-light;
     colorPrimaryAltLightest: $color-primary-alt-lightest;
+    colorSpendingPrimary: $color-spending-primary;
     income: $income;
     parentOne: $parent-one;
     textColorHeading: $text-color-heading;

@@ -18,14 +18,14 @@ const d3 = {select, selectAll},
             src: 'assets/icons/anecdote.svg',
             alt: 'anecdote icon'
         },
+        linkCtaContainerClass: 'anecdote__cta--container',
         linkButtonClass: 'link-button anecdote__link--button',
         linkButtonText: 'What does this mean to me?',
         panesClass: 'anecdote__panes',
         paneClass: 'anecdote__pane',
         paneClassActive: 'anecdote__pane--active'
     };
-let dotLength = 0,
-    desiredAnecdoteProperties = {};
+let desiredAnecdoteProperties = {};
 
 function addInfoIcon(anecdote){
     let infoIconClass = defaultAnecdoteProperties.infoIcon.class,
@@ -57,8 +57,8 @@ function updateSlide(anecdote, i){
 }
 
 function setActiveDot(anecdote, index){
-    const dotClass = desiredAnecdoteProperties.dotClass || defaultAnecdoteProperties.dotClass;
-    const dotClassActive = desiredAnecdoteProperties.dotClassActive || defaultAnecdoteProperties.dotClassActive;
+    const dotClass = desiredAnecdoteProperties.dotClass || defaultAnecdoteProperties.dotClass,
+     dotClassActive = desiredAnecdoteProperties.dotClassActive || defaultAnecdoteProperties.dotClassActive;
 
     const dotContainer = anecdote.selectAll(`.${dotClass}`);
     const activeDotClass = dotClassActive;
@@ -67,7 +67,9 @@ function setActiveDot(anecdote, index){
 }
 
 function updateDotText(anecdote, i){
-    const dotTextClass = desiredAnecdoteProperties.dotTextClass || defaultAnecdoteProperties.dotTextClass;
+    const dotTextClass = desiredAnecdoteProperties.dotTextClass || defaultAnecdoteProperties.dotTextClass,
+        paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
+        dotLength = anecdote.selectAll(`.${paneClass}`).size();
 
     const dotText = anecdote.select(`.${dotTextClass}`);
     dotText.html(`${i} of ${dotLength}`);
@@ -79,10 +81,11 @@ function buildDots(anecdote){
         dotsContainerClass = desiredAnecdoteProperties.dotsContainerClass || defaultAnecdoteProperties.dotsContainerClass,
         dotClass = desiredAnecdoteProperties.dotClass || defaultAnecdoteProperties.dotClass,
         dotTextClass = desiredAnecdoteProperties.dotTextClass || defaultAnecdoteProperties.dotTextClass,
+        linkCtaContainerClass = desiredAnecdoteProperties.linkCtaContainerClass || defaultAnecdoteProperties.linkCtaContainerClass,
         paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass;
 
-    dotLength = anecdote.selectAll(`.${paneClass}`).size();
-    const dotContainer = anecdote.select(`.${contentsClass}`).insert('div', '.anecdote__cta').classed(dotsContainerClass, true);
+    const dotLength = anecdote.selectAll(`.${paneClass}`).size();
+    const dotContainer = anecdote.select(`.${contentsClass}`).insert('div', `.${linkCtaContainerClass}`).classed(dotsContainerClass, true);
     const dots = dotContainer.append('div').classed(dotsClass, true);
     const dotArray = new Array(dotLength);
     dots.selectAll(`.${dotClass}`)
