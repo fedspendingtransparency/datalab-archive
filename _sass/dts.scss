@@ -51,7 +51,8 @@
   display: none;
   position: absolute;
   min-width: 150px;
-  padding: 15px;
+  width: 200px;
+  padding: 10px;
   background: rgb(255, 255, 255);
   color: rgb(51, 51, 51);
   border: 1px solid #D9D9D9;
@@ -90,6 +91,12 @@
     margin: 15px 0 5px 0;
 }
 
+.header-sub-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
 .header-updated-when {
   color: #9b9b9b;
   font-weight: 200;
@@ -104,6 +111,29 @@
   padding: 10px 0;
   margin-bottom: 25px;
   margin: 0 auto;
+}
+
+.dts-brush-date-container {
+  display: flex;
+  font-size: 13px;
+  position: relative;
+  top: 35px;
+  left: 75px;
+}
+
+.dts-brush-start-date-label, .dts-brush-end-date-label {
+  margin-right: 3px;
+  color: #777;
+}
+
+.dts-brush-date-separator {
+  color: #c9c9c9;
+  margin: 0 7px;
+  transform: scale(1.5,1);
+}
+
+.dts-brush-date-item {
+  display: flex;
 }
 
 .dts-left-column, .dts-right-column {
@@ -203,14 +233,14 @@
 }
 
 .period-button:hover {
-  background-color: #00c3c2;
-  color: white;
+  background-color: #EFF8F8;
+  color: #55B9B8;
 }
 
 .period-button-selected {
-  background-color: #00c3c2;
+  background-color: #EFF8F8;
   font-weight: 600;
-  color: white;
+  color: #55B9B8;
 }
 
 .period-button:first-child {
@@ -267,8 +297,8 @@
   padding: 5px 30px 5px 15px;
   border-radius: 25px;
   position: relative;
-  color: white;
-  background-color: #00c3c2;
+  color: #55B9B8;
+  background-color: #EFF8F8;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -277,7 +307,7 @@
   margin: 0 auto;
   cursor: pointer;
 
-  background-image: linear-gradient(45deg, #908d8d 50%, #ffffff 50%), linear-gradient(135deg, white 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #EFF8F8 50%, #18A3A3 50%), linear-gradient(135deg, #18A3A3 50%, transparent 50%);
   background-position: calc(100% - 20px) calc(1em), calc(100% - 15px) calc(1em), calc(100% - .5em) .5em;
   background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
   background-repeat: no-repeat;
@@ -379,9 +409,18 @@
 
 .dts-footnote {
   margin-left: 100px;
-  padding-bottom: 25px;
   display: flex;
   visibility: hidden;
+}
+
+.dts-disclaimer {
+  margin-left: 185px;
+  width: 80%;
+  font-size: 14px;
+  letter-spacing: .25px;
+  text-align: center;
+  color: #999;
+  margin-bottom: 25px;
 }
 
 .dts-footnote-rect {
