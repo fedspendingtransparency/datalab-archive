@@ -2,78 +2,69 @@ import { select, selectAll } from 'd3-selection';
 import './categories.scss';
 import { byYear } from '../data-spending';
 import { drawChart as barChart } from './bar/chart';
-import { drawChart as treemap } from './tree/chart';
 import { establishContainer } from '../../utils';
 
 const d3 = { select, selectAll },
     chartTitle = d3.select('h2.chart-title .title-text'),
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency'),
-    vizBars = d3.select('#viz-bars'),
-    vizTree = d3.select('#viz-tree'),
     barControls = d3.select('#bar-controls'),
-    data = byYear(2017);
+    data = byYear(2017),
+    chartSectionTextStr = 'Click to see deeper categories';
 
 let svg,
     debounce,
     chartType = 'bar',
     type = 'function';
 
+function initSection() {
+    const vizSection = d3.select('#viz');
+    vizSection.select('#vizChartSectionText').remove();
+    vizSection.append('div')
+        .attr('id', 'vizChartSectionText')
+        .text(chartSectionTextStr);
+
+    initChart();
+}
+
 function initChart(filteredData) {
     const chartData = filteredData || data[type];
 
     d3.selectAll('svg').remove();
-
-    if (chartType === 'bar') {
-        barChart(chartData, type);
-    } else {
-        treemap(chartData);
-    }
+    barChart(chartData, type);
 }
 
-selectBudgetFunction
-    .on('click', function () {
-        type = 'function';
-        chartTitle.text('Spending By Budget Function')
-        selectAgency.attr('style', 'display:inline')
-        selectBudgetFunction.attr('style', 'display:none')
+d3.select('.link-button__div')
+    .on('click', function(){
+        const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden');
+        const buttonId = sectionToLoad.attr('id');
+        const isAgencyLoadingInd = buttonId.search('agency') > 0;
+
+        if(isAgencyLoadingInd){
+            type = 'agency';
+            selectAgency.classed('hidden', false);
+            selectBudgetFunction.classed('hidden', true);
+        } else {
+            type = 'function';
+            selectAgency.classed('hidden', true);
+            selectBudgetFunction.classed('hidden', false);
+        }
         initChart();
-    })
-
-selectAgency
-    .on('click', function () {
-        type = 'agency';
-        chartTitle.text('Spending By Agency')
-        selectBudgetFunction.attr('style', 'display:inline')
-        selectAgency.attr('style', 'display:none')
-        initChart();
-    })
-
-vizBars
-    .on('click', function () {
-        chartType = 'bar';
-        barControls.attr('style', 'display:block')
-        initChart()
-    })
-
-vizTree
-    .on('click', function () {
-        chartType = 'tree';
-        barControls.attr('style', 'display:none')
-        initChart()
-    })
+    });
 
 d3.select('#filter-by-name')
     .on('input', function () {
         const v = this.value.toLowerCase(),
             filtered = data[type].filter(r => {
                 return (r.activity.toLowerCase().indexOf(v) !== -1);
-            })
+            });
 
         initChart(filtered)
-    })
+    });
 
-initChart();
+
+
+initSection();
 
 window.addEventListener('resize', function () {
     if (debounce) {
@@ -81,4 +72,4 @@ window.addEventListener('resize', function () {
     }
 
     debounce = setTimeout(initChart, 100);
-})
+});

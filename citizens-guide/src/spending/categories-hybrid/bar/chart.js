@@ -13,7 +13,8 @@ import { optimizeWidth, scaleToFit } from './optimize-width';
 const d3 = { select, selectAll, scaleLinear, extent, transition, zoom },
     barAnimationTime = 1000,
     hoverDuration = 200,
-    rowHeight = 50;
+    rowHeight = 50,
+    defaultRowsToShow = 10;
 
 function setScales(config) {
     const extent = d3.extent(config.data, r => r.amount);
@@ -43,7 +44,7 @@ function drawBars(containers, config) {
                 return 'gray';
             }
 
-            return colors.colorPrimary;
+            return colors.colorSpendingPrimary;
         })
         .attr('y', rowHeight / 4)
         .attr('x', config.scaleX(0))
@@ -69,13 +70,13 @@ function onMouseover() {
 
     row.selectAll('rect.bar').transition()
         .duration(hoverDuration)
-        .attr('fill', colors.income)
-        .ease()
+        .attr('opacity', 0.7)
+        .ease();
 
     row.selectAll('text').transition()
         .duration(hoverDuration)
         .attr('fill', '#888')
-        .ease()
+        .ease();
 }
 
 function onMouseout() {
@@ -83,19 +84,13 @@ function onMouseout() {
 
     row.selectAll('rect.bar').transition()
         .duration(300)
-        .attr('fill', function (d) {
-            if (d.amount < 0) {
-                return 'gray';
-            }
-
-            return colors.colorPrimary;
-        })
-        .ease()
+        .attr('opacity', 1)
+        .ease();
 
     row.selectAll('text').transition()
         .duration(300)
         .attr('fill', 'black')
-        .ease()
+        .ease();
 }
 
 function placeContainers(config, detail) {
@@ -107,7 +102,22 @@ function placeContainers(config, detail) {
         .classed('row', true)
         .attr('transform', function (d, i) {
             return translator(0, i * rowHeight);
-        })
+        });
+
+    if(!detail && config.showMoreInd){
+        const showMoreButton = d3.select('#showMoreContainer');
+        const container = config.container;
+        const containerDimensions = container.node().getBoundingClientRect();
+        showMoreButton.classed('hidden',false);
+        showMoreButton.on('click', function(){
+            const curEl = d3.select(this);
+            const showMoreInd = curEl.attr('showMoreInd') === 'false';
+            curEl.attr('showMoreInd', showMoreInd);
+            const buttonText = !showMoreInd ? 'See Less' : 'See More';
+            container.attr('height', showMoreInd ? defaultRowsToShow * rowHeight : config.data.length * rowHeight);
+            curEl.select('button').text(buttonText);
+        });
+    }
 
     config.barWidth = placeLabels(containers, config);
 
@@ -122,7 +132,7 @@ function placeContainers(config, detail) {
             }
 
             drawChart(d.subcategories, d.activity, true, config.width)
-        })
+        });
 
         setTimeout(function () {
             containers.on('mouseover', onMouseover)
@@ -137,19 +147,23 @@ export function drawChart(data, type, detail, parentWidth) {
     if (!data.length) {
         return;
     }
+    const showMoreInd = data.length > defaultRowsToShow;
+    const defaultDataSize = showMoreInd ? defaultRowsToShow : data.length;
 
-    config.height = data.length * rowHeight;
+    config.height = defaultDataSize * rowHeight;
     config.width = parentWidth || optimizeWidth();
     config.data = data;
     config.rowHeight = rowHeight;
     config.detail = detail;
+    config.showMoreInd = showMoreInd;
 
     initSort(config);
 
     if (detail) {
         initOverlay(type, config, placeContainers);
     } else {
-        config.svg = establishContainer(config.height, config.width)
+        config.container = establishContainer(config.height, config.width);
+        config.svg = config.container
             .append('g').classed('pan-listen', true)
             .append('g').classed('pan-apply', true);
 
@@ -157,15 +171,17 @@ export function drawChart(data, type, detail, parentWidth) {
         //scaleToFit(config.svg);
 
         d3.select('g.pan-listen').call(d3.zoom().on("zoom", function () {
-            let xShift;
+            let xShift, yShift;
             
             d3.getEvent = () => require("d3-selection").event;
 
             xShift = d3.getEvent().transform.x;
+            yShift = d3.getEvent().transform.y;
 
             xShift = (xShift > 0) ? 0 : xShift;
             
-            d3.select('g.pan-apply').attr("transform", translator(xShift, 0))
+            d3.select('g.pan-apply').attr("transform", translator(xShift, 0));
+            d3.select('g.detail-layer').attr('transform', translator(0, yShift));
         }))
         .on("wheel.zoom", null);
     }

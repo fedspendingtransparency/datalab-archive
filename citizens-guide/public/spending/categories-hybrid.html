@@ -22,24 +22,38 @@
         <h1>Spending Categories for the Federal Government</h1>
 <div id="viz-wrapper">
     <h2 class="chart-title">
-        <span class="title-text">Spending By Budget Function</span>
-        <button class="link-button" id="select-budget-function" style="display:none">show by Budget Function</button>
-        <button class="link-button" id="select-agency">show by Agency</button>
+        <span class="title-text">Spending By</span>
+        <div class="link-button__div">
+            <button class="link-button" id="select-budget-function">Budget Function</button>
+            <button class="link-button hidden" id="select-agency">Agency</button>
+            <i class='link-button__icon fa fa-angle-down'></i>
+        </div>
     </h2>
 
-    <div>
-        <button id="viz-bars">Bars</button>
-        <button id="viz-tree">Tree</button>
-    </div>
-    <div id="bar-controls">
-        <div>
-            sort by:
-            <button id="sort-amount">Amount</button>
-            <button id="sort-name">Name</button>
+    <div id='viz-chart-container'>
+        <div id="bar-controls">
+            <div class='bar-controls__left'>
+                Sort by:
+                <div class='bar-controls__left--button-div'>
+                    <button id="sort-amount" class="active">Amount <i class="fas fa-sort-amount-down"></i></button>
+                    <button id="sort-name">Name <i class="fas fa-sort-alpha-down"></i></button>
+                </div>
+            </div>
+            <div class='bar-controls__right'>
+                <div class='bar-controls__right--div'>
+                    <input type="text" placeholder='Search by a term...' id="filter-by-name">
+                    <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
+                </div>
+            </div>
         </div>
-        <div>filter by name: <input type="text" id="filter-by-name"></div>
+
+        <hr>
+        <div id="viz"></div>
+        <hr>
+        <div id='showMoreContainer' class='hidden'>
+            <button id='showMoreButton' class='chart__show-more'>Show More</button>
+        </div>
     </div>
-    <div id="viz"></div>
 </div>
 
 <div class="poc-content" id="income-facts">

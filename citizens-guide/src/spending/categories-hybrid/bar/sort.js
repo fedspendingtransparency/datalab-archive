@@ -35,15 +35,29 @@ function sort(by) {
         .ease()
 }
 
+d3.select('#filter-by-name-icon')
+    .on('click', function(){
+       d3.select('#filter-by-name').node().focus();
+    });
+
 d3.select('#sort-amount')
     .on('click', function () {
-        sort('amount');
-    })
+        const isThisAlreadySortedInd = d3.select('#sort-amount').classed('active');
+
+        if(!isThisAlreadySortedInd){
+            d3.select('#bar-controls').select('button.active').classed('active', false);
+            d3.select('#sort-amount').classed('active', true);
+        }
+
+        sort('amount', isThisAlreadySortedInd);
+    });
 
 d3.select('#sort-name')
     .on('click', function () {
+        d3.select('#bar-controls').select('button.active').classed('active', false);
+        d3.select('#sort-name').classed('active', true);
         sort('name');
-    })
+    });
 
 export function initSort(_config) {
     config = _config
