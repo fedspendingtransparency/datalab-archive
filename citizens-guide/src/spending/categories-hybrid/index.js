@@ -40,8 +40,6 @@ d3.select('.link-button__div')
         const buttonId = sectionToLoad.attr('id');
         const isAgencyLoadingInd = buttonId.search('agency') > 0;
 
-        console.log('buttonId:', buttonId);
-        console.log('isAgencyLoadingInd:', isAgencyLoadingInd);
         if(isAgencyLoadingInd){
             type = 'agency';
             selectAgency.classed('hidden', false);
