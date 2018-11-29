@@ -68,6 +68,9 @@
   .anecdote .anecdote__illustration {
     width: 100%;
     height: auto; }
+  .anecdote .anecdote__cta--container {
+    display: flex;
+    justify-content: center; }
   .anecdote .anecdote__icon {
     height: 20px;
     width: 20px; }

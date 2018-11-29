@@ -123,6 +123,36 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
+}, {
+    entry: ['./src/spending/categories-hybrid/categories.scss'],
+    output: {
+        path: path.resolve(__dirname, 'public/spending/assets'),
+    },
+    mode: mode,
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].css',
+                        }
+                    },
+                    {
+                        loader: 'extract-loader'
+                    },
+                    {
+                        loader: 'css-loader?-url'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
+            }
+        ]
+    }
 },{
     entry: ['./src/globalSass/cg.scss', './src/bigPicture/scss/bp.scss', './src/anecdote/anecdote.scss'],
     output: {
