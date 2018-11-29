@@ -18,7 +18,7 @@
 #svg-wrapper {
   display: flex;
   margin-right: 50px;
-  width: 960px;
+  width: 750px;
   height: 100%;
 }
 
@@ -38,8 +38,8 @@
   font-size: 36px;
 }
 
-.grid path {
-  stroke-width: 0;
+.grid path, .tick line {
+  stroke: #cfcfcf;
 }
 
 .mouse-over-data-point circle {
@@ -109,8 +109,11 @@
   justify-content: center;
   align-items: center;
   padding: 10px 0;
-  margin-bottom: 25px;
   margin: 0 auto;
+  letter-spacing: 1.6px;
+  color: #484848;
+  width: 70%;
+  padding-bottom: 0;
 }
 
 .dts-brush-date-container {
@@ -152,17 +155,22 @@
 }
 
 .daily-spending-amount {
-  font-size: 58px;
+  font-size: 46px;
   line-height: 48px;
+  text-align: center;
 }
 
 .daily-spending-subtext {
   text-transform: uppercase;
-  color: #000;
-  font-size: 18px;
-  letter-spacing: 0px;
-  line-height: 28px;
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  line-height: 16px;
   text-align: center;
+
+}
+
+.period-button-header {
+  font-size: 14px;
 }
 
 .bar {
@@ -221,15 +229,15 @@
 
 .period-button-header {
   text-transform: uppercase;
-  margin-bottom: 5px;
 }
 
 .period-container .period-button {
-  border: 1px solid #ccc;
+  border: 1px solid #e2e2e2;
   border-right: none;
-  font-size: 16px;
-  padding: 6px 16px;
+  font-size: 14px;
+  padding: 0px 16px;
   cursor: pointer;
+  line-height: 28px;
 }
 
 .period-button:hover {
@@ -251,7 +259,7 @@
 .period-button:last-child {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  border: 1px solid #ccc;
+  border: 1px solid #e2e2e2;
 }
 
 .dts-viz-container {
@@ -259,6 +267,7 @@
   flex-direction: row;
   justify-content: center;
   padding: 25px;
+  padding-top: 0px;
 }
 
 .tsbfy-table {
@@ -294,7 +303,11 @@
 }
 
 .custom-select {
-  padding: 5px 30px 5px 15px;
+  font-size: 14px;
+  padding: 9px 40px 9px 30px;
+  line-height: 10px;
+  border: 1px solid #b5f3f3;
+
   border-radius: 25px;
   position: relative;
   color: #55B9B8;
@@ -308,8 +321,8 @@
   cursor: pointer;
 
   background-image: linear-gradient(45deg, #EFF8F8 50%, #18A3A3 50%), linear-gradient(135deg, #18A3A3 50%, transparent 50%);
-  background-position: calc(100% - 20px) calc(1em), calc(100% - 15px) calc(1em), calc(100% - .5em) .5em;
-  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-position: calc(100% - 21px) calc(11px),calc(100% - 14px) calc(11px),calc(100% - .5em) 0.5em;
+  background-size: 7px 7px, 7px 7px, 1.5em 1.5em;
   background-repeat: no-repeat;
 }
 
@@ -334,7 +347,7 @@
 
 .frequency-selector-label, .category-select-label {
   text-transform: uppercase;
-  margin-bottom: 5px;
+  font-size: 14px;
 }
 
 .dts-label-brush-start, .dts-label-brush-end {
@@ -396,10 +409,11 @@
 
 #category-selector {
   width: 100%;
-  font-size: 16px;
-  height: 45px;
+  font-size: 14px;
+  line-height: 15px;
+  padding: 7px 40px 6px 30px;
 
-  background-position: calc(100% - 20px) calc(1em + 5px), calc(100% - 15px) calc(1em + 5px), calc(100% - .5em) .5em;
+  /*background-position: calc(100% - 20px) calc(1em + 5px), calc(100% - 15px) calc(1em + 5px), calc(100% - .5em) .5em;*/
 }
 
 #checkbox-popular {
