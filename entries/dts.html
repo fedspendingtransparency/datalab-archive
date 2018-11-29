@@ -70,7 +70,7 @@ category: nonentry
       <div class="dts-brush-date-separator">—</div>
       <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
     </div>
-    <svg id="svg-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+    <svg id="svg-wrapper" width="750" height="500" viewBox="0 0 750 500"></svg>
   </div>
   <div class="viz-tsbfy-container">
     <div class="viz-tsbfy-header">
@@ -81,7 +81,7 @@ category: nonentry
       </div>
     </div>
     <div class="svg-tsbfy-container">
-      <svg id="viz-tsbfy-wrapper" width="960" height="500" viewBox="0 0 960 500"></svg>
+      <svg id="viz-tsbfy-wrapper" width="750" height="500" viewBox="0 0 750 500"></svg>
     </div>
   </div>
 </div>
@@ -312,9 +312,9 @@ function createBarChart(yearToSpendingArray) {
 
   var svg = d3.select(".svg-tsbfy-container").append("svg")
     .attr("id", "viz-tsbfy-wrapper")
-    .attr("width", "960")
+    .attr("width", "750")
     .attr("height", "500")
-    .attr("viewBox", "0 0 960 500"),
+    .attr("viewBox", "0 0 750 500"),
     margin = {top: 20, right: 20, bottom: 50, left: 150},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
@@ -843,7 +843,7 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function(error, data) {
 
   lastDate = data[data.length - 1].date;
 
-  d3.select(".daily-spending-subtext").text("Total Amount Spent On " + lastDate.toString().substring(0, 15));
+  d3.select(".daily-spending-subtext").text("Total Amount Spent On " + dateFormatter(lastDate));
 
   d3.select(".header-updated-when").text("Updated " + dateFormatter(lastDate));
 
