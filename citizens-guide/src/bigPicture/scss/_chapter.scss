@@ -1,3 +1,4 @@
+@import '../../colors.scss';
 .chapter .anecdote {
     margin-top: 2rem;
 }
@@ -6,16 +7,16 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
-    color: white;
+    color: $text-color-paragraph;
 
     h1 {
         text-align: left;
-        color: white;
+        color: $text-color-heading;
         font-size: 1.4rem;
     }
 
     p {
-        color: white;
+        color: $text-color-paragraph;
     }
 }
 
@@ -25,33 +26,29 @@
     font-weight: $boldWeight;
 }
 
-.chapter__cta {
-    float: right;
-}
-
 .chapter__chart {
     display: none;
 }
 
 .chapter__chart img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .chapter--revenue {
-    background-color: $revenuePrimary;
+    background-color: white;
 }
 
 .chapter--spending {
-    background-color: $spendingPrimary;
+    background-color: white;
 }
 
 .chapter--deficit {
-    background-color: $deficitPrimary;
+    background-color: white;
 }
 
 .chapter--debt {
-    background-color: $debtPrimary;
+    background-color: white;
 }
 
 @media only screen and (min-width: 800px) {
@@ -73,5 +70,38 @@
     .chapter__primary {
         padding-right: 1rem;
         width: 50%;
+    }
+}
+
+#revenue-chapter {
+    a.scroll-to.current, button.anecdote__link--button {
+        color: $color-primary-darkest;
+    }
+    .anecdote__link--button-icon, a.link-button {
+        background-color: $color-primary-darkest;
+    }
+}
+#spending-chapter {
+    a.scroll-to.current, button.anecdote__link--button {
+        color: $color-spending-primary;
+    }
+    .anecdote__link--button-icon, a.link-button {
+        background-color: $color-spending-primary;
+    }
+}
+#deficit-chapter {
+    a.scroll-to.current, button.anecdote__link--button {
+        color: $color-deficit-primary;
+    }
+    .anecdote__link--button-icon, a.link-button {
+        background-color: $color-deficit-primary;
+    }
+}
+#debt-chapter {
+    a.scroll-to.current, button.anecdote__link--button {
+        color: $color-debt-primary;
+    }
+    .anecdote__link--button-icon, a.link-button {
+        background-color: $color-debt-primary;
     }
 }

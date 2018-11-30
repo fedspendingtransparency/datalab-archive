@@ -1,10 +1,12 @@
+@import '../../colors.scss';
+
 .toc {
     list-style-type: none;
     margin: 0;
     padding: 0;
 
     a {
-        color: white;
+        color: $text-color-paragraph;
     }
 
     a.current {

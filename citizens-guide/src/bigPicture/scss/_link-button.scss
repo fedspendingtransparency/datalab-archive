@@ -1,8 +1,11 @@
 a.link-button, button.link-button {
-    border: 1px solid white;
     background: none;
     padding: 0.5rem 1rem;
-    color: white;
     text-decoration: none;
     display: inline-block;
+}
+
+a.chapter__cta {
+    color:white;
+    font-weight:bold;
 }
