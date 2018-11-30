@@ -1,8 +1,10 @@
+@import '../../colors.scss';
+
 $headerBg: rgba(255,255,255,0.5);
 
 header {
-    background: #e0e0e0;
-    padding: 3rem 0;
+    background: #FBFBFB;
+    padding: 0.5rem 0;
 }
 
 .bp-header {
@@ -11,14 +13,32 @@ header {
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
-}
-
-.bp-header__text {
-    order: 2;
+    align-items:center;
+    text-align:center;
 }
 
 .bp-header__heading {
     text-align: center;
+}
+
+
+h1.bp-header__heading {
+    color:#111;
+    font-size:60px;
+    text-shadow: 0 2px 2px #333;
+    font-weight:600;
+}
+
+.bp-scroll-down__div {
+    font-size:3em;
+}
+
+.bp-header__collect--text {
+    color: $color-primary-darkest;
+}
+
+.bp-header__spend--text {
+    color: $color-spending-primary;
 }
 
 .overview-chart {
@@ -27,27 +47,32 @@ header {
 
 @media only screen and (min-width: 800px) {
     %textBox {
-        background: $headerBg;
         box-sizing: border-box;
         padding-right: 1rem;
-        width: $col1;
-        float: left;    
-    }
-    
-    .bp-header {
-        display: block;
+        float: left;
+        width:80%;
     }
 
     .bp-header__heading {
         @extend %textBox;
-        text-align: left;
-        padding-top: 3rem;
         margin-bottom: 0;
         margin-top: 6rem;
+    }
+
+    h3.bp-header__heading {
+        color: #666;
+        font-weight: 500;
+        font-size: 25px;
+    }
+
+    h1.bp-header__heading {
+        margin-top:0.8rem;
+        margin-bottom:1.5rem;
     }
 
     .bp-header__text {
         @extend %textBox;        
         padding-bottom: 3rem;
+        font-size:20px;
     }
 }

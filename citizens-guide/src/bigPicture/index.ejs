@@ -4,63 +4,25 @@ description: In 2017 the United States Federal Government collected $3.3 Trillio
 chapter: bigPicture
 ---
 
-<header>
+<header class='bp__header-block'>
     <div class="bp-header">
-        <h1 class="bp-header__heading">
-            The <strong>People's Guide</strong> to <strong>U.S. Federal Government Finances</strong>
+        <h3 class="bp-header__heading">
+            YOUR GUIDE TO FEDERAL GOVERNMENT FINANCES IN 2018
+        </h3>
+        <h1 class='bp-header__heading'>
+            What did the federal government <span class='bp-header__collect--text'>collect</span> and <span class='bp-header__spend--text'>spend</span> in 2018?
         </h1>
         <div class="bp-header__text">
-            <p>This site was designed for the people of the United States. The site provides information and data about the annual financial picture of the United States to the public.</p>
-            <p>Where does the money come from? Where does it go? And what are the long-term obligations of the federal government's financial decisions?  We've collected information from various Treasury data sources, to try and answer these questions for you.</p>
+            Interested in deficit or debt? Keep Reading or <a href='www.google.com' class='bp-header__click-here--link'>Click here</a>
         </div>
-        <div class="overview-chart">
-            <h2 class="overview-chart__heading">Overview of Finances of the Federal Government in 2017</h2>
-            <div class="overview-chart__contents">
-                <div class="overview-chart__bar overview-chart__bar--revenue"></div>
-                <div class="overview-chart__bar overview-chart__bar--spending"></div>
-                <div class="overview-chart__bar overview-chart__bar--deficit"></div>
-                <div class="overview-chart__label overview-chart__label--revenue">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    <h3 class="overview-chart__label-heading">Revenue</h3>
-                    <p>$3.3 trillion</p>
-                    <a href="#revenue-chapter" class="scroll-to">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
-                        </span>
-                        Expore Revenue</a>
-                </div>
-                <div class="overview-chart__label overview-chart__label--spending">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                    <h3 class="overview-chart__label-heading">Spending</h3>
-                    <p>$4.0 trillion</p>
-                    <a href="#spending-chapter" class="scroll-to">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
-                        </span>
-                        Explore Spending</a>
-                </div>
-                <div class="overview-chart__label overview-chart__label--deficit">
-                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    <h3 class="overview-chart__label-heading">Deficit</h3>
-                    <p>$660 billion</p>
-                    <a href="#deficit-chapter" class="scroll-to">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
-                        </span>
-                        Explore Deficit</a>
-                </div>
-            </div>
+        <div class="bp-scroll-down__div">
+            <i class='fa fa-angle-down fa-4'></i>
         </div>
     </div>
-    <img class="bp-scroll-down" src="assets/bp/scroll-down.svg" alt="">
 </header>
 
 <section class="chapter chapter--revenue" id="revenue-chapter">
     <div class="chapter__content">
-        <a class="link-button chapter__cta" href="revenue/gdp.html">Go Explore Revenue</a>
         <%- include('layouts/partials/bpToc.ejs', {section: 'revenue'}) %>
         
         <div class="chapter__flex">
@@ -97,10 +59,11 @@ chapter: bigPicture
                         <a class="anecdote__cta link-button" href="revenue/gdp.html">Go Explore Revenue</a>
                     </div>
                 </section>
+                <a class="link-button chapter__cta" href="revenue/gdp.html">Go Explore Revenue</a>
             </div>
 
             <div class="chapter__chart">
-                <img src="assets/bp/chart.png" alt="">
+                <img src="assets/bp/revenue-graph.svg" alt="">
             </div>
         </div>
     </div>
@@ -108,7 +71,6 @@ chapter: bigPicture
 
 <section class="chapter chapter--spending" id="spending-chapter">
     <div class="chapter__content">
-        <a class="link-button chapter__cta" href="spending/federal-spending-intro.html">Go Explore Spending</a>
         <%- include('layouts/partials/bpToc.ejs', {section: 'spending'}) %>
 
         <div class="chapter__flex">
@@ -136,9 +98,10 @@ chapter: bigPicture
                         <a class="anecdote__cta link-button" href="spending/federal-spending-intro.html">Go Explore Spending</a>
                     </div>
                 </section>
+                <a class="link-button chapter__cta" href="spending/federal-spending-intro.html">Go Explore Spending</a>
             </div>
             <div class="chapter__chart">
-                <img src="assets/bp/chart.png" alt="">
+                <img src="assets/bp/spending-graph.svg" alt="">
             </div>
         </div>
 
@@ -147,7 +110,6 @@ chapter: bigPicture
 
 <section class="chapter chapter--deficit" id="deficit-chapter">
     <div class="chapter__content">
-        <a class="link-button chapter__cta" href="#">Go Explore Deficit</a>
         <%- include('layouts/partials/bpToc.ejs', {section: 'deficit'}) %>
 
         <div class="chapter__flex">
@@ -170,9 +132,10 @@ chapter: bigPicture
                     </div>
                     <a class="anecdote__cta link-button" href="spending/federal-spending-intro.html">Go Explore Spending</a>
                 </section>
+                <a class="link-button chapter__cta" href="#">Go Explore Deficit</a>
             </div>
             <div class="chapter__chart">
-                <img src="assets/bp/chart.png" alt="">
+                <img src="assets/bp/deficit-graph.svg" alt="">
             </div>
         </div>
     </div>
@@ -180,7 +143,6 @@ chapter: bigPicture
 
 <section class="chapter chapter--debt" id="debt-chapter">
     <div class="chapter__content">
-        <a class="link-button chapter__cta" href="#">Go Explore Debt</a>
         <%- include('layouts/partials/bpToc.ejs', {section: 'debt'}) %>
 
         <div class="chapter__flex">
@@ -188,9 +150,10 @@ chapter: bigPicture
                 <h1>In 2017, <br>the <strong>national debt</strong> was <span class="chapter__big-number">$20.2 trillion.</span></h1>
                 <p>To pay for a deficit, the federal government usually takes on debt. The total debt that the federal government owes is essentially the accumulation of deficits over time.</p>
                 <p>Are debt and deficit the same thing? No, but they do affect one another.</p>
+                <a class="link-button chapter__cta" href="#">Go Explore Debt</a>
             </div>
             <div class="chapter__chart">
-                <img src="assets/bp/chart.png" alt="">
+                <img src="assets/bp/debt-graph.svg" alt="">
             </div>
         </div>
     </div>

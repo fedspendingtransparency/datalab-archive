@@ -88,7 +88,7 @@
   margin: 0;
   padding: 0; }
   .toc a {
-    color: white; }
+    color: #666666; }
   .toc a.current {
     font-weight: 600; }
 
@@ -99,21 +99,18 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  color: white; }
+  color: #666666; }
   .chapter__content h1 {
     text-align: left;
-    color: white;
+    color: #555555;
     font-size: 1.4rem; }
   .chapter__content p {
-    color: white; }
+    color: #666666; }
 
 .chapter__big-number {
   display: block;
   font-size: 3rem;
   font-weight: 600; }
-
-.chapter__cta {
-  float: right; }
 
 .chapter__chart {
   display: none; }
@@ -123,16 +120,16 @@
   height: auto; }
 
 .chapter--revenue {
-  background-color: #585858; }
+  background-color: white; }
 
 .chapter--spending {
-  background-color: #686868; }
+  background-color: white; }
 
 .chapter--deficit {
-  background-color: #787878; }
+  background-color: white; }
 
 .chapter--debt {
-  background-color: #888; }
+  background-color: white; }
 
 @media only screen and (min-width: 800px) {
   .chapter__content h1 {
@@ -146,50 +143,93 @@
     padding-right: 1rem;
     width: 50%; } }
 
+#revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button {
+  color: #112e51; }
+
+#revenue-chapter .anecdote__link--button-icon, #revenue-chapter a.link-button {
+  background-color: #112e51; }
+
+#spending-chapter a.scroll-to.current, #spending-chapter button.anecdote__link--button {
+  color: #00766C; }
+
+#spending-chapter .anecdote__link--button-icon, #spending-chapter a.link-button {
+  background-color: #00766C; }
+
+#deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button {
+  color: #B3532D; }
+
+#deficit-chapter .anecdote__link--button-icon, #deficit-chapter a.link-button {
+  background-color: #B3532D; }
+
+#debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button {
+  color: #4A0072; }
+
+#debt-chapter .anecdote__link--button-icon, #debt-chapter a.link-button {
+  background-color: #4A0072; }
+
 a.link-button, button.link-button {
-  border: 1px solid white;
   background: none;
   padding: 0.5rem 1rem;
-  color: white;
   text-decoration: none;
   display: inline-block; }
 
+a.chapter__cta {
+  color: white;
+  font-weight: bold; }
+
 header {
-  background: #e0e0e0;
-  padding: 3rem 0; }
+  background: #FBFBFB;
+  padding: 0.5rem 0; }
 
 .bp-header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
-  flex-direction: column; }
-
-.bp-header__text {
-  order: 2; }
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
 
 .bp-header__heading {
   text-align: center; }
+
+h1.bp-header__heading {
+  color: #111;
+  font-size: 60px;
+  text-shadow: 0 2px 2px #333;
+  font-weight: 600; }
+
+.bp-scroll-down__div {
+  font-size: 3em; }
+
+.bp-header__collect--text {
+  color: #112e51; }
+
+.bp-header__spend--text {
+  color: #00766C; }
 
 .overview-chart {
   order: 1; }
 
 @media only screen and (min-width: 800px) {
   .bp-header__heading, .bp-header__text {
-    background: rgba(255, 255, 255, 0.5);
     box-sizing: border-box;
     padding-right: 1rem;
-    width: 60%;
-    float: left; }
-  .bp-header {
-    display: block; }
+    float: left;
+    width: 80%; }
   .bp-header__heading {
-    text-align: left;
-    padding-top: 3rem;
     margin-bottom: 0;
     margin-top: 6rem; }
+  h3.bp-header__heading {
+    color: #666;
+    font-weight: 500;
+    font-size: 25px; }
+  h1.bp-header__heading {
+    margin-top: 0.8rem;
+    margin-bottom: 1.5rem; }
   .bp-header__text {
-    padding-bottom: 3rem; } }
+    padding-bottom: 3rem;
+    font-size: 20px; } }
 
 html {
   font-weight: 300; }
@@ -213,3 +253,6 @@ html {
     font-size: 1.4rem;
     font-weight: 600;
     margin-top: 0.5rem; }
+
+header.bp__header-block, section.chapter--revenue {
+  background-image: linear-gradient(#f1f1f1, white, white, white, white, white, white, white); }

@@ -19,6 +19,8 @@ const d3 = {select, selectAll},
             alt: 'anecdote icon'
         },
         linkCtaContainerClass: 'anecdote__cta--container',
+        linkButtonContainerClass: 'anecdote__link--button-container',
+        linkButtonIconClass: 'anecdote__link--button-icon',
         linkButtonClass: 'link-button anecdote__link--button',
         linkButtonText: 'What does this mean to me?',
         panesClass: 'anecdote__panes',
@@ -169,12 +171,16 @@ function toggleContent(anecdote){
 }
 
 function buildTrigger(anecdote){
-    const linkButtonClass = desiredAnecdoteProperties.linkButtonClass || defaultAnecdoteProperties.linkButtonClass,
+    const linkButtonContainerClass = desiredAnecdoteProperties.linkButtonContainerClass || defaultAnecdoteProperties.linkButtonContainerClass,
+        linkButtonIconClass = desiredAnecdoteProperties.linkButtonIconClass || defaultAnecdoteProperties.linkButtonIconClass,
+        linkButtonClass = desiredAnecdoteProperties.linkButtonClass || defaultAnecdoteProperties.linkButtonClass,
         linkButtonText = desiredAnecdoteProperties.linkButtonText || defaultAnecdoteProperties.linkButtonText;
 
-    const button = anecdote.append("button").classed(linkButtonClass,true).text(linkButtonText);
-    button.lower();
-    button.on("click", function(){
+    const anecdoteButtonSection = anecdote.append('div').classed(linkButtonContainerClass,true),
+        anecdoteIconSection = anecdoteButtonSection.append('div').classed(linkButtonIconClass,true).text('&nbsp;'),
+        button = anecdoteButtonSection.append("button").classed(linkButtonClass,true).text(linkButtonText);
+    anecdoteButtonSection.lower();
+    anecdoteButtonSection.on("click", function(){
         toggleContent(anecdote);
     });
 }

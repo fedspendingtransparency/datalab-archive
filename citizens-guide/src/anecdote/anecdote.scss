@@ -86,10 +86,21 @@
         border: none;
     }
 
-    .anecdote__link--button {
-        background: url('../assets/icons/anecdote.svg') 20px 13px  no-repeat;
-        background-size: 20px 20px;
-        padding:12px 30px 12px 50px;
+    .anecdote__link--button-container {
+        padding-left: 21px;
+        padding-top: 5px;
+    }
+
+    .anecdote__link--button-icon {
+        -webkit-mask-image: url("../assets/icons/anecdote.svg");
+        -webkit-mask-repeat: no-repeat;
+        mask-image: url("../assets/icons/anecdote.svg");
+        mask-repeat: no-repeat;
+        width:20px;
+        display:inline-block;
+
+        //background: url('../assets/icons/anecdote.svg') 20px 13px  no-repeat;
+        //background-size: 20px 20px;
     }
 
     .anecdote__illustration {

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="610px" height="362px" viewBox="0 0 610 362" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 11</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="BP---V6" transform="translate(-767.000000, -1179.000000)">
+            <g id="Group-11" transform="translate(767.000000, 1169.000000)">
+                <polygon id="Rectangle-16" fill="#FAFAFA" fill-rule="nonzero" points="50 261 608 261 608 301 50 301"></polygon>
+                <polygon id="Rectangle-16" fill="#FAFAFA" fill-rule="nonzero" points="50 181 608 181 608 221 50 221"></polygon>
+                <polygon id="Rectangle-16" fill="#FAFAFA" fill-rule="nonzero" points="50 101 608 101 608 141 50 141"></polygon>
+                <polygon id="Rectangle-16" fill="#FAFAFA" fill-rule="nonzero" points="50 21 608 21 608 61 50 61"></polygon>
+                <path d="M49.5,11 L49.5,341" id="Line-35" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" fill-rule="nonzero"></path>
+                <path d="M49.5,341 L609,341" id="Line-36" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" fill-rule="nonzero"></path>
+                <text id="2017" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="29.6153846" font-weight="500" fill="#666666">
+                    <tspan x="494" y="371">2017</tspan>
+                </text>
+                <text id="2016" font-family="SourceSansPro-Light, Source Sans Pro" font-size="15.2307692" font-weight="300" fill="#666666">
+                    <tspan x="408" y="369">2016</tspan>
+                </text>
+                <text id="2015" font-family="SourceSansPro-Light, Source Sans Pro" font-size="15.2307692" font-weight="300" fill="#666666">
+                    <tspan x="309" y="369">2015</tspan>
+                </text>
+                <text id="2014" font-family="SourceSansPro-Light, Source Sans Pro" font-size="15.2307692" font-weight="300" fill="#666666">
+                    <tspan x="209" y="369">2014</tspan>
+                </text>
+                <text id="2013" font-family="SourceSansPro-Light, Source Sans Pro" font-size="15.2307692" font-weight="300" fill="#666666">
+                    <tspan x="109" y="369">2013</tspan>
+                </text>
+                <path d="M50,221 L608,221" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,261 L608,261" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,61 L608,61" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,101 L608,101" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,141 L608,141" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,181 L608,181" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,21 L608,21" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <path d="M50,301 L608,301" id="Line-3" stroke="#666666" opacity="0.1" stroke-linecap="square" fill-rule="nonzero"></path>
+                <text id="$-4.0-T-$-3.5-T-$-3." font-family="SourceSansPro-Light, Source Sans Pro" font-size="15" font-weight="300" line-spacing="40" fill="#666666">
+                    <tspan x="0.3" y="15">$ 4.0 T</tspan>
+                    <tspan x="0.3" y="55">$ 3.5 T</tspan>
+                    <tspan x="0.3" y="95">$ 3.0 T</tspan>
+                    <tspan x="0.3" y="135">$ 2.5 T</tspan>
+                    <tspan x="0.3" y="175">$ 2.0 T</tspan>
+                    <tspan x="0.3" y="215">$ 1.5 T</tspan>
+                    <tspan x="0.3" y="255">$ 1.0 T</tspan>
+                    <tspan x="0.3" y="295">$ 0.5 T</tspan>
+                    <tspan x="21.63" y="335">$ 0</tspan>
+                </text>
+                <path d="M402,34 L446,34 C447.656854,34 449,35.3431458 449,37 L449,341 L399,341 L399,37 C399,35.3431458 400.343146,34 402,34 Z" id="Rectangle-2" fill="#00766C" fill-rule="nonzero"></path>
+                <path d="M502,22 L546,22 C547.656854,22 549,23.3431458 549,25 L549,341 L499,341 L499,25 C499,23.3431458 500.343146,22 502,22 Z" id="Rectangle-2" fill="#00766C" fill-rule="nonzero"></path>
+                <path d="M302,44 L346,44 C347.656854,44 349,45.3431458 349,47 L349,341 L299,341 L299,47 C299,45.3431458 300.343146,44 302,44 Z" id="Rectangle-2" fill="#00766C" fill-rule="nonzero"></path>
+                <path d="M202,57 L246,57 C247.656854,57 249,58.3431458 249,60 L249,341 L199,341 L199,60 C199,58.3431458 200.343146,57 202,57 Z" id="Rectangle-2" fill="#00766C" fill-rule="nonzero"></path>
+                <path d="M102,61 L146,61 C147.656854,61 149,62.3431458 149,64 L149,341 L99,341 L99,64 C99,62.3431458 100.343146,61 102,61 Z" id="Rectangle-2" fill="#00766C" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
