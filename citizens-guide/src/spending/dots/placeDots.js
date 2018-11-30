@@ -1,14 +1,14 @@
 import { select, selectAll } from 'd3-selection';
-import { dotConstants } from './dotConstants';
-import { establishContainer } from "../../utils";
-import { placeOverlay } from './overlayRevenue';
+import { dotConstants, dotsPerRow} from './dotConstants';
+import { establishContainer, translator } from "../../utils";
+import { initRevenueOverlay } from './compareRevenue';
+import { initGdp } from './compareGdp';
+import { chartWidth } from './widthManager';
 
 const d3 = { select, selectAll };
 
 let svg,
-    width,
-    rowCount,
-    dotsPerRow;
+    rowCount;
 
 function dotFactory(container, x, y, color) {
     color = color || 'blue';
@@ -20,14 +20,12 @@ function dotFactory(container, x, y, color) {
         .style('fill', color)
 }
 
-function setDotsPerRow() {
-    const workingWidth = width - dotConstants.radius;
-
-    dotsPerRow = Math.floor(workingWidth / dotConstants.offset.x);
-}
-
 function readyDots() {
-    const dotContainer = svg.append('g');
+    const dotContainer = svg.append('g')
+        .classed('main-container', true)
+        .attr('transform', translator(0, 30))
+        .append('g')
+        .classed('spending-dots', true);
         // .attr('opacity', 0)
         // .classed(receiptsConstants.incomeContainerClass, true)
         // .attr('transform', 'translate(-100, -50), scale(2)');
@@ -49,11 +47,9 @@ function readyDots() {
 }
 
 export function placeDots() {
-    width = d3.select('#viz').node().getBoundingClientRect().width;
+    svg = establishContainer();
 
-    svg = establishContainer(500, width);
-
-    setDotsPerRow();
     readyDots();
-    placeOverlay(dotsPerRow);
+    initRevenueOverlay();
+    initGdp();
 }

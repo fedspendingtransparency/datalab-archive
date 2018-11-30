@@ -1,5 +1,51 @@
 #viz {
-    width: auto;
-    max-width: 1200px;
     margin: 0 auto;
+    width: auto;
+}
+
+#viz.facts-open {
+    float: left;
+    margin-right: 1rem;
+}
+
+.facts {
+    section {
+        padding: 1rem;
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: left;
+        margin-top: 0;
+    }
+}
+
+main {
+    max-width: 1200px;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+#compare-options {
+    border: 1px solid #aaa;
+    padding: 1rem;
+    max-width: 300px;
+
+    p {
+        margin-top: 0;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        border: 1px solid #ccc;
+        text-align: center;
+        margin-bottom: 2px;
+        background: blue;
+        color: white;
+        padding: 0.5rem;
+    }
 }

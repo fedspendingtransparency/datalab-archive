@@ -3,15 +3,18 @@ import { establishContainer } from '../../utils';
 import './dots.scss';
 import { placeDots } from "./placeDots";
 import { startLegendAnimation } from './legend';
+import { setChartWidth, chartWidth } from './widthManager';
+import { setDotsPerRow } from './dotConstants';
 
 const d3 = { select, selectAll };
 
 function init() {
-    const width = d3.select('#viz').node().getBoundingClientRect().width;
+    setChartWidth();
+    setDotsPerRow();
     
-    establishContainer(500, width);
+    establishContainer(500, chartWidth);
 
-    startLegendAnimation(width);
+    startLegendAnimation();
 }
 
 init();

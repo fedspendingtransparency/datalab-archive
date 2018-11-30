@@ -19,11 +19,35 @@
 <body>
     
     <main>
-        <h1>Dots</h1>
+        <h1>Spending</h1>
 
-<button id="overlay-revenue">overlay revenue</button>
+<div id="compare-options">
+    <p>How does $4.0T spending compare to</p>
+    <button id="overlay-revenue">revenue</button>
+    <button id="overlay-gdp">the size of the economy</button>
+</div>
 
 <div id="viz"></div>
+
+<div class="facts">
+    <section id="revenue-facts" class="temporary-hide out">
+        <h1>In Fiscal Year 2017, the revenue of the Federal Government was $3.3T.</h1>
+        <p>Spending accounts for 121% of total revenue.</p>
+
+        <a href="#">Go Explore Revenue</a>
+    </section>
+
+    <section id="gdp-facts" class="temporary-hide out">
+        <h1>$4.0 Trillion in spending equals about 20.5% of the size of our total economy.</h1>
+        <p>The total GDP of the U.S. was $19.5 trillion in 2017.</p>
+        
+        <strong>What's GDP? 
+            <button class="info-box-trigger" data-box-id="gdp-info">
+                <img src="../assets/icons/definition.svg" alt="definition icon">
+            </button>
+        </strong>
+    </section>
+</div>
 
 <script src="./assets/dotsGdp.js"></script>
  
