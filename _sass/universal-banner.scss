@@ -44,6 +44,7 @@
 
     .official-banner__site-item {
         flex: 0 0 100px;
+        z-index: 99;
 
         &.official-banner__site-item_spacer {
             flex: 0 0 auto;
