@@ -55,6 +55,8 @@ function readyDots() {
 }
 
 export function placeDots() {
+    d3.select('.main-container').remove();
+
     svg = establishContainer();
 
     readyDots();

@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { establishContainer, translator } from '../../utils';
+import { establishContainer, translator, fadeAndRemove } from '../../utils';
 import colors from '../../colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
@@ -9,19 +9,22 @@ const d3 = { select, selectAll },
     introWidth = 365,
     radius = 75;
 
-let svg, largeDot;
+let svg, largeDot, billion, explanation;
 
 function buildLegend() {
     const g = d3.select('.income-dot-legend'),
         duration = 2000,
         w = 126,
-        xOffset = chartWidth - w - 20;
+        xOffset = 4;
 
     placeDots();
 
+    fadeAndRemove(explanation, 1000);
+    fadeAndRemove(billion, 500);
+
     g.transition()
         .duration(duration)
-        .attr('transform', translator(xOffset, 20));
+        .attr('transform', translator(xOffset, 10));
 
     g.select('circle')
         .attr('opacity', 1)
@@ -63,8 +66,9 @@ function buildLegend() {
 }
 
 function addText() {
-    const duration = 500,
-        explanation = this.largeDot.append('text')
+    const duration = 500;
+    
+    explanation = this.largeDot.append('text')
             .attr('y', 54)
             .attr('opacity', 0)
             .attr('transform', translator(radius * 2 + 20, 0))
@@ -93,7 +97,7 @@ function addText() {
         .attr('dy', 30)
         .text('One Billion Dollars')
 
-    this.largeDot.append('text')
+    billion = this.largeDot.append('text')
         .text('$1,000,000,000')
         .attr('text-anchor', 'middle')
         .attr('font-size', 18)
@@ -116,7 +120,7 @@ function initDot() {
         .attr('cx', radius)
         .attr('cy', radius)
         .attr('r', 1)
-        .attr('fill', 'blue')
+        .attr('fill', colors.colorSpendingPrimary)
         .transition()
         .duration(1500)
         .attr('r', radius)

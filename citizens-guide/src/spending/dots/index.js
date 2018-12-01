@@ -9,7 +9,11 @@ import { initTicker } from './ticker';
 
 const d3 = { select, selectAll };
 
-function init() {
+let debounce;
+
+function initChart() {
+    d3.select('#viz').selectAll('*').remove();
+    
     setChartWidth();
     setDotsPerRow();
     
@@ -18,5 +22,20 @@ function init() {
     startLegendAnimation();
 }
 
-init();
+function resizeChart() {
+    setChartWidth();
+    setDotsPerRow();
+    d3.select('svg.main').attr('width', chartWidth);
+    placeDots();
+}
+
+initChart();
 initTicker();
+
+window.addEventListener('resize', function () {
+    if (debounce) {
+        clearTimeout(debounce);
+    }
+
+    debounce = setTimeout(resizeChart, 100);
+});
