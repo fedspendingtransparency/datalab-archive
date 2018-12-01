@@ -4,6 +4,7 @@ import { establishContainer, translator, fadeAndRemove } from '../../utils';
 import colors from '../../colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
+import { triggerInfoBox } from '../../infoBox';
 
 const d3 = { select, selectAll },
     introWidth = 365,
@@ -24,7 +25,7 @@ function buildLegend() {
 
     g.transition()
         .duration(duration)
-        .attr('transform', translator(xOffset, 10));
+        .attr('transform', translator(xOffset, 14));
 
     g.select('circle')
         .attr('opacity', 1)
@@ -55,9 +56,9 @@ function buildLegend() {
         .attr('y', -14)
         .attr('opacity', 0)
         .attr('data-box-id', 'billion-dollars')
-        .attr('xlink:href', '/assets/cg/icons/anecdote.svg')
+        .attr('xlink:href', '/assets/icons/anecdote.svg')
         .attr('style', 'cursor:pointer')
-        // .on('click', triggerInfoBox)
+        .on('click', triggerInfoBox)
         .transition()
         .delay(duration * 0.7)
         .duration(duration / 2)
