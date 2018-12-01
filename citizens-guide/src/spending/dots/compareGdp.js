@@ -8,7 +8,7 @@ const d3 = { select, selectAll };
 let gdpLayer;
 
 function resizeSvg() {
-    const height = gdpLayer.attr('data-rect-height');
+    const height = Number(gdpLayer.attr('data-rect-height'));
 
     establishContainer().attr('height', height + 40);
 }
