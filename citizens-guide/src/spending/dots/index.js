@@ -6,6 +6,7 @@ import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
 import { initTicker } from './ticker';
+import { resetForResize } from './compareManager';
 
 const d3 = { select, selectAll };
 
@@ -25,6 +26,7 @@ function initChart() {
 function resizeChart() {
     setChartWidth();
     setDotsPerRow();
+    resetForResize();
     d3.select('svg.main').attr('width', chartWidth);
     placeDots();
 }

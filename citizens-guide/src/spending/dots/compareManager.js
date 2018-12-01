@@ -11,6 +11,8 @@ const stateManager = {},
         gdp: '#gdp-facts',
         revenue: '#revenue-facts'
     },
+    sectionActive = 'facts__section--active',
+    buttonActive = 'facts__trigger--active',
     d3 = { select, selectAll, transition };
 
 function setLayerOpacity(id, active) {
@@ -25,8 +27,6 @@ function toggleFacts() {
     const button = d3.select(this),
         id = button.attr('data-trigger-id'),
         targetSection = d3.select(idMap[id]),
-        sectionActive = 'facts__section--active',
-        buttonActive = 'facts__trigger--active',
         wasPreviouslyActive = button.classed(buttonActive);
 
     d3.selectAll('.facts__trigger').classed(buttonActive, null);
@@ -41,14 +41,6 @@ function toggleFacts() {
         targetSection.classed(sectionActive, true);
         setLayerOpacity(id, true);
     }
-}
-
-export function compareOn(id) {
-    stateManager[id] = true;
-}
-
-export function compareOff(id) {
-    stateManager[id] = false;
 }
 
 export function generateOverlay(count, container, className) {
@@ -84,6 +76,13 @@ export function generateOverlay(count, container, className) {
 
 export function registerLayer(id, layer) {
     layers[id] = layer;
+}
+
+export function resetForResize() {
+    d3.select('.facts').classed('facts--hidden', true);
+    Object.keys(layers).forEach(setLayerOpacity);
+    d3.selectAll('.facts__trigger').classed(buttonActive, null);
+    d3.selectAll('.facts__section').classed(sectionActive, null);
 }
 
 export function revealCompare() {
