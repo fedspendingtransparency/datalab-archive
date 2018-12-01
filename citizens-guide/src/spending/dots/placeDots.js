@@ -1,9 +1,11 @@
 import { select, selectAll } from 'd3-selection';
+import { transition } from 'd3-transition';
 import { dotConstants, dotsPerRow} from './dotConstants';
 import { establishContainer, translator } from "../../utils";
 import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { chartWidth } from './widthManager';
+import { revealCompare } from './compareManager';
 
 const d3 = { select, selectAll };
 
@@ -25,10 +27,8 @@ function readyDots() {
         .classed('main-container', true)
         .attr('transform', translator(0, 30))
         .append('g')
-        .classed('spending-dots', true);
-        // .attr('opacity', 0)
-        // .classed(receiptsConstants.incomeContainerClass, true)
-        // .attr('transform', 'translate(-100, -50), scale(2)');
+        .classed('spending-dots', true)
+        .attr('opacity', 0);
 
     let i = 0,
         top = 4000,
@@ -44,6 +44,13 @@ function readyDots() {
             x = dotConstants.radius;
         }
     }
+
+    dotContainer.transition()
+        .delay(1000)
+        .duration(1000)
+        .attr('opacity', 1)
+        .on('end', revealCompare)
+        .ease();
 }
 
 export function placeDots() {

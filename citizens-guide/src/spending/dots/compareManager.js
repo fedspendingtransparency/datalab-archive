@@ -12,53 +12,12 @@ const stateManager = {},
     },
     d3 = { select, selectAll, transition };
 
-let scaleFactor = 0.6;
-
-function showFacts(id) {
-    d3.select('g.main-container').transition()
-        .duration(duration)
-        .attr('transform', translator(0, 0) + ` scale(${scaleFactor})`)
-        .ease();
-
-    d3.select('svg.main')
-        .transition()
-        .duration(duration)
-        .attr('width', chartWidth * scaleFactor);
-
-    d3.select('#viz').classed('facts-open', true);
-}
-
-function hideFacts(id) {
-    d3.select('g.main-container').transition()
-        .duration(duration)
-        .attr('transform', translator(0, 30) + ' scale(1)')
-        .ease();
-
-    d3.select('svg.main')
-        .transition()
-        .duration(duration)
-        .attr('width', chartWidth);
-
-    d3.select('#viz').classed('facts-open', null);
-}
-
 export function compareOn(id) {
     stateManager[id] = true;
-
-    d3.select(idMap[id]).classed('temporary-hide--show', true)    
-
-    showFacts();
 }
 
 export function compareOff(id) {
     stateManager[id] = false;
-
-    d3.select(idMap[id]).classed('temporary-hide--show', null);
-    
-    if (!stateManager.gdp && !stateManager.revenue) {
-        hideFacts();
-    }
-
 }
 
 export function generateOverlay(count, container, className) {
@@ -90,4 +49,11 @@ export function generateOverlay(count, container, className) {
         .attr('opacity', 0.5)
 
     return overlayLayer;
+}
+
+export function revealCompare() {
+    setTimeout(() => {
+        d3.select('.facts')
+        .classed('facts--hidden', null);
+    }, 500)
 }

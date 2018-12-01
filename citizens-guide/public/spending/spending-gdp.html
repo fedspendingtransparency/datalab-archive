@@ -19,34 +19,60 @@
 <body>
     
     <main>
-        <h1>Spending</h1>
+        <h1>In 2018, the government spent $4.1 trillion.</h1>
 
-<div id="compare-options">
-    <p>How does $4.0T spending compare to</p>
-    <button id="overlay-revenue">revenue</button>
-    <button id="overlay-gdp">the size of the economy</button>
+<div id="copy">
+    <p>Where does all the money go? The majority of government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Why does the federal government do this? One reason is the Constitution! The Constitution’s preamble, which outlines the purpose of creating the new government is "to establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity."</p>
 </div>
 
-<div id="viz"></div>
-
-<div class="facts">
-    <section id="revenue-facts" class="temporary-hide out">
-        <h1>In Fiscal Year 2017, the revenue of the Federal Government was $3.3T.</h1>
-        <p>Spending accounts for 121% of total revenue.</p>
-
-        <a href="#">Go Explore Revenue</a>
+<aside>
+    <section class="ticker">
+        <h1>Since this page loaded, the federal government has spent <span id="ticker__number"></span>.</h1>
+        <p class="footnote">based on 2018 spending figures</p>
     </section>
-
-    <section id="gdp-facts" class="temporary-hide out">
-        <h1>$4.0 Trillion in spending equals about 20.5% of the size of our total economy.</h1>
-        <p>The total GDP of the U.S. was $19.5 trillion in 2017.</p>
-        
-        <strong>What's GDP? 
-            <button class="info-box-trigger" data-box-id="gdp-info">
-                <img src="../assets/icons/definition.svg" alt="definition icon">
-            </button>
-        </strong>
+    <section class="top-five">
+        <h1 class="top-five__heading">The Top 5 Areas of Government Spending</h1>
+        <ol>
+            <li>Social Security</li>
+            <li>National Defense</li>
+            <li>Medicare</li>
+            <li>Healthcare</li>
+            <li>Income Security Programs</li>
+        </ol>
+        <a href="#">Go Explore Spending Categories</a>
     </section>
+</aside>
+
+<div class="viz-wrapper">
+    <div id="viz"></div>
+
+    <div class="facts facts--hidden">
+        <div class="facts__inner">
+            <div id="compare-options">
+                <p>How does $4.0T spending compare to</p>
+                <button id="overlay-revenue">revenue</button>
+                <button id="overlay-gdp">the size of the economy</button>
+            </div>
+
+            <section id="revenue-facts" class="facts__section">
+                <h1>In Fiscal Year 2017, the revenue of the Federal Government was $3.3T.</h1>
+                <p>Spending accounts for 121% of total revenue.</p>
+
+                <a href="#">Go Explore Revenue</a>
+            </section>
+
+            <section id="gdp-facts" class="facts_section">
+                <h1>$4.0 Trillion in spending equals about 20.5% of the size of our total economy.</h1>
+                <p>The total GDP of the U.S. was $19.5 trillion in 2017.</p>
+                
+                <strong>What's GDP? 
+                    <button class="info-box-trigger" data-box-id="gdp-info">
+                        <img src="../assets/icons/definition.svg" alt="definition icon">
+                    </button>
+                </strong>
+            </section>
+        </div>
+    </div>
 </div>
 
 <script src="./assets/dotsGdp.js"></script>

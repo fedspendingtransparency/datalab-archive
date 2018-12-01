@@ -5,6 +5,7 @@ import { placeDots } from "./placeDots";
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
+import { initTicker } from './ticker';
 
 const d3 = { select, selectAll };
 
@@ -18,3 +19,4 @@ function init() {
 }
 
 init();
+initTicker();
