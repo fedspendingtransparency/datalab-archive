@@ -33,9 +33,11 @@ description: This is the text that goes in the meta description tag
     <div class="facts facts--hidden">
         <div class="facts__inner">
             <div id="compare-options">
-                <p>How does $4.0T spending compare to</p>
-                <button id="overlay-revenue">revenue</button>
-                <button id="overlay-gdp">the size of the economy</button>
+                <p class="facts__prompt">How does $4.1T in spending compare to</p>
+                <div class="facts__triggers">
+                    <button class="facts__trigger" data-trigger-id="revenue">revenue</button>
+                    <button class="facts__trigger" data-trigger-id="gdp">the size of the economy</button>
+                </div>
             </div>
 
             <section id="revenue-facts" class="facts__section">
@@ -45,7 +47,7 @@ description: This is the text that goes in the meta description tag
                 <a href="#">Go Explore Revenue</a>
             </section>
 
-            <section id="gdp-facts" class="facts_section">
+            <section id="gdp-facts" class="facts__section">
                 <h1>$4.0 Trillion in spending equals about 20.5% of the size of our total economy.</h1>
                 <p>The total GDP of the U.S. was $19.5 trillion in 2017.</p>
                 

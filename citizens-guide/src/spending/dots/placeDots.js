@@ -6,6 +6,7 @@ import { initRevenueOverlay } from './compareRevenue';
 import { initGdp } from './compareGdp';
 import { chartWidth } from './widthManager';
 import { revealCompare } from './compareManager';
+import colors from '../../colors.scss';
 
 const d3 = { select, selectAll };
 
@@ -13,7 +14,7 @@ let svg,
     rowCount;
 
 function dotFactory(container, x, y, color) {
-    color = color || 'blue';
+    color = color || colors.colorSpendingPrimary;
 
     container.append('circle')
         .attr('cx', x)

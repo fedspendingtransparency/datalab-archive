@@ -1,3 +1,5 @@
+@import '../../colors';
+
 .viz-wrapper {
     position: relative;
 }
@@ -9,6 +11,42 @@
     width: 100%;
     opacity: 1;
     transition: opacity 1s ease;
+}
+
+.facts__section {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.facts__triggers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.facts__prompt {
+    margin-top: 0;
+}
+
+.facts__trigger {
+    display: block;
+    width: 49%;
+    border: 1px solid $color-spending-primary;
+    text-align: center;
+    margin-bottom: 2px;
+    background: white;
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.facts__trigger.facts__trigger--active {
+    background: $color-spending-primary;
+    color: white;
+}
+
+.facts__section.facts__section--active {
+    display: block;
+    opacity: 1;
 }
 
 .facts.facts--hidden {
@@ -69,20 +107,7 @@ main {
 #compare-options {
     padding: 1rem;
 
-    p {
-        margin-top: 0;
-    }
 
-    button {
-        display: block;
-        width: 100%;
-        border: 1px solid #ccc;
-        text-align: center;
-        margin-bottom: 2px;
-        background: blue;
-        color: white;
-        padding: 0.5rem;
-    }
 }
 
 @media only screen and (min-width: 960px) {
