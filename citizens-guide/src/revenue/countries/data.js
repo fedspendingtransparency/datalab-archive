@@ -1,5 +1,4 @@
 import { selectedCountries } from './selectedCountryManager';
-import CountryData from '../../../public/csv/revenue_gdp_by_country.csv';
 
 const masterData = {
     indexed: {},
@@ -8,6 +7,7 @@ const masterData = {
 };
 
 let config,
+    sourceData,
     activeSortFn,
     activeSortField,
     activeSortDirection = 'desc';
@@ -59,7 +59,7 @@ export function prepareData(_config) {
 
     activeSortField = config.amountField,
 
-        CountryData.forEach(r => {
+        sourceData.forEach(r => {
             masterData.countryList.push(r.country);
 
             masterData.indexed[r.country] = r;
@@ -90,4 +90,8 @@ export function getActiveSort() {
         activeSortField: activeSortField,
         activeSortDirection: activeSortDirection
     }
+}
+
+export function loadSourceData(d) {
+    sourceData = d;
 }
