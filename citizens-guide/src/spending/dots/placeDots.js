@@ -32,11 +32,11 @@ function readyDots() {
         .attr('opacity', 0);
 
     let i = 0,
-        top = 4000,
+        spendingTrillion = 4100,
         x = dotConstants.radius,
         y = 2;
 
-    for (i; i < top; i++) {
+    for (i; i < spendingTrillion; i++) {
         dotFactory(dotContainer, x, y);
         x += dotConstants.offset.x;
 

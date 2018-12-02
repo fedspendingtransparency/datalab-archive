@@ -15,7 +15,7 @@ function resizeSvg() {
 
 export function initGdp() {
     const svg = establishContainer(),
-        gdpCount = 19500;
+        gdpCount = 20700;
 
     gdpLayer = generateOverlay(gdpCount, svg.select('.main-container'), 'gdp-layer');
 
