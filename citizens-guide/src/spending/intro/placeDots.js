@@ -52,6 +52,8 @@ function readyDots() {
         .attr('opacity', 1)
         .on('end', revealCompare)
         .ease();
+
+    dotContainer.attr('data-rect-height', d3.select('g.spending-dots').node().getBoundingClientRect().height);
 }
 
 export function placeDots() {

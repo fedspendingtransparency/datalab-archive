@@ -11,6 +11,7 @@
     width: 100%;
     opacity: 1;
     transition: opacity 1s ease;
+    margin-bottom: 2rem;
 }
 
 .facts__section {
@@ -26,7 +27,10 @@
 
 .facts__prompt {
     margin-top: 0;
-}
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #555555;
+ } 
 
 .facts__trigger {
     display: block;
@@ -83,23 +87,14 @@ aside {
     }
 }
 
-.ticker {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    margin-bottom: 1rem;
-
-    h1 {
-        text-align: center
-    }
-
-    .footnote {
-        margin: 0;
-    }
+.tour {
+    max-width: 380px;
 }
 
 #viz {
     margin: 0 auto;
     width: auto;
+    overflow: hidden;
 }
 
 main {
@@ -110,20 +105,46 @@ main {
 
 #compare-options {
     padding: 1rem;
-
-
 }
 
 @media only screen and (min-width: 960px) {
-    aside {
-        width: 33%;
+    #viz {
+        width: 66%;
         float: left;
-        padding-right: 1rem;
+    }
+
+    .sidebar {
+        opacity: 1;
+        position: relative;
+        width: calc(34% - 1rem);
+        margin-left: calc(66% + 1rem);
+        transition: opacity 1s ease;
+        transform: translateY(30px);
+    }
+
+    .sidebar--hidden {
+        opacity: 0;
+    }
+
+    .facts {
+        top: 0;
+    }
+    
+    .facts__inner {
+        width: auto;
+        max-width: none;
+        margin: 0;
+        border-left: 3px solid $color-spending-primary;
+        box-shadow: none;
+    }
+
+    .tour {
         box-sizing: border-box;
     }
 
-    .viz-wrapper {
-        margin-left: 33%;
+    #compare-options {
+        padding-top: 0;
+        padding-right: 0;
     }
 }
 
