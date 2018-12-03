@@ -39,8 +39,7 @@ function addInfoIcon(anecdote){
         infoIconAlt = desiredAnecdoteProperties.infoIcon.alt || infoIconAlt;
     }
 
-    const icon = anecdote.insert('img').classed(infoIconClass, true).lower()
-        .attr('src', infoIconSrc)
+    const icon = anecdote.insert('div').classed(infoIconClass, true).lower()
         .attr('alt', infoIconAlt);
 }
 
@@ -177,7 +176,7 @@ function buildTrigger(anecdote){
         linkButtonText = desiredAnecdoteProperties.linkButtonText || defaultAnecdoteProperties.linkButtonText;
 
     const anecdoteButtonSection = anecdote.append('div').classed(linkButtonContainerClass,true),
-        anecdoteIconSection = anecdoteButtonSection.append('div').classed(linkButtonIconClass,true).text('&nbsp;'),
+        anecdoteIconSection = anecdoteButtonSection.append('div').classed(linkButtonIconClass,true),
         button = anecdoteButtonSection.append("button").classed(linkButtonClass,true).text(linkButtonText);
     anecdoteButtonSection.lower();
     anecdoteButtonSection.on("click", function(){

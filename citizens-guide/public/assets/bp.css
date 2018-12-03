@@ -17,19 +17,19 @@
   width: 11%; }
 
 .overview-chart__bar--revenue {
-  background-color: #585858;
+  background-color: #0A2F5A;
   top: 66px;
   right: 52%;
   height: 334px; }
 
 .overview-chart__bar--spending {
-  background-color: #686868;
+  background-color: #00766C;
   top: 0;
   left: 52%;
   height: 400px; }
 
 .overview-chart__bar--deficit {
-  background-color: #787878;
+  background-color: #B3532D;
   top: 0;
   right: 52%;
   height: 66px; }
@@ -96,7 +96,7 @@
   margin-top: 2rem; }
 
 .chapter__content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem 1rem;
   color: #666666; }
@@ -131,6 +131,34 @@
 .chapter--debt {
   background-color: white; }
 
+.chapter__divider--normal {
+  border-bottom: 1px solid #CCC;
+  max-width: 1400px;
+  margin: 0 auto; }
+
+.chapter__divider--median-treasury-logo {
+  background: url("./bp/treasury-background-second.jpg") 0 0 no-repeat;
+  background-size: 100% 300px;
+  height: 300px;
+  display: flex;
+  align-items: center; }
+  .chapter__divider--median-treasury-logo .chapter__divider--text-container {
+    width: 50%;
+    margin: 0 auto; }
+  .chapter__divider--median-treasury-logo .chapter__divider--text {
+    color: #222;
+    background: white;
+    font-size: 3.4rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    text-align: center; }
+
+.chapter__divider--text-deficit {
+  color: #B3532D; }
+
+.chapter__divider--text-debt {
+  color: #4A0072; }
+
 @media only screen and (min-width: 800px) {
   .chapter__content h1 {
     font-size: 2rem; }
@@ -143,39 +171,71 @@
     padding-right: 1rem;
     width: 50%; } }
 
+/*
+ * The max-width below is set to 1449px as the max-width of each section is set to 1400px, the left and right padding is
+ * 1rem each (or 16px, or 32 total) plus the size of the scrollbar on most browsers being 17px = 1449px. We don't have to worry
+ * much about tablets/phones as the ability to resize the browser is limited/denied and users won't see any behavior on the sectional divider.
+ */
+@media only screen and (max-width: 1449px) {
+  .chapter__divider--normal {
+    margin: 0 1rem; } }
+
 #revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button {
   color: #112e51; }
 
-#revenue-chapter .anecdote__link--button-icon, #revenue-chapter a.link-button {
+#revenue-chapter a.link-button {
   background-color: #112e51; }
+
+#revenue-chapter .anecdote__link--button-icon, #revenue-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-revenue.svg"); }
 
 #spending-chapter a.scroll-to.current, #spending-chapter button.anecdote__link--button {
   color: #00796B; }
 
-#spending-chapter .anecdote__link--button-icon, #spending-chapter a.link-button {
+#spending-chapter a.link-button {
   background-color: #00796B; }
 
-#deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button {
-  color: blue; }
-
-#deficit-chapter .anecdote__link--button-icon, #deficit-chapter a.link-button {
-  background-color: blue; }
+#spending-chapter .anecdote__link--button-icon, #spending-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-spending.svg"); }
 
 #debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button {
-  color: purple; }
+  color: #4A0072; }
 
-#debt-chapter .anecdote__link--button-icon, #debt-chapter a.link-button {
-  background-color: purple; }
+#debt-chapter a.link-button {
+  background-color: #4A0072; }
+
+#debt-chapter .anecdote__link--button-icon, #debt-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-debt.svg"); }
+
+#deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button {
+  color: #B3532D; }
+
+#deficit-chapter a.link-button {
+  background-color: #B3532D; }
+
+#deficit-chapter .anecdote__link--button-icon, #deficit-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-deficit.svg"); }
+
+section.chapter {
+  margin-bottom: 2rem; }
 
 a.link-button, button.link-button {
   background: none;
-  padding: 0.5rem 1rem;
   text-decoration: none;
   display: inline-block; }
 
+button.link-button {
+  font-size: 1.3rem;
+  font-weight: 600; }
+
 a.chapter__cta {
   color: white;
-  font-weight: bold; }
+  font-weight: 600;
+  padding: 1rem 1.3rem;
+  font-size: 1.5rem; }
+
+a.chapter__cta i.fa-angle-right {
+  margin-left: 1rem; }
 
 header {
   background: #FBFBFB;
@@ -203,10 +263,10 @@ h1.bp-header__heading {
   font-size: 3em; }
 
 .bp-header__collect--text {
-  color: #112e51; }
+  color: #0A2F5A; }
 
 .bp-header__spend--text {
-  color: #00796B; }
+  color: #006C6D; }
 
 .overview-chart {
   order: 1; }
