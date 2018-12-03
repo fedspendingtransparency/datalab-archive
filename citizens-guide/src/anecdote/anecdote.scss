@@ -74,6 +74,13 @@
         width: 100%;
         box-sizing: border-box;
         z-index: 1;
+        border:1px solid #E3E3E3;
+        box-shadow: 0 0 20px 10px #F3F3F3;
+        /*
+         * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+         */
+        margin-left: -22px;
+        margin-top: -3px;
     }
 
     .anecdote__contents.anecdote__contents--active {
@@ -87,20 +94,31 @@
     }
 
     .anecdote__link--button-container {
-        padding-left: 21px;
         padding-top: 5px;
+        margin-bottom:1.5rem;
+    }
+
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 20px;
+        display:inline-block;
     }
 
     .anecdote__link--button-icon {
-        -webkit-mask-image: url("../assets/icons/anecdote.svg");
-        -webkit-mask-repeat: no-repeat;
-        mask-image: url("../assets/icons/anecdote.svg");
-        mask-repeat: no-repeat;
-        width:20px;
-        display:inline-block;
+        margin-bottom:-4px;
+    }
 
-        //background: url('../assets/icons/anecdote.svg') 20px 13px  no-repeat;
-        //background-size: 20px 20px;
+    .anecdote__icon {
+        margin-bottom:-4px;
+        margin-left:0.5px;
+    }
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        .anecdote__icon {
+            margin-left:0;
+        }
     }
 
     .anecdote__illustration {
@@ -116,12 +134,9 @@
 /**
  * The following is "throw away" css, as this should be handled by the originator, and not the anecdote module.
  */
-    .anecdote__icon {
-        height:20px;
-        width:20px;
-    }
-    h1.anecdote__heading, a.anecdote__cta {
-        color:black;
+    a.anecdote__cta {
+        color:white;
+        font-weight:bold;
     }
     a.anecdote__cta {
         border-color:black;

@@ -1,10 +1,12 @@
 @import '../../colors.scss';
+@import './_bpVars.scss';
+
 .chapter .anecdote {
     margin-top: 2rem;
 }
 
 .chapter__content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 2rem 1rem;
     color: $text-color-paragraph;
@@ -51,6 +53,43 @@
     background-color: white;
 }
 
+.chapter__divider--normal {
+    border-bottom: 1px solid #CCC;
+    max-width:1400px;
+    margin:0 auto;
+}
+
+.chapter__divider--median-treasury-logo {
+
+    background: url('./bp/treasury-background-second.jpg') 0 0 no-repeat;
+    background-size: 100% 300px;
+    height: 300px;
+    display:flex;
+    align-items: center;
+
+    .chapter__divider--text-container {
+        width:50%;
+        margin: 0 auto;
+    }
+    .chapter__divider--text {
+        color: #222;
+        background: white;
+        font-size: 3.4rem;
+        padding: 0.5rem;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+.chapter__divider--text-deficit {
+    color:$deficitPrimary;
+}
+
+.chapter__divider--text-debt {
+    color:$debtPrimary;
+}
+
+
 @media only screen and (min-width: 800px) {
     .chapter__content {
         h1 {
@@ -72,36 +111,62 @@
         width: 50%;
     }
 }
+/*
+ * The max-width below is set to 1449px as the max-width of each section is set to 1400px, the left and right padding is
+ * 1rem each (or 16px, or 32 total) plus the size of the scrollbar on most browsers being 17px = 1449px. We don't have to worry
+ * much about tablets/phones as the ability to resize the browser is limited/denied and users won't see any behavior on the sectional divider.
+ */
+@media only screen and (max-width: 1449px) {
+    .chapter__divider--normal {
+        margin: 0 1rem;
+    }
+}
 
 #revenue-chapter {
     a.scroll-to.current, button.anecdote__link--button {
         color: $color-primary-darkest;
     }
-    .anecdote__link--button-icon, a.link-button {
+    a.link-button {
         background-color: $color-primary-darkest;
+    }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('../assets/icons/anecdote-revenue.svg');
     }
 }
 #spending-chapter {
     a.scroll-to.current, button.anecdote__link--button {
         color: $color-spending-primary;
     }
-    .anecdote__link--button-icon, a.link-button {
+    a.link-button {
         background-color: $color-spending-primary;
     }
-}
-#deficit-chapter {
-    a.scroll-to.current, button.anecdote__link--button {
-        color: $color-deficit-primary;
-    }
-    .anecdote__link--button-icon, a.link-button {
-        background-color: $color-deficit-primary;
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('../assets/icons/anecdote-spending.svg');
     }
 }
 #debt-chapter {
     a.scroll-to.current, button.anecdote__link--button {
         color: $color-debt-primary;
     }
-    .anecdote__link--button-icon, a.link-button {
+    a.link-button {
         background-color: $color-debt-primary;
     }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('../assets/icons/anecdote-debt.svg');
+    }
+}
+#deficit-chapter {
+    a.scroll-to.current, button.anecdote__link--button {
+        color: $color-deficit-primary;
+    }
+    a.link-button {
+        background-color: $color-deficit-primary;
+    }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('../assets/icons/anecdote-deficit.svg');
+    }
+}
+
+section.chapter {
+    margin-bottom: 2rem;
 }
