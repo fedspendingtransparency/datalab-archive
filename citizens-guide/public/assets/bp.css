@@ -150,22 +150,22 @@
   background-color: #112e51; }
 
 #spending-chapter a.scroll-to.current, #spending-chapter button.anecdote__link--button {
-  color: #00766C; }
+  color: #00796B; }
 
 #spending-chapter .anecdote__link--button-icon, #spending-chapter a.link-button {
-  background-color: #00766C; }
+  background-color: #00796B; }
 
 #deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button {
-  color: #B3532D; }
+  color: blue; }
 
 #deficit-chapter .anecdote__link--button-icon, #deficit-chapter a.link-button {
-  background-color: #B3532D; }
+  background-color: blue; }
 
 #debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button {
-  color: #4A0072; }
+  color: purple; }
 
 #debt-chapter .anecdote__link--button-icon, #debt-chapter a.link-button {
-  background-color: #4A0072; }
+  background-color: purple; }
 
 a.link-button, button.link-button {
   background: none;
@@ -206,7 +206,7 @@ h1.bp-header__heading {
   color: #112e51; }
 
 .bp-header__spend--text {
-  color: #00766C; }
+  color: #00796B; }
 
 .overview-chart {
   order: 1; }

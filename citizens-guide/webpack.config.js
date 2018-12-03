@@ -92,15 +92,9 @@ module.exports = [{
     }
 },{
     entry: {
-        bars: './src/spending/bars/index.js',
-        categoriesHybrid: './src/spending/categories-hybrid/index.js',
         categories: './src/spending/categories/index.js',
-        categoriesHorizontal: './src/spending/categories-horizontal/index.js',
-        categoriesVertical: './src/spending/categories-vertical/index.js',
         countryComparison: './src/spending/countries/index.js',
-        donut: './src/spending/donut/index.js',
-        dotsGdp: './src/spending/dots/index.js',
-        treemap: './src/spending/treemap/index.js',
+        intro: './src/spending/intro/index.js',
         trends: './src/spending/trends/index.js'
     },
     devtool: devtool,

@@ -7,7 +7,8 @@ const glob = require('glob');
 const fs = require('fs');
 
 const chapterNavMap = {
-    revenue: '../../layouts/partials/navRevenue.ejs'
+    revenue: '../../layouts/partials/navRevenue.ejs',
+    spending: '../../layouts/partials/navSpending.ejs'
 }
 
 function build() {
