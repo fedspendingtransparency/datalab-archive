@@ -4,7 +4,8 @@
 
 #show-hide-tray {
     position: absolute;
-    top: 0;
+    margin-top:10px;
+    max-width:450px;
     left: 0;
     padding: 1rem;
     border: 1px solid #ccc;
@@ -24,14 +25,16 @@
     align-content: flex-start;
 
     button {
-        width: 23%;
-        margin: 0 1rem 1rem 0;
-        min-height: 50px;
-        background: #ccc;
+        width: 100%;
+        margin: 0 0.5rem 0.2rem 0;
+        min-height:20px;
         border: none;
+        background:white;
+        text-align:left;
     }
 
     button.active {
-        background: #21c87a;
+        background-color: #00766C;
+        color:white;
     }
 }

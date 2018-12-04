@@ -1,5 +1,4 @@
 import { select, selectAll } from 'd3-selection';
-import './categories.scss';
 import { byYear } from '../data-spending';
 import { drawChart as barChart } from './bar/chart';
 import { establishContainer } from '../../utils';

@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
-import { extent } from 'd3-array';
+import { extent, min, max } from 'd3-array';
 import { transition } from 'd3-transition';
 import { zoom } from 'd3-zoom';
 import { establishContainer, translator } from "../../../utils";
@@ -10,7 +10,7 @@ import { initSort } from './sort';
 import { initOverlay } from './detailOverlay';
 import { optimizeWidth, scaleToFit } from './optimize-width';
 
-const d3 = { select, selectAll, scaleLinear, extent, transition, zoom },
+const d3 = { select, selectAll, scaleLinear, extent, min, max, transition, zoom },
     barAnimationTime = 1000,
     hoverDuration = 200,
     rowHeight = 50,
@@ -60,6 +60,8 @@ function drawBars(containers, config) {
             return config.scaleX(0);
         })
         .attr('width', function (d) {
+            d.barX1 = d3.max([config.scaleX(d.amount), config.scaleX(0)]);
+
             return config.scaleX(Math.abs(d.amount)) - config.scaleX(0);
         })
         .ease();
@@ -104,12 +106,12 @@ function placeContainers(config, detail) {
             return translator(0, i * rowHeight);
         });
 
-    if(!detail && config.showMoreInd){
+    if (!detail && config.showMoreInd) {
         const showMoreButton = d3.select('#showMoreContainer');
         const container = config.container;
         const containerDimensions = container.node().getBoundingClientRect();
-        showMoreButton.classed('hidden',false);
-        showMoreButton.on('click', function(){
+        showMoreButton.classed('hidden', false);
+        showMoreButton.on('click', function () {
             const curEl = d3.select(this);
             const showMoreInd = curEl.attr('showMoreInd') === 'false';
             curEl.attr('showMoreInd', showMoreInd);
@@ -119,11 +121,11 @@ function placeContainers(config, detail) {
         });
     }
 
-    config.barWidth = placeLabels(containers, config);
-
     setScales(config);
 
     drawBars(containers, config);
+
+    placeLabels(containers, config);
 
     if (!detail) {
         containers.on('click', function (d) {
@@ -152,6 +154,7 @@ export function drawChart(data, type, detail, parentWidth) {
 
     config.height = defaultDataSize * rowHeight;
     config.width = parentWidth || optimizeWidth();
+    config.barWidth = config.width / 2;
     config.data = data;
     config.rowHeight = rowHeight;
     config.detail = detail;
@@ -168,21 +171,29 @@ export function drawChart(data, type, detail, parentWidth) {
             .append('g').classed('pan-apply', true);
 
         placeContainers(config, detail);
-        //scaleToFit(config.svg);
 
         d3.select('g.pan-listen').call(d3.zoom().on("zoom", function () {
-            let xShift, yShift;
-            
+            let maxShift = config.svg.node().getBBox().width - config.width,
+                xShift,
+                yShift;
+
+
+            if (maxShift < 0) {
+                return;
+            }
+
             d3.getEvent = () => require("d3-selection").event;
 
             xShift = d3.getEvent().transform.x;
             yShift = d3.getEvent().transform.y;
 
             xShift = (xShift > 0) ? 0 : xShift;
-            
+
+            xShift = (Math.abs(xShift) > maxShift) ? 0 - maxShift : xShift;
+
             d3.select('g.pan-apply').attr("transform", translator(xShift, 0));
             d3.select('g.detail-layer').attr('transform', translator(0, yShift));
         }))
-        .on("wheel.zoom", null);
+            .on("wheel.zoom", null);
     }
 }

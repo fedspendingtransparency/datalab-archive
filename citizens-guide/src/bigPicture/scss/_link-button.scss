@@ -1,11 +1,21 @@
 a.link-button, button.link-button {
     background: none;
-    padding: 0.5rem 1rem;
     text-decoration: none;
     display: inline-block;
 }
 
+button.link-button {
+    font-size: 18px;
+    font-weight:600;
+}
+
 a.chapter__cta {
     color:white;
-    font-weight:bold;
+    font-weight:600;
+    padding:1rem 1.3rem;
+    font-size:21px;
+}
+
+a.chapter__cta i.fa-angle-right {
+    margin-left: 1rem;
 }

@@ -1,4 +1,5 @@
 @import '../../colors.scss';
+@import './_bpVars.scss';
 
 $headerBg: rgba(255,255,255,0.5);
 
@@ -34,11 +35,11 @@ h1.bp-header__heading {
 }
 
 .bp-header__collect--text {
-    color: $color-primary-darkest;
+    color: $revenuePrimary;
 }
 
 .bp-header__spend--text {
-    color: $color-spending-primary;
+    color: $collectHeaderTextColor;
 }
 
 .overview-chart {

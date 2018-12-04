@@ -1,11 +1,9 @@
 import { select, selectAll } from 'd3-selection';
 import { establishContainer } from '../../utils';
-import './dots.scss';
 import { placeDots } from "./placeDots";
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
-import { initTicker } from './ticker';
 import { resetForResize } from './compareManager';
 
 const d3 = { select, selectAll };
@@ -32,7 +30,6 @@ function resizeChart() {
 }
 
 initChart();
-initTicker();
 
 window.addEventListener('resize', function () {
     if (debounce) {

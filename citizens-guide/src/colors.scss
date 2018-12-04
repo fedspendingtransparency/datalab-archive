@@ -11,8 +11,11 @@ $text-color-paragraph: #666666;
 $parent-one: #3673BB;
 $color-gray-cool-light: #dce4ef;
 $color-spending-primary:#00796B;
-$color-deficit-primary: blue;
-$color-debt-primary: purple;
+$color-spending-trends:#004941;
+$color-spending-trend-lines:rgb(24,90,83);
+$color-spending-trend-circles:rgb(00,72,64);
+$color-deficit-primary:#B3532D;
+$color-debt-primary:#4A0072;
 
 :export {
     colorGrayDark: $color-gray-dark;
@@ -23,6 +26,9 @@ $color-debt-primary: purple;
     colorPrimaryAltLight: $color-primary-alt-light;
     colorPrimaryAltLightest: $color-primary-alt-lightest;
     colorSpendingPrimary: $color-spending-primary;
+    colorSpendingTrends: $color-spending-trends;
+    colorSpendingTrendLines: $color-spending-trend-lines;
+    colorSpendingTrendCircles: $color-spending-trend-circles;
     income: $income;
     parentOne: $parent-one;
     textColorHeading: $text-color-heading;

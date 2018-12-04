@@ -7,9 +7,7 @@ const d3 = { select, selectAll, max },
     parentWidth = getElementBox(parent).width;
 
 export function optimizeWidth(tree) {
-    const min = tree ? 700 : 400;
-
-    return d3.max([parentWidth, min]);
+    return parentWidth;
 }
 
 export function scaleToFit(svg) {
