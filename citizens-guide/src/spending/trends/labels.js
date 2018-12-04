@@ -147,7 +147,7 @@ function placeLabels(globals) {
         })
         .attr('x', 5)
         .attr('y', -20)
-        .attr('fill', colors.colorPrimaryDarker)
+        .attr('fill', colors.colorSpendingTrends)
         .each(function () {
             d3.select(this).lower();
         })

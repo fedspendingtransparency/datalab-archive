@@ -1,0 +1,50 @@
+.hidden {
+  display: none; }
+
+section.spending-categories__section-above-chart {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.spending-categories__header {
+  color: #555;
+  font-size: 3rem; }
+
+.chart-title {
+  margin-bottom: 1rem;
+  font-weight: 400; }
+
+.title-text {
+  color: #777;
+  font-size: 1.8rem; }
+
+.link-button__div {
+  display: inline-block;
+  border-bottom: 2px solid #00766c;
+  cursor: pointer; }
+  .link-button__div .link-button {
+    border: none;
+    background: none;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding-left: 0;
+    padding-bottom: 0;
+    font-weight: 600;
+    color: #666; }
+  .link-button__div .link-button__icon {
+    padding-left: 30px; }
+
+#activate-show-hide {
+  background-color: #00766C;
+  color: white;
+  font-size: 1.3rem;
+  border: 1px solid #00766C;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  outline: none; }
+  #activate-show-hide i {
+    margin-left: 5rem; }
+
+.hint {
+  margin-top: 0.5rem;
+  font-size: 1rem; }

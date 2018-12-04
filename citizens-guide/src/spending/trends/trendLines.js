@@ -17,7 +17,7 @@ function rescale(globals, duration) {
         .attr('d', function (d) { return lineFn(d.values, globals); })
         .style('stroke', function (d, i) {
             if (globals.noZoom || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
-                return colors.colorPrimaryDarker;
+                return colors.colorSpendingTrendLines;
             }
 
             return '#ddd';
@@ -59,7 +59,7 @@ export function trendLines(globals) {
         })
         .style('fill', 'none')
         .style('stroke', function (d, i) {
-            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? colors.colorPrimaryDarker : '#ddd';
+            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? colors.colorSpendingTrendLines : '#ddd';
         })
         .attr('stroke-width', 3);
 

@@ -27,7 +27,7 @@ function showTooltip(d, i) {
     g.raise()
 
     g.select('circle')
-        .attr('fill', colors.colorPrimaryDarker)
+        .attr('fill', colors.colorSpendingTrendCircles)
 
     tooltip.append('rect')
         .attr('width', width)
@@ -155,7 +155,7 @@ export function addTooltips(globals) {
         })
 
     dataDots.append('circle')
-        .attr('stroke', colors.colorPrimaryDarker)
+        .attr('stroke', colors.colorSpendingTrendCircles)
         .classed(dataDisc, true)
         .attr('fill', 'white')
         .attr('r', 4)

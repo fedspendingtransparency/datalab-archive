@@ -5,24 +5,31 @@ description: This is the text that goes in the meta description tag
 chapter: spending
 pageCss: spending-trends.css
 ---
-<h1><span class="strong">Federal Spending Trends over Time</span> From 2013 – 2017</h1>
+<section class='spending-categories__section-above-chart'>
+    <h1 class="spending-categories__header">Federal Spending Trends</h1>
 
-<button id="select-budget-function">Budget Function</button>
-<button id="select-agency">Agency</button>
+    <h2 class="chart-title">
+        <span class="title-text">Spending over Time by Source Categories by</span>
+        <div class="link-button__div">
+            <button class="link-button" id="select-budget-function">Budget Function</button>
+            <button class="link-button hidden" id="select-agency">Agency</button>
+            <i class='link-button__icon fa fa-angle-down'></i>
+        </div>
+    </h2>
 
-<h2 class="chart-title">Spending over Time by Category</h2>
-<div class="hint">Click a spending category to view more</div>
+    <div id="show-hide">
+        <button id="activate-show-hide">Filter <i class='fa fa-sliders-h'></i></button>
+        <div id="show-hide-tray">
+            <button id="select-all">select all</button>
+            <button id="select-none">select none</button>
 
-<div id="show-hide">
-    <button id="activate-show-hide">show/hide categories</button>
-    <div id="show-hide-tray">
-        <button id="select-all">select all</button>
-        <button id="select-none">select none</button>
-        
-        <div id="show-hide-list"></div>
-        <button id="show-hide-done">done</button>
+            <div id="show-hide-list"></div>
+            <button id="show-hide-done">done</button>
+        </div>
     </div>
-</div>
+
+    <div class="hint">Click a spending category to view more</div>
+</section>
 
 <div id="viz"></div>
 
