@@ -1,6 +1,5 @@
 import { select, selectAll } from 'd3-selection';
 import { establishContainer } from '../../utils';
-import './dots.scss';
 import { placeDots } from "./placeDots";
 import { startLegendAnimation } from './legend';
 import { setChartWidth, chartWidth } from './widthManager';
