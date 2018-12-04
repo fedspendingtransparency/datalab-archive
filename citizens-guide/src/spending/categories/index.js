@@ -13,6 +13,7 @@ const d3 = { select, selectAll },
 
 let svg,
     debounce,
+    top10 = true,
     chartType = 'bar',
     type = 'function';
 
@@ -26,20 +27,29 @@ function initSection() {
     initChart();
 }
 
-function initChart(filteredData) {
-    const chartData = filteredData || data[type];
+function initChart(filteredData, showAll) {
+    const d = filteredData || data[type],
+        chartData = top10 ? d.slice(0,9) : d;
 
     d3.selectAll('svg').remove();
     barChart(chartData, type);
 }
 
+function showMore() {
+    top10 = !top10;
+
+    this.innerText = top10 ? 'Show More' : 'Show Less';  
+    
+    initChart()
+}
+
 d3.select('.link-button__div')
-    .on('click', function(){
+    .on('click', function () {
         const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden');
         const buttonId = sectionToLoad.attr('id');
         const isAgencyLoadingInd = buttonId.search('agency') > 0;
 
-        if(isAgencyLoadingInd){
+        if (isAgencyLoadingInd) {
             type = 'agency';
             selectAgency.classed('hidden', false);
             selectBudgetFunction.classed('hidden', true);
@@ -61,7 +71,8 @@ d3.select('#filter-by-name')
         initChart(filtered)
     });
 
-
+d3.select('#show-more-button')
+    .on('click', showMore);
 
 initSection();
 

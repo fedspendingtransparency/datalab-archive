@@ -106,20 +106,20 @@ function placeContainers(config, detail) {
             return translator(0, i * rowHeight);
         });
 
-    if (!detail && config.showMoreInd) {
-        const showMoreButton = d3.select('#showMoreContainer');
-        const container = config.container;
-        const containerDimensions = container.node().getBoundingClientRect();
-        showMoreButton.classed('hidden', false);
-        showMoreButton.on('click', function () {
-            const curEl = d3.select(this);
-            const showMoreInd = curEl.attr('showMoreInd') === 'false';
-            curEl.attr('showMoreInd', showMoreInd);
-            const buttonText = !showMoreInd ? 'See Less' : 'See More';
-            container.attr('height', showMoreInd ? defaultRowsToShow * rowHeight : config.data.length * rowHeight);
-            curEl.select('button').text(buttonText);
-        });
-    }
+    // if (!detail && config.showMoreInd) {
+    //     const showMoreButton = d3.select('#showMoreContainer');
+    //     const container = config.container;
+    //     const containerDimensions = container.node().getBoundingClientRect();
+    //     showMoreButton.classed('hidden', false);
+    //     showMoreButton.on('click', function () {
+    //         const curEl = d3.select(this);
+    //         const showMoreInd = curEl.attr('showMoreInd') === 'false';
+    //         curEl.attr('showMoreInd', showMoreInd);
+    //         const buttonText = !showMoreInd ? 'See Less' : 'See More';
+    //         container.attr('height', showMoreInd ? defaultRowsToShow * rowHeight : config.data.length * rowHeight);
+    //         curEl.select('button').text(buttonText);
+    //     });
+    // }
 
     setScales(config);
 
@@ -144,21 +144,20 @@ function placeContainers(config, detail) {
 }
 
 export function drawChart(data, type, detail, parentWidth) {
-    const config = {};
+    const config = {},
+        showMoreInd = data.length > defaultRowsToShow,
+        defaultDataSize = showMoreInd ? defaultRowsToShow : data.length;
 
     if (!data.length) {
         return;
     }
-    const showMoreInd = data.length > defaultRowsToShow;
-    const defaultDataSize = showMoreInd ? defaultRowsToShow : data.length;
-
-    config.height = defaultDataSize * rowHeight;
+    
+    config.height = data.length * rowHeight;
     config.width = parentWidth || optimizeWidth();
     config.barWidth = config.width / 2;
     config.data = data;
     config.rowHeight = rowHeight;
     config.detail = detail;
-    config.showMoreInd = showMoreInd;
 
     initSort(config);
 
@@ -176,7 +175,6 @@ export function drawChart(data, type, detail, parentWidth) {
             let maxShift = config.svg.node().getBBox().width - config.width,
                 xShift,
                 yShift;
-
 
             if (maxShift < 0) {
                 return;
