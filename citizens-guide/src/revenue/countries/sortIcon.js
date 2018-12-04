@@ -17,6 +17,8 @@ const d3 = { select },
     barAnimation = 400,
     colorInactive = '#ddd';
 
+let colorPrimary, legendIconExists;
+
 function setIconColor(k) {
     const activeSort = this;
 
@@ -24,14 +26,14 @@ function setIconColor(k) {
         .transition()
         .duration(colorFade)
         .attr('stroke', function () {
-            return (k === activeSort.activeSortField) ? colors.colorPrimary : colorInactive;
+            return (k === activeSort.activeSortField) ? colorPrimary : colorInactive;
         })
 
     sortIcons[k].selectAll('polygon')
         .transition()
         .duration(colorFade)
         .attr('fill', function () {
-            return (k === activeSort.activeSortField) ? colors.colorPrimary : colorInactive;
+            return (k === activeSort.activeSortField) ? colorPrimary : colorInactive;
         })
 }
 
@@ -61,14 +63,16 @@ function setSortDirection(k) {
     }
 }
 
-(function addIconToLegend(){
+function addIconToLegend() {
     const placeholder = d3.select('.sort-button-placeholder');
 
-    renderSortIcon(placeholder, 'legend');
+    legendIconExists = true;
 
-    placeholder.selectAll('line').attr('stroke', colors.colorPrimary);
-    placeholder.selectAll('polygon').attr('fill', colors.colorPrimary);
-})();
+    renderSortIcon(placeholder, 'legend', colorPrimary);
+
+    placeholder.selectAll('line').attr('stroke', colorPrimary);
+    placeholder.selectAll('polygon').attr('fill', colorPrimary);
+}
 
 export function updateIcons() {
     const activeSort = getActiveSort(),
@@ -76,17 +80,19 @@ export function updateIcons() {
 
     iconKeys.forEach(setIconColor, activeSort);
 
-    setTimeout(function(){
+    setTimeout(function () {
         iconKeys.forEach(setSortDirection, activeSort);
-    },colorFade);
+    }, colorFade);
 
 }
 
-export function renderSortIcon(container, legend) {
+export function renderSortIcon(container, legend, color) {
     const parent = (legend) ? container.append('svg').attr('width', 18).attr('height', 16) : d3.select(container),
         parentBox = (legend) ? null : getElementBox(parent),
         sortType = parent.attr('data-type'),
         iconGroup = parent.append('g');
+
+    colorPrimary = color;
 
     if (!legend) {
         iconGroup.attr('transform', translator(parentBox.width + 16, 8 + iconHeight));
@@ -129,5 +135,9 @@ export function renderSortIcon(container, legend) {
 
     if (!legend) {
         sortIcons[sortType] = iconGroup;
+    }
+
+    if (!legendIconExists) {
+        addIconToLegend();
     }
 }

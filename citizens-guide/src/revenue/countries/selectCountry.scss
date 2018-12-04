@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 $primaryColor: #4A90E2;
 
 #viz.country {
@@ -29,6 +31,25 @@ $primaryColor: #4A90E2;
 
     &:hover {
         background-color: darken($primaryColor, 10);
+    }
+}
+
+.spending-country {
+    .trigger-button {
+        background-color: $color-spending-primary;
+        border-color: $color-spending-primary;
+
+        &:hover {
+            background-color: darken($color-spending-primary, 10);
+        }
+    }
+
+    .list-div li {
+        background-color: $color-spending-primary;
+        
+        &:hover {
+            background-color: darken($color-spending-primary, 10);
+        }
     }
 }
 

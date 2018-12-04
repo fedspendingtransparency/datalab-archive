@@ -36,24 +36,29 @@ function findMaxWidth() {
 
 export function placeLabels(containers, config) {
     const text = containers.append('text')
-            .text(function (d) {
-                return d.activity;
-            })
-            .attr('x', 0)
-            .attr('y', 20)
-            .attr('font-size', 16)
-            .attr('font-weight', '600')
-            .attr('fill', 'black');
+        .text(function (d) {
+            return d.activity;
+        })
+        .attr('x', function (d) {
+            return d.barX1 + 20;
+        })
+        .attr('y', 20)
+        .attr('font-size', 14)
+        .attr('font-weight', '600')
+        .attr('fill', 'black');
 
     let xOffset;
 
     maxTextWidth = 0;
 
     text.append('tspan')
-        .attr('font-size', 16)
+        .attr('font-size', 14)
         .classed('details', true)
         .attr('dy', 20)
-        .attr('x', 0)
+        .attr('font-weight', '300')        
+        .attr('x', function (d) {
+            return d.barX1 + 20;
+        })
         .text(function (d, i) {
             let p = parseInt(d.percent_total);
 
@@ -66,10 +71,10 @@ export function placeLabels(containers, config) {
 
     text.each(findMaxWidth);
 
-    xOffset = config.width - maxTextWidth;
+    //xOffset = config.width - maxTextWidth;
 
-    text.attr('x', xOffset);
-    text.selectAll('tspan').attr('x', xOffset);
+    // text.attr('x', xOffset);
+    // text.selectAll('tspan').attr('x', xOffset);
 
-    return xOffset - 10;
+    //return xOffset - 10;
 }
