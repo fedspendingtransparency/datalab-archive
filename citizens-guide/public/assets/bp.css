@@ -88,9 +88,14 @@
   margin: 0;
   padding: 0; }
   .toc a {
-    color: #666666; }
+    color: #666666;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: SourceSansPro; }
   .toc a.current {
     font-weight: 600; }
+  .toc strong {
+    font-weight: 900; }
 
 .chapter .anecdote {
   margin-top: 2rem; }
@@ -105,7 +110,8 @@
     color: #555555;
     font-size: 1.4rem; }
   .chapter__content p {
-    color: #666666; }
+    color: #666666;
+    font-size: 0.95rem; }
 
 .chapter__big-number {
   display: block;
@@ -117,7 +123,7 @@
 
 .chapter__chart img {
   width: 100%;
-  height: 100%; }
+  height: auto; }
 
 .chapter--revenue {
   background-color: white; }
@@ -138,20 +144,28 @@
 
 .chapter__divider--median-treasury-logo {
   background: url("./bp/treasury-background-second.jpg") 0 0 no-repeat;
-  background-size: 100% 300px;
-  height: 300px;
+  background-size: 100% 250px;
+  height: 250px;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  opacity: 0.7;
+  background-color: #FFF; }
   .chapter__divider--median-treasury-logo .chapter__divider--text-container {
     width: 50%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    background-color: #FFF; }
   .chapter__divider--median-treasury-logo .chapter__divider--text {
-    color: #222;
-    background: white;
-    font-size: 3.4rem;
-    padding: 0.5rem;
+    width: 850px;
+    height: 118px;
+    font-family: SourceSansPro;
+    font-size: 47px;
     font-weight: 600;
-    text-align: center; }
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #222222; }
 
 .chapter__divider--text-deficit {
   color: #B3532D; }
@@ -168,8 +182,17 @@
     display: block;
     width: 50%; }
   .chapter__primary {
-    padding-right: 1rem;
+    padding-right: 7rem;
     width: 50%; } }
+
+@media only screen and (max-width: 1200px) {
+  .chapter__divider--median-treasury-logo {
+    background-size: 100% 400px;
+    height: 400px; }
+    .chapter__divider--median-treasury-logo .chapter__divider--text-container {
+      width: 90%; }
+    .chapter__divider--median-treasury-logo .chapter__divider--text {
+      font-size: 2.8rem; } }
 
 /*
  * The max-width below is set to 1449px as the max-width of each section is set to 1400px, the left and right padding is
@@ -225,14 +248,14 @@ a.link-button, button.link-button {
   display: inline-block; }
 
 button.link-button {
-  font-size: 1.3rem;
+  font-size: 18px;
   font-weight: 600; }
 
 a.chapter__cta {
   color: white;
   font-weight: 600;
   padding: 1rem 1.3rem;
-  font-size: 1.5rem; }
+  font-size: 21px; }
 
 a.chapter__cta i.fa-angle-right {
   margin-left: 1rem; }
@@ -300,7 +323,9 @@ html {
   transform: translateY(84px); }
 
 .historical-quote {
-  margin: 3rem 1rem; }
+  padding: 3rem 1rem;
+  background-color: #F9F9F9;
+  border-top: 1px solid #EEE; }
   .historical-quote blockquote {
     font-size: 1.8rem;
     max-width: 900px;
