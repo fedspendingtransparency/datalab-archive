@@ -37,7 +37,7 @@ export function createDonut(container, percent, diameter, fillColor) {
     });
 
     g.append('text')
-        .text(fractionToPercent(percent))
+        .text(Math.round(percent * 100) + '%')
         .attr('fill', colors.textColorParagraph)
         .attr('font-size', diameter/4)
         .attr('text-anchor', 'middle')

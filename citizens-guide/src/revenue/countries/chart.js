@@ -206,7 +206,7 @@ function placeGdpFigures() {
                 return translator(dimensions.gdpColumnWidth / 2 - donutRadius, i * dimensions.rowHeight + dimensions.rowHeight / 2 - donutRadius);
             })
             .each(function (d) {
-                createDonut(d3.select(this), d[config.gdpField], donutRadius * 2, colors.colorPrimary);
+                createDonut(d3.select(this), d[config.gdpField]/100, donutRadius * 2, colors.colorPrimary);
             });
     }, timeoutForAdd);
 }
