@@ -27,7 +27,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     containers = {},
     sortIcons = {};
 
-let xAxis, data, sortFunction, amountIcon, gdpIcon, config;
+let xAxis, data, sortFunction, amountIcon, gdpIcon, config, primaryColor;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
@@ -103,9 +103,9 @@ function addBarGroups() {
         .attr('height', dimensions.barHeight)
         .attr('x', 0)
         .attr('y', dimensions.rowHeight / 2 - dimensions.barHeight / 2)
-        .attr('fill', colors.income)
+        .attr('fill', primaryColor)
         .attr('fill-opacity', 0.5)
-        .attr('stroke', colors.income)
+        .attr('stroke', primaryColor)
         .attr('stroke-width', 1)
         .transition()
         .duration(barFadeTime)
@@ -206,7 +206,7 @@ function placeGdpFigures() {
                 return translator(dimensions.gdpColumnWidth / 2 - donutRadius, i * dimensions.rowHeight + dimensions.rowHeight / 2 - donutRadius);
             })
             .each(function (d) {
-                createDonut(d3.select(this), d[config.gdpField]/100, donutRadius * 2, colors.colorPrimary);
+                createDonut(d3.select(this), d[config.gdpField] / 100, donutRadius * 2, primaryColor);
             });
     }, timeoutForAdd);
 }
@@ -253,7 +253,7 @@ function placeLegends(config) {
         .on('click', sort)
         .attr('style', 'cursor:pointer')
         .each(function () {
-            renderSortIcon(this);
+            renderSortIcon(this, null, primaryColor);
         })
 
     updateIcons();
@@ -338,6 +338,8 @@ export function refreshData(sortField, countriesUpdated) {
 
 export function chartInit(_config) {
     config = _config;
+
+    primaryColor = config.chapter === 'spending' ? colors.colorSpendingPrimary : colors.income;
 
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);

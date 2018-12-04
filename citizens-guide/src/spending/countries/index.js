@@ -10,7 +10,8 @@ const spendingConfig = {
     amountField: 'spending_usd',
     gdpField: 'spending_gdp',
     amountLabel: 'Spending',
-    sourceFields: ['spending_source','gdp_source'],    
+    sourceFields: ['spending_source', 'gdp_source'],
+    chapter: 'spending',
     defaultCountries: [
         'United States',
         'China',
