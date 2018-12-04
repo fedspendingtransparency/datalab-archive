@@ -43,7 +43,8 @@ function buildCompletePage(layout, pageData, pageContent) {
             body: pageContent,
             chapter: pageData.chapter,
             navPath: pageData.chapterNav,
-            assetPath: pageData.assetPath
+            assetPath: pageData.assetPath,
+            pageCss: pageData.attributes.pageCss
         }),
         {
             filename: pageData.outputFilename
