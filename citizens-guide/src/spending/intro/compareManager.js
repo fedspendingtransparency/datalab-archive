@@ -25,8 +25,34 @@ function setLayerOpacity(id, active) {
         });
 }
 
+function handleGdpLayer(reset) {
+    const x = reset ? 0 : chartWidth * 0.25,
+        scale = reset ? 1 : 0.5,
+        stepTwoOpacity = reset ? 0 : 1,
+        mainContainer = d3.select('.main-container');
+
+    if (reset && !mainContainer.classed('gdp-active', !reset)) {
+        console.log('no need')
+        return;
+    }
+
+    mainContainer.classed('gdp-active', !reset);
+    
+    mainContainer.transition()
+        .duration(2000)
+        .attr('transform', translator(x, 30) +  ' scale(' + scale + ')')
+        .ease();
+
+    d3.selectAll('.gdp-step-two').transition()
+        .delay(1000)
+        .duration(1500)
+        .attr('opacity', stepTwoOpacity)
+        .ease();
+}
+
 function toggleFacts() {
     const button = d3.select(this),
+        desktop = (document.documentElement.clientWidth > 959),
         id = button.attr('data-trigger-id'),
         targetSection = d3.select(idMap[id]),
         wasPreviouslyActive = button.classed(buttonActive);
@@ -45,7 +71,13 @@ function toggleFacts() {
     }
 
     resizeSvg((id === 'gdp' && !wasPreviouslyActive));
-}
+
+    if (id === 'gdp' && !wasPreviouslyActive && desktop) {
+        handleGdpLayer();
+    } else if (desktop) {
+        handleGdpLayer(true);
+    }
+ }
 
 function resizeSvg(gdp) {
     const h = gdp ? gdpHeight : originalHeight;
@@ -90,7 +122,7 @@ export function registerLayer(id, layer, n) {
     layers[id] = layer;
 
     if (n) {
-        gdpHeight = n;
+        gdpHeight = n / 2;
     } else if (!originalHeight) {
         originalHeight = d3.select('g.spending-dots').node().getBoundingClientRect().height;
     }
