@@ -10,6 +10,49 @@ section.spending-categories__section-above-chart {
   color: #555;
   font-size: 3rem; }
 
+.spending-categories__page-information {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center; }
+
+.spending-categories__page-information--text {
+  width: 60%;
+  padding-right: 3rem;
+  font-size: 1rem;
+  color: #999;
+  display: inline-block; }
+  .spending-categories__page-information--text div {
+    margin-bottom: 1rem; }
+
+.spending-categories__page-information--explore {
+  width: 39%;
+  border: 1px solid #EEE;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 3px #EEE;
+  padding: 1rem; }
+  .spending-categories__page-information--explore .spending-categories__explore-header {
+    color: #666;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem; }
+  .spending-categories__page-information--explore .spending-categories__explore-text {
+    color: #999;
+    font-size: 1rem;
+    margin-bottom: 1rem; }
+  .spending-categories__page-information--explore button {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    background-color: #0D4570; }
+    .spending-categories__page-information--explore button i {
+      margin-left: 3rem; }
+
+.spending-categories__section-above-chart .tour__link {
+  background-color: #0D4570; }
+  .spending-categories__section-above-chart .tour__link :hover {
+    background-color: #115C95; }
+
 .chart-title {
   margin-bottom: 1rem;
   font-weight: 400; }
