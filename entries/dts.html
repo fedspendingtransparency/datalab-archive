@@ -70,7 +70,7 @@ category: nonentry
       <div class="dts-brush-date-separator">—</div>
       <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
     </div>
-    <svg id="svg-wrapper" width="750" height="500" viewBox="0 0 750 500"></svg>
+    <svg id="svg-wrapper" width="750" height="400" viewBox="0 0 750 400"></svg>
   </div>
   <div class="viz-tsbfy-container">
     <div class="viz-tsbfy-header">
@@ -112,7 +112,7 @@ const lineColors = [ "#00c3c2", "#2E7070", "#4CABAC", "#76D2D3" ]
 
 const svg = d3.select("#svg-wrapper"),
   margin = { top: 20, right: 20, bottom: 110, left: 60 },
-  margin2 = { top: 430, right: 20, bottom: 30, left: 60 },
+  margin2 = { top: 330, right: 20, bottom: 30, left: 60 },
   width = +svg.attr("width") - margin.left - margin.right,
   height = +svg.attr("height") - margin.top - margin.bottom,
   height2 = +svg.attr("height") - margin2.top - margin2.bottom;
@@ -337,7 +337,7 @@ function createBarChart(yearToSpendingArray) {
       .attr("class", "axis bar-axis axis--y")
       .call(d3.axisLeft(y).tickFormat(dollarFormatter));
 
-  const barSub = 25;
+  const barSub = 20;
 
   g.selectAll(".bar")
     .data(data)
@@ -799,19 +799,21 @@ function createMasterMapping() {
     combinedFYTD.push.apply(combinedFYTD, optionsDict[cateName]["fytd"]);
   }
 
-  console.log(combinedToday);
-
   let combinedDailyValues = getCombinedCategory(combinedToday);
   let combinedMTDValues = getCombinedCategory(combinedMTD);
   let combinedFYTDValues = getCombinedCategory(combinedFYTD);
-
-  console.log(combinedDailyValues);
   
   for (let cateName of medicareGrouping.categories) { // Only get combined for the medicare grouping
     masterMapping[cateName]["today"].push({ "name": "Combined", values: combinedDailyValues, date: medicareGrouping.date, footnote: medicareGrouping.footnote, color: lineColors[lineColors.length - 1] });
     masterMapping[cateName]["mtd"].push({ "name": "Combined", values: combinedMTDValues, date: medicareGrouping.date, footnote: medicareGrouping.footnote, color: lineColors[lineColors.length - 1] });
     masterMapping[cateName]["fytd"].push({ "name": "Combined", values: combinedFYTDValues, date: medicareGrouping.date, footnote: medicareGrouping.footnote, color: lineColors[lineColors.length - 1] });
   }
+}
+
+function getFiscalYear(theDate) {
+  let fullYear = theDate.getFullYear();
+
+  return theDate.getMonth() + 1 >= 10 ? fullYear + 1 : fullYear;
 }
 
 function getYearToSpendingArray(allCategoriesFYTD) {
@@ -822,12 +824,12 @@ function getYearToSpendingArray(allCategoriesFYTD) {
     let nextItem = allCategoriesFYTD[i + 1];
 
     if (nextItem.value < curItem.value) { // End of fiscal year
-      yearToSpendingArray.push({ year: curItem.date.getFullYear().toString(), spending: curItem.value });
+      yearToSpendingArray.push({ year: getFiscalYear(curItem.date).toString(), spending: curItem.value });
     }
   }
 
   let latestForCurrentYear = allCategoriesFYTD[allCategoriesFYTD.length - 1];
-  yearToSpendingArray.push({ year: latestForCurrentYear.date.getFullYear().toString(), spending: latestForCurrentYear.value });
+  yearToSpendingArray.push({ year: getFiscalYear(latestForCurrentYear.date).toString(), spending: latestForCurrentYear.value });
 
   return yearToSpendingArray;
 }

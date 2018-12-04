@@ -31,7 +31,8 @@
 .axis text {
   font-family: "Source Sans Pro";
   fill: #494949;
-  font-size: 14px;
+  font-size: 13px;
+  letter-spacing: 0;
 }
 
 .bar-axis text {
@@ -186,22 +187,26 @@
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  margin-bottom: 8%;
 }
 
 #viz-tsbfy-wrapper {
   width: 300px;
-  height: 156px;
+  height: 175px;
 }
 
 .viz-tsbfy-header {
   display: flex;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 20px 32px;
   justify-content: space-around;
+  width: 80%;
 }
 
 .viz-tsbfy-header-text {
-  font-size: 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #484848;
+  line-height: 20px;
 }
 
 .viz-tsbfy-header-view-buttons {
@@ -211,7 +216,7 @@
 .viz-tsbfy-bar-view, .viz-tsbfy-table-view {
   height: 40px;
   cursor: pointer;
-  margin: 0 10px;
+  margin: 0 3px;
   background-color: #fafafa;
   border-radius: 50%;
 }
@@ -430,11 +435,12 @@
 .dts-disclaimer {
   margin-left: 185px;
   width: 80%;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: .25px;
   text-align: center;
   color: #999;
   margin-bottom: 25px;
+  line-height: 20px;
 }
 
 .dts-footnote-rect {
