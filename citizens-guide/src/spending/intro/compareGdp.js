@@ -35,7 +35,7 @@ function placeLegend(g) {
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
             .attr('y', 0)
-            .style('font-size', '32px');
+            .style('font-size', 24);
 
     legendContainer.append('path')
         .attr('d', line(lineData))
@@ -59,11 +59,11 @@ function placeLegend(g) {
 function placeDonut(g) {
     const y = d3.select('.spending-dots').attr('data-rect-height'),
         r = 50,
-        x = chartWidth - r * 2,
+        x = chartWidth - (r + 25) * 1.2,
         donutContainer = g.append('g')
             .classed('gdp-step-two', true)
             .attr('opacity', 0)
-            .attr('transform', translator(x, y - r * 2) + ' scale(2)');
+            .attr('transform', translator(x, y - r * 2 + 5) + ' scale(1.67)');
 
     donutContainer.append('circle')
         .attr('fill', 'white')

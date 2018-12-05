@@ -26,13 +26,12 @@ function setLayerOpacity(id, active) {
 }
 
 function handleGdpLayer(reset) {
-    const x = reset ? 0 : chartWidth * 0.25,
-        scale = reset ? 1 : 0.5,
+    const x = reset ? 0 : chartWidth * 0.5 - (chartWidth * 0.6 / 2),
+        scale = reset ? 1 : 0.6,
         stepTwoOpacity = reset ? 0 : 1,
         mainContainer = d3.select('.main-container');
 
     if (reset && !mainContainer.classed('gdp-active', !reset)) {
-        console.log('no need')
         return;
     }
 
@@ -122,7 +121,7 @@ export function registerLayer(id, layer, n) {
     layers[id] = layer;
 
     if (n) {
-        gdpHeight = n / 2;
+        gdpHeight = n * 0.6;
     } else if (!originalHeight) {
         originalHeight = d3.select('g.spending-dots').node().getBoundingClientRect().height;
     }
