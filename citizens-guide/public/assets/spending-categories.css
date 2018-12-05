@@ -150,7 +150,8 @@ main {
     padding: 0.25rem 0.2rem;
     border: 0;
     outline: none;
-    width: calc(100% - 0.6rem); }
+    width: calc(100% - 0.6rem);
+    margin-top: 1px; }
   .bar-controls__right .spending__search--icon {
     position: relative;
     z-index: 1;
