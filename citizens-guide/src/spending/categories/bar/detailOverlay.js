@@ -153,10 +153,26 @@ export function initOverlay(title, config, callback) {
         .attr('transform', translator(overlayPadding, detailLayerYOffset))
         .classed('detail-chart', true);
 
+    //match current sort if needed
+    if (d3.select('#sort-name').classed('active')) {
+        config.data.sort((a, b) => {
+            if (b.activity < a.activity) {
+                return 1;
+            }
+
+            if (b.activity > a.activity) {
+                return -1;
+            }
+
+            return 0;
+        })
+    }
+
     detailLayer.transition()
         .duration(750)
         .attr('transform', translator(5, setOverlayY(startCoords[1], finalRectHeight)) + ' scale(1)')
         .on('end', function () {
+            console.log(config.data)
             callback(config, true)
         })
         .ease();
