@@ -119,6 +119,8 @@ main {
         border:0;
         outline:none;
         width:calc(100% - 0.6rem);
+        //The following is required for Safari browser as the input covers the border of the parent div
+        margin-top: 1px;
     }
 
     .spending__search--icon {
