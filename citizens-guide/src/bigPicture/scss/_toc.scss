@@ -7,15 +7,11 @@
 
     a {
         color: $text-color-paragraph;
-        font-size:0.85rem;
-        font-weight:600;
-        font-family:SourceSansPro;
+        opacity:0.4;
     }
 
     a.current {
         font-weight: $boldWeight;
-    }
-    strong {
-        font-weight:900;
+        opacity:1;
     }
 }

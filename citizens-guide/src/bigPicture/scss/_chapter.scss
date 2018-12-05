@@ -20,6 +20,16 @@
     p {
         color: $text-color-paragraph;
         font-size:0.95rem;
+
+        &.chapter__chart--reference {
+            font-size: 0.8rem;
+            text-align: center;
+            font-style: italic;
+
+            a {
+                color: rgb(119, 171, 232);
+            }
+        }
     }
 }
 
@@ -62,24 +72,29 @@
 
 .chapter__divider--median-treasury-logo {
 
-    background: url('./bp/treasury-background-second.jpg') 0 0 no-repeat;
+    background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
     background-size: 100% 250px;
     height: 250px;
-    display:flex;
-    align-items: center;
-    opacity:0.7;
-    background-color:#FFF;
+    background-color: #FFF;
+
+    .chapter__divider--median-flex-container {
+        margin-top: 50px;
+        display: flex;
+        align-items: space-between;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 200px;
+        padding-top: 50px;
+    }
 
     .chapter__divider--text-container {
-        width:50%;
         margin: 0 auto;
+        padding:0 1rem;
         background-color:#FFF;
     }
     .chapter__divider--text {
-        width: 850px;
-        height: 118px;
-        font-family: SourceSansPro;
-        font-size: 47px;
+        font-size: 52px;
         font-weight: 600;
         font-style: normal;
         font-stretch: normal;
@@ -87,6 +102,21 @@
         letter-spacing: normal;
         text-align: center;
         color: #222222;
+
+        strong, span {
+            font-weight:900;
+        }
+    }
+    .chapter__divider--arrow-container {
+        text-align: center;
+
+        a {
+            color:$text-color-paragraph;
+        }
+        i {
+            text-align: center;
+            font-size: 2em;
+        }
     }
 }
 
@@ -97,6 +127,17 @@
 .chapter__divider--text-debt {
     color:$debtPrimary;
 }
+
+.chapter__primary {
+   h1 {
+       font-weight:600;
+   }
+   span.chapter__big-number {
+       font-weight:900;
+       display:block;
+   }
+}
+
 
 
 @media only screen and (min-width: 800px) {
@@ -126,6 +167,17 @@
         background-size: 100% 400px;
         height: 400px;
 
+        .chapter__divider--median-flex-container {
+            margin-top: 50px;
+            display: flex;
+            align-items: space-between;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            flex-direction: column;
+            height: 325px;
+            padding-top: 75px;
+        }
+
         .chapter__divider--text-container {
             width:90%;
         }
@@ -146,7 +198,7 @@
 }
 
 #revenue-chapter {
-    a.scroll-to.current, button.anecdote__link--button {
+    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-primary-darkest;
     }
     a.link-button {
@@ -157,7 +209,7 @@
     }
 }
 #spending-chapter {
-    a.scroll-to.current, button.anecdote__link--button {
+    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-spending-primary;
     }
     a.link-button {
@@ -168,7 +220,7 @@
     }
 }
 #debt-chapter {
-    a.scroll-to.current, button.anecdote__link--button {
+    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-debt-primary;
     }
     a.link-button {
@@ -179,7 +231,7 @@
     }
 }
 #deficit-chapter {
-    a.scroll-to.current, button.anecdote__link--button {
+    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-deficit-primary;
     }
     a.link-button {

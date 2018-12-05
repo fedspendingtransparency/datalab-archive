@@ -25,25 +25,35 @@ header {
 
 h1.bp-header__heading {
     color:#111;
-    font-size:60px;
-    text-shadow: 0 2px 2px #333;
+    font-size:65px;
     font-weight:600;
 }
 
 .bp-scroll-down__div {
-    font-size:3em;
+    a {
+        color:$text-color-paragraph;
+    }
+    i {
+        font-size: 2em;
+    }
 }
 
 .bp-header__collect--text {
     color: $revenuePrimary;
+    font-weight:900;
 }
 
 .bp-header__spend--text {
     color: $collectHeaderTextColor;
+    font-weight:900;
 }
 
 .overview-chart {
     order: 1;
+}
+
+a.bp-header__click-here--link {
+    color: rgb(119, 171, 232);
 }
 
 @media only screen and (min-width: 800px) {
@@ -51,7 +61,6 @@ h1.bp-header__heading {
         box-sizing: border-box;
         padding-right: 1rem;
         float: left;
-        width:80%;
     }
 
     .bp-header__heading {
@@ -61,9 +70,10 @@ h1.bp-header__heading {
     }
 
     h3.bp-header__heading {
-        color: #666;
+        color: #000;
         font-weight: 500;
-        font-size: 25px;
+        font-size: 23px;
+        word-spacing: 0.2em;
     }
 
     h1.bp-header__heading {
@@ -74,6 +84,6 @@ h1.bp-header__heading {
     .bp-header__text {
         @extend %textBox;        
         padding-bottom: 3rem;
-        font-size:20px;
+        font-size:21px;
     }
 }
