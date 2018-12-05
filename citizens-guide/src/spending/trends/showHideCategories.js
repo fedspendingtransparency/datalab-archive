@@ -4,13 +4,25 @@ import { renderChart } from '.';
 
 const d3 = { select, selectAll };
 
-let data;
+let data,
+    activeArr = [];
 
 d3.select('#activate-show-hide')
     .on('click', function () {
-        d3.select('#show-hide-tray')
-            .classed('active', true)
-    })
+        const isTrayOpenInd = d3.select('#show-hide-tray')
+            .classed('active');
+
+        if (isTrayOpenInd) {
+            resetFilters();
+            activeArr.length = 0;
+        } else {
+            d3.select('#show-hide-list').selectAll('button').each(function(d,i){
+                activeArr[i] = d3.select(this).classed('active');
+            });
+        }
+
+        d3.select('#show-hide-tray').classed('active', !isTrayOpenInd);
+    });
 
 d3.select('#select-all')
     .on('click', function () {
@@ -19,7 +31,7 @@ d3.select('#select-all')
                 d.active = true;
                 return true;
             })
-    })
+    });
 
 d3.select('#select-none')
     .on('click', function () {
@@ -28,20 +40,36 @@ d3.select('#select-none')
                 d.active = null;
                 return null;
             })
-    })
+    });
 
-d3.select('#show-hide-done')
+d3.select('#reset-filters-button')
+    .on('click', function () {
+        resetFilters();
+    });
+
+d3.select('#save-filters-button')
     .on('click', function () {
         d3.select('#show-hide-tray')
             .classed('active', null);
 
         renderChart(filterForActiveData())
+    });
 
-    })
+function resetFilters(){
+    if (activeArr.length) {
+        console.log('activeArr:', activeArr);
+        const showHideListData = d3.select('#show-hide-list').selectAll('button');
+        showHideListData.each(function(d, i){
+            const curEl = d3.select(this);
+            if(curEl.classed('active') !== activeArr[i]){
+                toggleActive(curEl, d);
+            }
+        });
+    }
+}
 
-function toggleActive(d) {
-    const button = d3.select(this),
-        setToThis = d.active ? null : true;
+function toggleActive(button, d) {
+    const setToThis = d.active ? null : true;
 
     d.active = setToThis;
     button.classed('active', setToThis);
@@ -60,7 +88,10 @@ function placeControls(_data) {
         .text(function (d) {
             return d.name;
         })
-        .on('click', toggleActive)
+        .on('click', function(d,i){
+            const curEl = d3.select(this);
+            toggleActive(curEl, d)
+        })
 }
 
 function filterForActiveData() {

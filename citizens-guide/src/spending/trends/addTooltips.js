@@ -31,7 +31,7 @@ function showTooltip(d, i) {
 
     tooltip.append('rect')
         .attr('width', width)
-        .attr('height', 100)
+        .attr('height', 120)
         .attr('stroke', '#ccc')
         .attr('stroke-width', 1)
         .attr('fill', 'white');
@@ -48,18 +48,18 @@ function showTooltip(d, i) {
 
     tooltip.append('line')
         .attr('x1', padding.left)
-        .attr('y1', 40)
+        .attr('y1', 45)
         .attr('x2', width - padding.left)
-        .attr('y2', 40)
+        .attr('y2', 45)
         .attr('stroke', '#aaa')
         .attr('stroke-width', 1)
 
     tooltip.append('text')
         .text('Value')
-        .attr('fill', colors.textColorParagraph)
+        .attr('fill', '#00766C')
         .attr('font-weight', 'bold')
-        .attr('font-size', 12)
-        .attr('dy', 60)
+        .attr('font-size', 15)
+        .attr('dy', 70)
         .attr('dx', padding.left);
 
     tooltip.append('text')
@@ -69,7 +69,7 @@ function showTooltip(d, i) {
         .attr('fill', colors.textColorParagraph)        
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
-        .attr('dy', 80)
+        .attr('dy', 100)
         .attr('dx', padding.left)
 
     tooltip.attr('transform', function () {

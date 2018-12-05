@@ -19,59 +19,10 @@ section.spending-categories__section-above-chart {
 }
 
 //Page text and Go Explore section
-.spending-categories__page-information {
-  margin-bottom:3rem;
-  display:flex;
-  align-items:center;
-}
-.spending-categories__page-information--text {
-  width: 60%;
-  padding-right:3rem;
-  font-size:1rem;
-  color:#999;
-  display:inline-block;
-
-  div {
-    margin-bottom: 1rem;
-  }
-}
-.spending-categories__page-information--explore {
-  width: 39%;
-  border: 1px solid #EEE;
-  border-radius: 4px;
-  box-shadow: 0 0 5px 3px #EEE;
-  padding: 1rem;
-
-  .spending-categories__explore-header {
-    color: #666;
-    font-size:1.2rem;
-    font-weight:600;
-    margin-bottom:1rem;
-  }
-
-  .spending-categories__explore-text {
-    color: #999;
-    font-size:1rem;
-    margin-bottom:1rem;
-  }
-
-  button {
-    color:white;
-    font-weight:600;
-    font-size: 1.3rem;
-    padding: 1rem 2rem;
-    background-color:#0D4570;
-
-    i {
-      margin-left: 3rem;
-    }
-  }
-}
-
-.spending-categories__section-above-chart .tour__link {
+.spending-categories__section-above-chart .tour .tour__link {
   background-color:#0D4570;
 
-  :hover {
+  &:hover {
     background-color:#115C95;
   }
 }
@@ -125,4 +76,10 @@ section.spending-categories__section-above-chart {
 .hint {
   margin-top:0.5rem;
   font-size:1rem;
+}
+
+.footnote {
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
 }
