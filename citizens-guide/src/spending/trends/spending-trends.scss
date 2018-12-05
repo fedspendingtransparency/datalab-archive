@@ -25,6 +25,12 @@ section.spending-categories__section-above-chart {
   &:hover {
     background-color:#115C95;
   }
+
+  &.tour_link--disabled {
+    opacity:0.5;
+    cursor:default;
+    background-color:#0D4570;
+  }
 }
 
 //Budget/Agency button section
@@ -62,11 +68,15 @@ section.spending-categories__section-above-chart {
 #activate-show-hide {
   background-color: #00766C;
   color: white;
-  font-size: 1.3rem;
   border: 1px solid #00766C;
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   outline:none;
+
+  &:hover {
+    background: lighten(#00766C, 10%);
+    transition: background-color 0.3s ease;
+  }
 
   i {
     margin-left:5rem;

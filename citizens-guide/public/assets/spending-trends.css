@@ -14,6 +14,10 @@ section.spending-categories__section-above-chart {
   background-color: #0D4570; }
   .spending-categories__section-above-chart .tour .tour__link:hover {
     background-color: #115C95; }
+  .spending-categories__section-above-chart .tour .tour__link.tour_link--disabled {
+    opacity: 0.5;
+    cursor: default;
+    background-color: #0D4570; }
 
 .chart-title {
   margin-bottom: 1rem;
@@ -42,11 +46,13 @@ section.spending-categories__section-above-chart {
 #activate-show-hide {
   background-color: #00766C;
   color: white;
-  font-size: 1.3rem;
   border: 1px solid #00766C;
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   outline: none; }
+  #activate-show-hide:hover {
+    background: #00a99b;
+    transition: background-color 0.3s ease; }
   #activate-show-hide i {
     margin-left: 5rem; }
 

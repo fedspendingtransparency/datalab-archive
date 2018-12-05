@@ -56,8 +56,7 @@ function transformChart(globals, reset) {
 }
 
 function onSelect(d, reset) {
-    // Since the tour section isn't developed for the Spending Chapter, the following function call is disabled.
-    // activateTourPartTwo();
+    activateTourPartTwo();
 
     if (reset) {
         this.activeDrilldown = null;

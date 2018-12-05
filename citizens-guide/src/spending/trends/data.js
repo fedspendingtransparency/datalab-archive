@@ -20,7 +20,7 @@ export function indexByYear(yyyy) {
             }
 
             indexed[r.category][r.parent].children[r.child] = {
-                name: r.child_plain,
+                name: r.child,
                 amount: r.spending_adjusted,
                 percent: r.percent_total
             }
@@ -29,7 +29,7 @@ export function indexByYear(yyyy) {
             tempChildren = (indexed[r.category][r.parent]) ? indexed[r.category][r.parent].children : {};
 
             indexed[r.category][r.parent] = {
-                name: r.parent_plain,
+                name: r.parent,
                 amount: r.spending_adjusted,
                 percent: r.percent_total,
                 children: tempChildren

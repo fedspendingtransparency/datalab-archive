@@ -3,6 +3,7 @@ import { establishContainer, initDropShadow, stripBr } from '../../utils';
 import { trendView } from './chart';
 import { trendData } from './trendData';
 import { showHideInit } from './showHideCategories';
+import { initTwoPartTour } from './tour';
 
 const d3 = { select, selectAll },
     svg = establishContainer(780),
@@ -49,4 +50,5 @@ d3.select('.link-button__div')
 (function init() {
     const data = showHideInit(setData('function'));
     renderChart(data);
+    initTwoPartTour();
 })();

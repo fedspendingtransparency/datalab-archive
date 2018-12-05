@@ -9,8 +9,9 @@ const d3 = { select },
     zoomThresholds = {
         'Employment and General Retirement': 7000000000,
         'Excise Taxes': 1000000000,
-        'Unemployment Insurance': 300000000
-    }
+        'Unemployment Insurance': 300000000,
+        'National Defense': 40000000000
+    };
 
 let pane,
     callout,
