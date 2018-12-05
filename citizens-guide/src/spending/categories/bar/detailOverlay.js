@@ -2,6 +2,7 @@ import { select, selectAll, mouse } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { translator, fadeAndRemove, getElementBox, establishContainer } from '../../../utils';
 import colors from '../../../colors.scss';
+import { closeDetail } from './sort';
 
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
@@ -20,6 +21,8 @@ function closeOverlay() {
         .duration(500)
         .attr("transform", translator(0, 0))
         .ease();
+
+    closeDetail();
 
     resizeSvg();
 }

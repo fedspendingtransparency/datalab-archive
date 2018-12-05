@@ -2,11 +2,12 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { translator } from '../../../utils';
 
-const d3 = { select, selectAll, transition };
+const d3 = { select, selectAll, transition },
+    sortManager = {};
 
 let config;
 
-function sort(by) {
+function sort(by, config) {
     if (by === 'name') {
         config.data.sort((a, b) => {
             if (b.activity < a.activity) {
@@ -25,7 +26,7 @@ function sort(by) {
         })
     }
 
-    d3.selectAll('g.row')
+    config.svg.selectAll('g.row')
         .transition()
         .duration(1000)
         .attr('transform', function(d){
@@ -33,6 +34,14 @@ function sort(by) {
             return translator(0, position * config.rowHeight);
         })
         .ease()
+}
+
+function doSort(name) {
+    sort(name, sortManager.main);
+
+    if (sortManager.detail) {
+        sort(name, sortManager.detail);
+    }
 }
 
 d3.select('#filter-by-name-icon')
@@ -49,16 +58,24 @@ d3.select('#sort-amount')
             d3.select('#sort-amount').classed('active', true);
         }
 
-        sort('amount', isThisAlreadySortedInd);
+        doSort('amount');
     });
 
 d3.select('#sort-name')
     .on('click', function () {
         d3.select('#bar-controls').select('button.active').classed('active', false);
         d3.select('#sort-name').classed('active', true);
-        sort('name');
+        doSort('name');
     });
 
-export function initSort(_config) {
-    config = _config
+export function initSort(config) {
+    if (config.detail) {
+        sortManager.detail = config;
+    } else {
+        sortManager.main = config;
+    }
+}
+
+export function closeDetail() {
+    sortManager.detail = null;
 }
