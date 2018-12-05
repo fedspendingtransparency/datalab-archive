@@ -70,11 +70,18 @@
     <div id="show-hide">
         <button id="activate-show-hide">Filter <i class='fa fa-sliders-h'></i></button>
         <div id="show-hide-tray">
-            <button id="select-all">select all</button>
-            <button id="select-none">select none</button>
+            <div class='show-hide__buttons'>
+                <div class='show-hide__buttons--left'>
+                    <button id="select-all">Select All</button>
+                    <button id="select-none">Remove All</button>
+                </div>
+                <div class='show-hide__buttons--right'>
+                    <button id="reset-filters-button">Reset</button>
+                    <button id="save-filters-button">Save</button>
+                </div>
+            </div>
 
             <div id="show-hide-list"></div>
-            <button id="show-hide-done">done</button>
         </div>
     </div>
 
@@ -84,10 +91,10 @@
 <div id="viz"></div>
 
 <div class="footnote">
-    <p>All data shown is from Fiscal Year 2017.</p>
-    <p>Data provided by the <a target="_blank" href="\\rb.win.frb.org\H1\Accounts\D-F\h1cjf01\Redirected\Desktop\Monthly Treasury Statement">Monthly Treasury Statement</a> supplied by the Bureau of the Fiscal Service, U.S. Department of the Treasury.</p>
-    <p></p>
+    <p>This visualization was created using the <a target="_blank" href="\\rb.win.frb.org\H1\Accounts\D-F\h1cjf01\Redirected\Desktop\Monthly Treasury Statement">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States by federal agency and the Office of Management and Budget (OMB) Historical Tables as the data source for federal government spending by spending type. The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U) was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>
 </div>
+
+
 
 <script src="./assets/trends.js"></script>
  
