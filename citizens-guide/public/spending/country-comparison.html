@@ -33,17 +33,32 @@
 
     
     <main>
-        <h1>Spending</h1>
+        <h1>Compare Federal Spending of the United States to other Countries</h1>
+
+<div class="tighter-text">
+    <p>This chart outlines the total spending of the United States compared to 171 different countries in 2018.  In 2018, the United States spent $4.1 trillion. That $4.1 trillion in spending was equivalent to 20% of U.S. GDP for 2018.</p>
+    <p>How does the United States compare to countries of similar size and GDP? Explore the chart below. You can compare spending (in dollars) and spending as a percent of GDP. Find a country of interest and see for yourself.</p>
+</div>
 
 <h2 class="chart-title">Country Comparison</h2>
 <div class="hint">Click <span class="sort-button-placeholder"></span> to sort columns.</div>
 
 <div id="viz" class="spending-country"></div>
 
-<div class="footnote">
-All data is representative of FY 2017. Data provided by
-</div>
+<section class="hwcta">
+    <p>This visualization was created using the Monthly Treasury Statement (MTS) as the data source for federal government spending of the United States by federal agency and the Office of Management and Budget (OMB) Historical Tables as the data source for federal government spending by spending type. The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U) was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>
+    <p>Gross Domestic Product (GDP) figures for the United States come from the Bureau of Economic Analysis (BEA). GDP data for countries other than the United States comes from the International Monetary Fund (IMF) World Economic Outlook Database (WEOD).</p>
+    <p>In researching potential data sources for information on the spending of other governments for the country comparison module, the CIA World Factbook was chosen because it provides the best comparison of federal spending by country for the following reasons:</p>
+    <ul>
+        <li>the volume of countries with 2018 data,</li>
+        <li>relative consistency with the level of government measured (central government only as a standard),</li>
+        <li>all figures expressed in US dollars</li>
+    </ul>
+    <p>Countries with figures before were excluded from the country comparison data set. Although most countries in the data set feature spending from central government sources only, there may be countries with state/provincial/local spending included. As a result, this visualization should not be considered an absolute comparison of the spending of central governments for all countries.</p>
+    <p>To finish the data set for Country Comparison, GDP figures from the IMF World Economic Outlook Database were combined with the CIA World Factbook data set, excluding countries that were not available from both sources.</p>
+</section>
 
+<script src="../assets/hwcta.js"></script>
 <script src="./assets/countryComparison.js"></script>
  
     </main>
