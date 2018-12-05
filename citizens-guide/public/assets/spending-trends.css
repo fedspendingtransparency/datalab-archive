@@ -25,7 +25,10 @@ section.spending-categories__section-above-chart {
 
 .title-text {
   color: #777;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: inline-block;
+  margin-right: 1rem; }
 
 .link-button__div {
   display: inline-block;
