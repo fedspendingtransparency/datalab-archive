@@ -1,10 +1,12 @@
 import { select, selectAll, mouse } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { translator, fadeAndRemove, getElementBox } from '../../../utils';
+import { translator, fadeAndRemove, getElementBox, establishContainer } from '../../../utils';
 import colors from '../../../colors.scss';
 
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
+
+let originalSvgHeight;
 
 function closeOverlay() {
     const detailLayer = d3.select('.detail-layer'),
@@ -14,10 +16,12 @@ function closeOverlay() {
     fadeAndRemove(mask, 300);
 
     d3.select('g.pan-apply')
-    .transition()
-    .duration(500)
-    .attr("transform", translator(0, 0))
-    .ease();
+        .transition()
+        .duration(500)
+        .attr("transform", translator(0, 0))
+        .ease();
+
+    resizeSvg();
 }
 
 function placeCloseButton(container, detailLayer, innerWidth) {
@@ -57,7 +61,7 @@ function renderHeader(detailLayer, title, innerWidth) {
 
 function renderMask() {
     const parent = d3.select('g.pan-apply'),
-        parentBox = getElementBox(parent);
+        parentBox = getElementBox(establishContainer());
 
     parent.append('rect')
         .classed('mask', true)
@@ -69,10 +73,10 @@ function renderMask() {
 }
 
 function setOverlayY(clickY, overlayHeight) {
-    const ideal = clickY - overlayHeight/2,
+    const ideal = clickY - overlayHeight / 2,
         svgHeight = getElementBox(d3.select('svg.main')).height;
 
-    if (ideal < 5 ) {
+    if (ideal < 5) {
         return 5;
     }
 
@@ -83,11 +87,37 @@ function setOverlayY(clickY, overlayHeight) {
     return ideal;
 }
 
+function resizeSvg(finalRectHeight) {
+    const mainSvg = establishContainer(),
+        svgHeight = getElementBox(mainSvg).height;
+
+    let previousHeight,
+        detailHeightWithPadding,
+        newHeight = previousHeight;
+
+    if (finalRectHeight) {
+        previousHeight = svgHeight;
+        detailHeightWithPadding = finalRectHeight + 20;
+        newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
+    }
+
+    if (newHeight === svgHeight) {
+        return;
+    }
+
+    d3.select('.mask').attr('height', newHeight);
+
+    mainSvg.transition()
+        .duration(500)
+        .attr('height', newHeight)
+        .ease();
+}
+
 export function initOverlay(title, config, callback) {
     const startCoords = d3.mouse(d3.select('svg.main').node());
 
     let headerHeight, detailLayerYOffset, rect, detailLayer, finalRectHeight;
-    
+
     renderMask();
 
     detailLayer = d3.select('g.pan-apply').append('g')
@@ -113,6 +143,8 @@ export function initOverlay(title, config, callback) {
     finalRectHeight = detailLayerYOffset + config.data.length * config.rowHeight + overlayPadding;
 
     rect.attr('height', finalRectHeight);
+
+    resizeSvg(finalRectHeight);
 
     config.svg = detailLayer.append('g')
         .attr('transform', translator(overlayPadding, detailLayerYOffset))
