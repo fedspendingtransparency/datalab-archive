@@ -26,8 +26,8 @@ function setLayerOpacity(id, active) {
 }
 
 function handleGdpLayer(reset) {
-    const x = reset ? 0 : chartWidth * 0.5 - (chartWidth * 0.6 / 2),
-        scale = reset ? 1 : 0.6,
+    const scale = reset ? 1 : 0.6,
+        x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2),
         stepTwoOpacity = reset ? 0 : 1,
         mainContainer = d3.select('.main-container');
 
@@ -36,10 +36,10 @@ function handleGdpLayer(reset) {
     }
 
     mainContainer.classed('gdp-active', !reset);
-    
+
     mainContainer.transition()
         .duration(2000)
-        .attr('transform', translator(x, 30) +  ' scale(' + scale + ')')
+        .attr('transform', translator(x, 30) + ' scale(' + scale + ')')
         .ease();
 
     d3.selectAll('.gdp-step-two').transition()
@@ -47,6 +47,38 @@ function handleGdpLayer(reset) {
         .duration(1500)
         .attr('opacity', stepTwoOpacity)
         .ease();
+}
+
+function handleRevenueLayer(reset) {
+    const scale = reset ? 1 : 0.6,
+    x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2),
+    stepTwoOpacity = reset ? 0 : 1,
+    mainContainer = d3.select('.main-container');
+
+    if (reset && !mainContainer.classed('gdp-active', !reset)) {
+        return;
+    }
+
+    mainContainer.classed('gdp-active', !reset);
+
+    mainContainer.transition()
+        .duration(2000)
+        .attr('transform', translator(x, 30) + ' scale(' + scale + ')')
+        .ease();
+
+    d3.selectAll('.revenue-step-two').transition()
+        .delay(1000)
+        .duration(1500)
+        .attr('opacity', stepTwoOpacity)
+        .ease();
+}
+
+function handleLayers(id, reset) {
+    if (id === 'gdp') {
+        handleGdpLayer(reset);
+    } else {
+        handleRevenueLayer(reset);
+    }
 }
 
 function toggleFacts() {
@@ -71,12 +103,12 @@ function toggleFacts() {
 
     resizeSvg((id === 'gdp' && !wasPreviouslyActive));
 
-    if (id === 'gdp' && !wasPreviouslyActive && desktop) {
-        handleGdpLayer();
+    if (!wasPreviouslyActive && desktop) {
+        handleLayers(id);
     } else if (desktop) {
-        handleGdpLayer(true);
+        handleLayers(id, true);
     }
- }
+}
 
 function resizeSvg(gdp) {
     const h = gdp ? gdpHeight : originalHeight;
@@ -86,14 +118,14 @@ function resizeSvg(gdp) {
         .attr('height', h + 50);
 }
 
-export function generateOverlay(count, container, className) {
+export function generateOverlay(count, container, className, color) {
     const rows = Math.floor(count / dotsPerRow),
         remainder = count % dotsPerRow,
         spacing = dotConstants.offset.y - (dotConstants.radius * 2),
         mainRectHeight = (rows * dotConstants.offset.y) - spacing / 2,
         secondaryRectHeight = (dotConstants.radius * 2) + spacing / 2,
         overlayHeight = mainRectHeight + secondaryRectHeight,
-        rectColor = '#ccc';
+        rectColor = color || '#ccc';
 
     let overlayLayer = container.append('g')
         .attr('data-rect-height', overlayHeight)

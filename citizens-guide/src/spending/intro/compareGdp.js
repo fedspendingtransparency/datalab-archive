@@ -53,7 +53,6 @@ function placeLegend(g) {
         .text(simplifyNumber(20700000000000))
         .attr('x', textX)
         .attr('dy', 30);
-
 }
 
 function placeDonut(g) {
