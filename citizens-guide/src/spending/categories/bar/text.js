@@ -2,6 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox, wordWrap } from '../../../utils';
 import { line } from 'd3-shape';
 import { drawChart } from './chart';
+import colors from '../../../colors.scss';
 
 const d3 = { select, selectAll };
 
@@ -45,7 +46,7 @@ export function placeLabels(containers, config) {
         .attr('y', 20)
         .attr('font-size', 14)
         .attr('font-weight', '600')
-        .attr('fill', 'black');
+        .attr('fill', colors.textColorHeading);
 
     let xOffset;
 
