@@ -32,6 +32,7 @@ function readyDots() {
         .attr('opacity', 0);
 
     let i = 0,
+        dotRectHeight,
         spendingTrillion = 4100,
         x = dotConstants.radius,
         y = 2;
@@ -53,7 +54,10 @@ function readyDots() {
         .on('end', revealCompare)
         .ease();
 
-    dotContainer.attr('data-rect-height', d3.select('g.spending-dots').node().getBoundingClientRect().height);
+    dotRectHeight = d3.select('g.spending-dots').node().getBoundingClientRect().height;
+
+    dotContainer.attr('data-rect-height', dotRectHeight);
+    svg.attr('height', dotRectHeight + 50);
 }
 
 export function placeDots() {

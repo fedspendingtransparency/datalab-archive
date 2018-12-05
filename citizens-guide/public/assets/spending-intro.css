@@ -107,4 +107,7 @@ main {
     box-sizing: border-box; }
   #compare-options {
     padding-top: 0;
-    padding-right: 0; } }
+    padding-right: 0; }
+  .hwcta {
+    clear: both;
+    transform: translateY(2rem); } }
