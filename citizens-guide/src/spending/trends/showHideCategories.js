@@ -1,5 +1,4 @@
 import { select, selectAll } from 'd3-selection';
-import './showHide.scss';
 import { renderChart } from '.';
 
 const d3 = { select, selectAll };
