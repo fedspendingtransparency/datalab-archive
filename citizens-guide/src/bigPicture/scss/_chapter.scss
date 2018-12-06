@@ -2,7 +2,7 @@
 @import './_bpVars.scss';
 
 .chapter .anecdote {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .chapter__content {
@@ -15,11 +15,13 @@
         text-align: left;
         color: $text-color-heading;
         font-size: 1.4rem;
+        margin-bottom: 0.5rem;
     }
 
     p {
         color: $text-color-paragraph;
         font-size:0.95rem;
+        margin-top: 0;
 
         &.chapter__chart--reference {
             font-size: 0.8rem;
@@ -71,30 +73,13 @@
 }
 
 .chapter__divider--median-treasury-logo {
-
     background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
     background-size: 100% 250px;
-    height: 250px;
+    padding: 4rem 2rem 2rem;
     background-color: #FFF;
 
-    .chapter__divider--median-flex-container {
-        margin-top: 50px;
-        display: flex;
-        align-items: space-between;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        flex-direction: column;
-        height: 200px;
-        padding-top: 50px;
-    }
-
-    .chapter__divider--text-container {
-        margin: 0 auto;
-        padding:0 1rem;
-        background-color:#FFF;
-    }
     .chapter__divider--text {
-        font-size: 52px;
+        font-size: 3rem;
         font-weight: 600;
         font-style: normal;
         font-stretch: normal;
@@ -102,6 +87,9 @@
         letter-spacing: normal;
         text-align: center;
         color: #222222;
+        background: #fff;
+        margin: 0 auto;
+        max-width: 1000px;
 
         strong, span {
             font-weight:900;
@@ -109,6 +97,7 @@
     }
     .chapter__divider--arrow-container {
         text-align: center;
+        margin-top: 1rem;
 
         a {
             color:$text-color-paragraph;
@@ -143,7 +132,7 @@
 @media only screen and (min-width: 800px) {
     .chapter__content {
         h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
     
@@ -165,25 +154,7 @@
 @media only screen and (max-width: 1200px) {
     .chapter__divider--median-treasury-logo {
         background-size: 100% 400px;
-        height: 400px;
-
-        .chapter__divider--median-flex-container {
-            margin-top: 50px;
-            display: flex;
-            align-items: space-between;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            flex-direction: column;
-            height: 325px;
-            padding-top: 75px;
-        }
-
-        .chapter__divider--text-container {
-            width:90%;
-        }
-        .chapter__divider--text {
-            font-size: 2.8rem;
-        }
+        padding: 2rem;
     }
 }
 /*
