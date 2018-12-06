@@ -88,6 +88,8 @@
   margin: 0;
   padding: 0;
   font-size: 0.8rem; }
+  .toc li {
+    margin-bottom: 0.2rem; }
   .toc a {
     color: #666666;
     opacity: 0.4; }
@@ -110,8 +112,7 @@
     margin-bottom: 0.5rem; }
   .chapter__content p {
     color: #666666;
-    font-size: 0.95rem;
-    margin-top: 0; }
+    font-size: 0.95rem; }
     .chapter__content p.chapter__chart--reference {
       font-size: 0.8rem;
       text-align: center;
