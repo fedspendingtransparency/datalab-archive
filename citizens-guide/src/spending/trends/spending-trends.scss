@@ -20,21 +20,6 @@ section.spending-categories__section-above-chart {
   font-size:3rem;
 }
 
-//Page text and Go Explore section
-.spending-categories__section-above-chart .tour .tour__link {
-  background-color:#0D4570;
-
-  &:hover {
-    background-color:#115C95;
-  }
-
-  &.tour_link--disabled {
-    opacity:0.5;
-    cursor:default;
-    background-color:#0D4570;
-  }
-}
-
 //Budget/Agency button section
 .chart-title {
   margin-bottom:1rem;
