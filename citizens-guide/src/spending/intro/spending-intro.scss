@@ -4,6 +4,10 @@
     position: relative;
 }
 
+.facts.sidebar--hidden {
+    opacity: 0;
+}
+
 .facts {
     position: absolute;
     top: 4rem;
@@ -120,10 +124,6 @@ main {
         margin-left: calc(66% + 1rem);
         transition: opacity 1s ease;
         transform: translateY(30px);
-    }
-
-    .sidebar--hidden {
-        opacity: 0;
     }
 
     .facts {
