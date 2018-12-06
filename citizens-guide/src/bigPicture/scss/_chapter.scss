@@ -1,6 +1,11 @@
 @import '../../colors.scss';
 @import './_bpVars.scss';
 
+section.chapter {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
 .chapter .anecdote {
     margin-top: 1rem;
 }
@@ -36,7 +41,7 @@
 
 .chapter__big-number {
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: $boldWeight;
 }
 
@@ -74,16 +79,12 @@
 .chapter__divider--median-treasury-logo {
     background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
     background-size: 100% 250px;
-    padding: 4rem 2rem 2rem;
+    padding: 1rem;
     background-color: #FFF;
 
     .chapter__divider--text {
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 600;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
         text-align: center;
         color: #222222;
         background: #fff;
@@ -126,8 +127,6 @@
    }
 }
 
-
-
 @media only screen and (min-width: 800px) {
     .chapter__content {
         h1 {
@@ -148,22 +147,17 @@
         padding-right: 7rem;
         width: 50%;
     }
-}
 
-@media only screen and (max-width: 1200px) {
-    .chapter__divider--median-treasury-logo {
-        background-size: 100% 400px;
-        padding: 2rem;
+    .chapter__big-number {
+        font-size: 3rem;
     }
-}
-/*
- * The max-width below is set to 1449px as the max-width of each section is set to 1400px, the left and right padding is
- * 1rem each (or 16px, or 32 total) plus the size of the scrollbar on most browsers being 17px = 1449px. We don't have to worry
- * much about tablets/phones as the ability to resize the browser is limited/denied and users won't see any behavior on the sectional divider.
- */
-@media only screen and (max-width: 1449px) {
-    .chapter__divider--normal {
-        margin: 0 1rem;
+
+    .chapter__divider--text {
+        font-size: 3rem;
+    }
+
+    .chapter__divider--median-treasury-logo {
+        padding: 4rem 2rem 2rem;
     }
 }
 
@@ -178,6 +172,7 @@
         background-image: url('../assets/icons/anecdote-revenue.svg');
     }
 }
+
 #spending-chapter {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-spending-primary;
@@ -189,6 +184,7 @@
         background-image: url('../assets/icons/anecdote-spending.svg');
     }
 }
+
 #debt-chapter {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-debt-primary;
@@ -200,6 +196,7 @@
         background-image: url('../assets/icons/anecdote-debt.svg');
     }
 }
+
 #deficit-chapter {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-deficit-primary;
@@ -210,8 +207,4 @@
     .anecdote__link--button-icon, .anecdote__icon {
         background-image: url('../assets/icons/anecdote-deficit.svg');
     }
-}
-
-section.chapter {
-    margin-bottom: 2rem;
 }

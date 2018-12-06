@@ -6,7 +6,8 @@ $headerBg: rgba(255,255,255,0.5);
 header {
     background: #FBFBFB;
     padding: 0.5rem 0;
-    background-image: linear-gradient(rgb(230,230,230), #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC);    
+    box-shadow: inset 0 40px 40px -20px rgba(0,0,0,0.15), 0 0 40px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
 }
 
 .bp-header {
@@ -30,7 +31,7 @@ header {
 
 .bp-header__heading {
     color:#111;
-    font-size: 3.3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 1rem;
@@ -65,14 +66,8 @@ a.bp-header__click-here--link {
 }
 
 @media only screen and (min-width: 800px) {
-    %textBox {
-        box-sizing: border-box;
-        padding-right: 1rem;
-        float: left;
-    }
-
     .bp-header__heading {
-        @extend %textBox;
+        font-size: 3.3rem;
     }
 
     .bp-header {
@@ -80,7 +75,6 @@ a.bp-header__click-here--link {
     }
 
     .bp-header__text {
-        @extend %textBox;        
         padding-bottom: 3rem;
         font-size: 1.1rem;
     }
