@@ -38,7 +38,7 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('Total Revenue')
+        .text('Federal Revenue')
         .style('font-weight', '600')
         .attr('x', textX)
         .attr('dy', height / 2);
