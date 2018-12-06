@@ -32,15 +32,11 @@ h2 {
     line-height: 3;
     border: none;
     padding: 0 2rem;
-    background: #0D7040;
     color: white !important;
     transition: background 0.2s ease;
     display: inline-block;
     text-decoration: none; }
-    .tour .tour__link:hover {
-      background: #10874d; }
   .tour .tour__link.tour__link--disabled {
-    background: #1a6440;
     cursor: default;
     color: #ccc;
     opacity: 0.5; }
@@ -53,6 +49,22 @@ h2 {
     display: none; }
   .tour .tour__part-two.active {
     display: block; }
+
+nav.chapter-nav--revenue + main .tour__link {
+  background: #0D7040; }
+  nav.chapter-nav--revenue + main .tour__link:hover {
+    background: #10874d; }
+
+nav.chapter-nav--revenue + main .tour__link.tour__link--disabled {
+  background: #1a6440; }
+
+nav.chapter-nav--spending + main .tour__link {
+  background: #0D4570; }
+  nav.chapter-nav--spending + main .tour__link:hover {
+    background: #105387; }
+
+nav.chapter-nav--spending + main .tour__link.tour__link--disabled {
+  background: #1a4364; }
 
 .copy-tour-row {
   margin: 0 1rem; }
