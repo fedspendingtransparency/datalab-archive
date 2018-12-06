@@ -59,6 +59,17 @@ main {
   max-width: 1200px;
   margin: 0 1rem; }
 
+.title-text {
+  font-weight: 300;
+  display: inline-block;
+  margin-right: 1rem; }
+
+.chart-title {
+  margin-bottom: 1rem; }
+
+.tour {
+  margin: 2rem 0 1rem; }
+
 #viz {
   overflow-x: hidden;
   margin-top: 0.25rem; }
@@ -82,8 +93,7 @@ main {
     float: right;
     box-sizing: border-box; }
     #viz-wrapper h2 {
-      margin-top: 0;
-      margin-bottom: 1rem; }
+      margin-top: 0; }
   .poc-content {
     margin-right: 66%;
     padding-right: 2rem; } }

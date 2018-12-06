@@ -106,21 +106,6 @@ function placeContainers(config, detail) {
             return translator(0, i * rowHeight);
         });
 
-    // if (!detail && config.showMoreInd) {
-    //     const showMoreButton = d3.select('#showMoreContainer');
-    //     const container = config.container;
-    //     const containerDimensions = container.node().getBoundingClientRect();
-    //     showMoreButton.classed('hidden', false);
-    //     showMoreButton.on('click', function () {
-    //         const curEl = d3.select(this);
-    //         const showMoreInd = curEl.attr('showMoreInd') === 'false';
-    //         curEl.attr('showMoreInd', showMoreInd);
-    //         const buttonText = !showMoreInd ? 'See Less' : 'See More';
-    //         container.attr('height', showMoreInd ? defaultRowsToShow * rowHeight : config.data.length * rowHeight);
-    //         curEl.select('button').text(buttonText);
-    //     });
-    // }
-
     setScales(config);
 
     drawBars(containers, config);

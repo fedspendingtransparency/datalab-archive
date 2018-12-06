@@ -9,7 +9,7 @@ const d3 = { select, selectAll },
     selectAgency = d3.select('#select-agency'),
     barControls = d3.select('#bar-controls'),
     data = byYear(2017),
-    chartSectionTextStr = 'Click to see deeper categories';
+    chartSectionTextStr = 'Click to see sub-categories';
 
 let svg,
     debounce,

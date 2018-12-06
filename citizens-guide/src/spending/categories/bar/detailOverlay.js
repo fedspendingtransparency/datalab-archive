@@ -2,6 +2,7 @@ import { select, selectAll, mouse } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { translator, fadeAndRemove, getElementBox, establishContainer } from '../../../utils';
 import colors from '../../../colors.scss';
+import { closeDetail } from './sort';
 
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
@@ -21,6 +22,8 @@ function closeOverlay() {
         .attr("transform", translator(0, 0))
         .ease();
 
+    closeDetail();
+
     resizeSvg();
 }
 
@@ -32,16 +35,18 @@ function placeCloseButton(container, detailLayer, innerWidth) {
             .attr('transform', translator(innerWidth + overlayPadding - closeButtonWidth, 0));
 
     closeGroup.append('rect')
-        .attr('fill', '#ddd')
-        .attr('stroke', '#888')
+        .attr('fill', '#fff')
+        .attr('stroke', '#fff')
         .attr('height', 20)
         .attr('width', closeButtonWidth)
 
     closeGroup.append('text')
-        .text('x')
+        .html('&#215;')
+        .attr('stroke', '#ccc')
+        .attr('font-size', 24)
         .attr('text-anchor', 'middle')
         .attr('x', closeButtonWidth / 2)
-        .attr('y', 14)
+        .attr('y', 20)
 }
 
 function renderHeader(detailLayer, title, innerWidth) {
@@ -150,10 +155,26 @@ export function initOverlay(title, config, callback) {
         .attr('transform', translator(overlayPadding, detailLayerYOffset))
         .classed('detail-chart', true);
 
+    //match current sort if needed
+    if (d3.select('#sort-name').classed('active')) {
+        config.data.sort((a, b) => {
+            if (b.activity < a.activity) {
+                return 1;
+            }
+
+            if (b.activity > a.activity) {
+                return -1;
+            }
+
+            return 0;
+        })
+    }
+
     detailLayer.transition()
         .duration(750)
         .attr('transform', translator(5, setOverlayY(startCoords[1], finalRectHeight)) + ' scale(1)')
         .on('end', function () {
+            console.log(config.data)
             callback(config, true)
         })
         .ease();

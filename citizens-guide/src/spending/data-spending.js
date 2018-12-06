@@ -84,7 +84,7 @@ export function indexByYear(yyyy) {
             }
 
             indexed[r.category][r.parent].subcategories[r.child] = {
-                activity: r.child_plain,
+                activity: r.child,
                 amount: r.spending_adjusted,
                 percent_total: formatPercent(r.percent_total)
             }
@@ -93,7 +93,7 @@ export function indexByYear(yyyy) {
             tempChildren = (indexed[r.category][r.parent]) ? indexed[r.category][r.parent].subcategories : {};
 
             indexed[r.category][r.parent] = {
-                activity: r.parent_plain,
+                activity: r.parent,
                 amount: r.spending_adjusted,
                 percent_total: formatPercent(r.percent_total),
                 subcategories: tempChildren

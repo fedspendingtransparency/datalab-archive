@@ -1,5 +1,6 @@
 @import '../../colors.scss';
 @import './showHide.scss';
+@import '../../globalSass/generalVars';
 
 //Globals for file
 .hidden {
@@ -42,6 +43,9 @@ section.spending-categories__section-above-chart {
 .title-text {
   color: #777;
   font-size: 1.8rem;
+  font-weight: $normalWeight;
+  display: inline-block;
+  margin-right: 1rem;
 }
 
 .link-button__div {
