@@ -1,10 +1,7 @@
 .anecdote {
   position: relative;
   width: 340px;
-  max-width: 100%;
-  /**
- * The following is "throw away" css, as this should be handled by the originator, and not the anecdote module.
- */ }
+  max-width: 100%; }
   .anecdote h1.anecdote__heading {
     font-size: 1rem;
     font-weight: 600;
@@ -31,7 +28,6 @@
       background: #205493; }
   .anecdote .anecdote__panes {
     position: relative;
-    overflow: auto;
     margin: 0 2rem;
     cursor: pointer; }
   .anecdote .anecdote__pane {
@@ -43,11 +39,12 @@
     .anecdote .anecdote__pane.anecdote__pane--active {
       opacity: 1; }
     .anecdote .anecdote__pane p {
-      color: black; }
+      color: black;
+      text-align: center; }
   .anecdote .anecdote__contents {
     display: none;
     position: absolute;
-    background: rgba(255, 255, 255, 0.95);
+    background: white;
     color: black;
     top: 0;
     padding: 0.85rem 1.3rem;
@@ -92,8 +89,15 @@
   .anecdote .anecdote__cta--container {
     display: flex;
     justify-content: center; }
-  .anecdote a.anecdote__cta {
-    color: white;
-    font-weight: bold; }
-  .anecdote a.anecdote__cta {
-    border-color: black; }
+  .anecdote .anecdote__cta {
+    font-weight: 600;
+    padding: 0.8rem 1.3rem;
+    font-size: 18px;
+    color: white; }
+    .anecdote .anecdote__cta i {
+      margin-left: 1rem; }
+  .anecdote .anecdote__pane .source {
+    color: #ccc;
+    font-size: 12px; }
+    .anecdote .anecdote__pane .source a {
+      color: #77abe8; }

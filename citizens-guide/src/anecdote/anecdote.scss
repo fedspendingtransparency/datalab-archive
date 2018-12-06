@@ -42,7 +42,6 @@
 
     .anecdote__panes {
         position: relative;
-        overflow:auto;
         margin: 0 2rem;
         cursor:pointer;
     }
@@ -60,13 +59,14 @@
 
         p {
             color:black;
+            text-align:center;
         }
     }
 
     .anecdote__contents {
         display:none;
         position:absolute;
-        background:rgba(255,255,255,0.95);
+        background:rgba(255,255,255,1);
         color:black;
         top:0;
         padding:0.85rem 1.3rem;
@@ -131,14 +131,23 @@
         justify-content:center;
     }
 
-/**
- * The following is "throw away" css, as this should be handled by the originator, and not the anecdote module.
- */
-    a.anecdote__cta {
+    .anecdote__cta {
+        font-weight:600;
+        padding:0.8rem 1.3rem;
+        font-size:18px;
         color:white;
-        font-weight:bold;
+
+        i {
+            margin-left: 1rem;
+        }
     }
-    a.anecdote__cta {
-        border-color:black;
+
+    .anecdote__pane .source {
+        color:#ccc;
+        font-size:12px;
+
+        a {
+            color: #77abe8;
+        }
     }
 }

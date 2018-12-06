@@ -35,11 +35,15 @@ h2 {
     color: white !important;
     transition: background 0.2s ease;
     display: inline-block;
-    text-decoration: none; }
+    text-decoration: none;
+    background: #C2185B; }
+    .tour .tour__link:hover {
+      background: #d91b66; }
   .tour .tour__link.tour__link--disabled {
     cursor: default;
     color: #ccc;
-    opacity: 0.5; }
+    opacity: 0.5;
+    background: #ac2e60; }
     .tour .tour__link.tour__link--disabled:hover {
       text-decoration: none; }
   .tour i {
@@ -49,22 +53,6 @@ h2 {
     display: none; }
   .tour .tour__part-two.active {
     display: block; }
-
-nav.chapter-nav--revenue + main .tour__link {
-  background: #0D7040; }
-  nav.chapter-nav--revenue + main .tour__link:hover {
-    background: #10874d; }
-
-nav.chapter-nav--revenue + main .tour__link.tour__link--disabled {
-  background: #1a6440; }
-
-nav.chapter-nav--spending + main .tour__link {
-  background: #0D4570; }
-  nav.chapter-nav--spending + main .tour__link:hover {
-    background: #105387; }
-
-nav.chapter-nav--spending + main .tour__link.tour__link--disabled {
-  background: #1a4364; }
 
 .copy-tour-row {
   margin: 0 1rem; }
