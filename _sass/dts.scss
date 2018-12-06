@@ -43,9 +43,21 @@
   stroke: #cfcfcf;
 }
 
+path.domain {
+  stroke: #cfcfcf;
+}
+
 .mouse-over-data-point circle {
   fill: orange;
   stroke: white;
+}
+
+.dts-download-data {
+  color: #5b6160;
+}
+
+.dts-download-data:hover {
+  color: #00c3c2;
 }
 
 .dts-tt-container {
@@ -102,6 +114,7 @@
   color: #9b9b9b;
   font-weight: 200;
   font-size: 16px;
+  margin-left: 50px;
 }
 
 .dts-header {
@@ -122,7 +135,7 @@
   font-size: 13px;
   position: relative;
   top: 35px;
-  left: 75px;
+  left: 55px;
 }
 
 .dts-brush-start-date-label, .dts-brush-end-date-label {
@@ -138,6 +151,7 @@
 
 .dts-brush-date-item {
   display: flex;
+  margin-left: 5px;
 }
 
 .dts-left-column, .dts-right-column {
@@ -178,31 +192,29 @@
   fill: #00c3c2;
 }
 
-.bar:hover {
-  fill: brown;
-}
-
 .viz-tsbfy-container {
-  width: 300px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
 }
 
 #viz-tsbfy-wrapper {
-  width: 300px;
+  width: 250px;
   height: 175px;
+  margin-bottom: -13px;
 }
 
 .viz-tsbfy-header {
   display: flex;
-  margin: 0px 0px 20px 32px;
+  margin: 0 0 20px auto;
   justify-content: space-around;
-  width: 80%;
+  width: 95%;
+  align-items: center;
 }
 
 .viz-tsbfy-header-text {
-  font-size: 15px;
+  font-size: 14px;
   text-transform: uppercase;
   font-weight: 600;
   color: #484848;
@@ -277,10 +289,11 @@
 
 .tsbfy-table {
   padding: 0.75em 0.75em;
-  width: 300px;
+  width: 225px;
   text-align: left;
   border-collapse: collapse;
-  margin-bottom: 28px;
+  margin-top: 1px;
+  margin-left: 12px;
 }
 
 .tsbfy-table, .tsbfy-table th, .tsbfy-table td {
@@ -293,8 +306,8 @@
 }
 
 .tsbfy-table td {
-  padding: 0 5px;
-  line-height: 18px;  
+  padding: 0;
+  line-height: 16px;  
   font-size: 12px;
   color: #666;
 }

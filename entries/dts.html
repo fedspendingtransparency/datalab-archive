@@ -17,7 +17,10 @@ category: nonentry
   <div class="header-sub-container">
     <div></div>
     <div class="header-updated-when"></div>
-    <div><a href="/data-lab-data/dts/dts.csv"><div class="dts-download-data">{% include svgs/download.svg %}</div></a></div>
+    <div class="flex">
+      <a href="/data-lab-data/dts/dts.csv"><div class="dts-download-data">{% include svgs/download-grey.svg %}</div></a>
+      {% include new-share-menu.html %}
+    </div>
   </div>
 </div>
 
@@ -67,7 +70,6 @@ category: nonentry
   <div>
     <div class="dts-brush-date-container">
       <div class="dts-brush-date-item"><div class="dts-brush-start-date-label">From </div><div class="dts-brush-start-date">mm/dd/yy</div></div>
-      <div class="dts-brush-date-separator">—</div>
       <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
     </div>
     <svg id="svg-wrapper" width="750" height="400" viewBox="0 0 750 400"></svg>
