@@ -6,6 +6,7 @@ $headerBg: rgba(255,255,255,0.5);
 header {
     background: #FBFBFB;
     padding: 0.5rem 0;
+    background-image: linear-gradient(rgb(230,230,230), #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC);    
 }
 
 .bp-header {
@@ -18,15 +19,22 @@ header {
     text-align:center;
 }
 
-.bp-header__heading {
-    text-align: center;
+.bp-header__app-name {
+    color: #000;
+    font-weight: 500;
+    font-size: 1rem;
+    word-spacing: 0.2em;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
 }
 
-
-h1.bp-header__heading {
+.bp-header__heading {
     color:#111;
-    font-size:65px;
-    font-weight:600;
+    font-size: 3.3rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;    
 }
 
 .bp-scroll-down__div {
@@ -65,25 +73,15 @@ a.bp-header__click-here--link {
 
     .bp-header__heading {
         @extend %textBox;
-        margin-bottom: 0;
-        margin-top: 6rem;
     }
 
-    h3.bp-header__heading {
-        color: #000;
-        font-weight: 500;
-        font-size: 23px;
-        word-spacing: 0.2em;
-    }
-
-    h1.bp-header__heading {
-        margin-top:0.8rem;
-        margin-bottom:1.5rem;
+    .bp-header {
+        padding-top: 3.5rem;
     }
 
     .bp-header__text {
         @extend %textBox;        
         padding-bottom: 3rem;
-        font-size:21px;
+        font-size: 1.1rem;
     }
 }

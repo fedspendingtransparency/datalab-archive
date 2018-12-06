@@ -74,15 +74,6 @@ section.spending-categories__section-above-chart {
   color: #555;
   font-size: 3rem; }
 
-.spending-categories__section-above-chart .tour .tour__link {
-  background-color: #0D4570; }
-  .spending-categories__section-above-chart .tour .tour__link:hover {
-    background-color: #115C95; }
-  .spending-categories__section-above-chart .tour .tour__link.tour_link--disabled {
-    opacity: 0.5;
-    cursor: default;
-    background-color: #0D4570; }
-
 .chart-title {
   margin-bottom: 1rem;
   font-weight: 400; }
