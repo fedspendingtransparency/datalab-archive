@@ -9,7 +9,7 @@ const d3 = { select, selectAll },
     svg = establishContainer(780),
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency'),
-    zoomThreshold = 150000000000;
+    zoomThreshold = 180000000000;
 
 function sortByLatestYear(a, b) {
     return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
