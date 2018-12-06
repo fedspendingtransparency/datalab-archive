@@ -6,7 +6,7 @@
     function onLinkClick(e) {
         var target = e.srcElement;
 
-        if (target != 'A') {
+        if (target.nodeName !== 'A') {
             target = target.parentElement
         }
 

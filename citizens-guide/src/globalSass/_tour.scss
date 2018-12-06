@@ -1,5 +1,4 @@
-$tourRevenueButtonColor: #0D7040;
-$tourSpendingButtonColor: #0D4570;
+$tourButtonColor: #C2185B;
 
 .tour {
     @extend %info-box;
@@ -20,12 +19,18 @@ $tourSpendingButtonColor: #0D4570;
         transition: background 0.2s ease;
         display: inline-block;
         text-decoration: none;
+        background: $tourButtonColor;
+
+        &:hover {
+            background: lighten($tourButtonColor, 5)
+        }
     }
 
     .tour__link.tour__link--disabled {
         cursor: default;
         color: #ccc;
         opacity: 0.5;
+        background: desaturate($tourButtonColor, 20%);
 
         &:hover {
             text-decoration: none;
@@ -45,32 +50,4 @@ $tourSpendingButtonColor: #0D4570;
         display:block;
     }
 
-}
-
-nav.chapter-nav--revenue + main {
-    .tour__link {
-        background: $tourRevenueButtonColor;
-
-        &:hover {
-            background: lighten($tourRevenueButtonColor, 5)
-        }
-    }
-
-    .tour__link.tour__link--disabled {
-        background: desaturate($tourRevenueButtonColor, 20%);
-    }
-}
-
-nav.chapter-nav--spending + main {
-    .tour__link {
-        background: $tourSpendingButtonColor;
-
-        &:hover {
-            background: lighten($tourSpendingButtonColor, 5)
-        }
-    }
-
-    .tour__link.tour__link--disabled {
-        background: desaturate($tourSpendingButtonColor, 20%);
-    }
 }
