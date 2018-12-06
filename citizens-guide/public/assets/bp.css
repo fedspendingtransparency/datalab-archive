@@ -95,6 +95,10 @@
     font-weight: 600;
     opacity: 1; }
 
+section.chapter {
+  max-width: 1200px;
+  margin: 0 auto 2rem; }
+
 .chapter .anecdote {
   margin-top: 1rem; }
 
@@ -121,7 +125,7 @@
 
 .chapter__big-number {
   display: block;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600; }
 
 .chapter__chart {
@@ -151,15 +155,11 @@
 .chapter__divider--median-treasury-logo {
   background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
   background-size: 100% 250px;
-  padding: 4rem 2rem 2rem;
+  padding: 1rem;
   background-color: #FFF; }
   .chapter__divider--median-treasury-logo .chapter__divider--text {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
     color: #222222;
     background: #fff;
@@ -199,21 +199,13 @@
     width: 50%; }
   .chapter__primary {
     padding-right: 7rem;
-    width: 50%; } }
-
-@media only screen and (max-width: 1200px) {
+    width: 50%; }
+  .chapter__big-number {
+    font-size: 3rem; }
+  .chapter__divider--text {
+    font-size: 3rem; }
   .chapter__divider--median-treasury-logo {
-    background-size: 100% 400px;
-    padding: 2rem; } }
-
-/*
- * The max-width below is set to 1449px as the max-width of each section is set to 1400px, the left and right padding is
- * 1rem each (or 16px, or 32 total) plus the size of the scrollbar on most browsers being 17px = 1449px. We don't have to worry
- * much about tablets/phones as the ability to resize the browser is limited/denied and users won't see any behavior on the sectional divider.
- */
-@media only screen and (max-width: 1449px) {
-  .chapter__divider--normal {
-    margin: 0 1rem; } }
+    padding: 4rem 2rem 2rem; } }
 
 #revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button, #revenue-chapter .chapter__big-number {
   color: #112e51; }
@@ -251,9 +243,6 @@
 #deficit-chapter .anecdote__link--button-icon, #deficit-chapter .anecdote__icon {
   background-image: url("../assets/icons/anecdote-deficit.svg"); }
 
-section.chapter {
-  margin-bottom: 2rem; }
-
 a.link-button, button.link-button {
   background: none;
   text-decoration: none;
@@ -275,7 +264,8 @@ a.chapter__cta i.fa-angle-right {
 header {
   background: #FBFBFB;
   padding: 0.5rem 0;
-  background-image: linear-gradient(#e6e6e6, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC); }
+  box-shadow: inset 0 40px 40px -20px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px; }
 
 .bp-header {
   max-width: 1200px;
@@ -296,7 +286,7 @@ header {
 
 .bp-header__heading {
   color: #111;
-  font-size: 3.3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -323,10 +313,8 @@ a.bp-header__click-here--link {
   color: #77abe8; }
 
 @media only screen and (min-width: 800px) {
-  .bp-header__heading, .bp-header__text {
-    box-sizing: border-box;
-    padding-right: 1rem;
-    float: left; }
+  .bp-header__heading {
+    font-size: 3.3rem; }
   .bp-header {
     padding-top: 3.5rem; }
   .bp-header__text {
@@ -346,8 +334,8 @@ html {
   background-color: #F9F9F9;
   border-top: 1px solid #EEE; }
   .historical-quote blockquote {
-    font-size: 2.7rem;
-    max-width: 1330px;
+    font-size: 1.5rem;
+    max-width: 1000px;
     margin: 1rem auto 2rem; }
   .historical-quote .historical-quote__image {
     display: block;
@@ -358,16 +346,16 @@ html {
     font-size: 1.7rem; }
   .historical-quote p.historical-quote__credit {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1rem;
     margin-top: 0.5rem;
-    margin-bottom: 0;
-    font-weight: 900; }
+    margin-bottom: 0; }
     .historical-quote p.historical-quote__credit span.historical-quote__credit-normal {
       font-weight: normal; }
 
-section.chapter--revenue {
-  background-image: linear-gradient(#f1f1f1, white, white, white, white, white, white, white); }
-
 @media only screen and (min-width: 800px) {
   .bp-break-desktop {
-    display: block; } }
+    display: block; }
+  .historical-quote blockquote {
+    font-size: 2.2rem; }
+  .historical-quote p.historical-quote__credit {
+    font-size: 1.7rem; } }
