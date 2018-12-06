@@ -86,7 +86,8 @@
 .toc {
   list-style-type: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-size: 0.8rem; }
   .toc a {
     color: #666666;
     opacity: 0.4; }
@@ -95,7 +96,7 @@
     opacity: 1; }
 
 .chapter .anecdote {
-  margin-top: 2rem; }
+  margin-top: 1rem; }
 
 .chapter__content {
   max-width: 1400px;
@@ -105,10 +106,12 @@
   .chapter__content h1 {
     text-align: left;
     color: #555555;
-    font-size: 1.4rem; }
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem; }
   .chapter__content p {
     color: #666666;
-    font-size: 0.95rem; }
+    font-size: 0.95rem;
+    margin-top: 0; }
     .chapter__content p.chapter__chart--reference {
       font-size: 0.8rem;
       text-align: center;
@@ -148,34 +151,25 @@
 .chapter__divider--median-treasury-logo {
   background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
   background-size: 100% 250px;
-  height: 250px;
+  padding: 4rem 2rem 2rem;
   background-color: #FFF; }
-  .chapter__divider--median-treasury-logo .chapter__divider--median-flex-container {
-    margin-top: 50px;
-    display: flex;
-    align-items: space-between;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: column;
-    height: 200px;
-    padding-top: 50px; }
-  .chapter__divider--median-treasury-logo .chapter__divider--text-container {
-    margin: 0 auto;
-    padding: 0 1rem;
-    background-color: #FFF; }
   .chapter__divider--median-treasury-logo .chapter__divider--text {
-    font-size: 52px;
+    font-size: 3rem;
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    color: #222222; }
+    color: #222222;
+    background: #fff;
+    margin: 0 auto;
+    max-width: 1000px; }
     .chapter__divider--median-treasury-logo .chapter__divider--text strong, .chapter__divider--median-treasury-logo .chapter__divider--text span {
       font-weight: 900; }
   .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
-    text-align: center; }
+    text-align: center;
+    margin-top: 1rem; }
     .chapter__divider--median-treasury-logo .chapter__divider--arrow-container a {
       color: #666666; }
     .chapter__divider--median-treasury-logo .chapter__divider--arrow-container i {
@@ -197,7 +191,7 @@
 
 @media only screen and (min-width: 800px) {
   .chapter__content h1 {
-    font-size: 2rem; }
+    font-size: 1.8rem; }
   .chapter__flex {
     display: flex; }
   .chapter__chart {
@@ -210,20 +204,7 @@
 @media only screen and (max-width: 1200px) {
   .chapter__divider--median-treasury-logo {
     background-size: 100% 400px;
-    height: 400px; }
-    .chapter__divider--median-treasury-logo .chapter__divider--median-flex-container {
-      margin-top: 50px;
-      display: flex;
-      align-items: space-between;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      flex-direction: column;
-      height: 325px;
-      padding-top: 75px; }
-    .chapter__divider--median-treasury-logo .chapter__divider--text-container {
-      width: 90%; }
-    .chapter__divider--median-treasury-logo .chapter__divider--text {
-      font-size: 2.8rem; } }
+    padding: 2rem; } }
 
 /*
  * The max-width below is set to 1449px as the max-width of each section is set to 1400px, the left and right padding is
@@ -293,7 +274,8 @@ a.chapter__cta i.fa-angle-right {
 
 header {
   background: #FBFBFB;
-  padding: 0.5rem 0; }
+  padding: 0.5rem 0;
+  background-image: linear-gradient(#e6e6e6, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC, #FCFCFC); }
 
 .bp-header {
   max-width: 1200px;
@@ -304,13 +286,21 @@ header {
   align-items: center;
   text-align: center; }
 
-.bp-header__heading {
-  text-align: center; }
+.bp-header__app-name {
+  color: #000;
+  font-weight: 500;
+  font-size: 1rem;
+  word-spacing: 0.2em;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem; }
 
-h1.bp-header__heading {
+.bp-header__heading {
   color: #111;
-  font-size: 65px;
-  font-weight: 600; }
+  font-size: 3.3rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center; }
 
 .bp-scroll-down__div a {
   color: #666666; }
@@ -337,20 +327,11 @@ a.bp-header__click-here--link {
     box-sizing: border-box;
     padding-right: 1rem;
     float: left; }
-  .bp-header__heading {
-    margin-bottom: 0;
-    margin-top: 6rem; }
-  h3.bp-header__heading {
-    color: #000;
-    font-weight: 500;
-    font-size: 23px;
-    word-spacing: 0.2em; }
-  h1.bp-header__heading {
-    margin-top: 0.8rem;
-    margin-bottom: 1.5rem; }
+  .bp-header {
+    padding-top: 3.5rem; }
   .bp-header__text {
     padding-bottom: 3rem;
-    font-size: 21px; } }
+    font-size: 1.1rem; } }
 
 html {
   font-weight: 300; }
@@ -384,5 +365,9 @@ html {
     .historical-quote p.historical-quote__credit span.historical-quote__credit-normal {
       font-weight: normal; }
 
-header.bp__header-block, section.chapter--revenue {
+section.chapter--revenue {
   background-image: linear-gradient(#f1f1f1, white, white, white, white, white, white, white); }
+
+@media only screen and (min-width: 800px) {
+  .bp-break-desktop {
+    display: block; } }

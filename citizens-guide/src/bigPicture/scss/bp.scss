@@ -51,6 +51,12 @@ html {
     }
 }
 
-header.bp__header-block, section.chapter--revenue {
+section.chapter--revenue {
     background-image: linear-gradient(rgb(241,241,241), white, white, white, white, white, white, white);
+}
+
+@media only screen and (min-width: 800px) {
+    .bp-break-desktop {
+        display: block;
+    }
 }
