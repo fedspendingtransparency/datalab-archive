@@ -15,7 +15,7 @@ d3.select('#activate-show-hide')
             resetFilters();
             activeArr.length = 0;
         } else {
-            d3.select('#show-hide-list').selectAll('button').each(function(d,i){
+            returnListOfShowHideButtons().each(function(d,i){
                 activeArr[i] = d3.select(this).classed('active');
             });
         }
@@ -25,7 +25,7 @@ d3.select('#activate-show-hide')
 
 d3.select('#select-all')
     .on('click', function () {
-        d3.select('#show-hide-list').selectAll('button')
+        returnListOfShowHideButtons()
             .classed('active', function (d) {
                 d.active = true;
                 return true;
@@ -34,7 +34,7 @@ d3.select('#select-all')
 
 d3.select('#select-none')
     .on('click', function () {
-        d3.select('#show-hide-list').selectAll('button')
+        returnListOfShowHideButtons()
             .classed('active', function (d) {
                 d.active = null;
                 return null;
@@ -43,7 +43,12 @@ d3.select('#select-none')
 
 d3.select('#reset-filters-button')
     .on('click', function () {
-        resetFilters();
+        returnListOfShowHideButtons()
+            .each(function(d,i) {
+                const isActiveInd = initActiveFunction(i);
+                d3.select(this).classed('active', isActiveInd);
+                d.active = isActiveInd;
+            });
     });
 
 d3.select('#save-filters-button')
@@ -54,10 +59,13 @@ d3.select('#save-filters-button')
         renderChart(filterForActiveData())
     });
 
+function returnListOfShowHideButtons(){
+    return d3.select('#show-hide-list').selectAll('button');
+}
+
 function resetFilters(){
     if (activeArr.length) {
-        console.log('activeArr:', activeArr);
-        const showHideListData = d3.select('#show-hide-list').selectAll('button');
+        const showHideListData = returnListOfShowHideButtons();
         showHideListData.each(function(d, i){
             const curEl = d3.select(this);
             if(curEl.classed('active') !== activeArr[i]){
@@ -97,11 +105,16 @@ function filterForActiveData() {
     return data.filter(r => r.active);
 }
 
+function initActiveFunction(input){
+    const numValsToShow = 5;
+    return input < numValsToShow;
+}
+
 export function showHideInit(data) {
     d3.select('#show-hide-list').selectAll('*').remove();
 
     data.forEach((r, i) => {
-        r.active = (i < 5);
+        r.active = initActiveFunction(i);
     });
 
     placeControls(data);
