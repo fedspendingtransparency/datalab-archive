@@ -87,6 +87,7 @@
   .anecdote .anecdote__illustration {
     width: 100%;
     max-width: 230px;
+    margin: 0 auto;
     height: auto; }
   .anecdote .anecdote__cta--container {
     display: flex;
