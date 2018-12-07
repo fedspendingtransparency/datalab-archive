@@ -110,8 +110,9 @@ function buildPaneClick(anecdote){
         panes = paneContainer.selectAll(`.${paneClass}`),
         paneLength = panes.size();
 
-    function paneClickFunction(e){
-        const curTarget = e.srcElement;
+
+    paneContainer.on('click', function(){
+        const curTarget = event.srcElement;
         // Don't do any animations if someone clicks on a hyperlink.
         if(curTarget && curTarget.nodeName === 'A') {
             return;
@@ -127,11 +128,6 @@ function buildPaneClick(anecdote){
             idx = 0;
         }
         updateSlide(anecdote, idx);
-    }
-
-    document.querySelectorAll(`.${panesClass}`).forEach(function(element){
-        element.removeEventListener('click', paneClickFunction);
-        element.addEventListener('click', paneClickFunction);
     });
 }
 
