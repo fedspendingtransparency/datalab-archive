@@ -135,12 +135,13 @@ const drawGraph = (container, nodeData, size, clickable) => {
           panelChartContainer.removeChild(panelChartContainer.firstChild);
         }
 
-        childrenPanelData(nodeData);
+        childrenPanelData(nodeData); // draw child panel 
         drawGraph(panelChartContainer, nodeData, { height: 300, width: 300 }, false);
+        //drawChildGraph(childrenPanel, nodeData, { height: 300, width: 300});
         panel.style.minWidth = '350px';
         panel.style.display = 'inline-block';
-        //childPanel.style.minWidth = '400px';
-        //childPanel.style.display = 'inline-block';
+        childrenPanel.style.minWidth = '600px';
+        childrenPanel.style.display = 'inline-block';
         //childPanel.style.width = '500px';
         //childPanel.style.margin = '500px 0 0 0'
       }
@@ -283,11 +284,11 @@ const clearCharts = (container) => {
   *   EVENT LISTENERS
   *--------------------------------------------------------------------------------------------------------------------
   */
-panelBack.onclick = () => { hideElement(panel) };
+panelBack.onclick = () => { hideElement(panel); hideElement(childrenPanel); };
 
-pageTurnRt.onclick = () => { turnPage(1) };
+pageTurnRt.onclick = () => { turnPage(1); };
 
-pageTurnLt.onclick = () => { turnPage(-1) };
+pageTurnLt.onclick = () => { turnPage(-1); };
 
 //categoriesTable.onclick = () => { showTable() }; // show the table
 
@@ -376,7 +377,7 @@ function createTable(container, columns) {
     rows.selectAll('td')
       .data(function (row) {
         return columns.map(function (column) {
-          return { column: column, value: row[column] }
+          return { column: column, value: row[column] };
         });
       }).enter()
       .append('td')
@@ -394,7 +395,7 @@ function createTable(container, columns) {
       })
       .attr('data-th', function (d) {
         return d.name;
-      })
+      });
 
     // use DataTables JS and attach in D3 callback - DOM problems begone
     $(document).ready(function () {
@@ -405,8 +406,8 @@ function createTable(container, columns) {
         columnDefs: [{
           className: 'mdl-data-table__cell--non-numeric'
         }]
-      })
-    })
+      });
+    });
   });
 };
 
@@ -433,7 +434,7 @@ function createSecondaryTableView(parentName, columns) {
      * Create Secondary Table (Investment Types Table)
      */
     let subTableDiv = d3.select('#tableContainerDiv').append('div')
-      .attr('id', 'sidebarTable')
+        .attr('id', 'sidebarTable');
     let subTableHeaderText = subTableDiv.append('h4').html(parentName); //replace with data TR name...
     subTableHeaderText.append('hr')
       .style('width', '60%');
@@ -468,7 +469,7 @@ function createSecondaryTableView(parentName, columns) {
     rows.selectAll('td')
       .data(function (row) {
         return columns.map(function (column) {
-          return { column: column, value: row[column] }
+          return { column: column, value: row[column] };
         });
       }).enter()
       .append('td')
@@ -477,52 +478,23 @@ function createSecondaryTableView(parentName, columns) {
       })
       .attr('data-th', function (d) {
         return d.name;
-      })
-
-  })
+      });
+  });
 }
 
 /**
  * Create First TreeMap (could be reusable later)
  * for Section2 Table/view Toggle
  */
-function createTreeMap() {
-  var vWidth = 200;
-  let vHeight = 200;
+function treeMap() {
+  d3.csv('/data-lab-data/Edu_PSC.csv', (data) => {
 
-  // Prepare our physical space
-  let g = d3.select('svg').attr('width', vWidth).attr('height', vHeight).select('g');
-
-  let mockData = [
-    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
-    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
-    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
-    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
-    { "Type": "Grant: Student", "Awarded Amount": "$1000", "% of Total": "20%" },
-  ];
-
-  let vData = d3.stratify()(mockData);
+    console.log('treemap data' + data);
 
 
-  function drawViz(vData) {
-    // Declare d3 layout
-    let vLayout = d3.treemap().size([vWidth, vHeight]).paddingOuter(5);
-
-    // Layout + Data
-    let vRoot = d3.hierarchy(vData).sum(function (d) { return d.data.size; });
-    let vNodes = vRoot.descendants();
-    vLayout(vRoot);
-    let vSlices = g.selectAll('rect').data(vNodes).enter().append('rect');
-
-    // Draw on screen
-    vSlices.attr('x', function (d) { return d.x0; })
-      .attr('y', function (d) { return d.y0; })
-      .attr('width', function (d) { return d.x1 - d.x0; })
-      .attr('height', function (d) { return d.y1 - d.y0; });
-  }
-
-  drawViz(vData);
+  });
 }
+
 
 /**
  * Parent to Child 
@@ -531,6 +503,7 @@ function createTreeMap() {
 function childrenPanelData(clickedElement) {
 
   d3.csv('/data-lab-data/Edu_PSC.csv', (data) => {
+    //console.log(data);
 
     parentdonutData = data.filter(function (d) {
       return d.parent_name == clickedElement.name; // clickedElement.name 
@@ -543,11 +516,11 @@ function childrenPanelData(clickedElement) {
     //parentdonutData.shift();
   
     //parentdonutData.forEach(n => { n.percentage = (n.total / total) });
-  //  parentdonutData.sort((a, b) => { return b.percentage - a.percentage });
+    //parentdonutData.sort((a, b) => { return b.percentage - a.percentage });
       
     let svgIcon = pscs[clickedElement.name]; // has name property already
 
-    let svg = d3.select('#investmentCategories')
+    let svg = d3.select('#childrenPanel')
       .append("svg")
       .style("width", `300px`)
       .style("height", `300px`)
@@ -574,6 +547,7 @@ function childrenPanelData(clickedElement) {
       var pie = d3.layout.pie()
       .sort(null)
       .value(function (d) {
+        //console.log(d.value);
         return d.value;
       });
   
@@ -584,7 +558,9 @@ function childrenPanelData(clickedElement) {
   
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
   
-    var key = function (d) { return d.data.label; };
+    var key = function (d) { 
+      return d.data.label; 
+    };
   
     var color = d3.scale.ordinal()
       .domain(["", " "])
@@ -655,10 +631,10 @@ function childrenPanelData(clickedElement) {
   
       } // end inner data funct
 
+
+
   });
 }
-
-
 /*
   --------------------------------------------------------------------------------------------------------------------
   *   Main Method
@@ -700,9 +676,15 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
   paginate(categoriesData, pageSize, currPage)
     .forEach(n => { drawGraph(graphContainer, n, { height: 200, width: 200 }, true); });             //draw donut chart in charts container
 
+  //paginate(parentdonutData, pageSize, currPage)
+//    .forEach(n => { drawChildGraph(childrenPanel, n, { height: 200, width: 200}); });
+
   /**
    * Adding on.. he does everything in a "main method"... will follow...
-    */
+  */
+
+  //paginate(parentdonutData, pageSize, currPage)
+//    .forEach(n => {drawDonutGraph("#childrenPanel", n, { height: 200, width: 200}, false); });
 
   // Table View!
   //$(tableBtn).click(function () {
@@ -711,7 +693,9 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
   //$(graphContainer).toggle(); // hide graph when show table
   //});
 
-  //createTable(categoriesTable, ['name', 'percentage', 'total']); // table testing
+  //createTable(categoriesTable, ['name', 'percentage', 'total']); // table view
+  treeMap(); // testing for now, will put on SVG button click
+
   //childrenPanelData(); // test
 
   // Graph View (Donut)

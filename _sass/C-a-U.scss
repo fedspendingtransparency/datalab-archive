@@ -2,6 +2,9 @@ $orange: #D04C02;
 $grey: #555555;
 $background: #FBFBFB;
 $green: #50604f;
+$checked-color: #1877c1;
+$unchecked-color: #888;
+
 
 .CU {
 
@@ -194,42 +197,42 @@ $green: #50604f;
     }
 
     .totalInvestments_breakdown_contracts_total {
-    width: 239px;
-	  height: 49px;
-	  font-family: SourceSansPro;
-	  font-size: 38.9px;
-	  font-weight: 300;
-	  font-style: normal;
-	  font-stretch: normal;
-	  line-height: normal;
-	  letter-spacing: normal;
-	  color: #555555;
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
     }
 
     .totalInvestments_breakdown_grants_total {
-          width: 239px;
-	  height: 49px;
-	  font-family: SourceSansPro;
-	  font-size: 38.9px;
-	  font-weight: 300;
-	  font-style: normal;
-	  font-stretch: normal;
-	  line-height: normal;
-	  letter-spacing: normal;
-	  color: #555555;
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
     }
 
     .totalInvestments_breakdown_studentAid_total {
-          width: 239px;
-	  height: 49px;
-	  font-family: SourceSansPro;
-	  font-size: 38.9px;
-	  font-weight: 300;
-	  font-style: normal;
-	  font-stretch: normal;
-	  line-height: normal;
-	  letter-spacing: normal;
-	  color: #555555;
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
     }
 
 
@@ -284,6 +287,8 @@ $green: #50604f;
   
   .bubbleChartContainer {
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 
   /*
@@ -292,9 +297,9 @@ $green: #50604f;
 *--------------------------------------------------------------------------------------------------------------------
 */
   
-#secitonInvestmentCategories {
-  margin-top: 130px;
-}
+  #secitonInvestmentCategories {
+    margin-top: 130px;
+  }
 
 
   .investmentCategories { 
@@ -325,7 +330,7 @@ $green: #50604f;
         left: -45%;
         color: #D04C02;
         display: inline-block;
-    }
+      }
 
       span:hover { 
         color: lighten($orange, 25%);
@@ -353,15 +358,15 @@ $green: #50604f;
         display: inline-block;
 
 	p { font-size: 16px; }
-      
-  }
+	
+      }
 
       .chv {
         position: absolute;
         top:50%;
         font-size: 32px;
         opacity: 0.5;
-    }
+      }
 
       .left {
 	left: 5px;
@@ -521,7 +526,7 @@ $green: #50604f;
 
   /**
     For use with ScrollyTelling! Make things appear on viewport! Woo!
-  **/
+**/
   .hiddenScroll {
     visibility: hidden;
     opacity: 0;
@@ -533,114 +538,151 @@ $green: #50604f;
     transition: visibility 0s linear 0s, opacity 300ms;
   }
 
-  /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
+  /**
+  Checkbox Slider
+ */
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+  .slider-checkbox {
+    position: relative;
+    input {
+      margin: 0px;
+      margin-top: 1px;
+      cursor: pointer;
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      -moz-opacity: 0;
+      -khtml-opacity: 0;
+      opacity: 0;
+      position: absolute;
+      z-index: 1;
+      top: 0px;
+      left: 0px;
+      background: red;
+      width: 40px;
+      height: 20px;
+      &:checked + .label {
+	&:before {
+          background-color: $checked-color;
+          content: "\f00c";
+          padding-left: 6px;
+	}
+	&:after {
+          left: 21px;
+	}
+      }
+    }
+    .label {
+      position: relative;
+      padding-left: 46px;
+      &:before, &:after {
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	transition: background-color 0.3s, left 0.3s;
+      }
+      &:before {
+	content: "\f00d";
+	color: #fff;
+	box-sizing: border-box;
+	font-family: 'FontAwesome', sans-serif;
+	padding-left: 23px;
+	font-size: 12px;
+	line-height: 20px;
+	background-color: $unchecked-color;
+	left: 0px;
+	top: 0px;
+	height: 20px;
+	width: 40px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+      }
+      &:after {
+	content: "";
+	letter-spacing: 20px;
+	background: #fff;
+	left: 1px;
+	top: 1px;
+	height: 18px;
+	width: 18px;
+      }
+    }
+  }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+  .halfhr {
+    //width: 40%;
+    opacity: .25;
+  }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
+  .checkboxpadding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
+  .d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
 
-.slider.round:before {
-  border-radius: 50%;
-}
+  /* Creates a small triangle extender for the tooltip */
+  .d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.466);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+  }
 
-.halfhr {
-  //width: 40%;
-  opacity: .25;
-}
+  /* Style northward tooltips differently */
+  .d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+  }
 
-.checkboxpadding {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
+  #childrenPanel {
+    margin-left: 15%;
+    height: 600px;
+    width: 500px;
+    //margin: 0;
+    display: inline-block;
+    display: none;
+    //border: 1px;
+  }
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
+  #threeMenu {
+    display: flex;
+    justify-content: center;
+  }
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.466);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
+  #threeMenu > svg {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
+  #treemapContainerDiv {
+    display: flex;    
+  }
 
-#childrenPanel {
-  margin-left: 15%;
-  //margin: 0;
-  //display: inline-block;
-  border: 1px;
-}
+  #treemapSidebar {
+    width: 30%;
+  }
+
+
+
 
 
 } // end of .CU
