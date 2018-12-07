@@ -5,7 +5,7 @@
   .anecdote h1.anecdote__heading {
     font-size: 1rem;
     font-weight: 600;
-    margin-top: 0;
+    margin-top: 0.5rem;
     text-align: center; }
   .anecdote .anecdote__dots--container {
     margin-bottom: 10px; }
@@ -35,11 +35,12 @@
     position: absolute;
     transition: opacity 0.5s ease;
     color: black;
-    opacity: 0; }
+    opacity: 0;
+    visibility: hidden; }
     .anecdote .anecdote__pane.anecdote__pane--active {
-      opacity: 1; }
+      opacity: 1;
+      visibility: visible; }
     .anecdote .anecdote__pane p {
-      color: black;
       text-align: center; }
   .anecdote .anecdote__contents {
     display: none;
@@ -101,3 +102,10 @@
     font-size: 12px; }
     .anecdote .anecdote__pane .source a {
       color: #77abe8; }
+
+@media only screen and (min-width: 800px) {
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: -22px; } }

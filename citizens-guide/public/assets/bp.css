@@ -158,16 +158,6 @@ section.chapter {
   background-size: 100% 250px;
   padding: 1rem;
   background-color: #FFF; }
-  .chapter__divider--median-treasury-logo .chapter__divider--text {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-    color: #222222;
-    background: #fff;
-    margin: 0 auto;
-    max-width: 1000px; }
-    .chapter__divider--median-treasury-logo .chapter__divider--text strong, .chapter__divider--median-treasury-logo .chapter__divider--text span {
-      font-weight: 900; }
   .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
     text-align: center;
     margin-top: 1rem; }
@@ -176,6 +166,18 @@ section.chapter {
     .chapter__divider--median-treasury-logo .chapter__divider--arrow-container i {
       text-align: center;
       font-size: 2em; }
+
+.chapter__divider--text {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  color: #222222;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 1rem; }
+  .chapter__divider--text strong, .chapter__divider--text span {
+    font-weight: 900; }
 
 .chapter__divider--text-deficit {
   color: #B3532D; }
@@ -288,7 +290,7 @@ header {
 .bp-header__heading {
   color: #111;
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 0;
   margin-bottom: 1rem;
   text-align: center; }
