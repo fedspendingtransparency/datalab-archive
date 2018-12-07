@@ -679,9 +679,19 @@ $unchecked-color: #888;
 
   #treemapSidebar {
     width: 30%;
+    height: 600px;
   }
 
-
+  .sidebarList {
+    box-shadow: rgba(0,0,0, .4);
+    text-align: left;
+    font-size: 9px;
+    height: 600px;
+    width: auto;
+    overflow: scroll;
+    overflow-y: scroll;
+  }
+  
 
 
 
