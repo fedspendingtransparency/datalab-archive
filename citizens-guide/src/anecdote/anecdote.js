@@ -131,23 +131,27 @@ function buildPaneClick(anecdote){
     });
 }
 
-function setPaneHeight(anecdote) {
-    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
-    panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass;
+function getPaneHeight(currentPane) {
+    if(currentPane && currentPane.node()){
+        return Math.ceil(currentPane.node().getBoundingClientRect().height);
+    }
+    return 0;
+}
 
-    const panes = anecdote.selectAll(`.${paneClass}`);
-    let maxPaneHeight = 0;
-    let paneHeightStr = '';
-
-    panes.each(function () {
-        const myHeight = this.getBoundingClientRect().height;
-        maxPaneHeight = (myHeight > maxPaneHeight) ? myHeight : maxPaneHeight;
-    });
-
-    paneHeightStr = Math.ceil(maxPaneHeight) + 'px';
+function setPaneHeight(anecdote, currentPane){
+    const panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass,
+        paneHeightStr = getPaneHeight(currentPane) + 'px';
 
     anecdote.select(`.${panesClass}`)
         .attr('style', `height: ${paneHeightStr}`);
+}
+
+function getActivePane(anecdote){
+    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
+        paneClassActive = desiredAnecdoteProperties.paneClassActive || defaultAnecdoteProperties.paneClassActive,
+        activePane = anecdote.selectAll(`.${paneClass}.${paneClassActive}`);
+
+    return activePane;
 }
 
 function showPane(anecdote, index){
@@ -156,7 +160,9 @@ function showPane(anecdote, index){
 
     const panes = anecdote.selectAll(`.${paneClass}`);
     panes.classed(paneClassActive, false);
-    panes.filter((d, i) => {return i === index}).classed(paneClassActive, true);
+    const curPane = panes.filter((d, i) => {return i === index});
+    curPane.classed(paneClassActive, true);
+    setPaneHeight(anecdote, curPane);
 }
 
 function toggleContent(anecdote){
@@ -168,7 +174,8 @@ function toggleContent(anecdote){
   const activeInd = anecdoteContents.classed(contentsClassActive);
   anecdoteContents.classed(contentsClassActive, !activeInd);
   if(!activeInd) {
-      setPaneHeight(anecdote);
+      const activePane = getActivePane(anecdote);
+      setPaneHeight(anecdote, activePane);
       buildPaneClick(anecdote);
       anecdote.select('.' + closeButtonClass)
           .on('click', function () {
