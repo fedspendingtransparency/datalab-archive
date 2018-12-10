@@ -107,7 +107,9 @@ function setOverlayY(clickY, overlayHeight) {
 
 function resizeSvg(finalRectHeight) {
     const mainSvg = establishContainer(),
-        svgHeight = getElementBox(mainSvg).height;
+        svgBox = getElementBox(mainSvg),
+        svgHeight = svgBox.height,
+        newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
 
     let previousHeight,
         detailHeightWithPadding,
@@ -119,11 +121,13 @@ function resizeSvg(finalRectHeight) {
         newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
     }
 
-    if (newHeight === svgHeight) {
-        return;
-    }
+    // if (newHeight === svgHeight) {
+    //     return;
+    // }
 
-    d3.select('.mask').attr('height', newHeight);
+    d3.select('.mask')
+        .attr('width', newWidth)
+        .attr('height', newHeight);
 
     mainSvg.transition()
         .duration(500)
