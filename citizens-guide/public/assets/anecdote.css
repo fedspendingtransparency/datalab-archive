@@ -35,11 +35,9 @@
     position: absolute;
     transition: opacity 0.5s ease;
     color: black;
-    opacity: 0;
-    visibility: hidden; }
+    display: none; }
     .anecdote .anecdote__pane.anecdote__pane--active {
-      opacity: 1;
-      visibility: visible; }
+      display: block; }
     .anecdote .anecdote__pane p {
       text-align: center; }
   .anecdote .anecdote__contents {

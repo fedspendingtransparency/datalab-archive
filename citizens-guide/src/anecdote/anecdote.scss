@@ -51,12 +51,10 @@
         position:absolute;
         transition: opacity 0.5s ease;
         color:black;
-        opacity:0;
-        visibility: hidden;
+        display:none;
 
         &.anecdote__pane--active {
-            opacity: 1;
-            visibility: visible;
+            display:block;
         }
 
         p {
