@@ -36,6 +36,12 @@ function findMaxWidth() {
 }
 
 export function placeLabels(containers, config) {
+    let detailInnerWidth;
+
+    if (config.detail) {
+        detailInnerWidth = d3.select('.detail-background').attr('width') - 40;
+    }
+
     const text = containers.append('text')
         .text(function (d) {
             return d.activity;
@@ -52,11 +58,31 @@ export function placeLabels(containers, config) {
 
     maxTextWidth = 0;
 
+    // test for text fit in detail mode
+    if (config.detail) {
+        text.each(function (d) {
+            const max = detailInnerWidth - d.barX1,
+                selection = d3.select(this),
+                textWidth = getElementBox(selection).width;
+
+            let x;
+
+            if (textWidth > max) {
+                x = selection.attr('x');
+                wordWrap(selection, max);
+                selection.selectAll('tspan').attr('x', x);
+                selection.attr('transform', translator(6, -4) + ' scale(0.9)')
+            }
+        })
+    }
+
     text.append('tspan')
         .attr('font-size', 14)
         .classed('details', true)
-        .attr('dy', 20)
-        .attr('font-weight', '300')        
+        .attr('dy', function() {
+            return config.detail ? 16 : 20;
+        })
+        .attr('font-weight', '300')
         .attr('x', function (d) {
             return d.barX1 + 20;
         })

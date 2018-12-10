@@ -1,6 +1,6 @@
 import { select, selectAll, mouse } from 'd3-selection';
 import { transition } from 'd3-transition';
-import { translator, fadeAndRemove, getElementBox, establishContainer } from '../../../utils';
+import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from '../../../utils';
 import colors from '../../../colors.scss';
 import { closeDetail } from './sort';
 
@@ -50,18 +50,31 @@ function placeCloseButton(container, detailLayer, innerWidth) {
 }
 
 function renderHeader(detailLayer, title, innerWidth) {
-    const header = detailLayer.append('g')
+    const headerTextMaxWidth = innerWidth - 60,
+        header = detailLayer.append('g')
         .attr('transform', translator(0, overlayPadding));
 
-    header.append('text')
+    let headerText, calculatedHeaderHeight;
+
+    headerText = header.append('text')
         .text(title)
         .attr('x', overlayPadding)
         .attr('y', 20)
-        .attr('font-size', 20);
+        .attr('font-size', function() {
+            const svgWidth = document.getElementById('viz').getBoundingClientRect().width;
+
+            return svgWidth < 500 ? 16 : 20;
+        });
+    
+    wordWrap(headerText, headerTextMaxWidth)
+
+    headerText.attr('transform', translator(20, 0))
 
     placeCloseButton(header, detailLayer, innerWidth);
 
-    return getElementBox(header).height + 20;
+    calculatedHeaderHeight = header.selectAll('tspan').size() * 20;
+
+    return calculatedHeaderHeight;
 }
 
 function renderMask() {
@@ -94,7 +107,9 @@ function setOverlayY(clickY, overlayHeight) {
 
 function resizeSvg(finalRectHeight) {
     const mainSvg = establishContainer(),
-        svgHeight = getElementBox(mainSvg).height;
+        svgBox = getElementBox(mainSvg),
+        svgHeight = svgBox.height,
+        newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
 
     let previousHeight,
         detailHeightWithPadding,
@@ -106,11 +121,9 @@ function resizeSvg(finalRectHeight) {
         newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
     }
 
-    if (newHeight === svgHeight) {
-        return;
-    }
-
-    d3.select('.mask').attr('height', newHeight);
+    d3.select('.mask')
+        .attr('width', newWidth)
+        .attr('height', newHeight);
 
     mainSvg.transition()
         .duration(500)
@@ -130,10 +143,10 @@ export function initOverlay(title, config, callback) {
         .attr('transform', translator(startCoords[0], startCoords[1]) + ' scale(0)')
         .attr('opacity', 1);
 
-
     config.width = config.width - 10 - overlayPadding * 2;
 
     rect = detailLayer.append('rect')
+        .classed('detail-background', true)
         .attr('fill', 'white')
         .attr('stroke', '#ccc')
         .attr('stroke-width', 1)
@@ -174,7 +187,6 @@ export function initOverlay(title, config, callback) {
         .duration(750)
         .attr('transform', translator(5, setOverlayY(startCoords[1], finalRectHeight)) + ' scale(1)')
         .on('end', function () {
-            console.log(config.data)
             callback(config, true)
         })
         .ease();
