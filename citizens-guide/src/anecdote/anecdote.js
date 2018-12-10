@@ -109,7 +109,15 @@ function buildPaneClick(anecdote){
     const paneContainer = anecdote.select(`.${panesClass}`),
         panes = paneContainer.selectAll(`.${paneClass}`),
         paneLength = panes.size();
+
+
     paneContainer.on('click', function(){
+        const curTarget = event.srcElement;
+        // Don't do any animations if someone clicks on a hyperlink.
+        if(curTarget && curTarget.nodeName === 'A') {
+            return;
+        }
+
         let idx = 0;
         panes.each(function(d, i){
             if(d3.select(this).classed(paneClassActive)){
@@ -120,7 +128,7 @@ function buildPaneClick(anecdote){
             idx = 0;
         }
         updateSlide(anecdote, idx);
-});
+    });
 }
 
 function setPaneHeight(anecdote) {

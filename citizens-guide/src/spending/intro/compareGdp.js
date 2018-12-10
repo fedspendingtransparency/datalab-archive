@@ -44,7 +44,7 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('Total GDP')
+        .text('U.S. GDP')
         .style('font-weight', '600')
         .attr('x', textX)
         .attr('dy', height / 2);
