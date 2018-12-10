@@ -1,5 +1,5 @@
 .dts-container {
-  width: 1250px;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@
 #svg-wrapper {
   display: flex;
   margin-right: 50px;
-  width: 900px;
+  width: 57vw;
   height: 100%;
   margin-left: -15px;
 }
@@ -64,6 +64,11 @@ path.domain {
 
 .dts-download-data:hover {
   color: #00c3c2;
+}
+
+.dts-controls-and-svg {
+  display: flex;
+  flex-direction: column;
 }
 
 .dts-tt-container {
@@ -132,7 +137,6 @@ path.domain {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  margin: 0 auto;
   letter-spacing: 1.6px;
   color: #484848;
   padding-bottom: 0;
@@ -485,8 +489,25 @@ path.domain {
     display: none;
   }
 
+  .dts-container {
+    width: 90%;
+  }
+
+  .dts-header > div {
+    margin-bottom: 25px;
+  }
+
+  #svg-wrapper {
+    width: 90vw;
+  }
+
+  .dts-controls-and-svg {
+    flex-direction: column-reverse;
+  }
+
   .dts-header {
     flex-direction: column;
+    margin-top: 25px;
   }
 
   #svg-wrapper, .period-container {
