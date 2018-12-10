@@ -121,10 +121,6 @@ function resizeSvg(finalRectHeight) {
         newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
     }
 
-    // if (newHeight === svgHeight) {
-    //     return;
-    // }
-
     d3.select('.mask')
         .attr('width', newWidth)
         .attr('height', newHeight);
@@ -150,6 +146,7 @@ export function initOverlay(title, config, callback) {
     config.width = config.width - 10 - overlayPadding * 2;
 
     rect = detailLayer.append('rect')
+        .classed('detail-background', true)
         .attr('fill', 'white')
         .attr('stroke', '#ccc')
         .attr('stroke-width', 1)

@@ -136,10 +136,10 @@ export function drawChart(data, type, detail, parentWidth) {
     if (!data.length) {
         return;
     }
-    
+
     config.height = data.length * rowHeight;
     config.width = parentWidth || optimizeWidth();
-    config.barWidth = config.width / 2;
+    config.barWidth = detail ? config.width * 0.35 : config.width / 2;
     config.data = data;
     config.rowHeight = rowHeight;
     config.detail = detail;
