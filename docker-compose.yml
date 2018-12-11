@@ -4,8 +4,13 @@ services:
     container_name: datalab
     image: jekyll/jekyll:latest
     restart: always
-    command: /bin/bash -c "cd /root/; bundle install; bundle exec jekyll serve --host=0.0.0.0 --watch --incremental"
+    working_dir: /datalab-repo-mount
+    command: >
+        /bin/bash -c "
+          bundle install; 
+          bundle exec jekyll serve --host=0.0.0.0 --watch --incremental; 
+        "
     ports:
         - 4000:4000
     volumes:
-        - .:/root/
+        - .:/datalab-repo-mount

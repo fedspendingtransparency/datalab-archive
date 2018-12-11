@@ -2,6 +2,7 @@
 .sass-cache/
 _site
 .vscode/
+.jekyll-metadata/
 
 # Windows image file caches
 Thumbs.db
