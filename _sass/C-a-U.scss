@@ -453,7 +453,7 @@ $unchecked-color: #888;
   }
 
   #tableContainerDiv {
-    display: flex;
+    display: none;
     flex-direction: row;
     margin: 75px auto;
     justify-content: space-around;
@@ -674,12 +674,16 @@ $unchecked-color: #888;
   }
 
   #treemapContainerDiv {
-    display: flex;    
+    display: none;
   }
 
   #treemapSidebar {
-    width: 30%;
+    width: 40%;
     height: 600px;
+  }
+
+  #sectiontwoTreemap {
+    margin-left: 200px;
   }
 
   .sidebarList {
@@ -691,8 +695,17 @@ $unchecked-color: #888;
     overflow: scroll;
     overflow-y: scroll;
   }
-  
 
+  .sidebarListElement:hover {
+    background-color: teal;
+//    opacity: .6;
+  }
+
+  .categoriesPanel {
+    display: block;
+  }
+
+  
 
 
 } // end of .CU

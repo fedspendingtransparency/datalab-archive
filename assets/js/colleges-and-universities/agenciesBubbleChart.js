@@ -17,7 +17,7 @@ const bubbleChartContainer = document.getElementById('bubbleChartContainer');
 const addRadius = (nodes) => {
 
   //total obligation
-  let totalSpent = nodes.reduce((a, b) => {  return a + b.total  }, 0);
+  let totalSpent = nodes.reduce((a, b) => {  return a + b.total;  }, 0);
 
   //sized by percentage clamp at 10 - 100 px
   nodes.forEach(n => {
@@ -144,7 +144,7 @@ const drawChart = (container, data) => {
   *   Main Method
   *--------------------------------------------------------------------------------------------------------------------
   */
-d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to data files
+d3.csv("/data-lab-data/Edu_PSC.csv"), (data) => {    //read in education data to data files
 
   var agenciesData = data.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
     
@@ -167,5 +167,5 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
   addRadius(agenciesData);
 
   drawChart(bubbleChartContainer, agenciesData);
-});
+};
 

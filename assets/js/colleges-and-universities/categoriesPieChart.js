@@ -13,8 +13,9 @@ const pageTurnRt = document.getElementById('cat_rt_pg_turn');
 const pageTurnLt = document.getElementById('cat_lt_pg_turn');
 const categoriesTable = document.getElementById('tableDiv'); // Table View
 
-const tableBtn = document.getElementById('tableBtn'); // table toggle btn 
-const graphBtn = document.getElementById('donutBtn'); // graph toggle btn (we'll replace with svg or w/e)
+const tableBtn = document.getElementById('tableViewButton'); // table toggle btn 
+const donutBtn = document.getElementById('donutViewButton'); // graph toggle btn (we'll replace with svg or w/e)
+const treemapBtn = document.getElementById('treemapViewButton');
 const pageSize = 10;
 
 let currPage = 1;
@@ -153,14 +154,14 @@ const drawGraph = (container, nodeData, size, clickable) => {
       height = size.height,
       radius = Math.min(width, height) / 2;
 
-  var pie = d3.layout.pie()
+  var pie = d3.pie()
       .sort(null)
       .value(function (d) {
         return d.value;
       });
 
   //set Inner and out arc redius of the donut chart
-  var arc = d3.svg.arc()
+  var arc = d3.arc()
       .outerRadius(radius * 0.85)
       .innerRadius(radius * 0.75);
 
@@ -168,7 +169,7 @@ const drawGraph = (container, nodeData, size, clickable) => {
 
   var key = function (d) { return d.data.label; };
 
-  var color = d3.scale.ordinal()
+  var color = d3.scaleOrdinal()
       .domain(["", " "])
       .range(["#C3DBB5", "#F6F6F6"]);
 
@@ -207,7 +208,7 @@ const drawGraph = (container, nodeData, size, clickable) => {
     let legendSpacing = 7;
     let legendHeight = legendRectSize + legendSpacing;
 
-    var legend = svg.selectAll('.legend')
+    let legend = svg.selectAll('.legend')
         .data(data)
         .enter()
         .append('g')
@@ -219,23 +220,24 @@ const drawGraph = (container, nodeData, size, clickable) => {
           }
         });
 
-    legend.append('text')
-      .attr({
-        x: 30,
-        y: 15
-      })
-      .text(d => {
-        return (d.label === "" ? `${categoriesSpendingFormat(nodeData.total)}`
-                : (nodeData.percentage * 100 >= 0.1 ? `${round(nodeData.percentage * 100, 1)}%` : '0.1% >'));
-      })
-      .attr("class", d => {
-        return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
-      })
-      .attr("x", d => {
-        return (d.label === "" ? '20' : '55');
-      });
+////// THIS BROKE IN v4, go back and fix this
+//    legend.append('text')
+//      .attr({
+//        x: 30,
+//        y: 15}) 
+//
+//      .text(d => {
+//        return (d.label === "" ? `${categoriesSpendingFormat(nodeData.total)}`
+//                : (nodeData.percentage * 100 >= 0.1 ? `${round(nodeData.percentage * 100, 1)}%` : '0.1% >'));
+//      })
+//      .attr("class", d => {
+//        return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
+//      })
+//      .attr("x", d => {
+//        return (d.label === "" ? '20' : '55');
+//      });
 
-  };
+}; // end data function 
 
   let title = document.createElement('p');
   title.innerText = nodeData.name;
@@ -495,6 +497,7 @@ function treeMap(categoriesData) {
       return parentNames.indexOf(item) >= index;
     });
 
+    //console.log(data); // whole data listout again
 
     // Going to do Sidebar Data first.
     // Just a simple list
@@ -504,246 +507,326 @@ function treeMap(categoriesData) {
     sidebarList.selectAll('li')
       .data(filteredNames)
       .enter()
-      .append('li').html(String);
+      .append('li')
+      .attr('class', 'sidebarListElement')
+      .html(String);
 
-    // start Treemappin'
-    let width = 960,
-        height = 500,
-        color = d3.scale.category20c();
+    ///////////////////////
+    // start Treemappin' // 
+    let width = 2000,
+        height = 600;
 
-    let treeMapContainer = d3.select('#sectiontwoTreemap');
+    let color = d3.scaleOrdinal()
+        .range(d3.schemeCategory10
+               .map(function(c) { c = d3.rgb(c); c.opacity = 0.6; return c; }));
 
-    let treeMap = d3.layout.treemap()
+    let format = d3.format(",d");
+
+    let treeMappy = d3.treemap()
         .size([width, height])
-        .sticky(true)
-        .value(function(d) { return d.total; });
+        .round(true)
+        .padding(1);
+//    (d3.hierarchy(categoriesData)
+//     .sum(d => d.total)
+//     .sort((a, b) => b.height - a.height || b.total - a.total));
+
+    let bigTotal = categoriesData.map(i => i.total).reduce((a,b) => a + b);
+    categoriesSpendingFormat(bigTotal); // convert
+    categoriesData.forEach(function(i) { i.parent = "rootNode"; }); // add parent property to each child of root node
+
+    let rootNode = {
+      abbrev: "root",
+      name: 'rootNode',
+      total: bigTotal,
+      parent: "",
+    };
+
+    categoriesData.unshift(rootNode); // add root node to beginning of array
+//    console.log(categoriesData);
+
+    let stratify = d3.stratify()
+        .id(function(d) {
+          console.log(d);
+          return d.name; })
+        .parentId(function(d) { return d.parent; });
+
+    let root = stratify(categoriesData)
+      .sum(function(d) { return d.total; })
+      .sort(function(a, b) { return b.height - a.height || b.total - a.total; });
+
+    let treeMapContainer = d3.select('#sectiontwoTreemap')
+        .append('svg')
+        .style('width', width)
+        .style('height', height);
+//        .style('position', 'relative');
+
+    treeMappy(root); // stratify and get the root ready
+
+    let leaf = treeMapContainer
+        .selectAll('g')
+        .data(root.leaves())
+        .enter().append('g')
+        .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+    leaf.append('text')
+      .attr('x', function(d) {return d.x0; })
+      .attr('y', function(d) {return d.y0; })
+      .text(d => {
+        return d.id + "\n" + format(d.value);
+      });
+        
+
+    leaf.append("rect")
+      .attr("id", d => d.id)
+      .attr("fill", function(d) { var a = d.ancestors(); return color(a[a.length - 2].id); })
+      .attr("fill-opacity", 0.6)
+      .attr("width", d => d.x1 - d.x0)
+      .attr("height", d => d.y1 - d.y0);
 
 
-    let node = treeMapContainer.datum(categoriesData).selectAll(".node")
-        .data(treeMap.nodes)
-        .enter().append("div")
-        .attr("class", "node")
-        .call(position)
-        .style("background-color", function(d) {
-          return d.name == 'tree' ? '#fff' : color(d.name); })
-        .append('div')
-        .style("font-size", function(d) {
-          // compute font size based on sqrt(area)
-          return Math.max(20, 0.18*Math.sqrt(d.area))+'px'; })
-        .text(function(d) { return d.children ? null : d.name; });
 
-    function position() {
-      this.style("left", function(d) { return d.x + "px"; })
-        .style("top", function(d) { return d.y + "px"; })
-        .style("width", function(d) { return Math.max(0, d.dx - 1) + "px"; })
-        .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
-    }
-
+    // leaves now..
+//    treeMapContainer
+//    .selectAll(".node")
+//    .data(root.leaves())
+//    .enter().append("div")
+//      .attr("class", "node")
+//      .attr("title", function(d) { return d.name + "\n" + d.total; })
+//      .style("left", function(d) { return d.x0 + "px"; })
+//      .style("top", function(d) { return d.y0 + "px"; })
+//      .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+//      .style("height", function(d) { return d.y1 - d.y0 + "px"; })
+//      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.name); })
+//    .append("div")
+//      .attr("class", "node-label")
+//      .text(function(d) { return d.name; })
+//    .append("div")
+//      .attr("class", "node-value")
+//      .text(function(d) { return d.total; });
+    
 
 
   }); 
 }; // end function
 
 
-  /**
-   * Parent to Child 
-   * Donut View
-   */
-  function childrenPanelData(clickedElement) {
+/**
+ * Parent to Child 
+ * Donut View
+ */
+function childrenPanelData(clickedElement) {
 
-    d3.csv('/data-lab-data/Edu_PSC.csv', (data) => {
-      //console.log(data);
+  d3.csv('/data-lab-data/Edu_PSC.csv', (data) => {
+    //console.log(data);
 
-      parentdonutData = data.filter(function (d) {
-        return d.parent_name == clickedElement.name; // clickedElement.name 
-      }); // filter for children based on clicked element in parent view.
-      console.log(parentdonutData);
-      
-      let svgIcon = pscs[clickedElement.name]; // has name property already
+    parentdonutData = data.filter(function (d) {
+      return d.parent_name == clickedElement.name; // clickedElement.name 
+    }); // filter for children based on clicked element in parent view.
+    //console.log(parentdonutData);
+    
+    let svgIcon = pscs[clickedElement.name]; // has name property already
 
-      let svg = d3.select('#childrenPanel')
-          .append("svg")
-          .style("width", `300px`)
-          .style("height", `300px`)
-          .append("g");
+    let svg = d3.select('#childrenPanel')
+        .append("svg")
+        .style("width", `300px`)
+        .style("height", `300px`)
+        .append("g");
 
-      svg.append("g")
-        .attr("class", "slices");
-      svg.append("g")
-        .attr("class", "labels");
-      svg.append("g")
-        .attr("class", "lines");
+    svg.append("g")
+      .attr("class", "slices");
+    svg.append("g")
+      .attr("class", "labels");
+    svg.append("g")
+      .attr("class", "lines");
 
-      svg.append("svg:image")
-        .attr('x', -25)
-        .attr('y', -55)
-        .attr('width', 50)
-        .attr('height', 50)
-        .attr("xlink:href", "/images/psc-svgs/" + svgIcon);
-      
-      let width = 300;
-      let height = 300;
-      let radius = Math.min(width, height) / 2;
+    svg.append("svg:image")
+      .attr('x', -25)
+      .attr('y', -55)
+      .attr('width', 50)
+      .attr('height', 50)
+      .attr("xlink:href", "/images/psc-svgs/" + svgIcon);
+    
+    let width = 300;
+    let height = 300;
+    let radius = Math.min(width, height) / 2;
 
-      var pie = d3.layout.pie()
-          .sort(null)
-          .value(function (d) {
-            //console.log(d.value);
-            return d.value;
-          });
-      
-      //set Inner and out arc redius of the donut chart
-      var arc = d3.svg.arc()
-          .outerRadius(radius * 0.85)
-          .innerRadius(radius * 0.75);
-      
-      svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-      
-      var key = function (d) { 
-        return d.data.label; 
-      };
-      
-      var color = d3.scale.ordinal()
-          .domain(["", " "])
-          .range(["#C3DBB5", "#F6F6F6"]);
-      
-      change([
-        { label: "", value: clickedElement.percentage },
-        { label: " ", value: 1 - clickedElement.percentage }
-      ]);
-      
-      function change(data) {
-        
-        /*------- PIE SLICES -------*/
-        var slice = svg.select(".slices").selectAll("path.slice")
-            .data(pie(data), key);
-        
-        slice.enter()
-          .insert("path")
-          .style("fill", function (d) { return color(d.data.label); })
-          .attr("class", "slice");
-        
-        slice
-          .transition().duration(1000)
-          .attrTween("d", function (d) {
-            this._current = this._current || d;
-            var interpolate = d3.interpolate(this._current, d);
-            this._current = interpolate(0);
-            return function (t) {
-              return arc(interpolate(t));
-            };
-          });
-        
-        slice.exit()
-          .remove();
-        
-        /*---------- Legend ----------------------*/
-        let legendRectSize = 20;
-        let legendSpacing = 7;
-        let legendHeight = legendRectSize + legendSpacing;
-        
-        let legend = svg.selectAll('.legend')
-            .data(data)
-            .enter()
-            .append('g')
-            .attr({
-              class: 'legend',
-              transform: function (d, i) {
-                //Just a calculation for x & y position
-                return 'translate(-80,' + ((i * legendHeight) + 10) + ')';
-              }
-            });
-        
-        legend.append('text')
-          .attr({
-            x: 30,
-            y: 15
-          })
-          .text(d => {
-            return (d.label === "" ? `${categoriesSpendingFormat(clickedElement.obligation)}`
-                    : (clickedElement.percentage * 100 >= 0.1 ? `${round(clickedElement.percentage * 100, 1)}%` : '0.1% >'));
-          })
-          .attr("class", d => {
-            return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
-          })
-          .attr("x", d => {
-            return (d.label === "" ? '20' : '55');
-          });
-        
-      } // end inner data funct
-
-
-
-    });
-  }
-  /*
-    --------------------------------------------------------------------------------------------------------------------
-    *   Main Method
-    *--------------------------------------------------------------------------------------------------------------------
-    */
-  d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to data files
-
-    categoriesData = data.reduce((a, b) => {     //reduce data to categories data sum(obligation) of each parent
-
-      if (!(a.reduce((accumBool, node) => {
-        if (b.parent_name === node.name) {
-          node.total += parseFloat(b.obligation);
-          accumBool = true;
-        }
-        return accumBool;
-      }, false))) {
-        a.push({
-          name: b.parent_name,
-          total: parseFloat(b.obligation),
-          abbrv: b.parent,
-          obligation: parseFloat(b.obligation),
-          product: b.product_and_service_description,
-          recipient: b.Recipient
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function (d) {
+          //console.log(d.value);
+          return d.value;
         });
-      }
+    
+    //set Inner and out arc redius of the donut chart
+    var arc = d3.svg.arc()
+        .outerRadius(radius * 0.85)
+        .innerRadius(radius * 0.75);
+    
+    svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    
+    var key = function (d) { 
+      return d.data.label; 
+    };
+    
+    var color = d3.scale.ordinal()
+        .domain(["", " "])
+        .range(["#C3DBB5", "#F6F6F6"]);
+    
+    change([
+      { label: "", value: clickedElement.percentage },
+      { label: " ", value: 1 - clickedElement.percentage }
+    ]);
+    
+    function change(data) {
+      
+      /*------- PIE SLICES -------*/
+      var slice = svg.select(".slices").selectAll("path.slice")
+          .data(pie(data), key);
+      
+      slice.enter()
+        .insert("path")
+        .style("fill", function (d) { return color(d.data.label); })
+        .attr("class", "slice");
+      
+      slice
+        .transition().duration(1000)
+        .attrTween("d", function (d) {
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            return arc(interpolate(t));
+          };
+        });
+      
+      slice.exit()
+        .remove();
+      
+      /*---------- Legend ----------------------*/
+      let legendRectSize = 20;
+      let legendSpacing = 7;
+      let legendHeight = legendRectSize + legendSpacing;
+      
+      let legend = svg.selectAll('.legend')
+          .data(data)
+          .enter()
+          .append('g')
+          .attr({
+            class: 'legend',
+            transform: function (d, i) {
+              //Just a calculation for x & y position
+              return 'translate(-80,' + ((i * legendHeight) + 10) + ')';
+            }
+          });
+      
+      legend.append('text')
+        .attr({
+          x: 30,
+          y: 15
+        })
+        .text(d => {
+          return (d.label === "" ? `${categoriesSpendingFormat(clickedElement.obligation)}`
+                  : (clickedElement.percentage * 100 >= 0.1 ? `${round(clickedElement.percentage * 100, 1)}%` : '0.1% >'));
+        })
+        .attr("class", d => {
+          return (d.label === "" ? 'catDollarClass' : 'catPercentageClass');
+        })
+        .attr("x", d => {
+          return (d.label === "" ? '20' : '55');
+        });
+      
+    } // end inner data funct
 
-      a[0].total += parseFloat(b.obligation);             //add on to total
-      return a;
-    }, [{ total: 0 }]);
 
-    let total = categoriesData[0].total;
-    //console.log(categoriesData); 
-
-    categoriesData.shift();
-
-    categoriesData.forEach(n => { n.percentage = (n.total / total) });
-    categoriesData.sort((a, b) => { return b.percentage - a.percentage });
-
-    paginate(categoriesData, pageSize, currPage)
-      .forEach(n => { drawGraph(graphContainer, n, { height: 200, width: 200 }, true); });             //draw donut chart in charts container
-
-    //paginate(parentdonutData, pageSize, currPage)
-    //    .forEach(n => { drawChildGraph(childrenPanel, n, { height: 200, width: 200}); });
-
-    /**
-     * Adding on.. he does everything in a "main method"... will follow...
-     */
-
-    //paginate(parentdonutData, pageSize, currPage)
-    //    .forEach(n => {drawDonutGraph("#childrenPanel", n, { height: 200, width: 200}, false); });
-
-    // Table View!
-    //$(tableBtn).click(function () {
-    //    createTable(categoriesTable, ['name', 'total', 'percentage']);
-    //$(categoriesTable).toggle(); // toggle show hide
-    //$(graphContainer).toggle(); // hide graph when show table
-    //});
-
-    //createTable(categoriesTable, ['name', 'percentage', 'total']); // table view
-    treeMap(categoriesData); // testing for now, will put on SVG button click
-    console.log(categoriesData);
-
-    //childrenPanelData(); // test
-
-    // Graph View (Donut)
-    $(graphBtn).click(function () {
-      console.log('toggle');
-      $(graphContainer).toggle(); // hide graph when show table
-    });
 
   });
+}
+/*
+  --------------------------------------------------------------------------------------------------------------------
+  *   Main Method
+  *--------------------------------------------------------------------------------------------------------------------
+  */
+d3.csv("/data-lab-data/Edu_PSC.csv",(data) => { 
+
+  categoriesData = data.reduce((a, b) => {     //reduce data to categories data sum(obligation) of each parent
+
+    if (!(a.reduce((accumBool, node) => {
+      if (b.parent_name === node.name) {
+        node.total += parseFloat(b.obligation);
+        accumBool = true;
+      }
+      return accumBool;
+    }, false))) {
+      a.push({
+        name: b.parent_name,
+        total: parseFloat(b.obligation),
+        abbrv: b.parent,
+        obligation: parseFloat(b.obligation),
+        product: b.product_and_service_description,
+        recipient: b.Recipient
+      });
+    }
+
+    a[0].total += parseFloat(b.obligation);             //add on to total
+    return a;
+  }, [{ total: 0 }]);
+
+  let total = categoriesData[0].total;
+  //console.log(categoriesData); 
+
+  categoriesData.shift();
+
+  categoriesData.forEach(n => { n.percentage = (n.total / total); });
+  categoriesData.sort((a, b) => { return b.percentage - a.percentage; });
+
+  paginate(categoriesData, pageSize, currPage)
+    .forEach(n => { drawGraph(graphContainer, n, { height: 200, width: 200 }, true); });             //draw donut chart in charts container
+
+  //paginate(parentdonutData, pageSize, currPage)
+  //    .forEach(n => { drawChildGraph(childrenPanel, n, { height: 200, width: 200}); });
+
+  /**
+   * Adding on.. he does everything in a "main method"... will follow...
+   */
+
+
+  createTable(categoriesTable, ['name', 'percentage', 'total']); // table view
+  treeMap(categoriesData); // testing for now, will put on SVG button click
+  
+  //childrenPanelData(); // test
+
+///// JQUERY EVENT HANDLERS, WOO //////
+  $(tableBtn).click(function() {
+    console.log('clicking table button!');
+    $('#tableContainerDiv').css('display', 'flex'); // our table!
+    $('#treemapContainerDiv').css('display', 'none'); // treemap
+    $('#categoriesPanel').css('display', 'none'); // donut 
+    $('#investmentCategories_panel_chart').css('display', 'none'); // donut 
+    $('#investmentCategories_panel_back_btn').css('display', 'none'); // donut 
+  });
+
+  $(donutBtn).click(function() {
+    console.log('clicking donut button!');
+    $('#categoriesPanel').css('display', 'inline-block'); // donut! (set to inline-block from before)
+    $('#tableContainerDiv').css('display', 'none'); // table
+    $('#treemapContainerDiv').css('display', 'none'); // treemap
+  });
+
+  $(treemapBtn).click(function() {
+    console.log('clicking treemap button!');
+    $('#treemapContainerDiv').css('display', 'flex');
+    $('#tableContainerDiv').css('display', 'none');
+    $('#categoriesPanel').css('display', 'none');
+    $('#investmentCategories_panel_chart').css('display', 'none'); // donut 
+    $('#investmentCategories_panel_back_btn').css('display', 'none'); // donut 
+  });
+
+
+
+  // Graph View (Donut)
+//  $(graphBtn).click(function () {
+//    console.log('toggle');
+//    $(graphContainer).toggle(); // hide graph when show table
+//  });
+
+});

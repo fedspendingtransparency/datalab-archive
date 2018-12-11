@@ -154,7 +154,7 @@ permalink: college-and-universities.html
       <!-- 3 Way Menu -->
       <div id="threeMenu">
 
-        <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        <svg width="44px" id="tableViewButton" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>1_Disabled</title>
           <desc>Created with Sketch.</desc>
@@ -168,7 +168,7 @@ permalink: college-and-universities.html
         </svg>
 
 
-        <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        <svg width="44px" height="44px" id="donutViewButton" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>2_Disabled</title>
           <desc>Created with Sketch.</desc>
@@ -185,7 +185,7 @@ permalink: college-and-universities.html
         </svg>
 
 
-        <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        <svg width="44px" height="44px" id="treemapViewButton" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>3_Disabled</title>
           <desc>Created with Sketch.</desc>
@@ -445,7 +445,8 @@ permalink: college-and-universities.html
 
 
 <!--scripts -->
-<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script> <!-- try using 4, whatever -->
+<script src="https://d3js.org/d3-selection-multi.v0.4.min.js"></script> <!-- v4 cant add attrs to select objects anymore (why) -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="{{site.baseurl}}/js/jquery.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script>

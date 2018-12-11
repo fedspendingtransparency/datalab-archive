@@ -28,11 +28,11 @@ const drawMap = (container) => {
       height = 1000,
       centered;
 
-  var projection = d3.geo.albersUsa()
+  var projection = d3.geoAlbersUsa()
       .scale(1500) // was 1500
       .translate([width / 2, height / 2]);
 
-  var path = d3.geo.path()
+  var path = d3.geoPath()
       .projection(projection);
 
   // D3-tip Tooltip
