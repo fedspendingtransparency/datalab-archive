@@ -361,7 +361,7 @@ function createSelect(condensedOptions, activeOptions, inactiveOptions) {
 
     setTooltipActiveTimeframe(frequencyValue);
 
-    d3.select(".daily-spending-subtext").text("Total Amount Spent On " + dateFormatter(curLastItem.date)); 
+    d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(curLastItem.date)); 
     d3.select(".daily-spending-amount").text(dollarFormatter(curLastItem.value));
   }
 }
@@ -765,7 +765,7 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function(error, data) {
 
   lastDate = data[data.length - 1].date;
 
-  d3.select(".daily-spending-subtext").text("Total Amount Spent On " + dateFormatter(lastDate));
+  d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(lastDate));
 
   d3.select(".header-updated-when").text("Updated " + dateFormatter(lastDate));
 

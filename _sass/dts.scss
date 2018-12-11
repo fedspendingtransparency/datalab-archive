@@ -182,6 +182,8 @@ path.domain {
 
 .daily-spending-container {
   width: 175px;
+  display: flex;
+  flex-direction: column;
 }
 
 .daily-spending-amount {
@@ -348,8 +350,8 @@ path.domain {
   -webkit-appearance: none;
   text-align: center;
   text-align-last: center;
-  margin: 0 auto;
   cursor: pointer;
+  max-width: 300px;
 
   background-image: linear-gradient(45deg, #EFF8F8 50%, #18A3A3 50%), linear-gradient(135deg, #18A3A3 50%, transparent 50%);
   background-position: calc(100% - 21px) calc(11px),calc(100% - 14px) calc(11px),calc(100% - .5em) 0.5em;
@@ -441,7 +443,7 @@ path.domain {
   width: 100%;
   font-size: 14px;
   line-height: 15px;
-  padding: 7px 40px 6px 30px;
+  padding: 7px 40px 6px 15px;
 
   /*background-position: calc(100% - 20px) calc(1em + 5px), calc(100% - 15px) calc(1em + 5px), calc(100% - .5em) .5em;*/
 }
@@ -482,11 +484,59 @@ path.domain {
   line-height: 22px;
 }
 
+.dts-mobile-amount-spent {
+  display: none;
+}
+
 /* Media Breakpoints */
 
 @media (max-width: 870px) {
   .viz-tsbfy-container {
     display: none;
+  }
+  
+  .daily-spending-container, .period-container, .frequency-container, .category-container {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .daily-spending-subtext, .period-button-header, .frequency-selector-label, .category-select-label {
+    letter-spacing: 0;
+  }
+  
+  .daily-spending-subtext, .daily-spending-amount {
+    line-height: unset;
+    margin-top: 0;
+  }
+  
+  .daily-spending-amount {
+    font-size: 28px;
+  }
+
+  .dts-disclaimer {
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .header-container {
+    margin-bottom: -25px;
+  }
+
+  /*
+  <div class="daily-spending-subtext dts-mobile-amount-spent">Amount Spent</div>
+  .daily-spending-subtext {
+    display: none;
+  }
+  */
+
+  .header-title, .dts-footnote {
+    display: none;
+  }
+
+  .dts-mobile-amount-spent {
+    display: block;
   }
 
   .dts-container {
@@ -494,7 +544,7 @@ path.domain {
   }
 
   .dts-header > div {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 
   #svg-wrapper {
@@ -523,7 +573,6 @@ path.domain {
   }
 
   .daily-spending-container {
-    width: initial;
     margin-right: 0;
   }
 
@@ -532,19 +581,7 @@ path.domain {
     margin-bottom: 15px;
   }
 
-  .daily-spending-amount {
-    margin-top: 5px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 550px) {
-  .daily-spending-container, .frequency-container {
-    margin-right: 10px;
-  }
-
   .period-container .period-button {
-    font-size: 14px;
-    padding: 6px 8px;
+    padding: 0 12px;
   }
 }
