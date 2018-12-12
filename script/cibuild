@@ -6,15 +6,10 @@ aws configure set region us-gov-west-1
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 
-if [[ $TRAVIS_BRANCH == 'master' ]]; then
-aws s3 sync _site s3://datalab-usaspending-gov --delete
-elif [[ $TRAVIS_BRANCH == 'dev'  ]]; then
-aws s3 sync _site s3://datalab-dev-usaspending-gov --delete
+if [[ $TRAVIS_BRANCH == 'master'     ]]; then
+aws s3 sync  --exclude 'data-lab-data/dts/dts.csv' _site s3://datalab-usaspending-gov --delete
+elif [[ $TRAVIS_BRANCH == 'staging'  ]]; then
+aws s3 sync --exclude 'data-lab-data/dts/dts.csv' _site s3://datalab-staging-usaspending-gov --delete
+elif [[ $TRAVIS_BRANCH == 'dev'      ]]; then
+aws s3 sync --exclude 'data-lab-data/dts/dts.csv' _site s3://datalab-dev-usaspending-gov --delete
 fi
-
-# CloudFront uses separate keys, so specify them here for the upcoming invalidation
-# aws configure set aws_access_key_id $CLOUDFRONT_AWS_ACCESS_KEY
-# aws configure set aws_secret_access_key $CLOUDFRONT_AWS_SECRET_ACCESS_KEY
-# aws configure set preview.cloudfront true
-# aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
-# Current Error: Could not connect to the endpoint URL: "https://cloudfront.us-gov-west-1.amazonaws.com/2017-03-25/distribution/[secure]/invalidation"
