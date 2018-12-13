@@ -366,8 +366,10 @@ function createSelect(condensedOptions, activeOptions, inactiveOptions) {
 
     setTooltipActiveTimeframe(frequencyValue);
 
-    d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(curLastItem.date)); 
-    d3.select(".daily-spending-amount").text(dollarFormatter(curLastItem.value));
+    let amountSpentToday = optionsDict[categoryValue]['today'].last();
+
+    d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(amountSpentToday.date)); 
+    d3.select(".daily-spending-amount").text(dollarFormatter(amountSpentToday.value));
   }
 }
 
