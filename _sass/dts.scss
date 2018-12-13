@@ -339,7 +339,8 @@ path.domain {
 
 .custom-select {
   font-size: 14px;
-  padding: 9px 40px 9px 30px;
+  padding: 7px 40px 7px 30px;
+  height: 30px;
   line-height: 10px;
   border: 1px solid #b5f3f3;
 
@@ -490,9 +491,17 @@ path.domain {
   display: none;
 }
 
+/* IE 11 Start */
+
 _:-ms-fullscreen, :root #svg-wrapper { 
   height: 500px;
 }
+
+_:-ms-fullscreen, :root .svg-tsbfy-container { 
+  margin-bottom: 25px;
+}
+
+/* IE 11 End */
 
 /* Media Breakpoints */
 
