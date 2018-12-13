@@ -283,7 +283,7 @@ function createTable(yearToSpendingArray) {
 function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
   sel.selectAll('*').remove();
 
-  sel.append('option').text('All Categories');
+  sel.append('option').text('All Categories').property("value", "All Categories");
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
   let previousYear = new Date().getFullYear() - 1;
@@ -293,7 +293,8 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .selectAll('option')
       .data(condensedOptions).enter()
       .append('option')
-      .text(d => d);
+      .text(d => d)
+      .property("value", d => d);
 
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
@@ -302,7 +303,8 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .selectAll('option')
       .data(activeOptions).enter()
       .append('option')
-      .text(d => d);
+      .text(d => d)
+      .property("value", d => d);
 
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
@@ -311,7 +313,10 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .selectAll('option')
       .data(inactiveOptions).enter()
       .append('option')
-      .text(d => d);
+      .text(d => d)
+      .property("value", d => d);
+
+  sel.property("value", "All Categories");
 }
 
 function getGraphData() {
@@ -361,8 +366,10 @@ function createSelect(condensedOptions, activeOptions, inactiveOptions) {
 
     setTooltipActiveTimeframe(frequencyValue);
 
-    d3.select(".daily-spending-subtext").text("Total Amount Spent On " + dateFormatter(curLastItem.date)); 
-    d3.select(".daily-spending-amount").text(dollarFormatter(curLastItem.value));
+    let amountSpentToday = optionsDict[categoryValue]['today'].last();
+
+    d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(amountSpentToday.date)); 
+    d3.select(".daily-spending-amount").text(dollarFormatter(amountSpentToday.value));
   }
 }
 
@@ -572,12 +579,12 @@ function createGraph(data) {
     for (let cItem of data) {
       let mouseOverData = cItem.values;
 
-      let i = bisectDate(mouseOverData, x0, 1); // Index in array of where the date is
+      let i = bisectDate(mouseOverData, x0, 1); // Index in date in array
 
       if (i === 1 || i >= mouseOverData.length) { continue; }
 
-      let d0 = mouseOverData[i - 1]; // d value of date
-      let d1 = mouseOverData[i];     // d value of date
+      let d0 = mouseOverData[i - 1]; // d date value
+      let d1 = mouseOverData[i];     // d date value
 
       d0.name = cItem.name;
       d1.name = cItem.name;
@@ -586,7 +593,7 @@ function createGraph(data) {
     }
 
     if (categoryPossibilities.length === 0) {
-      return { date: data[0].date, value: 0, name: "No Data" }; // No data because of switchover/whatever else
+      return { date: data[0].date, value: 0, name: "No Data" }; // No data due to switchover/whatever else
     }
 
     let closestItem = categoryPossibilities[0];
@@ -723,7 +730,7 @@ function getYearToSpendingArray(allCategoriesFYTD) {
     let curItem = allCategoriesFYTD[i];
     let nextItem = allCategoriesFYTD[i + 1];
 
-    if (nextItem.value < curItem.value) { // End of fiscal year
+    if (nextItem.value < curItem.value) { // Fiscal year end
       yearToSpendingArray.push({ year: getFiscalYear(curItem.date).toString(), spending: curItem.value });
     }
   }
@@ -765,7 +772,7 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function(error, data) {
 
   lastDate = data[data.length - 1].date;
 
-  d3.select(".daily-spending-subtext").text("Total Amount Spent On " + dateFormatter(lastDate));
+  d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(lastDate));
 
   d3.select(".header-updated-when").text("Updated " + dateFormatter(lastDate));
 

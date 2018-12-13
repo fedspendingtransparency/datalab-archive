@@ -1,5 +1,5 @@
 .dts-container {
-  width: 1250px;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@
 #svg-wrapper {
   display: flex;
   margin-right: 50px;
-  width: 900px;
+  width: 57vw;
   height: 100%;
   margin-left: -15px;
 }
@@ -64,6 +64,11 @@ path.domain {
 
 .dts-download-data:hover {
   color: #00c3c2;
+}
+
+.dts-controls-and-svg {
+  display: flex;
+  flex-direction: column;
 }
 
 .dts-tt-container {
@@ -132,7 +137,6 @@ path.domain {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  margin: 0 auto;
   letter-spacing: 1.6px;
   color: #484848;
   padding-bottom: 0;
@@ -178,6 +182,8 @@ path.domain {
 
 .daily-spending-container {
   width: 175px;
+  display: flex;
+  flex-direction: column;
 }
 
 .daily-spending-amount {
@@ -222,6 +228,8 @@ path.domain {
   justify-content: space-around;
   width: 95%;
   align-items: center;
+  width: 237px;
+  margin-left: 15px;
 }
 
 .viz-tsbfy-header-text {
@@ -331,7 +339,8 @@ path.domain {
 
 .custom-select {
   font-size: 14px;
-  padding: 9px 40px 9px 30px;
+  padding: 7px 40px 7px 30px;
+  height: 30px;
   line-height: 10px;
   border: 1px solid #b5f3f3;
 
@@ -344,8 +353,8 @@ path.domain {
   -webkit-appearance: none;
   text-align: center;
   text-align-last: center;
-  margin: 0 auto;
   cursor: pointer;
+  max-width: 300px;
 
   background-image: linear-gradient(45deg, #EFF8F8 50%, #18A3A3 50%), linear-gradient(135deg, #18A3A3 50%, transparent 50%);
   background-position: calc(100% - 21px) calc(11px),calc(100% - 14px) calc(11px),calc(100% - .5em) 0.5em;
@@ -437,7 +446,7 @@ path.domain {
   width: 100%;
   font-size: 14px;
   line-height: 15px;
-  padding: 7px 40px 6px 30px;
+  padding: 7px 40px 6px 15px;
 
   /*background-position: calc(100% - 20px) calc(1em + 5px), calc(100% - 15px) calc(1em + 5px), calc(100% - .5em) .5em;*/
 }
@@ -478,15 +487,98 @@ path.domain {
   line-height: 22px;
 }
 
+.dts-mobile-amount-spent {
+  display: none;
+}
+
+/* IE 11 Start */
+
+_:-ms-fullscreen, :root #svg-wrapper { 
+  height: 500px;
+}
+
+_:-ms-fullscreen, :root .svg-tsbfy-container { 
+  margin-bottom: 25px;
+}
+
+/* IE 11 End */
+
 /* Media Breakpoints */
 
 @media (max-width: 870px) {
   .viz-tsbfy-container {
     display: none;
   }
+  
+  .daily-spending-container, .period-container, .frequency-container, .category-container {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-subtitle {
+    font-size: 30px;
+    line-height: 34px;
+    margin-top: 15px;
+  }
+
+  .daily-spending-subtext, .period-button-header, .frequency-selector-label, .category-select-label {
+    letter-spacing: 0;
+  }
+  
+  .daily-spending-subtext, .daily-spending-amount {
+    line-height: unset;
+    margin-top: 0;
+  }
+  
+  .daily-spending-amount {
+    font-size: 28px;
+  }
+
+  .dts-disclaimer {
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .header-container {
+    margin-bottom: -25px;
+  }
+
+  /*
+  <div class="daily-spending-subtext dts-mobile-amount-spent">Amount Spent</div>
+  .daily-spending-subtext {
+    display: none;
+  }
+  */
+
+  .header-title, .dts-footnote {
+    display: none;
+  }
+
+  .dts-mobile-amount-spent {
+    display: block;
+  }
+
+  .dts-container {
+    width: 90%;
+  }
+
+  .dts-header > div {
+    margin-bottom: 15px;
+  }
+
+  #svg-wrapper {
+    width: 90vw;
+  }
+
+  .dts-controls-and-svg {
+    flex-direction: column-reverse;
+  }
 
   .dts-header {
     flex-direction: column;
+    margin-top: 25px;
   }
 
   #svg-wrapper, .period-container {
@@ -502,7 +594,6 @@ path.domain {
   }
 
   .daily-spending-container {
-    width: initial;
     margin-right: 0;
   }
 
@@ -511,19 +602,7 @@ path.domain {
     margin-bottom: 15px;
   }
 
-  .daily-spending-amount {
-    margin-top: 5px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 550px) {
-  .daily-spending-container, .frequency-container {
-    margin-right: 10px;
-  }
-
   .period-container .period-button {
-    font-size: 14px;
-    padding: 6px 8px;
+    padding: 0 12px;
   }
 }
