@@ -11,10 +11,11 @@ import colors from '../../colors.scss';
 const d3 = { select, selectAll };
 
 let svg,
-    rowCount;
+    rowCount,
+    config = {};
 
-function dotFactory(container, x, y, color) {
-    color = color || colors.colorSpendingPrimary;
+function dotFactory(container, x, y) {
+    const color = config.dotColor;
 
     container.append('circle')
         .attr('cx', x)
@@ -60,12 +61,12 @@ function readyDots() {
     svg.attr('height', dotRectHeight + 50);
 }
 
-export function placeDots() {
+export function placeDots(_config) {
     d3.select('.main-container').remove();
-
+    config = _config || config;
     svg = establishContainer();
 
     readyDots();
-    initRevenueOverlay();
-    initGdp();
+    initRevenueOverlay(config);
+    initGdp(config);
 }

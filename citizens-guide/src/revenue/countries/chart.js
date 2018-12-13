@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { min, max } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { translator, simplifyNumber, establishContainer } from '../../utils';
+import {translator, simplifyNumber, establishContainer, wordWrap, getElementBox} from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
@@ -146,6 +146,7 @@ function setScales() {
 function placeCountryLabels() {
     const countryLabels = containers.country.selectAll('text')
         .data(data, function (d) { return d.country });
+    const countryBoxWidth = containers.country.select('.drop-shadow-base').attr('width') - 40;
 
     let timeoutForAdd = 0;
 
@@ -171,7 +172,28 @@ function placeCountryLabels() {
             .text(d => d.country)
             .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 6)
             .attr('x', 20)
-            .attr('font-size', 16);
+            .attr('font-size', 16)
+            .attr('width', function (d) {
+                d.barX1 = d3.max([scales.x(d.amount), scales.x(0)]);
+            })
+            .each(function (d) {
+                const max = countryBoxWidth - d.barX1,
+                    selection = d3.select(this),
+                    textWidth = getElementBox(selection).width;
+
+                let x, y;
+
+                console.log('textWidth:', textWidth, 'max:', max);
+                console.log('this:', this, 'selection:', selection);
+                if (textWidth > max) {
+                    x = selection.attr('x');
+                    y = selection.attr('y');
+                    wordWrap(selection, max);
+                    selection.selectAll('tspan').attr('x', x).attr('y',y);
+
+                    console.log('')
+                }
+            });
     }, timeoutForAdd)
 }
 

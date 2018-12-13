@@ -9,7 +9,8 @@ import { chartWidth } from './widthManager';
 
 const d3 = { select, selectAll, line };
 
-let gdpLayer;
+let gdpLayer,
+    config = {};
 
 function getNewSvgHeight() {
     return Number(gdpLayer.attr('data-rect-height'));
@@ -21,6 +22,7 @@ function placeLegend(g) {
         .attr('opacity', 0),
         textX = -50,
         height = getNewSvgHeight(),
+        gdpAmount = config.gdpAmount,
         line = d3.line()
             .x(function (d) { return d.x; })
             .y(function (d) { return d.y; }),
@@ -34,7 +36,7 @@ function placeLegend(g) {
             .classed('reset', true)
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
-            .attr('y', 0)
+            .attr('y', (height / 2) - 50)
             .style('font-size', 24);
 
     legendContainer.append('path')
@@ -44,15 +46,33 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('U.S. GDP')
+        .text('U.S.')
         .style('font-weight', '600')
         .attr('x', textX)
-        .attr('dy', height / 2);
+        .attr('dy', 0);
 
     text.append('tspan')
-        .text(simplifyNumber(20700000000000))
+        .text('Gross')
+        .style('font-weight', '600')
         .attr('x', textX)
-        .attr('dy', 30);
+        .attr('dy', 20);
+
+    text.append('tspan')
+        .text('Domestic')
+        .style('font-weight', '600')
+        .attr('x', textX)
+        .attr('dy', 20);
+
+    text.append('tspan')
+        .text('Product')
+        .style('font-weight', '600')
+        .attr('x', textX)
+        .attr('dy', 20);
+
+    text.append('tspan')
+        .text(simplifyNumber(gdpAmount))
+        .attr('x', textX)
+        .attr('dy', 25);
 }
 
 function placeDonut(g) {
@@ -71,10 +91,11 @@ function placeDonut(g) {
         .attr('cx', r)
         .attr('cy', r);
 
-    createDonut(donutContainer, .200, r * 2, colors.colorSpendingPrimary);
+    createDonut(donutContainer, config.gdpPercent / 100, r * 2, colors.colorSpendingPrimary);
 }
 
-export function initGdp() {
+export function initGdp(_config) {
+    config = _config || config;
     const svg = establishContainer(),
         gdpCount = 20700;
 

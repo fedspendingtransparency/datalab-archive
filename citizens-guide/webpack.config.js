@@ -64,7 +64,7 @@ module.exports = [{
     }
 },{
     entry: {
-        gdp: './src/revenue/gdp/index.js',
+        intro: './src/revenue/intro/index.js',
         categories: './src/revenue/categories/index.js',
         trends: './src/revenue/trends/index.js',
         countries: './src/revenue/countries/index.js'
@@ -123,6 +123,7 @@ module.exports = [{
         './src/globalSass/cg.scss', 
         './src/bigPicture/scss/bp.scss', 
         './src/anecdote/anecdote.scss',
+        './src/revenue/intro/index.scss',
         './src/spending/intro/spending-intro.scss',
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
