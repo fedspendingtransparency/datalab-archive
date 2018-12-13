@@ -99,5 +99,10 @@ category: nonentry
   </div>
 </div>
 
+{% include viz-footer-info.html
+  body="The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily Treasury Statement (DTS) archive. The download and transformation scripts come from the Federal Treasury API, developed for the treasury.io tool. The data goes through three stages of cleaning prior to reaching its completed state: download, parse, and aggregate."
+  link="dts-more.html"
+%}
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/dts.js"></script>
