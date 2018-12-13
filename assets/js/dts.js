@@ -283,7 +283,7 @@ function createTable(yearToSpendingArray) {
 function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
   sel.selectAll('*').remove();
 
-  sel.append('option').text('All Categories');
+  sel.append('option').text('All Categories').property("value", "All Categories");
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
   let previousYear = new Date().getFullYear() - 1;
@@ -293,7 +293,8 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .selectAll('option')
       .data(condensedOptions).enter()
       .append('option')
-      .text(d => d);
+      .text(d => d)
+      .property("value", d => d);
 
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
@@ -302,7 +303,8 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .selectAll('option')
       .data(activeOptions).enter()
       .append('option')
-      .text(d => d);
+      .text(d => d)
+      .property("value", d => d);
 
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
@@ -311,7 +313,10 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
       .selectAll('option')
       .data(inactiveOptions).enter()
       .append('option')
-      .text(d => d);
+      .text(d => d)
+      .property("value", d => d);
+
+  sel.property("value", "All Categories");
 }
 
 function getGraphData() {

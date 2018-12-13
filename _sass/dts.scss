@@ -490,6 +490,10 @@ path.domain {
   display: none;
 }
 
+_:-ms-fullscreen, :root #svg-wrapper { 
+  height: 500px;
+}
+
 /* Media Breakpoints */
 
 @media (max-width: 870px) {
