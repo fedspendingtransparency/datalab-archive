@@ -7,13 +7,15 @@ import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, line };
 
-let revenueLayer;
+let revenueLayer,
+    config = {};
 
 function placeLegend(g) {
     const legendContainer = g.append('g')
         .classed('revenue-step-two', true)
         .attr('opacity', 0),
         textX = -50,
+        comparisonAmount = config.comparisonAmount || 0,
         height = Number(revenueLayer.attr('data-rect-height')),
         line = d3.line()
             .x(function (d) { return d.x; })
@@ -44,16 +46,19 @@ function placeLegend(g) {
         .attr('dy', height / 2);
 
     text.append('tspan')
-        .text(simplifyNumber(3300000000000))
+        .text(simplifyNumber(comparisonAmount))
         .attr('x', textX)
         .attr('dy', 30);
 }
 
-export function initRevenueOverlay() {
-    const svg = establishContainer(),
-        revenueCount = 3400;
+export function initRevenueOverlay(_config) {
+    config = _config || config;
 
-    revenueLayer = generateOverlay(revenueCount, svg.select('.main-container'), 'revenue-layer', colors.colorPrimary);
+    const svg = establishContainer(),
+        billion = 1000000000,
+        revenueCount = Math.ceil(config.comparisonAmount / billion);
+
+    revenueLayer = generateOverlay(revenueCount, svg.select('.main-container'), 'revenue-layer', config.comparisonColor);
 
     if (document.documentElement.clientWidth > 959) {
         placeLegend(revenueLayer);

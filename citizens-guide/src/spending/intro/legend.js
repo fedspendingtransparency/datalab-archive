@@ -10,7 +10,7 @@ const d3 = { select, selectAll },
     introWidth = 365,
     radius = 75;
 
-let svg, largeDot, billion, explanation;
+let svg, largeDot, billion, explanation, config = {};
 
 function buildLegend() {
     const g = d3.select('.income-dot-legend'),
@@ -18,7 +18,7 @@ function buildLegend() {
         w = 126,
         xOffset = 4;
 
-    placeDots();
+    placeDots(config);
 
     fadeAndRemove(explanation, 1000);
     fadeAndRemove(billion, 500);
@@ -117,11 +117,12 @@ function addText() {
 }
 
 function initDot() {
+    const dotColor = config.dotColor;
     largeDot.append('circle')
         .attr('cx', radius)
         .attr('cy', radius)
         .attr('r', 1)
-        .attr('fill', colors.colorSpendingPrimary)
+        .attr('fill', dotColor)
         .transition()
         .duration(1500)
         .attr('r', radius)
@@ -132,9 +133,9 @@ function initDot() {
         .ease();
 }
 
-export function startLegendAnimation() {
+export function startLegendAnimation(_config) {
     const introX = chartWidth < introWidth ? 0 : (chartWidth / 2) - (introWidth / 2);
-
+    config = _config || config;
     svg = establishContainer(),
         largeDot = svg.append('g')
             .classed('income-dot-legend', true)

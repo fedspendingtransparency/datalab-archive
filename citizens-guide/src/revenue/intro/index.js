@@ -3,7 +3,6 @@ import { transition } from 'd3-transition';
 import { initIncomeDots, enterIncomeDots } from './incomeDots';
 import { establishContainer, translator, stripBr } from '../../utils';
 import '../../infoBox';
-import './gdp.scss';
 import colors from '../../colors.scss';
 
 const d3 = { select, selectAll },

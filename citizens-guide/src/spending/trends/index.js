@@ -4,12 +4,13 @@ import { trendView } from './chart';
 import { trendData } from './trendData';
 import { showHideInit } from './showHideCategories';
 import { initTwoPartTour } from './tour';
+import { setThreshold} from "./setThreshold";
 
 const d3 = { select, selectAll },
     svg = establishContainer(780),
     selectBudgetFunction = d3.select('#select-budget-function'),
-    selectAgency = d3.select('#select-agency'),
-    zoomThreshold = 180000000000;
+    selectAgency = d3.select('#select-agency');
+let zoomThreshold;
 
 function sortByLatestYear(a, b) {
     return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
@@ -51,6 +52,7 @@ d3.select('.link-button__div')
 
 (function init() {
     const data = showHideInit(setData('function'));
+    zoomThreshold = setThreshold(setData('function'));
     renderChart(data);
     initTwoPartTour();
 })();

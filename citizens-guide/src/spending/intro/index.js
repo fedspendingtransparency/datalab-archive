@@ -1,40 +1,13 @@
-import { select, selectAll } from 'd3-selection';
-import { establishContainer } from '../../utils';
-import { placeDots } from "./placeDots";
-import { startLegendAnimation } from './legend';
-import { setChartWidth, chartWidth } from './widthManager';
-import { setDotsPerRow } from './dotConstants';
-import { resetForResize } from './compareManager';
+import {initChart} from './init';
+import colors from '../../colors.scss';
 
-const d3 = { select, selectAll };
-
-let debounce;
-
-function initChart() {
-    d3.select('#viz').selectAll('*').remove();
-    
-    setChartWidth();
-    setDotsPerRow();
-    
-    establishContainer(500, chartWidth);
-
-    startLegendAnimation();
-}
-
-function resizeChart() {
-    setChartWidth();
-    setDotsPerRow();
-    resetForResize();
-    d3.select('svg.main').attr('width', chartWidth);
-    placeDots();
-}
-
-initChart();
-
-window.addEventListener('resize', function () {
-    if (debounce) {
-        clearTimeout(debounce);
-    }
-
-    debounce = setTimeout(resizeChart, 100);
-});
+(function init(){
+    const config = {
+        comparisonAmount: 3300000000000,
+        gdpAmount: 20700000000000,
+        gdpPercent: 20,
+        comparisonColor: colors.colorPrimary,
+        dotColor: colors.colorSpendingPrimary
+    };
+    initChart(config);
+})();
