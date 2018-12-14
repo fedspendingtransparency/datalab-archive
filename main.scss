@@ -19,6 +19,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
 
+// import AOS for scrolly-help animations
+@import url('css/aos.css');
+
+// Datatables.js styling (search, pagination)
+@import url('css/dataTables.min.css');
+
+// table styling (Material Design)
+@import url('css/materialTable.min.css');
+
 
 $accent-blue: #007fae;
 $accent-grey: #323A45;
