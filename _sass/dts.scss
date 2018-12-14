@@ -36,7 +36,7 @@
 
 .axis text {
   font-family: "Source Sans Pro";
-  fill: #494949;
+  fill: #4A4A4A;
   font-size: 13px;
   letter-spacing: 0;
 }
@@ -96,14 +96,14 @@ path.domain {
 }
 
 .header-title {
-  color: #9b9b9b;
+  color: #757575;
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2.8px;
 }
 
 .header-subtitle {
-  color: #484848;
+  color: #4A4A4A;
   text-align: center;
   font-size: 42px;
   letter-spacing: .36px;
@@ -124,7 +124,7 @@ path.domain {
 }
 
 .header-updated-when {
-  color: #9b9b9b;
+  color: #757575;
   font-weight: 200;
   font-size: 16px;
   margin-left: 50px;
@@ -138,7 +138,7 @@ path.domain {
   align-items: center;
   padding: 10px 0;
   letter-spacing: 1.6px;
-  color: #484848;
+  color: #4A4A4A;
   padding-bottom: 0;
 }
 
@@ -152,7 +152,7 @@ path.domain {
 
 .dts-brush-start-date-label, .dts-brush-end-date-label {
   margin-right: 3px;
-  color: #777;
+  color: #757575;
 }
 
 .dts-brush-date-separator {
@@ -236,8 +236,12 @@ path.domain {
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 600;
-  color: #484848;
+  color: #4A4A4A;
   line-height: 20px;
+}
+
+.dts-brush-start-date {
+  color: #4A4A4A
 }
 
 .viz-tsbfy-header-view-buttons {
@@ -326,7 +330,7 @@ path.domain {
   padding: 0;
   line-height: 16px;  
   font-size: 12px;
-  color: #666;
+  color: #4A4A4A;
 }
 
 .tsbfy-table td:last-child {
@@ -405,7 +409,11 @@ path.domain {
   line-height: 15px; 
   text-transform: none;
   letter-spacing: .25px;
-  color: #666;
+  color: #4A4A4A;
+}
+
+.dts-hyperlink {
+  color: #B3D3E3;
 }
 
 .dts-tt-amount {
@@ -474,17 +482,20 @@ path.domain {
 }
 
 .dts-footnote-rect {
-  width: 32px;
-  height: 32px;
+  width: 10px;
+  height: 10px;
   background-color: #deeded;
   margin-right: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
 }
 
 .dts-footnote-text {
   width: 99%;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: .75px;
   line-height: 22px;
+  color: #4A4A4A;
 }
 
 .dts-mobile-amount-spent {
