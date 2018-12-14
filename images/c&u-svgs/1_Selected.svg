@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>1_Selected</title>
+    <desc>Created with Sketch.</desc>
+    <g id="1_Selected" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="active" fill="#F6F6F6" fill-rule="nonzero" cx="22" cy="22" r="22"></circle>
+        <g id="iconList" transform="translate(12.000000, 11.000000)" fill-rule="nonzero" stroke="#D04C02" stroke-linecap="square">
+            <path d="M0.322580645,0.5 L19.6774194,0.5" id="Line-9"></path>
+            <path d="M0.322580645,9.5 L19.6774194,9.5" id="Line-9-Copy"></path>
+            <path d="M0.322580645,19.5 L19.6774194,19.5" id="Line-9-Copy-2"></path>
+        </g>
+    </g>
+</svg>

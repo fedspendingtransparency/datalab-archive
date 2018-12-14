@@ -2,9 +2,11 @@ $orange: #D04C02;
 $grey: #555555;
 $background: #FBFBFB;
 $green: #50604f;
+$checked-color: #1877c1;
+$unchecked-color: #888;
 
 
-.CU{
+.CU {
 
   /*
   --------------------------------------------------------------------------------------------------------------------
@@ -51,77 +53,77 @@ $green: #50604f;
     }
 
     .landing {
-        text-align: center;
-            align-content: inherit;
-            padding: 100px;
-            background: $background;
-            margin: 5%;
-    
-            h1 {
-                line-height: 60px;
-                font-weight: 100;
-            }
-            strong {
-                color: $orange;
-            }
+      text-align: center;
+      align-content: inherit;
+      padding: 100px;
+      background: $background;
+      margin: 5%;
+      
+      h1 {
+        line-height: 60px;
+        font-weight: 100;
+      }
+      strong {
+        color: $orange;
+      }
     }
   }
 
-    /*
+  /*
   --------------------------------------------------------------------------------------------------------------------
 *Styling for all section headers
 *--------------------------------------------------------------------------------------------------------------------
 */
   
-    .sectionHeader{
-        text-align: center;
-        align-content: inherit;
-        padding: 100px;
-      
-      
-      h1, h2 { 
-        margin: 0px;
-        padding:29px;
-      }
+  .sectionHeader{
+    text-align: center;
+    align-content: inherit;
+    padding: 100px;
+    
+    
+    h1, h2 { 
+      margin: 0px;
+      padding:29px;
+    }
 
-      p, h3, h1 {
-          color: $grey;
-      }
-      
-      h1 {
-        font-size: 100px;
-        font-weight: lighter;
-      }
-      h2 {
-        color: $orange;
-        margin-top:0px;
-        font-size: 50px;
-        line-height: 48px;
-      }
-      h3 {
-        font-size: 33px;
-        margin:10px;
-        font-weight: 400;
-      } 
-      p {
-          font-size: 13px;
-      }
+    p, h3, h1 {
+      color: $grey;
     }
     
-/*
+    h1 {
+      font-size: 100px;
+      font-weight: lighter;
+    }
+    h2 {
+      color: $orange;
+      margin-top:0px;
+      font-size: 50px;
+      line-height: 48px;
+    }
+    h3 {
+      font-size: 33px;
+      margin:10px;
+      font-weight: 400;
+    } 
+    p {
+      font-size: 13px;
+    }
+  }
+  
+  /*
   --------------------------------------------------------------------------------------------------------------------
 *TABLE OF CONTENTS
 *--------------------------------------------------------------------------------------------------------------------
 */
 
-.table-of-contents{
+  .table-of-contents{
     text-align: center;
     background: $background;
     margin-left: 23%;
     width:50%;
     margin-top:50px;
     padding:5%;
-   
+    
     span {
       display: inline-block;
     }
@@ -130,9 +132,9 @@ $green: #50604f;
       text-align: right;
       width: 20%;
       font-size: 58px;
-        padding-top: 9px;
-        font-weight: 100;
-        color: $grey;
+      padding-top: 9px;
+      font-weight: 100;
+      color: $grey;
       padding-right: 20px;
     }
     .content {
@@ -140,19 +142,19 @@ $green: #50604f;
       width:70%;
     }
     p {
-        color: $grey;
-        padding:0px;
-        margin: 0px;
-        font-size: 13px;
+      color: $grey;
+      padding:0px;
+      margin: 0px;
+      font-size: 13px;
     }
     a {
-        color: $orange;
-        font-weight: bold;
+      color: $orange;
+      font-weight: bold;
     }
 
     a:hover {
-        cursor: pointer;
-        text-decoration: underline;
+      cursor: pointer;
+      text-decoration: underline;
     }
   }
 
@@ -173,6 +175,68 @@ $green: #50604f;
       margin-top: 0px;
       color: $grey;
     }
+
+    .blurbtext {
+      flex-wrap: wrap;
+      width: 277px;
+      height: 66px;
+      font-family: SourceSansPro;
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.69;
+      letter-spacing: normal;
+      color: #555555;
+    }
+
+    .flexcontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .totalInvestments_breakdown_contracts_total {
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
+    }
+
+    .totalInvestments_breakdown_grants_total {
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
+    }
+
+    .totalInvestments_breakdown_studentAid_total {
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
+    }
+
+
+
 
     h2 {
       color: $orange;
@@ -215,153 +279,452 @@ $green: #50604f;
 
   }
 
-    /*
+  /*
   --------------------------------------------------------------------------------------------------------------------
 *     AGENCIES
 *--------------------------------------------------------------------------------------------------------------------
 */
- 
-.bubbleChartContainer {
-  text-align: center;
-}
+  
+  .bubbleChartContainer {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
 
-    /*
+  /*
   --------------------------------------------------------------------------------------------------------------------
 *    Investment Categories
 *--------------------------------------------------------------------------------------------------------------------
 */
- 
-.investmentCategories { 
+  
+  #secitonInvestmentCategories {
+    margin-top: 130px;
+  }
 
-  padding-left: 5%;
-  padding-right: 5%;
-  text-align: center;
 
-  .panel {
+  .investmentCategories { 
 
-    display: none;
-    width: 25%;
-    height:615px;
-    box-shadow: 17px 0 10px -4px #eee;
-    vertical-align: top;
-    min-width: 350px;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
 
-    span {
-      top: 50%;
-      position: relative;
-      width: 30%;
-      left: -45%;
-      color: #D04C02;
-      display: inline-block;
+    .categoriesChartContainer {
+      margin-top: 200px;
+      margin-bottom: 100px;
     }
 
-    span:hover { 
-      color: lighten($orange, 25%);
-      cursor: pointer;
+    .panel {
+
+      //margin: auto;
+      display: none;
+      width: 25%;
+      height: 615px;
+      box-shadow: 17px 0 10px -4px #eee;
+      vertical-align: top;
+      min-width: 350px;
+
+      span {
+        top: 50%;
+        position: relative;
+        width: 30%;
+        left: -45%;
+        color: #D04C02;
+        display: inline-block;
+      }
+
+      span:hover { 
+        color: lighten($orange, 25%);
+        cursor: pointer;
+      }
+
+      .panelChart {
+        //display: inline-block;
+        text-align: center;
+        margin-left: 40px;
+      }
+
     }
 
-    .panelChart {
+    .chartContainer {
       display: inline-block;
       text-align: center;
-      margin-left: 40px;
-    }
+      margin:auto;
+      width: 85%;
+      position: relative;
 
-  }
-  .chartContainer{
-    display: inline-block;
-    text-align: center;
-    margin:auto;
-    width: 85%;
-    position: relative;
+      .categoriesParent {
+        width:210px;
+        margin: 0px;
+        display: inline-block;
 
-    .categoriesParent{
-      width:210px;
-      margin: 0px;
-      display: inline-block;
+	p { font-size: 16px; }
+	
+      }
 
-      p {
-        font-size: 16px;
+      .chv {
+        position: absolute;
+        top:50%;
+        font-size: 32px;
+        opacity: 0.5;
+      }
+
+      .left {
+	left: 5px;
+      }
+
+      .right {
+	right: 5px;
+      }
+
+
+      svg {	text-align: center; }
+
+      .catDollarClass {
+	font-size: 20px;
+	fill: black;
+      }
+
+      .catPercentageClass {
+	font-size: 23px;
+	fill: $orange;
+	font-weight: 100;
+	padding-left: 30px;
+      }
+
+      path.slice{
+        stroke-width:10px;
+      }
+      
+      polyline{
+        opacity: .3;
+        stroke: black;
+        stroke-width: 10px;
+        fill: none;
       }
     }
-
-    .chv {
-      position: absolute;
-      top:50%;
-      font-size: 32px;
-      opacity: 0.5;
-    }
-
-    .left {
-      left: 5px;
-    }
-
-    .right {
-      right: 5px;
-    }
-
-
-    svg {
-      text-align: center;
-    }
-
-    .catDollarClass {
-      font-size: 20px;
-      fill: black;
-    }
-
-    .catPercentageClass {
-      font-size: 23px;
-      fill: $orange;
-      font-weight: 100;
-      padding-left: 30px;
-    }
-
-     path.slice{
-         stroke-width:10px;
-     }
-    
-     polyline{
-         opacity: .3;
-         stroke: black;
-         stroke-width: 10px;
-         fill: none;
-     }
   }
-}
 
-    /*
+  /*
   --------------------------------------------------------------------------------------------------------------------
 *   Instututions
 *--------------------------------------------------------------------------------------------------------------------
 */
 
-.collegesMap {
+  .collegesMap {
 
-  text-align: center;
-  
-  .background {
-    fill: none;
-    pointer-events: all;
-  }
-  
-  #states {
-    fill: #E6E7E5;
-  }
-  
-  #states .active {
-    fill: orange;
-  }
-  
-  #state-borders {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 1.5px;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-    pointer-events: none;
+    //width: 70%;
+    
+    text-align: center;
+    
+    .background {
+      fill: none;
+      pointer-events: all;
+    }
+    
+    #states {
+      fill: #E6E7E5;
+    }
+    
+    #states .active {
+      fill: orange;
+    }
+    
+    #state-borders {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.5px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      pointer-events: none;
+    }
+
   }
 
-}
+  #mapContainerDiv {
+    display: flex;
+    flex-direction: row;
+    //justify-content: space-evenly;
+  }
 
-}
+  #filtersDiv {
+    width: 40%;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+
+
+  #tableContainerDiv {
+    display: none;
+    margin-top: 100px;
+    flex-direction: row;
+    margin: 75px auto;
+    justify-content: space-around;
+  }
+
+  #tableDiv {
+    width: 60%;
+  }
+
+  .subTableData {
+    //border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0; 
+    height: 60px;
+    font-size: 13pt;
+  }
+
+  .subTableData > th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .subTableData > tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  .subTableData > th:first-child {
+    border-radius: 6px 0 0 0;
+  }
+
+  .subTableData > th:last-child {
+    border-radius: 0 6px 0 0;
+  }
+
+  .subTableData > th:only-child{
+    border-radius: 6px 6px 0 0;
+  }
+
+
+  .investmenth4 {
+    font-size: 11pt;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }  
+
+  // on row click table div
+  #sidebarTable {
+    width: 40%;
+    height: 70px;
+    font-size: 15pt;
+  }
+
+  .flex-rect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Rectangle-3 {
+    display: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    width: 740px;
+    height: 170px;
+    opacity: 0.9;
+    background-color: #fafafa;
+  }
+
+  /**
+    For use with ScrollyTelling! Make things appear on viewport! Woo!
+**/
+  .hiddenScroll {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+  .appearScroll {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+  }
+
+  /**
+  Checkbox Slider
+ */
+
+
+  .slider-checkbox {
+    position: relative;
+    input {
+      margin: 0px;
+      margin-top: 1px;
+      cursor: pointer;
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      -moz-opacity: 0;
+      -khtml-opacity: 0;
+      opacity: 0;
+      position: absolute;
+      z-index: 1;
+      top: 0px;
+      left: 0px;
+      background: red;
+      width: 40px;
+      height: 20px;
+      &:checked + .label {
+	&:before {
+          background-color: $checked-color;
+          content: "\f00c";
+          padding-left: 6px;
+	}
+	&:after {
+          left: 21px;
+	}
+      }
+    }
+    .label {
+      position: relative;
+      padding-left: 46px;
+      &:before, &:after {
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	transition: background-color 0.3s, left 0.3s;
+      }
+      &:before {
+	content: "\f00d";
+	color: #fff;
+	box-sizing: border-box;
+	font-family: 'FontAwesome', sans-serif;
+	padding-left: 23px;
+	font-size: 12px;
+	line-height: 20px;
+	background-color: $unchecked-color;
+	left: 0px;
+	top: 0px;
+	height: 20px;
+	width: 40px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+      }
+      &:after {
+	content: "";
+	letter-spacing: 20px;
+	background: #fff;
+	left: 1px;
+	top: 1px;
+	height: 18px;
+	width: 18px;
+      }
+    }
+  }
+
+
+
+  .halfhr {
+    //width: 40%;
+    opacity: .25;
+  }
+
+  .checkboxpadding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
+
+  /* Creates a small triangle extender for the tooltip */
+  .d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.466);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+  }
+
+  /* Style northward tooltips differently */
+  .d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+  }
+
+  #childrenPanel {
+    margin-left: 15%;
+    height: 600px;
+    width: 500px;
+    //margin: 0;
+    display: inline-block;
+    display: none;
+    //border: 1px;
+  }
+
+  #threeMenu {
+    display: flex;
+    justify-content: center;
+  }
+
+  #threeMenu > svg {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #treemapContainerDiv {
+    display: none;
+    margin-top: 25px;
+  }
+
+  #treemapSidebar {
+    width: 40%;
+    height: 600px;
+  }
+
+  #sectiontwoTreemap {
+    margin-left: 200px;
+  }
+
+  .sidebarList {
+    box-shadow: rgba(0,0,0, .4);
+    text-align: left;
+    font-size: 9px;
+    height: 600px;
+    width: auto;
+    overflow: scroll;
+    overflow-y: scroll;
+  }
+
+  .sidebarListElement:hover {
+    background-color: teal;
+//    opacity: .6;
+  }
+
+  .categoriesPanel {
+    display: block;
+    margin-top: 100px;
+  }
+
+  #sectionFourtableContainerDiv {
+    display: none;
+    margin-top: 100px;
+    flex-direction: row;
+    margin: 75px auto;
+    justify-content: space-around;
+  }
+
+  #sectionFourTreemapContainerDiv {
+    display: none;
+    margin-top: 100px;
+  }
+  
+
+} // end of .CU
+
+
 

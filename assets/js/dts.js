@@ -418,7 +418,10 @@ function updateGraphAndBrushLines(data) {
 function updateGraph(data) {
   categorySeparatorDate = data.length > 1 ? data[0].date : null;
 
-  if (data.length > 1) {
+  if (data[0].name === "All Categories") {
+    d3.select(".dts-footnote").style("visibility", "visible");
+    d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry).");
+  } else if (data.length > 1) {
     d3.select(".dts-footnote").style("visibility", "visible");
     d3.select(".dts-footnote-text").text(data[0].footnote);
   } else {
@@ -639,12 +642,12 @@ var sharedCategories = [
   {
     categories: [ "Food Stamps", "Supple Nutrition Assist Program ( SNAP )" ],
     date: new Date("2010-03-31"),
-    footnote: "The shaded region indicates inactive or retired programs. Beginning March 31, 2010, the Food Stamp Program has been renamed Supplemental Nutrition Assistance Program (SNAP) on the Daily Treasury Statement. Withdrawals previously reported under the Food Stamp Program are now reported under SNAP."
+    footnote: "The shaded region indicates inactive or retired programs. On March 31, 2010, the Food Stamp Program was renamed Supplemental Nutrition Assistance Program (SNAP) on the Daily Treasury Statement. Withdrawals previously reported under the Food Stamp Program are now reported under SNAP."
   },
   {
     categories: [ "Medicare", "Medicare Advantage Part C D Payments", "Marketplace Payments", "Medicare and Other CMS Payments" ],
     date: new Date("2014-10-01"),
-    footnote: "The shaded region indicates inactive or retired programs. Beginning October 1, 2014, payments previously reported  under the Medicare line were expanded to three lines:  Medicare and other CMS payments,  Medicare Advantage - Part C&D payments, and Marketplace payments."
+    footnote: "The shaded region indicates inactive or retired programs. Beginning October 1, 2014, payments previously reported under the Medicare line were expanded to three lines: Medicare and other CMS payments, Medicare Advantage - Part C&D payments, and Marketplace payments."
   }
 ]
 
@@ -775,6 +778,9 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function(error, data) {
   d3.select(".daily-spending-subtext").text("Amount Spent On " + dateFormatter(lastDate));
 
   d3.select(".header-updated-when").text("Updated " + dateFormatter(lastDate));
+
+  document.getElementsByClassName('daily-spending-container')[0].style.display = 'none';
+  document.getElementsByClassName('daily-spending-container')[0].style.display = 'block';
 
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
