@@ -15,7 +15,7 @@ let svg,
     config = {};
 
 function dotFactory(container, x, y) {
-    const color = config.dotColor;
+    const color = config.sectionColor;
 
     container.append('circle')
         .attr('cx', x)
@@ -30,15 +30,16 @@ function readyDots() {
         .attr('transform', translator(0, 30))
         .append('g')
         .classed('spending-dots', true)
-        .attr('opacity', 0);
+        .attr('opacity', 0),
+        oneBillion = 1000000000;
 
     let i = 0,
         dotRectHeight,
-        spendingTrillion = 4100,
+        sectionAmountInBillions = config.sectionAmount / oneBillion,
         x = dotConstants.radius,
         y = 2;
 
-    for (i; i < spendingTrillion; i++) {
+    for (i; i < sectionAmountInBillions; i++) {
         dotFactory(dotContainer, x, y);
         x += dotConstants.offset.x;
 

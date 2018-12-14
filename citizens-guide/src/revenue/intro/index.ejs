@@ -11,37 +11,43 @@ pageCss: index.css
     </button>
 </h1>
 
-<div class="page-wrapper">
+<div id="copy">
+    <p>Where does the money come from? If you lived or worked in the United States during 2017, most likely your contributions are part of the $3.3 trillion.</p>
+</div>
+
+<div class="viz-wrapper">
     <div id="viz"></div>
 
-    <section class="temporary-hide" id="income-facts">
-        <div class="copy-tour-row">
-            <section class="copy-tour-row__copy">
-                <p>Where does the money come from? If you lived or worked in the United States during 2017, most likely your contributions are part of the $3.3 trillion.</p>
-            </section>
-            <div class="copy-tour-row__tour">
-                <section class="tour">
-                    <h1>How does the amount of federal revenue compare to the size of the economy?</h1>
-                    <button id="tour-continue" class="tour__link">Compare<i class="fas fa-chevron-right"></i></button>
-                </section>
+    <div class="facts sidebar sidebar--hidden">
+        <div class="facts__inner">
+            <div id="compare-options">
+                <p class="facts__prompt">How does the amount of federal revenue compare to federal spending and the size of the economy?</p>
+                <div class="facts__triggers">
+                    <button class="facts__trigger" data-trigger-id="spending">Federal Spending</button>
+                    <button class="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+                </div>
             </div>
+
+            <section id="spending-facts" class="facts__section">
+                <h1>In Fiscal Year 2018, the federal government spent $4.1 trillion.</h1>
+                <p>The $779 billion deficit was a result of the government spending more than it brought in. <a href="../spending/">Go Explore Spending.</a></p>
+            </section>
+
+            <section id="gdp-facts" class="facts__section">
+                <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
+                <p>The government collected the equivalent of 17% of GDP.</p>
+
+                <strong>What's GDP?
+                    <button class="info-box-trigger" data-box-id="gdp-info">
+                        <img src="../assets/icons/definition.svg" alt="definition icon">
+                    </button>
+                </strong>
+            </section>
         </div>
-    </section>
-
-    <section id="gdp-facts" class="temporary-hide out">
-        <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
-        <p>The government collected the equivalent of 17% of GDP.</p>
-
-        <strong>What's GDP? 
-            <button class="info-box-trigger" data-box-id="gdp-info">
-                <img src="../assets/icons/definition.svg" alt="definition icon">
-            </button>
-        </strong>
-        
-        <section class="tour">
-            <h1 class="tour__heading">What are the sources of government revenue?</h1>
-            <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
-        </section>
+    </div>
+    <section class="tour sidebar sidebar--hidden">
+        <h1 class="tour__heading">What are the sources of government revenue?</h1>
+        <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
     </section>
 </div>
 
@@ -58,7 +64,7 @@ pageCss: index.css
     <p>In this analysis, each dot represents $1 billion. Each dot represents contributions to the government from you, your family, your neighbors, your place of business, and the corporations you deal with every day.</p>    
 </div>
 
-<section class="hwcta hwcta--staged">
+<section class="hwcta">
         The visualization was created using the <a href="https://www.fiscal.treasury.gov/fsreports/rpt/mthTreasStmt/mts0917.pdf" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross Domestic Product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank">Bureau of Economic Analysis (BEA)</a>. The revenue-to-GDP ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually.
 </section>
 <script src="../assets/hwcta.js"></script>

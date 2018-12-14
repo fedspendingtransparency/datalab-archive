@@ -17,7 +17,13 @@
         var allSecondaryLi = ul.item(0).children,
             liLength = allSecondaryLi.length;
 
-        var i = 0;
+        if(filename === 'index.html'){
+            allSecondaryLi.item(0).classList.add('active');
+            return true;
+        }
+
+        var i = 1;
+
 
         for (i; i < liLength; i++) {
             var current = allSecondaryLi.item(i),

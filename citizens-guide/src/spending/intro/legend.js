@@ -117,7 +117,7 @@ function addText() {
 }
 
 function initDot() {
-    const dotColor = config.dotColor;
+    const dotColor = config.sectionColor;
     largeDot.append('circle')
         .attr('cx', radius)
         .attr('cy', radius)

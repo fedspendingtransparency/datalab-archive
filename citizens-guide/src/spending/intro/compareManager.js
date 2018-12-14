@@ -15,7 +15,7 @@ const stateManager = {},
     buttonActive = 'facts__trigger--active',
     d3 = { select, selectAll, transition };
 
-let gdpHeight, originalHeight;
+let gdpHeight, originalHeight, config = {};
 
 function setLayerOpacity(id, active) {
     layers[id].transition()
@@ -66,7 +66,7 @@ function handleRevenueLayer(reset) {
         .attr('transform', translator(x, 30) + ' scale(' + scale + ')')
         .ease();
 
-    d3.selectAll('.revenue-step-two').transition()
+    d3.selectAll(`.${config.compareString}-step-two`).transition()
         .delay(1000)
         .duration(1500)
         .attr('opacity', stepTwoOpacity)
@@ -85,7 +85,7 @@ function toggleFacts() {
     const button = d3.select(this),
         desktop = (document.documentElement.clientWidth > 959),
         id = button.attr('data-trigger-id'),
-        targetSection = d3.select(idMap[id]),
+        targetSection = d3.select(`#${id}-facts`),
         wasPreviouslyActive = button.classed(buttonActive);
 
     d3.selectAll('.facts__trigger').classed(buttonActive, null);
@@ -149,8 +149,10 @@ export function generateOverlay(count, container, className, color) {
     return overlayLayer;
 }
 
-export function registerLayer(id, layer, n) {
+export function registerLayer(id, layer, _n, _config) {
+    config = _config || config;
     layers[id] = layer;
+    const n = _n;
 
     if (n) {
         gdpHeight = n * 0.6;

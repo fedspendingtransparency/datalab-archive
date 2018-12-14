@@ -7,16 +7,17 @@ import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, line };
 
-let revenueLayer,
+let compareLayer,
     config = {};
 
 function placeLegend(g) {
     const legendContainer = g.append('g')
-        .classed('revenue-step-two', true)
+        .classed(`${config.compareString}-step-two`, true)
         .attr('opacity', 0),
+        compareString = config.compareString,
         textX = -50,
         comparisonAmount = config.comparisonAmount || 0,
-        height = Number(revenueLayer.attr('data-rect-height')),
+        height = Number(compareLayer.attr('data-rect-height')),
         line = d3.line()
             .x(function (d) { return d.x; })
             .y(function (d) { return d.y; }),
@@ -40,7 +41,7 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('Federal Revenue')
+        .text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
         .style('font-weight', '600')
         .attr('x', textX)
         .attr('dy', height / 2);
@@ -56,13 +57,13 @@ export function initRevenueOverlay(_config) {
 
     const svg = establishContainer(),
         billion = 1000000000,
-        revenueCount = Math.ceil(config.comparisonAmount / billion);
+        compareCount = Math.ceil(config.comparisonAmount / billion);
 
-    revenueLayer = generateOverlay(revenueCount, svg.select('.main-container'), 'revenue-layer', config.comparisonColor);
+    compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `${config.comparisonString}-layer`, config.comparisonColor);
 
     if (document.documentElement.clientWidth > 959) {
-        placeLegend(revenueLayer);
+        placeLegend(compareLayer);
     }
 
-    registerLayer('revenue', revenueLayer);
+    registerLayer(config.compareString, compareLayer, null, config);
 }

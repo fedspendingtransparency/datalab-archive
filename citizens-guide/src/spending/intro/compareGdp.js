@@ -91,7 +91,7 @@ function placeDonut(g) {
         .attr('cx', r)
         .attr('cy', r);
 
-    createDonut(donutContainer, config.gdpPercent / 100, r * 2, colors.colorSpendingPrimary);
+    createDonut(donutContainer, config.gdpPercent / 100, r * 2, config.sectionColor);
 }
 
 export function initGdp(_config) {
