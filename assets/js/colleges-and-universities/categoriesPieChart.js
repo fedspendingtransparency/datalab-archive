@@ -803,22 +803,27 @@ d3.csv("/data-lab-data/Edu_PSC.csv",(data) => {
     $('#categoriesPanel').css('display', 'none'); // donut 
     $('#investmentCategories_panel_chart').css('display', 'none'); // donut 
     $('#investmentCategories_panel_back_btn').css('display', 'none'); // donut 
+    $('#categoriesChartContainer').css('display', 'none'); // donut 
   });
 
   $(donutBtn).click(function() {
     console.log('clicking donut button!');
     $('#categoriesPanel').css('display', 'inline-block'); // donut! (set to inline-block from before)
+    $('#investmentCategories_panel_chart').css('display', 'inline-block'); // donut 
+    $('#investmentCategories_panel_back_btn').css('display', 'inline-block'); // donut 
+    $('#categoriesChartContainer').css('display', 'none'); // donut 
     $('#tableContainerDiv').css('display', 'none'); // table
     $('#treemapContainerDiv').css('display', 'none'); // treemap
   });
 
   $(treemapBtn).click(function() {
     console.log('clicking treemap button!');
-    $('#treemapContainerDiv').css('display', 'flex');
-    $('#tableContainerDiv').css('display', 'none');
-    $('#categoriesPanel').css('display', 'none');
+    $('#treemapContainerDiv').css('display', 'flex'); // tree
+    $('#tableContainerDiv').css('display', 'none'); // table 
+    $('#categoriesPanel').css('display', 'none'); // donut
     $('#investmentCategories_panel_chart').css('display', 'none'); // donut 
     $('#investmentCategories_panel_back_btn').css('display', 'none'); // donut 
+    $('#categoriesChartContainer').css('display', 'none'); // donut 
   });
 
 

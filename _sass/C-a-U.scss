@@ -452,8 +452,11 @@ $unchecked-color: #888;
     margin-left: 50px;
   }
 
+
+
   #tableContainerDiv {
     display: none;
+    margin-top: 100px;
     flex-direction: row;
     margin: 75px auto;
     justify-content: space-around;
@@ -675,6 +678,7 @@ $unchecked-color: #888;
 
   #treemapContainerDiv {
     display: none;
+    margin-top: 25px;
   }
 
   #treemapSidebar {
@@ -703,10 +707,22 @@ $unchecked-color: #888;
 
   .categoriesPanel {
     display: block;
+    margin-top: 100px;
   }
 
-  
+  #sectionFourtableContainerDiv {
+    display: none;
+    margin-top: 100px;
+    flex-direction: row;
+    margin: 75px auto;
+    justify-content: space-around;
+  }
 
+  #sectionFourTreemapContainerDiv {
+    display: none;
+    margin-top: 100px;
+  }
+  
 
 } // end of .CU
 
