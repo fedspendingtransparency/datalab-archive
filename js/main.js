@@ -143,6 +143,10 @@ $(function() {
     $(".share-viz-button").click(function() {
         $(this).find('span.popuptext.right').toggleClass('show');
     });
+
+    $(".new-share-button").click(function() {
+        $(this).find('span.popuptext.right').toggleClass('show');
+    });
 });
 
 (function debugOnLoad($) {

@@ -14,6 +14,27 @@
 		flex-direction: column !important;
 	}
 
+	.dtsm-left-column {
+		padding-right: 0 !important;
+	}
+
+	.dtsm-header-text {
+		line-height: 17px !important;
+		margin-top: 5px !important;
+	}
+
+	.dts-module {
+		padding: 25px 15px !important;
+	}
+
+	.dtsm-vseparator {
+		display: none;
+	}
+
+	.dtsm-subheader, .dtsm-right-column {
+		display: none !important;
+	}
+
 	.footer-navigation, #top-footer, ul.icons.major {
 		flex-direction: column;
 	}

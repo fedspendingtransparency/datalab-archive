@@ -3,7 +3,7 @@
     box-sizing: border-box;
     height: 100px;
     background-color: #7B919F;
-    padding: 25px 50px;
+    padding: 25px 25px;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@
   }
   
   .dtsm-left-column {
-    padding-right: 115px;
+    padding-right: 3%;
   }
   
   .dtsm-right-column {
@@ -54,6 +54,7 @@
   .dtsm-dollars {
     font-size: 48px;
     font-weight: 300;
+    margin-left: 15px;
     margin-right: 15px;
     opacity: .75;
   }
@@ -61,7 +62,7 @@
   .dtsm-tas-header {
     font-size: 14px;
     font-weight: 300;
-    line-height: 175%;
+    line-height: 150%;
     opacity: .8;
   }
   
@@ -69,7 +70,7 @@
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
-    line-height: 175%;
+    line-height: 150%;
     opacity: .8;
   }
   
@@ -85,6 +86,29 @@
     font-size: 12px;
     margin-right: 5px;
   }
+
+  .line {
+    stroke: white;
+    stroke-width: 3px;
+  }
+
+  .dtsm-img text {
+    fill: white;
+  }
+
+  .dtsm-img .domain {
+    display: none;
+  }
+
+  .dtsm-img .tick line {
+    stroke: white;
+  }
+
+.dtsm-img circle {
+  fill: orange;
+  stroke: white;
+  stroke-width: 1.5px;
+}
 </style>
   
 <div class="dts-module">
@@ -94,17 +118,20 @@
         <div class="dtsm-beta">BETA</div>
         <div class="dtsm-header-text">Visualizing the Daily Treasury Statement</div>
       </div>
-      <div class="dtsm-subheader">How much did the federal government spend today?</div>
+      <div class="dtsm-subheader">How much does the federal government spend each day?</div>
     </a>
   </div>
   <div class="dtsm-vseparator"></div>
-  <img class="dtsm-img" src="./images/dts-graph.png" />
+  <div class="dtsm-img"></div>
   <div class="dtsm-vseparator"></div>
   <div class="dtsm-right-column">
-    <div class="dtsm-dollars">$978.4M</div>
+    <div class="dtsm-dollars">$</div>
     <div class="dtsm-tas-container">
       <div class="dtsm-tas-header">Total Amount Spent</div>
-      <div class="dtsm-tas-subheader">August 24, 2018</div>
+      <div class="dtsm-tas-subheader">January 1, 2018</div>
     </div>
   </div>
 </div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/dts-module.js"></script>
