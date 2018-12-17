@@ -152,7 +152,7 @@ var y = d3.scaleLinear().range([height, 0]);
 
 var valueline = d3.line()
     .x(d => x(d.date))
-    .y(d => y(d.value));
+    .y(d => y(d.Totals));
 
 var svg = d3.select(".dtsm-img").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -167,11 +167,11 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   console.log(data);
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function(d) { return d.value; })]);
+  y.domain([0, d3.max(data, function(d) { return d.Totals; })]);
 
   let lastEntry = data[data.length - 1];
   let lastDate = lastEntry.date;
-  let lastValue = lastEntry.value;
+  let lastValue = lastEntry.Totals;
 
   svg.append("path")
       .data([data])
@@ -198,7 +198,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
 
 function type(d) {
   d.date = parseTime(d.date);
-  d.value = +d.value * 1000000; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
+  d.Totals = +d.Totals * 1000000; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
   return d;
 }
 </script>
