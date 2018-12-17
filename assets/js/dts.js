@@ -779,9 +779,6 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function(error, data) {
 
   d3.select(".header-updated-when").text("Updated " + dateFormatter(lastDate));
 
-  document.getElementsByClassName('daily-spending-container')[0].style.display = 'none';
-  document.getElementsByClassName('daily-spending-container')[0].style.display = 'block';
-
   let categoryToSpendingPrevFY = {};
   let allToSpending = { "today": {}, "mtd": {}, "fytd": {} };
 

@@ -59,7 +59,7 @@ path.domain {
 }
 
 .dts-download-data {
-  color: #5b6160;
+  color: #4a4a4a;
 }
 
 .dts-download-data:hover {
@@ -166,20 +166,6 @@ path.domain {
   margin-left: 5px;
 }
 
-/*
-.dts-left-column, .dts-right-column {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-*/
-
-/*
-.daily-spending-container, .period-container, .frequency-container, .category-container {
-  margin-bottom: 25px;
-}
-*/
-
 .daily-spending-container {
   width: 175px;
   display: flex;
@@ -240,7 +226,7 @@ path.domain {
   line-height: 20px;
 }
 
-.dts-brush-start-date {
+.dts-brush-start-date, .dts-brush-end-date {
   color: #4A4A4A
 }
 
