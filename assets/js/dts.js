@@ -420,7 +420,7 @@ function updateGraph(data) {
 
   if (data[0].name === "All Categories") {
     d3.select(".dts-footnote").style("visibility", "visible");
-    d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry).");
+    d3.select(".dts-footnote-text").text("All Categories was created by taking Total Withdrawals (excluding transfers) and subtracting Public Debt Cash Redemp (Table III B) from it for each corresponding entry.");
   } else if (data.length > 1) {
     d3.select(".dts-footnote").style("visibility", "visible");
     d3.select(".dts-footnote-text").text(data[0].footnote);
