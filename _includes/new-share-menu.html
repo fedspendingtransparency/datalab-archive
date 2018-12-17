@@ -1,0 +1,90 @@
+<script>
+    function clickShareItemLink(item, url) {
+        window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
+
+        window.Analytics.event({
+            category: 'Share Menu - Click Item',
+            action: item
+        });
+
+        return false;
+    }
+</script>
+
+<style>
+.new-share-button {
+  display: flex;
+  margin-left: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.newpopup {
+    top: 40px !important;
+    left: 0;
+}
+
+.new-share-button .viz-share-icon:hover {
+    fill: #00c3c2;
+}
+</style>
+
+<div class="popup new-share-button">
+    <span class="viz-share-icon" aria-hidden="true">
+        {% include svgs/share.svg %}
+    </span>
+    <span class="popuptext right newpopup" id="sharePopup">
+        <div class="share-buttons">
+            <ul>
+                <li>
+                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Facebook">
+                        {% include svgs/facebook.svg class="share-icon icon-facebook" %}
+                        <span class="share-button-text">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Twitter">
+                        {% include svgs/twitter.svg class="share-icon icon-twitter" %}
+                        <span class="share-button-text">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Google+">
+                        {% include svgs/google-plus.svg class="share-icon icon-google-plus" %}
+                        <span class="share-button-text">Google</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Pinterest">
+                        {% include svgs/pinterest.svg class="share-icon icon-pinterest" %}
+                        <span class="share-button-text">Pinterest</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Tumblr">
+                        {% include svgs/tumblr.svg class="share-icon icon-tumblr" %}
+                        <span class="share-button-text">Tumblr</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Reddit">
+                        {% include svgs/reddit.svg class="share-icon icon-reddit" %}
+                        <span class="share-button-text">Reddit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}")' title="Share on LinkedIn">
+                        {% include svgs/linkedin.svg class="share-icon icon-linkedin" %}
+                        <span class="share-button-text">Linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:?subject={{ page.title }}&amp;body=Check out this site {{ site.url }}{{ site.baseurl }}{{ page.url }}" title="Share via Email">
+                        {% include svgs/envelope.svg class="share-icon icon-envelope" %}
+                        <span class="share-button-text">Email</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </span>
+</div>
