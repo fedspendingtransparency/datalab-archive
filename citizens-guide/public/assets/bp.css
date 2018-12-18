@@ -155,7 +155,7 @@ section.chapter {
 
 .chapter__divider--median-treasury-logo {
   background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
-  background-size: 100% 250px;
+  background-size: 100% 100%;
   padding: 1rem;
   background-color: #FFF; }
   .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {

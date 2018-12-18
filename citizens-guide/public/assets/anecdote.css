@@ -42,6 +42,7 @@
       text-align: center; }
   .anecdote .anecdote__contents {
     display: none;
+    opacity: 0;
     position: absolute;
     background: white;
     color: black;
@@ -58,8 +59,10 @@
          */
     margin-left: -22px;
     margin-top: -3px; }
-  .anecdote .anecdote__contents.anecdote__contents--active {
-    display: block; }
+    .anecdote .anecdote__contents.anecdote__contents--active {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease; }
   .anecdote .anecdote__close {
     float: right;
     background: none;
