@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Federal Revenue and the GDP
+    </title>
+    <meta name="description" content="The United States collected $3.3 trillion in 2017, 17% of the GDP.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/normalize.css"  type="text/css">
+    <link rel="stylesheet" href="../assets/cg.css"  type="text/css">
+    <link rel="stylesheet" href="../assets/nav/nav.css"  type="text/css">
+        <link rel="stylesheet" href="../assets/index.css"  type="text/css">
+</head>
+
+<body>
+    
+        <nav class="chapter-nav chapter-nav--revenue">
+    <ul class="chapter-nav__primary-list">
+        <li><a href="./">Revenue and GDP</a></li>
+        <li><a href="./categories.html">Revenue Categories</a></li>
+        <li><a href="./trends-categories.html">Federal Revenue Trends</a></li>
+        <li><a href="./country-comparison.html">Country Comparison</a></li>
+    </ul>
+    <button class="chapter-nav-trigger">
+        <hr>
+        <hr>
+        <hr>
+    </button>
+</nav>
+
+    
+    <main>
+        <h1>In 2017, the government collected $3.3 trillion. 
+    <button class="info-box-trigger" data-box-id="per-individual">
+        <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
+    </button>
+</h1>
+
+<div id="copy">
+    <p>Where does the money come from? If you lived or worked in the United States during 2017, most likely your contributions are part of the $3.3 trillion.</p>
+</div>
+
+<div class="viz-wrapper">
+    <div id="viz"></div>
+
+    <div class="facts sidebar sidebar--hidden">
+        <div class="facts__inner">
+            <div id="compare-options">
+                <p class="facts__prompt">How does the amount of federal revenue compare to federal spending and the size of the economy?</p>
+                <div class="facts__triggers">
+                    <button class="facts__trigger" data-trigger-id="spending">Federal Spending</button>
+                    <button class="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+                </div>
+            </div>
+
+            <section id="spending-facts" class="facts__section">
+                <h1>In Fiscal Year 2018, the federal government spent $4.1 trillion.</h1>
+                <p>The $779 billion deficit was a result of the government spending more than it brought in. <a href="../spending/">Go Explore Spending.</a></p>
+            </section>
+
+            <section id="gdp-facts" class="facts__section">
+                <h1>In Fiscal Year 2017, the total GDP of the U.S. was $19.5 trillion.</h1>
+                <p>The government collected the equivalent of 17% of GDP.</p>
+
+                <strong>What's GDP?
+                    <button class="info-box-trigger" data-box-id="gdp-info">
+                        <img src="../assets/icons/definition.svg" alt="definition icon">
+                    </button>
+                </strong>
+            </section>
+        </div>
+    </div>
+    <section class="tour sidebar sidebar--hidden">
+        <h1 class="tour__heading">What are the sources of government revenue?</h1>
+        <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
+    </section>
+</div>
+
+<div class="info-box" id="per-individual">
+    <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
+    <p>How much is $3.3 trillion? If you take $3.3 trillion divided by the U.S. population estimate in 2017, of 325.7 million* (<a href="https://www.census.gov/quickfacts/fact/table/US/PST045217" target="_blank">U.S. Census Bureau</a>) that would equate to a little more than $10,000 in revenue for every individual in the U.S.</p>
+</div>
+<div class="info-box" id="gdp-info">
+    <img src="../assets/icons/definition.svg" alt="definition icon">
+    <p><strong>Gross Domestic Product (GDP)</strong> measures the size of the nation's economy by the total value of goods and services that are produced in a year. GDP is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.</p>
+</div>
+<div class="info-box" id="billion-dollars">
+    <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
+    <p>In this analysis, each dot represents $1 billion. Each dot represents contributions to the government from you, your family, your neighbors, your place of business, and the corporations you deal with every day.</p>    
+</div>
+
+<section class="hwcta">
+        The visualization was created using the <a href="https://www.fiscal.treasury.gov/fsreports/rpt/mthTreasStmt/mts0917.pdf" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross Domestic Product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank">Bureau of Economic Analysis (BEA)</a>. The revenue-to-GDP ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually.
+</section>
+<script src="../assets/hwcta.js"></script>
+
+<script src="./assets/intro.js"></script>
+ 
+    </main>
+</body>
+<script src="../assets/nav/nav.js"></script>
+</html>

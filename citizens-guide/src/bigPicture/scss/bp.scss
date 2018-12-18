@@ -1,0 +1,65 @@
+@import '../../globalSass/generalVars';
+@import 'bpVars';
+@import 'overviewChart';
+@import 'toc';
+@import 'chapter';
+@import 'link-button';
+@import 'header';
+
+html {
+    font-weight: $normalWeight;
+}
+
+.bp-scroll-down {
+    display: block;
+    margin: 0 auto;
+    transform: translateY(84px);
+}
+
+.historical-quote {
+    padding: 3rem 1rem;
+    background-color:#F9F9F9;
+    border-top:1px solid #EEE;
+
+    blockquote {
+        font-size: 1.5rem;
+        max-width: 1000px;
+        margin: 1rem auto 2rem;
+    }
+
+    .historical-quote__image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 0;
+        font-size: 1.7rem;
+    }
+
+    p.historical-quote__credit {
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+
+        span.historical-quote__credit-normal {
+            font-weight:normal;
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .bp-break-desktop {
+        display: block;
+    }
+
+    .historical-quote blockquote {
+        font-size: 2.2rem;
+    }
+
+    .historical-quote p.historical-quote__credit {
+        font-size: 1.7rem;
+    }
+}

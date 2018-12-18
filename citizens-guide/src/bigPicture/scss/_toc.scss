@@ -1,0 +1,22 @@
+@import '../../colors.scss';
+
+.toc {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+
+    li {
+        margin-bottom: 0.2rem;
+    }
+
+    a {
+        color: $text-color-paragraph;
+        opacity:0.4;
+    }
+
+    a.current {
+        font-weight: $boldWeight;
+        opacity:1;
+    }
+}
