@@ -67,7 +67,7 @@
     transform: translateY(3px);
     margin-left: -20px; }
 
-@media only screen and (min-width: 600px) and (max-width: 799px) {
+@media only screen and (min-width: 600px) and (max-width: 800px) {
   .overview-chart {
     padding: 2rem 3rem; } }
 
@@ -178,6 +178,12 @@ section.chapter {
   padding: 0 1rem; }
   .chapter__divider--text strong, .chapter__divider--text span {
     font-weight: 900; }
+
+.chapter__divider--text-revenue {
+  color: #0A2F5A; }
+
+.chapter__divider--text-spending {
+  color: #00766C; }
 
 .chapter__divider--text-deficit {
   color: #B3532D; }

@@ -12,12 +12,12 @@ import { addTextElements } from './textElements';
 import { getZoomState } from './zoom';
 
 const d3 = { select, selectAll, scaleLinear, line, connectorEase, min },
-    svg = establishContainer(),
     sourceBox = {},
     subCategoryBoxWidths = [],
     detailBoxHeight = 100;
 
-let resolver,
+let svg,
+    resolver,
     baseContainer,
     textContainer,
     detailContainer,
@@ -231,7 +231,6 @@ function renderDetailContainer() {
     if (detailContainer) {
         detailContainer.remove();
     }
-    console.log('renderDetailContainer', svg)
 
     baseContainerBox = getElementBox(baseContainer);
 
@@ -242,7 +241,6 @@ function renderDetailContainer() {
         .classed('detail-container', true)
         .lower()
         .attr('opacity', 0);
-    console.log('detailContainer:', detailContainer);
 }
 
 function transitionDetailContainer() {
@@ -339,6 +337,7 @@ export function destroyDetails(){
 
 export function showDetail(d) {
     const prevCategory = activeCategory;
+    svg = establishContainer();
 
     data = d.subcategories;
     parentRect = d3.select(this);

@@ -10,10 +10,8 @@ import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails, destroyDetails } from './showDetails';
 import colors from '../../colors.scss';
 import '../../infoBox';
-import { initTwoPartTour, activateTourPartTwo } from '../../revenue/tour';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
-    tour = location.search.includes('tour'),
     factBox = d3.selectAll('.fact-box'),
     baseTranslate = { x: 91, y: 50 },
     baseDimensions = { width: 1014, height: 100 },
@@ -25,7 +23,6 @@ let svg,
     indexed,
     topAmount,
     totalAmount,
-    tourStage2,
     baseContainer,
     shaderContainer,
     detailsGroup,
@@ -118,7 +115,6 @@ function addDetails() {
             const n = (getZoomState() === 'in') ? i + 3 : i,
                 rect = shaders.filter(function (d, j) { return j === n }).node();
 
-            setTourStep2();
             showDetail.bind(rect)(d);
         });
 
@@ -186,7 +182,6 @@ function addSegments(more) {
         })
         .attr('opactity', 0)
         .on('click', function (d) {
-            setTourStep2();
             showDetail.bind(this)(d);
         });
 
@@ -204,6 +199,10 @@ function addSegments(more) {
 
 function remove() {
     d3.select(this).remove();
+}
+
+function resizeSvg(){
+    svg.attr('width','1200px');
 }
 
 function setContainers() {
@@ -224,16 +223,6 @@ function setContainers() {
     rescale();
     moveBarGroup(true);
     addDetails();
-}
-
-function setTourStep2() {
-    if (tourStage2) {
-        return;
-    }
-
-    tourStage2 = true;
-
-    activateTourPartTwo();
 }
 
 function setInitialValues(){
@@ -257,7 +246,7 @@ export function initSankey(_config) {
     setInitialValues();
     stackData(categoryData);
     svg = establishContainer(170);
+    resizeSvg();
     setContainers();
     addSegments();
-    initTwoPartTour();
 }

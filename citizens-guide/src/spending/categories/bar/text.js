@@ -44,7 +44,7 @@ export function placeLabels(containers, config) {
 
     const text = containers.append('text')
         .text(function (d) {
-            return d.activity;
+            return d.sub_activity || d.activity;
         })
         .attr('x', function (d) {
             return d.barX1 + 20;

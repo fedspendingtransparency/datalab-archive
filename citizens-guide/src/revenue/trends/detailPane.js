@@ -7,10 +7,10 @@ const d3 = { select },
     svg = establishContainer(),
     h = 600,
     zoomThresholds = {
-        'Employment and General Retirement': 7000000000,
+        'Employment and General Retirement': 50000000,
         'Excise Taxes': 1000000000,
         'Unemployment Insurance': 300000000
-    }
+    };
 
 let pane,
     callout,

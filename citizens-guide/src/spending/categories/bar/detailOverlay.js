@@ -7,7 +7,7 @@ import { closeDetail } from './sort';
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
 
-let originalSvgHeight;
+let originalSvgHeight, previousHeight;
 
 function closeOverlay() {
     const detailLayer = d3.select('.detail-layer'),
@@ -65,7 +65,7 @@ function renderHeader(detailLayer, title, innerWidth) {
 
             return svgWidth < 500 ? 16 : 20;
         });
-    
+
     wordWrap(headerText, headerTextMaxWidth)
 
     headerText.attr('transform', translator(20, 0))
@@ -111,8 +111,7 @@ function resizeSvg(finalRectHeight) {
         svgHeight = svgBox.height,
         newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
 
-    let previousHeight,
-        detailHeightWithPadding,
+    let detailHeightWithPadding,
         newHeight = previousHeight;
 
     if (finalRectHeight) {
