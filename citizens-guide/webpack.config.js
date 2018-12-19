@@ -127,6 +127,7 @@ module.exports = [{
         './src/spending/intro/spending-intro.scss',
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
+        './src/test.scss'
     ],
     output: {
 		path: path.resolve(__dirname, 'public/assets'),
