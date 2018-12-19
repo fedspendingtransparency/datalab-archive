@@ -16,6 +16,8 @@ const d3 = { select, selectAll, scaleLinear, extent, min, max, transition, zoom 
     rowHeight = 50,
     defaultRowsToShow = 10;
 
+let externalConfig = {};
+
 function setScales(config) {
     const extent = d3.extent(config.data, r => r.amount);
 
@@ -44,7 +46,7 @@ function drawBars(containers, config) {
                 return 'gray';
             }
 
-            return colors.colorSpendingPrimary;
+            return config.sectionColor;
         })
         .attr('y', rowHeight / 4)
         .attr('x', config.scaleX(0))
@@ -118,7 +120,7 @@ function placeContainers(config, detail) {
                 return;
             }
 
-            drawChart(d.subcategories, d.activity, true, config.width)
+            drawChart(d.subcategories, d.activity, config, true, config.width)
         });
 
         setTimeout(function () {
@@ -128,11 +130,12 @@ function placeContainers(config, detail) {
     }
 }
 
-export function drawChart(data, type, detail, parentWidth) {
+export function drawChart(data, type, _config, detail, parentWidth) {
     const config = {},
         showMoreInd = data.length > defaultRowsToShow,
         defaultDataSize = showMoreInd ? defaultRowsToShow : data.length;
 
+    externalConfig = _config || externalConfig;
     if (!data.length) {
         return;
     }
@@ -143,6 +146,7 @@ export function drawChart(data, type, detail, parentWidth) {
     config.data = data;
     config.rowHeight = rowHeight;
     config.detail = detail;
+    config.sectionColor = externalConfig.sectionColor;
 
     initSort(config);
 

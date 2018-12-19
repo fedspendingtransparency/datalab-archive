@@ -206,6 +206,10 @@ function remove() {
     d3.select(this).remove();
 }
 
+function resizeSvg(){
+    svg.attr('width','1200px');
+}
+
 function setContainers() {
     const containerClass = config.containerClass || '';
     baseContainer = svg.append('g')
@@ -257,6 +261,7 @@ export function initSankey(_config) {
     setInitialValues();
     stackData(categoryData);
     svg = establishContainer(170);
+    resizeSvg();
     setContainers();
     addSegments();
     initTwoPartTour();

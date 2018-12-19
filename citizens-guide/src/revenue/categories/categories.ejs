@@ -7,10 +7,34 @@ description: This is the text that goes in the meta description tag
 
 <h2 class="chart-title">Revenue by Source Categories</h2>
 <div class="hint">Click <span class="category-bar-legend"></span> to explore sub-categories.</div>
+<div id="viz-wrapper">
+    <div id='viz-chart-container'>
+        <div id="bar-controls">
+            <div class='bar-controls__left'>
+                Sort by:
+                <div class='bar-controls__left--button-div'>
+                    <button id="sort-amount" class="active">Amount <i class="fas fa-sort-amount-down"></i></button>
+                    <button id="sort-name">Name <i class="fas fa-sort-alpha-down"></i></button>
+                </div>
+            </div>
+            <div class='bar-controls__right'>
+                <div class='bar-controls__right--div'>
+                    <input type="text" placeholder='Search by a term...' id="filter-by-name">
+                    <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
+                </div>
+            </div>
+        </div>
 
-<div id="viz"></div>
+        <hr>
+        <div id="viz"></div>
+        <hr>
+        <div id="show-more-container">
+            <button id="show-more-button" class="chart__show-more">Show More</button>
+        </div>
+    </div>
+</div>
 
-<div class="copy-tour-row" id="income-facts">
+<div class="poc-content" id="income-facts">
     <section class="copy-tour-row__copy">
         <p>The $3.3 trillion the government collected in 2017 keeps the federal government in operation.</p>
         <p>Most of the revenue the government collects comes from contributions from individual taxpayers, small businesses, and corporations through taxes that get collected on a yearly or quarterly basis. The remaining sources of federal revenue consist of excise, estate, and other taxes and fees.</p>
@@ -45,5 +69,6 @@ description: This is the text that goes in the meta description tag
     The visualization was created using the <a href="https://www.fiscal.treasury.gov/fsreports/rpt/mthTreasStmt/mts0917.pdf" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States.
 </section>
 <script src="../assets/hwcta.js"></script>
+<script src="../assets/accordion.js"></script>
 
 <script src="./assets/categories.js"></script>

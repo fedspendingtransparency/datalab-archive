@@ -124,6 +124,7 @@ module.exports = [{
         './src/bigPicture/scss/bp.scss', 
         './src/anecdote/anecdote.scss',
         './src/revenue/intro/index.scss',
+        './src/revenue/categories/categories.scss',
         './src/spending/intro/spending-intro.scss',
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
