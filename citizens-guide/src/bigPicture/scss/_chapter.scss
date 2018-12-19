@@ -111,6 +111,14 @@ section.chapter {
     }
 }
 
+.chapter__divider--text-revenue {
+    color:$revenuePrimary;
+}
+
+.chapter__divider--text-spending {
+    color:$spendingPrimary;
+}
+
 .chapter__divider--text-deficit {
     color:$deficitPrimary;
 }

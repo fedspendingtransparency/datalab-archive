@@ -49,8 +49,7 @@ function showMore() {
     initChart()
 }
 
-function spendingIndexClickFunctions() {
-
+function changeDataTypeClickFunction(){
     d3.select('.link-button__div')
         .on('click', function () {
             const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden');
@@ -68,11 +67,15 @@ function spendingIndexClickFunctions() {
             }
             initChart();
         });
+}
+
+function spendingIndexClickFunctions() {
 
     d3.select('#filter-by-name')
         .on('input', function () {
             const v = this.value.toLowerCase(),
-                filtered = data[config.dataType].filter(r => {
+                curData = config.dataType ? config.data[config.dataType] : config.data,
+                filtered = curData.filter(r => {
                     return (r.activity.toLowerCase().indexOf(v) !== -1);
                 });
 
@@ -83,12 +86,30 @@ function spendingIndexClickFunctions() {
         .on('click', showMore);
 }
 
+function displayShowMoreSection(showMoreInd){
+    d3.selectAll('.categories__show-more').classed('hidden', !showMoreInd);
+}
+
 export function init(_config){
     config = _config || config;
-    console.log('config:', config);
-    console.log('_config:', _config);
+
+    /*
+     * The following seems odd in the since that it's an init function; however, revenue currently uses the same
+     * html file and swaps between a bargraph and sankey. It's not out of the question that data could change between
+     * calling this init function, so we have to set the top10 and hide/show the "Show More" button section as a result.
+     */
+
+    if(config.data.length <= 10){
+        top10 = false;
+        displayShowMoreSection(top10);
+    } else {
+        top10 = true;
+        displayShowMoreSection(top10);
+    }
+
+    spendingIndexClickFunctions();
     if(config.dataType){
-        spendingIndexClickFunctions();
+        changeDataTypeClickFunction();
     }
     initSection();
 }

@@ -1,4 +1,4 @@
-import CategoryData from '../../../public/csv/income_categories_2013_2017.csv';
+import CategoryData from '../../../public/csv/revenue_source_fy14_fy18.csv';
 import { min, max } from 'd3-array';
 
 const d3 = { min, max };
@@ -67,7 +67,7 @@ function dataMapper(r) {
     return {
         activity: r.activity_plain,
         sub_activity: r.sub_activity_plain,
-        amount: r.income_adjusted,
+        amount: r.revenue_adjusted,
         percent_total: r.percent_total
     }
 }

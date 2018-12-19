@@ -6,7 +6,6 @@ import {drawChart} from "../../spending/categories/bar/chart";
 import {init as initBarGraph, initChart} from "../../spending/categories/init";
 import colors from '../../colors.scss';
 import '../header.scss';
-import './categories.scss';
 import '../../infoBox';
 
 const config = {
@@ -32,9 +31,17 @@ function init() {
 }
 
 window.addEventListener('resize', function(){
-
+    const defaultTimeout = 100;
     if (debounce) {
         clearTimeout(debounce);
+    }
+
+    let actualTimeout = defaultTimeout;
+
+    if(window.innerWidth < 1200 && isDesktopInd) {
+        actualTimeout = 0;
+    } else if(window.innerWidth >= 1200 && !isDesktopInd){
+        actualTimeout = 0;
     }
 
     debounce = setTimeout(function(){
@@ -57,7 +64,7 @@ window.addEventListener('resize', function(){
                 initSankey(config);
             }
         }
-    }, 100);
+    }, actualTimeout);
 });
 
 init();

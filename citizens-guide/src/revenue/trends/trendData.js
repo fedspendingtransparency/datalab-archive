@@ -1,4 +1,4 @@
-import CategoryData from '../../../public/csv/income_categories_2013_2017.csv';
+import CategoryData from '../../../public/csv/revenue_source_fy14_fy18.csv';
 
 export function trendData(){
     const indexed = {};
@@ -6,7 +6,7 @@ export function trendData(){
     let arr;
 
     CategoryData.forEach(r => {
-        if (isNaN(r.income)) {
+        if (isNaN(r.revenue)) {
             return;
         }
         
@@ -26,12 +26,12 @@ export function trendData(){
 
             indexed[r.activity_plain].subcategories[r.sub_activity_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.income
+                amount: r.revenue
             })
         } else {
             indexed[r.activity_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.income
+                amount: r.revenue
             })
         }
     })

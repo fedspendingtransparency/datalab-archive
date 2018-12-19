@@ -231,7 +231,6 @@ function renderDetailContainer() {
     if (detailContainer) {
         detailContainer.remove();
     }
-    console.log('renderDetailContainer', svg)
 
     baseContainerBox = getElementBox(baseContainer);
 
@@ -242,7 +241,6 @@ function renderDetailContainer() {
         .classed('detail-container', true)
         .lower()
         .attr('opacity', 0);
-    console.log('detailContainer:', detailContainer);
 }
 
 function transitionDetailContainer() {

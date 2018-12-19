@@ -10,10 +10,8 @@ import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails, destroyDetails } from './showDetails';
 import colors from '../../colors.scss';
 import '../../infoBox';
-import { initTwoPartTour, activateTourPartTwo } from '../../revenue/tour';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
-    tour = location.search.includes('tour'),
     factBox = d3.selectAll('.fact-box'),
     baseTranslate = { x: 91, y: 50 },
     baseDimensions = { width: 1014, height: 100 },
@@ -25,7 +23,6 @@ let svg,
     indexed,
     topAmount,
     totalAmount,
-    tourStage2,
     baseContainer,
     shaderContainer,
     detailsGroup,
@@ -118,7 +115,6 @@ function addDetails() {
             const n = (getZoomState() === 'in') ? i + 3 : i,
                 rect = shaders.filter(function (d, j) { return j === n }).node();
 
-            setTourStep2();
             showDetail.bind(rect)(d);
         });
 
@@ -186,7 +182,6 @@ function addSegments(more) {
         })
         .attr('opactity', 0)
         .on('click', function (d) {
-            setTourStep2();
             showDetail.bind(this)(d);
         });
 
@@ -230,16 +225,6 @@ function setContainers() {
     addDetails();
 }
 
-function setTourStep2() {
-    if (tourStage2) {
-        return;
-    }
-
-    tourStage2 = true;
-
-    activateTourPartTwo();
-}
-
 function setInitialValues(){
     categoryData = config.data;//getDataByYear(2017);
     indexed = categoryData.reduce((a, c) => {
@@ -264,5 +249,4 @@ export function initSankey(_config) {
     resizeSvg();
     setContainers();
     addSegments();
-    initTwoPartTour();
 }
