@@ -1,20 +1,12 @@
-matrix:
-  include:
-  - language: ruby
-    dist: trusty
-    sudo: required
-    install: 
-      - bundle install
-    before_script:
-    - chmod +x ./script/cibuild
-    script: "./script/cibuild"
-    branches:
-      only:
-      - master
-      - dev
-  - language: node_js
-    node_js:
-      - "node"
-    install:
-      - npm install --prefix citizens-guide
-    script: npm run build --prefix citizens-guide
+language: ruby
+dist: trusty
+sudo: required
+install: 
+  - bundle install
+before_script:
+- chmod +x ./script/cibuild
+script: "./script/cibuild"
+branches:
+  only:
+  - master
+  - dev
