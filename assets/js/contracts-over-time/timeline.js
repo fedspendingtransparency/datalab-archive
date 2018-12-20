@@ -315,8 +315,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
   k.on("mouseover",(d) => {
     if(d === "Continuing Resolution"){
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","0px");
-        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","0");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(4) > line").style("stroke-width","0px");
+        d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > rect").style("opacity","0");
         d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","0");
         d3.selectAll("#svg-2 > g > g.context > g:nth-child(3) > line").style("opacity","0");
         d3.selectAll("#svg-2 > g > g.context > g:nth-child(5) > rect").style("opacity","0");
@@ -331,8 +331,8 @@ d3.json('../../../data-lab-data/contracts-over-time/panel7a.json', function (dat
   })
   .on("mouseout",() => {
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(1) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > line").style("stroke-width","1px");
-      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(6) > rect").style("opacity","1");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(4) > line").style("stroke-width","1px");
+      d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(5) > rect").style("opacity","1");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(2) > rect").style("opacity","1");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(10) > circle").style("opacity","1");
       d3.selectAll("#svg-2 > g > g:nth-child(2) > g:nth-child(9) > circle").style("opacity","1");
