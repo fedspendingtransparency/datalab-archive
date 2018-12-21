@@ -10,92 +10,94 @@ permalink: dts.html
 category: entry
 ---
 
-<div class="dts-tt-container">
-  <div class="dts-tt-date"></div>
-  <div class="dts-tt-hr-separator"></div>
-  <div class="dts-tt-category"></div>
-  <div class="dts-tt-timeframe dts-tt-timeframe-daily dts-tt-timeframe-active"><span class="dts-tt-timeframe-label">DAILY</span><span class="dts-tt-daily-value"></span></div>
-  <div class="dts-tt-timeframe dts-tt-timeframe-mtd"><span class="dts-tt-timeframe-label">MTD</span><span class="dts-tt-mtd-value"></span></div>
-  <div class="dts-tt-timeframe dts-tt-timeframe-fytd"><span class="dts-tt-timeframe-label">FYTD</span><span class="dts-tt-fytd-value"></span></div>
-</div>
-
-<div class="dts-container">
-  <div class="header-container">
-    <div class="header-title">Visualizing The Daily Treasury Statement</div>
-    <div class="header-subtitle">How much does the federal government spend each day?</div>
-    <div class="header-line-break"></div>
-    <div class="header-sub-container">
-      <div></div>
-      <div class="header-updated-when"></div>
-      <div class="flex">
-        <a href="/data-lab-data/dts/dts.csv"><div class="dts-download-data">{% include svgs/download-grey.svg %}</div></a>
-        {% include new-share-menu.html %}
-      </div>
-    </div>
+<div class="dts-css">
+  <div class="dts-tt-container">
+    <div class="dts-tt-date"></div>
+    <div class="dts-tt-hr-separator"></div>
+    <div class="dts-tt-category"></div>
+    <div class="dts-tt-timeframe dts-tt-timeframe-daily dts-tt-timeframe-active"><span class="dts-tt-timeframe-label">DAILY</span><span class="dts-tt-daily-value"></span></div>
+    <div class="dts-tt-timeframe dts-tt-timeframe-mtd"><span class="dts-tt-timeframe-label">MTD</span><span class="dts-tt-mtd-value"></span></div>
+    <div class="dts-tt-timeframe dts-tt-timeframe-fytd"><span class="dts-tt-timeframe-label">FYTD</span><span class="dts-tt-fytd-value"></span></div>
   </div>
 
-  <div class="dts-controls-and-svg">
-    <div class="dts-header">
-      <div class="daily-spending-container">
-        <div class="daily-spending-subtext">Amount Spent On </div>
-        <div class="daily-spending-amount">$0</div>
-      </div>
-      <div class="period-container">
-        <div class="period-button-header">Chart Range</div>
-        <div class="period-button-container">
-          <div class="period-button period-button-default" data-range="30d">30D</div>
-          <div class="period-button" data-range="90d">90D</div>
-          <div class="period-button" data-range="1y">1Y</div>
-          <div class="period-button" data-range="5y">5Y</div>
-          <div class="period-button" data-range="10y">10Y</div>
+  <div class="dts-container">
+    <div class="header-container">
+      <div class="header-title">Visualizing The Daily Treasury Statement</div>
+      <div class="header-subtitle">How much does the federal government spend each day?</div>
+      <div class="header-line-break"></div>
+      <div class="header-sub-container">
+        <div></div>
+        <div class="header-updated-when"></div>
+        <div class="flex">
+          <a href="/data-lab-data/dts/dts.csv"><div class="dts-download-data">{% include svgs/download-grey.svg %}</div></a>
+          {% include new-share-menu.html %}
         </div>
-      </div>
-      <div class="frequency-container">
-          <div class="frequency-selector-label">Frequency</div>
-          <select id="frequency-selector" class="custom-select">
-            <option value="today">DAILY</option>
-            <option value="mtd">MTD</option>
-            <option value="fytd">FYTD</option>
-          </select>
-      </div>
-      <div class="category-container">
-        <div class="category-select-label">Categories</div>
-        <select class="custom-select custom-select-start" id="category-selector"></select>
       </div>
     </div>
-    <div class="dts-viz-container">
-      <div>
-        <div class="dts-brush-date-container">
-          <div class="dts-brush-date-item"><div class="dts-brush-start-date-label">From </div><div class="dts-brush-start-date">mm/dd/yy</div></div>
-          <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
+
+    <div class="dts-controls-and-svg">
+      <div class="dts-header">
+        <div class="daily-spending-container">
+          <div class="daily-spending-subtext">Amount Spent On </div>
+          <div class="daily-spending-amount">$0</div>
         </div>
-        <svg id="svg-wrapper" width="900" height="400" viewBox="0 0 900 400"></svg>
-      </div>
-      <div class="viz-tsbfy-container">
-        <div class="viz-tsbfy-header">
-          <div class="viz-tsbfy-header-text">Total Spending By Fiscal Year</div>
-          <div class="viz-tsbfy-header-view-buttons">
-            <div class="viz-tsbfy-bar-view">{% include svgs/bars.svg %}</div>
-            <div class="viz-tsbfy-table-view">{% include svgs/list.svg %}</div>
+        <div class="period-container">
+          <div class="period-button-header">Chart Range</div>
+          <div class="period-button-container">
+            <div class="period-button period-button-default" data-range="30d">30D</div>
+            <div class="period-button" data-range="90d">90D</div>
+            <div class="period-button" data-range="1y">1Y</div>
+            <div class="period-button" data-range="5y">5Y</div>
+            <div class="period-button" data-range="10y">10Y</div>
           </div>
         </div>
-        <div class="svg-tsbfy-container">
-          <svg id="viz-tsbfy-wrapper" width="750" height="500" viewBox="0 0 750 500"></svg>
+        <div class="frequency-container">
+            <div class="frequency-selector-label">Frequency</div>
+            <select id="frequency-selector" class="custom-select">
+              <option value="today">DAILY</option>
+              <option value="mtd">MTD</option>
+              <option value="fytd">FYTD</option>
+            </select>
+        </div>
+        <div class="category-container">
+          <div class="category-select-label">Categories</div>
+          <select class="custom-select custom-select-start" id="category-selector"></select>
+        </div>
+      </div>
+      <div class="dts-viz-container">
+        <div>
+          <div class="dts-brush-date-container">
+            <div class="dts-brush-date-item"><div class="dts-brush-start-date-label">From </div><div class="dts-brush-start-date">mm/dd/yy</div></div>
+            <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
+          </div>
+          <svg id="svg-wrapper" width="900" height="400" viewBox="0 0 900 400"></svg>
+        </div>
+        <div class="viz-tsbfy-container">
+          <div class="viz-tsbfy-header">
+            <div class="viz-tsbfy-header-text">Total Spending By Fiscal Year</div>
+            <div class="viz-tsbfy-header-view-buttons">
+              <div class="viz-tsbfy-bar-view">{% include svgs/bars.svg %}</div>
+              <div class="viz-tsbfy-table-view">{% include svgs/list.svg %}</div>
+            </div>
+          </div>
+          <div class="svg-tsbfy-container">
+            <svg id="viz-tsbfy-wrapper" width="750" height="500" viewBox="0 0 750 500"></svg>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="dts-footnote">
-    <div class="dts-footnote-rect"></div>
-    <div class="dts-footnote-text"></div>
-  </div>
+    <div class="dts-footnote">
+      <div class="dts-footnote-rect"></div>
+      <div class="dts-footnote-text"></div>
+    </div>
 
-  <div class="dts-disclaimer">
-    The Daily Treasury Statement (DTS) is published each day that the Federal Government is open. 
-    It provides data on the cash and debt operations of the U.S. Treasury based on reporting of the 
-    Treasury account balances by the Federal Reserve banks. 
-    For more information about the authoritative source of this dataset, please go to: <a href="https://www.fms.treas.gov/dts/index.html" class="dts-hyperlink">https://www.fms.treas.gov/dts/index.html</a>
+    <div class="dts-disclaimer">
+      The Daily Treasury Statement (DTS) is published each day that the Federal Government is open. 
+      It provides data on the cash and debt operations of the U.S. Treasury based on reporting of the 
+      Treasury account balances by the Federal Reserve banks. 
+      For more information about the authoritative source of this dataset, please go to: <a href="https://www.fms.treas.gov/dts/index.html" class="dts-hyperlink">https://www.fms.treas.gov/dts/index.html</a>
+    </div>
   </div>
 </div>
 
