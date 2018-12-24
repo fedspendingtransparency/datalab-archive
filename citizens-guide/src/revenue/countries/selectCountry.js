@@ -41,7 +41,7 @@ function createTrigger() {
     addButtonIcon(svg);
 }
 
-function establishInupt() {
+function establishInput() {
     const wrapper = listDiv.append('div').classed('search-wrapper', true);
     let icon;
 
@@ -49,7 +49,7 @@ function establishInupt() {
         .attr('placeholder', 'search for a country')
         .on('input', function () {
             listAvailableCountries(this.value);
-        })
+        });
 
     icon = wrapper.append('svg');
 
@@ -69,8 +69,8 @@ function listselectedCountries() {
         .append('li')
         .on('click', removeCountry)
         .each(function (d) {
-            this.innerText = d;
-        })
+            this.innerText = d.display;
+        });
 
     svg = items.append('svg');
 
@@ -83,7 +83,16 @@ function getAvailableCountries(filterStr) {
     }
 
     return getCountryList().filter(c => {
-        return (c && selectedCountries.list.indexOf(c) === -1 && (!filterStr || c.toLowerCase().indexOf(filterStr) !== -1))
+        if(!c){
+          return false;
+        }
+        const plainName = c.plainName,
+            displayName = c.display;
+        // The first check makes sure to exclude any countries we already have selected, the second checks both the "plain name"
+        // of each country so that any countries with special characters for letters can be searched for with a normal keyboard or copying and pasting
+        // the name with its respective special characters.
+        return (displayName && selectedCountries.list.filter(d => d.display.match(displayName)).length === 0)
+            && (!filterStr || plainName.toLowerCase().indexOf(filterStr) !== -1 || displayName.toLowerCase().indexOf(filterStr) !== -1)
     }).sort();
 }
 
@@ -119,13 +128,13 @@ function listAvailableCountries(filterStr) {
         .classed('available', true)
         .on('click', addCountry)
         .each(function (d) {
-            this.innerText = d;
+            this.innerText = d.display;
 
             d3.select(this).append('button')
                 .classed('add-button', true)
                 .node()
                 .innerText = 'add';
-        })
+        });
 
     if (more) {
         availableContainer.append('div')
@@ -142,7 +151,7 @@ function createListDiv() {
 
     listDiv.append('ul');
     listDiv.append('hr');
-    establishInupt();
+    establishInput();
     listDiv.append('div').classed('available-container', true)
 
     listselectedCountries();

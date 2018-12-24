@@ -46,6 +46,21 @@ function setSort(sortField) {
     }
 }
 
+function handleSpecialCharacterCountries(countryName){
+    let curCountry = countryName;
+    if(curCountry){
+        //Currently we only have one country with any special characters, but in any chance we run across more countries
+        //with special characters, we should have a place to put them.
+        switch(curCountry.toLowerCase()) {
+            case 'côte d\'ivoire':
+                curCountry = 'Cote d\'Ivoire'; //Plain language for typing purposes.
+                break;
+        }
+    }
+
+    return curCountry;
+}
+
 export function getCountryList() {
     return masterData.countryList;
 }
@@ -60,7 +75,12 @@ export function prepareData(_config) {
     activeSortField = config.amountField,
 
         sourceData.forEach(r => {
-            masterData.countryList.push(r.country);
+            let curCountry = handleSpecialCharacterCountries(r.country);
+
+            masterData.countryList.push({
+                display: r.country,
+                plainName: curCountry
+            });
 
             masterData.indexed[r.country] = r;
 
@@ -77,8 +97,8 @@ export function setData(sortField, countriesUpdated) {
     }
 
     return selectedCountries.list.map(c => {
-        if (masterData.indexed[c]) {
-            return masterData.indexed[c];
+        if (masterData.indexed[c.display]) {
+            return masterData.indexed[c.display];
         } else {
             console.warn('no data for ' + c);
         }
