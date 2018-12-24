@@ -1,7 +1,7 @@
-import {select, selectAll} from 'd3-selection';
+import {select, selectAll, event} from 'd3-selection';
 
 
-const d3 = {select, selectAll},
+const d3 = {select, selectAll, event},
     defaultAnecdoteProperties = {
         anecdoteClass : 'anecdote',
         closeButtonClass: 'anecdote__close',
@@ -112,7 +112,7 @@ function buildPaneClick(anecdote){
 
 
     paneContainer.on('click', function(){
-        const curTarget = event.srcElement;
+        const curTarget = event.srcElement ? event.srcElement : event.target;
         // Don't do any animations if someone clicks on a hyperlink.
         if(curTarget && curTarget.nodeName === 'A') {
             return;
