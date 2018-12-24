@@ -8,7 +8,9 @@ function set(arr) {
         selected.push(c)
     });
     
-    selected.sort();
+    selected.sort(function(a,b){
+        return a.display > b.display;
+    });
 }
 
 function remove(country) {
