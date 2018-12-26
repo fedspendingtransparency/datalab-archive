@@ -6,3 +6,11 @@ $debtPrimary: #4A0072;
 
 $col1: 60%;
 $col2: 40%;
+
+:export {
+  colorCollectHeaderText: $collectHeaderTextColor;
+  colorRevenueText: $revenuePrimary;
+  colorSpendingText: $spendingPrimary;
+  colorDeficitText: $deficitPrimary;
+  colorDebtText: $debtPrimary;
+}

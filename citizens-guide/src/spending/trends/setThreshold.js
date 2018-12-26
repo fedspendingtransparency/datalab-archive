@@ -46,8 +46,5 @@ function lookForOverlaps(data, threshold){
 export function setThreshold(data){
     const extent = establishRange(data),
      threshold =  findThreshold(extent, data);
-
-    console.log('extent:', extent);
-    console.log('threshold:', threshold);
     return threshold;
 }
