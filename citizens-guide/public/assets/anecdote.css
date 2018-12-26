@@ -31,6 +31,7 @@
     margin: 0 2rem;
     cursor: pointer; }
   .anecdote .anecdote__pane {
+    -moz-user-select: none;
     user-select: none;
     position: absolute;
     transition: opacity 0.5s ease;
