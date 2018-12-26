@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
-import { translator, simplifyNumber, getElementBox } from '../../utils';
+import { translator, simplifyNumber, getElementBox, getTransform } from '../../utils';
 import colors from '../../colors.scss';
+import textColors from '../../bigPicture/scss/_bpVars.scss';
 
 const d3 = { select, selectAll },
     dataDisc = 'data-disc',
@@ -15,28 +16,33 @@ function blankAllDiscs() {
     d3.selectAll('.' + dataDisc).attr('fill', 'white')
 }
 
-function showTooltip(d, i) {
+function showTooltip(containerOffset) {
     const g = d3.select(this),
-        tooltip = g.append('g').classed(tooltipGroup, true).attr('opacity', 0),
+        tooltip = d3.select('.main').append('g').classed(tooltipGroup, true).attr('opacity', 0),
+        svgBoxAttributes = getElementBox(d3.select('svg.main')),
+        gElementBox = getElementBox(g),
+        gTransform = getTransform(g),
         padding = { top: 30, left: 14 },
-        height = 100,
+        height = 120,
         width = 140;
 
     blankAllDiscs();
 
     g.raise()
 
+    console.log('colors.colorSpendingTrendCircles:', colors.colorSpendingTrendCircles);
     g.select('circle')
         .attr('fill', colors.colorSpendingTrendCircles)
 
     tooltip.append('rect')
         .attr('width', width)
-        .attr('height', 120)
+        .attr('height', height)
         .attr('stroke', '#ccc')
         .attr('stroke-width', 1)
         .attr('fill', 'white');
 
     tooltip.append('text')
+        .data(g.data())
         .text(function (d) {
             return 'FY ' + d.year;
         })
@@ -56,13 +62,14 @@ function showTooltip(d, i) {
 
     tooltip.append('text')
         .text('Value')
-        .attr('fill', '#00766C')
+        .attr('fill', textColors.colorSpendingText)
         .attr('font-weight', 'bold')
         .attr('font-size', 15)
         .attr('dy', 70)
         .attr('dx', padding.left);
 
     tooltip.append('text')
+        .data(g.data())
         .text(function (d) {
             return simplifyNumber(d.amount);
         })
@@ -70,15 +77,23 @@ function showTooltip(d, i) {
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', 100)
-        .attr('dx', padding.left)
+        .attr('dx', padding.left);
+
+    const finalOffset = {
+        x: gTransform.x + containerOffset.x + padding.left,
+        y: gTransform.y + containerOffset.y + 10
+    };
 
     tooltip.attr('transform', function () {
-        if (getElementBox(tooltip).right > getElementBox(d3.select('svg.main')).right) {
-            return translator(getElementBox(d3.select('svg.main')).right - getElementBox(tooltip).right, 10)
+        const distanceToRightEdge = svgBoxAttributes.right - (gElementBox.right + padding.left + width);
+        if (distanceToRightEdge < 0) {
+            // We need to take the finalOffset and subtract the amount it crosses over the edge of the svg.
+            // Since distanceToRightEdge is negative, we'll just add it to finalOffset.x.
+            return translator(finalOffset.x + distanceToRightEdge, finalOffset.y)
         } else {
-            return translator(10, 0)
+            return translator(finalOffset.x, finalOffset.y)
         }
-    })
+    });
 
     tooltip.transition().duration(200).attr('opacity', 1);
 
@@ -121,7 +136,7 @@ function rescale(globals, duration) {
         .ease();
 }
 
-export function addTooltips(globals) {
+export function addTooltips(globals, containerOffset) {
     const dataDots = globals.chart.selectAll('g.dataDots')
         .data(globals.data.reduce(dataReducer, []))
         .enter()
@@ -135,7 +150,7 @@ export function addTooltips(globals) {
                 globals.trendLines.deEmphasize(d.name, globals, 'on')
             }
             
-            showTooltip.bind(this)(d, i)
+            showTooltip.bind(this)(containerOffset)
         })
         .on('mouseover', function(d, i){
             if (globals.noDrilldown) {
@@ -143,7 +158,7 @@ export function addTooltips(globals) {
                 globals.labels.setLabelActive(d.name)
             }
             
-            showTooltip.bind(this)(d, i)
+            showTooltip.bind(this)(containerOffset)
         })
         .on('mouseout', function(d, i){
             if (globals.noDrilldown) {
