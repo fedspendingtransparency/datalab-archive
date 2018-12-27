@@ -17,6 +17,10 @@ body {
     background-color: #00796B;
 }
 
+.chapter-nav--deficit {
+    background-color: #B3532D;
+}
+
 .chapter-nav button {
     border: 1px solid white;
     border-radius: 3px;
@@ -82,6 +86,10 @@ body {
     .chapter-nav li {
         width: 25%;
         border-right: rgba(255,255,255,0.5) 1px solid;
+    }
+
+    .chapter-nav.chapter-nav--deficit li {
+        width: 33%;
     }
 
     .chapter-nav li:last-of-type {
