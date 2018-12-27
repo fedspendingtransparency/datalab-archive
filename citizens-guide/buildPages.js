@@ -8,8 +8,9 @@ const fs = require('fs');
 
 const chapterNavMap = {
     revenue: '../../layouts/partials/navRevenue.ejs',
-    spending: '../../layouts/partials/navSpending.ejs'
-}
+    spending: '../../layouts/partials/navSpending.ejs',
+    deficit: '../../layouts/partials/navDeficit.ejs'
+};
 
 function build() {
     const files = glob.sync('**/*.ejs', { cwd: './src/' });

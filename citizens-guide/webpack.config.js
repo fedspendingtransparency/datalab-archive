@@ -123,6 +123,8 @@ module.exports = [{
         './src/globalSass/cg.scss', 
         './src/bigPicture/scss/bp.scss', 
         './src/anecdote/anecdote.scss',
+        './src/deficit/intro/deficit-intro.scss',
+        './src/deficit/trends/deficit-trends.scss',
         './src/revenue/intro/revenue-intro.scss',
         './src/revenue/categories/revenue-categories.scss',
         './src/spending/intro/spending-intro.scss',
