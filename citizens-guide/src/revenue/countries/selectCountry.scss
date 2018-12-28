@@ -54,6 +54,25 @@ $primaryColor: #4A90E2;
     }
 }
 
+.deficit-country {
+    .trigger-button {
+        background-color: $color-deficit-primary;
+        border-color: $color-deficit-primary;
+
+        &:hover {
+            background-color: darken($color-deficit-primary, 10);
+        }
+    }
+
+    .list-div li {
+        background-color: $color-deficit-primary;
+
+        &:hover {
+            background-color: darken($color-deficit-primary, 10);
+        }
+    }
+}
+
 .list-div {
     width: 300px;
     min-height: 200px;

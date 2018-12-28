@@ -72,7 +72,11 @@ export function getSources() {
 export function prepareData(_config) {
     config = _config;
 
+    let isDataInversedInd = false;
+
     activeSortField = config.amountField,
+    isDataInversedInd = activeSortField === 'surplus_deficit';
+
 
         sourceData.forEach(r => {
             let curCountry = handleSpecialCharacterCountries(r.country);
@@ -83,6 +87,10 @@ export function prepareData(_config) {
             });
 
             masterData.indexed[r.country] = r;
+            if(isDataInversedInd){
+                masterData.indexed[r.country][activeSortField] = 0 - masterData.indexed[r.country][activeSortField];
+                masterData.indexed[r.country][config.gdpField] = 0 - masterData.indexed[r.country][config.gdpField];
+            }
 
             captureSources(r);
 

@@ -2,6 +2,20 @@ a.link-button, button.link-button {
     background: none;
     text-decoration: none;
     display: inline-block;
+
+    .link-button__text--block {
+        display:inline-block;
+        flex:4;
+
+        .link-button__text--top {
+            font-size:14px;
+            font-weight:500;
+        }
+    }
+    .link-button__icon--block {
+        flex:1;
+        text-align:right;
+    }
 }
 
 button.link-button {
@@ -14,6 +28,10 @@ a.chapter__cta {
     font-weight:600;
     padding:1rem 1.3rem;
     font-size:21px;
+    width:12.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 a.chapter__cta i.fa-angle-right {
