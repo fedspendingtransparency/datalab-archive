@@ -119,6 +119,33 @@ module.exports = [{
         rules: moduleRules
     }
 },{
+    entry: {
+        countryComparison: './src/deficit/countries/index.js',
+        intro: './src/deficit/intro/index.js',
+        trends: './src/deficit/trends/index.js'
+    },
+    devtool: devtool,
+    devServer: {
+        contentBase: 'public',
+        watchContentBase: true,
+        compress: true
+    },
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/public/deficit/assets/',
+        publicPath: '/deficit/assets/'
+    },
+    module: {
+        rules: moduleRules
+    }
+},{
     entry: [
         './src/globalSass/cg.scss', 
         './src/bigPicture/scss/bp.scss', 
