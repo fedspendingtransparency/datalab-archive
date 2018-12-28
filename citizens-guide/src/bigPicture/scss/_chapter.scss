@@ -195,7 +195,7 @@ section.chapter {
     }
 }
 
-#debt-chapter {
+#debt-chapter, .deficit-countries__top-level {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-debt-primary;
     }

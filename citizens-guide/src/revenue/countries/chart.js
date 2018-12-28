@@ -174,11 +174,8 @@ function placeCountryLabels() {
             .attr('y', dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 6)
             .attr('x', 20)
             .attr('font-size', textHeight)
-            .attr('width', function (d) {
-                d.barX1 = d3.max([scales.x(d.amount), scales.x(0)]);
-            })
             .each(function (d) {
-                const max = countryBoxWidth - d.barX1,
+                const max = countryBoxWidth,
                     selection = d3.select(this),
                     textWidth = getElementBox(selection).width;
 
@@ -357,7 +354,20 @@ export function refreshData(sortField, countriesUpdated) {
 export function chartInit(_config) {
     config = _config;
 
-    primaryColor = config.chapter === 'spending' ? colors.colorSpendingPrimary : colors.income;
+    switch(config.chapter){
+        case 'spending':
+            primaryColor = colors.colorSpendingPrimary;
+            break;
+        case 'revenue':
+            primaryColor = colors.income;
+            break;
+        case 'deficit':
+            primaryColor = colors.colorDeficitPrimary;
+            break;
+        default:
+            primaryColor = '#EEE';
+            break;
+    }
 
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);

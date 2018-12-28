@@ -1,0 +1,11 @@
+@import '../../globalSass/generalVars';
+@import '../../bigPicture/scss/chapter';
+@import '../../bigPicture/scss/link-button';
+
+.deficit-countries__top-level {
+  display:flex;
+
+  .tighter-text__right {
+    margin-top:1rem; // The button has a 1rem padding-top which offsets it from the text.
+  }
+}

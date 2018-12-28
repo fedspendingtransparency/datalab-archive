@@ -150,6 +150,7 @@ module.exports = [{
         './src/globalSass/cg.scss', 
         './src/bigPicture/scss/bp.scss', 
         './src/anecdote/anecdote.scss',
+        './src/deficit/countries/deficit-country-comparison.scss',
         './src/deficit/intro/deficit-intro.scss',
         './src/deficit/trends/deficit-trends.scss',
         './src/revenue/intro/revenue-intro.scss',

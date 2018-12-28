@@ -234,13 +234,13 @@ section.chapter {
 #spending-chapter .anecdote__link--button-icon, #spending-chapter .anecdote__icon {
   background-image: url("../assets/icons/anecdote-spending.svg"); }
 
-#debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button, #debt-chapter .chapter__big-number {
+#debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button, #debt-chapter .chapter__big-number, .deficit-countries__top-level a.scroll-to.current, .deficit-countries__top-level button.anecdote__link--button, .deficit-countries__top-level .chapter__big-number {
   color: #4A0072; }
 
-#debt-chapter a.link-button {
+#debt-chapter a.link-button, .deficit-countries__top-level a.link-button {
   background-color: #4A0072; }
 
-#debt-chapter .anecdote__link--button-icon, #debt-chapter .anecdote__icon {
+#debt-chapter .anecdote__link--button-icon, #debt-chapter .anecdote__icon, .deficit-countries__top-level .anecdote__link--button-icon, .deficit-countries__top-level .anecdote__icon {
   background-image: url("../assets/icons/anecdote-debt.svg"); }
 
 #deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button, #deficit-chapter .chapter__big-number {
@@ -256,6 +256,15 @@ a.link-button, button.link-button {
   background: none;
   text-decoration: none;
   display: inline-block; }
+  a.link-button .link-button__text--block, button.link-button .link-button__text--block {
+    display: inline-block;
+    flex: 4; }
+    a.link-button .link-button__text--block .link-button__text--top, button.link-button .link-button__text--block .link-button__text--top {
+      font-size: 14px;
+      font-weight: 500; }
+  a.link-button .link-button__icon--block, button.link-button .link-button__icon--block {
+    flex: 1;
+    text-align: right; }
 
 button.link-button {
   font-size: 18px;
@@ -265,7 +274,11 @@ a.chapter__cta {
   color: white;
   font-weight: 600;
   padding: 1rem 1.3rem;
-  font-size: 21px; }
+  font-size: 21px;
+  width: 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 a.chapter__cta i.fa-angle-right {
   margin-left: 1rem; }

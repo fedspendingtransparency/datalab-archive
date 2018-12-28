@@ -11,6 +11,7 @@ const incomeConfig = {
     gdpField: 'revenue_gdp',
     amountLabel: 'Revenue',
     sourceFields: ['revenue_source','gdp_source'],
+    chapter: 'revenue',
     defaultCountries: [{
         display: 'United States',
         plainName: 'United States'

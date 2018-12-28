@@ -18,6 +18,8 @@ $color-deficit-primary:#B3532D;
 $color-debt-primary:#4A0072;
 
 :export {
+    colorDebtPrimary: $color-debt-primary;
+    colorDeficitPrimary: $color-deficit-primary;
     colorGrayDark: $color-gray-dark;
     colorPrimary: $color-primary;
     colorPrimaryDarker: $color-primary-darker;
