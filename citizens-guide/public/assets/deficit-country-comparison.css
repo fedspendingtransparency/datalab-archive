@@ -183,3 +183,10 @@ a.chapter__cta {
 
 a.chapter__cta i.fa-angle-right {
   margin-left: 1rem; }
+
+.deficit-countries__top-level {
+  display: flex; }
+  .deficit-countries__top-level .tighter-text__right {
+    margin-top: 1.3rem; }
+  .deficit-countries__top-level .tighter-text__left {
+    padding-right: 2rem; }
