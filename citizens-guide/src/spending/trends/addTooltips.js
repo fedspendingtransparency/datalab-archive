@@ -26,8 +26,6 @@ function showTooltip(containerOffset) {
         height = 120,
         width = 140;
 
-    console.log('svgBoxAttributes:', svgBoxAttributes);
-
     blankAllDiscs();
 
     g.raise();
