@@ -5,6 +5,8 @@ const d3 = {extent, min},
     overlaps = [],
     maxIterator = 10;
 
+export let dataRange;
+
 function establishRange(data){
     /*
      * The following flattens the data by performing a reduceRight on the array of objects (data). ReduceRight takes
@@ -16,6 +18,8 @@ function establishRange(data){
         return a.concat(b.values.map(r => r.amount))
     },[]);
     const extent = d3.extent(reduced);
+
+    dataRange = [extent[0], extent[1]];
 
     extent[0] = d3.min([0,extent[0]]);
     return extent;
