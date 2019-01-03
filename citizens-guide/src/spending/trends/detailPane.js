@@ -33,8 +33,7 @@ const d3 = { select },
         'Social Security Administration': 100000000000,
         'Transportation': 25000000000,
         'Unemployment Insurance': 30000000,
-        'Veterans Benefits and Services': 20000000000,
-
+        'Veterans Benefits and Services': 20000000000
     };
 
 let pane,

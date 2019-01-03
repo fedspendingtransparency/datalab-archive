@@ -15,6 +15,7 @@ import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
 import { activateTourPartTwo } from './tour';
+import { dataRange } from './setThreshold';
 
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
@@ -48,7 +49,10 @@ function transformChart(globals, reset) {
     globals.dataDots.rescale(globals, duration);
     globals.ink.rescale(globals, duration);
     globals.trendLines.rescale(globals, duration);
-    globals.zoomTrigger.rescale(globals, duration);
+
+    if (!globals.noZoom) {
+        globals.zoomTrigger.rescale(globals, duration);
+    }
 
     globals.chart.transition()
         .duration(duration)
@@ -87,8 +91,22 @@ function onZoom() {
     }
 }
 
+function setNoZoom(config) {
+    const threshold = config.zoomThreshold;
+
+    if (config.noDrilldown) {
+        return;
+    }
+
+    if (dataRange[0] > threshold || dataRange[1] < threshold) {
+        config.noZoom = true;
+    } 
+}
+
 function initGlobals(config) {
     const globals = config || {};
+
+    setNoZoom(config);
 
     globals.scales = globals.scales || {};
     globals.height = globals.height || 650;
