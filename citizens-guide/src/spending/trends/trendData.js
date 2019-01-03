@@ -1,4 +1,4 @@
-import CategoryData from '../../../public/csv/spending_categories.csv';
+import CategoryData from '../../../public/csv/spending_agency_function_fy14_fy18.csv';
 
 export function trendData(type){
     const indexed = {},
