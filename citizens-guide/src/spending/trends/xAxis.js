@@ -6,14 +6,14 @@ const d3 = { axisBottom, scaleLinear }
 function init(globals) {
     globals.scales.x = d3.scaleLinear()
         .range([0, globals.width])
-        .domain([2013, 2017]);
+        .domain([2014, 2018]);
 }
 
 function render(globals) {
     const x = this;
     
     x.xAxis = d3.axisBottom(globals.scales.x)
-        .tickValues([2013, 2014, 2015, 2016, 2017])
+        .tickValues([2014, 2015, 2016, 2017, 2018])
         .tickFormat(t => parseInt(t))
 
     x.xAxisDom = globals.chart.append('g')

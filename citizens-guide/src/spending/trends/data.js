@@ -1,3 +1,5 @@
+//todo - Can this file be deleted? It doesn't appear to be used anywhere.
+
 import 'babel-polyfill';
 import SpendingData from '../../../public/csv/spending_categories.csv';
 

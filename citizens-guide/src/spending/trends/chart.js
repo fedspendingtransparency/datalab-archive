@@ -117,18 +117,28 @@ function initGlobals(config) {
  * @param container - The main container of the data points we're providing tooltips for.
  * @returns {{x, y}} - x and y offset for the container offset.
  */
-function calculateContainerOffset(globals, container){
+function calculateContainerOffset(globals, container, containerTranslate){
     let parentEl = container,
-        containerOffset = getTransform(globals.chart);
+        parentOffset = {x: 0, y: 0},
+        containerOffset = getTransform(globals.chart),
+        initialTranslateLeft = containerOffset.x;
 
     // The main level trend-chart only needs the first level offset from globals.chart, the sub-level has
     // two additional g tags that are sandwiched around globals.chart which we need their offsets.
     if(parentEl.node().nodeName !== 'svg'){
         const childEl = parentEl.select('g.trend-chart');
-        parentEl = d3.select(parentEl.node().parentNode);
 
-        const parentOffset = getTransform(parentEl);
+        if(!containerTranslate){
+            parentEl = d3.select(parentEl.node().parentNode);
+            parentOffset = getTransform(parentEl);
+        } else {
+            containerOffset.x = containerTranslate;
+
+        }
+
+
         const childOffset = getTransform(childEl);
+
         containerOffset.x = containerOffset.x + parentOffset.x + childOffset.x;
         containerOffset.y = containerOffset.y +  parentOffset.y + childOffset.y;
     }
@@ -136,7 +146,7 @@ function calculateContainerOffset(globals, container){
     return containerOffset;
 }
 
-export function trendView(_data, container, config) {
+export function trendView(_data, container, config, containerTranslate) {
     const globals = initGlobals(config);
 
     globals.data = _data;
@@ -158,6 +168,6 @@ export function trendView(_data, container, config) {
         globals.zoomTrigger = zoomTrigger(globals);
     }
 
-    const containerOffset = calculateContainerOffset(globals, container);
+    const containerOffset = calculateContainerOffset(globals, container, containerTranslate);
     globals.dataDots = addTooltips(globals, containerOffset);
 }

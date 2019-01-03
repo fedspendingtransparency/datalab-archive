@@ -26,11 +26,12 @@ function showTooltip(containerOffset) {
         height = 120,
         width = 140;
 
+    console.log('svgBoxAttributes:', svgBoxAttributes);
+
     blankAllDiscs();
 
-    g.raise()
+    g.raise();
 
-    console.log('colors.colorSpendingTrendCircles:', colors.colorSpendingTrendCircles);
     g.select('circle')
         .attr('fill', colors.colorSpendingTrendCircles)
 
@@ -85,14 +86,22 @@ function showTooltip(containerOffset) {
     };
 
     tooltip.attr('transform', function () {
-        const distanceToRightEdge = svgBoxAttributes.right - (gElementBox.right + padding.left + width);
+        const distanceToRightEdge = svgBoxAttributes.right - (gElementBox.right + padding.left + width),
+            distanceToBottomEdge = svgBoxAttributes.bottom - (gElementBox.bottom + 10 + height);
+
+        // Check if tooltip will extend past right edge of svg.
         if (distanceToRightEdge < 0) {
-            // We need to take the finalOffset and subtract the amount it crosses over the edge of the svg.
-            // Since distanceToRightEdge is negative, we'll just add it to finalOffset.x.
-            return translator(finalOffset.x + distanceToRightEdge, finalOffset.y)
-        } else {
-            return translator(finalOffset.x, finalOffset.y)
+            // Move the tooltip to the left of the cursor.
+            finalOffset.x = finalOffset.x - (width + 10);
         }
+
+        // Check if tooltip will extend past bottom edge of svg.
+        if(distanceToBottomEdge < 0){
+            // Move the tooltip to show above the cursor.
+            finalOffset.y = finalOffset.y - (height + 10);
+        }
+
+        return translator(finalOffset.x, finalOffset.y);
     });
 
     tooltip.transition().duration(200).attr('opacity', 1);
