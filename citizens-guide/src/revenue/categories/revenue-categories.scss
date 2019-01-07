@@ -1,0 +1,74 @@
+@import '../../colors';
+@import '../../spending/categories/spending-categories';
+
+
+#viz {
+  margin-top: 0;
+}
+
+.category-bar-legend {
+  display: inline-block;
+  width: 1.5rem;
+  height: 0.75rem;
+  background: $color-primary-darker;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  #viz-wrapper {
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    float: none;
+
+    hr {
+      border:none;
+      height:0;
+    }
+  }
+  #viz-chart-container {
+    padding:0;
+    border-radius:0;
+    box-shadow:none;
+    margin:0;
+  }
+  #bar-controls {
+    display:none;
+  }
+  #show-more-container {
+    display:none;
+  }
+
+  .poc-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .copy-tour-row__copy, .copy-tour-row__tour {
+    width:100%;
+    margin-left:0;
+  }
+
+  .chart-title {
+    display:none;
+  }
+  .hint {
+    display:none;
+  }
+
+  #bar-controls button.active {
+    color: $color-primary-darker;
+  }
+
+  .chart__show-more {
+    color: $color-primary-darker;
+  }
+}
+
+.hidden {
+  display:none;
+}

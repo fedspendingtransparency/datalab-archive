@@ -1,0 +1,72 @@
+---
+title: Trends in Federal Spending Categories
+permalink: /spending/trends.html
+description: This is the text that goes in the meta description tag
+chapter: spending
+pageCss: spending-trends.css
+---
+<section class='spending-categories__section-above-chart'>
+    <h1 class="spending-categories__header">Federal Spending Trends over Time</h1>
+
+    <div class="copy-tour-row" id="income-facts">
+        <section class="copy-tour-row__copy">
+            <p>How has spending changed over the past few years?</p>
+            <p>This chart presents federal spending by spending type or by agency over a five year period. Have there been significant changes in federal spending? What impact does an increase or decrease have on spending at the sub-category level?</p>
+            <p>You can track trends in federal spending by category or sub-category.</p>
+        </section>
+        <div class="copy-tour-row__tour">
+            <section class="tour">
+                <div class="tour__part-one">
+                    <h1>Explore for yourself!</h1>
+                    <p>Click a spending category in the chart to see how the various categories of spending have contributed to trends over the past five years.</p>
+                    <a class="tour__link tour_link--disabled" href="./country-comparison.html" disabled>Explore<i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="tour__part-two">
+                    <h1>How does federal spending in the United States compare to other countries?</h1>
+                    <p>When you’re done here, see how federal spending by the U.S. compares to other countries.</p>
+                    <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <h2 class="chart-title">
+        <span class="title-text">Spending over Time by Source Categories by</span>
+        <div class="link-button__div">
+            <button class="link-button" id="select-budget-function">Spending Type</button>
+            <button class="link-button hidden" id="select-agency">Agency</button>
+            <i class='link-button__icon fa fa-angle-down'></i>
+        </div>
+    </h2>
+
+    <div id="show-hide">
+        <button id="activate-show-hide">Filter <i class='fa fa-sliders-h'></i></button>
+        <div id="show-hide-tray">
+            <div class='show-hide__buttons'>
+                <div class='show-hide__buttons--left'>
+                    <button id="select-all">Select All</button>
+                    <button id="select-none">Remove All</button>
+                </div>
+                <div class='show-hide__buttons--right'>
+                    <button id="reset-filters-button">Reset</button>
+                    <button id="save-filters-button">Save</button>
+                </div>
+            </div>
+
+            <div id="show-hide-list"></div>
+        </div>
+    </div>
+
+    <div class="hint">Click a spending category to view more</div>
+</section>
+
+<div id="viz"></div>
+
+<section class="hwcta">
+     <p>This visualization was created using the <a target="_blank" href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States by federal agency and the <a target="_blank" href="https://www.whitehouse.gov/omb/historical-tables/">Office of Management and Budget (OMB) Historical Tables</a> as the data source for federal government spending by spending type. <a target="_blank" href="https://data.bls.gov/cgi-bin/surveymost?bls">The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U)</a> was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>
+</section>
+
+<script src="../assets/hwcta.js"></script>
+
+
+<script src="./assets/trends.js"></script>

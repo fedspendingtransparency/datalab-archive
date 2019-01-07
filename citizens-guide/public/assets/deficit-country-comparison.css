@@ -1,0 +1,192 @@
+section.chapter {
+  max-width: 1200px;
+  margin: 0 auto 2rem; }
+
+.chapter .anecdote {
+  margin-top: 1rem; }
+
+.chapter__content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #666666; }
+  .chapter__content h1 {
+    text-align: left;
+    color: #555555;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem; }
+  .chapter__content p {
+    color: #666666;
+    font-size: 0.95rem; }
+    .chapter__content p.chapter__chart--reference {
+      font-size: 0.8rem;
+      text-align: center;
+      font-style: italic; }
+      .chapter__content p.chapter__chart--reference a {
+        color: #77abe8; }
+
+.chapter__big-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 600; }
+
+.chapter__chart {
+  display: none; }
+
+.chapter__chart img {
+  width: 100%;
+  height: auto; }
+
+.chapter--revenue {
+  background-color: white; }
+
+.chapter--spending {
+  background-color: white; }
+
+.chapter--deficit {
+  background-color: white; }
+
+.chapter--debt {
+  background-color: white; }
+
+.chapter__divider--normal {
+  border-bottom: 1px solid #CCC;
+  max-width: 1400px;
+  margin: 0 auto; }
+
+.chapter__divider--median-treasury-logo {
+  background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
+  background-size: 100% 100%;
+  padding: 1rem;
+  background-color: #FFF; }
+  .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
+    text-align: center;
+    margin-top: 1rem; }
+    .chapter__divider--median-treasury-logo .chapter__divider--arrow-container a {
+      color: #666666; }
+    .chapter__divider--median-treasury-logo .chapter__divider--arrow-container i {
+      text-align: center;
+      font-size: 2em; }
+
+.chapter__divider--text {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  color: #222222;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 1rem; }
+  .chapter__divider--text strong, .chapter__divider--text span {
+    font-weight: 900; }
+
+.chapter__divider--text-revenue {
+  color: #0A2F5A; }
+
+.chapter__divider--text-spending {
+  color: #00766C; }
+
+.chapter__divider--text-deficit {
+  color: #B3532D; }
+
+.chapter__divider--text-debt {
+  color: #4A0072; }
+
+.chapter__primary h1 {
+  font-weight: 600; }
+
+.chapter__primary span.chapter__big-number {
+  font-weight: 900;
+  display: block; }
+
+@media only screen and (min-width: 800px) {
+  .chapter__content h1 {
+    font-size: 1.8rem; }
+  .chapter__flex {
+    display: flex; }
+  .chapter__chart {
+    display: block;
+    width: 50%; }
+  .chapter__primary {
+    padding-right: 7rem;
+    width: 50%; }
+  .chapter__big-number {
+    font-size: 3rem; }
+  .chapter__divider--text {
+    font-size: 3rem; }
+  .chapter__divider--median-treasury-logo {
+    padding: 4rem 2rem 2rem; } }
+
+#revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button, #revenue-chapter .chapter__big-number {
+  color: #112e51; }
+
+#revenue-chapter a.link-button {
+  background-color: #112e51; }
+
+#revenue-chapter .anecdote__link--button-icon, #revenue-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-revenue.svg"); }
+
+#spending-chapter a.scroll-to.current, #spending-chapter button.anecdote__link--button, #spending-chapter .chapter__big-number {
+  color: #00796B; }
+
+#spending-chapter a.link-button {
+  background-color: #00796B; }
+
+#spending-chapter .anecdote__link--button-icon, #spending-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-spending.svg"); }
+
+#debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button, #debt-chapter .chapter__big-number, .deficit-countries__top-level a.scroll-to.current, .deficit-countries__top-level button.anecdote__link--button, .deficit-countries__top-level .chapter__big-number {
+  color: #4A0072; }
+
+#debt-chapter a.link-button, .deficit-countries__top-level a.link-button {
+  background-color: #4A0072; }
+
+#debt-chapter .anecdote__link--button-icon, #debt-chapter .anecdote__icon, .deficit-countries__top-level .anecdote__link--button-icon, .deficit-countries__top-level .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-debt.svg"); }
+
+#deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button, #deficit-chapter .chapter__big-number {
+  color: #B3532D; }
+
+#deficit-chapter a.link-button {
+  background-color: #B3532D; }
+
+#deficit-chapter .anecdote__link--button-icon, #deficit-chapter .anecdote__icon {
+  background-image: url("../assets/icons/anecdote-deficit.svg"); }
+
+a.link-button, button.link-button {
+  background: none;
+  text-decoration: none;
+  display: inline-block; }
+  a.link-button .link-button__text--block, button.link-button .link-button__text--block {
+    display: inline-block;
+    flex: 4; }
+    a.link-button .link-button__text--block .link-button__text--top, button.link-button .link-button__text--block .link-button__text--top {
+      font-size: 14px;
+      font-weight: 500; }
+  a.link-button .link-button__icon--block, button.link-button .link-button__icon--block {
+    flex: 1;
+    text-align: right; }
+
+button.link-button {
+  font-size: 18px;
+  font-weight: 600; }
+
+a.chapter__cta {
+  color: white;
+  font-weight: 600;
+  padding: 1rem 1.3rem;
+  font-size: 21px;
+  width: 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+a.chapter__cta i.fa-angle-right {
+  margin-left: 1rem; }
+
+.deficit-countries__top-level {
+  display: flex; }
+  .deficit-countries__top-level .tighter-text__right {
+    margin-top: 1.3rem; }
+  .deficit-countries__top-level .tighter-text__left {
+    padding-right: 2rem; }
