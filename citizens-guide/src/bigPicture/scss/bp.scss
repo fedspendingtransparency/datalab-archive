@@ -5,6 +5,7 @@
 @import 'chapter';
 @import 'link-button';
 @import 'header';
+@import '../../globalSass/_accordion.scss';
 
 html {
     font-weight: $normalWeight;
@@ -62,4 +63,17 @@ html {
     .historical-quote p.historical-quote__credit {
         font-size: 1.7rem;
     }
+}
+
+.accordion h1 {
+    font-size:18px;
+    font-weight:600;
+}
+
+section.hwcta {
+    padding: 2rem 1rem;
+}
+
+.hidden {
+    display:none;
 }
