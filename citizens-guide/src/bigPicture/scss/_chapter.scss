@@ -1,6 +1,12 @@
 @import '../../colors.scss';
 @import './_bpVars.scss';
 
+h1.chapter__heading--merriweather-font {
+    font-family: Merriweather;
+    font-weight:300;
+    margin-top:2rem;
+}
+
 section.chapter {
     max-width: 1200px;
     margin: 0 auto 2rem;
@@ -25,7 +31,7 @@ section.chapter {
 
     p {
         color: $text-color-paragraph;
-        font-size:0.95rem;
+        font-size:1.1rem;
 
         &.chapter__chart--reference {
             font-size: 0.8rem;
@@ -43,6 +49,10 @@ section.chapter {
     display: block;
     font-size: 2.5rem;
     font-weight: $boldWeight;
+}
+
+.chapter__paragraph--tightened {
+    margin-top:0;
 }
 
 .chapter__chart {
@@ -81,6 +91,7 @@ section.chapter {
     background-size: 100% 100%;
     padding: 1rem;
     background-color: #FFF;
+    font-family: Merriweather;
 
     .chapter__divider--arrow-container {
         text-align: center;
@@ -128,13 +139,23 @@ section.chapter {
 }
 
 .chapter__primary {
-   h1 {
-       font-weight:600;
-   }
    span.chapter__big-number {
        font-weight:900;
        display:block;
    }
+}
+
+@media only screen and (max-width: 800px) {
+    .chapter__big-number--anecdote-placement {
+        .anecdote {
+            display:block;
+            margin-top:3.5rem;
+            margin-left:1rem;
+        }
+        button.anecdote__link--button {
+            display:inline-block;
+        }
+    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -168,6 +189,13 @@ section.chapter {
 
     .chapter__divider--median-treasury-logo {
         padding: 4rem 2rem 2rem;
+    }
+
+    .chapter__big-number--anecdote-placement {
+        display:inline-block;
+        button.anecdote__link--button {
+            display:none;
+        }
     }
 }
 
