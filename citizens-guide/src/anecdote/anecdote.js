@@ -15,14 +15,14 @@ const d3 = {select, selectAll, event},
         dotTextClass: 'anecdote__dots--text',
         infoIcon: {
             class: 'anecdote__icon',
-            src: '/assets/ffg/icons/anecdote.svg',
+            src: 'assets/icons/anecdote.svg',
             alt: 'anecdote icon'
         },
         linkCtaContainerClass: 'anecdote__cta--container',
         linkButtonContainerClass: 'anecdote__link--button-container',
         linkButtonIconClass: 'anecdote__link--button-icon',
         linkButtonClass: 'link-button anecdote__link--button',
-        linkButtonText: 'What does this mean to me?',
+        linkButtonText: '',
         panesClass: 'anecdote__panes',
         paneClass: 'anecdote__pane',
         paneClassActive: 'anecdote__pane--active'
@@ -187,8 +187,15 @@ function toggleContent(anecdote){
 function buildTrigger(anecdote){
     const linkButtonContainerClass = desiredAnecdoteProperties.linkButtonContainerClass || defaultAnecdoteProperties.linkButtonContainerClass,
         linkButtonIconClass = desiredAnecdoteProperties.linkButtonIconClass || defaultAnecdoteProperties.linkButtonIconClass,
-        linkButtonClass = desiredAnecdoteProperties.linkButtonClass || defaultAnecdoteProperties.linkButtonClass,
-        linkButtonText = desiredAnecdoteProperties.linkButtonText || defaultAnecdoteProperties.linkButtonText;
+        linkButtonClass = desiredAnecdoteProperties.linkButtonClass || defaultAnecdoteProperties.linkButtonClass;
+    let linkButtonText = desiredAnecdoteProperties.linkButtonText || defaultAnecdoteProperties.linkButtonText;
+
+    if(!linkButtonText){
+        const existingButtonTextDiv = anecdote.select('.anecdote__button--text');
+        if(existingButtonTextDiv._groups[0][0]){
+            linkButtonText = existingButtonTextDiv.text();
+        }
+    }
 
     const anecdoteButtonSection = anecdote.append('div').classed(linkButtonContainerClass,true),
         anecdoteIconSection = anecdoteButtonSection.append('div').classed(linkButtonIconClass,true),
