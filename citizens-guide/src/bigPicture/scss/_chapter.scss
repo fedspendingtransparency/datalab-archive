@@ -151,6 +151,7 @@ section.chapter {
             display:block;
             margin-top:3.5rem;
             margin-left:1rem;
+            height:5px; // If the text wraps on smartphones, we need to create this distance between the anecdote placement and the text below.
         }
         button.anecdote__link--button {
             display:inline-block;

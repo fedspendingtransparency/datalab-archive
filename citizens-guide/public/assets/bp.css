@@ -210,7 +210,8 @@ section.chapter {
   .chapter__big-number--anecdote-placement .anecdote {
     display: block;
     margin-top: 3.5rem;
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    height: 5px; }
   .chapter__big-number--anecdote-placement button.anecdote__link--button {
     display: inline-block; } }
 
