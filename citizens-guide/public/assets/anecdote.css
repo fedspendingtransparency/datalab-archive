@@ -144,7 +144,8 @@
     width: auto;
     padding: 7px;
     border-width: 2px;
-    border-style: solid; }
+    border-style: solid;
+    height: auto; }
   .anecdote .anecdote__contents {
     /*
              * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
