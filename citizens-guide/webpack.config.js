@@ -35,18 +35,19 @@ const moduleRules = [
             }
         }
     },
-];
+],
+    devServer = {
+        contentBase: [path.join(__dirname, '../ffg-snapshots'), path.join(__dirname, '../')],
+        watchContentBase: true,
+        compress: true,
+    }
 
 module.exports = [{
     entry: {
         anecdote: './src/anecdote/anecdote.js'
     },
     devtool: devtool,
-    devServer: {
-        contentBase: 'public',
-        watchContentBase: true,
-        compress: true
-    },
+    devServer: devServer,
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -56,8 +57,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/assets/',
-        publicPath: '/assets/'
+        path: __dirname + '../assets/ffg',
+        publicPath: '/assets/ffg'
     },
     module: {
         rules: moduleRules
@@ -70,11 +71,7 @@ module.exports = [{
         countries: './src/revenue/countries/index.js'
     },
     devtool: devtool,
-    devServer: {
-        contentBase: 'public',
-        watchContentBase: true,
-        compress: true
-    },
+    devServer: devServer,
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -98,11 +95,7 @@ module.exports = [{
         trends: './src/spending/trends/index.js'
     },
     devtool: devtool,
-    devServer: {
-        contentBase: 'public',
-        watchContentBase: true,
-        compress: true
-    },
+    devServer: devServer,
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -125,11 +118,7 @@ module.exports = [{
         trends: './src/deficit/trends/index.js'
     },
     devtool: devtool,
-    devServer: {
-        contentBase: 'public',
-        watchContentBase: true,
-        compress: true
-    },
+    devServer: devServer,
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -160,7 +149,7 @@ module.exports = [{
         './src/spending/trends/spending-trends.scss',
     ],
     output: {
-		path: path.resolve(__dirname, 'public/assets'),
+		path: path.resolve(__dirname, '../assets/ffg/css'),
 	},
     mode: mode,
     module: {

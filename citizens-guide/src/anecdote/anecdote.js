@@ -15,7 +15,7 @@ const d3 = {select, selectAll, event},
         dotTextClass: 'anecdote__dots--text',
         infoIcon: {
             class: 'anecdote__icon',
-            src: 'assets/icons/anecdote.svg',
+            src: '/assets/ffg/icons/anecdote.svg',
             alt: 'anecdote icon'
         },
         linkCtaContainerClass: 'anecdote__cta--container',

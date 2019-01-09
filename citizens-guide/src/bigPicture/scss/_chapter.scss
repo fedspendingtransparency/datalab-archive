@@ -77,7 +77,7 @@ section.chapter {
 }
 
 .chapter__divider--median-treasury-logo {
-    background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
+    background: url(/assets/ffg/bp/treasury-background-second.jpg) 0 0 no-repeat;
     background-size: 100% 100%;
     padding: 1rem;
     background-color: #FFF;
@@ -179,7 +179,7 @@ section.chapter {
         background-color: $color-primary-darkest;
     }
     .anecdote__link--button-icon, .anecdote__icon {
-        background-image: url('../assets/icons/anecdote-revenue.svg');
+        background-image: url('/assets/ffg/icons/anecdote-revenue.svg');
     }
 }
 
@@ -191,7 +191,7 @@ section.chapter {
         background-color: $color-spending-primary;
     }
     .anecdote__link--button-icon, .anecdote__icon {
-        background-image: url('../assets/icons/anecdote-spending.svg');
+        background-image: url('/assets/ffg/icons/anecdote-spending.svg');
     }
 }
 
@@ -203,7 +203,7 @@ section.chapter {
         background-color: $color-debt-primary;
     }
     .anecdote__link--button-icon, .anecdote__icon {
-        background-image: url('../assets/icons/anecdote-debt.svg');
+        background-image: url('/assets/ffg/icons/anecdote-debt.svg');
     }
 }
 
@@ -215,6 +215,6 @@ section.chapter {
         background-color: $color-deficit-primary;
     }
     .anecdote__link--button-icon, .anecdote__icon {
-        background-image: url('../assets/icons/anecdote-deficit.svg');
+        background-image: url('/assets/ffg/icons/anecdote-deficit.svg');
     }
 }
