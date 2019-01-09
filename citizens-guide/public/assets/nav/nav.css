@@ -71,14 +71,38 @@ body {
     opacity: 1;
 }
 
+a.chapter-nav__bp-button--div {
+    margin:5px 1rem;
+    line-height:3rem;
+    color:white;
+    background-color:transparent;
+    font-weight:600;
+    cursor:pointer;
+}
+a.chapter-nav__bp-button--div span {
+    margin-left:3px;
+}
+
+a.chapter-nav__bp-button--div:hover {
+    text-decoration:none;
+}
+
 @media only screen and (min-width: 700px) {
     .chapter-nav button {
         display: none;
     }
 
+    a.chapter-nav__bp-button--div {
+        flex:1;
+    }
+
+    .chapter-nav ul {
+        flex:4;
+    }
+
     .chapter-nav ul {
         display: flex;
-        width: 100%;
+        flex:4;
         max-width: 1200px;
         margin: 5px auto;
     }
@@ -99,5 +123,24 @@ body {
     .chapter-nav li a {
         height: 3rem;
         text-align: center;
+    }
+}
+
+/*
+ * We should only show the supporting, face-up, "Back to Home Page" text on large screens; otherwise, the text gets
+ * too close to the navigational tabs and/or wraps down low.
+ */
+@media only screen and (min-width: 850px) {
+    .chapter-nav__bp-button--supporting-text {
+      display:inline-block;
+    }
+}
+
+/*
+ * Hide the supporting, face-up, "Back to Home Page" text on smaller screens. We have an intuitive home icon anyways.
+ */
+@media only screen and (max-width: 850px) {
+    .chapter-nav__bp-button--supporting-text {
+        display:none;
     }
 }
