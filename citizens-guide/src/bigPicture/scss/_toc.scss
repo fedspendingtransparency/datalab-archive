@@ -10,17 +10,41 @@
         margin-bottom: 0.2rem;
     }
 
-    a {
+    a.toc__link {
         color: $text-color-paragraph;
         opacity:0.4;
-    }
 
-    a.current {
-        font-weight: $boldWeight;
-        opacity:1;
+        &.current {
+            font-weight: $boldWeight;
+            opacity:1;
+        }
     }
 
     strong {
         font-weight:900;
     }
+}
+
+#revenue-chapter a.toc__link.toc__revenue {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-primary-darkest;
+}
+
+#spending-chapter a.toc__link.toc__spending {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-spending-primary;
+}
+
+#debt-chapter a.toc__link.toc__debt {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-debt-primary;
+}
+
+#deficit-chapter a.toc__link.toc__deficit {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-deficit-primary;
 }

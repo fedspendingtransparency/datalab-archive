@@ -149,7 +149,8 @@ module.exports = [{
         './src/spending/trends/spending-trends.scss',
     ],
     output: {
-		path: path.resolve(__dirname, '../assets/ffg/css'),
+        path: path.resolve(__dirname, '../assets/ffg/css'),
+        publicPath: '/assets/ffg/css'
 	},
     mode: mode,
     module: {

@@ -87,15 +87,42 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  font-size: 0.8rem; }
+  font-size: 1rem; }
   .toc li {
     margin-bottom: 0.2rem; }
-  .toc a {
+  .toc a.toc__link {
     color: #666666;
     opacity: 0.4; }
-  .toc a.current {
-    font-weight: 600;
-    opacity: 1; }
+    .toc a.toc__link.current {
+      font-weight: 600;
+      opacity: 1; }
+  .toc strong {
+    font-weight: 900; }
+
+#revenue-chapter a.toc__link.toc__revenue {
+  font-weight: 600;
+  opacity: 1;
+  color: #112e51; }
+
+#spending-chapter a.toc__link.toc__spending {
+  font-weight: 600;
+  opacity: 1;
+  color: #00796B; }
+
+#debt-chapter a.toc__link.toc__debt {
+  font-weight: 600;
+  opacity: 1;
+  color: #4A0072; }
+
+#deficit-chapter a.toc__link.toc__deficit {
+  font-weight: 600;
+  opacity: 1;
+  color: #B3532D; }
+
+h1.chapter__heading--merriweather-font {
+  font-family: Merriweather;
+  font-weight: 300;
+  margin-top: 2rem; }
 
 section.chapter {
   max-width: 1200px;
@@ -116,7 +143,7 @@ section.chapter {
     margin-bottom: 0.5rem; }
   .chapter__content p {
     color: #666666;
-    font-size: 0.95rem; }
+    font-size: 1.1rem; }
     .chapter__content p.chapter__chart--reference {
       font-size: 0.8rem;
       text-align: center;
@@ -128,6 +155,9 @@ section.chapter {
   display: block;
   font-size: 2.5rem;
   font-weight: 600; }
+
+.chapter__paragraph--tightened {
+  margin-top: 0; }
 
 .chapter__chart {
   display: none; }
@@ -154,10 +184,11 @@ section.chapter {
   margin: 0 auto; }
 
 .chapter__divider--median-treasury-logo {
-  background: url(/assets/ffg/bp/treasury-background-second.jpg) 0 0 no-repeat;
+  background: url("/assets/ffg/bp/treasury-background-second.jpg") 0 0 no-repeat;
   background-size: 100% 100%;
   padding: 1rem;
-  background-color: #FFF; }
+  background-color: #FFF;
+  font-family: Merriweather; }
   .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
     text-align: center;
     margin-top: 1rem; }
@@ -191,12 +222,18 @@ section.chapter {
 .chapter__divider--text-debt {
   color: #4A0072; }
 
-.chapter__primary h1 {
-  font-weight: 600; }
-
 .chapter__primary span.chapter__big-number {
   font-weight: 900;
   display: block; }
+
+@media only screen and (max-width: 800px) {
+  .chapter__big-number--anecdote-placement .anecdote {
+    display: block;
+    margin-top: 3.5rem;
+    margin-left: 1rem;
+    height: 5px; }
+  .chapter__big-number--anecdote-placement button.anecdote__link--button {
+    display: inline-block; } }
 
 @media only screen and (min-width: 800px) {
   .chapter__content h1 {
@@ -214,7 +251,11 @@ section.chapter {
   .chapter__divider--text {
     font-size: 3rem; }
   .chapter__divider--median-treasury-logo {
-    padding: 4rem 2rem 2rem; } }
+    padding: 4rem 2rem 2rem; }
+  .chapter__big-number--anecdote-placement {
+    display: inline-block; }
+    .chapter__big-number--anecdote-placement button.anecdote__link--button {
+      display: none; } }
 
 #revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button, #revenue-chapter .chapter__big-number {
   color: #112e51; }
@@ -283,7 +324,7 @@ a.chapter__cta {
 a.chapter__cta i.fa-angle-right {
   margin-left: 1rem; }
 
-header {
+.cg-content header {
   background: #FBFBFB;
   padding: 0.5rem 0;
   box-shadow: inset 0 40px 40px -20px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 0, 0, 0.2);
@@ -312,7 +353,8 @@ header {
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 1rem;
-  text-align: center; }
+  text-align: center;
+  font-family: Merriweather; }
 
 .bp-scroll-down__div a {
   color: #666666; }
@@ -342,6 +384,220 @@ a.bp-header__click-here--link {
   .bp-header__text {
     padding-bottom: 3rem;
     font-size: 1.1rem; } }
+
+.accordion {
+  margin: 0 0 1rem 0;
+  transition: opacity 1s ease; }
+  .accordion ul {
+    list-style-type: disc; }
+
+.accordion__heading {
+  padding: 20px;
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid #eee;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; }
+
+.accordion__content {
+  padding: 20px;
+  border: 1px solid transparent;
+  border-top: none;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.5s ease;
+  opacity: 0; }
+  .accordion__content p {
+    margin: 0;
+    transition: margin 0.5 ease; }
+
+.accordion__toggle {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  float: right;
+  width: 26px; }
+
+.accordion__plus {
+  display: block; }
+
+.accordion__minus {
+  display: none; }
+
+.accordion--open .accordion__content {
+  line-height: 1.2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: #eee;
+  opacity: 1; }
+  .accordion--open .accordion__content p {
+    margin-bottom: 1rem; }
+
+.accordion--open .accordion__plus {
+  display: none; }
+
+.accordion--open .accordion__minus {
+  display: block; }
+
+.anecdote {
+  position: relative;
+  max-width: 100%;
+  font-size: 1rem;
+  display: inline-block;
+  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif; }
+  .anecdote h1.anecdote__heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    text-align: center; }
+  .anecdote .anecdote__dots--container {
+    margin-bottom: 10px; }
+  .anecdote .anecdote__dots, .anecdote .anecdote__dots--text {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__dots--text {
+    color: #B2C6D8;
+    font-size: 11px; }
+  .anecdote .anecdote__dot {
+    height: 8px;
+    width: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #B2C6D8;
+    margin: 4px;
+    cursor: pointer; }
+    .anecdote .anecdote__dot.anecdote__dot--active {
+      background: #205493; }
+  .anecdote .anecdote__panes {
+    position: relative;
+    margin: 0 2rem;
+    cursor: pointer; }
+  .anecdote .anecdote__pane {
+    -moz-user-select: none;
+    user-select: none;
+    position: absolute;
+    transition: opacity 0.5s ease;
+    color: black;
+    display: none; }
+    .anecdote .anecdote__pane.anecdote__pane--active {
+      display: block; }
+    .anecdote .anecdote__pane p {
+      text-align: center; }
+  .anecdote .anecdote__contents {
+    width: 340px;
+    display: none;
+    opacity: 0;
+    position: absolute;
+    background: white;
+    color: black;
+    top: 0;
+    padding: 0.85rem 1.3rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1;
+    border: 1px solid #E3E3E3;
+    box-shadow: 0 0 20px 10px #F3F3F3;
+    /*
+         * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+         */
+    margin-left: -22px;
+    margin-top: -3px; }
+    .anecdote .anecdote__contents.anecdote__contents--active {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease; }
+  .anecdote .anecdote__close {
+    float: right;
+    background: none;
+    border: none; }
+  .anecdote .anecdote__link--button-container {
+    display: flex;
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: -1rem;
+    padding-top: 5px;
+    margin-bottom: 1.5rem;
+    cursor: pointer; }
+  .anecdote .anecdote__link--button-container, .anecdote .anecdote__link--button-icon, .anecdote .anecdote__icon {
+    height: 20px;
+    width: 20px; }
+  .anecdote .anecdote__link--button-icon, .anecdote .anecdote__icon {
+    flex: 1 20px;
+    background-repeat: no-repeat;
+    display: inline-block; }
+  .anecdote .anecdote__link--button-icon {
+    margin-bottom: -4px; }
+  .anecdote .anecdote__link--button {
+    padding: 0;
+    -moz-user-select: none;
+    user-select: none; }
+    .anecdote .anecdote__link--button:focus {
+      outline: none; }
+  .anecdote .anecdote__icon {
+    margin-bottom: -4px;
+    margin-left: 0.5px; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .anecdote {
+      /* IE10+ CSS styles go here */ }
+      .anecdote .anecdote__icon {
+        margin-left: 0; } }
+  .anecdote .anecdote__illustration {
+    width: 100%;
+    max-width: 230px;
+    margin: 0 auto;
+    height: auto; }
+  .anecdote .anecdote__cta--container {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__cta {
+    font-weight: 600;
+    padding: 0.8rem 1.3rem;
+    font-size: 18px;
+    color: white; }
+    .anecdote .anecdote__cta i {
+      margin-left: 1rem; }
+  .anecdote .anecdote__pane .source {
+    color: #ccc;
+    font-size: 12px; }
+    .anecdote .anecdote__pane .source a {
+      color: #77abe8; }
+
+@media only screen and (min-width: 800px) {
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: calc(-2.5rem + 1px);
+    margin-top: calc(-3.5rem - 2px); }
+  #revenue-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px);
+    margin-top: calc(-3.5rem - 1px); }
+  #spending-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px);
+    margin-top: calc(-3.5rem - 1px); }
+  #debt-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px); } }
+
+@media only screen and (max-width: 800px) {
+  .anecdote .anecdote__link--button-container {
+    width: auto;
+    padding: 7px;
+    border-width: 2px;
+    border-style: solid;
+    height: auto; }
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: calc(-2.5rem + 10px);
+    margin-top: calc(-3.5rem + 2px); }
+  #debt-chapter .anecdote .anecdote__contents {
+    margin-top: calc(-3.5rem + 3px); } }
 
 html {
   font-weight: 300; }
@@ -381,3 +637,13 @@ html {
     font-size: 2.2rem; }
   .historical-quote p.historical-quote__credit {
     font-size: 1.7rem; } }
+
+.accordion h1 {
+  font-size: 18px;
+  font-weight: 600; }
+
+section.hwcta {
+  padding: 2rem 1rem; }
+
+.hidden {
+  display: none; }

@@ -1,6 +1,5 @@
 import {select, selectAll, event} from 'd3-selection';
 
-
 const d3 = {select, selectAll, event},
     defaultAnecdoteProperties = {
         anecdoteClass : 'anecdote',

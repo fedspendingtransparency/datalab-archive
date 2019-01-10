@@ -1,4 +1,5 @@
-// @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600");
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import 'generalVars';
 @import 'headings';
 @import 'tour';
@@ -14,26 +15,17 @@ body {
 
     .cg-content {
         letter-spacing: normal;
-        line-height: 1;
+        line-height: normal;
         font-weight: 300;
         font-size: 16px;
 
         p {
             margin-bottom: 1rem;
         }
-
-        a, a:visited {
-            color: $color-primary-darker;
-            text-decoration: none;
-            
-            &:hover {
-                text-decoration: underline;
-            }
-        }
     }
 }
 
-a, a:visited, .cg-content a, .cg-content a:visited {
+a, a:visited {
     color: $color-primary-darker;
     text-decoration: none;
     
