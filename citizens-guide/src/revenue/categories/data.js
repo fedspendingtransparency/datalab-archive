@@ -6,43 +6,36 @@ const d3 = { min, max };
 function enrichData(data) {
     
     
-    let tracker = d3.min([data[0].percent_total, 0]);
+    let negativeValuesArray = data.filter(function(d) {
+            return d.percent_total < 0
+        }),
+        tracker = 0;
+
+    if(negativeValuesArray.length){
+        tracker = negativeValuesArray.reduce(function(a, b){
+            // Using reduce on an array of objects means we need to return an object with the field name of what
+            // we are returning. Otherwise, returning a.percent_total + b.percent_total results in NaN.
+            return {percent_total: a.percent_total + b.percent_total};
+        }).percent_total; // Just grab the field name from what we returned above.
+    }
 
     data.forEach(d => {
         d.start = tracker;
         d.end = (tracker * 100 + d3.max([Math.abs(d.percent_total), 0.01]) * 100) / 100;
 
         tracker = d.end;
-    })
+    });
 }
 
 function sortSubcategories(a, b) {
     a = a.percent_total;
     b = b.percent_total;
 
-    if (a < 0) {
-        if (a < b) {
-            return -1
-        }
-
-        if (a > b) {
-            return 1;
-        }
+    if (a < 0 && b < 0) {
+        return a - b;
     }
 
-    if (b < 0) {
-        return 1;
-    }
-
-    if (a > b) {
-        return -1;
-    }
-
-    if (a < b) {
-        return 1;
-    }
-
-    return 0;
+    return b - a;
 }
 
 function sortByAmount(a, b) {
