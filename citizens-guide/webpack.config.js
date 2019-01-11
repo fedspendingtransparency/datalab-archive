@@ -128,8 +128,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/deficit/assets/',
-        publicPath: '/deficit/assets/'
+        path: path.resolve(__dirname, '../assets/ffg/deficit'),
+        publicPath: '/assets/ffg/deficit/'
     },
     module: {
         rules: moduleRules

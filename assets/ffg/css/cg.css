@@ -22,7 +22,7 @@ h2 {
   color: #555; }
 
 .tour {
-  margin: 10px; }
+  margin-bottom: 1rem; }
   .tour h1, .tour h1.tour__heading {
     font-size: 17px;
     font-weight: 600;
@@ -170,7 +170,9 @@ body {
     letter-spacing: normal;
     line-height: normal;
     font-weight: 300;
-    font-size: 16px; }
+    font-size: 16px;
+    max-width: 1200px;
+    margin: 0 1rem; }
     body .cg-content p {
       margin-bottom: 1rem; }
 
@@ -243,6 +245,11 @@ blockquote {
 
 .tighter-text {
   margin: 0 1rem; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
 
 @media only screen and (min-width: 900px) {
   .tighter-text {
