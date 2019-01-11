@@ -170,11 +170,14 @@ body {
     letter-spacing: normal;
     line-height: normal;
     font-weight: 300;
-    font-size: 16px;
-    max-width: 1200px;
-    margin: 0 1rem; }
+    font-size: 16px; }
     body .cg-content p {
       margin-bottom: 1rem; }
+
+.ffg-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; }
 
 a, a:visited {
   color: #205493;

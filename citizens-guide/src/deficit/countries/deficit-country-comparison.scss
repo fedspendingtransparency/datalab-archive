@@ -1,14 +1,28 @@
 @import '../../globalSass/generalVars';
 @import '../../bigPicture/scss/chapter';
 @import '../../bigPicture/scss/link-button';
+@import '../../colors';
 
-.deficit-countries__top-level {
-  display:flex;
+.chapter-link.link-button {
+  background-color: $color-debt-primary;
+  box-sizing: border-box;
+}
 
-  .tighter-text__right {
-    margin-top:1.3rem; // The button has a 1rem padding-top which offsets it from the text.
+@media only screen and (min-width: 760px) {
+  .deficit-copy {
+    float: left;
+    width: 80%;
+    padding-right: 2rem;
+    box-sizing: border-box;
+
+    p:first-of-type {
+      margin-top: 0;
+    }
   }
-  .tighter-text__left {
-    padding-right:2rem;
-  }
+
+  .chapter-link.link-button {
+    width: 20%;
+    float: right;
+    box-sizing: border-box;
+  }  
 }

@@ -203,9 +203,19 @@ a.chapter__cta {
 a.chapter__cta i.fa-angle-right {
   margin-left: 1rem; }
 
-.deficit-countries__top-level {
-  display: flex; }
-  .deficit-countries__top-level .tighter-text__right {
-    margin-top: 1.3rem; }
-  .deficit-countries__top-level .tighter-text__left {
-    padding-right: 2rem; }
+.chapter-link.link-button {
+  background-color: #4A0072;
+  box-sizing: border-box; }
+
+@media only screen and (min-width: 760px) {
+  .deficit-copy {
+    float: left;
+    width: 80%;
+    padding-right: 2rem;
+    box-sizing: border-box; }
+    .deficit-copy p:first-of-type {
+      margin-top: 0; }
+  .chapter-link.link-button {
+    width: 20%;
+    float: right;
+    box-sizing: border-box; } }
