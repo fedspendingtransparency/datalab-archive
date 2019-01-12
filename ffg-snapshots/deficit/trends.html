@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
   <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
+  <link rel="stylesheet" href="/assets/ffg/nav/nav.css" />
   <link rel="stylesheet" href="/assets/ffg/css/deficit-trends.css" />
 </head>
   <script src="/js/babel-polyfill.min.js"></script>
@@ -105,34 +106,50 @@
 </svg></span>
         <article id="main">
   <main class="cg-content">
+    <nav class="chapter-nav chapter-nav--deficit">
+    <ul class="chapter-nav__primary-list">
+        <li><a href="./">Explore Deficit</a></li>
+        <li><a href="./trends.html">Federal Deficit Trends</a></li>
+        <li><a href="./country-comparison.html">Country Comparison</a></li>
+    </ul>
+    <button class="chapter-nav-trigger">
+        <hr>
+        <hr>
+        <hr>
+    </button>
+</nav>
+
+<div class="ffg-wrapper">
     <h1>Federal Deficit Trends over Time</h1>
 
-<img class="deficit-trend" src="/assets/ffg/deficit/deficit-trend.png" alt="federal deficit historical trend" />
+    <img class="deficit-trend" src="/assets/ffg/deficit/deficit-trend.png" alt="federal deficit historical trend" />
 
-<aside class="deficit-aside">
-    <p>
-        One way to gauge the sustainability of federal finances is to observe how the federal debt has changed over time. The U.S. has experienced a deficit in each year since 2001, with a spike from 2009 to 2012 because of the financial crisis and ensuing recession.
-    </p>
-    <section class="accordion">
-        <h1 class="accordion__heading">What is sustainable policy?</h1>
-        <div class="accordion__content">
-            <p>According to the <a href="https://www.fiscal.treasury.gov/reports-statements/financial-report/" rel="noopener noreferrer" target="_blank">Financial Report of the United States Government (FR)</a> government spending is considered to be sustainable when deficit spending as a percentage of gross domestic product is steady or declining.</p>
-        </div>
-    </section>
-    <section class="tour">
-        <div class="tour__part-one">
-            <h1>How does the deficit in the United States compare to other countries?</h1>
-            <p>When you are done here, see how the U.S. deficit compares to other countries.</p>
-        </div>
-        <a class="tour__link" href="country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
-    </section>
-</aside>
+    <aside class="deficit-aside">
+        <p>
+            One way to gauge the sustainability of federal finances is to observe how the federal debt has changed over time. The U.S. has experienced a deficit in each year since 2001, with a spike from 2009 to 2012 because of the financial crisis and ensuing recession.
+        </p>
+        <section class="accordion">
+            <h1 class="accordion__heading">What is sustainable policy?</h1>
+            <div class="accordion__content">
+                <p>According to the <a href="https://www.fiscal.treasury.gov/reports-statements/financial-report/" rel="noopener noreferrer" target="_blank">Financial Report of the United States Government (FR)</a> government spending is considered to be sustainable when deficit spending as a percentage of gross domestic product is steady or declining.</p>
+            </div>
+        </section>
+        <section class="tour">
+            <div class="tour__part-one">
+                <h1>How does the deficit in the United States compare to other countries?</h1>
+                <p>When you are done here, see how the U.S. deficit compares to other countries.</p>
+            </div>
+            <a class="tour__link" href="country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </aside>
+</div>
 
 <div class="clearfix"></div>
 
 <script src="/assets/ffg/accordion.js"></script>
 
-    <script src="/assets/cg/hwcta.js"></script>
+    <script src="/assets/ffg/hwcta.js"></script>
+    <script src="/assets/ffg/nav/nav.js"></script>
     
   </main>
 </article>
@@ -360,17 +377,19 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <li><a href="/revenue-trends.html"></a></li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li><a href="/revenue-country-comparison.html"></a></li>
         
         
         
@@ -404,19 +423,15 @@
         
         
         
-        <li><a href="/revenue-country-comparison.html"></a></li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <li><a href="/revenue-categories.html"></a></li>
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -432,9 +447,9 @@
         
         
         
+        
+        
         <li><a href="/contracts-over-time.html">Contracts Over Time</a></li>
-        
-        
         
         
         
