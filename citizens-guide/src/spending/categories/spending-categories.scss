@@ -2,11 +2,6 @@
 @import '../../globalSass/accordion';
 @import '../../globalSass/generalVars';
 
-main {
-    max-width: 1200px;
-    margin: 0 1rem;
-}
-
 .title-text {
     font-weight: $normalWeight;
     display: inline-block;

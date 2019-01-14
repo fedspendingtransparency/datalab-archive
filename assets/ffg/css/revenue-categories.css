@@ -55,10 +55,6 @@
 .accordion--open .accordion__minus {
   display: block; }
 
-main {
-  max-width: 1200px;
-  margin: 0 1rem; }
-
 .title-text {
   font-weight: 300;
   display: inline-block;
