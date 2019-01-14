@@ -105,8 +105,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/spending/assets/',
-        publicPath: '/spending/assets/'
+        path: path.resolve(__dirname, '../assets/ffg/spending'),
+        publicPath: '/assets/ffg/spending/'
     },
     module: {
         rules: moduleRules

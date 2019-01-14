@@ -1,7 +1,7 @@
 .viz-wrapper {
   position: relative; }
 
-.facts.sidebar--hidden {
+.sidebar--hidden {
   opacity: 0; }
 
 .facts {
@@ -9,7 +9,6 @@
   top: 4rem;
   left: 0;
   width: 100%;
-  opacity: 1;
   transition: opacity 1s ease;
   margin-bottom: 2rem; }
 
@@ -77,11 +76,6 @@ aside section h1 {
   width: auto;
   overflow: hidden; }
 
-main {
-  max-width: 1200px;
-  padding: 1rem;
-  margin: 0 auto; }
-
 #compare-options {
   padding: 1rem; }
 
@@ -90,7 +84,6 @@ main {
     width: 66%;
     float: left; }
   .sidebar {
-    opacity: 1;
     position: relative;
     width: calc(34% - 1rem);
     margin-left: calc(66% + 1rem);
