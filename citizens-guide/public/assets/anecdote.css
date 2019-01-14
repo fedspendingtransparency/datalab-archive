@@ -92,8 +92,6 @@
     padding: 0;
     -moz-user-select: none;
     user-select: none; }
-    .anecdote .anecdote__link--button:focus {
-      outline: none; }
   .anecdote .anecdote__icon {
     margin-bottom: -4px;
     margin-left: 0.5px; }
