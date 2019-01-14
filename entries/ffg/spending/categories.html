@@ -1,49 +1,57 @@
----
-title: Federal Spending Categories
-description: This is the text that goes in the meta description tag
-permalink: /spending/categories.html
-chapter: spending
-pageCss: spending-categories.css
+--- 
+layout: ffg
+title: Data Lab - title – U.S. Treasury
+excerpt: excerpt
+header: header
+description: description
+permalink: /federal-finance-guide/spending/categories
+category: entry
+ffg: true
+ffgNav: true
+ffgPageCss: css/spending-categories.css
 ---
 
-<h1>Federal Spending by Spending Category and Agency</h1>
-<div id="viz-wrapper">
-    <h2 class="chart-title">
-        <span class="title-text">Spending By</span>
-        <div class="link-button__div">
-            <button class="link-button" id="select-budget-function">Spending Type</button>
-            <button class="link-button hidden" id="select-agency">Agency</button>
-            <i class='link-button__icon fa fa-angle-down'></i>
-        </div>
-    </h2>
+{% include ffg/nav/spending.html %}
 
-    <div id='viz-chart-container'>
-        <div id="bar-controls">
-            <div class='bar-controls__left'>
-                Sort by:
-                <div class='bar-controls__left--button-div'>
-                    <button id="sort-amount" class="active">Amount <i class="fas fa-sort-amount-down"></i></button>
-                    <button id="sort-name">Name <i class="fas fa-sort-alpha-down"></i></button>
+<div class="ffg-wrapper">
+    <h1>Federal Spending by Spending Category and Agency</h1>
+    <div id="viz-wrapper">
+        <h2 class="chart-title">
+            <span class="title-text">Spending By</span>
+            <div class="link-button__div">
+                <button class="link-button" id="select-budget-function">Spending Type</button>
+                <button class="link-button hidden" id="select-agency">Agency</button>
+                <i class='link-button__icon fa fa-angle-down'></i>
+            </div>
+        </h2>
+
+        <div id='viz-chart-container'>
+            <div id="bar-controls">
+                <div class='bar-controls__left'>
+                    Sort by:
+                    <div class='bar-controls__left--button-div'>
+                        <button id="sort-amount" class="active">Amount <i class="fas fa-sort-amount-down"></i></button>
+                        <button id="sort-name">Name <i class="fas fa-sort-alpha-down"></i></button>
+                    </div>
+                </div>
+                <div class='bar-controls__right'>
+                    <div class='bar-controls__right--div'>
+                        <input type="text" placeholder='Search by a term...' id="filter-by-name">
+                        <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
+                    </div>
                 </div>
             </div>
-            <div class='bar-controls__right'>
-                <div class='bar-controls__right--div'>
-                    <input type="text" placeholder='Search by a term...' id="filter-by-name">
-                    <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
-                </div>
-            </div>
-        </div>
 
-        <hr>
-        <div id="viz"></div>
-        <hr class='categories__show-more'>
-        <div id="show-more-container" class='categories__show-more'>
-            <button id="show-more-button" class="chart__show-more">Show More</button>
+            <hr>
+            <div id="viz"></div>
+            <hr class='categories__show-more'>
+            <div id="show-more-container" class='categories__show-more'>
+                <button id="show-more-button" class="chart__show-more">Show More</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="poc-content" id="income-facts">
+    <div class="poc-content" id="income-facts">
         <p>This section breaks down how the $4.1 trillion was spent. You can explore federal spending either by spending type or by agency.  The chart presents a breakdown of spending for each category by dollar amount and percent. Curious to find out more?  Dive deeper to see details by sub-category and other options.</p>
 
         <section class="accordion">
@@ -81,8 +89,8 @@ pageCss: spending-categories.css
     <section class="hwcta">
         <p>This visualization was created using the <a target="_blank" href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States by federal agency and the <a target="_blank" href="https://www.whitehouse.gov/omb/historical-tables/">Office of Management and Budget (OMB) Historical Tables</a> as the data source for federal government spending by spending type. <a target="_blank" href="https://data.bls.gov/cgi-bin/surveymost?bls">The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U)</a> was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>            
     </section>
-    
-<script src="../assets/hwcta.js"></script>
-<script src="../assets/accordion.js"></script>
+</div>
 
-<script src="./assets/categories.js"></script>
+<script src="/assets/ffg/accordion.js"></script>
+
+<script src="/assets/ffg/spending/categories.js"></script>
