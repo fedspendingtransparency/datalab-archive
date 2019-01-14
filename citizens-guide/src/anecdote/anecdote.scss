@@ -129,9 +129,6 @@
         padding:0;
         -moz-user-select: none;
         user-select:none;
-        &:focus {
-            outline:none;
-        }
     }
 
     .anecdote__icon {

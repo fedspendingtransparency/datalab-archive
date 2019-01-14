@@ -8,6 +8,7 @@ function addLink(source, i, list) {
         length = list.length,
         a = hint.append('a')
             .attr('target', '_blank')
+            .attr('rel', 'noopener noreferrer')
             .attr('href', source.url);
 
     a.node().innerText = source.name;
