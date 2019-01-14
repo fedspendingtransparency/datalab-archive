@@ -35,18 +35,31 @@ const moduleRules = [
             }
         }
     },
+<<<<<<< HEAD
 ];
+=======
+],
+    devServer = {
+        contentBase: [path.join(__dirname, '../ffg-snapshots'), path.join(__dirname, '../')],
+        watchContentBase: true,
+        compress: true,
+    }
+>>>>>>> make-it-mesh
 
 module.exports = [{
     entry: {
         anecdote: './src/anecdote/anecdote.js'
     },
     devtool: devtool,
+<<<<<<< HEAD
     devServer: {
         contentBase: 'public',
         watchContentBase: true,
         compress: true
     },
+=======
+    devServer: devServer,
+>>>>>>> make-it-mesh
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -56,8 +69,13 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
+<<<<<<< HEAD
         path: __dirname + '/public/assets/',
         publicPath: '/assets/'
+=======
+        path: __dirname + '../assets/ffg',
+        publicPath: '/assets/ffg'
+>>>>>>> make-it-mesh
     },
     module: {
         rules: moduleRules
@@ -70,11 +88,15 @@ module.exports = [{
         countries: './src/revenue/countries/index.js'
     },
     devtool: devtool,
+<<<<<<< HEAD
     devServer: {
         contentBase: 'public',
         watchContentBase: true,
         compress: true
     },
+=======
+    devServer: devServer,
+>>>>>>> make-it-mesh
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -98,11 +120,15 @@ module.exports = [{
         trends: './src/spending/trends/index.js'
     },
     devtool: devtool,
+<<<<<<< HEAD
     devServer: {
         contentBase: 'public',
         watchContentBase: true,
         compress: true
     },
+=======
+    devServer: devServer,
+>>>>>>> make-it-mesh
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -112,8 +138,13 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
+<<<<<<< HEAD
         path: __dirname + '/public/spending/assets/',
         publicPath: '/spending/assets/'
+=======
+        path: path.resolve(__dirname, '../assets/ffg/spending'),
+        publicPath: '/assets/ffg/spending/'
+>>>>>>> make-it-mesh
     },
     module: {
         rules: moduleRules
@@ -125,11 +156,15 @@ module.exports = [{
         trends: './src/deficit/trends/index.js'
     },
     devtool: devtool,
+<<<<<<< HEAD
     devServer: {
         contentBase: 'public',
         watchContentBase: true,
         compress: true
     },
+=======
+    devServer: devServer,
+>>>>>>> make-it-mesh
     mode: mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -139,8 +174,13 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
+<<<<<<< HEAD
         path: __dirname + '/public/deficit/assets/',
         publicPath: '/deficit/assets/'
+=======
+        path: path.resolve(__dirname, '../assets/ffg/deficit'),
+        publicPath: '/assets/ffg/deficit/'
+>>>>>>> make-it-mesh
     },
     module: {
         rules: moduleRules
@@ -160,7 +200,12 @@ module.exports = [{
         './src/spending/trends/spending-trends.scss',
     ],
     output: {
+<<<<<<< HEAD
 		path: path.resolve(__dirname, 'public/assets'),
+=======
+        path: path.resolve(__dirname, '../assets/ffg/css'),
+        publicPath: '/assets/ffg/css'
+>>>>>>> make-it-mesh
 	},
     mode: mode,
     module: {

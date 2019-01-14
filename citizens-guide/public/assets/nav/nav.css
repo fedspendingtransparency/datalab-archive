@@ -71,6 +71,7 @@ body {
     opacity: 1;
 }
 
+<<<<<<< HEAD
 a.chapter-nav__bp-button--div {
     margin:5px 1rem;
     line-height:3rem;
@@ -87,11 +88,14 @@ a.chapter-nav__bp-button--div:hover {
     text-decoration:none;
 }
 
+=======
+>>>>>>> make-it-mesh
 @media only screen and (min-width: 700px) {
     .chapter-nav button {
         display: none;
     }
 
+<<<<<<< HEAD
     a.chapter-nav__bp-button--div {
         flex:1;
     }
@@ -103,6 +107,11 @@ a.chapter-nav__bp-button--div:hover {
     .chapter-nav ul {
         display: flex;
         flex:4;
+=======
+    .chapter-nav ul {
+        display: flex;
+        width: 100%;
+>>>>>>> make-it-mesh
         max-width: 1200px;
         margin: 5px auto;
     }
@@ -125,6 +134,7 @@ a.chapter-nav__bp-button--div:hover {
         text-align: center;
     }
 }
+<<<<<<< HEAD
 
 /*
  * We should only show the supporting, face-up, "Back to Home Page" text on large screens; otherwise, the text gets
@@ -144,3 +154,5 @@ a.chapter-nav__bp-button--div:hover {
         display:none;
     }
 }
+=======
+>>>>>>> make-it-mesh

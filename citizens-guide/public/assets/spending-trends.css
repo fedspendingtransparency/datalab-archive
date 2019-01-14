@@ -22,6 +22,10 @@
     background: white;
     border: none;
     color: #666;
+<<<<<<< HEAD
+=======
+    outline: none;
+>>>>>>> make-it-mesh
     padding: 0.4rem 1rem; }
     .show-hide__buttons button:hover {
       background: #e6e6e6;
@@ -42,6 +46,10 @@
   align-content: flex-start;
   margin-top: 0.7rem; }
   #show-hide-list button {
+<<<<<<< HEAD
+=======
+    outline: none;
+>>>>>>> make-it-mesh
     width: 100%;
     margin-bottom: 0.12rem;
     min-height: 20px;
@@ -104,7 +112,12 @@ section.spending-categories__section-above-chart {
   color: white;
   border: 1px solid #00766C;
   border-radius: 4px;
+<<<<<<< HEAD
   padding: 0.5rem 0.75rem; }
+=======
+  padding: 0.5rem 0.75rem;
+  outline: none; }
+>>>>>>> make-it-mesh
   #activate-show-hide:hover {
     background: #00a99b;
     transition: background-color 0.3s ease; }

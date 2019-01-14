@@ -2,11 +2,14 @@
 @import '../../globalSass/accordion';
 @import '../../globalSass/generalVars';
 
+<<<<<<< HEAD
 main {
     max-width: 1200px;
     margin: 0 1rem;
 }
 
+=======
+>>>>>>> make-it-mesh
 .title-text {
     font-weight: $normalWeight;
     display: inline-block;
@@ -86,6 +89,10 @@ main {
 .chart__show-more {
     height:50px;
     width:100%;
+<<<<<<< HEAD
+=======
+    outline: none;
+>>>>>>> make-it-mesh
     margin-left:-12px;
     margin-right:12px;
     color:$color-spending-primary;
@@ -106,6 +113,10 @@ main {
     background: #FFF;
     border:0;
     color:#CCC;
+<<<<<<< HEAD
+=======
+    outline:none;
+>>>>>>> make-it-mesh
 
     &.active {
         color:$color-spending-primary;
@@ -134,6 +145,10 @@ main {
     input {
         padding: 0.25rem 0.2rem;
         border:0;
+<<<<<<< HEAD
+=======
+        outline:none;
+>>>>>>> make-it-mesh
         width:calc(100% - 0.6rem);
         //The following is required for Safari browser as the input covers the border of the parent div
         margin-top: 1px;

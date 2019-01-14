@@ -6,6 +6,7 @@ const d3 = { min, max };
 function enrichData(data) {
     
     
+<<<<<<< HEAD
     let negativeValuesArray = data.filter(function(d) {
             return d.percent_total < 0
         }),
@@ -18,24 +19,57 @@ function enrichData(data) {
             return {percent_total: a.percent_total + b.percent_total};
         }).percent_total; // Just grab the field name from what we returned above.
     }
+=======
+    let tracker = d3.min([data[0].percent_total, 0]);
+>>>>>>> make-it-mesh
 
     data.forEach(d => {
         d.start = tracker;
         d.end = (tracker * 100 + d3.max([Math.abs(d.percent_total), 0.01]) * 100) / 100;
 
         tracker = d.end;
+<<<<<<< HEAD
     });
+=======
+    })
+>>>>>>> make-it-mesh
 }
 
 function sortSubcategories(a, b) {
     a = a.percent_total;
     b = b.percent_total;
 
+<<<<<<< HEAD
     if (a < 0 && b < 0) {
         return a - b;
     }
 
     return b - a;
+=======
+    if (a < 0) {
+        if (a < b) {
+            return -1
+        }
+
+        if (a > b) {
+            return 1;
+        }
+    }
+
+    if (b < 0) {
+        return 1;
+    }
+
+    if (a > b) {
+        return -1;
+    }
+
+    if (a < b) {
+        return 1;
+    }
+
+    return 0;
+>>>>>>> make-it-mesh
 }
 
 function sortByAmount(a, b) {

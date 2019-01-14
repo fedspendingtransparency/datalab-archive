@@ -2,7 +2,11 @@ $tourButtonColor: #C2185B;
 
 .tour {
     @extend %info-box;
+<<<<<<< HEAD
     margin: 10px;
+=======
+    margin-bottom: 1rem;
+>>>>>>> make-it-mesh
 
     h1, h1.tour__heading {
         font-size: 17px;

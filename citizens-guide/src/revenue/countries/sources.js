@@ -8,7 +8,10 @@ function addLink(source, i, list) {
         length = list.length,
         a = hint.append('a')
             .attr('target', '_blank')
+<<<<<<< HEAD
             .attr('rel', 'noopener noreferrer')
+=======
+>>>>>>> make-it-mesh
             .attr('href', source.url);
 
     a.node().innerText = source.name;

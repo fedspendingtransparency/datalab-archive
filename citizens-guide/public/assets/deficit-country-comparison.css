@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 h1.chapter__heading--merriweather-font {
   font-family: Merriweather;
   font-weight: 300;
   margin-top: 2rem; }
 
+=======
+>>>>>>> make-it-mesh
 section.chapter {
   max-width: 1200px;
   margin: 0 auto 2rem; }
@@ -22,7 +25,11 @@ section.chapter {
     margin-bottom: 0.5rem; }
   .chapter__content p {
     color: #666666;
+<<<<<<< HEAD
     font-size: 1.1rem; }
+=======
+    font-size: 0.95rem; }
+>>>>>>> make-it-mesh
     .chapter__content p.chapter__chart--reference {
       font-size: 0.8rem;
       text-align: center;
@@ -35,9 +42,12 @@ section.chapter {
   font-size: 2.5rem;
   font-weight: 600; }
 
+<<<<<<< HEAD
 .chapter__paragraph--tightened {
   margin-top: 0; }
 
+=======
+>>>>>>> make-it-mesh
 .chapter__chart {
   display: none; }
 
@@ -66,8 +76,12 @@ section.chapter {
   background: url(./bp/treasury-background-second.jpg) 0 0 no-repeat;
   background-size: 100% 100%;
   padding: 1rem;
+<<<<<<< HEAD
   background-color: #FFF;
   font-family: Merriweather; }
+=======
+  background-color: #FFF; }
+>>>>>>> make-it-mesh
   .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
     text-align: center;
     margin-top: 1rem; }
@@ -101,10 +115,17 @@ section.chapter {
 .chapter__divider--text-debt {
   color: #4A0072; }
 
+<<<<<<< HEAD
+=======
+.chapter__primary h1 {
+  font-weight: 600; }
+
+>>>>>>> make-it-mesh
 .chapter__primary span.chapter__big-number {
   font-weight: 900;
   display: block; }
 
+<<<<<<< HEAD
 @media only screen and (max-width: 800px) {
   .chapter__big-number--anecdote-placement .anecdote {
     display: block;
@@ -114,6 +135,8 @@ section.chapter {
   .chapter__big-number--anecdote-placement button.anecdote__link--button {
     display: inline-block; } }
 
+=======
+>>>>>>> make-it-mesh
 @media only screen and (min-width: 800px) {
   .chapter__content h1 {
     font-size: 1.8rem; }
@@ -130,11 +153,15 @@ section.chapter {
   .chapter__divider--text {
     font-size: 3rem; }
   .chapter__divider--median-treasury-logo {
+<<<<<<< HEAD
     padding: 4rem 2rem 2rem; }
   .chapter__big-number--anecdote-placement {
     display: inline-block; }
     .chapter__big-number--anecdote-placement button.anecdote__link--button {
       display: none; } }
+=======
+    padding: 4rem 2rem 2rem; } }
+>>>>>>> make-it-mesh
 
 #revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button, #revenue-chapter .chapter__big-number {
   color: #112e51; }

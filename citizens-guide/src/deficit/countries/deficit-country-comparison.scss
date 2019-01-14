@@ -1,6 +1,7 @@
 @import '../../globalSass/generalVars';
 @import '../../bigPicture/scss/chapter';
 @import '../../bigPicture/scss/link-button';
+<<<<<<< HEAD
 
 .deficit-countries__top-level {
   display:flex;
@@ -11,4 +12,30 @@
   .tighter-text__left {
     padding-right:2rem;
   }
+=======
+@import '../../colors';
+
+.chapter-link.link-button {
+  background-color: $color-debt-primary;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 760px) {
+  .deficit-copy {
+    float: left;
+    width: 80%;
+    padding-right: 2rem;
+    box-sizing: border-box;
+
+    p:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .chapter-link.link-button {
+    width: 20%;
+    float: right;
+    box-sizing: border-box;
+  }  
+>>>>>>> make-it-mesh
 }

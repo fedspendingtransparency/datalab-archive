@@ -1,5 +1,6 @@
 @import '../../globalSass/accordion';
 
+<<<<<<< HEAD
 main {
   max-width: 1200px;
   margin: 0 1rem;
@@ -54,4 +55,23 @@ main {
 
 .tour {
   margin-left:0;
+=======
+.deficit-trend {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  .deficit-trend {
+    width: 67%;
+    float: left;
+    display: block;
+  }
+  
+  .deficit-aside {
+    width: 33%;
+    float: right;
+    padding-left: 2rem;
+    box-sizing: border-box;
+  }
+>>>>>>> make-it-mesh
 }

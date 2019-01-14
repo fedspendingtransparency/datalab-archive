@@ -4,7 +4,11 @@
   position: relative;
 }
 
+<<<<<<< HEAD
 .facts.sidebar--hidden {
+=======
+.sidebar--hidden {
+>>>>>>> make-it-mesh
   opacity: 0;
 }
 
@@ -13,7 +17,10 @@
   top: 4rem;
   left: 0;
   width: 100%;
+<<<<<<< HEAD
   opacity: 1;
+=======
+>>>>>>> make-it-mesh
   transition: opacity 1s ease;
   margin-bottom: 2rem;
 }
@@ -101,12 +108,15 @@ aside {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 main {
   max-width: 1200px;
   padding: 1rem;
   margin: 0 auto;
 }
 
+=======
+>>>>>>> make-it-mesh
 #compare-options {
   padding: 1rem;
 }
@@ -118,7 +128,10 @@ main {
   }
 
   .sidebar {
+<<<<<<< HEAD
     opacity: 1;
+=======
+>>>>>>> make-it-mesh
     position: relative;
     width: calc(34% - 1rem);
     margin-left: calc(66% + 1rem);

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'babel-polyfill';
+=======
+// import 'babel-polyfill';
+>>>>>>> make-it-mesh
 import SpendingData from '../../public/csv/spending_categories.csv';
 import { min } from 'd3-array';
 

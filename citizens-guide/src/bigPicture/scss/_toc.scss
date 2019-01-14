@@ -10,6 +10,7 @@
         margin-bottom: 0.2rem;
     }
 
+<<<<<<< HEAD
     a {
         color: $text-color-paragraph;
         opacity:0.4;
@@ -18,9 +19,46 @@
     a.current {
         font-weight: $boldWeight;
         opacity:1;
+=======
+    a.toc__link {
+        color: $text-color-paragraph;
+        opacity:0.4;
+
+        &.current {
+            font-weight: $boldWeight;
+            opacity:1;
+        }
+>>>>>>> make-it-mesh
     }
 
     strong {
         font-weight:900;
     }
+<<<<<<< HEAD
+=======
+}
+
+#revenue-chapter a.toc__link.toc__revenue {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-primary-darkest;
+}
+
+#spending-chapter a.toc__link.toc__spending {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-spending-primary;
+}
+
+#debt-chapter a.toc__link.toc__debt {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-debt-primary;
+}
+
+#deficit-chapter a.toc__link.toc__deficit {
+    font-weight: $boldWeight;
+    opacity:1;
+    color: $color-deficit-primary;
+>>>>>>> make-it-mesh
 }

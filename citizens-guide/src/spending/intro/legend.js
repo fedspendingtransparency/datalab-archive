@@ -56,7 +56,11 @@ function buildLegend() {
         .attr('y', -14)
         .attr('opacity', 0)
         .attr('data-box-id', 'billion-dollars')
+<<<<<<< HEAD
         .attr('xlink:href', '../assets/icons/anecdote.svg')
+=======
+        .attr('xlink:href', '/assets/ffg/icons/anecdote.svg')
+>>>>>>> make-it-mesh
         .attr('style', 'cursor:pointer')
         .on('click', triggerInfoBox)
         .transition()

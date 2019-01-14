@@ -118,6 +118,10 @@ main {
 .chart__show-more {
   height: 50px;
   width: 100%;
+<<<<<<< HEAD
+=======
+  outline: none;
+>>>>>>> make-it-mesh
   margin-left: -12px;
   margin-right: 12px;
   color: #00796B;
@@ -135,7 +139,12 @@ main {
 #bar-controls button {
   background: #FFF;
   border: 0;
+<<<<<<< HEAD
   color: #CCC; }
+=======
+  color: #CCC;
+  outline: none; }
+>>>>>>> make-it-mesh
   #bar-controls button.active {
     color: #00796B; }
 
@@ -157,6 +166,10 @@ main {
   .bar-controls__right input {
     padding: 0.25rem 0.2rem;
     border: 0;
+<<<<<<< HEAD
+=======
+    outline: none;
+>>>>>>> make-it-mesh
     width: calc(100% - 0.6rem);
     margin-top: 1px; }
   .bar-controls__right .spending__search--icon {

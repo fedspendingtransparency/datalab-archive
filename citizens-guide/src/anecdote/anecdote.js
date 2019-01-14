@@ -1,6 +1,9 @@
 import {select, selectAll, event} from 'd3-selection';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> make-it-mesh
 const d3 = {select, selectAll, event},
     defaultAnecdoteProperties = {
         anecdoteClass : 'anecdote',
