@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-// @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600");
-=======
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600");
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
->>>>>>> make-it-mesh
 @import 'generalVars';
 @import 'headings';
 @import 'tour';
@@ -19,32 +15,13 @@ body {
 
     .cg-content {
         letter-spacing: normal;
-<<<<<<< HEAD
-        line-height: 1;
-=======
         line-height: normal;
->>>>>>> make-it-mesh
         font-weight: 300;
         font-size: 16px;
 
         p {
             margin-bottom: 1rem;
         }
-<<<<<<< HEAD
-
-        a, a:visited {
-            color: $color-primary-darker;
-            text-decoration: none;
-            
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-a, a:visited, .cg-content a, .cg-content a:visited {
-=======
     }
 }
 
@@ -55,7 +32,6 @@ a, a:visited, .cg-content a, .cg-content a:visited {
 }
 
 a, a:visited {
->>>>>>> make-it-mesh
     color: $color-primary-darker;
     text-decoration: none;
     
@@ -144,15 +120,12 @@ blockquote {
     margin: 0 1rem;
 }
 
-<<<<<<< HEAD
-=======
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
   }
 
->>>>>>> make-it-mesh
 @media only screen and (min-width: 900px) {
     .tighter-text {
         max-width: 900px;

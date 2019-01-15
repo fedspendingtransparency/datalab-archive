@@ -1,61 +1,5 @@
 @import '../../globalSass/accordion';
 
-<<<<<<< HEAD
-main {
-  max-width: 1200px;
-  margin: 0 1rem;
-}
-
-.deficit__trends--icon {
-  width:100%;
-  height:auto;
-}
-
-.content-body__container {
-  display: flex;
-  justify-content: center;
-  flex-flow: row nowrap;
-}
-
-.content-body__left {
-  max-width: calc(800px - 1.5em);
-  flex:2;
-  padding-right:1.5em;
-}
-
-.content-body__right {
-  max-width: calc(400px - 1.5em);
-  padding-left:1.5em;
-  flex:1;
-}
-
-@media only screen and (max-width: 800px) {
-  .content-body__container {
-    flex-flow: row wrap;
-  }
-
-  .content-body__left {
-    max-width:none;
-    padding:0;
-    flex:1 100%;
-  }
-
-  .content-body__right {
-    max-width:none;
-    flex:1 100%;
-    padding:0;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  main {
-    margin: 0 auto;
-  }
-}
-
-.tour {
-  margin-left:0;
-=======
 .deficit-trend {
   max-width: 100%;
 }
@@ -73,5 +17,4 @@ main {
     padding-left: 2rem;
     box-sizing: border-box;
   }
->>>>>>> make-it-mesh
 }
