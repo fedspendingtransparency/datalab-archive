@@ -162,7 +162,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/revenue/assets/',
+        path: __dirname + '/../assets/ffg/revenue/',
     },
     module: {
         rules: moduleRules
