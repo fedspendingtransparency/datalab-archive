@@ -153,7 +153,8 @@ export function drawChart(data, type, _config, detail, parentWidth) {
     if (detail) {
         initOverlay(type, config, placeContainers);
     } else {
-        config.container = establishContainer(config.height, config.width);
+        const accessibilityAttrs = null || config.accessibilityAttrs;0
+        config.container = establishContainer(config.height, config.width, accessibilityAttrs);
         config.svg = config.container
             .append('g').classed('pan-listen', true)
             .append('g').classed('pan-apply', true);

@@ -33,7 +33,11 @@ const incomeConfig = {
     },{
         display: 'France',
         plainName: 'France'
-    }]
+    }],
+    accessibilityAttrs : {
+        title: 'Graph representing 2018 US Federal Spending',
+        desc: '2018 US federal spending graph with comparison to 2018 federal Revenue and U.S. GDP. All graphs are visualized by dots where each dot represents 1 billion USD'
+    }
 };
 
 loadSourceData(CountryData);

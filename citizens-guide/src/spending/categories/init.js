@@ -15,7 +15,11 @@ let svg,
     config = {
         data: byYear(2017),
         sectionColor: colors.colorSpendingPrimary,
-        dataType: 'function'
+        dataType: 'function',
+        accessibilityAttrs : {
+            title: 'Bar graph representing 2018 US Federal Spending by agency',
+            desc: '2018 US federal spending bar graph separated by agencies'
+        }
     },
     debounce,
     top10 = true,
