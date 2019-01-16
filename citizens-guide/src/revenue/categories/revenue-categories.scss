@@ -1,7 +1,6 @@
 @import '../../colors';
 @import '../../spending/categories/spending-categories';
 
-
 #viz {
   margin-top: 0;
 }
@@ -27,23 +26,30 @@
       height:0;
     }
   }
+
   #viz-chart-container {
     padding:0;
     border-radius:0;
     box-shadow:none;
     margin:0;
   }
+
   #bar-controls {
     display:none;
   }
+
   #show-more-container {
     display:none;
   }
 
   .poc-content {
-    max-width: 900px;
     margin: 0 auto;
     display: flex;
+    padding-right: 0;
+  }
+
+  .tour { 
+    margin: 0 0 0 1rem;
   }
 }
 

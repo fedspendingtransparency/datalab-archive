@@ -24,7 +24,8 @@
   transition: all 0.5s ease;
   opacity: 0; }
   .accordion__content p {
-    margin: 0;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
     transition: margin 0.5 ease; }
 
 .accordion__toggle {
@@ -47,6 +48,7 @@
   border-color: #eee;
   opacity: 1; }
   .accordion--open .accordion__content p {
+    margin-top: 1rem;
     margin-bottom: 1rem; }
 
 .accordion--open .accordion__plus {
@@ -215,9 +217,11 @@
   #show-more-container {
     display: none; }
   .poc-content {
-    max-width: 900px;
     margin: 0 auto;
-    display: flex; } }
+    display: flex;
+    padding-right: 0; }
+  .tour {
+    margin: 0 0 0 1rem; } }
 
 @media only screen and (max-width: 1200px) {
   .copy-tour-row__copy, .copy-tour-row__tour {

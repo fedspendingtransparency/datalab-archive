@@ -1,0 +1,48 @@
+--- 
+layout: ffg
+title: Data Lab - title – U.S. Treasury
+excerpt: excerpt
+header: header
+description: description
+permalink: /federal-finance-guide/revenue/trends
+category: entry
+ffg: true
+ffgNav: true
+---
+
+{% include ffg/nav/revenue.html %}
+
+<div class="ffg-wrapper">
+    <h1>Federal Revenue Trends</h1>
+
+    <div class="copy-tour-row" id="income-facts">
+            <section class="copy-tour-row__copy">
+                <p>How has federal revenue changed over the past few years?</p>
+                <p>The chart below shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory. What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
+            </section>
+            <div class="copy-tour-row__tour">
+                <section class="tour">
+                    <div class="tour__part-one">
+                        <h1>Explore for yourself!</h1>
+                        <p>Click a category below to see how subcategories have contributed to revenue trends over the past five years.</p>
+                    </div>
+                    <div class="tour__part-two">
+                        <h1>How does the revenue of the United States compare to other countries?</h1>
+                        <p>When you’re done here, see how revenue collected by the U.S. government compares to other countries.</p>
+                    </div>
+                    <a class="tour__link" href="./country-comparison.html" disabled>Continue<i class="fas fa-chevron-right"></i></a>
+                </section>
+            </div>
+        </div>
+
+    <h2 class="chart-title">Federal Revenue Trends over Time by Category</h2>
+    <div class="hint">Click a revenue category to view more</div>
+
+    <div id="viz"></div>
+
+    <section class="hwcta">
+        The visualization was created using <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. <a href="https://data.bls.gov/cgi-bin/surveymost?bls" target="_blank" rel="noopener noreferrer">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years 2014-2017 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
+    </section>
+</div>
+
+<script src="/assets/ffg/revenue/trends.js"></script>

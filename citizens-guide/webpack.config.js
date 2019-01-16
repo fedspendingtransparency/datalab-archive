@@ -6,6 +6,88 @@ const build = process.env.BUILD ? process.env.BUILD : false;
 const devtool = build ? '' : 'inline-source-map';
 const mode = build ? 'production' : 'development';
 
+const cssRules = [
+    {
+        test: /\.scss$/,
+        use: [
+            {
+                loader: 'file-loader',
+                options: {
+                    name: '[name].css',
+                }
+            },
+            {
+                loader: 'extract-loader'
+            },
+            {
+                loader: 'css-loader?-url'
+            },
+            {
+                loader: 'sass-loader'
+            }
+        ]
+    }
+]
+
+function configFactory(entry, assetFolderName, rules) {
+    let assetPath = path.join(__dirname, '../assets/ffg/');
+
+    if (assetFolderName) {
+        assetPath = assetPath + assetFolderName + '/';
+    }
+    
+    rules = rules || [
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            }
+        },
+        {
+            test: /\.(css|scss)$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
+        },
+        {
+            test: /\.csv$/,
+            use: {
+                loader: 'csv-loader',
+                options: {
+                    dynamicTyping: true,
+                    header: true
+                }
+            }
+        },
+    ];
+
+    return {
+        entry: entry,
+        devtool: devtool,
+        devServer: devServer,
+        mode: mode,
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: '[name].css',
+                chunkFilename: '[id].css',
+            })
+        ],
+        output: {
+            filename: '[name].js',
+            path: assetPath,
+        },
+        module: {
+            rules: rules
+        }
+    }
+}
+
 const moduleRules = [
     {
         test: /\.js$/,
@@ -37,7 +119,7 @@ const moduleRules = [
     },
 ],
     devServer = {
-        contentBase: [path.join(__dirname, '../ffg-snapshots'), path.join(__dirname, '../')],
+        contentBase: [path.join(__dirname, '../ffg-snapshots/'), path.join(__dirname, '..')],
         watchContentBase: true,
         compress: true,
     }
@@ -58,7 +140,6 @@ module.exports = [{
     output: {
         filename: '[name].js',
         path: __dirname + '../assets/ffg',
-        publicPath: '/assets/ffg'
     },
     module: {
         rules: moduleRules
@@ -81,8 +162,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/public/revenue/assets/',
-        publicPath: '/revenue/assets/'
+        path: __dirname + '/../assets/ffg/revenue/',
     },
     module: {
         rules: moduleRules
@@ -105,8 +185,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../assets/ffg/spending'),
-        publicPath: '/assets/ffg/spending/'
+        path: __dirname + '/../assets/ffg/spending/',
     },
     module: {
         rules: moduleRules
@@ -129,7 +208,6 @@ module.exports = [{
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, '../assets/ffg/deficit'),
-        publicPath: '/assets/ffg/deficit/'
     },
     module: {
         rules: moduleRules
@@ -150,32 +228,10 @@ module.exports = [{
     ],
     output: {
         path: path.resolve(__dirname, '../assets/ffg/css'),
-        publicPath: '/assets/ffg/css'
 	},
     mode: mode,
     module: {
-		rules: [
-			{
-				test: /\.scss$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: '[name].css',
-						}
-					},
-					{
-						loader: 'extract-loader'
-					},
-					{
-						loader: 'css-loader?-url'
-					},
-					{
-						loader: 'sass-loader'
-					}
-				]
-			}
-		]
+		rules: cssRules
 	}
 }];
 
