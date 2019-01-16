@@ -27,7 +27,7 @@ export function getTransform(d3Selection) {
     }
 }
 
-export function establishContainer(height, width) {
+export function establishContainer(height, width, accessibilityAttrs) {
     const viz = d3.select('#viz');
 
     let svg = viz.select('svg.main');
@@ -36,11 +36,16 @@ export function establishContainer(height, width) {
         height = height || 400;
         width = width || 1200;
 
-        return viz.append('svg')
+        const svg = viz.append('svg')
             .classed('main', true)
             .attr('shape-rendering', 'geometricPrecision')
             .attr('height', height)
             .attr('width', width);
+        if(accessibilityAttrs && Object.keys(accessibilityAttrs).length){
+            svg.attr('title', accessibilityAttrs.title)
+                .attr('desc', accessibilityAttrs.desc);
+        }
+        return svg;
     } else if (height) {
         svg.attr('height', height);
     }

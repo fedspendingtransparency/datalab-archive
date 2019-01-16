@@ -32,7 +32,10 @@ let xAxis, data, sortFunction, amountIcon, gdpIcon, config, primaryColor;
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
 function establishContainers() {
-    const svg = establishContainer();
+    const accessibilityAttrs = null || config.accessibilityAttrs;
+    console.log('accessibilityAttrs:', accessibilityAttrs);
+    console.log('config:', config);
+    const svg = establishContainer(null, null, accessibilityAttrs);
 
     d3.select('#viz').classed('country', true);
 

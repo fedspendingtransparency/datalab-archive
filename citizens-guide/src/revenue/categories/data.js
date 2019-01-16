@@ -4,20 +4,13 @@ import { min, max } from 'd3-array';
 const d3 = { min, max };
 
 function enrichData(data) {
-    
-    
-    let negativeValuesArray = data.filter(function(d) {
-            return d.percent_total < 0
-        }),
-        tracker = 0;
-
-    if(negativeValuesArray.length){
-        tracker = negativeValuesArray.reduce(function(a, b){
-            // Using reduce on an array of objects means we need to return an object with the field name of what
-            // we are returning. Otherwise, returning a.percent_total + b.percent_total results in NaN.
-            return {percent_total: a.percent_total + b.percent_total};
-        }).percent_total; // Just grab the field name from what we returned above.
-    }
+    let tracker = 0,
+        negativeValuesArr = data.filter(function(d){
+            return d.percent_total < 0;
+        });
+    negativeValuesArr.forEach(d => {
+        tracker += d.percent_total;
+    });
 
     data.forEach(d => {
         d.start = tracker;
@@ -30,10 +23,6 @@ function enrichData(data) {
 function sortSubcategories(a, b) {
     a = a.percent_total;
     b = b.percent_total;
-
-    if (a < 0 && b < 0) {
-        return a - b;
-    }
 
     return b - a;
 }
