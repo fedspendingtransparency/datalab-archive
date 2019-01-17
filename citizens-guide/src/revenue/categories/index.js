@@ -11,7 +11,11 @@ import '../../infoBox';
 const config = {
     data: getDataByYear(2017),
     containerClass : receiptsConstants.shaderContainerClass,
-    sectionColor: colors.colorPrimaryDarker
+    sectionColor: colors.colorPrimaryDarker,
+    accessibilityAttrs : {
+        title: 'Graph representing 2018 U.S. revenue separated by category.',
+        desc: '2018 U.S. revenue broken down by category and further broken down at the sub-category level.'
+    }
 },
     d3 = {select, selectAll},
     viz = d3.select('#viz');

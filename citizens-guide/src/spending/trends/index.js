@@ -7,7 +7,11 @@ import { initTwoPartTour } from './tour';
 import { setThreshold } from "./setThreshold";
 
 const d3 = { select, selectAll },
-    svg = establishContainer(780),
+    accessibilityAttrs = {
+        title: 'Graph representing U.S. spending trend lines for the past 5 years.',
+        desc: 'U.S. spending trend lines for the past 5 years broken down by the categories of spending type and agency, and then further broken down at the sub-category level'
+    },
+    svg = establishContainer(780, null, accessibilityAttrs),
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency');
 

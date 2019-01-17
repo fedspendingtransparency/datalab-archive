@@ -6,11 +6,7 @@ import { setChartWidth, chartWidth } from './widthManager';
 import { setDotsPerRow } from './dotConstants';
 import { resetForResize } from './compareManager';
 
-const d3 = { select, selectAll },
-    accessibilityAttrs = {
-        title: 'Graph representing 2018 US Federal Spending',
-        desc: '2018 US federal spending graph with comparison to 2018 federal Revenue and U.S. GDP. All graphs are visualized by dots where each dot represents 1 billion USD'
-    };
+const d3 = { select, selectAll };
 
 let debounce,
     previousWidth,
@@ -20,10 +16,11 @@ export function initChart(_config) {
     d3.select('#viz').selectAll('*').remove();
     config = _config || config;
 
+
     setChartWidth();
     setDotsPerRow();
     
-    establishContainer(500, chartWidth, accessibilityAttrs);
+    establishContainer(500, chartWidth, config.accessibilityAttrs);
 
     startLegendAnimation(config);
 }

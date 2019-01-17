@@ -17,8 +17,8 @@ let svg,
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'function',
         accessibilityAttrs : {
-            title: 'Bar graph representing 2018 US Federal Spending by agency',
-            desc: '2018 US federal spending bar graph separated by agencies'
+            title: 'Bar graph representing 2018 US Federal Spending by spending type and agency',
+            desc: '2018 US federal spending bar graph separated by spending types and agency'
         }
     },
     debounce,

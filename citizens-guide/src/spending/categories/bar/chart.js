@@ -147,13 +147,15 @@ export function drawChart(data, type, _config, detail, parentWidth) {
     config.rowHeight = rowHeight;
     config.detail = detail;
     config.sectionColor = externalConfig.sectionColor;
+    config.accessibilityAttrs = externalConfig.accessibilityAttrs;
 
     initSort(config);
 
     if (detail) {
         initOverlay(type, config, placeContainers);
     } else {
-        const accessibilityAttrs = null || config.accessibilityAttrs;0
+        const accessibilityAttrs = null || config.accessibilityAttrs;
+        console.log('config:', config);
         config.container = establishContainer(config.height, config.width, accessibilityAttrs);
         config.svg = config.container
             .append('g').classed('pan-listen', true)
