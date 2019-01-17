@@ -245,7 +245,7 @@ export function initSankey(_config) {
     config = _config || config;
     setInitialValues();
     stackData(categoryData);
-    svg = establishContainer(170);
+    svg = establishContainer(170, null, config.accessibilityAttrs);
     resizeSvg();
     setContainers();
     addSegments();

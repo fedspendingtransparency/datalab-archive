@@ -32,8 +32,8 @@ const spendingConfig = {
         plainName: 'France'
     }],
     accessibilityAttrs : {
-        title: 'Graph representing 2018 US Federal Spending',
-        desc: '2018 US federal spending graph with comparison to 2018 federal Revenue and U.S. GDP. All graphs are visualized by dots where each dot represents 1 billion USD'
+        title: 'Graph representing 2018 spending (in USD) amounts across multiple countries',
+        desc: '2018 spending data comparison between multiple countries (including the U.S.) as well as the ratio of spending to that country\'s GDP'
     }
 };
 
