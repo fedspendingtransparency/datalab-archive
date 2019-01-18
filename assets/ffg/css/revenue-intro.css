@@ -1,3 +1,11 @@
+@media only screen and (min-width: 500px) and (max-width: 960px) {
+  .chapter-intro__math {
+    margin-top: 2vh; } }
+
+#copy {
+  text-align: left;
+  margin-top: 3rem; }
+
 .viz-wrapper {
   position: relative; }
 
@@ -118,11 +126,3 @@ aside section h1 {
   .hwcta {
     clear: both;
     padding-top: 2rem; } }
-
-@media only screen and (min-width: 500px) and (max-width: 960px) {
-  .revenue-intro__math {
-    margin-top: 2vh; } }
-
-#copy {
-  text-align: left;
-  margin-top: 3rem; }
