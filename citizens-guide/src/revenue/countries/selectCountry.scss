@@ -2,17 +2,8 @@
 
 $primaryColor: #4A90E2;
 
-#viz.country {
-    max-width: 800px;
-    margin-top: 0;
-    overflow: visible;
-}
-
-
 .select-country {
     position: relative;
-    transform: translate(0,39px);
-    display: inline-block;
 }
 
 .trigger-button {
@@ -159,5 +150,12 @@ $primaryColor: #4A90E2;
         width: 85%;
         border: none;
         padding: 5px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .select-country {
+        transform: translate(0,39px);
+        display: inline-block;
     }
 }

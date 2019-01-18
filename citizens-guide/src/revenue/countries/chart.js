@@ -11,6 +11,7 @@ import { createDonut } from "../donut";
 import colors from '../../colors.scss';
 import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
+import { pan } from './pan';
 
 const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     dimensions = {
@@ -27,23 +28,29 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     containers = {},
     sortIcons = {};
 
-let xAxis, data, sortFunction, amountIcon, gdpIcon, config, primaryColor;
+let xAxis, data, sortFunction, amountIcon, gdpIcon, config, primaryColor, debounce;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
 function establishContainers() {
-    const svg = establishContainer();
+    const parentWidth = getElementBox(d3.select('#viz')).width,
+        svg = establishContainer(null, parentWidth)
+            .classed('country', true);
+    
+    sizeSvg(800);
+    
+    //svg.attr('width', dimensions.chartWidth);
 
-    d3.select('#viz').classed('country', true);
+    containers.chart = svg.append('g').classed('pan-listen', true)
+        .append('g').classed('pan-apply', true).classed('master', true);
 
     dimensions.totalHeight = dimensions.rowHeight * data.length;
-    sizeSvg(800);
-    svg.attr('width', dimensions.chartWidth);
-    containers.chart = svg.append('g').attr('class', 'master');
     containers.data = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth, dimensions.header));
     containers.country = containers.chart.append('g').attr('transform', translator(0, dimensions.header));
     containers.gdp = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth + dimensions.dataWidth, dimensions.header));
     containers.legends = containers.chart.append('g').classed('legends', true);
+
+    pan(dimensions.chartWidth, parentWidth);
 }
 
 function addBarLabels(g, data, keys) {
@@ -351,6 +358,19 @@ export function refreshData(sortField, countriesUpdated) {
     }
 }
 
+function redraw() {
+    d3.select('#viz').selectAll('*').remove();
+    
+    establishContainers();
+    ink(containers, dimensions, data.length);
+    setScales();
+    addBarGroups();
+    placeCountryLabels();
+    placeGdpFigures();
+    placeLegends(config);
+    selectCountryInit();
+}
+
 export function chartInit(_config) {
     config = _config;
 
@@ -371,12 +391,14 @@ export function chartInit(_config) {
 
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);
-    establishContainers();
-    ink(containers, dimensions, data.length);
-    setScales();
-    addBarGroups();
-    placeCountryLabels();
-    placeGdpFigures();
-    placeLegends(config);
-    selectCountryInit();
+    
+    redraw();
 }
+
+window.addEventListener('resize', function () {
+    if (debounce) {
+        clearTimeout(debounce);
+    }
+
+    debounce = setTimeout(redraw, 100);
+});

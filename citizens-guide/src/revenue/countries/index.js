@@ -1,4 +1,5 @@
 import './selectCountry.scss';
+import './countries.scss';
 import { prepareData, loadSourceData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';
