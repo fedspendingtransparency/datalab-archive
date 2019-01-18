@@ -8,6 +8,8 @@ import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
+import './selectCountry.scss';
+import './countries.scss';
 import colors from '../../colors.scss';
 import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
