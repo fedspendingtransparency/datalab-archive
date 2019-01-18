@@ -1,4 +1,3 @@
-import './selectCountry.scss';
 import { prepareData, loadSourceData } from './data';
 import { establishContainer } from '../../utils';
 import { chartInit } from './chart';

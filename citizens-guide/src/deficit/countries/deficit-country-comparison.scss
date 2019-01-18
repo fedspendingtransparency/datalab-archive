@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 760px) and (max-width: 1230px) {
   .deficit-copy {
     float: left;
     width: 80%;
@@ -24,5 +24,9 @@
     width: 20%;
     float: right;
     box-sizing: border-box;
-  }  
+  }
+
+  .country-chart {
+    clear: both;
+  }
 }
