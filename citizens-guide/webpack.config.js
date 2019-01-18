@@ -149,7 +149,7 @@ module.exports = [{
         intro: './src/revenue/intro/index.js',
         categories: './src/revenue/categories/index.js',
         trends: './src/revenue/trends/index.js',
-        countries: './src/revenue/countries/index.js'
+        countryComparison: './src/revenue/countries/index.js'
     },
     devtool: devtool,
     devServer: devServer,
