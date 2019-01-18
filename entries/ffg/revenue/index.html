@@ -20,15 +20,17 @@ ffgPageCss: css/revenue-intro.css
         </button>
     </h1>
 
-    <div id="copy">
-        <p>Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consist mostly of individual, corporate and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
-            Year<button class="info-box-trigger" data-box-id="fiscal-year">
-            <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
-        </button>. The revenue the government collects is also known as receipts.</p>
-    </div>
-
     <div class="viz-wrapper">
         <div id="viz"></div>
+        <div class="revenue-intro__math">
+            <i class="fas fa-reply"></i>3,300 dots x $1 billion = <strong>$3.3 trillion</strong>
+            <div id="copy">
+                <p>Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consist mostly of individual, corporate and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
+                    Year<button class="info-box-trigger" data-box-id="fiscal-year">
+                        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+                    </button>. The revenue the government collects is also known as receipts.</p>
+            </div>
+        </div>
 
         <div class="facts sidebar sidebar--hidden">
             <div class="facts__inner">
@@ -84,5 +86,37 @@ ffgPageCss: css/revenue-intro.css
         The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank">Bureau of Economic Analysis (BEA)</a>. The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually.
     </section>
 </div>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://datalab.usaspending.gov/"
+    },
+    "image": "http://datalab.usaspending.gov/federal-finance-guide/revenue/index.png",
+    "headline": "In 2018, the government collected $3.3 trillion.",
+    "datePublished": "2019-01-17T08:00:00+06:00",
+    "dateModified": "2019-01-17T08:00:00+06:00",
+    "author": {
+    "@type": "Organization",
+    "name": "U.S. Treasury",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+        }
+    },
+    "publisher": {
+    "@type": "Organization",
+    "name": "U.S. Treasury",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+        }
+    },
+    "description": "Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consist mostly of individual, corporate and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year. The revenue the government collects is also known as receipts."
+}
+</script>
 
 <script src="/assets/ffg/revenue/intro.js"></script>
