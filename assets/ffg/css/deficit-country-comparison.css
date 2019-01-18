@@ -207,7 +207,7 @@ a.chapter__cta i.fa-angle-right {
   background-color: #4A0072;
   box-sizing: border-box; }
 
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 760px) and (max-width: 1230px) {
   .deficit-copy {
     float: left;
     width: 80%;
@@ -218,4 +218,6 @@ a.chapter__cta i.fa-angle-right {
   .chapter-link.link-button {
     width: 20%;
     float: right;
-    box-sizing: border-box; } }
+    box-sizing: border-box; }
+  .country-chart {
+    clear: both; } }
