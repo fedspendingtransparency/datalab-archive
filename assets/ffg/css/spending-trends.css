@@ -11,7 +11,8 @@
   border-radius: 0.3rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: white;
-  display: none; }
+  display: none;
+  z-index: 1; }
   #show-hide-tray.active {
     display: block; }
 
