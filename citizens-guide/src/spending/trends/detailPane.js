@@ -1,9 +1,11 @@
 import { select } from 'd3-selection';
+import { max, min } from 'd3-array';
+import { transition } from 'd3-transition';
 import { establishContainer, translator, getElementBox } from '../../utils';
 import { trendView } from './chart';
 import colors from '../../colors.scss';
 
-const d3 = { select },
+const d3 = { select, max, min, transition },
     svg = establishContainer(),
     h = 600,
     zoomThresholds = {
@@ -39,6 +41,7 @@ const d3 = { select },
 let pane,
     callout,
     chartContainer,
+    originalSvgHeight,
     container;
 
 function buildDString(yPos, _height) {
@@ -64,8 +67,20 @@ function buildDString(yPos, _height) {
         Z`;
 }
 
+function determineRectHeight() {
+    const defaultHeight = 750,
+        labels = d3.select('.detail-pane').selectAll('.line-label'),
+        yVals = [];
+
+    labels.each(function () {
+        yVals.push(Number(d3.select(this).attr('data-y')));
+    })
+
+    return d3.max([defaultHeight, d3.max(yVals) + 100]);
+}
+
 function modifyRect(sourceY, height) {
-    const dString = buildDString(sourceY, height);
+    const dString = buildDString(sourceY, determineRectHeight());
 
     if (callout) {
         callout.transition()
@@ -89,7 +104,7 @@ function init(d, sourceY, containerTranslate) {
         height: h,
         noDrilldown: true
     };
-    
+
     let title;
 
     container.selectAll('.detail-pane-title')
@@ -100,7 +115,7 @@ function init(d, sourceY, containerTranslate) {
         .attr('fill', colors.textColorHeading)
         .text(d.name)
         .attr('font-size', 20)
-        .attr('font-weight', 600)        
+        .attr('font-weight', 600)
         .attr('x', 20)
         .attr('y', 30);
 
@@ -123,7 +138,9 @@ function init(d, sourceY, containerTranslate) {
         .duration(300)
         .attr('opacity', 1)
 
-    modifyRect(Math.round(sourceY), 750);
+    modifyRect(Math.round(sourceY));
+
+    svg.transition().duration(500).attr('height', getElementBox(container).height + 70)
 }
 
 export function destroyDetailPane() {
@@ -141,12 +158,17 @@ export function destroyDetailPane() {
             container = null;
             callout = null;
         })
+
+    svg.transition().duration(500).attr('height', originalSvgHeight);
 }
 
 export function showDetail(data, sourceY) {
     // Since the transform on the original <g> changes and has a 1 second delay, this messes with calculations later on.
     // So, we'll capture the final translate value and pass this along to be captured properly by the functions that follow.
     const containerTranslate = 640;
+
+    originalSvgHeight = svg.attr('height');
+    
     if (container) {
         chartContainer.transition()
             .duration(300)
@@ -157,14 +179,15 @@ export function showDetail(data, sourceY) {
             })
     } else {
         container = svg.append('g')
+            .attr('class', 'detail-pane')
             .attr('transform', translator(400, 5))
             .attr('opacity', 0);
-            
+
         container.transition()
             .duration(1000)
             .attr('transform', translator(containerTranslate, 5))
             .attr('opacity', 1);
-                        
+
         chartContainer = container.append('g').attr('opacity', 0).attr('transform', translator(10, 40));
 
         init(data, sourceY, containerTranslate);
