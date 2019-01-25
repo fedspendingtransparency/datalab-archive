@@ -64,6 +64,25 @@ $primaryColor: #4A90E2;
     }
 }
 
+.debt-country {
+    .trigger-button {
+        background-color: $color-debt-primary;
+        border-color: $color-debt-primary;
+
+        &:hover {
+            background-color: darken($color-debt-primary, 10);
+        }
+    }
+
+    .list-div li {
+        background-color: $color-debt-primary;
+
+        &:hover {
+            background-color: darken($color-debt-primary, 10);
+        }
+    }
+}
+
 .list-div {
     width: 300px;
     min-height: 200px;

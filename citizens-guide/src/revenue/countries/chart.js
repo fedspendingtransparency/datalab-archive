@@ -385,6 +385,9 @@ export function chartInit(_config) {
         case 'deficit':
             primaryColor = colors.colorDeficitPrimary;
             break;
+        case 'debt':
+            primaryColor = colors.colorDebtPrimary;
+            break;
         default:
             primaryColor = '#EEE';
             break;

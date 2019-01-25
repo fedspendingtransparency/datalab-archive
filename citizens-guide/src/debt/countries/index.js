@@ -1,14 +1,14 @@
 import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
-import CountryData from '../../../public/csv/surplus_deficit_gdp_by_country.csv';
+import CountryData from '../../../public/csv/debt_gdp_by_country.csv';
 import { chartInit } from '../../revenue/countries/chart';
 
 const spendingConfig = {
-    amountField: 'surplus_deficit',
-    gdpField: 'surplus_deficit_gdp',
-    amountLabel: 'Deficit',
+    amountField: 'debt_usd',
+    gdpField: 'debt_gdp',
+    amountLabel: 'Debt',
     sourceFields: ['spending_source', 'gdp_source'],
-    chapter: 'deficit',
+    chapter: 'debt',
     defaultCountries: [{
         display: 'United States',
         plainName: 'United States'
