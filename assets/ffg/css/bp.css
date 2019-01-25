@@ -411,7 +411,8 @@ a.bp-header__click-here--link {
   transition: all 0.5s ease;
   opacity: 0; }
   .accordion__content p {
-    margin: 0;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
     transition: margin 0.5 ease; }
 
 .accordion__toggle {
@@ -434,6 +435,7 @@ a.bp-header__click-here--link {
   border-color: #eee;
   opacity: 1; }
   .accordion--open .accordion__content p {
+    margin-top: 1rem;
     margin-bottom: 1rem; }
 
 .accordion--open .accordion__plus {
@@ -501,7 +503,7 @@ a.bp-header__click-here--link {
     box-sizing: border-box;
     z-index: 1;
     border: 1px solid #E3E3E3;
-    box-shadow: 0 0 20px 10px #F3F3F3;
+    box-shadow: 0 0 20px 10px rgba(80, 80, 80, 0.15);
     /*
          * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
          */
