@@ -21,6 +21,10 @@ body {
     background-color: #B3532D;
 }
 
+.chapter-nav--debt {
+    background-color: #4A0072;
+}
+
 .chapter-nav button {
     border: 1px solid white;
     border-radius: 3px;
