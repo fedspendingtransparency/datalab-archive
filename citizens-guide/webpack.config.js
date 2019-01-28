@@ -122,7 +122,7 @@ const moduleRules = [
         contentBase: [path.join(__dirname, '../ffg-snapshots/'), path.join(__dirname, '..')],
         watchContentBase: true,
         compress: true,
-    }
+    };
 
 module.exports = [{
     entry: {
@@ -140,6 +140,26 @@ module.exports = [{
     output: {
         filename: '[name].js',
         path: __dirname + '../assets/ffg',
+    },
+    module: {
+        rules: moduleRules
+    }
+},{
+    entry: {
+        glossary: './src/components/glossary/glossary.js'
+    },
+    devtool: devtool,
+    devServer: devServer,
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/../assets/ffg/components/glossary',
     },
     module: {
         rules: moduleRules
