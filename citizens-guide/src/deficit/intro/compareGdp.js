@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { establishContainer, translator, simplifyNumber } from '../../utils';
 import { dotConstants } from './dotConstants';
-import { compareOn, compareOff, generateOverlay, registerLayer } from './compareManager';
+import { compareOn, compareOff, generateOverlay } from './compareManager';
 import { createDonut } from '../../revenue/donut';
 import colors from '../../colors.scss';
 import { chartWidth } from './widthManager';

@@ -6,29 +6,44 @@ import { chartWidth } from './widthManager';
 const startPosition = {},
     scaleFactor = 0.6;
 
-let config, dotColor, deficitDots;
+let config, dotColor, deficitDots, y1, layerX, deficitY, deficitCompareDots, debtCompareDots;
 
 function dotFactory(x, y) {
-    deficitDots.append('circle')
+    return deficitDots.append('circle')
         .attr('cx', x)
         .attr('cy', y)
         .attr('r', 2)
         .style('fill', dotColor)
 }
 
-function makeDotRow(start, max, y) {
+function makeDotRow(start, max, y, debtOffset) {
     let i = 0,
+        dot,
         x = start;
     
     for (i; i < max; i++) {
-        dotFactory(x, y);
+        dot = dotFactory(x, y);
         x += dotConstants.offset.x;
 
         if ((i + 1) % dotsPerRow === 0) {
             y += dotConstants.offset.y;
             x = dotConstants.radius;
         }
+
+        if (debtOffset && i < debtOffset) {
+            dot.attr('data-debt-only', true)
+                .attr('opacity', 0)
+        }
     }
+}
+
+function markDeficitOnly() {
+    const circles = deficitDots.selectAll('circle'),
+        size = circles.size(),
+        start = size - startPosition.xOffset;
+
+    deficitCompareDots = circles.filter((d, i) => i > start).attr('data-deficit-only', true);
+    debtCompareDots = circles.filter('[data-debt-only]');
 }
 
 function placeDotsDeficit() {
@@ -38,9 +53,12 @@ function placeDotsDeficit() {
         remainder = deficitInBillions - rowOneCount - (fullRows * dotsPerRow);
 
     let i = 0,
-        y = 2 + dotConstants.offset.y;
+        y = 2;
 
-    makeDotRow(startPosition.xOffset * dotConstants.offset.x, rowOneCount, 2);
+    // first row with offset
+    makeDotRow(2, dotsPerRow, y, startPosition.xOffset);
+
+    y += dotConstants.offset.y;    
 
     for (i; i < fullRows; i++) {
         makeDotRow(2, dotsPerRow, y)
@@ -48,26 +66,50 @@ function placeDotsDeficit() {
     }
 
     makeDotRow(2, remainder, y);
+
+    y1 = y;
+
+    markDeficitOnly();
+}
+
+export function switchCompareMode(mode, duration) {
+    const layerY = (mode === 'debt') ? 0 : deficitY;
+
+    duration = duration * 1.5;
+
+    deficitDots.transition()
+        .duration(duration)
+        .attr('transform', translator(layerX, layerY) + ` scale(${scaleFactor})`)
+        .ease();
+
+    deficitCompareDots.transition()
+        .duration(duration)
+        .attr('opacity', (mode === 'debt') ? 0 : 1)
+        .ease();
+
+    debtCompareDots.transition()
+        .duration(duration)
+        .attr('opacity', (mode === 'debt') ? 1 : 0)
+        .ease();
 }
 
 export function setDeficitStartPosition(xOffset, y) {
     startPosition.xOffset = xOffset;
-    startPosition.y = y;
 
-    deficitDots = establishContainer().append('g')
+    layerX = (chartWidth - chartWidth * scaleFactor) / 2;
+    deficitY = y * scaleFactor
+
+    deficitDots = config.mainContainer.append('g')
         .classed('deficit-dots', true)
         .attr('opacity', 0)
-        .attr('transform', translator(chartWidth * 0.25, y * scaleFactor) + ` scale(${scaleFactor})`);
+        .attr('data-y0', y)
+        .attr('transform', translator(layerX, deficitY) + ` scale(${scaleFactor})`);
     
     deficitDots.lower();
 
     placeDotsDeficit();
 
-    deficitDots.transition()
-        .delay(3000)
-        .duration(1000)
-        .attr('opacity', 1)
-        .ease();
+    deficitDots.attr('data-y1', y1 + y);
 }
 
 export function initDeficitDots(c) {

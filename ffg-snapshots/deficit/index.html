@@ -121,11 +121,44 @@
 
 <div class="ffg-wrapper">
     <h1>In 2018, the federal government spent $779 billion more than it collected, resulting in a deficit.</h1>
+
+    <div id="copy">
+        <p>Where does all the money go? Most of government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Why does the federal government do this? One reason is the Constitution! The Constitution’s preamble, which outlines the purpose of creating the new government is "...to establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity."</p>
+    </div>
+
+    <div class="viz-wrapper">
+        <div id="viz"></div>
+
+        <div class="facts sidebar">
+            <div class="facts__inner">
+                <div id="compare-options">
+                    <p class="facts__prompt">How does the Deficit compare to</p>
+                    <div class="facts__triggers">
+                        <button class="facts__trigger" data-trigger-id="deficit">Revenue/Spending</button>
+                        <button class="facts__trigger" data-trigger-id="debt">Debt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="tour sidebar sidebar--hidden">
+            <div class="tour__part-one">
+                <h1>What are the categories of federal spending?</h1>
+            </div>
+            <a class="tour__link" href="categories.html">Discover<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </div>
+
+    <section class="hwcta">
+        <p>This visualization was created using the Monthly Treasury Statement (MTS) as the data source for federal government spending of the United States by federal agency and the Office of Management and Budget (OMB) Historical Tables as the data source for federal government spending by spending type. The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U) was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>
+        <p>Gross Domestic Product (GDP) figures for the United States come from the Bureau of Economic Analysis (BEA). GDP data for countries other than the United States comes from the International Monetary Fund (IMF) World Economic Outlook Database (WEOD).</p>
+    </section>
 </div>
+
+<script src="/assets/ffg/deficit/intro.js"></script>
 
     <script src="/assets/ffg/hwcta.js"></script>
     <script src="/assets/ffg/nav/nav.js"></script>
-    
   </main>
 </article>
 

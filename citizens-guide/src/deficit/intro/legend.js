@@ -10,7 +10,12 @@ const d3 = { select, selectAll },
     introWidth = 365,
     radius = 75;
 
-let svg, largeDot, billion, explanation, config = {};
+let svg, 
+    largeDot, 
+    billion, 
+    explanation,
+    callback, 
+    config = {};
 
 function buildLegend() {
     const g = d3.select('.income-dot-legend'),
@@ -18,10 +23,10 @@ function buildLegend() {
         w = 126,
         xOffset = 4;
 
-    placeDots(config);
-
     fadeAndRemove(explanation, 1000);
     fadeAndRemove(billion, 500);
+
+    setTimeout(callback, 1000);
 
     g.transition()
         .duration(duration)
@@ -56,7 +61,7 @@ function buildLegend() {
         .attr('y', -14)
         .attr('opacity', 0)
         .attr('data-box-id', 'billion-dollars')
-        .attr('xlink:href', '../assets/icons/anecdote.svg')
+        .attr('xlink:href', '/assets/ffg/icons/anecdote.svg')
         .attr('style', 'cursor:pointer')
         .on('click', triggerInfoBox)
         .transition()
@@ -68,12 +73,12 @@ function buildLegend() {
 
 function addText() {
     const duration = 500;
-    
+
     explanation = this.largeDot.append('text')
-            .attr('y', 54)
-            .attr('opacity', 0)
-            .attr('transform', translator(radius * 2 + 20, 0))
-            .attr('fill', colors.textColorParagraph)
+        .attr('y', 54)
+        .attr('opacity', 0)
+        .attr('transform', translator(this.radius * 2 + 20, 0))
+        .attr('fill', colors.textColorParagraph)
 
     explanation.append('tspan')
         .attr('x', 0)
@@ -113,16 +118,16 @@ function addText() {
         .attr('opacity', 1)
         .ease();
 
+
     setTimeout(buildLegend, 500);
 }
 
 function initDot() {
-    const dotColor = config.sectionColor;
     largeDot.append('circle')
         .attr('cx', radius)
         .attr('cy', radius)
         .attr('r', 1)
-        .attr('fill', dotColor)
+        .attr('fill', config.deficitColor)
         .transition()
         .duration(1500)
         .attr('r', radius)
@@ -133,13 +138,15 @@ function initDot() {
         .ease();
 }
 
-export function startLegendAnimation(_config) {
+export function startLegendAnimation(_config, _callback) {
     const introX = chartWidth < introWidth ? 0 : (chartWidth / 2) - (introWidth / 2);
+
     config = _config || config;
-    svg = establishContainer(),
-        largeDot = svg.append('g')
-            .classed('income-dot-legend', true)
-            .attr('transform', translator(introX, 40));
+    svg = establishContainer();
+    callback = _callback;
+    largeDot = svg.append('g')
+        .classed('income-dot-legend', true)
+        .attr('transform', translator(introX, 40));
 
     initDot();
 }

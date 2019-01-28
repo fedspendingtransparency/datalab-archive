@@ -3,11 +3,11 @@ import { transition } from 'd3-transition';
 import { chartWidth } from "./widthManager";
 import { dotConstants, dotsPerRow } from "./dotConstants";
 import { translator } from '../../utils';
-import { setDeficitStartPosition } from './deficitDots';
+import { setDeficitStartPosition, switchCompareMode } from './deficitDots';
 
 const stateManager = {},
     layers = {},
-    duration = 500,
+    duration = 1000,
     idMap = {
         gdp: '#gdp-facts',
         revenue: '#revenue-facts'
@@ -38,6 +38,8 @@ function toggleLayer() {
         setLayerOpacity(deficitGroup);
         setLayerOpacity(debtGroup, true);
     }
+
+    setTimeout(switchCompareMode, 0, id, duration);
 }
  
 export function generateOverlay(count, container, className, color) {
