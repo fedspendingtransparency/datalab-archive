@@ -233,6 +233,26 @@ module.exports = [{
         rules: moduleRules
     }
 },{
+    entry: {
+        countryComparison: './src/debt/countries/index.js',
+    },
+    devtool: devtool,
+    devServer: devServer,
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, '../assets/ffg/debt'),
+    },
+    module: {
+        rules: moduleRules
+    }
+},{
     entry: [
         './src/globalSass/cg.scss', 
         './src/bigPicture/scss/bp.scss', 
@@ -245,6 +265,8 @@ module.exports = [{
         './src/spending/intro/spending-intro.scss',
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
+        './src/debt/trends/debt-trends.scss',        
+        './src/debt/countries/debt-country-comparison.scss',        
     ],
     output: {
         path: path.resolve(__dirname, '../assets/ffg/css'),
