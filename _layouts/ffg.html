@@ -5,11 +5,12 @@ layout: default
 <article id="main">
   <main class="cg-content">
     <!-- temp bp link -->
-    {% if page.ffgNav %}
+    <!--{% if page.ffgNav %}-->
     <a href="/federal-finance-guide" style="margin: 0 1rem 1rem; display: inline-block;width:50%;">Big Picture</a>
     <button id="cg-glossary" style="margin: 0 1rem 1rem; display:inline-block;width:50%;"></button>
-    {% include cg-glossary.html %}
-    {% endif %}
+    <script type="module" src="/assets/ffg/components/glossary/glossary.js"></script>
+    {% include ffg/cg-glossary.html %}
+    <!--{% endif %}-->
     <!-- temp bp link -->
 
     {{ content }}
