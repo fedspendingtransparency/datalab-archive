@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   {% if page.ffg %}<link rel="stylesheet" href="/assets/ffg/css/normalize.css" />{% endif %}
   {% if page.ffg %}<link rel="stylesheet" href="/assets/ffg/css/cg.css" />{% endif %}
-  {% if page.ffgNav %}<link rel="stylesheet" href="/assets/ffg/nav/nav.css" />{% endif %}
+  {% if page.ffgNav %}
+      <link rel="stylesheet" href="/assets/ffg/nav/nav.css" />
+      <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
+  {% endif %}
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
 </head>
