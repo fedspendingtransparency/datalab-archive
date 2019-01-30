@@ -3,7 +3,7 @@ import { select, selectAll } from 'd3-selection';
 
 const d3 = { select, selectAll };
 
-let origDategorizedTerms = [];
+let origCategorizedTerms = [];
 
 function categorizeGlossaryData(data){
     const categorizedData = [];
@@ -21,16 +21,25 @@ function categorizeGlossaryData(data){
 }
 
 function createSVGElements(){
-    const closeButtonSvg = d3.select('#cg-glossary-close-button').append('svg')
+    const closeButton = d3.select('#cg-glossary-close-button'),
+        searchBox = d3.select('#cg-search-button'),
+        backButton = d3.select('.cg-glossary-back__content');
+
+    // Remove the svg tags if they exist for each icon.
+    closeButton.select('svg').remove();
+    searchBox.select('svg').remove();
+    backButton.select('svg').remove();
+
+    // Add the svg tags for each icon.
+    const closeButtonSvg = closeButton.append('svg')
         .classed('cg-icon-close', true)
         .attr('viewBox', '0 0 512 512')
          .attr('aria-label', 'Close Glossary 123'),
-        searchBox = d3.select('#cg-search-button'),
         searchBoxSvg = searchBox.append('svg')
             .classed('cg-icon-search', true)
             .attr('viewBox', '0 0 512 512')
             .attr('aria-label', 'search'),
-        backButtonSvg = d3.select('.cg-glossary-back__content').append('svg').classed('cg-glossary-angle-left', true)
+        backButtonSvg = backButton.append('svg').classed('cg-glossary-angle-left', true)
             .attr('viewBox', '0 0 512 512')
             .attr('aria-label', 'Back');
 
@@ -74,7 +83,7 @@ function createTermHTMLElements(terms, searchTerm){
             });
             filteredTerms = categorizeGlossaryData(filteredTerms);
         } else {
-            filteredTerms = origDategorizedTerms;
+            filteredTerms = origCategorizedTerms;
         }
 
        Object.keys(filteredTerms).forEach(function(t){
@@ -176,6 +185,9 @@ function resizeTermListDiv(){
     const termListDiv = $('#cg-glossary-term-list-div');
 
     if(termListDiv){
+        // Most (if not all) CG pages have a window event which refreshes the screen, so since we only create the SVG elements
+        // on init, we must also create them on resize.
+        createSVGElements();
         const parentDiv = termListDiv.get(0).parentNode,
             siblingDiv = parentDiv.getElementsByClassName('cg-glossary-header-wrapper')[0];
 
@@ -224,7 +236,6 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
             return;
         }
 
-
         debounce = setTimeout(function(){
             createTermHTMLElements(null, searchStr);
             setTermListView(showListResultsInd);
@@ -268,12 +279,12 @@ function init(){
     const glossaryWrapper = $('#cg-glossary-wrapper'),
         glossaryButton = $('#cg-glossary-btn');
 
-    origDategorizedTerms = categorizeGlossaryData(glossaryData);
+    origCategorizedTerms = categorizeGlossaryData(glossaryData);
 
     if(glossaryButton.length && glossaryWrapper.length){
+        createTermHTMLElements(origCategorizedTerms);
         createSVGElements();
-        createTermHTMLElements(origDategorizedTerms);
-        addGlossaryEvents(glossaryWrapper, glossaryButton, origDategorizedTerms);
+        addGlossaryEvents(glossaryWrapper, glossaryButton, origCategorizedTerms);
     }
 }
 
