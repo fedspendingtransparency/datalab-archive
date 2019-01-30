@@ -34,23 +34,25 @@ function createSVGElements(){
             .attr('viewBox', '0 0 512 512')
             .attr('aria-label', 'Back');
 
-
-    console.log('searchBoxSvg:', searchBoxSvg);
+    //The following code appends the correct elements to the dom and adds the attributes to draw the "X" symbol for the close button.
     closeButtonSvg.append('title')
         .text('Close Glossary');
     closeButtonSvg.append('g').append('path')
         .attr('d', 'M256 212L50 6 6 50l206 206L6 462l44 44 206-206 206 206 44-44-206-206L506 50 462 6');
+
+    //The following code appends the correct elements to the dom and adds the attributes to draw the magnifying glass symbol for the search icon.
     searchBoxSvg.append('title')
         .text('Search');
     searchBoxSvg.append('g').append('path')
         .attr('d', 'M337.8 208.3c0-36.5-12-66.8-37.4-92-25.3-25.4-55.7-37.6-92-37.6-35.5 0-66 12.2-91.2 37.5-25.3 25.3-38.5 55.6-38.5 92 0 35.5 13.2 66 38.5 91.2 25.3 25.3 55.7 38.4 91 38.4 36.5 0 67-13 92.2-38.4 25.3-25.3 37.4-55.7 37.4-91zM453.5 506L327 379.5c-34.6 24.4-73.3 36.7-116 36.7-27.6 0-54-5-79.6-16.3-25.5-12-47-26-65.3-44-18-19-32-40-43-66-11-25-17-52-17-79 0-29 6-55 16.8-80C33.8 106 48 83.2 66 65c18.6-18.3 40-32.6 65.5-44 25.5-9.8 52-15 79.5-15 28.4 0 55 5 80.4 15.3 24.5 11.2 47 25.5 65.3 44 18.3 18.2 32.6 40.7 43.8 66.2 10.2 24.5 16.3 51 16.3 79.6 0 43-12.2 82-36.7 117l126 126-52 53z');
+
+    //The following code appends the correct elements to the dom and adds the attributes to draw the "<" symbol for the back button.
     backButtonSvg.append('title')
         .text('Back');
     backButtonSvg.append('g').append('path')
         .attr('d', 'M368.5 77.2L208 255l160.2 179.7.4 71.3-225.2-250.5L368 6');
 }
 function createTermHTMLElements(terms, searchTerm){
-    console.log(terms, searchTerm);
     const termListDiv = $('#cg-glossary-term-list-div'),
         termResultList = termListDiv.find('.cg-glossary-search-results');
 
@@ -66,7 +68,6 @@ function createTermHTMLElements(terms, searchTerm){
             termButton;
 
         if(searchTerm){
-            console.log(searchTerm);
             filteredTerms = glossaryData.filter(function(t){
                 const upperCaseSearchTerm = searchTerm.toUpperCase();
                 return t.term.toUpperCase().match(upperCaseSearchTerm);
@@ -75,8 +76,6 @@ function createTermHTMLElements(terms, searchTerm){
         } else {
             filteredTerms = origDategorizedTerms;
         }
-
-        console.log('filteredTerms:', filteredTerms);
 
        Object.keys(filteredTerms).forEach(function(t){
            termGroup = filteredTerms[t];
@@ -117,7 +116,6 @@ function showIndividualTerm(termsArr, termDisplay){
          * that term, that means the ids need to be placed on all of the actionable text in the document AND that any updates to the
          * glossary means updating the ids on all actionable text pieces throughout CG (an absolute nightmare).
          */
-        console.log(termDisplay, termsArr);
         term = termsArr.filter(function(d){
             return d.term.toUpperCase() === termDisplay.toUpperCase();
         });
@@ -214,7 +212,6 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
         const showListResultsInd = true;
         setTermListView(showListResultsInd);
     });
-
     searchTextBox.bind("propertychange change click keyup input paste", function(event){
         if (debounce) {
             clearTimeout(debounce);
