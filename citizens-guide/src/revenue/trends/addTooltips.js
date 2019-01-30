@@ -30,7 +30,6 @@ function showTooltip(containerOffset) {
 
     g.raise()
 
-    console.log('colors.colorSpendingTrendCircles:', colors.colorPrimaryDarker);
     g.select('circle')
         .attr('fill', colors.colorPrimaryDarker)
 
