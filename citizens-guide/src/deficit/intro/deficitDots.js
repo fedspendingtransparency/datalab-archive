@@ -1,26 +1,21 @@
-import { transition } from 'd3-transition';
 import { dotsPerRow, dotConstants } from "./dotConstants";
-import { establishContainer, translator } from "../../utils";
-import { chartWidth } from './widthManager';
+import { translator } from "../../utils";
 
-const startPosition = {},
-    scaleFactor = 0.6;
-
-let config, dotColor, deficitDots, y1, layerX, deficitY, deficitCompareDots, debtCompareDots;
+let config, layer, y1, deficitCompareDots, debtCompareDots, remainder;
 
 function dotFactory(x, y) {
-    return deficitDots.append('circle')
+    return layer.append('circle')
         .attr('cx', x)
         .attr('cy', y)
         .attr('r', 2)
-        .style('fill', dotColor)
+        .style('fill', config.deficitColor)
 }
 
 function makeDotRow(start, max, y, debtOffset) {
     let i = 0,
         dot,
         x = start;
-    
+
     for (i; i < max; i++) {
         dot = dotFactory(x, y);
         x += dotConstants.offset.x;
@@ -37,8 +32,8 @@ function makeDotRow(start, max, y, debtOffset) {
     }
 }
 
-function markDeficitOnly() {
-    const circles = deficitDots.selectAll('circle'),
+function markDots(startPosition) {
+    const circles = layer.selectAll('circle'),
         size = circles.size(),
         start = size - startPosition.xOffset;
 
@@ -46,19 +41,20 @@ function markDeficitOnly() {
     debtCompareDots = circles.filter('[data-debt-only]');
 }
 
-function placeDotsDeficit() {
-    const deficitInBillions = config.deficitAmount/1000000000,
-        rowOneCount = dotsPerRow - startPosition.xOffset,
-        fullRows = Math.floor((deficitInBillions - rowOneCount) / dotsPerRow),
-        remainder = deficitInBillions - rowOneCount - (fullRows * dotsPerRow);
+function placeDots(startPosition) {
+    const deficitInBillions = config.deficitAmount / 1000000000,
+        rowOneCount = dotsPerRow - startPosition.remainder,
+        fullRows = Math.floor((deficitInBillions - rowOneCount) / dotsPerRow);
 
     let i = 0,
         y = 2;
 
-    // first row with offset
-    makeDotRow(2, dotsPerRow, y, startPosition.xOffset);
+    remainder = deficitInBillions - rowOneCount - (fullRows * dotsPerRow);
 
-    y += dotConstants.offset.y;    
+    // first row with offset
+    makeDotRow(2, dotsPerRow, y, startPosition.remainder);
+
+    y += dotConstants.offset.y;
 
     for (i; i < fullRows; i++) {
         makeDotRow(2, dotsPerRow, y)
@@ -69,50 +65,24 @@ function placeDotsDeficit() {
 
     y1 = y;
 
-    markDeficitOnly();
+    markDots(startPosition);
 }
 
-export function switchCompareMode(mode, duration) {
-    const layerY = (mode === 'debt') ? 0 : deficitY;
-
-    duration = duration * 1.5;
-
-    deficitDots.transition()
-        .duration(duration)
-        .attr('transform', translator(layerX, layerY) + ` scale(${scaleFactor})`)
-        .ease();
-
-    deficitCompareDots.transition()
-        .duration(duration)
-        .attr('opacity', (mode === 'debt') ? 0 : 1)
-        .ease();
-
-    debtCompareDots.transition()
-        .duration(duration)
-        .attr('opacity', (mode === 'debt') ? 1 : 0)
-        .ease();
-}
-
-export function setDeficitStartPosition(xOffset, y) {
-    startPosition.xOffset = xOffset;
-
-    layerX = (chartWidth - chartWidth * scaleFactor) / 2;
-    deficitY = y * scaleFactor
-
-    deficitDots = config.mainContainer.append('g')
-        .classed('deficit-dots', true)
-        .attr('opacity', 0)
-        .attr('data-y0', y)
-        .attr('transform', translator(layerX, deficitY) + ` scale(${scaleFactor})`);
-    
-    deficitDots.lower();
-
-    placeDotsDeficit();
-
-    deficitDots.attr('data-y1', y1 + y);
-}
-
-export function initDeficitDots(c) {
+export function initDeficitDots(c, startPosition) {
     config = c;
-    dotColor = config.deficitColor;
+    layer = config.mainContainer.append('g')
+        .attr('opacity', 0)
+        .attr('data-o', 0)
+        .attr('transform', translator(0, startPosition.y))
+        .classed('deficit-layer', true);
+
+    placeDots(startPosition);
+
+    return {
+        layer: layer,
+        y: y1,
+        deficitCompareDots: deficitCompareDots,
+        debtCompareDots: debtCompareDots,
+        remainder: remainder
+    }
 }

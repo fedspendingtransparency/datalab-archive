@@ -2,7 +2,6 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { establishContainer, translator, fadeAndRemove } from '../../utils';
 import colors from '../../colors.scss';
-import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
 import { triggerInfoBox } from '../../infoBox';
 
@@ -119,7 +118,7 @@ function addText() {
         .ease();
 
 
-    setTimeout(buildLegend, 500);
+    setTimeout(buildLegend, 2000);
 }
 
 function initDot() {

@@ -1,10 +1,10 @@
-import colors from '../../colors.scss';
-import { compareDeficit } from './compareDeficit';
-import { compareDebt } from './compareDebt';
-import { initDeficitDots } from './deficitDots';
+import { createLayers } from "./createLayers";
 import { startLegendAnimation } from './legend';
-import { setChartWidth } from './widthManager';
+import { setChartWidth, chartWidth } from './widthManager';
 import { establishContainer, translator } from '../../utils';
+import colors from '../../colors.scss';
+import { setDotsPerRow } from "./dotConstants";
+import { layersInit } from "./manageLayers";
 
 const config = {
     revenueAmount: 3300000000000,
@@ -14,33 +14,35 @@ const config = {
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,
     spendingColor: colors.colorSpendingPrimary,
-    deficitColor: colors.colorDeficitPrimary
-};
-
-config.deficitAmount = config.spendingAmount - config.revenueAmount; // the math needs to be precise for the chart to work - no rounding
+    deficitColor: colors.colorDeficitPrimary,
+    debtColor: colors.colorDebtPrimary
+},
+    scaleFactor = 0.6;
 
 let mainContainer;
 
-function compareRevenueSpending() {
-    initDeficitDots(config);
-    compareDeficit(config);    
-}
+// the math needs to be precise for the chart to work - no rounding
+config.deficitAmount = config.spendingAmount - config.revenueAmount;
+config.priorDebtBalance = config.debtBalance - config.deficitAmount;
 
 function setMainContainer() {
-    mainContainer = establishContainer().append('g')
-        .attr('transform', translator(0, 35))
+    mainContainer = establishContainer(900).append('g')
+        .attr('transform', translator((chartWidth - chartWidth * scaleFactor) / 2, 35) + ` scale(${scaleFactor})`)
         .classed('main', true);
 
     config.mainContainer = mainContainer;
 }
 
+function legendCallback() {
+
+}
+
 (function init() {
     setChartWidth();
     setMainContainer();
+    setDotsPerRow();
+    startLegendAnimation(config, legendCallback);
+    createLayers(config);
 
-    startLegendAnimation(config, compareRevenueSpending);
-
-    return;
-
-    compareDebt(config);
+    setTimeout(layersInit, 4500);
 })();
