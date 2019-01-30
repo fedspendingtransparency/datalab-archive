@@ -39,7 +39,7 @@
 .facts__trigger {
   display: block;
   width: 49%;
-  border: 1px solid $color-spending-primary;
+  border: 1px solid $color-deficit-primary;
   text-align: center;
   margin-bottom: 2px;
   background: white;
@@ -48,7 +48,7 @@
 }
 
 .facts__trigger.facts__trigger--active {
-  background: $color-spending-primary;
+  background: $color-deficit-primary;
   color: white;
 }
 
@@ -128,7 +128,7 @@ aside {
     width: auto;
     max-width: none;
     margin: 0;
-    border-left: 3px solid $color-spending-primary;
+    border-left: 3px solid $color-deficit-primary;
     box-shadow: none;
   }
 

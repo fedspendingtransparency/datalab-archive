@@ -1,6 +1,6 @@
 import { createLayers } from "./createLayers";
 import { startLegendAnimation } from './legend';
-import { setChartWidth, chartWidth } from './widthManager';
+import { setChartWidth } from './widthManager';
 import { establishContainer, translator } from '../../utils';
 import colors from '../../colors.scss';
 import { setDotsPerRow } from "./dotConstants";
@@ -16,8 +16,7 @@ const config = {
     spendingColor: colors.colorSpendingPrimary,
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary
-},
-    scaleFactor = 0.6;
+};
 
 let mainContainer;
 
@@ -26,8 +25,7 @@ config.deficitAmount = config.spendingAmount - config.revenueAmount;
 config.priorDebtBalance = config.debtBalance - config.deficitAmount;
 
 function setMainContainer() {
-    mainContainer = establishContainer(900).append('g')
-        .attr('transform', translator((chartWidth - chartWidth * scaleFactor) / 2, 35) + ` scale(${scaleFactor})`)
+    mainContainer = establishContainer(300).append('g')
         .classed('main', true);
 
     config.mainContainer = mainContainer;
