@@ -68,7 +68,9 @@ function generateOverlay(number, id, label, rectColor) {
         }
     }
 
-    labelMaker(overlayLayer, overlayHeight, label, amount)
+    labelMaker(overlayLayer, overlayHeight, label, amount);
+
+    overlayLayer.attr('data-height', overlayHeight);
 
     layers[id] = overlayLayer;
 }
@@ -110,6 +112,7 @@ function createDebt() {
 function createDeficitDots() {
     const deficitDots = initDeficitDots(config, deficitStartPosition);
 
+    layers.master = config.mainContainer;
     layers.deficit = deficitDots.layer.attr('data-y', deficitStartPosition.y);
     layers.deficitCompareDots = deficitDots.deficitCompareDots;
     layers.debtCompareDots = deficitDots.debtCompareDots;
