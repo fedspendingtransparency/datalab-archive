@@ -14,4 +14,10 @@
       <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
   {% endif %}
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
+
+  <!-- og tags -->
+  {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
+  <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
+  {% if page.description %}<meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
+  {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
 </head>
