@@ -10,8 +10,9 @@ const d3 = { select, selectAll },
 
 let activeCompare, revenueFirstTime, debtFirstTime;
 
-function revealSidebar() {
-    d3.selectAll('.sidebar').classed('sidebar--hidden', null);
+function revealHiddenElements() {
+    d3.selectAll('.sidebar--hidden').classed('sidebar--hidden', null);
+    resizeSvg();
 }
 
 function resizeSvg() {
@@ -19,8 +20,10 @@ function resizeSvg() {
 
     if (activeCompare === 'debt') {
         h = layers.debt.attr('data-height') * scaleFactor * 1.2;
+    } else if (!activeCompare) {
+        h = 120;
     }
-
+    
     establishContainer().transition().duration(duration).attr('height', h);
 }
 
@@ -41,6 +44,10 @@ function zoom(out) {
 
 }
 
+function showHideMath() {
+    d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
+}
+
 function toggleLayer() {
     const clicked = d3.select(this),
         id = clicked.attr('data-trigger-id'),
@@ -53,6 +60,7 @@ function toggleLayer() {
         deficitOnly();
         activeCompare = null;
         resizeSvg();
+        showHideMath();
         return;
     }
 
@@ -73,6 +81,7 @@ function toggleLayer() {
     activeCompare = id;
 
     resizeSvg();
+    showHideMath();
 }
 
 function initialDebtCompare(noDelay) {
@@ -230,6 +239,6 @@ export function layersInit() {
     d3.selectAll('.facts__trigger').on('click', toggleLayer);
     zoom();
     deficitOnly();
-
-    setTimeout(revealSidebar, duration);
+    setTimeout(showHideMath, duration * 2);
+    setTimeout(revealHiddenElements, duration);
 }
