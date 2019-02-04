@@ -162,7 +162,7 @@ export function registerLayer(id, layer, _n, _config) {
 }
 
 export function resetForResize() {
-    d3.selectAll('.sidebar').classed('sidebar--hidden', true);
+    d3.selectAll('.sidebar').classed('intro-hidden', true);
     Object.keys(layers).forEach(setLayerOpacity);
     d3.selectAll('.facts__trigger').classed(buttonActive, null);
     d3.selectAll('.facts__section').classed(sectionActive, null);
@@ -170,9 +170,9 @@ export function resetForResize() {
 
 export function revealCompare() {
     setTimeout(() => {
-        d3.selectAll('.sidebar')
-            .classed('sidebar--hidden', null);
-    }, 500)
+        d3.selectAll('.intro-hidden')
+            .classed('intro-hidden', null);
+    }, 500);
 }
 
 d3.selectAll('.facts__trigger').on('click', toggleFacts);

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
   <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
   <link rel="stylesheet" href="/assets/ffg/nav/nav.css" />
-  <link rel="stylesheet" href="/assets/ffg/css/deficit-intro.css" />
+  <link rel="stylesheet" href="/assets/ffg/css/chapterIntroCommon.css" />
 </head>
   <script src="/js/babel-polyfill.min.js"></script>
 <script src="/js/jquery.min.js"></script>
@@ -122,18 +122,18 @@
 <div class="ffg-wrapper">
     <h1>In 2018, the federal government spent $779 billion more than it collected, resulting in a deficit.</h1>
 
-    <div id="copy">
+    <div class="deficit-copy">
         <p>How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent $4.1 trillion and collected $3.3 trillion in 2018, the government ended up with a deficit for the year.</p>
     </div>
 
     <div class="viz-wrapper">
         <div id="viz"></div>
-        
-        <div class="chapter-intro__math intro-math intro-math--hidden">
-            <i class="fas fa-reply"></i>779 dots x $1 billion = <strong>$779 billion</strong>
+
+        <div class="intro-math intro-hidden">
+            <i class="fas fa-reply intro-math__icon"></i>779 dots x $1 billion = <strong>$779 billion</strong>
         </div>
 
-        <div class="facts sidebar sidebar--hidden">
+        <div class="facts sidebar intro-hidden">
             <div class="facts__inner">
                 <div id="compare-options">
                     <p class="facts__prompt">How does the deficit relate to federal revenue, spending, and the national debt?</p>
@@ -145,7 +145,7 @@
             </div>
         </div>
         
-        <section class="tour sidebar sidebar--hidden">
+        <section class="tour sidebar intro-hidden">
             <div class="tour__part-one">
                 <h1>How has the federal deficit trended over time?</h1>
             </div>

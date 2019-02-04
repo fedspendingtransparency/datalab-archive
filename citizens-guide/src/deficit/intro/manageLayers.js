@@ -11,7 +11,7 @@ const d3 = { select, selectAll },
 let activeCompare, revenueFirstTime, debtFirstTime;
 
 function revealHiddenElements() {
-    d3.selectAll('.sidebar--hidden').classed('sidebar--hidden', null);
+    d3.selectAll('.intro-hidden').classed('intro-hidden', null);
     resizeSvg();
 }
 

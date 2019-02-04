@@ -7,7 +7,7 @@ description: description
 permalink: /federal-finance-guide/spending/index
 ffg: true
 ffgNav: true
-ffgPageCss: css/spending-intro.css
+ffgPageCss: css/chapterIntroCommon.css
 ---
 
 {% include ffg/nav/spending.html %}
@@ -21,14 +21,16 @@ ffgPageCss: css/spending-intro.css
 
     <div class="viz-wrapper">
         <div id="viz"></div>
-        <div class="chapter-intro__math">
-            <i class="fas fa-reply"></i>4,100 dots x $1 billion = <strong>$4.1 trillion</strong>
-            <div id="copy">
-                <p>Where does all the money go? Most of government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Why does the federal government do this? One reason is the Constitution! The Constitution’s preamble, which outlines the purpose of creating the new government is "...to establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity."</p>
-            </div>
+
+        <div class="intro-math intro-hidden">
+            <i class="fas fa-reply intro-math__icon"></i>4,100 dots x $1 billion = <strong>$4.1 trillion</strong>
         </div>
 
-        <div class="facts sidebar sidebar--hidden">
+        <div id="copy" class="intro-hidden">
+            <p>Where does all the money go? Most of government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Why does the federal government do this? One reason is the Constitution! The Constitution’s preamble, which outlines the purpose of creating the new government is "...to establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity."</p>
+        </div>
+
+        <div class="facts sidebar intro-hidden">
             <div class="facts__inner">
                 <div id="compare-options">
                     <p class="facts__prompt">How does federal spending compare to federal revenue and the size of the U.S. economy?</p>
@@ -40,7 +42,8 @@ ffgPageCss: css/spending-intro.css
 
                 <section id="revenue-facts" class="facts__section">
                     <h1>In Fiscal Year 2018, the federal government collected $3.3 trillion in revenue.</h1>
-                    <p>The $779 billion deficit was a result of the government spending more than it brought in. <a target="_blank" href="../revenue/">Go Explore Revenue.</a>
+                    <p>The $779 billion deficit was a result of the government spending more than it brought in. 
+                        <a target="_blank" href="../revenue/">Go Explore Revenue.</a>
                     </p>
                 </section>
 
@@ -58,11 +61,9 @@ ffgPageCss: css/spending-intro.css
             </div>
         </div>
         
-        <section class="tour sidebar sidebar--hidden">
-            <div class="tour__part-one">
-                <h1>What are the categories of federal spending?</h1>
-            </div>
-            <a class="tour__link" href="categories.html">Discover<i class="fas fa-chevron-right"></i></a>
+        <section class="tour sidebar intro-hidden">
+            <h1 class="tour__heading">What are the categories of federal spending?</h1>
+            <a class="tour__link" href="./categories.html">Discover<i class="fas fa-chevron-right"></i></a>
         </section>
     </div>
 
