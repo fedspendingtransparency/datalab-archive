@@ -76,6 +76,24 @@
   .facts__prompt {
     font-size: 1.6rem; } }
 
+.spending-intro .facts__trigger {
+  border: 1px solid #00796B; }
+
+.spending-intro .facts__trigger.facts__trigger--active {
+  background: #00796B; }
+
+.spending-intro .facts__inner {
+  border-left: 3px solid #00796B; }
+
+.deficit-intro .facts__trigger {
+  border: 1px solid #B3532D; }
+
+.deficit-intro .facts__trigger.facts__trigger--active {
+  background: #B3532D; }
+
+.deficit-intro .facts__inner {
+  border-left: 3px solid #B3532D; }
+
 #copy {
   text-align: left;
   margin-top: 2rem; }

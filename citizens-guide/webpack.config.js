@@ -234,6 +234,7 @@ module.exports = [{
     }
 },{
     entry: {
+        intro: './src/debt/intro/index.js',
         countryComparison: './src/debt/countries/index.js',
     },
     devtool: devtool,
