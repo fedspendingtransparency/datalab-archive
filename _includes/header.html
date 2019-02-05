@@ -1,36 +1,61 @@
 <div class="official-banner" role="note">
-    <ul class="official-banner__site-list">
-        <li class="official-banner__site-item">
-            <a class="official-banner__site-link" href="https://www.usaspending.gov">
-                USAspending.gov
-            </a>
-        </li>
-        <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
-            |
-        </li>
-        <li class="official-banner__site-item">
-            <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
-                Data Lab
-            </a>
-        </li>
-    </ul>
-    <div class="official-banner__wrapper">
-        <div class="official-banner__text">
-            An official website of the U.S. government
-        </div>
-        <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
+  <ul class="official-banner__site-list">
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://www.usaspending.gov">
+        USAspending.gov
+      </a>
+    </li>
+    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+      |
+    </li>
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+        Data Lab
+      </a>
+    </li>
+  </ul>
+  <div class="official-banner__wrapper">
+    <div class="official-banner__text">
+      An official website of the U.S. government
     </div>
+    <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
+  </div>
 </div>
 {% include info-banner.html %}
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
   <a href="{{ site.baseurl }}/index.html" class="usaspending-logo-link">
-    <div class="usaspending-logo">
+    <div class="usaspending-logo-center">
       {% include svgs/logo.svg %}
     </div>
   </a>
   <div class="header-right">
-      <span class="hamburger-icon" onclick="openNav()" aria-hidden="true">
-          {% include svgs/hamburger.svg %}
-      </span>
+    <nav>
+      <ul class="nav">
+	<li><a href="#">Link 1</a></li>
+	<li>
+          <a href="#">Dropdown 1</a>
+          <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+            <li><a href="#">Category 4</a></li>
+          </ul>
+	</li>
+	<li>
+          <a href="#">Dropdown 2</a>
+          <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+          </ul>
+	</li>
+	<li><a href="#">Link 4</a></li>
+	<li><a href="#">Link 5</a></li>
+      </ul>
+    </nav>
+
+    <!--    <span class="hamburger-icon" onclick="openNav()" aria-hidden="true">
+	 {% include svgs/hamburger.svg %}
+	 </span> -->
   </div>
 </header>
