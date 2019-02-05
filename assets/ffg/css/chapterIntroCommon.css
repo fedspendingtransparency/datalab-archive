@@ -82,17 +82,25 @@
 .spending-intro .facts__trigger.facts__trigger--active {
   background: #00796B; }
 
-.spending-intro .facts__inner {
-  border-left: 3px solid #00796B; }
-
 .deficit-intro .facts__trigger {
   border: 1px solid #B3532D; }
 
 .deficit-intro .facts__trigger.facts__trigger--active {
   background: #B3532D; }
 
-.deficit-intro .facts__inner {
-  border-left: 3px solid #B3532D; }
+.debt-intro .facts__trigger {
+  border: 1px solid #4A0072; }
+
+.debt-intro .facts__trigger.facts__trigger--active {
+  background: #4A0072; }
+
+@media only screen and (min-width: 960px) {
+  .spending-intro .facts__inner {
+    border-left: 3px solid #00796B; }
+  .deficit-intro .facts__inner {
+    border-left: 3px solid #B3532D; }
+  .debt-intro .facts__inner {
+    border-left: 3px solid #4A0072; } }
 
 #copy {
   text-align: left;

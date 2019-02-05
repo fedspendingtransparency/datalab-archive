@@ -9,10 +9,6 @@
     .facts__trigger.facts__trigger--active {
         background: $color-spending-primary;
     }
-
-    .facts__inner {
-        border-left: 3px solid $color-spending-primary;
-    }
 }
 
 // deficit
@@ -24,8 +20,29 @@
     .facts__trigger.facts__trigger--active {
         background: $color-deficit-primary;
     }
+}
 
-    .facts__inner {
+// debt
+.debt-intro {
+    .facts__trigger {
+        border: 1px solid $color-debt-primary;
+    }
+    
+    .facts__trigger.facts__trigger--active {
+        background: $color-debt-primary;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .spending-intro .facts__inner {
+        border-left: 3px solid $color-spending-primary;
+    }
+    
+    .deficit-intro .facts__inner {
         border-left: 3px solid $color-deficit-primary;
+    }
+    
+    .debt-intro .facts__inner {
+        border-left: 3px solid $color-debt-primary;
     }
 }
