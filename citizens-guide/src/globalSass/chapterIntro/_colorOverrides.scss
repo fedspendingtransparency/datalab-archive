@@ -1,0 +1,31 @@
+@import '../../colors';
+
+// spending
+.spending-intro {
+    .facts__trigger {
+        border: 1px solid $color-spending-primary;
+    }
+    
+    .facts__trigger.facts__trigger--active {
+        background: $color-spending-primary;
+    }
+
+    .facts__inner {
+        border-left: 3px solid $color-spending-primary;
+    }
+}
+
+// deficit
+.deficit-intro {
+    .facts__trigger {
+        border: 1px solid $color-deficit-primary;
+    }
+    
+    .facts__trigger.facts__trigger--active {
+        background: $color-deficit-primary;
+    }
+
+    .facts__inner {
+        border-left: 3px solid $color-deficit-primary;
+    }
+}

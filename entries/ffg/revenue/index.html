@@ -7,12 +7,12 @@ description: description
 permalink: /federal-finance-guide/revenue/index.html
 ffg: true
 ffgNav: true
-ffgPageCss: css/revenue-intro.css
+ffgPageCss: css/chapterIntroCommon.css
 ---
 
 {% include ffg/nav/revenue.html %}
 
-<div class="ffg-wrapper">
+<div class="ffg-wrapper revenue-intro">
     <h1>In 2018, the government collected $3.3 trillion.
         <button class="info-box-trigger" data-box-id="per-individual">
             <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
@@ -21,17 +21,19 @@ ffgPageCss: css/revenue-intro.css
 
     <div class="viz-wrapper">
         <div id="viz"></div>
-        <div class="chapter-intro__math">
-            <i class="fas fa-reply"></i>3,300 dots x $1 billion = <strong>$3.3 trillion</strong>
-            <div id="copy">
-                <p>Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consist mostly of individual, corporate and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
-                    Year<button class="info-box-trigger" data-box-id="fiscal-year">
-                        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
-                    </button>. The revenue the government collects is also known as receipts.</p>
-            </div>
+        
+        <div class="intro-math intro-hidden">
+            <i class="fas fa-reply intro-math__icon"></i>3,300 dots x $1 billion = <strong>$3.3 trillion</strong>
         </div>
 
-        <div class="facts sidebar sidebar--hidden">
+        <div id="copy" class="intro-hidden">
+            <p>Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consist mostly of individual, corporate and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
+                Year<button class="info-box-trigger" data-box-id="fiscal-year">
+                    <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+                </button>. The revenue the government collects is also known as receipts.</p>
+        </div>
+
+        <div class="facts sidebar intro-hidden">
             <div class="facts__inner">
                 <div id="compare-options">
                     <p class="facts__prompt">How does federal revenue compare to federal spending and the size of the economy?</p>
@@ -50,7 +52,7 @@ ffgPageCss: css/revenue-intro.css
                     <h1>In Fiscal Year 2018, federal revenue was equal to 16% of the total Gross Domestic Product, or economic activity, of the United States that year ($20.7 trillion).</h1>
                     <p>Why do we compare federal revenue to gross domestic product? Federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and revenue from taxes increase. In most cases, taxes are related to economic activity. As gross domestic product grows, tax revenue tends to increase as well.</p>
 
-                    <strong>What's Gross Domestic Product?
+                    <strong>What’s Gross Domestic Product?
                         <button class="info-box-trigger" data-box-id="gdp-info">
                             <img src="/assets/ffg/icons/definition.svg" alt="definition icon">
                         </button>
@@ -58,7 +60,8 @@ ffgPageCss: css/revenue-intro.css
                 </section>
             </div>
         </div>
-        <section class="tour sidebar sidebar--hidden">
+
+        <section class="tour sidebar intro-hidden">
             <h1 class="tour__heading">What are the sources of government revenue?</h1>
             <a id="tour-continue" class="tour__link" href="./categories.html">Continue<i class="fas fa-chevron-right"></i></a>
         </section>

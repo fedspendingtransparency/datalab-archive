@@ -139,7 +139,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '../assets/ffg',
+        path: __dirname + '/../assets/ffg',
     },
     module: {
         rules: moduleRules
@@ -234,6 +234,7 @@ module.exports = [{
     }
 },{
     entry: {
+        intro: './src/debt/intro/index.js',
         countryComparison: './src/debt/countries/index.js',
     },
     devtool: devtool,
@@ -255,14 +256,12 @@ module.exports = [{
 },{
     entry: [
         './src/globalSass/cg.scss', 
+        './src/globalSass/chapterIntroCommon.scss', 
         './src/bigPicture/scss/bp.scss', 
         './src/anecdote/anecdote.scss',
         './src/deficit/countries/deficit-country-comparison.scss',
-        './src/deficit/intro/deficit-intro.scss',
         './src/deficit/trends/deficit-trends.scss',
-        './src/revenue/intro/revenue-intro.scss',
         './src/revenue/categories/revenue-categories.scss',
-        './src/spending/intro/spending-intro.scss',
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
         './src/debt/trends/debt-trends.scss',        
