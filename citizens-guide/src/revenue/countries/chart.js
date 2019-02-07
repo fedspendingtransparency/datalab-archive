@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
-import { min, max } from 'd3-array';
+import { min, max, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import {translator, simplifyNumber, establishContainer, wordWrap, getElementBox} from '../../utils';
+import { translator, simplifyNumber, establishContainer, wordWrap, getElementBox } from '../../utils';
 import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { ink, placeHorizontalStripes } from './ink';
@@ -10,7 +10,6 @@ import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
 import './selectCountry.scss';
 import './countries.scss';
-import colors from '../../colors.scss';
 import { setData, prepareData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 import { pan } from './pan';
@@ -26,20 +25,44 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
         barYOffset: 3
     },
     addRemoveDuration = 1000,
+    barFadeTime = 1000,
     scales = {},
-    containers = {},
-    sortIcons = {};
+    containers = {};
 
-let xAxis, data, sortFunction, amountIcon, gdpIcon, config, primaryColor, debounce;
+let data, config, primaryColor, debounce;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
+
+function barTransition(selection) {
+    selection.transition()
+        .duration(barFadeTime)
+        .attr('x', function (d) {
+            if (d[config.amountField] < 0) {
+                return scales.x(d[config.amountField]);
+            }
+
+            return scales.x(0);
+        })
+        .attr('width', function (d) {
+            return Math.abs(scales.x(d[config.amountField]) - scales.x(0));
+        })
+        .ease();
+}
+
+function barLabelPosition(d) {
+    if (d[config.amountField] < 0) {
+        return scales.x(0) + 10;
+    }
+
+    return scales.x(d[config.amountField]) + 10;
+}
 
 function establishContainers() {
     const accessibilityAttrs = null || config.accessibilityAttrs,
         parentWidth = getElementBox(d3.select('#viz')).width,
         svg = establishContainer(null, parentWidth, accessibilityAttrs)
             .classed('country', true);
-    
+
     sizeSvg(800);
 
     containers.chart = svg.append('g').classed('pan-listen', true)
@@ -54,33 +77,9 @@ function establishContainers() {
     pan(dimensions.chartWidth, parentWidth);
 }
 
-function addBarLabels(g, data, keys) {
-    const text = g.selectAll('text')
-        .data(keys.map(k => k.config.data))
-        .enter()
-        .append('text')
-        .text(function (d) {
-            return simplifyNumber(data[d])
-        })
-        .attr('font-size', 12)
-        .attr('x', function (d) {
-            return scales.x(data[d]) + 10;
-        })
-        .attr('y', function (d, i) {
-            return (dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 8);
-        })
-        .attr('opacity', 0)
-
-    text.transition()
-        .duration(500)
-        .attr('opacity', 1)
-        .ease();
-}
-
 function addBarGroups() {
-    const barFadeTime = 1000,
-        groups = containers.data.selectAll('g.bar-group')
-            .data(data, function (d) { return d.country });
+    const groups = containers.data.selectAll('g.bar-group')
+        .data(data, function (d) { return d.country });
 
     let enterGroups;
 
@@ -106,30 +105,32 @@ function addBarGroups() {
         return;
     }
 
+    if (scales.x.domain()[0] < 0) {
+        enterGroups.append('line')
+            .attr('stroke', primaryColor)
+            .attr('x1', scales.x(0))
+            .attr('y1', dimensions.rowHeight / 2 - dimensions.barHeight / 2 - 5)
+            .attr('x2', scales.x(0))
+            .attr('y2', dimensions.rowHeight / 2 - dimensions.barHeight / 2 + dimensions.barHeight + 5)
+    }
+
     enterGroups.append('rect')
-        .attr('width', scales.x(0))
+        .attr('width', 0)
         .attr('height', dimensions.barHeight)
-        .attr('x', 0)
+        .attr('x', scales.x(0))
         .attr('y', dimensions.rowHeight / 2 - dimensions.barHeight / 2)
         .attr('fill', primaryColor)
         .attr('fill-opacity', 0.5)
         .attr('stroke', primaryColor)
         .attr('stroke-width', 1)
-        .transition()
-        .duration(barFadeTime)
-        .attr('width', function (d) {
-            return scales.x(d[config.amountField]);
-        })
-        .ease();
+        .call(barTransition);
 
     enterGroups.append('text')
         .text(function (d) {
             return simplifyNumber(d[config.amountField])
         })
         .attr('font-size', 12)
-        .attr('x', function (d) {
-            return scales.x(d[config.amountField]) + 10;
-        })
+        .attr('x', barLabelPosition)
         .attr('y', function (d, i) {
             return (dimensions.rowHeight / 2 + dimensions.barHeight / 2 - 8);
         })
@@ -144,7 +145,7 @@ function addBarGroups() {
 function setScales() {
     const amountVals = data.map(r => r[config.amountField]),
         min = d3.min([0, d3.min(amountVals)]),
-        max = d3.max(amountVals) * 1.1;
+        max = d3.max(amountVals) * 1.15;
 
     scales.x = d3.scaleLinear()
         .domain([min, max]).nice()
@@ -192,7 +193,7 @@ function placeCountryLabels() {
                     x = selection.attr('x');
                     y = selection.attr('y') - textHeight / 2;
                     wordWrap(selection, max);
-                    selection.selectAll('tspan').attr('x', x).attr('y',y);
+                    selection.selectAll('tspan').attr('x', x).attr('y', y);
                 }
             });
     }, timeoutForAdd)
@@ -294,32 +295,33 @@ function repositionXAxis() {
 }
 
 function rescale() {
-    const previousMax = scales.x.domain()[1];
+    const previousMax = scales.x.domain()[1],
+        previousMin = scales.x.domain()[0];
 
     setScales();
 
-    if (previousMax === scales.x.domain()[1]) {
+    if (previousMax === scales.x.domain()[1] && previousMin === scales.x.domain()[0]) {
         return;
     }
 
     containers.data.selectAll('g.bar-group')
-        .each(function (data) {
+        .each(function () {
             const group = d3.select(this),
                 labels = group.selectAll('text'),
+                zeroLines = group.selectAll('line'),
                 bars = group.selectAll('rect');
 
-            bars.transition()
-                .duration(addRemoveDuration)
-                .attr('width', function (d) {
-                    return scales.x(d[config.amountField]);
-                })
+            bars.call(barTransition);
+
+            zeroLines.transition()
+                .duration(barFadeTime)
+                .attr('x1', scales.x(0))
+                .attr('x2', scales.x(0))
                 .ease();
 
             labels.transition()
                 .duration(addRemoveDuration)
-                .attr('x', function (d) {
-                    return scales.x(d[config.amountField]) + 20;
-                })
+                .attr('x', barLabelPosition)
         });
 
     return true;
@@ -361,7 +363,7 @@ export function refreshData(sortField, countriesUpdated) {
 
 function redraw() {
     d3.select('#viz').selectAll('*').remove();
-    
+
     establishContainers();
     ink(containers, dimensions, data.length);
     setScales();
@@ -375,27 +377,11 @@ function redraw() {
 export function chartInit(_config) {
     config = _config;
 
-    switch(config.chapter){
-        case 'spending':
-            primaryColor = colors.colorSpendingPrimary;
-            break;
-        case 'revenue':
-            primaryColor = colors.income;
-            break;
-        case 'deficit':
-            primaryColor = colors.colorDeficitPrimary;
-            break;
-        case 'debt':
-            primaryColor = colors.colorDebtPrimary;
-            break;
-        default:
-            primaryColor = '#EEE';
-            break;
-    }
+    primaryColor = config.primaryColor || '#EEE';
 
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);
-    
+
     redraw();
 }
 
