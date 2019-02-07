@@ -1,0 +1,11 @@
+.ffg-share {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+
+    &.ffg-share--big-picture {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-right: 1rem;
+    }
+}
