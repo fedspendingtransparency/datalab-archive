@@ -340,12 +340,12 @@ a.chapter__cta i.fa-angle-right {
   text-align: center; }
 
 .bp-header__app-name {
-  color: #000;
-  font-weight: 500;
-  font-size: 1rem;
-  word-spacing: 0.2em;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem; }
+  color: #3C3C3C;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 2.1px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 1px; }
 
 .bp-header__heading {
   color: #111;
@@ -373,17 +373,21 @@ a.chapter__cta i.fa-angle-right {
 .overview-chart {
   order: 1; }
 
+.bp-header__text {
+  color: #AAA; }
+
 a.bp-header__click-here--link {
-  color: #77abe8; }
+  color: #a3c7f0;
+  font-weight: 400; }
 
 @media only screen and (min-width: 800px) {
   .bp-header__heading {
-    font-size: 3.3rem; }
+    font-size: 3.51rem; }
   .bp-header {
     padding-top: 3.5rem; }
   .bp-header__text {
     padding-bottom: 3rem;
-    font-size: 1.1rem; } }
+    font-size: 1.02rem; } }
 
 .accordion {
   margin: 0 0 1rem 0;
