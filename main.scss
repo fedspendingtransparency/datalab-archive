@@ -161,6 +161,7 @@ table td {
 
 #header {
   background: #FFFFFF;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   text-align: center;
@@ -614,6 +615,14 @@ header.major h2 {
   vertical-align: middle;
 }
 
+.headerRight-icon {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
 .how-analysis-container {
   background-size: cover;
   background-image: url("{{site.baseurl}}/images/analysis.jpg");
@@ -658,13 +667,27 @@ header.major h2 {
   margin-left: 70px;
 }
 
-/* This will be default logo when in non-sticky mode */ 
+/* This will be default logo when in non-sticky mode */
+/* "sticky" mode will remove margins! */
 .usaspending-logo-center {
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 197px;
   height: 42px;
+  margin-left: 800px;
+}
+
+.usaspending-logo-subtext {
+  position: fixed;
+  font-size: 7px;
+  margin-top: -5px;
+  font-stretch: normal;
+  line-height: 1.27;
+  letter-spacing: 0.3px;
+  font-weight: bold;
+  text-align: center;
+  color: #4f4f4f;
 }
 
 #menu {
@@ -701,6 +724,7 @@ header.major h2 {
   display: flex;
   justify-content: center;
   text-align: center;
+  z-index: 999; // has to go behind d3 elements 
 }
 
 .read-more-header-container {
@@ -1073,3 +1097,4 @@ article > header {
 @import 'website/footer-navigation';
 @import 'website/modal';
 @import 'website/mobile';
+@import 'website/header'; // New Landing Page Header and Nav

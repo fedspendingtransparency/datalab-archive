@@ -26,36 +26,60 @@
   <a href="{{ site.baseurl }}/index.html" class="usaspending-logo-link">
     <div class="usaspending-logo-center">
       {% include svgs/logo.svg %}
+      <p class="usaspending-logo-subtext">Visualizations to help you understand government finance.</p>
     </div>
   </a>
   <div class="header-right">
-    <nav>
-      <ul class="nav">
-	<li><a href="#">Link 1</a></li>
-	<li>
-          <a href="#">Dropdown 1</a>
-          <ul>
-            <li><a href="#">Category 1</a></li>
-            <li><a href="#">Category 2</a></li>
-            <li><a href="#">Category 3</a></li>
-            <li><a href="#">Category 4</a></li>
-          </ul>
-	</li>
-	<li>
-          <a href="#">Dropdown 2</a>
-          <ul>
-            <li><a href="#">Category 1</a></li>
-            <li><a href="#">Category 2</a></li>
-            <li><a href="#">Category 3</a></li>
-          </ul>
-	</li>
-	<li><a href="#">Link 4</a></li>
-	<li><a href="#">Link 5</a></li>
-      </ul>
-    </nav>
+    <nav id="headerNav">
+      <nav>
+	<ul class="nav">
+	  <li class="navListItem analysesText">
+            <a href="#">Analyses</a>
+	    <span>{% include svgs/arrow.svg %}</span>
+	  </li>
+	  <li class="navListItem resourcesText">
+            <a href="#">Resources</a>
+	    <span>{% include svgs/arrow.svg %}</span>
+	  </li>
+	  <li class="navListItem ffgText">
+            <a href="#">Federal Finance Guide</a>
+	    <span class="">{% include svgs/arrow.svg %}</span>
+	  </li>
+	  <li class="navListSearch">
+	    <span>
+	      {% include svgs/search.svg %}
+	    </span>
+	  </li>
+	</ul>
+      </nav>
+  </div> <!-- end header -->
 
-    <!--    <span class="hamburger-icon" onclick="openNav()" aria-hidden="true">
-	 {% include svgs/hamburger.svg %}
-	 </span> -->
-  </div>
+  <div class="dropdownUlSection">
+    <ul class="secondaryNavAnalyses">
+      <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+      <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+      <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
+      <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+    </ul>
+    <ul class="secondaryNavResources">
+      <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+      <li class="secondaryNavli"><a href="">Student Innovator's Toolbox</a></li>
+    </ul>
+    <ul class="secondaryNavFFG">
+      <li class="secondaryNavli"><a href="#">Overview</a></li>
+      <li class="secondaryNavli"><a href="#">Revenue</a></li>
+      <li class="secondaryNavli"><a href="#">Spending</a></li>
+      <li class="secondaryNavli"><a href="#">Deficit</a></li>
+      <li class="secondaryNavli"><a href="#">Debt</a></li>
+    </ul>
+  </div> <!-- this comes down on a hover! -->
+
 </header>
+
+
