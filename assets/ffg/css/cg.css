@@ -168,6 +168,11 @@ h1 .info-box-trigger {
     max-width: 1200px;
     margin: 0 auto;
     padding-right: 1rem; }
+  .ffg-share .popup .popuptext.right {
+    right: 0;
+    left: inherit; }
+  .ffg-share .newpopup {
+    top: 25px !important; }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
