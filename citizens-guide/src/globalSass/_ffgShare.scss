@@ -8,4 +8,13 @@
         margin: 0 auto;
         padding-right: 1rem;
     }
+
+    .popup .popuptext.right {
+        right: 0;
+        left: inherit;
+    }
+
+    .newpopup {
+        top: 25px !important;
+    }
 }
