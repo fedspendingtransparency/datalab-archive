@@ -9,7 +9,7 @@ import '../header.scss';
 import '../../infoBox';
 
 const config = {
-    data: getDataByYear(2017),
+    data: getDataByYear(2018),
     containerClass : receiptsConstants.shaderContainerClass,
     sectionColor: colors.colorPrimaryDarker,
     accessibilityAttrs : {

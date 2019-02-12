@@ -37,9 +37,10 @@ function sortByAmount(a, b) {
 }
 
 function addSubcategories(categoryRow) {
+    //'this' argument expects a year
     
     categoryRow.subcategories = CategoryData.filter(r => {
-        return (r.fiscal_year === 2017 && r.sub_activity && r.activity_plain === categoryRow.activity)
+        return (r.fiscal_year === this && r.sub_activity && r.activity_plain === categoryRow.activity)
     }).map(dataMapper).sort(sortSubcategories);
     
     enrichData(categoryRow.subcategories);
@@ -56,10 +57,10 @@ function dataMapper(r) {
 
 export function getDataByYear(year) {
     const categories = CategoryData.filter(r => {
-        return (r.fiscal_year === 2017 && !r.sub_activity)
+        return (r.fiscal_year === year && !r.sub_activity)
     }).map(dataMapper).sort(sortByAmount);
 
-    categories.forEach(addSubcategories);
+    categories.forEach(addSubcategories, year);
 
     return categories;
 }
