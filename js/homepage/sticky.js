@@ -63,7 +63,13 @@ function stickyHeader(sticky) {
 
       if($(window).scrollTop() === 0) {
         $(sticky).css('display', 'flex').css('position','relative');
-        $(spendingLogo).css('margin-left', '800px'); // move the logo back to the middle when we get back up there
+
+        if ($(window).width() >= 1920) {
+          $(spendingLogo).css('margin-left', '800px'); // move the logo back to the middle when we get back up there
+        } else {
+          $(spendingLogo).css('margin-left', '700px'); // move the logo back to the middle when we get back up there
+        }
+
       } else {
         // if not at the top, then we make it "sticky"
         $(sticky).css('position','fixed').css('top', '0').css('width','100%').css('justify-content', 'space-between').css('text-align', 'center');
@@ -72,7 +78,7 @@ function stickyHeader(sticky) {
         $(spendingLogo).css('margin-left','0');
         
         // also gotta move over the right side of the nav!
-        $(headerRight).css('padding-right', '40px');
+        $(headerRight).css('padding-right', '45px');
 
       }
     });

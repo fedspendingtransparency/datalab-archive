@@ -9,21 +9,6 @@
       |
     </li>
     <li class="official-banner__site-item">
-      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
-        Data Lab
-      </a>
-    </li>
-  </ul>
-  <div class="official-banner__wrapper">
-    <div class="official-banner__text">
-      An official website of the U.S. government
-    </div>
-    <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
-  </div>
-</div>
-{% include info-banner.html %}
-<header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
-  <a href="{{ site.baseurl }}/index.html" class="usaspending-logo-link">
     <div class="usaspending-logo-center">
       {% include svgs/logo.svg %}
       <p class="usaspending-logo-subtext">Visualizations to help you understand government finance.</p>
