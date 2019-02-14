@@ -5,6 +5,7 @@ import { trendData } from './trendData';
 import { showHideInit } from './showHideCategories';
 import { initTwoPartTour } from './tour';
 import { setThreshold } from "./setThreshold";
+import { destroyDetailPane } from './detailPane';
 
 const d3 = { select, selectAll },
     accessibilityAttrs = {
@@ -45,6 +46,8 @@ d3.select('.link-button__div')
             isAgencyLoadingInd = buttonId.search('agency') > 0,
             type = isAgencyLoadingInd ? 'agency' : 'function',
             data = showHideInit(setData(type));
+
+        destroyDetailPane(); // needed if pane had been previously open
 
         if (isAgencyLoadingInd) {
             selectAgency.classed('hidden', false);
