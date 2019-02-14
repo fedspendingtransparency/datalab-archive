@@ -35,7 +35,7 @@ function configFactory(entry, assetFolderName, rules) {
     if (assetFolderName) {
         assetPath = assetPath + assetFolderName + '/';
     }
-    
+
     rules = rules || [
         {
             test: /\.js$/,
@@ -144,7 +144,7 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
-},{
+}, {
     entry: {
         glossary: './src/components/glossary/glossary.js'
     },
@@ -164,7 +164,7 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
-},{
+}, {
     entry: {
         intro: './src/revenue/intro/index.js',
         categories: './src/revenue/categories/index.js',
@@ -187,7 +187,7 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
-},{
+}, {
     entry: {
         categories: './src/spending/categories/index.js',
         countryComparison: './src/spending/countries/index.js',
@@ -210,7 +210,7 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
-},{
+}, {
     entry: {
         countryComparison: './src/deficit/countries/index.js',
         intro: './src/deficit/intro/index.js',
@@ -232,7 +232,7 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
-},{
+}, {
     entry: {
         intro: './src/debt/intro/index.js',
         countryComparison: './src/debt/countries/index.js',
@@ -253,26 +253,25 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
-},{
+}, {
     entry: [
-        './src/globalSass/cg.scss', 
-        './src/globalSass/chapterIntroCommon.scss', 
-        './src/bigPicture/scss/bp.scss', 
+        './src/globalSass/cg.scss',
+        './src/globalSass/chapterIntroCommon.scss',
+        './src/globalSass/countryCommon.scss',
+        './src/bigPicture/scss/bp.scss',
         './src/anecdote/anecdote.scss',
-        './src/deficit/countries/deficit-country-comparison.scss',
         './src/deficit/trends/deficit-trends.scss',
         './src/revenue/categories/revenue-categories.scss',
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
-        './src/debt/trends/debt-trends.scss',        
-        './src/debt/countries/debt-country-comparison.scss',        
+        './src/debt/trends/debt-trends.scss',
     ],
     output: {
         path: path.resolve(__dirname, '../assets/ffg/css'),
-	},
+    },
     mode: mode,
     module: {
-		rules: cssRules
-	}
+        rules: cssRules
+    }
 }];
 
