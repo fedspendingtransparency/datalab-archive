@@ -37,7 +37,7 @@ function buildLegend() {
         .ease()
 
     g.append('text')
-        .text('= 1 Billion Dollars')
+        .text('= $1 Billion')
         .attr('fill', colors.textColorParagraph)
         .attr('opacity', 0)
         .style('font-size', 16)
@@ -52,7 +52,7 @@ function buildLegend() {
     g.append('image')
         .attr('height', 16)
         .attr('width', 20)
-        .attr('x', 122)
+        .attr('x', 80)
         .attr('y', -14)
         .attr('opacity', 0)
         .attr('data-box-id', 'billion-dollars')
@@ -113,7 +113,7 @@ function addText() {
         .attr('opacity', 1)
         .ease();
 
-    setTimeout(buildLegend, 500);
+    setTimeout(buildLegend, 1000);
 }
 
 function initDot() {
