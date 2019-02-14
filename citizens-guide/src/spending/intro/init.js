@@ -16,7 +16,6 @@ export function initChart(_config) {
     d3.select('#viz').selectAll('*').remove();
     config = _config || config;
 
-
     setChartWidth();
     setDotsPerRow();
     

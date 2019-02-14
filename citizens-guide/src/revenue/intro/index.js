@@ -5,8 +5,8 @@ import colors from '../../colors.scss';
     const config = {
         comparisonAmount: 4100000000000,
         compareString: 'spending',
-        gdpAmount: 19600000000000,
-        gdpPercent: 17,
+        gdpAmount: 20700000000000,
+        gdpPercent: 16,
         sectionAmount: 3300000000000,
         comparisonColor: colors.colorSpendingPrimary,
         sectionColor: colors.colorPrimary,
