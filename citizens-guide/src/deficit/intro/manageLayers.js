@@ -15,6 +15,17 @@ function revealHiddenElements() {
     resizeSvg();
 }
 
+function toggleFacts() {
+    const targetSection = d3.select(`#${activeCompare}-facts`),
+        sectionActive = 'facts__section--active';
+
+    d3.selectAll('.facts__section').classed(sectionActive, null);
+
+    if (targetSection.size()) {
+        targetSection.classed(sectionActive, true);
+    }
+}
+
 function resizeSvg() {
     let h = 300;
 
@@ -23,7 +34,7 @@ function resizeSvg() {
     } else if (!activeCompare) {
         h = 120;
     }
-    
+
     establishContainer().transition().duration(duration).attr('height', h);
 }
 
@@ -41,7 +52,6 @@ function zoom(out) {
             .attr('transform', translator(0, yOffset) + ` scale(1)`)
             .ease();
     }
-
 }
 
 function showHideMath() {
@@ -59,6 +69,7 @@ function toggleLayer() {
         zoom();
         deficitOnly();
         activeCompare = null;
+        toggleFacts();
         resizeSvg();
         showHideMath();
         return;
@@ -80,6 +91,7 @@ function toggleLayer() {
     clicked.classed('facts__trigger--active', true);
     activeCompare = id;
 
+    toggleFacts();
     resizeSvg();
     showHideMath();
 }
