@@ -25,6 +25,12 @@ $(function() {
     $(hiddenUlSection).css('display', 'flex'); // flex container
   });
 
+  /* on Nav Li's click event */
+  /* FOR MOBILE! (-: */
+  $(li).click(function() {
+    $(hiddenUlSection).css('display', 'flex'); // flex container
+  });
+
   /* Secondary Ul dropdown Section */
   $(analysesText).mouseover(function() {
     $(analysesNav).css('display', 'block');
@@ -65,7 +71,7 @@ function stickyHeader(sticky) {
         $(sticky).css('display', 'flex').css('position','relative');
 
         if ($(window).width() >= 1920) {
-          $(spendingLogo).css('margin-left', '800px'); // move the logo back to the middle when we get back up there
+          $(spendingLogo).css('margin-left', '750px'); // move the logo back to the middle when we get back up there
         } else {
           $(spendingLogo).css('margin-left', '700px'); // move the logo back to the middle when we get back up there
         }

@@ -1,5 +1,6 @@
 // Jack Killilea (jrk) <Killilea_Jack@bah.com>
 // For our *New* homepage Sticky Header & Banner
+$blue-link: #2376d8;
 
 nav {
   position: relative;
@@ -42,7 +43,7 @@ nav#headerNav {
   display: none;
   background-color: #FFFFFF;
 //  border-bottom: .4px solid black;
-  border-top: .2px solid #0a2644;
+//  border-top: .2px solid #0a2644;
   width: 100%;
   width: 100wv;
   margin-top: 76px;
@@ -86,7 +87,7 @@ nav#headerNav {
 //secondary nav li hover!
 .secondaryNavli > a:hover {
 //  color: #0a2644;
-  color: #2376d8;
+  color: $blue-link;
   text-decoration: underline;
 }
 

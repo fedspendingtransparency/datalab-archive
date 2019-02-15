@@ -167,6 +167,7 @@ table td {
   align-items: center;
   text-align: center;
   padding: 20px;
+  height: 90px;
   justify-content: space-between;
   position: relative;
 }
@@ -535,6 +536,22 @@ header.major h2 {
   justify-content: flex-end;
 }
 
+.glossary-section {
+  display: flex;
+  flex-direction: row;
+  padding-left: 15px;
+  margin-left: 20px;
+//  width: 100%;
+//  margin-right: 20px;
+  padding-right: 15px;
+  background-color: red;
+  color: white;
+}
+
+.glossary-section > span {
+  display: inline;
+}
+
 .links {
   list-style: none;
   list-style-type: none;
@@ -675,9 +692,19 @@ header.major h2 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 197px;
-  height: 42px;
   margin-left: 700px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1680px) { 
+  .usaspending-logo-center {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 750px;
+    margin-top: 50px;
+  }
 }
 
 @media only screen and (max-width: 1920px) { 
@@ -686,9 +713,8 @@ header.major h2 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 197px;
-    height: 42px;
-    margin-left: 800px;
+    margin-left: 750px;
+    margin-top: 50px;
   }
 }
 
