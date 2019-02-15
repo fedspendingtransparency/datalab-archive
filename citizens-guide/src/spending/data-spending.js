@@ -1,5 +1,5 @@
 // import 'babel-polyfill';
-import SpendingData from '../../public/csv/spending_categories.csv';
+import SpendingData from '../../public/csv/spending_agency_function_fy14_fy18.csv';
 import { min } from 'd3-array';
 
 const d3 = { min },

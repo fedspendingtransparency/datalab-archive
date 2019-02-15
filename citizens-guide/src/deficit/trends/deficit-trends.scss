@@ -18,3 +18,13 @@
     box-sizing: border-box;
   }
 }
+
+.deficit--surplus__component--content {
+  opacity: 0;
+  height: 0;
+  &.active {
+    opacity: 1;
+    height: auto;
+    transition: opacity 1s ease;
+  }
+}
