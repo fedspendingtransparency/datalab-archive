@@ -164,6 +164,26 @@ module.exports = [{
     module: {
         rules: moduleRules
     }
+},{
+    entry: {
+        tabs: './src/components/tabs/tabs.js'
+    },
+    devtool: devtool,
+    devServer: devServer,
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/../assets/ffg/components/tabs',
+    },
+    module: {
+        rules: moduleRules
+    }
 }, {
     entry: {
         intro: './src/revenue/intro/index.js',
