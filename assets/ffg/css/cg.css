@@ -275,3 +275,26 @@ blockquote {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto; } }
+
+.cg-tabs__container {
+  display: flex;
+  border-bottom: 1px solid #d0d4d7;
+  margin-bottom: 20px; }
+
+.cg-tabs__tab {
+  cursor: pointer;
+  flex: 1;
+  border: 0;
+  border-bottom: 1px solid #d0d4d7;
+  text-align: center;
+  margin: 0 5px -1px 5px;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .cg-tabs__tab.active {
+    border: 1px solid #d0d4d7;
+    border-bottom: 1px solid #f5f5f6;
+    background: white; }
+  .cg-tabs__tab div {
+    flex: 1; }
