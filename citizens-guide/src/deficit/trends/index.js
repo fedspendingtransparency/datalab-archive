@@ -1,6 +1,6 @@
 import initTabs from '../../components/tabs/tabs';
 
-const tabContainer = document.getElementById('surplusComponent'),
+const tabContainer = '#surplusComponent',
     config = {
         tabs: [
             {
