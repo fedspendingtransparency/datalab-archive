@@ -13,41 +13,53 @@ ffgPageCss: css/debt-analysis.css
 {% include ffg/nav/debt.html %}
 
 <div class="ffg-wrapper">
-    <div class="ffg-share">{% include new-share-menu.html %}</div>
-    <h1>Debt Analysis</h1>
-</div>
+    <h1>Breakdown of the Federal Government's Debt</h1>
 
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://datalab.usaspending.gov/"
-    },
-    "image": "http://datalab.usaspending.gov/assets/ffg/spending/categories.png",
-    "headline": "Federal Spending by Spending Category and Agency",
-    "datePublished": "2019-01-17T08:00:00+06:00",
-    "dateModified": "2019-01-17T08:00:00+06:00",
-    "author": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "publisher": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "description": "This section breaks down how the $4.1 trillion was spent. You can explore federal spending either by spending type or by agency. The chart presents a breakdown of spending for each category by dollar amount and percent. Curious to find out more? Dive deeper to see details by sub-category and other options."
-}
-</script>
+    <div class="cards">
+        <section class="card">
+            <div class="card__contents">
+                <h1 class="card__heading">How much does it cost to maintain the federal debt?</h1>
+                <img src="/assets/ffg/debt/analysis/debt-analysis-a.PNG" alt="" class="card__image">
+                Interest expense is what the government pays to investors who loan money to the government. How much the government pays in interest depends on: 
+                <ul>
+                    <li>the total federal debt and</li>
+                    <li>the interest rate investors charge when they loan money to the federal government.</li>
+                </ul>
+                Although the total federal debt of the U.S. has increased every year over the past ten years, interest expense has remained fairly stable.
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card__contents">
+                <h1 class="card__heading">How have interest rates on the federal debt changed?</h1>
+                <img src="/assets/ffg/debt/analysis/debt-analysis-b.PNG" alt="" class="card__image">
+                Interest rates have steadily fallen over the past ten years. Low interest rates are the reason for the interest expense the federal government pays on its debt remaining stable, even as the federal debt has increased.
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card__contents">
+                <h1 class="card__heading">Is there more information about who owns the debt?</h1>
+                <img src="/assets/ffg/debt/analysis/debt-analysis-c.PNG" alt="" class="card__image">
+                The Department of the Treasury and Federal Reserve Board report monthly on investors in the federal government's debt. Below is a breakdown of the major investors in federal debt based on that report for 2018.
+            </div>
+        </section>
+    </div>
+        
+    <section class="tour">
+        <div class="tour__part-one">
+            <h1>How does the federal debt of the United States compare to other countries?</h1>
+            <p>When you are done here, see how the U.S. federal debt compares to other countries.</p>
+        </div>
+        <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+    </section>
+
+    <div class="clearfix"></div>
+
+    <section class="hwcta">
+        <p>These visualizations were created using the Monthly Statement of the Public Debt (MSPD) as the data source for federal debt of the United States, the Monthly Treasury Statement (MTS) for interest expense, and TreasuryDirect.gov for interest rates on federal debt.</p>
+    </section>
+</div>
 
 <script src="/assets/ffg/accordion.js"></script>
 
