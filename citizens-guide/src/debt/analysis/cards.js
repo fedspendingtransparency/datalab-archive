@@ -7,6 +7,8 @@ const d3 = { select, selectAll, max },
     cardContainer = d3.select('.cards'),
     cards = d3.selectAll('.card');
 
+let debounce;
+
 function toggleState() {
     const card = d3.select(this);
 
@@ -24,17 +26,17 @@ function fixHeight() {
     const heights = [];
 
     let max;
-    
-    d3.selectAll('.card__contents').each(function(){
+
+    d3.selectAll('.card__contents').each(function () {
         const height = Math.ceil(this.getBoundingClientRect().height);
 
         console.log(height)
-        
+
         heights.push(Math.ceil(this.getBoundingClientRect().height));
     })
 
     max = d3.max(heights) * 1.35;
-    
+
     cardContainer.attr('style', `height: ${max}px`);
 }
 
@@ -54,4 +56,10 @@ export function initCards() {
     fixHeight();
 }
 
-window.addEventListener('resize', fixHeight);
+window.addEventListener('resize', function () {
+    if (debounce) {
+        clearTimeout(debounce);
+    }
+
+    debounce = setTimeout(fixHeight, 100);
+});
