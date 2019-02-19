@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
+import { max } from 'd3-array';
 
-const d3 = { select, selectAll },
+const d3 = { select, selectAll, max },
     flippedClass = 'card--flipped',
     containerActiveClass = 'cards--flipped',
     cardContainer = d3.select('.cards'),
@@ -19,6 +20,24 @@ function toggleState() {
     }
 }
 
+function fixHeight() {
+    const heights = [];
+
+    let max;
+    
+    d3.selectAll('.card__contents').each(function(){
+        const height = Math.ceil(this.getBoundingClientRect().height);
+
+        console.log(height)
+        
+        heights.push(Math.ceil(this.getBoundingClientRect().height));
+    })
+
+    max = d3.max(heights) * 1.35;
+    
+    cardContainer.attr('style', `height: ${max}px`);
+}
+
 function buildCover() {
     const card = d3.select(this),
         heading = card.select('.card__heading').clone(true).remove(),
@@ -32,4 +51,7 @@ function buildCover() {
 export function initCards() {
     cards.each(buildCover);
     cards.on('click', toggleState);
+    fixHeight();
 }
+
+window.addEventListener('resize', fixHeight);
