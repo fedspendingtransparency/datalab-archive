@@ -73,8 +73,13 @@
 
 @media only screen and (min-width: 990px) {
   .card {
-    width: 32%; }
+    width: 32%;
+    transition: width 0.5s ease; }
   .tour {
     width: 300px;
     float: right;
-    margin: 0; } }
+    margin: 0; }
+  .cards--flipped .card {
+    width: 24%; }
+  .cards--flipped .card.card--flipped {
+    width: 49%; } }

@@ -90,6 +90,7 @@
 @media only screen and (min-width: 990px) {
     .card {
         width: 32%;
+        transition: width 0.5s ease;
     }
 
     .tour {
@@ -98,4 +99,13 @@
         margin: 0;
     }
 
+    .cards--flipped {
+        .card {
+            width: 24%;
+        }
+
+        .card.card--flipped {
+            width: 49%;
+        }
+    }
 }
