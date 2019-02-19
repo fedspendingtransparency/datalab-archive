@@ -235,6 +235,7 @@ module.exports = [{
 }, {
     entry: {
         intro: './src/debt/intro/index.js',
+        analysis: './src/debt/analysis/index.js',
         countryComparison: './src/debt/countries/index.js',
     },
     devtool: devtool,
@@ -265,6 +266,7 @@ module.exports = [{
         './src/spending/categories/spending-categories.scss',
         './src/spending/trends/spending-trends.scss',
         './src/debt/trends/debt-trends.scss',
+        './src/debt/analysis/debt-analysis.scss'
     ],
     output: {
         path: path.resolve(__dirname, '../assets/ffg/css'),

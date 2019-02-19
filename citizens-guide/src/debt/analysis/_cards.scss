@@ -1,0 +1,88 @@
+@keyframes card {
+    0% {transform: scaleX(1)}
+    50% {transform: scaleX(0)}
+    100% {transform: scaleX(1)}
+}
+
+@keyframes card-flipped {
+    0% {transform: scaleX(1)}
+    50% {transform: scaleX(0)}
+    100% {transform: scaleX(1)}
+}
+
+.card {
+    position: relative;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    animation-name: card;
+    animation-duration: 0.5s;
+}
+
+.card__image {
+    display: block;
+    width: 100%;
+}
+
+.card__heading {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.card__contents {
+    visibility: hidden;
+    transition-property: visibility;
+    transition-delay: 0.25s;
+}
+
+.card__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    visibility: visible;
+    transition-property: visibility;
+    transition-delay: 0.25s;
+}
+
+.card.card--flipped {
+    animation-name: card-flipped;
+    animation-duration: 0.5s;
+
+    .card__cover {
+        visibility: hidden;
+    }
+
+    .card__contents {
+        visibility: visible;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 48%;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 33%;
+    }
+}
