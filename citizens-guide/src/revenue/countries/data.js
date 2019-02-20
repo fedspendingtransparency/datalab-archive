@@ -46,12 +46,12 @@ function setSort(sortField) {
     }
 }
 
-function handleSpecialCharacterCountries(countryName){
+function handleSpecialCharacterCountries(countryName) {
     let curCountry = countryName;
-    if(curCountry){
+    if (curCountry) {
         //Currently we only have one country with any special characters, but in any chance we run across more countries
         //with special characters, we should have a place to put them.
-        switch(curCountry.toLowerCase()) {
+        switch (curCountry.toLowerCase()) {
             case 'côte d\'ivoire':
                 curCountry = 'Cote d\'Ivoire'; //Plain language for typing purposes.
                 break;
@@ -72,29 +72,25 @@ export function getSources() {
 export function prepareData(_config) {
     config = _config;
 
-    let isDataInversedInd = false;
+    activeSortField = config.amountField;
 
-    activeSortField = config.amountField,
-    isDataInversedInd = activeSortField === 'surplus_deficit';
+    sourceData.forEach(r => {
+        let curCountry = handleSpecialCharacterCountries(r.country);
 
-
-        sourceData.forEach(r => {
-            let curCountry = handleSpecialCharacterCountries(r.country);
-
-            masterData.countryList.push({
-                display: r.country,
-                plainName: curCountry
-            });
-
-            masterData.indexed[r.country] = r;
-            if(isDataInversedInd){
-                masterData.indexed[r.country][activeSortField] = 0 - masterData.indexed[r.country][activeSortField];
-                masterData.indexed[r.country][config.gdpField] = 0 - masterData.indexed[r.country][config.gdpField];
-            }
-
-            captureSources(r);
-
+        masterData.countryList.push({
+            display: r.country,
+            plainName: curCountry
         });
+
+        masterData.indexed[r.country] = r;
+
+        if (config.amountInverse) {
+            masterData.indexed[r.country][activeSortField] = 0 - masterData.indexed[r.country][activeSortField];
+            masterData.indexed[r.country][config.gdpField] = 0 - masterData.indexed[r.country][config.gdpField];
+        }
+
+        captureSources(r);
+    });
 
     return setData();
 }

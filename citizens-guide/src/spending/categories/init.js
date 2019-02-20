@@ -13,7 +13,7 @@ const d3 = { select, selectAll },
 
 let svg,
     config = {
-        data: byYear(2017),
+        data: byYear(2018),
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'function',
         accessibilityAttrs : {

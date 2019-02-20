@@ -59,7 +59,10 @@ function readyDots() {
     dotRectHeight = d3.select('g.spending-dots').node().getBoundingClientRect().height;
 
     dotContainer.attr('data-rect-height', dotRectHeight);
-    svg.attr('height', dotRectHeight + 50);
+
+    setTimeout(function(){
+        svg.attr('height', dotRectHeight + 50);
+    }, 1000)
 }
 
 export function placeDots(_config) {
