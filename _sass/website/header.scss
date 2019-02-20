@@ -1,0 +1,245 @@
+// Jack Killilea (jrk) <Killilea_Jack@bah.com>
+// For our *New* homepage Sticky Header & Banner
+$blue-link: #2376d8;
+
+nav {
+  position: relative;
+  width: 100%;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.displayNone {
+  display: none;
+}
+
+#headerNav {
+  display: flex;
+  width: 100%;
+}
+
+#navText {
+  //  width: 87px;
+  //  height: 17px;
+  //  font-family: SourceSansPro;
+  //  font-size: 13px;
+  padding-top: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  //  text-align: right;
+  color: #757575;
+}
+
+// this will show on "hover" of li element in Nav! (ul)
+.dropdownUlSection {
+  position: fixed;
+  justify-content: flex-end;
+  display: none;
+  background-color: #FFFFFF;
+//  border-bottom: .4px solid black;
+//  border-top: .2px solid #0a2644;
+  width: 100%;
+  width: 100wv;
+  margin-top: 76px;
+  margin-left: -20px; // bit hacky, maybe try to fix this
+}
+
+// secondary nav ul
+.secondaryNavAnalyses {
+  display: none;
+  margin: 0;
+  margin-right: 30px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.secondaryNavResources {
+  display: none;
+  margin: 0;
+  margin-right: 40px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.secondaryNavFFG {
+  display: none;
+  margin: 0;
+  margin-right: 40px;
+  padding: 0;
+  list-style-type: none;
+}
+
+//secondary nav li
+.secondaryNavli {
+  display: inline; // horizontal list! 
+  font-size: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
+}
+
+//secondary nav li hover!
+.secondaryNavli > a:hover {
+//  color: #0a2644;
+  color: $blue-link;
+  text-decoration: underline;
+}
+
+nav { 
+  position: relative;
+  width: 100%;
+}
+
+
+/** navigation style **/
+ul.nav {
+  display: block;
+  width: 100%;
+  list-style: none;
+  padding-right: 105px;
+  font-size: 13px;
+}
+
+ul.nav > li {
+  display: block;
+  float: left;
+  line-height: 64px;
+  padding: 0 20px;
+}
+
+ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #999;
+}
+
+ul.nav li > ul {
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: 300px;
+  width: 100%;
+//  z-index: 999;
+  min-width: 100%;
+  whitespace: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+ul.nav li > ul li {
+  position: relative;
+  display: inline;
+  //  float: left;
+  color: #fff;
+  z-index: 999;
+}
+
+ul.nav li > ul li a {
+  color: #eee;
+  display: block;
+  padding: 0 20px;
+  line-height: 70px;
+}
+ul.nav li > ul li a:hover { color: #0a2644; }
+
+ul.nav > li:hover > a { color: #0a2644; }
+
+ul.nav li:hover > ul {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  list-style: none;
+  margin-right: 500px;
+  min-width: 100%;
+  whitespace: nowrap;
+  width: 100%;
+  overflow: visible;
+  height: 60px;
+}
+
+ul.nav li:hover > ul li {
+  display: inline;
+  float: left;
+  text-align: left;
+}
+
+ul.nav li:hover > ul > li {
+  display: inline;
+  left: -3%;
+  /* Safari 4+ */
+  
+  -webkit-animation: nav-anim-left 0.6s;
+  /* Fx 5+ */
+  
+  -moz-animation: nav-anim-left 0.6s;
+  /* Opera 12+ */
+  
+  -o-animation: nav-anim-left 0.6s;
+  /* IE 10+, Fx 29+ */
+  
+  animation: nav-anim-left 0.6s;
+}
+
+ul.nav:first-child li:hover > ul:before,
+ul.nav:first-child li:hover > ul:after {
+  //margin-right: 300px;
+  -webkit-animation: nav-down 0.25s;
+  /* Fx 5+ */
+  
+  -moz-animation: nav-down 0.25s;
+  /* Opera 12+ */
+  
+  -o-animation: nav-down 0.25s;
+  /* IE 10+, Fx 29+ */
+  
+  animation: nav-down 0.25s;
+}
+
+/** Dropdown Animation **/
+@-webkit-keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+@-moz-keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+@-o-keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+@keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+/** Sub-Nav Sliding Animation **/
+@-webkit-keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@-moz-keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@-o-keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
