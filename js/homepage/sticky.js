@@ -15,10 +15,20 @@ const ffgNav = '.secondaryNavFFG';
 const analysesText = '.analysesText';
 const resourcesText = '.resourcesText';
 const ffgText = '.ffgText';
+const regex = new RegExp("[a-zA-Z]");
+const pathname = window.location.pathname;
 
 $(function() {
   stickyHeader($("#header")); // our Header id in our homepage
   stickyBanner($('.official-banner')); // official-banner
+
+  //  regex.test(pathname) ? console.log('regex passed') : console.log('regex failed!');
+
+  //  if (regex.test(pathname)) {
+  //    console.log('regex passed, there is a character after url');
+  //  } else {
+  //    console.log('regex failed, there is NO character after url');
+  //  }
   
   /* on Nav Li's hover event, show dropdown hidden Ul nav*/
   $(li).hover(function() {
@@ -73,19 +83,18 @@ function stickyHeader(sticky) {
         if ($(window).width() >= 1920) {
           $(spendingLogo).css('margin-left', '750px'); // move the logo back to the middle when we get back up there
         } else {
-          $(spendingLogo).css('margin-left', '700px'); // move the logo back to the middle when we get back up there
+          $(spendingLogo).css('margin-left', '650px'); // move the logo back to the middle when we get back up there
         }
 
       } else {
+        regex.test(pathname) ? console.log('regex passed') : console.log('regex failed!');
+
         // if not at the top, then we make it "sticky"
         $(sticky).css('position','fixed').css('top', '0').css('width','100%').css('justify-content', 'space-between').css('text-align', 'center');
 
         // also lets move our logo to the left
-        $(spendingLogo).css('margin-left','0');
-        
-        // also gotta move over the right side of the nav!
-        $(headerRight).css('padding-right', '45px');
-
+        // only if we are on the homepage
+        regex.test(pathname) ? console.log('not on homepage!') : $(spendingLogo).css('margin-left','0');
       }
     });
   }
