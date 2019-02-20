@@ -158,7 +158,6 @@ table td {
 }
 
 /* Header */
-
 #header {
   background: #FFFFFF;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
@@ -168,9 +167,9 @@ table td {
   text-align: center;
   padding: 20px;
   height: 90px;
-  width: 100%;
   justify-content: space-between;
   position: relative;
+  z-index: 999;
 }
 
 /* Banner */
