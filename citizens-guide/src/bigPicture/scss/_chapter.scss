@@ -1,8 +1,7 @@
 @import '../../colors.scss';
 @import './_bpVars.scss';
 
-h1.chapter__heading--merriweather-font {
-    font-family: Merriweather;
+h1.chapter__heading {
     font-weight:300;
     margin-top:2rem;
 }
@@ -91,7 +90,6 @@ section.chapter {
     background-size: 100% 100%;
     padding: 1rem;
     background-color: #FFF;
-    font-family: Merriweather;
 
     .chapter__divider--arrow-container {
         text-align: center;
