@@ -41,7 +41,6 @@ $headerBg: rgba(255,255,255,0.8);
     font-size: 1rem;
     letter-spacing: 2.1px;
     margin: 0 0 0.5rem;
-    text-shadow: 0 0 1px;
 }
 
 .bp-header__heading {
@@ -104,7 +103,14 @@ $headerBg: rgba(255,255,255,0.8);
     }
 
     .bp-header__main {
-        margin: 2rem 3rem;
+        margin: 2rem 0;
         padding: 2rem 3rem;
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .bp-header__break {
+        display: block;
     }
 }
