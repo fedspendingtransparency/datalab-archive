@@ -47,14 +47,14 @@ ffgPageCss: css/chapterIntroCommon.css
 
                 <section id="spending-facts" class="facts__section">
                     <h1>In Fiscal Year 2018, the federal government spent $4.1 trillion.</h1>
-                    <p>The $779 billion deficit was a result of the government spending more than it brought in. <a href="../spending/">Go Explore Spending.</a></p>
+                    <p>Since the government spent more than it collected, the deficit for 2018 was $779 billion. <a href="../spending/">Go Explore Federal Spending</a></p>
                 </section>
 
                 <section id="gdp-facts" class="facts__section">
                     <h1>In Fiscal Year 2018, federal revenue was equal to 16% of the total Gross Domestic Product, or economic activity, of the United States that year ($20.7 trillion).</h1>
-                    <p>Why do we compare federal revenue to gross domestic product? Federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and revenue from taxes increase. In most cases, taxes are related to economic activity. As gross domestic product grows, tax revenue tends to increase as well.</p>
+                    <p>Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government’s footprint related to size of the entire country’s economic activity. In addition, federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.</p>
 
-                    <strong>What’s Gross Domestic Product?
+                    <strong>What's Gross Domestic Product?
                         <button class="info-box-trigger" data-box-id="gdp-info">
                             <img src="/assets/ffg/icons/definition.svg" alt="definition icon">
                         </button>
@@ -87,7 +87,7 @@ ffgPageCss: css/chapterIntroCommon.css
     </div>
 
     <section class="hwcta">
-        The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank">Bureau of Economic Analysis (BEA)</a>. The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually.
+        The visualization was created using the {% include ffg/data-sources/current_mts.html %} as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures come from the {% include ffg/data-sources/bea_gdp.html %}. The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually.
     </section>
 </div>
 
