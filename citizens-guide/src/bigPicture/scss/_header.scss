@@ -46,11 +46,10 @@ $headerBg: rgba(255,255,255,0.8);
 .bp-header__heading {
     color:#111;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: $boldWeight;
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: center;
-    font-family: Merriweather;
 }
 
 .bp-header__scroll {
