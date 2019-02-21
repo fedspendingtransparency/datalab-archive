@@ -120,8 +120,10 @@
   color: #B3532D; }
 
 h1.chapter__heading {
-  font-weight: 300;
-  margin-top: 2rem; }
+  font-weight: 500;
+  margin-top: 2rem;
+  text-align: left;
+  font-size: 1.4rem; }
 
 section.chapter {
   max-width: 1200px;
@@ -135,11 +137,6 @@ section.chapter {
   margin: 0 auto;
   padding: 2rem 1rem;
   color: #666666; }
-  .chapter__content h1 {
-    text-align: left;
-    color: #555555;
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem; }
   .chapter__content p {
     color: #666666;
     font-size: 1.1rem; }
@@ -153,7 +150,7 @@ section.chapter {
 .chapter__big-number {
   display: block;
   font-size: 2.5rem;
-  font-weight: 600; }
+  font-weight: 700; }
 
 .chapter__paragraph--tightened {
   margin-top: 0; }
@@ -164,18 +161,6 @@ section.chapter {
 .chapter__chart img {
   width: 100%;
   height: auto; }
-
-.chapter--revenue {
-  background-color: white; }
-
-.chapter--spending {
-  background-color: white; }
-
-.chapter--deficit {
-  background-color: white; }
-
-.chapter--debt {
-  background-color: white; }
 
 .chapter__divider--normal {
   border-bottom: 1px solid #CCC;
@@ -220,10 +205,6 @@ section.chapter {
 .chapter__divider--text-debt {
   color: #4A0072; }
 
-.chapter__primary span.chapter__big-number {
-  font-weight: 900;
-  display: block; }
-
 @media only screen and (max-width: 800px) {
   .chapter__big-number--anecdote-placement .anecdote {
     display: block;
@@ -234,8 +215,6 @@ section.chapter {
     display: inline-block; } }
 
 @media only screen and (min-width: 800px) {
-  .chapter__content h1 {
-    font-size: 1.8rem; }
   .chapter__flex {
     display: flex; }
   .chapter__chart {
@@ -245,7 +224,7 @@ section.chapter {
     padding-right: 7rem;
     width: 50%; }
   .chapter__big-number {
-    font-size: 3rem; }
+    font-size: 2.7rem; }
   .chapter__divider--text {
     font-size: 3rem; }
   .chapter__divider--median-treasury-logo {
@@ -353,7 +332,7 @@ a.chapter__cta i.fa-angle-right {
 .bp-header__app-name {
   color: #3C3C3C;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 2.1px;
   margin: 0 0 0.5rem; }
 
@@ -378,13 +357,13 @@ a.chapter__cta i.fa-angle-right {
   .bp-header__scroll i {
     transform: translateY(-3px); }
 
-.bp-header__collect--text {
+.bp-header__collect-text {
   color: #0A2F5A;
-  font-weight: 900; }
+  font-weight: 700; }
 
-.bp-header__spend--text {
+.bp-header__spend-text {
   color: #006C6D;
-  font-weight: 900; }
+  font-weight: 700; }
 
 .overview-chart {
   order: 1; }
