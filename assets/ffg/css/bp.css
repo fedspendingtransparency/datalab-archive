@@ -326,22 +326,38 @@ a.chapter__cta i.fa-angle-right {
 
 .cg-content header {
   background: #FBFBFB;
-  padding: 0.5rem 0;
-  box-shadow: inset 0 40px 40px -20px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 0, 0, 0.2);
+  padding: 0;
   margin-bottom: 30px; }
 
 .bp-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  min-height: 350px;
+  overflow: hidden; }
+
+.bp-header__bg {
+  position: absolute;
+  background: url(/assets/ffg/bp/cash-room-doors.jpg) top center no-repeat;
+  background-size: cover;
+  height: 800px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0; }
+
+.bp-header__main {
+  z-index: 1;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 1rem 0;
+  padding: 1rem; }
 
 .bp-header__app-name {
   color: #3C3C3C;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 2.1px;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
   text-shadow: 0 0 1px; }
 
 .bp-header__heading {
@@ -353,11 +369,18 @@ a.chapter__cta i.fa-angle-right {
   text-align: center;
   font-family: Merriweather; }
 
-.bp-scroll-down__div a {
-  color: #666666; }
-
-.bp-scroll-down__div i {
-  font-size: 2em; }
+.bp-header__scroll {
+  color: #666666;
+  font-size: 2rem;
+  position: relative; }
+  .bp-header__scroll a {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block; }
+  .bp-header__scroll i {
+    transform: translateY(-3px); }
 
 .bp-header__collect--text {
   color: #0A2F5A;
@@ -371,21 +394,18 @@ a.chapter__cta i.fa-angle-right {
   order: 1; }
 
 .bp-header__text {
-  color: #AAA;
-  font-weight: 400; }
-
-a.bp-header__click-here--link {
-  color: #a3c7f0;
   font-weight: 400; }
 
 @media only screen and (min-width: 800px) {
   .bp-header__heading {
-    font-size: 3.51rem; }
+    font-size: 3.5rem; }
   .bp-header {
     padding-top: 2rem; }
   .bp-header__text {
-    padding-bottom: 3rem;
-    font-size: 1.02rem; } }
+    font-size: 1rem; }
+  .bp-header__main {
+    margin: 2rem 3rem;
+    padding: 2rem 3rem; } }
 
 .accordion {
   margin: 0 0 1rem 0;
