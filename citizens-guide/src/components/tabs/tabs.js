@@ -87,6 +87,10 @@ function removeTabs(container){
     tabContainer.remove();
 }
 
+function inactiveContent(container){
+    container.selectAll('.active').classed('active', false);
+}
+
 /**
  * Find the accordion toggle (if our tab content exists inside an accordion). We'll travel up through the parent elements
  * until we find the "SECTION" node. When we find the section node, we'll look inside to find the accordion toggle element,
@@ -129,6 +133,7 @@ function addAccordionToggleEvent(accordionToggle, container, config){
             addTabEvents(container, config);
         } else {
             removeTabs(container);
+            inactiveContent(container);
         }
     });
 }
