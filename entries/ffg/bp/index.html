@@ -14,23 +14,25 @@ ffgPageCss: css/bp.css
 
 <header>
     <div class="bp-header">
+        <div class="bp-header__bg"></div>
         <div class="ffg-share ffg-share--big-picture">{% include new-share-menu.html %}</div>
         
-        <h3 class="bp-header__app-name">
-            YOUR EVERYDAY GUIDE TO FEDERAL FINANCES
-        </h3>
-        <h1 class='bp-header__heading'>
-            How much money did the federal <span class="bp-break-desktop">government <span class='bp-header__collect--text'>collect</span> and <span class='bp-header__spend--text'>spend</span>?</span>
-        </h1>
-        <div class="bp-header__text">
-            Interested in learning about deficit or federal debt? Keep reading or <a href="#deficit-debt-heading" class="bp-header__click-here--link scroll-to">jump to federal debt and deficit</a>.
+        <div class="bp-header__main">
+            <h3 class="bp-header__app-name">
+                YOUR EVERYDAY GUIDE TO FEDERAL FINANCES
+            </h3>
+            <h1 class='bp-header__heading'>
+                How much money did the federal <span class="bp-header__break">government <span class='bp-header__collect-text'>collect</span> and <span class='bp-header__spend-text'>spend</span>?</span>
+            </h1>
+            <div class="bp-header__text">
+                Interested in learning about deficit or federal debt? Keep reading or <a href="#deficit-debt-heading" class="scroll-to">jump to federal debt and deficit</a>.
+            </div>
         </div>
-        <div class="bp-scroll-down__div scroll-to">
+        <div class="bp-header__scroll scroll-to">
             <a href="#revenue-chapter"><i class="fa fa-angle-down"></i></a>
         </div>
     </div>
 </header>
-
 
 <section class="chapter chapter--revenue" id="revenue-chapter">
     <div class="chapter__content">
@@ -38,7 +40,7 @@ ffgPageCss: css/bp.css
         
         <div class="chapter__flex">
             <div class="chapter__primary">
-                <h1 class="chapter__heading--merriweather-font">In 2018, <br>the federal government<span class="chapter__big-number">
+                <h1 class="chapter__heading">In 2018, <br>the federal government<span class="chapter__big-number">
                     collected $3.3
                     <span class="chapter__big-number--anecdote-placement">
                         trillion.
@@ -121,7 +123,7 @@ ffgPageCss: css/bp.css
 
         <div class="chapter__flex">
             <div class="chapter__primary">
-                <h1 class="chapter__heading--merriweather-font">In 2018,<br>the federal government
+                <h1 class="chapter__heading">In 2018,<br>the federal government
                     <span class="chapter__big-number">
                         spent $4.1
                         <span class="chapter__big-number--anecdote-placement">
@@ -162,7 +164,6 @@ ffgPageCss: css/bp.css
 
                 <p class="chapter__paragraph--tightened">The federal government funds a variety of programs and services that support the American public. The federal government also spends money on interest it has incurred on outstanding federal debt, including Treasury notes and bonds.</p>
 
-
                 <section class="accordion">
                     <h1 class="accordion__heading">Who controls government spending anyway?</h1>
                     <div class="accordion__content">
@@ -185,7 +186,6 @@ ffgPageCss: css/bp.css
                 <p class='chapter__chart--reference'>Data used throughout this site is provided by the <a href='https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf' rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -204,7 +204,7 @@ ffgPageCss: css/bp.css
 
         <div class="chapter__flex">
             <div class="chapter__primary">
-                <h1 class="chapter__heading--merriweather-font">In 2018,<br>the federal government</br>spent $779 billion more than it collected,
+                <h1 class="chapter__heading">In 2018,<br>the federal government</br>spent $779 billion more than it collected,
                     <span class="chapter__big-number">resulting in a
                         <span class="chapter__big-number--anecdote-placement">
                             deficit.
@@ -270,7 +270,7 @@ ffgPageCss: css/bp.css
 
         <div class="chapter__flex">
             <div class="chapter__primary">
-                <h1 class="chapter__heading--merriweather-font">In 2018,<br>the public debt
+                <h1 class="chapter__heading">In 2018,<br>the public debt
                     <span class="chapter__big-number">increased to $21.5
                         <span class="chapter__big-number--anecdote-placement">
                             trillion.
@@ -345,3 +345,4 @@ ffgPageCss: css/bp.css
 <script src="/assets/ffg/anecdote.js"></script>
 <script src="/assets/ffg/scrollTo.js"></script>
 <script src="/assets/ffg/accordion.js"></script>
+<script src="/assets/ffg/parallax.js"></script>

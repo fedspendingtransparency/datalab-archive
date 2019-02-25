@@ -126,7 +126,8 @@ const moduleRules = [
 
 module.exports = [{
     entry: {
-        anecdote: './src/anecdote/anecdote.js'
+        anecdote: './src/anecdote/anecdote.js',
+        parallax: './src/bigPicture/parallax.js'
     },
     devtool: devtool,
     devServer: devServer,
