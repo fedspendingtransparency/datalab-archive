@@ -1,17 +1,17 @@
 import { select, selectAll } from 'd3-selection';
-import { max } from 'd3-array';
+import { max, min } from 'd3-array';
 
-const d3 = { select, selectAll, max },
+const d3 = { select, selectAll, max, min },
     flippedClass = 'card--flipped',
     containerActiveClass = 'cards--flipped',
     cardContainer = d3.select('.cards'),
     cards = d3.selectAll('.card');
 
-let debounce;
+let debounce;   
 
 function toggleState() {
     const card = d3.select(this);
-
+    
     if (card.classed(flippedClass)) {
         cardContainer.classed(containerActiveClass, false);
         cards.classed(flippedClass, false);
@@ -23,21 +23,38 @@ function toggleState() {
 }
 
 function fixHeight() {
-    const heights = [];
+    const heights = [],
+        screenWidth = window.innerWidth,
+        widthBasis = d3.min([1200, screenWidth]) - 990,
+        scaleFactor = 1.15 + (.3 / 210 * widthBasis);
 
     let max;
+
+    if (screenWidth < 990) {
+        cardContainer.attr('style', null);
+        return;
+    }
 
     d3.selectAll('.card__contents').each(function () {
         const height = Math.ceil(this.getBoundingClientRect().height);
 
-        console.log(height)
-
         heights.push(Math.ceil(this.getBoundingClientRect().height));
     })
 
-    max = d3.max(heights) * 1.35;
+    max = d3.max(heights) * scaleFactor;
 
     cardContainer.attr('style', `height: ${max}px`);
+}
+
+function renderInstructions(cover) {
+    const button = cover.append('button');
+
+    button.classed('card__flipper', true);
+    
+    button.append('i').classed('fas fa-exchange-alt card__flip-icon', true);
+
+    button.append('span').text('reveal answer');
+
 }
 
 function buildCover() {
@@ -48,12 +65,15 @@ function buildCover() {
     heading.each(function () {
         cover.node().appendChild(this)
     })
+
+    renderInstructions(cover);
 }
 
 export function initCards() {
     cards.each(buildCover);
     cards.on('click', toggleState);
-    fixHeight();
+
+    setTimeout(fixHeight, 500) //initial animation could cause a bad calculation; hence the delay;
 }
 
 window.addEventListener('resize', function () {
