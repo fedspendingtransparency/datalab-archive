@@ -32,7 +32,11 @@ const spendingConfig = {
     },{
         display: 'France',
         plainName: 'France'
-    }]
+    }],
+    accessibilityAttrs : {
+        title: 'Graph representing 2018 deficit (in USD) amounts across multiple countries',
+        desc: '2018 debt data comparison between multiple countries (including the U.S.) as well as the ratio of debt to that country\'s GDP'
+    }
 };
 
 loadSourceData(CountryData);
