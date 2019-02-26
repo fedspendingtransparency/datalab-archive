@@ -56,15 +56,15 @@
 .accordion--open .accordion__minus {
   display: block; }
 
-.deficit-trend {
+.debt-trend {
   max-width: 100%; }
 
 @media only screen and (min-width: 900px) {
-  .deficit-trend {
+  .debt-trend {
     width: 67%;
     float: left;
     display: block; }
-  .deficit-aside {
+  .debt-aside {
     width: 33%;
     float: right;
     padding-left: 2rem;
