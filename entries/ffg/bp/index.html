@@ -21,8 +21,8 @@ ffgPageCss: css/bp.css
             <h3 class="bp-header__app-name">
                 YOUR EVERYDAY GUIDE TO FEDERAL FINANCES
             </h3>
-            <h1 class='bp-header__heading'>
-                How much money did the federal <span class="bp-header__break">government <span class='bp-header__collect-text'>collect</span> and <span class='bp-header__spend-text'>spend</span>?</span>
+            <h1 class="bp-header__heading">
+                How much money did the federal <span class="bp-header__break">government <span class="bp-header__collect-text">collect</span> and <span class="bp-header__spend-text">spend</span>?</span>
             </h1>
             <div class="bp-header__text">
                 Interested in learning about deficit or federal debt? Keep reading or <a href="#deficit-debt-heading" class="scroll-to">jump to federal debt and deficit</a>.
@@ -34,6 +34,7 @@ ffgPageCss: css/bp.css
     </div>
 </header>
 
+<!-- begin REVENUE chapter -->
 <section class="chapter chapter--revenue" id="revenue-chapter">
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
@@ -57,32 +58,32 @@ ffgPageCss: css/bp.css
                                     <p>$3.3 trillion equates to <strong>68 million</strong> individuals earning roughly <strong>$49,000 per year</strong>.</p>
                                     <img class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-2.png" alt="">
                                     <p><strong>That is equal to the average salary of someone in the construction industry</strong>.</p>
-                                    <p class='source'>Source - <a href='https://www.bls.gov/oes/current/oes_nat.htm' rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a></p>
+                                    <p class="source">Source - <a href="https://www.bls.gov/oes/current/oes_nat.htm" rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a></p>
                                 </div>
                                 <div class="anecdote__pane">
-                                    <p>$3.3 trillion is equal to a little more than <strong>$10,000 per individual in the United States (estimated at 326.4 million)</strong>.</p>
+                                    <p>$3.3 trillion is equal to a little more than <strong>$10,000 per individual in the United States (estimated at 327.7 million)</strong>.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-3.png" alt="">
-                                    <p class='source'>Source - <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                    <p class="source">Source - <a href="https://www.census.gov/popclock/" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                                 </div>
                                 <div class="anecdote__pane">
                                     <p>$3.3 trillion equates to the average household contributing <strong>$2,200 per month</strong>.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-4.png" alt="">
-                                    <p>That is roughly equal to <strong>renting a three-bedroom apartment</strong> in Nome, AK ($2,192/month).</p>
-                                    <p class='source'>Source - <a href='https://www.huduser.gov/portal/datasets/50per.html#2017' rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                    <p>That is roughly equal to <strong>renting a three-bedroom apartment</strong> in Juneau, AK ($2,165/month).</p>
+                                    <p class="source">Source - <a href="https://www.huduser.gov/portal/datasets/50per.html#2018" rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & {% include ffg/data-sources/census_households.html %}</p>
                                 </div>
                                 <div class="anecdote__pane">
                                     <p>$3.3 trillion equates to the <strong>revenue of the top 18 companies</strong> in the S&P 500.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-5.png" alt="">
-                                    <p class='source'>Figures based on 2017 10-K reports for S&P 500 Companies</p>
+                                    <p class="source">Figures based on 2017 10-K reports for S&P 500 Companies</p>
                                 </div>
                                 <div class="anecdote__pane">
-                                    <p>If the revenue of the federal government was split between the <strong>126 million households</strong> estimated in the United States in 2017. It would equate to <strong>$26,000 per household</strong>.</p>
+                                    <p>If the revenue of the federal government was split between the <strong>128 million households</strong> estimated in the United States in 2017. It would equate to <strong>$26,000 per household</strong>.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-6.png" alt="">
-                                    <p class='source'>Source - <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                    <p class="source">Source - {% include ffg/data-sources/census_households.html %}</p>
                                 </div>
                             </div>
                             <div class="anecdote__cta--container">
-                                <a class="anecdote__cta link-button" href="revenue/">Go Explore Revenue <i class='fa fa-angle-right'></i></a>
+                                <a class="anecdote__cta link-button" href="revenue/">Go Explore Revenue <i class="fa fa-angle-right"></i></a>
                             </div>
                         </section>
                     </span>
@@ -102,21 +103,22 @@ ffgPageCss: css/bp.css
                         <div class="link-button__text--bottom">Federal Revenue</div>
                     </div>
                     <div class="link-button__icon--block">
-                        <i class='fa fa-angle-right'></i>
+                        <i class="fa fa-angle-right"></i>
                     </div>
                 </a>
             </div>
 
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/revenue/revenue-graph.png" alt="Bar graph of Federal Revenue over the past 5 years">
-                <p class='chapter__chart--reference'>Data used throughout this site is provided by the <a href='https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf' rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class='chapter__divider--normal'></section>
+<section class="chapter__divider--normal"></section>
 
+<!-- begin SPENDING chapter -->
 <section class="chapter chapter--spending" id="spending-chapter">
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
@@ -140,22 +142,22 @@ ffgPageCss: css/bp.css
                                     <div class="anecdote__pane">
                                         <p>$4.1 trillion is equivalent to a little more than <strong>$12,500</strong> in spending <strong>per individual</strong>.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-2.png" alt="">
-                                        <p class='source'>Source - <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        <p class="source">Source - <a href="https://www.census.gov/popclock/" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                                     </div>
                                     <div class="anecdote__pane">
                                         <p>$4.1 trillion equates to the average household spending <strong>$2,700</strong> per month.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-3.png" alt="">
-                                        <p>That is roughly equal <strong>to renting a three-bedroom apartment</strong> in Stamford, CT ($2,725 per month).</p>
-                                        <p class='source'>Source - <a href='https://www.huduser.gov/portal/datasets/50per.html#2017' rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        <p>That is roughly equal <strong>to renting a three-bedroom apartment</strong> in Santa Barbara, CA ($2,744 per month).</p>
+                                        <p class="source">Source - <a href="https://www.huduser.gov/portal/datasets/50per.html#2018" rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & {% include ffg/data-sources/census_households.html %}</p>
                                     </div>
                                     <div class="anecdote__pane">
-                                        <p>$4.1 trillion is equivalent to building a new <strong>four-lane road from Washington D.C. to San Francisco and back…122 times!</strong> (That's 685,000 miles of roadway!)</p>
+                                        <p>$4.1 trillion is equivalent to building a new <strong>four-lane road from Washington D.C. to San Francisco and back...122 times!</strong> (That's 685,000 miles of roadway!)</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-4.png" alt="">
-                                        <p class='source'>Source - <a href='https://www.artba.org/about/faq/' rel="noopener noreferrer" target="_blank">American Road & Transportation Builders Association</a></p>
+                                        <p class="source">Source - <a href="https://www.artba.org/about/faq/" rel="noopener noreferrer" target="_blank">American Road & Transportation Builders Association</a></p>
                                     </div>
                                 </div>
                                 <div class="anecdote__cta--container">
-                                    <a class="anecdote__cta link-button" href="spending/">Go Explore Spending <i class='fa fa-angle-right'></i></a>
+                                    <a class="anecdote__cta link-button" href="spending/">Go Explore Spending <i class="fa fa-angle-right"></i></a>
                                 </div>
                             </section>
                         </span>
@@ -177,27 +179,28 @@ ffgPageCss: css/bp.css
                         <div class="link-button__text--bottom">Federal Spending</div>
                     </div>
                     <div class="link-button__icon--block">
-                        <i class='fa fa-angle-right'></i>
+                        <i class="fa fa-angle-right"></i>
                     </div>
                 </a>
             </div>
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/spending/spending-graph.png" alt="Bar graph of Federal Spending over the past 5 years">
-                <p class='chapter__chart--reference'>Data used throughout this site is provided by the <a href='https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf' rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class='chapter__divider--median-treasury-logo' id="deficit-debt-heading">
-    <h1 class='chapter__divider--text'>
-        How did federal <span class='chapter__divider--text-revenue'>revenue</span> and <span class='chapter__divider--text-spending'>spending</span> affect the <span class='chapter__divider--text-deficit'>deficit</span> and <span class='chapter__divider--text-debt'>debt</span> in 2018?
+<section class="chapter__divider--median-treasury-logo" id="deficit-debt-heading">
+    <h1 class="chapter__divider--text">
+        How did federal <span class="chapter__divider--text-revenue">revenue</span> and <span class="chapter__divider--text-spending">spending</span> affect the <span class="chapter__divider--text-deficit">deficit</span> and <span class="chapter__divider--text-debt">debt</span> in 2018?
     </h1>
-    <div class='chapter__divider--arrow-container scroll-to'>
-        <a href='#deficit-chapter'><i class='fa fa-angle-down'></i></a>
+    <div class="chapter__divider--arrow-container scroll-to">
+        <a href="#deficit-chapter"><i class="fa fa-angle-down"></i></a>
     </div>
 </section>
 
+<!-- begin DEFICIT chapter -->
 <section class="chapter chapter--deficit" id="deficit-chapter">
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
@@ -213,15 +216,15 @@ ffgPageCss: css/bp.css
                                 <span class="anecdote__button--text hidden">How can I visualize our Federal Deficit?</span>
                                 <div class="anecdote__panes">
                                     <div class="anecdote__pane">
-                                        <p>$779 billion is almost <strong>13 times the amount of credit card debt Americans created in 2017</strong> ($61 billion).</p>
+                                        <p>$779 billion is almost <strong>22 times the amount of credit card debt Americans created in 2018</strong> ($36 billion).</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/deficit/deficit-1.png" alt="">
-                                        <p class='source'>Source - <a href='https://www.newyorkfed.org/microeconomics/databank.html' rel="noopener noreferrer" target="_blank">Federal Reserve Bank of New York</a></p>
+                                        <p class="source">Source - <a href="https://www.newyorkfed.org/microeconomics/databank.html" rel="noopener noreferrer" target="_blank">Federal Reserve Bank of New York</a></p>
                                     </div>
                                     <div class="anecdote__pane">
                                         <p>$779 billion breaks down to about <strong>$6,100 of deficit spending</strong> per household in 2018.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/deficit/deficit-2.png" alt="">
-                                        <p>In 2018, there were an estimated amount of <strong>126 million households</strong> in the United States.</p>
-                                        <p class='source'>Source - <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        <p>In 2018, there were an estimated <strong>128 million households</strong> in the United States.</p>
+                                        <p class="source">Source - {% include ffg/data-sources/census_households.html %}</p>
                                     </div>
                                     <div class="anecdote__pane">
                                         <p>$779 billion equates to <strong>$1.5 million</strong> in deficit spending <strong>every minute</strong> for an entire year.</p>
@@ -229,7 +232,7 @@ ffgPageCss: css/bp.css
                                     </div>
                                 </div>
                                 <div class="anecdote__cta--container">
-                                    <a class="anecdote__cta link-button" href="deficit/">Go Explore Deficit <i class='fa fa-angle-right'></i></a>
+                                    <a class="anecdote__cta link-button" href="deficit/">Go Explore Deficit <i class="fa fa-angle-right"></i></a>
                                 </div>
                             </section>
                         </span>
@@ -250,20 +253,21 @@ ffgPageCss: css/bp.css
                         <div class="link-button__text--bottom">Federal Deficit</div>
                     </div>
                     <div class="link-button__icon--block">
-                        <i class='fa fa-angle-right'></i>
+                        <i class="fa fa-angle-right"></i>
                     </div>
                 </a>
             </div>
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/deficit/deficit-graph.png" alt="Graph showing how Federal Revenue and Federal spending creates Federal Deficit when the government spends more that it brings in.">
-                <p class='chapter__chart--reference'>Data used throughout this site is provided by the <a href='https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf' rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class='chapter__divider--normal'></section>
+<section class="chapter__divider--normal"></section>
 
+<!-- begin DEBT chapter -->
 <section class="chapter chapter--debt" id="debt-chapter">
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
@@ -287,17 +291,17 @@ ffgPageCss: css/bp.css
                                         <p>If the national debt was split evenly among households, <strong>your household's share</strong> would be roughly <strong>$171,000</strong>.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/debt/debt-2.png" alt="">
                                         <p>That is about equal to the <strong>median home price in Houston, TX</strong> ($173,600).</p>
-                                        <p class='source'>Source - <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        <p class="source">Source - {% include ffg/data-sources/census_households.html %}</p>
                                     </div>
                                     <div class="anecdote__pane">
-                                        <p>$21.5 trillion equates to a little more than <strong>$66,000</strong> per individual in the U.S.</p>
+                                        <p>$21.5 trillion equates to a little less than <strong>$66,000</strong> per individual in the U.S.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/debt/debt-3.png" alt="">
                                         <p>That is equal to the <strong>average salary of a Human Resources Specialist</strong>.</p>
-                                        <p class='source'>Source - <a href='https://www.bls.gov/oes/current/oes_nat.htm' rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a> & <a href='https://www.census.gov/popclock/' rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        <p class="source">Source - <a href="https://www.bls.gov/oes/current/oes_nat.htm" rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a> & <a href="https://www.census.gov/popclock/" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                                     </div>
                                 </div>
                                 <div class="anecdote__cta--container">
-                                    <a class="anecdote__cta link-button" href="debt/">Go Explore Debt <i class='fa fa-angle-right'></i></a>
+                                    <a class="anecdote__cta link-button" href="debt/">Go Explore Debt <i class="fa fa-angle-right"></i></a>
                                 </div>
                             </section>
                         </span>
@@ -319,13 +323,13 @@ ffgPageCss: css/bp.css
                         <div class="link-button__text--bottom">Federal Debt</div>
                     </div>
                     <div class="link-button__icon--block">
-                        <i class='fa fa-angle-right'></i>
+                        <i class="fa fa-angle-right"></i>
                     </div>
                 </a>
             </div>
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/debt/debt-graph.png" alt="Line graph showing Federal Debt over the past 5 years with text in the graph stating 'In 2017, the public debt reached $20.2 trillion, driven partly by the $670 billion deficit'.">
-                <p class='chapter__chart--reference'>Data used throughout this site is provided by the <a href='https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf' rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
     </div>
