@@ -1,9 +1,7 @@
-import { prepareData, loadSourceData } from './data';
-import { establishContainer } from '../../utils';
+import { loadSourceData } from './data';
 import { chartInit } from './chart';
-import { selectedCountries } from './selectedCountryManager';
-import { renderSortIcon } from './sortIcon';
 import CountryData from '../../../public/csv/revenue_gdp_by_country.csv';
+import colors from '../../colors.scss';
 
 const incomeConfig = {
     amountField: 'revenue_usd',
@@ -11,6 +9,7 @@ const incomeConfig = {
     amountLabel: 'Revenue',
     sourceFields: ['revenue_source','gdp_source'],
     chapter: 'revenue',
+    primaryColor: colors.income,
     defaultCountries: [{
         display: 'United States',
         plainName: 'United States'

@@ -73,7 +73,6 @@ export function initDeficitDots(c, startPosition) {
     layer = config.mainContainer.append('g')
         .attr('opacity', 0)
         .attr('data-o', 0)
-        .attr('transform', translator(0, startPosition.y))
         .classed('deficit-layer', true);
 
     placeDots(startPosition);

@@ -4,47 +4,54 @@ title: Data Lab - title – U.S. Treasury
 excerpt: excerpt
 header: header
 description: description
-permalink: /federal-finance-guide/debt/index
+permalink: /federal-finance-guide/debt/index.html
 ffg: true
 ffgNav: true
+ffgPageCss: css/chapterIntroCommon.css
 ---
 
 {% include ffg/nav/debt.html %}
 
-<div class="ffg-wrapper">
-    <h1>Debt Intro</h1>
-</div>
+<div class="ffg-wrapper debt-intro">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+    
+    <h1>By the end of 2018, the federal government had $21.5 trillion in federal debt.</h1>
 
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://datalab.usaspending.gov/"
-    },
-    "image": "http://datalab.usaspending.gov/assets/ffg/spending/index.png",
-    "headline": "In 2018, the government spent $4.1 trillion.",
-    "datePublished": "2019-01-17T08:00:00+06:00",
-    "dateModified": "2019-01-17T08:00:00+06:00",
-    "author": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "publisher": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "description": "How does federal spending compare to federal revenue and the size of the U.S. economy?"
-}
-</script>
+    <div class="debt-copy">
+        <p>How did we end up with $21.5 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.</p>
+    </div>
+
+    <div class="viz-wrapper">
+        <div id="viz"></div>
+
+        <div class="intro-math intro-hidden">
+            <i class="fas fa-reply intro-math__icon"></i>21,500 dots x $1 billion = <strong>$21.5 trillion</strong>
+        </div>
+
+        <div class="facts sidebar intro-hidden">
+            <div class="facts__inner">
+                <div id="compare-options">
+                    <p class="facts__prompt">How does the debt relate to the deficit and the size of the U.S. economy?</p>
+                    <div class="facts__triggers">
+                        <button class="facts__trigger" data-trigger-id="deficit">Deficit</button>
+                        <button class="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="tour sidebar intro-hidden">
+            <div class="tour__part-one">
+                <h1>How has the federal deficit trended over time?</h1>
+            </div>
+            <a class="tour__link" href="trends.html">Discover<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </div>
+
+    <section class="hwcta">
+        <p>This visualization was created using the Monthly Treasury Statement (MTS) as the data source for federal government spending of the United States by federal agency and the Office of Management and Budget (OMB) Historical Tables as the data source for federal government spending by spending type. The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U) was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>
+        <p>Gross Domestic Product (GDP) figures for the United States come from the Bureau of Economic Analysis (BEA). GDP data for countries other than the United States comes from the International Monetary Fund (IMF) World Economic Outlook Database (WEOD).</p>
+    </section>
+</div>
 
 <script src="/assets/ffg/debt/intro.js"></script>

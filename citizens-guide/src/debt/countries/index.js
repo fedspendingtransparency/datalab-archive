@@ -2,12 +2,14 @@ import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
 import CountryData from '../../../public/csv/debt_gdp_by_country.csv';
 import { chartInit } from '../../revenue/countries/chart';
+import colors from '../../colors.scss';
 
 const spendingConfig = {
     amountField: 'debt_usd',
     gdpField: 'debt_gdp',
     amountLabel: 'Debt',
     sourceFields: ['spending_source', 'gdp_source'],
+    primaryColor: colors.colorDebtPrimary,
     chapter: 'debt',
     defaultCountries: [{
         display: 'United States',

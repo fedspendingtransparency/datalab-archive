@@ -115,12 +115,25 @@ export function initDropShadow() {
     const svg = establishContainer(),
         filter = svg.append('defs').append('filter')
             .attr('id', 'drop1')
+            .attr('height', 2.2);
 
-    filter.append('feDropShadow')
+    filter.append('feGaussianBlur')
+        .attr('in', 'SourceAlpha')
+        .attr('stdDeviation', 2)
+        .attr('result', "blur");
+
+    filter.append('feOffset')
+        .attr('in', 'blur')
         .attr('dx', 0)
         .attr('dy', 0)
-        .attr('stdDeviation', 5)
-        .attr('flood-opacity', 0.2)
+        .attr('result', 'offsetBlur');
+
+    const feMerge = filter.append('feMerge');
+
+    feMerge.append('feMergeNode')
+        .attr('in', 'offsetBlur');
+    feMerge.append('feMergeNode')
+        .attr('in', 'SourceGraphic');
 }
 
 export function fractionToPercent(n, precision) {

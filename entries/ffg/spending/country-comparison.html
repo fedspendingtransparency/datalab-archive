@@ -7,16 +7,27 @@ description: description
 permalink: /federal-finance-guide/spending/country-comparison
 ffg: true
 ffgNav: true
+ffgPageCss: css/countryCommon.css
 ---
 
 {% include ffg/nav/spending.html %}
 
 <div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
     <h1>Compare Federal Spending of the United States to other Countries</h1>
 
     <div class="country-copy">
-        <p>This chart outlines the total spending of the United States compared to 171 different countries in 2018.  In 2018, the United States spent $4.1 trillion. That $4.1 trillion in spending was equivalent to 20% of U.S. GDP for 2018.</p>
-        <p>How does the United States compare to countries of similar size and GDP? Explore the chart below. You can compare spending (in dollars) and spending as a percent of GDP. Find a country of interest and see for yourself.</p>
+        <div class="country-copy__text">
+            <p>This chart outlines the total spending of the United States compared to 171 different countries in 2018.  In 2018, the United States spent $4.1 trillion. That $4.1 trillion in spending was equivalent to 20% of U.S. GDP for 2018.</p>
+            <p>How does the United States compare to countries of similar size and GDP? Explore the chart below. You can compare spending (in dollars) and spending as a percent of GDP. Find a country of interest and see for yourself.</p>
+        </div>
+        <a class="chapter-link chapter-link--deficit" href="../deficit/">
+            <div class="chapter-link__text-block">
+                <div class="chapter-link__learn-more">Learn more about</div>
+                Deficit
+            </div>
+            <i class="fa fa-angle-right"></i>
+        </a>
     </div>
 
     <div class="country-chart">    
@@ -40,37 +51,5 @@ ffgNav: true
         <p>To finish the data set for Country Comparison, gross domestic product figures from the IMF World Economic Outlook Database were combined with the CIA World Factbook data set, excluding countries that were not available from both sources.</p>
     </section>
 </div>
-
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://datalab.usaspending.gov/"
-    },
-    "image": "http://datalab.usaspending.gov/assets/ffg/spending/country-comparison.png",
-    "headline": "Compare Federal Spending of the United States to other Countries",
-    "datePublished": "2019-01-17T08:00:00+06:00",
-    "dateModified": "2019-01-17T08:00:00+06:00",
-    "author": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "publisher": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "description": "How does the United States compare to countries of similar size and GDP? You can compare spending (in dollars) and spending as a percent of GDP. Find a country of interest and see for yourself."
-}
-</script>
 
 <script src="/assets/ffg/spending/countryComparison.js"></script>

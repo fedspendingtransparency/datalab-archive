@@ -1,5 +1,5 @@
 // import 'babel-polyfill';
-import SpendingData from '../../public/csv/spending_categories.csv';
+import SpendingData from '../../public/csv/spending_agency_function_fy14_fy18.csv';
 import { min } from 'd3-array';
 
 const d3 = { min },
@@ -72,7 +72,7 @@ function formatPercent(n) {
 export function indexByYear(yyyy) {
     const indexed = {};
 
-    getByYear(2017).forEach(r => {
+    getByYear(yyyy).forEach(r => {
         let tempChildren;
 
         indexed[r.category] = indexed[r.category] || {};
@@ -84,7 +84,7 @@ export function indexByYear(yyyy) {
             }
 
             indexed[r.category][r.parent].subcategories[r.child] = {
-                activity: r.child,
+                activity: r.child_plain,
                 amount: r.spending_adjusted,
                 percent_total: formatPercent(r.percent_total)
             }
@@ -93,7 +93,7 @@ export function indexByYear(yyyy) {
             tempChildren = (indexed[r.category][r.parent]) ? indexed[r.category][r.parent].subcategories : {};
 
             indexed[r.category][r.parent] = {
-                activity: r.parent,
+                activity: r.parent_plain,
                 amount: r.spending_adjusted,
                 percent_total: formatPercent(r.percent_total),
                 subcategories: tempChildren
@@ -105,7 +105,7 @@ export function indexByYear(yyyy) {
 }
 
 export function byYear(yyyy, stacked) {
-    const currentYear = indexByYear(2017),
+    const currentYear = indexByYear(yyyy),
         result = {};
 
     dataTypes.forEach(t => {

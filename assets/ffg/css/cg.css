@@ -9,7 +9,7 @@
   padding: 1rem; }
 
 h1 {
-  margin-top: 50px;
+  margin-top: 3rem;
   font-weight: 300;
   text-align: center;
   font-size: 40px;
@@ -65,12 +65,17 @@ h2 {
     margin: 0; } }
 
 .info-box-trigger {
-  vertical-align: super;
   font-size: 16px;
   color: #205493;
   cursor: pointer;
   border: none;
-  background-color: white; }
+  background-color: white;
+  transform: translateY(-3px); }
+
+h1 .info-box-trigger {
+  transform: none;
+  vertical-align: super;
+  padding-left: 0; }
 
 .info-box-trigger.info-box-trigger--active {
   opacity: 0; }
@@ -155,31 +160,19 @@ h2 {
   color: blue;
   font-size: 16px; }
 
-.chapter-intro__math {
-  text-align: center; }
-
-.chapter-intro__math i.fa-reply {
-  color: #EEE;
-  -moz-transform: scaleX(-1) scaleY(-1);
-  -o-transform: scaleX(-1) scaleY(-1);
-  -webkit-transform: scaleX(-1) scaleY(-1);
-  transform: scaleX(-1) scaleY(-1);
-  filter: FlipH FlipV;
-  -ms-filter: "FlipH FlipV";
-  margin-right: 0.5rem; }
-
-@media only screen and (min-width: 960px) {
-  .chapter-intro__math {
-    width: 66%;
-    float: left; } }
-
-@media only screen and (min-width: 500px) and (max-width: 960px) {
-  .chapter-intro__math {
-    margin-top: 2vh; } }
-
-#copy {
-  text-align: left;
-  margin-top: 3rem; }
+.ffg-share {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem; }
+  .ffg-share.ffg-share--big-picture {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 1rem; }
+  .ffg-share .popup .popuptext.right {
+    right: 0;
+    left: inherit; }
+  .ffg-share .newpopup {
+    top: 25px !important; }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -282,3 +275,26 @@ blockquote {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto; } }
+
+.cg-tabs__container {
+  display: flex;
+  border-bottom: 1px solid #d0d4d7;
+  margin-bottom: 20px; }
+
+.cg-tabs__tab {
+  cursor: pointer;
+  flex: 1;
+  border: 0;
+  border-bottom: 1px solid #d0d4d7;
+  text-align: center;
+  margin: 0 5px -1px 5px;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .cg-tabs__tab.active {
+    border: 1px solid #d0d4d7;
+    border-bottom: 1px solid #f5f5f6;
+    background: white; }
+  .cg-tabs__tab div {
+    flex: 1; }

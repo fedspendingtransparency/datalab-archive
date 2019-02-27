@@ -12,6 +12,8 @@ ffgNav: true
 {% include ffg/nav/revenue.html %}
 
 <div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+    
     <h1>Federal Revenue Trends</h1>
 
     <div class="copy-tour-row" id="income-facts">
@@ -40,40 +42,8 @@ ffgNav: true
     <div id="viz"></div>
 
     <section class="hwcta">
-        The visualization was created using <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. <a href="https://data.bls.gov/cgi-bin/surveymost?bls" target="_blank" rel="noopener noreferrer">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years 2014-2017 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
+        The visualization was created using {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue of the United States. {% include ffg/data-sources/bls_cpiu.html %} was used to adjust revenue in fiscal years {% include ffg/data-sources/inflation_fys.html %} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time. 
     </section>
 </div>
-
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://datalab.usaspending.gov/"
-    },
-    "image": "http://datalab.usaspending.gov/assets/ffg/revenue/trends.png",
-    "headline": "Federal Revenue Trends",
-    "datePublished": "2019-01-17T08:00:00+06:00",
-    "dateModified": "2019-01-17T08:00:00+06:00",
-    "author": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "publisher": {
-    "@type": "Organization",
-    "name": "U.S. Treasury",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
-        }
-    },
-    "description": "How has federal revenue changed over the past five years? What impact do changes in a subcategory have on government revenue?"
-}
-</script>
 
 <script src="/assets/ffg/revenue/trends.js"></script>
