@@ -22,30 +22,6 @@ function toggleState() {
     }
 }
 
-function fixHeight() {
-    const heights = [],
-        screenWidth = window.innerWidth,
-        widthBasis = d3.min([1200, screenWidth]) - 990,
-        scaleFactor = 1.15 + (.3 / 210 * widthBasis);
-
-    let max;
-
-    if (screenWidth < 990) {
-        cardContainer.attr('style', null);
-        return;
-    }
-
-    d3.selectAll('.card__contents').each(function () {
-        const height = Math.ceil(this.getBoundingClientRect().height);
-
-        heights.push(Math.ceil(this.getBoundingClientRect().height));
-    })
-
-    max = d3.max(heights) * scaleFactor;
-
-    cardContainer.attr('style', `height: ${max}px`);
-}
-
 function renderInstructions(cover) {
     const button = cover.append('button');
 
@@ -54,7 +30,6 @@ function renderInstructions(cover) {
     button.append('i').classed('fas fa-exchange-alt card__flip-icon', true);
 
     button.append('span').text('reveal answer');
-
 }
 
 function buildCover() {
@@ -72,14 +47,10 @@ function buildCover() {
 export function initCards() {
     cards.each(buildCover);
     cards.on('click', toggleState);
-
-    setTimeout(fixHeight, 500) //initial animation could cause a bad calculation; hence the delay;
 }
 
 window.addEventListener('resize', function () {
     if (debounce) {
         clearTimeout(debounce);
     }
-
-    debounce = setTimeout(fixHeight, 100);
 });
