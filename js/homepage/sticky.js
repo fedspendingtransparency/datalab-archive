@@ -123,7 +123,11 @@ function stickyHeader(sticky) {
         $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
         $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '999').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
 
-        $(spendingLogo).css('justify-content', 'flex-end').css('padding-right', '120px');
+        if(!regex.test(pathname)) {
+//          $(spendingLogo).css('justify-content', 'flex-start').css('padding-right', '0px');
+          $(spendingLogo).css('justify-content', 'flex-end').css('padding-right', '120px');
+        } 
+
         if($(window).width() >= 1920) {
           $(spendingLogo).css('justify-content', 'flex-end').css('padding-right', '220px');
         }
