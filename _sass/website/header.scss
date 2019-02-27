@@ -1,6 +1,7 @@
 // Jack Killilea (jrk) <Killilea_Jack@bah.com>
 // For our *New* homepage Sticky Header & Banner (plus extras!)
-$blue-link: #2376d8;
+$lb-link: #2376d8;
+$db-link: #0a2644;
 
 // ul class
 .nav {
@@ -11,6 +12,10 @@ $blue-link: #2376d8;
 
 .displayFlex {
   display: flex;
+}
+
+.displayBlock {
+  display: block;
 }
 
 .displayNone {
@@ -93,7 +98,7 @@ $blue-link: #2376d8;
 //secondary nav li hover!
 .secondaryNavli > a:hover {
 //  color: #0a2644;
-  color: $blue-link;
+  color: $lb-link;
   text-decoration: underline;
 }
 
@@ -337,7 +342,6 @@ ul.nav:first-child li:hover > ul:after {
     align-items: flex-end;
     justify-content: flex-end;
     padding-right: 40px;
-    flex-basis: 50%;
   }
 
   // display all UL's as hidden until click!
@@ -355,11 +359,32 @@ ul.nav:first-child li:hover > ul:after {
 
   // fix spaces with secondary mobile list items
   .secondaryNavMobileli {
-    padding-top: 5px;
-    padding-bottom: 5px;
+//    padding-top: 3px;
+//    padding-bottom: 3px;
     text-align: right;
-    font-size: 13pt;
+    font-size: 12px;
   }
+  
+  .secondaryNavAnalysesMobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .secondaryNavResourcesMobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .secondaryNavFFGMobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  // hover link
+  .secondaryNavMobileli > a:hover {
+    color: $lb-link;
+  }
+
   
 }
 
