@@ -33,6 +33,11 @@
   width: 100%;
   margin-bottom: 1rem; }
 
+.card__image--width-contstrain {
+  max-width: 290px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .card__heading {
   text-align: center;
   font-size: 1.5rem;
