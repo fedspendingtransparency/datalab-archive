@@ -1,10 +1,12 @@
 // Jack Killilea (jrk) <Killilea_Jack@bah.com>
-// For our *New* homepage Sticky Header & Banner
+// For our *New* homepage Sticky Header & Banner (plus extras!)
 $blue-link: #2376d8;
 
-nav {
-  position: relative;
-  width: 100%;
+// ul class
+.nav {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
 }
 
 .displayFlex {
@@ -17,36 +19,41 @@ nav {
 
 #headerNav {
   display: flex;
-  width: 100%;
+  flex: 1;
 }
 
 #navText {
-  //  width: 87px;
-  //  height: 17px;
-  //  font-family: SourceSansPro;
-  //  font-size: 13px;
   padding-top: 20px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.9px;
-  //  text-align: right;
   color: #757575;
 }
 
 // this will show on "hover" of li element in Nav! (ul)
 .dropdownUlSection {
-  position: fixed;
+  position: sticky;
+  top: 100px;
   justify-content: flex-end;
+  align-self: flex-end;
   display: none;
   background-color: #FFFFFF;
-//  border-bottom: .4px solid black;
-//  border-top: .2px solid #0a2644;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
-  width: 100wv;
-  margin-top: 76px;
-  margin-left: -20px; // bit hacky, maybe try to fix this
+  z-index: 999;
+//  width: 100wv;
+}
+
+// this will show on mobile
+.mobileUlSection {
+  display: none; // dont display until mobile view
+}
+
+// our hamburger menu, display none until right screen size
+.navbar-toggle {
+  display: none;
 }
 
 // secondary nav ul
@@ -98,16 +105,16 @@ nav {
 
 /** navigation style **/
 ul.nav {
-  display: block;
-  width: 100%;
+  display: flex;
+//  width: 100%;
   list-style: none;
   padding-right: 105px;
   font-size: 13px;
 }
 
 ul.nav > li {
-  display: block;
-  float: left;
+//  display: flex;
+//  float: left;
   line-height: 64px;
   padding: 0 20px;
 }
@@ -243,3 +250,116 @@ ul.nav:first-child li:hover > ul:after {
   0% { left: 100%; }
   100% { left: -3%; }
 }
+
+@media screen and (max-width: 1043px) {
+  ul.nav {
+    flex-wrap: nowrap;
+    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 898px) {
+  ul.nav {
+    flex-wrap: wrap;
+    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 937px) {
+  ul.nav {
+    flex-wrap: nowrap;
+    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  ul.nav {
+    flex-wrap: nowrap;
+    padding-right: 0px;
+  }
+}
+
+// fix for bigger screens! 
+@media screen and (min-width: 1920px) {
+  .usaspending-logo-center {
+    display: flex;
+    flex: 1;
+    padding-right: 220px;
+    justify-content: flex-end;
+  }
+}
+
+// burger media
+// MAIN MOBILE VIEW TOGGLE
+@media (max-width: 950px) {
+  ul.nav {
+    list-style-type: none;
+    display: none;
+//    flex-direction: column;
+  }
+
+  .dropdownUlSection {
+    display: none; // hide so nothing toggles
+  }
+
+  ul.nav > li {
+    text-align: center;
+  }
+
+  .navbar-toggle {
+    display: flex; // show hamburger now
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    justify-content: flex-end;
+    align-content: flex-end;
+  }
+
+  .dropdownUlSection {
+    display: none; // keep this hidden
+  }
+
+  .usaspending-logo-center {
+    justify-content: flex-start;
+    padding-right: 0; // get rid of padding for mobile view
+  }
+
+  .mobileUlSection {
+    display: none;
+    justify-content: flex-end;
+    flex-direction: row;
+    z-index: 999; // make sure its above the rest...
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 40px;
+    flex-basis: 50%;
+  }
+
+  // display all UL's as hidden until click!
+  #mobileAnalyses, #mobileResources, #mobileFFG {
+    display: none;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    align-items: flex-end;
+  }
+
+  #mobileHr {
+    text-align: center;
+  }
+
+  // fix spaces with secondary mobile list items
+  .secondaryNavMobileli {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: right;
+    font-size: 13pt;
+  }
+  
+}
+

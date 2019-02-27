@@ -11,6 +11,7 @@ const analysesNav = '.secondaryNavAnalyses';
 const resourcesNav = '.secondaryNavResources';
 const ffgNav = '.secondaryNavFFG';
 const datalabLogo = '.datalabLogo';
+const burgerMenu = '#burger-navbar-toggle';
 
 // Main Header Li's for hover
 const analysesText = '.analysesText';
@@ -19,18 +20,31 @@ const ffgText = '.ffgText';
 const regex = new RegExp("[a-zA-Z]");
 const pathname = window.location.pathname;
 
+// Mobile section
+const mobileMenu = '#mobileSection';
+const analysesAnchor = '#analysesAnchor';
+const resourcesAnchor = '#resourcesAnchor';
+const ffgAnchor = '#ffgAnchor';
+const mobileAnalyses = '#mobileAnalyses';
+const mobileResources = '#mobileResources';
+const mobileFFG = '#mobileFFG';
+
+// TODOs! //
+// * add dropshadow! 
+// * bring up at retro that mobile mocks and desktop mocks should be the same week!
+// * chat with lizzy about bootstrap ! (whatever)
+
 $(function() {
   stickyHeader($("#header")); // our Header id in our homepage
-  stickyBanner($('.official-banner')); // official-banner
-  
-  /* on Nav Li's hover event, show dropdown hidden Ul nav*/
-  $(li).hover(function() {
-    $(hiddenUlSection).css('display', 'flex'); // flex container
+
+  // on burger menu click, we'll show nav
+  $(burgerMenu).click(function() {
+    console.log('clicking burger! Menu will display now!');
+    $(mobileMenu).css('display', 'flex');
   });
 
-  /* on Nav Li's click event */
-  /* FOR MOBILE! (-: */
-  $(li).click(function() {
+  /* on Nav Li's hover event, show dropdown hidden Ul nav*/
+  $(li).hover(function() {
     $(hiddenUlSection).css('display', 'flex'); // flex container
   });
 
@@ -63,57 +77,62 @@ $(function() {
     console.log('leaving ul section');
   });
 
+  // *** MOBILE *** ///
+  $(analysesAnchor).click(function() {
+    console.log('mobile analyses comes into view');
+    $(mobileAnalyses).css('display', 'block');
+  });
+
+  $(resourcesAnchor).click(function() {
+    console.log('mobile resources comes into view');
+    $(mobileResources).css('display', 'block');
+  });
+
+  $(ffgAnchor).click(function() {
+    console.log('mobile ffg comes into view');
+    $(mobileFFG).css('display', 'block');
+  });
+
+  
+
 });
 
+/*
+  Check if we're at the top of the page,
+  if we are, keep things non sticky,
+  when we scroll, lets make things sticky ~
+
+  TODO: Add Scroll event debounce! 
+*/
 function stickyHeader(sticky) {
   if (typeof sticky !== "undefined") {
     
     $(window).on('scroll', function() {
 
       if ($(window).scrollTop() === 0) {
-        $(sticky).css('display', 'flex').css('position','relative').css('width', ''); // make sure we remove width to get rid of overflow problem! 
+        $(sticky).css('display', 'flex').css('position','relative').css('width', ''); // make sure we remove width to get rid of overflow problem!
 
-
-        // testings for screen sizes! (i stretch my monitor on my macbook a bit. lets fix for "default" size)
-        if ($(window).width() >= 1920) {
-          $(spendingLogo).css('margin-left', '750px'); // move the logo back to the middle when we get back up there
-        } else {
-          $(spendingLogo).css('margin-left', '650px'); 
-        }
+        $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
+        $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '999').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
 
       } else {
 
         // if not at the top, then we make it "sticky"
-        $(sticky).css('position','fixed').css('top', '0').css('width','100%').css('justify-content', 'space-between').css('text-align', 'center');
+        $(sticky).css('position','fixed').css('top', '0').css('width','100%');
+        // also make secondary mobile sticky 
+        $(mobileMenu).css('position','fixed').css('top', '100px').css('width', '100%').css('justify-content','flex-end').css('align-items','flex-end').css('background-color','#FFFFFF');
+        // move burger menu over as well
+        $(burgerMenu).css('padding-right', '45px').css('align-items', 'flex-end');
 
-        // also lets move our logo to the left
-        // only if we are on the homepage
-        regex.test(pathname) ? console.log('not on homepage!') : $(spendingLogo).css('margin-left','0');
-
-        //resize logo - should be smaller once moved to the left
-//        $(datalabLogo).setAttribute('width', '450px');
-
+        // only if we are on the homepage, move logo to left!
+        if(!regex.test(pathname)) {
+          $(spendingLogo).css('justify-content', 'flex-start').css('padding-right', '0px');
+          console.log('should move to left!');
+        } else {
+          console.log('whatever, shouldnt move to left');
+        }
       }
+
     });
   }
 }
-
-function stickyBanner(banner) {
-  if (typeof banner !== "undefined") {
-    let position = $(banner).offset().top;
-    
-    $(window).on('scroll', function() {
-
-      // if we're back at the top of the page...
-      if ($(window).scrollTop() === 0) {
-        $(banner).css('display', 'flex');
-        console.log('im at the top of the page');
-      } else {
-        $(banner).css('display' ,'none');
-      }
-    });
-    
-    
-  }
-}
-
