@@ -256,6 +256,7 @@ module.exports = [{
 }, {
     entry: {
         intro: './src/debt/intro/index.js',
+        trends: './src/debt/trends/index.js',
         analysis: './src/debt/analysis/index.js',
         countryComparison: './src/debt/countries/index.js',
     },
