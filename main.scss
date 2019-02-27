@@ -89,12 +89,7 @@ ul {
   }
 }
 
-ul.icons {
-//  padding-left: 0;
-}
-
 /* Table */
-
 table td {
   padding: 0.75em 0.75em;
 }
@@ -162,12 +157,13 @@ table td {
   background: #FFFFFF;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
-  text-align: center;
+//  text-align: center;
   padding: 20px;
-  height: 90px;
-  justify-content: space-between;
+  height: 60px;
+//  justify-content: center;
   position: relative;
   z-index: 999;
 }
@@ -277,6 +273,7 @@ table td {
 
 /* Official Banner */
 .official-banner{
+  display: flex;
   position: relative;
 }
 
@@ -693,36 +690,28 @@ header.major h2 {
 /* This will be default logo when in non-sticky mode */
 /* "sticky" mode will remove margins! */
 .usaspending-logo-center {
-  display: block;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-left: 700px;
-  margin-bottom: 50px;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding-right: 120px;
 }
 
-@media only screen and (max-width: 1680px) { 
-  .usaspending-logo-center {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-left: 650px;
-    margin-top: 50px;
-  }
+// if/else to handle this id
+// if we are NOT on landing page
+// display to left always
+#usaspending-logo-left {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
 }
 
-@media only screen and (min-width: 1920px) { 
-  .usaspending-logo-center {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-left: 750px;
-    margin-top: 50px;
-  }
+// center our header link/logo
+.usaspending-logo-link {
+//  flex: 1;
+//  justify-content: center;
+//  align-items: center;
+//  text-align: center;
 }
-
 
 .usaspending-logo-subtext {
   position: fixed;

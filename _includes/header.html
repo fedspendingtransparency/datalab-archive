@@ -23,15 +23,18 @@
 </div>
 {% include info-banner.html %}
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
-  <a href="{{ site.baseurl }}/index.html" class="usaspending-logo-link">
-    <div class="usaspending-logo-center">
+  <div class="usaspending-logo-center"{% if page.layout != 'landing' %} id="usaspending-logo-left" {% endif %}>
+    <a href="{{ site.baseurl }}/" class="usaspending-logo-link">
       {% include svgs/DataLab_NewLogo.svg class='datalabLogo' %}
-    </div>
-  </a>
+    </a>
+  </div>
   <div class="header-right">
     <nav id="headerNav">
       <nav>
-	<ul class="nav">
+	<span class="navbar-toggle" id="burger-navbar-toggle">
+          <i class="fas fa-bars"></i>
+	</span>
+	<ul class="nav" id="burger-menu">
 	  <li class="navListItem analysesText">
             <a href="#">Analyses</a>
 	    <span>{% include svgs/arrow.svg %}</span>
@@ -46,34 +49,91 @@
 	  </li>
 	</ul>
       </nav>
+    </nav>
   </div> <!-- end header -->
-
-  <div class="dropdownUlSection">
-    <ul class="secondaryNavAnalyses">
-      <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
-      <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
-      <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
-      <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
-      <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
-      <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
-      <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
-      <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
-    </ul>
-    <ul class="secondaryNavResources">
-      <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
-      <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
-      <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
-      <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
-    </ul>
-    <ul class="secondaryNavFFG">
-      <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
-    </ul>
-  </div> <!-- this comes down on a hover! -->
-
 </header>
 
+<div class="dropdownUlSection">
+  <ul class="secondaryNavAnalyses">
+    <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+    <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+    <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+    <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+    <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+    <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
+    <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
+    <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+  </ul>
+  <ul class="secondaryNavResources">
+    <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+    <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+    <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+    <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+  </ul>
+  <ul class="secondaryNavFFG">
+    <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
+  </ul>
+</div> <!-- this comes down on a hover! -->
 
+<!-- This will be for the mobile section! -->
+<div class="mobileUlSection" id="mobileSection"> 
+  <ul class="mobileNav">
+    <li class="navListItem">
+      <a href="#" id="analysesAnchor">Analyses</a>
+      <span>{% include svgs/arrow.svg %}</span>
+    </li>
+    <ul class="secondaryNavAnalysesMobile" id="mobileAnalyses">
+      <li class="secondaryNavMobileli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/budget-function.html">Budget Function</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="resourcesAnchor">Resources</a>
+      <span>{% include svgs/arrow.svg %}</span>
+    </li>
+    <ul class="secondaryNavResourcesMobile" id="mobileResources">
+      <li class="secondaryNavMobileli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="ffgAnchor">Federal Finance Guide</a>
+      <span class="">{% include svgs/arrow.svg %}</span>
+    </li>
+    <ul class="secondaryNavFFGMobile" id="mobileFFG">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/">Overview</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/spending">Spending</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/debt">Debt</a></li>
+      <hr id="mobileHr">
+    </ul>
+  </ul>
+
+</div>
