@@ -1,4 +1,5 @@
 @import '../../globalSass/generalVars';
+@import '../../colors.scss';
 
 @keyframes card {
     0% {transform: scaleX(1)}
@@ -35,6 +36,12 @@
     margin-bottom: 1rem;
 }
 
+.card__image--width-contstrain {
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .card__heading {
     text-align: center;
     font-size: 1.5rem;
@@ -50,12 +57,28 @@
 
 .card__cover {
     position: absolute;
+    text-align: center;
     top: 0;
     left: 0;
     padding: 1rem;
     visibility: visible;
     transition-property: visibility;
     transition-delay: 0.25s;
+}
+
+.card__flipper {
+    border: none;
+    background: transparent;
+    color: $color-debt-primary;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: lighten($color-debt-primary, 20%);
+    }
+}
+
+.card__flip-icon {
+    margin-right: 0.5rem;
 }
 
 .card.card--flipped {
@@ -90,7 +113,7 @@
 @media only screen and (min-width: 990px) {
     .card {
         width: 32%;
-        transition: width 0.5s ease;
+        transition: width, height 0.5s ease;
     }
 
     .tour {
