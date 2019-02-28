@@ -70,7 +70,7 @@ function doubleClickBlocker(id) {
     blockTimer = setTimeout(
         function() {
             doubleClickBlock = null;
-        }, 500);
+        }, 1000);
 }
 
 function toggleLayer() {
@@ -171,10 +171,6 @@ function deficitTransform(state, now) {
         .duration(localDuration)
         .attr('opacity', debtDots)
         .ease();
-
-    layers.deficit.transition()
-        .duration(duration)
-        .attr('opacity', 1);
 }
 
 function subsequentRevenueSpendingCompare() {
