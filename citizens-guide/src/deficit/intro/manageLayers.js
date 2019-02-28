@@ -8,7 +8,7 @@ const d3 = { select, selectAll },
     scaleFactor = 0.6,
     duration = 1000;
 
-let activeCompare, revenueFirstTime, debtFirstTime;
+let activeCompare, revenueFirstTime, debtFirstTime, doubleClickBlock, blockTimer;
 
 function revealHiddenElements() {
     d3.selectAll('.intro-hidden').classed('intro-hidden', null);
@@ -58,10 +58,29 @@ function showHideMath() {
     d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
 }
 
+function doubleClickBlocker(id) {
+    if (doubleClickBlock === id) {
+        return true;
+    }
+
+    clearTimeout(blockTimer);
+
+    doubleClickBlock = id;
+
+    blockTimer = setTimeout(
+        function() {
+            doubleClickBlock = null;
+        }, 500);
+}
+
 function toggleLayer() {
     const clicked = d3.select(this),
         id = clicked.attr('data-trigger-id'),
         noDelay = (id === 'debt' && activeCompare !== 'deficit');
+
+    if (doubleClickBlocker(id)) {
+        return;
+    };
 
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
 
@@ -152,6 +171,10 @@ function deficitTransform(state, now) {
         .duration(localDuration)
         .attr('opacity', debtDots)
         .ease();
+
+    layers.deficit.transition()
+        .duration(duration)
+        .attr('opacity', 1);
 }
 
 function subsequentRevenueSpendingCompare() {
