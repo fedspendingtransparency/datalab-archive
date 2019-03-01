@@ -96,7 +96,6 @@ function displayShowMoreSection(showMoreInd){
 
 export function init(_config){
     config = _config || config;
-    console.log('data:', config.data);
 
     /*
      * The following seems odd in the since that it's an init function; however, revenue currently uses the same

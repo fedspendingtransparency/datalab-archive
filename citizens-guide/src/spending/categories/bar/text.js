@@ -88,7 +88,6 @@ export function placeLabels(containers, config) {
         })
         .text(function (d, i) {
             let p = parseInt(d.percent_total);
-            console.log('p:', p, 'd.percent_total:', d.percent_total);
 
             if (Math.abs(p) < 1) {
                 p = '<1'
