@@ -4,19 +4,17 @@ import { min, max, range } from 'd3-array';
 import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { transition } from 'd3-transition';
-import {translator, getElementBox, getTransform} from '../../utils';
+import { translator, getTransform } from '../../utils';
 import { renderLabels } from './labels';
 import { showDetail, destroyDetailPane } from './detailPane';
 import { zoomTrigger } from './zoomTrigger';
 import { ink } from './ink'
-import { processDataForChart } from './trendData';
-import { addTooltips, repositionDataDots } from './addTooltips';
+import { addTooltips } from './addTooltips';
 import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
-import { activateTourPartTwo } from '../tour';
 
-const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
+const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft, transition },
     margin = {
         left: 400,
         top: 40
@@ -37,8 +35,7 @@ function toggleZoom(globals) {
 }
 
 function transformChart(globals, reset) {
-    const duration = 1000,
-        xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
+    const duration = 1000;
 
     globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
     globals.scales.x.range([0, globals.width]);
@@ -56,8 +53,6 @@ function transformChart(globals, reset) {
 }
 
 function onSelect(d, reset) {
-    activateTourPartTwo();
-
     if (reset) {
         this.activeDrilldown = null;
         this.trendLines.deEmphasize(null, this);
@@ -117,20 +112,20 @@ function initGlobals(config) {
  * @param container - The main container of the data points we're providing tooltips for.
  * @returns {{x, y}} - x and y offset for the container offset.
  */
-function calculateContainerOffset(globals, container){
+function calculateContainerOffset(globals, container) {
     let parentEl = container,
         containerOffset = getTransform(globals.chart);
 
     // The main level trend-chart only needs the first level offset from globals.chart, the sub-level has
     // two additional g tags that are sandwiched around globals.chart which we need their offsets.
-    if(parentEl.node().nodeName !== 'svg'){
+    if (parentEl.node().nodeName !== 'svg') {
         const childEl = parentEl.select('g.trend-chart');
         parentEl = d3.select(parentEl.node().parentNode);
 
         const parentOffset = getTransform(parentEl);
         const childOffset = getTransform(childEl);
         containerOffset.x = containerOffset.x + parentOffset.x + childOffset.x;
-        containerOffset.y = containerOffset.y +  parentOffset.y + childOffset.y;
+        containerOffset.y = containerOffset.y + parentOffset.y + childOffset.y;
     }
 
     return containerOffset;
