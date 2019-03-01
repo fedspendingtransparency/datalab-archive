@@ -8,7 +8,7 @@ const d3 = { select, selectAll },
     scaleFactor = 0.6,
     duration = 1000;
 
-let activeCompare, revenueFirstTime, debtFirstTime;
+let activeCompare;
 
 function revealHiddenElements() {
     d3.selectAll('.intro-hidden').classed('intro-hidden', null);
@@ -43,8 +43,7 @@ function showHideMath() {
 
 function toggleLayer() {
     const clicked = d3.select(this),
-        id = clicked.attr('data-trigger-id'),
-        noDelay = (id === 'debt' && activeCompare !== 'deficit');
+        id = clicked.attr('data-trigger-id');
 
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
 
@@ -61,13 +60,6 @@ function toggleLayer() {
 
     resizeSvg();
     showHideMath();
-}
-
-function compareDeficit() {
-    layers.deficit.transition()
-        .duration(duration)
-        .attr('opacity', 1)
-        .ease();
 }
 
 function transitionLayers() {

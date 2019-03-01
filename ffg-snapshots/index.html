@@ -82,8 +82,8 @@
 </div>
 
 <header id="header">
-  <a href="/index.html" class="usaspending-logo-link">
-    <div class="usaspending-logo-center">
+  <div class="usaspending-logo-center" id="usaspending-logo-left" >
+    <a href="/" class="usaspending-logo-link">
       <?xml version="1.0" encoding="UTF-8"?>
 <svg width="298px" height="73px" viewBox="0 0 298 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
@@ -136,12 +136,15 @@
         </text>
     </g>
 </svg>
-    </div>
-  </a>
+    </a>
+  </div>
   <div class="header-right">
     <nav id="headerNav">
       <nav>
-	<ul class="nav">
+	<span class="navbar-toggle" id="burger-navbar-toggle">
+          <i class="fas fa-bars"></i>
+	</span>
+	<ul class="nav" id="burger-menu">
 	  <li class="navListItem analysesText">
             <a href="#">Analyses</a>
 	    <span><?xml version="1.0" encoding="UTF-8"?>
@@ -192,37 +195,130 @@
 	  </li>
 	</ul>
       </nav>
+    </nav>
   </div> <!-- end header -->
-
-  <div class="dropdownUlSection">
-    <ul class="secondaryNavAnalyses">
-      <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
-      <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
-      <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
-      <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
-      <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
-      <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
-      <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
-      <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
-    </ul>
-    <ul class="secondaryNavResources">
-      <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
-      <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
-      <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
-      <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
-    </ul>
-    <ul class="secondaryNavFFG">
-      <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
-      <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
-    </ul>
-  </div> <!-- this comes down on a hover! -->
-
 </header>
 
+<div class="dropdownUlSection">
+  <ul class="secondaryNavAnalyses">
+    <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+    <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+    <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+    <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+    <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+    <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
+    <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
+    <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+  </ul>
+  <ul class="secondaryNavResources">
+    <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+    <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+    <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+    <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+  </ul>
+  <ul class="secondaryNavFFG">
+    <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
+  </ul>
+</div> <!-- this comes down on a hover! -->
 
+<!-- This will be for the mobile section! -->
+<div class="mobileUlSection" id="mobileSection"> 
+  <ul class="mobileNav">
+    <li class="navListItem">
+      <a href="#" id="analysesAnchor">Analyses</a>
+      <span><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Path 2 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MainMenu" transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g id="Nav_H1_Group-Copy" transform="translate(1114.000000, 46.000000)">
+                <polyline id="Path-2-Copy-2" points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+    </li>
+    <ul class="secondaryNavAnalysesMobile" id="mobileAnalyses">
+      <li class="secondaryNavMobileli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/budget-function.html">Budget Function</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="resourcesAnchor">Resources</a>
+      <span><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Path 2 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MainMenu" transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g id="Nav_H1_Group-Copy" transform="translate(1114.000000, 46.000000)">
+                <polyline id="Path-2-Copy-2" points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+    </li>
+    <ul class="secondaryNavResourcesMobile" id="mobileResources">
+      <li class="secondaryNavMobileli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="ffgAnchor">Federal Finance Guide</a>
+      <span class=""><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Path 2 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MainMenu" transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g id="Nav_H1_Group-Copy" transform="translate(1114.000000, 46.000000)">
+                <polyline id="Path-2-Copy-2" points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+    </li>
+    <ul class="secondaryNavFFGMobile" id="mobileFFG">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/">Overview</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/spending">Spending</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/debt">Debt</a></li>
+      <hr id="mobileHr">
+    </ul>
+  </ul>
+
+</div>
 
       <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
 <svg class="icon-chevron-up" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
