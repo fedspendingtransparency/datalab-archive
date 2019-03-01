@@ -687,32 +687,6 @@ header.major h2 {
   margin-left: 70px;
 }
 
-/* This will be default logo when in non-sticky mode */
-/* "sticky" mode will remove margins! */
-.usaspending-logo-center {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-  padding-right: 120px;
-}
-
-// if/else to handle this id
-// if we are NOT on landing page
-// display to left always
-#usaspending-logo-left {
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-}
-
-// center our header link/logo
-.usaspending-logo-link {
-//  flex: 1;
-//  justify-content: center;
-//  align-items: center;
-//  text-align: center;
-}
-
 .usaspending-logo-subtext {
   position: fixed;
   font-size: 7px;
