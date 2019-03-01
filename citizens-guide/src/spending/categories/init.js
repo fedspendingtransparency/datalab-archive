@@ -9,7 +9,7 @@ const d3 = { select, selectAll },
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency'),
     barControls = d3.select('#bar-controls'),
-    chartSectionTextStr = 'Click to see sub-categories';
+    chartSectionTextStr = 'Click to see subcategories';
 
 let svg,
     config = {
@@ -96,6 +96,7 @@ function displayShowMoreSection(showMoreInd){
 
 export function init(_config){
     config = _config || config;
+    console.log('data:', config.data);
 
     /*
      * The following seems odd in the since that it's an init function; however, revenue currently uses the same

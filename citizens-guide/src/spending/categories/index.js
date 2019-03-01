@@ -1,5 +1,4 @@
 import { init, initChart } from './init';
-import { byYear } from '../data-spending';
 
 
 let debounce;
