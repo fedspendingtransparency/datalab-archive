@@ -14,47 +14,51 @@
 </script>
 
 <div id="top-footer">
-  <span>{% include svgs/DL_Gray.svg %}</span>
+  <div class="top-footer-column-logo">
+    <span>{% include svgs/DL_Gray.svg %}</span>
+  </div>
+
+  <div class="top-footer-group-separator"></div>
 
   <div class="top-footer-column">
     <div class="link-group">
       <div class="group-title">Contact Us</div>
-      <div class="top-footer-group-separator"></div>
       <div>
 	<p>
 	  For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
 	</p>
 	<p>
-	  202-504-3535
+	  T: 202-504-3535
 	  <br>
-	  media.relations@fiscal.treasury.gov
+	  E: media.relations@fiscal.treasury.gov
 	</p>
       </div>
     </div>
-
-    <div class="link-group">
-      <div class="group-title">Get Involved</div>
-      <div class="top-footer-group-separator"></div>
-      <ul class="links">
-        <li><a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Send Feedback</a></li>
-      </ul>
-    </div>
   </div>
+
+  <div class="top-footer-group-separator"></div>
 
   <div class="top-footer-column">
     <div class="link-group">
       <div class="group-title">Mailing List</div>
-      <div class="top-footer-group-separator"></div>
       <div class="mailing-list">
 	<p>
 	  To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
 	</p>
       </div>
-    </div>
 
+      <div class="group-title">Get Involved</div>
+      <ul class="links">
+        <li>Visit our <a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Community Page today.</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="top-footer-group-separator"></div>
+  
+  <div class="top-footer-column top-footer-column-end">
     <div class="link-group">
       <div class="group-title">Connect With Us</div>
-      <div class="top-footer-group-separator"></div>
       <ul class="icons">
         <li>
           <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
@@ -82,8 +86,9 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div>    
   </div>
+
 </div>
 
 <footer id="footer">
@@ -99,7 +104,4 @@
       You must <a href="https://beta.usaspending.gov/#/db_info">click here</a> for very important D&B information.
     </span>
   </div>
-  <div class="glossary-section">
-    <i class="fas fa-book"></i> <p id="glossary-text"> Glossary</p>
-  </div>     
 </footer>

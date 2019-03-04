@@ -155,17 +155,17 @@ table td {
 /* Header */
 #header {
   background: #FFFFFF;
+  transition: top .5s ease;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex: 1;
   flex-direction: row;
   align-items: center;
-//  text-align: center;
   padding: 20px;
   height: 60px;
-//  justify-content: center;
-  position: relative;
-  z-index: 999;
+  width: 100%;
+  position: fixed;
+  z-index: 20;
 }
 
 /* Banner */
@@ -248,7 +248,6 @@ table td {
     li:first-child:before {
       content: ""
     }
-
   }
 }
 
@@ -256,13 +255,25 @@ table td {
   width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-left: 30px;
+}
+
+.top-footer-column-end {
+  flex-direction: column-reverse; 
+  width: 500px;
+  margin-bottom: 60px;
+}
+
+.top-footer-column-logo {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .top-footer-group-separator {
-  margin: 15px 0;
   opacity: 0.5;
-  border-bottom: 1px solid #979797;
+  height: 200px;
+  border-left: 1px solid #979797;
 }
 
 /* Info Banner */
@@ -296,6 +307,10 @@ ul.icons.major {
   justify-content: space-around;
   flex-direction: row;
   color: #FFFFFF;
+}
+
+ul.icons {
+  width: 100%;
 }
 
 ul.icons.major li {
@@ -473,7 +488,7 @@ header.major h2 {
 
 #top-footer {
   min-height: 275px;
-  background-color: #333333;
+  background-color: #FFFFFF;
   display: flex;
   padding: 50px;
   justify-content: space-between;
@@ -507,13 +522,14 @@ header.major h2 {
 }
 
 .link-group {
-  color: #DBDBDB;
+//  color: #DBDBDB;
   font-size: 14px;
   line-height: 21px;
   font-weight: 300;
+  padding-right: 5px; // for text wrap
 
   a {
-    color: #DBDBDB;
+    color: $accent-blue;
   }
 }
 
@@ -522,7 +538,7 @@ header.major h2 {
 }
 
 .group-title {
-  color: #DBDBDB;
+//  color: #DBDBDB;
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
