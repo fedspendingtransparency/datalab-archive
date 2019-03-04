@@ -43,7 +43,7 @@ const mobileFFG = '#mobileFFG';
 */
 function isMobile() {
   if ($(window).width() < 950) {
-//    console.log('mobile');
+    //    console.log('mobile');
     return true;
   } else {
     return false;
@@ -197,7 +197,6 @@ function svgFixies() {
     });
   }
 
-
   function moveHeaderReplace(cb) {
     if(!isMobile()) {
       $(window).on('scroll', function() {
@@ -210,9 +209,9 @@ function svgFixies() {
   }
 
   function marginCheck() {
-//      console.log('center logo should go!');
-      $(centerLogo).css('display', 'none');
-      $(leftLogo).css('display', 'block');
+    //      console.log('center logo should go!');
+    $(centerLogo).css('display', 'none');
+    $(leftLogo).css('display', 'block');
   }
 
   if (!regex.test(pathname)) {
@@ -246,7 +245,7 @@ function stickyHeader(sticky) {
         } 
 
         if($(window).width() >= 1920) {
-          $(spendingLogoDiv).css('justify-content', 'flex-end');
+//          $(spendingLogoDiv).css('justify-content', 'flex-end');
         }
 
         if ($(window).width() <= 950) {
@@ -266,18 +265,6 @@ function stickyHeader(sticky) {
       }
 
     }); // end of scroll event !
-
-    // on DL pages..
-    // window resizes
-    if(!regex.test(pathname)) {
-      //      $(window).resize(function() {
-      //        if($(window).width() >= 1679 && $(window).width() <= 1575) {
-      //          console.log('width between 1679 and 1575');
-      //          $('.centerLogo').css('margin-left', '400px');
-      //        }
-      //
-      //      });
-    }
 
     // on CG pages, dont give any padding to spending logo
     if(regex.test(pathname)) {
