@@ -481,7 +481,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17
     d3.csv('/data-lab-data/accounts_obligations_link_update_FY18.csv', (dendroData18) =>{
         d3.csv('/data-lab-data/accounts_obligations_link_update_FY19Q1.csv', (dendroData19) =>{
 
-    CreateDendro(dendroData19.filter((d) => d.reporting_period_end === '2018-12-31'));
+    CreateDendro(dendroData18.filter((d) => d.reporting_period_end === '2018-09-30'));
 
     $(document).ready(() => {
         let data = [];
