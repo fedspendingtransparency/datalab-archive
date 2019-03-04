@@ -552,7 +552,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17
                         .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
                         .attr('id', 'svg-dendrogram')
                         .attr('class', 'overlay')
-                        .html('<h1>We will update thge Federal Account Explorer as soon as data is available</h1>');   
+                        .html('<h1>We will update the Federal Account Explorer as soon as data is available</h1>');   
                 }
             }
         })
