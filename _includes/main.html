@@ -1,0 +1,116 @@
+<style>
+.data-lab-main {
+    margin: 1.5rem;
+}
+.introduction-container {
+    display: block;
+}
+
+.main-intro {
+    width: 100%;
+    border: 1px solid gray;
+    text-align: center;
+}
+ .main-intro__image {
+    max-width: 100%;
+    height: auto;
+}
+
+.side-column {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.side-intro__box {
+    border-bottom: 1px solid black;
+    height: auto;
+    margin-bottom: 2rem;
+}
+.side-info {
+    display: flex;
+}
+
+.side-info__column {
+    flex-direction: column;
+}
+
+.side-info__title {
+    font-size: 1rem;
+}
+
+.side-info__heading {
+    font-size: 1.2rem;
+}
+
+.side-info__image {
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+.data-lab-main {
+    margin: 5rem;
+}
+.introduction-container {
+    display: flex;
+}
+
+.side-column {
+    margin-left: 2rem;
+    width: 40%;
+}
+
+.main-intro {
+    width: 55%;
+}
+}
+
+</style>
+<main class="data-lab-main">
+    <div class="introduction-container">
+    <div class="main-intro">
+        <img class="main-intro__image"src="../images/homepage/intro.gif">
+        <h1 class="main-intro__heading">Welcome to the People's Guide</h1>
+        <h2 class="main-intro__subheading">Your Guide to Federal Government Finances in 2018</h2>
+        <p class="main-intro__text">Where does federal government funding come from? Where does it go? How has federal funding changed over time? We present you with clear straightforward information about finances in the federal government. Check out the Data Lab's re-invention of the Citizen's Guide to Financial Report of the U.S. Government. Your Guide to Federal Government Finances.</p>
+    </div>
+    <!-- <div class="side-intro">
+        <div class="side-dts__box">
+            <div class="side-dts__heading">The Daily Treasury Statement</div>
+            <h2 class="side-dts__headline">How much does the federal government spend each day?</h2>
+            <img class="side-dts__image" src="/">
+            <div class="side-dts__date">Updated: <strong>December 11, 2018</strong></div>
+        </div> -->
+        <div class="side-column">
+        <div class="side-intro__box">
+            <div class="side-info">
+                    <div class="side-info__column">
+                        <div class="side-info__title">Contract Spending Analysis</div>
+                        <h2 class="side-info__heading"><a class="side-info__link" href="href=contracts-over-time.html">How has federal contract spending changed over time?</a></h2>
+                    </div>
+                    <div class="side-info__column">
+                        <img class="side-info__image" src="../images/homepage/contracts-over-time.png" alt="Contracts over time" />
+                    </div>
+            </div>
+              <p class="side-info__text">We explore 10 years of contract data, and provide an analysis of the impact of short-term continuing resolutions on contract spending.</p>
+            </div>
+            <div class="side-intro__box">
+                    <div class="side-info">
+                            <div class="side-info__column">
+                                <div class="side-info__title">Federal Account Explorer</div>
+                                <h2 class="side-info__heading"><a class="side-info__link" href="href=contracts-over-time.html">How does the government buy things?</a></h2>
+                            </div>
+                            <div class="side-info__column">
+                                <img class="side-info__image" src="../images/homepage/contracts-over-time.png" alt="Contracts over time" />
+                            </div>
+                    </div>
+                      <p class="side-info__text">The government has almost 2,000 accounts it uses to spend money. Explore the government&#8217;s spending accounts and discover how much money has been spent.</p>
+                    </div>
+            </div>
+    </div>
+        
+    </div>
+</main>

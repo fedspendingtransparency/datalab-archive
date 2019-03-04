@@ -1,0 +1,13 @@
+.image-container {
+    background: url() no-repeat center center fixed; 
+    background-size: cover;
+    width: 50rem;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.image-container__text {
+    font-size: 2rem;
+}
