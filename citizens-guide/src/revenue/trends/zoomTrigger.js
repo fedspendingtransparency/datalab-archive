@@ -78,7 +78,7 @@ function createTrigger(globals) {
         .attr('font-size', 11);
 
     selections.text.append('tspan')
-        .text('More Categories')
+        .text('more categories')
         .attr('x', 10)
         .attr('dy', 16)
         .attr('font-size', 16);
