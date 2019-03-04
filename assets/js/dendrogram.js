@@ -477,9 +477,11 @@ function CreateDendro(newData){
     }
 }
 
-d3.csv('/data-lab-data/accounts_obligations_link_update_v4.csv', (dendroData) =>{
+d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17) =>{
+    d3.csv('/data-lab-data/accounts_obligations_link_update_FY18.csv', (dendroData18) =>{
+        d3.csv('/data-lab-data/accounts_obligations_link_update_FY19Q1.csv', (dendroData19) =>{
 
-    CreateDendro(dendroData.filter((d) => d.reporting_period_end === '2018-06-30'));
+    CreateDendro(dendroData19.filter((d) => d.reporting_period_end === '2018-12-31'));
 
     $(document).ready(() => {
         let data = [];
@@ -502,15 +504,15 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_v4.csv', (dendroData) =>
                         .html("<h1>Sorry, our current schema didn't exist for FY17 Q1</h1>");
                 }else if (Quarter == '03-31'){
                     // console.log('FY17 Q2 selected')
-                    data = dendroData.filter((d) => d.reporting_period_end == '2017-03-31');
+                    data = dendroData17.filter((d) => d.reporting_period_end == '2017-03-31');
                     CreateDendro(data);
                 }else if (Quarter == '06-30'){
                     // console.log('FY17 Q3 selected')
-                    data = dendroData.filter((d) => d.reporting_period_end == '2017-06-30');
+                    data = dendroData17.filter((d) => d.reporting_period_end == '2017-06-30');
                     CreateDendro(data);
                 }else {
                     // console.log('FY17 Q4 selected')
-                    data = dendroData.filter((d) => d.reporting_period_end == '2017-09-30');
+                    data = dendroData17.filter((d) => d.reporting_period_end == '2017-09-30');
                     CreateDendro(data);
                 }
             }else if (FiscalYear === 'fy18'){
@@ -519,18 +521,30 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_v4.csv', (dendroData) =>
                 const Quarter = $('input[name="Quarter"]:checked').val();
                 if (Quarter == '12-31'){
                     // console.log('FY18 Q1 selected')
-                    data = dendroData.filter((d) => d.reporting_period_end == '2017-12-31');
+                    data = dendroData18.filter((d) => d.reporting_period_end == '2017-12-31');
                     CreateDendro(data);
                 }else if (Quarter == '03-31'){
                     // console.log('FY18 Q2 selected')
-                    data = dendroData.filter((d) => d.reporting_period_end == '2018-03-31');
+                    data = dendroData18.filter((d) => d.reporting_period_end == '2018-03-31');
                     CreateDendro(data);
                 }else if (Quarter == '06-30'){
                     // console.log('FY18 Q3 selected')
-                    data = dendroData.filter((d) => d.reporting_period_end == '2018-06-30');
+                    data = dendroData18.filter((d) => d.reporting_period_end == '2018-06-30');
                     CreateDendro(data);
                 }else {
-                    const viewerWidth = document.body.clientWidth;
+                    // console.log('FY18 Q4 selected')
+                    data = dendroData18.filter((d) => d.reporting_period_end == '2018-06-30');
+                    CreateDendro(data);
+                }             
+            }else if (FiscalYear === 'fy19'){
+                d3.selectAll('#svg-dendrogram').remove();
+                const Quarter = $('input[name="Quarter"]:checked').val();
+                if (Quarter == '12-31'){
+                    // console.log('FY18 Q1 selected')
+                    data = dendroData19.filter((d) => d.reporting_period_end == '2018-12-31');
+                    CreateDendro(data);
+                }else{
+                 const viewerWidth = document.body.clientWidth;
                     const viewerHeight = 300;
                     d3.select('#tree-container').append('html')
                         .attr('width', viewerWidth)
@@ -538,10 +552,11 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_v4.csv', (dendroData) =>
                         .attr("viewBox", `0 0 ${viewerWidth} ${viewerHeight}`)
                         .attr('id', 'svg-dendrogram')
                         .attr('class', 'overlay')
-                        .html('<h1>Sorry, the data for FY18 Q4 has not been submitted yet.</h1>');
-                }             
+                        .html('<h1>We will update thge Federal Account Explorer as soon as data is available</h1>');   
+                }
             }
         })
     });
 });
-
+});
+});
