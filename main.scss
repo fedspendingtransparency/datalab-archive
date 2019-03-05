@@ -158,14 +158,17 @@ table td {
   transition: top .5s ease;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   display: flex;
-  flex: 1;
-  flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
   padding: 20px;
   height: 60px;
   width: 100%;
-  position: fixed;
+  position: relative;
   z-index: 20;
+}
+
+#header-scroll {
+  // todo 
 }
 
 /* Banner */

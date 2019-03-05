@@ -23,40 +23,40 @@
 </div>
 {% include info-banner.html %}
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
-
-  <div class="logo-div">
-    <span id="logo">
+  <div class="usaspending-logo-center"{% if page.layout != 'landing' %} id="usaspending-logo-left" {% endif %}>
+    <a href="{{ site.baseurl }}/" class="usaspending-logo-link">
       {% if page.layout != 'landing' %}
       {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%}
       {% endif %}
       {% if page.layout == 'landing' %}
-      <div class="logo-span">      {% include svgs/DataLab_NewLogo.svg class='datalabLogo' %} </div>
-      <div class="logo-div-nonlanding"> {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%} </div>
+      <div class="centerLogo"> {% include svgs/DataLab_NewLogo.svg class='datalabLogo' %} </div>
+      <div class="leftLogo"> {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%} </div>
       {% endif %}
-    </span>
+    </a>
   </div>
-
-  <nav class="header-nav">
-    <span class="navbar-toggle" id="burger-navbar-toggle">
-      <i class="fas fa-bars"></i>
-    </span>
-    <ul class="nav" id="burger-menu">
-      <li class="navListItem analysesText">
-        <a href="#">ANALYSES</a>
-	<span>{% include svgs/arrow.svg %}</span>
-      </li>
-      <li class="navListItem resourcesText">
-        <a href="#">RESOURCES</a>
-	<span>{% include svgs/arrow.svg %}</span>
-      </li>
-      <li class="navListItem ffgText">
-        <a href="#">FEDERAL FINANCE GUIDE</a>
-	<span class="">{% include svgs/arrow.svg %}</span>
-      </li>
-    </ul>
-  </nav>
-
-
+  <div class="header-right">
+    <nav id="headerNav">
+      <nav>
+	<span class="navbar-toggle" id="burger-navbar-toggle">
+          <i class="fas fa-bars"></i>
+	</span>
+	<ul class="nav" id="burger-menu">
+	  <li class="navListItem analysesText">
+            <a href="#">ANALYSES</a>
+	    <span>{% include svgs/arrow.svg %}</span>
+	  </li>
+	  <li class="navListItem resourcesText">
+            <a href="#">RESOURCES</a>
+	    <span>{% include svgs/arrow.svg %}</span>
+	  </li>
+	  <li class="navListItem ffgText">
+            <a href="#">FEDERAL FINANCE GUIDE</a>
+	    <span class="">{% include svgs/arrow.svg %}</span>
+	  </li>
+	</ul>
+      </nav>
+    </nav>
+  </div>
 </header>
 
 <div class="dropdownUlSection">
