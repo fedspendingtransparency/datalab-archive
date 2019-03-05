@@ -279,6 +279,8 @@ function init(){
     const glossaryWrapper = $('#cg-glossary-wrapper'),
         glossaryButton = $('#cg-glossary-btn');
 
+    console.log('glossaryData:', JSON.parse(JSON.stringify(glossaryData)), glossaryData)
+
     origCategorizedTerms = categorizeGlossaryData(glossaryData);
 
     if(glossaryButton.length && glossaryWrapper.length){
