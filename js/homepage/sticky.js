@@ -197,16 +197,16 @@ function svgFixies() {
     });
   }
 
-  function moveHeaderReplace(cb) {
-    if(!isMobile()) {
-      $(window).on('scroll', function() {
-        $('.centerLogo').animate({
-          'margin-left': '0px'
-        }, 1000);
-        setTimeout(function(){ cb(); }, 1000);
-      });
-    }
-  }
+  //  function moveHeaderReplace(cb) {
+  //    if(!isMobile()) {
+  //      $(window).on('scroll', function() {
+  //        $('.centerLogo').animate({
+  //          'margin-right': 'auto'
+  //        }, 1000);
+  //        setTimeout(function(){ cb(); }, 1000);
+  //      });
+  //    }
+  //  }
 
   function marginCheck() {
     //      console.log('center logo should go!');
@@ -214,18 +214,20 @@ function svgFixies() {
     $(leftLogo).css('display', 'block');
   }
 
-  if (!regex.test(pathname)) {
-    moveHeaderReplace(marginCheck);
+  //  if (!regex.test(pathname)) {
+  //    moveHeaderReplace(marginCheck);
+  //  {
+
+  // helper to correct animation
+  function afterAnimation() {
+    // TODO - deal with margin-right: auto
+    // after animation is done in css for proper alignment..
   }
   
 }
 
 /*
-  Check if we're at the top of the page,
-  if we are, keep things non sticky,
-  when we scroll, lets make things sticky ~
-
-  TODO: Add Scroll event debounce!
+  onScroll and Sticky header
 */
 function stickyHeader(sticky) {
   if (typeof sticky !== "undefined") {
@@ -235,23 +237,13 @@ function stickyHeader(sticky) {
       if ($(window).scrollTop() === 0) {
         $(sticky).css('display', 'flex').css('position','relative').css('width', ''); // make sure we remove width to get rid of overflow problem!
 
-        $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
+        //        $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
         $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '20').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
 
-        if(!regex.test(pathname)) {
-          $('.leftLogo').css('display', 'flex').css('justify-content', 'flex-start');
-          $(spendingLogoDiv).css('justify-content', 'flex-end');
-          $('.centerLogo').css('display', 'none');
+        // dont do sliding animation on mobile break (955px)
+        if(!regex.test(pathname) && $(window).width() > 1008) {
+          $('.logo-div-animate-after').removeClass('logo-div-animate-after').addClass('logo-div');
         } 
-
-        if($(window).width() >= 1920) {
-//          $(spendingLogoDiv).css('justify-content', 'flex-end');
-        }
-
-        if ($(window).width() <= 950) {
-          $(spendingLogoDiv).css('justify-content', 'flex-start').css('padding-right', '0px');
-        }
-
       } else {
 
         // if not at the top, then we make it "sticky"
@@ -259,18 +251,31 @@ function stickyHeader(sticky) {
         // also make secondary mobile sticky 
         $(mobileMenu).css('position','fixed').css('top', '100px').css('width', '100%').css('justify-content','flex-end').css('align-items','flex-end').css('background-color','#FFFFFF');
 
-        // move burger menu over as well
-        $(burgerMenu).css('padding-right', '45px').css('align-items', 'flex-end');
+        if(!regex.test(pathname) && $(window).width() > 1008) {
+          $('.logo-div').addClass('logo-div-animate').removeClass('logo-div');
+        }
 
       }
-
     }); // end of scroll event !
 
-    // on CG pages, dont give any padding to spending logo
+    // landing page mobile fixy
+//    if(!regex.test(pathname)) {
+//      if ($(window).width() <= 1280) {
+//        $('.logo-div').css('position', 'static');
+//      }
+//    }
+
+    // any non landing page, make logo left.
     if(regex.test(pathname)) {
-      $(spendingLogoDiv).css('padding-right', '0px');
+      $('.logo-div').removeClass('logo-div').addClass('logo-div-left');
+      $('.logo-div-nonlanding').css('display', 'block');
     }
     
+    $('.logo-div').on('transitionend', () => {
+      $('.logo-div-animate').removeClass('logo-div-animate').addClass('logo-div-animate-after');
+      console.log('end logo div');
+    });
+
   }
 }
 
