@@ -100,3 +100,7 @@
     width: 24%; }
   .cards--flipped .card.card--flipped {
     width: 49%; } }
+
+.debt-analysis-intro {
+  max-width: 800px;
+  margin: 0 auto; }
