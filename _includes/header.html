@@ -25,7 +25,13 @@
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
   <div class="usaspending-logo-center"{% if page.layout != 'landing' %} id="usaspending-logo-left" {% endif %}>
     <a href="{{ site.baseurl }}/" class="usaspending-logo-link">
-      {% include svgs/DataLab_NewLogo.svg class='datalabLogo' %}
+      {% if page.layout != 'landing' %}
+      {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%}
+      {% endif %}
+      {% if page.layout == 'landing' %}
+      <div class="centerLogo"> {% include svgs/DataLab_NewLogo.svg class='datalabLogo' %} </div>
+      <div class="leftLogo"> {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%} </div>
+      {% endif %}
     </a>
   </div>
   <div class="header-right">
@@ -36,21 +42,21 @@
 	</span>
 	<ul class="nav" id="burger-menu">
 	  <li class="navListItem analysesText">
-            <a href="#">Analyses</a>
+            <a href="#">ANALYSES</a>
 	    <span>{% include svgs/arrow.svg %}</span>
 	  </li>
 	  <li class="navListItem resourcesText">
-            <a href="#">Resources</a>
+            <a href="#">RESOURCES</a>
 	    <span>{% include svgs/arrow.svg %}</span>
 	  </li>
 	  <li class="navListItem ffgText">
-            <a href="#">Federal Finance Guide</a>
+            <a href="#">FEDERAL FINANCE GUIDE</a>
 	    <span class="">{% include svgs/arrow.svg %}</span>
 	  </li>
 	</ul>
       </nav>
     </nav>
-  </div> <!-- end header -->
+  </div>
 </header>
 
 <div class="dropdownUlSection">
@@ -77,9 +83,8 @@
     <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
     <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
   </ul>
-</div> <!-- this comes down on a hover! -->
+</div>
 
-<!-- This will be for the mobile section! -->
 <div class="mobileUlSection" id="mobileSection"> 
   <ul class="mobileNav">
     <li class="navListItem">

@@ -4,7 +4,7 @@
 // using jquery 1.11.3! (updating, if bugged then revert!)
 
 const headerRight = '.header-right';
-const spendingLogo = '.usaspending-logo-center';
+const spendingLogoDiv = '.usaspending-logo-center';
 const hiddenUlSection = '.dropdownUlSection';
 const li = '.navListItem';
 const navClick = '#navText';
@@ -13,6 +13,8 @@ const resourcesNav = '.secondaryNavResources';
 const ffgNav = '.secondaryNavFFG';
 const datalabLogo = '.datalabLogo';
 const burgerMenu = '#burger-navbar-toggle';
+const centerLogo = '.centerLogo';
+const leftLogo = '.leftLogo';
 
 // colors!
 const lb = '#2376d8'; // light blue link
@@ -34,14 +36,43 @@ const mobileAnalyses = '#mobileAnalyses';
 const mobileResources = '#mobileResources';
 const mobileFFG = '#mobileFFG';
 
+
+/* 
+  Helper function to check when burger
+  is shown.
+*/
+function isMobile() {
+  if ($(window).width() < 950) {
+    //    console.log('mobile');
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// helper function to
+// throttle scroll events
+function throttle(fn, wait) {
+  let time = Date.now();
+  return function() {
+    if ((time + wait - Date.now()) < 0) {
+      fn();
+      time = Date.now();
+    }
+  };
+}
+
 $(function() {
   stickyHeader($("#header")); // our Header id in our homepage
   mobileEvents(); // mobile events seperated
   applyColorsClick(); // added colors 
+  svgFixies(); // svg resize on pages
+
+  window.addEventListener('scroll', throttle(svgFixies, 4000)); // add throttle to scrolling..
 
   // on burger menu click, we'll show nav
   $(burgerMenu).click(function() {
-//    $(mobileMenu).css('display', 'flex');
+    //    $(mobileMenu).css('display', 'flex');
     $(mobileMenu).toggle('slow');
   });
 
@@ -88,22 +119,106 @@ function mobileEvents() {
 
   // *** MOBILE *** ///
   $(analysesAnchor).click(function() {
-//    $(mobileAnalyses).css('display', 'block');
+    //    $(mobileAnalyses).css('display', 'block');
     $(mobileAnalyses).toggle('slow');
   });
 
   $(resourcesAnchor).click(function() {
-//    $(mobileResources).css('display', 'block');
+    //    $(mobileResources).css('display', 'block');
     $(mobileResources).toggle('slow');
   });
 
   $(ffgAnchor).click(function() {
-//    $(mobileFFG).css('display', 'block');
+    //    $(mobileFFG).css('display', 'block');
     $(mobileFFG).toggle('slow');
   });
-
 }
 
+/* 
+  Svg helper function to swap svgs on different pages
+*/
+function svgFixies() {
+
+  // if we are on the homepage
+  if (!regex.test(pathname)) {
+    let svg = $('svg')[3];
+    svg.setAttribute('width', '400px');
+
+    if($(window).width() <= 500) {
+      svg.setAttribute('width', '350px');
+    }
+
+    if ($(window).width() <= 440) {
+      svg.setAttribute('width', '315px');
+    }
+
+    $(window).resize(function() {
+
+      if($(window).width() > 500) {
+        svg.setAttribute('width', '400px');
+      }
+
+      if($(window).width() <= 500) {
+        svg.setAttribute('width', '350px');
+      }
+
+      if ($(window).width() <= 440) {
+        svg.setAttribute('width', '315px');
+      }
+
+    });
+  }
+
+  // if we aren't on the homepage (cg or dl page)
+  if (regex.test(pathname)) {
+    let svg = $('svg')[2]; // on other pages its 2nd svg element 
+    svg.setAttribute('width', '400px');
+
+    if($(window).width() <= 500) {
+      svg.setAttribute('width', '350px');
+    }
+    
+    if ($(window).width() <= 440) {
+      svg.setAttribute('width', '315px');
+    }
+
+    $(window).resize(function() {
+      if($(window).width() > 500) {
+        svg.setAttribute('width', '400px');
+      }
+
+      if($(window).width() <= 500) {
+        svg.setAttribute('width', '350px');
+      }
+      
+      if ($(window).width() <= 440) {
+        svg.setAttribute('width', '315px');
+      }
+    });
+  }
+
+  function moveHeaderReplace(cb) {
+    if(!isMobile()) {
+      $(window).on('scroll', function() {
+        $('.centerLogo').animate({
+          'margin-left': '0px'
+        }, 1000);
+        setTimeout(function(){ cb(); }, 1000);
+      });
+    }
+  }
+
+  function marginCheck() {
+    //      console.log('center logo should go!');
+    $(centerLogo).css('display', 'none');
+    $(leftLogo).css('display', 'block');
+  }
+
+  if (!regex.test(pathname)) {
+    moveHeaderReplace(marginCheck);
+  }
+  
+}
 
 /*
   Check if we're at the top of the page,
@@ -121,18 +236,20 @@ function stickyHeader(sticky) {
         $(sticky).css('display', 'flex').css('position','relative').css('width', ''); // make sure we remove width to get rid of overflow problem!
 
         $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
-        $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '999').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
+        $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '20').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
 
         if(!regex.test(pathname)) {
-//          $(spendingLogo).css('justify-content', 'flex-start').css('padding-right', '0px');
-          $(spendingLogo).css('justify-content', 'flex-end').css('padding-right', '120px');
+          $('.leftLogo').css('display', 'flex').css('justify-content', 'flex-start');
+          $(spendingLogoDiv).css('justify-content', 'flex-end');
+          $('.centerLogo').css('display', 'none');
         } 
 
         if($(window).width() >= 1920) {
-          $(spendingLogo).css('justify-content', 'flex-end').css('padding-right', '220px');
+//          $(spendingLogoDiv).css('justify-content', 'flex-end');
         }
+
         if ($(window).width() <= 950) {
-          $(spendingLogo).css('justify-content', 'flex-start').css('padding-right', '0px');
+          $(spendingLogoDiv).css('justify-content', 'flex-start').css('padding-right', '0px');
         }
 
       } else {
@@ -141,16 +258,19 @@ function stickyHeader(sticky) {
         $(sticky).css('position','fixed').css('top', '0').css('width','100%');
         // also make secondary mobile sticky 
         $(mobileMenu).css('position','fixed').css('top', '100px').css('width', '100%').css('justify-content','flex-end').css('align-items','flex-end').css('background-color','#FFFFFF');
+
         // move burger menu over as well
         $(burgerMenu).css('padding-right', '45px').css('align-items', 'flex-end');
 
-        // only if we are on the homepage, move logo to left!
-        if(!regex.test(pathname)) {
-          $(spendingLogo).css('justify-content', 'flex-start').css('padding-right', '0px');
-        } 
       }
 
     }); // end of scroll event !
+
+    // on CG pages, dont give any padding to spending logo
+    if(regex.test(pathname)) {
+      $(spendingLogoDiv).css('padding-right', '0px');
+    }
+    
   }
 }
 
