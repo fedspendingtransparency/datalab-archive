@@ -2,6 +2,8 @@ import { dotsPerRow, dotConstants } from "./dotConstants";
 
 let config, layer;
 
+export let vizHeight;
+
 function dotFactory(x, y) {
     return layer.append('circle')
         .attr('cx', x)
@@ -47,6 +49,8 @@ function placeDots() {
 
     // last row
     makeDotRow(2, remainder, y);
+
+    vizHeight = y + 40;
 }
 
 export function initDebtDots(c, startPosition) {

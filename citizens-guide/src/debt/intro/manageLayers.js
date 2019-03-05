@@ -3,6 +3,7 @@ import 'd3-transition';
 import { layers } from './createLayers';
 import { translator, establishContainer } from '../../utils';
 import { chartWidth } from './widthManager';
+import { vizHeight } from './debtDots';
 
 const d3 = { select, selectAll },
     scaleFactor = 0.6,
@@ -16,7 +17,7 @@ function revealHiddenElements() {
 }
 
 function resizeSvg() {
-    let h = (activeCompare) ? 900 * scaleFactor : 900;
+    const h = (activeCompare) ? vizHeight * scaleFactor + 40 : vizHeight;
     
     establishContainer().transition().duration(duration).attr('height', h);
 }
@@ -57,9 +58,20 @@ function toggleLayer() {
     }
 
     transitionLayers();
-
+    toggleFacts();
     resizeSvg();
     showHideMath();
+}
+
+function toggleFacts() {
+    const targetSection = d3.select(`#${activeCompare}-facts`),
+        sectionActive = 'facts__section--active';
+
+    d3.selectAll('.facts__section').classed(sectionActive, null);
+
+    if (targetSection.size()) {
+        targetSection.classed(sectionActive, true);
+    }
 }
 
 function transitionLayers() {
