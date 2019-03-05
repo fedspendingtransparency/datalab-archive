@@ -49,6 +49,7 @@ $db-link: #0a2644;
 
 .logo-div-animate-after {
   margin-right: auto;
+//  transition: all 700ms ease-in;
 }
 
 .logo-div-left {
@@ -61,24 +62,14 @@ $db-link: #0a2644;
 //  margin-right: auto;
 }
 
-@keyframes slidey {
-  0% {
-//    margin-right: 0px;
-    transform: translateX(-50%, 0);
-  }
-  25% {
-    transform: translateX(-75%, 0);
-  }
-  50% {
-    transform: translateX(-150%, 0)
-  }
-  75% {
-    transform: translateX(-200%, 0);
-  }
-  100% {
-    transform: translateX(-250%, 0);
-    margin-right: auto;
-  }
+.mobile-menu-sticky {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: #FFFFFF;
+  z-index: 20;
 }
 
 /* This will be default logo when in non-sticky mode */
@@ -87,12 +78,6 @@ $db-link: #0a2644;
   flex: 1;
   justify-content: center;
   align-items: center;
-}
-
-// place in "center" of screen
-// but right of the container
-.centerLogo {
-//  margin-left: 600px;
 }
 
 // if/else to handle this id
@@ -222,7 +207,7 @@ ul.nav li > ul {
   overflow: hidden;
 }
 
-.logo-div-nonlanding {
+.logo-span-rightText {
   display: none;
 }
 

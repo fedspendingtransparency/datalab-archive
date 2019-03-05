@@ -4,7 +4,7 @@
 // using jquery 1.11.3! (updating, if bugged then revert!)
 
 const headerRight = '.header-right';
-const spendingLogoDiv = '.usaspending-logo-center';
+const spendingLogoDiv = '.logo-div';
 const hiddenUlSection = '.dropdownUlSection';
 const li = '.navListItem';
 const navClick = '#navText';
@@ -240,16 +240,18 @@ function stickyHeader(sticky) {
         //        $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
         $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '20').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
 
-        // dont do sliding animation on mobile break (955px)
+        // dont do sliding animation on mobile break (1008px)
         if(!regex.test(pathname) && $(window).width() > 1008) {
           $('.logo-div-animate-after').removeClass('logo-div-animate-after').addClass('logo-div');
+          $('.logo-span-rightText').hide();
+          $('.logo-span').show();
         } 
       } else {
 
         // if not at the top, then we make it "sticky"
         $(sticky).css('position','fixed').css('top', '0').css('width','100%');
         // also make secondary mobile sticky 
-        $(mobileMenu).css('position','fixed').css('top', '100px').css('width', '100%').css('justify-content','flex-end').css('align-items','flex-end').css('background-color','#FFFFFF');
+        $(mobileMenu).addClass('mobile-menu-sticky');
 
         if(!regex.test(pathname) && $(window).width() > 1008) {
           $('.logo-div').addClass('logo-div-animate').removeClass('logo-div');
@@ -259,22 +261,31 @@ function stickyHeader(sticky) {
     }); // end of scroll event !
 
     // landing page mobile fixy
-//    if(!regex.test(pathname)) {
-//      if ($(window).width() <= 1280) {
-//        $('.logo-div').css('position', 'static');
-//      }
-//    }
+    //    if(!regex.test(pathname)) {
+    //      if ($(window).width() <= 1280) {
+    //        $('.logo-div').css('position', 'static');
+    //      }
+    //    }
 
     // any non landing page, make logo left.
     if(regex.test(pathname)) {
       $('.logo-div').removeClass('logo-div').addClass('logo-div-left');
-      $('.logo-div-nonlanding').css('display', 'block');
+      $('.logo-span-rightText').css('display', 'block');
     }
-    
+
+    // after transition apply after
+    $('.logo-div').on('transitionend', () => {
+      $('.logo-div-animate').removeClass('logo-div-animate').addClass('logo-div-animate-after');
+      $('.logo-span').hide();
+      $('.logo-span-rightText').show();
+      console.log('end logo div');
+    });
+
     $('.logo-div').on('transitionend', () => {
       $('.logo-div-animate').removeClass('logo-div-animate').addClass('logo-div-animate-after');
       console.log('end logo div');
     });
+
 
   }
 }
