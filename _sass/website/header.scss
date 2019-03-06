@@ -358,19 +358,16 @@ ul.nav:first-child li:hover > ul:after {
     position: static;
   }
 }
+
+@media (max-width: 450px) {
+  .header-logo__img {
+    width: 200px;
+  }
+}
+
 // SMALLEST
 @media (max-width: 400px) {
-  .navbar-toggle {
-    padding-right: 45px;
-  }
 
-  .logo-span-rightText {
-    display: block;
-  }
-
-  .logo-span {
-    display: none;
-  }
 }
 
 // MAIN MOBILE VIEW TOGGLE
@@ -391,7 +388,7 @@ ul.nav:first-child li:hover > ul:after {
 
   .navbar-toggle {
     display: flex; // show hamburger now
-    padding-right: 60px;
+//    padding-right: 60px;
     cursor: pointer;
     font-size: 28px;
     justify-content: flex-end;
