@@ -1,7 +1,7 @@
 <style>
 .data-lab-main {
     margin: 1.5rem;
-    font-size: calc(14px + (15 - 14) * ((100vw - 300px) / (1600 - 300)));
+    font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 .introduction-container {
     display: block;
@@ -9,7 +9,6 @@
 
 .main-intro {
     width: 100%;
-    border: 1px solid #eeeeee;
     text-align: center;
     font-weight: 300;
     display: flex;
@@ -45,6 +44,10 @@
     height: auto;
 }
 
+.main-intro__text {
+    line-height: 23px;
+}
+
 .main-intro__text_mobile {
     display: inline;
 }
@@ -72,6 +75,7 @@
 .side-info__column {
     flex-direction: column;
     width: 100%;
+    margin-top: 2rem;
 }
 
 .side-info__title {
@@ -87,6 +91,7 @@
 .side-info__text {
     display: none;
     font-weight: 300;
+    line-height: 1.43;
 }
 
 .side-info__link {
@@ -105,11 +110,10 @@
 
 .side-dts__box {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
     border: 1px solid #eeeeee;
     text-align: center;
     width: 100%;
+    flex-direction: column;
 }
 
 .side-dts__heading {
@@ -143,8 +147,8 @@
     display: inline;
 }
 
-.main-intro__subheading {
-    margin: 0;
+.main-intro {
+    border: 1px solid #eeeeee;
 }
 
 .headings-container {
@@ -209,9 +213,7 @@
                         <h2 class="side-info__heading"><a class="side-info__link" href="contracts-over-time.html">How has federal contract spending changed over time?</a></h2>
                     </div>
                     <div class="side-info__column">
-                        <!-- <div class="size-info__image-container"> -->
-                            <img class="side-info__image" src="../images/homepage/contracts-over-time.png" alt="Contracts over time" />
-                        <!-- </div> -->
+                        <img class="side-info__image" src="../images/homepage/contracts-over-time-new.png" alt="Contracts over time" />
                     </div>
             </div>
               <p class="side-info__text">We explore 10 years of contract data, and provide an analysis of the impact of short-term continuing resolutions on contract spending.</p>
