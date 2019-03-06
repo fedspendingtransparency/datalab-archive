@@ -9,6 +9,10 @@ $db-link: #0a2644;
   align-items: center;
 }
 
+.header-logo {
+  position: relative;
+}
+
 .header-init {
   top: 29px;
 }
@@ -28,6 +32,15 @@ $db-link: #0a2644;
 #headerNav {
   display: flex;
   flex: 1;
+}
+
+.header-logo__two-line {
+  width: 190px;
+  transform: translateY(-5px);
+}
+
+.header-logo__wrapper {
+  margin-bottom: -6px;
 }
 
 #navText {
@@ -178,6 +191,7 @@ ul.nav {
   list-style: none;
   font-size: 13px;
   padding-right: 30px;
+  margin: 0;
 }
 
 ul.nav > li {
@@ -354,19 +368,16 @@ ul.nav:first-child li:hover > ul:after {
     position: static;
   }
 }
+
+@media (max-width: 450px) {
+  .header-logo__img {
+    width: 200px;
+  }
+}
+
 // SMALLEST
 @media (max-width: 400px) {
-  .navbar-toggle {
-    padding-right: 45px;
-  }
 
-  .logo-span-rightText {
-    display: block;
-  }
-
-  .logo-span {
-    display: none;
-  }
 }
 
 // MAIN MOBILE VIEW TOGGLE
@@ -375,6 +386,10 @@ ul.nav:first-child li:hover > ul:after {
     list-style-type: none;
     display: none;
 //    flex-direction: column;
+  }
+
+  #one-line-tag {
+    display: none;
   }
 
   .dropdownUlSection {
@@ -387,7 +402,7 @@ ul.nav:first-child li:hover > ul:after {
 
   .navbar-toggle {
     display: flex; // show hamburger now
-    padding-right: 60px;
+//    padding-right: 60px;
     cursor: pointer;
     font-size: 28px;
     justify-content: flex-end;

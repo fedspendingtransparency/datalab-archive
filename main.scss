@@ -154,21 +154,29 @@ table td {
 
 /* Header */
 #header {
+  display: flex;
   background: #FFFFFF;
   transition: top .5s ease;
+  box-sizing: border-box;
+  line-height: normal; // could mess up nav
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px;
-  height: 50px;
+//  height: 50px;
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 29px;
   z-index: 20;
+  transition: opacity .5s ease;
 }
 
-#header-scroll {
-  // todo 
+#header:hover {
+  opacity: 1 !important;
+}
+
+.header-logo__img {
+  width: 298px;
 }
 
 /* Banner */
