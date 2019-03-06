@@ -130,6 +130,20 @@
     .side-dts__headline {
         font-size: calc(22px + (22 - 22) * ((100vw - 300px) / (1600 - 300)));
     }
+
+    .analysis__title {
+        text-transform: uppercase;
+        color: #757575;
+        font-size: calc(19px + (19 - 19) * ((100vw - 300px) / (1600 - 300)));
+        font-weight: 600;
+    }
+
+    .analysis__divider {
+        border: none;
+        height: 1px;
+        background-color: #979797;
+        margin-top: 0.7rem;
+    }
     
     @media only screen and (min-width: 1200px) {
     .data-lab-main {
@@ -137,6 +151,7 @@
     }
     .introduction-container {
         display: flex;
+        margin-bottom: 5rem;
     }
     .side-column {
         margin-left: 2rem;
@@ -188,7 +203,7 @@
     
     </style>
     <main class="data-lab-main">
-        <div class="introduction-container">
+        <section class="introduction-container">
         <div class="main-intro">
             <div class="headings-container">
                 <h1 class="main-intro__heading">Welcome to the People's Guide</h1>
@@ -233,7 +248,9 @@
                           <p class="side-info__text">The government has almost 2,000 accounts it uses to spend money. Explore the government&#8217;s spending accounts and discover how much money has been spent.</p>
                         </div>
                 </div>
-    
-            
-        </div>
+        </section>
+        <section class="analysis-container">
+            <header class="analysis__title">More analysis</header>
+            <hr class="analysis__divider" />
+        </section>
     </main>
