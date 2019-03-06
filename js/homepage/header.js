@@ -65,13 +65,13 @@ function transitionTags(scrollMax, y) {
   if (y >= min && y <= max)  {
     ratio = (y - min) * steps;
     headerContainers.twoTag.css('display', 'inline-block').css('opacity', ratio);
-    headerContainers.oneTag.css('opacity', 1 - ratio).css('transform', 'scaleY('+1 - ratio+')');
+    headerContainers.oneTag.css('opacity', 1 - ratio).css('transform', 'scaleY('+1 - ratio+')').css('display', 'inline-block');
 
   } else if (y < min) {
-    headerContainers.oneTag.css('opacity', '1').css('transform', 'scaleY(1)');
+    headerContainers.oneTag.css('opacity', '1').css('transform', 'scaleY(1)').css('display', 'inline-block');
     headerContainers.twoTag.css('opacity', '0').css('display', 'none');
   } else {
-    headerContainers.oneTag.css('opacity', '0').css('transform', 'scaleY(0)');
+    headerContainers.oneTag.css('opacity', '0').css('transform', 'scaleY(0)').css('display', 'none');
     headerContainers.twoTag.css('opacity', '1').css('display', 'inline-block');
   }
 

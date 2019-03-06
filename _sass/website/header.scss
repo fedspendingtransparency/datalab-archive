@@ -34,6 +34,15 @@ $db-link: #0a2644;
   flex: 1;
 }
 
+.header-logo__two-line {
+  width: 190px;
+  transform: translateY(-5px);
+}
+
+.header-logo__wrapper {
+  margin-bottom: -6px;
+}
+
 #navText {
   padding-top: 20px;
   font-weight: normal;
@@ -182,6 +191,7 @@ ul.nav {
   list-style: none;
   font-size: 13px;
   padding-right: 30px;
+  margin: 0;
 }
 
 ul.nav > li {
@@ -376,6 +386,10 @@ ul.nav:first-child li:hover > ul:after {
     list-style-type: none;
     display: none;
 //    flex-direction: column;
+  }
+
+  #one-line-tag {
+    display: none;
   }
 
   .dropdownUlSection {

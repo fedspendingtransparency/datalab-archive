@@ -158,6 +158,7 @@ table td {
   background: #FFFFFF;
   transition: top .5s ease;
   box-sizing: border-box;
+  line-height: normal; // could mess up nav
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: space-between;
