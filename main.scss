@@ -154,16 +154,18 @@ table td {
 
 /* Header */
 #header {
+  display: flex;
   background: #FFFFFF;
   transition: top .5s ease;
+  box-sizing: border-box;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px;
-  height: 50px;
+//  height: 50px;
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 29px;
   z-index: 20;
 }
 

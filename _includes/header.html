@@ -24,16 +24,8 @@
 {% include info-banner.html %}
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
 
-  <div class="logo-div">
-    <span id="logo">
-      {% if page.layout != 'landing' %}
-      {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%}
-      {% endif %}
-      {% if page.layout == 'landing' %}
-      <div class="logo-span">      {% include svgs/DataLab_NewLogo.svg class='datalabLogo' %} </div>
-      <div class="logo-span-rightText"> {% include svgs/LogoRightText.svg class='datalabLogo' id='rightLogo'%} </div>
-      {% endif %}
-    </span>
+  <div class="header-logo" style="left: 50%; margin-left: -149px;">
+    <img src="/assets/header/DataLab_NewLogo.svg"/>
   </div>
 
   <nav class="header-nav">
