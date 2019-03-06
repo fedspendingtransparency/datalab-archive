@@ -167,10 +167,12 @@ table td {
   position: fixed;
   top: 29px;
   z-index: 20;
+  transition: opacity .5s ease;
 }
 
-#header-scroll {
-  // todo 
+#header:hover {
+  opacity: 1 !important;
+  
 }
 
 /* Banner */
