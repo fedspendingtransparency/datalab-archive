@@ -92,7 +92,7 @@ $db-link: #0a2644;
 // this will show on "hover" of li element in Nav! (ul)
 .dropdownUlSection {
   position: sticky;
-  top: 100px;
+  top: 90px;
   justify-content: flex-end;
   align-self: flex-end;
   display: none;
@@ -359,6 +359,14 @@ ul.nav:first-child li:hover > ul:after {
   .navbar-toggle {
     padding-right: 45px;
   }
+
+  .logo-span-rightText {
+    display: block;
+  }
+
+  .logo-span {
+    display: none;
+  }
 }
 
 // MAIN MOBILE VIEW TOGGLE
@@ -397,6 +405,10 @@ ul.nav:first-child li:hover > ul:after {
 
   .logo-span {
     display: none;
+  }
+
+  .logo-span-rightText {
+    display: block;
   }
 
   .logo-div {

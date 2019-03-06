@@ -84,7 +84,7 @@ ul {
 
     li {
       display: inline-block;
-      padding-left: 25px;
+//      padding-left: 25px;
     }
   }
 }
@@ -161,7 +161,7 @@ table td {
   align-items: center;
   justify-content: flex-end;
   padding: 20px;
-  height: 60px;
+  height: 50px;
   width: 100%;
   position: relative;
   z-index: 20;
@@ -546,6 +546,10 @@ header.major h2 {
   font-weight: 600;
   line-height: 18px;
   text-transform: uppercase;
+}
+
+.group-title-end {
+  text-align: right;
 }
 
 .footer-important-info {
@@ -1027,6 +1031,10 @@ article > header {
   }
 }
 
+.right {
+  padding-right: 10px;
+  text-align: right;
+}
 
 .icon-chevron-up {
   width: 20px;
