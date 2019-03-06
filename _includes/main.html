@@ -1,237 +1,239 @@
 <style>
-.data-lab-main {
-    margin: 1.5rem;
-    font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
-}
-.introduction-container {
-    display: block;
-}
-
-.main-intro {
-    width: 100%;
-    text-align: center;
-    font-weight: 300;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
-
-.main-intro__link {
-    text-decoration: none;
-}
-
-.main-intro__link:hover {
-    text-decoration: underline;
-}
-
-.text-container {
-    padding: 0 2rem;
-}
-
-.main-intro__heading {
-    color: #2272CE;
-    order: -2;
-    font-size: calc(16px + (16 - 16) * ((100vw - 300px) / (1600 - 300)));
-}
-
-.main-intro__subheading {
-    order: -1;
-    margin-bottom: 1rem;
-    font-size: calc(22px + (24 - 22) * ((100vw - 300px) / (1600 - 300)));
-}
- .main-intro__image {
-    max-width: 100%;
-    height: auto;
-}
-
-.main-intro__text {
-    line-height: 23px;
-}
-
-.main-intro__text_mobile {
-    display: inline;
-}
-
-.main-intro__text_desktop {
-    display: none;
-}
-
-.side-column {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-.side-intro__box {
-    border-bottom: 1px solid #eeeeee;
-    height: auto;
-    padding: 0.5rem 0;
-}
-.side-info {
-    display: flex;
-}
-
-.side-info__column {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2rem;
-}
-
-.side-info__title {
-    color: #2272CE;
-    font-weight: 600;
-    font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
-}
-
-.side-info__heading {
-    font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
-}
-
-.side-info__text {
-    display: none;
-    font-weight: 300;
-    line-height: 1.43;
-}
-
-.side-info__link {
-    color: black;
-    text-decoration: none;
-}
-
-.side-info__link:hover {
-    text-decoration: underline;
-}
-
-.side-info__image {
-    max-width: 100%;
-    height: auto;
-}
-
-.side-dts__box {
-    display: flex;
-    border: 1px solid #eeeeee;
-    text-align: center;
-    width: 100%;
-    flex-direction: column;
-}
-
-.side-dts__heading {
-    background-color: #FAFBFC;
-    height: 3rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.side-dts__headline {
-    font-size: calc(22px + (22 - 22) * ((100vw - 300px) / (1600 - 300)));
-}
-
-@media only screen and (min-width: 1200px) {
-.data-lab-main {
-    margin: 5rem;
-}
-.introduction-container {
-    display: flex;
-}
-.side-column {
-    margin-left: 2rem;
-    width: 40%;
-    margin-top: 0;
-}
-.side-info__text {
-    font-size: 0.875rem;
-    display: inline;
-}
-
-.main-intro {
-    border: 1px solid #eeeeee;
-}
-
-.headings-container {
-    order: 1;
-}
-
-.image-container {
-    order: -1
-}
-
-.text-container {
-    order: 1;
-}
-
-.main-intro__text {
-    font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
-}
-
-.main-intro__text_mobile {
-    display: none;
-}
-
-.main-intro__text_desktop {
-    display: inline;
-}
-
-.side-dts__heading {
-    font-size: 0.9375rem;
-}
-
-.side-dts__headline {
-    font-size: 1.375rem;
-}
-}
-
-</style>
-<main class="data-lab-main">
-    <div class="introduction-container">
-    <div class="main-intro">
-        <div class="headings-container">
-            <h1 class="main-intro__heading">Welcome to the People's Guide</h1>
-            <h2 class="main-intro__subheading"><a class="main-intro__link">Your Guide to Federal Government Finances in 2018</a></h2>
-        </div>
-        <div class="image-conainer">
-            <img class="main-intro__image"src="../images/homepage/intro.gif">
-        </div>
-        <div class="text-container">
-            <p class="main-intro__text main-intro__text_mobile">This visualization presents you with clear, straightforward information about the finances of the federal government.</p>
-            <p class="main-intro__text main-intro__text_desktop">Where does federal government funding come from? Where does it go? How has federal funding changed over time? We present you with clear straightforward information about finances in the federal government. Check out the Data Lab's re-invention of the Citizen's Guide to Financial Report of the U.S. Government. Your Guide to Federal Government Finances.</p>
-        </div>
-    </div>
-        <div class="side-column">
-            <div class="side-dts__box">
-                <div class="side-dts__heading">The Daily Treasury Statement</div>
-                <h2 class="side-dts__headline">How much does the federal government spend each day?</h2>
-                <div class="side-dts__date">Updated: <strong>December 11, 2018</strong></div>
+    .data-lab-main {
+        margin: 1.5rem;
+        font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+    .introduction-container {
+        display: block;
+    }
+    
+    .main-intro {
+        width: 100%;
+        text-align: center;
+        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+    
+    .main-intro__link {
+        text-decoration: none;
+    }
+    
+    .main-intro__link:hover {
+        text-decoration: underline;
+    }
+    
+    .text-container {
+        padding: 0 2rem;
+    }
+    
+    .main-intro__heading {
+        color: #2272CE;
+        order: -2;
+        font-size: calc(16px + (16 - 16) * ((100vw - 300px) / (1600 - 300)));
+    }
+    
+    .main-intro__subheading {
+        order: -1;
+        margin-bottom: 1rem;
+        font-size: calc(22px + (24 - 22) * ((100vw - 300px) / (1600 - 300)));
+    }
+     .main-intro__image {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .main-intro__text {
+        line-height: 23px;
+    }
+    
+    .main-intro__text_mobile {
+        display: inline;
+    }
+    
+    .main-intro__text_desktop {
+        display: none;
+    }
+    
+    .side-column {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    
+    .side-intro__box {
+        border-bottom: 1px solid #eeeeee;
+        height: auto;
+        padding: 0.5rem 0;
+    }
+    .side-info {
+        display: flex;
+    }
+    
+    .side-info__column {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2rem;
+        margin-right: 1.2rem;
+    }
+    
+    .side-info__title {
+        color: #2272CE;
+        font-weight: 600;
+        font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+    }
+    
+    .side-info__heading {
+        font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
+    }
+    
+    .side-info__text {
+        display: none;
+        font-weight: 300;
+        line-height: 1.43;
+    }
+    
+    .side-info__link {
+        color: black;
+        text-decoration: none;
+    }
+    
+    .side-info__link:hover {
+        text-decoration: underline;
+    }
+    
+    .side-info__image {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .side-dts__box {
+        display: flex;
+        border: 1px solid #eeeeee;
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .side-dts__heading {
+        background-color: #FAFBFC;
+        height: 3rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .side-dts__headline {
+        font-size: calc(22px + (22 - 22) * ((100vw - 300px) / (1600 - 300)));
+    }
+    
+    @media only screen and (min-width: 1200px) {
+    .data-lab-main {
+        margin: 5rem;
+    }
+    .introduction-container {
+        display: flex;
+    }
+    .side-column {
+        margin-left: 2rem;
+        width: 40%;
+        margin-top: 0;
+    }
+    .side-info__text {
+        font-size: 0.875rem;
+        display: inline;
+    }
+    
+    .main-intro {
+        width: 55%;
+        border: 1px solid #eeeeee;
+    }
+    
+    .headings-container {
+        order: 1;
+    }
+    
+    .image-container {
+        order: -1
+    }
+    
+    .text-container {
+        order: 1;
+    }
+    
+    .main-intro__text {
+        font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
+    }
+    
+    .main-intro__text_mobile {
+        display: none;
+    }
+    
+    .main-intro__text_desktop {
+        display: inline;
+    }
+    
+    .side-dts__heading {
+        font-size: 0.9375rem;
+    }
+    
+    .side-dts__headline {
+        font-size: 1.375rem;
+    }
+    }
+    
+    </style>
+    <main class="data-lab-main">
+        <div class="introduction-container">
+        <div class="main-intro">
+            <div class="headings-container">
+                <h1 class="main-intro__heading">Welcome to the People's Guide</h1>
+                <h2 class="main-intro__subheading"><a class="main-intro__link">Your Guide to Federal Government Finances in 2018</a></h2>
             </div>
-        <div class="side-intro__box">
-            <div class="side-info">
-                    <div class="side-info__column">
-                        <div class="side-info__title">Contract Spending Analysis</div>
-                        <h2 class="side-info__heading"><a class="side-info__link" href="contracts-over-time.html">How has federal contract spending changed over time?</a></h2>
-                    </div>
-                    <div class="side-info__column">
-                        <img class="side-info__image" src="../images/homepage/contracts-over-time-new.png" alt="Contracts over time" />
-                    </div>
+            <div class="image-conainer">
+                <img class="main-intro__image"src="../images/homepage/intro.gif">
             </div>
-              <p class="side-info__text">We explore 10 years of contract data, and provide an analysis of the impact of short-term continuing resolutions on contract spending.</p>
+            <div class="text-container">
+                <p class="main-intro__text main-intro__text_mobile">This visualization presents you with clear, straightforward information about the finances of the federal government.</p>
+                <p class="main-intro__text main-intro__text_desktop">Where does federal government funding come from? Where does it go? How has federal funding changed over time? We present you with clear straightforward information about finances in the federal government. Check out the Data Lab's re-invention of the Citizen's Guide to Financial Report of the U.S. Government. Your Guide to Federal Government Finances.</p>
             </div>
+        </div>
+            <div class="side-column">
+                <div class="side-dts__box">
+                    <div class="side-dts__heading">The Daily Treasury Statement</div>
+                    <h2 class="side-dts__headline">How much does the federal government spend each day?</h2>
+                    <div class="side-dts__date">Updated: <strong>December 11, 2018</strong></div>
+                </div>
             <div class="side-intro__box">
-                    <div class="side-info">
-                            <div class="side-info__column">
-                                <div class="side-info__title">Federal Account Explorer</div>
-                                <h2 class="side-info__heading"><a class="side-info__link" href="/">How does the government buy things?</a></h2>
-                            </div>
-                            <div class="side-info__column">
-                                    <img class="side-info__image" src="../images/homepage/federal.jpg" alt="Contracts over time" />
-                            </div>
-                    </div>
-                      <p class="side-info__text">The government has almost 2,000 accounts it uses to spend money. Explore the government&#8217;s spending accounts and discover how much money has been spent.</p>
-                    </div>
-            </div>
-
-        
-    </div>
-</main>
+                <div class="side-info">
+                        <div class="side-info__column">
+                            <div class="side-info__title">Contract Spending Analysis</div>
+                            <h2 class="side-info__heading"><a class="side-info__link" href="contracts-over-time.html">How has federal contract spending changed over time?</a></h2>
+                        </div>
+                        <div class="side-info__column">
+                            <img class="side-info__image" src="../images/homepage/contracts-over-time-new.png" alt="Contracts over time" />
+                        </div>
+                </div>
+                  <p class="side-info__text">We explore 10 years of contract data, and provide an analysis of the impact of short-term continuing resolutions on contract spending.</p>
+                </div>
+                <div class="side-intro__box">
+                        <div class="side-info">
+                                <div class="side-info__column">
+                                    <div class="side-info__title">Federal Account Explorer</div>
+                                    <h2 class="side-info__heading"><a class="side-info__link" href="/">How does the government buy things?</a></h2>
+                                </div>
+                                <div class="side-info__column">
+                                        <img class="side-info__image" src="../images/homepage/federal.jpg" alt="Contracts over time" />
+                                </div>
+                        </div>
+                          <p class="side-info__text">The government has almost 2,000 accounts it uses to spend money. Explore the government&#8217;s spending accounts and discover how much money has been spent.</p>
+                        </div>
+                </div>
+    
+            
+        </div>
+    </main>
