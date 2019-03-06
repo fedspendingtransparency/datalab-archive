@@ -25,7 +25,11 @@
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
 
   <div class="header-logo" style="left: 50%; margin-left: -149px;">
-    <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
+    <div>
+      <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
+      <img src="/assets/header-svg/tag-line-right.svg" class="header-logo__img" id="two-line-tag" style="display: none;" />
+    </div>
+    <img src="/assets/header-svg/tag-line.svg" class="header-logo__img" id="one-line-tag" />
   </div>
 
   <nav class="header-nav">

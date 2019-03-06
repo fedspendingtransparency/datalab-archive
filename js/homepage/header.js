@@ -8,6 +8,8 @@ function setContainers() {
   headerContainers.header = $('#header');
   headerContainers.headerLogo = $('.header-logo');
   headerContainers.masterLogo = $('#master-logo');
+  headerContainers.oneTag = $('#one-line-tag');
+  headerContainers.twoTag = $('#two-line-tag');
 }
 
 function fixNav(y, width) {
@@ -49,7 +51,32 @@ function moveLogo(y, width) {
 
   headerContainers.headerLogo.css('left', leftPos + '%').css('margin-left', leftMargin + 'px');
 
+  transitionTags(max, y);
 }
+
+function transitionTags(scrollMax, y) {
+  const halfMax = scrollMax / 2;
+  const min = halfMax - 10;
+  const max = halfMax + 10;
+  const range = max - min;
+  let steps = 1 / range;
+  let ratio;
+
+  if (y >= min && y <= max)  {
+    ratio = (y - min) * steps;
+    headerContainers.twoTag.css('display', 'inline-block').css('opacity', ratio);
+    headerContainers.oneTag.css('opacity', 1 - ratio).css('transform', 'scaleY('+1 - ratio+')');
+
+  } else if (y < min) {
+    headerContainers.oneTag.css('opacity', '1').css('transform', 'scaleY(1)');
+    headerContainers.twoTag.css('opacity', '0').css('display', 'none');
+  } else {
+    headerContainers.oneTag.css('opacity', '0').css('transform', 'scaleY(0)');
+    headerContainers.twoTag.css('opacity', '1').css('display', 'inline-block');
+  }
+
+}
+
 
 function setHeaderOpacity(y, width) {
   const low = 250;
