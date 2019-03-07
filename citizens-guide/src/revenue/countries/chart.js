@@ -58,12 +58,6 @@ function barLabelPosition(d) {
 }
 
 function establishContainers() {
-    console.log('establish')
-    // const accessibilityAttrs = null || config.accessibilityAttrs;
-        // parentWidth = getElementBox(d3.select('#viz')).width,
-        // svg = establishContainer(null, parentWidth, accessibilityAttrs)
-        //     .classed('country', true);
-
     sizeSvg(800);
 
     containers.chart = svg.append('g').classed('pan-listen', true)
@@ -346,7 +340,6 @@ export function refreshData(sortField, countriesUpdated, isMobileInd) {
     }
 
     if (action === 'add') {
-        console.log('action = add');
         sizeSvg(addRemoveDuration);
         duration = (rescale()) ? duration : 0;
 
@@ -358,7 +351,6 @@ export function refreshData(sortField, countriesUpdated, isMobileInd) {
             placeHorizontalStripes(data.length, dimensions);
         }, duration)
     } else {
-        console.log('action = remove??');
         addBarGroups();
         placeCountryLabels();
         placeGdpFigures();

@@ -53,10 +53,8 @@ function adjustHeightToSVG(){
     let listDivDimensions = listDiv.node().getBoundingClientRect(),
         availableListDivs = listDiv.selectAll('.available:not(hidden)'),
         iterator = 0;
-    console.log('svgDimensions', svgDimensions, 'listDivDimensions:', listDivDimensions);
-    console.log('availableListDivs:', availableListDivs);
+
     while(++iterator <= maxIterations && availableListDivs.size() && listDivDimensions.height > svgDimensions.height){
-        console.log('availableListDivs:', availableListDivs);
         d3.select(availableListDivs._groups[0][availableListDivs.size() - 1]).classed('hidden', true);
         availableListDivs = listDiv.selectAll('.available:not(.hidden)');
         listDivDimensions = listDiv.node().getBoundingClientRect();
@@ -144,7 +142,6 @@ function listAvailableCountries(filterStr) {
     const list = getAvailableCountries(filterStr),
         availableContainer = listDiv.select('.available-container'),
         max = 10;
-    console.log('original list = ', JSON.parse(JSON.stringify(list)));
     let more, remainder;
 
     if (list.length > max) {
@@ -153,7 +150,6 @@ function listAvailableCountries(filterStr) {
         list.length = max;
     }
 
-    console.log('list:', list);
     availableContainer.selectAll('*').remove();
 
     availableContainer.selectAll('div.available')

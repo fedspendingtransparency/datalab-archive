@@ -352,10 +352,6 @@ export function redrawMobile(_config, _data){
     mobileDimensions.chartWidth = Math.max(mobileDimensions.minChartWidth, window.innerWidth) - pagePadding * 2 - scrollbarWidth;
     mobileDimensions.gdpColumnWidth = Math.max(Math.min(mobileDimensions.chartWidth * 0.2, 130), donutRadius + 4*fontSize);
     mobileDimensions.countryColumnWidth = mobileDimensions.chartWidth - mobileDimensions.gdpColumnWidth - fontSize;
-    console.log('chartWidth:', mobileDimensions.chartWidth);
-    console.log('gdpColumnWidth:', mobileDimensions.gdpColumnWidth);
-    console.log('countryColumnWidth:', mobileDimensions.countryColumnWidth);
-    console.log('donutRadius:', donutRadius);
     redraw();
     d3.select('#cgCountryGraphDropShadow').attr('height', 504);
 }
