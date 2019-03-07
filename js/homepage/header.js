@@ -1,8 +1,44 @@
-// jrk
+// Jack Killilea (jrk) <Killilea_Jack@bah.com>
+// Header.js
+// Sticky Header and Extra Magic for New Homepage!
+// using jquery 1.11.3! (updating, if bugged then revert!)
 
 const headerContainers = {};
+const mobileContainers = {};
 const desktopMin = 956;
+const regex = new RegExp("[a-zA-Z]");
+const pathname = window.location.pathname;
 let logoMarginOffset = 149;
+
+// Mini-Navs
+const analysesNav = '.secondaryNavAnalyses';
+const resourcesNav = '.secondaryNavResources';
+const ffgNav = '.secondaryNavFFG';
+
+// Main Header Li's for hover
+const analysesText = '.analysesText';
+const resourcesText = '.resourcesText';
+const ffgText = '.ffgText';
+
+// Mobile section
+//const mobileMenu = '#mobileSection';
+//const analysesAnchor = '#analysesAnchor';
+//const resourcesAnchor = '#resourcesAnchor';
+//const ffgAnchor = '#ffgAnchor';
+//const mobileAnalyses = '#mobileAnalyses';
+//const mobileResources = '#mobileResources';
+//const mobileFFG = '#mobileFFG';
+
+function setMobileContainers() {
+  mobileContainers.menu = $('#mobileSection');
+  mobileContainers.burgerMenu = $('#burger-navbar-toggle');
+  mobileContainers.analysesAnchor = $('#analysesAnchor');
+  mobileContainers.resourcesAnchor = $('#resourcesAnchor');
+  mobileContainers.ffgAnchor = $('#ffgAnchor');
+  mobileContainers.mobileAnalyses = $('#mobileAnalyses');
+  mobileContainers.mobileResources = $('#mobileResources');
+  mobileContainers.mobileFFG = $('#mobileFFG');
+}
 
 function setContainers() {
   headerContainers.header = $('#header');
@@ -10,6 +46,8 @@ function setContainers() {
   headerContainers.masterLogo = $('#master-logo');
   headerContainers.oneTag = $('#one-line-tag');
   headerContainers.twoTag = $('#two-line-tag');
+  headerContainers.navLi = $('.navListItem');
+  headerContainers.dropdown = $('.dropdownUlSection');
 }
 
 function fixNav(y, width) {
@@ -94,20 +132,65 @@ function setHeaderOpacity(y, width) {
   headerContainers.header.css('opacity', opacity);
 }
 
-function repositionHeaderItems() {
-  setContainers();
+function setMobileBurger() {
+  $('#burger-navbar-toggle').click(function() {
+    mobileContainers.menu.toggle('slow');
+  });
+//  mobileContainers.burgerMenu.click(function() {
+//    mobileContainers.menu.toggle('slow');
+//  });
+}
+
+function setDropdownHeaderSection() {
+  $('.navListItem').hover(function() {
+    headerContainers.dropdown.css('display', 'flex');
+//    console.log('displaying');
+  });
+
+  $('.dropdownUlSection').mouseenter(function(){
+    headerContainers.dropdown.css('display', 'flex');
+  });
+
+  $('.dropdownUlSection').mouseleave(function(){
+    headerContainers.dropdown.css('display', 'none');
+  });
+
+    /* Secondary Ul dropdown Section */
+  $(analysesText).mouseover(function() {
+    $(analysesNav).css('display', 'block');
+    $(resourcesNav).css('display', 'none');
+    $(ffgNav).css('display', 'none');
+  });
   
+  $(resourcesText).mouseover(function() {
+    $(resourcesNav).css('display', 'block');
+    $(analysesNav).css('display', 'none');
+    $(ffgNav).css('display', 'none');
+  });
+
+  $(ffgText).mouseover(function() {
+    $(ffgNav).css('display', 'block');
+    $(analysesNav).css('display', 'none');
+    $(resourcesNav).css('display', 'none');
+  });
+
+}
+
+function repositionHeaderItems(shouldMoveLogo) {
+  setContainers();
+//  setMobileContainers(); // TODO : reworking sub-nav anyway..
+
   window.addEventListener('scroll', function() {
     let y = window.scrollY;
     let width = window.innerWidth;
     fixNav(y, width);
-    moveLogo(y, width);
-    setHeaderOpacity(y, width);
+    if(shouldMoveLogo) {
+      moveLogo(y, width);
+    }
+//    setHeaderOpacity(y, width); // consider adding this back in new versions..
   });
 
   window.addEventListener('resize', setInitialLogoPosition);
-  
-    
 }
 
 function setInitialLogoPosition() {
@@ -118,7 +201,19 @@ function setInitialLogoPosition() {
     logoMarginOffset = 0 - (headerContainers.masterLogo.width() / 2);
     headerContainers.headerLogo.css('margin-left', logoMarginOffset + 'px').css('left', '50%');
   }
+
+  headerContainers.headerLogo.removeClass('header-logo--init');
 }
 
-$(repositionHeaderItems);
-$(setInitialLogoPosition);
+$(setDropdownHeaderSection);
+$(setMobileBurger);
+//$(repositionHeaderItems);
+$(function() {
+  console.log('testing', $('body').hasClass('landing'));
+  if ($('body').hasClass('landing')) {
+    repositionHeaderItems('moveLogo');
+    setInitialLogoPosition();
+  } else {
+    repositionHeaderItems();
+  }
+});

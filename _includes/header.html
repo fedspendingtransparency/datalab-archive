@@ -24,10 +24,10 @@
 {% include info-banner.html %}
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
 
-  <div class="header-logo" style="left: 50%; margin-left: -149px;">
+  <div class="header-logo header-logo--init">
     <div class="header-logo__wrapper">
       <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
-      <img src="/assets/header-svg/tag-line-right.svg" class="header-logo__two-line" id="two-line-tag" style="display: none;" />
+      <img src="/assets/header-svg/tag-line-right.svg" class="header-logo__two-line" id="two-line-tag" />
     </div>
     <img src="/assets/header-svg/tag-line.svg" class="header-logo__img" id="one-line-tag" />
   </div>
@@ -46,14 +46,19 @@
 	<span>{% include svgs/arrow.svg %}</span>
       </li>
       <li class="navListItem ffgText">
-        <a href="#">FEDERAL FINANCE GUIDE</a>
+        <a href="/federal-finance-guide/">FEDERAL FINANCE GUIDE</a>
 	<span class="">{% include svgs/arrow.svg %}</span>
       </li>
     </ul>
   </nav>
 
+  <div style="background: #DDD; position: absolute; bottom: -30px; height: 30px;">
+    sub nav 
+  </div>
+
 </header>
 
+<!-- 
 <div class="dropdownUlSection">
   <ul class="secondaryNavAnalyses">
     <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
@@ -79,6 +84,7 @@
     <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
   </ul>
 </div>
+-->
 
 <div class="mobileUlSection" id="mobileSection"> 
   <ul class="mobileNav">

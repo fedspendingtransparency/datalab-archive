@@ -11,6 +11,25 @@ $db-link: #0a2644;
 
 .header-logo {
   position: relative;
+  opacity: 1;
+  transform: opacity .2s ease;
+}
+
+.landing .header-logo.header-logo--init {
+  opacity: 0;
+}
+
+#one-line-tag {
+  display: none;
+}
+
+.landing #one-line-tag {
+  display: inline-block;
+}
+
+.landing .header-logo {
+  left: 50%;
+  margin-left: -149px;
 }
 
 .header-init {
@@ -37,6 +56,12 @@ $db-link: #0a2644;
 .header-logo__two-line {
   width: 190px;
   transform: translateY(-5px);
+  display: inline-block;
+  opacity: 1;
+}
+
+.landing .header-logo__two-line {
+  display: none;
 }
 
 .header-logo__wrapper {
@@ -77,8 +102,9 @@ $db-link: #0a2644;
 
 .mobile-menu-sticky {
   position: fixed;
-  top: 100px;
+  top: 110px;
   width: 100%;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   justify-content: flex-end;
   align-items: flex-end;
   background-color: #FFFFFF;
@@ -105,7 +131,7 @@ $db-link: #0a2644;
 // this will show on "hover" of li element in Nav! (ul)
 .dropdownUlSection {
   position: sticky;
-  top: 90px;
+  top: 145px; // new top from offset
   justify-content: flex-end;
   align-self: flex-end;
   display: none;
@@ -375,22 +401,20 @@ ul.nav:first-child li:hover > ul:after {
   }
 }
 
-// SMALLEST
-@media (max-width: 400px) {
-
-}
-
 // MAIN MOBILE VIEW TOGGLE
 @media (max-width: 955px) {
   ul.nav {
     list-style-type: none;
     display: none;
-//    flex-direction: column;
   }
 
   #one-line-tag {
     display: none;
   }
+
+//  .official-banner {
+//    display: none;
+//  }
 
   .dropdownUlSection {
     display: none; // hide so nothing toggles
@@ -449,7 +473,8 @@ ul.nav:first-child li:hover > ul:after {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    padding-right: 40px;
+    margin-top: 100px;
+    padding-right: 25px;
   }
 
   // display all UL's as hidden until click!
