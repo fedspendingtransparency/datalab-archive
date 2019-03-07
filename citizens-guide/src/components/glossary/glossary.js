@@ -4,7 +4,7 @@ import { select, selectAll } from 'd3-selection';
 
 const d3 = { select, selectAll };
 
-let origCategorizedTerms = [], filteredData;
+let origCategorizedTerms = [], filteredData, termSelected;
 
 function categorizeGlossaryData(data){
     const categorizedData = [];
@@ -175,10 +175,11 @@ function setTermListView(showListResultsInd){
         glossaryDefinitionDiv = $(glossaryDefinitionClass)
 
     if(showListResultsInd){
+        termSelected = false;
         searchResultsDiv.removeClass('hidden');
         glossaryDefinitionDiv.addClass('hidden');
     } else {
-
+        termSelected = true;
         searchResultsDiv.addClass('hidden');
         glossaryDefinitionDiv.removeClass('hidden');
     }
@@ -240,6 +241,9 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
         }
 
         debounce = setTimeout(function(){
+            if (termSelected) {
+                return;
+            };
             createTermHTMLElements(null, searchStr);
             setTermListView(showListResultsInd);
         }, 400);
