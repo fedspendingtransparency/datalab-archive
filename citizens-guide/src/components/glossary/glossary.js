@@ -1,15 +1,18 @@
-import glossaryData from '../../../../assets/ffg/components/glossary/glossary.csv';
+// import glossaryData from '../../../../assets/ffg/components/glossary/glossary.csv';
+import glossaryData from '../../../public/csv/glossary.csv';
 import { select, selectAll } from 'd3-selection';
 
 const d3 = { select, selectAll };
 
-let origCategorizedTerms = [];
+let origCategorizedTerms = [], filteredData;
 
 function categorizeGlossaryData(data){
     const categorizedData = [];
     let hashChar = '';
 
     data.forEach(function(d){
+        if (!d.term) return;
+
         hashChar = d.term.substring(0,1);
         if(!categorizedData[hashChar]){
             categorizedData[hashChar] = [];
@@ -77,7 +80,7 @@ function createTermHTMLElements(terms, searchTerm){
             termButton;
 
         if(searchTerm){
-            filteredTerms = glossaryData.filter(function(t){
+            filteredTerms = filteredData.filter(function(t){
                 const upperCaseSearchTerm = searchTerm.toUpperCase();
                 return t.term.toUpperCase().match(upperCaseSearchTerm);
             });
@@ -255,7 +258,7 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
         setActiveStatus(glossaryWrapper, activeInd);
 
         if(glossaryTerm){
-            showIndividualTerm(glossaryData, glossaryTerm);
+            showIndividualTerm(filteredData, glossaryTerm);
         }
 
     });
@@ -279,7 +282,9 @@ function init(){
     const glossaryWrapper = $('#cg-glossary-wrapper'),
         glossaryButton = $('#cg-glossary-btn');
 
-    origCategorizedTerms = categorizeGlossaryData(glossaryData);
+    filteredData = glossaryData.filter(r => r.term); //remove blank rows
+
+    origCategorizedTerms = categorizeGlossaryData(filteredData);
 
     if(glossaryButton.length && glossaryWrapper.length){
         createTermHTMLElements(origCategorizedTerms);
