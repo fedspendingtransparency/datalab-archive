@@ -12,7 +12,8 @@ const d3 = { select }
 let parentDiv,
     input,
     listDiv,
-    trigger;
+    trigger,
+    isMobileInd;
 
 function createTrigger() {
     let svg;
@@ -26,11 +27,13 @@ function createTrigger() {
                 } else {
                     setTimeout(function () {
                         input.node().focus()
-                    }, 10)
+                    }, 10);
+
                     return true;
                 }
-            })
-        })
+            });
+            adjustHeightToSVG();
+        });
 
     trigger.node().innerText = "Add/Remove Countries";
 
@@ -39,6 +42,25 @@ function createTrigger() {
         .attr('height', 20);
 
     addButtonIcon(svg);
+}
+
+function adjustHeightToSVG(){
+    const svg = d3.select('svg.main'),
+        listDiv = d3.select('#viz').select('.list-div'),
+        svgDimensions = svg.node().getBoundingClientRect(),
+        maxIterations = 10;
+
+    let listDivDimensions = listDiv.node().getBoundingClientRect(),
+        availableListDivs = listDiv.selectAll('.available:not(hidden)'),
+        iterator = 0;
+    console.log('svgDimensions', svgDimensions, 'listDivDimensions:', listDivDimensions);
+    console.log('availableListDivs:', availableListDivs);
+    while(++iterator <= maxIterations && availableListDivs.size() && listDivDimensions.height > svgDimensions.height){
+        console.log('availableListDivs:', availableListDivs);
+        d3.select(availableListDivs._groups[0][availableListDivs.size() - 1]).classed('hidden', true);
+        availableListDivs = listDiv.selectAll('.available:not(.hidden)');
+        listDivDimensions = listDiv.node().getBoundingClientRect();
+    }
 }
 
 function establishInput() {
@@ -77,6 +99,18 @@ function listselectedCountries() {
     addXIcon(svg);
 }
 
+function sortDisplayName(objA, objB){
+    const a = objA.display,
+        b = objB.display;
+
+    if(a < b){
+        return -1;
+    } else if(a > b){
+        return 1;
+    }
+    return 0;
+}
+
 function getAvailableCountries(filterStr) {
     if (filterStr) {
         filterStr = filterStr.toLowerCase();
@@ -93,24 +127,24 @@ function getAvailableCountries(filterStr) {
         // the name with its respective special characters.
         return (displayName && selectedCountries.list.filter(d => d.display.match(displayName)).length === 0)
             && (!filterStr || plainName.toLowerCase().indexOf(filterStr) !== -1 || displayName.toLowerCase().indexOf(filterStr) !== -1)
-    }).sort();
+    }).sort(sortDisplayName);
 }
 
 function addCountry(d) {
     selectedCountries.add(d);
-    onListUpdated();
+    onListUpdated(isMobileInd);
 }
 
 function removeCountry(d) {
     selectedCountries.remove(d);
-    onListUpdated();
+    onListUpdated(isMobileInd);
 }
 
 function listAvailableCountries(filterStr) {
     const list = getAvailableCountries(filterStr),
         availableContainer = listDiv.select('.available-container'),
         max = 10;
-
+    console.log('original list = ', JSON.parse(JSON.stringify(list)));
     let more, remainder;
 
     if (list.length > max) {
@@ -119,6 +153,7 @@ function listAvailableCountries(filterStr) {
         list.length = max;
     }
 
+    console.log('list:', list);
     availableContainer.selectAll('*').remove();
 
     availableContainer.selectAll('div.available')
@@ -158,15 +193,16 @@ function createListDiv() {
     listAvailableCountries();
 }
 
-function onListUpdated() {
+function onListUpdated(isMobileInd) {
     parentDiv.classed('active', false);
     input.node().value = null;
     listselectedCountries();
     listAvailableCountries();
-    refreshData(null, true);
+    refreshData(null, true, isMobileInd);
 }
 
-export function selectCountryInit() {
+export function selectCountryInit(_isMobileInd) {
+    isMobileInd = _isMobileInd;
     const svg = establishContainer();
 
     parentDiv = document.createElement('div');

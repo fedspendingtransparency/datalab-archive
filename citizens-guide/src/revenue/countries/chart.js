@@ -8,9 +8,9 @@ import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
-import { redrawMobile, updateMobileTableList } from './chartmobile';
+import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmobile';
 import './selectCountry.scss';
-import { setData, prepareData } from './data';
+import { setData, prepareData, setMobileData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 import { pan } from './pan';
 
@@ -91,8 +91,6 @@ function addBarGroups() {
                 return translator(0, (i * dimensions.rowHeight))
             })
             .ease();
-
-        return;
     }
 
     groups.exit().remove();
@@ -339,12 +337,16 @@ export function refreshData(sortField, countriesUpdated, isMobileInd) {
     dimensions.totalHeight = dimensions.rowHeight * data.length;
 
     if(isMobileInd){
-        updateMobileTableList(data);
+        if(countriesUpdated){
+            updateMobileTableList(data);
+        } else {
+            sortMobileTable(data);
+        }
         return;
     }
 
-
     if (action === 'add') {
+        console.log('action = add');
         sizeSvg(addRemoveDuration);
         duration = (rescale()) ? duration : 0;
 
@@ -356,6 +358,7 @@ export function refreshData(sortField, countriesUpdated, isMobileInd) {
             placeHorizontalStripes(data.length, dimensions);
         }, duration)
     } else {
+        console.log('action = remove??');
         addBarGroups();
         placeCountryLabels();
         placeGdpFigures();

@@ -6,27 +6,99 @@ import { axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { renderSortIcon, updateIcons } from './sortIcon';
 import {refreshData} from "./chart";
+import {selectCountryInit} from "./selectCountry";
+import { initDropShadow } from './dropShadow';
+import {selectedCountries} from "./selectedCountryManager";
+import {createDonut} from "../donut";
 
-const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition }
+const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition, range }
 
 const mobileDimensions = {
         minChartWidth: 320,
         totalHeight : 0,
         minRowHeight: 60,
-        rowHeight: 40,
+        rowHeight: 50,
         barHeight: 16,
         countryColumnWidth: 220,
         gdpColumnWidth: 100,
         header: 50,
         barYOffset: 3
     },
+    donutOffset = 5,
+    donutRadius = mobileDimensions.rowHeight / 2 - donutOffset,
     scales = {
         x : 0
     },
+    scrollbarWidth = 20,
     addRemoveDuration = 1000,
-    barFadeTime = 1000;
+    barFadeTime = 1000,
+    fontSize = parseFloat(getComputedStyle(document.body).fontSize),
+    maskClass = 'drop-shadow-mask';
 
 let config, data, svg, primaryColor;
+
+function buildCountryBoxDropShadow(dataLength) {
+    const dropShadow = svg.select('.drop-shadow-base');
+
+    if(dropShadow.size()){
+        dropShadow.attr('height', mobileDimensions.rowHeight * dataLength)
+        return;
+    }
+
+    svg.insert('rect', ':first-child')
+        .attr('class', 'drop-shadow-base')
+        .attr('width', mobileDimensions.chartWidth)
+        .attr('height', mobileDimensions.rowHeight * dataLength)
+        .attr('transform', translator(3, mobileDimensions.header + 4))
+        .attr('fill', 'white')
+        .attr('stroke', '#eee')
+        .style('filter', 'url(#drop-shadow)');
+}
+
+function placeHorizontalStripes(dataLength) {
+    let stripes, stripesContainer;
+    const chartWidth = (mobileDimensions && mobileDimensions.chartWidth) ? mobileDimensions.chartWidth : 1200;
+
+    stripesContainer = svg.select('.cg-stripes-container');
+    stripes = stripesContainer.selectAll('line')
+        .data(d3.range(dataLength + 1), function(d){ return d; });
+
+    stripes.exit().remove();
+
+    stripes.enter()
+        .append('line')
+        .attr('x1', 0)
+        .attr('y1', function(d){
+            return d * mobileDimensions.rowHeight + mobileDimensions.header + 3;
+        })
+        .attr('x2', chartWidth)
+        .attr('y2', function(d){
+            return d * mobileDimensions.rowHeight + mobileDimensions.header + 3;
+        })
+        .attr('stroke', 'rgba(100,100,100,0.1)')
+        .attr('stroke-width', 1)
+}
+
+function placeMask() {
+    // clip the drop shadow
+
+    if (svg.selectAll('rect.' + maskClass).size()) {
+        return;
+    }
+
+    svg.insert('rect', '.cg-stripes-container')
+        .classed(maskClass, true)
+        .attr('width', mobileDimensions.chartWidth + 4)
+        .attr('height', mobileDimensions.header + 4)
+        .attr('stroke', 'none')
+        .attr('fill', 'white')
+}
+
+function ink(){
+    buildCountryBoxDropShadow(data.length);
+    placeHorizontalStripes(data.length);
+    placeMask();
+}
 
 function barTransition(selection, data) {
     selection.transition()
@@ -77,18 +149,21 @@ function sort() {
 function placeLegend(){
     const labelXPadding = 12;
 
+    const percentLabelOffset = Math.min(mobileDimensions.countryColumnWidth + mobileDimensions.gdpColumnWidth / 2 + 10 - fontSize, document.body.clientWidth - 160);
+
     svg.append('g')
         .classed('legend', true)
         .attr('data-type', config.amountField)
         .append('text')
+        .attr('transform', translator(- labelXPadding / 2, 0))
         .text(config.amountLabel)
         .attr('font-weight', 600)
-        .attr('y', 38)
         .attr('x', labelXPadding)
+        .attr('y', 38)
         .attr('font-size', 14);
 
     svg.append('g')
-        .attr('transform', translator(mobileDimensions.countryColumnWidth + 20, 0))
+        .attr('transform', translator(percentLabelOffset, 0))
         .classed('legend', true)
         .attr('data-type', config.gdpField)
         .append('text')
@@ -100,7 +175,7 @@ function placeLegend(){
         .append('tspan')
         .text('Percent of GDP')
         .attr('dy', 14)
-        .attr('x', labelXPadding)
+        .attr('x', labelXPadding);
 
     svg.selectAll('g.legend')
         .on('click', sort)
@@ -112,22 +187,30 @@ function placeLegend(){
     updateIcons();
 }
 
+function addDGPIcon(row, d){
+    const dataRows = row.append('g')
+            .attr('class', 'donut-container')
+            .attr('transform', translator(mobileDimensions.countryColumnWidth + mobileDimensions.gdpColumnWidth / 2, donutOffset * 1.5)),
+        timeoutForAdd = 500;
+
+    setTimeout(function () {
+        dataRows.each(function () {
+            createDonut(d3.select(this), d[config.gdpField] / 100, donutRadius * 2, primaryColor);
+        })
+    }, timeoutForAdd);
+}
+
 function redraw(){
     d3.select('#viz').selectAll('*').remove();
+    const isMobileInd = true;
 
     setMobileChartSVG();
     setScales();
     placeLegend();
     createMobileChart();
-
-    // establishContainers();
-    // ink(containers, mobileDimensions, data.length);
-    // setScales();
-    // addBarGroups();
-    // placeCountryLabels();
-    // placeGdpFigures();
-    // placeLegends(config);
-    // selectCountryInit();
+    initDropShadow();
+    ink();
+    selectCountryInit(isMobileInd);
 }
 
 function buildRow(d,i){
@@ -139,41 +222,49 @@ function buildRow(d,i){
       .attr('y', 16);
 
     row.transition()
-        .duration(addRemoveDuration)
         .attr('transform', translator(0, i * mobileDimensions.rowHeight))
         .ease();
 
     addMobileBarGroups(row, d);
+    addDGPIcon(row, d);
 }
 
 function buildRows(rows){
-    console.log(rows, data);
-    rows.selectAll('g')
-        .data(data)
-        .enter()
+    svg.attr('height', data.length * mobileDimensions.rowHeight + mobileDimensions.header + 20);
+    const dataRows = rows.selectAll('g.cg-data-row')
+        .data(data, function (d) { return d.country });
+
+    dataRows.exit().remove();
+
+    dataRows.enter()
         .append('g')
         .classed('cg-data-row',true)
         .each(buildRow);
+
+    ink();
 }
 
 function sortRows(){
-    d3.select('.cg-country-comparison-rows').selectAll('g')
+    svg.selectAll('g.cg-data-row')
         .data(data, function (d) { return d.country })
         .each(sortRow);
+
+    // sortRow(rows);
 }
 
-function sortRow(d,i){
+function sortRow(d, i){
     const row = d3.select(this);
     row.transition()
         .duration(addRemoveDuration)
-        .attr('transform', translator(0, i * mobileDimensions.rowHeight))
+        .attr('transform', translator(0, (i * mobileDimensions.rowHeight)))
         .ease();
 }
 
 function createMobileChart(){
     const rows = svg.append('g').classed('cg-country-comparison-rows', true)
-        .attr('transform', translator(0, 50));
+        .attr('transform', translator(5, mobileDimensions.header));
     buildRows(rows);
+    sortRows();
 }
 
 function setMobileChartSVG(){
@@ -181,28 +272,24 @@ function setMobileChartSVG(){
         parentWidth = getElementBox(d3.select('#viz')).width;
 
     svg = establishContainer(null, parentWidth, accessibilityAttrs)
-        .classed('country', true);
+        .classed('country', true)
+        .attr('y', 20);
+    svg.append('g').classed('cg-stripes-container',true);
 }
 
 function addMobileBarGroups(row, d) {
-    const groups = row;
-
-    let enterGroups;
-
-    groups.append('g');
-
-    enterGroups = groups.selectAll('g')
+    const barElement = row.append('g')
         .classed('bar-group', true)
         .attr('transform', function (d, i) {
             return translator(0, i * mobileDimensions.rowHeight + 10)
         });
 
-    if (!enterGroups.size()) {
+    if (!barElement.size()) {
         return;
     }
 
     if (scales.x.domain()[0] < 0) {
-        enterGroups.append('line')
+        barElement.append('line')
             .attr('stroke', primaryColor)
             .attr('x1', scales.x(0))
             .attr('y1', mobileDimensions.rowHeight / 2 - mobileDimensions.barHeight / 2 - 5)
@@ -210,7 +297,7 @@ function addMobileBarGroups(row, d) {
             .attr('y2', mobileDimensions.rowHeight / 2 - mobileDimensions.barHeight / 2 + mobileDimensions.barHeight + 5)
     }
 
-    enterGroups.append('rect')
+    barElement.append('rect')
         .attr('width', 0)
         .attr('height', mobileDimensions.barHeight)
         .attr('x', scales.x(0))
@@ -221,7 +308,7 @@ function addMobileBarGroups(row, d) {
         .attr('stroke-width', 1)
         .call(barTransition, d);
 
-    enterGroups.append('text')
+    barElement.append('text')
         .text(function () {
             return simplifyNumber(d[config.amountField])
         })
@@ -238,8 +325,10 @@ function addMobileBarGroups(row, d) {
         .ease();
 }
 
-export function updateMobileTableList(_data){
+export function updateMobileTableList(_data, action){
     data = _data;
+    const rows = svg.select('.cg-country-comparison-rows');
+    buildRows(rows);
     sortRows();
 }
 
@@ -260,12 +349,13 @@ export function redrawMobile(_config, _data){
     pagePadding = pagePadding ? parseInt(pagePadding,10) : 0;
     mobileDimensions.totalHeight = 0;
     // todo - calculate these after the establishContainer, use the svg width
-    mobileDimensions.chartWidth = Math.max(mobileDimensions.minChartWidth, window.innerWidth) - pagePadding * 2;
-    mobileDimensions.countryColumnWidth = mobileDimensions.chartWidth * 0.7 - 5;
-    mobileDimensions.gdpColumnWidth = mobileDimensions.chartWidth * 0.3 + 5;
+    mobileDimensions.chartWidth = Math.max(mobileDimensions.minChartWidth, window.innerWidth) - pagePadding * 2 - scrollbarWidth;
+    mobileDimensions.gdpColumnWidth = Math.max(Math.min(mobileDimensions.chartWidth * 0.2, 130), donutRadius + 4*fontSize);
+    mobileDimensions.countryColumnWidth = mobileDimensions.chartWidth - mobileDimensions.gdpColumnWidth - fontSize;
     console.log('chartWidth:', mobileDimensions.chartWidth);
-    console.log('countryColumnWidth:', mobileDimensions.countryColumnWidth);
     console.log('gdpColumnWidth:', mobileDimensions.gdpColumnWidth);
+    console.log('countryColumnWidth:', mobileDimensions.countryColumnWidth);
+    console.log('donutRadius:', donutRadius);
     redraw();
     d3.select('#cgCountryGraphDropShadow').attr('height', 504);
 }
