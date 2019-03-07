@@ -84,7 +84,7 @@ ul {
 
     li {
       display: inline-block;
-      padding-left: 25px;
+//      padding-left: 25px;
     }
   }
 }
@@ -154,18 +154,29 @@ table td {
 
 /* Header */
 #header {
+  display: flex;
   background: #FFFFFF;
   transition: top .5s ease;
+  box-sizing: border-box;
+  line-height: normal; // could mess up nav
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex: 1;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
-  height: 60px;
+//  height: 50px;
   width: 100%;
   position: fixed;
+  top: 29px;
   z-index: 20;
+  transition: opacity .5s ease;
+}
+
+#header:hover {
+  opacity: 1 !important;
+}
+
+.header-logo__img {
+  width: 298px;
 }
 
 /* Banner */
@@ -543,6 +554,10 @@ header.major h2 {
   font-weight: 600;
   line-height: 18px;
   text-transform: uppercase;
+}
+
+.group-title-end {
+  text-align: right;
 }
 
 .footer-important-info {
@@ -1024,6 +1039,10 @@ article > header {
   }
 }
 
+.right {
+  padding-right: 10px;
+  text-align: right;
+}
 
 .icon-chevron-up {
   width: 20px;

@@ -3,11 +3,14 @@
 $lb-link: #2376d8;
 $db-link: #0a2644;
 
-// ul class
-.nav {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
+.header-nav {
+  position: relative;
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.header-logo {
+  position: relative;
 }
 
 .header-init {
@@ -31,6 +34,15 @@ $db-link: #0a2644;
   flex: 1;
 }
 
+.header-logo__two-line {
+  width: 190px;
+  transform: translateY(-5px);
+}
+
+.header-logo__wrapper {
+  margin-bottom: -6px;
+}
+
 #navText {
   padding-top: 20px;
   font-weight: normal;
@@ -41,19 +53,44 @@ $db-link: #0a2644;
   color: #757575;
 }
 
+.logo-div {
+  position: absolute;
+//  transition: all 700ms ease-in;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.logo-div-animate-after {
+  margin-right: auto;
+//  transition: all 700ms ease-in;
+}
+
+.logo-div-left {
+  margin-right: auto;
+}
+
+.logo-div-animate {
+  transition: all 700ms ease-in;
+  transform: translate(-250%, 0);
+//  margin-right: auto;
+}
+
+.mobile-menu-sticky {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: #FFFFFF;
+  z-index: 20;
+}
+
 /* This will be default logo when in non-sticky mode */
 /* "sticky" mode will remove margins! */
 .usaspending-logo-center {
-  display: block;
   flex: 1;
-//  justify-content: flex-end;
-  padding-right: 120px;
-}
-
-// place in "center" of screen
-// but right of the container
-.centerLogo {
-  margin-left: 600px;
+  justify-content: center;
+  align-items: center;
 }
 
 // if/else to handle this id
@@ -68,15 +105,33 @@ $db-link: #0a2644;
 // this will show on "hover" of li element in Nav! (ul)
 .dropdownUlSection {
   position: sticky;
-  top: 100px;
+  top: 90px;
   justify-content: flex-end;
   align-self: flex-end;
   display: none;
   background-color: #FFFFFF;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
+  transition: all 700ms ease-in;
   z-index: 20;
-//  width: 100wv;
+}
+
+.dropdownUlSection-show {
+  position: sticky;
+  top: 125px;
+  justify-content: flex-end;
+  align-self: flex-end;
+  display: none;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+//  height: 200px;
+  z-index: 20;
+  -webkit-transition:height, 0.5s linear;
+  -moz-transition: height, 0.5s linear;
+  -ms-transition: height, 0.5s linear;
+  -o-transition: height, 0.5s linear;
+  transition: height, 0.5s linear;
 }
 
 // this will show on mobile
@@ -130,19 +185,13 @@ $db-link: #0a2644;
   text-decoration: underline;
 }
 
-nav { 
-  position: relative;
-  width: 100%;
-}
-
-
 /** navigation style **/
 ul.nav {
   display: flex;
-//  width: 100%;
   list-style: none;
-  padding-right: 105px;
   font-size: 13px;
+  padding-right: 30px;
+  margin: 0;
 }
 
 ul.nav > li {
@@ -166,21 +215,19 @@ ul.nav li > ul {
   margin-left: auto;
   margin-right: 300px;
   width: 100%;
-//  z-index: 999;
   min-width: 100%;
   whitespace: nowrap;
   width: 100%;
   overflow: hidden;
 }
 
-.leftLogo {
+.logo-span-rightText {
   display: none;
 }
 
 ul.nav li > ul li {
   position: relative;
   display: inline;
-  //  float: left;
   color: #fff;
   z-index: 20;
 }
@@ -291,83 +338,47 @@ ul.nav:first-child li:hover > ul:after {
 @media screen and (max-width: 1043px) {
   ul.nav {
     flex-wrap: nowrap;
-    padding-right: 0px;
+//    padding-right: 0px;
   }
 }
 
 @media screen and (max-width: 898px) {
   ul.nav {
     flex-wrap: wrap;
-    padding-right: 0px;
+//    padding-right: 0px;
   }
 }
 
 @media screen and (max-width: 937px) {
   ul.nav {
     flex-wrap: nowrap;
-    padding-right: 0px;
+///    padding-right: 0px;
   }
 }
 
 @media screen and (max-width: 768px) {
   ul.nav {
     flex-wrap: nowrap;
-    padding-right: 0px;
+//    padding-right: 0px;
   }
 }
 
-// fix for bigger screens! 
-@media screen and (min-width: 1920px) {
-  .usaspending-logo-center {
-    display: flex;
-    flex: 1;
-    padding-right: 220px;
-    justify-content: flex-end;
+@media (max-width: 1280px) {
+  .logo-div {
+    position: static;
   }
 }
 
-@media screen and (min-width: 1700px) {
-  .usaspending-logo-center {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    padding-right: 0px;
-    margin-right: 100px;
+@media (max-width: 450px) {
+  .header-logo__img {
+    width: 200px;
   }
 }
 
-// moving center logo margins for screen sizes
-@media (max-width: 1679px) and (min-width: 1575px) {
-  .centerLogo {
-    margin-left: 400px;
-  }
-}
+// SMALLEST
+@media (max-width: 400px) {
 
-@media (max-width: 1574px) and (min-width: 1377px) {
-  .centerLogo {
-    margin-left: 300px;
-  }
 }
-
-@media (max-width: 1376px) and (min-width: 1278px) {
-  .centerLogo {
-    margin-left: 200px;
-  }
-}
-
-@media (max-width: 1278px) and (min-width: 950px) {
-  .centerLogo {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 0px;
-  }
-  .usaspending-logo-center {
-    display: flex;
-    justify-content: flex-start;
-    padding-right: 0px;
-  }
-}
-
 
 // MAIN MOBILE VIEW TOGGLE
 @media (max-width: 955px) {
@@ -375,6 +386,10 @@ ul.nav:first-child li:hover > ul:after {
     list-style-type: none;
     display: none;
 //    flex-direction: column;
+  }
+
+  #one-line-tag {
+    display: none;
   }
 
   .dropdownUlSection {
@@ -387,9 +402,9 @@ ul.nav:first-child li:hover > ul:after {
 
   .navbar-toggle {
     display: flex; // show hamburger now
-    padding-right: 10px;
+//    padding-right: 60px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 28px;
     justify-content: flex-end;
     align-content: flex-end;
   }
@@ -398,12 +413,23 @@ ul.nav:first-child li:hover > ul:after {
     display: none; // keep this hidden
   }
 
-  .centerLogo {
+  .logo-div-nonlanding {
+    display: flex;
+    margin-right: auto;
+  }
+
+  .logo-span {
     display: none;
   }
-  
-  .leftLogo {
-    display: flex;
+
+  .logo-span-rightText {
+    display: block;
+  }
+
+  .logo-div {
+    transition: all 700ms ease-in;
+    transform: translate(0,0);
+    margin-right: auto;
   }
 
   .usaspending-logo-center {
