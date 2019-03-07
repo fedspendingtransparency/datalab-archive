@@ -8,8 +8,9 @@ import { ink, placeHorizontalStripes } from './ink';
 import { selectCountryInit } from './selectCountry'
 import { selectedCountries } from './selectedCountryManager';
 import { createDonut } from "../donut";
+import { redrawMobile, updateMobileTableList, sortMobileTable } from './chartmobile';
 import './selectCountry.scss';
-import { setData, prepareData } from './data';
+import { setData, prepareData, setMobileData } from './data';
 import { renderSortIcon, updateIcons } from './sortIcon';
 import { pan } from './pan';
 
@@ -28,7 +29,7 @@ const d3 = { select, selectAll, min, max, scaleLinear, axisBottom, transition },
     scales = {},
     containers = {};
 
-let data, config, primaryColor, debounce;
+let data, config, primaryColor, debounce, previousWidth, svg;
 
 dimensions.dataWidth = dimensions.chartWidth - dimensions.countryColumnWidth - dimensions.gdpColumnWidth;
 
@@ -57,11 +58,6 @@ function barLabelPosition(d) {
 }
 
 function establishContainers() {
-    const accessibilityAttrs = null || config.accessibilityAttrs,
-        parentWidth = getElementBox(d3.select('#viz')).width,
-        svg = establishContainer(null, parentWidth, accessibilityAttrs)
-            .classed('country', true);
-
     sizeSvg(800);
 
     containers.chart = svg.append('g').classed('pan-listen', true)
@@ -73,7 +69,7 @@ function establishContainers() {
     containers.gdp = containers.chart.append('g').attr('transform', translator(dimensions.countryColumnWidth + dimensions.dataWidth, dimensions.header));
     containers.legends = containers.chart.append('g').classed('legends', true);
 
-    pan(dimensions.chartWidth, parentWidth);
+    // pan(dimensions.chartWidth, parentWidth);
 }
 
 function addBarGroups() {
@@ -326,13 +322,22 @@ function rescale() {
     return true;
 }
 
-export function refreshData(sortField, countriesUpdated) {
+export function refreshData(sortField, countriesUpdated, isMobileInd) {
     const action = selectedCountries.lastUpdate.action;
 
     let duration = addRemoveDuration;
 
     data = setData(sortField, countriesUpdated);
     dimensions.totalHeight = dimensions.rowHeight * data.length;
+
+    if(isMobileInd){
+        if(countriesUpdated){
+            updateMobileTableList(data);
+        } else {
+            sortMobileTable(data);
+        }
+        return;
+    }
 
     if (action === 'add') {
         sizeSvg(addRemoveDuration);
@@ -361,8 +366,6 @@ export function refreshData(sortField, countriesUpdated) {
 }
 
 function redraw() {
-    d3.select('#viz').selectAll('*').remove();
-
     establishContainers();
     ink(containers, dimensions, data.length);
     setScales();
@@ -373,6 +376,20 @@ function redraw() {
     selectCountryInit();
 }
 
+function setContainer(){
+    d3.select('#viz').selectAll('*').remove();
+
+    const accessibilityAttrs = null || config.accessibilityAttrs,
+    parentWidth = getElementBox(d3.select('#viz')).width;
+
+    svg = establishContainer(null, parentWidth, accessibilityAttrs)
+            .classed('country', true);
+}
+
+function isMobile(){
+    return parseInt(d3.select('svg.main').attr('width'),10) < 800;
+}
+
 export function chartInit(_config) {
     config = _config;
 
@@ -381,7 +398,13 @@ export function chartInit(_config) {
     selectedCountries.set(config.defaultCountries);
     data = prepareData(config);
 
-    redraw();
+    setContainer();
+
+    if(isMobile()){
+        redrawMobile(config, data);
+    } else {
+        redraw();
+    }
 }
 
 window.addEventListener('resize', function () {
@@ -389,5 +412,18 @@ window.addEventListener('resize', function () {
         clearTimeout(debounce);
     }
 
-    debounce = setTimeout(redraw, 100);
+    if(previousWidth === window.innerWidth){
+        return;
+    }
+
+    previousWidth = window.innerWidth;
+    setContainer();
+
+    if(isMobile()){
+        debounce = setTimeout(redrawMobile, 100, config, data);
+    } else {
+        debounce = setTimeout(redraw, 100);
+    }
+
+
 });
