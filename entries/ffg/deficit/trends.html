@@ -18,34 +18,28 @@ ffgPageCss: css/deficit-trends.css
     <img class="deficit-trend" src="/assets/ffg/deficit/deficit-trend.png" title="Federal deficit historical trend" desc="Bar graph showing the annual Federal Deficit trend since the year 2000." />
 
     <aside class="deficit-aside">
-        <p>
-            One way to gauge the sustainability of federal finances is to observe how the federal debt has changed over time. The U.S. has experienced a deficit in each year since 2001, with a spike from 2009 to 2012 because of the financial crisis and ensuing recession.
-        </p>
+        <p>The U.S. has experienced a deficit in each year since 2001, with a spike from 2009 to 2012 following of the financial crisis and ensuing recession, during which time revenue declined and spending increased. Beginning in 2016 increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue.</p>
+        
         <section class="accordion">
-            <h1 class="accordion__heading">What is surplus?</h1>
+            <h1 class="accordion__heading">What does it mean when there is a surplus, balanced budget, and deficit?</h1>
             <div class="accordion__content">
                 <div id="surplusComponent">
                     <div class="deficit--surplus__component--content deficit--surplus__surplus">
                         <img class="deficit__tabs-image" src="/assets/ffg/deficit/surplus.png" alt="" role="presentation" />
-                        A surplus occurs when the government collects more money than it spends.
+                        A surplus occurs when the government collects more money than it spends. The last surplus for the federal government was in 2001.
                     </div>
                     <div class="deficit--surplus__component--content deficit--surplus__balanced">
                         <img class="deficit__tabs-image" src="/assets/ffg/deficit/balanceBudget.png" alt="" role="presentation" />
-                        A balanced budget occurs when the government spends as much as it collects.
+                        A balanced budget occurs when the amount the government spends equals the amount the government collects. Sometimes the term balanced budget is used more broadly to refer to instances where there is no deficit.
                     </div>
                     <div class="deficit--surplus__component--content deficit--surplus__deficit">
                         <img class="deficit__tabs-image" src="/assets/ffg/deficit/deficit.png" alt="" role="presentation" />
-                        A deficit occurs when the government collects less money than it spends.
+                        A deficit occurs when the government spends more money than it collects. The federal government has run deficits for the last 18 years.
                     </div>
                 </div>
             </div>
         </section>
-        <section class="accordion">
-            <h1 class="accordion__heading">What is sustainable policy?</h1>
-            <div class="accordion__content">
-                <p>According to the <a href="https://www.fiscal.treasury.gov/reports-statements/financial-report/" rel="noopener noreferrer" target="_blank">Financial Report of the United States Government (FR)</a> government spending is considered to be sustainable when deficit spending as a percentage of gross domestic product is steady or declining.</p>
-            </div>
-        </section>
+        
         <section class="tour">
             <div class="tour__part-one">
                 <h1>How does the deficit in the United States compare to other countries?</h1>
@@ -54,8 +48,11 @@ ffgPageCss: css/deficit-trends.css
             <a class="tour__link" href="country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
         </section>
     </aside>
+
+    <div class="clearfix"></div>
+
     <section class="hwcta">
-        <p>The visualization was created using <a href="https://fiscal.treasury.gov/reports-statements/mts/" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending of the United States.</p>
+        <p>The visualization was created using the {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue and spending of the United States.</p>
     </section>
 </div>
 
