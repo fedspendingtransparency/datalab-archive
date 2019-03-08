@@ -1,0 +1,15 @@
+// subnav.scss
+
+.dropdown-ul-section {
+  display: none;
+  bottom: -50px;
+  justify-content: flex-end;
+  background: #FFFF;
+  width: 100%;
+  right: 0;
+  position: absolute;
+}
+
+.dropdown-ul-section.active {
+  display: flex;
+}
