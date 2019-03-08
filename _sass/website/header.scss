@@ -130,37 +130,6 @@ $db-link: #0a2644;
 }
 
 // this will show on "hover" of li element in Nav! (ul)
-.dropdownUlSection {
-  position: sticky;
-  top: 145px; // new top from offset
-  justify-content: flex-end;
-  align-self: flex-end;
-  display: none;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-  transition: all 700ms ease-in;
-  z-index: 20;
-}
-
-.dropdownUlSection-show {
-  position: sticky;
-  top: 125px;
-  justify-content: flex-end;
-  align-self: flex-end;
-  display: none;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-//  height: 200px;
-  z-index: 20;
-  -webkit-transition:height, 0.5s linear;
-  -moz-transition: height, 0.5s linear;
-  -ms-transition: height, 0.5s linear;
-  -o-transition: height, 0.5s linear;
-  transition: height, 0.5s linear;
-}
-
 // this will show on mobile
 .mobileUlSection {
   display: none; // dont display until mobile view
@@ -198,12 +167,10 @@ $db-link: #0a2644;
 
 //secondary nav li
 .secondaryNavli {
-  display: inline; // horizontal list! 
+  display: inline;
   font-size: 13px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding: .5rem;
-  margin-right: 10px;
+  white-space: nowrap;
+  margin-left: 1rem;
 }
 
 .secondaryNavli a {
@@ -222,7 +189,6 @@ ul.nav {
   display: flex;
   list-style: none;
   font-size: 13px;
-  padding-right: 30px;
   margin: 0;
 }
 
@@ -231,6 +197,10 @@ ul.nav > li {
 //  float: left;
   line-height: 64px;
   padding: 0 20px;
+}
+
+ul.nav > li:last-child {
+  padding-right: 0;
 }
 
 ul li a {
@@ -414,14 +384,10 @@ ul.nav:first-child li:hover > ul:after {
     display: none;
   }
 
-  #one-line-tag {
+  #one-line-tag, .landing #one-line-tag {
     display: none;
   }
-
-//  .official-banner {
-//    display: none;
-//  }
-
+  
   .dropdownUlSection {
     display: none; // hide so nothing toggles
   }
