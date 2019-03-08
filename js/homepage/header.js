@@ -69,6 +69,8 @@
 
   function forceLogoLeft() {
     headerContainers.headerLogo.css('left', '0%').css('margin-left', '0px');
+    headerContainers.oneTag.css('display', 'none');
+    headerContainers.twoTag.css('display', 'inline-block');
   }
 
   function moveLogo(y, width) {
@@ -182,7 +184,7 @@
 
     if (e.type === 'mouseover') {
       showThisNav(triggerId);
-      // show my nav!
+      // show then nav!
     } else {
       subNavHideTimeout = setTimeout(killAllSubNavs, 600);
       // kill everything! 
@@ -236,8 +238,9 @@
       }
 
     });
-
+    
     window.addEventListener('resize', setInitialLogoPosition);
+
   }
 
   function setHeaderHeight() {
@@ -251,6 +254,9 @@
 
   function setInitialLogoPosition() {
     let width = window.innerWidth;
+    if (width < desktopMin) {
+      headerContainers.twoTag.css('display', 'none');
+    }
     if (width > desktopMin && width < 1350) {
       forceLogoLeft();
     } else {
@@ -261,10 +267,21 @@
     headerContainers.headerLogo.removeClass('header-logo--init');
   }
 
+  function setMobileLogoPosition() {
+    let width = window.innerWidth;
+    if (width < desktopMin) {
+      // put in center..
+      logoMarginOffset = 0 - (headerContainers.masterLogo.width() / 2);
+      headerContainers.headerLogo.css('margin-left', logoMarginOffset + 'px').css('left', '50%');
+      headerContainers.twoTag.css('display', 'none');
+    }
+  }
+
   $(function() {
 
     setContainers();
     setHeaderHeight();
+    setMobileLogoPosition();
     adaptToHeaderHeight();
     setMobileContainers();
     listAvailableNav();
@@ -275,7 +292,6 @@
       setHeaderHeight();
       adaptToHeaderHeight();
     });
-
 
     if ($('body').hasClass('landing')) {
       repositionHeaderItems('moveLogo');
