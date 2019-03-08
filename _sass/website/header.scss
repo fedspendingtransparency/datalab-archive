@@ -201,7 +201,12 @@ $db-link: #0a2644;
   font-size: 13px;
   padding-left: 5px;
   padding-right: 5px;
+  padding: .5rem;
   margin-right: 10px;
+}
+
+.secondaryNavli a {
+  white-space: nowrap;
 }
 
 //secondary nav li hover!

@@ -3,6 +3,8 @@
 // Sticky Header and Extra Magic for New Homepage!
 // using jquery 1.11.3! (updating, if bugged then revert!)
 
+let availableNav = [];
+let subNavHideTimeout;
 const headerContainers = {};
 const mobileContainers = {};
 const desktopMin = 956;
@@ -47,7 +49,8 @@ function setContainers() {
   headerContainers.oneTag = $('#one-line-tag');
   headerContainers.twoTag = $('#two-line-tag');
   headerContainers.navLi = $('.navListItem');
-  headerContainers.dropdown = $('.dropdownUlSection');
+  headerContainers.desktopNavItem = $('.desktop-nav-item');
+  headerContainers.dropdown = $('.dropdown-ul-section');
 }
 
 function fixNav(y, width) {
@@ -136,24 +139,66 @@ function setMobileBurger() {
   $('#burger-navbar-toggle').click(function() {
     mobileContainers.menu.toggle('slow');
   });
-//  mobileContainers.burgerMenu.click(function() {
-//    mobileContainers.menu.toggle('slow');
-//  });
+}
+
+function displaySubNav(event, leave) {
+  let targetElement;
+  const targetId = $(event.target).data('target');
+  if (!targetId) {
+    targetElement = $(event.target);
+  } else {
+    targetElement = $('#subnav-' + targetId);
+  }
+  
+  if (leave) {
+    targetElement.removeClass('active');
+    return;
+  } 
+  targetElement.addClass('active');
+}
+
+function showThisNav(triggerId) {
+  clearTimeout(subNavHideTimeout);
+  if (!triggerId) {
+    return;
+  }
+  availableNav.forEach( id => {
+    const targetSubNav = $('#subnav-' + id);
+    if (id == triggerId) {
+      targetSubNav.addClass('active');
+    } else {
+      targetSubNav.removeClass('active');
+    }
+  });
+}
+
+
+function manageSubNav(e) {
+  const triggerId = $(this).data('target');
+
+  if (e.type === 'mouseover') {
+    showThisNav(triggerId);
+    // show my nav!
+  } else {
+    subNavHideTimeout = setTimeout(killAllSubNavs, 600);
+    // kill everything! 
+  }
+}
+
+function killAllSubNavs() {
+  headerContainers.dropdown.removeClass('active');
+}
+
+function listAvailableNav() {
+  headerContainers.desktopNavItem.each(function(){
+    availableNav.push($(this).data('target'));
+  });
 }
 
 function setDropdownHeaderSection() {
-  $('.navListItem').hover(function() {
-    headerContainers.dropdown.css('display', 'flex');
-//    console.log('displaying');
-  });
 
-  $('.dropdownUlSection').mouseenter(function(){
-    headerContainers.dropdown.css('display', 'flex');
-  });
-
-  $('.dropdownUlSection').mouseleave(function(){
-    headerContainers.dropdown.css('display', 'none');
-  });
+  headerContainers.navLi.on('mouseover mouseleave', manageSubNav);
+  headerContainers.dropdown.on('mouseover mouseleave', manageSubNav);
 
     /* Secondary Ul dropdown Section */
   $(analysesText).mouseover(function() {
@@ -177,8 +222,8 @@ function setDropdownHeaderSection() {
 }
 
 function repositionHeaderItems(shouldMoveLogo) {
-  setContainers();
-//  setMobileContainers(); // TODO : reworking sub-nav anyway..
+//  setContainers();
+//  setMobileContainers(); 
 
   window.addEventListener('scroll', function() {
     let y = window.scrollY;
@@ -205,11 +250,16 @@ function setInitialLogoPosition() {
   headerContainers.headerLogo.removeClass('header-logo--init');
 }
 
-$(setDropdownHeaderSection);
-$(setMobileBurger);
 //$(repositionHeaderItems);
 $(function() {
-  console.log('testing', $('body').hasClass('landing'));
+
+  setContainers();
+  setMobileContainers();
+  listAvailableNav();
+  setDropdownHeaderSection();
+  setMobileBurger();
+
+
   if ($('body').hasClass('landing')) {
     repositionHeaderItems('moveLogo');
     setInitialLogoPosition();
