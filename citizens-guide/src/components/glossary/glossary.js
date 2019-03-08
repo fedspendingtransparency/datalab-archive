@@ -1,4 +1,3 @@
-// import glossaryData from '../../../../assets/ffg/components/glossary/glossary.csv';
 import glossaryData from '../../../public/csv/glossary.csv';
 import { select, selectAll } from 'd3-selection';
 
