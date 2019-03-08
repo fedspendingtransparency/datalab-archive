@@ -134,7 +134,7 @@
     .analysis__title {
         text-transform: uppercase;
         color: #757575;
-        font-size: calc(19px + (19 - 19) * ((100vw - 300px) / (1600 - 300)));
+        font-size: calc(17px + (19 - 17) * ((100vw - 300px) / (1600 - 300)));
         font-weight: 600;
     }
 
@@ -160,6 +160,22 @@
         margin-top: 2rem;
     }
 
+    .analysis__col_small {
+        flex-direction: row;
+    }
+
+    .analysis__header {
+        width: 50%;
+        margin-left: 2rem;
+        order: 2;
+        text-align: right;
+    }
+
+    .analysis__header-full { 
+        order: 1;
+        margin-top: 1rem;
+    }
+
     .analysis__heading {
         margin: 0;
         color: #2272CE;
@@ -168,10 +184,9 @@
     }
 
     .analysis__headline {
-        flex: 1;
         margin-bottom: 3rem;
         font-weight: 600;
-        font-size: calc(24px + (24 - 24) * ((100vw - 300px) / (1600 - 300)));
+        font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)))
     }
 
     .analysis__link {
@@ -180,6 +195,10 @@
 
     .analysis__link:hover {
         text-decoration: underline;
+    }
+
+    .analysis__image-container {
+        width: 50%;
     }
 
     .analysis__image {
@@ -249,6 +268,28 @@
     .analysis__col {
         margin-top: 0;
         width: 23%;
+    }
+
+    .analysis__header {
+        flex: 1;
+        width: 100%;
+        order: unset;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .analysis__col_small {
+        flex-direction: column;
+    }
+
+    .analysis__image-container {
+        width: 100%;
+    }
+
+    .analysis__header-full {
+        flex: 1;
+        order: -1;
+        margin-top: 0;
     }
     
     }
@@ -346,44 +387,57 @@
       <header><h2 class="analysis__title">More analysis</h2></header>
       <hr class="analysis__divider" />
       <div class="analysis__row">
-        <div class="analysis__col">
-          <h3 class="analysis__heading">Homelessness Analysis</h3>
-          <div class="analysis__headline">
-                <a class="analysis__link" href="/">Explorer federal programs that address homelessness</a>
-          </div>
-          <img
-          class="analysis__image"
-          src="../images/homepage/homelessness.jpg"
-          alt="Picture addressing homelessness"
-        />
+        <div class="analysis__col analysis__col_small">
+            <div class="analysis__header">
+                <h3 class="analysis__heading">Homelessness Analysis</h3>
+                <div class="analysis__headline">
+                    <a class="analysis__link" href="/">Explorer federal programs that address homelessness</a>
+                </div>
+            </div>
+            <div class="analysis__image-container">
+                <img
+                class="analysis__image"
+                src="../images/homepage/homelessness.jpg"
+                alt="Picture addressing homelessness"
+                />
+            </div>
         </div>
-        <div class="analysis__col">
-            <h3 class="analysis__heading">Federal Employees</h3>
-            <div class="analysis__headline">
-                    <a class="analysis__link" href="/">Who works in government?</a>
+        <div class="analysis__col analysis__col_small">
+            <div class="analysis__header">
+                <h3 class="analysis__heading">Federal Employees</h3>
+                <div class="analysis__headline">
+                        <a class="analysis__link" href="/">Who works in government?</a>
+                </div>
             </div>
-            <img
-            class="analysis__image"
-            src="../images/homepage/workers.jpg"
-            alt="A group of workers"
-          />
+            <div class="analysis__image-container">
+                <img
+                class="analysis__image"
+                src="../images/homepage/workers.jpg"
+                alt="A group of workers"
+            />
+        </div>
           </div>
-          <div class="analysis__col">
-            <h3 class="analysis__heading">Budget Function</h3>
-            <div class="analysis__headline">
-                <a class="analysis__link" href="/">Check out how federal spending is categorized by mission</a>
+          <div class="analysis__col analysis__col_small">
+            <div class="analysis__header">
+                <h3 class="analysis__heading">Budget Function</h3>
+                <div class="analysis__headline">
+                    <a class="analysis__link" href="/">Check out how federal spending is categorized by mission</a>
+                </div>
             </div>
-               
+            <div class="analysis__image-container">
             <img
             class="analysis__image"
             src="../images/homepage/budget.jpg"
             alt="A group of workers"
           />
+        </div>
           </div>
           <div class="analysis__col">
-            <h3 class="analysis__heading">Competition in Contracting</h3>
-            <div class="analysis__headline">
-                <a class="analysis__link" href="/">How often do federal agencies compete for contracts?</a>
+            <div class="analysis__header-full">
+                <h3 class="analysis__heading">Competition in Contracting</h3>
+                <div class="analysis__headline">
+                    <a class="analysis__link" href="/">How often do federal agencies compete for contracts?</a>
+                </div>
             </div>
             <img
             class="analysis__image"
