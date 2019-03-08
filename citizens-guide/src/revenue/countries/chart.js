@@ -308,11 +308,13 @@ function rescale() {
 
             bars.call(barTransition);
 
-            zeroLines.transition()
-                .duration(barFadeTime)
-                .attr('x1', scales.x(0))
-                .attr('x2', scales.x(0))
-                .ease();
+            if(zeroLines.size()){
+                zeroLines.transition()
+                    .duration(barFadeTime)
+                    .attr('x1', scales.x(0))
+                    .attr('x2', scales.x(0))
+                    .ease();
+            }
 
             labels.transition()
                 .duration(addRemoveDuration)

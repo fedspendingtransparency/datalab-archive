@@ -136,6 +136,41 @@ function setScales() {
         .range([0, mobileDimensions.countryColumnWidth]);
 }
 
+function rescale() {
+    const previousMax = scales.x.domain()[1],
+        previousMin = scales.x.domain()[0];
+
+    setScales();
+
+    if (previousMax === scales.x.domain()[1] && previousMin === scales.x.domain()[0]) {
+        return;
+    }
+
+    d3.select('svg.main').selectAll('g.bar-group')
+        .each(function () {
+            const group = d3.select(this),
+                labels = group.selectAll('text'),
+                zeroLines = group.selectAll('line'),
+                bars = group.selectAll('rect');
+
+            bars.call(barTransition);
+
+            if(zeroLines.size()){
+                zeroLines.transition()
+                    .duration(barFadeTime)
+                    .attr('x1', scales.x(0))
+                    .attr('x2', scales.x(0))
+                    .ease();
+            }
+
+            labels.transition()
+                .duration(addRemoveDuration)
+                .attr('x', barLabelPosition)
+        });
+
+    return true;
+}
+
 function sort() {
     const g = d3.select(this),
         type = g.attr('data-type'),
@@ -219,7 +254,7 @@ function buildRow(d,i){
     row.append('text').text(function(d){
         return d.country;
     })
-      .attr('y', 16);
+      .attr('y', 20);
 
     row.transition()
         .attr('transform', translator(0, i * mobileDimensions.rowHeight))
@@ -328,6 +363,7 @@ function addMobileBarGroups(row, d) {
 export function updateMobileTableList(_data, action){
     data = _data;
     const rows = svg.select('.cg-country-comparison-rows');
+    rescale();
     buildRows(rows);
     sortRows();
 }
