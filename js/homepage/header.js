@@ -11,6 +11,7 @@
   const headerContainers = {};
   const mobileContainers = {};
   const desktopMin = 956;
+  const twolineCollision = 1350;
   const regex = new RegExp("[a-zA-Z]");
   const pathname = window.location.pathname;
   let logoMarginOffset = 149;
@@ -54,7 +55,6 @@
     headerContainers.navLi = $('.navListItem');
     headerContainers.desktopNavItem = $('.desktop-nav-item');
     headerContainers.dropdown = $('.dropdown-ul-section');
-
   }
 
   function fixNav(y, width) {
@@ -64,13 +64,11 @@
       yOffset = 0;
     }
     headerContainers.header.css('top', yOffset + 'px');
-
   }
 
-  function forceLogoLeft() {
+  function forceLogoLeft(width) {
     headerContainers.headerLogo.css('left', '0%').css('margin-left', '0px');
-    headerContainers.oneTag.css('display', 'none');
-    headerContainers.twoTag.css('display', 'inline-block');
+//    headerContainers.oneTag.css('display', 'none');
   }
 
   function moveLogo(y, width) {
@@ -83,8 +81,8 @@
 
     let leftMargin = 0 - (max - y) * mSteps;
 
-    if (width > desktopMin && width < 1350) {
-      forceLogoLeft();
+    if (width > desktopMin && width < twolineCollision) {
+      forceLogoLeft(width);
       return;
     }
 
@@ -98,22 +96,41 @@
 
     headerContainers.headerLogo.css('left', leftPos + '%').css('margin-left', leftMargin + 'px');
 
-    transitionTags(max, y);
+    if (width >= 1115) {
+      transitionTags(max, y);
+    }
+
   }
 
+  function setTagVisibility(isLanding){
+    const w = window.innerWidth;
+
+    if (w < 1115) {
+      headerContainers.oneTag.removeClass('active');
+      headerContainers.twoTag.removeClass('active');
+    } else if (w < twolineCollision || !isLanding) {
+      headerContainers.oneTag.removeClass('active');
+      headerContainers.twoTag.addClass('active');
+    } else {
+      headerContainers.oneTag.addClass('active');
+      headerContainers.twoTag.removeClass('active');
+    }
+
+  }
+  
   function transitionTags(scrollMax, y) {
+
     const halfMax = scrollMax / 2;
     const min = halfMax - 10;
     const max = halfMax + 10;
     const range = max - min;
     let steps = 1 / range;
     let ratio;
-
+    console.log('calling transition tags');
     if (y >= min && y <= max)  {
       ratio = (y - min) * steps;
       headerContainers.twoTag.css('display', 'inline-block').css('opacity', ratio);
       headerContainers.oneTag.css('opacity', 1 - ratio).css('transform', 'scaleY('+1 - ratio+')').css('display', 'inline-block');
-
     } else if (y < min) {
       headerContainers.oneTag.css('opacity', '1').css('transform', 'scaleY(1)').css('display', 'inline-block');
       headerContainers.twoTag.css('opacity', '0').css('display', 'none');
@@ -236,16 +253,16 @@
       if(shouldMoveLogo) {
         moveLogo(y, width);
       }
-
     });
-    
-    window.addEventListener('resize', setInitialLogoPosition);
+
+    if(shouldMoveLogo) {
+      window.addEventListener('resize', setInitialLogoPosition);
+    }
 
   }
 
   function setHeaderHeight() {
     headerHeight = headerContainers.header.outerHeight();
-    console.log(headerHeight);
   }
 
   function adaptToHeaderHeight() {
@@ -255,10 +272,10 @@
   function setInitialLogoPosition() {
     let width = window.innerWidth;
     if (width < desktopMin) {
-      headerContainers.twoTag.css('display', 'none');
+//      headerContainers.twoTag.css('display', 'none');
     }
-    if (width > desktopMin && width < 1350) {
-      forceLogoLeft();
+    if (width > desktopMin && width < twolineCollision) {
+      forceLogoLeft(width);
     } else {
       logoMarginOffset = 0 - (headerContainers.masterLogo.width() / 2);
       headerContainers.headerLogo.css('margin-left', logoMarginOffset + 'px').css('left', '50%');
@@ -267,33 +284,26 @@
     headerContainers.headerLogo.removeClass('header-logo--init');
   }
 
-  function setMobileLogoPosition() {
-    let width = window.innerWidth;
-    if (width < desktopMin) {
-      // put in center..
-      logoMarginOffset = 0 - (headerContainers.masterLogo.width() / 2);
-      headerContainers.headerLogo.css('margin-left', logoMarginOffset + 'px').css('left', '50%');
-      headerContainers.twoTag.css('display', 'none');
-    }
-  }
-
   $(function() {
+
+    const isLanding = $('body').hasClass('landing');
 
     setContainers();
     setHeaderHeight();
-    setMobileLogoPosition();
     adaptToHeaderHeight();
     setMobileContainers();
     listAvailableNav();
     setDropdownHeaderSection();
     setMobileBurger();
+    setTagVisibility(isLanding);
 
     window.addEventListener('resize', function(){
+      setTagVisibility(isLanding);
       setHeaderHeight();
       adaptToHeaderHeight();
     });
 
-    if ($('body').hasClass('landing')) {
+    if (isLanding) {
       repositionHeaderItems('moveLogo');
       setInitialLogoPosition();
     } else {
