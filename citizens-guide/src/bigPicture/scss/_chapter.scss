@@ -66,8 +66,9 @@ section.chapter {
 }
 
 .chapter__divider--median-treasury-logo {
-    background: url('/assets/ffg/bp/treasury-background-second.jpg') 0 0 no-repeat;
-    background-size: 100% 100%;
+    background: url('/assets/ffg/bp/deficit_debt_image.png') 0 0 no-repeat;
+    background-size: cover;
+    width: 100%;
     padding: 1rem;
     background-color: #FFF;
 
