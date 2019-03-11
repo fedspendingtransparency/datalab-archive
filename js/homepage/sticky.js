@@ -237,7 +237,6 @@ function stickyHeader(sticky) {
       if ($(window).scrollTop() === 0) {
         $(sticky).css('display', 'flex').css('position','relative').css('width', ''); // make sure we remove width to get rid of overflow problem!
 
-        //        $(burgerMenu).css('padding-right', '0px'); // get rid of burger menu padding..
         $(mobileMenu).css('justify-content','flex-end').css('flex-direction', 'row').css('z-index', '20').css('top', '').css('position', '').css('width', ''); // take defaults from what we have in 'header.css'
 
         // dont do sliding animation on mobile break (1008px)
