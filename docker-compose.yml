@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   datalab:
     container_name: datalab
@@ -6,13 +6,11 @@ services:
     restart: always
     working_dir: /datalab-repo-mount
     command: >
-        /bin/bash -c "bundle install && bundle exec jekyll serve --host=0.0.0.0 --watch --incremental;"
+        /bin/bash -c "
+          bundle install; 
+          bundle exec jekyll serve --host=0.0.0.0 --watch --incremental; 
+        "
     ports:
         - 4000:4000
-    environment:
-        - HTTPS_PROXY
-        - HTTP_PROXY
-        - http_proxy
-        - https_proxy
     volumes:
         - .:/datalab-repo-mount

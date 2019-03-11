@@ -1,301 +1,4 @@
-<style>
-    .data-lab-main {
-        margin: 1.5rem 1.5rem 0 1.5rem;
-        font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
-    }
-    .introduction-container {
-        display: block;
-    }
-    
-    .main-intro {
-        width: 100%;
-        text-align: center;
-        font-weight: 300;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-    }
-    
-    .main-intro__link {
-        text-decoration: none;
-    }
-    
-    .main-intro__link:hover {
-        text-decoration: underline;
-    }
-    
-    .text-container {
-        padding: 0 2rem;
-    }
-    
-    .main-intro__heading {
-        color: #2272CE;
-        order: -2;
-        font-size: calc(16px + (16 - 16) * ((100vw - 300px) / (1600 - 300)));
-    }
-    
-    .main-intro__subheading {
-        order: -1;
-        margin-bottom: 1rem;
-        font-size: calc(22px + (24 - 22) * ((100vw - 300px) / (1600 - 300)));
-    }
-     .main-intro__image {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .main-intro__text {
-        line-height: 23px;
-    }
-    
-    .main-intro__text_mobile {
-        display: inline;
-    }
-    
-    .main-intro__text_desktop {
-        display: none;
-    }
-    
-    .side-column {
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        margin-top: 2rem;
-    }
-    
-    .side-intro__box {
-        border-bottom: 1px solid #eeeeee;
-        height: auto;
-        padding: 0.5rem 0;
-    }
-    .side-info {
-        display: flex;
-    }
-    
-    .side-info__column {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 2rem;
-        margin-right: 1.2rem;
-    }
-    
-    .side-info__title {
-        color: #2272CE;
-        font-weight: 600;
-        font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
-    }
-    
-    .side-info__heading {
-        font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
-    }
-    
-    .side-info__text {
-        display: none;
-        font-weight: 300;
-        line-height: 1.43;
-    }
-    
-    .side-info__link {
-        color: black;
-        text-decoration: none;
-    }
-    
-    .side-info__link:hover {
-        text-decoration: underline;
-    }
-    
-    .side-info__image {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .side-dts__box {
-        display: flex;
-        border: 1px solid #eeeeee;
-        text-align: center;
-        width: 100%;
-        flex-direction: column;
-    }
-    
-    .side-dts__heading {
-        background-color: #FAFBFC;
-        height: 3rem;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    
-    }
-    
-    .side-dts__headline {
-        font-size: calc(22px + (22 - 22) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    .analysis__title {
-        text-transform: uppercase;
-        color: #757575;
-        font-size: calc(17px + (19 - 17) * ((100vw - 300px) / (1600 - 300)));
-        font-weight: 600;
-    }
-
-    .analysis__divider {
-        border: none;
-        height: 1px;
-        background-color: #979797;
-        margin-top: 0.7rem;
-    }
-
-    .analysis__row {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-bottom: 9rem;
-        margin-top: 3rem;
-    }
-
-    .analysis__col {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 2rem;
-    }
-
-    .analysis__col_small {
-        flex-direction: row;
-    }
-
-    .analysis__header {
-        width: 50%;
-        margin-left: 2rem;
-        order: 2;
-        text-align: right;
-    }
-
-    .analysis__header-full { 
-        order: 1;
-        margin-top: 1rem;
-    }
-
-    .analysis__heading {
-        margin: 0;
-        color: #2272CE;
-        font-weight: 600;
-        font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
-    }
-
-    .analysis__headline {
-        margin-bottom: 3rem;
-        font-weight: 600;
-        font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)))
-    }
-
-    .analysis__link {
-        text-decoration: none;
-    }
-
-    .analysis__link:hover {
-        text-decoration: underline;
-    }
-
-    .analysis__image-container {
-        width: 50%;
-    }
-
-    .analysis__image {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    @media only screen and (min-width: 1200px) {
-    .data-lab-main {
-        margin: 5rem;
-    }
-    .introduction-container {
-        display: flex;
-        margin-bottom: 5rem;
-    }
-    .side-column {
-        margin-left: 2rem;
-        width: 40%;
-        margin-top: 0;
-    }
-    .side-info__text {
-        font-size: 0.875rem;
-        display: inline;
-    }
-    
-    .main-intro {
-        width: 55%;
-        border: 1px solid #eeeeee;
-    }
-    
-    .headings-container {
-        order: 1;
-    }
-    
-    .image-container {
-        order: -1
-    }
-    
-    .text-container {
-        order: 1;
-    }
-    
-    .main-intro__text {
-        font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
-    }
-    
-    .main-intro__text_mobile {
-        display: none;
-    }
-    
-    .main-intro__text_desktop {
-        display: inline;
-    }
-    
-    .side-dts__heading {
-        font-size: 0.9375rem;
-    }
-    
-    .side-dts__headline {
-        font-size: 1.375rem;
-    }
-
-    .analysis__row {
-        flex-direction: row;
-    }
-
-    .analysis__col {
-        margin-top: 0;
-        width: 23%;
-    }
-
-    .analysis__header {
-        flex: 1;
-        width: 100%;
-        order: unset;
-        margin-left: 0;
-        text-align: left;
-    }
-
-    .analysis__col_small {
-        flex-direction: column;
-    }
-
-    .analysis__image-container {
-        width: 100%;
-    }
-
-    .analysis__header-full {
-        flex: 1;
-        order: -1;
-        margin-top: 0;
-    }
-    
-    }
-    
-    </style>
- <main class="data-lab-main">
+<main class="data-lab-main">
     <section class="introduction-container">
       <div class="main-intro">
         <div class="headings-container">
@@ -447,4 +150,38 @@
           </div>
       </div>
     </section>
+    <section class="resource-container">
+            <header><h2 class="resource__title">Resources</h2></header>
+            <hr class="resource__divider" />
+            <div class="resource__row">
+                <div class="resource__row">
+                    <div class="resource__col">
+                        <div class="resource__headline">Do you need <strong>resources?</strong></div>
+                        <div class="resource__subheading">Access data from our sources and create your own charts and visualizations.</div>
+                    </div>
+                    <div class="resource__col resource__col_main">
+                            <div class="resource__icon">
+                                {% include svgs/resources-api-2.svg %}
+                            </div>
+                            <div class="resource__card-title">API Guide</div>
+                            <div class="resource__card-description">Guidance on accessing your data with open source code.</div>
+                    </div>
+                    <div class="resource__col resource__col_main">
+                            <div class="resource__icon">
+                                {% include svgs/resources-user-guide-2.svg %} 
+                            </div>
+                            <div class="resource__card-title">Analyst Guide</div>
+                            <div class="resource__card-description">Methods to easily navigate USAspending data and conduct data analyses.</div>
+                    </div>
+                    <div class="resource__col resource__col_main">
+                            <div class="resource__icon">
+                                {% include svgs/resources-playbook-2.svg %}
+                            </div>
+                            <div class="resource__card-title">College Playbook</div>
+                            <div class="resource__card-description">Ways for professors  and students to get involved.</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </section>
     </main>
