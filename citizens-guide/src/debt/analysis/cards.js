@@ -1,17 +1,17 @@
 import { select, selectAll } from 'd3-selection';
-import { max } from 'd3-array';
+import { max, min } from 'd3-array';
 
-const d3 = { select, selectAll, max },
+const d3 = { select, selectAll, max, min },
     flippedClass = 'card--flipped',
     containerActiveClass = 'cards--flipped',
     cardContainer = d3.select('.cards'),
     cards = d3.selectAll('.card');
 
-let debounce;
+let debounce;   
 
 function toggleState() {
     const card = d3.select(this);
-
+    
     if (card.classed(flippedClass)) {
         cardContainer.classed(containerActiveClass, false);
         cards.classed(flippedClass, false);
@@ -22,22 +22,14 @@ function toggleState() {
     }
 }
 
-function fixHeight() {
-    const heights = [];
+function renderInstructions(cover) {
+    const button = cover.append('button');
 
-    let max;
+    button.classed('card__flipper', true);
+    
+    button.append('i').classed('fas fa-exchange-alt card__flip-icon', true);
 
-    d3.selectAll('.card__contents').each(function () {
-        const height = Math.ceil(this.getBoundingClientRect().height);
-
-        console.log(height)
-
-        heights.push(Math.ceil(this.getBoundingClientRect().height));
-    })
-
-    max = d3.max(heights) * 1.35;
-
-    cardContainer.attr('style', `height: ${max}px`);
+    button.append('span').text('reveal answer');
 }
 
 function buildCover() {
@@ -48,18 +40,17 @@ function buildCover() {
     heading.each(function () {
         cover.node().appendChild(this)
     })
+
+    renderInstructions(cover);
 }
 
 export function initCards() {
     cards.each(buildCover);
     cards.on('click', toggleState);
-    fixHeight();
 }
 
 window.addEventListener('resize', function () {
     if (debounce) {
         clearTimeout(debounce);
     }
-
-    debounce = setTimeout(fixHeight, 100);
 });

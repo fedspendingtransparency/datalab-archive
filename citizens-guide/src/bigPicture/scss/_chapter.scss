@@ -1,10 +1,12 @@
 @import '../../colors.scss';
-@import './_bpVars.scss';
+@import './bpVars.scss';
+@import '../../globalSass/generalVars';
 
-h1.chapter__heading--merriweather-font {
-    font-family: Merriweather;
-    font-weight:300;
+h1.chapter__heading {
+    font-weight: 500;
     margin-top:2rem;
+    text-align: left;
+    font-size: 1.4rem;
 }
 
 section.chapter {
@@ -21,13 +23,6 @@ section.chapter {
     margin: 0 auto;
     padding: 2rem 1rem;
     color: $text-color-paragraph;
-
-    h1 {
-        text-align: left;
-        color: $text-color-heading;
-        font-size: 1.4rem;
-        margin-bottom: 0.5rem;
-    }
 
     p {
         color: $text-color-paragraph;
@@ -48,7 +43,7 @@ section.chapter {
 .chapter__big-number {
     display: block;
     font-size: 2.5rem;
-    font-weight: $boldWeight;
+    font-weight: 700;
 }
 
 .chapter__paragraph--tightened {
@@ -64,22 +59,6 @@ section.chapter {
     height: auto;
 }
 
-.chapter--revenue {
-    background-color: white;
-}
-
-.chapter--spending {
-    background-color: white;
-}
-
-.chapter--deficit {
-    background-color: white;
-}
-
-.chapter--debt {
-    background-color: white;
-}
-
 .chapter__divider--normal {
     border-bottom: 1px solid #CCC;
     max-width:1400px;
@@ -87,11 +66,11 @@ section.chapter {
 }
 
 .chapter__divider--median-treasury-logo {
-    background: url('/assets/ffg/bp/treasury-background-second.jpg') 0 0 no-repeat;
-    background-size: 100% 100%;
+    background: url('/assets/ffg/bp/deficit_debt_image.png') 0 0 no-repeat;
+    background-size: cover;
+    width: 100%;
     padding: 1rem;
     background-color: #FFF;
-    font-family: Merriweather;
 
     .chapter__divider--arrow-container {
         text-align: center;
@@ -119,7 +98,7 @@ section.chapter {
     padding: 0 1rem;
 
     strong, span {
-        font-weight:900;
+        font-weight: 900;
     }
 }
 
@@ -139,13 +118,6 @@ section.chapter {
     color:$debtPrimary;
 }
 
-.chapter__primary {
-   span.chapter__big-number {
-       font-weight:900;
-       display:block;
-   }
-}
-
 @media only screen and (max-width: 800px) {
     .chapter__big-number--anecdote-placement {
         .anecdote {
@@ -161,12 +133,6 @@ section.chapter {
 }
 
 @media only screen and (min-width: 800px) {
-    .chapter__content {
-        h1 {
-            font-size: 1.8rem;
-        }
-    }
-    
     .chapter__flex {
         display: flex;
     }
@@ -182,7 +148,7 @@ section.chapter {
     }
 
     .chapter__big-number {
-        font-size: 3rem;
+        font-size: 2.7rem;
     }
 
     .chapter__divider--text {

@@ -12,13 +12,17 @@ const config = {
     deficitAmount: 779000000000,
     gdpPercent: 110,
     deficitColor: colors.colorDeficitPrimary,
-    debtColor: colors.colorDebtPrimary
+    debtColor: colors.colorDebtPrimary,
+    accessibilityAttrs : {
+        title: 'Graph representing 2018 US Federal Debt',
+        desc: '2018 US federal debt graph with comparison to 2018 federal deficit and U.S. GDP. All graphs are visualized by dots where each dot represents 1 billion USD'
+    }
 };
 
 let mainContainer;
 
 function setMainContainer() {
-    mainContainer = establishContainer(900).append('g')
+    mainContainer = establishContainer(900, null, config.accessibilityAttrs).append('g')
         .classed('main', true);
 
     config.mainContainer = mainContainer;

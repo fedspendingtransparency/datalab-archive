@@ -3,11 +3,38 @@
 $lb-link: #2376d8;
 $db-link: #0a2644;
 
-// ul class
-.nav {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
+.header-nav {
+  position: relative;
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.header-logo {
+  display: block;
+  position: relative;
+  opacity: 1;
+  transform: opacity .2s ease;
+}
+
+.landing .header-logo.header-logo--init {
+  opacity: 0;
+}
+
+#one-line-tag {
+  display: none;
+}
+
+.landing #one-line-tag {
+  display: inline-block;
+}
+
+.landing .header-logo {
+  left: 50%;
+  margin-left: -149px;
+}
+
+.header-init {
+  top: 29px;
 }
 
 .displayFlex {
@@ -27,6 +54,21 @@ $db-link: #0a2644;
   flex: 1;
 }
 
+.header-logo__two-line {
+  width: 190px;
+  transform: translateY(-5px);
+  display: inline-block;
+  opacity: 1;
+}
+
+.landing .header-logo__two-line {
+  display: none;
+}
+
+.header-logo__wrapper {
+  margin-bottom: -6px;
+}
+
 #navText {
   padding-top: 20px;
   font-weight: normal;
@@ -37,20 +79,57 @@ $db-link: #0a2644;
   color: #757575;
 }
 
-// this will show on "hover" of li element in Nav! (ul)
-.dropdownUlSection {
-  position: sticky;
-  top: 100px;
-  justify-content: flex-end;
-  align-self: flex-end;
-  display: none;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-  z-index: 999;
-//  width: 100wv;
+.logo-div {
+  position: absolute;
+//  transition: all 700ms ease-in;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
+.logo-div-animate-after {
+  margin-right: auto;
+//  transition: all 700ms ease-in;
+}
+
+.logo-div-left {
+  margin-right: auto;
+}
+
+.logo-div-animate {
+  transition: all 700ms ease-in;
+  transform: translate(-250%, 0);
+//  margin-right: auto;
+}
+
+.mobile-menu-sticky {
+  position: fixed;
+  top: 110px;
+  width: 100%;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: #FFFFFF;
+  z-index: 20;
+}
+
+/* This will be default logo when in non-sticky mode */
+/* "sticky" mode will remove margins! */
+.usaspending-logo-center {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+// if/else to handle this id
+// if we are NOT on landing page
+// display to left always
+#usaspending-logo-left {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+// this will show on "hover" of li element in Nav! (ul)
 // this will show on mobile
 .mobileUlSection {
   display: none; // dont display until mobile view
@@ -88,11 +167,14 @@ $db-link: #0a2644;
 
 //secondary nav li
 .secondaryNavli {
-  display: inline; // horizontal list! 
-  font-size: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 10px;
+  display: inline;
+  font-size: 13px;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.secondaryNavli a {
+  white-space: nowrap;
 }
 
 //secondary nav li hover!
@@ -102,19 +184,12 @@ $db-link: #0a2644;
   text-decoration: underline;
 }
 
-nav { 
-  position: relative;
-  width: 100%;
-}
-
-
 /** navigation style **/
 ul.nav {
   display: flex;
-//  width: 100%;
   list-style: none;
-  padding-right: 105px;
   font-size: 13px;
+  margin: 0;
 }
 
 ul.nav > li {
@@ -122,6 +197,10 @@ ul.nav > li {
 //  float: left;
   line-height: 64px;
   padding: 0 20px;
+}
+
+ul.nav > li:last-child {
+  padding-right: 0;
 }
 
 ul li a {
@@ -138,19 +217,21 @@ ul.nav li > ul {
   margin-left: auto;
   margin-right: 300px;
   width: 100%;
-//  z-index: 999;
   min-width: 100%;
   whitespace: nowrap;
   width: 100%;
   overflow: hidden;
 }
 
+.logo-span-rightText {
+  display: none;
+}
+
 ul.nav li > ul li {
   position: relative;
   display: inline;
-  //  float: left;
   color: #fff;
-  z-index: 999;
+  z-index: 20;
 }
 
 ul.nav li > ul li a {
@@ -259,50 +340,54 @@ ul.nav:first-child li:hover > ul:after {
 @media screen and (max-width: 1043px) {
   ul.nav {
     flex-wrap: nowrap;
-    padding-right: 0px;
+//    padding-right: 0px;
   }
 }
 
 @media screen and (max-width: 898px) {
   ul.nav {
     flex-wrap: wrap;
-    padding-right: 0px;
+//    padding-right: 0px;
   }
 }
 
 @media screen and (max-width: 937px) {
   ul.nav {
     flex-wrap: nowrap;
-    padding-right: 0px;
+///    padding-right: 0px;
   }
 }
 
 @media screen and (max-width: 768px) {
   ul.nav {
     flex-wrap: nowrap;
-    padding-right: 0px;
+//    padding-right: 0px;
   }
 }
 
-// fix for bigger screens! 
-@media screen and (min-width: 1920px) {
-  .usaspending-logo-center {
-    display: flex;
-    flex: 1;
-    padding-right: 220px;
-    justify-content: flex-end;
+@media (max-width: 1280px) {
+  .logo-div {
+    position: static;
   }
 }
 
-// burger media
+@media (max-width: 450px) {
+  .header-logo__img {
+    width: 200px;
+  }
+}
+
 // MAIN MOBILE VIEW TOGGLE
-@media (max-width: 950px) {
+@media (max-width: 955px) {
   ul.nav {
     list-style-type: none;
     display: none;
-//    flex-direction: column;
   }
 
+  #one-line-tag, .landing #one-line-tag {
+    display: none;
+  }
+  
   .dropdownUlSection {
     display: none; // hide so nothing toggles
   }
@@ -313,15 +398,34 @@ ul.nav:first-child li:hover > ul:after {
 
   .navbar-toggle {
     display: flex; // show hamburger now
-    padding-right: 10px;
+//    padding-right: 60px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 28px;
     justify-content: flex-end;
     align-content: flex-end;
   }
 
   .dropdownUlSection {
     display: none; // keep this hidden
+  }
+
+  .logo-div-nonlanding {
+    display: flex;
+    margin-right: auto;
+  }
+
+  .logo-span {
+    display: none;
+  }
+
+  .logo-span-rightText {
+    display: block;
+  }
+
+  .logo-div {
+    transition: all 700ms ease-in;
+    transform: translate(0,0);
+    margin-right: auto;
   }
 
   .usaspending-logo-center {
@@ -333,7 +437,7 @@ ul.nav:first-child li:hover > ul:after {
     display: none;
     justify-content: flex-end;
     flex-direction: row;
-    z-index: 999; // make sure its above the rest...
+    z-index: 20; // make sure its above the rest...
   }
 
   .mobileNav {
@@ -341,7 +445,8 @@ ul.nav:first-child li:hover > ul:after {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    padding-right: 40px;
+    margin-top: 100px;
+    padding-right: 25px;
   }
 
   // display all UL's as hidden until click!
@@ -384,7 +489,7 @@ ul.nav:first-child li:hover > ul:after {
   .secondaryNavMobileli > a:hover {
     color: $lb-link;
   }
-
-  
 }
+
+
 

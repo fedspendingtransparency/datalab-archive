@@ -9,7 +9,7 @@ const d3 = { select, selectAll },
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency'),
     barControls = d3.select('#bar-controls'),
-    chartSectionTextStr = 'Click to see sub-categories';
+    chartSectionTextStr = 'Click to see subcategories';
 
 let svg,
     config = {

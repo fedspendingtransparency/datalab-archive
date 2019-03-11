@@ -28,30 +28,54 @@ ffgPageCss: css/chapterIntroCommon.css
             <i class="fas fa-reply intro-math__icon"></i>21,500 dots x $1 billion = <strong>$21.5 trillion</strong>
         </div>
 
+        <div id="copy" class="intro-hidden">
+            <p>How much is $21.5 trillion in federal debt? If you take the U.S. population estimate in 2018 of 327.7 million* (U.S. Census Bureau), $21.5 trillion would be equivalent to more than $65,000 for every individual in the U.S.</p>
+        </div>
+
         <div class="facts sidebar intro-hidden">
             <div class="facts__inner">
                 <div id="compare-options">
-                    <p class="facts__prompt">How does the debt relate to the deficit and the size of the U.S. economy?</p>
+                    <p class="facts__prompt">How does the national debt compare to the deficit and the size of the economy?</p>
                     <div class="facts__triggers">
                         <button class="facts__trigger" data-trigger-id="deficit">Deficit</button>
                         <button class="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
                     </div>
                 </div>
+                
+                <section id="deficit-facts" class="facts__section">
+                    <p>The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference.  When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt.</p>
+                </section>
+                
+                <section id="gdp-facts" class="facts__section">
+                    <p>By comparing the total federal debt to gross domestic product we can observe the government's ability to utilize the resources at hand to finance the debt the same way you and your family manage your finances to make sure that your monthly payments for your mortgage, car loans, and credit cards can be made.</p>
+                </section>
             </div>
         </div>
+
+        <section class="accordion sidebar intro-hidden">
+            <h1 class="accordion__heading">Who owns the federal government's debt?</h1>
+            <div class="accordion__content">
+                <p>Most of the federal government's debt is owned by federal trust funds, like Social Security, and domestic investors in the United States. Foreign investors, including other governments, also own part of the debt.</p>
+            </div>
+        </section>
         
         <section class="tour sidebar intro-hidden">
             <div class="tour__part-one">
-                <h1>How has the federal deficit trended over time?</h1>
+                <h1>How has the federal debt changed over time?</h1>
             </div>
-            <a class="tour__link" href="trends.html">Discover<i class="fas fa-chevron-right"></i></a>
+            <a class="tour__link" href="trends.html">Explore<i class="fas fa-chevron-right"></i></a>
         </section>
     </div>
 
+    <div class="info-box" id="billion-dollars">
+        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        <p>In this analysis, each dot represents $1 billion.</p>
+    </div>
+
     <section class="hwcta">
-        <p>This visualization was created using the Monthly Treasury Statement (MTS) as the data source for federal government spending of the United States by federal agency and the Office of Management and Budget (OMB) Historical Tables as the data source for federal government spending by spending type. The Bureau of Labor Statistics (BLS) Consumer Price Index (CPI) for All Urban Consumers (CPI-U) was used to adjust spending in fiscal years 2013-2016 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources in spending over time.</p>
-        <p>Gross Domestic Product (GDP) figures for the United States come from the Bureau of Economic Analysis (BEA). GDP data for countries other than the United States comes from the International Monetary Fund (IMF) World Economic Outlook Database (WEOD).</p>
+        This visualization was created using the {% include ffg/data-sources/current_mspd.html %} as the data source for federal debt of the United States and the {% include ffg/data-sources/current_mts.html %} as the data source for federal government revenue and spending. Gross domestic product (GDP) figures come from the {% include ffg/data-sources/bea_gdp.html %}.
     </section>
 </div>
 
+<script src="/assets/ffg/accordion.js"></script>
 <script src="/assets/ffg/debt/intro.js"></script>

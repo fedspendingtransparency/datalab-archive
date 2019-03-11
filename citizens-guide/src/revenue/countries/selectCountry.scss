@@ -172,6 +172,10 @@ $primaryColor: #4A90E2;
     }
 }
 
+.hidden {
+    display:none;
+}
+
 @media only screen and (min-width: 800px) {
     .select-country {
         transform: translate(0,39px);

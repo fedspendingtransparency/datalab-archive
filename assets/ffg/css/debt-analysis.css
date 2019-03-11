@@ -33,6 +33,11 @@
   width: 100%;
   margin-bottom: 1rem; }
 
+.card__image--width-contstrain {
+  max-width: 290px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .card__heading {
   text-align: center;
   font-size: 1.5rem;
@@ -46,12 +51,24 @@
 
 .card__cover {
   position: absolute;
+  text-align: center;
   top: 0;
   left: 0;
   padding: 1rem;
   visibility: visible;
   transition-property: visibility;
   transition-delay: 0.25s; }
+
+.card__flipper {
+  border: none;
+  background: transparent;
+  color: #4A0072;
+  transition: color 0.3s ease; }
+  .card__flipper:hover {
+    color: #8c00d8; }
+
+.card__flip-icon {
+  margin-right: 0.5rem; }
 
 .card.card--flipped {
   animation-name: card-flipped; }
@@ -74,7 +91,7 @@
 @media only screen and (min-width: 990px) {
   .card {
     width: 32%;
-    transition: width 0.5s ease; }
+    transition: width, height 0.5s ease; }
   .tour {
     width: 300px;
     float: right;
@@ -83,3 +100,7 @@
     width: 24%; }
   .cards--flipped .card.card--flipped {
     width: 49%; } }
+
+.debt-analysis-intro {
+  max-width: 800px;
+  margin: 0 auto; }

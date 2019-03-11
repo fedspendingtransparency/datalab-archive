@@ -65,10 +65,6 @@ function getByYear(yyyy) {
     return SpendingData.filter(r => r.fiscal_year === yyyy)
 }
 
-function formatPercent(n) {
-    return n * 100;
-}
-
 export function indexByYear(yyyy) {
     const indexed = {};
 
@@ -86,7 +82,7 @@ export function indexByYear(yyyy) {
             indexed[r.category][r.parent].subcategories[r.child] = {
                 activity: r.child_plain,
                 amount: r.spending_adjusted,
-                percent_total: formatPercent(r.percent_total)
+                percent_total: r.percent_total
             }
         } else {
             // parent rows
@@ -95,7 +91,7 @@ export function indexByYear(yyyy) {
             indexed[r.category][r.parent] = {
                 activity: r.parent_plain,
                 amount: r.spending_adjusted,
-                percent_total: formatPercent(r.percent_total),
+                percent_total: r.percent_total,
                 subcategories: tempChildren
             }
         }

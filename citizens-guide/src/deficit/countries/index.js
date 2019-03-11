@@ -5,6 +5,10 @@ import { chartInit } from '../../revenue/countries/chart';
 import colors from '../../colors.scss';
 
 const spendingConfig = {
+    accessibilityAttrs : {
+        title: 'Graph representing 2018 deficit (in USD) amounts across multiple countries',
+        desc: '2018 deficit data comparison between multiple countries (including the U.S.) as well as the ratio of deficit to that country\'s GDP'
+    },
     amountField: 'surplus_deficit',
     amountInverse: true,
     gdpField: 'surplus_deficit_gdp',
