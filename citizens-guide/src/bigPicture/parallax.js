@@ -6,5 +6,7 @@ window.addEventListener('scroll', e => {
         return;
     }
 
-    background.style.top = `-${scrollY * 0.3}px`;
-})
+    if(background){
+        background.style.top = `-${scrollY * 0.3}px`;
+    }
+});
