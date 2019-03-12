@@ -2,6 +2,7 @@
 // For our *New* homepage Sticky Header & Banner (plus extras!)
 $lb-link: #2376d8;
 $db-link: #0a2644;
+$link-color: #999;
 
 /* Header */
 #header {
@@ -71,7 +72,12 @@ $db-link: #0a2644;
   display: block;
   position: relative;
   opacity: 1;
-  transform: opacity .2s ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+//  transform: opacity .2s ease;
 }
 
 .landing .header-logo.header-logo--init {
@@ -225,7 +231,6 @@ $db-link: #0a2644;
 
 //secondary nav li hover!
 .secondaryNavli > a:hover {
-//  color: #0a2644;
   color: $lb-link;
   text-decoration: underline;
 }
@@ -250,10 +255,19 @@ ul.nav > li:last-child {
   padding-right: 0;
 }
 
-ul li a {
+#header ul li a {
   position: relative;
   text-decoration: none;
   color: #999;
+
+  &:hover {
+    color: $db-link;
+  }
+}
+
+#header ul li.secondaryNavli a:hover {
+  color: $lb-link;
+  text-decoration: underline;
 }
 
 ul.nav li > ul {
