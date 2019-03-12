@@ -2,6 +2,57 @@
 // For our *New* homepage Sticky Header & Banner (plus extras!)
 $lb-link: #2376d8;
 $db-link: #0a2644;
+$link-color: #999;
+
+/* Header */
+#header {
+  display: flex;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  line-height: normal;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  padding-right: 4rem;
+  padding-bottom: 1.5rem;
+  padding-left: 4rem;
+  width: 100%;
+  position: fixed;
+  top: 29px;
+  z-index: 20;
+//  transition: all .5s ease;
+//  transition-property: padding-top, padding-botom;
+}
+
+#one-line-tag {
+  width: 298px;
+}
+
+#master-logo {
+//  transition: width .5s ease;
+}
+
+#header.tight {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  #master-logo {
+    width: 240px;
+  }
+
+  .header-logo__two-line {
+    width: 152px;
+  }
+}
+
+#header:hover {
+  opacity: 1 !important;
+}
+
+.header-logo__img {
+  width: 298px;
+}
 
 .header-nav {
   position: relative;
@@ -9,23 +60,28 @@ $db-link: #0a2644;
   align-items: center;
 }
 
+.header-logo__tagline {
+  display: none;
+}
+
+.header-logo__tagline.active {
+  display: inline-block;
+}
+
 .header-logo {
   display: block;
   position: relative;
   opacity: 1;
-  transform: opacity .2s ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+//  transform: opacity .2s ease;
 }
 
 .landing .header-logo.header-logo--init {
   opacity: 0;
-}
-
-#one-line-tag {
-  display: none;
-}
-
-.landing #one-line-tag {
-  display: inline-block;
 }
 
 .landing .header-logo {
@@ -57,12 +113,8 @@ $db-link: #0a2644;
 .header-logo__two-line {
   width: 190px;
   transform: translateY(-5px);
-  display: inline-block;
+//  transition: width .5s ease;
   opacity: 1;
-}
-
-.landing .header-logo__two-line {
-  display: none;
 }
 
 .header-logo__wrapper {
@@ -179,8 +231,11 @@ $db-link: #0a2644;
 
 //secondary nav li hover!
 .secondaryNavli > a:hover {
-//  color: #0a2644;
   color: $lb-link;
+  text-decoration: underline;
+}
+
+#ffgNavAnchor:hover {
   text-decoration: underline;
 }
 
@@ -193,9 +248,6 @@ ul.nav {
 }
 
 ul.nav > li {
-//  display: flex;
-//  float: left;
-  line-height: 64px;
   padding: 0 20px;
 }
 
@@ -203,10 +255,19 @@ ul.nav > li:last-child {
   padding-right: 0;
 }
 
-ul li a {
+#header ul li a {
   position: relative;
   text-decoration: none;
   color: #999;
+
+  &:hover {
+    color: $db-link;
+  }
+}
+
+#header ul li.secondaryNavli a:hover {
+  color: $lb-link;
+  text-decoration: underline;
 }
 
 ul.nav li > ul {
@@ -377,11 +438,28 @@ ul.nav:first-child li:hover > ul:after {
   }
 }
 
-// MAIN MOBILE VIEW TOGGLE
+@media (max-width: 515px) {
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+// "super mobile" - where logo shrinks
+@media (max-width: 450px) {
+  #mobile-nav {
+    top: 95px;
+  }
+}
+
+// mobile view toggle - hamburger
 @media (max-width: 955px) {
   ul.nav {
     list-style-type: none;
     display: none;
+  }
+
+  #header {
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   #one-line-tag, .landing #one-line-tag {
@@ -398,7 +476,7 @@ ul.nav:first-child li:hover > ul:after {
 
   .navbar-toggle {
     display: flex; // show hamburger now
-//    padding-right: 60px;
+    margin-top: 12px;
     cursor: pointer;
     font-size: 28px;
     justify-content: flex-end;
@@ -406,7 +484,7 @@ ul.nav:first-child li:hover > ul:after {
   }
 
   .dropdownUlSection {
-    display: none; // keep this hidden
+    display: none; 
   }
 
   .logo-div-nonlanding {
@@ -442,11 +520,16 @@ ul.nav:first-child li:hover > ul:after {
 
   .mobileNav {
     display: flex;
+    position: fixed;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    margin-top: 100px;
     padding-right: 25px;
+    top: 110px;
+    width: 100%;
+    right: 0px;
+    background: #FFFF;
+    z-index: 20;
   }
 
   // display all UL's as hidden until click!

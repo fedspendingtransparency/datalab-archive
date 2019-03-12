@@ -300,14 +300,13 @@ a.chapter__cta i.fa-angle-right {
 .bp-header {
   text-align: center;
   position: relative;
-  min-height: 350px;
   overflow: hidden; }
 
 .bp-header__bg {
   position: absolute;
-  background: url(/assets/ffg/bp/header_image.png) top center no-repeat;
-  background-size: cover;
-  height: 450px;
+  background: url(/assets/ffg/bp/header_image.png) center top no-repeat;
+  background-size: contain;
+  height: 900px;
   top: 0;
   left: 0;
   width: 100%;
@@ -316,7 +315,7 @@ a.chapter__cta i.fa-angle-right {
 .bp-header__main {
   z-index: 1;
   position: relative;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   margin: 1rem 0;
   padding: 1rem; }
 
@@ -340,7 +339,7 @@ a.chapter__cta i.fa-angle-right {
   font-size: 2rem;
   position: relative; }
   .bp-header__scroll a {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 1rem;
     width: 2rem;
     height: 2rem;
@@ -377,6 +376,11 @@ a.chapter__cta i.fa-angle-right {
 @media only screen and (min-width: 1200px) {
   .bp-header__break {
     display: block; } }
+
+@media only screen and (min-width: 1600px) {
+  .bp-header__bg {
+    background-size: cover;
+    background-position-y: -10px; } }
 
 .accordion {
   margin: 0 0 1rem 0;
