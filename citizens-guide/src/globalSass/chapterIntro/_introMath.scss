@@ -1,0 +1,13 @@
+.intro-math {
+    transition: opacity 1s ease;
+    text-align: center;
+}
+
+.intro-math--hidden {
+    opacity: 0;
+}
+
+.intro-math__icon {
+    transform: rotate(180deg);
+    margin-right: 0.75rem;
+}

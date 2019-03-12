@@ -1,0 +1,98 @@
+--- 
+layout: ffg
+title: Data Lab - title – U.S. Treasury
+excerpt: excerpt
+header: header
+description: description
+permalink: /federal-finance-guide/revenue/categories
+ffg: true
+ffgNav: true
+ffgPageCss: css/revenue-categories.css
+---
+
+{% include ffg/nav/revenue.html %}
+
+<div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+    
+    <h1>Sources of Revenue for the Federal Government </h1>
+
+    <h2 class="chart-title">Revenue by Source Categories</h2>
+    <div class="hint">Click <span class="category-bar-legend"></span> to explore sub-categories.</div>
+    <div id="viz-wrapper">
+        <div id='viz-chart-container'>
+            <div id="bar-controls">
+                <div class='bar-controls__left'>
+                    Sort by:
+                    <div class='bar-controls__left--button-div'>
+                        <button id="sort-amount" class="active">Amount <i class="fas fa-sort-amount-down"></i></button>
+                        <button id="sort-name">Name <i class="fas fa-sort-alpha-down"></i></button>
+                    </div>
+                </div>
+                <div class='bar-controls__right'>
+                    <div class='bar-controls__right--div'>
+                        <input type="text" placeholder='Search by a term...' id="filter-by-name">
+                        <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div id="viz"></div>
+            <hr class='categories__show-more'>
+                <div id="show-more-container" class='categories__show-more'>
+                <button id="show-more-button" class="chart__show-more">Show More</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="poc-content" id="income-facts">
+        <section class="copy-tour-row__copy">
+            <p>Most of the revenue the government collects comes from contributions from individual taxpayers, small businesses, and corporations through taxes that get collected on a yearly or quarterly basis. The remaining sources of federal revenue consist of excise, estate, and other taxes and fees.</p>
+            <p>What makes up individual income taxes? How much federal revenue is contributed by Social Security and Medicare Taxes? What's included in the 8% of revenue that doesn't come from taxpayers or corporations? Explore the visualization to find out.</p>
+            
+            <section class="accordion">
+                <h1 class="accordion__heading">Where do my Social Security and Medicare taxes go?</h1>
+                <div class="accordion__content">
+                    <p>You may recognize these taxes on your paycheck. Unlike personal income taxes, these taxes are used to help fund specific social service programs. Funds are collected from your paycheck, and in most cases matched by your employer, then divided into the various trust fund accounts.</p>
+                    <p>Social Security has two trust fund accounts the Old Age and Survivors Insurance Trust Fund (OASI) and the Disability Trust Fund (DI). These accounts are responsible for providing workers and their families with retirement, disability and survivor's insurance benefits.</p>
+                    <p>Medicare also has two accounts the Hospital Insurance (HI) also known as Medicare Part A and the Supplementary Medical Insurance (SMI) Trust Fund. These funds pay for hospital, home health, skilled nursing, and hospice care for the elderly and disabled.</p>
+                </div>
+            </section>
+            <section class="accordion">
+                <h1 class="accordion__heading">Why does the Federal Reserve send money to the federal government?</h1>
+                <div class="accordion__content">
+                    <p>The Federal Reserve Act of 1913 established the Federal Reserve System as the central bank for the United States. The Fed works closely with the Department of the Treasury, which manages the finances of the federal government. The Fed issues Treasury securities and conducts auctions of these securities to stimulate funds for the federal government. In addition, the Fed also processes monetary transactions on behalf of Treasury, including issuing payments and other government receivables.</p>
+                    <p>The role of the Fed is to support the economy, not to make a profit. Once the Fed pays its expenses, any remaining profits are sent to Treasury to be used by the federal government.</p>
+                </div>
+            </section>
+            <section class="accordion">
+                <h1 class="accordion__heading">Are there other types of revenue the federal government receives?</h1>
+                <div class="accordion__content">
+                    <p>Government revenue also comes from payments to federal agencies like the U.S. Department of the Interior. Have you visited a national park recently? Did you know your national park entry fee also applies towards government revenue? Other agencies generate revenue from leases, the sale of natural resources, and various usage and licensing fees.</p>
+                </div>
+            </section>
+        </section>
+        <div class="copy-tour-row__tour">
+            <section class="tour">
+                <div class="tour__part-one">
+                    <h1>How has government revenue changed over time?</h1>
+                    <p>When you're done here, explore the trends in federal revenue over the past five years.</p>
+                </div>
+                <a class="tour__link" href="./trends.html">Continue<i class="fas fa-chevron-right"></i></a>
+            </section>
+        </div>
+    </div>
+
+    <div class="info-box" id="income-anecdote">
+        <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
+        <p>Not all federal revenue comes from taxes! Your national park entry fee also applies towards government revenue.</p>
+    </div>
+
+    <section class="hwcta">
+        The visualization was created using the {% include ffg/data-sources/current_mts.html %} as the data source for federal government revenue of the United States.
+    </section>
+</div>
+
+<script src="/assets/ffg/accordion.js"></script>
+<script src="/assets/ffg/revenue/categories.js"></script>

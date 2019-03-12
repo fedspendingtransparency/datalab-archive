@@ -1,0 +1,56 @@
+--- 
+layout: ffg
+title: Data Lab - title – U.S. Treasury
+excerpt: excerpt
+header: header
+description: description
+permalink: /federal-finance-guide/revenue/country-comparison
+ffg: true
+ffgNav: true
+ffgPageCss: css/countryCommon.css
+---
+
+{% include ffg/nav/revenue.html %}
+
+<div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+
+    <h1>Compare Federal Revenue of the United States to other Countries</h1>
+
+    <div class="country-copy">
+        <div class="country-copy__text">
+            <p>This chart shows total revenue collected by the U.S. government compared to 171 other countries in 2017. In 2017, the United States collected $3.3 trillion. That $3.3 trillion in revenue collected was equivalent to 17% of U.S. gross domestic product for 2017.</p>
+            <p>How does the U.S. compare to other countries? We encourage you to check out the chart below. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product. Find a country of interest and see for yourself. </p>
+        </div>
+        <a class="chapter-link chapter-link--spending" href="../spending/">
+            <div class="chapter-link__text-block">
+                <div class="chapter-link__learn-more">Learn more about</div>
+                Spending
+            </div>
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+
+    <div class="country-chart">    
+        <h2 class="chart-title">Country Comparison</h2>
+        <div class="hint">Click <span class="sort-button-placeholder"></span> to sort columns</div>
+
+        <div id="viz"></div>
+    </div>
+    
+    <div class="clearfix"></div>
+
+    <section class="hwcta">
+        <p>The visualization was created using the {% include ffg/data-sources/country_comparison_mts.html %} as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures for the United States come from the {% include ffg/data-sources/bea_gdp.html %}. GDP data for countries other than the United States comes from the {% include ffg/data-sources/imf_gdp.html %}.</p>
+        <p>In researching potential data sources for information on the revenue of other governments for the country comparison module, we chose the {% include ffg/data-sources/cia_world_factbook.html %} because it provides the best comparison for the following reasons:</p>
+        <ul>
+            <li>the number of countries with {% include ffg/data-sources/country_comparison_fy.html %} data,</li>
+            <li>relative consistency with the level of government measured (central government only as a standard),</li>
+            <li>all figures expressed in US dollars.</li>
+        </ul>
+        <p>Countries with figures before {% include ffg/data-sources/country_comparison_fy.html %} were excluded from the country comparison data set. Although most countries in the data set feature revenue from central government sources only, some countries included state/provincial/local revenue. As a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.</p>
+        <p>To finish the data set for Country Comparison, gross domestic product figures from BEA and the IMF WEOD were combined with revenue figures from the CIA World Factbook data set, excluding countries that did not have data available from both sources.</p>
+    </section>
+</div>
+
+<script src="/assets/ffg/revenue/countryComparison.js"></script>

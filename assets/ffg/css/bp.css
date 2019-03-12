@@ -1,0 +1,686 @@
+.overview-chart {
+  background: white;
+  border-radius: 6px;
+  padding: 1rem; }
+
+.overview-chart__heading {
+  text-align: center;
+  font-weight: 600; }
+
+.overview-chart__contents {
+  height: 400px;
+  position: relative;
+  margin-top: 2rem; }
+
+.overview-chart__bar {
+  position: absolute;
+  width: 11%; }
+
+.overview-chart__bar--revenue {
+  background-color: #0A2F5A;
+  top: 66px;
+  right: 52%;
+  height: 334px; }
+
+.overview-chart__bar--spending {
+  background-color: #00766C;
+  top: 0;
+  left: 52%;
+  height: 400px; }
+
+.overview-chart__bar--deficit {
+  background-color: #B3532D;
+  top: 0;
+  right: 52%;
+  height: 66px; }
+
+.overview-chart__label {
+  position: absolute;
+  font-size: 14px;
+  width: 32%; }
+  .overview-chart__label p {
+    margin: 0; }
+  .overview-chart__label a .fa-stack {
+    transform: scale(0.5) translateX(-20px);
+    margin-right: -18px; }
+
+.overview-chart__label-heading {
+  margin: 0; }
+
+.overview-chart__label--revenue {
+  top: 208px; }
+  .overview-chart__label--revenue > i {
+    float: right;
+    transform: translateY(3px); }
+
+.overview-chart__label--deficit > i {
+  float: right;
+  transform: translateY(3px); }
+
+.overview-chart__label--spending {
+  right: 0;
+  top: 175px;
+  padding-left: 20px;
+  box-sizing: border-box; }
+  .overview-chart__label--spending > i {
+    float: left;
+    transform: translateY(3px);
+    margin-left: -20px; }
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .overview-chart {
+    padding: 2rem 3rem; } }
+
+@media only screen and (min-width: 800px) {
+  .overview-chart {
+    width: 40%;
+    margin: 0;
+    box-sizing: border-box;
+    margin-left: 60%;
+    padding: 2rem 1rem; } }
+
+@media only screen and (min-width: 1100px) {
+  .overview-chart {
+    padding: 2rem 3rem; } }
+
+.toc {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem; }
+  .toc li {
+    margin-bottom: 0.2rem; }
+  .toc a.toc__link {
+    color: #666666;
+    opacity: 0.4; }
+    .toc a.toc__link.current {
+      font-weight: 600;
+      opacity: 1; }
+  .toc strong {
+    font-weight: 900; }
+
+#revenue-chapter a.toc__link.toc__revenue {
+  font-weight: 600;
+  opacity: 1;
+  color: #112e51; }
+
+#spending-chapter a.toc__link.toc__spending {
+  font-weight: 600;
+  opacity: 1;
+  color: #00796B; }
+
+#debt-chapter a.toc__link.toc__debt {
+  font-weight: 600;
+  opacity: 1;
+  color: #4A0072; }
+
+#deficit-chapter a.toc__link.toc__deficit {
+  font-weight: 600;
+  opacity: 1;
+  color: #B3532D; }
+
+h1.chapter__heading {
+  font-weight: 500;
+  margin-top: 2rem;
+  text-align: left;
+  font-size: 1.4rem; }
+
+section.chapter {
+  max-width: 1200px;
+  margin: 0 auto 2rem; }
+
+.chapter .anecdote {
+  margin-top: 1rem; }
+
+.chapter__content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #666666; }
+  .chapter__content p {
+    color: #666666;
+    font-size: 1.1rem; }
+    .chapter__content p.chapter__chart--reference {
+      font-size: 0.7rem;
+      text-align: center;
+      font-style: italic; }
+      .chapter__content p.chapter__chart--reference a {
+        color: #77abe8; }
+
+.chapter__big-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700; }
+
+.chapter__paragraph--tightened {
+  margin-top: 0; }
+
+.chapter__chart {
+  display: none; }
+
+.chapter__chart img {
+  width: 100%;
+  height: auto; }
+
+.chapter__divider--normal {
+  border-bottom: 1px solid #CCC;
+  max-width: 1400px;
+  margin: 0 auto; }
+
+.chapter__divider--median-treasury-logo {
+  background: url("/assets/ffg/bp/deficit_debt_image.png") 0 0 no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 1rem;
+  background-color: #FFF; }
+  .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
+    text-align: center;
+    margin-top: 1rem; }
+    .chapter__divider--median-treasury-logo .chapter__divider--arrow-container a {
+      color: #666666; }
+    .chapter__divider--median-treasury-logo .chapter__divider--arrow-container i {
+      text-align: center;
+      font-size: 2em; }
+
+.chapter__divider--text {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  color: #222222;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 1rem; }
+  .chapter__divider--text strong, .chapter__divider--text span {
+    font-weight: 900; }
+
+.chapter__divider--text-revenue {
+  color: #0A2F5A; }
+
+.chapter__divider--text-spending {
+  color: #00766C; }
+
+.chapter__divider--text-deficit {
+  color: #B3532D; }
+
+.chapter__divider--text-debt {
+  color: #4A0072; }
+
+@media only screen and (max-width: 800px) {
+  .chapter__big-number--anecdote-placement .anecdote {
+    display: block;
+    margin-top: 3.5rem;
+    margin-left: 1rem;
+    height: 5px; }
+  .chapter__big-number--anecdote-placement button.anecdote__link--button {
+    display: inline-block; } }
+
+@media only screen and (min-width: 800px) {
+  .chapter__flex {
+    display: flex; }
+  .chapter__chart {
+    display: block;
+    width: 50%; }
+  .chapter__primary {
+    padding-right: 7rem;
+    width: 50%; }
+  .chapter__big-number {
+    font-size: 2.7rem; }
+  .chapter__divider--text {
+    font-size: 3rem; }
+  .chapter__divider--median-treasury-logo {
+    padding: 4rem 2rem 2rem; }
+  .chapter__big-number--anecdote-placement {
+    display: inline-block; }
+    .chapter__big-number--anecdote-placement button.anecdote__link--button {
+      display: none; } }
+
+#revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button, #revenue-chapter .chapter__big-number {
+  color: #112e51; }
+
+#revenue-chapter a.link-button {
+  background-color: #112e51; }
+
+#revenue-chapter .anecdote__link--button-icon, #revenue-chapter .anecdote__icon {
+  background-image: url("/assets/ffg/icons/anecdote-revenue.svg"); }
+
+#spending-chapter a.scroll-to.current, #spending-chapter button.anecdote__link--button, #spending-chapter .chapter__big-number {
+  color: #00796B; }
+
+#spending-chapter a.link-button {
+  background-color: #00796B; }
+
+#spending-chapter .anecdote__link--button-icon, #spending-chapter .anecdote__icon {
+  background-image: url("/assets/ffg/icons/anecdote-spending.svg"); }
+
+#debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button, #debt-chapter .chapter__big-number, .deficit-countries__top-level a.scroll-to.current, .deficit-countries__top-level button.anecdote__link--button, .deficit-countries__top-level .chapter__big-number {
+  color: #4A0072; }
+
+#debt-chapter a.link-button, .deficit-countries__top-level a.link-button {
+  background-color: #4A0072; }
+
+#debt-chapter .anecdote__link--button-icon, #debt-chapter .anecdote__icon, .deficit-countries__top-level .anecdote__link--button-icon, .deficit-countries__top-level .anecdote__icon {
+  background-image: url("/assets/ffg/icons/anecdote-debt.svg"); }
+
+#deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button, #deficit-chapter .chapter__big-number {
+  color: #B3532D; }
+
+#deficit-chapter a.link-button {
+  background-color: #B3532D; }
+
+#deficit-chapter .anecdote__link--button-icon, #deficit-chapter .anecdote__icon {
+  background-image: url("/assets/ffg/icons/anecdote-deficit.svg"); }
+
+a.link-button, button.link-button {
+  background: none;
+  text-decoration: none;
+  display: inline-block; }
+  a.link-button .link-button__text--block, button.link-button .link-button__text--block {
+    display: inline-block;
+    flex: 4; }
+    a.link-button .link-button__text--block .link-button__text--top, button.link-button .link-button__text--block .link-button__text--top {
+      font-size: 14px;
+      font-weight: 500; }
+  a.link-button .link-button__icon--block, button.link-button .link-button__icon--block {
+    flex: 1;
+    text-align: right; }
+
+button.link-button {
+  font-size: 18px;
+  font-weight: 600; }
+
+a.chapter__cta {
+  color: white;
+  font-weight: 600;
+  padding: 1rem 1.3rem;
+  font-size: 21px;
+  width: 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+a.chapter__cta i.fa-angle-right {
+  margin-left: 1rem; }
+
+.cg-content header {
+  background: #FBFBFB;
+  padding: 0;
+  margin-bottom: 30px; }
+
+.bp-header {
+  text-align: center;
+  position: relative;
+  overflow: hidden; }
+
+.bp-header__bg {
+  position: absolute;
+  background: url(/assets/ffg/bp/header_image.png) center top no-repeat;
+  background-size: contain;
+  height: 900px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0; }
+
+.bp-header__main {
+  z-index: 1;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 1rem 0;
+  padding: 1rem; }
+
+.bp-header__app-name {
+  color: #3C3C3C;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 2.1px;
+  margin: 0 0 0.5rem; }
+
+.bp-header__heading {
+  color: #111;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center; }
+
+.bp-header__scroll {
+  color: #666666;
+  font-size: 2rem;
+  position: relative; }
+  .bp-header__scroll a {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block; }
+  .bp-header__scroll i {
+    transform: translateY(-3px); }
+
+.bp-header__collect-text {
+  color: #0A2F5A;
+  font-weight: 700; }
+
+.bp-header__spend-text {
+  color: #006C6D;
+  font-weight: 700; }
+
+.overview-chart {
+  order: 1; }
+
+.bp-header__text {
+  font-weight: 400; }
+
+@media only screen and (min-width: 800px) {
+  .bp-header__heading {
+    font-size: 3.5rem; }
+  .bp-header {
+    padding-top: 2rem; }
+  .bp-header__text {
+    font-size: 1rem; }
+  .bp-header__main {
+    margin: 2rem 0;
+    padding: 2rem 3rem;
+    display: inline-block; } }
+
+@media only screen and (min-width: 1200px) {
+  .bp-header__break {
+    display: block; } }
+
+@media only screen and (min-width: 1600px) {
+  .bp-header__bg {
+    background-size: cover;
+    background-position-y: -10px; } }
+
+.accordion {
+  margin: 0 0 1rem 0;
+  transition: opacity 1s ease; }
+  .accordion ul {
+    list-style-type: disc; }
+
+.accordion__heading {
+  padding: 20px;
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid #eee;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; }
+
+.cg-content .accordion__content {
+  padding: 20px;
+  border: 1px solid transparent;
+  border-top: none;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.5s ease;
+  opacity: 0; }
+  .cg-content .accordion__content p {
+    margin-bottom: 0;
+    margin-top: 0;
+    transition: margin 0.5s ease; }
+
+.accordion__toggle {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  float: right;
+  width: 26px; }
+
+.accordion__plus {
+  display: block; }
+
+.accordion__minus {
+  display: none; }
+
+.accordion--open .accordion__content {
+  line-height: 1.2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: #eee;
+  opacity: 1; }
+  .accordion--open .accordion__content p:not(:first-child) {
+    margin-top: 1rem; }
+
+.accordion--open .accordion__plus {
+  display: none; }
+
+.accordion--open .accordion__minus {
+  display: block; }
+
+.anecdote {
+  position: relative;
+  max-width: 100%;
+  font-size: 1rem;
+  display: inline-block;
+  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif; }
+  .anecdote h1.anecdote__heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    text-align: center; }
+  .anecdote .anecdote__dots--container {
+    margin-bottom: 10px; }
+  .anecdote .anecdote__dots, .anecdote .anecdote__dots--text {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__dots--text {
+    color: #B2C6D8;
+    font-size: 11px; }
+  .anecdote .anecdote__dot {
+    height: 8px;
+    width: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #B2C6D8;
+    margin: 4px;
+    cursor: pointer; }
+    .anecdote .anecdote__dot.anecdote__dot--active {
+      background: #205493; }
+  .anecdote .anecdote__panes {
+    position: relative;
+    margin: 0 1rem;
+    cursor: pointer; }
+  .anecdote .anecdote__pane {
+    -moz-user-select: none;
+    user-select: none;
+    position: absolute;
+    transition: opacity 0.5s ease;
+    color: black;
+    display: none; }
+    .anecdote .anecdote__pane.anecdote__pane--active {
+      display: block; }
+    .anecdote .anecdote__pane p {
+      text-align: center;
+      margin-top: 0;
+      font-size: 1rem; }
+  .anecdote .anecdote__contents {
+    width: 330px;
+    display: none;
+    opacity: 0;
+    position: absolute;
+    background: white;
+    color: black;
+    top: 0;
+    padding: 0.85rem 1.3rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1;
+    border: 1px solid #E3E3E3;
+    box-shadow: 0 0 20px 10px rgba(80, 80, 80, 0.15);
+    /*
+         * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+         */
+    margin-left: -22px;
+    margin-top: -3px; }
+    .anecdote .anecdote__contents.anecdote__contents--active {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease; }
+  .anecdote .anecdote__close {
+    float: right;
+    background: none;
+    border: none; }
+  .anecdote .anecdote__link--button-container {
+    display: flex;
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: -1rem;
+    padding-top: 5px;
+    margin-bottom: 1.5rem;
+    cursor: pointer; }
+  .anecdote .anecdote__link--button-container, .anecdote .anecdote__link--button-icon, .anecdote .anecdote__icon {
+    height: 20px;
+    width: 20px; }
+  .anecdote .anecdote__link--button-icon, .anecdote .anecdote__icon {
+    flex: 1 20px;
+    background-repeat: no-repeat;
+    display: inline-block; }
+  .anecdote .anecdote__link--button-icon {
+    margin-bottom: -4px; }
+  .anecdote .anecdote__link--button {
+    padding: 0;
+    -moz-user-select: none;
+    user-select: none; }
+    .anecdote .anecdote__link--button:focus {
+      outline: none; }
+  .anecdote .anecdote__icon {
+    margin-bottom: -4px;
+    margin-left: 0.5px; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .anecdote {
+      /* IE10+ CSS styles go here */ }
+      .anecdote .anecdote__icon {
+        margin-left: 0; } }
+  .anecdote .anecdote__illustration {
+    width: 250px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto; }
+  .anecdote .anecdote__cta--container {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__cta {
+    font-weight: 600;
+    padding: 0.8rem 1.3rem;
+    font-size: 18px;
+    color: white; }
+    .anecdote .anecdote__cta i {
+      margin-left: 1rem; }
+  .anecdote .anecdote__pane .source {
+    color: #ccc;
+    font-size: 12px; }
+    .anecdote .anecdote__pane .source a {
+      color: #77abe8; }
+
+@media only screen and (min-width: 800px) {
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: calc(-2.5rem + 1px);
+    margin-top: calc(-3.5rem - 2px); }
+  #revenue-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px);
+    margin-top: calc(-3.5rem - 1px); }
+  #spending-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px);
+    margin-top: calc(-3.5rem - 1px); }
+  #debt-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px); } }
+
+@media only screen and (max-width: 800px) {
+  .anecdote .anecdote__link--button-container {
+    width: auto;
+    padding: 7px;
+    border-width: 2px;
+    border-style: solid;
+    height: auto; }
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: calc(-2.5rem + 10px);
+    margin-top: calc(-3.5rem + 2px); }
+  #debt-chapter .anecdote .anecdote__contents {
+    margin-top: calc(-3.5rem + 3px); } }
+
+html {
+  font-weight: 300; }
+
+.bp-scroll-down {
+  display: block;
+  margin: 0 auto;
+  transform: translateY(84px); }
+
+.historical-quote {
+  padding: 3rem 1rem;
+  background: url(/assets/ffg/bp/cg_quote_image.png) top center no-repeat;
+  background-size: cover;
+  border-top: 1px solid #EEE; }
+  .historical-quote blockquote {
+    font-size: 1.5rem;
+    max-width: 1000px;
+    margin: 1rem auto 2rem; }
+  .historical-quote .historical-quote__image {
+    display: block;
+    margin: 0 auto; }
+  .historical-quote p {
+    text-align: center;
+    margin-top: 0;
+    font-size: 1.7rem; }
+  .historical-quote p.historical-quote__credit {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0; }
+    .historical-quote p.historical-quote__credit span.historical-quote__credit-normal {
+      font-weight: normal; }
+
+@media only screen and (min-width: 800px) {
+  .historical-quote {
+    margin-bottom: 6rem; }
+  .historical-quote blockquote {
+    font-size: 2.2rem; }
+  .historical-quote p.historical-quote__credit {
+    font-size: 1.7rem; } }
+
+.accordion h1 {
+  font-size: 18px;
+  font-weight: 600; }
+
+section.hwcta {
+  padding: 2rem 1rem; }
+
+.citizens-guide__section h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #555; }
+
+.citizens-guide__section p {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 1.5rem;
+  font-weight: 500; }
+
+.citizens-guide__section .citizens-guide__section--source {
+  font-size: 1.8rem;
+  max-width: 800px;
+  margin-top: 2.5rem; }
+  .citizens-guide__section .citizens-guide__section--source bold {
+    font-weight: 600; }
+
+.citizens-guide__section .citizens-guide__section--treasury-image {
+  background: url(/assets/ffg/bp/treasury-seal.svg) top center no-repeat;
+  background-size: cover;
+  height: 125px;
+  width: 125px; }
+
+.hidden {
+  display: none; }

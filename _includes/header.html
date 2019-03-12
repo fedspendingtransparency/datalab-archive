@@ -1,36 +1,139 @@
 <div class="official-banner" role="note">
-    <ul class="official-banner__site-list">
-        <li class="official-banner__site-item">
-            <a class="official-banner__site-link" href="https://www.usaspending.gov">
-                USAspending.gov
-            </a>
-        </li>
-        <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
-            |
-        </li>
-        <li class="official-banner__site-item">
-            <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
-                Data Lab
-            </a>
-        </li>
-    </ul>
-    <div class="official-banner__wrapper">
-        <div class="official-banner__text">
-            An official website of the U.S. government
-        </div>
-        <img class="official-banner__flag" src="./images/us_flag_small.png" alt="U.S. flag" />
+  <ul class="official-banner__site-list">
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://www.usaspending.gov">
+        USAspending.gov
+      </a>
+    </li>
+    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+      |
+    </li>
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+        Data Lab
+      </a>
+    </li>
+  </ul>
+  <div class="official-banner__wrapper">
+    <div class="official-banner__text">
+      An official website of the U.S. government
     </div>
+    <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
+  </div>
 </div>
 {% include info-banner.html %}
-<header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
-  <a href="{{ site.baseurl }}/index.html" class="usaspending-logo-link">
-    <div class="usaspending-logo">
-      {% include svgs/logo.svg %}
+<header id="header">
+
+  <a class="header-logo header-logo--init" href="/">
+    <div class="header-logo__wrapper">
+      <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
+      <img src="/assets/header-svg/tag-line-right.svg" class="header-logo__two-line header-logo__tagline" id="two-line-tag" />
     </div>
+    <img src="/assets/header-svg/tag-line.svg" class="header-logo__tagline" id="one-line-tag" />
   </a>
-  <div class="header-right">
-      <span class="hamburger-icon" onclick="openNav()" aria-hidden="true">
-          {% include svgs/hamburger.svg %}
-      </span>
-  </div>
+
+  <nav class="header-nav">
+    <span class="navbar-toggle" id="burger-navbar-toggle">
+      <i class="fas fa-bars"></i>
+    </span>
+    <ul class="nav" id="burger-menu">
+      <li class="navListItem desktop-nav-item" data-target="analyses">
+        <a href="#">ANALYSES</a>
+	<span>{% include svgs/arrow.svg %}</span>
+      </li>
+      <li class="navListItem desktop-nav-item" data-target="resources">
+        <a href="#">RESOURCES</a>
+	<span>{% include svgs/arrow.svg %}</span>
+      </li>
+      <li class="navListItem desktop-nav-item" data-target="ffg">
+        <a href="/federal-finance-guide/" id="ffgNavAnchor">FEDERAL FINANCE GUIDE</a>
+	<span class="">{% include svgs/arrow.svg %}</span>
+      </li>
+    </ul>
+  </nav>
+
+  <ul class="dropdown-ul-section" id="subnav-analyses">
+    <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+    <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+    <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+    <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+    <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+    <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
+    <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
+    <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+  </ul>
+  <ul class="dropdown-ul-section" id="subnav-resources">
+    <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+    <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+    <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+    <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+  </ul>
+  <ul class="dropdown-ul-section" id="subnav-ffg">
+    <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+    <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
+  </ul>
+
 </header>
+
+
+<div class="mobileUlSection" id="mobileSection"> 
+  <ul class="mobileNav" id="mobile-nav">
+    <li class="navListItem">
+      <a href="#" id="analysesAnchor">Analyses</a>
+      <span>{% include svgs/arrow.svg %}</span>
+    </li>
+    <ul class="secondaryNavAnalysesMobile" id="mobileAnalyses">
+      <li class="secondaryNavMobileli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+      <!-- change to ::after or id to class  -->
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/budget-function.html">Budget Function</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="resourcesAnchor">Resources</a>
+      <span>{% include svgs/arrow.svg %}</span>
+    </li>
+    <ul class="secondaryNavResourcesMobile" id="mobileResources">
+      <li class="secondaryNavMobileli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="ffgAnchor">Federal Finance Guide</a>
+      <span class="">{% include svgs/arrow.svg %}</span>
+    </li>
+    <ul class="secondaryNavFFGMobile" id="mobileFFG">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/">Overview</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/spending">Spending</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-finance-guide/debt">Debt</a></li>
+      <hr id="mobileHr">
+    </ul>
+  </ul>
+
+</div>
