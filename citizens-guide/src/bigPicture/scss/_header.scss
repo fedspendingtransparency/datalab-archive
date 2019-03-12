@@ -1,7 +1,7 @@
 @import '../../colors.scss';
 @import './bpVars.scss';
 
-$headerBg: rgba(255,255,255,0.8);
+$headerBg: rgba(255,255,255,0.9);
 
 .cg-content header {
     background: #FBFBFB;
@@ -12,15 +12,14 @@ $headerBg: rgba(255,255,255,0.8);
 .bp-header {
     text-align:center;
     position: relative;
-    min-height: 350px;
     overflow: hidden;
 }
 
 .bp-header__bg {
     position: absolute;
-    background: url(/assets/ffg/bp/header_image.png) top center no-repeat;
-    background-size: cover;
-    height: 800px;
+    background: url(/assets/ffg/bp/header_image.png) center top no-repeat;
+    background-size: contain;
+    height: 900px;
     top: 0;
     left: 0;
     width: 100%;
@@ -111,5 +110,12 @@ $headerBg: rgba(255,255,255,0.8);
 @media only screen and (min-width: 1200px) {
     .bp-header__break {
         display: block;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .bp-header__bg {
+        background-size: cover;
+        background-position-y: -10px;
     }
 }

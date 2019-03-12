@@ -14,6 +14,11 @@
     flex-direction: column !important;
   }
 
+  .top-footer-column-logo {
+    text-align: center;
+    width: 100%;
+  }
+
   .dtsm-left-column {
     padding-right: 0 !important;
   }
@@ -80,7 +85,7 @@
   }
 
   .top-footer-column-end {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .top-footer-group-separator {
