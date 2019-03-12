@@ -183,22 +183,12 @@ section.chapter {
       font-size: 2em; }
 
 .chapter__divider--text {
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
-  color: #222222;
   background: #fff;
   margin: 0 auto;
   max-width: 1000px;
   padding: 0 1rem; }
   .chapter__divider--text strong, .chapter__divider--text span {
     font-weight: 900; }
-
-.chapter__divider--text-revenue {
-  color: #0A2F5A; }
-
-.chapter__divider--text-spending {
-  color: #00766C; }
 
 .chapter__divider--text-deficit {
   color: #B3532D; }
@@ -226,8 +216,8 @@ section.chapter {
     width: 50%; }
   .chapter__big-number {
     font-size: 2.7rem; }
-  .chapter__divider--text {
-    font-size: 3rem; }
+  h1.chapter__divider--text {
+    font-size: 3.5rem; }
   .chapter__divider--median-treasury-logo {
     padding: 4rem 2rem 2rem; }
   .chapter__big-number--anecdote-placement {
@@ -336,7 +326,7 @@ a.chapter__cta i.fa-angle-right {
   letter-spacing: 2.1px;
   margin: 0 0 0.5rem; }
 
-.bp-header__heading {
+.bp-header__heading, .chapter__divider--text {
   color: #111;
   font-size: 2.5rem;
   font-weight: 600;
@@ -668,6 +658,9 @@ section.hwcta {
   color: #666;
   font-size: 1.5rem;
   font-weight: 500; }
+
+.citizens-guide__section .citizens-guide__section--italicized {
+  font-style: italic; }
 
 .citizens-guide__section .citizens-guide__section--source {
   font-size: 1.8rem;
