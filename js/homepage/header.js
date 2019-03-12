@@ -105,7 +105,7 @@
   function setTagVisibility(isLanding){
     const w = window.innerWidth;
 
-    if (w < 1115) {
+    if (w <= 1115) {
       headerContainers.oneTag.removeClass('active');
       headerContainers.twoTag.removeClass('active');
     } else if (w < twolineCollision || !isLanding) {
@@ -126,16 +126,15 @@
     const range = max - min;
     let steps = 1 / range;
     let ratio;
-    console.log('calling transition tags');
     if (y >= min && y <= max)  {
       ratio = (y - min) * steps;
       headerContainers.twoTag.css('display', 'inline-block').css('opacity', ratio);
-      headerContainers.oneTag.css('opacity', 1 - ratio).css('transform', 'scaleY('+1 - ratio+')').css('display', 'inline-block');
+      headerContainers.oneTag.css('opacity', 1 - ratio).css('display', 'inline-block');
     } else if (y < min) {
-      headerContainers.oneTag.css('opacity', '1').css('transform', 'scaleY(1)').css('display', 'inline-block');
+      headerContainers.oneTag.css('opacity', '1').css('display', 'inline-block');
       headerContainers.twoTag.css('opacity', '0').css('display', 'none');
     } else {
-      headerContainers.oneTag.css('opacity', '0').css('transform', 'scaleY(0)').css('display', 'none');
+      headerContainers.oneTag.css('opacity', '0').css('display', 'none');
       headerContainers.twoTag.css('opacity', '1').css('display', 'inline-block');
     }
 
@@ -250,8 +249,13 @@
       let y = window.scrollY;
       let width = window.innerWidth;
       fixNav(y, width);
-      if(shouldMoveLogo) {
+      if (shouldMoveLogo) {
         moveLogo(y, width);
+      }
+      if (y > 200 && width >= desktopMin) {
+        headerContainers.header.addClass('tight');
+      } else {
+        headerContainers.header.removeClass('tight');
       }
     });
 

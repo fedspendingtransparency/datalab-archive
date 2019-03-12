@@ -152,31 +152,6 @@ table td {
   }
 }
 
-/* Header */
-#header {
-  display: flex;
-  background: #FFFFFF;
-  transition: top .5s ease;
-  box-sizing: border-box;
-  line-height: normal;
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 4rem;
-  width: 100%;
-  position: fixed;
-  top: 29px;
-  z-index: 20;
-  transition: opacity .5s ease;
-}
-
-#header:hover {
-  opacity: 1 !important;
-}
-
-.header-logo__img {
-  width: 298px;
-}
 
 /* Banner */
 
