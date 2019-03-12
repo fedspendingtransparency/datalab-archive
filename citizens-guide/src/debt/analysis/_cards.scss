@@ -18,12 +18,12 @@
     box-sizing: border-box;
     padding: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid $color-debt-primary;
     border-radius: 0.5rem;
     animation-name: card;
     animation-duration: 1s;
     animation-timing-function: ease;
-    box-shadow: 0 0 30px rgba(214, 165, 165, 0.2);
+    box-shadow: 0 0 30px rgba(74, 0 ,114, 0.1);
 
     ul {
         list-style-type: disc;
@@ -99,6 +99,7 @@
         flex-wrap: wrap;
         box-sizing: border-box;
         justify-content: space-between;
+        margin-top: 2rem;
     }
     
     .card {
@@ -116,7 +117,7 @@
     }
     
     .card {
-        height: calc(400px + 2rem);        
+        height: calc(400px);        
         width: 32%;
         transition: width, height 0.5s ease;
     }
@@ -143,13 +144,24 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 0;
     }
 
     .card__flipper {
         align-self: flex-start;
+        font-size: 0.9em;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: left;
+        border-top: 1px solid #ddd;
+        background: #f8f8f8;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.55rem;
+        transform: translateY(-2px);
     }
 
     .card__cover .card__heading {
         transform: translateY(135px);
+        margin: 0 1rem;
     }
 }
