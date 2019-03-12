@@ -11,6 +11,7 @@
   const headerContainers = {};
   const mobileContainers = {};
   const desktopMin = 956;
+  const superMobile = 450;
   const twolineCollision = 1350;
   const regex = new RegExp("[a-zA-Z]");
   const pathname = window.location.pathname;
@@ -26,15 +27,6 @@
   const resourcesText = '.resourcesText';
   const ffgText = '.ffgText';
 
-  // Mobile section
-  //const mobileMenu = '#mobileSection';
-  //const analysesAnchor = '#analysesAnchor';
-  //const resourcesAnchor = '#resourcesAnchor';
-  //const ffgAnchor = '#ffgAnchor';
-  //const mobileAnalyses = '#mobileAnalyses';
-  //const mobileResources = '#mobileResources';
-  //const mobileFFG = '#mobileFFG';
-
   function setMobileContainers() {
     mobileContainers.menu = $('#mobileSection');
     mobileContainers.burgerMenu = $('#burger-navbar-toggle');
@@ -44,6 +36,10 @@
     mobileContainers.mobileAnalyses = $('#mobileAnalyses');
     mobileContainers.mobileResources = $('#mobileResources');
     mobileContainers.mobileFFG = $('#mobileFFG');
+    mobileContainers.mobileNav = $('#mobile-nav');
+    mobileContainers.analysesAnchor = $('#analysesAnchor');
+    mobileContainers.resourcesAnchor = $('#resourcesAnchor');
+    mobileContainers.ffgAnchor = $('#ffgAnchor');
   }
 
   function setContainers() {
@@ -57,7 +53,7 @@
     headerContainers.dropdown = $('.dropdown-ul-section');
   }
 
-  function fixNav(y, width) {
+  function fixNav(y) {
     const max = 29;
     let yOffset = max - y;
     if (y > max) {
@@ -66,9 +62,44 @@
     headerContainers.header.css('top', yOffset + 'px');
   }
 
+  function fixMobileNav(y, width) {
+    const max = 110;
+    let yOffset = max - y;
+    if (y > 29) {
+      yOffset = 80;
+    }
+    mobileContainers.mobileNav.css('top', yOffset + 'px');
+  }
+
+  function fixSuperMobileNav(y, width) {
+    const max = 95;
+    if (width <= superMobile) {
+      let yOffset = max - y;
+      if (y > 29) {
+        yOffset = 62;
+      }
+      mobileContainers.mobileNav.css('top', yOffset + 'px');
+    }
+  }
+
+  function triggerMobileEvents() {
+    mobileContainers.analysesAnchor.click(function() {
+      mobileContainers.mobileAnalyses.toggle('slow');
+    });
+
+    mobileContainers.resourcesAnchor.click(function() {
+      mobileContainers.mobileResources.toggle('slow');
+    });
+
+    mobileContainers.ffgAnchor.click(function() {
+      mobileContainers.mobileFFG.toggle('slow');
+    });
+
+  }
+
   function forceLogoLeft(width) {
     headerContainers.headerLogo.css('left', '0%').css('margin-left', '0px');
-//    headerContainers.oneTag.css('display', 'none');
+    //    headerContainers.oneTag.css('display', 'none');
   }
 
   function moveLogo(y, width) {
@@ -184,7 +215,7 @@
     if (!triggerId) {
       return;
     }
-    availableNav.forEach( id => {
+    availableNav.forEach(function(id) {
       const targetSubNav = $('#subnav-' + id);
       if (id == triggerId) {
         targetSubNav.addClass('active');
@@ -248,7 +279,9 @@
     window.addEventListener('scroll', function() {
       let y = window.scrollY;
       let width = window.innerWidth;
-      fixNav(y, width);
+      fixNav(y);
+      fixMobileNav(y, width);
+      fixSuperMobileNav(y, width);
       if (shouldMoveLogo) {
         moveLogo(y, width);
       }
@@ -276,7 +309,7 @@
   function setInitialLogoPosition() {
     let width = window.innerWidth;
     if (width < desktopMin) {
-//      headerContainers.twoTag.css('display', 'none');
+      //      headerContainers.twoTag.css('display', 'none');
     }
     if (width > desktopMin && width < twolineCollision) {
       forceLogoLeft(width);
@@ -299,6 +332,7 @@
     listAvailableNav();
     setDropdownHeaderSection();
     setMobileBurger();
+    triggerMobileEvents();
     setTagVisibility(isLanding);
 
     window.addEventListener('resize', function(){

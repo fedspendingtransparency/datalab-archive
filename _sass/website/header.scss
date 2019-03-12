@@ -230,6 +230,10 @@ $db-link: #0a2644;
   text-decoration: underline;
 }
 
+#ffgNavAnchor:hover {
+  text-decoration: underline;
+}
+
 /** navigation style **/
 ul.nav {
   display: flex;
@@ -425,8 +429,14 @@ ul.nav:first-child li:hover > ul:after {
   font-size: 20px;
 }
 
-  
-// MAIN MOBILE VIEW TOGGLE
+// "super mobile" - where logo shrinks
+@media (max-width: 450px) {
+  #mobile-nav {
+    top: 95px;
+  }
+}
+
+// mobile view toggle - hamburger
 @media (max-width: 955px) {
   ul.nav {
     list-style-type: none;
@@ -496,11 +506,16 @@ ul.nav:first-child li:hover > ul:after {
 
   .mobileNav {
     display: flex;
+    position: fixed;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    margin-top: 100px;
     padding-right: 25px;
+    top: 110px;
+    width: 100%;
+    right: 0px;
+    background: #FFFF;
+    z-index: 20;
   }
 
   // display all UL's as hidden until click!

@@ -43,7 +43,7 @@ d3.csv("/data-lab-data/dts/dts.csv", function(error, data) {
 
   let latestDate = groupByDate[0].key;
   let latestValue = groupByDate[0].value;
-  console.log(latestDate, latestValue);
+//  console.log(latestDate, latestValue);
 
   svg.append("path")
     .data([data])
