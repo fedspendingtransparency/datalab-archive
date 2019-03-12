@@ -88,10 +88,6 @@ section.chapter {
 }
 
 .chapter__divider--text {
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
-    color: #222222;
     background: #fff;
     margin: 0 auto;
     max-width: 1000px;
@@ -100,14 +96,6 @@ section.chapter {
     strong, span {
         font-weight: 900;
     }
-}
-
-.chapter__divider--text-revenue {
-    color:$revenuePrimary;
-}
-
-.chapter__divider--text-spending {
-    color:$spendingPrimary;
 }
 
 .chapter__divider--text-deficit {
@@ -151,8 +139,8 @@ section.chapter {
         font-size: 2.7rem;
     }
 
-    .chapter__divider--text {
-        font-size: 3rem;
+    h1.chapter__divider--text {
+        font-size: 3.5rem;
     }
 
     .chapter__divider--median-treasury-logo {
