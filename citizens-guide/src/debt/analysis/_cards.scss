@@ -33,7 +33,7 @@
 .card__image {
     display: block;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .card__image--width-contstrain {
@@ -45,7 +45,7 @@
 .card__heading {
     text-align: center;
     font-size: 1.5rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 3rem 0;
     font-weight: $boldWeight;
 }
 
@@ -111,7 +111,12 @@
 }
 
 @media only screen and (min-width: 990px) {
+    .cards {
+        align-items: flex-start;
+    }
+    
     .card {
+        height: calc(400px + 2rem);        
         width: 32%;
         transition: width, height 0.5s ease;
     }
@@ -122,13 +127,29 @@
         margin: 0;
     }
 
-    .cards--flipped {
+    .cards.cards--flipped {
         .card {
             width: 24%;
         }
-
+        
         .card.card--flipped {
+            height: auto;
             width: 49%;
         }
+    }
+
+    .card__cover {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card__flipper {
+        align-self: flex-start;
+    }
+
+    .card__cover .card__heading {
+        transform: translateY(135px);
     }
 }

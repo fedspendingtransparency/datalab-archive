@@ -29,7 +29,7 @@ function renderInstructions(cover) {
     
     button.append('i').classed('fas fa-exchange-alt card__flip-icon', true);
 
-    button.append('span').text('reveal answer');
+    button.append('span').text('click to learn more');
 }
 
 function buildCover() {
