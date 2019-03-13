@@ -198,6 +198,14 @@ function resizeTermListDiv(){
     }
 }
 
+function onFfgPage() {
+    if (window.location.pathname.indexOf('federal-finance-guide') === -1 && window.location.host.indexOf('localhost') === -1) {
+        return false;
+    }
+
+    return true;
+}
+
 function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
     const searchForm = $('.cg-glossary-search-bar form'),
         searchTextBox = $('#cg-search-text-box'),
@@ -208,6 +216,11 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
     glossaryButton.on('click', function(){
         const activeInd = true,
             showListResultsInd = true;
+
+        if (!onFfgPage()) {
+            window.location = "/federal-finance-guide/";
+            return;
+        }
 
         setActiveStatus(glossaryWrapper, activeInd);
         setTermListView(showListResultsInd);
