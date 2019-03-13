@@ -203,6 +203,8 @@ function onFfgPage() {
         return false;
     }
 
+    console.log(window.location.pathname)
+    return false;
     return true;
 }
 
@@ -218,7 +220,8 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
             showListResultsInd = true;
 
         if (!onFfgPage()) {
-            window.location = "/federal-finance-guide/";
+            console.log('should redirect')
+            window.location = 'https://' + window.location.host + '/federal-finance-guide/';
             return;
         }
 
