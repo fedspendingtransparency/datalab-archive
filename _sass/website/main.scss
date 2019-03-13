@@ -408,6 +408,7 @@
     @include flex-direction(column);
     @include align-items(center);
     @include justify-content(initial);
+    height: 100%; /* IE 11 fix */
 }
 
 .resource__col:last-of-type {
