@@ -5,6 +5,8 @@
 @import 'chapter';
 @import 'link-button';
 @import 'header';
+@import './deficit-debt-heading';
+@import './about-us';
 @import '../../globalSass/_accordion.scss';
 @import '../../anecdote/anecdote.scss';
 
@@ -22,7 +24,8 @@ html {
     padding: 3rem 1rem;
     background: url(/assets/ffg/bp/cg_quote_image.png) top center no-repeat;
     background-size:cover;
-    border-top:1px solid #EEE;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
 
     blockquote {
         font-size: 1.5rem;
@@ -54,10 +57,6 @@ html {
 }
 
 @media only screen and (min-width: 800px) {
-    .historical-quote {
-        margin-bottom: 6rem;
-    }
-
     .historical-quote blockquote {
         font-size: 2.2rem;
     }

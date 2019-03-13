@@ -1,11 +1,26 @@
+@import '../../colors.scss';
+@import '../../globalSass/generalVars';
+
 $revenuePrimary: #0A2F5A;
 $collectHeaderTextColor: #006C6D;
 $spendingPrimary: #00766C;
 $deficitPrimary: #B3532D;
 $debtPrimary: #4A0072;
 
+$bpHeaderColor: #111;
+
 $col1: 60%;
 $col2: 40%;
+
+@mixin baseHeader() {
+  font-size: 2.5rem;
+  font-weight: $boldWeight;
+  color: $bpHeaderColor;
+}
+
+@mixin baseHeaderDesktop() {
+  font-size: 3.2rem;
+}
 
 :export {
   colorCollectHeaderText: $collectHeaderTextColor;

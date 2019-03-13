@@ -1,0 +1,56 @@
+@import '../../colors.scss';
+@import './bpVars.scss';
+@import '../../globalSass/generalVars';
+
+.deficit-debt-heading {
+    background: url('/assets/ffg/bp/deficit_debt_image.png') 0 0 no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 1rem;
+    background-color: #FFF;
+    box-sizing: border-box;
+}
+
+.deficit-debt-heading__arrow-container {
+    text-align: center;
+    margin-top: 1rem;
+
+    a {
+        color:$text-color-paragraph;
+    }
+    
+    i {
+        text-align: center;
+        font-size: 2em;
+    }
+}
+
+.deficit-debt-heading__heading {
+    @include baseHeader();
+    background: #fff;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+
+    strong, span {
+        font-weight: $heavyBoldWeight;
+    }
+}
+
+.chapter__divider--text-deficit {
+    color:$deficitPrimary;
+}
+
+.chapter__divider--text-debt {
+    color:$debtPrimary;
+}
+
+@media only screen and (min-width: 800px) {
+    .deficit-debt-heading {
+        padding: 4rem 2rem 2rem;
+    }
+
+    .deficit-debt-heading__heading {
+        @include baseHeaderDesktop();
+    }
+}
