@@ -162,40 +162,10 @@ section.chapter {
   width: 100%;
   height: auto; }
 
-.chapter__divider--normal {
+.chapter-break {
   border-bottom: 1px solid #CCC;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto; }
-
-.chapter__divider--median-treasury-logo {
-  background: url("/assets/ffg/bp/deficit_debt_image.png") 0 0 no-repeat;
-  background-size: cover;
-  width: 100%;
-  padding: 1rem;
-  background-color: #FFF;
-  box-sizing: border-box; }
-  .chapter__divider--median-treasury-logo .chapter__divider--arrow-container {
-    text-align: center;
-    margin-top: 1rem; }
-    .chapter__divider--median-treasury-logo .chapter__divider--arrow-container a {
-      color: #666666; }
-    .chapter__divider--median-treasury-logo .chapter__divider--arrow-container i {
-      text-align: center;
-      font-size: 2em; }
-
-.chapter__divider--text {
-  background: #fff;
-  margin: 0 auto;
-  max-width: 1000px;
-  padding: 0 1rem; }
-  .chapter__divider--text strong, .chapter__divider--text span {
-    font-weight: 900; }
-
-.chapter__divider--text-deficit {
-  color: #B3532D; }
-
-.chapter__divider--text-debt {
-  color: #4A0072; }
 
 @media only screen and (max-width: 800px) {
   .chapter__big-number--anecdote-placement .anecdote {
@@ -327,10 +297,10 @@ a.chapter__cta i.fa-angle-right {
   letter-spacing: 2.1px;
   margin: 0 0 0.5rem; }
 
-.bp-header__heading, .chapter__divider--text {
-  color: #111;
+.bp-header__heading {
   font-size: 2.5rem;
   font-weight: 600;
+  color: #111;
   margin-top: 0;
   margin-bottom: 1rem;
   text-align: center; }
@@ -364,7 +334,7 @@ a.chapter__cta i.fa-angle-right {
 
 @media only screen and (min-width: 800px) {
   .bp-header__heading {
-    font-size: 3.5rem; }
+    font-size: 3.2rem; }
   .bp-header {
     padding-top: 2rem; }
   .bp-header__text {
@@ -382,6 +352,73 @@ a.chapter__cta i.fa-angle-right {
   .bp-header__bg {
     background-size: cover;
     background-position-y: -10px; } }
+
+.deficit-debt-heading {
+  background: url("/assets/ffg/bp/deficit_debt_image.png") 0 0 no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 1rem;
+  background-color: #FFF;
+  box-sizing: border-box; }
+
+.deficit-debt-heading__arrow-container {
+  text-align: center;
+  margin-top: 1rem; }
+  .deficit-debt-heading__arrow-container a {
+    color: #666666; }
+  .deficit-debt-heading__arrow-container i {
+    text-align: center;
+    font-size: 2em; }
+
+.deficit-debt-heading__heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #111;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 1rem; }
+  .deficit-debt-heading__heading strong, .deficit-debt-heading__heading span {
+    font-weight: 900; }
+
+.chapter__divider--text-deficit {
+  color: #B3532D; }
+
+.chapter__divider--text-debt {
+  color: #4A0072; }
+
+@media only screen and (min-width: 800px) {
+  .deficit-debt-heading {
+    padding: 4rem 2rem 2rem; }
+  .deficit-debt-heading__heading {
+    font-size: 3.2rem; } }
+
+.about-us {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center; }
+
+.about-us__heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #111;
+  color: #555555; }
+
+.about-us__logo {
+  width: 100px;
+  margin: 0 auto;
+  display: block; }
+
+.about-us__main-copy {
+  font-weight: 400; }
+
+.about-us__source {
+  font-size: 1.3em; }
+
+@media only screen and (min-width: 800px) {
+  .about-us__heading {
+    font-size: 3.2rem; } }
 
 .accordion {
   margin: 0 0 1rem 0;
@@ -612,7 +649,8 @@ html {
   padding: 3rem 1rem;
   background: url(/assets/ffg/bp/cg_quote_image.png) top center no-repeat;
   background-size: cover;
-  border-top: 1px solid #EEE; }
+  border-top: 1px solid #EEE;
+  border-bottom: 1px solid #EEE; }
   .historical-quote blockquote {
     font-size: 1.5rem;
     max-width: 1000px;
@@ -633,8 +671,6 @@ html {
       font-weight: normal; }
 
 @media only screen and (min-width: 800px) {
-  .historical-quote {
-    margin-bottom: 6rem; }
   .historical-quote blockquote {
     font-size: 2.2rem; }
   .historical-quote p.historical-quote__credit {
