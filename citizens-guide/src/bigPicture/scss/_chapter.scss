@@ -71,6 +71,7 @@ section.chapter {
     width: 100%;
     padding: 1rem;
     background-color: #FFF;
+    box-sizing: border-box;
 
     .chapter__divider--arrow-container {
         text-align: center;
