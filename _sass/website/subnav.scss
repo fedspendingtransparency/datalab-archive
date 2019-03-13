@@ -9,11 +9,11 @@
 
   .text-element { 
     transform: translateY(-2px);
+    display: inline-block;
   }
 
   &:hover {
     color: #2376d8;
-    text-decoration: underline;
 
     .text-element {
       text-decoration: underline;
