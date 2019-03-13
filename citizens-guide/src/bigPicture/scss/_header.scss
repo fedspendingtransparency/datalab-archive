@@ -42,7 +42,7 @@ $headerBg: rgba(255,255,255,0.9);
     margin: 0 0 0.5rem;
 }
 
-.bp-header__heading {
+.bp-header__heading, .chapter__divider--text {
     color:#111;
     font-size: 2.5rem;
     font-weight: $boldWeight;

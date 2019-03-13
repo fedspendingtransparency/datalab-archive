@@ -11,9 +11,9 @@
     width: 100%;
     text-align: center;
     font-weight: 300;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+    @include display(flex);
+    @include flex-direction(column);
+    @include align-content(center);
 }
 
 .main-intro__link {
@@ -30,12 +30,14 @@
 
 .main-intro__heading {
     color: #2272CE;
-    order: -2;
+    -ms-flex-order: -1; 
+    order: -1;
     font-size: calc(16px + (16 - 16) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .main-intro__subheading {
     order: -1;
+    -ms-flex-order: -1; 
     margin-bottom: 1rem;
     font-size: calc(22px + (24 - 22) * ((100vw - 300px) / (1600 - 300)));
 }
@@ -57,9 +59,9 @@
 }
 
 .side-column {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
+    @include flex-direction(column);
+    @include display(flex);
+    @include align-items(center);
     margin-top: 2rem;
 }
 
@@ -69,11 +71,11 @@
     padding: 0.5rem 0;
 }
 .side-info {
-    display: flex;
+    @include display(flex);
 }
 
 .side-info__column {
-    flex-direction: column;
+    @include flex-direction(column);
     width: 100%;
     margin-top: 2rem;
     margin-right: 1.2rem;
@@ -110,20 +112,20 @@
 }
 
 .side-dts__box {
-    display: flex;
+    @include display(flex);
     border: 1px solid #eeeeee;
     text-align: center;
     width: 100%;
-    flex-direction: column;
+    @include flex-direction(column);
 }
 
 .side-dts__heading {
     background-color: #FAFBFC;
     height: 3rem;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
     font-size: calc(12px + (15 - 12) * ((100vw - 300px) / (1600 - 300)));
 
 }
@@ -147,32 +149,33 @@
 }
 
 .analysis__row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(space-between);
     margin-top: 3rem;
 }
 
 .analysis__col {
-    display: flex;
-    flex-direction: column;
+    @include display(flex);
+    @include flex-direction(column);
     width: 100%;
     margin-top: 2rem;
 }
 
 .analysis__col_small {
-    flex-direction: row;
+    @include flex-direction(row);
 }
 
 .analysis__header {
     width: 50%;
     margin-left: 2rem;
+    -ms-flex-order: 2; 
     order: 2;
     text-align: right;
 }
 
 .analysis__header-full { 
-    order: 1;
+    @include order(1);
     margin-top: 1rem;
 }
 
@@ -199,6 +202,7 @@
 
 .analysis__image-container {
     width: 50%;
+    flex-shrink: 0;
 }
 
 .analysis__image {
@@ -221,21 +225,21 @@
 }
 
 .resource__row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
 }
 
 .resource__col {
-    display: flex;
-    flex-direction: column;
+    @include display(flex);
+    @include flex-direction(column);
     margin-top: 2rem;
     width: 100%;
 }
 
 .resource__col_main {
-    flex-direction: row;
-    justify-content: center;
+    @include flex-direction(row);
+    @include justify-content(center);
 }
 
 .resource__headline {
@@ -243,6 +247,7 @@
     line-height: 40px;
     text-align: center;
     font-weight: 300;
+    margin-bottom: 1rem;
 }
 
 .resource__subheading {
@@ -251,16 +256,27 @@
     font-weight: 300;
 }
 
+.resource__icon {
+    @include display(flex);
+}
+
 .resource__icon svg {
     width: 4.73rem;
     height: 5rem;
 }
 
+.resource__card {
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
+    width: 70%;
+}
+
 .resource__card-title {
     font-weight: 600;
     font-size: calc(19px + (28 - 19) * ((100vw - 300px) / (1600 - 300)));
-    display: flex;
-    align-items: center;
+    @include display(flex);
+    @include justify-content(center);
     margin-left: 2rem;
 }
 
@@ -276,8 +292,8 @@
     margin: 12rem 5rem 5rem 5rem;
 }
 .introduction-container {
-    display: flex;
-    margin-bottom: 5rem;
+    @include display(flex);
+    margin: 2rem 2rem 10rem 2rem;
 }
 .side-column {
     margin-left: 2rem;
@@ -295,14 +311,17 @@
 }
 
 .headings-container {
+    -ms-flex-order: 1; 
     order: 1;
 }
 
 .image-container {
+    -ms-flex-order: -1; 
     order: -1
 }
 
 .text-container {
+    -ms-flex-order: 1;
     order: 1;
 }
 
@@ -318,8 +337,12 @@
     display: inline;
 }
 
+.analysis-container {
+    margin: 2rem 2rem 10rem 2rem;
+}
+
 .analysis__row {
-    flex-direction: row;
+    @include flex-direction(row);
     margin-bottom: 3rem;
 }
 
@@ -329,30 +352,41 @@
 }
 
 .analysis__header {
-    flex: 1;
+    @include flex(1);
     width: 100%;
-    order: unset;
     margin-left: 0;
     text-align: left;
 }
 
 .analysis__col_small {
-    flex-direction: column;
+    @include flex-direction(column);
+}
+
+.analysis__link {
+    flex-shrink: 0; /* IE 11 fix to prevent streching of image */
 }
 
 .analysis__image-container {
     width: 100%;
 }
 
+.analysis__image {
+    flex-shrink: 0; /* IE 11 fix to prevent streching of image */
+}
+
 .analysis__header-full {
-    flex: 1;
-    order: -1;
+    @include flex(1);
+    @include flex-direction(column-reverse);
     margin-top: 0;
 }
 
+.resource-container {
+    margin: 2rem 2rem 10rem 2rem;
+}
+
 .resource__row {
-    display: flex;
-    flex-direction: row;
+    @include display(flex);
+    @include flex-direction(row);
 }
 
 .resource__col {
@@ -360,8 +394,9 @@
 }
 
 .resource__col_main {
-    flex-direction: column;
-    align-items: center;
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(initial);
 }
 
 .resource__col:last-of-type {
@@ -373,6 +408,10 @@
     text-align: left;
 }
 
+.resource__card-title {
+    margin-bottom: 1rem;
+}
+
 .resource__title {
     display: block;
     margin-left: 0;
@@ -382,8 +421,13 @@
     text-align: left;
 }
 
+.resource__card {
+    width: 100%;
+}
+
 .resource__card-description {
     display: block;
+    width: 100%; /* Fix for IE 11, because width does not get inherited properly in IE 11 */
 }
 
 .resource__card-title {
