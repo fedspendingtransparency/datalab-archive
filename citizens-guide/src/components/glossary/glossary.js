@@ -283,7 +283,7 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
 
 function init(){
     const glossaryWrapper = $('#cg-glossary-wrapper'),
-        glossaryButton = $('#cg-glossary-btn');
+        glossaryButton = $('#ffg-glossary-trigger');
 
     filteredData = glossaryData.filter(r => r.term); //remove blank rows
 
