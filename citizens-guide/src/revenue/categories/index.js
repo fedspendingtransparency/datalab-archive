@@ -1,23 +1,21 @@
 import { select, selectAll } from 'd3-selection';
 import { receiptsConstants } from '../receipts-utils';
 import { getDataByYear } from './data';
-import {initSankey, destroySankey} from "../../components/sankey/init";
-import {drawChart} from "../../spending/categories/bar/chart";
-import {init as initBarGraph, initChart} from "../../spending/categories/init";
+import { initSankey, destroySankey } from "../../components/sankey/init";
+import { init as initBarGraph, initChart } from "../../spending/categories/init";
 import colors from '../../colors.scss';
-import '../header.scss';
 import '../../infoBox';
 
 const config = {
     data: getDataByYear(2018),
-    containerClass : receiptsConstants.shaderContainerClass,
+    containerClass: receiptsConstants.shaderContainerClass,
     sectionColor: colors.colorPrimaryDarker,
-    accessibilityAttrs : {
+    accessibilityAttrs: {
         title: 'Graph representing 2018 U.S. revenue separated by category.',
         desc: '2018 U.S. revenue broken down by category and further broken down at the sub-category level.'
     }
 },
-    d3 = {select, selectAll},
+    d3 = { select, selectAll },
     viz = d3.select('#viz');
 
 let isDesktopInd = false,
@@ -26,7 +24,7 @@ let isDesktopInd = false,
     mainSvg;
 
 function init() {
-    if(window.innerWidth >= 1200){
+    if (window.innerWidth >= 1200) {
         isDesktopInd = true;
         initSankey(config);
     } else {
@@ -34,7 +32,7 @@ function init() {
     }
 }
 
-window.addEventListener('resize', function(){
+window.addEventListener('resize', function () {
     const defaultTimeout = 100;
     if (debounce) {
         clearTimeout(debounce);
@@ -42,15 +40,15 @@ window.addEventListener('resize', function(){
 
     let actualTimeout = defaultTimeout;
 
-    if(window.innerWidth < 1200 && isDesktopInd) {
+    if (window.innerWidth < 1200 && isDesktopInd) {
         actualTimeout = 0;
-    } else if(window.innerWidth >= 1200 && !isDesktopInd){
+    } else if (window.innerWidth >= 1200 && !isDesktopInd) {
         actualTimeout = 0;
     }
 
-    debounce = setTimeout(function(){
-        if(window.innerWidth < 1200){
-            if(isDesktopInd){
+    debounce = setTimeout(function () {
+        if (window.innerWidth < 1200) {
+            if (isDesktopInd) {
                 isDesktopInd = false;
                 d3.select('#viz svg').html(null);
                 destroySankey();
@@ -62,7 +60,7 @@ window.addEventListener('resize', function(){
                 resizeBarGraphDebounce = setTimeout(initChart, 100);
             }
         } else {
-            if(!isDesktopInd){
+            if (!isDesktopInd) {
                 isDesktopInd = true;
                 d3.select('#viz svg').html(null);
                 initSankey(config);
