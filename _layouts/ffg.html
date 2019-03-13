@@ -4,17 +4,11 @@ layout: default
 
 <article id="main">
   <main class="cg-content">
-    <!--{% if page.ffgNav %}-->
-    <div style="display:block;text-align:right;">
-      <button id="cg-glossary-btn"><i class="fa fa-book" style="margin-right:10px"></i>Glossary</button>
-    </div>
     {% include ffg/cg-glossary.html %}
-    <!--{% endif %}-->
 
     {{ content }}
 
     <script src="/assets/ffg/hwcta.js"></script>
-    <script src="/assets/ffg/components/glossary/glossary.js"></script>
     {% if page.ffgNav %}<script src="/assets/ffg/nav/nav.js"></script>{% endif %}
     
   </main>
