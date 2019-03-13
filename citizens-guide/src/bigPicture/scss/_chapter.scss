@@ -59,52 +59,10 @@ section.chapter {
     height: auto;
 }
 
-.chapter__divider--normal {
+.chapter-break {
     border-bottom: 1px solid #CCC;
-    max-width:1400px;
+    max-width: 1200px;
     margin:0 auto;
-}
-
-.chapter__divider--median-treasury-logo {
-    background: url('/assets/ffg/bp/deficit_debt_image.png') 0 0 no-repeat;
-    background-size: cover;
-    width: 100%;
-    padding: 1rem;
-    background-color: #FFF;
-    box-sizing: border-box;
-
-    .chapter__divider--arrow-container {
-        text-align: center;
-        margin-top: 1rem;
-
-        a {
-            color:$text-color-paragraph;
-        }
-        
-        i {
-            text-align: center;
-            font-size: 2em;
-        }
-    }
-}
-
-.chapter__divider--text {
-    background: #fff;
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 0 1rem;
-
-    strong, span {
-        font-weight: 900;
-    }
-}
-
-.chapter__divider--text-deficit {
-    color:$deficitPrimary;
-}
-
-.chapter__divider--text-debt {
-    color:$debtPrimary;
 }
 
 @media only screen and (max-width: 800px) {

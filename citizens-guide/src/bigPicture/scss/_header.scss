@@ -42,10 +42,8 @@ $headerBg: rgba(255,255,255,0.9);
     margin: 0 0 0.5rem;
 }
 
-.bp-header__heading, .chapter__divider--text {
-    color:#111;
-    font-size: 2.5rem;
-    font-weight: $boldWeight;
+.bp-header__heading {
+    @include baseHeader();
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: center;
@@ -89,7 +87,7 @@ $headerBg: rgba(255,255,255,0.9);
 
 @media only screen and (min-width: 800px) {
     .bp-header__heading {
-        font-size: 3.5rem;
+        @include baseHeaderDesktop();
     }
 
     .bp-header {
