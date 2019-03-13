@@ -1,5 +1,12 @@
 // subnav.scss
 
+#subnav-glossary-trigger {
+  border: none;
+  background: none;
+  border-left: 1px solid #ccc;
+  padding: 2px 1rem;
+}
+
 .dropdown-ul-section {
   display: none;
   bottom: -50px;
