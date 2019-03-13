@@ -5,15 +5,17 @@ const d3 = { select, selectAll };
 
 let origCategorizedTerms = [], filteredData, termSelected;
 
-function categorizeGlossaryData(data){
+let glossaryWrapper, glossaryButton;
+
+function categorizeGlossaryData(data) {
     const categorizedData = [];
     let hashChar = '';
 
-    data.forEach(function(d){
+    data.forEach(function (d) {
         if (!d.term) return;
 
-        hashChar = d.term.substring(0,1);
-        if(!categorizedData[hashChar]){
+        hashChar = d.term.substring(0, 1);
+        if (!categorizedData[hashChar]) {
             categorizedData[hashChar] = [];
         }
         return categorizedData[hashChar].push(d);
@@ -22,7 +24,7 @@ function categorizeGlossaryData(data){
     return categorizedData;
 }
 
-function createSVGElements(){
+function createSVGElements() {
     const closeButton = d3.select('#cg-glossary-close-button'),
         searchBox = d3.select('#cg-search-button'),
         backButton = d3.select('.cg-glossary-back__content');
@@ -36,7 +38,7 @@ function createSVGElements(){
     const closeButtonSvg = closeButton.append('svg')
         .classed('cg-icon-close', true)
         .attr('viewBox', '0 0 512 512')
-         .attr('aria-label', 'Close Glossary 123'),
+        .attr('aria-label', 'Close Glossary 123'),
         searchBoxSvg = searchBox.append('svg')
             .classed('cg-icon-search', true)
             .attr('viewBox', '0 0 512 512')
@@ -63,63 +65,63 @@ function createSVGElements(){
     backButtonSvg.append('g').append('path')
         .attr('d', 'M368.5 77.2L208 255l160.2 179.7.4 71.3-225.2-250.5L368 6');
 }
-function createTermHTMLElements(terms, searchTerm){
+function createTermHTMLElements(terms, searchTerm) {
     const termListDiv = $('#cg-glossary-term-list-div'),
         termResultList = termListDiv.find('.cg-glossary-search-results');
 
-        termResultList.empty();
+    termResultList.empty();
 
-        let filteredTerms = {},
-            hashSection = null,
-            hashTitle,
-            hashDivider,
-            groupItems,
-            termGroup,
-            term,
-            termButton;
+    let filteredTerms = {},
+        hashSection = null,
+        hashTitle,
+        hashDivider,
+        groupItems,
+        termGroup,
+        term,
+        termButton;
 
-        if(searchTerm){
-            filteredTerms = filteredData.filter(function(t){
-                const upperCaseSearchTerm = searchTerm.toUpperCase();
-                return t.term.toUpperCase().match(upperCaseSearchTerm);
-            });
-            filteredTerms = categorizeGlossaryData(filteredTerms);
-        } else {
-            filteredTerms = origCategorizedTerms;
-        }
-
-       Object.keys(filteredTerms).forEach(function(t){
-           termGroup = filteredTerms[t];
-
-           hashSection = $('<div class="cg-glossary-result-group"></div>');
-
-           hashTitle = $(`<h2 class="cg-group-title">${t}</h2>`);
-
-           hashDivider = $('<hr class="cg-group-divider"/>');
-
-           groupItems = $('<ul class="cg-group-items"></ul>');
-
-           termResultList.append(hashSection);
-           hashSection.append(hashTitle,hashDivider,groupItems);
-
-           termGroup.forEach(function(t1){
-               term = $('<li></li>');
-               termButton = $(`<button hashMap="${t}" class="cg-glossary-link">${t1.term}</button>`);
-
-               term.append(termButton);
-               groupItems.append(term);
-           })
+    if (searchTerm) {
+        filteredTerms = filteredData.filter(function (t) {
+            const upperCaseSearchTerm = searchTerm.toUpperCase();
+            return t.term.toUpperCase().match(upperCaseSearchTerm);
         });
+        filteredTerms = categorizeGlossaryData(filteredTerms);
+    } else {
+        filteredTerms = origCategorizedTerms;
+    }
+
+    Object.keys(filteredTerms).forEach(function (t) {
+        termGroup = filteredTerms[t];
+
+        hashSection = $('<div class="cg-glossary-result-group"></div>');
+
+        hashTitle = $(`<h2 class="cg-group-title">${t}</h2>`);
+
+        hashDivider = $('<hr class="cg-group-divider"/>');
+
+        groupItems = $('<ul class="cg-group-items"></ul>');
+
+        termResultList.append(hashSection);
+        hashSection.append(hashTitle, hashDivider, groupItems);
+
+        termGroup.forEach(function (t1) {
+            term = $('<li></li>');
+            termButton = $(`<button hashMap="${t}" class="cg-glossary-link">${t1.term}</button>`);
+
+            term.append(termButton);
+            groupItems.append(term);
+        })
+    });
 }
 
-function showIndividualTerm(termsArr, termDisplay){
+function showIndividualTerm(termsArr, termDisplay) {
     const definitionWrapperId = '#cg-definition-wrapper',
         definitionWrapper = $(definitionWrapperId),
         showListResultsInd = false;
 
     let term = {};
 
-    if(termsArr && termDisplay){
+    if (termsArr && termDisplay) {
         /*
          * It may seem like a fragile idea to use the term display to perform the filter considering the csv has ids.
          * The problem is that if a term is added/removed to the glossary.csv, this will change the ids on all of the terms
@@ -127,10 +129,10 @@ function showIndividualTerm(termsArr, termDisplay){
          * that term, that means the ids need to be placed on all of the actionable text in the document AND that any updates to the
          * glossary means updating the ids on all actionable text pieces throughout CG (an absolute nightmare).
          */
-        term = termsArr.filter(function(d){
+        term = termsArr.filter(function (d) {
             return d.term.toUpperCase() === termDisplay.toUpperCase();
         });
-        if(!term.length){
+        if (!term.length) {
             return;
         }
         term = term[0];
@@ -140,7 +142,7 @@ function showIndividualTerm(termsArr, termDisplay){
     definitionWrapper.append(`<h2 class="cg-glossary-term">${term.term}</h2>`);
 
     const definition = term.definition;
-    if(definition.match('• ')){
+    if (definition.match('• ')) {
         let definitionParts = definition.split('• ');
         const paragraphDefinition = definitionParts.shift();
 
@@ -150,7 +152,7 @@ function showIndividualTerm(termsArr, termDisplay){
         definitionWrapper.append(`<div class="cg-definition-content"><p>${term.definition}</p></div>`);
     }
 
-    if(term.url_path){
+    if (term.url_path) {
         definitionWrapper.append(`<div class="cg-glossary-resources"><h3 class="cg-glossary-resources-title">More Resources</h3>`,
             `<hr><div><p class="cg-glossary-resources-text">Learn More: <a href="${term.url_path}" target="_blank" rel="noopener noreferrer">${term.url_display}</a></p></div>`);
     }
@@ -160,20 +162,20 @@ function showIndividualTerm(termsArr, termDisplay){
 function setActiveStatus(glossaryWrapper, activeInd) {
     const openClass = 'active';
 
-    if(activeInd){
+    if (activeInd) {
         glossaryWrapper.addClass(openClass);
     } else {
         glossaryWrapper.removeClass(openClass);
     }
 }
 
-function setTermListView(showListResultsInd){
+function setTermListView(showListResultsInd) {
     const searchResultsClass = '.cg-glossary-search-results',
         glossaryDefinitionClass = '.cg-glossary-definition',
         searchResultsDiv = $(searchResultsClass),
         glossaryDefinitionDiv = $(glossaryDefinitionClass)
 
-    if(showListResultsInd){
+    if (showListResultsInd) {
         termSelected = false;
         searchResultsDiv.removeClass('hidden');
         glossaryDefinitionDiv.addClass('hidden');
@@ -184,50 +186,67 @@ function setTermListView(showListResultsInd){
     }
 }
 
-function resizeTermListDiv(){
+function resizeTermListDiv() {
     const termListDiv = $('#cg-glossary-term-list-div');
 
-    if(termListDiv){
+    if (termListDiv) {
         // Most (if not all) CG pages have a window event which refreshes the screen, so since we only create the SVG elements
         // on init, we must also create them on resize.
         createSVGElements();
         const parentDiv = termListDiv.get(0).parentNode,
             siblingDiv = parentDiv.getElementsByClassName('cg-glossary-header-wrapper')[0];
 
-        termListDiv.css('height',(parentDiv.clientHeight - siblingDiv.clientHeight) + 'px');
+        termListDiv.css('height', (parentDiv.clientHeight - siblingDiv.clientHeight) + 'px');
     }
 }
 
-function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
+function onFfgPage() {
+    console.log(window.location.pathname);
+
+    if (window.location.pathname.indexOf('federal-finance-guide') === -1 && window.location.host.indexOf('localhost') === -1) {
+        return false;
+    }
+
+    return true;
+}
+
+function showGlossary() {
+    const activeInd = true,
+        showListResultsInd = true;
+
+    if (!onFfgPage()) {
+        console.log('should redirect')
+        window.location = 'https://' + window.location.host + '/federal-finance-guide/?glossary';
+        return;
+    }
+
+    setActiveStatus(glossaryWrapper, activeInd);
+    setTermListView(showListResultsInd);
+}
+
+function addGlossaryEvents(terms) {
     const searchForm = $('.cg-glossary-search-bar form'),
         searchTextBox = $('#cg-search-text-box'),
         actionableTextEntries = $('.cg-glossary-actionable-text');
 
     let debounce, previousHeight, previousSearchStr;
 
-    glossaryButton.on('click', function(){
-        const activeInd = true,
-            showListResultsInd = true;
-
-        setActiveStatus(glossaryWrapper, activeInd);
-        setTermListView(showListResultsInd);
-    });
-    glossaryWrapper.on('click', '#cg-glossary-close-button', function(){
+    glossaryWrapper.on('click', '#cg-glossary-close-button', function () {
         const activeInd = false;
         setActiveStatus(glossaryWrapper, activeInd);
     });
-    glossaryWrapper.on('click', '.cg-glossary-link', function(el){
+    glossaryWrapper.on('click', '.cg-glossary-link', function (el) {
         const curElement = el.target,
             termsArr = terms[curElement.getAttribute('hashMap')],
             termDisplay = curElement.innerText;
 
         showIndividualTerm(termsArr, termDisplay);
     });
-    $('.cg-glossary-back').on('click', function(){
+    $('.cg-glossary-back').on('click', function () {
         const showListResultsInd = true;
         setTermListView(showListResultsInd);
     });
-    searchTextBox.bind("propertychange change click keyup input paste", function(event){
+    searchTextBox.bind("propertychange change click keyup input paste", function (event) {
         if (debounce) {
             clearTimeout(debounce);
         }
@@ -235,11 +254,11 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
         const searchStr = $(this).val();
         const showListResultsInd = true;
 
-        if(previousSearchStr === searchStr){
+        if (previousSearchStr === searchStr) {
             return;
         }
 
-        debounce = setTimeout(function(){
+        debounce = setTimeout(function () {
             if (termSelected) {
                 return;
             };
@@ -247,55 +266,58 @@ function addGlossaryEvents(glossaryWrapper, glossaryButton, terms){
             setTermListView(showListResultsInd);
         }, 400);
     });
-    searchForm.on('submit', function(e){
+    searchForm.on('submit', function (e) {
         const searchStr = searchTextBox.val();
         const showListResultsInd = true;
         createTermHTMLElements(null, searchStr);
         setTermListView(showListResultsInd);
 
     });
-    actionableTextEntries.on('click', function(){
+    actionableTextEntries.on('click', function () {
         const glossaryTerm = $(this).attr('glossaryTerm'),
             activeInd = true;
 
         setActiveStatus(glossaryWrapper, activeInd);
 
-        if(glossaryTerm){
+        if (glossaryTerm) {
             showIndividualTerm(filteredData, glossaryTerm);
         }
 
     });
-    window.addEventListener('resize', function(e){
+    window.addEventListener('resize', function (e) {
         if (debounce) {
             clearTimeout(debounce);
         }
 
-        if(previousHeight === window.innerHeight){
+        if (previousHeight === window.innerHeight) {
             return;
         }
         previousHeight = window.innerWidth;
         debounce = setTimeout(resizeTermListDiv, 100);
     });
-    setTimeout(function(){
+    setTimeout(function () {
         resizeTermListDiv();
-    },0);
+    }, 0);
 }
 
-function init(){
-    const glossaryWrapper = $('#cg-glossary-wrapper'),
-        glossaryButton = $('#cg-glossary-btn');
+function init() {
+    glossaryWrapper = $('#cg-glossary-wrapper');
+    
+    d3.select('#ffg-glossary-trigger').on('click', showGlossary);
 
     filteredData = glossaryData.filter(r => r.term); //remove blank rows
 
     origCategorizedTerms = categorizeGlossaryData(filteredData);
 
-    if(glossaryButton.length && glossaryWrapper.length){
-        createTermHTMLElements(origCategorizedTerms);
-        createSVGElements();
-        addGlossaryEvents(glossaryWrapper, glossaryButton, origCategorizedTerms);
+    createTermHTMLElements(origCategorizedTerms);
+    createSVGElements();
+    addGlossaryEvents(origCategorizedTerms);
+
+    if (window.location.search.indexOf('glossary') !== -1) {
+        showGlossary();
     }
 }
 
-setTimeout(function(){
+setTimeout(function () {
     init();
-},0);
+}, 0);
