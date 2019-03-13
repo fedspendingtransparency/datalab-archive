@@ -214,8 +214,6 @@ function showGlossary() {
     const activeInd = true,
         showListResultsInd = true;
 
-    console.log('click happened')
-
     if (!onFfgPage()) {
         console.log('should redirect')
         window.location = 'https://' + window.location.host + '/federal-finance-guide/?glossary';
@@ -232,8 +230,6 @@ function addGlossaryEvents(terms) {
         actionableTextEntries = $('.cg-glossary-actionable-text');
 
     let debounce, previousHeight, previousSearchStr;
-
-    glossaryButton.on('click', showGlossary);
 
     glossaryWrapper.on('click', '#cg-glossary-close-button', function () {
         const activeInd = false;
@@ -306,20 +302,18 @@ function addGlossaryEvents(terms) {
 
 function init() {
     glossaryWrapper = $('#cg-glossary-wrapper');
-    glossaryButton = $('#ffg-glossary-trigger');
+    
+    d3.select('#ffg-glossary-trigger').on('click', showGlossary);
 
     filteredData = glossaryData.filter(r => r.term); //remove blank rows
 
     origCategorizedTerms = categorizeGlossaryData(filteredData);
 
-    if (glossaryButton.length && glossaryWrapper.length) {
-        createTermHTMLElements(origCategorizedTerms);
-        createSVGElements();
-        addGlossaryEvents(origCategorizedTerms);
-    }
+    createTermHTMLElements(origCategorizedTerms);
+    createSVGElements();
+    addGlossaryEvents(origCategorizedTerms);
 
     if (window.location.search.indexOf('glossary') !== -1) {
-        console.log('from search');
         showGlossary();
     }
 }
