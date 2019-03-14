@@ -59,7 +59,7 @@ $link-color: #999;
   }
 
   .header-logo__two-line {
-    width: 152px;
+    width: 130px;
   }
 }
 
@@ -128,9 +128,8 @@ $link-color: #999;
 }
 
 .header-logo__two-line {
-  width: 190px;
+//  width: 190px;
   transform: translateY(-5px);
-//  transition: width .5s ease;
   opacity: 1;
 }
 
