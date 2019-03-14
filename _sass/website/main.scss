@@ -5,6 +5,7 @@
 }
 .introduction-container {
     display: block;
+    margin-top: 7rem;
 }
 
 .main-intro {
@@ -22,6 +23,7 @@
 
 .main-intro__link:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .text-container {
@@ -295,6 +297,12 @@
     @include display(flex);
     margin: 2rem 2rem 10rem 2rem;
 }
+
+.side-intro__box {
+    width: 100%; 
+    flex-shrink: 0;
+}
+
 .side-column {
     margin-left: 2rem;
     width: 40%;
@@ -327,6 +335,10 @@
 
 .main-intro__text {
     font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.main-image-container {
+    flex-shrink: 0;
 }
 
 .main-intro__text_mobile {
@@ -397,6 +409,7 @@
     @include flex-direction(column);
     @include align-items(center);
     @include justify-content(initial);
+    height: 100%; /* IE 11 fix */
 }
 
 .resource__col:last-of-type {
