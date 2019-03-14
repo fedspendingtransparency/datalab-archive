@@ -278,7 +278,6 @@
 
     window.addEventListener('scroll', function() {
       let y = window.pageYOffset;
-      console.log('scrolling!', y);
       let width = window.innerWidth;
       fixNav(y);
       fixMobileNav(y, width);
