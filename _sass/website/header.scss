@@ -6,23 +6,40 @@ $link-color: #999;
 
 /* Header */
 #header {
-  display: flex;
+ // display: flex;
   background: #FFFFFF;
   box-sizing: border-box;
   line-height: normal;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-right: 4rem;
-  padding-bottom: 1.5rem;
-  padding-left: 4rem;
+//  align-items: center;
+  //  justify-content: space-between;
   width: 100%;
   position: fixed;
   top: 29px;
   z-index: 20;
 //  transition: all .5s ease;
 //  transition-property: padding-top, padding-botom;
+}
+
+.header__main {
+  display: flex;
+  padding-top: 1.5rem;
+  padding-right: 4rem;
+  padding-bottom: 1.5rem;
+  padding-left: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.header__main.tight {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.header__sub {
+  position: relative;
+  z-index: 20;
 }
 
 #one-line-tag {
@@ -34,8 +51,8 @@ $link-color: #999;
 }
 
 #header.tight {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+//  padding-top: 1rem;
+//  padding-bottom: 1rem;
 
   #master-logo {
     width: 240px;

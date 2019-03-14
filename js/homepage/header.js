@@ -13,8 +13,6 @@
   const desktopMin = 956;
   const superMobile = 450;
   const twolineCollision = 1350;
-  const regex = new RegExp("[a-zA-Z]");
-  const pathname = window.location.pathname;
   let logoMarginOffset = 149;
 
   // Mini-Navs
@@ -44,6 +42,8 @@
 
   function setContainers() {
     headerContainers.header = $('#header');
+    headerContainers.header__main = $('.header__main');
+    headerContainers.header__sub = $('.header__sub');
     headerContainers.headerLogo = $('.header-logo');
     headerContainers.masterLogo = $('#master-logo');
     headerContainers.oneTag = $('#one-line-tag');
@@ -287,8 +287,10 @@
       }
       if (y > 200 && width >= desktopMin) {
         headerContainers.header.addClass('tight');
+	headerContainers.header__main.addClass('tight');
       } else {
         headerContainers.header.removeClass('tight');
+	headerContainers.header__main.removeClass('tight');
       }
     });
 
@@ -319,6 +321,7 @@
 
   $(function() {
 
+    $(this).scrollTop(0); // on refresh - put page top always
     const isLanding = $('body').hasClass('landing');
 
     setContainers();
