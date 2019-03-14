@@ -277,6 +277,7 @@
   function repositionHeaderItems(shouldMoveLogo) {
 
     window.addEventListener('scroll', function() {
+      console.log('scrolling!');
       let y = window.scrollY;
       let width = window.innerWidth;
       fixNav(y);
