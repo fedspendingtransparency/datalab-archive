@@ -277,8 +277,8 @@
   function repositionHeaderItems(shouldMoveLogo) {
 
     window.addEventListener('scroll', function() {
-      console.log('scrolling!');
       let y = window.scrollY;
+      console.log('scrolling!', y);
       let width = window.innerWidth;
       fixNav(y);
       fixMobileNav(y, width);
@@ -293,10 +293,9 @@
       }
     });
 
-    if(shouldMoveLogo) {
+    if (shouldMoveLogo) {
       window.addEventListener('resize', setInitialLogoPosition);
     }
-
   }
 
   function setHeaderHeight() {
@@ -309,9 +308,6 @@
 
   function setInitialLogoPosition() {
     let width = window.innerWidth;
-    if (width < desktopMin) {
-      //      headerContainers.twoTag.css('display', 'none');
-    }
     if (width > desktopMin && width < twolineCollision) {
       forceLogoLeft(width);
     } else {
