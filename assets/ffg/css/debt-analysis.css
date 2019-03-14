@@ -23,8 +23,7 @@
   border-radius: 0.5rem;
   animation-name: card;
   animation-duration: 1s;
-  animation-timing-function: ease;
-  box-shadow: 0 0 30px rgba(74, 0, 114, 0.1); }
+  animation-timing-function: ease; }
   .card ul {
     list-style-type: disc; }
 
@@ -71,7 +70,8 @@
   margin-right: 0.5rem; }
 
 .card.card--flipped {
-  animation-name: card-flipped; }
+  animation-name: card-flipped;
+  box-shadow: 0 0 30px rgba(74, 0, 114, 0.2); }
   .card.card--flipped .card__cover {
     visibility: hidden; }
   .card.card--flipped .card__contents {
