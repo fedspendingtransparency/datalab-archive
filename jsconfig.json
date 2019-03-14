@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+	"noEmit": true,
+	"checkJS": true,
+	"JSX": 'react'
+	"lib" : ["dom", "ES6"]
+    },
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}
