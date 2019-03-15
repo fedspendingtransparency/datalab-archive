@@ -29,6 +29,11 @@
   }
 }
 
-.deficit__tabs-image {
+div.active img.deficit__tabs-image {
+  height: auto;
+}
+
+img.deficit__tabs-image {
+  height:0;
   width: 100%;
 }
