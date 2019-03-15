@@ -6,23 +6,40 @@ $link-color: #999;
 
 /* Header */
 #header {
-  display: flex;
+ // display: flex;
   background: #FFFFFF;
   box-sizing: border-box;
   line-height: normal;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-right: 4rem;
-  padding-bottom: 1.5rem;
-  padding-left: 4rem;
+//  align-items: center;
+  //  justify-content: space-between;
   width: 100%;
   position: fixed;
   top: 29px;
   z-index: 20;
 //  transition: all .5s ease;
 //  transition-property: padding-top, padding-botom;
+}
+
+.header__main {
+  display: flex;
+  padding-top: 1.5rem;
+  padding-right: 4rem;
+  padding-bottom: 1.5rem;
+  padding-left: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.header__main.tight {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.header__sub {
+  position: relative;
+  z-index: 20;
 }
 
 #one-line-tag {
@@ -34,15 +51,15 @@ $link-color: #999;
 }
 
 #header.tight {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+//  padding-top: 1rem;
+//  padding-bottom: 1rem;
 
   #master-logo {
     width: 240px;
   }
 
   .header-logo__two-line {
-    width: 152px;
+    width: 130px;
   }
 }
 
@@ -111,9 +128,8 @@ $link-color: #999;
 }
 
 .header-logo__two-line {
-  width: 190px;
+//  width: 190px;
   transform: translateY(-5px);
-//  transition: width .5s ease;
   opacity: 1;
 }
 
@@ -217,9 +233,8 @@ $link-color: #999;
   list-style-type: none;
 }
 
-//secondary nav li
 .secondaryNavli {
-  display: inline;
+//  display: inline;
   font-size: 13px;
   white-space: nowrap;
   margin-left: 1rem;
@@ -449,6 +464,15 @@ ul.nav:first-child li:hover > ul:after {
   #mobile-nav {
     top: 95px;
   }
+  
+  .official-banner {
+    height: 29px;
+  }
+
+  .official-banner .official-banner__site-list {
+    display: none;
+  }
+  
 }
 
 // mobile view toggle - hamburger
@@ -458,7 +482,7 @@ ul.nav:first-child li:hover > ul:after {
     display: none;
   }
 
-  #header {
+  .header__main {
     padding-right: 2rem;
     padding-left: 2rem;
   }
@@ -529,7 +553,7 @@ ul.nav:first-child li:hover > ul:after {
     top: 110px;
     width: 100%;
     right: 0px;
-    background: #FFFF;
+    background: #FFF;
     z-index: 20;
   }
 

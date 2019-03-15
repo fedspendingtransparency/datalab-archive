@@ -1,8 +1,5 @@
 // Jack Killilea (jrk) <Killilea_Jack@bah.com>
 // Header.js
-// Sticky Header and Extra Magic for New Homepage!
-// using jquery 1.11.3! (updating, if bugged then revert!)
-
 (function() {
 
   let headerHeight;
@@ -13,8 +10,6 @@
   const desktopMin = 956;
   const superMobile = 450;
   const twolineCollision = 1350;
-  const regex = new RegExp("[a-zA-Z]");
-  const pathname = window.location.pathname;
   let logoMarginOffset = 149;
 
   // Mini-Navs
@@ -44,6 +39,8 @@
 
   function setContainers() {
     headerContainers.header = $('#header');
+    headerContainers.header__main = $('.header__main');
+    headerContainers.header__sub = $('.header__sub');
     headerContainers.headerLogo = $('.header-logo');
     headerContainers.masterLogo = $('#master-logo');
     headerContainers.oneTag = $('#one-line-tag');
@@ -99,7 +96,6 @@
 
   function forceLogoLeft(width) {
     headerContainers.headerLogo.css('left', '0%').css('margin-left', '0px');
-    //    headerContainers.oneTag.css('display', 'none');
   }
 
   function moveLogo(y, width) {
@@ -287,8 +283,10 @@
       }
       if (y > 200 && width >= desktopMin) {
         headerContainers.header.addClass('tight');
+	headerContainers.header__main.addClass('tight');
       } else {
         headerContainers.header.removeClass('tight');
+	headerContainers.header__main.removeClass('tight');
       }
     });
 
@@ -319,8 +317,9 @@
 
   $(function() {
 
+    $(this).scrollTop(0); // on refresh - put page top always
     const isLanding = $('body').hasClass('landing');
-
+    
     setContainers();
     setHeaderHeight();
     adaptToHeaderHeight();
