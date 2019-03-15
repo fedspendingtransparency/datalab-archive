@@ -6,6 +6,7 @@
 .introduction-container {
     display: block;
     margin-top: 7rem;
+    margin-bottom: 2.060rem;
 }
 
 .main-intro {
@@ -41,6 +42,7 @@
     order: -1;
     -ms-flex-order: -1; 
     margin-bottom: 1rem;
+    color: #4A4A4A;
     font-size: calc(22px + (24 - 22) * ((100vw - 300px) / (1600 - 300)));
 }
  .main-intro__image {
@@ -68,9 +70,14 @@
 }
 
 .side-intro__box {
-    border-bottom: 1px solid #eeeeee;
     height: auto;
-    padding: 0.5rem 0;
+    padding: 0.938rem 0 1.25rem 0;
+    margin-top: 0.938rem;
+    border-top: 1px solid #eeeeee;
+}
+
+.side-intro__box:last-of-type {
+    border-bottom: 1px solid #eeeeee;
 }
 .side-info {
     @include display(flex);
@@ -127,6 +134,7 @@
 
 .side-dts__heading {
     background-color: #FAFBFC;
+    color: #4A4A4A;
     height: 3rem;
     font-weight: 600;
     @include display(flex);
@@ -138,6 +146,15 @@
 
 .side-dts__headline {
     font-size: calc(22px + (22 - 22) * ((100vw - 300px) / (1600 - 300)));
+    color: #4A4A4A;
+}
+
+.side-dts__date {
+    color: #4A4A4A;
+}
+
+.analysis-container {
+    margin-bottom: 2.060rem;
 }
 
 .analysis__title {
@@ -214,6 +231,10 @@
 .analysis__image {
     max-width: 100%;
     height: auto;
+}
+
+.resource-container {
+    margin-bottom: 2.060rem;;
 }
 
 .resource__title {
@@ -300,12 +321,13 @@
 }
 .introduction-container {
     @include display(flex);
-    margin: 2rem 2rem 10rem 2rem;
+    margin: 2rem 2rem 6.668rem 2rem;
 }
 
 .side-intro__box {
     width: 100%; 
     flex-shrink: 0;
+    padding-top: 0;
 }
 
 .side-column {
@@ -366,7 +388,7 @@
 }
 
 .analysis-container {
-    margin: 2rem 2rem 10rem 2rem;
+    margin: 2rem 2rem 6.668rem 2rem;
 }
 
 .analysis__row {
@@ -409,7 +431,7 @@
 }
 
 .resource-container {
-    margin: 2rem 2rem 10rem 2rem;
+    margin: 2rem 2rem 6.668rem 2rem;
 }
 
 .resource__row {
@@ -438,7 +460,7 @@
 }
 
 .resource__card-title {
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0;
 }
 
 .resource__title {
