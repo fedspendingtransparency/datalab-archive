@@ -275,7 +275,7 @@ a.chapter__cta i.fa-angle-right {
 
 .bp-header__bg {
   position: absolute;
-  background: url(/assets/ffg/bp/header_image.png) center top no-repeat;
+  background: url(/assets/ffg/bp/header_image.jpg) center top no-repeat;
   background-size: contain;
   height: 900px;
   top: 0;
@@ -344,14 +344,26 @@ a.chapter__cta i.fa-angle-right {
     padding: 2rem 3rem;
     display: inline-block; } }
 
+@media only screen and (min-width: 670px) {
+  .bp-header__bg {
+    background-position-y: -5px; } }
+
+@media only screen and (min-width: 800px) {
+  .bp-header__bg {
+    background-position-y: -5px;
+    background-size: 100%; } }
+
 @media only screen and (min-width: 1200px) {
   .bp-header__break {
-    display: block; } }
+    display: block; }
+  .bp-header__bg {
+    background-size: 120%;
+    background-position-y: -20px; } }
 
 @media only screen and (min-width: 1600px) {
   .bp-header__bg {
     background-size: cover;
-    background-position-y: -10px; } }
+    background-position-y: -23px; } }
 
 .deficit-debt-heading {
   background: url("/assets/ffg/bp/deficit_debt_image.png") 0 0 no-repeat;
