@@ -197,72 +197,6 @@ table td {
   position: relative;
 }
 
-/* Footer */
-
-.footer-icon:hover {
-  fill: #FFF;
-}
-
-#footer {
-  .icons {
-    font-size: 1.5em;
-
-    a {
-      color: $fg-light;
-
-      &:hover {
-	color: #FFFFFF;
-      }
-    }
-  }
-
-  .copyright {
-    color: $fg-light;
-
-    li {
-      display: inline-block;
-
-      &:first-child {
-	border-left: 0;
-	margin-left: 20px;
-	padding-left: 0;
-      }
-    }
-
-    li:before {
-      padding-right: 3px;
-      content: "|"
-    }
-
-    li:first-child:before {
-      content: ""
-    }
-  }
-}
-
-.top-footer-column {
-//  width: 400px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 30px;
-}
-
-.top-footer-column-end {
-  flex-direction: column-reverse; 
-  justify-content: center;
-}
-
-.top-footer-column-logo {
-  display: flex;
-  flex-direction: column;
-  padding-right: 20px;
-}
-
-.top-footer-group-separator {
-  opacity: 0.5;
-  height: 200px;
-  border-left: 1px solid #979797;
-}
 
 /* Info Banner */
 
@@ -475,72 +409,6 @@ header.major h2 {
   text-align: center;
 }
 
-#top-footer {
-  min-height: 275px;
-  background-color: #FFFFFF;
-  display: flex;
-  padding: 50px;
-  justify-content: space-between;
-  position: relative;
-}
-
-#footer {
-  background-color: #262626;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#footer > ul, #footer > div {
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-
-#footer .copyright li {
-  font-size: 11px;
-  letter-spacing: 1px;
-  padding: 5px 1px;
-}
-
-#footer-logo {
-  width: 300px;
-  position: absolute;
-  bottom: 50px;
-  left: 50px;
-}
-
-.link-group {
-//  color: #DBDBDB;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 300;
-  padding-right: 5px; // for text wrap
-
-  a {
-    color: $accent-blue;
-  }
-}
-
-.link-group a:hover {
-  color: #9BDAF1;
-}
-
-.group-title {
-//  color: #DBDBDB;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18px;
-  text-transform: uppercase;
-}
-
-.group-title-end {
-  text-align: right;
-}
-
-.footer-important-info {
-  justify-content: flex-end;
-}
 
 .glossary-section {
   display: inline-block;
@@ -1117,9 +985,9 @@ article > header {
 @import 'website/popup';
 @import 'website/info-banner';
 @import 'website/buttons';
-@import 'website/footer-navigation';
 @import 'website/modal';
 @import 'website/mobile';
 @import 'website/header'; // New Landing Page Header and Nav
 @import 'website/main';
 @import 'website/subnav'; // subnav!
+@import 'website/footer';
