@@ -23,63 +23,60 @@
 </div>
 {% include info-banner.html %}
 <header id="header">
+  <div class="header__main">
+    <a class="header-logo header-logo--init" href="/">
+      <div class="header-logo__wrapper">
+	<img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
+	<img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" />
+      </div>
+      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" />
+    </a>
 
-  <a class="header-logo header-logo--init" href="/">
-    <div class="header-logo__wrapper">
-      <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
-      <img src="/assets/header-svg/tag-line-right.svg" class="header-logo__two-line header-logo__tagline" id="two-line-tag" />
-    </div>
-    <img src="/assets/header-svg/tag-line.svg" class="header-logo__tagline" id="one-line-tag" />
-  </a>
-
-  <nav class="header-nav">
-    <span class="navbar-toggle" id="burger-navbar-toggle">
-      <i class="fas fa-bars"></i>
-    </span>
-    <ul class="nav" id="burger-menu">
-      <li class="navListItem desktop-nav-item" id="header-nav-item" data-target="analyses">
-        <a href="#">ANALYSES</a>
-	<span>{% include svgs/arrow.svg %}</span>
-      </li>
-      <li class="navListItem desktop-nav-item" id="header-nav-item" data-target="resources">
-        <a href="#">RESOURCES</a>
-	<span>{% include svgs/arrow.svg %}</span>
-      </li>
-      <li class="navListItem desktop-nav-item" id="header-nav-item" data-target="ffg">
-        <a href="/federal-finance-guide/" id="ffgNavAnchor">FEDERAL FINANCE GUIDE</a>
-	<span class="">{% include svgs/arrow.svg %}</span>
-      </li>
+    <nav class="header-nav">
+      <span class="navbar-toggle" id="burger-navbar-toggle">
+	<i class="fas fa-bars"></i>
+      </span>
+      <ul class="nav" id="burger-menu">
+	<li class="navListItem desktop-nav-item" data-target="analyses">
+          <a href="#">ANALYSES</a>
+	  <span>{% include svgs/arrow.svg %}</span>
+	</li>
+	<li class="navListItem desktop-nav-item" data-target="resources">
+          <a href="#">RESOURCES</a>
+	  <span>{% include svgs/arrow.svg %}</span>
+	</li>
+	<li class="navListItem desktop-nav-item" data-target="ffg">
+          <a href="/federal-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
+	  <span class="">{% include svgs/arrow.svg %}</span>
+	</li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header__sub">
+    <ul class="dropdown-ul-section" id="subnav-analyses">
+      <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
+      <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
+      <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
+      <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
     </ul>
-  </nav>
-
-  <ul class="dropdown-ul-section" id="subnav-analyses">
-    <li class="secondaryNavli"><a href="/revenue-gdp.html">Federal Revenue Explorer</a></li>
-    <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
-    <li class="secondaryNavli"><a href="/federal-account-explorer">Federal Acount Explorer</a></li>
-    <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
-    <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
-    <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
-    <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
-    <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
-  </ul>
-  <ul class="dropdown-ul-section" id="subnav-resources">
-    <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
-    <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
-    <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
-    <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
-  </ul>
-  <ul class="dropdown-ul-section" id="subnav-ffg">
-    <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
-    <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
-    <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
-    <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
-    <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
-    <li class="secondaryNavli">
-      <button id="ffg-glossary-trigger">
-        <img src="/assets/ffg/icons/definition.svg" alt="definition icon" width="14px"> <span class="text-element">Glossary</span>
-      </button>
-    </li>
-  </ul>
+    <ul class="dropdown-ul-section" id="subnav-resources">
+      <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <li class="secondaryNavli"><a href="http://fedspendingtransparency.github.io/DAIMS-v1.1/">Data Model</a></li>
+      <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+    </ul>
+    <ul class="dropdown-ul-section" id="subnav-ffg">
+      <li class="secondaryNavli"><a href="/federal-finance-guide/">Overview</a></li>
+      <li class="secondaryNavli"><a href="/federal-finance-guide/revenue">Revenue</a></li>
+      <li class="secondaryNavli"><a href="/federal-finance-guide/spending">Spending</a></li>
+      <li class="secondaryNavli"><a href="/federal-finance-guide/deficit">Deficit</a></li>
+      <li class="secondaryNavli"><a href="/federal-finance-guide/debt">Debt</a></li>
+    </ul>    
+  </div>
 
 </header>
 
