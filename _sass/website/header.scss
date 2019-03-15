@@ -464,6 +464,15 @@ ul.nav:first-child li:hover > ul:after {
   #mobile-nav {
     top: 95px;
   }
+  
+  .official-banner {
+    height: 29px;
+  }
+
+  .official-banner .official-banner__site-list {
+    display: none;
+  }
+  
 }
 
 // mobile view toggle - hamburger
@@ -473,7 +482,7 @@ ul.nav:first-child li:hover > ul:after {
     display: none;
   }
 
-  #header {
+  .header__main {
     padding-right: 2rem;
     padding-left: 2rem;
   }
