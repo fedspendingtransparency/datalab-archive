@@ -1,5 +1,5 @@
 .data-lab-main {
-    margin: 1.5rem 1.5rem 0 1.5rem;
+    margin: 1.5rem 0.938rem 0 0.938rem;
     padding-bottom: 2rem;
     font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
@@ -74,6 +74,7 @@
 }
 .side-info {
     @include display(flex);
+    margin-bottom: 1.25rem;
 }
 
 .side-info__column {
@@ -91,16 +92,19 @@
 
 .side-info__heading {
     font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 600;
+    line-height: 1.24rem;
+    letter-spacing: normal;
+    font-style: normal;
 }
 
 .side-info__text {
     display: none;
     font-weight: 300;
-    line-height: 1.43;
 }
 
 .side-info__link {
-    color: black;
+    color: #4A4A4A;
     text-decoration: none;
 }
 
@@ -291,7 +295,8 @@
 
 @media only screen and (min-width: 1200px) {
 .data-lab-main {
-    margin: 12rem 5rem 5rem 5rem;
+    margin: 12rem 10.250rem 5rem 10.250rem;
+    max-width: 69.375rem;
 }
 .introduction-container {
     @include display(flex);
@@ -305,16 +310,27 @@
 
 .side-column {
     margin-left: 2rem;
-    width: 40%;
+    width: 32%;
     margin-top: 0;
 }
+
+.side-info__column-img {
+    @include flex-direction(column);
+    width: 88%;
+    margin-top: 2rem;
+}
+
+.side-info__heading {
+    line-height: 1.11rem;
+}
+
 .side-info__text {
     font-size: 0.875rem;
     display: inline;
 }
 
 .main-intro {
-    width: 55%;
+    width: 65%;
     border: 1px solid #eeeeee;
 }
 
