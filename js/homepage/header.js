@@ -1,8 +1,5 @@
 // Jack Killilea (jrk) <Killilea_Jack@bah.com>
 // Header.js
-// Sticky Header and Extra Magic for New Homepage!
-// using jquery 1.11.3! (updating, if bugged then revert!)
-
 (function() {
 
   let headerHeight;
@@ -99,7 +96,6 @@
 
   function forceLogoLeft(width) {
     headerContainers.headerLogo.css('left', '0%').css('margin-left', '0px');
-    //    headerContainers.oneTag.css('display', 'none');
   }
 
   function moveLogo(y, width) {
@@ -323,7 +319,7 @@
 
     $(this).scrollTop(0); // on refresh - put page top always
     const isLanding = $('body').hasClass('landing');
-
+    
     setContainers();
     setHeaderHeight();
     adaptToHeaderHeight();
