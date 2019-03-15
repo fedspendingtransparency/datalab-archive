@@ -48,6 +48,7 @@
     headerContainers.navLi = $('.navListItem');
     headerContainers.desktopNavItem = $('.desktop-nav-item');
     headerContainers.dropdown = $('.dropdown-ul-section');
+    headerContainers.body = $('body');
   }
 
   function fixNav(y) {
@@ -284,9 +285,11 @@
       if (y > 200 && width >= desktopMin) {
         headerContainers.header.addClass('tight');
 	headerContainers.header__main.addClass('tight');
+	headerContainers.body.addClass('tight-nav');
       } else {
         headerContainers.header.removeClass('tight');
 	headerContainers.header__main.removeClass('tight');
+	headerContainers.body.removeClass('tight-nav');
       }
     });
 
@@ -299,9 +302,9 @@
     headerHeight = headerContainers.header.outerHeight();
   }
 
-  function adaptToHeaderHeight() {
-    $('#main').css('margin-top', headerHeight + 'px');
-  }
+//  function adaptToHeaderHeight() {
+//    $('#main').css('margin-top', headerHeight + 'px');
+//  }
 
   function setInitialLogoPosition() {
     let width = window.innerWidth;
@@ -315,14 +318,36 @@
     headerContainers.headerLogo.removeClass('header-logo--init');
   }
 
+  function populateSectionArray(type) {
+    const temp = {};
+    temp.analyses = ['/contracts-over-time.html', '/federal-account-explorer.html', '/contract-explorer.html', '/homelessness-analysis.html', '/budget-function.html', '/federal-employees.html', '/competition-in-contracting.html'];
+    temp.resources = ['/assets/analyst-guide-1-2.pdf', '/student-innovators-toolbox.html'];
+    return temp[type];
+  }
+
+
+  function setCurrentSectionActive() {
+    const analyses = populateSectionArray('analyses');
+    const resources = populateSectionArray('resources');
+    console.log(window.location.pathname);
+    if (window.location.pathname.indexOf('federal-finance-guide') != -1) {
+      $('[data-target="ffg"]').addClass('active');
+    } else if (analyses.indexOf(window.location.pathname) != -1) {
+      $('[data-target="analyses"]').addClass('active');
+    } else if (resources.indexOf(window.location.pathname) != -1) {
+      $('[data-target="resources"]').addClass('active');
+    }
+  }
+
   $(function() {
 
     $(this).scrollTop(0); // on refresh - put page top always
     const isLanding = $('body').hasClass('landing');
     
     setContainers();
+    setCurrentSectionActive();
     setHeaderHeight();
-    adaptToHeaderHeight();
+//    adaptToHeaderHeight();
     setMobileContainers();
     listAvailableNav();
     setDropdownHeaderSection();
@@ -333,7 +358,7 @@
     window.addEventListener('resize', function(){
       setTagVisibility(isLanding);
       setHeaderHeight();
-      adaptToHeaderHeight();
+//      adaptToHeaderHeight();
     });
 
     if (isLanding) {
