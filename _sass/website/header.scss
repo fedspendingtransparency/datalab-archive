@@ -233,9 +233,8 @@ $link-color: #999;
   list-style-type: none;
 }
 
-//secondary nav li
 .secondaryNavli {
-  display: inline;
+//  display: inline;
   font-size: 13px;
   white-space: nowrap;
   margin-left: 1rem;
@@ -545,7 +544,7 @@ ul.nav:first-child li:hover > ul:after {
     top: 110px;
     width: 100%;
     right: 0px;
-    background: #FFFF;
+    background: #FFF;
     z-index: 20;
   }
 
