@@ -1,6 +1,9 @@
+/* Note the SCSS flex code uses Bourbon flex mixins to better support IE */
+
 .data-lab-main {
     margin: 1.5rem 0.938rem 0 0.938rem;
     padding-bottom: 2rem;
+    /* These calculations for the font uses Fluid Typography: https://css-tricks.com/snippets/css/fluid-typography/ */
     font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 .introduction-container {
@@ -75,6 +78,7 @@
     padding: 0.938rem 0 1.25rem 0;
     margin-top: 0.938rem;
     border-top: 1px solid #eeeeee;
+    width: 100%;
 }
 
 .side-intro__box:last-of-type {
@@ -194,7 +198,7 @@
     width: 50%;
     margin-left: 2rem;
     -ms-flex-order: 2; 
-    order: 2;
+    order: 1;
     text-align: right;
 }
 
@@ -211,7 +215,7 @@
 }
 
 .analysis__headline {
-    margin-bottom: 3rem;
+    // margin-bottom: 3rem;
     font-weight: 600;
     color: #4A4A4A;
     font-size: calc(17px + (24 - 17) * ((100vw - 300px) / (1600 - 300)))
@@ -316,19 +320,19 @@
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1300px) {
 .data-lab-main {
-    margin: 12rem 10.250rem 5rem 10.250rem;
+    // margin: 12rem 10.250rem 5rem 10.250rem;
     max-width: 69.375rem;
 }
 .introduction-container {
     @include display(flex);
-    margin: 2rem 0 6.668rem 0;
+    //margin: 2rem 0 6.668rem 0;
+    margin: 12rem 10.250rem 5rem 10.250rem;
     min-width: 69.375rem;
 }
 
 .side-intro__box {
-    width: 100%; 
     flex-shrink: 0;
     padding-top: 0;
 }
@@ -395,7 +399,8 @@
 }
 
 .analysis-container {
-    margin: 2rem 0 6.668rem 0;
+    // margin: 2rem 0 6.668rem 0;
+    margin: 2rem 10.250rem 6.668rem 10.250rem;
     min-width: 69.375rem;
 }
 
@@ -407,14 +412,14 @@
 .analysis__col {
     margin-top: 0;
     width: 23%;
+    justify-content: space-between;
 }
 
 .analysis__header {
-    @include flex(1);
     width: 100%;
     margin-left: 0;
-    text-align: left;
     order: -1;
+    text-align: left;
 }
 
 .analysis__col_small {
@@ -427,6 +432,7 @@
 
 .analysis__image-container {
     width: 100%;
+    margin-top: 3rem;
 }
 
 .analysis__image {
@@ -441,7 +447,7 @@
 }
 
 .resource-container {
-    margin: 2rem 0 6.668rem 0;
+    margin: 2rem 10.250rem 6.668rem 10.250rem;
     min-width: 69.375rem;
 }
 
