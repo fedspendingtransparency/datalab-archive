@@ -185,14 +185,20 @@
     @include display(flex);
     @include flex-direction(column);
     @include justify-content(space-between);
-    margin-top: 3.75rem;
+    margin-top: 0.938rem;
 }
 
 .analysis__col {
     @include display(flex);
     @include flex-direction(column);
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 0.6rem;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 0.6rem;
+}
+
+.analysis__col:first-of-type {
+    margin-top: 0;
 }
 
 .analysis__col_small {
@@ -224,6 +230,10 @@
     font-weight: 600;
     color: #4A4A4A;
     font-size: calc(17px + (24 - 17) * ((100vw - 300px) / (1600 - 300)))
+}
+
+.analysis__headline_big {
+    font-size: 1.563rem;
 }
 
 .analysis__link {
@@ -272,8 +282,14 @@
 .resource__col {
     @include display(flex);
     @include flex-direction(column);
-    margin-top: 2rem;
     width: 100%;
+    border-top: 1px solid #eeeeee;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.resource__col:first-of-type {
+    margin-top: 2rem;
 }
 
 .resource__col_main {
@@ -295,6 +311,8 @@
     text-align: center;
     font-weight: 300;
     color: #4A4A4A;
+    line-height: 1.5rem;
+    margin-bottom: 3.125rem;
 }
 
 .resource__icon {
@@ -302,8 +320,19 @@
 }
 
 .resource__icon svg {
-    width: 4.73rem;
     height: 5rem;
+}
+
+.resource__icon_resource {
+    width: 2.938rem;
+}
+
+.resource__icon_guide {
+    width: 2.063rem;
+}
+
+.resource__icon_playbook {
+    width: 2.250rem;
 }
 
 .resource__card {
@@ -419,6 +448,8 @@
     margin-top: 0;
     width: 23%;
     justify-content: space-between;
+    padding-bottom: none;
+    border-bottom: none;
 }
 
 .analysis__header {
@@ -426,6 +457,10 @@
     margin-left: 0;
     order: -1;
     text-align: left;
+}
+
+.analysis__headline_big {
+    font-size: 1.5rem;
 }
 
 .analysis__col_small {
@@ -463,6 +498,12 @@
 
 .resource__col {
     margin-right: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.resource__col:first-of-type {
+    margin-top: 0rem;
 }
 
 .resource__col_main {
@@ -492,6 +533,7 @@
 
 .resource__subheading {
     text-align: left;
+    margin-bottom: 0;
 }
 
 .resource__card {
@@ -509,6 +551,18 @@
     text-align: center;
 }
 
+.resource__icon_resource {
+    width: 2.938rem;
+}
+
+.resource__icon_guide {
+    width: 2.063rem;
+}
+
+.resource__icon_playbook {
+    width: 2.250rem;
+}
+
 }
 
 @media only screen and (min-width: 769px) {
@@ -517,7 +571,7 @@
     }
 
     .main-intro {
-        width: 50%;
+        width: 65%;
     }
 
     .analysis-container {
