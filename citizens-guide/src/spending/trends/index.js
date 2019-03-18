@@ -3,7 +3,6 @@ import { establishContainer, initDropShadow } from '../../utils';
 import { trendView } from './chart';
 import { trendData } from './trendData';
 import { showHideInit } from './showHideCategories';
-import { initTwoPartTour } from './tour';
 import { setThreshold } from "./setThreshold";
 import { destroyDetailPane } from './detailPane';
 
