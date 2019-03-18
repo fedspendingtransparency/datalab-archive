@@ -29,7 +29,8 @@
 }
 
 .text-container {
-    padding: 0 2rem;
+    padding: 1.75rem 2rem 0;
+
 }
 
 .main-intro__heading {
@@ -75,14 +76,14 @@
 
 .side-intro__box {
     height: auto;
-    padding: 0.938rem 0 1.25rem 0;
-    margin-top: 0.938rem;
+    padding: 0.938rem 0 0 0;
     border-top: 1px solid #eeeeee;
     width: 100%;
 }
 
 .side-intro__box:last-of-type {
     border-bottom: 1px solid #eeeeee;
+    margin-top: 0;
 }
 .side-info {
     @include display(flex);
@@ -95,6 +96,10 @@
     margin-right: 1.2rem;
 }
 
+.side-info__column-img {
+    width: 56%;
+}
+
 .side-info__title {
     color: #2272CE;
     font-weight: 600;
@@ -104,7 +109,7 @@
 .side-info__heading {
     font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
     font-weight: 600;
-    line-height: 1.24rem;
+    line-height: 1.3rem;
     letter-spacing: normal;
     font-style: normal;
 }
@@ -325,18 +330,19 @@
     color: #4A4A4A;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 480px) {
 .data-lab-main {
     margin: 0;
 }
 .introduction-container {
     @include display(flex);
-    margin: 7rem 2.813rem 2.060rem 2.813rem;
+    margin: 12rem 2.813rem 2.060rem 2.813rem;
 }
 
 .side-intro__box {
     flex-shrink: 0;
     padding-top: 0;
+    margin-top: 0.938rem;
 }
 
 .side-column {
@@ -368,7 +374,7 @@
 }
 
 .main-intro {
-    width: 65%;
+    width: 50%;
     border: 1px solid #eeeeee;
 }
 
@@ -385,6 +391,7 @@
 .text-container {
     -ms-flex-order: 1;
     order: 1;
+    padding: 0 2rem;
 }
 
 .main-image-container {
@@ -494,21 +501,29 @@
 .resource__card-description {
     display: block;
     width: 100%; /* Fix for IE 11, because width does not get inherited properly in IE 11 */
+    line-height: 1.25rem;
 }
 
 .resource__card-title {
     margin-top: 2rem;
+    text-align: center;
 }
 
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 769px) {
     .introduction-container {
         margin: 12rem 10.250rem 5rem 10.250rem;
     }
+
+    .main-intro {
+        width: 50%;
+    }
+
     .analysis-container {
         margin: 2rem 10.250rem 6.668rem 10.250rem;
     }
+
     .resource-container {
         margin: 2rem 10.250rem 6.668rem 10.250rem;
     }
