@@ -13,80 +13,66 @@
  }
 </script>
 
-<div id="top-footer">
-  <div class="top-footer-column-logo">
-    <span>{% include svgs/DL_Gray.svg %}</span>
+<div class="dl-footer">
+  <div class="dl-footer__logo dl-footer__divider">
+    {% include svgs/DL_Gray.svg %}
   </div>
 
-  <div class="top-footer-group-separator"></div>
+  <div class="dl-footer__section dl-footer__divider">
 
-  <div class="top-footer-column">
-    <div class="link-group">
-      <div class="group-title">Contact Us</div>
-      <div>
-	<p>
-	  For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
-	</p>
-	<p>
-	  T: 202-504-3535
-	  <br>
-	  E: media.relations@fiscal.treasury.gov
-	</p>
-      </div>
-    </div>
+    <div class="dl-footer__group-title">Contact Us</div>
+    <p>
+      For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
+    </p>
+    <p>
+      T: 202-504-3535
+      <br>
+      E: media.relations@fiscal.treasury.gov
+    </p>
+
   </div>
 
-  <div class="top-footer-group-separator"></div>
+  <div class="dl-footer__section dl-footer__divider">
 
-  <div class="top-footer-column">
-    <div class="link-group">
-      <div class="group-title">Mailing List</div>
-      <div class="mailing-list">
-	<p>
-	  To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
-	</p>
-      </div>
+    <div class="dl-footer__group-title">Mailing List</div>
+    <p>
+      To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
+    </p>
+    <div class="dl-footer__group-title">Get Involved</div>
+    <ul class="links">
+      <li>Visit our <a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Community Page today.</a></li>
+    </ul>
 
-      <div class="group-title">Get Involved</div>
-      <ul class="links">
-        <li>Visit our <a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Community Page today.</a></li>
-      </ul>
-    </div>
   </div>
-
-  <div class="top-footer-group-separator"></div>
   
-  <div class="top-footer-column top-footer-column-end">
-    <div class="link-group">
-      <div class="group-title group-title-end">Connect With Us</div>
-      <ul class="icons">
-        <li>
-          <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
-            {% include svgs/Githubfooter.svg class="footer-icon" %}
-          </a>
-        </li>
-        <li>
-          <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
-            {% include svgs/Worldfooter.svg class="footer-icon" %}
-          </a>
-        </li>
-        <li>
-          <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
-            {% include svgs/Twitterfooter.svg class="footer-icon" %}
-          </a>
-        </li>
-        <li>
-          <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
-            {% include svgs/Facebookfooter.svg class="footer-icon" %}
-          </a>
-        </li>
-        <li>
-          <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
-            {% include svgs/Linkedinfooter.svg class="footer-icon" %}
-          </a>
-        </li>
-      </ul>
-    </div>    
+
+  <div class="dl-footer__social">
+    <div class="dl-footer__group-title">Connect With Us</div>
+    <div class="dl-footer__social-items">
+      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
+        {% include svgs/Githubfooter.svg class="footer-icon" %}
+      </a>
+
+
+      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
+        {% include svgs/Worldfooter.svg class="footer-icon" %}
+      </a>
+
+
+      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
+        {% include svgs/Twitterfooter.svg class="footer-icon" %}
+      </a>
+
+
+      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
+        {% include svgs/Facebookfooter.svg class="footer-icon" %}
+      </a>
+
+
+      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+        {% include svgs/Linkedinfooter.svg class="footer-icon" %}
+      </a>
+    </div>
   </div>
 
 </div>
