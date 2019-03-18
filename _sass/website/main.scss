@@ -54,6 +54,8 @@
 .main-intro__text {
     line-height: 23px;
     font-weight: 300;
+    font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
+    letter-spacing: 0.002rem;
 }
 
 .main-intro__text_mobile {
@@ -238,7 +240,7 @@
 }
 
 .resource-container {
-    margin: 1.5rem 0.938rem 2.060rem 0.938rem;
+    margin: 1.5rem 0.938rem 3rem 0.938rem;
     
 }
 
@@ -280,12 +282,14 @@
     text-align: center;
     font-weight: 300;
     margin-bottom: 1rem;
+    color: #4A4A4A;
 }
 
 .resource__subheading {
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
     text-align: center;
     font-weight: 300;
+    color: #4A4A4A;
 }
 
 .resource__icon {
@@ -310,6 +314,7 @@
     @include display(flex);
     @include justify-content(center);
     margin-left: 2rem;
+    color: #4A4A4A;
 }
 
 .resource__card-description {
@@ -317,16 +322,16 @@
     text-align: center;
     font-weight: 300;
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
+    color: #4A4A4A;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 768px) {
 .data-lab-main {
-    // max-width: 69.375rem;
     margin: 0;
 }
 .introduction-container {
     @include display(flex);
-    margin: 12rem 10.250rem 5rem 10.250rem;
+    margin: 7rem 2.813rem 2.060rem 2.813rem;
 }
 
 .side-intro__box {
@@ -338,6 +343,10 @@
     margin-left: 2rem;
     width: 32%;
     margin-top: 0;
+}
+
+.side-info {
+    margin-bottom: 1.125rem;
 }
 
 .side-info__column {
@@ -355,7 +364,6 @@
 }
 
 .side-info__text {
-    font-size: 0.875rem;
     display: inline;
 }
 
@@ -379,10 +387,6 @@
     order: 1;
 }
 
-.main-intro__text {
-    font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
-}
-
 .main-image-container {
     flex-shrink: 0;
 }
@@ -396,8 +400,7 @@
 }
 
 .analysis-container {
-    // margin: 2rem 0 6.668rem 0;
-    margin: 2rem 10.250rem 6.668rem 10.250rem;
+    margin: 1.5rem 2.813rem 2.060rem 2.813rem;
 }
 
 .analysis__row {
@@ -443,7 +446,7 @@
 }
 
 .resource-container {
-    margin: 2rem 10.250rem 6.668rem 10.250rem;
+    margin: 1.5rem 2.813rem 3rem 2.813rem;
 }
 
 .resource__row {
@@ -497,4 +500,16 @@
     margin-top: 2rem;
 }
 
+}
+
+@media only screen and (min-width: 1280px) {
+    .introduction-container {
+        margin: 12rem 10.250rem 5rem 10.250rem;
+    }
+    .analysis-container {
+        margin: 2rem 10.250rem 6.668rem 10.250rem;
+    }
+    .resource-container {
+        margin: 2rem 10.250rem 6.668rem 10.250rem;
+    }
 }
