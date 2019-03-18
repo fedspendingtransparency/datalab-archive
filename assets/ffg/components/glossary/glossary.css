@@ -5,13 +5,13 @@
     width: 310px;
     height: 100%;
     z-index: 1000;
-    box-shadow: -3px 0 4px rgba(0, 0, 0, .2);
     background-color:blue;
     transform: translateX(100%);
     transition: transform 0.5s ease;
 }
 
 #cg-glossary-wrapper.active {
+    box-shadow: -3px 0 4px rgba(0, 0, 0, .2);
     transform: translateX(0);
 }
 
