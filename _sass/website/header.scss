@@ -33,6 +33,10 @@ article#main {
   margin-top: 102px;
 }
 
+.official-banner {
+  box-sizing: border-box;
+}
+
 .header-tight article#main {
   margin-top: 75px;
 }
@@ -289,7 +293,7 @@ ul.nav > li:last-child {
 
 #header ul li.active a {
   color: $db-link;
-  text-shadow: 0 0 1px #000;
+  text-shadow: 0 0 1px #888;
 }
 
 #header ul li.secondaryNavli a:hover {
@@ -477,6 +481,7 @@ ul.nav:first-child li:hover > ul:after {
   }
   
   .official-banner {
+    box-sizing: border-box;
     height: 29px;
   }
 
