@@ -5,6 +5,10 @@
     min-height: 3.5rem;
 }
 
+.chapter-nav__overview i {
+    margin-right: 1rem;
+}
+
 .menu-open .chapter-nav__overview {
     border-bottom: 1px solid rgba(255,255,255,0.5);
 }
