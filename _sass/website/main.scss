@@ -1,12 +1,13 @@
+/* Note the SCSS flex code uses Bourbon flex mixins to better support IE */
+
 .data-lab-main {
-    margin: 1.5rem 0.938rem 0 0.938rem;
     padding-bottom: 2rem;
+    /* These calculations for the font uses Fluid Typography: https://css-tricks.com/snippets/css/fluid-typography/ */
     font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 .introduction-container {
     display: block;
-    margin-top: 7rem;
-    margin-bottom: 2.060rem;
+    margin: 7rem 0.938rem 2.060rem 0.938rem;
 }
 
 .main-intro {
@@ -28,7 +29,8 @@
 }
 
 .text-container {
-    padding: 0 2rem;
+    padding: 1.75rem 2rem 0;
+
 }
 
 .main-intro__heading {
@@ -52,6 +54,9 @@
 
 .main-intro__text {
     line-height: 23px;
+    font-weight: 300;
+    font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
+    letter-spacing: 0.002rem;
 }
 
 .main-intro__text_mobile {
@@ -71,24 +76,28 @@
 
 .side-intro__box {
     height: auto;
-    padding: 0.938rem 0 1.25rem 0;
-    margin-top: 0.938rem;
+    padding: 0.938rem 0 0 0;
     border-top: 1px solid #eeeeee;
+    width: 100%;
 }
 
 .side-intro__box:last-of-type {
     border-bottom: 1px solid #eeeeee;
+    margin-top: 0;
 }
 .side-info {
     @include display(flex);
-    margin-bottom: 1.25rem;
+    width: 100%;
 }
 
 .side-info__column {
     @include flex-direction(column);
     width: 100%;
-    margin-top: 2rem;
     margin-right: 1.2rem;
+}
+
+.side-info__column-img {
+    width: 56%;
 }
 
 .side-info__title {
@@ -100,7 +109,7 @@
 .side-info__heading {
     font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
     font-weight: 600;
-    line-height: 1.24rem;
+    line-height: 1.3rem;
     letter-spacing: normal;
     font-style: normal;
 }
@@ -108,6 +117,7 @@
 .side-info__text {
     display: none;
     font-weight: 300;
+    line-height: 1.2rem;
 }
 
 .side-info__link {
@@ -154,7 +164,7 @@
 }
 
 .analysis-container {
-    margin-bottom: 2.060rem;
+    margin: 1.5rem 0.938rem 2.060rem 0.938rem;
 }
 
 .analysis__title {
@@ -175,7 +185,7 @@
     @include display(flex);
     @include flex-direction(column);
     @include justify-content(space-between);
-    margin-top: 3rem;
+    margin-top: 3.75rem;
 }
 
 .analysis__col {
@@ -193,7 +203,7 @@
     width: 50%;
     margin-left: 2rem;
     -ms-flex-order: 2; 
-    order: 2;
+    order: 1;
     text-align: right;
 }
 
@@ -203,16 +213,17 @@
 }
 
 .analysis__heading {
-    margin: 0;
+    margin: 0 0 1.063rem 0;
     color: #2272CE;
     font-weight: 600;
     font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .analysis__headline {
-    margin-bottom: 3rem;
+    // margin-bottom: 3rem;
     font-weight: 600;
-    font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)))
+    color: #4A4A4A;
+    font-size: calc(17px + (24 - 17) * ((100vw - 300px) / (1600 - 300)))
 }
 
 .analysis__link {
@@ -234,7 +245,8 @@
 }
 
 .resource-container {
-    margin-bottom: 2.060rem;;
+    margin: 1.5rem 0.938rem 3rem 0.938rem;
+    
 }
 
 .resource__title {
@@ -275,12 +287,14 @@
     text-align: center;
     font-weight: 300;
     margin-bottom: 1rem;
+    color: #4A4A4A;
 }
 
 .resource__subheading {
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
     text-align: center;
     font-weight: 300;
+    color: #4A4A4A;
 }
 
 .resource__icon {
@@ -305,6 +319,7 @@
     @include display(flex);
     @include justify-content(center);
     margin-left: 2rem;
+    color: #4A4A4A;
 }
 
 .resource__card-description {
@@ -312,28 +327,36 @@
     text-align: center;
     font-weight: 300;
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
+    color: #4A4A4A;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 480px) {
 .data-lab-main {
-    margin: 12rem 10.250rem 5rem 10.250rem;
-    max-width: 69.375rem;
+    margin: 0;
 }
 .introduction-container {
     @include display(flex);
-    margin: 2rem 2rem 6.668rem 2rem;
+    margin: 12rem 2.813rem 2.060rem 2.813rem;
 }
 
 .side-intro__box {
-    width: 100%; 
     flex-shrink: 0;
     padding-top: 0;
+    margin-top: 0.938rem;
 }
 
 .side-column {
     margin-left: 2rem;
     width: 32%;
     margin-top: 0;
+}
+
+.side-info {
+    margin-bottom: 1.125rem;
+}
+
+.side-info__column {
+    margin-top: 2rem;
 }
 
 .side-info__column-img {
@@ -347,12 +370,11 @@
 }
 
 .side-info__text {
-    font-size: 0.875rem;
     display: inline;
 }
 
 .main-intro {
-    width: 65%;
+    width: 50%;
     border: 1px solid #eeeeee;
 }
 
@@ -369,10 +391,7 @@
 .text-container {
     -ms-flex-order: 1;
     order: 1;
-}
-
-.main-intro__text {
-    font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
+    padding: 0 2rem;
 }
 
 .main-image-container {
@@ -388,7 +407,7 @@
 }
 
 .analysis-container {
-    margin: 2rem 2rem 6.668rem 2rem;
+    margin: 1.5rem 2.813rem 2.060rem 2.813rem;
 }
 
 .analysis__row {
@@ -399,12 +418,13 @@
 .analysis__col {
     margin-top: 0;
     width: 23%;
+    justify-content: space-between;
 }
 
 .analysis__header {
-    @include flex(1);
     width: 100%;
     margin-left: 0;
+    order: -1;
     text-align: left;
 }
 
@@ -418,6 +438,7 @@
 
 .analysis__image-container {
     width: 100%;
+    margin-top: 3rem;
 }
 
 .analysis__image {
@@ -428,10 +449,11 @@
     @include flex(1);
     @include flex-direction(column-reverse);
     margin-top: 0;
+    order: -1;
 }
 
 .resource-container {
-    margin: 2rem 2rem 6.668rem 2rem;
+    margin: 1.5rem 2.813rem 3rem 2.813rem;
 }
 
 .resource__row {
@@ -479,10 +501,30 @@
 .resource__card-description {
     display: block;
     width: 100%; /* Fix for IE 11, because width does not get inherited properly in IE 11 */
+    line-height: 1.25rem;
 }
 
 .resource__card-title {
     margin-top: 2rem;
+    text-align: center;
 }
 
+}
+
+@media only screen and (min-width: 769px) {
+    .introduction-container {
+        margin: 12rem 10.250rem 5rem 10.250rem;
+    }
+
+    .main-intro {
+        width: 50%;
+    }
+
+    .analysis-container {
+        margin: 2rem 10.250rem 6.668rem 10.250rem;
+    }
+
+    .resource-container {
+        margin: 2rem 10.250rem 6.668rem 10.250rem;
+    }
 }

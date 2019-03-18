@@ -8,9 +8,9 @@ import { layersInit } from "./manageLayers";
 
 const config = {
     debtAmount: 21500000000000,
-    gdpAmount: 19600000000000,
+    gdpAmount: 20700000000000,
     deficitAmount: 779000000000,
-    gdpPercent: 110,
+    gdpPercent: 104,
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {
