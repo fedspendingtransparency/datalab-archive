@@ -1,15 +1,13 @@
 /* Note the SCSS flex code uses Bourbon flex mixins to better support IE */
 
 .data-lab-main {
-    margin: 1.5rem 0.938rem 0 0.938rem;
     padding-bottom: 2rem;
     /* These calculations for the font uses Fluid Typography: https://css-tricks.com/snippets/css/fluid-typography/ */
     font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 .introduction-container {
     display: block;
-    margin-top: 7rem;
-    margin-bottom: 2.060rem;
+    margin: 7rem 0.938rem 2.060rem 0.938rem;
 }
 
 .main-intro {
@@ -159,7 +157,7 @@
 }
 
 .analysis-container {
-    margin-bottom: 2.060rem;
+    margin: 1.5rem 0.938rem 2.060rem 0.938rem;
 }
 
 .analysis__title {
@@ -240,7 +238,8 @@
 }
 
 .resource-container {
-    margin-bottom: 2.060rem;;
+    margin: 1.5rem 0.938rem 2.060rem 0.938rem;
+    
 }
 
 .resource__title {
@@ -320,16 +319,14 @@
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1280px) {
 .data-lab-main {
-    // margin: 12rem 10.250rem 5rem 10.250rem;
-    max-width: 69.375rem;
+    // max-width: 69.375rem;
+    margin: 0;
 }
 .introduction-container {
     @include display(flex);
-    //margin: 2rem 0 6.668rem 0;
     margin: 12rem 10.250rem 5rem 10.250rem;
-    min-width: 69.375rem;
 }
 
 .side-intro__box {
@@ -401,7 +398,6 @@
 .analysis-container {
     // margin: 2rem 0 6.668rem 0;
     margin: 2rem 10.250rem 6.668rem 10.250rem;
-    min-width: 69.375rem;
 }
 
 .analysis__row {
@@ -448,7 +444,6 @@
 
 .resource-container {
     margin: 2rem 10.250rem 6.668rem 10.250rem;
-    min-width: 69.375rem;
 }
 
 .resource__row {
