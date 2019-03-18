@@ -330,7 +330,7 @@
     const analyses = populateSectionArray('analyses');
     const resources = populateSectionArray('resources');
     console.log(window.location.pathname);
-    if (window.location.pathname.indexOf('federal-finance-guide') != -1) {
+    if (window.location.pathname.indexOf('americas-finance-guide') != -1) {
       $('[data-target="ffg"]').addClass('active');
     } else if (analyses.indexOf(window.location.pathname) != -1) {
       $('[data-target="analyses"]').addClass('active');
