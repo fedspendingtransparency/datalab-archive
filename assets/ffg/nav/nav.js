@@ -18,7 +18,7 @@
             liLength = allSecondaryLi.length;
 
         if(filename === 'index.html'){
-            allSecondaryLi.item(0).classList.add('active');
+            allSecondaryLi.item(1).classList.add('active');
             return true;
         }
 
