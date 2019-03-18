@@ -9,7 +9,7 @@ import { layersInit } from "./manageLayers";
 const config = {
     revenueAmount: 3300000000000,
     spendingAmount: 4100000000000,
-    debtBalance: 20800000000000,
+    debtBalance: 21500000000000,
     reportedDeficitAmount: 779000000000,
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,

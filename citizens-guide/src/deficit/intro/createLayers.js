@@ -18,6 +18,7 @@ let config, deficitStartPosition, deficitRemainder, deficitY1;
 
 function generateOverlay(number, id, label, rectColor) {
     const amount = (id === 'debt') ? number - config.deficitAmount : number,
+        labelAmount = (id === 'debt') ? config.debtBalance : amount,
         count = Math.ceil(amount / billion),
         debtRowOne = (id === 'debt') ? dotsPerRow - deficitRemainder : 0,
         rows = Math.floor((count - debtRowOne) / dotsPerRow),
@@ -68,7 +69,7 @@ function generateOverlay(number, id, label, rectColor) {
         }
     }
 
-    labelMaker(overlayLayer, overlayHeight, label, amount);
+    labelMaker(overlayLayer, overlayHeight, label, labelAmount);
 
     overlayLayer.attr('data-height', overlayHeight);
 
@@ -104,7 +105,7 @@ function createSpending() {
 }
 
 function createDebt() {
-    generateOverlay(config.debtBalance, 'debt', '2018 Debt', config.debtColor);
+    generateOverlay(config.debtBalance, 'debt', 'Federal Debt', config.debtColor);
     addDebtLabel();
     layers.debt.attr('transform', translator(0, 100))
 }
