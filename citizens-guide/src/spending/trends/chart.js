@@ -9,12 +9,10 @@ import { renderLabels } from './labels';
 import { showDetail, destroyDetailPane } from './detailPane';
 import { zoomTrigger } from './zoomTrigger';
 import { ink } from './ink'
-import { processDataForChart } from './trendData';
 import { addTooltips, repositionDataDots } from './addTooltips';
 import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
-import { activateTourPartTwo } from './tour';
 import { dataRange } from './setThreshold';
 
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
@@ -60,8 +58,6 @@ function transformChart(globals, reset) {
 }
 
 function onSelect(d, reset) {
-    activateTourPartTwo();
-
     if (reset) {
         this.activeDrilldown = null;
         this.trendLines.deEmphasize(null, this);
