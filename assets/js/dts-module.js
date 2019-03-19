@@ -76,7 +76,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
     .attr("transform", "translate(" + (x(lastDate)) + "," + (y(lastValue)) + ")");
 
   d3.select(".dtsm-dollars").text(dollarFormatter(lastValue));
-  d3.select(".dtsm-tas-subheader").text(dateFormatter(lastDate));
+  d3.select(".side-dts__date").text("Updated " + dateFormatter(lastDate));
 });
 
 function type(d) {
