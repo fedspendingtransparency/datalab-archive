@@ -12,11 +12,11 @@
 
     a.toc__link {
         color: $text-color-paragraph;
-        opacity:0.4;
+        opacity: 1;
 
         &.current {
             font-weight: $boldWeight;
-            opacity:1;
+            opacity: 1;
         }
     }
 
