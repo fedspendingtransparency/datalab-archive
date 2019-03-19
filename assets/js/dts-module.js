@@ -77,7 +77,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-family","Source Sans Pro")
       .style("line-height","20px")
       .call(d3.axisBottom(x)
-      .tickFormat(d3.timeFormat("%B"))
+      .tickFormat(d3.timeFormat("%b"))
       .ticks(2));
 
   svg.append("path")
