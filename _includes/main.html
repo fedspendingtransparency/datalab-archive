@@ -1,303 +1,218 @@
-<main class="data-lab-main">
-    <section class="introduction-container">
-      <div class="main-intro">
-        <div class="headings-container">
-          <h2 class="main-intro__subheading">
-            <a class="main-intro__link" href="/americas-finance-guide/"
-              >Your Guide to Federal Government Finances in 2018</a
-            >
-          </h2>
-        </div>
-        <div class="main-image-container">
-          <img class="main-intro__image" src="../images/homepage/intro.gif" />
-        </div>
-        <div class="text-container">
-          <p class="main-intro__text main-intro__text_mobile">
-            This visualization presents you with clear, straightforward
-            information about the finances of the federal government.
-          </p>
-          <p class="main-intro__text main-intro__text_desktop">
-              Where does federal government funding come from? Where does it go? How has federal funding changed over time? We present you with clear, straightforward information about finances in the federal government. Check out the Data Lab’s re-invention of the Citizen’s Guide to Financial Report of the U.S. Government: Your Guide to America’s Finances.
-          </p>
-        </div>
-      </div>
-      <div class="side-column">
-        <!-- DTS section -->
-        <div class="side-dts__box">
-          <div class="side-dts__heading">The Daily Treasury Statement</div>
-          <hr class="horizontal_dts">
-          <h2 class="side-dts__headline">
-            How much does the federal government spend each day?
-          </h2>
-          <!-- Drop your DTS module here and styling here -->
-          <div class="dts-container">
-              <style>
-                  .dts-module {
-                    box-sizing: border-box;
-                    height: 100px;
-                    background-color: inherit;
-                    padding: 0px 25px 25px 15px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  }
+<article id="main">
+  <div class="dl-landing">
 
-                  .dtsm-right-column{
-                    display: inline-block;
-                  }
-                  
-                  .dtsm-img {
-                    width: auto;
-                    height: 100%;
-                    display: flex;
-                  }
-                  
-                  .dtsm-dollars {
-                    font-size: 22px;
-                    font-weight: 600;
-                    margin-left: 15px;
-                    margin-right: 15px;
-                    /* opacity: .75; */
-                    fill: #4A4A4A;
-                  }
-                  
-                  .dtsm-tas-header {
-                    font-size: 12px;
-                    font-weight: 600;
-                    line-height: 150%;
-                    /* opacity: .8; */
-                    fill: #4A4A4A;
-                  }
-                  
-                  .side-dts__date {
-                    font-size: 14px;
-                    /* text-transform: uppercase; */
-                    font-weight: 600;
-                    /* line-height: 150%; */
-                    /* opacity: .9; */
-                    line-height: 20px;
-                    fill: #757575;
-                    margin: 2px 0px 10px 0px;
-                    text-align: center;
-                  }
-                  
-                  div.dts-container > div > div > svg > g > path{
-                    fill:none;
-                  }
-                  .line {
-                    fill: none;
-                    stroke: #00CCCC;
-                    stroke-width: 3px;
-                  }
-                
-                  .dtsm-img text {
-                    fill: black;
-                  }
-                
-                  .dtsm-img .domain {
-                    display: none;
-                  }
-                
-                  .dtsm-img .tick line {
-                    stroke: black;
-                  }
-                
-                  .dtsm-img circle {
-                    fill: #FFB232;
-                    stroke: #FFF;
-                    stroke-width: 1px;
-                  }
-                  
-                  .grid line {
-                    stroke: rgb(159, 162, 168);
-                    stroke-opacity: 0.15;
-                  }
-                  hr.horizontal_dts{
-                    border-top: 1px solid #757575;
-                    width: 100%;
-                    opacity: .2;
-                    margin-top: -5px;
-                  }
-                </style>
-                  
-                <div class="dts-module">
-                  <!-- <div class="dtsm-left-column">
-                    <a href="dts.html"></a>
-                  </div> -->
-                  <div class="dtsm-img"></div>
-                  <div class="dtsm-right-column">
-                    <div class="dtsm-tas-container">
-                      <div class="dtsm-tas-header">All categories</div>
-                    </div>
-                    <div class="dtsm-dollars">$</div>
-                  </div>
-                </div>
-                
-                <script src="{{ "/js/babel-polyfill.min.js" | prepend: site.baseurl }}"></script>
-                <script src="https://d3js.org/d3.v4.min.js"></script>
-                <script src="{{site.baseurl}}/assets/js/dts-module.js"></script>                
-          </div> 
-          <hr class="horizontal_dts">
-          <div class="side-dts__date">
-            <!-- Updated: <strong>March 3, 2018</strong> -->
-          </div>
-        </div>
-        <div class="side-intro__box">
-          <div class="side-info">
-            <div class="side-info__column">
-              <div class="side-info__title">Contract Spending Analysis</div>
-              <h2 class="side-info__heading">
-                <a class="side-info__link" href="contracts-over-time.html"
-                  >How has federal contract spending changed over time?</a
-                >
-              </h2>
-            </div>
-            <div class="side-info__column-img">
-              <img
-                class="side-info__image"
-                src="../images/homepage/Landscape.png"
-                alt="Contracts over time"
-              />
-            </div>
-          </div>
-          <p class="side-info__text">
-            We explore 10 years of contract data, and provide an analysis of the
-            impact of short-term continuing resolutions on contract spending.
-          </p>
-        </div>
-        <div class="side-intro__box">
-          <div class="side-info">
-            <div class="side-info__column">
-              <div class="side-info__title">Federal Account Explorer</div>
-              <h2 class="side-info__heading">
-                <a class="side-info__link" href="federal-account-explorer.html"
-                  >How does the government buy things?</a
-                >
-              </h2>
-            </div>
-            <div class="side-info__column-img">
-              <img
-                class="side-info__image"
-                src="../images/homepage/Landscape.png"
-                alt="Federal Account Explorer"
-              />
-            </div>
-          </div>
-          <p class="side-info__text">
-            The government has almost 2,000 accounts it uses to spend money.
-            Explore the government&#8217;s spending accounts and discover how much
-            money has been spent.
-          </p>
-        </div>
-      </div>
+    <section class="primary">
+      <a class="primary__link" href="#">
+	<h1 class="primary__mobile-heading">
+	  Your Guide to America's Finances
+	</h1>
+
+	<img class="primary__image" src="../images/homepage/cg-giffy.gif" />
+	<div class="primary__content">
+	  <p class="primary__desktop-heading">
+	    Welcome to the People's Guide
+	  </p>
+
+	  <h2>
+	    Your Guide to Federal Government Finances in 2018
+	  </h2>
+
+	  <p class="primary__text primary__text--desktop">
+	    Where does federal government funding come from? Where does it go? How has federal funding changed over
+	    time? We present you with clear, straightforward information about finances in the federal government. Check
+	    out the Data Lab’s re-invention of the Citizen’s Guide to Financial Report of the U.S. Government: Your
+	    Guide to America’s Finances.
+	  </p>
+
+	  <p class="primary__text">
+	    This visualization presents you with clear, straightforward
+	    information about the finances of the federal government.
+	  </p>
+	</div>
+
+      </a>
     </section>
-    <section class="analysis-container">
-      <header><h2 class="analysis__title">More analysis</h2></header>
-      <hr class="analysis__divider" />
-      <div class="analysis__row">
-        <div class="analysis__col analysis__col_small">
-            <div class="analysis__header">
-                <h3 class="analysis__heading">Homelessness Analysis</h3>
-                <div class="analysis__headline">
-                    <a class="analysis__link" href="homelessness-analysis.html">Explorer federal programs that address homelessness</a>
-                </div>
-            </div>
-            <div class="analysis__image-container">
-                <a class="analysis__link" href="homelessness-analysis.html">
-                <img
-                class="analysis__image"
-                src="../images/homepage/homelessness.png"
-                alt="Picture addressing homelessness"
-                />
-            </a>
-            </div>
-        </div>
-        <div class="analysis__col analysis__col_small">
-            <div class="analysis__header">
-                <h3 class="analysis__heading">Federal Employees</h3>
-                <div class="analysis__headline">
-                        <a class="analysis__link" href="federal-employees.html">Who works in government?</a>
-                </div>
-            </div>
-            <div class="analysis__image-container">
-                <a class="analysis__link" href="federal-employees.html">
-                <img
-                class="analysis__image"
-                src="../images/homepage/workers.png"
-                alt="A group of workers"
-            />
-            </a>
-        </div>
-          </div>
-          <div class="analysis__col analysis__col_small">
-            <div class="analysis__header">
-                <h3 class="analysis__heading">Budget Function</h3>
-                <div class="analysis__headline">
-                    <a class="analysis__link" href="budget-function.html">Check out how federal spending is categorized by mission</a>
-                </div>
-            </div>
-            <div class="analysis__image-container">
-                <a class="analysis__link" href="budget-function.html">
-            <img
-            class="analysis__image"
-            src="../images/homepage/budget.png"
-            alt="A group of workers"
-          />
-          </a>
-        </div>
-          </div>
-          <div class="analysis__col">
-            <div class="analysis__header-full">
-                <h3 class="analysis__heading">Competition in Contracting</h3>
-                <div class="analysis__headline analysis__headline_big">
-                    <a class="analysis__link" href="competition-in-contracting.html">How often do federal agencies compete for contracts?</a>
-                </div>
-            </div>
-            <a class="analysis__link" href="competition-in-contracting.html">
-            <img
-            class="analysis__image"
-            src="../images/homepage/competition.png"
-            alt="A group of workers"
-          />
-          </a>
-          </div>
-      </div>
+
+    <section class="secondary">
+
+      <section class="landing-chart">
+	<a class="landing-chart__link" href="#">
+	  <h1>
+	    Visualizing the Daily Treasury Statement
+	  </h1>
+	  <h2>
+	    How much does the federal government spend each day?
+	  </h2>
+	  {% include landing-dts.html %}
+	</a>
+
+      </section>
+
+      <section class="landing-feature">
+	<a class="landing-feature__link" href="#">
+
+	  <div class="landing-feature__headings">
+	    <h1>
+	      Contract Spending Analysis
+	    </h1>
+	    <h2>
+	      How has federal contract spending changed over time?
+	    </h2>
+	  </div>
+
+	  <div class="landing-feature__image">
+	    <img class="" src="../images/homepage/contracts-over-time-new.png" />
+	  </div>
+	  <p class="landing-feature__text">
+	    We explore 10 years of contract data, and provide an analysis of the
+	    impact of short-term continuing resolutions on contract spending.
+	  </p>
+
+	</a>
+      </section>
+
+      <section class="landing-feature">
+	<a class="landing-feature__link" href="#">
+
+	  <div class="landing-feature__headings">
+	    <h1>
+	      Federal Account Explorer
+	    </h1>
+	    <h2>
+	      Discover the federal government's spending accounts
+	    </h2>
+	  </div>
+	  <div class="landing-feature__image">
+	    <img class="" src="../images/homepage/federal.jpg" />
+	  </div>
+
+	  <p class="landing-feature__text">
+	    The government has almost 2,000 accounts it uses to spend money.
+	    Explore the government's spending accounts and discover how much
+	    money has been spent.
+	  </p>
+	</a>
+      </section>
+
     </section>
-    <section class="resource-container">
-            <header><h2 class="resource__title">Resources</h2></header>
-            <hr class="resource__divider" />
-                <div class="resource__row">
-                    <div class="resource__col">
-                        <div class="resource__headline">Do you need <strong>resources?</strong></div>
-                        <div class="resource__subheading">Access data from our sources and create your own charts and visualizations.</div>
-                    </div>
-                    <div class="resource__col resource__col_main">
-                            <div class="resource__icon resource__icon_resource">
-                                {% include svgs/resources-api-2.svg %}
-                            </div>
-                            <div class="resource__card">
-                              <div class="resource__card-title">API Guide</div>
-                              <div class="resource__card-description">Guidance on accessing your data with open source code.</div>
-                            </div>
-                    </div>
-                    <div class="resource__col resource__col_main">
-                            <div class="resource__icon resource__icon_guide">
-                                {% include svgs/resources-user-guide-2.svg %} 
-                            </div>
-                            <div class="resource__card">
-                              <div class="resource__card-title">Analyst Guide</div>
-                              <div class="resource__card-description">Methods to easily navigate USAspending data and conduct data analyses.</div>
-                            </div>
-                    </div>
-                    <div class="resource__col resource__col_main">
-                            <div class="resource__icon resource__icon_playbook">
-                                {% include svgs/resources-playbook-2.svg %}
-                            </div>
-                            <div class="resource__card">
-                              <div class="resource__card-title">College Playbook</div>
-                              <div class="resource__card-description">Ways for professors  and students to get involved.</div>
-                            </div>
-                    </div>
-            </div>
-          </section>
-    </main>
+  </div>
+  <section class="landing-row">
+    <h1 class="landing-row__heading">
+      More Analysis
+    </h1>
+    <div class="landing-row__tiles">
+
+      <a class="landing-row__tile" href="homelessness-analysis.html">
+	<div class="landing-row__text">
+	  <p class="landing-row__label">
+	    Homelessness Analysis
+	  </p>
+	  <p class="landing-row__title">
+	    Explore federal programs that address homelessness
+	  </p>
+	</div>
+	<img src="../images/homepage/homelessness.png" class="landing-row__image" />
+	
+      </a>
+
+      <a class="landing-row__tile" href="federal-employees.html">
+	<div class="landing-row__text">
+	  <p class="landing-row__label">
+	    Federal Employees
+	  </p>
+	  <p class="landing-row__title">
+	    Who works in government
+	  </p>
+	</div>
+	<img src="../images/homepage/workers.png" class="landing-row__image" />
+      </a>
+
+      <a class="landing-row__tile" href="budget-function.html">
+	<div class="landing-row__text">
+	  <p class="landing-row__label">
+	    Budget Function
+	  </p>
+	  <p class="landing-row__title">
+	    Check out how federal spending is categorized by mission
+	  </p>
+	</div>
+	<img src="../images/homepage/budget.png" class="landing-row__image" />
+      </a>
+
+      <a class="landing-row__tile" href="competition-in-contracting.html">
+	<div class="landing-row__text">
+	  <p class="landing-row__label">
+	    Competition in Contracting
+	  </p>
+	  <p class="landing-row__title">
+	    How often do federal agencies compete for contracts?
+	  </p>
+	</div>
+	<img src="../images/homepage/competition.png" class="landing-row__image" />
+      </a>
+    </div>
+  </section>
+
+
+  <!-- <section class="landing-row">
+       <h1 class="landing-row__heading">
+
+       </h1>
+       <div class="landing-row__tiles">
+
+       <div class="landing-row__tile">
+       <a class="landing-row__tile">
+       <img src="" class="landing-row__image" />
+       <p class="landing-row__label">
+
+       </p>
+       <p class="landing-row__title">
+
+       </p>
+       </a>
+       </div>
+
+       <div class="landing-row__tile">
+       <a class="landing-row__tile">
+       <img src="" class="landing-row__image" />
+       <p class="landing-row__label">
+
+       </p>
+       <p class="landing-row__title">
+
+       </p>
+       </a>
+       </div>
+
+       <div class="landing-row__tile">
+       <a class="landing-row__tile">
+       <img src="" class="landing-row__image" />
+       <p class="landing-row__label">
+
+       </p>
+       <p class="landing-row__title">
+
+       </p>
+       </a>
+       </div>
+
+       <div class="landing-row__tile">
+       <a class="landing-row__tile">
+       <img src="" class="landing-row__image" />
+       <p class="landing-row__label">
+
+       </p>
+       <p class="landing-row__title">
+
+       </p>
+       </a>
+       </div>
+
+       </div>
+
+
+       </section> -->
+
+
+</article>
+<div class="clearfix"></div>
