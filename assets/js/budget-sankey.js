@@ -682,9 +682,9 @@ function RadioSankeyFY17() {
 }
 
 function RadioSankeyFY18() {
-    d3.csv("/data-lab-data/sankey_panel_v4_FY18.csv", (error1, data) => {
-        d3.csv("/data-lab-data/sankey_v18_FY18.csv", (error2, sPanel) => {
-            d3.csv("/data-lab-data/sankey_titles_v4_FY18.csv", (error3, sTitle) => {
+    d3.csv("/data-lab-data/sankey_v19_FY18.csv", (error1, data) => {
+        d3.csv("/data-lab-data/sankey_panel_v5_FY18.csv", (error2, sPanel) => {
+            d3.csv("/data-lab-data/sankey_titles_v5_FY18.csv", (error3, sTitle) => {
                 d3.csv("/data-lab-data/descriptions.csv", (error4, descriptions) => {
                     makeSankey(data, sPanel, sTitle, descriptions);
                 });
@@ -700,9 +700,17 @@ $(document).ready(() => {
         const FiscalYear = $('input[name="FiscalYear"]:checked').val();
         d3.selectAll('#sankey-viz > svg').remove();
         if (FiscalYear === 'fy17') {
+            d3.selectAll("#tab").remove();
+            d3.selectAll("#tab_2").remove();
+            d3.selectAll("#tab_3").remove();
+            d3.selectAll("#description").remove();
             RadioSankeyFY17();
         }
         else if (FiscalYear === 'fy18') {
+            d3.selectAll("#tab").remove();
+            d3.selectAll("#tab_2").remove();
+            d3.selectAll("#tab_3").remove();
+            d3.selectAll("#description").remove();
             RadioSankeyFY18();
         }
     });

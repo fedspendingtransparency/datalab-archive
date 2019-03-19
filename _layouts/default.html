@@ -4,11 +4,13 @@
   {% include scripts.html %}
   <body>
     <div id="page-wrapper">
-        {% include header.html %}
-        <span id="return-to-top">{% include svgs/chevron-up.svg class="icon-chevron-up" %}</span>
-        {{ content }}
-        {% include footer.html %}
+      {% include header.html %}
+      <span id="return-to-top">{% include svgs/chevron-up.svg class="icon-chevron-up" %}</span>
+      {{ content }}
+      {% include footer.html %}
     </div>
     {% include sidenav.html %}
+    {% include structured-data.html %}
+    <script src="/assets/ffg/components/glossary/glossary.js"></script>
   </body>
 </html>

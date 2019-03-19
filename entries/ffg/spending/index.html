@@ -1,0 +1,92 @@
+--- 
+layout: ffg
+title: Data Lab - title – U.S. Treasury
+excerpt: excerpt
+header: header
+description: description
+permalink: /americas-finance-guide/spending/index
+ffg: true
+ffgNav: true
+ffgPageCss: css/chapterIntroCommon.css
+---
+
+{% include ffg/nav/spending.html %}
+
+<div class="ffg-wrapper spending-intro">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+    <h1>In 2018, the government spent $4.1 trillion.
+        <button class="info-box-trigger" data-box-id="per-individual">
+            <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        </button>
+    </h1>
+
+    <div class="viz-wrapper">
+        <div id="viz"></div>
+
+        <div class="intro-math intro-hidden">
+            <i class="fas fa-reply intro-math__icon"></i>4,100 dots x $1 billion = <strong>$4.1 trillion</strong>
+        </div>
+
+        <div id="copy" class="intro-hidden">
+            <p>Where does all the money go? Most of government spending is concentrated on programs that ensure the health and well-being of the people of the United States. Why does the federal government do this? One reason is the Constitution! The Constitution’s preamble, which outlines the purpose of creating the new government is "...to establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity."</p>
+        </div>
+
+        <div class="facts sidebar intro-hidden">
+            <div class="facts__inner">
+                <div id="compare-options">
+                    <p class="facts__prompt">How does federal spending compare to federal revenue and the size of the economy?</p>
+                    <div class="facts__triggers">
+                        <button class="facts__trigger" data-trigger-id="revenue">Federal Revenue</button>
+                        <button class="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
+                    </div>
+                </div>
+
+                <section id="revenue-facts" class="facts__section">
+                    <h1>In Fiscal Year 2018, the federal government collected $3.3 trillion in federal revenue.</h1>
+                    <p>Since the government spent more than it collected, the deficit for 2018 was $779 billion.
+                    </p><p>
+                        <a target="_blank" href="../revenue/">Go Explore Federal Revenue.</a>
+                    </p>
+                </section>
+
+                <section id="gdp-facts" class="facts__section">
+                    <h1>In Fiscal Year 2018, federal spending was equal to 20% of the total gross domestic product (GDP), or economic activity, of the United States that year ($20.7 trillion).</h1>
+                    
+                    <p>Why do we compare federal spending to gross domestic product? One reason is to give a reference point for the size of the federal government, as measured by the amount it spends. U.S. gross domestic product is much larger than government spending, because it includes all the economic activity of the entire nation. Government spending equates to roughly $1 out of every $5 of the goods produced and services provided in the United States.</p>
+
+                    <strong>What's gross domestic product?
+                        <button class="info-box-trigger" data-box-id="gdp-info">
+                            <img src="/assets/ffg/icons/definition.svg" alt="definition icon">
+                        </button>
+                    </strong>
+                </section>
+            </div>
+        </div>
+        
+        <section class="tour sidebar intro-hidden">
+            <h1 class="tour__heading">What are the categories of federal spending?</h1>
+            <a class="tour__link" href="./categories.html">Discover<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </div>
+
+    <div class="info-box" id="per-individual">
+        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        <p>How much is $4.1 trillion in federal spending?  If you divide it by the U.S. population estimate in 2018, 327.7 million (<a target="_blank" href="https://www.census.gov/popclock/" target="_blank">U.S. Census Bureau</a>), it would equate to a little more than $12,500 in federal spending for every individual.</p>
+    </div>
+
+    <div class="info-box" id="gdp-info">
+        <img src="/assets/ffg/icons/definition.svg" alt="definition icon">
+        <p><strong>Gross domestic product (GDP)</strong> measures the size of the nation's economy by the total value of goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.</p>
+    </div>
+
+    <div class="info-box" id="billion-dollars">
+        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        <p>In this visualization, each dot represents $1 billion of federal spending. </p>
+    </div>
+
+    <section class="hwcta">
+        <p>The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. The spending-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that go out from the federal government annually.</p>
+    </section>
+</div>
+
+<script src="/assets/ffg/spending/intro.js"></script>

@@ -1,0 +1,45 @@
+--- 
+layout: ffg
+title: Data Lab - title – U.S. Treasury
+excerpt: excerpt
+header: header
+description: description
+permalink: /americas-finance-guide/revenue/trends
+ffg: true
+ffgNav: true
+---
+
+{% include ffg/nav/revenue.html %}
+
+<div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+    
+    <h1>Federal Revenue Trends</h1>
+
+    <div class="copy-tour-row" id="income-facts">
+            <section class="copy-tour-row__copy">
+                <p>How has federal revenue changed over the past few years?</p>
+                <p>The chart below shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory. What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
+            </section>
+            <div class="copy-tour-row__tour">
+                <section class="tour">
+                    <div class="tour__part-one">
+                        <h1>How does the revenue of the United States compare to other countries?</h1>
+                        <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
+                    </div>
+                    <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+                </section>
+            </div>
+        </div>
+
+    <h2 class="chart-title">Federal Revenue Trends over Time by Category</h2>
+    <div class="hint">Click a revenue category to view more</div>
+
+    <div id="viz"></div>
+
+    <section class="hwcta">
+        The visualization was created using {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue of the United States. {% include ffg/data-sources/bls_cpiu.html %} was used to adjust revenue in fiscal years {% include ffg/data-sources/inflation_fys.html %} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time. 
+    </section>
+</div>
+
+<script src="/assets/ffg/revenue/trends.js"></script>

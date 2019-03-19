@@ -1,0 +1,619 @@
+// Jack Killilea (jrk) <Killilea_Jack@bah.com>
+// For our *New* homepage Sticky Header & Banner (plus extras!)
+$lb-link: #2376d8;
+$db-link: #0a2644;
+$link-color: #999;
+
+/* Header */
+#header {
+  background: #FFFFFF;
+  box-sizing: border-box;
+  line-height: normal;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: fixed;
+  top: 29px;
+  z-index: 20;
+}
+
+.header__main {
+  display: flex;
+  box-sizing: border-box;
+  height: 102px; // eyeballin'
+  padding-top: 1.5rem;
+  padding-right: 4rem;
+  padding-bottom: 1.5rem;
+  padding-left: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+article#main {
+  margin-top: 102px;
+}
+
+.official-banner {
+  box-sizing: border-box;
+}
+
+.header-tight article#main {
+  margin-top: 75px;
+}
+
+.header__main.tight {
+  height: 75px; // eyeballin'
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.header__sub {
+  position: relative;
+  z-index: 20;
+}
+
+#one-line-tag {
+  min-width: 298px;
+}
+
+#master-logo {
+//  transition: width .5s ease;
+}
+
+#header.tight {
+//  padding-top: 1rem;
+//  padding-bottom: 1rem;
+
+  #master-logo {
+    width: 240px;
+  }
+
+  .header-logo__two-line {
+    width: 130px;
+  }
+}
+
+#header:hover {
+  opacity: 1 !important;
+}
+
+.header-logo__img {
+  width: 298px;
+}
+
+.header-nav {
+//  position: relative;
+//  justify-content: flex-end; 
+//  align-items: center;
+}
+
+.header-logo__tagline {
+  display: none;
+}
+
+.header-logo__tagline.active {
+  display: inline-block;
+}
+
+.header-logo {
+  display: block;
+  position: relative;
+  opacity: 1;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+//  transform: opacity .2s ease;
+}
+
+.landing .header-logo.header-logo--init {
+  opacity: 0;
+}
+
+.landing .header-logo {
+  left: 50%;
+  margin-left: -149px;
+}
+
+.header-init {
+  top: 29px;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.displayNone {
+  display: none;
+}
+
+#headerNav {
+  display: flex;
+  flex: 1;
+}
+
+.header-logo__two-line {
+//  width: 190px;
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
+.header-logo__wrapper {
+  margin-bottom: -6px;
+}
+
+#navText {
+  padding-top: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  color: #757575;
+}
+
+.logo-div {
+  position: absolute;
+//  transition: all 700ms ease-in;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.logo-div-animate-after {
+  margin-right: auto;
+//  transition: all 700ms ease-in;
+}
+
+.logo-div-left {
+  margin-right: auto;
+}
+
+.logo-div-animate {
+  transition: all 700ms ease-in;
+  transform: translate(-250%, 0);
+//  margin-right: auto;
+}
+
+.mobile-menu-sticky {
+  position: fixed;
+  top: 110px;
+  width: 100%;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: #FFFFFF;
+  z-index: 20;
+}
+
+/* This will be default logo when in non-sticky mode */
+/* "sticky" mode will remove margins! */
+.usaspending-logo-center {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+// if/else to handle this id
+// if we are NOT on landing page
+// display to left always
+#usaspending-logo-left {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+// this will show on "hover" of li element in Nav! (ul)
+// this will show on mobile
+.mobileUlSection {
+  display: none; // dont display until mobile view
+}
+
+// our hamburger menu, display none until right screen size
+.navbar-toggle {
+  display: none;
+}
+
+// secondary nav ul
+.secondaryNavAnalyses {
+  display: none;
+  margin: 0;
+  margin-right: 30px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.secondaryNavResources {
+  display: none;
+  margin: 0;
+  margin-right: 40px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.secondaryNavFFG {
+  display: none;
+  margin: 0;
+  margin-right: 40px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.secondaryNavli {
+//  display: inline;
+  font-size: 13px;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.secondaryNavli a {
+  white-space: nowrap;
+}
+
+//secondary nav li hover!
+.secondaryNavli > a:hover {
+  color: $lb-link;
+  text-decoration: underline;
+}
+
+#ffgNavAnchor:hover {
+  text-decoration: underline;
+}
+
+/** navigation style **/
+ul.nav {
+  display: flex;
+  list-style: none;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+ul.nav > li {
+  padding: 0 20px;
+}
+
+ul.nav > li:last-child {
+  padding-right: 0;
+}
+
+#header ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #999;
+
+  &:hover {
+    color: $db-link;
+  }
+}
+
+#header ul li.active a {
+  color: $db-link;
+  text-shadow: 0 0 1px #888;
+}
+
+#header ul li.secondaryNavli a:hover {
+  color: $lb-link;
+  text-decoration: underline;
+}
+
+ul.nav li > ul {
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: 300px;
+  width: 100%;
+  min-width: 100%;
+  whitespace: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-span-rightText {
+  display: none;
+}
+
+ul.nav li > ul li {
+  position: relative;
+  display: inline;
+  color: #fff;
+  z-index: 20;
+}
+
+ul.nav li > ul li a {
+  color: #eee;
+  display: block;
+  padding: 0 20px;
+  line-height: 70px;
+}
+ul.nav li > ul li a:hover { color: #0a2644; }
+
+ul.nav > li:hover > a { color: #0a2644; }
+
+ul.nav li:hover > ul {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  list-style: none;
+  margin-right: 500px;
+  min-width: 100%;
+  whitespace: nowrap;
+  width: 100%;
+  overflow: visible;
+  height: 60px;
+}
+
+ul.nav li:hover > ul li {
+  display: inline;
+  float: left;
+  text-align: left;
+}
+
+ul.nav li:hover > ul > li {
+  display: inline;
+  left: -3%;
+  /* Safari 4+ */
+  
+  -webkit-animation: nav-anim-left 0.6s;
+  /* Fx 5+ */
+  
+  -moz-animation: nav-anim-left 0.6s;
+  /* Opera 12+ */
+  
+  -o-animation: nav-anim-left 0.6s;
+  /* IE 10+, Fx 29+ */
+  
+  animation: nav-anim-left 0.6s;
+}
+
+ul.nav:first-child li:hover > ul:before,
+ul.nav:first-child li:hover > ul:after {
+  //margin-right: 300px;
+  -webkit-animation: nav-down 0.25s;
+  /* Fx 5+ */
+  
+  -moz-animation: nav-down 0.25s;
+  /* Opera 12+ */
+  
+  -o-animation: nav-down 0.25s;
+  /* IE 10+, Fx 29+ */
+  
+  animation: nav-down 0.25s;
+}
+
+/** Dropdown Animation **/
+@-webkit-keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+@-moz-keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+@-o-keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+@keyframes nav-down {
+  0% { height: 0px; }
+  100% { height: 100px; }
+}
+
+/** Sub-Nav Sliding Animation **/
+@-webkit-keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@-moz-keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@-o-keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@keyframes nav-anim-left {
+  0% { left: 100%; }
+  100% { left: -3%; }
+}
+
+@media screen and (max-width: 1043px) {
+  ul.nav {
+    flex-wrap: nowrap;
+//    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 898px) {
+  ul.nav {
+    flex-wrap: wrap;
+//    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 937px) {
+  ul.nav {
+    flex-wrap: nowrap;
+///    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  ul.nav {
+    flex-wrap: nowrap;
+//    padding-right: 0px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .logo-div {
+    position: static;
+  }
+}
+
+@media (max-width: 450px) {
+  .header-logo__img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 515px) {
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+// "super mobile" - where logo shrinks
+@media (max-width: 450px) {
+  #mobile-nav {
+    top: 95px;
+  }
+  
+  .official-banner {
+    box-sizing: border-box;
+    height: 29px;
+  }
+
+  .official-banner .official-banner__site-list {
+    display: none;
+  }
+  
+}
+
+// mobile view toggle - hamburger
+@media (max-width: 955px) {
+  ul.nav {
+    list-style-type: none;
+    display: none;
+  }
+
+  .header__main {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  #one-line-tag, .landing #one-line-tag {
+    display: none;
+  }
+  
+  .dropdownUlSection {
+    display: none; // hide so nothing toggles
+  }
+
+  ul.nav > li {
+    text-align: center;
+  }
+
+  .navbar-toggle {
+    display: flex; // show hamburger now
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 28px;
+    justify-content: flex-end;
+    align-content: flex-end;
+  }
+
+  .dropdownUlSection {
+    display: none; 
+  }
+
+  .logo-div-nonlanding {
+    display: flex;
+    margin-right: auto;
+  }
+
+  .logo-span {
+    display: none;
+  }
+
+  .logo-span-rightText {
+    display: block;
+  }
+
+  .logo-div {
+    transition: all 700ms ease-in;
+    transform: translate(0,0);
+    margin-right: auto;
+  }
+
+  .usaspending-logo-center {
+    justify-content: flex-start;
+    padding-right: 0; // get rid of padding for mobile view
+  }
+
+  .mobileUlSection {
+    display: none;
+    justify-content: flex-end;
+    flex-direction: row;
+    z-index: 20; // make sure its above the rest...
+  }
+
+  .mobileNav {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 25px;
+    top: 110px;
+    width: 100%;
+    right: 0px;
+    background: #FFF;
+    z-index: 20;
+  }
+
+  // display all UL's as hidden until click!
+  #mobileAnalyses, #mobileResources, #mobileFFG {
+    display: none;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    align-items: flex-end;
+  }
+
+  #mobileHr {
+    text-align: center;
+  }
+
+  // fix spaces with secondary mobile list items
+  .secondaryNavMobileli {
+//    padding-top: 3px;
+//    padding-bottom: 3px;
+    text-align: right;
+    font-size: 12px;
+  }
+  
+  .secondaryNavAnalysesMobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .secondaryNavResourcesMobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .secondaryNavFFGMobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  // hover link
+  .secondaryNavMobileli > a:hover {
+    color: $lb-link;
+  }
+}
+
+
+
