@@ -1,12 +1,13 @@
----
----
+"use strict";
 
-const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
-const dateFormatter = d3.timeFormat("%B %e, %Y");
+var dollarFormatter = function dollarFormatter(d) {
+    return d3.format("$,.2s")(d).replace(/G/, "B");
+};
+var dateFormatter = d3.timeFormat("%B %e, %Y");
 
-var margin = {top: 0, right: 20, bottom: 30, left: 75},
-    width = 300 - margin.left - margin.right,
-    height = 80 - margin.top - margin.bottom;
+var margin = { top: 0, right: 20, bottom: 30, left: 50 },
+    width = 200 - margin.left - margin.right,
+    height = 90 - margin.top - margin.bottom;
 
 // parse the date / time
 var parseTime = d3.timeParse("%Y-%m-%d");
@@ -14,49 +15,58 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
-var valueline = d3.line()
-    .x(d => x(d.date))
-    .y(d => y(d.Totals));
+var valueline = d3.line().x(function (d) {
+    return x(d.date);
+}).y(function (d) {
+    return y(d.Totals);
+});
 
-var svg = d3.select(".dtsm-img").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+var svg = d3.select(".dtsm-img").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
-  if (error) throw error;
+function drawYAxisGridlines(svg, y, width, ticks) {
+    svg.append("g").attr("class", "grid").call(d3.axisLeft(y).ticks(2).tickSize(-width).tickFormat(""));
+}
 
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function(d) { return d.Totals; })]);
+d3.csv("/data-lab-data/dts/recent_30.csv", type, function (error, data) {
+    if (error) throw error;
 
-  let lastEntry = data[data.length - 1];
-  let lastDate = lastEntry.date;
-  let lastValue = lastEntry.Totals;
+    x.domain(d3.extent(data, function (d) {
+        return d.date;
+    }));
+    y.domain([0, d3.max(data, function (d) {
+        return d.Totals;
+    })]);
 
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline);
+    var lastEntry = data[data.length - 1];
+    var lastDate = lastEntry.date;
+    var lastValue = lastEntry.Totals;
 
-  let yAxis = d3.axisLeft(y).ticks(3).tickFormat(dollarFormatter);
+//    console.log("line: ", valueline);
 
-  svg.append("g")
-      .call(yAxis)
-      .attr("transform", "translate(-10)");
+    // let yAxis = d3.axisLeft(y)
+    // .tickFormat(dollarFormatter)
+    // .ticks(3);
 
-  svg.append("circle")
-    .attr("r", 7)
-    .attr("stroke-width", 1)
-    .attr("transform", "translate(" + (x(lastDate)) + "," + (y(lastValue)) + ")");
+    // let xAxis = d3.axisBottom(x)
+    // .tickFormat(d3.timeFormat("%B"))
+    // .ticks(2);
 
-  d3.select(".dtsm-dollars").text(dollarFormatter(lastValue));
-  d3.select(".dtsm-tas-subheader").text(dateFormatter(lastDate));
+    svg.append("g").attr("class", "dts_Yaxis").attr("transform", "translate(-10)").style("stroke", "#757575").style("font-family", "Source Sans Pro").style("font-size", "11").style("line-height", "20px").call(d3.axisLeft(y).tickFormat(dollarFormatter).ticks(2));
+
+    svg.append("g").attr("class", "dts_Xaxis").attr("transform", "translate(0,65)").style("stroke", "#757575").style("font-size", "11").style("font-family", "Source Sans Pro").style("line-height", "20px").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%B")).ticks(2));
+
+    svg.append("path").data([data]).attr("class", "line").attr("d", valueline);
+
+    drawYAxisGridlines(svg, y, width, 10);
+
+    svg.append("circle").attr("r", 7).attr("stroke-width", 1).attr("transform", "translate(" + x(lastDate) + "," + y(lastValue) + ")");
+
+    d3.select(".dtsm-dollars").text(dollarFormatter(lastValue));
+    d3.select(".side-dts__date").text("Updated " + dateFormatter(lastDate));
 });
 
 function type(d) {
-  d.date = parseTime(d.date);
-  d.Totals = +d.Totals * 1000000; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
-  return d;
+    d.date = parseTime(d.date);
+    d.Totals = +d.Totals * 1000000; // is this wrong? should it be fytd, mtd, and today instead? also multiply?
+    return d;
 }
