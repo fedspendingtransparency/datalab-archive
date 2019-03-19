@@ -188,8 +188,7 @@ function setTermListView(showListResultsInd) {
 
 function resizeTermListDiv() {
     const termListDiv = $('#cg-glossary-term-list-div');
-
-    if (termListDiv) {
+    if (termListDiv.length) {
         // Most (if not all) CG pages have a window event which refreshes the screen, so since we only create the SVG elements
         // on init, we must also create them on resize.
         createSVGElements();
