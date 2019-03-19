@@ -58,12 +58,12 @@
 .chapter-nav li a {
     display: block;
     color: white;
-    font-weight: bold;
+    font-weight: 300;
     text-decoration: none;
     height: 0rem;
     line-height: 3rem;
     overflow: hidden;
-    opacity: .5;
+    opacity: 1;
     transition: height 0.3s ease;
 }
 
@@ -73,6 +73,7 @@
 
 .chapter-nav li.active a {
     height: 3rem;
+    font-weight: bold;
 }
 
 
