@@ -53,11 +53,11 @@ export function placeHorizontalStripes(dataLength, dimensions) {
 function placeMask() {
     // clip the drop shadow
     
-    if (containers.legends.selectAll('rect.' + maskClass).size()) {
+    if (containers.columnHeaders.selectAll('rect.' + maskClass).size()) {
         return;
     }
     
-    containers.legends.append('rect')
+    containers.columnHeaders.append('rect')
         .classed(maskClass, true)
         .attr('width', 1200)
         .attr('height', dimensions.header)
