@@ -29,7 +29,8 @@
 }
 
 .text-container {
-    padding: 0 2rem;
+    padding: 1.75rem 2rem 0;
+
 }
 
 .main-intro__heading {
@@ -54,6 +55,8 @@
 .main-intro__text {
     line-height: 23px;
     font-weight: 300;
+    font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
+    letter-spacing: 0.002rem;
 }
 
 .main-intro__text_mobile {
@@ -73,14 +76,14 @@
 
 .side-intro__box {
     height: auto;
-    padding: 0.938rem 0 1.25rem 0;
-    margin-top: 0.938rem;
+    padding: 0.938rem 0 0 0;
     border-top: 1px solid #eeeeee;
     width: 100%;
 }
 
 .side-intro__box:last-of-type {
     border-bottom: 1px solid #eeeeee;
+    margin-top: 0;
 }
 .side-info {
     @include display(flex);
@@ -93,6 +96,10 @@
     margin-right: 1.2rem;
 }
 
+.side-info__column-img {
+    width: 56%;
+}
+
 .side-info__title {
     color: #2272CE;
     font-weight: 600;
@@ -102,7 +109,7 @@
 .side-info__heading {
     font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
     font-weight: 600;
-    line-height: 1.24rem;
+    line-height: 1.3rem;
     letter-spacing: normal;
     font-style: normal;
 }
@@ -178,14 +185,20 @@
     @include display(flex);
     @include flex-direction(column);
     @include justify-content(space-between);
-    margin-top: 3.75rem;
+    margin-top: 0.938rem;
 }
 
 .analysis__col {
     @include display(flex);
     @include flex-direction(column);
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 0.6rem;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 0.6rem;
+}
+
+.analysis__col:first-of-type {
+    margin-top: 0;
 }
 
 .analysis__col_small {
@@ -219,6 +232,10 @@
     font-size: calc(17px + (24 - 17) * ((100vw - 300px) / (1600 - 300)))
 }
 
+.analysis__headline_big {
+    font-size: 1.563rem;
+}
+
 .analysis__link {
     text-decoration: none;
 }
@@ -238,7 +255,7 @@
 }
 
 .resource-container {
-    margin: 1.5rem 0.938rem 2.060rem 0.938rem;
+    margin: 1.5rem 0.938rem 3rem 0.938rem;
     
 }
 
@@ -265,8 +282,14 @@
 .resource__col {
     @include display(flex);
     @include flex-direction(column);
-    margin-top: 2rem;
     width: 100%;
+    border-top: 1px solid #eeeeee;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.resource__col:first-of-type {
+    margin-top: 2rem;
 }
 
 .resource__col_main {
@@ -280,12 +303,16 @@
     text-align: center;
     font-weight: 300;
     margin-bottom: 1rem;
+    color: #4A4A4A;
 }
 
 .resource__subheading {
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
     text-align: center;
     font-weight: 300;
+    color: #4A4A4A;
+    line-height: 1.5rem;
+    margin-bottom: 3.125rem;
 }
 
 .resource__icon {
@@ -293,8 +320,19 @@
 }
 
 .resource__icon svg {
-    width: 4.73rem;
     height: 5rem;
+}
+
+.resource__icon_resource {
+    width: 2.938rem;
+}
+
+.resource__icon_guide {
+    width: 2.063rem;
+}
+
+.resource__icon_playbook {
+    width: 2.250rem;
 }
 
 .resource__card {
@@ -310,6 +348,7 @@
     @include display(flex);
     @include justify-content(center);
     margin-left: 2rem;
+    color: #4A4A4A;
 }
 
 .resource__card-description {
@@ -317,27 +356,32 @@
     text-align: center;
     font-weight: 300;
     font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
+    color: #4A4A4A;
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 480px) {
 .data-lab-main {
-    // max-width: 69.375rem;
     margin: 0;
 }
 .introduction-container {
     @include display(flex);
-    margin: 12rem 10.250rem 5rem 10.250rem;
+    margin: 12rem 2.813rem 2.060rem 2.813rem;
 }
 
 .side-intro__box {
     flex-shrink: 0;
     padding-top: 0;
+    margin-top: 0.938rem;
 }
 
 .side-column {
     margin-left: 2rem;
     width: 32%;
     margin-top: 0;
+}
+
+.side-info {
+    margin-bottom: 1.125rem;
 }
 
 .side-info__column {
@@ -355,12 +399,11 @@
 }
 
 .side-info__text {
-    font-size: 0.875rem;
     display: inline;
 }
 
 .main-intro {
-    width: 65%;
+    width: 50%;
     border: 1px solid #eeeeee;
 }
 
@@ -377,10 +420,7 @@
 .text-container {
     -ms-flex-order: 1;
     order: 1;
-}
-
-.main-intro__text {
-    font-size: calc(15px + (15 - 15) * ((100vw - 300px) / (1600 - 300)));
+    padding: 0 2rem;
 }
 
 .main-image-container {
@@ -396,8 +436,7 @@
 }
 
 .analysis-container {
-    // margin: 2rem 0 6.668rem 0;
-    margin: 2rem 10.250rem 6.668rem 10.250rem;
+    margin: 1.5rem 2.813rem 2.060rem 2.813rem;
 }
 
 .analysis__row {
@@ -409,6 +448,8 @@
     margin-top: 0;
     width: 23%;
     justify-content: space-between;
+    padding-bottom: none;
+    border-bottom: none;
 }
 
 .analysis__header {
@@ -416,6 +457,10 @@
     margin-left: 0;
     order: -1;
     text-align: left;
+}
+
+.analysis__headline_big {
+    font-size: 1.5rem;
 }
 
 .analysis__col_small {
@@ -443,7 +488,7 @@
 }
 
 .resource-container {
-    margin: 2rem 10.250rem 6.668rem 10.250rem;
+    margin: 1.5rem 2.813rem 3rem 2.813rem;
 }
 
 .resource__row {
@@ -453,6 +498,12 @@
 
 .resource__col {
     margin-right: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.resource__col:first-of-type {
+    margin-top: 0rem;
 }
 
 .resource__col_main {
@@ -482,6 +533,7 @@
 
 .resource__subheading {
     text-align: left;
+    margin-bottom: 0;
 }
 
 .resource__card {
@@ -491,10 +543,42 @@
 .resource__card-description {
     display: block;
     width: 100%; /* Fix for IE 11, because width does not get inherited properly in IE 11 */
+    line-height: 1.25rem;
 }
 
 .resource__card-title {
     margin-top: 2rem;
+    text-align: center;
 }
 
+.resource__icon_resource {
+    width: 2.938rem;
+}
+
+.resource__icon_guide {
+    width: 2.063rem;
+}
+
+.resource__icon_playbook {
+    width: 2.250rem;
+}
+
+}
+
+@media only screen and (min-width: 769px) {
+    .introduction-container {
+        margin: 12rem 10.250rem 5rem 10.250rem;
+    }
+
+    .main-intro {
+        width: 65%;
+    }
+
+    .analysis-container {
+        margin: 2rem 10.250rem 6.668rem 10.250rem;
+    }
+
+    .resource-container {
+        margin: 2rem 10.250rem 6.668rem 10.250rem;
+    }
 }

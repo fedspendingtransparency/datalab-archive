@@ -1,12 +1,17 @@
-body {
-    margin-bottom: 4rem;
-}
-
 .chapter-nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
     min-height: 3.5rem;
+    box-sizing: border-box;
+}
+
+.chapter-nav__overview i {
+    margin-right: 1rem;
+}
+
+.menu-open .chapter-nav__overview {
+    border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
 .chapter-nav--revenue {
@@ -75,21 +80,33 @@ body {
     opacity: 1;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 840px) {
+    .chapter-nav {
+        min-height: auto;
+        height: 3rem;
+    }
+    
     .chapter-nav button {
         display: none;
+    }
+
+    .menu-open .chapter-nav__overview {
+        border-bottom: none;
     }
 
     .chapter-nav ul {
         display: flex;
         width: 100%;
         max-width: 1200px;
-        margin: 5px auto;
+        margin: 0 auto;
     }
 
     .chapter-nav li {
-        width: 25%;
+        flex-grow: 1;
         border-right: rgba(255,255,255,0.5) 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .chapter-nav.chapter-nav--deficit li {
@@ -100,8 +117,9 @@ body {
         border-right: none;
     }
 
-    .chapter-nav li a {
-        height: 3rem;
+    .chapter-nav li a, .chapter-nav li.active a {
+        height: auto;
         text-align: center;
+        line-height: normal;
     }
 }
