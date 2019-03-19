@@ -4,7 +4,15 @@
     }
 
     function onLinkClick(e) {
-        var target = e.srcElement;
+        const headerEl = document.getElementById('header'),
+            target = e.srcElement,
+            fontSize = window.getComputedStyle(document.body).getPropertyValue('font-size'),
+            imageResize = 7; // At the top of the page, the image is larger than when we scroll down where the 'tight' class is added.
+        let headerHeight = headerEl.clientHeight;
+
+        if(!headerEl.classList.contains('tight')){
+            headerHeight = headerHeight - (parseInt(fontSize,10) + imageResize);
+        }
 
         if (target.nodeName !== 'A') {
             target = target.parentElement
@@ -14,7 +22,7 @@
 
         targetElementOffset = document.querySelector(targetSelector).offsetTop,
             step = 45,
-            difference = targetElementOffset - window.pageYOffset,
+            difference = targetElementOffset - window.pageYOffset - headerHeight,
             steps = Math.floor(Math.abs(difference) / step),
             remainder = difference % step;
         i = 0;
