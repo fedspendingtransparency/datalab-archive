@@ -25,6 +25,7 @@
         <!-- DTS section -->
         <div class="side-dts__box">
           <div class="side-dts__heading">The Daily Treasury Statement</div>
+          <hr class="horizontal_dts">
           <h2 class="side-dts__headline">
             How much does the federal government spend each day?
           </h2>
@@ -52,29 +53,32 @@
                   }
                   
                   .dtsm-dollars {
-                    font-size: 28px;
+                    font-size: 22px;
                     font-weight: 600;
                     margin-left: 15px;
                     margin-right: 15px;
-                    opacity: .75;
-                    fill: #757575;
+                    /* opacity: .75; */
+                    fill: #4A4A4A;
                   }
                   
                   .dtsm-tas-header {
-                    font-size: 16px;
+                    font-size: 12px;
                     font-weight: 600;
                     line-height: 150%;
-                    opacity: .8;
-                    fill: #757575;
+                    /* opacity: .8; */
+                    fill: #4A4A4A;
                   }
                   
                   .side-dts__date {
                     font-size: 14px;
-                    text-transform: uppercase;
-                    font-weight: 400;
-                    line-height: 150%;
-                    opacity: .9;
+                    /* text-transform: uppercase; */
+                    font-weight: 600;
+                    /* line-height: 150%; */
+                    /* opacity: .9; */
+                    line-height: 20px;
                     fill: #757575;
+                    margin: 2px 0px 10px 0px;
+                    text-align: center;
                   }
                   
                   div.dts-container > div > div > svg > g > path{
@@ -106,6 +110,12 @@
                   .grid line {
                     stroke: rgb(159, 162, 168);
                     stroke-opacity: 0.25;
+                  }
+                  hr.horizontal_dts{
+                    border-top: 1px solid #757575;
+                    width: 100%;
+                    opacity: .2;
+                    margin-top: -5px;
                   }
                 </style>
                   
