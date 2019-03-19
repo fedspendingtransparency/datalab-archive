@@ -15,11 +15,13 @@ $color-spending-trends:#004941;
 $color-spending-trend-lines:rgb(24,90,83);
 $color-spending-trend-circles:rgb(00,72,64);
 $color-deficit-primary:#B3532D;
+$color-deficit-surplus:#DAA200;
 $color-debt-primary:#4A0072;
 
 :export {
     colorDebtPrimary: $color-debt-primary;
     colorDeficitPrimary: $color-deficit-primary;
+    colorDeficitSurplus: $color-deficit-surplus;
     colorGrayDark: $color-gray-dark;
     colorPrimary: $color-primary;
     colorPrimaryDarker: $color-primary-darker;
