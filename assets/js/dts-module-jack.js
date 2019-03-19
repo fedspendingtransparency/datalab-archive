@@ -2,7 +2,7 @@ Array.prototype.first = function () {
   return this[0];
 };
 
-const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
+const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
 var margin = {top: 0, right: 20, bottom: 30, left: 75},
@@ -43,7 +43,7 @@ d3.csv("/data-lab-data/dts/dts.csv", function(error, data) {
 
   let latestDate = groupByDate[0].key;
   let latestValue = groupByDate[0].value;
-//  console.log(latestDate, latestValue);
+console.log(latestDate, latestValue);
 
   svg.append("path")
     .data([data])
