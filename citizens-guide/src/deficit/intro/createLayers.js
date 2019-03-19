@@ -88,7 +88,7 @@ function addDebtLabel() {
         .attr('x', (dotsPerRow * dotConstants.offset.x - 300) / 2);
 
     layers.debt.append('text')
-        .text('Prior year debt balance')
+        .text('Prior year debt balance*')
         .attr('fill', colors.textColorParagraph)
         .attr('text-anchor', 'middle')
         .attr('y', yOffset + 37)
