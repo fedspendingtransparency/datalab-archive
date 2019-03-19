@@ -25,6 +25,19 @@ var svg = d3.select(".dtsm-img").append("svg")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+function drawYAxisGridlines(svg, y, width, ticks) {
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .call(
+        d3
+          .axisLeft(y)
+          .ticks(2)
+          .tickSize(-width)
+          .tickFormat("")
+      );
+}
+
 d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   if (error) throw error;
 
@@ -69,6 +82,8 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .data([data])
       .attr("class", "line")
       .attr("d", valueline);
+
+  drawYAxisGridlines(svg, y, width, 10)
 
   svg.append("circle")
     .attr("r", 7)
