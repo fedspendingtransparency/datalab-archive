@@ -61,9 +61,10 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   svg.append("g")
       .attr("class","dts_Yaxis")
       .attr("transform", "translate(-10)")
-      .style("stroke","#676767")
+      .style("stroke","#757575")
       .style("font-family","Source Sans Pro")
       .style("font-size","11")
+      .style("line-height","20px")
       .call(d3.axisLeft(y)
       .tickFormat(dollarFormatter)
       .ticks(2));
@@ -71,9 +72,10 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   svg.append("g")
       .attr("class","dts_Xaxis")
       .attr("transform", "translate(0,65)")
-      .style("stroke","#676767")
+      .style("stroke","#757575")
       .style("font-size","11")
       .style("font-family","Source Sans Pro")
+      .style("line-height","20px")
       .call(d3.axisBottom(x)
       .tickFormat(d3.timeFormat("%B"))
       .ticks(2));
