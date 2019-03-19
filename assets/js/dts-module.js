@@ -1,7 +1,7 @@
 ---
 ---
 
-const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
+const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
 var margin = {top: 0, right: 20, bottom: 30, left: 75},

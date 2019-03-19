@@ -2,7 +2,7 @@ Array.prototype.first = function () {
   return this[0];
 };
 
-const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
+const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
 var margin = {top: 0, right: 20, bottom: 30, left: 75},
@@ -26,7 +26,7 @@ var svg = d3.select(".dtsm-img").append("svg")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("/data-lab-data/dts/dts.csv", function(error, data) {
+d3.csv("/data-lab-data/dts/recent_30.csv", function(error, data) {
   if (error) throw error;
   data.reverse();
 
