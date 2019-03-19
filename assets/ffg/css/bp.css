@@ -92,7 +92,7 @@
     margin-bottom: 0.2rem; }
   .toc a.toc__link {
     color: #666666;
-    opacity: 0.4; }
+    opacity: 1; }
     .toc a.toc__link.current {
       font-weight: 600;
       opacity: 1; }

@@ -16,28 +16,37 @@ function setArcRadius(radius) {
 }
 
 export function createDonut(container, percent, diameter, fillColor) {
-    const data = [percent * 100, 100 - percent * 100],
+    const absPercent = Math.abs(percent),
+        isNegativeVal = percent < 0,
+        shadedColorIterator = isNegativeVal ? 1 : 0,
         g = container.append('g')
             .attr('transform', translator(diameter / 2, diameter / 2));
 
+    let data = [absPercent * 100, 100 - absPercent * 100]
+
+    if(isNegativeVal){
+        data = data.reverse();
+    }
+
     setArcRadius(diameter / 2);
 
-    var pie = g.selectAll(".arc")
+
+    const pie = g.selectAll(".arc")
         .data(pieFn(data))
         .enter()
         .append("g")
-        .attr("class", "arc")
+        .attr("class", "arc");
 
-    var donut = pie.append("path")
+    const donut = pie.append("path")
         .attr("d", arcFn);
 
     donut.style("fill", function (d, i) {
         const shadedColor = fillColor || '#dd6666';
-        return (i === 0) ? shadedColor : '#dddddd'
+        return (i === shadedColorIterator) ? shadedColor : '#dddddd'
     });
 
     g.append('text')
-        .text(Math.round(percent * 100) + '%')
+        .text(Math.round(absPercent * 100) + '%')
         .attr('fill', colors.textColorParagraph)
         .attr('font-size', diameter/4)
         .attr('text-anchor', 'middle')

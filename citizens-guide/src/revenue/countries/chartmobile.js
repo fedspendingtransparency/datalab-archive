@@ -35,7 +35,7 @@ const mobileDimensions = {
     fontSize = parseFloat(getComputedStyle(document.body).fontSize),
     maskClass = 'drop-shadow-mask';
 
-let config, data, svg, primaryColor;
+let config, data, svg, primaryColor, negativeColor, legendEl;
 
 function buildCountryBoxDropShadow(dataLength) {
     const dropShadow = svg.select('.drop-shadow-base');
@@ -104,30 +104,20 @@ function barTransition(selection, data) {
     selection.transition()
         .duration(barFadeTime)
         .attr('x', function (d) {
-            d = d || data;
-            if (d[config.amountField] < 0) {
-                return scales.x(d[config.amountField]);
-            }
-
             return scales.x(0);
         })
         .attr('width', function (d) {
-            d = d || data;
-            return Math.abs(scales.x(d[config.amountField]) - scales.x(0));
+            return Math.abs(scales.x(Math.abs(d[config.amountField])) - scales.x(0));
         })
         .ease();
 }
 
 function barLabelPosition(d) {
-    if (d[config.amountField] < 0) {
-        return scales.x(0) + 10;
-    }
-
-    return scales.x(d[config.amountField]) + 10;
+    return scales.x(Math.abs(d[config.amountField])) + 10;
 }
 
 function setScales() {
-    const amountVals = data.map(r => r[config.amountField]),
+    const amountVals = data.map(r => Math.abs(r[config.amountField])),
         min = d3.min([0, d3.min(amountVals)]),
         max = d3.max(amountVals);
 
@@ -181,13 +171,13 @@ function sort() {
     updateIcons();
 }
 
-function placeLegend(){
+function placeHeaders(){
     const labelXPadding = 12;
 
     const percentLabelOffset = Math.min(mobileDimensions.countryColumnWidth + mobileDimensions.gdpColumnWidth / 2 + 10 - fontSize, document.body.clientWidth - 160);
 
     svg.append('g')
-        .classed('legend', true)
+        .classed('header', true)
         .attr('data-type', config.amountField)
         .append('text')
         .attr('transform', translator(- labelXPadding / 2, 0))
@@ -199,7 +189,7 @@ function placeLegend(){
 
     svg.append('g')
         .attr('transform', translator(percentLabelOffset, 0))
-        .classed('legend', true)
+        .classed('header', true)
         .attr('data-type', config.gdpField)
         .append('text')
         .attr('x', labelXPadding)
@@ -212,7 +202,7 @@ function placeLegend(){
         .attr('dy', 14)
         .attr('x', labelXPadding);
 
-    svg.selectAll('g.legend')
+    svg.selectAll('g.header')
         .on('click', sort)
         .attr('style', 'cursor:pointer')
         .each(function () {
@@ -220,6 +210,68 @@ function placeLegend(){
         });
 
     updateIcons();
+}
+
+function placeLegend() {
+    const boxSize = 12,
+        animationDuration = 0;
+
+    legendEl = svg.append('g').classed('legend', true);
+
+    positionLegend(animationDuration);
+
+    legendEl.append('rect')
+        .attr('x1', 0)
+        .attr('y', -boxSize)
+        .attr('width', boxSize)
+        .attr('height', boxSize)
+        .attr('fill', primaryColor);
+
+    legendEl.append('g')
+        .classed('legend', true)
+        .attr('data-type', config.amountField)
+        .append('text')
+        .text(config.amountLabel)
+        .attr('font-weight', 600)
+        .attr('x', 15)
+        .attr('font-size', 14);
+
+    legendEl.append('rect')
+        .attr('x', 100)
+        .attr('y', -boxSize)
+        .attr('width', boxSize)
+        .attr('height', boxSize)
+        .attr('fill', negativeColor);
+
+    legendEl.append('g')
+        .classed('legend', true)
+        .attr('data-type', config.gdpField)
+        .append('text')
+        .attr('x', 115)
+        .attr('font-weight', 600)
+        .text(config.negativeAmountLabel)
+        .attr('font-size', 14);
+}
+
+function positionLegend(duration, action){
+    const chartHeight = parseInt(d3.select('svg.main').attr('height'),10);
+    let yPos = chartHeight;
+
+    switch(action){
+        case 'add':
+            yPos = chartHeight + mobileDimensions.rowHeight;
+            break;
+        case 'remove':
+            yPos = chartHeight - mobileDimensions.rowHeight;
+            break;
+        default:
+            yPos = chartHeight;
+    }
+
+    legendEl.transition()
+        .duration(duration)
+        .attr('transform', translator(mobileDimensions.chartWidth / 2 - 100, yPos - 5))
+        .ease();
 }
 
 function addDGPIcon(row, d){
@@ -230,7 +282,9 @@ function addDGPIcon(row, d){
 
     setTimeout(function () {
         dataRows.each(function () {
-            createDonut(d3.select(this), d[config.gdpField] / 100, donutRadius * 2, primaryColor);
+            const gdpPercent = d[config.gdpField] / 100,
+            donutColor = gdpPercent > 0 ? primaryColor : negativeColor;
+            createDonut(d3.select(this), d[config.gdpField] / 100, donutRadius * 2, donutColor);
         })
     }, timeoutForAdd);
 }
@@ -241,11 +295,17 @@ function redraw(){
 
     setMobileChartSVG();
     setScales();
-    placeLegend();
+    placeHeaders();
     createMobileChart();
     initDropShadow();
     ink();
     selectCountryInit(isMobileInd);
+
+    if(config.negativeAmountLabel){
+        setTimeout(function() {
+            placeLegend();
+        }, addRemoveDuration * 1.1); //Ensure we gave the chart enough time to build its height
+    }
 }
 
 function buildRow(d,i){
@@ -265,7 +325,8 @@ function buildRow(d,i){
 }
 
 function buildRows(rows){
-    svg.attr('height', data.length * mobileDimensions.rowHeight + mobileDimensions.header + 20);
+    const svgPadding = config.negativeAmountLabel ? 40 : 20;
+    svg.attr('height', data.length * mobileDimensions.rowHeight + mobileDimensions.header + svgPadding);
     const dataRows = rows.selectAll('g.cg-data-row')
         .data(data, function (d) { return d.country });
 
@@ -323,35 +384,28 @@ function addMobileBarGroups(row, d) {
         return;
     }
 
-    if (scales.x.domain()[0] < 0) {
-        barElement.append('line')
-            .attr('stroke', primaryColor)
-            .attr('x1', scales.x(0))
-            .attr('y1', mobileDimensions.rowHeight / 2 - mobileDimensions.barHeight / 2 - 5)
-            .attr('x2', scales.x(0))
-            .attr('y2', mobileDimensions.rowHeight / 2 - mobileDimensions.barHeight / 2 + mobileDimensions.barHeight + 5)
-    }
-
     barElement.append('rect')
         .attr('width', 0)
         .attr('height', mobileDimensions.barHeight)
         .attr('x', scales.x(0))
         .attr('y', mobileDimensions.rowHeight / 2 - mobileDimensions.barHeight / 2)
-        .attr('fill', primaryColor)
+        .attr('fill', function(d){
+            return d[config.amountField] > 0 ? primaryColor : negativeColor;
+        })
         .attr('fill-opacity', 0.5)
-        .attr('stroke', primaryColor)
+        .attr('stroke', function(d){
+            return d[config.amountField] > 0 ? primaryColor : negativeColor;
+        })
         .attr('stroke-width', 1)
         .call(barTransition, d);
 
     barElement.append('text')
         .text(function () {
-            return simplifyNumber(d[config.amountField])
+            return simplifyNumber(Math.abs(d[config.amountField]))
         })
         .attr('font-size', 12)
         .attr('x', barLabelPosition(d))
-        .attr('y', function (d, i) {
-            return (mobileDimensions.rowHeight / 2 + mobileDimensions.barHeight / 2 - 4);
-        })
+        .attr('y', mobileDimensions.rowHeight / 2 + mobileDimensions.barHeight / 2 - 4)
         .attr('opacity', 0)
         .transition()
         .delay(barFadeTime)
@@ -365,6 +419,11 @@ export function updateMobileTableList(_data, action){
     const rows = svg.select('.cg-country-comparison-rows');
     rescale();
     buildRows(rows);
+
+    if(config.negativeAmountLabel){
+       positionLegend(addRemoveDuration, action);
+    }
+
     sortRows();
 }
 
@@ -378,6 +437,7 @@ export function redrawMobile(_config, _data){
     data = _data;
 
     primaryColor = config.primaryColor || '#EEE';
+    negativeColor = config.negativeValueColor || '#EEE';
 
     const ffgWrapper = d3.select('.ffg-wrapper');
 

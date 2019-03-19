@@ -188,8 +188,7 @@ function setTermListView(showListResultsInd) {
 
 function resizeTermListDiv() {
     const termListDiv = $('#cg-glossary-term-list-div');
-
-    if (termListDiv) {
+    if (termListDiv.length) {
         // Most (if not all) CG pages have a window event which refreshes the screen, so since we only create the SVG elements
         // on init, we must also create them on resize.
         createSVGElements();
@@ -201,8 +200,6 @@ function resizeTermListDiv() {
 }
 
 function onFfgPage() {
-    console.log(window.location.pathname);
-
     if (window.location.pathname.indexOf('americas-finance-guide') === -1 && window.location.host.indexOf('localhost') === -1) {
         return false;
     }
@@ -215,7 +212,6 @@ function showGlossary() {
         showListResultsInd = true;
 
     if (!onFfgPage()) {
-        console.log('should redirect')
         window.location = 'https://' + window.location.host + '/americas-finance-guide/?glossary';
         return;
     }

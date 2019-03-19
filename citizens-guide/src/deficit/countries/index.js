@@ -13,8 +13,10 @@ const spendingConfig = {
     amountInverse: true,
     gdpField: 'surplus_deficit_gdp',
     amountLabel: 'Deficit',
+    negativeAmountLabel: 'Surplus',
     sourceFields: ['spending_source', 'gdp_source'],
     primaryColor: colors.colorDeficitPrimary,
+    negativeValueColor: colors.colorDeficitSurplus,
     chapter: 'deficit',
     defaultCountries: [{
         display: 'United States',
