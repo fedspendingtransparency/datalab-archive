@@ -14,8 +14,12 @@ $footer-text-color: #888;
   font-weight: 300;
   color: #888;
   padding: 3rem 1rem 4rem;
-  margin-top: 1rem;
+  margin-top: 4rem;
   box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+}
+
+.landing .dl-footer {
+  margin-top: 1rem;
 }
 
 .dl-footer__group-title {
