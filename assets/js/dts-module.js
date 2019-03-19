@@ -64,6 +64,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("stroke","#757575")
       .style("font-family","Source Sans Pro")
       .style("font-size","11")
+      .style("line-height","20px")
       .call(d3.axisLeft(y)
       .tickFormat(dollarFormatter)
       .ticks(2));
@@ -74,6 +75,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("stroke","#757575")
       .style("font-size","11")
       .style("font-family","Source Sans Pro")
+      .style("line-height","20px")
       .call(d3.axisBottom(x)
       .tickFormat(d3.timeFormat("%B"))
       .ticks(2));
