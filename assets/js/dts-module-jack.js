@@ -26,7 +26,7 @@ var svg = d3.select(".dtsm-img").append("svg")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("/data-lab-data/dts/recent_30.csv", function(error, data) {
+d3.csv("/data-lab-data/dts/dts.csv", function(error, data) {
   if (error) throw error;
   data.reverse();
 
@@ -43,7 +43,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", function(error, data) {
 
   let latestDate = groupByDate[0].key;
   let latestValue = groupByDate[0].value;
-//  console.log(latestDate, latestValue);
+console.log(latestDate, latestValue);
 
   svg.append("path")
     .data([data])
