@@ -43,21 +43,9 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function (error, data) {
 
 //    console.log("line: ", valueline);
 
-function drawYAxisGridlines(svg, y, width, ticks) {
-    svg
-      .append("g")
-      .attr("class", "grid")
-      .call(
-        d3
-          .axisLeft(y)
-          .ticks(2)
-          .tickSize(-width)
-          .tickFormat("")
-      );
-}
-
-d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
-  if (error) throw error;
+    // let yAxis = d3.axisLeft(y)
+    // .tickFormat(dollarFormatter)
+    // .ticks(3);
 
     // let xAxis = d3.axisBottom(x)
     // .tickFormat(d3.timeFormat("%B"))
@@ -65,56 +53,16 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
 
     svg.append("g").attr("class", "dts_Yaxis").attr("transform", "translate(-10)").style("stroke", "#757575").style("font-family", "Source Sans Pro").style("font-size", "11").style("line-height", "20px").call(d3.axisLeft(y).tickFormat(dollarFormatter).ticks(2));
 
-
     svg.append("g").attr("class", "dts_Xaxis").attr("transform", "translate(0,65)").style("stroke", "#757575").style("font-size", "11").style("font-family", "Source Sans Pro").style("line-height", "20px").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%B")).ticks(2));
 
     svg.append("path").data([data]).attr("class", "line").attr("d", valueline);
 
     drawYAxisGridlines(svg, y, width, 10);
 
-
-  // let yAxis = d3.axisLeft(y)
-  // .tickFormat(dollarFormatter)
-  // .ticks(3);
-
-  // let xAxis = d3.axisBottom(x)
-  // .tickFormat(d3.timeFormat("%B"))
-  // .ticks(2);
-
-  svg.append("g")
-      .attr("class","dts_Yaxis")
-      .attr("transform", "translate(-10)")
-      .style("stroke","#757575")
-      .style("font-family","Source Sans Pro")
-      .style("font-size","11")
-      .style("line-height","20px")
-      .call(d3.axisLeft(y)
-      .tickFormat(dollarFormatter)
-      .ticks(2));
-
-  svg.append("g")
-      .attr("class","dts_Xaxis")
-      .attr("transform", "translate(0,65)")
-      .style("stroke","#757575")
-      .style("font-size","11")
-      .style("font-family","Source Sans Pro")
-      .style("line-height","20px")
-      .call(d3.axisBottom(x)
-      .tickFormat(d3.timeFormat("%b"))
-      .ticks(2));
-
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline);
-
-  drawYAxisGridlines(svg, y, width, 10)
-
     svg.append("circle").attr("r", 7).attr("stroke-width", 1).attr("transform", "translate(" + x(lastDate) + "," + y(lastValue) + ")");
 
     d3.select(".dtsm-dollars").text(dollarFormatter(lastValue));
     d3.select(".side-dts__date").text("Updated " + dateFormatter(lastDate));
-
 });
 
 function type(d) {
