@@ -22,6 +22,10 @@
   box-sizing: border-box;
 }
 
+.primary h2 {
+  display: none;
+}
+
 .secondary {
   box-sizing: border-box;
   padding: 1rem;
@@ -50,6 +54,7 @@
   &.primary__text--desktop {
     display: none;
   }
+
 }
 
 .landing-chart {
