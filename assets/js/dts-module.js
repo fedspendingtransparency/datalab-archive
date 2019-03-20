@@ -47,7 +47,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   let lastDate = lastEntry.date;
   let lastValue = lastEntry.Totals;
 
-  console.log("line: ",valueline)
+//  console.log("line: ",valueline)
 
   // let yAxis = d3.axisLeft(y)
   // .tickFormat(dollarFormatter)
@@ -64,7 +64,6 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-family","Source Sans Pro")
       .style("font-size","11")
       .style("line-height","20px")
-      .style("font-weight","100")
       .call(d3.axisLeft(y).ticks(2)
       .tickFormat(dollarFormatter)
       .tickSize(0));
@@ -76,7 +75,6 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-size","11")
       .style("font-family","Source Sans Pro")
       .style("line-height","20px")
-      .style("font-weight","100")
       .call(d3.axisBottom(x).ticks(2)
       .tickFormat(d3.timeFormat("%d %b"))
       .tickSize(0));
@@ -86,7 +84,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .attr("class", "line")
       .attr("d", valueline);
 
-  drawYAxisGridlines(svg, y, width, 10)
+  drawYAxisGridlines(svg, y, width, 10);
 
   svg.append("circle")
     .attr("r", 7)
