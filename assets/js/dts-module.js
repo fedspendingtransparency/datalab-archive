@@ -4,7 +4,7 @@ const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
 var margin = {top: 0, right: 20, bottom: 30, left: 50},
-    width = 200 - margin.left - margin.right,
+    width = 250 - margin.left - margin.right,
     height = 90 - margin.top - margin.bottom;
 
 // parse the date / time
@@ -64,9 +64,8 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-family","Source Sans Pro")
       .style("font-size","11")
       .style("line-height","20px")
-      .call(d3.axisLeft(y)
-      .tickFormat(dollarFormatter)
-      .ticks(2));
+      .call(d3.axisLeft(y).ticks(2)
+      .tickFormat(dollarFormatter));
 
   svg.append("g")
       .attr("class","dts_Xaxis")
@@ -75,9 +74,8 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-size","11")
       .style("font-family","Source Sans Pro")
       .style("line-height","20px")
-      .call(d3.axisBottom(x)
-      .tickFormat(d3.timeFormat("%b"))
-      .ticks(2));
+      .call(d3.axisBottom(x).ticks(2)
+      .tickFormat(d3.timeFormat("%d %b")));
 
   svg.append("path")
       .data([data])
