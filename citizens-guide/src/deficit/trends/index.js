@@ -8,7 +8,7 @@ const tabContainer = '#surplusComponent',
                 selector: '.deficit--surplus__surplus'
             },
             {
-                name: 'Balance Budget',
+                name: 'Balanced Budget',
                 selector: '.deficit--surplus__balanced'
             },
             {
