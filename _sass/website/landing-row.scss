@@ -95,10 +95,6 @@
   clear: both;
 }
 
-.clearfix {
-  overflow: auto;
-}
-
 .clearfix::after {
   content: "";
   clear: both;

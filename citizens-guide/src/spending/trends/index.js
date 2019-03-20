@@ -62,5 +62,4 @@ d3.select('.link-button__div')
     const data = showHideInit(setData('function'));
     zoomThreshold = setThreshold(setData('function'));
     renderChart(data);
-    initTwoPartTour();
 })();

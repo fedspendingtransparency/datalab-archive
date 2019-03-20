@@ -6,7 +6,7 @@
   font-weight: 300;
   font-family: 'Source Sans Pro', sans-serif; }
   .anecdote h1.anecdote__heading {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-top: 0.5rem;
     text-align: center; }
@@ -31,7 +31,7 @@
       background: #205493; }
   .anecdote .anecdote__panes {
     position: relative;
-    margin: 0 2rem;
+    margin: 0 1rem;
     cursor: pointer; }
   .anecdote .anecdote__pane {
     -moz-user-select: none;
@@ -43,9 +43,11 @@
     .anecdote .anecdote__pane.anecdote__pane--active {
       display: block; }
     .anecdote .anecdote__pane p {
-      text-align: center; }
+      text-align: center;
+      margin-top: 0;
+      font-size: 1rem; }
   .anecdote .anecdote__contents {
-    width: 340px;
+    width: 330px;
     display: none;
     opacity: 0;
     position: absolute;
@@ -103,8 +105,8 @@
       .anecdote .anecdote__icon {
         margin-left: 0; } }
   .anecdote .anecdote__illustration {
-    width: 100%;
-    max-width: 230px;
+    width: 250px;
+    max-width: 100%;
     margin: 0 auto;
     height: auto; }
   .anecdote .anecdote__cta--container {
