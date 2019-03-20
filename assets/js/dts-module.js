@@ -47,6 +47,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   let lastDate = lastEntry.date;
   let lastValue = lastEntry.Totals;
 
+
   console.log("line: ",valueline)
 
   // let yAxis = d3.axisLeft(y)
