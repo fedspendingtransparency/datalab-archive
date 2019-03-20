@@ -1,0 +1,185 @@
+// landing.scss
+@import './landing-dts';
+@import './landing-row';
+
+.dl-landing {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 4rem;
+  color: #333;
+}
+
+.primary__link {
+
+  &:hover h2 {
+    text-decoration: underline;
+  }
+}
+
+.primary {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.secondary {
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.primary__image {
+  width: 100%;
+}
+
+.primary__desktop-heading {
+  display: none;
+  color: #2272CE;
+  font-size: 1rem;
+  display: none;
+}
+
+.primary .h2 {
+  color: #4A4A4A;
+  font-size: 1.2rem;
+}
+
+.primary__text {
+  margin: 1rem 0;
+  font-size: 1rem;
+
+  &.primary__text--desktop {
+    display: none;
+  }
+}
+
+.landing-chart {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+
+  h1 {
+    text-transform: uppercase;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    font-size: .8rem;
+    border-bottom: 1px solid #ddd;
+    background-color: #fafbfc;
+    line-height: 3;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+}
+
+
+.landing-feature {
+  
+  clear: both;
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+  
+  h1, h2 {
+    text-align: left;
+    margin: 0 0 1rem;
+  }
+
+  h1 {
+    color: #2272CE;
+    font-size: 1rem;
+  }
+
+  h2 {
+    color: #4A4A4A;
+    font-size: 1.2rem;
+  }
+
+}
+
+
+.landing-feature__link {
+  curser: pointer;
+  padding: 1rem 0;
+  display: block;
+
+  &:hover h2 {
+    text-decoration: underline;
+  }
+}
+
+
+.landing-feature__text {
+  clear: both;
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: none;
+}
+
+.landing-feature__image {
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  width: 40%;
+  float: right;
+
+  img {
+    width: 100%;
+  }
+}
+
+.landing-feature__headings {
+  width: 60%;
+  float: left;
+}
+
+@media only screen and (min-width: 950px) {
+
+  .dl-landing {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .primary {
+    width: 63%;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+
+  .secondary {
+    padding: 0;
+    width: 33%;
+  }
+
+  .primary__content {
+    margin: 2rem;
+    padding: 0 1rem;
+  }
+
+  .primary__desktop-heading {
+    display: block;
+  }
+
+  .primary__mobile-heading {
+    display: none;
+  }
+
+  .primary__text {
+    display: none;
+
+    &.primary__text--desktop {
+      display: block;
+    }
+  }
+
+  .landing-feature__text {
+    display: block;
+  }
+
+}
+
