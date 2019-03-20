@@ -120,10 +120,6 @@ blockquote {
     margin: 0 1rem;
 }
 
-.clearfix {
-    overflow: visible;
-}
-
 .clearfix::after {
     content: "";
     clear: both;
