@@ -5,7 +5,7 @@
   
   background-position: center;
   background-size: cover;
-  background-image: url(/images/analysis.jpg);
+  // background-image: url(/images/analysis.jpg);
 }
 
 .footer-navigation__navigate-button {
@@ -27,14 +27,14 @@
 }
 
 .footer-navigation__separator {
-  border-right: 1px solid #FFF;
+  border-right: 1px solid #666;
   height: 75px;
   align-self: center;
 }
 
 .footer-navigation__title-container {
   display: inline-block;
-  color: #FFF;
+  color: rgb(102, 102, 102);
 }
 
 .footer-navigation__container {
