@@ -1,12 +1,11 @@
----
----
+"use strict";
 
-const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/,"B");
+const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
-var margin = {top: 0, right: 20, bottom: 30, left: 75},
-    width = 300 - margin.left - margin.right,
-    height = 80 - margin.top - margin.bottom;
+var margin = {top: 0, right: 20, bottom: 30, left: 50},
+    width = 250 - margin.left - margin.right,
+    height = 90 - margin.top - margin.bottom;
 
 // parse the date / time
 var parseTime = d3.timeParse("%Y-%m-%d");
@@ -25,6 +24,19 @@ var svg = d3.select(".dtsm-img").append("svg")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+function drawYAxisGridlines(svg, y, width, ticks) {
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .call(
+        d3
+          .axisLeft(y)
+          .ticks(2)
+          .tickSize(-width)
+          .tickFormat("")
+      );
+}
+
 d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   if (error) throw error;
 
@@ -35,16 +47,44 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   let lastDate = lastEntry.date;
   let lastValue = lastEntry.Totals;
 
+//  console.log("line: ",valueline)
+
+  // let yAxis = d3.axisLeft(y)
+  // .tickFormat(dollarFormatter)
+  // .ticks(3);
+
+  // let xAxis = d3.axisBottom(x)
+  // .tickFormat(d3.timeFormat("%B"))
+  // .ticks(2);
+
+  svg.append("g")
+      .attr("class","dts_Yaxis")
+      .attr("transform", "translate(-10)")
+      .style("stroke","#757575")
+      .style("font-family","Source Sans Pro")
+      .style("font-size","11")
+      .style("line-height","20px")
+      .call(d3.axisLeft(y).ticks(2)
+      .tickFormat(dollarFormatter)
+      .tickSize(0));
+
+  svg.append("g")
+      .attr("class","dts_Xaxis")
+      .attr("transform", "translate(0,65)")
+      .style("stroke","#757575")
+      .style("font-size","11")
+      .style("font-family","Source Sans Pro")
+      .style("line-height","20px")
+      .call(d3.axisBottom(x).ticks(2)
+      .tickFormat(d3.timeFormat("%d %b"))
+      .tickSize(0));
+
   svg.append("path")
       .data([data])
       .attr("class", "line")
       .attr("d", valueline);
 
-  let yAxis = d3.axisLeft(y).ticks(3).tickFormat(dollarFormatter);
-
-  svg.append("g")
-      .call(yAxis)
-      .attr("transform", "translate(-10)");
+  drawYAxisGridlines(svg, y, width, 10);
 
   svg.append("circle")
     .attr("r", 7)
@@ -52,7 +92,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
     .attr("transform", "translate(" + (x(lastDate)) + "," + (y(lastValue)) + ")");
 
   d3.select(".dtsm-dollars").text(dollarFormatter(lastValue));
-  d3.select(".dtsm-tas-subheader").text(dateFormatter(lastDate));
+  d3.select(".side-dts__date").text("Updated " + dateFormatter(lastDate));
 });
 
 function type(d) {
