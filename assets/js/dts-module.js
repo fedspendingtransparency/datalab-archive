@@ -65,7 +65,8 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-size","11")
       .style("line-height","20px")
       .call(d3.axisLeft(y).ticks(2)
-      .tickFormat(dollarFormatter));
+      .tickFormat(dollarFormatter)
+      .tickSize(0));
 
   svg.append("g")
       .attr("class","dts_Xaxis")
@@ -75,7 +76,8 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .style("font-family","Source Sans Pro")
       .style("line-height","20px")
       .call(d3.axisBottom(x).ticks(2)
-      .tickFormat(d3.timeFormat("%d %b")));
+      .tickFormat(d3.timeFormat("%d %b"))
+      .tickSize(0));
 
   svg.append("path")
       .data([data])
