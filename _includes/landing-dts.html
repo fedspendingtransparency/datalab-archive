@@ -1,15 +1,111 @@
 <div class="dts-container">
-  <div class="dts-module">
-    <div class="dtsm-img"></div>
-    <div class="dtsm-right-column">
-      <div class="dtsm-tas-container">
-	<div class="dtsm-tas-header">All categories</div>
-      </div>
-      <div class="dtsm-dollars">$</div>
-    </div>
-  </div>
+    <style>
+        .dts-module {
+          box-sizing: border-box;
+          height: 100px;
+          background-color: inherit;
+          padding: 0px 25px 25px 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-  <script src="{{ "/js/babel-polyfill.min.js" | prepend: site.baseurl }}"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="{{site.baseurl}}/assets/js/dts-module.js"></script>                
+        .dtsm-right-column{
+          display: inline-block;
+        }
+        
+        .dtsm-img {
+          width: auto;
+          height: 100%;
+          display: flex;
+        }
+        
+        .dtsm-dollars {
+          font-size: 22px;
+          font-weight: 600;
+          margin-left: 15px;
+          margin-right: 15px;
+          /* opacity: .75; */
+          fill: #4A4A4A;
+        }
+        
+        .dtsm-tas-header {
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 150%;
+          /* opacity: .8; */
+          fill: #4A4A4A;
+        }
+        
+        .side-dts__date {
+          font-size: 14px;
+          /* text-transform: uppercase; */
+          font-weight: 600;
+          /* line-height: 150%; */
+          /* opacity: .9; */
+          line-height: 20px;
+          fill: #757575;
+          margin: 2px 0px 10px 0px;
+          text-align: center;
+        }
+        
+        div.dts-container > div > div > svg > g > path{
+          fill:none;
+        }
+        .line {
+          fill: none;
+          stroke: #00CCCC;
+          stroke-width: 3px;
+        }
+      
+        .dtsm-img text {
+          fill: black;
+        }
+      
+        .dtsm-img .domain {
+          display: none;
+        }
+      
+        .dtsm-img .tick line {
+          stroke: black;
+        }
+      
+        .dtsm-img circle {
+          fill: #FFB232;
+          stroke: #FFF;
+          stroke-width: 1px;
+        }
+        
+        .grid line {
+          stroke: rgb(159, 162, 168);
+          stroke-opacity: 0.15;
+        }
+        hr.horizontal_dts{
+          border-top: 1px solid #757575;
+          width: 100%;
+          opacity: .2;
+          margin-top: -5px;
+        }
+      </style>
+        
+      <div class="dts-module">
+        <!-- <div class="dtsm-left-column">
+          <a href="dts.html"></a>
+        </div> -->
+        <div class="dtsm-img"></div>
+        <div class="dtsm-right-column">
+          <div class="dtsm-tas-container">
+            <div class="dtsm-tas-header">All categories</div>
+          </div>
+          <div class="dtsm-dollars">$</div>
+        </div>
+      </div>
+      
+      <script src="{{ "/js/babel-polyfill.min.js" | prepend: site.baseurl }}"></script>
+      <script src="https://d3js.org/d3.v4.min.js"></script>
+      <script src="{{site.baseurl}}/assets/js/dts-module.js"></script>                
+</div> 
+<hr class="horizontal_dts">
+<div class="side-dts__date">
+  <!-- Updated: <strong>March 3, 2018</strong> -->
 </div>
