@@ -3,6 +3,7 @@ import colors from '../../colors.scss';
 
 (function init(){
     const config = {
+        anecdoteName: 'anecdote.svg',
         comparisonAmount: 4100000000000,
         compareString: 'spending',
         gdpAmount: 20700000000000,
