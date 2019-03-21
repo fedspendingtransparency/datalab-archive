@@ -33,8 +33,8 @@ const incomeConfig = {
         plainName: 'France'
     }],
     accessibilityAttrs : {
-        title: 'Graph representing 2018 revenue (in USD) amounts across multiple countries',
-        desc: '2018 revenue data comparison between multiple countries (including the U.S.) as well as the ratio of revenue to that country\'s GDP'
+        title: 'Federal Revenue Country Comparison',
+        desc: 'The top five countries in terms of federal revenue in 2017 were the United States with $3.3 trillion (17% of its gross domestic product), China with $2.6 trillion (22%), Japan with $1.7 trillion (34%), Germany with $1.6 trillion (43%), and France with $1.4 trillion (56%).'
     }
 };
 
