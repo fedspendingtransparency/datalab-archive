@@ -1,11 +1,52 @@
 // landing-row.scss
 
+@mixin landing-header() {
+  font-size: 1rem;
+  color: #2272CE;
+  font-weight: bold;
+}
+
+@mixin landing-subtext() {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .landing-row {
   clear: both;
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding: 1rem;
   color: #777;
+}
+
+.feature-row {
+  display: flex;
+  flex-direction: column;
+  clear: both;
+  max-width: 1200px;
+//  padding: 1rem;
+//  margin: 0 auto;
+//  border: 1px solid #ddd;
+//  border-radius: 0.25rem;
+}
+
+.feature-row .feature-row__image--homelessness {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.feature-row .feature-row__blurb {
+  display: none;
+//  @include landing-subtext();
+}
+
+.feature-row .feature-row__title {
+  @include landing-subtext();
+}
+
+.feature-row .feature-row__text {
+  margin: 0 auto;
+  width: 50%;
 }
 
 .primary-content {
@@ -13,10 +54,9 @@
 }
 
 .landing-row__title {
+  @include landing-subtext();
   color: #4A4A4A;
-  font-size: 1rem;
   margin-top: 0;
-  font-weight: bold;
 }
 
 .landing-row__label {
@@ -53,10 +93,6 @@
   width: 60%;
   text-align: right;
   clear: both;
-}
-
-.clearfix {
-  overflow: auto;
 }
 
 .clearfix::after {
@@ -109,6 +145,9 @@
   justify-content: center;
 }
 
+.feature-row__heading {
+  @include landing-header();
+}
 
 @media only screen and (min-width: 950px) {
   
@@ -116,6 +155,44 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+  }
+
+  .feature-row {
+    display: flex;
+    flex-direction: row;
+    clear: both;
+    max-width: 1200px;
+    padding: 1rem;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+  }
+
+  .feature-row .feature-row__blurb {
+    display: block;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.3;
+  }
+
+  .feature-row .feature-row__label {
+//    text-align: left;
+//    padding-left: 1rem;
+  }
+
+  .feature-row .feature-row__title {
+//    text-algin: left;
+//    padding-left: 1rem;
+  }
+
+  .feature-row .feature-row__image--homelessness {
+    width: 60%;
+  }
+
+  .feature-row .feature-row__text {
+    float: right;
+    width: 60%;
+    padding-left: 4rem;
   }
 
   .landing-row__title { font-size: 1.5rem; }
@@ -135,11 +212,19 @@
     padding-bottom: 0;
   }
 
+  .landing-row__image--homelessness {
+    width: 30%;
+    float: left;
+    padding-bottom: 0;
+      
+  }
+
   .landing-row__text {
     float: none;
     width: 100%;
     text-align: left;
   }
+
 
   .landing-row--resources .landing-row__p {
     display: block;

@@ -446,7 +446,8 @@ a.chapter__cta i.fa-angle-right {
   margin: 0;
   cursor: pointer;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  font-weight: 600; }
 
 .cg-content .accordion__content {
   padding: 20px;
