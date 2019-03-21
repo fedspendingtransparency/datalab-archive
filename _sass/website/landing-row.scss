@@ -91,10 +91,6 @@ $landing-title-color: #4A4A4A;
   clear: both;
 }
 
-.clearfix {
-  overflow: auto;
-}
-
 .clearfix::after {
   content: "";
   clear: both;

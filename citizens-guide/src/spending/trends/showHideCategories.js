@@ -1,5 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { renderChart } from '.';
+import { runInContext } from 'vm';
 
 const d3 = { select, selectAll };
 
@@ -45,7 +46,7 @@ d3.select('#reset-filters-button')
     .on('click', function () {
         returnListOfShowHideButtons()
             .each(function(d,i) {
-                const isActiveInd = initActiveFunction(i);
+                const isActiveInd = initActiveFunction(d, i);
                 d3.select(this).classed('active', isActiveInd);
                 d.active = isActiveInd;
             });
@@ -105,16 +106,18 @@ function filterForActiveData() {
     return data.filter(r => r.active);
 }
 
-function initActiveFunction(input){
-    const numValsToShow = 5;
-    return input < numValsToShow;
+function initActiveFunction(row, input){
+    const numValsToShow = 5,
+        force = ['Net Interest'];
+
+    return (input < numValsToShow || force.indexOf(row.officialName) !== -1);
 }
 
 export function showHideInit(data) {
     d3.select('#show-hide-list').selectAll('*').remove();
 
     data.forEach((r, i) => {
-        r.active = initActiveFunction(i);
+        r.active = initActiveFunction(r, i);
     });
 
     placeControls(data);
