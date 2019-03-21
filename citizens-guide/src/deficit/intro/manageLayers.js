@@ -8,7 +8,7 @@ const d3 = { select, selectAll },
     scaleFactor = 0.6,
     duration = 1000;
 
-let activeCompare, revenueFirstTime, debtFirstTime, doubleClickBlock, blockTimer;
+let activeCompare, revenueFirstTime, debtFirstTime, doubleClickBlock, blockTimer, config;
 
 function revealHiddenElements() {
     d3.selectAll('.intro-hidden').classed('intro-hidden', null);
@@ -73,6 +73,20 @@ function doubleClickBlocker(id) {
         }, 1000);
 }
 
+function setAccessibility(type){
+    const svgEl = d3.select('svg.main'),
+        titleEl = svgEl.select('title'),
+        descEl = svgEl.select('desc');
+
+    let accessibilityAttr = config.accessibilityAttrs.default;
+    if(type){
+        accessibilityAttr = config.accessibilityAttrs[type];
+    }
+
+    titleEl.text(accessibilityAttr.title);
+    descEl.text(accessibilityAttr.desc);
+}
+
 function toggleLayer() {
     const clicked = d3.select(this),
         id = clicked.attr('data-trigger-id'),
@@ -91,8 +105,11 @@ function toggleLayer() {
         toggleFacts();
         resizeSvg();
         showHideMath();
+        setAccessibility();
         return;
     }
+
+    setAccessibility(id);
 
     if (id === 'deficit' && !revenueFirstTime) {
         initialRevenueSpendingCompare();
@@ -266,7 +283,8 @@ function deficitOnly() {
         .attr('opacity', 0)
 }
 
-export function layersInit() {
+export function layersInit(_config) {
+    config = _config;
     d3.selectAll('.facts__trigger').on('click', toggleLayer);
     zoom();
     deficitOnly();

@@ -34,8 +34,8 @@ const spendingConfig = {
         plainName: 'France'
     }],
     accessibilityAttrs : {
-        title: 'Graph representing 2018 deficit (in USD) amounts across multiple countries',
-        desc: '2018 debt data comparison between multiple countries (including the U.S.) as well as the ratio of debt to that country\'s GDP'
+        title: 'Federal Debt Country Comparison',
+        desc: 'By the end of 2017, the five largest countries in terms of federal revenue and spending had the following government debt outstanding: the United States with $20.2 trillion (104% of gross domestic product), Japan with $11.6 trillion (239%), China with $5.8 trillion (48%), France with $2.6 trillion (101%), and Germany with $2.5 trillion (68%).'
     }
 };
 
