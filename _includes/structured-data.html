@@ -7,7 +7,7 @@
             "@id": "http://datalab.usaspending.gov/"
         },
         "image": "{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}",
-        "headline": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+        "headline": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% endif %}",
         "datePublished": "2019-01-17T08:00:00+06:00",
         "dateModified": "2019-01-17T08:00:00+06:00",
         "author": {
@@ -26,6 +26,6 @@
             "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
             }
         },
-        "description": "How does federal revenue compare to federal spending and the size of the economy?"
+        "description": "{% if page.excerpt %}{{ page.excerpt }}{% endif %}"
     }
     </script>

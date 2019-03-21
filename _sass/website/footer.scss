@@ -1,13 +1,8 @@
 // footer.scss
 /* Footer */
 
-$accent-blue: #007fae;
-$accent-grey: #323A45;
-$shuttle-grey: #62666C;
-$silver: #CCCCCC;
-$button1: #D41EB6;
-$fg-light: rgba(255,255,255,0.5);
 $footer-text-color: #888;
+$footer-link-color: #2272CE;
 
 .dl-footer {
   text-align: center;
@@ -24,10 +19,12 @@ $footer-text-color: #888;
 }
 
 .dl-footer__group-title {
-  color: $accent-blue;
+  color: $footer-link-color;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.24;
   margin-bottom: 1em;
+  letter-spacing: normal;
 }
 
 .dl-footer__social-items a {
