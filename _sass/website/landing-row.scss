@@ -53,6 +53,7 @@ $landing-title-color: #4A4A4A;
   @include landing-subtext();
   color: #4A4A4A;
   margin-top: 0;
+  font-size: 18px;
 }
 
 .landing-row__label {
@@ -129,10 +130,12 @@ $landing-title-color: #4A4A4A;
     width: auto;
     float: none;
     margin: 0;
+    padding-left: 2rem;
   }
 
   .landing-row__text {
     width: auto;
+    margin: auto; // center..
   }
 
 }
@@ -197,10 +200,12 @@ $landing-title-color: #4A4A4A;
     margin-bottom: 0;
   }
 
-  .landing-row__image {
-    width: 100%;
+  .landing-row--resources .landing-row__tile .landing-row__image {
     float: none;
     padding-bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding-left: 0; // get rid of padding on desktop..
   }
 
   .landing-row__image--homelessness {
