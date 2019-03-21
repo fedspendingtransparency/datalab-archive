@@ -34,8 +34,8 @@ const spendingConfig = {
         plainName: 'France'
     }],
     accessibilityAttrs : {
-        title: 'Graph representing 2018 spending (in USD) amounts across multiple countries',
-        desc: '2018 spending data comparison between multiple countries (including the U.S.) as well as the ratio of spending to that country\'s GDP'
+        title: 'Federal Spending Country Comparison',
+        desc: 'The top five countries in terms of federal spending in 2017 were the United States with $4 trillion (21% of its gross domestic product), China with $3.1 trillion (26%), Japan with $1.9 trillion (39%), Germany with $1.6 trillion (43%), and France with $1.5 trillion (59%). '
     }
 };
 

@@ -2,6 +2,8 @@
 @import './landing-dts';
 @import './landing-row';
 
+$landing-title-color: #4A4A4A;
+
 .dl-landing {
   box-sizing: border-box;
   max-width: 1200px;
@@ -20,6 +22,10 @@
 .primary {
   text-align: center;
   box-sizing: border-box;
+}
+
+.primary__heading {
+  display: none;
 }
 
 .secondary {
@@ -50,6 +56,7 @@
   &.primary__text--desktop {
     display: none;
   }
+
 }
 
 .landing-chart {
@@ -76,7 +83,6 @@
   }
 
 }
-
 
 .landing-feature {
   
@@ -158,8 +164,7 @@
   }
 
   .primary__content {
-    margin: 2rem;
-    padding: 0 1rem;
+    margin: 3rem;
   }
 
   .primary__desktop-heading {
@@ -170,11 +175,19 @@
     display: none;
   }
 
+  .primary__heading {
+    display: block;
+  }
+
   .primary__text {
     display: none;
 
     &.primary__text--desktop {
       display: block;
+      font-weight: 300;
+      font-size: 1rem;
+      padding-top: 2rem;
+      line-height: 1.5;
     }
   }
 
