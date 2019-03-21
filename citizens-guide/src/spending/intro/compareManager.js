@@ -31,10 +31,13 @@ function handleGdpLayer(reset) {
         stepTwoOpacity = reset ? 0 : 1,
         mainContainer = d3.select('.main-container');
 
+    let accessibilityType = !reset ? 'gdp' : '';
+
     if (reset && !mainContainer.classed('gdp-active', !reset)) {
         return;
     }
 
+    setAccessibility(accessibilityType);
     mainContainer.classed('gdp-active', !reset);
 
     mainContainer.transition()
@@ -49,16 +52,33 @@ function handleGdpLayer(reset) {
         .ease();
 }
 
+function setAccessibility(type){
+    const svgEl = d3.select('svg.main'),
+        titleEl = svgEl.select('title'),
+        descEl = svgEl.select('desc');
+
+    let accessibilityAttr = config.accessibilityAttrs.default;
+    if(type){
+        accessibilityAttr = config.accessibilityAttrs[type];
+    }
+
+    titleEl.text(accessibilityAttr.title);
+    descEl.text(accessibilityAttr.desc);
+}
+
 function handleRevenueLayer(reset) {
     const scale = reset ? 1 : 0.6,
     x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2),
     stepTwoOpacity = reset ? 0 : 1,
     mainContainer = d3.select('.main-container');
 
+    let accessibilityType = !reset ? config.compareString : '';
+
     if (reset && !mainContainer.classed('gdp-active', !reset)) {
         return;
     }
 
+    setAccessibility(accessibilityType);
     mainContainer.classed('gdp-active', !reset);
 
     mainContainer.transition()

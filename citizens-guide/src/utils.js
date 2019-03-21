@@ -46,8 +46,8 @@ export function establishContainer(height, width, accessibilityAttrs) {
     }
 
     if(accessibilityAttrs && Object.keys(accessibilityAttrs).length){
-        svg.attr('title', accessibilityAttrs.title)
-            .attr('desc', accessibilityAttrs.desc);
+        svg.append('title').text(accessibilityAttrs.title);
+        svg.append('desc').text(accessibilityAttrs.desc);
     }
     
     return svg;
