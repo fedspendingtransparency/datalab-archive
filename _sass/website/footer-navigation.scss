@@ -39,6 +39,9 @@
   display: inline-block;
   color: rgb(102, 102, 102);
 }
+.footer-navigation__title-container:hover {
+  color: #9BDAF1;
+}
 
 .footer-navigation__container {
   align-self: center;
@@ -60,12 +63,8 @@
   content: " Visualization"
 }
 
-.footer-navigation__title-container:hover {
-  color: #9BDAF1;
-}
-
 @media screen and (max-width: 999px) {
   .footer-navigation__subtitle::after {
     content: ""
   }
-  }
+}
