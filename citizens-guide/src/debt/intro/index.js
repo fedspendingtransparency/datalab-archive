@@ -7,6 +7,7 @@ import { setDotsPerRow } from "./dotConstants";
 import { layersInit } from "./manageLayers";
 
 const config = {
+    anecdoteName: 'anecdote-debt.svg',
     debtAmount: 21500000000000,
     gdpAmount: 20700000000000,
     deficitAmount: 779000000000,
