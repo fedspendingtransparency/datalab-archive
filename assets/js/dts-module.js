@@ -1,11 +1,10 @@
----
----
+"use strict";
 
 const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
 var margin = {top: 0, right: 20, bottom: 30, left: 50},
-    width = 200 - margin.left - margin.right,
+    width = 250 - margin.left - margin.right,
     height = 90 - margin.top - margin.bottom;
 
 // parse the date / time
@@ -48,7 +47,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   let lastDate = lastEntry.date;
   let lastValue = lastEntry.Totals;
 
-  console.log("line: ",valueline)
+//  console.log("line: ",valueline)
 
   // let yAxis = d3.axisLeft(y)
   // .tickFormat(dollarFormatter)
@@ -61,29 +60,31 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   svg.append("g")
       .attr("class","dts_Yaxis")
       .attr("transform", "translate(-10)")
-      .style("stroke","#676767")
+      .style("stroke","#757575")
       .style("font-family","Source Sans Pro")
       .style("font-size","11")
-      .call(d3.axisLeft(y)
+      .style("line-height","20px")
+      .call(d3.axisLeft(y).ticks(2)
       .tickFormat(dollarFormatter)
-      .ticks(2));
+      .tickSize(0));
 
   svg.append("g")
       .attr("class","dts_Xaxis")
       .attr("transform", "translate(0,65)")
-      .style("stroke","#676767")
+      .style("stroke","#757575")
       .style("font-size","11")
       .style("font-family","Source Sans Pro")
-      .call(d3.axisBottom(x)
-      .tickFormat(d3.timeFormat("%B"))
-      .ticks(2));
+      .style("line-height","20px")
+      .call(d3.axisBottom(x).ticks(2)
+      .tickFormat(d3.timeFormat("%d %b"))
+      .tickSize(0));
 
   svg.append("path")
       .data([data])
       .attr("class", "line")
       .attr("d", valueline);
 
-  drawYAxisGridlines(svg, y, width, 10)
+  drawYAxisGridlines(svg, y, width, 10);
 
   svg.append("circle")
     .attr("r", 7)
