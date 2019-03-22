@@ -1,0 +1,584 @@
+/* Note the SCSS flex code uses Bourbon flex mixins to better support IE */
+
+.data-lab-main {
+  padding-bottom: 2rem;
+  /* These calculations for the font uses Fluid Typography: https://css-tricks.com/snippets/css/fluid-typography/ */
+  font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+.introduction-container {
+  display: block;
+  margin: 7rem 0.938rem 2.060rem 0.938rem;
+}
+
+.main-intro {
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-content(center);
+}
+
+.main-intro__link {
+  text-decoration: none;
+}
+
+.main-intro__link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text-container {
+  padding: 1.75rem 2rem 0;
+
+}
+
+.main-intro__heading {
+  color: #2272CE;
+  -ms-flex-order: -1; 
+  order: -1;
+  font-size: calc(16px + (16 - 16) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.main-intro__subheading {
+  order: -1;
+  -ms-flex-order: -1; 
+  margin-bottom: 1rem;
+  color: #4A4A4A;
+  font-size: calc(22px + (24 - 22) * ((100vw - 300px) / (1600 - 300)));
+}
+.main-intro__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.main-intro__text {
+  line-height: 23px;
+  font-weight: 300;
+  font-size: calc(14px + (14 - 14) * ((100vw - 300px) / (1600 - 300)));
+  letter-spacing: 0.002rem;
+}
+
+.main-intro__text_mobile {
+  display: inline;
+}
+
+.main-intro__text_desktop {
+  display: none;
+}
+
+.side-column {
+  @include flex-direction(column);
+  @include display(flex);
+  @include align-items(center);
+  margin-top: 2rem;
+}
+
+.side-intro__box {
+  height: auto;
+  padding: 0.938rem 0 0 0;
+  border-top: 1px solid #eeeeee;
+  width: 100%;
+}
+
+.side-intro__box:last-of-type {
+  border-bottom: 1px solid #eeeeee;
+  margin-top: 0;
+}
+.side-info {
+  @include display(flex);
+  width: 100%;
+}
+
+.side-info__column {
+  @include flex-direction(column);
+  width: 100%;
+  margin-right: 1.2rem;
+}
+
+.side-info__column-img {
+  width: 56%;
+}
+
+.side-info__title {
+  color: #2272CE;
+  font-weight: 600;
+  font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.side-info__heading {
+  font-size: calc(17px + (18 - 17) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 600;
+  line-height: 1.3rem;
+  letter-spacing: normal;
+  font-style: normal;
+}
+
+.side-info__text {
+  display: none;
+  font-weight: 300;
+  line-height: 1.2rem;
+}
+
+.side-info__link {
+  color: #4A4A4A;
+  text-decoration: none;
+}
+
+.side-info__link:hover {
+  text-decoration: underline;
+}
+
+.side-info__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.side-dts__box {
+  @include display(flex);
+  border: 1px solid #eeeeee;
+  text-align: center;
+  width: 100%;
+  @include flex-direction(column);
+}
+
+.side-dts__heading {
+  background-color: #FAFBFC;
+  color: #4A4A4A;
+  height: 3rem;
+  font-weight: 600;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  font-size: calc(12px + (15 - 12) * ((100vw - 300px) / (1600 - 300)));
+
+}
+
+.side-dts__headline {
+  font-size: calc(22px + (22 - 22) * ((100vw - 300px) / (1600 - 300)));
+  color: #4A4A4A;
+}
+
+.side-dts__date {
+  color: #4A4A4A;
+}
+
+.analysis-container {
+  margin: 1.5rem 0.938rem 2.060rem 0.938rem;
+}
+
+.analysis__title {
+  text-transform: uppercase;
+  color: #757575;
+  font-size: calc(17px + (19 - 17) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 600;
+}
+
+.analysis__divider {
+  border: none;
+  height: 1px;
+  background-color: #979797;
+  margin-top: 0.7rem;
+}
+
+.analysis__row {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(space-between);
+  margin-top: 0.938rem;
+}
+
+.analysis__col {
+  @include display(flex);
+  @include flex-direction(column);
+  width: 100%;
+  margin-top: 0.6rem;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 0.6rem;
+}
+
+.analysis__col:first-of-type {
+  margin-top: 0;
+}
+
+.analysis__col_small {
+  @include flex-direction(row);
+}
+
+.analysis__header {
+  width: 50%;
+  margin-left: 2rem;
+  -ms-flex-order: 2; 
+  order: 1;
+  text-align: right;
+}
+
+.analysis__header-full { 
+  @include order(1);
+  margin-top: 1rem;
+}
+
+.analysis__heading {
+  margin: 0 0 1.063rem 0;
+  color: #2272CE;
+  font-weight: 600;
+  font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.analysis__headline {
+  // margin-bottom: 3rem;
+  font-weight: 600;
+  color: #4A4A4A;
+  font-size: calc(17px + (24 - 17) * ((100vw - 300px) / (1600 - 300)))
+}
+
+.analysis__headline_big {
+  font-size: 1.563rem;
+}
+
+.analysis__link {
+  text-decoration: none;
+}
+
+.analysis__link:hover {
+  text-decoration: underline;
+}
+
+.analysis__image-container {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.analysis__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.resource-container {
+  margin: 1.5rem 0.938rem 3rem 0.938rem;
+  
+}
+
+.resource__title {
+  text-transform: uppercase;
+  color: #757575;
+  font-size: calc(17px + (19 - 17) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 600;
+}
+
+.resource__divider {
+  border: none;
+  height: 1px;
+  background-color: #979797;
+  margin-top: 0.7rem;
+}
+
+.resource__row {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+}
+
+.resource__col {
+  @include display(flex);
+  @include flex-direction(column);
+  width: 100%;
+//  border-top: 1px solid #eeeeee;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.resource__col:first-of-type {
+  margin-top: 2rem;
+}
+
+.resource__col_main {
+  @include flex-direction(row);
+  @include justify-content(center);
+}
+
+.resource__headline {
+  font-size: calc(32px + (36 - 32) * ((100vw - 300px) / (1600 - 300)));
+  line-height: 40px;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #4A4A4A;
+}
+
+.resource__subheading {
+  font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
+  text-align: center;
+  font-weight: 300;
+  color: #4A4A4A;
+  line-height: 1.5rem;
+  margin-bottom: 3.125rem;
+}
+
+.resource__icon {
+  @include display(flex);
+}
+
+.resource__icon svg {
+  height: 5rem;
+}
+
+.resource__icon_resource {
+  width: 2.938rem;
+}
+
+.resource__icon_guide {
+  width: 2.063rem;
+}
+
+.resource__icon_playbook {
+  width: 2.250rem;
+}
+
+.resource__card {
+  @include justify-content(center);
+  @include display(flex);
+  @include flex-direction(column);
+  width: 70%;
+}
+
+.resource__card-title {
+  font-weight: 600;
+  font-size: calc(19px + (28 - 19) * ((100vw - 300px) / (1600 - 300)));
+  @include display(flex);
+  @include justify-content(center);
+  margin-left: 2rem;
+  color: #4A4A4A;
+}
+
+.resource__card-description {
+  display: none;
+  text-align: center;
+  font-weight: 300;
+  font-size: calc(18px + (18 - 18) * ((100vw - 300px) / (1600 - 300)));
+  color: #4A4A4A;
+}
+
+@media only screen and (min-width: 480px) {
+  .data-lab-main {
+    margin: 0;
+  }
+  .introduction-container {
+    @include display(flex);
+    margin: 12rem 2.813rem 2.060rem 2.813rem;
+  }
+
+  .side-intro__box {
+    flex-shrink: 0;
+    padding-top: 0;
+    margin-top: 0.938rem;
+  }
+
+  .side-column {
+    margin-left: 2rem;
+    width: 32%;
+    margin-top: 0;
+  }
+
+  .side-info {
+    margin-bottom: 1.125rem;
+  }
+
+  .side-info__column {
+    margin-top: 2rem;
+  }
+
+  .side-info__column-img {
+    @include flex-direction(column);
+    width: 88%;
+    margin-top: 2rem;
+  }
+
+  .side-info__heading {
+    line-height: 1.11rem;
+  }
+
+  .side-info__text {
+    display: inline;
+  }
+
+  .main-intro {
+    width: 50%;
+    border: 1px solid #eeeeee;
+  }
+
+  .headings-container {
+    -ms-flex-order: 1; 
+    order: 1;
+  }
+
+  .image-container {
+    -ms-flex-order: -1; 
+    order: -1
+  }
+
+  .text-container {
+    -ms-flex-order: 1;
+    order: 1;
+    padding: 0 2rem;
+  }
+
+  .main-image-container {
+    flex-shrink: 0;
+  }
+
+  .main-intro__text_mobile {
+    display: none;
+  }
+
+  .main-intro__text_desktop {
+    display: inline;
+  }
+
+  .analysis-container {
+    margin: 1.5rem 2.813rem 2.060rem 2.813rem;
+  }
+
+  .analysis__row {
+    @include flex-direction(row);
+    margin-bottom: 3rem;
+  }
+
+  .analysis__col {
+    margin-top: 0;
+    width: 23%;
+    justify-content: space-between;
+    padding-bottom: none;
+    border-bottom: none;
+  }
+
+  .analysis__header {
+    width: 100%;
+    margin-left: 0;
+    order: -1;
+    text-align: left;
+  }
+
+  .analysis__headline_big {
+    font-size: 1.5rem;
+  }
+
+  .analysis__col_small {
+    @include flex-direction(column);
+  }
+
+  .analysis__link {
+    flex-shrink: 0; /* IE 11 fix to prevent streching of image */
+  }
+
+  .analysis__image-container {
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  .analysis__image {
+    flex-shrink: 0; /* IE 11 fix to prevent streching of image */
+  }
+
+  .analysis__header-full {
+    @include flex(1);
+    @include flex-direction(column-reverse);
+    margin-top: 0;
+    order: -1;
+  }
+
+  .resource-container {
+    margin: 1.5rem 2.813rem 3rem 2.813rem;
+  }
+
+  .resource__row {
+    @include display(flex);
+    @include flex-direction(row);
+  }
+
+  .resource__col {
+    margin-right: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .resource__col:first-of-type {
+    margin-top: 0rem;
+  }
+
+  .resource__col_main {
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(initial);
+    height: 100%; /* IE 11 fix */
+  }
+
+  .resource__col:last-of-type {
+    margin-right: 0;
+  }
+
+  .resource__headline {
+    line-height: 36px;
+    text-align: left;
+  }
+
+  .resource__card-title {
+    margin: 0 0 1rem 0;
+  }
+
+  .resource__title {
+    display: block;
+    margin-left: 0;
+  }
+
+  .resource__subheading {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .resource__card {
+    width: 100%;
+  }
+
+  .resource__card-description {
+    display: block;
+    width: 100%; /* Fix for IE 11, because width does not get inherited properly in IE 11 */
+    line-height: 1.25rem;
+  }
+
+  .resource__card-title {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .resource__icon_resource {
+    width: 2.938rem;
+  }
+
+  .resource__icon_guide {
+    width: 2.063rem;
+  }
+
+  .resource__icon_playbook {
+    width: 2.250rem;
+  }
+
+}
+
+@media only screen and (min-width: 769px) {
+  .introduction-container {
+    margin: 12rem 10.250rem 5rem 10.250rem;
+  }
+
+  .main-intro {
+    width: 65%;
+  }
+
+  .analysis-container {
+    margin: 2rem 10.250rem 6.668rem 10.250rem;
+  }
+
+  .resource-container {
+    margin: 2rem 10.250rem 6.668rem 10.250rem;
+  }
+}

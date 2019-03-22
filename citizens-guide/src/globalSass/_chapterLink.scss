@@ -1,0 +1,64 @@
+@import '../colors.scss';
+@import './generalVars';
+
+a.chapter-link {
+    box-sizing: border-box;
+    font-size: 21px;
+    color: white;
+    font-weight: $boldWeight;
+    display: flex;
+    padding: 1rem 1.3rem;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    width: 240px;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.chapter-link__learn-more {
+    font-size:14px;
+    font-weight:500;
+}
+
+.chapter-link--revenue {
+    background-color: $color-primary-darker;
+
+    &:hover {
+        background-color: lighten($color-primary-darker, 5%);
+    }
+}
+
+.chapter-link--spending {
+    background-color: $color-spending-primary;
+
+    &:hover {
+        background-color: lighten($color-spending-primary, 5%);
+    }
+}
+
+.chapter-link--deficit {
+    background-color: $color-deficit-primary;
+
+    &:hover {
+        background-color: lighten($color-deficit-primary, 5%);
+    }
+}
+
+.chapter-link--debt {
+    background-color: $color-debt-primary;
+
+    &:hover {
+        background-color: lighten($color-debt-primary, 5%);
+    }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1230px) {
+    a.chapter-link {
+        width: 20%;
+        float: right;
+        box-sizing: border-box;
+    }
+}

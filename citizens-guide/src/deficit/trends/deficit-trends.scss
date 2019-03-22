@@ -1,0 +1,39 @@
+@import '../../globalSass/accordion';
+
+.deficit-trend {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  .deficit-trend {
+    width: 67%;
+    float: left;
+    display: block;
+  }
+  
+  .deficit-aside {
+    width: 33%;
+    float: right;
+    padding-left: 2rem;
+    box-sizing: border-box;
+  }
+}
+
+.deficit--surplus__component--content {
+  opacity: 0;
+  height: 0;
+  &.active {
+    opacity: 1;
+    height: auto;
+    transition: opacity 1s ease;
+  }
+}
+
+div.active img.deficit__tabs-image {
+  height: auto;
+}
+
+img.deficit__tabs-image {
+  height:0;
+  width: 100%;
+}

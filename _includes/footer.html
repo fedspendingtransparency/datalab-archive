@@ -1,103 +1,86 @@
 <script>
-    function trackLinkClick(actionName) {
-        window.Analytics.event({
-            category: 'Footer - Click Link',
-            action: actionName
-        });
-    }
+ function trackLinkClick(actionName) {
+     window.Analytics.event({
+         category: 'Footer - Click Link',
+         action: actionName
+     });
+ }
 
-    function leaveSiteLink(outbound) {
-        document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-        document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-        document.getElementById('leave-modal').style.display = 'block';
-    }
+ function leaveSiteLink(outbound) {
+     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+     document.getElementById('leave-modal').style.display = 'block';
+ }
 </script>
 
-<div id="top-footer">
-    <img id="footer-logo" alt="Footer logo" src="./images/footer_logo.png" />
-    <div class="top-footer-column">
-        <div class="link-group">
-            <div class="group-title">Contact Us</div>
-            <div class="top-footer-group-separator"></div>
-            <div>For media inquiries or questions on DataLab activites or operations, please contact our Legislative and Public Affairs Office:</div>
-            <ul class="links">
-                <li>{% include svgs/phone.svg class="top-footer-contact-icon" %} 202-504-3535</li>
-                <li>{% include svgs/email.svg class="top-footer-contact-icon" %} media.relations@fiscal.treasury.gov</li>
-            </ul>
-        </div>
-    </div>
+<div class="dl-footer">
+  <div class="dl-footer__logo dl-footer__divider">
+    {% include svgs/DL_Gray.svg %}
+  </div>
 
-    <div class="top-footer-column">
-        <div class="link-group">
-            <div class="group-title">Mailing List</div>
-            <div class="top-footer-group-separator"></div>
-            <div>To join our mailing list, send a blank email with no subject to <a style="color: #9BDAF1" href="mailto:join-datalab@lists.fiscal.treasury.gov">join-datalab@lists.fiscal.treasury.gov</a></div>
-        </div>
-        <div class="link-group">
-            <div class="group-title">Get Involved</div>
-            <div class="top-footer-group-separator"></div>
-            <ul class="links">
-                <li><a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Send Feedback</a></li>
-            </ul>
-        </div>
-    </div>
+  <div class="dl-footer__section dl-footer__divider">
 
-    <div class="top-footer-column">
-        <div class="link-group">
-            <div class="group-title">Resources</div>
-            <div class="top-footer-group-separator"></div>
-            <ul class="links">
-                <li><a onclick="trackLinkClick('Analyst Guide')" href="assets/analyst-guide-1-2.pdf" rel="noopener noreferrer" title="Analyst Guide" aria-label="Analyst Guide">Analyst Guide</a></li>
-                <li><a onclick="trackLinkClick('API Guide')" href="https://api.usaspending.gov/" rel="noopener noreferrer" title="API Guide" aria-label="API Guide">API Guide</a></li>
-                <li><a onclick="trackLinkClick('Data Model')" href="http://fedspendingtransparency.github.io/DAIMS-v1.1/" rel="noopener noreferrer" title="Data Model" aria-label="Data Model">Data Model</a></li>
-            </ul>
-        </div>
+    <div class="dl-footer__group-title">Contact Us</div>
+    <p>
+      For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
+    </p>
+    <p>
+      T: 202-504-3535
+      <br>
+      E: media.relations@fiscal.treasury.gov
+    </p>
 
-        <div class="link-group">
-            <div class="group-title">Connect With Us</div>
-            <div class="top-footer-group-separator"></div>
-            <ul class="icons">
-                <li>
-                    <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
-                        {% include svgs/github.svg class="footer-icon" %}
-                    </a>
-                </li>
-                <li>
-                    <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
-                        {% include svgs/globe.svg class="footer-icon" %}
-                    </a>
-                </li>
-                <li>
-                    <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
-                        {% include svgs/twitter-square.svg class="footer-icon" %}
-                    </a>
-                </li>
-                <li>
-                    <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
-                        {% include svgs/facebook-square.svg class="footer-icon" %}
-                    </a>
-                </li>
-                <li>
-                    <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
-                        {% include svgs/linkedin-square.svg class="footer-icon" %}
-                    </a>
-                </li>
-            </ul>
-        </div>
+  </div>
+
+  <div class="dl-footer__section dl-footer__divider">
+
+    <div class="dl-footer__group-title">Mailing List</div>
+    <p>
+      To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
+    </p>
+    <div class="dl-footer__group-title">Get Involved</div>
+    <ul class="links">
+      <li>Visit our <a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics">Community Page today.</a></li>
+    </ul>
+
+  </div>
+  
+
+  <div class="dl-footer__social">
+    <div class="dl-footer__group-title">Connect With Us</div>
+    <div class="dl-footer__social-items">
+      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
+        {% include svgs/Githubfooter.svg class="footer-icon" %}
+      </a>
+
+      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
+        {% include svgs/data-world.svg class="footer-icon" %}
+      </a>
+
+      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
+        {% include svgs/Twitterfooter.svg class="footer-icon" %}
+      </a>
+
+      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
+        {% include svgs/Facebookfooter.svg class="footer-icon" %}
+      </a>
+
+
+      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+        {% include svgs/Linkedinfooter.svg class="footer-icon" %}
+      </a>
     </div>
+  </div>
 </div>
 
 <footer id="footer">
-    <ul class="copyright">
-        <li>&copy; 2018 USAspending.gov</li>
-        <li><a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a></li>
-        <li><a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a></li>
-        <li><a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a></li>
-    </ul>
-    <div class="footer-important-info">
-        <span class="important-db-info">
-            <b>NOTE: </b>
-            You must <a href="https://beta.usaspending.gov/#/db_info">click here</a> for very important D&B information.
-        </span>
-    </div>
+  <div>
+    &copy; 2018 USAspending.gov |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  </div>
+  <div class="footer-important-info">
+    <b>NOTE:</b> You must <a href="https://beta.usaspending.gov/#/db_info">click here</a> for very important D&B information.
+  </div>
 </footer>

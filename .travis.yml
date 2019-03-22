@@ -9,4 +9,5 @@ script: "./script/cibuild"
 branches:
   only:
   - master
+  - staging
   - dev

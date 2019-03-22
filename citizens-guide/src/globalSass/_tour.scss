@@ -1,0 +1,53 @@
+$tourButtonColor: #C2185B;
+
+.tour {
+    @extend %info-box;
+    margin-bottom: 1rem;
+
+    h1, h1.tour__heading {
+        font-size: 17px;
+        font-weight: $boldWeight;
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .tour__link {
+        line-height: 3;
+        border: none;
+        padding: 0 2rem;
+        color: white !important;
+        transition: background 0.2s ease;
+        display: inline-block;
+        text-decoration: none;
+        background: $tourButtonColor;
+
+        &:hover {
+            background: lighten($tourButtonColor, 5)
+        }
+    }
+
+    .tour__link.tour__link--disabled {
+        cursor: default;
+        color: #ccc;
+        opacity: 0.5;
+        background: desaturate($tourButtonColor, 20%);
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    i {
+        font-size: 12px;
+        margin-left: 0.75rem;
+    }
+
+    .tour__part-two {
+        display:none;
+    }
+
+    .tour__part-two.active {
+        display:block;
+    }
+
+}

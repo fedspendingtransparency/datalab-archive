@@ -1,0 +1,64 @@
+--- 
+layout: ffg
+title: Data Lab - Federal Deficit Trends – U.S. Treasury
+excerpt: The U.S. has experienced a deficit each year since 2001. Beginning in 2016, increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue.
+description: The federal government has run deficits for the last 18 years. A deficit occurs when the government spends more money than it collects.
+keywords: Deficit, surplus, national deficit, debt, national debt, federal deficit, U.S. deficit, spending, revenue, money going out, money coming in, debtdeficit vs. debt, deficit trends, balanced budget
+permalink: /americas-finance-guide/deficit/trends
+ffg: true
+ffgNav: true
+ffgPageCss: css/deficit-trends.css
+---
+
+{% include ffg/nav/deficit.html %}
+
+<div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+
+    <h1>Federal Deficit Trends over Time</h1>
+
+    <img class="deficit-trend" src="/assets/ffg/deficit/deficit-trend.svg" title="2018 Federal Deficit Trends over Time" alt="In 2000 and 2001 the federal government experienced surpluses of $237 billion and $127 billion respectively. Since 2001, the federal government has not had another surplus. While the annual deficit did not exceed $500 billion from 2002 to 2008, the annual deficit increased substantially in response to the Great Recession with annual deficits exceeding $1 trillion from 2009 to 2012. The annual deficit declined from 2012 to 2015, falling below the $500 billion mark in 2015. Since then, however, the annual deficit has grown each year to $779 billion in 2018." />
+
+    <aside class="deficit-aside">
+        <p>The U.S. has experienced a deficit in each year since 2001. Beginning in 2016, increases in spending on Social Security, health care, and interest on federal debt have outpaced the growth of federal revenue.</p>
+        
+        <section class="accordion">
+            <h1 class="accordion__heading">What does it mean when there is a surplus, balanced budget, and deficit?</h1>
+            <div class="accordion__content">
+                <div id="surplusComponent">
+                    <div class="deficit--surplus__component--content deficit--surplus__surplus">
+                        <img class="deficit__tabs-image" src="/assets/ffg/deficit/surplus.svg" alt="" role="presentation" />
+                        A surplus occurs when the government collects more money than it spends. The last surplus for the federal government was in 2001.
+                    </div>
+                    <div class="deficit--surplus__component--content deficit--surplus__balanced">
+                        <img class="deficit__tabs-image" src="/assets/ffg/deficit/balanceBudget.svg" alt="" role="presentation" />
+                        A balanced budget occurs when the amount the government spends equals the amount the government collects. Sometimes the term balanced budget is used more broadly to refer to instances where there is no deficit.
+                    </div>
+                    <div class="deficit--surplus__component--content deficit--surplus__deficit">
+                        <img class="deficit__tabs-image" src="/assets/ffg/deficit/deficit.svg" alt="" role="presentation" />
+                        A deficit occurs when the government spends more money than it collects. The federal government has run deficits for the last 18 years.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tour">
+            <div class="tour__part-one">
+                <h1>How does the deficit in the United States compare to other countries?</h1>
+                <p>When you are done here, see how the U.S. deficit compares to other countries.</p>
+            </div>
+            <a class="tour__link" href="country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </aside>
+
+    <div class="clearfix"></div>
+
+    <section class="hwcta">
+        <p>The visualization was created using the {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue and spending of the United States.</p>
+    </section>
+</div>
+
+<div class="clearfix"></div>
+
+<script src="/assets/ffg/accordion.js"></script>
+<script src="/assets/ffg/deficit/trends.js"></script>

@@ -65,7 +65,7 @@ category: entry
         </div>
       </div>
       <div class="dts-viz-container">
-        <div>
+        <div class="dts-layout-manager">
           <div class="dts-brush-date-container">
             <div class="dts-brush-date-item"><div class="dts-brush-start-date-label">From </div><div class="dts-brush-start-date">mm/dd/yy</div></div>
             <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
@@ -104,6 +104,13 @@ category: entry
 {% include viz-footer-info.html
   body="The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily Treasury Statement (DTS) archive. The download and transformation scripts come from the Federal Treasury API, developed for the treasury.io tool. The data goes through three stages of cleaning prior to reaching its completed state: download, parse, and aggregate."
   link="dts-more.html"
+%}
+
+{% include footer-navigation.html
+	prev-text="Competition in Contracting"
+	prev-link="competition-in-contracting.html"
+	next-text="Contract Spending Analysis"
+	next-link="contracts-over-time.html"
 %}
 
 <script src="{{ "/js/babel-polyfill.min.js" | prepend: site.baseurl }}"></script>
