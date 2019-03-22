@@ -108,14 +108,16 @@ $landing-title-color: #4A4A4A;
                     height: 80px;
                     margin: 0 auto 1rem auto;
                     display: block;
+                    width: 50%;
                 }
 
                 .landing-row__text {
-                    width: auto;
+                    width: 50%;
                     margin: auto; // center..
 
                     .landing-row__title {
                         margin-bottom: 1rem;
+                        text-align: center;
                     }
 
                     .landing-row__p--hide {
@@ -214,8 +216,13 @@ $landing-title-color: #4A4A4A;
                 .landing-row__tile {
                     display: block;
 
+                    .svgImage {
+                        width: auto;
+                    }
+
                     .landing-row__text {
                         text-align: center;
+                        width: auto;
 
                         .landing-row__p {
                             display: block;
@@ -233,16 +240,6 @@ $landing-title-color: #4A4A4A;
                         .landing-row__text {
                             text-align: left;
                         }
-                    }
-
-                    .landing-row__image {
-                        margin-bottom: 1rem;
-                        float: none;
-                        padding-bottom: 0;
-                        width: 100%;
-                        margin: 0;
-                        padding-left: 0; // get rid of padding on desktop..
-                   
                     }
                 }
             }
