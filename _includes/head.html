@@ -16,11 +16,11 @@
   <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE" id="_fed_an_ua_tag"></script>
   
   {% if page.ffg %}
-    <link rel="stylesheet" href="/assets/fa/css/all.css" />
-    <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
-    <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
+  <link rel="stylesheet" href="/assets/fa/css/all.css" />
+  <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
   {% else %}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   {% endif %}
   
   {% if page.ffgNav %}
@@ -30,6 +30,7 @@
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
   
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
+
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60737492-1"></script>
   <script>
@@ -45,3 +46,4 @@
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
 </head>
+
