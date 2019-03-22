@@ -21,11 +21,15 @@
     pointer-events: all;
   }
 
+  .dts-layout-manager {
+    width: 57vw;
+    height: 100%;
+  }
+
   #svg-wrapper {
     display: flex;
     margin-right: 50px;
-    width: 57vw;
-    height: 100%;
+    width: 100%;
     margin-left: -15px;
   }
 
@@ -148,8 +152,8 @@
     display: flex;
     font-size: 13px;
     position: relative;
-    top: 35px;
-    left: 35px;
+    top: 1rem;
+    left: 5%;
   }
 
   .dts-brush-start-date-label, .dts-brush-end-date-label {
