@@ -31,7 +31,7 @@ $landing-title-color: #4A4A4A;
 
 .feature-row__image {
   img {
-    height: 200px;
+    width: 100%;
   }
 }
 
@@ -184,6 +184,14 @@ $landing-title-color: #4A4A4A;
     width: 100%;
     margin: 0 auto 1rem;
   }
+
+  .feature-row__image {
+//    max-width: 400px;
+    img {
+      width: 100%;
+    }
+  }
+
 
   .landing-row__tiles {
     display: flex;
