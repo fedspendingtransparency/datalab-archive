@@ -13,13 +13,14 @@ $headerBg: rgba(255,255,255,0.9);
     text-align:center;
     position: relative;
     overflow: hidden;
+    padding-top: 1rem;
 }
 
 .bp-header__bg {
     position: absolute;
-    background: url(/assets/ffg/bp/header_image.jpg) center top no-repeat;
-    background-size: contain;
-    height: 900px;
+    background: url(/assets/ffg/bp/header-mobile.jpg) center top no-repeat;
+    background-size: cover;
+    height: 600px;
     top: 0;
     left: 0;
     width: 100%;
@@ -115,6 +116,7 @@ $headerBg: rgba(255,255,255,0.9);
     .bp-header__bg {
         background-position-y: -5px;
         background-size: 100%;
+        background: url(/assets/ffg/bp/header_image.jpg) center top no-repeat;
     }
 }
 

@@ -271,13 +271,14 @@ a.chapter__cta i.fa-angle-right {
 .bp-header {
   text-align: center;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 1rem; }
 
 .bp-header__bg {
   position: absolute;
-  background: url(/assets/ffg/bp/header_image.jpg) center top no-repeat;
-  background-size: contain;
-  height: 900px;
+  background: url(/assets/ffg/bp/header-mobile.jpg) center top no-repeat;
+  background-size: cover;
+  height: 600px;
   top: 0;
   left: 0;
   width: 100%;
@@ -351,7 +352,8 @@ a.chapter__cta i.fa-angle-right {
 @media only screen and (min-width: 800px) {
   .bp-header__bg {
     background-position-y: -5px;
-    background-size: 100%; } }
+    background-size: 100%;
+    background: url(/assets/ffg/bp/header_image.jpg) center top no-repeat; } }
 
 @media only screen and (min-width: 1200px) {
   .bp-header__break {
