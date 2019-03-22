@@ -1,6 +1,8 @@
 "use strict";
 
-const dollarFormatter = d => d3.format("$,.2s")(d).replace(/G/,"B");
+let dollarFormatter = function dollarFormatter(d) {
+  return d3.format("$,.2s")(d).replace(/G/, "B");
+};
 const dateFormatter = d3.timeFormat("%B %e, %Y");
 
 var margin = {top: 0, right: 20, bottom: 30, left: 50},
@@ -48,7 +50,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   let lastValue = lastEntry.Totals;
 
 
-  console.log("line: ",valueline)
+//  console.log("line: ",valueline)
 
   // let yAxis = d3.axisLeft(y)
   // .tickFormat(dollarFormatter)
@@ -87,7 +89,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
       .attr("class", "line")
       .attr("d", valueline);
 
-  drawYAxisGridlines(svg, y, width, 10)
+  drawYAxisGridlines(svg, y, width, 10);
 
   svg.append("circle")
     .attr("r", 7)
