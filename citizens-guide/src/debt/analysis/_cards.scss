@@ -145,6 +145,7 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 0;
+        width: 100%; // for IE
     }
 
     .card__flipper {
