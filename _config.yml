@@ -6,6 +6,10 @@ first_published: 2018
 email: fed-spending-transparency-collaboration@gsa.gov
 baseurl: ""
 url: https://datalab.usaspending.gov
+include: ['.htaccess']
+webrick:
+  headers:
+    Access-Control-Allow-Origin: *
 
 markdown: kramdown
 
