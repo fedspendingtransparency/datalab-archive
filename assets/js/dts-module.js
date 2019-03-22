@@ -15,28 +15,30 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
-var valueline = d3.line()
-    .x(d => x(d.date))
-    .y(d => y(d.Totals));
+var valueline = d3.line().x(function (d) {
+  return x(d.date);
+}).y(function (d) {
+  return y(d.Totals);
+});
 
 var svg = d3.select(".dtsm-img").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
 function drawYAxisGridlines(svg, y, width, ticks) {
-    svg
-      .append("g")
-      .attr("class", "grid")
-      .call(
-        d3
-          .axisLeft(y)
-          .ticks(2)
-          .tickSize(-width)
-          .tickFormat("")
-      );
+  svg
+    .append("g")
+    .attr("class", "grid")
+    .call(
+      d3
+        .axisLeft(y)
+        .ticks(2)
+        .tickSize(-width)
+        .tickFormat("")
+    );
 }
 
 d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
@@ -50,7 +52,7 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   let lastValue = lastEntry.Totals;
 
 
-//  console.log("line: ",valueline)
+  //  console.log("line: ",valueline)
 
   // let yAxis = d3.axisLeft(y)
   // .tickFormat(dollarFormatter)
@@ -61,33 +63,33 @@ d3.csv("/data-lab-data/dts/recent_30.csv", type, function(error, data) {
   // .ticks(2);
 
   svg.append("g")
-      .attr("class","dts_Yaxis")
-      .attr("transform", "translate(-10)")
-      .style("stroke","#757575")
-      .style("font-family","Source Sans Pro")
-      .style("font-size","11")
-      .style("line-height","20px")
-      .style("font-weight","100")
-      .call(d3.axisLeft(y).ticks(2)
-      .tickFormat(dollarFormatter)
-      .tickSize(0));
+    .attr("class","dts_Yaxis")
+    .attr("transform", "translate(-10)")
+    .style("stroke","#757575")
+    .style("font-family","Source Sans Pro")
+    .style("font-size","11")
+    .style("line-height","20px")
+    .style("font-weight","100")
+    .call(d3.axisLeft(y).ticks(2)
+	  .tickFormat(dollarFormatter)
+	  .tickSize(0));
 
   svg.append("g")
-      .attr("class","dts_Xaxis")
-      .attr("transform", "translate(0,65)")
-      .style("stroke","#757575")
-      .style("font-size","11")
-      .style("font-family","Source Sans Pro")
-      .style("line-height","20px")
-      .style("font-weight","100")
-      .call(d3.axisBottom(x).ticks(2)
-      .tickFormat(d3.timeFormat("%d %b"))
-      .tickSize(0));
+    .attr("class","dts_Xaxis")
+    .attr("transform", "translate(0,65)")
+    .style("stroke","#757575")
+    .style("font-size","11")
+    .style("font-family","Source Sans Pro")
+    .style("line-height","20px")
+    .style("font-weight","100")
+    .call(d3.axisBottom(x).ticks(2)
+	  .tickFormat(d3.timeFormat("%d %b"))
+	  .tickSize(0));
 
   svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline);
+    .data([data])
+    .attr("class", "line")
+    .attr("d", valueline);
 
   drawYAxisGridlines(svg, y, width, 10);
 
