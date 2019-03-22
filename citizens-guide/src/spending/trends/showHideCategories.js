@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { renderChart } from '.';
 import { runInContext } from 'vm';
+import {destroyDetailPane} from "./detailPane";
 
 const d3 = { select, selectAll };
 
@@ -56,6 +57,8 @@ d3.select('#save-filters-button')
     .on('click', function () {
         d3.select('#show-hide-tray')
             .classed('active', null);
+
+        destroyDetailPane(); // needed if pane had been previously open
 
         renderChart(filterForActiveData())
     });
