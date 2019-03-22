@@ -1,248 +1,242 @@
 <article id="main">
-  <div class="dl-landing">
+	<div class="dl-landing">
 
-    <section class="primary">
-      <a class="primary__link" href="#">
-	<h1 class="primary__mobile-heading">
-	  Your Guide to America's Finances
-	</h1>
+		<section class="primary">
+			<a class="primary__link" href="#">
+				<h1 class="primary__mobile-heading">
+					Your Guide to America's Finances
+				</h1>
 
-	<img class="primary__image" src="../images/homepage/cg-gif.gif" />
-	<div class="primary__content">
+				<img class="primary__image" src="../images/homepage/cg-gif.gif" />
+				<div class="primary__content">
 
-	  <h2 class="primary__heading">
-	    Your Guide to America's Finances
-	  </h2>
+					<h2 class="primary__heading">
+						Your Guide to America's Finances
+					</h2>
 
-	  <p class="primary__text primary__text--desktop">
-	    Where does federal government funding come from? Where does it go? How has federal funding changed over
-	    time? We present you with clear, straightforward information about finances in the federal government. Check
-	    out the Data Lab’s re-invention of the Citizen’s Guide to Financial Report of the U.S. Government: Your
-	    Guide to America’s Finances.
-	  </p>
+					<p class="primary__text primary__text--desktop">
+						Where does federal government funding come from? Where does it go? How has federal funding changed over
+						time? We present you with clear, straightforward information about finances in the federal government. Check
+						out the Data Lab’s re-invention of the Citizen’s Guide to Financial Report of the U.S. Government: Your
+						Guide to America’s Finances.
+					</p>
 
-	  <div class="primary__text_container">
-	    <p class="primary__text">
-	      This visualization presents you with clear,<br> straightforward
-	      information about the<br> finances of the federal government.
-	    </p>
-	  </div>
+					<div class="primary__text_container">
+						<p class="primary__text">
+							This visualization presents you with clear,<br> straightforward
+							information about the<br> finances of the federal government.
+						</p>
+					</div>
 
+				</div>
+
+			</a>
+		</section>
+
+		<section class="secondary">
+
+			<section class="landing-chart">
+				<a class="landing-chart__link" href="dts.html">
+					<h1>
+						Visualizing the Daily Treasury Statement
+					</h1>
+					<h2>
+						How much does the<br> federal government<br> spend each day?
+					</h2>
+					{% include landing-dts.html %}
+				</a>
+
+			</section>
+
+			<section class="landing-feature">
+				<a class="landing-feature__link" href="contracts-over-time.html">
+
+					<div class="landing-feature__headings">
+						<h1>
+							Contract Spending Analysis
+						</h1>
+						<h2>
+							How has federal<br> contract spending<br> changed over time?
+						</h2>
+					</div>
+
+					<div class="landing-feature__image">
+						<img class="" src="../images/homepage/c-o-t.png" />
+					</div>
+					<p class="landing-feature__text">
+						We explore 10 years of contract data, and provide an analysis of the
+						impact of short-term continuing resolutions on contract spending.
+					</p>
+
+				</a>
+			</section>
+
+			<section class="landing-feature">
+				<a class="landing-feature__link" href="contract-explorer.html">
+
+
+					<div class="landing-feature__headings">
+						<h1>
+							Contract Explorer
+						</h1>
+						<h2>
+							Who receives federal contracts?
+						</h2>
+					</div>
+					<div class="landing-feature__image">
+						<img class="" src="../images/homepage/contract-explorer.svg" alt="Contract Explorer" />
+					</div>
+
+					<p class="landing-feature__text">
+						The federal government spends about $500 billion each year on contracts. Learn more
+						about contract recipients and what agencies recieve from these contracts.
+					</p>
+				</a>
+			</section>
+
+		</section>
 	</div>
+	<section class="landing-row">
+		<h1 class="landing-row__heading">
+			More Analyses
+		</h1>
+		<div class="landing-row__tiles">
 
-      </a>
-    </section>
+			<a class="landing-row__tile" href="federal-account-explorer.html">
+				<div class="landing-row__text">
+					<p class="landing-row__label">
+						Federal Account Explorer
+					</p>
+					<p class="landing-row__title">
+						Discover the federal government's spending accounts
+					</p>
+				</div>
+				<img src="../images/homepage/federal.jpg" class="landing-row__image" alt="Federal Account Explorer" />
+			</a>
 
-    <section class="secondary">
+			<a class="landing-row__tile" href="federal-employees.html">
+				<div class="landing-row__text">
+					<p class="landing-row__label">
+						Federal Employees
+					</p>
+					<p class="landing-row__title">
+						Who works<br> in government?
+					</p>
+				</div>
+				<img src="../images/homepage/workers.jpg" class="landing-row__image" alt="Group of Workers" />
+			</a>
 
-      <section class="landing-chart">
-	<a class="landing-chart__link" href="dts.html">
-	  <h1>
-	    Visualizing the Daily Treasury Statement
-	  </h1>
-	  <h2>
-	    How much does the<br> federal government<br> spend each day?
-	  </h2>
-	  {% include landing-dts.html %}
-	</a>
+			<a class="landing-row__tile" href="budget-function.html">
+				<div class="landing-row__text">
+					<p class="landing-row__label">
+						Budget Function
+					</p>
+					<p class="landing-row__title">
+						Check out how federal spending is categorized
+					</p>
+				</div>
+				<img src="../images/homepage/budget.jpg" class="landing-row__image" alt="Budget" />
+			</a>
 
-      </section>
+			<a class="landing-row__tile" href="competition-in-contracting.html">
+				<div class="landing-row__text">
+					<p class="landing-row__label">
+						Competition in Contracting
+					</p>
+					<p class="landing-row__title">
+						How often do federal agencies compete for contracts?
+					</p>
+				</div>
+				<img src="../images/homepage/competition.jpg" class="landing-row__image" alt="Competition" />
+			</a>
+		</div>
+	</section>
 
-      <section class="landing-feature">
-	<a class="landing-feature__link" href="contracts-over-time.html">
-
-	  <div class="landing-feature__headings">
-	    <h1>
-	      Contract Spending Analysis
-	    </h1>
-	    <h2>
-	      How has federal<br> contract spending<br> changed over time?
-	    </h2>
-	  </div>
-
-	  <div class="landing-feature__image">
-	    <img class="" src="../images/homepage/c-o-t.png" />
-	  </div>
-	  <p class="landing-feature__text">
-	    We explore 10 years of contract data, and provide an analysis of the
-	    impact of short-term continuing resolutions on contract spending.
-	  </p>
-
-	</a>
-      </section>
-
-      <section class="landing-feature">
-	<a class="landing-feature__link" href="contract-explorer.html">
-
-
-	  <div class="landing-feature__headings">
-	    <h1>
-	      Contract Explorer
-	    </h1>
-	    <h2>
-	      Who receives federal contracts?
-	    </h2>
-	  </div>
-	  <div class="landing-feature__image">
-	    <img class="" src="../images/homepage/contract-explorer.svg" alt="Contract Explorer" />
-	  </div>
-
-	  <p class="landing-feature__text">
-	    The federal government spends about $500 billion each year on contracts. Learn more
-	    about contract recipients and what agencies recieve from these contracts.
-	  </p>
-	</a>
-      </section>
-
-    </section>
-  </div>
-  <section class="landing-row">
-    <h1 class="landing-row__heading">
-      More Analyses
-    </h1>
-    <div class="landing-row__tiles">
-
-      <a class="landing-row__tile" href="federal-account-explorer.html">
-	<div class="landing-row__text">
-	  <p class="landing-row__label">
-	    Federal Account Explorer
-	  </p>
-	  <p class="landing-row__title">
-	    Discover the federal government's spending accounts
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/federal.jpg" class="landing-row__image" alt="Federal Account Explorer" />
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="federal-employees.html">
-	<div class="landing-row__text">
-	  <p class="landing-row__label">
-	    Federal Employees
-	  </p>
-	  <p class="landing-row__title">
-	    Who works<br> in government?
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/workers.jpg" class="landing-row__image" alt="Group of Workers" />
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="budget-function.html">
-	<div class="landing-row__text">
-	  <p class="landing-row__label">
-	    Budget Function
-	  </p>
-	  <p class="landing-row__title">
-	    Check out how federal spending is categorized
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/budget.jpg" class="landing-row__image" alt="Budget" />
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="competition-in-contracting.html">
-	<div class="landing-row__text">
-	  <p class="landing-row__label">
-	    Competition in Contracting
-	  </p>
-	  <p class="landing-row__title">
-	    How often do federal agencies compete for contracts?
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/competition.jpg" class="landing-row__image" alt="Competition" />
-	</div>
-      </a>
-    </div>
-  </section>
-
-  <section class="feature-row">
-    <div class="feature-row__border">
-      <div class="feature-row__image">
-	<img src="../images/homepage/homelessness.png" alt="Homelessness" />
-      </div>
-      <div class="feature-row__text">
-	<h1 class="feature-row__heading">
-	  Homelessness Analysis
-	</h1>
-	<p class="feature-row__title">
-	  Explore federal programs that address homelessness
-	</p>
-	<p class="feature-row__blurb">
-	  On a single night in 2016, more than 500,000 people experienced homelessness in the United States.
-	  With our visualization uncover how individuals experiencing homlessness are counted, which federal programs
-	  are addressing homelessness, and the amount of federal spending on homelessness by region. Through this analysis
-	  you will get a glimpse of how federal funding impacts homelessness and can serve as a useful too for those working to reduce
-	  homelessness.
-	</p>
-      </div>
-    </div>
-  </section>
+	<section class="feature-row">
+		<div class="feature-row__border">
+			<div class="feature-row__image">
+				<img src="../images/homepage/homelessness.png" alt="Homelessness" />
+			</div>
+			<div class="feature-row__text">
+				<h1 class="feature-row__heading">
+					Homelessness Analysis
+				</h1>
+				<p class="feature-row__title">
+					Explore federal programs that address homelessness
+				</p>
+				<p class="feature-row__blurb">
+					On a single night in 2016, more than 500,000 people experienced homelessness in the United States.
+					With our visualization uncover how individuals experiencing homlessness are counted, which federal programs
+					are addressing homelessness, and the amount of federal spending on homelessness by region. Through this
+					analysis
+					you will get a glimpse of how federal funding impacts homelessness and can serve as a useful too for those
+					working to reduce
+					homelessness.
+				</p>
+			</div>
+		</div>
+	</section>
 
 
-  <section class="landing-row landing-row--resources">
-    <h1 class="landing-row__heading">
-      Resources
-    </h1>
-    <div class="landing-row__tiles">
+	<section class="landing-row landing-row--resources">
+		<h1 class="landing-row__heading">
+			Resources
+		</h1>
+		<div class="landing-row__tiles">
 
-      <div class="landing-row__tile landing-row__tile--primary">
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    Do you want
-	    <strong><br>to conduct your<br> own analysis?</strong>
-	  </p>
-	  <p class="landing-row__p">
-	    Access Treasury data and<br> create your own charts and<br> visualizations!
-	  </p>
-	</div>
-      </div>
+			<div class="landing-row__tile landing-row__tile--primary">
+				<div class="landing-row__text">
+					<p class="landing-row__title">
+						Do you want
+						<strong><br>to conduct your<br> own analysis?</strong>
+					</p>
+					<p class="landing-row__p">
+						Access Treasury data and<br> create your own charts and<br> visualizations!
+					</p>
+				</div>
+			</div>
 
-      <a class="landing-row__tile" href="http://api.usaspending.gov/">
-	<img src="../images/homepage/resources-api-2.svg" class="svgImg" alt="Resources API" />
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    API Guide
-	  </p>
-	  <p class="landing-row__p landing-row__p--hide">
-	    Guidance on accessing Treasury<br> data with open source code.
-	  </p>
-	</div>
-      </a>
+			<a class="landing-row__tile" href="http://api.usaspending.gov/">
+				<img src="../images/homepage/resources-api-2.svg" class="svgImg" alt="Resources API" />
+				<div class="landing-row__text">
+					<p class="landing-row__title">
+						API Guide
+					</p>
+					<p class="landing-row__p landing-row__p--hide">
+						Guidance on accessing Treasury<br> data with open source code.
+					</p>
+				</div>
+			</a>
 
-      <a class="landing-row__tile" href="/assets/analyst-guide-1-2.pdf">
-	<img src="../images/homepage/resources-user-guide-2.svg" class="svgImg" alt="Resources User Guide" />
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    Analyst Guide
-	  </p>
-	  <p class="landing-row__p landing-row__p--hide">
-	    Methods to easily navigate data <br>from our sister site,<br> USAspending.gov
-	  </p>
-	</div>
-      </a>
+			<a class="landing-row__tile" href="/assets/analyst-guide-1-2.pdf">
+				<img src="../images/homepage/resources-user-guide-2.svg" class="svgImg" alt="Resources User Guide" />
+				<div class="landing-row__text">
+					<p class="landing-row__title">
+						Analyst Guide
+					</p>
+					<p class="landing-row__p landing-row__p--hide">
+						Methods to easily navigate data <br>from our sister site,<br> USAspending.gov
+					</p>
+				</div>
+			</a>
 
-      <a class="landing-row__tile" href="/student-innovators-toolbox.html">
-	<img src="../images/homepage/resources-playbook-2.svg" class="svgImg" alt="Resources Playbook" />
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    Student Innovators Toolbox
-	  </p>
-	  <p class="landing-row__p landing-row__p--hide">
-	    Ways for professors  and students to get involved.
-	  </p>
-	</div>
-      </a>
-
-
-    </div>
+			<a class="landing-row__tile" href="/student-innovators-toolbox.html">
+				<img src="../images/homepage/resources-playbook-2.svg" class="svgImg" alt="Resources Playbook" />
+				<div class="landing-row__text">
+					<p class="landing-row__title">
+						Student Innovators Toolbox
+					</p>
+					<p class="landing-row__p landing-row__p--hide">
+						Ways for professors and students to get involved.
+					</p>
+				</div>
+			</a>
 
 
-  </section>
+		</div>
+
+
+	</section>
 
 
 </article>
