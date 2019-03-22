@@ -91,7 +91,8 @@ $landing-title-color: #4A4A4A;
   
   .svgImg {
     height: 80px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem auto;
+    display: block;
   }
 
 }
@@ -176,7 +177,7 @@ $landing-title-color: #4A4A4A;
 @media only screen and (min-width: 950px) {
   
   .landing-row {
-    padding: 0;
+    padding: 1rem;
   }
 
   .landing-row__image {
