@@ -2,6 +2,8 @@
 @import './landing-dts';
 @import './landing-row';
 
+$landing-title-color: #4A4A4A;
+
 .dl-landing {
   box-sizing: border-box;
   max-width: 1200px;
@@ -20,6 +22,10 @@
 .primary {
   text-align: center;
   box-sizing: border-box;
+}
+
+.primary__heading {
+  display: none;
 }
 
 .secondary {
@@ -45,11 +51,19 @@
 
 .primary__text {
   margin: 1rem 0;
-  font-size: 1rem;
+//  font-family: SourceSansPro;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.4px;
+  color: #000000;
 
   &.primary__text--desktop {
     display: none;
   }
+
 }
 
 .landing-chart {
@@ -71,12 +85,12 @@
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 22px;
+    color: #4a4a4a;
     padding: 0 1rem;
   }
 
 }
-
 
 .landing-feature {
   
@@ -95,8 +109,13 @@
   }
 
   h2 {
-    color: #4A4A4A;
-    font-size: 1.2rem;
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.24;
+    letter-spacing: normal;
+    color: $landing-title-color;
   }
 
 }
@@ -114,9 +133,15 @@
 
 
 .landing-feature__text {
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.4px;
+  color: #000000;
   clear: both;
   margin: 1rem 0;
-  font-size: 1rem;
+  font-size: 0.875rem; // 14px
   display: none;
 }
 
@@ -141,7 +166,7 @@
   .dl-landing {
     display: flex;
     justify-content: space-between;
-    padding-left: 1rem;
+//    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -158,8 +183,7 @@
   }
 
   .primary__content {
-    margin: 2rem;
-    padding: 0 1rem;
+    margin: 3rem;
   }
 
   .primary__desktop-heading {
@@ -168,6 +192,18 @@
 
   .primary__mobile-heading {
     display: none;
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4a4a4a;
+  }
+
+  .primary__heading {
+    display: block;
   }
 
   .primary__text {
@@ -175,6 +211,10 @@
 
     &.primary__text--desktop {
       display: block;
+      font-weight: 300;
+      font-size: 1rem;
+      padding-top: 2rem;
+      line-height: 1.5;
     }
   }
 

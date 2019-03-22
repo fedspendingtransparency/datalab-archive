@@ -1,11 +1,14 @@
+.right-align {
+  text-align: right;
+}
+
 .footer-navigation {
   display: flex;
   justify-content: space-around;
-  padding: 70px;
+  padding: 50px 70px;
   
   background-position: center;
   background-size: cover;
-  background-image: url(/images/analysis.jpg);
 }
 
 .footer-navigation__navigate-button {
@@ -27,14 +30,14 @@
 }
 
 .footer-navigation__separator {
-  border-right: 1px solid #FFF;
-  height: 75px;
+  border-right: 1px solid #666;
+  height: 150px;
   align-self: center;
 }
 
 .footer-navigation__title-container {
   display: inline-block;
-  color: #FFF;
+  color: rgb(102, 102, 102);
 }
 
 .footer-navigation__container {
@@ -43,17 +46,26 @@
 
 .footer-navigation__title {
   color: inherit;
-  font-weight: 400;
-  font-size: 34px;
+  font-weight: 300;
+  font-size: 28px;
+  padding-bottom: 15px;
 }
 
 .footer-navigation__subtitle {
   color: inherit;
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
+}
+.footer-navigation__subtitle::after {
+  content: " Visualization"
 }
 
 .footer-navigation__title-container:hover {
   color: #9BDAF1;
 }
+
+@media screen and (max-width: 999px) {
+  .footer-navigation__subtitle::after {
+    content: ""
+  }
+  }
