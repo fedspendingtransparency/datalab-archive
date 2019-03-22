@@ -41,6 +41,10 @@ $footer-link-color: #2272CE;
 
 .community-page-link {
   color: $footer-link-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .dl-footer__social-items a {
