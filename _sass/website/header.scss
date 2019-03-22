@@ -503,6 +503,18 @@ ul.nav:first-child li:hover > ul:after {
     padding-left: 2rem;
   }
 
+  .navListItem {
+    padding: .9rem;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    color: #4a4a4a;
+  }
+
   #one-line-tag, .landing #one-line-tag {
     display: none;
   }
@@ -580,6 +592,13 @@ ul.nav:first-child li:hover > ul:after {
     overflow: auto;
     height: 100%;
     align-items: flex-end;
+    font-size: 13px;
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.056em;
+    color: #757575
   }
 
   #mobileHr {
@@ -588,10 +607,8 @@ ul.nav:first-child li:hover > ul:after {
 
   // fix spaces with secondary mobile list items
   .secondaryNavMobileli {
-//    padding-top: 3px;
-//    padding-bottom: 3px;
     text-align: right;
-    font-size: 12px;
+    font-size: .9rem;
   }
   
   .secondaryNavAnalysesMobile {

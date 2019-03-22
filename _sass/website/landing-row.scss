@@ -21,7 +21,7 @@ $landing-title-color: #4A4A4A;
 }
 
 .feature-row__border {
-  padding: 1rem;
+  padding: 1em;
 }
 
 .feature-row {
@@ -31,9 +31,10 @@ $landing-title-color: #4A4A4A;
 
 .feature-row__image {
   img {
-    width: 100%;
+    height: 200px;
   }
 }
+
 
 .feature-row .feature-row__blurb {
   display: none;
@@ -49,28 +50,50 @@ $landing-title-color: #4A4A4A;
   padding: 1rem;
 }
 
+.landing-row__p--hide {
+  display: none; // hide on mobile.
+}
+
 .landing-row__title {
   @include landing-subtext();
   color: #4A4A4A;
   margin-top: 0;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.24;
+  letter-spacing: normal;
+  color: $landing-title-color;
 }
 
 .landing-row__label {
   color: #2272CE;
-  font-size: 1rem;
   margin-bottom: 1rem;
   margin-top: 0;
-  font-weight: bold;
-
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
 }
 
 .landing-row__tile {
-  padding: 1rem 0;
+  display: inline-block;
+//  padding: 1rem 0;
+  padding-top: 1.6rem;
   border-bottom: 1px solid #ddd;
   clear: both;
   margin-bottom: 0;
+//  margin-top: 1.5rem;
   overflow: auto;
+  
+  .svgImg {
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
 }
 
 .landing-row__image {
@@ -98,15 +121,6 @@ $landing-title-color: #4A4A4A;
   display: table;
 }
 
-.landing-row--resources .landing-row__image {
-  max-height: 80px;
-  margin: 0 auto 1rem;
-}
-
-.landing-row--resources .landing-row__p {
-  display: none;
-}
-
 .landing-row--resources .landing-row__title {
   margin-bottom: 1rem;
 }
@@ -118,7 +132,17 @@ $landing-title-color: #4A4A4A;
   clear: both;
 
   .landing-row__title {
-    font-size: 1.5rem;
+    font-size: 32px;
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.09;
+    letter-spacing: normal;
+    color: #4a4a4a;
+  }
+
+  .landing-row__title--light {
+    font-weight: 100;
   }
 }
 
@@ -151,10 +175,21 @@ $landing-title-color: #4A4A4A;
 
 @media only screen and (min-width: 950px) {
   
+  .landing-row {
+    padding: 0;
+  }
+
+  .landing-row__image {
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+
   .landing-row__tiles {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .feature-row {
@@ -168,15 +203,19 @@ $landing-title-color: #4A4A4A;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
     display: flex;
-    padding: 1rem;
+    padding: 2em;
   }
 
   .feature-row .feature-row__blurb {
     display: block;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 2.2;
-    padding-top: 0.5rem;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.4px;
+    color: black;
+    font-stretch: normal;
+//    padding-top: 0.5rem;
   }
 
   .feature-row__image {
@@ -186,7 +225,8 @@ $landing-title-color: #4A4A4A;
   .feature-row .feature-row__text {
     float: right;
     width: 60%;
-    padding-left: 4rem;
+    padding-left: 2em;
+    padding-right: 0.55em;
   }
 
   .landing-row__title { font-size: 1.5rem; }
@@ -208,23 +248,23 @@ $landing-title-color: #4A4A4A;
     padding-left: 0; // get rid of padding on desktop..
   }
 
-  .landing-row__image--homelessness {
-    width: 30%;
-    float: left;
-    padding-bottom: 0;
-      
-  }
-
   .landing-row__text {
     float: none;
     width: 100%;
     text-align: left;
   }
 
-
   .landing-row--resources .landing-row__p {
     display: block;
+    font-size: 18px;
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4a4a4a;
   }
+
 
   .landing-row--resources .landing-row__tile {
     display: block;
