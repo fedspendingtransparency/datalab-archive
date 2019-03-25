@@ -12,10 +12,16 @@ const d3 = { line },
 
 function gdpText(text, amount) {
     text.append('tspan')
-        .text('U.S.')
+        .text('FY18')
         .style('font-weight', '600')
         .attr('x', -40)
         .attr('dy', 0);
+
+    text.append('tspan')
+        .text('U.S.')
+        .style('font-weight', '600')
+        .attr('x', -40)
+        .attr('dy', 24);
 
     text.append('tspan')
         .text('Gross')
@@ -76,7 +82,7 @@ export function labelMaker(parent, height, label, amount) {
         .attr('stroke-width', 2);
 
     if (label === 'GDP') {
-        text.attr('y', height / 2 - 48);
+        text.attr('y', height / 2 - 60);
 
         gdpText(text, amount, text);
     } else {
