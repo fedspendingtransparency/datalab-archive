@@ -221,6 +221,7 @@ window.barchartModule = () => {
                 if (!d.displayed) return 0;
                 return x(d.y0 + d.y) - x(d.y0);
             })
+            .attr("transform", `translate(10,0)`)
             .on("mouseover", handleMouseOver)
             .on("mousemove", handleMouseMove)
             .on("mouseout", handleMouseOut);
