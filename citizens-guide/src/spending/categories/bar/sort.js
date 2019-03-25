@@ -7,23 +7,43 @@ const d3 = { select, selectAll, transition },
 
 let config;
 
-function sort(by, config) {
+function sort(by, config, dir) {
     if (by === 'name') {
-        config.data.sort((a, b) => {
-            if (b.activity < a.activity) {
-                return 1;
-            }
+        if(dir === 'default'){
+            config.data.sort((a, b) => {
+                if (b.activity < a.activity) {
+                    return 1;
+                }
 
-            if (b.activity > a.activity) {
-                return -1;
-            }
+                if (b.activity > a.activity) {
+                    return -1;
+                }
 
-            return 0;
-        })
+                return 0;
+            })
+        } else {
+            config.data.sort((b, a) => {
+                if (b.activity < a.activity) {
+                    return 1;
+                }
+
+                if (b.activity > a.activity) {
+                    return -1;
+                }
+
+                return 0;
+            })
+        }
     } else {
-        config.data.sort((a, b) => {
-            return b.amount - a.amount
-        })
+        if(dir === 'default') {
+            config.data.sort((a, b) => {
+                return b.amount - a.amount
+            });
+        } else {
+            config.data.sort((b, a) => {
+                return b.amount - a.amount
+            });
+        }
     }
 
     config.svg.selectAll('g.row')
@@ -36,12 +56,44 @@ function sort(by, config) {
         .ease()
 }
 
-function doSort(name) {
-    sort(name, sortManager.main);
+function doSort(name, direction) {
+    sort(name, sortManager.main, direction);
 
     if (sortManager.detail) {
-        sort(name, sortManager.detail);
+        sort(name, sortManager.detail, direction);
     }
+}
+
+function updateSortIcon(containerId, sortId, sortDefaultClass, sortReverseClass){
+    const isThisAlreadySortedInd = d3.select(`#${sortId}`).classed('active');
+
+    let sortDir = 'default';
+
+    if(!isThisAlreadySortedInd){
+        resetSortingButtons();
+        d3.select(`#${containerId}`).select('button.active').classed('active', false);
+        d3.select(`#${sortId}`).classed('active', true);
+    } else {
+        const sortIcon = d3.select(`#${sortId} i`),
+            sortDefaultInd = sortIcon.classed(sortDefaultClass);
+
+        if(sortDefaultInd){
+            sortIcon.classed(sortDefaultClass, false).classed(sortReverseClass, true);
+            sortDir = 'reverse';
+        } else {
+            sortIcon.classed(sortDefaultClass, true).classed(sortReverseClass, false);
+        }
+    }
+
+    return sortDir;
+}
+
+function resetSortingButtons(){
+    const sortNameBtn = d3.select('#sort-name i'),
+        sortAmountBtn = d3.select('#sort-amount i');
+
+    sortNameBtn.classed('fa-sort-alpha-up', false).classed('fa-sort-alpha-down', true);
+    sortAmountBtn.classed('fa-sort-amount-up', false).classed('fa-sort-amount-down', true);
 }
 
 d3.select('#filter-by-name-icon')
@@ -51,21 +103,24 @@ d3.select('#filter-by-name-icon')
 
 d3.select('#sort-amount')
     .on('click', function () {
-        const isThisAlreadySortedInd = d3.select('#sort-amount').classed('active');
+        const containerId = 'bar-controls',
+            sortId = 'sort-amount',
+            sortDefaultClass = 'fa-sort-amount-down',
+            sortReverseClass = 'fa-sort-amount-up',
+            sortDir = updateSortIcon(containerId, sortId, sortDefaultClass, sortReverseClass);
 
-        if(!isThisAlreadySortedInd){
-            d3.select('#bar-controls').select('button.active').classed('active', false);
-            d3.select('#sort-amount').classed('active', true);
-        }
-
-        doSort('amount');
+        doSort('amount', sortDir);
     });
 
 d3.select('#sort-name')
     .on('click', function () {
-        d3.select('#bar-controls').select('button.active').classed('active', false);
-        d3.select('#sort-name').classed('active', true);
-        doSort('name');
+        const containerId = 'bar-controls',
+            sortId = 'sort-name',
+            sortDefaultClass = 'fa-sort-alpha-down',
+            sortReverseClass = 'fa-sort-alpha-up',
+            sortDir = updateSortIcon(containerId, sortId, sortDefaultClass, sortReverseClass);
+
+        doSort('name', sortDir);
     });
 
 function initHighlightedButton(){
@@ -77,6 +132,7 @@ export function initSort(config) {
     if (config.detail) {
         sortManager.detail = config;
     } else {
+        resetSortingButtons();
         initHighlightedButton();
         sortManager.main = config;
     }
