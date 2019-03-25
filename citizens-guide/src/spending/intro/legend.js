@@ -137,8 +137,6 @@ export function startLegendAnimation(_config) {
     const introX = chartWidth < introWidth ? 0 : (chartWidth / 2) - (introWidth / 2),
         scaleDotLegend = chartWidth < 430 ? 0.85 : 1;
 
-    console.log(scaleDotLegend)
-
     config = _config || config;
     svg = establishContainer(),
         largeDot = svg.append('g')
