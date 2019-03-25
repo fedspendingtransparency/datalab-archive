@@ -126,8 +126,27 @@ const moduleRules = [
 
 module.exports = [{
     entry: {
+        bp: './src/bigPicture/index.js'
+    },
+    devtool: devtool,
+    devServer: devServer,
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/../assets/ffg/bp',
+    },
+    module: {
+        rules: moduleRules
+    }
+},{
+    entry: {
         anecdote: './src/anecdote/anecdote.js',
-        parallax: './src/bigPicture/parallax.js'
     },
     devtool: devtool,
     devServer: devServer,
