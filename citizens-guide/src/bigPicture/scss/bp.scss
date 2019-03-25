@@ -14,6 +14,10 @@ html {
     font-weight: $normalWeight;
 }
 
+.chapter-scroll-target {
+    transform: translateY(-110px);
+}
+
 .bp-scroll-down {
     display: block;
     margin: 0 auto;
