@@ -196,40 +196,40 @@ section.chapter {
     .chapter__big-number--anecdote-placement button.anecdote__link--button {
       display: none; } }
 
-#revenue-chapter a.scroll-to.current, #revenue-chapter button.anecdote__link--button, #revenue-chapter .chapter__big-number {
+.chapter--revenue a.scroll-to.current, .chapter--revenue button.anecdote__link--button, .chapter--revenue .chapter__big-number {
   color: #112e51; }
 
-#revenue-chapter a.link-button {
+.chapter--revenue a.link-button {
   background-color: #112e51; }
 
-#revenue-chapter .anecdote__link--button-icon, #revenue-chapter .anecdote__icon {
+.chapter--revenue .anecdote__link--button-icon, .chapter--revenue .anecdote__icon {
   background-image: url("/assets/ffg/icons/anecdote-revenue.svg"); }
 
-#spending-chapter a.scroll-to.current, #spending-chapter button.anecdote__link--button, #spending-chapter .chapter__big-number {
+.chapter--spending a.scroll-to.current, .chapter--spending button.anecdote__link--button, .chapter--spending .chapter__big-number {
   color: #00796B; }
 
-#spending-chapter a.link-button {
+.chapter--spending a.link-button {
   background-color: #00796B; }
 
-#spending-chapter .anecdote__link--button-icon, #spending-chapter .anecdote__icon {
+.chapter--spending .anecdote__link--button-icon, .chapter--spending .anecdote__icon {
   background-image: url("/assets/ffg/icons/anecdote-spending.svg"); }
 
-#debt-chapter a.scroll-to.current, #debt-chapter button.anecdote__link--button, #debt-chapter .chapter__big-number, .deficit-countries__top-level a.scroll-to.current, .deficit-countries__top-level button.anecdote__link--button, .deficit-countries__top-level .chapter__big-number {
+.chapter--debt a.scroll-to.current, .chapter--debt button.anecdote__link--button, .chapter--debt .chapter__big-number, .deficit-countries__top-level a.scroll-to.current, .deficit-countries__top-level button.anecdote__link--button, .deficit-countries__top-level .chapter__big-number {
   color: #4A0072; }
 
-#debt-chapter a.link-button, .deficit-countries__top-level a.link-button {
+.chapter--debt a.link-button, .deficit-countries__top-level a.link-button {
   background-color: #4A0072; }
 
-#debt-chapter .anecdote__link--button-icon, #debt-chapter .anecdote__icon, .deficit-countries__top-level .anecdote__link--button-icon, .deficit-countries__top-level .anecdote__icon {
+.chapter--debt .anecdote__link--button-icon, .chapter--debt .anecdote__icon, .deficit-countries__top-level .anecdote__link--button-icon, .deficit-countries__top-level .anecdote__icon {
   background-image: url("/assets/ffg/icons/anecdote-debt.svg"); }
 
-#deficit-chapter a.scroll-to.current, #deficit-chapter button.anecdote__link--button, #deficit-chapter .chapter__big-number {
+.chapter--deficit a.scroll-to.current, .chapter--deficit button.anecdote__link--button, .chapter--deficit .chapter__big-number {
   color: #B3532D; }
 
-#deficit-chapter a.link-button {
+.chapter--deficit a.link-button {
   background-color: #B3532D; }
 
-#deficit-chapter .anecdote__link--button-icon, #deficit-chapter .anecdote__icon {
+.chapter--deficit .anecdote__link--button-icon, .chapter--deficit .anecdote__icon {
   background-image: url("/assets/ffg/icons/anecdote-deficit.svg"); }
 
 a.link-button, button.link-button {
