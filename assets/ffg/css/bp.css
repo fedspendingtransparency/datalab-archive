@@ -653,6 +653,9 @@ a.chapter__cta i.fa-angle-right {
 html {
   font-weight: 300; }
 
+.chapter-scroll-target {
+  transform: translateY(-110px); }
+
 .bp-scroll-down {
   display: block;
   margin: 0 auto;
