@@ -7,7 +7,7 @@ import colors from '../../colors.scss';
 import '../../infoBox';
 
 const config = {
-    data: getDataByYear(2018),
+    data: [],
     containerClass: receiptsConstants.shaderContainerClass,
     sectionColor: colors.colorPrimaryDarker,
     accessibilityAttrs: {
@@ -15,6 +15,7 @@ const config = {
         desc: 'The federal government collected $1.7 trillion in individual income taxes in 2018. That represented 50% of all federal revenue for the year. Social Security and Medicare taxes added another $1.1 trillion (or 33%) of total federal revenue. Corporate income taxes were the third largest source of revenue for the federal government in 2018 with $205 billion collected. Miscellaneous revenue, excise taxes, unemployment insurance, customs duties, estate and gift taxes, and other retirement taxes contributed the remaining $325 billion of federal revenue for 2018.'
     }
 },
+    data = getDataByYear(2018),
     d3 = { select, selectAll },
     viz = d3.select('#viz');
 
@@ -24,6 +25,7 @@ let isDesktopInd = false,
     mainSvg;
 
 function init() {
+    config.data = JSON.parse(JSON.stringify(data));
     if (window.innerWidth >= 1200) {
         isDesktopInd = true;
         initSankey(config);
@@ -47,6 +49,7 @@ window.addEventListener('resize', function () {
     }
 
     debounce = setTimeout(function () {
+        config.data = JSON.parse(JSON.stringify(data));
         if (window.innerWidth < 1200) {
             if (isDesktopInd) {
                 isDesktopInd = false;

@@ -68,10 +68,16 @@ d3.select('#sort-name')
         doSort('name');
     });
 
+function initHighlightedButton(){
+    d3.select('#bar-controls').select('button.active').classed('active', false);
+    d3.select('#sort-amount').classed('active', true);
+}
+
 export function initSort(config) {
     if (config.detail) {
         sortManager.detail = config;
     } else {
+        initHighlightedButton();
         sortManager.main = config;
     }
 }
