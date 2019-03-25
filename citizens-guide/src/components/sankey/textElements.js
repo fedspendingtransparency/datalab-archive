@@ -158,7 +158,7 @@ export function addTextElements(data, detailsGroup, xScale, baseDimensions, tier
         .attr('fill', 'white')
         .attr('y', 20)
         .text(function (d, i) {
-            let p = parseInt(d.percent_total);
+            let p = Math.round(parseFloat(d.percent_total));
 
             if (Math.abs(p) < 1) {
                 p = '<1'
