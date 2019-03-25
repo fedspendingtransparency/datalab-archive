@@ -193,10 +193,6 @@
 
   }
 
-  .period-button-header {
-    font-size: 14px;
-  }
-
   .bar {
     fill: #00c3c2;
   }
@@ -256,10 +252,6 @@
 
   .period-button-container {
     display: flex;
-  }
-
-  .period-button-header {
-    text-transform: uppercase;
   }
 
   .period-container .period-button {
@@ -376,9 +368,10 @@
   .frequency-container {
   }
 
-  .frequency-selector-label, .category-select-label {
+  .daily-spending-subtext, .period-button-header, .frequency-selector-label, .category-select-label {
     text-transform: uppercase;
     font-size: 14px;
+    padding-bottom: 10px;
   }
 
   .dts-label-brush-start, .dts-label-brush-end {
