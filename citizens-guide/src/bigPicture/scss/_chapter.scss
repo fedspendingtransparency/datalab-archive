@@ -114,7 +114,7 @@ section.chapter {
     }
 }
 
-#revenue-chapter {
+.chapter--revenue {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-primary-darkest;
     }
@@ -126,7 +126,7 @@ section.chapter {
     }
 }
 
-#spending-chapter {
+.chapter--spending {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-spending-primary;
     }
@@ -138,7 +138,7 @@ section.chapter {
     }
 }
 
-#debt-chapter, .deficit-countries__top-level {
+.chapter--debt, .deficit-countries__top-level {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-debt-primary;
     }
@@ -150,7 +150,7 @@ section.chapter {
     }
 }
 
-#deficit-chapter {
+.chapter--deficit {
     a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
         color: $color-deficit-primary;
     }
