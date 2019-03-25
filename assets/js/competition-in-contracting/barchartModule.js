@@ -145,7 +145,7 @@ window.barchartModule = () => {
             .attr("dy", "0.71em")
             .append("foreignObject")
             .attr("transform", "translate(-20,0)")
-            .attr("width", 10)
+            .attr("width", 22)
             .attr("height", 1000)
             .append("xhtml:body")
             .append("form")
