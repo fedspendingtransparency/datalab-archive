@@ -226,7 +226,7 @@ function setContainers() {
 }
 
 function setInitialValues(){
-    categoryData = config.data;//getDataByYear(2017);
+    categoryData = config.data;
     indexed = categoryData.reduce((a, c) => {
         a[c.activity] = c;
         return a;
