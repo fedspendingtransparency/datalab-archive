@@ -25,25 +25,25 @@
     }
 }
 
-#revenue-chapter a.toc__link.toc__revenue {
+.chapter--revenue a.toc__link.toc__revenue {
     font-weight: $boldWeight;
     opacity:1;
     color: $color-primary-darkest;
 }
 
-#spending-chapter a.toc__link.toc__spending {
+.chapter--spending a.toc__link.toc__spending {
     font-weight: $boldWeight;
     opacity:1;
     color: $color-spending-primary;
 }
 
-#debt-chapter a.toc__link.toc__debt {
+.chapter--debt a.toc__link.toc__debt {
     font-weight: $boldWeight;
     opacity:1;
     color: $color-debt-primary;
 }
 
-#deficit-chapter a.toc__link.toc__deficit {
+.chapter--deficit a.toc__link.toc__deficit {
     font-weight: $boldWeight;
     opacity:1;
     color: $color-deficit-primary;
