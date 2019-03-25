@@ -154,7 +154,11 @@ function CreateDendro(newData){
             let total = 0;
             object._children.forEach((d) => {
                 d._children.forEach((dd) => {
-                    total += dd.size;
+                    if(isNaN(dd.size)){
+                       total += 0; 
+                    } else{
+                       total += dd.size;
+                    }
                 });
             });
             return formatNumber(total);
@@ -163,7 +167,11 @@ function CreateDendro(newData){
         function sumUpLvl2(object) {
             let total = 0;
             object._children.forEach((d) => {
-                total += d.size;
+                if(isNaN(d.size)){
+                    total += 0; 
+                 } else{
+                    total += d.size;
+                 }
             });
             return formatNumber(total);
         }
@@ -172,7 +180,11 @@ function CreateDendro(newData){
             let total = 0;
             object._children.forEach((d) => {
                 d._children.forEach((dd) => {
-                    total += dd.unob;
+                    if(isNaN(dd.unob)){
+                        total += 0; 
+                     } else{
+                        total += dd.unob;
+                     }
                 });
             });
             return formatNumber(total);
@@ -181,7 +193,11 @@ function CreateDendro(newData){
         function sumUpLvl2Unob(object) {
             let total = 0;
             object._children.forEach((d) => {
-                total += d.unob;
+                if(isNaN(d.unob)){
+                    total += 0; 
+                 } else{
+                    total += d.unob;
+                 }
             });
             return formatNumber(total);
         }

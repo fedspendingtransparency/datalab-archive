@@ -19,7 +19,7 @@ export function initChart(_config) {
     setChartWidth();
     setDotsPerRow();
     
-    establishContainer(500, chartWidth, config.accessibilityAttrs);
+    establishContainer(500, chartWidth, config.accessibilityAttrs.default);
 
     startLegendAnimation(config);
 }

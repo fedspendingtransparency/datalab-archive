@@ -17,8 +17,10 @@ let svg,
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'function',
         accessibilityAttrs : {
-            title: 'Bar graph representing 2018 US Federal Spending by spending type and agency',
-            desc: '2018 US federal spending bar graph separated by spending types and agency'
+            title: '2018 Federal Spending by Category and Agency',
+            desc: 'The federal government reports spending by category and by agency. \n' +
+            'The top five spending categories for 2018 were Social Security with $988 billion (24% of total spending), National Defense with $665 billion (16%), Medicare with $589 billion (14%), Health with $519 billion (13%) and Income Security with $496 billion (12%). \n' +
+            'The top five agencies by federal spending for 2018 were Department of Health and Human Services with $1.1 trillion (27% of total spending), Social Security Administration with $1 trillion (25%), Department of the Treasury with $629 billion (15%), Department of Defense – Military Programs with $601 billion (15%) and Department of Veterans Affairs with $179 billion (4%).\n'
         }
     },
     debounce,
@@ -35,13 +37,13 @@ function initSection() {
     initChart();
 }
 
-export function initChart(filteredData, showAll) {
+export function initChart(filteredData) {
     const configData = config.dataType ? config.data[config.dataType] : config.data;
 
     const d = filteredData || configData,
         chartData = top10 ? d.slice(0,9) : d;
 
-    d3.selectAll('svg').remove();
+    d3.selectAll('svg.main').remove();
     barChart(chartData, config.dataType, config);
 }
 
