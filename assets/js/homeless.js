@@ -907,7 +907,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     .node();
                                 tip.show(d, target);
                             })
-                                .on('mouseout', tip.hide)
+                                //.on('mouseout', tip.hide)
                                 .on('dblclick', clicked)
                                 .on("click", (d) => {
                                     BarChart(d);
