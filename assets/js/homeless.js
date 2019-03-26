@@ -1459,7 +1459,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             const svg = d3.select("#tree").append("div")
                                 .attr("class", "chart")
                                 .append("svg:svg")
-                                .attr("height",'24.3vw')
+                                .attr("height",`${h}`)
                                 .attr("viewBox", `0 0 ${w} ${h}`)
                                 .append("svg:g")
                                 .attr("transform", "translate(.5,.5)");
