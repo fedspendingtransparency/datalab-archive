@@ -1,12 +1,30 @@
+@media screen and (max-width: 1130px) {
+  .wide {
+    display: none !important;
+  }
+  .footer-navigation__container {
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1131px) {
+  .narrow {
+    display: none !important;
+  }
+  .footer-navigation__container {
+    align-items: center;
+  }
+}
+
+
+$footer-text-color: #666;
+
 .right-align {
   text-align: right;
 }
 
 .footer-navigation {
   display: flex;
-  justify-content: space-around;
-  padding: 50px 70px;
-  
+  padding: 50px 10% 36px;
   background-position: center;
   background-size: cover;
 }
@@ -23,39 +41,55 @@
   margin-right: 40px;
   margin-right: 2vw;
 }
-
 .footer-navigation__navigate-button.btn-next-viz {
   margin-left: 40px;
   margin-left: 2vw;
 }
 
-.footer-navigation__separator {
-  border-right: 1px solid #666;
-  height: 150px;
-  align-self: center;
-}
-
 .footer-navigation__title-container {
   display: inline-block;
-  color: rgb(102, 102, 102);
 }
 .footer-navigation__title-container:hover {
   color: #9BDAF1;
 }
 
 .footer-navigation__container {
-  align-self: center;
+  flex-basis: 50%;
+  display: flex;
+
+  &_previous {
+    padding-right: 5%;
+  }
+  &_next{
+    // align-items: flex-end;
+    padding-left: 5%;
+    border-left: 1px solid $footer-text-color;
+    &>div {
+      width: 100%;
+      &>div {
+        display: inline-block;
+      }
+    }
+  }
+  @media screen and (max-width: 1130px) {
+    &_previous {
+      flex-direction: column-reverse;
+    }
+    &_next {
+      flex-direction: column;
+    }
+  }
 }
 
 .footer-navigation__title {
-  color: inherit;
+  color: $footer-text-color;
   font-weight: 300;
   font-size: 28px;
   padding-bottom: 15px;
 }
 
 .footer-navigation__subtitle {
-  color: inherit;
+  color: $footer-text-color;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -63,7 +97,7 @@
   content: " Visualization"
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 480px) {
   .footer-navigation__subtitle::after {
     content: ""
   }
