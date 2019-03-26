@@ -7,6 +7,11 @@
     margin-right: 0;
     margin-bottom: 25px;
   }
+
+  #tree > div > svg{
+    height: 100%;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -97,6 +102,12 @@
   .link-group {
     margin: 15px 0;
   }
+
+  #tree > div > svg{
+    height: 100%;
+    width: 100%;
+  }
+
 }
 
 @media (max-width: 1000px) {
@@ -112,6 +123,11 @@
 
   .viz-container {
     padding: 0;
+  }
+
+  #tree > div > svg{
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -220,5 +236,22 @@
 
   .important-db-info {
     margin-right: 0;
+  }
+
+  .feature-row .feature-row__border .feature-row__text .feature-row__title { 
+    margin-bottom: 0;
+  }
+
+  .landing-row.landing-row--resources {
+    margin: 0rem auto;
+  }
+
+  #main > section.landing-row.landing-row--resources > div > div > div {
+    width:75%;
+  }
+
+  #tree > div > svg{
+    height: 100%;
+    width: 100%;
   }
 }
