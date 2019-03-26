@@ -52,6 +52,7 @@
     visibility: hidden;
     transition-property: visibility;
     transition-delay: 0.25s;
+    opacity: 0;
 }
 
 .card__cover {
@@ -90,6 +91,7 @@
 
     .card__contents {
         visibility: visible;
+        opacity: 1;
     }
 }
 
@@ -136,6 +138,7 @@
         .card.card--flipped {
             height: auto;
             width: 49%;
+            opacity: 1;
         }
     }
 
