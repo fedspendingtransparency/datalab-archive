@@ -36,18 +36,10 @@
 //    display: none !important;
   }
 
-  .footer-navigation, #top-footer, ul.icons.major {
-    flex-direction: column;
-  }
-
   .footer-navigation {
     padding: 25px;
   }
-
-  .footer-navigation__separator {
-    visibility: hidden;
-  }
-
+  
   .spotlight .content {
     width: 100%;
     box-sizing: border-box;
