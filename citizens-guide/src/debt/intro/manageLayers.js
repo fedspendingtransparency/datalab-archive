@@ -38,10 +38,6 @@ function zoom(out) {
     }
 }
 
-function showHideMath() {
-    d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
-}
-
 function setAccessibility(type){
     const svgEl = d3.select('svg.main'),
         titleEl = svgEl.select('title'),
@@ -76,7 +72,6 @@ function toggleLayer() {
     transitionLayers();
     toggleFacts();
     resizeSvg();
-    showHideMath();
 }
 
 function toggleFacts() {
@@ -118,6 +113,5 @@ export function layersInit(_config) {
     d3.selectAll('.facts__trigger').on('click', toggleLayer);
     zoom();
     showDebt();
-    setTimeout(showHideMath, duration * 2);
     setTimeout(revealHiddenElements, duration);
 }
