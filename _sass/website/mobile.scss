@@ -229,4 +229,17 @@
   .important-db-info {
     margin-right: 0;
   }
+
+  .feature-row .feature-row__border .feature-row__text .feature-row__title { 
+    margin-bottom: 0;
+  }
+
+  .landing-row.landing-row--resources {
+    margin: 0rem auto;
+  }
+
+  #main > section.landing-row.landing-row--resources > div > div > div {
+    width:75%;
+  }
+
 }
