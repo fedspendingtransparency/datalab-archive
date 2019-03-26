@@ -300,15 +300,15 @@ $landing-title-color: #4A4A4A;
     }
 
     .feature-row {
-        display: flex;
         padding: 1rem;
         margin: 0 auto;
 
         .feature-row__border {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
             border: 1px solid #ddd;
             border-radius: 0.25rem;
-            display: flex;
             padding: 2em;
 
             .feature-row__image {
@@ -316,7 +316,6 @@ $landing-title-color: #4A4A4A;
             }
 
             .feature-row__text {
-                float: right;
                 width: 50%;
                 padding-left: 2em;
                 padding-right: 0.55em;
