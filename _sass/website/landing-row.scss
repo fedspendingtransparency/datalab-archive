@@ -166,6 +166,7 @@ $landing-title-color: #4A4A4A;
         }
 
         .feature-row__text {
+            padding-top: 15px;
             .feature-row__heading {
                 @include landing-header;
 
@@ -314,6 +315,7 @@ $landing-title-color: #4A4A4A;
 
             .feature-row__text {
                 width: 50%;
+                padding-top: 0;
                 padding-left: 2em;
                 padding-right: 0.55em;
 
