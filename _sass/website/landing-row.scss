@@ -179,16 +179,29 @@ $landing-title-color: #4A4A4A;
         padding: 1rem;
 
         .landing-row__tiles {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
             justify-content: space-between;
+            -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
             align-items: stretch;
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
 
             .landing-row__tile {
                 width: 23%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
                 flex-direction: column;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
                 justify-content: space-between;
                 border-bottom: none;
                 margin-bottom: 0;
@@ -206,7 +219,6 @@ $landing-title-color: #4A4A4A;
 
                 .landing-row__image {
                     width: 100%;
-                    height: 100%;
                     margin: 0 auto 1rem;
                     object-fit: contain;
                 }
@@ -227,7 +239,7 @@ $landing-title-color: #4A4A4A;
                         width: auto;
 
                         .landing-row__title {
-                          height: auto;
+                            height: auto;
                         }
 
                         .landing-row__p {
@@ -246,7 +258,7 @@ $landing-title-color: #4A4A4A;
                         .landing-row__text {
                             text-align: left;
                             .landing-row__title {
-                              text-align: left;
+                                text-align: left;
                             }
                         }
                     }
