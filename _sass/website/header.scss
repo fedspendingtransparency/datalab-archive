@@ -487,9 +487,6 @@ ul.nav:first-child li:hover > ul:after {
 
 // "super mobile" - where logo shrinks
 @media (max-width: 450px) {
-  #mobile-nav {
-    top: 95px;
-  }
   
   .official-banner {
     box-sizing: border-box;
