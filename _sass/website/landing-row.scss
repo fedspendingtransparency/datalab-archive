@@ -34,6 +34,18 @@ $landing-title-color: #4A4A4A;
             margin-bottom: 0;
             height: 100%;
 
+            &:hover {
+                .landing-row__label {
+                    text-decoration: underline;
+                }
+            }
+
+            &:hover {
+                .landing-row__title {
+                    text-decoration: underline;
+                }
+            }
+
             .landing-row__text {
                 float: right;
                 width: 60%;
@@ -54,6 +66,7 @@ $landing-title-color: #4A4A4A;
 
                 .landing-row__title {
                     @include landing-subtext;
+
                     color: #4A4A4A;
                     margin-top: 0;
                     font-size: 17px;
@@ -140,6 +153,18 @@ $landing-title-color: #4A4A4A;
 .feature-row {
     clear: both;
     max-width: 1200px;
+
+    &:hover {
+        .feature-row__heading {
+            text-decoration: underline;
+        }
+    }
+
+    &:hover {
+        .feature-row__title {
+            text-decoration: underline;
+        }
+    }
 }
 
 .feature-row__image {
@@ -257,6 +282,7 @@ $landing-title-color: #4A4A4A;
                     &.landing-row__tile--primary {
                         .landing-row__text {
                             text-align: left;
+
                             .landing-row__title {
                                 text-align: left;
                             }
@@ -271,6 +297,10 @@ $landing-title-color: #4A4A4A;
         img {
             width: 100%;
         }
+    }
+
+    .landing-row__tile .landing-row__tile--primary:hover {
+        text-decoration: none;
     }
 
     .feature-row {
