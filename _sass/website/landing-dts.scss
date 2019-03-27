@@ -3,22 +3,20 @@
 
 .dts-module {
   box-sizing: border-box;
-  height: 100px;
   background-color: inherit;
-  padding: 0px 25px 25px 15px;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .dtsm-right-column {
-  display: inline-block;
+  width: 20%;
+  text-align:center;
 }
 
 .dtsm-img {
-  width: auto;
-  height: 100%;
-  display: flex;
+  width: 80%;
 }
 
 .dtsm-dollars {
