@@ -28,7 +28,7 @@ $landing-title-color: #4A4A4A;
     .landing-row__tiles {
         .landing-row__tile {
             display: inline-block;
-            padding-top: 1.6rem;
+            padding-top: 1rem;
             border-bottom: 1px solid #ddd;
             clear: both;
             margin-bottom: 0;
@@ -175,8 +175,9 @@ $landing-title-color: #4A4A4A;
 
             .feature-row__title {
                 @include landing-subtext;
-
                 color: $landing-title-color;
+                margin-bottom: 2.188rem;
+                margin-top: 1rem;
             }
 
             .feature-row__blurb {
@@ -223,7 +224,6 @@ $landing-title-color: #4A4A4A;
             -ms-flex-align: stretch;
             align-items: stretch;
             margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
 
             .landing-row__tile {
                 width: 23%;
@@ -244,7 +244,7 @@ $landing-title-color: #4A4A4A;
 
                 .landing-row__image {
                     width: 100%;
-                    margin: 0 auto 1rem;
+                    margin: 0 auto;
                     object-fit: contain;
                 }
             }
@@ -276,6 +276,7 @@ $landing-title-color: #4A4A4A;
                             line-height: normal;
                             letter-spacing: normal;
                             color: #4a4a4a;
+                            margin-bottom: 2rem;
                         }
                     }
 
@@ -328,6 +329,7 @@ $landing-title-color: #4A4A4A;
                     letter-spacing: 0.4px;
                     color: black;
                     font-stretch: normal;
+                    margin-top: 0;
                 }
             }
         }
