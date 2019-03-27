@@ -269,6 +269,7 @@ $landing-title-color: #4A4A4A;
 
   // children
   .landing-row .landing-row__tiles .landing-row__tile {
+    box-sizing: border-box;
     display: block;
     width: 50%;
     float: left;
@@ -312,6 +313,16 @@ $landing-title-color: #4A4A4A;
   .landing-row.landing-row--resources .landing-row__tiles .landing-row__tile {
     width: 33%;
   }
+
+  a.landing-row__tile:nth-child(even) {
+    padding-left: 1rem;
+  }
+
+  a.landing-row__tile:nth-child(odd) {
+    padding-right: 1rem;
+  }
+
+
 
 }
 
