@@ -41,7 +41,7 @@ function buildLegend() {
         .ease()
 
     g.append('text')
-        .text('= 1 Billion Dollars')
+        .text('= $1 Billion')
         .attr('fill', colors.textColorParagraph)
         .attr('opacity', 0)
         .style('font-size', 16)

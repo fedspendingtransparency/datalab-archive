@@ -16,7 +16,8 @@ export function deficitLabel(yMax, parent, amount) {
         lineData = [
             { x: -20, y: mid },
             { x: -30, y: mid },
-            { x: -30, y: mid + yMax }
+            { x: -30, y: mid + yMax },
+            { x: -20, y: mid + yMax }
         ],
         textX = -30,
         text = layer.append('text')
@@ -62,7 +63,7 @@ export function labelMaker(parent, height, label, amount) {
     if (spending) {
         lineData.forEach((r, i) => {
             r.x = (i === 0 || i === 3) ? chartWidth + 20 : chartWidth + 30;
-        })
+        });
 
         text.attr('text-anchor', 'start');
     }
