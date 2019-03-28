@@ -54,7 +54,6 @@ function handleGdpLayer(reset) {
 
 function setAccessibility(type){
     const svgEl = d3.select('svg.main'),
-        titleEl = svgEl.select('title'),
         descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
@@ -62,7 +61,6 @@ function setAccessibility(type){
         accessibilityAttr = config.accessibilityAttrs[type];
     }
 
-    titleEl.text(accessibilityAttr.title);
     descEl.text(accessibilityAttr.desc);
 }
 
