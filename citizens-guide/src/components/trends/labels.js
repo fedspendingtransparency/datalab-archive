@@ -113,7 +113,7 @@ function placeLabels(globals) {
         .enter()
         .append('g')
         .attr('class', 'line-label')
-        .attr('data-id', function(d){
+        .attr('data-id', function (d) {
             return d.name
         })
         .attr('opacity', function (d) {
@@ -199,7 +199,7 @@ function enableSelect(labelGroups, globals) {
             } else {
                 // toggle on
                 deselectOthers(labelGroups);
-                d3.select(this).classed('selected', true);
+                //d3.select(this).classed('selected', true);
                 globals.onSelect(d);
             }
         })
@@ -209,7 +209,7 @@ function enableSelect(labelGroups, globals) {
         })
         .on('mouseout', function (d) {
             globals.trendLines.deEmphasize(d.name, globals, 'off')
-            
+
             if (!d3.select(this).classed('selected')) {
                 setLabelInactive.bind(this)();
             }
@@ -269,9 +269,9 @@ function rescale(globals, duration) {
 
 export function renderLabels(globals) {
     const labels = placeLabels(globals);
-    
-    enableSelect(labels, globals);  
-    
+
+    enableSelect(labels, globals);
+
     if (!globals.noDrilldown) {
         nudge(labels);
     }

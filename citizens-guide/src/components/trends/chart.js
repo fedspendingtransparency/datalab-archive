@@ -21,7 +21,7 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
         top: 40
     };
 
-let zoomThreshold;
+let originalConfig;
 
 function toggleZoom(globals) {
     const duration = 1000,
@@ -72,7 +72,7 @@ function onSelect(d, reset) {
         //destroyDetailPane();
         //transformChart(this, reset);
     } else if (!this.noDrilldown) {
-        initOverlay(d)
+        initOverlay(d, originalConfig)
         //transformChart(this, reset);
     }
 }
@@ -100,9 +100,14 @@ function setNoZoom(g) {
     }
 }
 
-function initGlobals(config, data) {
-    const globals = config || {},
-        w = getContainerWidth();
+function initGlobals(config, data, drilldown) {
+    const globals = config || {};
+    
+    let w = getContainerWidth(drilldown);
+
+    if (drilldown) {
+        w -= 150;
+    }
 
     globals.data = data;
 
@@ -152,16 +157,26 @@ function calculateContainerOffset(globals, container) {
     return containerOffset;
 }
 
-function getContainerWidth() {
-    const w = getElementBox(d3.select('#viz')).width;
+function getContainerWidth(drilldown) {
+    let w = getElementBox(d3.select('#viz')).width;
 
-    d3.select('svg.main').attr('width', w);
+    if (!drilldown) {
+        d3.select('svg.main').attr('width', w);
+    }
 
     return w;
 }
 
-export function trendDesktop(_data, container, config) {
-    const globals = initGlobals(config, _data);
+export function trendDesktop(_data, container, config, drilldown) {
+    let globals;
+
+    originalConfig = Object.assign({}, config);
+
+    globals = initGlobals(config, _data, drilldown);
+
+    if (drilldown) {
+        globals.noDrilldown = true;
+    }
 
     globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
 
