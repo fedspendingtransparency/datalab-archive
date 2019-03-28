@@ -73,7 +73,7 @@ section.chapter {
             margin-left:1rem;
             height:5px; // If the text wraps on smartphones, we need to create this distance between the anecdote placement and the text below.
         }
-        button.anecdote__link--button {
+        div.anecdote__link--button {
             display:inline-block;
         }
     }
@@ -108,14 +108,14 @@ section.chapter {
 
     .chapter__big-number--anecdote-placement {
         display:inline-block;
-        button.anecdote__link--button {
+        div.anecdote__link--button {
             display:none;
         }
     }
 }
 
 .chapter--revenue {
-    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
         color: $color-primary-darkest;
     }
     a.link-button {
@@ -127,7 +127,7 @@ section.chapter {
 }
 
 .chapter--spending {
-    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
         color: $color-spending-primary;
     }
     a.link-button {
@@ -139,7 +139,7 @@ section.chapter {
 }
 
 .chapter--debt, .deficit-countries__top-level {
-    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
         color: $color-debt-primary;
     }
     a.link-button {
@@ -151,7 +151,7 @@ section.chapter {
 }
 
 .chapter--deficit {
-    a.scroll-to.current, button.anecdote__link--button, .chapter__big-number {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
         color: $color-deficit-primary;
     }
     a.link-button {

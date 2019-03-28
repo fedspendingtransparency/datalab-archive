@@ -30,8 +30,10 @@
     }
 
     .anecdote__dot {
-        height: 8px;
-        width: 8px;
+        padding:4px;
+        width:8px;
+        height:8px;
+        border:0;
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
@@ -41,6 +43,11 @@
 
         &.anecdote__dot--active {
             background: #205493;
+        }
+
+        &:focus {
+            outline:0;
+            box-shadow: 0 0 0.25rem 0.2rem #205493;
         }
     }
 
@@ -125,6 +132,8 @@
 
     .anecdote__link--button-icon {
         margin-bottom:-4px;
+        background-color:transparent;
+        border:0;
     }
 
     .anecdote__link--button {
