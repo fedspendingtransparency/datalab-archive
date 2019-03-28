@@ -3,22 +3,24 @@ import { scaleLinear } from 'd3-scale';
 import { min, max, range } from 'd3-array';
 import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
-import { transition } from 'd3-transition';
-import { translator, getTransform } from '../../utils';
+import { translator, getTransform, getElementBox } from '../../utils';
 import { renderLabels } from './labels';
-import { showDetail, destroyDetailPane } from './detailPane';
+// import { showDetail, destroyDetailPane } from './detailPane';
 import { zoomTrigger } from './zoomTrigger';
 import { ink } from './ink'
 import { addTooltips } from './addTooltips';
 import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
+import { dataRange, setThreshold } from './setThreshold';
 
-const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft, transition },
+const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
         left: 400,
         top: 40
     };
+
+let zoomThreshold;
 
 function toggleZoom(globals) {
     const duration = 1000,
@@ -35,7 +37,8 @@ function toggleZoom(globals) {
 }
 
 function transformChart(globals, reset) {
-    const duration = 1000;
+    const duration = 1000,
+        xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
 
     globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
     globals.scales.x.range([0, globals.width]);
@@ -45,7 +48,10 @@ function transformChart(globals, reset) {
     globals.dataDots.rescale(globals, duration);
     globals.ink.rescale(globals, duration);
     globals.trendLines.rescale(globals, duration);
-    globals.zoomTrigger.rescale(globals, duration);
+
+    if (!globals.noZoom) {
+        globals.zoomTrigger.rescale(globals, duration);
+    }
 
     globals.chart.transition()
         .duration(duration)
@@ -61,13 +67,13 @@ function onSelect(d, reset) {
         this.trendLines.deEmphasize(d.name, this);
     }
 
-    if (reset && !this.noDrilldown) {
-        destroyDetailPane();
-        transformChart(this, reset);
-    } else if (!this.noDrilldown) {
-        showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
-        transformChart(this, reset);
-    }
+    // if (reset && !this.noDrilldown) {
+    //     destroyDetailPane();
+    //     transformChart(this, reset);
+    // } else if (!this.noDrilldown) {
+    //     showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
+    //     transformChart(this, reset);
+    // }
 }
 
 function onZoom() {
@@ -75,30 +81,40 @@ function onZoom() {
     this.trendLines.deEmphasize(null, this);
     toggleZoom(this);
 
+    // if (!this.noDrilldown) {
+    //     transformChart(this, 'reset');
+    //     destroyDetailPane();
+    // }
+}
 
-    if (!this.noDrilldown) {
-        transformChart(this, 'reset');
-        destroyDetailPane();
+function setNoZoom(g) {
+    g.zoomThreshold = setThreshold(g.data) || 100000000000;
+
+    if (g.noDrilldown) {
+        return;
+    }
+
+    if (dataRange[0] > g.zoomThreshold || dataRange[1] < g.zoomThreshold) {
+        g.noZoom = true;
     }
 }
 
-function initGlobals(config) {
-    const globals = config || {};
+function initGlobals(config, data) {
+    const globals = config || {},
+        w = getContainerWidth();
+
+    globals.data = data;
+
+    setNoZoom(config);
 
     globals.scales = globals.scales || {};
     globals.height = globals.height || 650;
     globals.labelWidth = 160;
     globals.labelPadding = 60;
-    globals.originalWidth = (globals.noDrilldown) ? 240 : 1200 - (globals.labelWidth + globals.labelPadding) * 2;
-    globals.widthOnDrilldown = 360,
-        globals.width = globals.originalWidth,
-        globals.zoomThreshold = globals.zoomThreshold || 180000000000;
-    globals.zoomState = 'out';
-    globals.totalWidth = globals.labelWidth + globals.labelPadding + globals.width;
-    globals.baseXTranslate = globals.labelWidth + globals.labelPadding + 35;
+    globals.labelWidth = globals.labelWidth + globals.labelPadding + 35;
+    globals.width = w - globals.labelWidth - 35;
 
     globals.zoomState = 'out';
-
     globals.onSelect = onSelect.bind(globals);
     globals.onZoom = onZoom.bind(globals);
 
@@ -114,16 +130,20 @@ function initGlobals(config) {
  */
 function calculateContainerOffset(globals, container) {
     let parentEl = container,
-        containerOffset = getTransform(globals.chart);
+        parentOffset = { x: 0, y: 0 },
+        containerOffset = getTransform(globals.chart),
+        initialTranslateLeft = containerOffset.x;
 
     // The main level trend-chart only needs the first level offset from globals.chart, the sub-level has
     // two additional g tags that are sandwiched around globals.chart which we need their offsets.
     if (parentEl.node().nodeName !== 'svg') {
         const childEl = parentEl.select('g.trend-chart');
-        parentEl = d3.select(parentEl.node().parentNode);
 
-        const parentOffset = getTransform(parentEl);
+        parentEl = d3.select(parentEl.node().parentNode);
+        parentOffset = getTransform(parentEl);
+
         const childOffset = getTransform(childEl);
+
         containerOffset.x = containerOffset.x + parentOffset.x + childOffset.x;
         containerOffset.y = containerOffset.y + parentOffset.y + childOffset.y;
     }
@@ -131,15 +151,22 @@ function calculateContainerOffset(globals, container) {
     return containerOffset;
 }
 
-export function trendView(_data, container, config) {
-    const globals = initGlobals(config);
+function getContainerWidth() {
+    const w = getElementBox(d3.select('#viz')).width;
 
-    globals.data = _data;
+    d3.select('svg.main').attr('width', w);
+
+    return w;
+}
+
+export function trendDesktop(_data, container, config) {
+    const globals = initGlobals(config, _data);
+
     globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
 
     globals.chart = container.append('g')
         .classed('trend-chart', true)
-        .attr('transform', translator(globals.baseXTranslate, margin.top));
+        .attr('transform', translator(globals.labelWidth, margin.top));
 
     // draw the chart
     globals.xAxis = xAxis(globals);

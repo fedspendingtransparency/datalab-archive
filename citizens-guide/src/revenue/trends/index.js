@@ -1,6 +1,7 @@
-import { establishContainer, initDropShadow } from '../../utils';
-import { trendView } from './trendView';
+import { establishContainer } from '../../utils';
 import { trendData } from './trendData';
+import { trendDesktop } from '../../components/trends/chart';
+import colors from '../../colors.scss';
 
 const data = trendData(),
     accessibilityAttrs = {
@@ -9,8 +10,9 @@ const data = trendData(),
     };
 
 const svg = establishContainer(780, null, accessibilityAttrs);
-initDropShadow();
 
-trendView(data, svg, {
-    width: 500
+trendDesktop(data, svg, {
+    chapter: 'revenue',
+    baseColor: colors.colorPrimaryDarker,
+    secondaryColor: 'rgb(74, 144, 226)'
 });

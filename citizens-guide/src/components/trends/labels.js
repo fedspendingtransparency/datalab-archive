@@ -112,6 +112,7 @@ function placeLabels(globals) {
         .data(globals.data.sort(sortByFirstYear))
         .enter()
         .append('g')
+        .attr('class', 'line-label')
         .attr('data-id', function(d){
             return d.name
         })
@@ -147,7 +148,7 @@ function placeLabels(globals) {
         })
         .attr('x', 5)
         .attr('y', -20)
-        .attr('fill', colors.colorPrimaryDarker)
+        .attr('fill', globals.baseColor)
         .each(function () {
             d3.select(this).lower();
         })
@@ -179,6 +180,8 @@ function placeLabels(globals) {
         const yTranslate = setLabelYTranslate(d, this, runningY, globals);
 
         runningY = yTranslate.yTranslate + yTranslate.boxHeight;
+
+        d3.select(this).attr('data-y', yTranslate.yTranslate);
 
         return translator(-globals.labelPadding, yTranslate.yTranslate);
     });
