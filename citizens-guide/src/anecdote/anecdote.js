@@ -218,21 +218,55 @@ function buildTrigger(anecdote){
 
 function addKeyboardNavigation(){
     window.addEventListener("keydown", function(e){
-        const prevSlideCd = 'ArrowLeft',
-            nextSlideCd = 'ArrowRight';
-        if(e.key === prevSlideCd || e.key === nextSlideCd) {
+        let navigateDir = '';
+        switch(e.key){
+            case 'Right':
+            case 'ArrowRight':
+                navigateDir = 'next';
+                break;
+            case 'Left':
+            case 'ArrowLeft':
+                navigateDir = 'previous';
+                break;
+        }
+        if(navigateDir) {
+            const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || defaultAnecdoteProperties.anecdoteClass;
+
+            function findAnecdote(el){
+                if(el.nodeName === 'SECTION' && el.className === anecdoteClass){
+                    const anecdote = d3.select(el);
+                    performSlideMovement(anecdote);
+                    return true;
+                }
+                return false;
+            }
+
+            function performSlideMovement(anecdote){
+                anecdote.node().focus();
+                if(navigateDir === 'next'){
+                    moveToAdjacentSlide(anecdote, true);
+                } else {
+                    moveToAdjacentSlide(anecdote, false);
+                }
+            }
+
             const pathEls = e.path;
-            let curPath = null,
-                anecdote = null;
-            for (let i = 0, il = pathEls.length; i < il; i++) {
-                curPath = pathEls[i];
-                if (curPath.nodeName === "SECTION" && curPath.className === 'anecdote') {
-                    anecdote = d3.select(curPath);
-                    anecdote.node().focus();
-                    if(e.key === nextSlideCd){
-                        moveToAdjacentSlide(anecdote, true);
-                    } else {
-                        moveToAdjacentSlide(anecdote, false);
+            let curPath = null;
+            if(pathEls){
+                for (let i = 0, il = pathEls.length; i < il; i++) {
+                    curPath = pathEls[i];
+                    if(findAnecdote(curPath) === true){
+                        return;
+                    }
+                }
+            } else {
+                let curNode = e.target;
+                if(curNode && findAnecdote(curNode) === false){
+                    while(curNode.parentNode){
+                        curNode = curNode.parentNode;
+                        if(findAnecdote(curNode) === true){
+                            return;
+                        }
                     }
                 }
             }
