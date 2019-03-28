@@ -87,7 +87,6 @@ export function wordWrap(text, maxWidth) {
     var words = text.text().split(/\s+/).reverse(),
         word,
         line = [],
-        lineNumber = 0,
         lineHeight = 1.1,
         tspan;
 

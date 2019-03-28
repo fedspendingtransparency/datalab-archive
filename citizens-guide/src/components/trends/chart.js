@@ -13,6 +13,7 @@ import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
 import { trendLines } from './trendLines';
 import { dataRange, setThreshold } from './setThreshold';
+import { initOverlay } from './detailOverlay';
 
 const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, axisLeft },
     margin = {
@@ -67,13 +68,13 @@ function onSelect(d, reset) {
         this.trendLines.deEmphasize(d.name, this);
     }
 
-    // if (reset && !this.noDrilldown) {
-    //     destroyDetailPane();
-    //     transformChart(this, reset);
-    // } else if (!this.noDrilldown) {
-    //     showDetail(d, this.scales.y(d.values[d.values.length - 1].amount) + 48);
-    //     transformChart(this, reset);
-    // }
+    if (reset && !this.noDrilldown) {
+        //destroyDetailPane();
+        //transformChart(this, reset);
+    } else if (!this.noDrilldown) {
+        initOverlay(d)
+        //transformChart(this, reset);
+    }
 }
 
 function onZoom() {
