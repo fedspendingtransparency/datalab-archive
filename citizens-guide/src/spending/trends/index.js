@@ -61,7 +61,3 @@ function onSelectDataType() {
 }
 
 d3.select('.link-button__div').on('click', onSelectDataType);
-
-(function init() {
-    
-})();

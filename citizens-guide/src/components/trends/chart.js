@@ -228,6 +228,8 @@ export function trendDesktop(_data, container, config, drilldown) {
     drawChart(globals, container);
 
     if (!drilldown) {
+        d3.select('svg.main').attr('height', 930);
+        
         window.addEventListener('resize', function () {
             if (debounce) {
                 clearTimeout(debounce);

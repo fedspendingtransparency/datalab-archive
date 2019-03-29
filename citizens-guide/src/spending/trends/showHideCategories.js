@@ -110,7 +110,9 @@ function initActiveFunction(row, input) {
 }
 
 export function showHideInit(data, cb) {
-    callback = cb;
+    if (cb) {
+        callback = cb;
+    }
 
     d3.select('#show-hide-list').selectAll('*').remove();
 

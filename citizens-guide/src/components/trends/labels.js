@@ -135,7 +135,7 @@ function placeLabels(globals) {
         .each(function (d) {
             const t = d3.select(this);
 
-            wordWrap(t, globals.labelWidth);
+            wordWrap(t, globals.labelWidth - 60);
         });
 
 
