@@ -198,6 +198,10 @@ function drawChart(globals, container) {
     globals.dataDots = addTooltips(globals, containerOffset);
 }
 
+function optimizeHeight() {
+
+}
+
 function redraw(globals, container) {
     const doDrilldown = d3.selectAll('rect.mask').size();
     
@@ -242,7 +246,7 @@ export function trendDesktop(_data, container, config, drilldown) {
 
 /*
     TODO:
-    fix line selection styling
+    all will be handled when implemented on spending
     resize height when needed on detail overlay
     add zoom thresholds to config
     make it work on spending
