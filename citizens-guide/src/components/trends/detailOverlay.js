@@ -8,7 +8,7 @@ const d3 = { select, selectAll, mouse },
 
 let previousHeight;
 
-function closeOverlay() {
+export function closeOverlay() {
     const detailLayer = d3.select('.detail-layer'),
         mask = d3.select('rect.mask');
 
@@ -100,28 +100,28 @@ function setOverlayY(overlayHeight) {
 }
 
 function resizeSvg(finalRectHeight) {
-    const mainSvg = establishContainer(),
-        svgBox = getElementBox(mainSvg),
-        svgHeight = svgBox.height;
-        // newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
+    // const mainSvg = establishContainer(),
+    //     svgBox = getElementBox(mainSvg),
+    //     svgHeight = svgBox.height;
+    //     // newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
 
-    let detailHeightWithPadding,
-        newHeight = previousHeight;
+    // let detailHeightWithPadding,
+    //     newHeight = previousHeight;
 
-    if (finalRectHeight) {
-        previousHeight = svgHeight;
-        detailHeightWithPadding = finalRectHeight + 20;
-        newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
-    }
+    // if (finalRectHeight) {
+    //     previousHeight = svgHeight;
+    //     detailHeightWithPadding = finalRectHeight + 20;
+    //     newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
+    // }
 
-    d3.select('.mask')
-        // .attr('width', newWidth)
-        .attr('height', newHeight);
+    // d3.select('.mask')
+    //     // .attr('width', newWidth)
+    //     .attr('height', newHeight);
 
-    mainSvg.transition()
-        .duration(500)
-        .attr('height', newHeight)
-        .ease();
+    // mainSvg.transition()
+    //     .duration(500)
+    //     .attr('height', newHeight)
+    //     .ease();
 }
 
 function placeChart(d, chartContainer, parentConfig) {
@@ -156,9 +156,7 @@ export function initOverlay(d, parentConfig) {
 
     detailLayerYOffset = headerHeight + overlayPadding + overlayPadding;
 
-    console.log(d)
-
-    finalRectHeight = detailLayerYOffset + 720 + overlayPadding;
+    finalRectHeight = detailLayerYOffset + 820 + overlayPadding;
 
     rect.attr('height', finalRectHeight);
 

@@ -300,6 +300,7 @@ module.exports = [{
         './src/globalSass/cg.scss',
         './src/globalSass/chapterIntroCommon.scss',
         './src/globalSass/countryCommon.scss',
+        './src/globalSass/trendsCommon.scss',
         './src/bigPicture/scss/bp.scss',
         './src/anecdote/anecdote.scss',
         './src/deficit/trends/deficit-trends.scss',

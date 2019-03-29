@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="/assets/fa/css/all.css" />
   <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
   <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
-  <link rel="stylesheet" href="/assets/ffg/css/countryCommon.css">
+  <link rel="stylesheet" href="/assets/ffg/css/trendsCommon.css">
   
   
   <link rel="stylesheet" href="/assets/ffg/nav/nav.css" />
@@ -510,28 +510,28 @@
     
 <h1>Federal Revenue Trends</h1>
 
-<div class="country-copy">
-    <div class="country-copy__text">
-        <p>How has federal revenue changed over the past few years?</p>
-        <p>The chart below shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory. What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
-    </div>
-    <section class="tour">
-        <div class="tour__part-one">
-            <h1>How does the revenue of the United States compare to other countries?</h1>
-            <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
+<div class="trend-flex">
+    <div class="trend-copy">
+        <div class="trend-copy__text">
+            <p>How has federal revenue changed over the past few years?</p>
+            <p>The chart below shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory. What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
         </div>
-        <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
-    </section>
+        <section class="tour">
+            <div class="tour__part-one">
+                <h1>How does the revenue of the United States compare to other countries?</h1>
+                <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
+            </div>
+            <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </div>
+
+    <div class="trend-chart">    
+        <h2 class="chart-title">Federal Revenue Trends over Time by Category</h2>
+        <div class="hint">Click a revenue category to view more</div>
+
+        <div id="viz"></div>
+    </div>
 </div>
-
-<div class="country-chart">    
-    <h2 class="chart-title">Federal Revenue Trends over Time by Category</h2>
-    <div class="hint">Click a revenue category to view more</div>
-
-    <div id="viz"></div>
-</div>
-
-<div class="clearfix"></div>
 
     <section class="hwcta">
         The visualization was created using <a href="https://fiscal.treasury.gov/reports-statements/mts/" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a>

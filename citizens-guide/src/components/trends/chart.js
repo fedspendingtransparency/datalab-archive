@@ -5,7 +5,6 @@ import { line } from 'd3-shape';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { translator, getTransform, getElementBox } from '../../utils';
 import { renderLabels } from './labels';
-// import { showDetail, destroyDetailPane } from './detailPane';
 import { zoomTrigger } from './zoomTrigger';
 import { ink } from './ink'
 import { addTooltips } from './addTooltips';
@@ -21,9 +20,9 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
         top: 40
     };
 
-let originalConfig;
+let originalConfig, activeDrilldownData;
 
-function toggleZoom(globals) {
+function toggleZoom(globals, reset) {
     const duration = 1000,
         yMin = globals.scales.y.domain()[0],
         yMax = (globals.scales.y.domain()[1] >= globals.domainMax) ? globals.zoomThreshold : globals.domainMax;
@@ -31,33 +30,37 @@ function toggleZoom(globals) {
     globals.scales.y.domain([yMin, yMax]);
     globals.zoomState = (globals.zoomState === 'out') ? 'in' : 'out';
 
+    if (reset) {
+        globals.zoomState = 'out';
+    }
+
     globals.yAxis.rescale(globals, duration);
     globals.trendLines.rescale(globals, duration);
     globals.dataDots.rescale(globals, duration);
     globals.labels.rescale(globals, duration);
 }
 
-function transformChart(globals, reset) {
-    const duration = 1000,
-        xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
+// function transformChart(globals, reset) {
+//     const duration = 1000,
+//         xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
 
-    globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
-    globals.scales.x.range([0, globals.width]);
+//     globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
+//     globals.scales.x.range([0, globals.width]);
 
-    globals.yAxis.rescale(globals, duration);
-    globals.xAxis.rescale(globals, duration);
-    globals.dataDots.rescale(globals, duration);
-    globals.ink.rescale(globals, duration);
-    globals.trendLines.rescale(globals, duration);
+//     globals.yAxis.rescale(globals, duration);
+//     globals.xAxis.rescale(globals, duration);
+//     globals.dataDots.rescale(globals, duration);
+//     globals.ink.rescale(globals, duration);
+//     globals.trendLines.rescale(globals, duration);
 
-    if (!globals.noZoom) {
-        globals.zoomTrigger.rescale(globals, duration);
-    }
+//     if (!globals.noZoom) {
+//         globals.zoomTrigger.rescale(globals, duration);
+//     }
 
-    globals.chart.transition()
-        .duration(duration)
-        .attr('transform', translator(globals.baseXTranslate, margin.top));
-}
+//     globals.chart.transition()
+//         .duration(duration)
+//         .attr('transform', translator(globals.baseXTranslate, margin.top));
+// }
 
 function onSelect(d, reset) {
     if (reset) {
@@ -73,7 +76,7 @@ function onSelect(d, reset) {
         //transformChart(this, reset);
     } else if (!this.noDrilldown) {
         initOverlay(d, originalConfig)
-        //transformChart(this, reset);
+        activeDrilldownData = d;
     }
 }
 
@@ -100,29 +103,43 @@ function setNoZoom(g) {
     }
 }
 
+function setGlobalWidth(globals, w, resetSvgWidth) {
+    if (resetSvgWidth) {
+        d3.select('svg.main').attr('width', w);
+    }
+
+    globals.width = w - globals.labelWidth - 35;
+}
+
 function initGlobals(config, data, drilldown) {
     const globals = config || {};
-    
-    let w = getContainerWidth(drilldown);
+
+    let w = getContainerWidth();
 
     if (drilldown) {
-        w -= 150;
+        w -= 30;
     }
 
     globals.data = data;
+    globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
 
     setNoZoom(config);
 
     globals.scales = globals.scales || {};
-    globals.height = globals.height || 650;
+    globals.height = globals.height || 750;
     globals.labelWidth = 160;
     globals.labelPadding = 60;
     globals.labelWidth = globals.labelWidth + globals.labelPadding + 35;
-    globals.width = w - globals.labelWidth - 35;
+
+    setGlobalWidth(globals, w, !drilldown);
 
     globals.zoomState = 'out';
     globals.onSelect = onSelect.bind(globals);
     globals.onZoom = onZoom.bind(globals);
+
+    if (drilldown) {
+        globals.noDrilldown = true;
+    }
 
     return globals;
 }
@@ -157,34 +174,17 @@ function calculateContainerOffset(globals, container) {
     return containerOffset;
 }
 
-function getContainerWidth(drilldown) {
-    let w = getElementBox(d3.select('#viz')).width;
-
-    if (!drilldown) {
-        d3.select('svg.main').attr('width', w);
-    }
-
-    return w;
+function getContainerWidth() {
+    return getElementBox(d3.select('#viz')).width;
 }
 
-export function trendDesktop(_data, container, config, drilldown) {
-    let globals;
-
-    originalConfig = Object.assign({}, config);
-
-    globals = initGlobals(config, _data, drilldown);
-
-    if (drilldown) {
-        globals.noDrilldown = true;
-    }
-
-    globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
+function drawChart(globals, container) {
+    let containerOffset;
 
     globals.chart = container.append('g')
         .classed('trend-chart', true)
         .attr('transform', translator(globals.labelWidth, margin.top));
 
-    // draw the chart
     globals.xAxis = xAxis(globals);
     globals.ink = ink(globals);
     globals.xAxis.render(globals);
@@ -196,6 +196,57 @@ export function trendDesktop(_data, container, config, drilldown) {
         globals.zoomTrigger = zoomTrigger(globals);
     }
 
-    const containerOffset = calculateContainerOffset(globals, container);
+    containerOffset = calculateContainerOffset(globals, container);
     globals.dataDots = addTooltips(globals, containerOffset);
 }
+
+function redraw(globals, container) {
+    const doDrilldown = d3.selectAll('rect.mask').size();
+    
+    d3.selectAll('svg.main g').remove();
+    d3.selectAll('rect.mask').remove();
+
+    toggleZoom(globals, 'reset');
+
+    setGlobalWidth(globals, getContainerWidth(), true);
+    drawChart(globals, container);
+
+    if (doDrilldown) {
+        initOverlay(activeDrilldownData, originalConfig);
+    }
+}
+
+export function trendDesktop(_data, container, config, drilldown) {
+    let globals, previousWidth, debounce;
+
+    originalConfig = Object.assign({}, config);
+
+    globals = initGlobals(config, _data, drilldown);
+
+    drawChart(globals, container);
+
+    if (!drilldown) {
+        window.addEventListener('resize', function () {
+            if (debounce) {
+                clearTimeout(debounce);
+            }
+
+            if (previousWidth === window.innerWidth) {
+                return;
+            }
+
+            previousWidth = window.innerWidth;
+
+            debounce = setTimeout(redraw, 100, globals, container);
+        });
+    }
+}
+
+/*
+    TODO:
+    check dynamic width / resizing
+    fix line selection styling
+    resize height when needed on detail overlay
+    add zoom thresholds to config
+    make it work on spending
+*/
