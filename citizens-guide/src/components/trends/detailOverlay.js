@@ -1,26 +1,21 @@
 import { select, selectAll, mouse } from 'd3-selection';
-import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from '../../../utils';
-import { closeDetail } from './sort';
+import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from '../../utils';
+import { trendDesktop } from './chart';
+// import { closeDetail } from './sort';
 
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
 
 let previousHeight;
 
-function closeOverlay() {
+export function closeOverlay() {
     const detailLayer = d3.select('.detail-layer'),
         mask = d3.select('rect.mask');
 
     fadeAndRemove(detailLayer, 300);
     fadeAndRemove(mask, 300);
 
-    d3.select('g.pan-apply')
-        .transition()
-        .duration(500)
-        .attr("transform", translator(0, 0))
-        .ease();
-
-    closeDetail();
+    // closeDetail();
 
     resizeSvg();
 }
@@ -47,8 +42,9 @@ function placeCloseButton(container, detailLayer, innerWidth) {
         .attr('y', 20)
 }
 
-function renderHeader(detailLayer, title, innerWidth) {
+function renderHeader(detailLayer, d, innerWidth) {
     const headerTextMaxWidth = innerWidth - 60,
+        title = d.officialName,
         header = detailLayer.append('g')
         .attr('transform', translator(0, overlayPadding));
 
@@ -76,7 +72,7 @@ function renderHeader(detailLayer, title, innerWidth) {
 }
 
 function renderMask() {
-    const parent = d3.select('g.pan-apply'),
+    const parent = d3.select('svg.main'),
         parentBox = getElementBox(establishContainer());
 
     parent.append('rect')
@@ -88,8 +84,8 @@ function renderMask() {
         .on('click', closeOverlay)
 }
 
-function setOverlayY(clickY, overlayHeight) {
-    const ideal = clickY - overlayHeight / 2,
+function setOverlayY(overlayHeight) {
+    const ideal = overlayHeight / 2,
         svgHeight = getElementBox(d3.select('svg.main')).height;
 
     if (ideal < 5) {
@@ -104,43 +100,48 @@ function setOverlayY(clickY, overlayHeight) {
 }
 
 function resizeSvg(finalRectHeight) {
-    const mainSvg = establishContainer(),
-        svgBox = getElementBox(mainSvg),
-        svgHeight = svgBox.height,
-        newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
+    // const mainSvg = establishContainer(),
+    //     svgBox = getElementBox(mainSvg),
+    //     svgHeight = svgBox.height;
+    //     // newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
 
-    let detailHeightWithPadding,
-        newHeight = previousHeight;
+    // let detailHeightWithPadding,
+    //     newHeight = previousHeight;
 
-    if (finalRectHeight) {
-        previousHeight = svgHeight;
-        detailHeightWithPadding = finalRectHeight + 20;
-        newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
-    }
+    // if (finalRectHeight) {
+    //     previousHeight = svgHeight;
+    //     detailHeightWithPadding = finalRectHeight + 20;
+    //     newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
+    // }
 
-    d3.select('.mask')
-        .attr('width', newWidth)
-        .attr('height', newHeight);
+    // d3.select('.mask')
+    //     // .attr('width', newWidth)
+    //     .attr('height', newHeight);
 
-    mainSvg.transition()
-        .duration(500)
-        .attr('height', newHeight)
-        .ease();
+    // mainSvg.transition()
+    //     .duration(500)
+    //     .attr('height', newHeight)
+    //     .ease();
 }
 
-export function initOverlay(title, config, callback) {
-    const startCoords = d3.mouse(d3.select('svg.main').node());
+function placeChart(d, chartContainer, parentConfig) {
+    trendDesktop(d.subcategories, chartContainer, parentConfig, 'drilldown')
+}
 
-    let headerHeight, detailLayerYOffset, rect, detailLayer, finalRectHeight;
+export function initOverlay(d, parentConfig) {
+    const config = {};
+
+    let headerHeight, detailLayerYOffset, rect, detailLayer, finalRectHeight, chartContainer;
 
     renderMask();
 
-    detailLayer = d3.select('g.pan-apply').append('g')
+    detailLayer = d3.select('svg.main').append('g')
         .classed('detail-layer', true)
-        .attr('transform', translator(startCoords[0], startCoords[1]) + ' scale(0)')
+        .attr('transform', translator(0,0) + ' scale(0)')
         .attr('opacity', 1);
 
-    config.width = config.width - 10 - overlayPadding * 2;
+    config.width = d3.select('svg.main').attr('width') - 20 - overlayPadding * 2;
+    config.data = d.subcategories;
 
     rect = detailLayer.append('rect')
         .classed('detail-background', true)
@@ -151,40 +152,25 @@ export function initOverlay(title, config, callback) {
         .attr('rx', 10)
         .attr('ry', 10);
 
-    headerHeight = renderHeader(detailLayer, title, config.width);
+    headerHeight = renderHeader(detailLayer, d, config.width);
 
     detailLayerYOffset = headerHeight + overlayPadding + overlayPadding;
 
-    finalRectHeight = detailLayerYOffset + config.data.length * config.rowHeight + overlayPadding;
+    finalRectHeight = detailLayerYOffset + 820 + overlayPadding;
 
     rect.attr('height', finalRectHeight);
 
-    resizeSvg(finalRectHeight);
+    //resizeSvg(finalRectHeight);
 
-    config.svg = detailLayer.append('g')
+    chartContainer = detailLayer.append('g')
         .attr('transform', translator(overlayPadding, detailLayerYOffset))
         .classed('detail-chart', true);
 
-    //match current sort if needed
-    if (d3.select('#sort-name').classed('active')) {
-        config.data.sort((a, b) => {
-            if (b.activity < a.activity) {
-                return 1;
-            }
-
-            if (b.activity > a.activity) {
-                return -1;
-            }
-
-            return 0;
-        })
-    }
-
     detailLayer.transition()
         .duration(750)
-        .attr('transform', translator(5, setOverlayY(startCoords[1], finalRectHeight)) + ' scale(1)')
+        .attr('transform', translator(5, setOverlayY(0, finalRectHeight)) + ' scale(1)')
         .on('end', function () {
-            callback(config, true)
+            placeChart(d, chartContainer, parentConfig)
         })
         .ease();
 }

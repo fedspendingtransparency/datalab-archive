@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import {translator, simplifyNumber, getElementBox, getTransform} from '../../utils';
+import { translator, simplifyNumber, getElementBox, getTransform } from '../../utils';
 import colors from '../../colors.scss';
 import textColors from '../../bigPicture/scss/_bpVars.scss';
 
@@ -28,10 +28,10 @@ function showTooltip(containerOffset) {
 
     blankAllDiscs();
 
-    g.raise()
+    g.raise();
 
     g.select('circle')
-        .attr('fill', colors.colorPrimaryDarker)
+        .attr('fill', colors.colorSpendingTrendCircles)
 
     tooltip.append('rect')
         .attr('width', width)
@@ -61,7 +61,7 @@ function showTooltip(containerOffset) {
 
     tooltip.append('text')
         .text('Value')
-        .attr('fill', textColors.colorRevenueText)
+        .attr('fill', textColors.colorSpendingText)
         .attr('font-weight', 'bold')
         .attr('font-size', 15)
         .attr('dy', 70)
@@ -76,7 +76,7 @@ function showTooltip(containerOffset) {
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', 100)
-        .attr('dx', padding.left)
+        .attr('dx', padding.left);
 
     const finalOffset = {
         x: gTransform.x + containerOffset.x + padding.left,
@@ -84,14 +84,22 @@ function showTooltip(containerOffset) {
     };
 
     tooltip.attr('transform', function () {
-        const distanceToRightEdge = svgBoxAttributes.right - (gElementBox.right + padding.left + width);
+        const distanceToRightEdge = svgBoxAttributes.right - (gElementBox.right + padding.left + width),
+            distanceToBottomEdge = svgBoxAttributes.bottom - (gElementBox.bottom + 10 + height);
+
+        // Check if tooltip will extend past right edge of svg.
         if (distanceToRightEdge < 0) {
-            // We need to take the finalOffset and subtract the amount it crosses over the edge of the svg.
-            // Since distanceToRightEdge is negative, we'll just add it to finalOffset.x.
-            return translator(finalOffset.x + distanceToRightEdge, finalOffset.y)
-        } else {
-            return translator(finalOffset.x, finalOffset.y)
+            // Move the tooltip to the left of the cursor.
+            finalOffset.x = finalOffset.x - (width + 10);
         }
+
+        // Check if tooltip will extend past bottom edge of svg.
+        if(distanceToBottomEdge < 0){
+            // Move the tooltip to show above the cursor.
+            finalOffset.y = finalOffset.y - (height + 10);
+        }
+
+        return translator(finalOffset.x, finalOffset.y);
     });
 
     tooltip.transition().duration(200).attr('opacity', 1);
@@ -169,7 +177,7 @@ export function addTooltips(globals, containerOffset) {
         })
 
     dataDots.append('circle')
-        .attr('stroke', colors.colorPrimaryDarker)
+        .attr('stroke', colors.colorSpendingTrendCircles)
         .classed(dataDisc, true)
         .attr('fill', 'white')
         .attr('r', 4)
