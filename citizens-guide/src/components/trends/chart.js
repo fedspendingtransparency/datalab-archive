@@ -65,12 +65,10 @@ function toggleZoom(globals, reset) {
 function onSelect(d, reset) {
     if (reset) {
         this.activeDrilldown = null;
-        this.trendLines.deEmphasize(null, this);
-    } else {
-        this.activeDrilldown = d.name;
-        this.trendLines.deEmphasize(d.name, this);
     }
-
+    
+    this.trendLines.deEmphasize(null, this);
+    
     if (reset && !this.noDrilldown) {
         //destroyDetailPane();
         //transformChart(this, reset);
