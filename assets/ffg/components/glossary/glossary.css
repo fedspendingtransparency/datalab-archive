@@ -7,12 +7,14 @@
     z-index: 1000;
     background-color:blue;
     transform: translateX(100%);
-    transition: transform 0.5s ease;
+    transition: visibility  0.5s, transform 0.5s ease;
+    visibility: hidden; /*Prevent the links from being tabbed into when the glossary is hidden.*/
 }
 
 #cg-glossary-wrapper.active {
     box-shadow: -3px 0 4px rgba(0, 0, 0, .2);
     transform: translateX(0);
+    visibility: visible;
 }
 
 #cg-glossary-close-button {
