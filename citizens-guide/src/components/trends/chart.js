@@ -244,7 +244,6 @@ export function trendDesktop(_data, container, config, drilldown) {
 
 /*
     TODO:
-    check dynamic width / resizing
     fix line selection styling
     resize height when needed on detail overlay
     add zoom thresholds to config
