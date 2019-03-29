@@ -1,5 +1,5 @@
 import './selectCountry.scss';
-import { select } from 'd3-selection';
+import { select, event } from 'd3-selection';
 import { establishContainer } from '../../utils';
 import { countryList, refreshData } from './chart';
 import { addXIcon, addButtonIcon, addSearchIcon } from './iconGenerators';
@@ -7,13 +7,15 @@ import { selectedCountries } from './selectedCountryManager';
 import { translate } from '../../utils';
 import { getCountryList } from './data';
 
-const d3 = { select }
+const d3 = { select, event },
+    highlightedCountryClass = 'in-focus';
 
 let parentDiv,
     input,
     listDiv,
     trigger,
-    isMobileInd;
+    isMobileInd,
+    previousFilter = "";
 
 function createTrigger() {
     let svg;
@@ -63,12 +65,70 @@ function adjustHeightToSVG(){
 
 function establishInput() {
     const wrapper = listDiv.append('div').classed('search-wrapper', true);
-    let icon;
+
+    let icon,
+        availableContainer,
+        availableCountries;
+
+    // Do not cache the highlighted country index based on key input, because the highlighted country can change by mouse as well.
+    function findHighlightedCountry(){
+        // The availableCountries will change as user's type characters to filter the list.
+        availableCountries = availableContainer.selectAll('div.available');
+        for(let i = availableCountries.size(); i--;){
+            if(d3.select(availableCountries._groups[0][i]).classed(highlightedCountryClass)){
+                return i;
+            }
+        }
+        return 0;
+    }
 
     input = wrapper.append('input')
+        .attr('type', 'text')
         .attr('placeholder', 'search for a country')
-        .on('input', function () {
-            listAvailableCountries(this.value);
+        .on('focus', function(){
+            availableContainer = listDiv.select('.available-container');
+            availableCountries = availableContainer.selectAll('div.available');
+            if(availableCountries.size() > 0){
+                availableContainer.selectAll(`.${highlightedCountryClass}`).classed(highlightedCountryClass, false);
+                d3.select(availableCountries._groups[0][0]).classed(highlightedCountryClass, true);
+            }
+        })
+        .on('keyup', function () {
+            const keyVal = event.key;
+            let highlightedCountryIdx = 0;
+            switch (keyVal) {
+                case 'Up':
+                case 'ArrowUp':
+                    highlightedCountryIdx = findHighlightedCountry();
+                    d3.select(availableCountries._groups[0][highlightedCountryIdx]).classed(highlightedCountryClass, false);
+                    if (--highlightedCountryIdx < 0) {
+                        highlightedCountryIdx = availableCountries.size() - 1;
+                    }
+                    d3.select(availableCountries._groups[0][highlightedCountryIdx]).classed(highlightedCountryClass, true);
+                    break;
+                case 'Down':
+                case 'ArrowDown':
+                    highlightedCountryIdx = findHighlightedCountry();
+                    d3.select(availableCountries._groups[0][highlightedCountryIdx]).classed(highlightedCountryClass, false);
+                    if (++highlightedCountryIdx >= availableCountries.size()) {
+                        highlightedCountryIdx = 0;
+                    }
+                    d3.select(availableCountries._groups[0][highlightedCountryIdx]).classed(highlightedCountryClass, true);
+                    break;
+                case 'Enter':
+                    const selectedCountry = listDiv.selectAll(`.${highlightedCountryClass}`);
+                    if (selectedCountry.size()) {
+                        selectedCountry.node().click();
+                        previousFilter = "";
+                    }
+                    break;
+            }
+        })
+        .on('input', function(){
+            if(previousFilter !== this.value){
+                listAvailableCountries(this.value);
+                previousFilter = this.value;
+            }
         });
 
     icon = wrapper.append('svg');
@@ -152,12 +212,19 @@ function listAvailableCountries(filterStr) {
 
     availableContainer.selectAll('*').remove();
 
-    availableContainer.selectAll('div.available')
+    const availableCountries = availableContainer.selectAll('div.available')
         .data(list)
         .enter()
         .append('div')
         .classed('available', true)
         .on('click', addCountry)
+        .on('mouseenter', function(){
+            availableContainer.selectAll(`.${highlightedCountryClass}`).classed(highlightedCountryClass, false);
+            d3.select(this).classed(highlightedCountryClass, true);
+        })
+        .on('mouseleave', function(){
+            d3.select(this).classed(highlightedCountryClass, false);
+        })
         .each(function (d) {
             this.innerText = d.display;
 
@@ -173,6 +240,9 @@ function listAvailableCountries(filterStr) {
             .each(function () {
                 this.innerText = `${remainder} more countries are available. Search to find more.`;
             })
+    }
+    if(availableCountries.size() > 0){
+        d3.select(availableCountries._groups[0][0]).classed(highlightedCountryClass, true);
     }
 }
 
