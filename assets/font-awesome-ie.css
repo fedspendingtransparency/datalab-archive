@@ -1,0 +1,25 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+    .fas {
+        font-family: inherit;
+    }
+    
+    .fa-chevron-right::before {
+        content: '>';
+    }
+
+    .fa-bars::before {
+        content: '|||';
+    }
+
+    .fa-plus::before {
+        content: '+';
+    }
+
+    .fa-minus::before {
+        content: '-';
+    }
+
+    .fa-times::before {
+        content: 'x';
+    }
+}
