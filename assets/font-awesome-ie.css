@@ -22,4 +22,8 @@
     .fa-times::before {
         content: 'x';
     }
+
+    .accordion__plus, .accordion__minus {
+        font-size: 1.5rem;
+    }
 }
