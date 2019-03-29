@@ -1,5 +1,4 @@
 @import '../../colors.scss';
-@import './showHide.scss';
 @import '../../globalSass/generalVars';
 
 //Globals for file
@@ -7,36 +6,10 @@
   display:none;
 }
 
-//Entire section above chart
-section.spending-categories__section-above-chart {
-  max-width:1200px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-//Header section
-.spending-categories__header {
-  color:#555;
-  font-size:3rem;
-}
-
-//Budget/Agency button section
-.chart-title {
-  margin-bottom:1rem;
-  font-weight:400;
-}
-.title-text {
-  color: #777;
-  font-size: 1.8rem;
-  font-weight: $normalWeight;
-  display: inline-block;
-  margin-right: 1rem;
-}
-
 .link-button__div {
   display:inline-block;
   border-bottom: 2px solid rgb(0, 118, 108);
-  cursor:pointer;
+  cursor: pointer;
 
   .link-button {
     border: none;
@@ -62,6 +35,7 @@ section.spending-categories__section-above-chart {
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   outline:none;
+  margin-top: 1rem;
 
   &:hover {
     background: lighten(#00766C, 10%);
