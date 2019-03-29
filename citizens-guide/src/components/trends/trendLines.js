@@ -1,9 +1,9 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { max } from 'd3-array';
-import colors from '../../colors.scss';
+import { transition } from 'd3-transition';
 
-const d3 = { select, selectAll, line, max };
+const d3 = { select, selectAll, line, max, transition };
 
 function lineFn(d, globals) {
     return d3.line()
@@ -17,7 +17,7 @@ function rescale(globals, duration) {
         .attr('d', function (d) { return lineFn(d.values, globals); })
         .style('stroke', function (d, i) {
             if (globals.noZoom || globals.zoomState === 'in' || d3.max(d.values, r => r.amount) > globals.zoomThreshold) {
-                return colors.colorPrimaryDarker;
+                return globals.baseColor;
             }
 
             return '#ddd';
@@ -59,7 +59,7 @@ export function trendLines(globals) {
         })
         .style('fill', 'none')
         .style('stroke', function (d, i) {
-            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? colors.colorPrimaryDarker : '#ddd';
+            return (globals.noZoom || d3.max(d.values, r => r.amount) > globals.zoomThreshold) ? globals.baseColor : '#ddd';
         })
         .attr('stroke-width', 3);
 

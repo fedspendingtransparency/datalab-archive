@@ -66,7 +66,7 @@ function createTrigger(globals) {
     selections.box.append('rect')
         .attr('width', rect.width)
         .attr('height', rect.height)
-        .attr('fill', '#4A90E2');
+        .attr('fill', globals.baseColor);
 
     selections.text = selections.box.append('text')
         .attr('style', 'fill:white');
@@ -84,7 +84,7 @@ function createTrigger(globals) {
         .attr('font-size', 16);
 
     selections.disc.append('circle')
-        .attr('fill', '#205493')
+        .attr('fill', globals.secondaryColor)
         .attr('r', 16)
         .attr('cx', 155)
         .attr('cy', 21);
@@ -113,30 +113,32 @@ function addHoverEffects(trigger) {
         d3.select(this).select('rect')
             .transition()
             .duration(300)
-            .attr('fill', '#0068e2')
+            .attr('opacity', '0.9')
             .ease();
 
-        d3.select(this).select('circle')
-            .transition()
-            .duration(300)
-            .attr('fill', function () {
-                return (self.state === 'in') ? '#4A90E2' : '#205493';
-            })
-            .ease();
+        //Do nothing to circle for now
+
+        // d3.select(this).select('circle')
+        //     .transition()
+        //     .attr('fill', '#006C64')
+        //     .duration(300)
+        //     .ease();
     });
 
     trigger.on('mouseout', function () {
         d3.select(this).select('rect')
             .transition()
             .duration(500)
-            .attr('fill', '#4A90E2')
+            .attr('opacity', 1)
             .ease();
 
-        d3.select(this).select('circle')
-            .transition()
-            .duration(300)
-            .attr('fill', '#205493')
-            .ease();
+        //DO nothing to circle for now
+
+        // d3.select(this).select('circle')
+        //     .transition()
+        //     .attr('fill', '#00766C')
+        //     .duration(300)
+        //     .ease();
     });
 }
 

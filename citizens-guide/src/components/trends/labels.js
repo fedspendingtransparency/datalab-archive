@@ -112,7 +112,8 @@ function placeLabels(globals) {
         .data(globals.data.sort(sortByFirstYear))
         .enter()
         .append('g')
-        .attr('data-id', function(d){
+        .attr('class', 'line-label')
+        .attr('data-id', function (d) {
             return d.name
         })
         .attr('opacity', function (d) {
@@ -147,7 +148,7 @@ function placeLabels(globals) {
         })
         .attr('x', 5)
         .attr('y', -20)
-        .attr('fill', colors.colorPrimaryDarker)
+        .attr('fill', globals.baseColor)
         .each(function () {
             d3.select(this).lower();
         })
@@ -180,6 +181,8 @@ function placeLabels(globals) {
 
         runningY = yTranslate.yTranslate + yTranslate.boxHeight;
 
+        d3.select(this).attr('data-y', yTranslate.yTranslate);
+
         return translator(-globals.labelPadding, yTranslate.yTranslate);
     });
 
@@ -196,7 +199,7 @@ function enableSelect(labelGroups, globals) {
             } else {
                 // toggle on
                 deselectOthers(labelGroups);
-                d3.select(this).classed('selected', true);
+                //d3.select(this).classed('selected', true);
                 globals.onSelect(d);
             }
         })
@@ -206,7 +209,7 @@ function enableSelect(labelGroups, globals) {
         })
         .on('mouseout', function (d) {
             globals.trendLines.deEmphasize(d.name, globals, 'off')
-            
+
             if (!d3.select(this).classed('selected')) {
                 setLabelInactive.bind(this)();
             }
@@ -266,9 +269,9 @@ function rescale(globals, duration) {
 
 export function renderLabels(globals) {
     const labels = placeLabels(globals);
-    
-    enableSelect(labels, globals);  
-    
+
+    enableSelect(labels, globals);
+
     if (!globals.noDrilldown) {
         nudge(labels);
     }
