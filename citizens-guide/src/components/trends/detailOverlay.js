@@ -1,7 +1,6 @@
 import { select, selectAll, mouse } from 'd3-selection';
 import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from '../../utils';
 import { trendDesktop } from './chart';
-// import { closeDetail } from './sort';
 
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
@@ -14,8 +13,6 @@ export function closeOverlay() {
 
     fadeAndRemove(detailLayer, 300);
     fadeAndRemove(mask, 300);
-
-    // closeDetail();
 
     resizeSvg();
 }
@@ -124,8 +121,14 @@ function resizeSvg(finalRectHeight) {
     //     .ease();
 }
 
-function placeChart(d, chartContainer, parentConfig) {
-    trendDesktop(d.subcategories, chartContainer, parentConfig, 'drilldown')
+function placeChart(d, chartContainer, config) {
+    let threshold;
+
+    if (config.subcategoryThresholds) {
+        config.zoomThreshold = config.subcategoryThresholds[d.officialName];
+    }
+
+    trendDesktop(d.subcategories, chartContainer, config, 'drilldown')
 }
 
 export function initOverlay(d, parentConfig) {

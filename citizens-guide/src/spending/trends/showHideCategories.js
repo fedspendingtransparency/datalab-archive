@@ -1,11 +1,10 @@
 import { select, selectAll } from 'd3-selection';
-import { renderChart } from '.';
-import { runInContext } from 'vm';
-import {destroyDetailPane} from "./detailPane";
 
 const d3 = { select, selectAll };
 
 let data,
+    callback,
+    showHideButtons,
     activeArr = [];
 
 d3.select('#activate-show-hide')
@@ -17,7 +16,7 @@ d3.select('#activate-show-hide')
             resetFilters();
             activeArr.length = 0;
         } else {
-            returnListOfShowHideButtons().each(function(d,i){
+            showHideButtons.each(function (d, i) {
                 activeArr[i] = d3.select(this).classed('active');
             });
         }
@@ -27,7 +26,7 @@ d3.select('#activate-show-hide')
 
 d3.select('#select-all')
     .on('click', function () {
-        returnListOfShowHideButtons()
+        showHideButtons
             .classed('active', function (d) {
                 d.active = true;
                 return true;
@@ -36,7 +35,7 @@ d3.select('#select-all')
 
 d3.select('#select-none')
     .on('click', function () {
-        returnListOfShowHideButtons()
+        showHideButtons
             .classed('active', function (d) {
                 d.active = null;
                 return null;
@@ -45,8 +44,8 @@ d3.select('#select-none')
 
 d3.select('#reset-filters-button')
     .on('click', function () {
-        returnListOfShowHideButtons()
-            .each(function(d,i) {
+        showHideButtons
+            .each(function (d, i) {
                 const isActiveInd = initActiveFunction(d, i);
                 d3.select(this).classed('active', isActiveInd);
                 d.active = isActiveInd;
@@ -58,21 +57,15 @@ d3.select('#save-filters-button')
         d3.select('#show-hide-tray')
             .classed('active', null);
 
-        destroyDetailPane(); // needed if pane had been previously open
-
-        renderChart(filterForActiveData())
+        callback(filterForActiveData())
     });
 
-function returnListOfShowHideButtons(){
-    return d3.select('#show-hide-list').selectAll('button');
-}
-
-function resetFilters(){
+function resetFilters() {
     if (activeArr.length) {
-        const showHideListData = returnListOfShowHideButtons();
-        showHideListData.each(function(d, i){
+        const showHideListData = showHideButtons;
+        showHideListData.each(function (d, i) {
             const curEl = d3.select(this);
-            if(curEl.classed('active') !== activeArr[i]){
+            if (curEl.classed('active') !== activeArr[i]) {
                 toggleActive(curEl, d);
             }
         });
@@ -89,7 +82,7 @@ function toggleActive(button, d) {
 function placeControls(_data) {
     data = _data;
 
-    d3.select('#show-hide-list').selectAll('button')
+    showHideButtons = d3.select('#show-hide-list').selectAll('button')
         .data(data)
         .enter()
         .append('button')
@@ -99,7 +92,7 @@ function placeControls(_data) {
         .text(function (d) {
             return d.name;
         })
-        .on('click', function(d,i){
+        .on('click', function (d, i) {
             const curEl = d3.select(this);
             toggleActive(curEl, d)
         })
@@ -109,14 +102,16 @@ function filterForActiveData() {
     return data.filter(r => r.active);
 }
 
-function initActiveFunction(row, input){
+function initActiveFunction(row, input) {
     const numValsToShow = 5,
         force = ['Net Interest'];
 
     return (input < numValsToShow || force.indexOf(row.officialName) !== -1);
 }
 
-export function showHideInit(data) {
+export function showHideInit(data, cb) {
+    callback = cb;
+
     d3.select('#show-hide-list').selectAll('*').remove();
 
     data.forEach((r, i) => {
