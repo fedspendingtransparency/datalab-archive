@@ -46,8 +46,8 @@ export function establishContainer(height, width, accessibilityAttrs) {
     }
 
     if(accessibilityAttrs && Object.keys(accessibilityAttrs).length){
-        svg.append('title').text(accessibilityAttrs.title);
-        svg.append('desc').text(accessibilityAttrs.desc);
+        svg.append('desc').attr('id', 'svgMainDesc').text(accessibilityAttrs.desc);
+        svg.attr('aria-describedby', 'svgMainDesc');
     }
     
     return svg;

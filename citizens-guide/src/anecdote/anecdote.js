@@ -91,7 +91,7 @@ function buildDots(anecdote){
     dots.selectAll(`.${dotClass}`)
         .data(dotArray)
         .enter()
-        .append('div')
+        .append('button')
         .classed(dotClass, true)
         .on('click', function(d,i){
             updateSlide(anecdote, i);
@@ -101,13 +101,10 @@ function buildDots(anecdote){
 }
 
 function buildPaneClick(anecdote){
-    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
-        panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass,
-        paneClassActive = desiredAnecdoteProperties.paneClassActive || defaultAnecdoteProperties.paneClassActive;
+    const panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass;
 
     const paneContainer = anecdote.select(`.${panesClass}`),
-        panes = paneContainer.selectAll(`.${paneClass}`),
-        paneLength = panes.size();
+        toNextSlideInd = true;
 
 
     paneContainer.on('click', function(){
@@ -117,17 +114,31 @@ function buildPaneClick(anecdote){
             return;
         }
 
-        let idx = 0;
-        panes.each(function(d, i){
-            if(d3.select(this).classed(paneClassActive)){
-                idx = i + 1;
-            }
-        });
-        if(idx >= paneLength){
-            idx = 0;
-        }
-        updateSlide(anecdote, idx);
+        moveToAdjacentSlide(anecdote, toNextSlideInd);
     });
+}
+
+function moveToAdjacentSlide(anecdote, toNextSlideInd){
+    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
+        panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass,
+        paneClassActive = desiredAnecdoteProperties.paneClassActive || defaultAnecdoteProperties.paneClassActive,
+        paneContainer = anecdote.select(`.${panesClass}`),
+        panes = paneContainer.selectAll(`.${paneClass}`),
+        paneLength = panes.size();
+
+    let idx = 0;
+    panes.each(function(d, i){
+        if(d3.select(this).classed(paneClassActive)){
+            idx = toNextSlideInd ? i + 1 : i - 1;
+        }
+    });
+    if(idx >= paneLength){
+        idx = 0;
+    } else if (idx < 0){
+        idx = paneLength - 1;
+    }
+
+    updateSlide(anecdote, idx);
 }
 
 function getPaneHeight(currentPane) {
@@ -197,11 +208,69 @@ function buildTrigger(anecdote){
     }
 
     const anecdoteButtonSection = anecdote.append('div').classed(linkButtonContainerClass,true),
-        anecdoteIconSection = anecdoteButtonSection.append('div').classed(linkButtonIconClass,true),
-        button = anecdoteButtonSection.append("button").classed(linkButtonClass,true).text(linkButtonText);
+        anecdoteIconSection = anecdoteButtonSection.append('button').classed(linkButtonIconClass,true),
+        button = anecdoteButtonSection.append("div").classed(linkButtonClass,true).text(linkButtonText);
     anecdoteButtonSection.lower();
     anecdoteButtonSection.on("click", function(){
         toggleContent(anecdote);
+    });
+}
+
+function addKeyboardNavigation(){
+    window.addEventListener("keydown", function(e){
+        let navigateDir = '';
+        switch(e.key){
+            case 'Right':
+            case 'ArrowRight':
+                navigateDir = 'next';
+                break;
+            case 'Left':
+            case 'ArrowLeft':
+                navigateDir = 'previous';
+                break;
+        }
+        if(navigateDir) {
+            const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || defaultAnecdoteProperties.anecdoteClass;
+
+            function findAnecdote(el){
+                if(el.nodeName === 'SECTION' && el.className === anecdoteClass){
+                    const anecdote = d3.select(el);
+                    performSlideMovement(anecdote);
+                    return true;
+                }
+                return false;
+            }
+
+            function performSlideMovement(anecdote){
+                anecdote.node().focus();
+                if(navigateDir === 'next'){
+                    moveToAdjacentSlide(anecdote, true);
+                } else {
+                    moveToAdjacentSlide(anecdote, false);
+                }
+            }
+
+            const pathEls = e.path;
+            let curPath = null;
+            if(pathEls){
+                for (let i = 0, il = pathEls.length; i < il; i++) {
+                    curPath = pathEls[i];
+                    if(findAnecdote(curPath) === true){
+                        return;
+                    }
+                }
+            } else {
+                let curNode = e.target;
+                if(curNode && findAnecdote(curNode) === false){
+                    while(curNode.parentNode){
+                        curNode = curNode.parentNode;
+                        if(findAnecdote(curNode) === true){
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     });
 }
 
@@ -234,6 +303,7 @@ export function anecdoteInit(_desiredAnecdoteProperties){
 
     const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || defaultAnecdoteProperties.anecdoteClass;
     d3.selectAll(`.${anecdoteClass}`).each(buildAnecdote);
+    addKeyboardNavigation();
 }
 
 anecdoteInit();
