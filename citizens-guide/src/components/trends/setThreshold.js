@@ -16,18 +16,17 @@ function establishRange(data){
      */
     const reduced = data.reduceRight((a,b) => {
         return a.concat(b.values.map(r => r.amount))
-    },[]),
-        extent = d3.extent(reduced);
+    },[]);
+    const extent = d3.extent(reduced);
 
     dataRange = [extent[0], extent[1]];
 
     extent[0] = d3.min([0,extent[0]]);
-
     return extent;
 }
 
 function findThreshold(extentedData, data){
-    let threshold = extentedData[0] + (extentedData[1] - extentedData[0]) * ratio;
+    let threshold = extentedData[0] + (extentedData[1] - extentedData[0])*ratio;
 
     return lookForOverlaps(data, threshold);
 }

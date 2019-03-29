@@ -1,26 +1,20 @@
 import { select, selectAll, mouse } from 'd3-selection';
 import { translator, fadeAndRemove, getElementBox, establishContainer, wordWrap } from '../../utils';
 import { trendDesktop } from './chart';
-// import { closeDetail } from './sort';
 
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
 
-let previousHeight;
+let detailLayer, mask, detailBackground;
 
 export function closeOverlay() {
-    const detailLayer = d3.select('.detail-layer'),
-        mask = d3.select('rect.mask');
-
     fadeAndRemove(detailLayer, 300);
     fadeAndRemove(mask, 300);
 
-    // closeDetail();
-
-    resizeSvg();
+    resizeSvg('close');
 }
 
-function placeCloseButton(container, detailLayer, innerWidth) {
+function placeCloseButton(container, innerWidth) {
     const closeButtonWidth = 30,
         closeGroup = container.append('g')
             .classed('pointer', true)
@@ -42,7 +36,7 @@ function placeCloseButton(container, detailLayer, innerWidth) {
         .attr('y', 20)
 }
 
-function renderHeader(detailLayer, d, innerWidth) {
+function renderHeader(d, innerWidth) {
     const headerTextMaxWidth = innerWidth - 60,
         title = d.officialName,
         header = detailLayer.append('g')
@@ -64,7 +58,7 @@ function renderHeader(detailLayer, d, innerWidth) {
 
     headerText.attr('transform', translator(20, 0))
 
-    placeCloseButton(header, detailLayer, innerWidth);
+    placeCloseButton(header, innerWidth);
 
     calculatedHeaderHeight = header.selectAll('tspan').size() * 20;
 
@@ -75,7 +69,7 @@ function renderMask() {
     const parent = d3.select('svg.main'),
         parentBox = getElementBox(establishContainer());
 
-    parent.append('rect')
+    mask = parent.append('rect')
         .classed('mask', true)
         .attr('fill', 'black')
         .attr('opacity', 0.3)
@@ -99,39 +93,43 @@ function setOverlayY(overlayHeight) {
     return ideal;
 }
 
-function resizeSvg(finalRectHeight) {
-    // const mainSvg = establishContainer(),
-    //     svgBox = getElementBox(mainSvg),
-    //     svgHeight = svgBox.height;
-    //     // newWidth = getElementBox(mainSvg.select('.pan-listen')).width;
+function resizeSvg(reset) {
+    const ideal = 930;
 
-    // let detailHeightWithPadding,
-    //     newHeight = previousHeight;
+    let detailHeight, height;
 
-    // if (finalRectHeight) {
-    //     previousHeight = svgHeight;
-    //     detailHeightWithPadding = finalRectHeight + 20;
-    //     newHeight = detailHeightWithPadding > previousHeight ? detailHeightWithPadding : previousHeight;
-    // }
+    if (reset) {
+        d3.select('svg.main').transition().duration(500).attr('height', ideal).ease();
+        return;
+    } else {
+        detailHeight = getElementBox(detailLayer).height;
+    }
 
-    // d3.select('.mask')
-    //     // .attr('width', newWidth)
-    //     .attr('height', newHeight);
+    console.log(detailHeight, ideal - 30, (detailHeight > ideal - 30))
 
-    // mainSvg.transition()
-    //     .duration(500)
-    //     .attr('height', newHeight)
-    //     .ease();
+    if (detailHeight > ideal - 30) {
+        console.log('should')
+        d3.select('svg.main').transition().duration(500).attr('height', detailHeight + 50).ease();
+        detailBackground.transition().duration(500).attr('height', detailHeight + 20).ease();
+    }
 }
 
-function placeChart(d, chartContainer, parentConfig) {
-    trendDesktop(d.subcategories, chartContainer, parentConfig, 'drilldown')
+function placeChart(d, chartContainer, config) {
+    let threshold;
+
+    if (config.subcategoryThresholds) {
+        config.zoomThreshold = config.subcategoryThresholds[d.officialName];
+    }
+
+    trendDesktop(d.subcategories, chartContainer, config, 'drilldown');
+
+    resizeSvg();
 }
 
 export function initOverlay(d, parentConfig) {
     const config = {};
 
-    let headerHeight, detailLayerYOffset, rect, detailLayer, finalRectHeight, chartContainer;
+    let headerHeight, detailLayerYOffset, finalRectHeight, chartContainer;
 
     renderMask();
 
@@ -143,7 +141,7 @@ export function initOverlay(d, parentConfig) {
     config.width = d3.select('svg.main').attr('width') - 20 - overlayPadding * 2;
     config.data = d.subcategories;
 
-    rect = detailLayer.append('rect')
+    detailBackground = detailLayer.append('rect')
         .classed('detail-background', true)
         .attr('fill', 'white')
         .attr('stroke', '#ccc')
@@ -152,15 +150,13 @@ export function initOverlay(d, parentConfig) {
         .attr('rx', 10)
         .attr('ry', 10);
 
-    headerHeight = renderHeader(detailLayer, d, config.width);
+    headerHeight = renderHeader(d, config.width);
 
     detailLayerYOffset = headerHeight + overlayPadding + overlayPadding;
 
     finalRectHeight = detailLayerYOffset + 820 + overlayPadding;
 
-    rect.attr('height', finalRectHeight);
-
-    //resizeSvg(finalRectHeight);
+    detailBackground.attr('height', finalRectHeight);
 
     chartContainer = detailLayer.append('g')
         .attr('transform', translator(overlayPadding, detailLayerYOffset))

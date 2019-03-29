@@ -306,7 +306,6 @@ module.exports = [{
         './src/deficit/trends/deficit-trends.scss',
         './src/revenue/categories/revenue-categories.scss',
         './src/spending/categories/spending-categories.scss',
-        './src/spending/trends/spending-trends.scss',
         './src/debt/trends/debt-trends.scss',
         './src/debt/analysis/debt-analysis.scss'
     ],
