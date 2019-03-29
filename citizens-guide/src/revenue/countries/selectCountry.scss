@@ -140,11 +140,11 @@ $primaryColor: #4A90E2;
         transition: opacity 0.2 ease-in;
     }
 
-    &:hover {
+    &.in-focus {
         background-color: #f4f4f4;
     }
 
-    &:hover .add-button {
+    &.in-focus .add-button  {
         opacity: 1;
     }
 }
