@@ -11,12 +11,12 @@
     margin: 0;
 }
 
-.trend-row__summary-years {
+.trend-mobile__year {
     font-size: 0.9rem;
     color: #aaa;
 }
 
-.trend-row__summary-amounts {
+.trend-mobile__amount {
     font-weight: 600;
 }
 
@@ -30,4 +30,25 @@
     border: none;
     background: none;
     cursor: pointer;
+}
+
+.chart-row {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.chart-row__data {
+    box-sizing: border-box;
+    width: 30%;
+
+}
+
+body p.chart-row__data-line {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.chart-row__chart {
+    box-sizing: border-box;
+    width: 70%;
 }
