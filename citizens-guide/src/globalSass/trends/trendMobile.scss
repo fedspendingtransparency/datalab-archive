@@ -1,0 +1,33 @@
+.trend-mobile {
+    margin-top: 1rem;
+}
+
+.trend-row {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.trend-row__heading {
+    margin: 0;
+}
+
+.trend-row__summary-years {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.trend-row__summary-amounts {
+    font-weight: 600;
+}
+
+.trend-row__summary-icon {
+    display: inline-block;
+    margin: 0 0.25rem 0 0.75rem;
+}
+
+.trend-row__chart-toggle {
+    padding: 0.25rem 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
