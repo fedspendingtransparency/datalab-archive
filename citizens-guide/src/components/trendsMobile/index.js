@@ -1,5 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { simplifyNumber } from '../../utils';
+import { initScale } from './chart';
 
 const d3 = { select, selectAll };
 
@@ -65,6 +66,8 @@ function buildRow(d) {
 }
 
 export function trendMobile(data, container) {
+    initScale(data);
+
     container.selectAll('.trend-row')
         .data(data)
         .enter()
