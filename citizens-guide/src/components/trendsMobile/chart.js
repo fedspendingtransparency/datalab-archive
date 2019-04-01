@@ -108,7 +108,7 @@ function drawAxis(g) {
         .attr('text-anchor', 'end')
 }
 
-export function drawChart(container, d, config) {
+export function drawChart(container, d, config, redraw) {
     let svg, debounce, previousWidth;
 
     if (!chartWidth) {
@@ -119,21 +119,26 @@ export function drawChart(container, d, config) {
 
     drawLine(svg, d, config);
 
-    window.addEventListener('resize', function () {
-        if (debounce) {
-            clearTimeout(debounce);
-        }
+    console.log('redraw', redraw)
 
-        if (previousWidth === window.innerWidth) {
-            return;
-        }
-
-        previousWidth = window.innerWidth;
-
-        setXScale();
-
-        debounce = setTimeout(drawChart, 100, container, d, config);
-    });
+    if (!redraw) {
+        window.addEventListener('resize', function () {
+            console.log('re')
+            if (debounce) {
+                clearTimeout(debounce);
+            }
+            
+            if (previousWidth === window.innerWidth) {
+                return;
+            }
+            
+            previousWidth = window.innerWidth;
+            
+            setXScale();
+            
+            debounce = setTimeout(drawChart, 100, container, d, config, 'redraw');
+        });
+    }
 }
 
 export function initScale(data, container) {
