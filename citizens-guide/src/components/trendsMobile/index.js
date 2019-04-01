@@ -54,7 +54,7 @@ function placeDataDetail(d) {
         .text(simplifyNumber(d.amount))
 }
 
-function insertChart(row, d, config) {
+function insertChart(row, d, config, detail) {
     const chartRow = row.append('div').classed('chart-row', true),
         dataBox = chartRow.append('div').classed('chart-row__data', true),
         chartBox = chartRow.append('div').classed('chart-row__chart', true);
@@ -66,48 +66,102 @@ function insertChart(row, d, config) {
         .classed('chart-row__data-line', true)
         .each(placeDataDetail);
 
-    drawChart(chartBox, d, config);
+    drawChart(chartBox, d, config, detail);
 }
 
 function toggleVisibility() {
     const button = d3.select(this),
-        activeClass = 'trend-row--active',
-        parent = d3.select(this.parentNode),
+        activeClass = 'trend-row--chart-active',
+        parent = d3.select(this.parentNode.parentNode), //laaaaame. TODO: use more specific selectors to find the desired parent.
         isActive = parent.classed(activeClass);
 
     parent.classed(activeClass, !isActive);
 
-    button.select('span').text(function() {
+    button.select('span').text(function () {
         return (isActive) ? 'view chart' : 'hide chart';
     });
 }
 
-function buildRow(d, dom, config) {
+function toggleDetail(d) {
+    const button = d3.select(this),
+        activeClass = 'trend-row--detail-active',
+        parent = d3.select(this.parentNode.parentNode), //laaaaame. TODO: use more specific selectors to find the desired parent.
+        detail = parent.select('.trend-row__detail'),
+        isActive = parent.classed(activeClass);
+
+    let container;
+
+    parent.classed(activeClass, !isActive);
+
+    button.select('span').text(function () {
+        return (isActive) ? 'show subcategories' : 'close subcategories';
+    });
+
+    if (isActive) {
+        // close - empty contents
+        detail.selectAll('*').remove();
+    } else {
+        // load contents
+        container = detail.append('div').classed('trend-mobile trend-mobile--detail', true);
+        trendMobile(d.subcategories, container, d.config, 'detail')
+    }
+}
+
+function buildChartButton(buttonRow) {
+    const chartButton = buttonRow.append('button')
+        .classed('trend-row__chart-toggle trend-row-button', true);
+
+    chartButton.append('span')
+        .classed('trend-row-button__toggle-text', true)
+        .text('view chart');
+
+    chartButton.append('i').classed('fas fa-chart-line', true);
+
+    chartButton.on('click', toggleVisibility);
+}
+
+function buildDetailButton(buttonRow, d, config) {
+    const detailButton = buttonRow.append('button')
+        .classed('trend-row__detail-toggle trend-row-button', true);
+
+    detailButton.append('span')
+        .classed('trend-row-button__toggle-text', true)
+        .text('show subcategories');
+
+    detailButton.append('i').classed('fas fa-caret-down', true);
+
+    d.config = config;
+
+    detailButton.on('click', toggleDetail);
+}
+
+function buildRow(d, dom, config, detail) {
     const row = d3.select(dom);
 
-    let button;
+    let buttonRow;
 
     row.append('h3')
         .classed('trend-row__heading', true)
         .text(d.name);
 
     buildSummary(row, d);
-    insertChart(row, d.values, config);
+    insertChart(row, d.values, config, detail);
 
-    button = row.append('button')
-        .classed('trend-row__chart-toggle', true);
+    buttonRow = row.append('div').classed('trend-row__buttons', true);
 
-    button.append('span')
-        .classed('trend-row__chart-toggle-text', true)
-        .text('view chart')
+    buildChartButton(buttonRow);
 
-    button.append('i').classed('fas fa-chart-line', true);
+    if (!detail) {
+        buildDetailButton(buttonRow, d, config);
+    }
 
-    button.on('click', toggleVisibility)
+    if (!config.detail) {
+        row.append('div').classed('trend-row__detail', true)
+    }
 }
 
-export function trendMobile(data, container, config) {
-    initScale(data, container);
+export function trendMobile(data, container, config, detail) {
+    initScale(data, container, config);
 
     container.selectAll('.trend-row')
         .data(data)
@@ -115,6 +169,6 @@ export function trendMobile(data, container, config) {
         .append('div')
         .classed('trend-row ' + config.chapter, true)
         .each(function (d) {
-            buildRow(d, this, config);
+            buildRow(d, this, config, detail);
         })
 }

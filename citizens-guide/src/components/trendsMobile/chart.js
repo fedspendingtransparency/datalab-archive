@@ -5,19 +5,17 @@ import { getElementBox, translator } from '../../utils';
 
 const d3 = { max, min, extent, scaleLinear, line },
     idealHeight = 800,
-    margin = [5, 6, 30, 6],
-    scaleX = d3.scaleLinear(),
-    scaleY = d3.scaleLinear().range([idealHeight, 0]);
+    margin = [5, 6, 30, 6];
 
 let chartWidth, containerScope;
 
-function lineFn(d) {
+function lineFn(d, config) {
     return d3.line()
-        .x(function (d) { return scaleX(d.year); })
-        .y(function (d) { return scaleY(d.amount); })(d);
+        .x(function (d) { return config.scaleX(d.year); })
+        .y(function (d) { return config.scaleY(d.amount); })(d);
 }
 
-function setYScale(data) {
+function setYScale(data, config) {
     const extent = d3.extent(data.map(r => {
         return r.values.map(v => v.amount)
     }).reduce((a, c) => a.concat(c), []));
@@ -26,19 +24,23 @@ function setYScale(data) {
         extent[0] = 0;
     }
 
-    scaleY.domain(extent);
+    config.scaleY = d3.scaleLinear().range([idealHeight, 0]);
+
+    config.scaleY.domain(extent);
 }
 
-function setXScale() {
+function setXScale(config) {
     chartWidth = getElementBox(containerScope.select('.chart-row__chart')).width;
 
-    scaleX.range([0, chartWidth - margin[1] - margin[3]])
+    config.scaleX = d3.scaleLinear();
+
+    config.scaleX.range([0, chartWidth - margin[1] - margin[3]])
         .domain([2014, 2018]);
 }
 
-function createSvg(container, d) {
+function createSvg(container, d, config) {
     const dataExtent = d3.extent(d.map(r => r.amount)),
-        chartHeight = Math.ceil(scaleY(dataExtent[0]) - scaleY(dataExtent[1]));
+        chartHeight = Math.ceil(config.scaleY(dataExtent[0]) - config.scaleY(dataExtent[1]));
 
     container.selectAll('svg').remove();
 
@@ -49,20 +51,20 @@ function createSvg(container, d) {
 
 function drawLine(svg, d, config) {
     const max = d3.max(d.map(r => r.amount)),
-        shift = scaleY(scaleY.domain()[1]) - scaleY(max),
+        shift = config.scaleY(config.scaleY.domain()[1]) - config.scaleY(max),
         lineG = svg.append('g').attr('transform', translator(margin[3], shift + margin[0]));
 
     lineG.append('path')
         .attr('class', 'trend-line')
         .attr('d', function (d) {
-            return lineFn(d.values);
+            return lineFn(d.values, config);
         })
         .style('fill', 'none')
         .style('stroke', config.baseColor)
         .attr('stroke-width', 2);
 
     placeDots(lineG, config);
-    drawAxis(lineG)
+    drawAxis(lineG, config)
 }
 
 function placeDots(lineG, config) {
@@ -78,50 +80,50 @@ function placeDots(lineG, config) {
         .attr('cx', 0)
         .attr('cy', 0)
         .attr('transform', function (d) {
-            return translator(scaleX(d.year), scaleY(d.amount));
+            return translator(config.scaleX(d.year), config.scaleY(d.amount));
         })
 }
 
-function drawAxis(g) {
+function drawAxis(g, config) {
     const d = g.data()[0].values,
         min = d3.min(d.map(r => r.amount));
 
     g.append('line')
         .attr('stroke', '#ccc')
         .attr('stroke-width', '1')
-        .attr('x1', scaleX(2014))
-        .attr('y1', scaleY(min) + 9)
-        .attr('x2', scaleX(2018))
-        .attr('y2', scaleY(min) + 9)
+        .attr('x1', config.scaleX(2014))
+        .attr('y1', config.scaleY(min) + 9)
+        .attr('x2', config.scaleX(2018))
+        .attr('y2', config.scaleY(min) + 9)
 
     g.append('text')
         .text(2014)
         .attr('fill', '#aaa')
-        .attr('x', scaleX(2014))
-        .attr('dy', scaleY(min) + 25)
+        .attr('x', config.scaleX(2014))
+        .attr('dy', config.scaleY(min) + 25)
 
     g.append('text')
         .text(2018)
         .attr('fill', '#aaa')
-        .attr('x', scaleX(2018))
-        .attr('dy', scaleY(min) + 25)
+        .attr('x', config.scaleX(2018))
+        .attr('dy', config.scaleY(min) + 25)
         .attr('text-anchor', 'end')
 }
 
-export function drawChart(container, d, config, redraw) {
+export function drawChart(container, d, config, detail, redraw) {
     let svg, debounce, previousWidth;
 
     if (!chartWidth) {
-        setXScale();
+        setXScale(config);
     }
 
-    svg = createSvg(container, d);
+
+    svg = createSvg(container, d, config);
 
     drawLine(svg, d, config);
 
     if (!redraw) {
         window.addEventListener('resize', function () {
-            console.log('re')
             if (debounce) {
                 clearTimeout(debounce);
             }
@@ -132,15 +134,15 @@ export function drawChart(container, d, config, redraw) {
             
             previousWidth = window.innerWidth;
             
-            setXScale();
+            setXScale(config);
             
-            debounce = setTimeout(drawChart, 100, container, d, config, 'redraw');
+            debounce = setTimeout(drawChart, 100, container, d, config, null, 'redraw');
         });
     }
 }
 
-export function initScale(data, container) {
+export function initScale(data, container, config) {
     containerScope = container;
 
-    setYScale(data);
+    setYScale(data, config);
 }

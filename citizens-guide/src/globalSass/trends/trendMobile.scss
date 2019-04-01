@@ -2,6 +2,11 @@
 
 .trend-mobile {
     margin-top: 1rem;
+    background: white;
+}
+
+.trend-mobile--detail {
+    padding-left: 1rem;
 }
 
 .trend-row {
@@ -27,7 +32,12 @@
     margin: 0 0.25rem 0 0.75rem;
 }
 
-.trend-row__chart-toggle {
+.trend-row__buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trend-row-button {
     padding: 2px 0.75rem;
     border-radius: 5px;
     border: none;
@@ -40,22 +50,28 @@
     }
 }
 
-.revenue .trend-row__chart-toggle {
+.revenue .trend-row-button {
     background: $color-primary;
+    color: white;
+}
+
+.revenue .trend-mobile--detail .trend-row-button {
+    background: lighten($color-primary, 10%);
     color: white;
 }
 
 .chart-row {
     display: flex;
-    margin-top: 1rem;
+    margin-top: 0rem;
     margin-bottom: 1rem;
     transform: scaleY(0);
-    transition: transform 0.5s ease;
-    height: 0;
+    height: 0; 
+    transition: transform 0.5s ease, margin-top 0.5s ease;
 }
 
-.trend-row.trend-row--active .chart-row {
+.trend-row.trend-row--chart-active .chart-row {
     height: auto;
+    margin-top: 1rem;
     transform: scaleY(1);
 }
 
@@ -73,4 +89,23 @@ body p.chart-row__data-line {
 .chart-row__chart {
     box-sizing: border-box;
     width: 70%;
+}
+
+.trend-row__detail {
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    svg {
+        transform: scaleX(0.85);
+    }
+}
+
+.trend-row.trend-row--detail-active .trend-row__detail {
+    margin-top: 1rem;
+    padding: 0 0 0 0.5rem;
+}
+
+.revenue .trend-row__detail {
+    background: $color-primary;
 }
