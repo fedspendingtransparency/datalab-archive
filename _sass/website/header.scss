@@ -537,9 +537,10 @@ ul.nav:first-child li:hover > ul:after {
 
   .navbar-toggle {
     display: flex; // show hamburger now
-    margin-top: 12px;
+    margin-top: 10px;
     cursor: pointer;
-    font-size: 28px;
+    color: #4a4a4a;
+    font-size: 24px;
     justify-content: flex-end;
     align-content: flex-end;
   }

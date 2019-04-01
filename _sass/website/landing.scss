@@ -83,6 +83,7 @@ $landing-title-color: #4A4A4A;
     margin-bottom: 1rem;
     margin-top: 0;
     padding-left: 1rem;
+    height: 33px;
   }
 
   h2 {
@@ -110,7 +111,7 @@ $landing-title-color: #4A4A4A;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 17px;
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
@@ -175,11 +176,13 @@ $landing-title-color: #4A4A4A;
     padding-right: 1rem;
   }
 
+
   .primary {
     width: 63%;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
     overflow: hidden;
+    height: 795px;
   }
 
   .secondary {
@@ -187,8 +190,18 @@ $landing-title-color: #4A4A4A;
     width: 33%;
   }
 
+  .dts-module {
+    box-sizing: border-box;
+    background-color: inherit;
+    padding: 0;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .primary__content {
-    margin: 2.188rem;
+    margin: 2.3rem;
   }
 
   .primary__desktop-heading {
@@ -227,6 +240,28 @@ $landing-title-color: #4A4A4A;
 
   .landing-feature__text {
     display: block;
+  }
+
+  .landing-feature__image {
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    width: 40%;
+    float: right;
+
+    img {
+      width: 156px;
+      height: 108px;
+    }
+  }
+
+  .landing-feature h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.24;
+    letter-spacing: normal;
+    color: #4A4A4A;
   }
 
 }
