@@ -50,16 +50,6 @@
     }
 }
 
-.revenue .trend-row-button {
-    background: $color-primary;
-    color: white;
-}
-
-.revenue .trend-mobile--detail .trend-row-button {
-    background: lighten($color-primary, 10%);
-    color: white;
-}
-
 .chart-row {
     display: flex;
     margin-top: 0rem;
@@ -106,6 +96,34 @@ body p.chart-row__data-line {
     padding: 0 0 0 0.5rem;
 }
 
-.revenue .trend-row__detail {
-    background: $color-primary;
+.revenue {
+    .trend-row-button {
+        background: $color-primary;
+        color: white;
+    }
+    
+    .trend-mobile--detail .trend-row-button {
+        background: lighten($color-primary, 10%);
+        color: white;
+    }
+
+    .trend-row__detail {
+        background: $color-primary;
+    }
+}
+
+.spending {
+    .trend-row-button {
+        background: $color-spending-primary;
+        color: white;
+    }
+    
+    .trend-mobile--detail .trend-row-button {
+        background: lighten($color-spending-primary, 10%);
+        color: white;
+    }
+
+    .trend-row__detail {
+        background: $color-spending-primary;
+    }
 }

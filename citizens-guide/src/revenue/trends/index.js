@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { establishContainer } from '../../utils';
+import { establishContainer, isMobileDevice } from '../../utils';
 import { trendData } from './trendData';
 import { trendDesktop } from '../../components/trends/chart';
 import colors from '../../colors.scss';
@@ -18,10 +18,6 @@ const d3 = { select, selectAll },
     }
 
 let container;
-
-function isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
 
 function init() {
     if (isMobileDevice()) {
