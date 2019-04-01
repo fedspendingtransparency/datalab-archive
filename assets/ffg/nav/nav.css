@@ -14,6 +14,18 @@
     border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
+.menu-up {
+    display: none;
+}
+
+.menu-open .menu-up {
+    display: inline-block;
+}
+
+.menu-open .menu-down {
+    display: none;
+}
+
 .chapter-nav--revenue {
     background-color: #205493;
 }
@@ -39,11 +51,6 @@
     margin: 5px 1rem 11px 5px;
     padding: 4px 6px;
     color: white;
-}
-
-.chapter-nav button hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
 }
 
 .chapter-nav ul {
