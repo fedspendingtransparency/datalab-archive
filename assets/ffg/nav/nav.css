@@ -37,7 +37,8 @@
     width: 40px;
     align-self: flex-end;
     margin: 5px 1rem 11px 5px;
-    padding: 4px 6px
+    padding: 4px 6px;
+    color: white;
 }
 
 .chapter-nav button hr {
