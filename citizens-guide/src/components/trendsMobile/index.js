@@ -71,8 +71,8 @@ function insertChart(row, d, config, detail) {
 
 function toggleVisibility() {
     const button = d3.select(this),
-        activeClass = 'trend-row--chart-active',
-        parent = d3.select(this.parentNode.parentNode), //laaaaame. TODO: use more specific selectors to find the desired parent.
+        activeClass = 'chart-row--active',
+        parent = d3.select(this.parentNode.parentNode).select('.chart-row'), //laaaaame. TODO: use more specific selectors to find the desired parent.
         isActive = parent.classed(activeClass);
 
     parent.classed(activeClass, !isActive);

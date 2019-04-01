@@ -59,7 +59,7 @@
     transition: transform 0.5s ease, margin-top 0.5s ease;
 }
 
-.trend-row.trend-row--chart-active .chart-row {
+.chart-row.chart-row--active {
     height: auto;
     margin-top: 1rem;
     transform: scaleY(1);
