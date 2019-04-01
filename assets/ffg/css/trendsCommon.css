@@ -169,7 +169,7 @@
 
 .chart-row__data {
   box-sizing: border-box;
-  width: 30%; }
+  width: 35%; }
 
 body p.chart-row__data-line {
   margin-top: 0;
@@ -177,7 +177,7 @@ body p.chart-row__data-line {
 
 .chart-row__chart {
   box-sizing: border-box;
-  width: 70%; }
+  width: 65%; }
 
 .trend-row__detail {
   margin-top: 0;
