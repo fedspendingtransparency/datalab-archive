@@ -17,14 +17,20 @@ const d3 = { select, selectAll },
         secondaryColor: 'rgb(74, 144, 226)'
     }
 
-let container;    
+let container;
 
-const mobile = true;
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
 
-if (mobile) {
-    container = d3.select('#viz').append('div').classed('trend-mobile', true)
-    trendMobile(data, container, config);
-} else {
-    container = establishContainer(930, null, accessibilityAttrs);
-    trendDesktop(data, container, config);
+function init() {
+    if (isMobileDevice()) {
+        container = d3.select('#viz').append('div').classed('trend-mobile', true)
+        trendMobile(data, container, config);
+    } else {
+        container = establishContainer(930, null, accessibilityAttrs);
+        trendDesktop(data, container, config);
+    }
 }
+
+init();
