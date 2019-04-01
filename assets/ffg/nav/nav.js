@@ -39,7 +39,7 @@
     }
 
     function toggleActiveStatus() {
-        var element = document.getElementsByClassName('chapter-nav__primary-list').item(0),
+        var element = document.getElementsByClassName('chapter-nav').item(0),
             openClass = 'menu-open';
 
         if (element.classList) { 
