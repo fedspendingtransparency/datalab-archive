@@ -105,10 +105,7 @@ function resizeSvg(reset) {
         detailHeight = getElementBox(detailLayer).height;
     }
 
-    console.log(detailHeight, ideal - 30, (detailHeight > ideal - 30))
-
     if (detailHeight > ideal - 30) {
-        console.log('should')
         d3.select('svg.main').transition().duration(500).attr('height', detailHeight + 50).ease();
         detailBackground.transition().duration(500).attr('height', detailHeight + 20).ease();
     }
