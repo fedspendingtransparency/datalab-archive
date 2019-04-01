@@ -28,6 +28,15 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1.5rem;
         font-size: 1rem;
+        transform: translateY(-2px);
+        display: block;
+    }
+
+    .scroll-to .fa-angle-down::before {
+        content: 'v';
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-size: 1rem;
         transform: translateY(-10px);
         display: block;
     }
