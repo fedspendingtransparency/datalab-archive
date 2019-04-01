@@ -111,12 +111,11 @@ function drawAxis(g, config) {
 }
 
 export function drawChart(container, d, config, detail, redraw) {
-    let svg, debounce, previousWidth;
+    let svg;
 
-    if (!chartWidth) {
+    if (!chartWidth || config.chapter === 'spending') {
         setXScale(config);
     }
-
 
     svg = createSvg(container, d, config);
 

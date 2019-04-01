@@ -158,3 +158,7 @@ export function fadeAndRemove(selection, duration) {
             d3.select(this).remove();
         })
 }
+
+export function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
