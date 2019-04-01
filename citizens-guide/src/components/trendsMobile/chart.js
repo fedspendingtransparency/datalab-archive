@@ -119,8 +119,6 @@ export function drawChart(container, d, config, redraw) {
 
     drawLine(svg, d, config);
 
-    console.log('redraw', redraw)
-
     if (!redraw) {
         window.addEventListener('resize', function () {
             console.log('re')

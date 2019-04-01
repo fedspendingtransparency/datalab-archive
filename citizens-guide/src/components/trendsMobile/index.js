@@ -69,6 +69,19 @@ function insertChart(row, d, config) {
     drawChart(chartBox, d, config);
 }
 
+function toggleVisibility() {
+    const button = d3.select(this),
+        activeClass = 'trend-row--active',
+        parent = d3.select(this.parentNode),
+        isActive = parent.classed(activeClass);
+
+    parent.classed(activeClass, !isActive);
+
+    button.select('span').text(function() {
+        return (isActive) ? 'view chart' : 'hide chart';
+    });
+}
+
 function buildRow(d, dom, config) {
     const row = d3.select(dom);
 
@@ -82,13 +95,15 @@ function buildRow(d, dom, config) {
     insertChart(row, d.values, config);
 
     button = row.append('button')
-        .classed('trend-row__chart-toggle', true)
+        .classed('trend-row__chart-toggle', true);
 
     button.append('span')
         .classed('trend-row__chart-toggle-text', true)
-        .text('view chart ')
+        .text('view chart')
 
     button.append('i').classed('fas fa-chart-line', true);
+
+    button.on('click', toggleVisibility)
 }
 
 export function trendMobile(data, container, config) {
@@ -98,8 +113,8 @@ export function trendMobile(data, container, config) {
         .data(data)
         .enter()
         .append('div')
-        .classed('trend-row', true)
-        .each(function(d) {
+        .classed('trend-row ' + config.chapter, true)
+        .each(function (d) {
             buildRow(d, this, config);
         })
 }

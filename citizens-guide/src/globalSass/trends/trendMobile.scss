@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .trend-mobile {
     margin-top: 1rem;
 }
@@ -26,15 +28,35 @@
 }
 
 .trend-row__chart-toggle {
-    padding: 0.25rem 0;
+    padding: 2px 0.75rem;
+    border-radius: 5px;
     border: none;
     background: none;
+    font-size: 0.9rem;
     cursor: pointer;
+
+    i {
+        margin-left: 0.5rem;
+    }
+}
+
+.revenue .trend-row__chart-toggle {
+    background: $color-primary;
+    color: white;
 }
 
 .chart-row {
     display: flex;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    transform: scaleY(0);
+    transition: transform 0.5s ease;
+    height: 0;
+}
+
+.trend-row.trend-row--active .chart-row {
+    height: auto;
+    transform: scaleY(1);
 }
 
 .chart-row__data {
