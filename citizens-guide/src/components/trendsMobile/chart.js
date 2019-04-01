@@ -121,24 +121,6 @@ export function drawChart(container, d, config, detail, redraw) {
     svg = createSvg(container, d, config);
 
     drawLine(svg, d, config);
-
-    if (!redraw) {
-        window.addEventListener('resize', function () {
-            if (debounce) {
-                clearTimeout(debounce);
-            }
-            
-            if (previousWidth === window.innerWidth) {
-                return;
-            }
-            
-            previousWidth = window.innerWidth;
-            
-            setXScale(config);
-            
-            debounce = setTimeout(drawChart, 100, container, d, config, null, 'redraw');
-        });
-    }
 }
 
 export function initScale(data, container, config) {
