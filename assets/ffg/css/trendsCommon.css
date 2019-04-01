@@ -146,14 +146,6 @@
   .trend-row-button i {
     margin-left: 0.5rem; }
 
-.revenue .trend-row-button {
-  background: #0071bc;
-  color: white; }
-
-.revenue .trend-mobile--detail .trend-row-button {
-  background: #0090ef;
-  color: white; }
-
 .chart-row {
   display: flex;
   margin-top: 0rem;
@@ -162,7 +154,7 @@
   height: 0;
   transition: transform 0.5s ease, margin-top 0.5s ease; }
 
-.trend-row.trend-row--chart-active .chart-row {
+.chart-row.chart-row--active {
   height: auto;
   margin-top: 1rem;
   transform: scaleY(1); }
@@ -190,8 +182,27 @@ body p.chart-row__data-line {
   margin-top: 1rem;
   padding: 0 0 0 0.5rem; }
 
+.revenue .trend-row-button {
+  background: #0071bc;
+  color: white; }
+
+.revenue .trend-mobile--detail .trend-row-button {
+  background: #0090ef;
+  color: white; }
+
 .revenue .trend-row__detail {
   background: #0071bc; }
+
+.spending .trend-row-button {
+  background: #00796B;
+  color: white; }
+
+.spending .trend-mobile--detail .trend-row-button {
+  background: #00ac98;
+  color: white; }
+
+.spending .trend-row__detail {
+  background: #00796B; }
 
 #viz {
   overflow-x: hidden;
