@@ -75,7 +75,7 @@
     transition: height 0.3s ease;
 }
 
-.chapter-nav .menu-open li a {
+.chapter-nav.menu-open li a {
     height: 3rem;
 }
 
