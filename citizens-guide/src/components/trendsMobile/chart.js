@@ -5,7 +5,7 @@ import { getElementBox, translator } from '../../utils';
 
 const d3 = { max, min, extent, scaleLinear, line },
     idealHeight = 800,
-    margin = [5, 7, 20, 7],
+    margin = [5, 6, 30, 6],
     scaleX = d3.scaleLinear(),
     scaleY = d3.scaleLinear().range([idealHeight, 0]);
 
@@ -39,6 +39,8 @@ function setXScale() {
 function createSvg(container, d) {
     const dataExtent = d3.extent(d.map(r => r.amount)),
         chartHeight = Math.ceil(scaleY(dataExtent[0]) - scaleY(dataExtent[1]));
+
+    container.selectAll('svg').remove();
 
     return container.append('svg')
         .attr('width', chartWidth)
@@ -91,10 +93,23 @@ function drawAxis(g) {
         .attr('y1', scaleY(min) + 9)
         .attr('x2', scaleX(2018))
         .attr('y2', scaleY(min) + 9)
+
+    g.append('text')
+        .text(2014)
+        .attr('fill', '#aaa')
+        .attr('x', scaleX(2014))
+        .attr('dy', scaleY(min) + 25)
+
+    g.append('text')
+        .text(2018)
+        .attr('fill', '#aaa')
+        .attr('x', scaleX(2018))
+        .attr('dy', scaleY(min) + 25)
+        .attr('text-anchor', 'end')
 }
 
 export function drawChart(container, d, config) {
-    let svg;
+    let svg, debounce, previousWidth;
 
     if (!chartWidth) {
         setXScale();
@@ -103,6 +118,22 @@ export function drawChart(container, d, config) {
     svg = createSvg(container, d);
 
     drawLine(svg, d, config);
+
+    window.addEventListener('resize', function () {
+        if (debounce) {
+            clearTimeout(debounce);
+        }
+
+        if (previousWidth === window.innerWidth) {
+            return;
+        }
+
+        previousWidth = window.innerWidth;
+
+        setXScale();
+
+        debounce = setTimeout(drawChart, 100, container, d, config);
+    });
 }
 
 export function initScale(data, container) {
