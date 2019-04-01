@@ -67,19 +67,21 @@
 
   function fixMobileNav(y, width) {
     const max = 110;
-    let yOffset = max - y;
-    if (y > 29) {
-      yOffset = 80;
+    if (width >= superMobile) {
+      let yOffset = max - y;
+      if (y > 29) {
+	yOffset = 80;
+      }
+      mobileContainers.mobileNav.css('top', yOffset + 'px');
     }
-    mobileContainers.mobileNav.css('top', yOffset + 'px');
   }
 
   function fixSuperMobileNav(y, width) {
-    const max = 95;
+    const max = 110;
     if (width <= superMobile) {
       let yOffset = max - y;
       if (y > 29) {
-        yOffset = 62;
+        yOffset = 80;
       }
       mobileContainers.mobileNav.css('top', yOffset + 'px');
     }
@@ -147,21 +149,21 @@
       headerContainers.twoTag.removeClass('active');
     }
 
-//     if (hasTight) {
-//       console.log(hasTight, 'force logo left');
-//       forceLogoLeft(w);
-// //      headerContainers.oneTag.addClass()
+    //     if (hasTight) {
+    //       console.log(hasTight, 'force logo left');
+    //       forceLogoLeft(w);
+    // //      headerContainers.oneTag.addClass()
 
-//     }
+    //     }
 
-   // if (hasTight && w <= 1115) {
-   //   console.log('tight header remove');
-   //   headerContainers.oneTag.removeClass('active');
-   //   headerContainers.twoTag.removeClass('active');
-   // } else if (hasTight && w < twolineCollision || !isLanding) {
-   //   headerContainers.oneTag.removeClass('active');
-   //   headerContainers.twoTag.addClass('active');
-   // } 
+    // if (hasTight && w <= 1115) {
+    //   console.log('tight header remove');
+    //   headerContainers.oneTag.removeClass('active');
+    //   headerContainers.twoTag.removeClass('active');
+    // } else if (hasTight && w < twolineCollision || !isLanding) {
+    //   headerContainers.oneTag.removeClass('active');
+    //   headerContainers.twoTag.addClass('active');
+    // } 
 
   }
   
