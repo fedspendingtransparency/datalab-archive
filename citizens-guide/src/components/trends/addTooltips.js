@@ -26,7 +26,7 @@ function getTransform(d3Selection) {
     }
 }
 
-function showTooltip(containerOffset) {
+function showTooltip(containerOffset, globals) {
     const g = d3.select(this),
         tooltip = d3.select('.main').append('g').classed(tooltipGroup, true).attr('opacity', 0),
         svgBoxAttributes = getElementBox(d3.select('svg.main')),
@@ -38,8 +38,6 @@ function showTooltip(containerOffset) {
         padding = { top: 30, left: 14 },
         height = 120,
         width = 140;
-
-    console.log(coords)
 
     blankAllDiscs();
 
@@ -60,7 +58,7 @@ function showTooltip(containerOffset) {
         .text(function (d) {
             return 'FY ' + d.year;
         })
-        .attr('fill', colors.textColorParagraph)        
+        .attr('fill', colors.textColorParagraph)
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', padding.top)
@@ -87,7 +85,7 @@ function showTooltip(containerOffset) {
         .text(function (d) {
             return simplifyNumber(d.amount);
         })
-        .attr('fill', colors.textColorParagraph)        
+        .attr('fill', colors.textColorParagraph)
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', 100)
@@ -109,9 +107,10 @@ function showTooltip(containerOffset) {
         }
 
         // Check if tooltip will extend past bottom edge of svg.
-        if(distanceToBottomEdge < 0){
+        if (distanceToBottomEdge < 0) {
             // Move the tooltip to show above the cursor.
-            finalOffset.y = finalOffset.y - (height + 10);
+            console.log('yes')
+            finalOffset.y = finalOffset.y - (height + 50);
         }
 
         return translator(finalOffset.x, finalOffset.y);
@@ -139,7 +138,14 @@ function dataReducer(accumulator, d) {
 function rescale(globals, duration) {
     const dataDots = this;
 
-    dataDots.transition()
+    dataDots
+        .attr('data-x', function (d) {
+            return globals.scales.x(d.year)
+        })
+        .attr('data-y', function (d) {
+            return globals.scales.y(d.amount)
+        })
+        .transition()
         .duration(duration)
         .attr('transform', function (d) {
             return translator(globals.scales.x(d.year), globals.scales.y(d.amount));
@@ -159,8 +165,6 @@ function rescale(globals, duration) {
 }
 
 export function addTooltips(globals, containerOffset) {
-    console.log(containerOffset)
-
     const dataDots = globals.chart.selectAll('g.dataDots')
         .data(globals.data.reduce(dataReducer, []))
         .enter()
@@ -169,33 +173,33 @@ export function addTooltips(globals, containerOffset) {
         .attr('transform', function (d) {
             return translator(globals.scales.x(d.year), globals.scales.y(0));
         })
-        .attr('data-x', function(d) {
+        .attr('data-x', function (d) {
             return globals.scales.x(d.year)
         })
-        .attr('data-y', function(d) {
+        .attr('data-y', function (d) {
             return globals.scales.y(d.amount)
         })
-        .on('click', function(d, i){
+        .on('click', function (d, i) {
             if (globals.noDrilldown) {
                 globals.trendLines.deEmphasize(d.name, globals, 'on')
             }
-            
-            showTooltip.bind(this)(containerOffset)
+
+            showTooltip.bind(this)(containerOffset, globals)
         })
-        .on('mouseover', function(d, i){
+        .on('mouseover', function (d, i) {
             if (globals.noDrilldown) {
                 globals.trendLines.deEmphasize(d.name, globals, 'on')
                 globals.labels.setLabelActive(d.name)
             }
-            
-            showTooltip.bind(this)(containerOffset)
+
+            showTooltip.bind(this)(containerOffset, globals)
         })
-        .on('mouseout', function(d, i){
+        .on('mouseout', function (d, i) {
             if (globals.noDrilldown) {
                 globals.trendLines.deEmphasize(d.name, globals, 'off')
-                globals.labels.setLabelInactive(d.name, 'tooltip')                
+                globals.labels.setLabelInactive(d.name, 'tooltip')
             }
-            
+
             destroyTooltip.bind(this)()
         })
 

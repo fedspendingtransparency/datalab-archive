@@ -149,24 +149,12 @@ function initGlobals(config, data, drilldown) {
  * @param container - The main container of the data points we're providing tooltips for.
  * @returns {{x, y}} - x and y offset for the container offset.
  */
-function calculateContainerOffset(globals, container) {
-    let parentEl = container,
-        parentOffset = { x: 0, y: 0 },
-        containerOffset = getTransform(globals.chart),
-        initialTranslateLeft = containerOffset.x;
+function calculateContainerOffset(globals) {
+    let containerOffset = getTransform(globals.chart);
 
-    // The main level trend-chart only needs the first level offset from globals.chart, the sub-level has
-    // two additional g tags that are sandwiched around globals.chart which we need their offsets.
-    if (parentEl.node().nodeName !== 'svg') {
-        const childEl = parentEl.select('g.trend-chart');
-
-        parentEl = d3.select(parentEl.node().parentNode);
-        parentOffset = getTransform(parentEl);
-
-        const childOffset = getTransform(childEl);
-
-        containerOffset.x = containerOffset.x + parentOffset.x + childOffset.x;
-        containerOffset.y = containerOffset.y + parentOffset.y + childOffset.y;
+    if (globals.noDrilldown) {
+        containerOffset.x += 25;
+        containerOffset.y += 65;
     }
 
     return containerOffset;
@@ -194,7 +182,7 @@ function drawChart(globals, container) {
         globals.zoomTrigger = zoomTrigger(globals);
     }
 
-    containerOffset = calculateContainerOffset(globals, container);
+    containerOffset = calculateContainerOffset(globals);
     globals.dataDots = addTooltips(globals, containerOffset);
 }
 
