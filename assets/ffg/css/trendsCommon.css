@@ -182,6 +182,12 @@ body p.chart-row__data-line {
   margin-top: 1rem;
   padding: 0 0 0 0.5rem; }
 
+.trend-row__detail-toggle {
+  display: none; }
+
+.chart-row--active ~ .trend-row__buttons .trend-row__detail-toggle {
+  display: inline-block; }
+
 .revenue .trend-row-button {
   background: #0071bc;
   color: white; }
@@ -223,6 +229,9 @@ body p.chart-row__data-line {
 .tour {
   clear: both;
   max-width: 400px; }
+
+.show-hide__buttons--right {
+  text-align: right; }
 
 @media only screen and (min-width: 830px) {
   .trend-flex {

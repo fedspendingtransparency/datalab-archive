@@ -4,6 +4,10 @@ import { initScale, drawChart } from './chart';
 
 const d3 = { select, selectAll };
 
+function sortByLatestYear(a, b) {
+    return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
+}
+
 function getValueByYear(values, year) {
     let response;
 
@@ -103,7 +107,7 @@ function toggleDetail(d) {
     } else {
         // load contents
         container = detail.append('div').classed('trend-mobile trend-mobile--detail', true);
-        trendMobile(d.subcategories, container, d.config, 'detail')
+        trendMobile(d.subcategories.sort(sortByLatestYear), container, d.config, 'detail')
     }
 }
 
@@ -160,6 +164,12 @@ function buildRow(d, dom, config, detail) {
     }
 }
 
+function openFirstChart() {
+    const firstButton = d3.select('button.trend-row__chart-toggle');
+
+    toggleVisibility.bind(firstButton.node())();
+}
+
 export function trendMobile(data, container, config, detail) {
     initScale(data, container, config);
 
@@ -171,4 +181,8 @@ export function trendMobile(data, container, config, detail) {
         .each(function (d) {
             buildRow(d, this, config, detail);
         })
+
+    if (!detail) {
+        openFirstChart();
+    }
 }

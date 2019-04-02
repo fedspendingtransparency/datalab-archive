@@ -50,26 +50,25 @@ function createSvg(container, d, config) {
 }
 
 function drawLine(svg, d, config) {
+    
     const max = d3.max(d.map(r => r.amount)),
-        shift = config.scaleY(config.scaleY.domain()[1]) - config.scaleY(max),
-        lineG = svg.append('g').attr('transform', translator(margin[3], shift + margin[0]));
+    shift = config.scaleY(config.scaleY.domain()[1]) - config.scaleY(max),
+    lineG = svg.append('g').attr('transform', translator(margin[3], shift + margin[0]));
 
     lineG.append('path')
         .attr('class', 'trend-line')
-        .attr('d', function (d) {
-            return lineFn(d.values, config);
+        .attr('d', function () {
+            return lineFn(d, config);
         })
         .style('fill', 'none')
         .style('stroke', config.baseColor)
         .attr('stroke-width', 2);
 
-    placeDots(lineG, config);
-    drawAxis(lineG, config)
+    placeDots(lineG, config, d);
+    drawAxis(lineG, config, d)
 }
 
-function placeDots(lineG, config) {
-    const d = lineG.data()[0].values;
-
+function placeDots(lineG, config, d) {
     lineG.selectAll('circle')
         .data(d)
         .enter()
@@ -84,9 +83,8 @@ function placeDots(lineG, config) {
         })
 }
 
-function drawAxis(g, config) {
-    const d = g.data()[0].values,
-        min = d3.min(d.map(r => r.amount));
+function drawAxis(g, config, d) {
+    const min = d3.min(d.map(r => r.amount));
 
     g.append('line')
         .attr('stroke', '#ccc')
@@ -110,7 +108,7 @@ function drawAxis(g, config) {
         .attr('text-anchor', 'end')
 }
 
-export function drawChart(container, d, config, detail, redraw) {
+export function drawChart(container, d, config) {
     let svg;
 
     if (!chartWidth || config.chapter === 'spending') {
