@@ -207,7 +207,6 @@
   #viz-tsbfy-wrapper {
     width: 250px;
     height: 175px;
-    margin-bottom: -13px;
   }
 
   .viz-tsbfy-header {
@@ -505,6 +504,10 @@
   @media (max-width: 870px) {
     .viz-tsbfy-container {
       display: none;
+    }
+
+    .dts-layout-manager {
+      width: 100%;
     }
     
     .daily-spending-container, .period-container, .frequency-container, .category-container {
