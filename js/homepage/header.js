@@ -385,7 +385,7 @@
     listAvailableNav();
     setDropdownHeaderSection();
     setMobileBurger();
-    toggleIcons();
+//    toggleIcons(); // add this back when using "x" for mobile resize
     triggerMobileEvents();
     setTagVisibility(isLanding);
 
