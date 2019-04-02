@@ -1,6 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { simplifyNumber } from '../../utils';
 import { initScale, drawChart } from './chart';
+import { sortByLatestYear } from '../../spending/trends';
 
 const d3 = { select, selectAll };
 
@@ -103,7 +104,7 @@ function toggleDetail(d) {
     } else {
         // load contents
         container = detail.append('div').classed('trend-mobile trend-mobile--detail', true);
-        trendMobile(d.subcategories, container, d.config, 'detail')
+        trendMobile(d.subcategories.sort(sortByLatestYear), container, d.config, 'detail')
     }
 }
 

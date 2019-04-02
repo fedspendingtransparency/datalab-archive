@@ -21,7 +21,7 @@ let svg;
 
 renderChart(data);
 
-function sortByLatestYear(a, b) {
+export function sortByLatestYear(a, b) {
     return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
 }
 
