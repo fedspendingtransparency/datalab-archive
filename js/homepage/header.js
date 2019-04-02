@@ -89,7 +89,7 @@
 
   function toggleIcons() {
     $('.navbar-toggle').click(function(){
-      $(this).find('i').toggleClass('fa-window-close');
+      $(this).find('i').toggleClass('fa-times');
     });
   }
 
