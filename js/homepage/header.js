@@ -87,6 +87,12 @@
     }
   }
 
+  function toggleIcons() {
+    $('.navbar-toggle').click(function(){
+      $(this).find('i').toggleClass('fa-window-close');
+    });
+  }
+
   function triggerMobileEvents() {
     mobileContainers.analysesAnchor.click(function() {
       mobileContainers.mobileAnalyses.toggle('slow');
@@ -379,6 +385,7 @@
     listAvailableNav();
     setDropdownHeaderSection();
     setMobileBurger();
+    toggleIcons();
     triggerMobileEvents();
     setTagVisibility(isLanding);
 
