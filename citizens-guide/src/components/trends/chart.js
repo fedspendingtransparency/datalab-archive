@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { select, selectAll } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import { min, max, range } from 'd3-array';
@@ -40,28 +41,6 @@ function toggleZoom(globals, reset) {
     globals.labels.rescale(globals, duration);
 }
 
-// function transformChart(globals, reset) {
-//     const duration = 1000,
-//         xTranslate = (reset) ? globals.centeredXTranslate : globals.baseXTranslate;
-
-//     globals.width = (reset) ? globals.originalWidth : globals.widthOnDrilldown;
-//     globals.scales.x.range([0, globals.width]);
-
-//     globals.yAxis.rescale(globals, duration);
-//     globals.xAxis.rescale(globals, duration);
-//     globals.dataDots.rescale(globals, duration);
-//     globals.ink.rescale(globals, duration);
-//     globals.trendLines.rescale(globals, duration);
-
-//     if (!globals.noZoom) {
-//         globals.zoomTrigger.rescale(globals, duration);
-//     }
-
-//     globals.chart.transition()
-//         .duration(duration)
-//         .attr('transform', translator(globals.baseXTranslate, margin.top));
-// }
-
 function onSelect(d, reset) {
     if (reset) {
         this.activeDrilldown = null;
@@ -82,11 +61,6 @@ function onZoom() {
     this.activeDrilldown = null;
     this.trendLines.deEmphasize(null, this);
     toggleZoom(this);
-
-    // if (!this.noDrilldown) {
-    //     transformChart(this, 'reset');
-    //     destroyDetailPane();
-    // }
 }
 
 function setNoZoom(g) {
@@ -233,9 +207,3 @@ export function trendDesktop(_data, container, config, drilldown) {
         });
     }
 }
-
-/*
-    TODO:
-    all will be handled when implemented on spending
-    resize height when needed on detail overlay
-*/
