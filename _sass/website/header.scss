@@ -612,6 +612,7 @@ ul.nav:first-child li:hover > ul:after {
 
   #mobileHr {
     text-align: center;
+    opacity: .2;
   }
 
   // fix spaces with secondary mobile list items
@@ -623,16 +624,19 @@ ul.nav:first-child li:hover > ul:after {
   .secondaryNavAnalysesMobile {
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 30px;
   }
 
   .secondaryNavResourcesMobile {
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 30px;
   }
 
   .secondaryNavFFGMobile {
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 30px;
   }
 
   // hover link
