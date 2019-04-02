@@ -8,7 +8,7 @@ $footer-link-color: #2272CE;
   text-align: center;
   font-weight: 300;
   color: #888;
-  padding: 3rem 1rem 4rem;
+  padding: 3rem 4rem 4rem;
   clear: both; // refactor this!
   margin-top: 4rem;
   box-shadow: 0 0 1rem rgba(0,0,0,0.3);
@@ -18,14 +18,9 @@ $footer-link-color: #2272CE;
   margin-top: 1rem;
 }
 
-.dl-footer__social svg {
-//  width: 33px;
-//  height: 33px;
-}
-
 .dl-footer__group-title {
   color: $footer-link-color;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.24;
   margin-bottom: 1em;
@@ -88,6 +83,7 @@ $footer-link-color: #2272CE;
   }
   
   .dl-footer__social {
+    margin-bottom: 20px;
     text-align: right;
     align-self: flex-end;
     flex-grow: 1.3;
