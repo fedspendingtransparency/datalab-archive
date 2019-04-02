@@ -208,7 +208,7 @@ function CreateDendro(newData){
                 window.tooltipModule.draw("#tooltip", d.name, {
                     "Total Obligations": formatNumber(d.size),
                     "Unobligated Balance": formatNumber(d.unob)
-                }, ["Click to visit federal account page", "Federal account page contains FY17-FY18 data"]);
+                }, ["Click to visit federal account page", "Federal account page contains FY17-FY19 data"]);
             }
             if (d.depth === 2) {
                 window.tooltipModule.draw("#tooltip", `${d.name}, ${d.parent.name}`, {
@@ -497,7 +497,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17
     d3.csv('/data-lab-data/accounts_obligations_link_update_FY18.csv', (dendroData18) =>{
         d3.csv('/data-lab-data/accounts_obligations_link_update_FY19Q1.csv', (dendroData19) =>{
 
-    CreateDendro(dendroData18.filter((d) => d.reporting_period_end === '2018-09-30'));
+    CreateDendro(dendroData19.filter((d) => d.reporting_period_end === '2018-12-31'));
 
     $(document).ready(() => {
         let data = [];
