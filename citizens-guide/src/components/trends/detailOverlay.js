@@ -106,6 +106,9 @@ function resizeSvg(reset) {
     }
 
     if (detailHeight > ideal - 30) {
+        if(detailHeight > 2000){
+            detailHeight = 1300; // Bandaid fix for IE, as it struggles massively to find the height/width of an svg.
+        }
         d3.select('svg.main').transition().duration(500).attr('height', detailHeight + 50).ease();
         detailBackground.transition().duration(500).attr('height', detailHeight + 20).ease();
     }

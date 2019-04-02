@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { select, selectAll } from 'd3-selection';
 import { establishContainer, isMobileDevice } from '../../utils';
 import { trendData } from './trendData';
