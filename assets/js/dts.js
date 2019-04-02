@@ -13,7 +13,7 @@ const svg = d3.select("#svg-wrapper"),
   margin = { top: 20, right: 20, bottom: 110, left: 60 },
   margin2 = { top: 330, right: 20, bottom: 30, left: 60 };
 
-let data, optionsData, dateScaleValues, allToSpending, categoryToSpendingPrevFY;
+let data, optionsData, dateScaleValues, allToSpending, categoryToSpendingPrevFY, todayAllCategorySpending;
 
 let x = d3.scaleTime(),
   x2 = d3.scaleTime();
@@ -857,6 +857,8 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function (error, _data) {
   allToSpending["mtd"] = transposeKVToArray("mtd");
   allToSpending["fytd"] = transposeKVToArray("fytd");
 
+  todayAllCategorySpending = allToSpending["today"].last().value;
+
   drawChart();
 });
 
@@ -906,9 +908,7 @@ function drawChart(redraw) {
   d3.select('#frequency-selector').property('value', theFrequency);
   d3.select('#category-selector').property('value', theCategory);
 
-  //let todayAllCategorySpending = allToSpending["today"].last().value;
-
-  //d3.select(".daily-spending-amount").text(dollarFormatter(todayAllCategorySpending));
+  d3.select(".daily-spending-amount").text(dollarFormatter(todayAllCategorySpending));
 
   // data.sort(function(a, b) { return a.date - b.date; });
 
