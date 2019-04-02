@@ -1,5 +1,5 @@
 import { select, selectAll } from 'd3-selection';
-import { translator, simplifyNumber, getElementBox, getTransform } from '../../utils';
+import { translator, simplifyNumber, getElementBox } from '../../utils';
 import colors from '../../colors.scss';
 import textColors from '../../bigPicture/scss/_bpVars.scss';
 
@@ -16,15 +16,30 @@ function blankAllDiscs() {
     d3.selectAll('.' + dataDisc).attr('fill', 'white')
 }
 
+function getTransform(d3Selection) {
+    const re = /(\d)+/g
+    const originalTransform = d3Selection.attr('transform').match(re);
+
+    return {
+        x: Number(originalTransform[0]),
+        y: Number(originalTransform[1])
+    }
+}
+
 function showTooltip(containerOffset) {
     const g = d3.select(this),
         tooltip = d3.select('.main').append('g').classed(tooltipGroup, true).attr('opacity', 0),
         svgBoxAttributes = getElementBox(d3.select('svg.main')),
         gElementBox = getElementBox(g),
-        gTransform = getTransform(g),
+        coords = {
+            x: Number(g.attr('data-x')),
+            y: Number(g.attr('data-y'))
+        },
         padding = { top: 30, left: 14 },
         height = 120,
         width = 140;
+
+    console.log(coords)
 
     blankAllDiscs();
 
@@ -79,8 +94,8 @@ function showTooltip(containerOffset) {
         .attr('dx', padding.left);
 
     const finalOffset = {
-        x: gTransform.x + containerOffset.x + padding.left,
-        y: gTransform.y + containerOffset.y + 10
+        x: coords.x + containerOffset.x + padding.left,
+        y: coords.y + containerOffset.y + 10
     };
 
     tooltip.attr('transform', function () {
@@ -144,6 +159,8 @@ function rescale(globals, duration) {
 }
 
 export function addTooltips(globals, containerOffset) {
+    console.log(containerOffset)
+
     const dataDots = globals.chart.selectAll('g.dataDots')
         .data(globals.data.reduce(dataReducer, []))
         .enter()
@@ -151,6 +168,12 @@ export function addTooltips(globals, containerOffset) {
         .classed('dataDots', true)
         .attr('transform', function (d) {
             return translator(globals.scales.x(d.year), globals.scales.y(0));
+        })
+        .attr('data-x', function(d) {
+            return globals.scales.x(d.year)
+        })
+        .attr('data-y', function(d) {
+            return globals.scales.y(d.amount)
         })
         .on('click', function(d, i){
             if (globals.noDrilldown) {
