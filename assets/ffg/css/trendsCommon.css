@@ -119,18 +119,32 @@
   border-bottom: 1px solid #ddd; }
 
 .trend-row__heading {
-  margin: 0; }
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #555; }
 
 .trend-mobile__year {
-  font-size: 0.9rem;
-  color: #aaa; }
+  font-size: 1rem;
+  color: #b0b2b7;
+  font-weight: 400; }
 
 .trend-mobile__amount {
-  font-weight: 600; }
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0071bc;
+  padding: 0 0.25rem; }
+
+.trend-row__summary {
+  padding: 0.25rem 0; }
 
 .trend-row__summary-icon {
   display: inline-block;
   margin: 0 0.25rem 0 0.75rem; }
+
+.trend-row__summary-change {
+  float: right;
+  font-weight: 500; }
 
 .trend-row__buttons {
   display: flex;
@@ -199,6 +213,9 @@ body p.chart-row__data-line {
 .revenue .trend-row__detail {
   background: #0071bc; }
 
+.revenue .trend-mobile__amount {
+  color: #0071bc; }
+
 .spending .trend-row-button {
   background: #00796B;
   color: white; }
@@ -209,6 +226,9 @@ body p.chart-row__data-line {
 
 .spending .trend-row__detail {
   background: #00796B; }
+
+.spending .trend-mobile__amount {
+  color: #00796B; }
 
 #viz {
   overflow-x: hidden;
