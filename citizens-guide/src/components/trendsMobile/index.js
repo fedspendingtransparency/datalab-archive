@@ -1,9 +1,12 @@
 import { select, selectAll } from 'd3-selection';
 import { simplifyNumber } from '../../utils';
 import { initScale, drawChart } from './chart';
-import { sortByLatestYear } from '../../spending/trends';
 
 const d3 = { select, selectAll };
+
+function sortByLatestYear(a, b) {
+    return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
+}
 
 function getValueByYear(values, year) {
     let response;
