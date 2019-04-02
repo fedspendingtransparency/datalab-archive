@@ -161,6 +161,12 @@ function buildRow(d, dom, config, detail) {
     }
 }
 
+function openFirstChart() {
+    const firstButton = d3.select('button.trend-row__chart-toggle');
+
+    toggleVisibility.bind(firstButton.node())();
+}
+
 export function trendMobile(data, container, config, detail) {
     initScale(data, container, config);
 
@@ -172,4 +178,8 @@ export function trendMobile(data, container, config, detail) {
         .each(function (d) {
             buildRow(d, this, config, detail);
         })
+
+    if (!detail) {
+        openFirstChart();
+    }
 }
