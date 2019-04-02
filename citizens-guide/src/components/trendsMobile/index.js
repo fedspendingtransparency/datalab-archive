@@ -30,20 +30,19 @@ function buildSummary(row, d) {
         difference = begin - end,
         percentChange = Number.parseFloat((Math.abs(difference / begin) * 100)).toFixed(1);
 
-    let changeIcon;
+    let changeSign;
+    
+    if (difference > 0) {
+        changeSign = '-';
+    } else if (difference < 0) {
+        changeSign = '+';
+    } else {
+        changeSign = '';
+    }
 
     summary.append('span').classed('trend-row__summary-years trend-mobile__year', true).text('2014-2018: ')
     summary.append('span').classed('trend-row__summary-amounts trend-mobile__amount', true).text(`${simplifyNumber(begin)} - ${simplifyNumber(end)} `)
-    changeIcon = summary.append('i').classed('fas trend-row__summary-icon', true);
-    summary.append('span').classed('trend-row__summary-change', true).text(`${percentChange}%`);
-
-    if (difference > 0) {
-        changeIcon.classed('fa-arrow-circle-down', true)
-    } else if (difference < 0) {
-        changeIcon.classed('fa-arrow-circle-up', true)
-    } else {
-        changeIcon.remove();
-    }
+    summary.append('span').classed('trend-row__summary-change', true).text(`${changeSign}${percentChange}%`);
 }
 
 function placeDataDetail(d) {
