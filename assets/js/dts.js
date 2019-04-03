@@ -2,12 +2,18 @@ var allOptions, optionsDict, lastDate, categorySeparatorDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
 const brushDateFormatter = d3.timeFormat("%x");
-const dollarFormatter = d => d3.format("$,.3s")(d).replace(/G/, "B");
+let dollarFormatter = function dollarFormatter(d) {
+  return d3.format("$,.3s")(d).replace(/G/, "B");
+};
 const dateFormatter = d3.timeFormat("%a, %b %d, %Y");
-const lineColors = ["#00c3c2", "#2E7070", "#4CABAC", "#76D2D3"]
+const lineColors = ["#00c3c2", "#2E7070", "#4CABAC", "#76D2D3"];
 const parseDate = d3.timeParse("%-m/%-d/%y");
 const parseDateYMD = d3.timeParse("%Y-%m-%d");
-const bisectDate = d3.bisector(d => d.date).left;
+
+const bisectDate = d3.bisector(function (d) {
+  return d.date;
+}).left;
+
 
 const svg = d3.select("#svg-wrapper"),
   margin = { top: 20, right: 20, bottom: 110, left: 60 },
@@ -25,13 +31,17 @@ let xAxis = d3.axisBottom(x),
   xAxis2 = d3.axisBottom(x2),
   yAxis = d3.axisLeft(y).tickFormat(dollarFormatter);
 
-const line = d3.line()
-  .x(d => x(d.date))
-  .y(d => y(d.value));
+let line = d3.line().x(function (d) {
+  return x(d.date);
+}).y(function (d) {
+  return y(d.value);
+});
 
-const line2 = d3.line()
-  .x(d => x2(d.date))
-  .y(d => y2(d.value));
+let line2 = d3.line().x(function (d) {
+  return x2(d.date);
+}).y(function (d) {
+  return y2(d.value);
+});
 
 const brush = d3.brushX()
   .on("brush end", brushed);
@@ -68,20 +78,25 @@ function init() {
   brush.extent([
     [0, 0],
     [width, height2]
-  ])
+  ]);
 }
 
 function setFancyLines(selector, lineFn) {
   svg.selectAll(selector).each(function (lineSel) {
-    let d3LineSel = d3.select(this)
+    let d3LineSel = d3.select(this);
     let d3LineSelData = d3LineSel.data();
 
     if (d3LineSelData[0].values[0].date.getTime() < d3LineSelData[0].date.getTime()) {
       d3LineSel.style("stroke-dasharray", ("5, 3"));
     }
 
-    d3LineSel.attr("d", d => lineFn(d.values));
-    d3LineSel.attr("stroke", d => d.color);
+    d3LineSel.attr("d", function (d) {
+      return lineFn(d.values);
+    });
+    d3LineSel.attr("stroke", function (d) {
+      return d.color;
+    });
+
   });
 }
 
@@ -258,13 +273,19 @@ function createBarChart(yearToSpendingArray, redraw) {
   var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  x.domain(barData.map(d => d.year));
-  y.domain([0, d3.max(barData, d => d.spending)]);
 
-  g.append("g")
-    .attr("class", "axis bar-axis axis--x")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).tickFormat(d => "" + d.substring(2)));
+  x.domain(barData.map(function (d) {
+    return d.year;
+  }));
+
+  y.domain([0, d3.max(barData, function (d) {
+    return d.spending;
+  })]);
+
+
+  g.append("g").attr("class", "axis bar-axis axis--x").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).tickFormat(function (d) {
+    return "" + d.substring(2);
+  }));
 
   g.append("g")
     .attr("class", "axis bar-axis axis--y")
@@ -272,14 +293,14 @@ function createBarChart(yearToSpendingArray, redraw) {
 
   const barSub = 20;
 
-  g.selectAll(".bar")
-    .data(barData)
-    .enter().append("rect")
-    .attr("class", "bar")
-    .attr("x", d => x(d.year) + (barSub / 2))
-    .attr("y", d => y(d.spending))
-    .attr("width", x.bandwidth() - barSub)
-    .attr("height", d => height - y(d.spending));
+  g.selectAll(".bar").data(barData).enter().append("rect").attr("class", "bar").attr("x", function (d) {
+    return x(d.year) + barSub / 2;
+  }).attr("y", function (d) {
+    return y(d.spending);
+  }).attr("width", x.bandwidth() - barSub).attr("height", function (d) {
+    return height - y(d.spending);
+  });
+
 }
 
 let tableData;
@@ -298,23 +319,25 @@ function createTable(yearToSpendingArray) {
     tableData = tableData.slice(0, 10);
   }
 
-  let totalSpending = tableData.map(d => d.spending).reduce((a, b) => a + b, 0);
+  let totalSpending = tableData.map(function (d) {
+    return d.spending;
+  }).reduce(function (a, b) {
+    return a + b;
+  }, 0);
 
   let rows = tbody.selectAll('tr')
     .data(tableData)
     .enter()
     .append('tr');
 
-  let cells = rows.selectAll('td')
-    .data(function (row) {
-      let tdYear = row.year;
-      let tdSpendingPerYear = dollarFormatter(row.spending);
+  let cells = rows.selectAll('td').data(function (row) {
+    var tdYear = row.year;
+    var tdSpendingPerYear = dollarFormatter(row.spending);
+    return [tdYear, tdSpendingPerYear];
+  }).enter().append('td').text(function (d) {
+    return d;
+  });
 
-      return [tdYear, tdSpendingPerYear];
-    })
-    .enter()
-    .append('td')
-    .text(d => d);
 }
 
 function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
@@ -325,33 +348,27 @@ function addOptions(sel, condensedOptions, activeOptions, inactiveOptions) {
 
   let previousYear = new Date().getFullYear() - 1;
 
-  sel
-    .append("optgroup").attr("label", "Top 10 (Spending in FY " + previousYear + ")")
-    .selectAll('option')
-    .data(condensedOptions).enter()
-    .append('option')
-    .text(d => d)
-    .property("value", d => d);
+  sel.append("optgroup").attr("label", "Top 10 (Spending in FY " + previousYear + ")").selectAll('option').data(condensedOptions).enter().append('option').text(function (d) {
+    return d;
+  }).property("value", function (d) {
+    return d;
+  });
 
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
-  sel
-    .append("optgroup").attr("label", "Active Categories")
-    .selectAll('option')
-    .data(activeOptions).enter()
-    .append('option')
-    .text(d => d)
-    .property("value", d => d);
+  sel.append("optgroup").attr("label", "Active Categories").selectAll('option').data(activeOptions).enter().append('option').text(function (d) {
+    return d;
+  }).property("value", function (d) {
+    return d;
+  });
 
   sel.append('option').attr('disabled', 'true').text('──────────────────────────');
 
-  sel
-    .append("optgroup").attr("label", "Inactive Categories")
-    .selectAll('option')
-    .data(inactiveOptions).enter()
-    .append('option')
-    .text(d => d)
-    .property("value", d => d);
+  sel.append("optgroup").attr("label", "Inactive Categories").selectAll('option').data(inactiveOptions).enter().append('option').text(function (d) {
+    return d;
+  }).property("value", function (d) {
+    return d;
+  });
 
   sel.property("value", "All Categories");
 }
@@ -427,8 +444,17 @@ function parseYYYYMMDD(dateString) {
 }
 
 function setGraphYDomains(data) {
-  let yMax = d3.max(data, c => d3.max(c.values, d => d.value));
-  let yMin = d3.min(data, c => d3.min(c.values, d => d.value));
+  let yMax = d3.max(data, function (c) {
+    return d3.max(c.values, function (d) {
+      return d.value;
+    });
+  });
+
+  let yMin = d3.min(data, function (c) {
+    return d3.min(c.values, function (d) {
+      return d.value;
+    });
+  });
 
   y.domain([yMin, yMax]);
   y2.domain(y.domain());
@@ -702,11 +728,11 @@ function getCombinedCategory(combinedArray) {
   let result = [];
   let remember = {};
 
-  combinedArray.forEach(obj => {
+  combinedArray.forEach(function (obj) {
     if (remember[obj.date]) {
       remember[obj.date].value += obj.value;
     } else {
-      let clonedObj = Object.assign({}, obj);
+      var clonedObj = Object.assign({}, obj);
       remember[obj.date] = clonedObj;
       result.push(clonedObj);
     }
@@ -764,7 +790,12 @@ function getFiscalYear(theDate) {
 }
 
 function transposeKVToArray(frequency) {
-  return Object.keys(allToSpending[frequency]).map(k => ({ date: new Date(k), value: allToSpending[frequency][k] }));
+  Object.keys(allToSpending[frequency]).map(function (k) {
+    return {
+      date: new Date(k),
+      value: allToSpending[frequency][k]
+    };
+  });
 }
 
 function getYearToSpendingArray(allCategoriesFYTD) {
@@ -903,7 +934,9 @@ function drawChart() {
   allOptions = [...new Set(optionsData)];
   allOptions.sort();
 
-  let condensedOptions = Object.keys(categoryToSpendingPrevFY).sort((a, b) => categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a]).slice(0, 10);
+  let condensedOptions = Object.keys(categoryToSpendingPrevFY).sort(function (a, b) {
+    return categoryToSpendingPrevFY[b] - categoryToSpendingPrevFY[a];
+  }).slice(0, 10);
 
   let activeOptions = [];
   let inactiveOptions = [];
