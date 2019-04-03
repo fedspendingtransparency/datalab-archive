@@ -20,7 +20,6 @@ const d3 = { select, selectAll },
 let container;
 
 function sortByLatestYear(a, b) {
-    console.log('a', a)
     return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
 }
 
