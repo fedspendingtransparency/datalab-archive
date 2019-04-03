@@ -258,11 +258,16 @@ function rescale(globals, duration) {
             return 0;
         })
         .attr('transform', function (d) {
-            const yTranslate = setLabelYTranslate(d, this, runningY, globals);
+            let yTranslate = setLabelYTranslate(d, this, runningY, globals),
+                yOffset = yTranslate.yTranslate;
 
             runningY = yTranslate.yTranslate + yTranslate.boxHeight;
 
-            return translator(-globals.labelPadding, yTranslate.yTranslate);
+            if(yOffset < 0 && yOffset > -200){
+                yOffset = -200;
+            }
+
+            return translator(-globals.labelPadding, yOffset);
         })
         .ease();
 }

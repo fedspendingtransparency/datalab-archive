@@ -148,7 +148,13 @@ function rescale(globals, duration) {
         .transition()
         .duration(duration)
         .attr('transform', function (d) {
-            return translator(globals.scales.x(d.year), globals.scales.y(d.amount));
+            const xOffset = globals.scales.x(d.year);
+            let yOffset = globals.scales.y(d.amount);
+
+            if(yOffset < 0 && yOffset > -200){
+                yOffset = -200;
+            }
+            return translator(xOffset, yOffset);
         })
         .ease();
 
