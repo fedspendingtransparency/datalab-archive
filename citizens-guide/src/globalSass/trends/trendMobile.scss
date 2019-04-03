@@ -109,7 +109,8 @@ body p.chart-row__data-line {
 
 .trend-row.trend-row--detail-active .trend-row__detail {
     margin-top: 1rem;
-    padding: 0 0 0 0.5rem;
+    border-left-width: 0.5rem;
+    border-left-style: solid;
 }
 
 .trend-row__detail-toggle {
@@ -133,7 +134,7 @@ body p.chart-row__data-line {
     }
 
     .trend-row__detail {
-        background: $color-primary;
+        border-color: $color-primary;
     }
 
     .trend-mobile__amount {
@@ -160,7 +161,7 @@ body p.chart-row__data-line {
     }
 
     .trend-row__detail {
-        background: $color-spending-primary;
+        border-color: $color-spending-primary;
     }
 
     .trend-mobile__amount {

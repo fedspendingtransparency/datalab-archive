@@ -194,7 +194,8 @@ body p.chart-row__data-line {
 
 .trend-row.trend-row--detail-active .trend-row__detail {
   margin-top: 1rem;
-  padding: 0 0 0 0.5rem; }
+  border-left-width: 0.5rem;
+  border-left-style: solid; }
 
 .trend-row__detail-toggle {
   display: none; }
@@ -212,7 +213,7 @@ body p.chart-row__data-line {
   color: white; }
 
 .revenue .trend-row__detail {
-  background: #0071bc; }
+  border-color: #0071bc; }
 
 .revenue .trend-mobile__amount {
   color: #0071bc; }
@@ -231,7 +232,7 @@ body p.chart-row__data-line {
   color: white; }
 
 .spending .trend-row__detail {
-  background: #00796B; }
+  border-color: #00796B; }
 
 .spending .trend-mobile__amount {
   color: #00796B; }
