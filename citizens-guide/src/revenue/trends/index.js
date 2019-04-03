@@ -19,10 +19,15 @@ const d3 = { select, selectAll },
 
 let container;
 
+function sortByLatestYear(a, b) {
+    console.log('a', a)
+    return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
+}
+
 function init() {
     if (isMobileDevice()) {
         container = d3.select('#viz').append('div').classed('trend-mobile', true)
-        trendMobile(data, container, config);
+        trendMobile(data.sort(sortByLatestYear), container, config);
     } else {
         container = establishContainer(930, null, accessibilityAttrs);
         trendDesktop(data, container, config);
