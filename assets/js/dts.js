@@ -150,8 +150,26 @@ function updateHistoryWithNewBrush(s) {
   let frequency = d3.select('#frequency-selector').property('value');
   let category = d3.select('#category-selector').property('value');
 
+  const numberOfDays = Math.round((new Date(x2.invert(s[1])) - new Date(x2.invert(s[0])))/(1000*60*60*24));
+
   let theQueryString = ("?" + serialize({ start, end, frequency, category }));
   history.replaceState(null, "", theQueryString);
+
+  if (numberOfDays < 32) {
+    xAxis.ticks(d3.timeDay.every(10))
+  } else if (numberOfDays < 180) {
+    xAxis.ticks(d3.timeMonth.every(1))
+  } else if (numberOfDays < 500) {
+    xAxis.ticks(d3.timeMonth.every(3))
+  } else if (numberOfDays < 1400) {
+    xAxis.ticks(d3.timeMonth.every(6))
+  } else if (numberOfDays < 3650) {
+    xAxis.ticks(d3.timeYear.every(1))
+  } else {
+    xAxis.ticks(d3.timeYear.every(2))
+  }
+
+  svg.select(".graph-x-axis").call(xAxis);
 }
 
 function clearPeriodSelections() {
@@ -858,11 +876,12 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function (error, _data) {
   allToSpending["fytd"] = transposeKVToArray("fytd");
 
   todayAllCategorySpending = allToSpending["today"].last().value;
+  //console.log('reminder ^')
 
   drawChart();
 });
 
-function drawChart(redraw) {
+function drawChart() {
   init();
 
   lastDate = data[data.length - 1].date;
@@ -874,8 +893,8 @@ function drawChart(redraw) {
   x = d3.scaleTime().domain(d3.extent(dateScaleValues)).range([0, width]);
   x2 = d3.scaleTime().domain(d3.extent(dateScaleValues)).range([0, width]);
 
-  xAxis = d3.axisBottom(x).tickFormat(multiFormat);
-  xAxis2 = d3.axisBottom(x2);
+  xAxis = d3.axisBottom(x).tickFormat(multiFormat).ticks(d3.timeMonth.every(3));
+  xAxis2 = d3.axisBottom(x2).ticks(d3.timeYear.every(2));
 
   optionsDict["All Categories"] = allToSpending;
 
