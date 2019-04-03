@@ -21,11 +21,15 @@
     pointer-events: all;
   }
 
+  .dts-layout-manager {
+    width: 57vw;
+    height: 100%;
+  }
+
   #svg-wrapper {
     display: flex;
     margin-right: 50px;
-    width: 57vw;
-    height: 100%;
+    width: 100%;
     margin-left: -15px;
   }
 
@@ -101,6 +105,7 @@
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 2.8px;
+    padding-top: 45px;
   }
 
   .header-subtitle {
@@ -147,8 +152,8 @@
     display: flex;
     font-size: 13px;
     position: relative;
-    top: 35px;
-    left: 35px;
+    top: 1rem;
+    left: 5%;
   }
 
   .dts-brush-start-date-label, .dts-brush-end-date-label {
@@ -188,10 +193,6 @@
 
   }
 
-  .period-button-header {
-    font-size: 14px;
-  }
-
   .bar {
     fill: #00c3c2;
   }
@@ -206,7 +207,6 @@
   #viz-tsbfy-wrapper {
     width: 250px;
     height: 175px;
-    margin-bottom: -13px;
   }
 
   .viz-tsbfy-header {
@@ -251,10 +251,6 @@
 
   .period-button-container {
     display: flex;
-  }
-
-  .period-button-header {
-    text-transform: uppercase;
   }
 
   .period-container .period-button {
@@ -371,9 +367,10 @@
   .frequency-container {
   }
 
-  .frequency-selector-label, .category-select-label {
+  .daily-spending-subtext, .period-button-header, .frequency-selector-label, .category-select-label {
     text-transform: uppercase;
     font-size: 14px;
+    padding-bottom: 10px;
   }
 
   .dts-label-brush-start, .dts-label-brush-end {
@@ -507,6 +504,10 @@
   @media (max-width: 870px) {
     .viz-tsbfy-container {
       display: none;
+    }
+
+    .dts-layout-manager {
+      width: 100%;
     }
     
     .daily-spending-container, .period-container, .frequency-container, .category-container {

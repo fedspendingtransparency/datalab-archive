@@ -9,7 +9,7 @@ const d3 = { select, selectAll },
     scaleFactor = 0.6,
     duration = 1000;
 
-let activeCompare;
+let activeCompare, config;
 
 function revealHiddenElements() {
     d3.selectAll('.intro-hidden').classed('intro-hidden', null);
@@ -38,8 +38,16 @@ function zoom(out) {
     }
 }
 
-function showHideMath() {
-    d3.selectAll('.intro-math').classed('intro-math--hidden', activeCompare);
+function setAccessibility(type){
+    const svgEl = d3.select('svg.main'),
+        descEl = svgEl.select('desc');
+
+    let accessibilityAttr = config.accessibilityAttrs.default;
+    if(type){
+        accessibilityAttr = config.accessibilityAttrs[type];
+    }
+
+    descEl.text(accessibilityAttr.desc);
 }
 
 function toggleLayer() {
@@ -49,10 +57,12 @@ function toggleLayer() {
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
 
     if (id === activeCompare) {
+        setAccessibility();
         activeCompare = null;
         zoom();
     } else {
-        zoom('out')
+        setAccessibility(id);
+        zoom('out');
         clicked.classed('facts__trigger--active', true);
         activeCompare = id;
     }
@@ -60,7 +70,6 @@ function toggleLayer() {
     transitionLayers();
     toggleFacts();
     resizeSvg();
-    showHideMath();
 }
 
 function toggleFacts() {
@@ -97,10 +106,10 @@ function showDebt() {
         .ease();
 }
 
-export function layersInit() {
+export function layersInit(_config) {
+    config = _config;
     d3.selectAll('.facts__trigger').on('click', toggleLayer);
     zoom();
     showDebt();
-    setTimeout(showHideMath, duration * 2);
     setTimeout(revealHiddenElements, duration);
 }

@@ -1,4 +1,4 @@
-a.link-button, button.link-button {
+a.link-button, button.link-button, div.link-button {
     background: none;
     text-decoration: none;
     display: inline-block;
@@ -18,7 +18,7 @@ a.link-button, button.link-button {
     }
 }
 
-button.link-button {
+button.link-button, div.link-button {
     font-size: 18px;
     font-weight:600;
 }

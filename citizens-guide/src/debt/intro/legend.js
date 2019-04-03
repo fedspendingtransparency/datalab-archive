@@ -41,7 +41,7 @@ function buildLegend() {
         .ease()
 
     g.append('text')
-        .text('= 1 Billion Dollars')
+        .text('= $1 Billion')
         .attr('fill', colors.textColorParagraph)
         .attr('opacity', 0)
         .style('font-size', 16)
@@ -138,14 +138,15 @@ function initDot() {
 }
 
 export function startLegendAnimation(_config, _callback) {
-    const introX = chartWidth < introWidth ? 0 : (chartWidth / 2) - (introWidth / 2);
+    const introX = chartWidth < introWidth ? 0 : (chartWidth / 2) - (introWidth / 2),
+        scaleDotLegend = chartWidth < 430 ? 0.85 : 1;
 
     config = _config || config;
     svg = establishContainer();
     callback = _callback;
     largeDot = svg.append('g')
         .classed('income-dot-legend', true)
-        .attr('transform', translator(introX, 40));
+        .attr('transform', translator(introX, 40) + ` scale(${scaleDotLegend})`);
 
     initDot();
 }

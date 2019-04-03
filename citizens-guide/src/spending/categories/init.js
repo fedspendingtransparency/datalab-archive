@@ -37,13 +37,13 @@ function initSection() {
     initChart();
 }
 
-export function initChart(filteredData, showAll) {
+export function initChart(filteredData) {
     const configData = config.dataType ? config.data[config.dataType] : config.data;
 
     const d = filteredData || configData,
         chartData = top10 ? d.slice(0,9) : d;
 
-    d3.selectAll('svg').remove();
+    d3.selectAll('svg.main').remove();
     barChart(chartData, config.dataType, config);
 }
 

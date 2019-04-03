@@ -36,7 +36,7 @@ function placeLegend(g) {
             .classed('reset', true)
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
-            .attr('y', (height / 2) - 50)
+            .attr('y', (height / 2) - 60)
             .style('font-size', 24);
 
     legendContainer.append('path')
@@ -46,10 +46,16 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('U.S.')
+        .text('FY18')
         .style('font-weight', '600')
         .attr('x', textX)
         .attr('dy', 0);
+
+    text.append('tspan')
+        .text('U.S.')
+        .style('font-weight', '600')
+        .attr('x', textX)
+        .attr('dy', 20);
 
     text.append('tspan')
         .text('Gross')

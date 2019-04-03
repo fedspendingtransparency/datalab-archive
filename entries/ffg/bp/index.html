@@ -1,9 +1,9 @@
 --- 
 layout: ffg
-title: Data Lab - title – U.S. Treasury
-excerpt: excerpt
-header: header
-description: description
+title: Data Lab - Your Guide to America’s Finances – U.S. Treasury
+excerpt: Your Guide to America’s Finances visualizes federal revenue, spending, deficit, and debt. It was created in response to the public’s desire to learn more about the financial picture of the United States. The federal financial information is open and accessible to all - the very principles that our founding fathers set forth when the United States was formed.
+description: Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances. 
+keywords: federal, revenue, federal income, federal taxes, federal spending, deficit, debt
 permalink: /americas-finance-guide/index.html
 category: entry
 menuname: Federal Finance Guide
@@ -35,7 +35,8 @@ ffgPageCss: css/bp.css
 </header>
 
 <!-- begin REVENUE chapter -->
-<section class="chapter chapter--revenue" id="revenue-chapter">
+<section class="chapter chapter--revenue">
+    <div class="chapter-scroll-target" id="revenue-chapter"></div>
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
 
@@ -93,7 +94,7 @@ ffgPageCss: css/bp.css
                 <section class="accordion">
                     <h1 class="accordion__heading">What makes federal revenue increase or decrease?</h1>
                     <div class="accordion__content">
-                        <p>The majority of federal revenue comes from individual and corporate income taxes as well as social insurance taxes. When individuals and corporations earn more money, they pay more in taxes, and thus federal revenue increases. Alternatively, if they make the same, but tax rates increase, the federal revenue will also increase. Decreases in federal revenue are largely due to either individuals or corporations making less money or a decrease in tax rates.</p>
+                        <p>The majority of federal revenue comes from individual and corporate income taxes as well as social insurance taxes. When individuals and corporations earn more money, they pay more in taxes, and thus federal revenue increases. Alternatively, if they make the same amount, but tax rates increase, the federal revenue will also increase. Decreases in federal revenue are largely due to either individuals or corporations making less money or a decrease in tax rates.</p>
                     </div>
                 </section>
 
@@ -109,7 +110,7 @@ ffgPageCss: css/bp.css
             </div>
 
             <div class="chapter__chart">
-                <img src="/assets/ffg/bp/revenue/revenue-graph-outline.svg" title="Federal Revenue 2014 to 2018" alt="Federal revenue has increased over the past five years. Annual revenue was $3 trillion, $3.25 trillion, $3.27 trillion, $3.31 trillion and $3.33 trillion for the years 2014 to 2018 respectively.">
+                <img src="/assets/ffg/bp/revenue/revenue-graph-outline.svg" alt="Federal revenue has increased over the past five years. Annual revenue was $3 trillion, $3.25 trillion, $3.27 trillion, $3.31 trillion and $3.33 trillion for the years 2014 to 2018 respectively.">
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the {% include ffg/data-sources/overview_mts.html %} and refers to Fiscal Year 2018</p>
             </div>
         </div>
@@ -119,8 +120,9 @@ ffgPageCss: css/bp.css
 <section class="chapter-break"></section>
 
 <!-- begin SPENDING chapter -->
-<section class="chapter chapter--spending" id="spending-chapter">
-    <div class="chapter__content">
+<section class="chapter chapter--spending">
+    <div class="chapter-scroll-target" id="spending-chapter"></div>
+        <div class="chapter__content">
         {% include ffg/bpToc.html %}
 
         <div class="chapter__flex">
@@ -184,7 +186,7 @@ ffgPageCss: css/bp.css
                 </a>
             </div>
             <div class="chapter__chart">
-                <img src="/assets/ffg/bp/spending/spending-graph-outline.svg" title="Federal Spending 2014 to 2018" alt="Federal spending has increased steadily over the past five years. Annual spending was $3.5 trillion, $3.69 trillion, $3.85 trillion, $3.98 trillion and $4.11 trillion for the years 2014 to 2018 respectively.">
+                <img src="/assets/ffg/bp/spending/spending-graph-outline.svg" alt="Federal spending has increased steadily over the past five years. Annual spending was $3.5 trillion, $3.69 trillion, $3.85 trillion, $3.98 trillion and $4.11 trillion for the years 2014 to 2018 respectively.">
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the {% include ffg/data-sources/overview_mts.html %} and refers to Fiscal Year 2018</p>
             </div>
         </div>
@@ -201,7 +203,9 @@ ffgPageCss: css/bp.css
 </section>
 
 <!-- begin DEFICIT chapter -->
-<section class="chapter chapter--deficit" id="deficit-chapter">
+<section class="chapter chapter--deficit">
+    <div class="chapter-scroll-target" id="deficit-chapter"></div>
+
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
 
@@ -258,7 +262,7 @@ ffgPageCss: css/bp.css
                 </a>
             </div>
             <div class="chapter__chart">
-                <img src="/assets/ffg/bp/deficit/deficit-graph-outline.svg" title="2018 Federal Revenue, Spending, and Deficit" alt="Since the government spent $4.1 trillion in 2018 and collected $3.3 trillion, the deficit for the year was $779 billion.">
+                <img src="/assets/ffg/bp/deficit/deficit-graph-outline.svg" alt="Since the government spent $4.1 trillion in 2018 and collected $3.3 trillion, the deficit for the year was $779 billion.">
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the {% include ffg/data-sources/overview_mts.html %} and refers to Fiscal Year 2018</p>
             </div>
         </div>
@@ -268,7 +272,9 @@ ffgPageCss: css/bp.css
 <section class="chapter-break"></section>
 
 <!-- begin DEBT chapter -->
-<section class="chapter chapter--debt" id="debt-chapter">
+<section class="chapter chapter--debt">
+    <div class="chapter-scroll-target" id="debt-chapter"></div>
+    
     <div class="chapter__content">
         {% include ffg/bpToc.html %}
 
@@ -283,7 +289,7 @@ ffgPageCss: css/bp.css
                                 <span class="anecdote__button--text hidden">Show me what $21.5 T is equal to</span>
                                 <div class="anecdote__panes">
                                     <div class="anecdote__pane">
-                                        <p>The <strong>National Debt Clock in New York City</strong> estimates the federal debt by second and each household's share. When the clock was installed in 1989, the federal debt was $2.7 trillion.</p>
+                                        <p>The <strong>National Debt Clock in New York City</strong> estimates the federal debt by the second and by each household's share. When the clock was installed in 1989, the federal debt was $2.7 trillion.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/debt/debt-1-outline.svg" alt="">
                                         <p><strong>In 29 years, the national debt has grown by $18.8 trillion.</strong></p>
                                     </div>
@@ -307,13 +313,13 @@ ffgPageCss: css/bp.css
                         </span>
                     </span>
                 </h1>
-                <p class="chapter__paragraph--tightened">To pay for a deficit, the federal government borrows additional funds, which increases the debt. The total debt that the federal government owes is essentially the accumulation of deficits over time, minus debt repaid by any surpluses, plus debt that the Treasury owes to other parts of the federal government. Other activities can contribute to the change in federal debt, such as changes in the Treasury's operating cash account and federal student loans.</p>
+                <p class="chapter__paragraph--tightened">To pay for a deficit, the federal government borrows additional funds, which increases the debt. The total debt that the federal government owes is essentially the accumulation of deficits over time, minus debt repaid by any surpluses, plus debt that the Treasury owes to other parts of the federal government. Other activities contribute to the change in federal debt, such as changes in the Treasury's operating cash account and federal student loans.</p>
                 <p class="chapter__paragraph--tightened">Are federal debt and deficit the same thing? No, but they do affect one another.</p>
 
                 <section class="accordion">
                     <h1 class="accordion__heading">Why can’t the government just print more money?</h1>
                     <div class="accordion__content">
-                        <p>“Printing money” is a term that is sometimes used to describe a means of monetary policy. Monetary policy in the United States is conducted by the Federal Reserve. The Federal Reserve uses monetary policy to promote maximum employment, stable prices, and moderate long-term interest rates on the behalf of the Congress. The federal government uses fiscal policy, or the control of taxation and government spending to promote economic activity.</p>
+                        <p>It can, and does. While the Department of the Treasury prints actual dollars, “printing money” is also a term that is sometimes used to describe a means of <a href="https://www.federalreserve.gov/monetarypolicy.htm" rel="noopener noreferrer" target="_blank">monetary policy</a>, which is conducted by the Federal Reserve. Monetary policy involves controlling the supply of money and the cost of borrowing. The Federal Reserve uses monetary policy to promote maximum employment, stable prices, and moderate long-term interest rates on the behalf of the Congress. The federal government uses fiscal policy, or the control of taxation and government spending, to promote economic activity.</p>
                     </div>
                 </section>
 
@@ -328,7 +334,7 @@ ffgPageCss: css/bp.css
                 </a>
             </div>
             <div class="chapter__chart">
-                <img src="/assets/ffg/bp/debt/debt-graph-outline.svg" title="Federal Debt 2014 to 2018" alt="Federal debt has increased over the past five years. Federal debt was $17.8 trillion, $18.2 trillion, $19.6 trillion, $20.2 trillion and $21.5 trillion at the end of the years 2014 to 2018 respectively.">
+                <img src="/assets/ffg/bp/debt/debt-graph-outline.svg" alt="Federal debt has increased over the past five years. Federal debt was $17.8 trillion, $18.2 trillion, $19.6 trillion, $20.2 trillion and $21.5 trillion at the end of the years 2014 to 2018 respectively.">
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
@@ -354,6 +360,5 @@ ffgPageCss: css/bp.css
 </div>
 
 <script src="/assets/ffg/anecdote.js"></script>
-<script src="/assets/ffg/scrollTo.js"></script>
+<script src="/assets/ffg/bp/bp.js"></script>
 <script src="/assets/ffg/accordion.js"></script>
-<script src="/assets/ffg/parallax.js"></script>

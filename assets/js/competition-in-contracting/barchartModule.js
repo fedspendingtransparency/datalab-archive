@@ -145,7 +145,7 @@ window.barchartModule = () => {
             .attr("dy", "0.71em")
             .append("foreignObject")
             .attr("transform", "translate(-20,0)")
-            .attr("width", 10)
+            .attr("width", 22)
             .attr("height", 1000)
             .append("xhtml:body")
             .append("form")
@@ -221,6 +221,7 @@ window.barchartModule = () => {
                 if (!d.displayed) return 0;
                 return x(d.y0 + d.y) - x(d.y0);
             })
+            .attr("transform", `translate(10,0)`)
             .on("mouseover", handleMouseOver)
             .on("mousemove", handleMouseMove)
             .on("mouseout", handleMouseOut);

@@ -46,8 +46,8 @@ export function establishContainer(height, width, accessibilityAttrs) {
     }
 
     if(accessibilityAttrs && Object.keys(accessibilityAttrs).length){
-        svg.append('title').text(accessibilityAttrs.title);
-        svg.append('desc').text(accessibilityAttrs.desc);
+        svg.append('desc').attr('id', 'svgMainDesc').text(accessibilityAttrs.desc);
+        svg.attr('aria-describedby', 'svgMainDesc');
     }
     
     return svg;
@@ -87,7 +87,6 @@ export function wordWrap(text, maxWidth) {
     var words = text.text().split(/\s+/).reverse(),
         word,
         line = [],
-        lineNumber = 0,
         lineHeight = 1.1,
         tspan;
 
@@ -159,3 +158,7 @@ export function fadeAndRemove(selection, duration) {
             d3.select(this).remove();
         })
 }
+
+export function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};

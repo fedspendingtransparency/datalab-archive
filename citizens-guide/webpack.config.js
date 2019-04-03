@@ -126,8 +126,27 @@ const moduleRules = [
 
 module.exports = [{
     entry: {
+        bp: './src/bigPicture/index.js'
+    },
+    devtool: devtool,
+    devServer: devServer,
+    mode: mode,
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        })
+    ],
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/../assets/ffg/bp',
+    },
+    module: {
+        rules: moduleRules
+    }
+},{
+    entry: {
         anecdote: './src/anecdote/anecdote.js',
-        parallax: './src/bigPicture/parallax.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -281,12 +300,12 @@ module.exports = [{
         './src/globalSass/cg.scss',
         './src/globalSass/chapterIntroCommon.scss',
         './src/globalSass/countryCommon.scss',
+        './src/globalSass/trendsCommon.scss',
         './src/bigPicture/scss/bp.scss',
         './src/anecdote/anecdote.scss',
         './src/deficit/trends/deficit-trends.scss',
         './src/revenue/categories/revenue-categories.scss',
         './src/spending/categories/spending-categories.scss',
-        './src/spending/trends/spending-trends.scss',
         './src/debt/trends/debt-trends.scss',
         './src/debt/analysis/debt-analysis.scss'
     ],

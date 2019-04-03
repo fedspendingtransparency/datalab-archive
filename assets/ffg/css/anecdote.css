@@ -19,8 +19,10 @@
     color: #B2C6D8;
     font-size: 11px; }
   .anecdote .anecdote__dot {
-    height: 8px;
+    padding: 4px;
     width: 8px;
+    height: 8px;
+    border: 0;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -29,6 +31,9 @@
     cursor: pointer; }
     .anecdote .anecdote__dot.anecdote__dot--active {
       background: #205493; }
+    .anecdote .anecdote__dot:focus {
+      outline: 0;
+      box-shadow: 0 0 0.25rem 0.2rem #205493; }
   .anecdote .anecdote__panes {
     position: relative;
     margin: 0 1rem;
@@ -89,7 +94,9 @@
     background-repeat: no-repeat;
     display: inline-block; }
   .anecdote .anecdote__link--button-icon {
-    margin-bottom: -4px; }
+    margin-bottom: -4px;
+    background-color: transparent;
+    border: 0; }
   .anecdote .anecdote__link--button {
     padding: 0;
     -moz-user-select: none;

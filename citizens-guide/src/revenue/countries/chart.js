@@ -485,6 +485,4 @@ window.addEventListener('resize', function () {
     } else {
         debounce = setTimeout(redraw, 100);
     }
-
-
 });

@@ -1,48 +1,50 @@
-// landing-dts.scss
+// landing-dts.cscc
+// handle our little module on the homepage
 
 .dts-module {
   box-sizing: border-box;
-  height: 100px;
   background-color: inherit;
-  padding: 0px 25px 25px 15px;
+  padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
-.dtsm-right-column{
-  display: inline-block;
+
+.dtsm-right-column {
+  width: 20%;
+  text-align:center;
 }
 
 .dtsm-img {
-  width: auto;
-  height: 100%;
-  display: flex;
+  width: 80%;
 }
 
 .dtsm-dollars {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
   margin-left: 15px;
   margin-right: 15px;
-  opacity: .75;
-  fill: #676767;
+  /* opacity: .75; */
+  fill: #4A4A4A;
 }
 
 .dtsm-tas-header {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 150%;
-  opacity: .8;
-  fill: #676767;
+  /* opacity: .8; */
+  fill: #4A4A4A;
 }
 
 .side-dts__date {
   font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 150%;
-  opacity: .9;
-  fill: #676767;
+  font-weight: 600;
+  line-height: 20px;
+  fill: #757575;
+  margin: 2px 0px 10px 0px;
+  border-top: 1px solid #ddd;
+  padding-top: .5rem;
+  padding-left: 1rem;
 }
 
 div.dts-container > div > div > svg > g > path{
@@ -50,7 +52,7 @@ div.dts-container > div > div > svg > g > path{
 }
 .line {
   fill: none;
-  stroke: #027693;
+  stroke: #00CCCC;
   stroke-width: 3px;
 }
 
@@ -67,11 +69,18 @@ div.dts-container > div > div > svg > g > path{
 }
 
 .dtsm-img circle {
-  fill: orange;
-  stroke: black;
-  stroke-width: 1.5px;
+  fill: #FFB232;
+  stroke: #FFF;
+  stroke-width: 1px;
 }
+
 .grid line {
   stroke: rgb(159, 162, 168);
-  stroke-opacity: 0.25;
+  stroke-opacity: 0.15;
+}
+hr.horizontal_dts{
+  border-top: 1px solid #757575;
+  width: 100%;
+  opacity: .1;
+  margin-top: -5px;
 }

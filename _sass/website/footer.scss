@@ -1,19 +1,14 @@
 // footer.scss
 /* Footer */
 
-$accent-blue: #007fae;
-$accent-grey: #323A45;
-$shuttle-grey: #62666C;
-$silver: #CCCCCC;
-$button1: #D41EB6;
-$fg-light: rgba(255,255,255,0.5);
 $footer-text-color: #888;
+$footer-link-color: #2272CE;
 
 .dl-footer {
   text-align: center;
   font-weight: 300;
   color: #888;
-  padding: 3rem 1rem 4rem;
+  padding: 3rem 4rem 4rem;
   clear: both; // refactor this!
   margin-top: 4rem;
   box-shadow: 0 0 1rem rgba(0,0,0,0.3);
@@ -24,10 +19,27 @@ $footer-text-color: #888;
 }
 
 .dl-footer__group-title {
-  color: $accent-blue;
+  color: $footer-link-color;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.24;
   margin-bottom: 1em;
+  letter-spacing: normal;
+}
+.dl-footer__section p {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.33;
+  letter-spacing: .2px;
+}
+
+.community-page-link {
+  color: $footer-link-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .dl-footer__social-items a {
@@ -53,7 +65,8 @@ $footer-text-color: #888;
   justify-content: center;
 }
 
-@media (min-width: 1275px) {
+// arbitrary..
+@media (min-width: 1005px) {
   .dl-footer {
     display: flex;
     justify-content: space-between;
@@ -66,13 +79,14 @@ $footer-text-color: #888;
   .dl-footer__section {
     text-align: left;
     padding: 0 2rem;
-    width: 25%;
+    width: 20%;
   }
   
   .dl-footer__social {
+    margin-bottom: 20px;
     text-align: right;
     align-self: flex-end;
-    flex-grow: 2;
+    flex-grow: 1.3;
   }
 
   .dl-footer__social-items {
@@ -81,7 +95,7 @@ $footer-text-color: #888;
 
   .dl-footer__logo {
     text-align: left;
-    flex-grow: 2;
+    flex-grow: 1.3;
   }
 
 }

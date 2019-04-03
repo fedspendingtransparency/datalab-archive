@@ -2,8 +2,11 @@
 layout: dts
 menuname: DTS Tracker
 menuorder: 1
+title: Data Lab – Visualizing the Daily Treasury Statement – U.S. Treasury
+excerpt: Did you ever wonder how much the government spends each day? How Daily spending varies over the course of a year? Using this visualization, you can explore how spending varies daily, monthly, and annually – and also examine spending data for programs such as Medicaid, Social Security benefits, and Veterans Affairs.
+description: The U.S. Treasury’s Data Lab presents the Daily Treasury Statement. Learn how much the federal government spends each day through this data visualization.
+keywords: federal spending, federal programs, spending trends, spending
 header: DTS
-description: DTS
 banner: landings/federal.jpg
 alt: DTS
 permalink: dts.html
@@ -28,7 +31,7 @@ category: entry
       <div class="header-sub-container">
         <div></div>
         <div class="header-updated-when"></div>
-        <div class="flex">
+        <div class="flex" style="display: -ms-grid;">
           <a href="/data-lab-data/dts/dts.csv"><div class="dts-download-data">{% include svgs/download-grey.svg %}</div></a>
           {% include new-share-menu.html %}
         </div>
@@ -65,12 +68,14 @@ category: entry
         </div>
       </div>
       <div class="dts-viz-container">
-        <div>
+        <div class="dts-layout-manager">
           <div class="dts-brush-date-container">
             <div class="dts-brush-date-item"><div class="dts-brush-start-date-label">From </div><div class="dts-brush-start-date">mm/dd/yy</div></div>
             <div class="dts-brush-date-item"><div class="dts-brush-end-date-label"> to </div><div class="dts-brush-end-date">mm/dd/yy</div></div>
           </div>
-          <svg id="svg-wrapper" width="900" height="400" viewBox="0 0 900 400"></svg>
+          <div class="dts-svg-wrapper">
+            <svg id="svg-wrapper" height="400"></svg>
+          </div>
         </div>
         <div class="viz-tsbfy-container">
           <div class="viz-tsbfy-header">
@@ -104,6 +109,13 @@ category: entry
 {% include viz-footer-info.html
   body="The data used to create the Daily Spending Tracker is sourced from the Bureau of the Fiscal Service’s Daily Treasury Statement (DTS) archive. The download and transformation scripts come from the Federal Treasury API, developed for the treasury.io tool. The data goes through three stages of cleaning prior to reaching its completed state: download, parse, and aggregate."
   link="dts-more.html"
+%}
+
+{% include footer-navigation.html
+	prev-text="Competition in Contracting"
+	prev-link="competition-in-contracting.html"
+	next-text="Contract Spending Analysis"
+	next-link="contracts-over-time.html"
 %}
 
 <script src="{{ "/js/babel-polyfill.min.js" | prepend: site.baseurl }}"></script>

@@ -46,7 +46,8 @@
 .card__contents {
   visibility: hidden;
   transition-property: visibility;
-  transition-delay: 0.25s; }
+  transition-delay: 0.25s;
+  opacity: 0; }
 
 .card__cover {
   position: absolute;
@@ -75,7 +76,8 @@
   .card.card--flipped .card__cover {
     visibility: hidden; }
   .card.card--flipped .card__contents {
-    visibility: visible; }
+    visibility: visible;
+    opacity: 1; }
 
 @media only screen and (min-width: 660px) {
   .cards {
@@ -104,13 +106,15 @@
     width: 24%; }
   .cards.cards--flipped .card.card--flipped {
     height: auto;
-    width: 49%; }
+    width: 49%;
+    opacity: 1; }
   .card__cover {
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0; }
+    padding: 0;
+    width: 100%; }
   .card__flipper {
     align-self: flex-start;
     font-size: 0.9em;

@@ -154,7 +154,11 @@ function CreateDendro(newData){
             let total = 0;
             object._children.forEach((d) => {
                 d._children.forEach((dd) => {
-                    total += dd.size;
+                    if(isNaN(dd.size)){
+                       total += 0; 
+                    } else{
+                       total += dd.size;
+                    }
                 });
             });
             return formatNumber(total);
@@ -163,7 +167,11 @@ function CreateDendro(newData){
         function sumUpLvl2(object) {
             let total = 0;
             object._children.forEach((d) => {
-                total += d.size;
+                if(isNaN(d.size)){
+                    total += 0; 
+                 } else{
+                    total += d.size;
+                 }
             });
             return formatNumber(total);
         }
@@ -172,7 +180,11 @@ function CreateDendro(newData){
             let total = 0;
             object._children.forEach((d) => {
                 d._children.forEach((dd) => {
-                    total += dd.unob;
+                    if(isNaN(dd.unob)){
+                        total += 0; 
+                     } else{
+                        total += dd.unob;
+                     }
                 });
             });
             return formatNumber(total);
@@ -181,7 +193,11 @@ function CreateDendro(newData){
         function sumUpLvl2Unob(object) {
             let total = 0;
             object._children.forEach((d) => {
-                total += d.unob;
+                if(isNaN(d.unob)){
+                    total += 0; 
+                 } else{
+                    total += d.unob;
+                 }
             });
             return formatNumber(total);
         }
@@ -192,7 +208,7 @@ function CreateDendro(newData){
                 window.tooltipModule.draw("#tooltip", d.name, {
                     "Total Obligations": formatNumber(d.size),
                     "Unobligated Balance": formatNumber(d.unob)
-                }, ["Click to visit federal account page", "Federal account page contains FY17-FY18 data"]);
+                }, ["Click to visit federal account page", "Federal account page contains FY17-FY19 data"]);
             }
             if (d.depth === 2) {
                 window.tooltipModule.draw("#tooltip", `${d.name}, ${d.parent.name}`, {
@@ -481,7 +497,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17
     d3.csv('/data-lab-data/accounts_obligations_link_update_FY18.csv', (dendroData18) =>{
         d3.csv('/data-lab-data/accounts_obligations_link_update_FY19Q1.csv', (dendroData19) =>{
 
-    CreateDendro(dendroData18.filter((d) => d.reporting_period_end === '2018-09-30'));
+    CreateDendro(dendroData19.filter((d) => d.reporting_period_end === '2018-12-31'));
 
     $(document).ready(() => {
         let data = [];
