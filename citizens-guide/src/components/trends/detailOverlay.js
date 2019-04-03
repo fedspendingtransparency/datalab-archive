@@ -28,7 +28,7 @@ function placeCloseButton(container, innerWidth) {
         .attr('width', closeButtonWidth)
 
     closeGroup.append('text')
-        .html('&#215;')
+        .text('x')
         .attr('stroke', '#ccc')
         .attr('font-size', 24)
         .attr('text-anchor', 'middle')

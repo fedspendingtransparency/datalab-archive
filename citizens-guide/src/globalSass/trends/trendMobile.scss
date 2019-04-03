@@ -124,6 +124,7 @@ body p.chart-row__data-line {
     .trend-row-button {
         background: $color-primary;
         color: white;
+        border: 1px solid $color-primary;
     }
     
     .trend-mobile--detail .trend-row-button {
@@ -138,12 +139,19 @@ body p.chart-row__data-line {
     .trend-mobile__amount {
         color: $color-primary;
     }
+
+    .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
+        color: $color-primary;
+        background: white;
+    }
+
 }
 
 .spending {
     .trend-row-button {
         background: $color-spending-primary;
         color: white;
+        border: 1px solid $color-spending-primary;
     }
     
     .trend-mobile--detail .trend-row-button {
@@ -157,5 +165,10 @@ body p.chart-row__data-line {
 
     .trend-mobile__amount {
         color: $color-spending-primary;
+    }
+
+    .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
+        color: $color-spending-primary;
+        background: white;
     }
 }
