@@ -30,6 +30,7 @@ function placeCloseButton(container, innerWidth) {
     closeGroup.append('text')
         .text('x')
         .attr('stroke', '#ccc')
+        .attr('stroke-width', 1)
         .attr('font-size', 24)
         .attr('text-anchor', 'middle')
         .attr('x', closeButtonWidth / 2)
