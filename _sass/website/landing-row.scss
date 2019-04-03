@@ -36,7 +36,7 @@ $landing-title-color: #4A4A4A;
 
 
       &:hover {
-        .landing-row__label {
+        h2 {
           text-decoration: underline;
         }
       }
@@ -53,7 +53,7 @@ $landing-title-color: #4A4A4A;
         text-align: right;
         clear: both;
 
-        .landing-row__label {
+        h2 {
           color: #2272CE;
           margin-bottom: 1rem;
           margin-top: 0;
@@ -142,9 +142,9 @@ $landing-title-color: #4A4A4A;
             display: none; // hide on mobile.
           }
 
-	  .landing-row__title-mod {
-	    padding-right: 1rem;
-	  }
+          .landing-row__title-mod {
+            padding-right: 1rem;
+          }
         }
 
         &.landing-row__tile--primary {
