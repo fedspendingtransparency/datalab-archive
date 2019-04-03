@@ -8,7 +8,12 @@ const d3 = { select, selectAll, line, max, transition };
 function lineFn(d, globals) {
     return d3.line()
         .x(function (d) { return globals.scales.x(d.year); })
-        .y(function (d) { return globals.scales.y(d.amount); })(d);
+        .y(function (d) {
+            let yOffset = globals.scales.y(d.amount);
+            if(yOffset < 0 && yOffset > -200){
+                yOffset = -200;
+            }
+            return yOffset; })(d);
 }
 
 function rescale(globals, duration) {
