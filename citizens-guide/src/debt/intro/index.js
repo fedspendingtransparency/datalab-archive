@@ -57,7 +57,6 @@ function legendCallback() {
 })();
 
 function resizeChart() {
-    console.log('resize')
     setChartWidth();
     setDotsPerRow();
     resetLayers();

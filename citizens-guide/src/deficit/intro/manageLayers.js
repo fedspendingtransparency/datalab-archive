@@ -68,35 +68,34 @@ function doubleClickBlocker(id) {
     doubleClickBlock = id;
 
     blockTimer = setTimeout(
-        function() {
+        function () {
             doubleClickBlock = null;
         }, 1000);
 }
 
-function setAccessibility(type){
+function setAccessibility(type) {
     const svgEl = d3.select('svg.main'),
         descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
-    if(type){
+    if (type) {
         accessibilityAttr = config.accessibilityAttrs[type];
     }
 
     descEl.text(accessibilityAttr.desc);
 }
 
-function toggleLayer() {
-    const clicked = d3.select(this),
-        id = clicked.attr('data-trigger-id'),
-        noDelay = (id === 'debt' && activeCompare !== 'deficit');
+function toggleLayer(redraw) {
+    const clicked = (redraw) ? null : d3.select(this),
+        id = (redraw) ? null : clicked.attr('data-trigger-id'),
+        noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
 
-    if (doubleClickBlocker(id)) {
+    if (doubleClickBlocker(id) && !redraw) {
         return;
     };
 
-    d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
-
     if (id === activeCompare) {
+        d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
         zoom();
         deficitOnly();
         activeCompare = null;
@@ -107,23 +106,32 @@ function toggleLayer() {
         return;
     }
 
-    setAccessibility(id);
+    // if (redraw && activeCompare) {
+    //     zoom('out');
+    //     resizeSvg();
+    // }
 
-    if (id === 'deficit' && !revenueFirstTime) {
+    if (!redraw) {
+        d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
+        setAccessibility(id);
+        activeCompare = id;
+        clicked.classed('facts__trigger--active', true);
+    }
+
+    if (activeCompare === 'deficit' && !revenueFirstTime) {
         initialRevenueSpendingCompare();
         revenueFirstTime = true;
-    } else if (id === 'deficit') {
+    } else if (activeCompare === 'deficit') {
         subsequentRevenueSpendingCompare();
     } else {
         initialDebtCompare(noDelay);
     }
 
-    if (!activeCompare) {
+    if (activeCompare) {
         zoom('out');
+    } else {
+        zoom()
     }
-
-    clicked.classed('facts__trigger--active', true);
-    activeCompare = id;
 
     toggleFacts();
     resizeSvg();
@@ -279,6 +287,12 @@ function deficitOnly() {
 
     layers.deficit.select('.legend')
         .attr('opacity', 0)
+}
+
+export function resetLayers() {
+    if (activeCompare) {
+        setTimeout(toggleLayer, 1000, 'redraw');
+    }
 }
 
 export function layersInit(_config) {
