@@ -51,6 +51,7 @@ function placeLegend(g) {
     text.append('tspan')
         .text(simplifyNumber(comparisonAmount))
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 30);
 }
 
