@@ -62,6 +62,14 @@ ffgPageCss: css/debt-analysis.css
 
     <section class="hwcta">
         <p>This analysis was conducted using the {% include ffg/data-sources/mspd_homepage.html %} as the data source for federal debt of the United States. The {% include ffg/data-sources/mts_homepage.html %} for interest expense. Average interest rates on federal debt come from {% include ffg/data-sources/treasury_direct_int_rates.html %}. Holders of United States Treasury securities were identified using three sources: MSPD which contains detailed information on trust funds that own Treasury securities, the {% include ffg/data-sources/tic_foreign_holders.html %} System which identifies foreign holders of U.S. federal debt, and the {% include ffg/data-sources/soma_domestic_securities.html %} Holdings of Domestic Securities which reports Federal Reserve holdings of Treasury securities.</p>
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/federal_debt_cost.csv" download>federal_debt_cost.csv</a></li>
+                <li><a href="../../../assets/ffg/data/federal_debt_average_int_rates.csv" download>federal_debt_average_int_rates.csv</a></li>
+                <li><a href="../../../assets/ffg/data/who_owns_federal_debt.csv" download>who_owns_federal_debt.csv</a></li>
+            </ul>
+        </div>
     </section>
 </div>
 

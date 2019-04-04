@@ -42,6 +42,12 @@ ffgPageCss: css/countryCommon.css
     <section class="hwcta">
         <p>This visualization was created using the {% include ffg/data-sources/country_comparison_mspd.html %} as the data source for federal government debt of the United States. Gross domestic product (GDP) figures come from the {% include ffg/data-sources/imf_gdp.html %}. Debt figures for countries other than the United States also come from the {% include ffg/data-sources/imf_debt.html %}. Since debt figures were provided in the national currency for the selected countries, the numbers were subsequently converted to U.S. dollars. Currency conversion rates were pulled from {% include ffg/data-sources/xe_conversion.html %} for {% include ffg/data-sources/curr_conversion_date.html %}; the last day of the U.S. federal government's fiscal year.</p>
         <p>The conversion of debt figures to U.S. dollars makes comparisons among countries more convenient. However, the implied burden of debt may be misrepresented for a given country if the majority of that nation's debt was denominated in a currency other than U.S. dollars, and the currency in which the debt was held had an abnormal valuation relative to the U.S. dollar on the date of currency conversion.</p>
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/debt_country_comparison.csv" download>debt_country_comparison.csv</a></li>
+            </ul>
+        </div>
     </section>
 </div>
 
