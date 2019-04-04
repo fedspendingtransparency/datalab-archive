@@ -50,6 +50,7 @@ function placeLegend(g) {
         .text('FY18')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 0);
 
     text.append('tspan')
