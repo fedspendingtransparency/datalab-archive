@@ -57,29 +57,34 @@ function placeLegend(g) {
         .text('U.S.')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text('Gross')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text('Domestic')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text('Product')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text(simplifyNumber(gdpAmount))
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 25);
 }
 
