@@ -3,6 +3,7 @@ import 'd3-transition';
 import { layers } from './createLayers';
 import { translator, establishContainer } from '../../utils';
 import { chartWidth } from './widthManager';
+import { touchIe } from '../../touchIe';
 
 const d3 = { select, selectAll },
     scaleFactor = 0.6,
@@ -106,11 +107,6 @@ function toggleLayer(redraw) {
         return;
     }
 
-    // if (redraw && activeCompare) {
-    //     zoom('out');
-    //     resizeSvg();
-    // }
-
     if (!redraw) {
         d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
         setAccessibility(id);
@@ -166,7 +162,11 @@ function initialDebtCompare(noDelay) {
         .attr('transform', translator(0, 0))
         .attr('opacity', 1)
         .on('end', function () {
-            layers.debt.select('.legend').transition().duration(duration).attr('opacity', 1)
+            layers.debt.select('.legend')
+                .transition()
+                .duration(duration)
+                .on('end', touchIe)
+                .attr('opacity', 1)
         })
         .ease();
 
@@ -193,6 +193,7 @@ function deficitTransform(state, now) {
     layers.debtCompareDots.transition()
         .duration(localDuration)
         .attr('opacity', debtDots)
+        .on('end', touchIe)
         .ease();
 }
 
@@ -215,6 +216,7 @@ function subsequentRevenueSpendingCompare() {
         .delay(duration)
         .duration(duration)
         .attr('opacity', 1)
+        .on('end', touchIe)
         .ease();
 
     setTimeout(deficitTransform, duration / 2);
@@ -239,6 +241,7 @@ function initialRevenueSpendingCompare() {
     setTimeout(function () {
         layers.deficit.transition()
             .duration(duration * 1.5)
+            .on('end', touchIe)
             .attr('opacity', 1)
     }, step3)
 
@@ -283,6 +286,7 @@ function deficitOnly() {
     layers.deficit.transition()
         .duration(duration)
         .attr('transform', translator(0, 0))
+        .on('end', touchIe)
         .attr('opacity', 1);
 
     layers.deficit.select('.legend')
