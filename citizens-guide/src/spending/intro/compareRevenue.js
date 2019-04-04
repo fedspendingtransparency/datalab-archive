@@ -31,6 +31,7 @@ function placeLegend(g) {
             .classed('reset', true)
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
+            .attr('x', 0)
             .attr('y', -10)
             .style('font-size', 24);
 
