@@ -45,6 +45,7 @@ function placeLegend(g) {
         .text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', height / 2);
 
     text.append('tspan')
