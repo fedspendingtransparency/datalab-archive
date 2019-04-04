@@ -3,7 +3,7 @@ import { transition } from 'd3-transition';
 import { chartWidth } from "./widthManager";
 import { dotConstants, dotsPerRow } from "./dotConstants";
 import { translator } from '../../utils';
-import { touchIe } from './touchIe';
+import { touchIe } from '../../touchIe';
 
 const stateManager = {},
     layers = {},

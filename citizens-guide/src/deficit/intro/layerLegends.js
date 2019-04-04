@@ -22,6 +22,7 @@ export function deficitLabel(yMax, parent, amount) {
         textX = -30,
         text = layer.append('text')
             .attr('fill', colors.textColorParagraph)
+            .classed('touch-label', true)
             .attr('text-anchor', 'middle')
             .attr('x', 0)
             .attr('y', lineData[2].y + 24)
@@ -37,11 +38,13 @@ export function deficitLabel(yMax, parent, amount) {
         .text('Deficit')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 0);
 
     text.append('tspan')
         .text(simplifyNumber(amount))
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 24);
 }
 
@@ -57,6 +60,7 @@ export function labelMaker(parent, height, label, amount) {
         textX = spending ? chartWidth + 40 : -40,
         text = layer.append('text')
             .attr('fill', colors.textColorParagraph)
+            .classed('touch-label', true)
             .attr('text-anchor', 'end')
             .attr('x', 0)
             .attr('y', height / 2 + 15)
@@ -80,11 +84,13 @@ export function labelMaker(parent, height, label, amount) {
         .text(label)
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', -24);
 
     text.append('tspan')
         .text(simplifyNumber(amount))
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 24);
 
     layer.transition().duration(duration * 1.5).attr('opacity', 1);

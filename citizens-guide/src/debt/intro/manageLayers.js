@@ -4,6 +4,7 @@ import { layers } from './createLayers';
 import { translator, establishContainer } from '../../utils';
 import { chartWidth } from './widthManager';
 import { vizHeight } from './debtDots';
+import { touchIe } from '../../touchIe';
 
 const d3 = { select, selectAll },
     scaleFactor = 0.6,
@@ -100,6 +101,7 @@ function transitionLayers() {
         .attr('opacity', function(){
             return activeCompare === 'gdp' ? 1 : 0;
         })
+        .on('end', touchIe)
         .ease();
 }
 
@@ -107,6 +109,7 @@ function showDebt() {
     layers.debt.transition()
         .duration(duration)
         .attr('opacity', 1)
+        .on('end', touchIe)
         .ease();
 }
 
