@@ -23,6 +23,7 @@ export function deficitLabel(yMax, parent, amount) {
         text = layer.append('text')
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'middle')
+            .attr('x', 0)
             .attr('y', lineData[2].y + 24)
             .style('font-size', 24);
 
