@@ -4,7 +4,7 @@ import { setChartWidth } from './widthManager';
 import { establishContainer, translator } from '../../utils';
 import colors from '../../colors.scss';
 import { setDotsPerRow } from "./dotConstants";
-import { layersInit } from "./manageLayers";
+import { layersInit, resetLayers } from "./manageLayers";
 
 const config = {
     anecdoteName: 'anecdote-debt.svg',
@@ -30,10 +30,11 @@ const config = {
     }
 };
 
-let mainContainer;
+let mainContainer, debounce, previousWidth;
 
 function setMainContainer() {
-    mainContainer = establishContainer(900, null, config.accessibilityAttrs.default).append('g')
+    mainContainer = establishContainer(900, null, config.accessibilityAttrs.default)
+        .append('g')
         .classed('main', true);
 
     config.mainContainer = mainContainer;
@@ -51,6 +52,30 @@ function legendCallback() {
     createLayers(config);
 
     setTimeout(function() {
-        layersInit(config)
+        layersInit(config);
     }, 4500);
 })();
+
+function resizeChart() {
+    console.log('resize')
+    setChartWidth();
+    setDotsPerRow();
+    resetLayers();
+    config.mainContainer.selectAll('*').remove();
+    createLayers(config);
+    layersInit(config);
+}
+
+window.addEventListener('resize', function () {
+    if (debounce) {
+        clearTimeout(debounce);
+    }
+
+    if(previousWidth === window.innerWidth){
+        return;
+    }
+
+    previousWidth = window.innerWidth;
+    
+    debounce = setTimeout(resizeChart, 100);
+});
