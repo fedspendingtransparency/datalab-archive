@@ -43,6 +43,7 @@ function setAccessibility(type){
         descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
+    
     if(type){
         accessibilityAttr = config.accessibilityAttrs[type];
     }
@@ -50,9 +51,9 @@ function setAccessibility(type){
     descEl.text(accessibilityAttr.desc);
 }
 
-function toggleLayer() {
-    const clicked = d3.select(this),
-        id = clicked.attr('data-trigger-id');
+function toggleLayer(redraw) {
+    const clicked = (redraw) ? null : d3.select(this),
+        id = (redraw) ? null : clicked.attr('data-trigger-id');
 
     d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
 
@@ -63,8 +64,11 @@ function toggleLayer() {
     } else {
         setAccessibility(id);
         zoom('out');
-        clicked.classed('facts__trigger--active', true);
-        activeCompare = id;
+
+        if (!redraw) {
+            clicked.classed('facts__trigger--active', true);
+            activeCompare = id;
+        }
     }
 
     transitionLayers();
@@ -104,6 +108,12 @@ function showDebt() {
         .duration(duration)
         .attr('opacity', 1)
         .ease();
+}
+
+export function resetLayers() {
+    if (activeCompare) {
+        setTimeout(toggleLayer, 2000, 'redraw');
+    }
 }
 
 export function layersInit(_config) {
