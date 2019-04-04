@@ -58,6 +58,7 @@ export function labelMaker(parent, height, label, amount) {
         text = layer.append('text')
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
+            .attr('x', 0)
             .attr('y', height / 2 + 15)
             .style('font-size', 24);
 
