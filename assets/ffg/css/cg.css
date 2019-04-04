@@ -97,6 +97,12 @@ h1 .info-box-trigger {
   background: white;
   border: none; }
 
+.afg__download--div {
+  margin-top: 1rem; }
+
+.afg__download--heading {
+  font-size: 1.5rem; }
+
 .hwcta {
   max-width: 900px;
   margin: 1rem auto;
