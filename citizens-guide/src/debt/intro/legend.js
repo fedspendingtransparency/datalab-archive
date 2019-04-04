@@ -56,7 +56,7 @@ function buildLegend() {
     g.append('image')
         .attr('height', 16)
         .attr('width', 20)
-        .attr('x', 122)
+        .attr('x', 80)
         .attr('y', -14)
         .attr('opacity', 0)
         .attr('data-box-id', 'billion-dollars')

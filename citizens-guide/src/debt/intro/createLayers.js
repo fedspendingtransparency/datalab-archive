@@ -102,12 +102,6 @@ function createDeficit() {
     generateOverlay(config.deficitAmount, 'deficit', 'Deficit', config.deficitColor);
 }
 
-function createDebt() {
-    generateOverlay(config.debtBalance, 'debt', '2018 Debt', config.debtColor);
-    addDebtLabel();
-    layers.debt.attr('transform', translator(0, 100))
-}
-
 export function createLayers(c) {
     config = c;
 
