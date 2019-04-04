@@ -28,11 +28,10 @@ function placeLegend(g) {
             { x: textX + 30, y: height }
         ],
         text = legendContainer.append('text')
-            .classed('reset', true)
+            .classed('reset touch-label', true)
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
             .attr('x', 0)
-            .attr('dx', 0)
             .attr('y', -10)
             .style('font-size', 24);
 

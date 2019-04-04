@@ -1,4 +1,7 @@
 import { establishContainer } from "../../utils";
+import { selectAll } from 'd3-selection';
+
+const d3 = { selectAll };
 
 let counter = 0;
 
@@ -7,5 +10,6 @@ export function touchIe() {
 
     console.log('touch ie')
 
-    establishContainer().attr('data-ie-touch', counter);    
+    establishContainer().attr('data-ie-touch', counter);
+    d3.selectAll('.touch-label').attr('dx', 0)
 }
