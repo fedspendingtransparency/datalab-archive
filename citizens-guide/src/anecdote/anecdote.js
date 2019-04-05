@@ -51,19 +51,12 @@ function toggleVisibility() {
     anecdote.classed(config.anecdoteActiveClass, !anecdote.classed(config.anecdoteActiveClass));
 }
 
-// function updateSlide(anecdote, i) {
-//     setActiveDot(anecdote, i);
-//     showPane(anecdote, i);
-// }
-
 function setActiveDot(anecdote, index) {
     const dots = anecdote.selectAll(`.${config.dotClass}`);
 
-    
     dots.classed(config.dotClassActive, false);
-    dots.filter((d, i) => {
-        console.log(index, i)
-        i === index}).classed(config.dotClassActive, true);
+
+    dots.filter((d, i) => i === index).classed(config.dotClassActive, true);
 
     updateDotText(anecdote, index);
 }
@@ -87,7 +80,7 @@ function buildDots(anecdote) {
         .append('button')
         .classed(config.dotClass, true)
         .on('click', function (d, i) {
-            updateSlide(anecdote, i);
+            showPane(anecdote, i);
         });
 
     dotContainer.append('div')
@@ -98,6 +91,8 @@ function buildDots(anecdote) {
 
 function showPane(anecdote, index) {
     const panes = anecdote.selectAll(`.${config.paneClass}`).classed(config.paneClassActive, false);
+
+    anecdote.attr('data-current', index);
 
     panes.filter((d, i) => { return i === index }).classed(config.paneClassActive, true);
 
@@ -177,17 +172,31 @@ function initNav(anecdote) {
 
         d3.select(this).classed(`fas fa-2x ${faClass}`, true);
     })
+
+    buttons.each(function (d, i) {
+        const button = d3.select(this),
+            prev = (i === 0) ? true : null;
+
+        button.on('click', d => advancePane(anecdote, prev))
+    })
 }
 
 function initPanes(anecdote) {
     anecdote.selectAll(`.${config.paneClass}`).on('click', function (d, i) {
-        const src = event.srcElement ? event.srcElement : event.target;
+        const paneCount = anecdote.selectAll(`.${config.paneClass}`).size(),
+            src = event.srcElement ? event.srcElement : event.target;
 
         if (src && src.nodeName === 'A') {
             return;
         }
 
-        showPane(anecdote, i + 1);
+        i += 1;
+
+        if (i === paneCount) {
+            i = 0;
+        }
+
+        showPane(anecdote, i);
     })
 }
 
@@ -195,8 +204,21 @@ function raiseLinkButton(anecdote) {
     anecdote.select('.anecdote__cta').raise();
 }
 
-function advancePane(prev) {
+function advancePane(anecdote, prev) {
+    const current = Number(anecdote.attr('data-current')),
+        size = anecdote.selectAll(`.${config.paneClass}`).size();
 
+    let newPage = prev ? current - 1 : current + 1;
+
+    if (newPage === size) {
+        newPage = 0;
+    }
+
+    if (newPage < 0) {
+        newPage = size - 1;
+    }
+
+    showPane(anecdote, newPage);
 }
 
 function buildAnecdote() {
@@ -208,7 +230,6 @@ function buildAnecdote() {
     initNav(anecdote);
     raiseLinkButton(anecdote);
     initPanes(anecdote);
-    anecdote.attr('data-current', 1);
 }
 
 export function anecdoteInit() {
