@@ -963,7 +963,9 @@ function drawChart() {
   createBarChart(yearToSpendingArray);
 
   d3.select(".viz-tsbfy-bar-view").style("background-color", "rgb(255, 255, 255)");
-}
+
+  d3.select('#waiting-overlay').classed('hidden', true);
+  }
 
 function getFrequencyFromURL() {
   let frequency = getQueryStringValue('frequency');
@@ -1005,6 +1007,7 @@ window.addEventListener('resize', function () {
 
   previousWidth = window.innerWidth;
 
+  d3.select('#waiting-overlay').classed('hidden', false);
   debounce = setTimeout(function () {
     d3.select('#svg-wrapper').selectAll('*').remove();
     drawChart('redraw');
