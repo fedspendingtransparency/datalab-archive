@@ -29,7 +29,19 @@ git push origin mybranch
 (make PR into dev)
 ```
 
-## Moving `dev` into `staging`
+## Updating `staging`
+
+When we want to update our `staging` branch we dont want to just merge `dev` into staging. That is our (short term solution) and is being used for go-live crazyness. Our actual procedure involves saving every feature branch that you want to add and individually adding each feature branch to `staging`. The process will look like this.
+
+```
+(push feature branch to remote)
+(once done messing around and testing in dev..)
+(PR feature branch into `staging`
+```
+
+So you should not delete all of your branches that you update until they are merged into staging now. Unless you want to test them in `dev`, delete them from the remote and keep them on your local machine, then upload all the local branches you have to `staging`. This is probably only achieveable if you are managing your local branches and deleting your local branches as see fit, but that can get a bit much. Stick with the first notion of keeping all your feature branches up until you want them to go to `staging`. Label them properly so they are easier to identify.
+
+## Moving `dev` into `staging` (short term solution!)
 
 We can simply move `dev` into the `staging` env by PR'ing `dev` into `staging`.
 
