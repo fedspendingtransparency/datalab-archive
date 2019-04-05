@@ -1,4 +1,5 @@
 @import '../globalSass/generalVars';
+@import '../colors.scss';
 
 @keyframes scale {
     0% {transform: scaleY(0)}
@@ -15,7 +16,7 @@
     border-radius: 1rem;
     margin-bottom: 1rem;
     display: inline-block;
-    transition: padding-top 0.5s ease, padding-bottom 0.5s ease;
+    transition: padding-top 0.5s ease, padding-bottom 0.5s ease, background-color 1s ease;
     box-sizing: border-box;
     text-align: center;
 }
@@ -225,6 +226,7 @@ a.anecdote__cta {
     padding-bottom: 1rem;
     width: 500px;
     max-width: 100%;
+    background: white;
 
     .anecdote__teaser {
         display: none;
@@ -242,5 +244,65 @@ a.anecdote__cta {
         display: block;
         animation: scale 0.5s;
         transform: scaleY(1);
+    }
+}
+
+.chapter--revenue {
+    .anecdote {
+        border-color: $color-primary-darkest;
+        background: #a7c7ed40;
+    }
+
+    .anecdote.anectode--active {
+        background: white;
+    }
+
+    .anecdote__trigger i {
+        color: $color-primary-darkest;
+    }
+}
+
+.chapter--spending {
+    .anecdote {
+        border-color: $color-spending-primary;
+        background: #00796b1a;
+    }
+
+    .anecdote.anectode--active {
+        background: white;
+    }
+
+    .anecdote__trigger i {
+        color: $color-spending-primary;
+    }
+}
+
+.chapter--deficit {
+    .anecdote {
+        border-color: $color-deficit-primary;
+        background: #b3532d1f;
+    }
+
+    .anecdote.anectode--active {
+        background: white;
+    }
+
+    .anecdote__trigger i {
+        color: $color-deficit-primary;
+    }
+}
+
+.chapter--debt {
+    .anecdote {
+        border-color: $color-debt-primary;
+        background: #4a00721a;
+    }
+
+    .anecdote.anectode--active {
+        background: white;
+    }
+
+    .anecdote__trigger i {
+        color: $color-debt-primary;
     }
 }

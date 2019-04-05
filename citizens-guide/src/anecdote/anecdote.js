@@ -1,5 +1,4 @@
 import { select, selectAll, event } from 'd3-selection';
-import { initRevenueOverlay } from '../spending/intro/compareRevenue';
 
 const d3 = { select, selectAll, event },
     config = {
@@ -234,7 +233,7 @@ function buildAnecdote() {
 
 export function anecdoteInit() {
     d3.selectAll(`.${config.anecdoteClass}`).each(buildAnecdote);
-    addKeyboardNavigation();
+    // addKeyboardNavigation();
     d3.selectAll(`button.${config.triggerClass}`).on('click', toggleVisibility);
 }
 
