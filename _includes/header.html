@@ -32,23 +32,25 @@
       <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
 
+    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
+
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span>{% include svgs/arrow.svg %}</span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+          <span>{% include svgs/arrow.svg %}</span>
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span>{% include svgs/arrow.svg %}</span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
+          <span>{% include svgs/arrow.svg %}</span>
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class="">{% include svgs/arrow.svg %}</span>
-	</li>
+          <span class="">{% include svgs/arrow.svg %}</span>
+        </li>
       </ul>
     </nav>
   </div>
