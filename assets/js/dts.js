@@ -1,3 +1,6 @@
+---
+---
+
 var allOptions, optionsDict, lastDate, categorySeparatorDate;
 
 const parseTimeFormat = d3.timeFormat("%B %d, %Y");
