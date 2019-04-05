@@ -10,7 +10,6 @@
     max-width: 100%;
     font-size: 1rem;
     font-weight: 300;
-    overflow: hidden;
     border: 1px solid #aaa;
     padding: 0.25rem 1rem;
     border-radius: 1rem;
@@ -40,6 +39,7 @@
 .anecdote__nav-contents {
     width: 64%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .anecdote__nav-button {
