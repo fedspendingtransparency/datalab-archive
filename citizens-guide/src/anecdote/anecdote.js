@@ -1,8 +1,14 @@
-import {select, selectAll, event} from 'd3-selection';
+import { select, selectAll, event } from 'd3-selection';
+import { initRevenueOverlay } from '../spending/intro/compareRevenue';
 
-const d3 = {select, selectAll, event},
-    defaultAnecdoteProperties = {
-        anecdoteClass : 'anecdote',
+const d3 = { select, selectAll, event },
+    config = {
+        anecdoteClass: 'anecdote',
+        anecdoteActiveClass: 'anectode--active',
+        controlsClass: 'anecdote__controls',
+        triggerClass: 'anecdote__trigger',
+        navClass: 'anecdote__nav-control',
+        navButtonClass: 'anecdote__nav-button',
         closeButtonClass: 'anecdote__close',
         closeButtonIconClass: 'fas fa-times',
         contentsClass: 'anecdote__contents',
@@ -26,200 +32,82 @@ const d3 = {select, selectAll, event},
         paneClass: 'anecdote__pane',
         paneClassActive: 'anecdote__pane--active'
     };
+
 let desiredAnecdoteProperties = {};
 
-function addInfoIcon(anecdote){
-    let infoIconClass = defaultAnecdoteProperties.infoIcon.class,
-        infoIconSrc = defaultAnecdoteProperties.infoIcon.src,
-        infoIconAlt = defaultAnecdoteProperties.infoIcon.alt;
-    if(desiredAnecdoteProperties.infoIcon){
-        infoIconClass = desiredAnecdoteProperties.infoIcon.class || infoIconClass;
-        infoIconSrc = desiredAnecdoteProperties.infoIcon.src || infoIconSrc;
-        infoIconAlt = desiredAnecdoteProperties.infoIcon.alt || infoIconAlt;
-    }
-
-    const icon = anecdote.insert('div').classed(infoIconClass, true).lower()
-        .attr('alt', infoIconAlt);
-}
-
 function addCloseIcon(anecdote) {
-    const closeButtonClass = desiredAnecdoteProperties.closeButtonClass || defaultAnecdoteProperties.closeButtonClass,
-        closeButtonIconClass = desiredAnecdoteProperties.closeButtonIconClass || defaultAnecdoteProperties.closeButtonIconClass;
+    const button = anecdote.select(`.${config.controlsClass}`)
+        .append('button')
+        .classed(config.closeButtonClass, true)
+        .on('click', toggleVisibility)
 
-    const closeButton = anecdote.insert('button').classed(closeButtonClass, true).lower(),
-        closeIcon = closeButton.append('i').classed(closeButtonIconClass, true);
+    button.append('i')
+        .classed(config.closeButtonIconClass, true);
 }
 
-function updateSlide(anecdote, i){
-    setActiveDot(anecdote, i);
-    showPane(anecdote, i);
-    updateDotText(anecdote, i + 1)
+function toggleVisibility() {
+    const anecdote = d3.select(this.closest(`.${config.anecdoteClass}`));
+
+    anecdote.classed(config.anecdoteActiveClass, !anecdote.classed(config.anecdoteActiveClass));
 }
 
-function setActiveDot(anecdote, index){
-    const dotClass = desiredAnecdoteProperties.dotClass || defaultAnecdoteProperties.dotClass,
-     dotClassActive = desiredAnecdoteProperties.dotClassActive || defaultAnecdoteProperties.dotClassActive;
+// function updateSlide(anecdote, i) {
+//     setActiveDot(anecdote, i);
+//     showPane(anecdote, i);
+// }
 
-    const dotContainer = anecdote.selectAll(`.${dotClass}`);
-    const activeDotClass = dotClassActive;
-    dotContainer.classed(activeDotClass, false);
-    dotContainer.filter((d,i) => i === index).classed(activeDotClass,true);
+function setActiveDot(anecdote, index) {
+    const dots = anecdote.selectAll(`.${config.dotClass}`);
+
+    
+    dots.classed(config.dotClassActive, false);
+    dots.filter((d, i) => {
+        console.log(index, i)
+        i === index}).classed(config.dotClassActive, true);
+
+    updateDotText(anecdote, index);
 }
 
-function updateDotText(anecdote, i){
-    const dotTextClass = desiredAnecdoteProperties.dotTextClass || defaultAnecdoteProperties.dotTextClass,
-        paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
-        dotLength = anecdote.selectAll(`.${paneClass}`).size();
+function updateDotText(anecdote, i) {
+    const dotLength = anecdote.selectAll(`.${config.paneClass}`).size(),
+        dotText = anecdote.select(`.${config.dotTextClass}`);
 
-    const dotText = anecdote.select(`.${dotTextClass}`);
-    dotText.html(`${i} of ${dotLength}`);
+    dotText.html(`${i + 1} of ${dotLength}`);
 }
 
-function buildDots(anecdote){
-    const contentsClass = desiredAnecdoteProperties.contentsClass || defaultAnecdoteProperties.contentsClass,
-        dotsClass = desiredAnecdoteProperties.dotsClass || defaultAnecdoteProperties.dotsClass,
-        dotsContainerClass = desiredAnecdoteProperties.dotsContainerClass || defaultAnecdoteProperties.dotsContainerClass,
-        dotClass = desiredAnecdoteProperties.dotClass || defaultAnecdoteProperties.dotClass,
-        dotTextClass = desiredAnecdoteProperties.dotTextClass || defaultAnecdoteProperties.dotTextClass,
-        linkCtaContainerClass = desiredAnecdoteProperties.linkCtaContainerClass || defaultAnecdoteProperties.linkCtaContainerClass,
-        paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass;
+function buildDots(anecdote) {
+    const dotLength = anecdote.selectAll(`.${config.paneClass}`).size(),
+        dotContainer = anecdote.select(`.${config.contentsClass}`).insert('div').classed(config.dotsContainerClass, true),
+        dots = dotContainer.append('div').classed(config.dotsClass, true),
+        dotArray = new Array(dotLength);
 
-    const dotLength = anecdote.selectAll(`.${paneClass}`).size();
-    const dotContainer = anecdote.select(`.${contentsClass}`).insert('div', `.${linkCtaContainerClass}`).classed(dotsContainerClass, true);
-    const dots = dotContainer.append('div').classed(dotsClass, true);
-    const dotArray = new Array(dotLength);
-    dots.selectAll(`.${dotClass}`)
+    dots.selectAll(`.${config.dotClass}`)
         .data(dotArray)
         .enter()
         .append('button')
-        .classed(dotClass, true)
-        .on('click', function(d,i){
+        .classed(config.dotClass, true)
+        .on('click', function (d, i) {
             updateSlide(anecdote, i);
         });
+
     dotContainer.append('div')
-        .classed(dotTextClass, true);
+        .classed(config.dotTextClass, true);
+
+    setActiveDot(anecdote, 0);
 }
 
-function buildPaneClick(anecdote){
-    const panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass;
+function showPane(anecdote, index) {
+    const panes = anecdote.selectAll(`.${config.paneClass}`).classed(config.paneClassActive, false);
 
-    const paneContainer = anecdote.select(`.${panesClass}`),
-        toNextSlideInd = true;
+    panes.filter((d, i) => { return i === index }).classed(config.paneClassActive, true);
 
-
-    paneContainer.on('click', function(){
-        const curTarget = event.srcElement ? event.srcElement : event.target;
-        // Don't do any animations if someone clicks on a hyperlink.
-        if(curTarget && curTarget.nodeName === 'A') {
-            return;
-        }
-
-        moveToAdjacentSlide(anecdote, toNextSlideInd);
-    });
+    setActiveDot(anecdote, index);
 }
 
-function moveToAdjacentSlide(anecdote, toNextSlideInd){
-    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
-        panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass,
-        paneClassActive = desiredAnecdoteProperties.paneClassActive || defaultAnecdoteProperties.paneClassActive,
-        paneContainer = anecdote.select(`.${panesClass}`),
-        panes = paneContainer.selectAll(`.${paneClass}`),
-        paneLength = panes.size();
-
-    let idx = 0;
-    panes.each(function(d, i){
-        if(d3.select(this).classed(paneClassActive)){
-            idx = toNextSlideInd ? i + 1 : i - 1;
-        }
-    });
-    if(idx >= paneLength){
-        idx = 0;
-    } else if (idx < 0){
-        idx = paneLength - 1;
-    }
-
-    updateSlide(anecdote, idx);
-}
-
-function getPaneHeight(currentPane) {
-    if(currentPane && currentPane.node()){
-        return Math.ceil(currentPane.node().getBoundingClientRect().height);
-    }
-    return 0;
-}
-
-function setPaneHeight(anecdote, currentPane){
-    const panesClass = desiredAnecdoteProperties.panesClass || defaultAnecdoteProperties.panesClass,
-        paneHeightStr = getPaneHeight(currentPane) + 'px';
-
-    anecdote.select(`.${panesClass}`)
-        .attr('style', `height: ${paneHeightStr}`);
-}
-
-function getActivePane(anecdote){
-    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
-        paneClassActive = desiredAnecdoteProperties.paneClassActive || defaultAnecdoteProperties.paneClassActive,
-        activePane = anecdote.selectAll(`.${paneClass}.${paneClassActive}`);
-
-    return activePane;
-}
-
-function showPane(anecdote, index){
-    const paneClass = desiredAnecdoteProperties.paneClass || defaultAnecdoteProperties.paneClass,
-        paneClassActive = desiredAnecdoteProperties.paneClassActive || defaultAnecdoteProperties.paneClassActive;
-
-    const panes = anecdote.selectAll(`.${paneClass}`);
-    panes.classed(paneClassActive, false);
-    const curPane = panes.filter((d, i) => {return i === index});
-    curPane.classed(paneClassActive, true);
-    setPaneHeight(anecdote, curPane);
-}
-
-function toggleContent(anecdote){
-  const closeButtonClass = desiredAnecdoteProperties.closeButtonClass || defaultAnecdoteProperties.closeButtonClass,
-    contentsClass = desiredAnecdoteProperties.contentsClass || defaultAnecdoteProperties.contentsClass,
-    contentsClassActive = desiredAnecdoteProperties.contentsClassActive || defaultAnecdoteProperties.contentsClassActive;
-
-  const anecdoteContents = anecdote.select(`.${contentsClass}`);
-  const activeInd = anecdoteContents.classed(contentsClassActive);
-  anecdoteContents.classed(contentsClassActive, !activeInd);
-  if(!activeInd) {
-      const activePane = getActivePane(anecdote);
-      setPaneHeight(anecdote, activePane);
-      buildPaneClick(anecdote);
-      anecdote.select('.' + closeButtonClass)
-          .on('click', function () {
-              toggleContent(anecdote);
-          });
-  }
-}
-
-function buildTrigger(anecdote){
-    const linkButtonContainerClass = desiredAnecdoteProperties.linkButtonContainerClass || defaultAnecdoteProperties.linkButtonContainerClass,
-        linkButtonIconClass = desiredAnecdoteProperties.linkButtonIconClass || defaultAnecdoteProperties.linkButtonIconClass,
-        linkButtonClass = desiredAnecdoteProperties.linkButtonClass || defaultAnecdoteProperties.linkButtonClass;
-    let linkButtonText = desiredAnecdoteProperties.linkButtonText || defaultAnecdoteProperties.linkButtonText;
-
-    if(!linkButtonText){
-        const existingButtonTextDiv = anecdote.select('.anecdote__button--text');
-        if(existingButtonTextDiv._groups[0][0]){
-            linkButtonText = existingButtonTextDiv.text();
-        }
-    }
-
-    const anecdoteButtonSection = anecdote.append('div').classed(linkButtonContainerClass,true),
-        anecdoteIconSection = anecdoteButtonSection.append('button').classed(linkButtonIconClass,true),
-        button = anecdoteButtonSection.append("div").classed(linkButtonClass,true).text(linkButtonText);
-    anecdoteButtonSection.lower();
-    anecdoteButtonSection.on("click", function(){
-        toggleContent(anecdote);
-    });
-}
-
-function addKeyboardNavigation(){
-    window.addEventListener("keydown", function(e){
+function addKeyboardNavigation() {
+    window.addEventListener("keydown", function (e) {
         let navigateDir = '';
-        switch(e.key){
+        switch (e.key) {
             case 'Right':
             case 'ArrowRight':
                 navigateDir = 'next';
@@ -229,11 +117,11 @@ function addKeyboardNavigation(){
                 navigateDir = 'previous';
                 break;
         }
-        if(navigateDir) {
-            const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || defaultAnecdoteProperties.anecdoteClass;
+        if (navigateDir) {
+            const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || config.anecdoteClass;
 
-            function findAnecdote(el){
-                if(el.nodeName === 'SECTION' && el.className === anecdoteClass){
+            function findAnecdote(el) {
+                if (el.nodeName === 'SECTION' && el.className === anecdoteClass) {
                     const anecdote = d3.select(el);
                     performSlideMovement(anecdote);
                     return true;
@@ -241,9 +129,9 @@ function addKeyboardNavigation(){
                 return false;
             }
 
-            function performSlideMovement(anecdote){
+            function performSlideMovement(anecdote) {
                 anecdote.node().focus();
-                if(navigateDir === 'next'){
+                if (navigateDir === 'next') {
                     moveToAdjacentSlide(anecdote, true);
                 } else {
                     moveToAdjacentSlide(anecdote, false);
@@ -252,19 +140,19 @@ function addKeyboardNavigation(){
 
             const pathEls = e.path;
             let curPath = null;
-            if(pathEls){
+            if (pathEls) {
                 for (let i = 0, il = pathEls.length; i < il; i++) {
                     curPath = pathEls[i];
-                    if(findAnecdote(curPath) === true){
+                    if (findAnecdote(curPath) === true) {
                         return;
                     }
                 }
             } else {
                 let curNode = e.target;
-                if(curNode && findAnecdote(curNode) === false){
-                    while(curNode.parentNode){
+                if (curNode && findAnecdote(curNode) === false) {
+                    while (curNode.parentNode) {
                         curNode = curNode.parentNode;
-                        if(findAnecdote(curNode) === true){
+                        if (findAnecdote(curNode) === true) {
                             return;
                         }
                     }
@@ -274,36 +162,59 @@ function addKeyboardNavigation(){
     });
 }
 
-function wrapContents(anecdote){
-    const contentsClass = desiredAnecdoteProperties.contentsClass || defaultAnecdoteProperties.contentsClass;
-    const html = anecdote.node().innerHTML;
-    let content;
+function setWidthForPanes(anecdote) {
+    const count = anecdote.selectAll(`.${config.paneClass}`).size();
 
-    anecdote.selectAll('*').remove();
-    content = anecdote.append("div").classed(contentsClass, true);
-    content.html(html);
+    anecdote.select(`.${config.panesClass}`).style('width', `${100 * count}%`)
 }
 
-function buildAnecdote(){
+function initNav(anecdote) {
+    const buttons = anecdote.selectAll(`.${config.navClass}`).append('button').classed(config.navButtonClass, true),
+        icons = buttons.append('i');
+
+    icons.each(function (d, i) {
+        const faClass = (i === 0) ? 'fa-angle-left' : 'fa-angle-right';
+
+        d3.select(this).classed(`fas fa-2x ${faClass}`, true);
+    })
+}
+
+function initPanes(anecdote) {
+    anecdote.selectAll(`.${config.paneClass}`).on('click', function (d, i) {
+        const src = event.srcElement ? event.srcElement : event.target;
+
+        if (src && src.nodeName === 'A') {
+            return;
+        }
+
+        showPane(anecdote, i + 1);
+    })
+}
+
+function raiseLinkButton(anecdote) {
+    anecdote.select('.anecdote__cta').raise();
+}
+
+function advancePane(prev) {
+
+}
+
+function buildAnecdote() {
     const anecdote = d3.select(this);
-    addInfoIcon(anecdote);
+    setWidthForPanes(anecdote);
     addCloseIcon(anecdote);
-    wrapContents(anecdote);
-    buildTrigger(anecdote);
     showPane(anecdote, 0);
     buildDots(anecdote);
-    setActiveDot(anecdote, 0);
-    updateDotText(anecdote, 1);
+    initNav(anecdote);
+    raiseLinkButton(anecdote);
+    initPanes(anecdote);
+    anecdote.attr('data-current', 1);
 }
 
-export function anecdoteInit(_desiredAnecdoteProperties){
-    if(_desiredAnecdoteProperties){
-        desiredAnecdoteProperties = _desiredAnecdoteProperties;
-    }
-
-    const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || defaultAnecdoteProperties.anecdoteClass;
-    d3.selectAll(`.${anecdoteClass}`).each(buildAnecdote);
+export function anecdoteInit() {
+    d3.selectAll(`.${config.anecdoteClass}`).each(buildAnecdote);
     addKeyboardNavigation();
+    d3.selectAll(`button.${config.triggerClass}`).on('click', toggleVisibility);
 }
 
 anecdoteInit();
