@@ -109,7 +109,8 @@ h1.anecdote__heading {
     cursor: pointer;
     display: flex;
     flex-wrap: nowrap;
-    width: 300%;
+    align-items: center;
+    // width: 300%;
     box-sizing: border-box;
     opacity: 0;
     transition: opacity 1s ease;
