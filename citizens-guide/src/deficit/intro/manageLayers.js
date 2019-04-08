@@ -33,7 +33,7 @@ function resizeSvg() {
     if (activeCompare === 'debt') {
         h = layers.debt.attr('data-height') * scaleFactor * 1.2;
     } else if (!activeCompare) {
-        h = 120;
+        h = 100;
     }
 
     establishContainer().transition().duration(duration).attr('height', h);
