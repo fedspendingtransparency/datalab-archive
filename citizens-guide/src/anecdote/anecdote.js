@@ -135,8 +135,6 @@ function enableKeyboardNavigation() {
             return;
         }
 
-        console.log(e.key, activeAnecdotes.size());
-
         prev = (navigateDir === 'previous');
 
         activeAnecdotes.each(function () {
@@ -235,14 +233,12 @@ function onLinkFocus(event) {
         currentPane = Number(parentAnecdote.attr('data-current'));
 
     if (thisPane !== currentPane) {
-        console.log('sp', thisPane)
         showPane(parentAnecdote, thisPane);
     }
-
 }
 
 function enableFocusOnActivePaneLinks(pane) {
-    const paneLinks = d3.selectAll('.anecdote__pane').selectAll('a').attr('tabindex', -1);
+    d3.selectAll('.anecdote__pane').selectAll('a').attr('tabindex', -1);
 
     if (pane) {
         pane.selectAll('a').attr('tabindex', 0);
