@@ -33,9 +33,10 @@ function placeLegend(g) {
             { x: textX + 30, y: height }
         ],
         text = legendContainer.append('text')
-            .classed('reset', true)
+            .classed('reset touch-label', true)
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
+            .attr('x', 0)
             .attr('y', (height / 2) - 60)
             .style('font-size', 24);
 
@@ -49,35 +50,41 @@ function placeLegend(g) {
         .text('FY18')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 0);
 
     text.append('tspan')
         .text('U.S.')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text('Gross')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text('Domestic')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text('Product')
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 20);
 
     text.append('tspan')
         .text(simplifyNumber(gdpAmount))
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 25);
 }
 

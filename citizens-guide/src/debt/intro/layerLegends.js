@@ -15,35 +15,41 @@ function gdpText(text, amount) {
         .text('FY18')
         .style('font-weight', '600')
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 0);
 
     text.append('tspan')
         .text('U.S.')
         .style('font-weight', '600')
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 24);
 
     text.append('tspan')
         .text('Gross')
         .style('font-weight', '600')
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 24);
 
     text.append('tspan')
         .text('Domestic')
         .style('font-weight', '600')
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 24);
 
     text.append('tspan')
         .text('Product')
         .style('font-weight', '600')
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 24);
 
     text.append('tspan')
         .text(simplifyNumber(amount))
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 24);
 }
 
@@ -52,11 +58,13 @@ function standardText(text, label, amount) {
         .text(label)
         .style('font-weight', '600')
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', -24);
 
     text.append('tspan')
         .text(simplifyNumber(amount))
         .attr('x', -40)
+        .attr('dx', 0)
         .attr('dy', 24);
 }
 
@@ -71,7 +79,9 @@ export function labelMaker(parent, height, label, amount) {
         layer = parent.append('g').attr('opacity', 0).classed('legend', true),
         text = layer.append('text')
             .attr('fill', colors.textColorParagraph)
+            .classed('touch-label', true)
             .attr('text-anchor', 'end')
+            .attr('x', 0)
             .attr('y', height / 2 + 15)
             .style('font-size', 24);
 

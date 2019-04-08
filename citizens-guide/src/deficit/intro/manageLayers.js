@@ -3,6 +3,7 @@ import 'd3-transition';
 import { layers } from './createLayers';
 import { translator, establishContainer } from '../../utils';
 import { chartWidth } from './widthManager';
+import { touchIe } from '../../touchIe';
 
 const d3 = { select, selectAll },
     scaleFactor = 0.6,
@@ -68,35 +69,34 @@ function doubleClickBlocker(id) {
     doubleClickBlock = id;
 
     blockTimer = setTimeout(
-        function() {
+        function () {
             doubleClickBlock = null;
         }, 1000);
 }
 
-function setAccessibility(type){
+function setAccessibility(type) {
     const svgEl = d3.select('svg.main'),
         descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
-    if(type){
+    if (type) {
         accessibilityAttr = config.accessibilityAttrs[type];
     }
 
     descEl.text(accessibilityAttr.desc);
 }
 
-function toggleLayer() {
-    const clicked = d3.select(this),
-        id = clicked.attr('data-trigger-id'),
-        noDelay = (id === 'debt' && activeCompare !== 'deficit');
+function toggleLayer(redraw) {
+    const clicked = (redraw) ? null : d3.select(this),
+        id = (redraw) ? null : clicked.attr('data-trigger-id'),
+        noDelay = (!redraw && id === 'debt' && activeCompare !== 'deficit');
 
-    if (doubleClickBlocker(id)) {
+    if (doubleClickBlocker(id) && !redraw) {
         return;
     };
 
-    d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
-
     if (id === activeCompare) {
+        d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
         zoom();
         deficitOnly();
         activeCompare = null;
@@ -107,23 +107,27 @@ function toggleLayer() {
         return;
     }
 
-    setAccessibility(id);
+    if (!redraw) {
+        d3.selectAll('.facts__trigger').classed('facts__trigger--active', false);
+        setAccessibility(id);
+        activeCompare = id;
+        clicked.classed('facts__trigger--active', true);
+    }
 
-    if (id === 'deficit' && !revenueFirstTime) {
+    if (activeCompare === 'deficit' && !revenueFirstTime) {
         initialRevenueSpendingCompare();
         revenueFirstTime = true;
-    } else if (id === 'deficit') {
+    } else if (activeCompare === 'deficit') {
         subsequentRevenueSpendingCompare();
     } else {
         initialDebtCompare(noDelay);
     }
 
-    if (!activeCompare) {
+    if (activeCompare) {
         zoom('out');
+    } else {
+        zoom()
     }
-
-    clicked.classed('facts__trigger--active', true);
-    activeCompare = id;
 
     toggleFacts();
     resizeSvg();
@@ -158,7 +162,11 @@ function initialDebtCompare(noDelay) {
         .attr('transform', translator(0, 0))
         .attr('opacity', 1)
         .on('end', function () {
-            layers.debt.select('.legend').transition().duration(duration).attr('opacity', 1)
+            layers.debt.select('.legend')
+                .transition()
+                .duration(duration)
+                .on('end', touchIe)
+                .attr('opacity', 1)
         })
         .ease();
 
@@ -185,6 +193,7 @@ function deficitTransform(state, now) {
     layers.debtCompareDots.transition()
         .duration(localDuration)
         .attr('opacity', debtDots)
+        .on('end', touchIe)
         .ease();
 }
 
@@ -207,6 +216,7 @@ function subsequentRevenueSpendingCompare() {
         .delay(duration)
         .duration(duration)
         .attr('opacity', 1)
+        .on('end', touchIe)
         .ease();
 
     setTimeout(deficitTransform, duration / 2);
@@ -231,6 +241,7 @@ function initialRevenueSpendingCompare() {
     setTimeout(function () {
         layers.deficit.transition()
             .duration(duration * 1.5)
+            .on('end', touchIe)
             .attr('opacity', 1)
     }, step3)
 
@@ -275,10 +286,17 @@ function deficitOnly() {
     layers.deficit.transition()
         .duration(duration)
         .attr('transform', translator(0, 0))
+        .on('end', touchIe)
         .attr('opacity', 1);
 
     layers.deficit.select('.legend')
         .attr('opacity', 0)
+}
+
+export function resetLayers() {
+    if (activeCompare) {
+        setTimeout(toggleLayer, 1000, 'redraw');
+    }
 }
 
 export function layersInit(_config) {

@@ -28,9 +28,10 @@ function placeLegend(g) {
             { x: textX + 30, y: height }
         ],
         text = legendContainer.append('text')
-            .classed('reset', true)
+            .classed('reset touch-label', true)
             .attr('fill', colors.textColorParagraph)
             .attr('text-anchor', 'end')
+            .attr('x', 0)
             .attr('y', -10)
             .style('font-size', 24);
 
@@ -44,11 +45,13 @@ function placeLegend(g) {
         .text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
         .style('font-weight', '600')
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', height / 2);
 
     text.append('tspan')
         .text(simplifyNumber(comparisonAmount))
         .attr('x', textX)
+        .attr('dx', 0)
         .attr('dy', 30);
 }
 

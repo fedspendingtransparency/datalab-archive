@@ -5,7 +5,7 @@ import { trendDesktop } from './chart';
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
 
-let detailLayer, mask, detailBackground;
+let detailLayer, mask, detailBackground, closeText;
 
 export function closeOverlay() {
     fadeAndRemove(detailLayer, 300);
@@ -27,8 +27,8 @@ function placeCloseButton(container, innerWidth) {
         .attr('height', 20)
         .attr('width', closeButtonWidth)
 
-    closeGroup.append('text')
-        .html('&#215;')
+    closeText = closeGroup.append('text')
+        .text('x')
         .attr('stroke', '#ccc')
         .attr('font-size', 24)
         .attr('text-anchor', 'middle')
@@ -40,7 +40,7 @@ function renderHeader(d, innerWidth) {
     const headerTextMaxWidth = innerWidth - 60,
         title = d.officialName,
         header = detailLayer.append('g')
-        .attr('transform', translator(0, overlayPadding));
+            .attr('transform', translator(0, overlayPadding));
 
     let headerText, calculatedHeaderHeight;
 
@@ -48,7 +48,7 @@ function renderHeader(d, innerWidth) {
         .text(title)
         .attr('x', overlayPadding)
         .attr('y', 20)
-        .attr('font-size', function() {
+        .attr('font-size', function () {
             const svgWidth = document.getElementById('viz').getBoundingClientRect().width;
 
             return svgWidth < 500 ? 16 : 20;
@@ -106,7 +106,7 @@ function resizeSvg(reset) {
     }
 
     if (detailHeight > ideal - 30) {
-        if(detailHeight > 2000){
+        if (detailHeight > 2000) {
             detailHeight = 1300; // Bandaid fix for IE, as it struggles massively to find the height/width of an svg.
         }
         d3.select('svg.main').transition().duration(500).attr('height', detailHeight + 50).ease();
@@ -135,7 +135,7 @@ export function initOverlay(d, parentConfig) {
 
     detailLayer = d3.select('svg.main').append('g')
         .classed('detail-layer', true)
-        .attr('transform', translator(0,0) + ' scale(0)')
+        .attr('transform', translator(0, 0) + ' scale(0)')
         .attr('opacity', 1);
 
     config.width = d3.select('svg.main').attr('width') - 20 - overlayPadding * 2;
@@ -166,6 +166,9 @@ export function initOverlay(d, parentConfig) {
         .duration(750)
         .attr('transform', translator(5, setOverlayY(0, finalRectHeight)) + ' scale(1)')
         .on('end', function () {
+            setTimeout(function(){
+                closeText.attr('stroke-width', 1);
+            }, 10)
             placeChart(d, chartContainer, parentConfig)
         })
         .ease();

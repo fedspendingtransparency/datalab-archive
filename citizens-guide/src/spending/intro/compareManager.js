@@ -3,6 +3,7 @@ import { transition } from 'd3-transition';
 import { chartWidth } from "./widthManager";
 import { dotConstants, dotsPerRow } from "./dotConstants";
 import { translator } from '../../utils';
+import { touchIe } from '../../touchIe';
 
 const stateManager = {},
     layers = {},
@@ -49,6 +50,7 @@ function handleGdpLayer(reset) {
         .delay(1000)
         .duration(1500)
         .attr('opacity', stepTwoOpacity)
+        .on('end', touchIe)
         .ease();
 }
 
@@ -88,6 +90,7 @@ function handleRevenueLayer(reset) {
         .delay(1000)
         .duration(1500)
         .attr('opacity', stepTwoOpacity)
+        .on('end', touchIe)
         .ease();
 }
 

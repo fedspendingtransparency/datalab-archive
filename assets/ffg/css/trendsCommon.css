@@ -194,7 +194,8 @@ body p.chart-row__data-line {
 
 .trend-row.trend-row--detail-active .trend-row__detail {
   margin-top: 1rem;
-  padding: 0 0 0 0.5rem; }
+  border-left-width: 0.5rem;
+  border-left-style: solid; }
 
 .trend-row__detail-toggle {
   display: none; }
@@ -204,31 +205,41 @@ body p.chart-row__data-line {
 
 .revenue .trend-row-button {
   background: #0071bc;
-  color: white; }
+  color: white;
+  border: 1px solid #0071bc; }
 
 .revenue .trend-mobile--detail .trend-row-button {
   background: #0090ef;
   color: white; }
 
 .revenue .trend-row__detail {
-  background: #0071bc; }
+  border-color: #0071bc; }
 
 .revenue .trend-mobile__amount {
   color: #0071bc; }
 
+.revenue .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
+  color: #0071bc;
+  background: white; }
+
 .spending .trend-row-button {
   background: #00796B;
-  color: white; }
+  color: white;
+  border: 1px solid #00796B; }
 
 .spending .trend-mobile--detail .trend-row-button {
   background: #00ac98;
   color: white; }
 
 .spending .trend-row__detail {
-  background: #00796B; }
+  border-color: #00796B; }
 
 .spending .trend-mobile__amount {
   color: #00796B; }
+
+.spending .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
+  color: #00796B;
+  background: white; }
 
 #viz {
   overflow-x: hidden;

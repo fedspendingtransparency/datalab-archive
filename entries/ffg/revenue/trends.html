@@ -42,7 +42,13 @@ ffgPageCss: css/trendsCommon.css
     <div class="clearfix"></div>
 
     <section class="hwcta">
-        The visualization was created using {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue of the United States. {% include ffg/data-sources/bls_cpiu.html %} was used to adjust revenue in fiscal years {% include ffg/data-sources/inflation_fys.html %} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time. 
+        The visualization was created using {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue of the United States. Some categories from the MTS have been renamed in order to be more easily understood. {% include ffg/data-sources/bls_cpiu.html %} was used to adjust revenue in fiscal years {% include ffg/data-sources/inflation_fys.html %} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/federal_revenue_trends.csv" download>federal_revenue_trends.csv</a></li>
+            </ul>
+        </div>
     </section>
 </div>
 
