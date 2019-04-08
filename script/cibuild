@@ -22,5 +22,5 @@ aws configure set aws_access_key_id $FIR_ACCESS_KEY_ID
 aws configure set aws_secret_access_key $FIR_SECRET_ACCESS_KEY
 
 if [[ $TRAVIS_BRANCH == 'dev'     ]]; then
-aws s3 sync $EXCLUDES _site s3://fir-public-datalab-dev --delete || true
+aws s3 sync $EXCLUDES _site s3://datalab-dev --delete || true
 fi
