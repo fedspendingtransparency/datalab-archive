@@ -13,5 +13,7 @@ export let dotsPerRow;
 export function setDotsPerRow() {
     const workingWidth = chartWidth - dotConstants.radius;
 
+    console.log('cw', chartWidth)
+
     dotsPerRow = Math.floor(workingWidth / dotConstants.offset.x);
 }

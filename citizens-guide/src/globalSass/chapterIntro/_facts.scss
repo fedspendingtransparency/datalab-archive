@@ -1,16 +1,62 @@
+@keyframes scale {
+  0% {transform: scaleY(0)}
+  10% {transform: scaleY(0)}
+  100% {transform: scaleY(1)}
+}
+
 .facts {
-    position: absolute;
-    top: 2.5rem;
-    left: 0;
-    width: 100%;
     transition: opacity 1s ease;
     margin-bottom: 2rem;
+    order: 1;
   }
   
   .facts__section {
     display: none;
     opacity: 0;
     transition: opacity 1s ease;
+    position: relative;
+    max-height: 4rem;
+    overflow: hidden;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .facts__section-mask {
+    position: absolute;
+    bottom: 0;
+    height: 3rem;
+    width: 100%;
+    left: 0;
+    background: linear-gradient(rgba(256,256,256,0), rgba(256,256,256,1), rgba(256,256,256,1));
+    text-align: right;
+
+    button {
+      border: none;
+      background: none;
+      padding: 0 0.5rem;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+    }
+  }
+
+  .facts__section--open {
+    height: auto;
+
+    &.facts__section {
+      max-height: none;
+    }
+    
+    .facts__section-mask {
+      background: none;
+    }
+
+    i {
+      transform: rotate(180deg);
+      transition: transform 1s ease;
+    }
   }
   
   .facts__triggers {
@@ -49,6 +95,10 @@
   .facts.facts--hidden {
     opacity: 0;
   }
+
+  .intro-hidden .facts__inner {
+    transform: scaleY(0);
+  }
   
   .facts__inner {
     background: rgba(255, 255, 255, 0.95);
@@ -56,6 +106,7 @@
     max-width: 80%;
     margin: 0 auto;
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    animation: scale 1s ease;
   
     section {
       padding: 1rem;
@@ -81,5 +132,13 @@
 
     .facts__prompt {
       font-size: 1.6rem;
+    }
+
+    .facts__section {
+      max-height: none;
+    }
+
+    .facts__section-mask {
+      display: none;
     }
   }
