@@ -1,4 +1,5 @@
 import { select, selectAll, event } from 'd3-selection';
+import SwipeListener from 'swipe-listener';
 
 const d3 = { select, selectAll, event },
     config = {
@@ -98,7 +99,12 @@ function showPane(anecdote, index) {
     setActiveDot(anecdote, index);
 }
 
+<<<<<<< HEAD
 function addKeyboardNavigation() {
+=======
+function addPaneNavigation(anecdote) {
+    // Add keyboard navigation (left/right keys).
+>>>>>>> 688759cd... Added mobile swiping on anecdotes.
     window.addEventListener("keydown", function (e) {
         let navigateDir = '';
         switch (e.key) {
@@ -153,6 +159,35 @@ function addKeyboardNavigation() {
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+        prev = (navigateDir === 'previous');
+
+        activeAnecdotes.each(function () {
+            advancePane(d3.select(this), prev);
+        })
+>>>>>>> 688759cd... Added mobile swiping on anecdotes.
+    });
+
+    // Add mobile navigation (swipe left/right).
+    const anecdoteEl = anecdote.node(),
+        listener = SwipeListener(anecdoteEl);
+
+    anecdoteEl.addEventListener('swipe', function(e){
+        const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`),
+            swipeDirection = e.detail.directions;
+
+        let prev;
+        if(swipeDirection.left){
+            prev = 'previous';
+        } else if(!swipeDirection.right){
+            return; // Ignore up or down swipes.
+        }
+
+        activeAnecdotes.each(function () {
+            advancePane(d3.select(this), prev);
+        })
     });
 }
 
@@ -169,8 +204,13 @@ function initNav(anecdote) {
     icons.each(function (d, i) {
         const faClass = (i === 0) ? 'fa-angle-left' : 'fa-angle-right';
 
+<<<<<<< HEAD
         d3.select(this).classed(`fas fa-2x ${faClass}`, true);
     })
+=======
+        d3.select(this).classed(`fas fa-lg ${faClass}`, true);
+    });
+>>>>>>> 688759cd... Added mobile swiping on anecdotes.
 
     buttons.each(function (d, i) {
         const button = d3.select(this),
@@ -181,7 +221,9 @@ function initNav(anecdote) {
 }
 
 function initPanes(anecdote) {
-    anecdote.selectAll(`.${config.paneClass}`).on('click', function (d, i) {
+    const panes = anecdote.selectAll(`.${config.paneClass}`);
+
+    panes.on('click', function (d, i) {
         const paneCount = anecdote.selectAll(`.${config.paneClass}`).size(),
             src = event.srcElement ? event.srcElement : event.target;
 
@@ -196,7 +238,7 @@ function initPanes(anecdote) {
         }
 
         showPane(anecdote, i);
-    })
+    });
 }
 
 function raiseLinkButton(anecdote) {
@@ -229,12 +271,18 @@ function buildAnecdote() {
     initNav(anecdote);
     raiseLinkButton(anecdote);
     initPanes(anecdote);
+    addPaneNavigation(anecdote);
 }
 
 export function anecdoteInit() {
     d3.selectAll(`.${config.anecdoteClass}`).each(buildAnecdote);
     // addKeyboardNavigation();
     d3.selectAll(`button.${config.triggerClass}`).on('click', toggleVisibility);
+<<<<<<< HEAD
+=======
+
+    shiftLinksIntoFocus();
+>>>>>>> 688759cd... Added mobile swiping on anecdotes.
 }
 
 anecdoteInit();
