@@ -179,9 +179,9 @@ function addPaneNavigation(anecdote) {
             swipeDirection = e.detail.directions;
 
         let prev;
-        if(swipeDirection.left){
+        if(swipeDirection.right){
             prev = 'previous';
-        } else if(!swipeDirection.right){
+        } else if(!swipeDirection.left){
             return; // Ignore up or down swipes.
         }
 
