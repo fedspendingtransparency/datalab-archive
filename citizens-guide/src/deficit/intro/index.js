@@ -5,6 +5,7 @@ import { establishContainer, translator } from '../../utils';
 import colors from '../../colors.scss';
 import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
+import '../../matchesPolyfill';
 
 const config = {
     anecdoteName: 'anecdote-deficit.svg',
