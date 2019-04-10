@@ -1,4 +1,5 @@
 import { select, selectAll, event } from 'd3-selection';
+import SwipeListener from 'swipe-listener';
 
 if (!Element.prototype.matches) {
     Element.prototype.matches = Element.prototype.msMatchesSelector ||
@@ -113,7 +114,8 @@ function showPane(anecdote, index) {
     enableFocusOnActivePaneLinks(activePane);
 }
 
-function enableKeyboardNavigation() {
+function addKeyboardNavigation() {
+    // Add keyboard navigation (left/right keys).
     window.addEventListener("keydown", function (e) {
         const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`);
 
@@ -143,6 +145,28 @@ function enableKeyboardNavigation() {
     });
 }
 
+function addMobileSwiping(anecdote) {
+    // Add mobile navigation (swipe left/right).
+    const anecdoteEl = anecdote.node(),
+        listener = SwipeListener(anecdoteEl);
+
+    anecdoteEl.addEventListener('swipe', function(e){
+        const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`),
+            swipeDirection = e.detail.directions;
+
+        let prev;
+        if(swipeDirection.right){
+            prev = 'previous';
+        } else if(!swipeDirection.left){
+            return; // Ignore up or down swipes.
+        }
+
+        activeAnecdotes.each(function () {
+            advancePane(d3.select(this), prev);
+        })
+    });
+}
+
 function setWidthForPanes(anecdote) {
     const count = anecdote.selectAll(`.${config.paneClass}`).size();
 
@@ -157,7 +181,7 @@ function initNav(anecdote) {
         const faClass = (i === 0) ? 'fa-chevron-left' : 'fa-chevron-right';
 
         d3.select(this).classed(`fas fa-lg ${faClass}`, true);
-    })
+    });
 
     buttons.each(function (d, i) {
         const button = d3.select(this),
@@ -168,7 +192,9 @@ function initNav(anecdote) {
 }
 
 function initPanes(anecdote) {
-    anecdote.selectAll(`.${config.paneClass}`).on('click', function (d, i) {
+    const panes = anecdote.selectAll(`.${config.paneClass}`);
+
+    panes.on('click', function (d, i) {
         const paneCount = anecdote.selectAll(`.${config.paneClass}`).size(),
             src = event.srcElement ? event.srcElement : event.target;
 
@@ -183,7 +209,7 @@ function initPanes(anecdote) {
         }
 
         showPane(anecdote, i);
-    })
+    });
 }
 
 function raiseLinkButton(anecdote) {
@@ -223,6 +249,7 @@ function buildAnecdote() {
     initNav(anecdote);
     raiseLinkButton(anecdote);
     initPanes(anecdote);
+    addMobileSwiping(anecdote);
 }
 
 function onLinkFocus(event) {
@@ -256,9 +283,7 @@ function shiftLinksIntoFocus() {
 export function anecdoteInit() {
     d3.selectAll(`.${config.anecdoteClass}`).each(buildAnecdote);
     d3.selectAll(`button.${config.triggerClass}`).on('click', toggleVisibility);
-
-    enableKeyboardNavigation()
-
+    addKeyboardNavigation();
     shiftLinksIntoFocus();
 }
 
