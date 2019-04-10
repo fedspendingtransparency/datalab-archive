@@ -1,16 +1,10 @@
-import { select, selectAll } from 'd3-selection';
-import { transition } from 'd3-transition';
-import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, deficitLabel } from './layerLegends';
 import { initDeficitDots } from './deficitDots';
 import { translator } from '../../utils';
-import { chartWidth } from './widthManager';
 import colors from '../../colors.scss';
 
-const d3 = { select, selectAll, transition, line },
-    duration = 1500,
-    billion = 1000000000;
+const billion = 1000000000;
 
 export const layers = {};
 
