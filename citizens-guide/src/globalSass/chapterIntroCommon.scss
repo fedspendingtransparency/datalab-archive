@@ -44,12 +44,16 @@ aside {
   padding: 0.5rem 1rem;
 }
 
-.accordion.sidebar {
+#copy {
   order: 4;
 }
 
-.tour.sidebar {
+.accordion.sidebar {
   order: 5;
+}
+
+.tour.sidebar {
+  order: 6;
 }
 
 @media only screen and (min-width: 960px) {

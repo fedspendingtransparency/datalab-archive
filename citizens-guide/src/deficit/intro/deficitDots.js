@@ -1,5 +1,4 @@
 import { dotsPerRow, dotConstants } from "./dotConstants";
-import { translator } from "../../utils";
 
 let config, layer, y1, deficitCompareDots, debtCompareDots, remainder;
 
@@ -26,6 +25,7 @@ function makeDotRow(start, max, y, debtOffset) {
         }
 
         if (debtOffset && i < debtOffset) {
+            console.log('go')
             dot.attr('data-debt-only', true)
                 .attr('opacity', 0)
         }

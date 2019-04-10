@@ -183,6 +183,7 @@ function deficitTransform(state, now) {
 
     layers.deficit.transition()
         .duration(localDuration)
+        .on('end', touchIe)
         .attr('transform', translator(0, y))
         .ease();
 
@@ -190,11 +191,12 @@ function deficitTransform(state, now) {
         .duration(localDuration)
         .attr('opacity', deficitDots);
 
-    layers.debtCompareDots.transition()
+    if (layers.debtCompareDots.size()) {
+        layers.debtCompareDots.transition()
         .duration(localDuration)
         .attr('opacity', debtDots)
-        .on('end', touchIe)
         .ease();
+    }
 }
 
 function subsequentRevenueSpendingCompare() {
