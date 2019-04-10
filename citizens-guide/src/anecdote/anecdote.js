@@ -1,6 +1,23 @@
 import { select, selectAll, event } from 'd3-selection';
 import SwipeListener from 'swipe-listener';
 
+if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector ||
+        Element.prototype.webkitMatchesSelector;
+}
+
+if (!Element.prototype.closest) {
+    Element.prototype.closest = function (s) {
+        var el = this;
+
+        do {
+            if (el.matches(s)) return el;
+            el = el.parentElement || el.parentNode;
+        } while (el !== null && el.nodeType === 1);
+        return null;
+    };
+}
+
 const d3 = { select, selectAll, event },
     config = {
         anecdoteClass: 'anecdote',
@@ -32,8 +49,6 @@ const d3 = { select, selectAll, event },
         paneClass: 'anecdote__pane',
         paneClassActive: 'anecdote__pane--active'
     };
-
-let desiredAnecdoteProperties = {};
 
 function addCloseIcon(anecdote) {
     const button = anecdote.select(`.${config.controlsClass}`)
@@ -90,23 +105,23 @@ function buildDots(anecdote) {
 }
 
 function showPane(anecdote, index) {
-    const panes = anecdote.selectAll(`.${config.paneClass}`).classed(config.paneClassActive, false);
+    const panes = anecdote.selectAll(`.${config.paneClass}`).classed(config.paneClassActive, false),
+        activePane = panes.filter((d, i) => { return i === index }).classed(config.paneClassActive, true);
 
     anecdote.attr('data-current', index);
 
-    panes.filter((d, i) => { return i === index }).classed(config.paneClassActive, true);
-
     setActiveDot(anecdote, index);
+    enableFocusOnActivePaneLinks(activePane);
 }
 
-<<<<<<< HEAD
 function addKeyboardNavigation() {
-=======
-function addPaneNavigation(anecdote) {
     // Add keyboard navigation (left/right keys).
->>>>>>> 688759cd... Added mobile swiping on anecdotes.
     window.addEventListener("keydown", function (e) {
-        let navigateDir = '';
+        const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`);
+
+        let navigateDir, prev;
+
+
         switch (e.key) {
             case 'Right':
             case 'ArrowRight':
@@ -117,59 +132,20 @@ function addPaneNavigation(anecdote) {
                 navigateDir = 'previous';
                 break;
         }
-        if (navigateDir) {
-            const anecdoteClass = desiredAnecdoteProperties.anecdoteClass || config.anecdoteClass;
 
-            function findAnecdote(el) {
-                if (el.nodeName === 'SECTION' && el.className === anecdoteClass) {
-                    const anecdote = d3.select(el);
-                    performSlideMovement(anecdote);
-                    return true;
-                }
-                return false;
-            }
-
-            function performSlideMovement(anecdote) {
-                anecdote.node().focus();
-                if (navigateDir === 'next') {
-                    moveToAdjacentSlide(anecdote, true);
-                } else {
-                    moveToAdjacentSlide(anecdote, false);
-                }
-            }
-
-            const pathEls = e.path;
-            let curPath = null;
-            if (pathEls) {
-                for (let i = 0, il = pathEls.length; i < il; i++) {
-                    curPath = pathEls[i];
-                    if (findAnecdote(curPath) === true) {
-                        return;
-                    }
-                }
-            } else {
-                let curNode = e.target;
-                if (curNode && findAnecdote(curNode) === false) {
-                    while (curNode.parentNode) {
-                        curNode = curNode.parentNode;
-                        if (findAnecdote(curNode) === true) {
-                            return;
-                        }
-                    }
-                }
-            }
+        if (!navigateDir) {
+            return;
         }
-<<<<<<< HEAD
-=======
 
         prev = (navigateDir === 'previous');
 
         activeAnecdotes.each(function () {
             advancePane(d3.select(this), prev);
         })
->>>>>>> 688759cd... Added mobile swiping on anecdotes.
     });
+}
 
+function addMobileSwiping(anecdote) {
     // Add mobile navigation (swipe left/right).
     const anecdoteEl = anecdote.node(),
         listener = SwipeListener(anecdoteEl);
@@ -202,21 +178,16 @@ function initNav(anecdote) {
         icons = buttons.append('i');
 
     icons.each(function (d, i) {
-        const faClass = (i === 0) ? 'fa-angle-left' : 'fa-angle-right';
+        const faClass = (i === 0) ? 'fa-chevron-left' : 'fa-chevron-right';
 
-<<<<<<< HEAD
-        d3.select(this).classed(`fas fa-2x ${faClass}`, true);
-    })
-=======
         d3.select(this).classed(`fas fa-lg ${faClass}`, true);
     });
->>>>>>> 688759cd... Added mobile swiping on anecdotes.
 
     buttons.each(function (d, i) {
         const button = d3.select(this),
             prev = (i === 0) ? true : null;
 
-        button.on('click', d => advancePane(anecdote, prev))
+        button.on('click', d => advancePane(anecdote, prev));
     })
 }
 
@@ -262,8 +233,15 @@ function advancePane(anecdote, prev) {
     showPane(anecdote, newPage);
 }
 
+function indexPanes(anecdote) {
+    anecdote.selectAll(`.${config.paneClass}`).each(function (d, i) {
+        d3.select(this).attr('data-pane-index', i);
+    })
+}
+
 function buildAnecdote() {
     const anecdote = d3.select(this);
+    indexPanes(anecdote);
     setWidthForPanes(anecdote);
     addCloseIcon(anecdote);
     showPane(anecdote, 0);
@@ -271,18 +249,42 @@ function buildAnecdote() {
     initNav(anecdote);
     raiseLinkButton(anecdote);
     initPanes(anecdote);
-    addPaneNavigation(anecdote);
+    addMobileSwiping(anecdote);
+}
+
+function onLinkFocus(event) {
+    const target = event.target,
+        parentPane = d3.select(target.closest('.anecdote__pane')),
+        parentAnecdote = d3.select(target.closest('.anecdote')),
+        thisPane = Number(parentPane.attr('data-pane-index')),
+        currentPane = Number(parentAnecdote.attr('data-current'));
+
+    if (thisPane !== currentPane) {
+        showPane(parentAnecdote, thisPane);
+    }
+}
+
+function enableFocusOnActivePaneLinks(pane) {
+    d3.selectAll('.anecdote__pane').selectAll('a').attr('tabindex', -1);
+
+    if (pane) {
+        pane.selectAll('a').attr('tabindex', 0);
+    }
+}
+
+function shiftLinksIntoFocus() {
+    const paneLinks = d3.selectAll('.anecdote__pane').selectAll('a').attr('tabindex', -1);
+
+    paneLinks.each(function () {
+        this.addEventListener('focus', onLinkFocus);
+    })
 }
 
 export function anecdoteInit() {
     d3.selectAll(`.${config.anecdoteClass}`).each(buildAnecdote);
-    // addKeyboardNavigation();
     d3.selectAll(`button.${config.triggerClass}`).on('click', toggleVisibility);
-<<<<<<< HEAD
-=======
-
+    addKeyboardNavigation();
     shiftLinksIntoFocus();
->>>>>>> 688759cd... Added mobile swiping on anecdotes.
 }
 
 anecdoteInit();
