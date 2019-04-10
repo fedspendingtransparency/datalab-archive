@@ -1,13 +1,14 @@
 import { select, selectAll } from 'd3-selection';
 import 'd3-transition';
 import { layers } from './createLayers';
-import { translator, establishContainer } from '../../utils';
+import { translator, establishContainer, isMobileDevice } from '../../utils';
 import { chartWidth } from './widthManager';
 import { vizHeight } from './debtDots';
 import { touchIe } from '../../touchIe';
+import { introScrollTo } from '../../introScrollTo';
 
 const d3 = { select, selectAll },
-    scaleFactor = 0.6,
+    scaleFactor = isMobileDevice ? 0.5 : 0.6,
     duration = 1000;
 
 let activeCompare, config;
@@ -19,7 +20,7 @@ function revealHiddenElements() {
 
 function resizeSvg() {
     const h = (activeCompare) ? vizHeight * scaleFactor + 40 : vizHeight;
-    
+
     establishContainer().transition().duration(duration).attr('height', h);
 }
 
@@ -39,13 +40,13 @@ function zoom(out) {
     }
 }
 
-function setAccessibility(type){
+function setAccessibility(type) {
     const svgEl = d3.select('svg.main'),
         descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
-    
-    if(type){
+
+    if (type) {
         accessibilityAttr = config.accessibilityAttrs[type];
     }
 
@@ -75,6 +76,10 @@ function toggleLayer(redraw) {
     transitionLayers();
     toggleFacts();
     resizeSvg();
+
+    if (isMobileDevice()) {
+        introScrollTo();
+    }
 }
 
 function toggleFacts() {
@@ -91,14 +96,14 @@ function toggleFacts() {
 function transitionLayers() {
     layers.deficit.transition()
         .duration(duration)
-        .attr('opacity', function(){
+        .attr('opacity', function () {
             return activeCompare === 'deficit' ? 1 : 0;
         })
         .ease();
 
     layers.gdp.transition()
         .duration(duration)
-        .attr('opacity', function(){
+        .attr('opacity', function () {
             return activeCompare === 'gdp' ? 1 : 0;
         })
         .on('end', touchIe)

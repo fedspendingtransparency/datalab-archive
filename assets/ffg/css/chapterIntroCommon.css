@@ -1,6 +1,7 @@
 .intro-math {
   transition: opacity 1s ease;
-  text-align: center; }
+  text-align: center;
+  order: 3; }
 
 .intro-math--hidden {
   opacity: 0; }
@@ -9,18 +10,54 @@
   transform: rotate(180deg);
   margin-right: 0.75rem; }
 
+@keyframes scale {
+  0% {
+    transform: scaleY(0); }
+  10% {
+    transform: scaleY(0); }
+  100% {
+    transform: scaleY(1); } }
+
 .facts {
-  position: absolute;
-  top: 2.5rem;
-  left: 0;
-  width: 100%;
   transition: opacity 1s ease;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  order: 1; }
 
 .facts__section {
   display: none;
   opacity: 0;
-  transition: opacity 1s ease; }
+  transition: opacity 1s ease;
+  position: relative;
+  max-height: 4rem;
+  overflow: hidden; }
+  .facts__section p {
+    margin-top: 0; }
+
+.facts__section-mask {
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
+  width: 100%;
+  left: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), white, white);
+  text-align: right; }
+  .facts__section-mask button {
+    border: none;
+    background: none;
+    padding: 0 0.5rem;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem; }
+
+.facts__section--open {
+  height: auto; }
+  .facts__section--open.facts__section {
+    max-height: none; }
+  .facts__section--open .facts__section-mask {
+    background: none; }
+  .facts__section--open i {
+    transform: rotate(180deg);
+    transition: transform 1s ease; }
 
 .facts__triggers {
   display: flex;
@@ -53,12 +90,16 @@
 .facts.facts--hidden {
   opacity: 0; }
 
+.intro-hidden .facts__inner {
+  transform: scaleY(0); }
+
 .facts__inner {
   background: rgba(255, 255, 255, 0.95);
   width: 400px;
   max-width: 80%;
   margin: 0 auto;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  animation: scale 1s ease; }
   .facts__inner section {
     padding: 1rem;
     margin-bottom: 1rem; }
@@ -74,7 +115,11 @@
   .facts__trigger {
     padding: 0.5rem; }
   .facts__prompt {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem; }
+  .facts__section {
+    max-height: none; }
+  .facts__section-mask {
+    display: none; } }
 
 .spending-intro .facts__trigger {
   border: 1px solid #00796B; }
@@ -166,10 +211,12 @@
   margin-top: 2rem; }
 
 .intro-hidden {
+  display: none;
   opacity: 0; }
 
 .viz-wrapper {
-  position: relative; }
+  display: flex;
+  flex-direction: column; }
 
 aside section h1 {
   font-size: 1.1rem;
@@ -181,16 +228,28 @@ aside section h1 {
 
 #viz {
   margin: 0 auto;
-  width: auto;
-  overflow: hidden; }
+  width: 100%;
+  overflow: hidden;
+  order: 2; }
 
 #compare-options {
   padding: 0.5rem 1rem; }
+
+#copy {
+  order: 4; }
+
+.accordion.sidebar {
+  order: 5; }
+
+.tour.sidebar {
+  order: 6; }
 
 @media only screen and (min-width: 960px) {
   #viz, .intro-math, #copy {
     width: 66%;
     float: left; }
+  .viz-wrapper {
+    display: block; }
   .sidebar {
     position: relative;
     width: calc(34% - 1rem);

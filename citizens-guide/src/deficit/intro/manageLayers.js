@@ -1,12 +1,15 @@
 import { select, selectAll } from 'd3-selection';
 import 'd3-transition';
 import { layers } from './createLayers';
-import { translator, establishContainer } from '../../utils';
+import { translator, establishContainer, isMobileDevice } from '../../utils';
 import { chartWidth } from './widthManager';
 import { touchIe } from '../../touchIe';
+import { introScrollTo } from '../../introScrollTo';
 
 const d3 = { select, selectAll },
-    scaleFactor = 0.6,
+    desktopScale = 0.6,
+    mobileScale = 0.45,
+    scaleFactor = isMobileDevice ? mobileScale : desktopScale,
     duration = 1000;
 
 let activeCompare, revenueFirstTime, debtFirstTime, doubleClickBlock, blockTimer, config;
@@ -127,6 +130,10 @@ function toggleLayer(redraw) {
         zoom('out');
     } else {
         zoom()
+    }
+
+    if (isMobileDevice()) {
+        introScrollTo();
     }
 
     toggleFacts();
