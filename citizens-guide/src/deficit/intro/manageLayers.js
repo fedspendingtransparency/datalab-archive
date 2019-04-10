@@ -190,11 +190,13 @@ function deficitTransform(state, now) {
         .duration(localDuration)
         .attr('opacity', deficitDots);
 
-    layers.debtCompareDots.transition()
-        .duration(localDuration)
-        .attr('opacity', debtDots)
-        .on('end', touchIe)
-        .ease();
+    if (layers.debtCompareDots.size()) {
+        layers.debtCompareDots.transition()
+            .duration(localDuration)
+            .attr('opacity', debtDots)
+            .on('end', touchIe)
+            .ease();
+    }
 }
 
 function subsequentRevenueSpendingCompare() {
