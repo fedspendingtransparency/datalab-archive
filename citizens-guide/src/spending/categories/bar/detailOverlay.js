@@ -92,15 +92,16 @@ function setOverlayY(clickY, overlayHeight) {
     const ideal = clickY - overlayHeight / 2,
         svgHeight = getElementBox(d3.select('svg.main')).height;
 
-    if (ideal < 5) {
-        return 5;
+    let returnY = ideal;
+
+    if (returnY + overlayHeight > svgHeight) {
+        returnY = svgHeight - overlayHeight - 5;
     }
 
-    if (ideal + overlayHeight > svgHeight) {
-        return svgHeight - overlayHeight - 5;
+    if(returnY < 5){
+        returnY = 5;
     }
-
-    return ideal;
+    return returnY;
 }
 
 function resizeSvg(finalRectHeight) {
