@@ -2,7 +2,7 @@
 @import './landing-dts';
 @import './landing-row';
 
-$landing-title-color: #4A4A4A;
+$heading-color: #4A4A4A;
 
 .dl-landing {
   display: block;
@@ -11,6 +11,10 @@ $landing-title-color: #4A4A4A;
   margin: 0 auto;
   padding-top: 1rem;
   color: #333;
+}
+
+h2.primary__heading {
+  font-size: 24px;
 }
 
 .primary__link {
@@ -27,6 +31,7 @@ $landing-title-color: #4A4A4A;
 
 .primary__heading {
   display: none;
+  color: $heading-color;
 }
 
 .secondary {
@@ -46,7 +51,7 @@ $landing-title-color: #4A4A4A;
 }
 
 .primary .h2 {
-  color: #4A4A4A;
+  color: $heading-color;
   font-size: 1.2rem;
 }
 
@@ -88,8 +93,12 @@ $landing-title-color: #4A4A4A;
 
   h2 {
     font-size: 22px;
-    color: #4a4a4a;
+    color: $heading-color;
     padding: 0 1rem;
+  }
+
+  h2:hover {
+    text-decoration: underline;
   }
 
 }
@@ -117,14 +126,14 @@ $landing-title-color: #4A4A4A;
     font-stretch: normal;
     line-height: 1.24;
     letter-spacing: normal;
-    color: $landing-title-color;
+    color: $heading-color;
   }
 
 }
 
 
 .landing-feature__link {
-  curser: pointer;
+  cursor: pointer;
   display: block;
 
   &:hover h2 {
@@ -218,7 +227,7 @@ $landing-title-color: #4A4A4A;
     line-height: 1;
     letter-spacing: normal;
     text-align: center;
-    color: #4a4a4a;
+    color: $heading-color;
   }
 
   .primary__heading {
@@ -262,7 +271,7 @@ $landing-title-color: #4A4A4A;
     font-stretch: normal;
     line-height: 1.24;
     letter-spacing: normal;
-    color: #4A4A4A;
+    color: $heading-color;
   }
 
 }
@@ -280,6 +289,10 @@ $landing-title-color: #4A4A4A;
     padding-right: 1rem;
     padding-bottom: 1rem;
     color: #333;
+
+    .primary__mobile-heading {
+      color: $heading-color;
+    }
   }
 
   .primary {
@@ -356,6 +369,5 @@ $landing-title-color: #4A4A4A;
 
 
 }
-
 
 
