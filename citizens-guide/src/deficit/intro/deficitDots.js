@@ -25,7 +25,6 @@ function makeDotRow(start, max, y, debtOffset) {
         }
 
         if (debtOffset && i < debtOffset) {
-            console.log('go')
             dot.attr('data-debt-only', true)
                 .attr('opacity', 0)
         }
