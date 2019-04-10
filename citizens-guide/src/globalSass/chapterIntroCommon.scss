@@ -10,11 +10,13 @@
 }
 
 .intro-hidden {
+  display: none;
   opacity: 0;
 }
 
 .viz-wrapper {
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 aside {
@@ -33,18 +35,35 @@ aside {
 
 #viz {
   margin: 0 auto;
-  width: auto;
+  width: 100%;
   overflow: hidden;
+  order: 2;
 }
 
 #compare-options {
   padding: 0.5rem 1rem;
 }
 
+#copy {
+  order: 4;
+}
+
+.accordion.sidebar {
+  order: 5;
+}
+
+.tour.sidebar {
+  order: 6;
+}
+
 @media only screen and (min-width: 960px) {
   #viz, .intro-math, #copy {
     width: 66%;
     float: left;
+  }
+
+  .viz-wrapper {
+    display: block;
   }
 
   .sidebar {

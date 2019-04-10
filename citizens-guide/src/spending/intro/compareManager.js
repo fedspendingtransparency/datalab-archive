@@ -2,8 +2,9 @@ import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { chartWidth } from "./widthManager";
 import { dotConstants, dotsPerRow } from "./dotConstants";
-import { translator } from '../../utils';
+import { translator, isMobileDevice } from '../../utils';
 import { touchIe } from '../../touchIe';
+import { introScrollTo } from '../../introScrollTo';
 
 const stateManager = {},
     layers = {},
@@ -128,6 +129,10 @@ function toggleFacts() {
         handleLayers(id);
     } else if (desktop) {
         handleLayers(id, true);
+    }
+
+    if (isMobileDevice()) {
+        introScrollTo();
     }
 }
 

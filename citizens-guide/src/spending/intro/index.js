@@ -1,5 +1,6 @@
 import {initChart} from './init';
 import colors from '../../colors.scss';
+import '../../introFactBox';
 
 (function init(){
     const config = {
