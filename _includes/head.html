@@ -39,6 +39,13 @@
    gtag('config', 'UA-60737492-1');
   </script>
   
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-19138737-13');
+  </script>
+
   <!-- og tags -->
   {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
   <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
