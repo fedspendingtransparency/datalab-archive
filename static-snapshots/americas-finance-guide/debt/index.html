@@ -40,6 +40,13 @@
    gtag('js', new Date());
    gtag('config', 'UA-60737492-1');
   </script>
+
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-19138737-13');
+  </script>
   
   <!-- og tags -->
   <meta property="og:title" content="Data Lab - Explore Federal Debt – U.S. Treasury"/>
@@ -110,14 +117,16 @@
       <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
 
+    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
+
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -130,10 +139,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -146,10 +155,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
+          <span class=""><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -162,7 +171,7 @@
         </g>
     </g>
 </svg></span>
-	</li>
+        </li>
       </ul>
     </nav>
   </div>
@@ -564,7 +573,7 @@
 
     <div class="info-box" id="per-individual">
         <img src="/assets/ffg/icons/anecdote-debt.svg" alt="anecdote icon">
-        <p>How much is $21.5 trillion in federal debt? If you take the U.S. population estimate in 2018 of 327.7 million (U.S. Census Bureau), $21.5 trillion would be equivalent to more than $65,000 for every individual in the U.S.</p>
+        <p>How much is $21.5 trillion in federal debt? If you take the U.S. population estimate in 2018 of 327.7 million people (U.S. Census Bureau), $21.5 trillion would be equivalent to more than $65,000 for every individual in the U.S.</p>
     </div>
 
     <div class="info-box" id="billion-dollars">
@@ -574,6 +583,12 @@
 
     <section class="hwcta">
         This visualization was created using the <a href="https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf" target="_blank" rel="noopener noreferrer">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt of the United States and the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank" rel="noopener noreferrer">Bureau of Economic Analysis (BEA)</a>. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/explore_federal_debt.csv" download>explore_federal_debt.csv</a></li>
+            </ul>
+        </div>
     </section>
 </div>
 
@@ -588,18 +603,18 @@
 </article>
 
       <script>
-  function trackLinkClick(actionName) {
-          window.Analytics.event({
-              category: 'Footer - Click Link',
-              action: actionName
-      });
-  }
+ function trackLinkClick(actionName) {
+     window.Analytics.event({
+         category: 'Footer - Click Link',
+         action: actionName
+     });
+ }
 
-  function leaveSiteLink(outbound) {
-          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-          document.getElementById('leave-modal').style.display = 'block';
-  }
+ function leaveSiteLink(outbound) {
+     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+     document.getElementById('leave-modal').style.display = 'block';
+ }
 </script>
 
 <div class="dl-footer">
@@ -651,7 +666,7 @@
 
     <div class="dl-footer__group-title">Contact Us</div>
     <p>
-      For media inquiries or questions<br> on DataLab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
+      For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
     </p>
     <p>
       T: 202-504-3535<br>
@@ -791,14 +806,14 @@
 </div>
 
 <footer id="footer">
-    <div>
-      &copy; 2018 USAspending.gov |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  <div>
+    &copy; 2018 USAspending.gov |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
   </div>
-    <div class="footer-important-info">
-      <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
+  <div class="footer-important-info">
+    <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
 </footer>
 
