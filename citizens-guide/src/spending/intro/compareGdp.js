@@ -1,8 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { establishContainer, translator, simplifyNumber } from '../../utils';
-import { dotConstants } from './dotConstants';
-import { compareOn, compareOff, generateOverlay, registerLayer } from './compareManager';
+import { generateOverlay, registerLayer } from './compareManager';
 import { createDonut } from '../../revenue/donut';
 import colors from '../../colors.scss';
 import { chartWidth } from './widthManager';
@@ -109,15 +108,14 @@ function placeDonut(g) {
 
 export function initGdp(_config) {
     config = _config || config;
+    
     const svg = establishContainer(),
         gdpCount = 20700;
 
     gdpLayer = generateOverlay(gdpCount, svg.select('.main-container'), 'gdp-layer');
 
-    if (document.documentElement.clientWidth > 959) {
-        placeDonut(gdpLayer);
-        placeLegend(gdpLayer);
-    }
+    placeDonut(gdpLayer);
+    placeLegend(gdpLayer);
 
     registerLayer('gdp', gdpLayer, getNewSvgHeight());
 }

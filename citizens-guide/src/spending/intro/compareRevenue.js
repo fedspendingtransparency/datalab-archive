@@ -1,8 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { line } from 'd3-shape';
 import { establishContainer, translator, simplifyNumber } from '../../utils';
-import { dotConstants } from './dotConstants';
-import { compareOn, compareOff, generateOverlay, registerLayer } from './compareManager';
+import { generateOverlay, registerLayer } from './compareManager';
 import colors from '../../colors.scss';
 
 const d3 = { select, selectAll, line };
@@ -42,11 +41,18 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('Federal ' + `${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
+        .text('Federal')
         .style('font-weight', '600')
         .attr('x', textX)
         .attr('dx', 0)
         .attr('dy', height / 2);
+
+    text.append('tspan')
+        .text(`${compareString.charAt(0).toUpperCase()}${compareString.slice(1)}`)
+        .style('font-weight', '600')
+        .attr('x', textX)
+        .attr('dx', 0)
+        .attr('dy', 30);
 
     text.append('tspan')
         .text(simplifyNumber(comparisonAmount))
@@ -64,9 +70,7 @@ export function initRevenueOverlay(_config) {
 
     compareLayer = generateOverlay(compareCount, svg.select('.main-container'), `${config.comparisonString}-layer`, config.comparisonColor);
 
-    if (document.documentElement.clientWidth > 959) {
-        placeLegend(compareLayer);
-    }
+    placeLegend(compareLayer);
 
     registerLayer(config.compareString, compareLayer, null, config);
 }
