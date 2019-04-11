@@ -4,30 +4,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Lab - Federal Revenue Trends – U.S. Treasury</title>
-  <meta name="description" content="Find out how federal revenue has changed over time.">
+  <title>Data Lab - Revenue Country Comparison – U.S. Treasury</title>
+  <meta name="description" content="Compare revenue of the United States to 171 different countries.">
   
   
-  <meta name="keywords" content="federal revenue, revenue trends over time, federal revenue sources, federal income sources, U.S. revenue categories">
+  <meta name="keywords" content="federal revenue, U.S. revenue, gross domestic product, gdp, federal receipts, income taxes, corporate taxes, compare the U.S. GDP to other countries">
   
 
-  <link rel="canonical" href="https://datalab.usaspending.gov/americas-finance-guide/revenue/trends">
+  <link rel="canonical" href="https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison">
   <link rel="stylesheet" href="/main.css" />
   <link rel="shortcut icon" href="/images/favicon.ico">
 
   <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE" id="_fed_an_ua_tag"></script>
   
+  <link rel="stylesheet" href="/assets/fa/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/font-awesome-ie.css">
   
-  <link rel="stylesheet" href="/assets/fa/css/all.css" />
   <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
   <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
-  <link rel="stylesheet" href="/assets/ffg/css/trendsCommon.css">
+  
   
   
   <link rel="stylesheet" href="/assets/ffg/nav/nav.css" />
   
   
-  
+  <link rel="stylesheet" href="/assets/ffg/css/countryCommon.css" />
   
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
 
@@ -39,12 +40,19 @@
    gtag('js', new Date());
    gtag('config', 'UA-60737492-1');
   </script>
+
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-19138737-13');
+  </script>
   
   <!-- og tags -->
-  <meta property="og:title" content="Data Lab - Federal Revenue Trends – U.S. Treasury"/>
+  <meta property="og:title" content="Data Lab - Revenue Country Comparison – U.S. Treasury"/>
   <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
-  <meta property="og:description" content="Find out how federal revenue has changed over time."/>
-  <meta property="og:url" content="https://datalab.usaspending.gov/americas-finance-guide/revenue/trends" />
+  <meta property="og:description" content="Compare revenue of the United States to 171 different countries."/>
+  <meta property="og:url" content="https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison" />
 </head>
 
 
@@ -57,7 +65,7 @@
 
   <body>
     <div id="page-wrapper">
-      <div class="official-banner" role="note">
+      <header class="official-banner">
   <ul class="official-banner__site-list">
     <li class="official-banner__site-item">
       <a class="official-banner__site-link" href="https://www.usaspending.gov">
@@ -79,7 +87,7 @@
     </div>
     <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
   </div>
-</div>
+</header>
 <div class="info-banner">
   <div class="info-banner__content">
     <div class="info-banner__alert-icon">
@@ -103,20 +111,22 @@
   <div class="header__main">
     <a class="header-logo header-logo--init" href="/">
       <div class="header-logo__wrapper">
-	<img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
-	<img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" />
+        <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" alt="DataLab logo"/>
+        <img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" alt="Visualizations to help you understand government finance" />
       </div>
-      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" />
+      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
+
+    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
 
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -129,10 +139,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -145,10 +155,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
+          <span class=""><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -161,7 +171,7 @@
         </g>
     </g>
 </svg></span>
-	</li>
+        </li>
       </ul>
     </nav>
   </div>
@@ -343,9 +353,8 @@
         <li><a href="./country-comparison.html">Country Comparison</a></li>
     </ul>
     <button class="chapter-nav-trigger">
-        <hr>
-        <hr>
-        <hr>
+        <i class="fas fa-lg fa-angle-down menu-down"></i>
+        <i class="fas fa-lg fa-angle-up menu-up"></i>
     </button>
 </nav>
 
@@ -384,7 +393,7 @@
 
 <div class="popup new-share-button">
     <span class="viz-share-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" height="18" width="18">
    <defs>
       <path id="a" d="M-622 305h23v23h-23z"/>
    </defs>
@@ -432,7 +441,7 @@
         <div class="share-buttons">
             <ul>
                 <li>
-                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends')" title="Share on Facebook">
+                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Facebook">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-facebook" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1579 128q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-735q-35 0-60-25t-25-60v-1366q0-35 25-60t60-25h1366z"/>
@@ -441,7 +450,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab - Federal Revenue Trends – U.S. Treasury&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends')" title="Share on Twitter">
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab - Revenue Country Comparison – U.S. Treasury&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Twitter">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-twitter" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
@@ -450,7 +459,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends')" title="Share on Google+">
+                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Google+">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-google-plus" width="2304" height="1792" viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/>
@@ -459,7 +468,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends')" title="Share on Pinterest">
+                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Pinterest">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-pinterest" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"/>
@@ -468,7 +477,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends')" title="Share on Tumblr">
+                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Tumblr">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-tumblr" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1328 1329l80 237q-23 35-111 66t-177 32q-104 2-190.5-26t-142.5-74-95-106-55.5-120-16.5-118v-544h-168v-215q72-26 129-69.5t91-90 58-102 34-99 15-88.5q1-5 4.5-8.5t7.5-3.5h244v424h333v252h-334v518q0 30 6.5 56t22.5 52.5 49.5 41.5 81.5 14q78-2 134-29z"/>
@@ -477,7 +486,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends')" title="Share on Reddit">
+                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Reddit">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-reddit" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1792 846q0 58-29.5 105.5t-79.5 72.5q12 46 12 96 0 155-106.5 287t-290.5 208.5-400 76.5-399.5-76.5-290-208.5-106.5-287q0-47 11-94-51-25-82-73.5t-31-106.5q0-82 58-140.5t141-58.5q85 0 145 63 218-152 515-162l116-521q3-13 15-21t26-5l369 81q18-37 54-59.5t79-22.5q62 0 106 43.5t44 105.5-44 106-106 44-105.5-43.5-43.5-105.5l-334-74-104 472q300 9 519 160 58-61 143-61 83 0 141 58.5t58 140.5zm-1374 199q0 62 43.5 106t105.5 44 106-44 44-106-44-105.5-106-43.5q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20-160-20-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5 91 4.5 91-4.5 122.5-29.5 118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5 44 106 106 44z"/>
@@ -486,7 +495,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/trends")' title="Share on LinkedIn">
+                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison")' title="Share on LinkedIn">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-linkedin" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
@@ -495,7 +504,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="mailto:?subject=Data Lab - Federal Revenue Trends – U.S. Treasury&amp;body=Check out this site https://datalab.usaspending.gov/americas-finance-guide/revenue/trends" title="Share via Email">
+                    <a href="mailto:?subject=Data Lab - Revenue Country Comparison – U.S. Treasury&amp;body=Check out this site https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison" title="Share via Email">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
@@ -507,45 +516,53 @@
         </div>
     </span>
 </div></div>
-    
-<h1>Federal Revenue Trends</h1>
 
-<div class="trend-flex">
-    <div class="trend-copy">
-        <div class="trend-copy__text">
-            <p>How has federal revenue changed over the past few years?</p>
-            <p>The chart below shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory. What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
+    <h1>Compare Federal Revenue of the United States to other Countries</h1>
+
+    <div class="country-copy">
+        <div class="country-copy__text">
+            <p>This chart outlines the total revenue of the United States compared to 171 different countries in 2017. In this section, figures are presented using financial data from 2017, allowing us to provide you with the most recent revenue data for the greatest number of countries.  In 2017, the United States collected $3.3 trillion. The $3.3 trillion in revenue collected was equivalent to 17% of total U.S. gross domestic product (GDP) for 2017.</p>
+            <p>How does the U.S. compare to other countries? We encourage you to check out the chart. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product. Find a country of interest and see for yourself. </p>
+            <p>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</p>
         </div>
-        <section class="tour">
-            <div class="tour__part-one">
-                <h1>How does the revenue of the United States compare to other countries?</h1>
-                <p>When you're done here, see how revenue collected by the U.S. government compares to other countries.</p>
+        <a class="chapter-link chapter-link--spending" href="../spending/">
+            <div class="chapter-link__text-block">
+                <div class="chapter-link__learn-more">Learn more about</div>
+                Federal Spending
             </div>
-            <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
-        </section>
+            <i class="fa fa-angle-right"></i>
+        </a>
     </div>
 
-    <div class="trend-chart">    
-        <h2 class="chart-title">Federal Revenue Trends over Time by Category</h2>
-        <div class="hint">Click a revenue category to view more</div>
+    <div class="country-chart">    
+        <h2 class="chart-title">Country Comparison</h2>
+        <div class="hint">Click <span class="sort-button-placeholder"></span> to sort columns</div>
 
         <div id="viz"></div>
     </div>
-</div>
+    
+    <div class="clearfix"></div>
 
     <section class="hwcta">
-        The visualization was created using <a href="https://fiscal.treasury.gov/reports-statements/mts/" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a>
- as the data source for federal government revenue of the United States. <a href="https://data.bls.gov/cgi-bin/surveymost?bls" target="_blank" rel="noopener noreferrer">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust revenue in fiscal years 2014-2017 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
+        <p>The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0917.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures for the United States come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank" rel="noopener noreferrer">Bureau of Economic Analysis (BEA)</a>. GDP data for countries other than the United States comes from the <a href="https://www.imf.org/external/pubs/ft/weo/2018/01/weodata/weorept.aspx?sy=2017&ey=2017&scsm=1&ssd=1&sort=country&ds=.&br=1&c=512%2C946%2C914%2C137%2C612%2C546%2C614%2C962%2C311%2C674%2C213%2C676%2C911%2C548%2C193%2C556%2C122%2C678%2C912%2C181%2C313%2C867%2C419%2C682%2C513%2C684%2C316%2C273%2C913%2C868%2C124%2C921%2C339%2C948%2C638%2C943%2C514%2C686%2C218%2C688%2C963%2C518%2C616%2C728%2C223%2C836%2C516%2C558%2C918%2C138%2C748%2C196%2C618%2C278%2C624%2C692%2C522%2C694%2C622%2C142%2C156%2C449%2C626%2C564%2C628%2C565%2C228%2C283%2C924%2C853%2C233%2C288%2C632%2C293%2C636%2C566%2C634%2C964%2C238%2C182%2C662%2C359%2C960%2C453%2C423%2C968%2C935%2C922%2C128%2C714%2C611%2C862%2C321%2C135%2C243%2C716%2C248%2C456%2C469%2C722%2C253%2C942%2C642%2C718%2C643%2C724%2C939%2C576%2C644%2C936%2C819%2C961%2C172%2C813%2C132%2C726%2C646%2C199%2C648%2C733%2C915%2C184%2C134%2C524%2C652%2C361%2C174%2C362%2C328%2C364%2C258%2C732%2C656%2C366%2C654%2C734%2C336%2C144%2C263%2C146%2C268%2C463%2C532%2C528%2C944%2C923%2C176%2C738%2C534%2C578%2C536%2C537%2C429%2C742%2C433%2C866%2C178%2C369%2C436%2C744%2C136%2C186%2C343%2C925%2C158%2C869%2C439%2C746%2C916%2C926%2C664%2C466%2C826%2C112%2C542%2C111%2C967%2C298%2C443%2C927%2C917%2C846%2C544%2C299%2C941%2C582%2C446%2C474%2C666%2C754%2C668%2C698%2C672&s=NGDPD&grp=0&a=&pr.x=45&pr.y=14" target="_blank" rel="noopener noreferrer">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
+        <p>In researching potential data sources for information on the revenue of other governments for the country comparison module, we chose the <a href="https://www.cia.gov/library/publications/resources/the-world-factbook/index.html" target="_blank" rel="noopener noreferrer">CIA World Factbook</a> because it provides the best comparison for the following reasons:</p>
+        <ul>
+            <li>the number of countries with 2017 data,</li>
+            <li>relative consistency with the level of government measured (central government only as a standard),</li>
+            <li>all figures expressed in US dollars.</li>
+        </ul>
+        <p>Countries with figures before 2017 were excluded from the country comparison data set. Although most countries in the data set feature revenue from central government sources only, some countries included state/provincial/local revenue. As a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.</p>
+        <p>To finish the data set for Country Comparison, gross domestic product figures from BEA and the IMF WEOD were combined with revenue figures from the CIA World Factbook data set, excluding countries that did not have data available from both sources.</p>
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>
-                <li><a href="../../assets/ffg/data/federal_revenue_trends.csv" download>federal_revenue_trends.csv</a></li>
+                <li><a href="../../../assets/ffg/data/revenue_country_comparison.csv" download>revenue_country_comparison.csv</a></li>
             </ul>
         </div>
     </section>
 </div>
 
-<script src="/assets/ffg/revenue/trends.js"></script>
+<script src="/assets/ffg/revenue/countryComparison.js"></script>
 
 
     <script src="/assets/ffg/hwcta.js"></script>
@@ -555,18 +572,18 @@
 </article>
 
       <script>
-  function trackLinkClick(actionName) {
-          window.Analytics.event({
-              category: 'Footer - Click Link',
-              action: actionName
-      });
-  }
+ function trackLinkClick(actionName) {
+     window.Analytics.event({
+         category: 'Footer - Click Link',
+         action: actionName
+     });
+ }
 
-  function leaveSiteLink(outbound) {
-          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-          document.getElementById('leave-modal').style.display = 'block';
-  }
+ function leaveSiteLink(outbound) {
+     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+     document.getElementById('leave-modal').style.display = 'block';
+ }
 </script>
 
 <div class="dl-footer">
@@ -618,7 +635,7 @@
 
     <div class="dl-footer__group-title">Contact Us</div>
     <p>
-      For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
+      For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
     </p>
     <p>
       T: 202-504-3535<br>
@@ -631,7 +648,7 @@
 
     <div class="dl-footer__group-title">Mailing List</div>
     <p>
-      To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
+      To join our mailing list, send a<br> blank email with no subject to:<br> <a class="community-page-link" href="mailto: datalab@lists.fiscal.treasury.gov">datalab@lists.fiscal.treasury.gov</a>
     </p>
     <div class="dl-footer__group-title">Join the Conversation</div>
     <p>
@@ -644,12 +661,11 @@
   <div class="dl-footer__social">
     <div class="dl-footer__group-title">Connect With Us</div>
     <div class="dl-footer__social-items">
-      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
+      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-labelledby="Github-icon-title" href="https://github.com/fedspendingtransparency/datalab">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Github</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Github-icon-title">Github</title>
     <g id="Github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-2">
             <rect id="Rectangle" x="0" y="-3.55271368e-15" width="31.8801538" height="32.9714533"></rect>
@@ -660,12 +676,11 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
+      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-labelledby="DataWorld-icon-title" href="https://data.world/usaspending">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Data.World</title>
-    <desc>Created with Sketch.</desc>
+    <title id="DataWorld-icon-title">Data World</title>
     <defs>
         <polygon id="path-1" points="0.0359888889 2.06896552e-05 1.95965126 2.06896552e-05 1.95965126 6 0.0359888889 6"></polygon>
         <polygon id="path-3" points="0.00128207569 2.06896552e-05 1.92494445 2.06896552e-05 1.92494445 6 0.00128207569 6"></polygon>
@@ -705,12 +720,11 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
+      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-labelledby="Twitter-icon-title" href="https://twitter.com/fiscalservice">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Twitter</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Twitter-icon-title">Twitter</title>
     <g id="Twitter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-12">
             <g transform="translate(0.000000, -0.000000)">
@@ -723,12 +737,11 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
+      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-labelledby="Facebook-icon-title" href="https://www.facebook.com/pg/fiscalservice">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Facebook</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Facebook-icon-title">Facebook</title>
     <g id="Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group">
             <g transform="translate(0.000000, -0.000000)">
@@ -741,15 +754,14 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-labelledby="LinkediIn-icon-title" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Linkedin</title>
-    <desc>Created with Sketch.</desc>
+    <title id="LinkediIn-icon-title">LinkediIn</title>
     <g id="Linkedin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="LinkedIn">
-            <g id="LinkedIn'" transform="translate(0.000000, -0.000000)">
+            <g id="LinkedIn" transform="translate(0.000000, -0.000000)">
                 <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
                 <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
                 <path d="M9.06009951,13.7978886 L11.8845113,13.7978886 L11.8845113,23.9782792 L9.06009951,23.9782792 L9.06009951,13.7978886 Z M10.4003106,12.5245001 L10.3798624,12.5245001 C9.35745086,12.5245001 8.6945874,11.746265 8.6945874,10.7607563 C8.6945874,9.7550961 9.37704708,8.99221453 10.4199068,8.99221453 C11.4619145,8.99221453 12.1026257,9.7531769 12.123074,10.7578775 C12.123074,11.7433862 11.4619145,12.5245001 10.4003106,12.5245001 L10.4003106,12.5245001 Z M19.9828624,23.9792388 L19.9828624,18.7100782 C19.9828624,17.3311338 19.4818807,16.3907263 18.3802323,16.3907263 C17.5375949,16.3907263 17.0689896,17.0250215 16.8508751,17.6382056 C16.7690822,17.8569943 16.7818624,18.1631065 16.7818624,18.4701783 L16.7818624,23.9792388 L13.6089787,23.9792388 C13.6089787,23.9792388 13.6498751,14.6461745 13.6089787,13.7978886 L16.7818624,13.7978886 L16.7818624,15.3956217 C16.9693045,14.6970333 17.9831959,13.7000094 19.6011621,13.7000094 C21.6084967,13.7000094 23.1855664,15.1653178 23.1855664,18.317602 L23.1855664,23.9792388 L19.9828624,23.9792388 Z" id="Shape" fill="#808080"></path>
@@ -763,14 +775,14 @@
 </div>
 
 <footer id="footer">
-    <div>
-      &copy; 2018 USAspending.gov |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  <div>
+    &copy; 2018 USAspending.gov |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
   </div>
-    <div class="footer-important-info">
-      <b>NOTE:</b> You must <a href="https://beta.usaspending.gov/#/db_info">click here</a> for very important D&B information.
+  <div class="footer-important-info">
+    <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
 </footer>
 
@@ -784,9 +796,9 @@
             "@id": "http://datalab.usaspending.gov/"
         },
         "image": "https://datalab.usaspending.gov/assets/data-lab-og.png",
-        "headline": "Find out how federal revenue has changed over time.",
-        "datePublished": "2019-01-17T08:00:00+06:00",
-        "dateModified": "2019-01-17T08:00:00+06:00",
+        "headline": "Compare revenue of the United States to 171 different countries.",
+        "datePublished": "2019-04-09T08:00:00+06:00",
+        "dateModified": "2019-04-09T08:00:00+06:00",
         "author": {
         "@type": "Organization",
         "name": "U.S. Treasury",
@@ -803,7 +815,7 @@
             "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
             }
         },
-        "description": "This chart shows the categories for federal revenue sources over a five year period. Explore the interactive visualization to see what changes have occurred over the past five years."
+        "description": "How does the U.S. compare to other countries? We encourage you to check out the chart below. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product (GDP). Find a country of interest and see for yourself."
     }
     </script>
     <script src="/assets/ffg/components/glossary/glossary.js"></script>

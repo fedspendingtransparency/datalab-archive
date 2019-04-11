@@ -119,14 +119,14 @@ const moduleRules = [
     },
 ],
     devServer = {
-        contentBase: [path.join(__dirname, '../ffg-snapshots/'), path.join(__dirname, '..')],
+        contentBase: [path.join(__dirname, './static-snapshots/'), path.join(__dirname, './')],
         watchContentBase: true,
         compress: true,
     };
 
 module.exports = [{
     entry: {
-        bp: './src/bigPicture/index.js'
+        bp: './citizens-guide/src/bigPicture/index.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -139,14 +139,14 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/../assets/ffg/bp',
+        path: __dirname + './assets/ffg/bp',
     },
     module: {
         rules: moduleRules
     }
 },{
     entry: {
-        anecdote: './src/anecdote/anecdote.js',
+        anecdote: './citizens-guide/src/anecdote/anecdote.js',
     },
     devtool: devtool,
     devServer: devServer,
@@ -159,14 +159,14 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/../assets/ffg',
+        path: __dirname + './assets/ffg',
     },
     module: {
         rules: moduleRules
     }
 }, {
     entry: {
-        glossary: './src/components/glossary/glossary.js'
+        glossary: './citizens-guide/src/components/glossary/glossary.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -179,14 +179,14 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/../assets/ffg/components/glossary',
+        path: __dirname + './assets/ffg/components/glossary',
     },
     module: {
         rules: moduleRules
     }
 },{
     entry: {
-        tabs: './src/components/tabs/tabs.js'
+        tabs: './citizens-guide/src/components/tabs/tabs.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -199,17 +199,17 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/../assets/ffg/components/tabs',
+        path: __dirname + './assets/ffg/components/tabs',
     },
     module: {
         rules: moduleRules
     }
 }, {
     entry: {
-        intro: './src/revenue/intro/index.js',
-        categories: './src/revenue/categories/index.js',
-        trends: './src/revenue/trends/index.js',
-        countryComparison: './src/revenue/countries/index.js'
+        intro: './citizens-guide/src/revenue/intro/index.js',
+        categories: './citizens-guide/src/revenue/categories/index.js',
+        trends: './citizens-guide/src/revenue/trends/index.js',
+        countryComparison: './citizens-guide/src/revenue/countries/index.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -222,17 +222,17 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/../assets/ffg/revenue/',
+        path: __dirname + './assets/ffg/revenue/',
     },
     module: {
         rules: moduleRules
     }
 }, {
     entry: {
-        categories: './src/spending/categories/index.js',
-        countryComparison: './src/spending/countries/index.js',
-        intro: './src/spending/intro/index.js',
-        trends: './src/spending/trends/index.js'
+        categories: './citizens-guide/src/spending/categories/index.js',
+        countryComparison: './citizens-guide/src/spending/countries/index.js',
+        intro: './citizens-guide/src/spending/intro/index.js',
+        trends: './citizens-guide/src/spending/trends/index.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -245,16 +245,16 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/../assets/ffg/spending/',
+        path: __dirname + './assets/ffg/spending/',
     },
     module: {
         rules: moduleRules
     }
 }, {
     entry: {
-        countryComparison: './src/deficit/countries/index.js',
-        intro: './src/deficit/intro/index.js',
-        trends: './src/deficit/trends/index.js'
+        countryComparison: './citizens-guide/src/deficit/countries/index.js',
+        intro: './citizens-guide/src/deficit/intro/index.js',
+        trends: './citizens-guide/src/deficit/trends/index.js'
     },
     devtool: devtool,
     devServer: devServer,
@@ -274,10 +274,10 @@ module.exports = [{
     }
 }, {
     entry: {
-        intro: './src/debt/intro/index.js',
-        trends: './src/debt/trends/index.js',
-        analysis: './src/debt/analysis/index.js',
-        countryComparison: './src/debt/countries/index.js',
+        intro: './citizens-guide/src/debt/intro/index.js',
+        trends: './citizens-guide/src/debt/trends/index.js',
+        analysis: './citizens-guide/src/debt/analysis/index.js',
+        countryComparison: './citizens-guide/src/debt/countries/index.js',
     },
     devtool: devtool,
     devServer: devServer,
@@ -290,24 +290,24 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../assets/ffg/debt'),
+        path: path.resolve(__dirname, './assets/ffg/debt'),
     },
     module: {
         rules: moduleRules
     }
 }, {
     entry: [
-        './src/globalSass/cg.scss',
-        './src/globalSass/chapterIntroCommon.scss',
-        './src/globalSass/countryCommon.scss',
-        './src/globalSass/trendsCommon.scss',
-        './src/bigPicture/scss/bp.scss',
-        './src/anecdote/anecdote.scss',
-        './src/deficit/trends/deficit-trends.scss',
-        './src/revenue/categories/revenue-categories.scss',
-        './src/spending/categories/spending-categories.scss',
-        './src/debt/trends/debt-trends.scss',
-        './src/debt/analysis/debt-analysis.scss'
+        './citizens-guide/src/globalSass/cg.scss',
+        './citizens-guide/src/globalSass/chapterIntroCommon.scss',
+        './citizens-guide/src/globalSass/countryCommon.scss',
+        './citizens-guide/src/globalSass/trendsCommon.scss',
+        './citizens-guide/src/bigPicture/scss/bp.scss',
+        './citizens-guide/src/anecdote/anecdote.scss',
+        './citizens-guide/src/deficit/trends/deficit-trends.scss',
+        './citizens-guide/src/revenue/categories/revenue-categories.scss',
+        './citizens-guide/src/spending/categories/spending-categories.scss',
+        './citizens-guide/src/debt/trends/debt-trends.scss',
+        './citizens-guide/src/debt/analysis/debt-analysis.scss'
     ],
     output: {
         path: path.resolve(__dirname, '../assets/ffg/css'),
@@ -317,4 +317,3 @@ module.exports = [{
         rules: cssRules
     }
 }];
-
