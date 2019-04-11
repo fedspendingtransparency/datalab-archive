@@ -38,6 +38,13 @@
    gtag('js', new Date());
    gtag('config', 'UA-60737492-1');
   </script>
+
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-19138737-13');
+  </script>
   
   <!-- og tags -->
   <meta property="og:title" content="Data Lab - Your Guide to America’s Finances – U.S. Treasury"/>
@@ -56,7 +63,7 @@
 
   <body>
     <div id="page-wrapper">
-      <div class="official-banner" role="note">
+      <header class="official-banner">
   <ul class="official-banner__site-list">
     <li class="official-banner__site-item">
       <a class="official-banner__site-link" href="https://www.usaspending.gov">
@@ -78,7 +85,7 @@
     </div>
     <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
   </div>
-</div>
+</header>
 <div class="info-banner">
   <div class="info-banner__content">
     <div class="info-banner__alert-icon">
@@ -102,20 +109,22 @@
   <div class="header__main">
     <a class="header-logo header-logo--init" href="/">
       <div class="header-logo__wrapper">
-	<img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
-	<img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" />
+        <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" alt="DataLab logo"/>
+        <img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" alt="Visualizations to help you understand government finance" />
       </div>
-      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" />
+      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
+
+    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
 
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -128,10 +137,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -144,10 +153,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
+          <span class=""><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -160,7 +169,7 @@
         </g>
     </g>
 </svg></span>
-	</li>
+        </li>
       </ul>
     </nav>
   </div>
@@ -369,7 +378,7 @@
 
 <div class="popup new-share-button">
     <span class="viz-share-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" height="18" width="18">
    <defs>
       <path id="a" d="M-622 305h23v23h-23z"/>
    </defs>
@@ -526,7 +535,11 @@
                 <h1 class="chapter__heading">In 2018, <br>the federal government<span class="chapter__big-number">
                     collected $3.3
                     <span class="chapter__big-number--anecdote-placement">
+<<<<<<< HEAD
                         trillion.
+=======
+                        trillion in revenue.
+>>>>>>> 11c6f877... refresh snapshots
                         <section class="anecdote">
                             <h1 class="anecdote__heading">Did you know?</h1>
                             <span class="anecdote__button--text hidden">Show me what $3.3 T is equal to</span>
@@ -543,11 +556,14 @@
                                     <p class="source">Source - <a href="https://www.bls.gov/oes/current/oes_nat.htm" rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a></p>
                                 </div>
                                 <div class="anecdote__pane">
+<<<<<<< HEAD
                                     <p>$3.3 trillion is equal to a little more than <strong>$10,000 per individual in the United States (estimated at 327.7 million)</strong>.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-3-outline.svg" alt="">
                                     <p class="source">Source - <a href="https://www.census.gov/popclock/" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                                 </div>
                                 <div class="anecdote__pane">
+=======
+>>>>>>> 11c6f877... refresh snapshots
                                     <p>$3.3 trillion equates to the average U.S. household contributing <strong>$2,200 per month</strong>.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-4-outline.svg" alt="">
                                     <p>That is roughly equal to the cost of <strong>renting a three-bedroom apartment</strong> in Juneau, AK ($2,165/month).</p>
@@ -557,6 +573,7 @@
                                     <p>$3.3 trillion equates to the <strong>revenue of the top 18 companies</strong> in the S&P 500.</p>
                                     <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-5-outline.svg" alt="">
                                     <p class="source">Figures based on 2017 10-K reports for S&P 500 Companies</p>
+<<<<<<< HEAD
                                 </div>
                                 <div class="anecdote__pane">
                                     <p>If the revenue of the federal government was split between the <strong>128 million households</strong> estimated in the United States in 2018. It would equate to <strong>$26,000 per household</strong>.</p>
@@ -646,6 +663,95 @@
                                 </div>
                                 <div class="anecdote__cta--container">
                                     <a class="anecdote__cta link-button" href="spending/">Go Explore Spending <i class="fa fa-angle-right"></i></a>
+=======
+                                </div>
+                            </div>
+                            <a class="anecdote__cta link-button" href="revenue/">Go Explore Revenue <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </section>
+    
+                    <p class="chapter__paragraph--tightened">The federal government collects revenue from a variety of sources, including individual income taxes, payroll taxes, corporate income taxes, and excise taxes. It also collects revenue from services like admission to national parks and customs duties.</p>
+    
+                    <section class="accordion">
+                        <h1 class="accordion__heading">What makes federal revenue increase or decrease?</h1>
+                        <div class="accordion__content">
+                            <p>The majority of federal revenue comes from individual and corporate income taxes as well as social insurance taxes. When individuals and corporations earn more money, they pay more in taxes, and thus federal revenue increases. Alternatively, if they make the same amount, but tax rates increase, the federal revenue will also increase. Decreases in federal revenue are largely due to either individuals or corporations making less money or a decrease in tax rates.</p>
+                        </div>
+                    </section>
+    
+                    <a class="link-button chapter__cta" href="revenue/">
+                        <div class="link-button__text--block">
+                            <div class="link-button__text--top">Learn more about</div>
+                            <div class="link-button__text--bottom">Federal Revenue</div>
+                        </div>
+                        <div class="link-button__icon--block">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="chapter__chart">
+                    <img src="/assets/ffg/bp/revenue/revenue-graph-outline.svg" alt="Federal revenue has increased over the past five years. Annual revenue was $3 trillion, $3.25 trillion, $3.27 trillion, $3.31 trillion and $3.33 trillion for the years 2014 to 2018 respectively.">
+                    <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="chapter-break"></section>
+    
+    <!-- begin SPENDING chapter -->
+    <section class="chapter chapter--spending">
+        <div class="chapter-scroll-target" id="spending-chapter"></div>
+            <div class="chapter__content">
+            <ul class="toc">
+        <li><a href="#revenue-chapter" class="toc__link scroll-to toc__revenue"><span class="toc__chapter-number">01</span> Federal Revenue</a></li>
+        <li><a href="#spending-chapter" class="toc__link scroll-to toc__spending"><span class="toc__chapter-number">02</span> Federal Spending</a></li>
+        <li><a href="#deficit-chapter" class="toc__link scroll-to toc__deficit"><span class="toc__chapter-number">03</span> Federal Deficit</a></li>
+        <li><a href="#debt-chapter" class="toc__link scroll-to toc__debt"><span class="toc__chapter-number">04</span> Federal Debt</a></li>
+    </ul>
+    
+            <div class="chapter__flex">
+                <div class="chapter__primary">
+                    <h1 class="chapter__heading">In 2018,<br>the federal government <span class="chapter__big-number">spent $4.1 trillion.</span></h1>
+    
+                    <section class="anecdote">
+                        <!-- controls -->
+                        <div class="anecdote__controls">
+                            <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $4.1 T is equal to</span></button>
+                        </div>
+    
+                        <!-- contents -->
+                        <div class="anecdote__contents">
+                            <h1 class="anecdote__heading">Did you know?</h1>
+                            <div class="anecdote__nav">
+                                <div class="anecdote__nav-control"></div>
+                                <div class="anecdote__nav-contents">
+                                    <!-- panes -->
+                                    <div class="anecdote__panes">
+                                            <div class="anecdote__pane">
+                                                <p>Federal government spending equates to about <strong>$130,000</strong> per second.</p>
+                                                <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-1-outline.svg" alt="">
+                                                <p>In just 10 seconds, that's <strong>$1,300,000 in spending.</strong></p>
+                                            </div>
+                                            <div class="anecdote__pane">
+                                                <p>$4.1 trillion is equivalent to a little more than <strong>$12,500</strong> in spending <strong>per U.S. individual</strong>.</p>
+                                                <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-2-outline.svg" alt="">
+                                                <p class="source">Source - <a href="https://www.census.gov/popclock/" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                            </div>
+                                            <div class="anecdote__pane">
+                                                <p>$4.1 trillion equates to the average household spending <strong>$2,700</strong> per month.</p>
+                                                <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-3-outline.svg" alt="">
+                                                <p>That is roughly equal <strong>to renting a three-bedroom apartment</strong> in Santa Barbara, CA ($2,744 per month).</p>
+                                                <p class="source">Source - <a href="https://www.huduser.gov/portal/datasets/50per.html#2018" rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                            </div>
+                                            <div class="anecdote__pane">
+                                                <p>$4.1 trillion is equivalent to building a new <strong>four-lane road from Washington D.C. to San Francisco and back...122 times!</strong> (That's 685,000 miles of roadway!)</p>
+                                                <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/spending/spending-4-outline.svg" alt="">
+                                                <p class="source">Source - <a href="https://www.artba.org/about/faq/" rel="noopener noreferrer" target="_blank">American Road & Transportation Builders Association</a></p>
+                                            </div>
+                                        </div>
+>>>>>>> 11c6f877... refresh snapshots
                                 </div>
                             </section>
                         </span>
@@ -657,7 +763,7 @@
                 <section class="accordion">
                     <h1 class="accordion__heading">Who controls government spending anyway?</h1>
                     <div class="accordion__content">
-                        <p>Government spending can be broken down into two categories: mandatory and discretionary spending. Mandatory spending is determined by previous law and includes spending for programs like Social Security and Medicare. Discretionary spending is determined by the President and Congress each year in the budget process. The President and the Office of Management and Budget put together a budget proposal and send it to Congress, which approves, modifies, or disapproves of spending amounts across the government. Congress can change funding levels, eliminate or add programs, and add or eliminate taxes and other sources of revenue. Once the budget has been finalized in Congress, it is sent to the President for approval or veto.</p>
+                        <p>Government spending can be broken down into two categories: mandatory and discretionary. Mandatory spending is determined by previous law and includes spending for programs like Social Security and Medicare. Discretionary spending is determined by the President and Congress each year in the budget and appropriations process. First, the President puts together a budget proposal and sends it to Congress. Then, the House and Senate both draft budget resolutions. Congress can change funding levels, as well as add or eliminate programs, taxes, and other sources of revenue. Once the budget resolutions have been finalized in the House and Senate, Congress reconciles the differences and votes on a final budget. The discretionary spending levels in the budget are divided among the twelve Appropriations Subcommittees, who then draft bills providing funding levels for the Departments, bureaus and agencies within their jurisdiction. After the House and Senate agree to a final funding level for each bill, they are sent to the President for approval or veto (denial).</p>
                     </div>
                 </section>
 
@@ -676,8 +782,7 @@
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <section class="deficit-debt-heading" id="deficit-debt-heading">
     <h1 class="deficit-debt-heading__heading">
@@ -690,6 +795,7 @@
 
 <!-- begin DEFICIT chapter -->
 <section class="chapter chapter--deficit">
+<<<<<<< HEAD
     <div class="chapter-scroll-target" id="deficit-chapter"></div>
 
     <div class="chapter__content">
@@ -755,17 +861,87 @@
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/deficit/deficit-graph-outline.svg" alt="Since the government spent $4.1 trillion in 2018 and collected $3.3 trillion, the deficit for the year was $779 billion.">
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+=======
+        <div class="chapter-scroll-target" id="deficit-chapter"></div>
+    
+        <div class="chapter__content">
+            <ul class="toc">
+        <li><a href="#revenue-chapter" class="toc__link scroll-to toc__revenue"><span class="toc__chapter-number">01</span> Federal Revenue</a></li>
+        <li><a href="#spending-chapter" class="toc__link scroll-to toc__spending"><span class="toc__chapter-number">02</span> Federal Spending</a></li>
+        <li><a href="#deficit-chapter" class="toc__link scroll-to toc__deficit"><span class="toc__chapter-number">03</span> Federal Deficit</a></li>
+        <li><a href="#debt-chapter" class="toc__link scroll-to toc__debt"><span class="toc__chapter-number">04</span> Federal Debt</a></li>
+    </ul>
+    
+            <div class="chapter__flex">
+                <div class="chapter__primary">
+                    <h1 class="chapter__heading">In 2018,<br>the federal government</br>spent $779 billion more than it collected, <span class="chapter__big-number">resulting in a deficit.</span></h1>
+    
+                    <section class="anecdote">
+                        <!-- controls -->
+                        <div class="anecdote__controls">
+                            <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $779 B is equal to</span></button>
+                        </div>
+    
+                        <!-- contents -->
+                        <div class="anecdote__contents">
+                            <h1 class="anecdote__heading">Did you know?</h1>
+                            <div class="anecdote__nav">
+                                <div class="anecdote__nav-control"></div>
+                                <div class="anecdote__nav-contents">
+                                    <!-- panes -->
+                                    <div class="anecdote__panes">
+                                        <div class="anecdote__pane">
+                                            <p>$779 billion is almost <strong>22 times the amount of credit card debt Americans created in 2018</strong> ($36 billion).</p>
+                                            <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/deficit/deficit-1-outline.svg" alt="">
+                                            <p class="source">Source - <a href="https://www.newyorkfed.org/microeconomics/databank.html" rel="noopener noreferrer" target="_blank">Federal Reserve Bank of New York</a></p>
+                                        </div>
+                                        <div class="anecdote__pane">
+                                            <p>$779 billion breaks down to about <strong>$6,100 of deficit spending</strong> per household in 2018.</p>
+                                            <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/deficit/deficit-2-outline.svg" alt="">
+                                            <p>In 2018, there were an estimated <strong>128 million households</strong> in the United States.</p>
+                                            <p class="source">Source - <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        </div>
+                                        <div class="anecdote__pane">
+                                            <p>$779 billion equates to <strong>$1.5 million</strong> in deficit spending <strong>every minute</strong> for an entire year.</p>
+                                            <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/deficit/deficit-3-outline.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="anecdote__nav-control"></div>
+                            </div>
+                            <a class="anecdote__cta link-button" href="deficit/">Go Explore Deficit <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </section>
+    
+                    <p class="chapter__paragraph--tightened">A deficit occurs when money going out exceeds the money coming in. In 2018, the federal government spent more than it collected.</p>
+    
+                    <section class="accordion">
+                        <h1 class="accordion__heading">What happens when there is a surplus?</h1>
+                        <div class="accordion__content">
+                            <p>A surplus occurs when the government collects more money than it spends. The last federal surplus occurred in 2001. The government primarily uses surpluses to reduce the federal debt.</p>
+                        </div>
+                    </section>
+    
+                    <a class="link-button chapter__cta" href="deficit/">
+                        <div class="link-button__text--block">
+                            <div class="link-button__text--top">Learn more about</div>
+                            <div class="link-button__text--bottom">Federal Deficit</div>
+                        </div>
+                        <div class="link-button__icon--block">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="chapter__chart">
+                    <img src="/assets/ffg/bp/deficit/deficit-graph-outline.svg" alt="Since the government spent $4.1 trillion in 2018 and collected $3.3 trillion, the deficit for the year was $779 billion.">
+                    <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                </div>
+>>>>>>> 11c6f877... refresh snapshots
             </div>
         </div>
-    </div>
-</section>
-
-<section class="chapter-break"></section>
-
-<!-- begin DEBT chapter -->
-<section class="chapter chapter--debt">
-    <div class="chapter-scroll-target" id="debt-chapter"></div>
+    </section>
     
+<<<<<<< HEAD
     <div class="chapter__content">
         <ul class="toc">
     <li><a href="#revenue-chapter" class="toc__link scroll-to toc__revenue"><span class="toc__chapter-number">01</span> Federal Revenue</a></li>
@@ -827,10 +1003,87 @@
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/debt/debt-graph-outline.svg" alt="Federal debt has increased over the past five years. Federal debt was $17.8 trillion, $18.2 trillion, $19.6 trillion, $20.2 trillion and $21.5 trillion at the end of the years 2014 to 2018 respectively.">
                 <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+=======
+    <section class="chapter-break"></section>
+    
+    <!-- begin DEBT chapter -->
+    <section class="chapter chapter--debt">
+        <div class="chapter-scroll-target" id="debt-chapter"></div>
+        
+        <div class="chapter__content">
+            <ul class="toc">
+        <li><a href="#revenue-chapter" class="toc__link scroll-to toc__revenue"><span class="toc__chapter-number">01</span> Federal Revenue</a></li>
+        <li><a href="#spending-chapter" class="toc__link scroll-to toc__spending"><span class="toc__chapter-number">02</span> Federal Spending</a></li>
+        <li><a href="#deficit-chapter" class="toc__link scroll-to toc__deficit"><span class="toc__chapter-number">03</span> Federal Deficit</a></li>
+        <li><a href="#debt-chapter" class="toc__link scroll-to toc__debt"><span class="toc__chapter-number">04</span> Federal Debt</a></li>
+    </ul>
+    
+            <div class="chapter__flex">
+                <div class="chapter__primary">
+                    <h1 class="chapter__heading">By the end of 2018,<br>the government had <span class="chapter__big-number">$21.5 trillion in federal debt.</span></h1>
+    
+                    <section class="anecdote">
+                        <!-- controls -->
+                        <div class="anecdote__controls">
+                            <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $21.5 T is equal to</span></button>
+                        </div>
+    
+                        <!-- contents -->
+                        <div class="anecdote__contents">
+                            <h1 class="anecdote__heading">Did you know?</h1>
+                            <div class="anecdote__nav">
+                                <div class="anecdote__nav-control"></div>
+                                <div class="anecdote__nav-contents">
+                                    <!-- panes -->
+                                    <div class="anecdote__panes">
+                                        <div class="anecdote__pane">
+                                            <p>If the federal debt was split evenly among households, <strong>your household's share</strong> would be roughly <strong>$171,000</strong>.</p>
+                                            <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/debt/debt-2-outline.svg" alt="">
+                                            <p>That is about equal to the <strong>median home price in Houston, TX</strong> ($173,600).</p>
+                                            <p class="source">Source - <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        </div>
+                                        <div class="anecdote__pane">
+                                            <p>$21.5 trillion equates to a little less than <strong>$66,000</strong> per individual in the U.S.</p>
+                                            <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/debt/debt-3-outline.svg" alt="">
+                                            <p>That is equal to the <strong>average salary of a Human Resources Specialist</strong>.</p>
+                                            <p class="source">Source - <a href="https://www.bls.gov/oes/current/oes_nat.htm" rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a> & <a href="https://www.census.gov/popclock/" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="anecdote__nav-control"></div>
+                            </div>
+                            <a class="anecdote__cta link-button" href="debt/">Go Explore Debt <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </section>
+    
+                    <p class="chapter__paragraph--tightened">To pay for a deficit, the federal government borrows additional funds, which increases the debt. The total debt that the federal government owes is essentially the accumulation of deficits over time, minus debt repaid by any surpluses, plus debt that the Treasury owes to other parts of the federal government. Other activities contribute to the change in federal debt, such as changes in the Treasury's operating cash account and federal student loans.</p>
+                    <p class="chapter__paragraph--tightened">Are federal debt and deficit the same thing? No, but they do affect one another.</p>
+    
+                    <section class="accordion">
+                        <h1 class="accordion__heading">Why can’t the government just print more money?</h1>
+                        <div class="accordion__content">
+                            <p>It can, and does. While the Department of the Treasury prints actual dollars, “printing money” is also a term that is sometimes used to describe a means of <a href="https://www.federalreserve.gov/monetarypolicy.htm" rel="noopener noreferrer" target="_blank">monetary policy</a>, which is conducted by the Federal Reserve. Monetary policy involves controlling the supply of money and the cost of borrowing. The Federal Reserve uses monetary policy to promote maximum employment, stable prices, and moderate long-term interest rates on the behalf of the Congress. The federal government uses fiscal policy, or the control of taxation and government spending, to promote economic activity.</p>
+                        </div>
+                    </section>
+    
+                    <a class="link-button chapter__cta" href="debt/">
+                        <div class="link-button__text--block">
+                            <div class="link-button__text--top">Learn more about</div>
+                            <div class="link-button__text--bottom">Federal Debt</div>
+                        </div>
+                        <div class="link-button__icon--block">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="chapter__chart">
+                    <img src="/assets/ffg/bp/debt/debt-graph-outline.svg" alt="Federal debt has increased over the past five years. Federal debt was $17.8 trillion, $18.2 trillion, $19.6 trillion, $20.2 trillion and $21.5 trillion at the end of the years 2014 to 2018 respectively.">
+                    <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" rel="noopener noreferrer" target="_blank">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                </div>
+>>>>>>> 11c6f877... refresh snapshots
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <section class="hwcta">
     <p>This analysis was conducted using the <a href="https://fiscal.treasury.gov/reports-statements/mts/" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a>
@@ -839,10 +1092,10 @@
     <div class="afg__download--div">
         <div class="afg__download--heading">Download Source Data</div>
         <ul>
-            <li><a href="../assets/ffg/data/overview_federal_revenue.csv" download>overview_federal_revenue.csv</a></li>
-            <li><a href="../assets/ffg/data/overview_federal_spending.csv" download>overview_federal_spending.csv</a></li>
-            <li><a href="../assets/ffg/data/overview_federal_deficit.csv" download>overview_federal_deficit.csv</a></li>
-            <li><a href="../assets/ffg/data/overview_federal_debt.csv" download>overview_federal_debt.csv</a></li>
+            <li><a href="../../../assets/ffg/data/overview_federal_revenue.csv" download>overview_federal_revenue.csv</a></li>
+            <li><a href="../../../assets/ffg/data/overview_federal_spending.csv" download>overview_federal_spending.csv</a></li>
+            <li><a href="../../../assets/ffg/data/overview_federal_deficit.csv" download>overview_federal_deficit.csv</a></li>
+            <li><a href="../../../assets/ffg/data/overview_federal_debt.csv" download>overview_federal_debt.csv</a></li>
         </ul>
     </div>
 </section>
@@ -855,7 +1108,7 @@
 
 <div class="about-us">
     <h1 class="about-us__heading">Americans asked. We listened.</h1>
-    <p class="about-us__main-copy"><em>Your Guide to America's Finances</em> is a re-invention of the <a href="https://www.fiscal.treasury.gov/reports-statements/financial-report/current-report.html" rel="noopener noreferrer" target="_blank">Citizen’s Guide to the Financial Report of the U.S. Government</a>. This site was created in response to the public’s desire to learn more about the financial picture of the United States. Where does the money come from? Where does it go? What are the trends over time, and how does the U.S. compare to other countries?  This guide was created to make federal financial information open and accessible to all - the very principles that our founding fathers set forth when the United States was formed.</p>
+    <p class="about-us__main-copy"><em>Your Guide to America's Finances</em> is a re-invention of the <a href="https://www.fiscal.treasury.gov/reports-statements/financial-report/current-report.html" rel="noopener noreferrer" target="_blank">Citizen’s Guide to the Financial Report of the U.S. Government</a>. This site was created in response to the public’s desire to learn more about the financial picture of the United States. Where does the money come from? Where does it go? What are the trends over time, and how does the U.S. compare to other countries?  This guide was created to make federal financial information open and accessible to all - reflecting the very principles that our founding fathers set forth when the United States was formed.</p>
     <p class="about-us__source"><strong>Your Guide to America's Finances</strong> is brought to you by the U.S. Department of the Treasury</p>
     <img src="/assets/ffg/bp/treasury-seal.svg" class="about-us__logo" alt="U.S. Treasury Logo">
 </div>
@@ -871,18 +1124,18 @@
 </article>
 
       <script>
-  function trackLinkClick(actionName) {
-          window.Analytics.event({
-              category: 'Footer - Click Link',
-              action: actionName
-      });
-  }
+ function trackLinkClick(actionName) {
+     window.Analytics.event({
+         category: 'Footer - Click Link',
+         action: actionName
+     });
+ }
 
-  function leaveSiteLink(outbound) {
-          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-          document.getElementById('leave-modal').style.display = 'block';
-  }
+ function leaveSiteLink(outbound) {
+     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+     document.getElementById('leave-modal').style.display = 'block';
+ }
 </script>
 
 <div class="dl-footer">
@@ -934,7 +1187,7 @@
 
     <div class="dl-footer__group-title">Contact Us</div>
     <p>
-      For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
+      For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
     </p>
     <p>
       T: 202-504-3535<br>
@@ -947,7 +1200,7 @@
 
     <div class="dl-footer__group-title">Mailing List</div>
     <p>
-      To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
+      To join our mailing list, send a<br> blank email with no subject to:<br> <a class="community-page-link" href="mailto: datalab@lists.fiscal.treasury.gov">datalab@lists.fiscal.treasury.gov</a>
     </p>
     <div class="dl-footer__group-title">Join the Conversation</div>
     <p>
@@ -960,12 +1213,11 @@
   <div class="dl-footer__social">
     <div class="dl-footer__group-title">Connect With Us</div>
     <div class="dl-footer__social-items">
-      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
+      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-labelledby="Github-icon-title" href="https://github.com/fedspendingtransparency/datalab">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Github</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Github-icon-title">Github</title>
     <g id="Github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-2">
             <rect id="Rectangle" x="0" y="-3.55271368e-15" width="31.8801538" height="32.9714533"></rect>
@@ -976,12 +1228,11 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
+      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-labelledby="DataWorld-icon-title" href="https://data.world/usaspending">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Data.World</title>
-    <desc>Created with Sketch.</desc>
+    <title id="DataWorld-icon-title">Data World</title>
     <defs>
         <polygon id="path-1" points="0.0359888889 2.06896552e-05 1.95965126 2.06896552e-05 1.95965126 6 0.0359888889 6"></polygon>
         <polygon id="path-3" points="0.00128207569 2.06896552e-05 1.92494445 2.06896552e-05 1.92494445 6 0.00128207569 6"></polygon>
@@ -1021,12 +1272,11 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
+      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-labelledby="Twitter-icon-title" href="https://twitter.com/fiscalservice">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Twitter</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Twitter-icon-title">Twitter</title>
     <g id="Twitter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-12">
             <g transform="translate(0.000000, -0.000000)">
@@ -1039,12 +1289,11 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
+      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-labelledby="Facebook-icon-title" href="https://www.facebook.com/pg/fiscalservice">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Facebook</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Facebook-icon-title">Facebook</title>
     <g id="Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group">
             <g transform="translate(0.000000, -0.000000)">
@@ -1057,15 +1306,14 @@
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-labelledby="LinkediIn-icon-title" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Linkedin</title>
-    <desc>Created with Sketch.</desc>
+    <title id="LinkediIn-icon-title">LinkediIn</title>
     <g id="Linkedin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="LinkedIn">
-            <g id="LinkedIn'" transform="translate(0.000000, -0.000000)">
+            <g id="LinkedIn" transform="translate(0.000000, -0.000000)">
                 <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
                 <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
                 <path d="M9.06009951,13.7978886 L11.8845113,13.7978886 L11.8845113,23.9782792 L9.06009951,23.9782792 L9.06009951,13.7978886 Z M10.4003106,12.5245001 L10.3798624,12.5245001 C9.35745086,12.5245001 8.6945874,11.746265 8.6945874,10.7607563 C8.6945874,9.7550961 9.37704708,8.99221453 10.4199068,8.99221453 C11.4619145,8.99221453 12.1026257,9.7531769 12.123074,10.7578775 C12.123074,11.7433862 11.4619145,12.5245001 10.4003106,12.5245001 L10.4003106,12.5245001 Z M19.9828624,23.9792388 L19.9828624,18.7100782 C19.9828624,17.3311338 19.4818807,16.3907263 18.3802323,16.3907263 C17.5375949,16.3907263 17.0689896,17.0250215 16.8508751,17.6382056 C16.7690822,17.8569943 16.7818624,18.1631065 16.7818624,18.4701783 L16.7818624,23.9792388 L13.6089787,23.9792388 C13.6089787,23.9792388 13.6498751,14.6461745 13.6089787,13.7978886 L16.7818624,13.7978886 L16.7818624,15.3956217 C16.9693045,14.6970333 17.9831959,13.7000094 19.6011621,13.7000094 C21.6084967,13.7000094 23.1855664,15.1653178 23.1855664,18.317602 L23.1855664,23.9792388 L19.9828624,23.9792388 Z" id="Shape" fill="#808080"></path>
@@ -1079,14 +1327,14 @@
 </div>
 
 <footer id="footer">
-    <div>
-      &copy; 2018 USAspending.gov |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  <div>
+    &copy; 2018 USAspending.gov |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
   </div>
-    <div class="footer-important-info">
-      <b>NOTE:</b> You must <a href="https://beta.usaspending.gov/#/db_info">click here</a> for very important D&B information.
+  <div class="footer-important-info">
+    <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
 </footer>
 
