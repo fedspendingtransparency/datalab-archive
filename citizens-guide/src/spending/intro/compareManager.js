@@ -6,13 +6,9 @@ import { translator, isMobileDevice } from '../../utils';
 import { touchIe } from '../../touchIe';
 import { introScrollTo } from '../../introScrollTo';
 
-const stateManager = {},
-    layers = {},
+const layers = {},
     duration = 500,
-    idMap = {
-        gdp: '#gdp-facts',
-        revenue: '#revenue-facts'
-    },
+    scaleFactor = isMobileDevice() ? 0.45 : 0.6,
     sectionActive = 'facts__section--active',
     buttonActive = 'facts__trigger--active',
     d3 = { select, selectAll, transition };
@@ -28,7 +24,7 @@ function setLayerOpacity(id, active) {
 }
 
 function handleGdpLayer(reset) {
-    const scale = reset ? 1 : 0.6,
+    const scale = reset ? 1 : scaleFactor,
         x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2),
         stepTwoOpacity = reset ? 0 : 1,
         mainContainer = d3.select('.main-container');
@@ -55,12 +51,13 @@ function handleGdpLayer(reset) {
         .ease();
 }
 
-function setAccessibility(type){
+function setAccessibility(type) {
     const svgEl = d3.select('svg.main'),
         descEl = svgEl.select('desc');
 
     let accessibilityAttr = config.accessibilityAttrs.default;
-    if(type){
+
+    if (type) {
         accessibilityAttr = config.accessibilityAttrs[type];
     }
 
@@ -68,10 +65,10 @@ function setAccessibility(type){
 }
 
 function handleRevenueLayer(reset) {
-    const scale = reset ? 1 : 0.6,
-    x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2),
-    stepTwoOpacity = reset ? 0 : 1,
-    mainContainer = d3.select('.main-container');
+    const scale = reset ? 1 : scaleFactor,
+        x = reset ? 0 : chartWidth * 0.5 - (chartWidth * scale / 2),
+        stepTwoOpacity = reset ? 0 : 1,
+        mainContainer = d3.select('.main-container');
 
     let accessibilityType = !reset ? config.compareString : '';
 
@@ -125,9 +122,9 @@ function toggleFacts() {
 
     resizeSvg((id === 'gdp' && !wasPreviouslyActive));
 
-    if (!wasPreviouslyActive && desktop) {
+    if (!wasPreviouslyActive) {
         handleLayers(id);
-    } else if (desktop) {
+    } else {
         handleLayers(id, true);
     }
 
