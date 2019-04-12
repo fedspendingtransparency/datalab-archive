@@ -4,6 +4,7 @@ import { trendData } from './trendData';
 import { trendDesktop } from '../../components/trends/chart';
 import colors from '../../colors.scss';
 import { trendMobile } from '../../components/trendsMobile';
+import { manualThresholds } from './manualThresholds';
 
 const d3 = { select, selectAll },
     data = trendData(),
@@ -14,7 +15,8 @@ const d3 = { select, selectAll },
     config = {
         chapter: 'revenue',
         baseColor: colors.colorPrimaryDarker,
-        secondaryColor: 'rgb(74, 144, 226)'
+        secondaryColor: 'rgb(74, 144, 226)',
+        subcategoryThresholds: manualThresholds
     }
 
 let container;
