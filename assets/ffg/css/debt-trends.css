@@ -1,0 +1,131 @@
+.accordion {
+  margin: 0 0 1rem 0;
+  transition: opacity 1s ease; }
+  .accordion ul {
+    list-style-type: disc; }
+
+.accordion__heading {
+  padding: 20px;
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid #eee;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600; }
+
+.cg-content .accordion__content {
+  padding: 20px;
+  border: 1px solid transparent;
+  border-top: none;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.5s ease;
+  opacity: 0; }
+  .cg-content .accordion__content p {
+    margin-bottom: 0;
+    margin-top: 0;
+    transition: margin 0.5s ease; }
+
+.accordion__toggle {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  float: right;
+  width: 26px; }
+
+.accordion__plus {
+  display: block; }
+
+.accordion__minus {
+  display: none; }
+
+.accordion--open .accordion__content {
+  line-height: 1.2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: #eee;
+  opacity: 1; }
+  .accordion--open .accordion__content p:not(:first-child) {
+    margin-top: 1rem; }
+
+.accordion--open .accordion__plus {
+  display: none; }
+
+.accordion--open .accordion__minus {
+  display: block; }
+
+.trend-chart-container {
+  margin-bottom: 2rem;
+  position: relative; }
+
+.trend-chart-container__image {
+  max-width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease; }
+
+.trend-chart-container__image.trend-chart-container__image--active {
+  opacity: 1; }
+
+.trend-chart-container .trend-chart-container__image:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.debt-chart-toggle {
+  margin-bottom: 1rem; }
+
+.debt-chart-toggle__label {
+  color: #666666;
+  transition: color, font-weight 0.3s ease;
+  cursor: pointer;
+  transform: translateY(-5px);
+  display: inline-block;
+  min-width: 33px; }
+
+.debt-chart-toggle[data-active="debt-image"] .debt-chart-toggle__label--debt {
+  color: #4A0072;
+  font-weight: 600; }
+
+.debt-chart-toggle[data-active="gdp-image"] .debt-chart-toggle__label--gdp {
+  color: #4A0072;
+  font-weight: 600; }
+
+.toggle-control {
+  border: none;
+  background: none;
+  padding: 0; }
+
+.toggle-control__background {
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  width: 2rem;
+  height: 1.2rem;
+  border-radius: 0.6rem;
+  position: relative;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); }
+
+.toggle-control__dot {
+  height: 1rem;
+  border-radius: 0.5rem;
+  width: 1rem;
+  background: white;
+  border: 2px solid #4A0072;
+  box-sizing: border-box;
+  margin: 2px 2px;
+  transition: transform 0.25s ease; }
+
+.debt-chart-toggle[data-active="gdp-image"] .toggle-control__dot {
+  transform: translateX(0.8rem); }
+
+@media only screen and (min-width: 900px) {
+  .trend-chart-container {
+    width: 67%;
+    float: left; }
+  .debt-aside {
+    width: 33%;
+    float: right;
+    padding-left: 2rem;
+    box-sizing: border-box; } }

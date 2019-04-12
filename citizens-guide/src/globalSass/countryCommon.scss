@@ -1,0 +1,63 @@
+@import './chapterLink';
+
+#viz {
+    overflow-x: hidden;
+}
+
+.country-chart {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 800px) {
+    #viz {
+        margin-top: -1rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1230px) {
+    .country-copy {
+  
+      p:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    .country-copy__text {
+        float: left;
+        width: 80%;
+        padding-right: 2rem;
+        box-sizing: border-box;
+    }
+  
+    .country-chart {
+      clear: both;
+    }
+  }
+
+@media only screen and (min-width: 1230px) {
+    .country-copy {
+        float: left;
+        width: 32%;
+        padding-right: 2rem;
+        box-sizing: border-box;
+
+        p:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .country-chart {
+        float: right;
+        width: 68%;
+        box-sizing: border-box;        
+    }
+    
+    #viz {
+        margin-top: -1rem;
+    }
+
+    .chart-title {
+        margin-top: 0;
+    }
+}

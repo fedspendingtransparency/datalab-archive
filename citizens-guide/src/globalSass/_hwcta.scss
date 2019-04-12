@@ -1,0 +1,86 @@
+$padding: 1.25rem;
+
+.afg__download--div {
+    margin-top: 1rem;
+}
+
+.afg__download--heading {
+    font-size:1.5rem;
+}
+
+.hwcta {
+    max-width: 900px;
+    margin: 1rem auto;
+    transition: opacity 1s ease;
+
+    ul {
+        list-style-type: disc;
+    }
+}
+
+.hwcta__heading {
+    padding: 1.25rem;
+    font-size: 1.5rem;
+    text-align: left;
+    border: 1px solid #eee;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hwcta__copy {
+    padding: $padding;
+    border: 1px solid transparent;
+    border-top: none;
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+
+    p:first-child {
+        margin-top: 0px;
+    }
+    p:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.hwcta__toggle {
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    float: right;
+    width: 1.625rem;
+}
+
+.hwcta__plus {
+    display: block;
+}
+
+.hwcta__minus {
+    display: none;
+}
+
+.hwcta--staged {
+    opacity: 0;
+}
+
+.hwcta--open {
+    .hwcta__copy {
+        line-height: 1.2;
+        padding-top: $padding;
+        padding-bottom: $padding;
+        border-color: #eee;
+        opacity: 1;
+    }
+
+    .hwcta__plus {
+        display: none;
+    }
+
+    .hwcta__minus {
+        display: block;
+    }
+}

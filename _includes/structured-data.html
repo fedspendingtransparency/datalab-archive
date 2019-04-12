@@ -1,0 +1,31 @@
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://datalab.usaspending.gov/"
+        },
+        "image": "{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}",
+        "headline": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% endif %}",
+        "datePublished": "{% if page.datePublished %}{{ page.datePublished }}{% else %}2019-04-09T08:00:00+06:00{% endif %}",
+        "dateModified": "{% if page.dateModified %}{{ page.dateModified }}{% else %}2019-04-09T08:00:00+06:00{% endif %}",
+        "author": {
+        "@type": "Organization",
+        "name": "U.S. Treasury",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+            }
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "U.S. Treasury",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+            }
+        },
+        "description": "{% if page.excerpt %}{{ page.excerpt }}{% endif %}"
+    }
+    </script>

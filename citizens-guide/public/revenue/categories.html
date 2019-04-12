@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Federal Revenue Categories
+    </title>
+    <meta name="description" content="This is the text that goes in the meta description tag">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/normalize.css"  type="text/css">
+    <link rel="stylesheet" href="../assets/cg.css"  type="text/css">
+    <link rel="stylesheet" href="../assets/nav/nav.css"  type="text/css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather" />
+        <link rel="stylesheet" href="../assets/revenue-categories.css"  type="text/css">
+</head>
+
+<body>
+    
+        <nav class="chapter-nav chapter-nav--revenue">
+    <a class="chapter-nav__bp-button--div" href="../" title="Back to Home Page">
+        <i class="fas fa-home"></i>
+        <span class="chapter-nav__bp-button--supporting-text">Back to Home Page</span>
+    </a>
+    <ul class="chapter-nav__primary-list">
+        <li><a href="./">Revenue and GDP</a></li>
+        <li><a href="./categories.html">Revenue Categories</a></li>
+        <li><a href="./trends-categories.html">Federal Revenue Trends</a></li>
+        <li><a href="./country-comparison.html">Country Comparison</a></li>
+    </ul>
+    <button class="chapter-nav-trigger">
+        <hr>
+        <hr>
+        <hr>
+    </button>
+</nav>
+
+    
+    <main>
+        <h1>Sources of Revenue for the Federal Government </h1>
+
+<h2 class="chart-title">Revenue by Source Categories</h2>
+<div class="hint">Click <span class="category-bar-legend"></span> to explore sub-categories.</div>
+<div id="viz-wrapper">
+    <div id='viz-chart-container'>
+        <div id="bar-controls">
+            <div class='bar-controls__left'>
+                Sort by:
+                <div class='bar-controls__left--button-div'>
+                    <button id="sort-amount" class="active">Amount <i class="fas fa-sort-amount-down"></i></button>
+                    <button id="sort-name">Name <i class="fas fa-sort-alpha-down"></i></button>
+                </div>
+            </div>
+            <div class='bar-controls__right'>
+                <div class='bar-controls__right--div'>
+                    <input type="text" placeholder='Search by a term...' id="filter-by-name">
+                    <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div id="viz"></div>
+        <hr class='categories__show-more'>
+            <div id="show-more-container" class='categories__show-more'>
+            <button id="show-more-button" class="chart__show-more">Show More</button>
+        </div>
+    </div>
+</div>
+
+<div class="poc-content" id="income-facts">
+    <section class="copy-tour-row__copy">
+        <p>Most of the revenue the government collects comes from contributions from individual taxpayers, small businesses, and corporations through taxes that get collected on a yearly or quarterly basis. The remaining sources of federal revenue consist of excise, estate, and other taxes and fees.</p>
+        <section class="accordion">
+            <h1 class="accordion__heading">Where Do My Social Security, and Medicare taxes go?</h1>
+            <div class="accordion__content">
+                <p>You may recognize these taxes on your paycheck. Unlike income taxes, these taxes are used to help fund specific social service programs. Funds are collected from your paycheck, and in most cases matched by your employer, then divided into the various trust fund accounts.</p>
+                <p>Social Security has two trust fund accounts the Old Age and Survivors Insurance Trust Fund (OASI) and the Disability Trust Fund (DI). These accounts are responsible for providing workers and their families with retirement, disability and survivor’s insurance benefits.</p>
+                <p>Medicare also has two accounts the Hospital Insurance (HI) also known as Medicare Part A and the Supplementary Medical Insurance (SMI) Trust Fund. These funds pay for hospital, home health, skilled nursing, and hospice care for the elderly and disabled.</p>
+            </div>
+        </section>
+        <section class="accordion">
+            <h1 class="accordion__heading">Why does the Federal Reserve send money to the federal government?</h1>
+            <div class="accordion__content">
+                <p>The Federal Reserve Act of 1913 established the Federal Reserve System as the central bank for the United States and federal agencies. As the nation’s central banker the Federal Reserve and the Department of the Treasury work together closely. The Federal Reserve issues Treasury securities and conducts auctions of these securities to stimulate funds for the federal government. In addition the Federal Reserve also processes monetary transactions on behalf of the Treasury, including issuing payments and other government receivables. </p>
+                <p>The role of The Federal Reserve Bank is to support the economy, not to make a profit.</p>
+                <p>Once the Federal Reserve pays its expenses any remaining profits are sent to the Department of the Treasury to be used by the federal government.</p>
+            </div>
+        </section>
+        <section class="accordion">
+            <h1 class="accordion__heading">Does all agency funding come from the federal government?</h1>
+            <div class="accordion__content">
+                <p>Government revenue also comes from payments to federal agencies like the U.S. Department of the Interior. Have you visited a national park recently? Did you know your national park entry fee also applies towards government revenue? Other agencies see revenue from leases, the sale of natural resources, and various usage and licensing fees.</p>
+                <p>What makes up individual income taxes? How much federal revenue is contributed by Social Security and Medicare Taxes? What’s included in the 8% of revenue that doesn’t come from taxpayers or corporations? Explore the chart to find out.</p>
+            </div>
+        </section>
+    </section>
+    <div class="copy-tour-row__tour">
+        <section class="tour">
+            <div class="tour__part-one">
+                <h1>How has government revenue changed over time?</h1>
+                <p>When you're done here, explore the trends in federal revenue over the past five years.</p>
+            </div>
+            <a class="tour__link" href="./trends-categories.html">Continue<i class="fas fa-chevron-right"></i></a>
+        </section>
+    </div>
+</div>
+
+<div class="info-box" id="income-anecdote">
+    <img src="../assets/icons/anecdote.svg" alt="anecdote icon">
+    <p>Not all federal revenue comes from taxes! Your national park entry fee also applies towards government revenue.</p>
+</div>
+
+<section class="hwcta">
+    The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States.
+</section>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://datalab.usaspending.gov/"
+    },
+    "image": "http://datalab.usaspending.gov/assets/ffg/revenue/categories.png",
+    "headline": "Sources of Revenue for the Federal Government",
+    "datePublished": "2019-01-17T08:00:00+06:00",
+    "dateModified": "2019-01-17T08:00:00+06:00",
+    "author": {
+    "@type": "Organization",
+    "name": "U.S. Treasury",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+        }
+    },
+    "publisher": {
+    "@type": "Organization",
+    "name": "U.S. Treasury",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+        }
+    },
+    "description": "Most of the revenue the government collects comes from contributions from individual taxpayers, small businesses, and corporations through taxes that get collected on a yearly or quarterly basis. The remaining sources of federal revenue consist of excise, estate, and other taxes and fees."
+}
+</script>
+<script src="../assets/hwcta.js"></script>
+<script src="../assets/accordion.js"></script>
+
+<script src="./assets/categories.js"></script>
+ 
+    </main>
+</body>
+<script src="../assets/nav/nav.js"></script>
+</html>
