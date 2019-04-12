@@ -1,59 +1,104 @@
+@media screen and (max-width: 1130px) {
+  .wide {
+    display: none !important;
+  }
+  .footer-navigation__container {
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1131px) {
+  .narrow {
+    display: none !important;
+  }
+  .footer-navigation__container {
+    align-items: center;
+  }
+}
+
+
+$footer-text-color: #666;
+
+.right-align {
+  text-align: right;
+}
+
 .footer-navigation {
-	display: flex;
-    justify-content: space-around;
-	padding: 70px;
-	
-	background-position: center;
-    background-size: cover;
-    background-image: url(/images/analysis.jpg);
+  display: flex;
+  padding: 50px 10% 36px;
+  background-position: center;
+  background-size: cover;
 }
 
 .footer-navigation__navigate-button {
-	display: inline-block;
-	width: 64px;
-	height: 64px;
-	vertical-align: sub;
-	margin: 15px 0;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  vertical-align: sub;
+  margin: 15px 0;
 }
 
 .footer-navigation__navigate-button.btn-prev-viz {
-	margin-right: 40px;
-	margin-right: 2vw;
+  margin-right: 40px;
+  margin-right: 2vw;
 }
-
 .footer-navigation__navigate-button.btn-next-viz {
-	margin-left: 40px;
-	margin-left: 2vw;
-}
-
-.footer-navigation__separator {
-	border-right: 1px solid #FFF;
-	height: 75px;
-	align-self: center;
+  margin-left: 40px;
+  margin-left: 2vw;
 }
 
 .footer-navigation__title-container {
-	display: inline-block;
-	color: #FFF;
+  display: inline-block;
+}
+.footer-navigation__title-container:hover {
+  color: #9BDAF1;
 }
 
 .footer-navigation__container {
-	align-self: center;
+  flex-basis: 50%;
+  display: flex;
+
+  &_previous {
+    padding-right: 5%;
+  }
+  &_next{
+    // align-items: flex-end;
+    padding-left: 5%;
+    border-left: 1px solid $footer-text-color;
+    &>div {
+      width: 100%;
+      &>div {
+        display: inline-block;
+      }
+    }
+  }
+  @media screen and (max-width: 1130px) {
+    &_previous {
+      flex-direction: column-reverse;
+    }
+    &_next {
+      flex-direction: column;
+    }
+  }
 }
 
 .footer-navigation__title {
-    color: inherit;
-    font-weight: 400;
-    font-size: 34px;
+  color: $footer-text-color;
+  font-weight: 300;
+  font-size: 28px;
+  padding-bottom: 15px;
 }
 
 .footer-navigation__subtitle {
-    color: inherit;
-	font-weight: 300;
-    font-size: 14px;
-    text-transform: uppercase;
+  color: $footer-text-color;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.footer-navigation__subtitle::after {
+  content: " Visualization"
 }
 
-.footer-navigation__title-container:hover {
-	color: #9BDAF1;
+@media screen and (max-width: 480px) {
+  .footer-navigation__subtitle::after {
+    content: ""
+  }
 }

@@ -1,0 +1,42 @@
+@import '../colors';
+
+.info-box-trigger {
+    font-size: 16px;
+    color: $color-primary-darker;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    transform: translateY(-3px);
+}
+
+h1 .info-box-trigger {
+    transform: none;
+    vertical-align: super;
+    padding-left: 0;
+}
+
+.info-box-trigger.info-box-trigger--active {
+    opacity: 0;
+}
+
+.info-box {
+    @extend %info-box;
+    background: rgba(255, 255, 255, 0.95);
+    max-width: 300px;
+    display: none;
+}
+
+.info-box-trigger img, .info-box img {
+    height: 16px;
+}
+
+.info-box.info-box--active {
+    display: block;
+    position: absolute;
+}
+
+.info-box__close {
+    float: right;
+    background: white;
+    border: none;
+}

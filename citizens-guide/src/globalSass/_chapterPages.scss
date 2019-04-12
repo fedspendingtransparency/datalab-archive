@@ -1,0 +1,32 @@
+.chapter-intro__math {
+  text-align: center;
+}
+
+.chapter-intro__math i.fa-reply {
+  color:#EEE;
+  -moz-transform: scaleX(-1) scaleY(-1);
+  -o-transform: scaleX(-1) scaleY(-1);
+  -webkit-transform: scaleX(-1) scaleY(-1);
+  transform: scaleX(-1) scaleY(-1);
+  filter: FlipH FlipV;
+  -ms-filter: "FlipH FlipV";
+  margin-right:0.5rem;
+}
+
+@media only screen and (min-width: 960px) {
+  .chapter-intro__math {
+    width: 66%;
+    float: left;
+  }
+}
+
+@media only screen and (min-width:500px) and (max-width:960px) {
+  .chapter-intro__math {
+    margin-top: 2vh;
+  }
+}
+
+#copy {
+  text-align: left;
+  margin-top: 3rem;
+}

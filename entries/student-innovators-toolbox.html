@@ -23,7 +23,7 @@ category: entry
 }
 
 .active, .collapsible:hover {
-  background-color: #f5faff;
+  /* background-color: #f5faff; */
 }
 
 .collapsible:after {
@@ -31,10 +31,6 @@ category: entry
   font-weight: bold;
   float: right;
   margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
 }
 
 .content {
@@ -406,22 +402,6 @@ category: entry
 		text-align: center;
 	}
 </style>
-
-
-<div class="section-updates">
-	<div class="section-updates-header">Updates</div>
-	<div class="section-updates-subtext">Sign up for more stories and updates from the Datalab</div>
-	<div class="section-update-signup-container">
-		<input class="section-update-email" type="text" placeholder="you@example.com" value="">
-		<button class="section-update-sign-up">Sign Up</button>
-	</div>
-	<div class="section-updates-privacy">
-		By signing up for this email, you are agreeing to news and information
-		from DataLab and our partners. Click here to visit our privacy policy.
-		Easy unsubscribe links are provided in every email.
-	</div>
-</div>
-
 
 <script>
 	var coll = document.getElementsByClassName("collapsible");

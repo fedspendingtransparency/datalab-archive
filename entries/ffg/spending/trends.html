@@ -1,0 +1,80 @@
+--- 
+layout: ffg
+title: Data Lab - Federal Spending Trends – U.S. Treasury
+excerpt: This chart presents federal spending by spending type or by agency over a five year period. Have there been significant changes in federal spending? What impact does an increase or decrease have on spending at the sub-category level? You can track trends in federal spending by category or at the sub-category level.
+description: Find out how federal spending has changed over time.
+keywords: federal spending, , revenue, federal revenue, U.S. spending, gross domestic product, GDP, deficit, debt, federal spending trends over time
+permalink: /americas-finance-guide/spending/trends
+ffg: true
+ffgNav: true
+ffgPageCss: css/trendsCommon.css
+---
+
+{% include ffg/nav/spending.html %}
+
+<div class="ffg-wrapper">
+    <div class="ffg-share">{% include new-share-menu.html %}</div>
+
+    <h1>Federal Spending Trends Over Time</h1>
+
+    <div class="trend-flex">
+        <div class="trend-copy">
+            <div class="trend-copy__text">
+                <p>How has spending changed over the past few years? This chart presents federal spending by category or by agency over a five year period. Have there been significant changes in federal spending? What impact does an increase or decrease have on spending at the subcategory level?</p>
+                <p>You can track trends in federal spending by category or subcategory.</p>
+            </div>
+            <section class="tour">
+                <div class="tour__part-one">
+                    <h1>How does federal spending in the United States compare to other countries?</h1>
+                    <p>When you're done here, see how federal spending by the U.S. compares to other countries.</p>
+                </div>
+                <a class="tour__link" href="./country-comparison.html">Continue<i class="fas fa-chevron-right"></i></a>
+            </section>
+        </div>
+
+        <div class="trend-chart">
+            <h2 class="chart-title">
+                <span class="title-text">Spending over Time by</span>
+                <div class="link-button__div">
+                    <button class="link-button" id="select-budget-function">Categories</button>
+                    <button class="link-button hidden" id="select-agency">Agency</button>
+                    <i class='link-button__icon fa fa-angle-down'></i>
+                </div>
+            </h2>
+
+            <div id="show-hide">
+                <button id="activate-show-hide">Filter <i class='fa fa-sliders-h'></i></button>
+                <div id="show-hide-tray">
+                    <div class='show-hide__buttons'>
+                        <div class='show-hide__buttons--left'>
+                            <button id="select-all">Select All</button>
+                            <button id="select-none">Remove All</button>
+                        </div>
+                        <div class='show-hide__buttons--right'>
+                            <button id="reset-filters-button">Reset</button>
+                            <button id="save-filters-button">Save</button>
+                        </div>
+                    </div>
+        
+                    <div id="show-hide-list"></div>
+                </div>
+            </div>
+        
+            <div class="hint">Click a spending category to view more</div>
+        
+            <div id="viz"></div>
+        </div>
+    </div>
+
+    <section class="hwcta">
+        <p>The visualization was created using the <a href="https://fiscal.treasury.gov/reports-statements/mts/" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Some categories from the MTS have been renamed in order to be more easily understood. <a href="https://data.bls.gov/cgi-bin/surveymost?bls" rel="noopener noreferrer" target="_blank">The Bureau of Labor Statistics (BLS) Consumer Price Index for All Urban Consumers (CPI-U)</a> was used to adjust spending in fiscal years 2014-2017 for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of spending over time.</p>
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/federal_spending_trends.csv" download>federal_spending_trends.csv</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<script src="/assets/ffg/spending/trends.js"></script>

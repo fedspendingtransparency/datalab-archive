@@ -1,0 +1,163 @@
+@import '../../colors.scss';
+@import './bpVars.scss';
+@import '../../globalSass/generalVars';
+
+h1.chapter__heading {
+    font-weight: 500;
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+section.chapter {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
+.chapter .anecdote {
+    margin-top: 1rem;
+}
+
+.chapter__content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: $text-color-paragraph;
+
+    p {
+        color: $text-color-paragraph;
+        font-size:1.1rem;
+
+        &.chapter__chart--reference {
+            font-size: 0.7rem;
+            text-align: center;
+            font-style: italic;
+
+            a {
+                color: rgb(119, 171, 232);
+            }
+        }
+    }
+}
+
+.chapter__big-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.chapter__paragraph--tightened {
+    margin-top:0;
+}
+
+.chapter__chart {
+    display: none;
+}
+
+.chapter__chart img {
+    width: 100%;
+    height: auto;
+}
+
+.chapter-break {
+    border-bottom: 1px solid #CCC;
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+@media only screen and (max-width: 800px) {
+    .chapter__big-number--anecdote-placement {
+        .anecdote {
+            display:block;
+            margin-top:3.5rem;
+            margin-left:1rem;
+            height:5px; // If the text wraps on smartphones, we need to create this distance between the anecdote placement and the text below.
+        }
+        div.anecdote__link--button {
+            display:inline-block;
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .chapter__flex {
+        display: flex;
+    }
+    
+    .chapter__chart {
+        display: block;
+        width: 50%;
+    }
+
+    .chapter__primary {
+        padding-right: 7rem;
+        width: 50%;
+    }
+
+    .chapter__big-number {
+        font-size: 2.7rem;
+    }
+
+    h1.chapter__divider--text {
+        font-size: 3.5rem;
+    }
+
+    .chapter__divider--median-treasury-logo {
+        padding: 4rem 2rem 2rem;
+    }
+
+    .chapter__big-number--anecdote-placement {
+        display:inline-block;
+        div.anecdote__link--button {
+            display:none;
+        }
+    }
+}
+
+.chapter--revenue {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
+        color: $color-primary-darkest;
+    }
+    a.link-button {
+        background-color: $color-primary-darkest;
+    }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('/assets/ffg/icons/anecdote-revenue.svg');
+    }
+}
+
+.chapter--spending {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
+        color: $color-spending-primary;
+    }
+    a.link-button {
+        background-color: $color-spending-primary;
+    }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('/assets/ffg/icons/anecdote-spending.svg');
+    }
+}
+
+.chapter--debt, .deficit-countries__top-level {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
+        color: $color-debt-primary;
+    }
+    a.link-button {
+        background-color: $color-debt-primary;
+    }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('/assets/ffg/icons/anecdote-debt.svg');
+    }
+}
+
+.chapter--deficit {
+    a.scroll-to.current, div.anecdote__link--button, .chapter__big-number {
+        color: $color-deficit-primary;
+    }
+    a.link-button {
+        background-color: $color-deficit-primary;
+    }
+    .anecdote__link--button-icon, .anecdote__icon {
+        background-image: url('/assets/ffg/icons/anecdote-deficit.svg');
+    }
+}

@@ -1,23 +1,69 @@
-<div class="footer-navigation">
-    <div class="footer-navigation__container">
-        <a href="{{include.prev-link}}"><div class="footer-navigation__navigate-button btn-prev-viz">{% include svgs/left-arrow.svg %}</div></a>
-        <a href="{{include.prev-link}}">
-            <div class="footer-navigation__title-container">
-                <div class="footer-navigation__title">{{include.prev-text}}</div>
-                <div class="footer-navigation__subtitle">Previous Visualization</div>
-            </div>
-        </a>
+<div class="footer-navigation narrow">
+    <div class="footer-navigation__container footer-navigation__container_previous">
+        <div>
+            <a href="{{include.prev-link}}">
+                <div class="footer-navigation__subtitle">Previous</div>
+                <div class="footer-navigation__navigate-button btn-prev-viz">{% include svgs/left-arrow.svg %}</div>
+            </a>
+        </div>
+        <div>
+            <a href="{{include.prev-link}}">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">{{include.prev-text}}</div>
+                    <!-- <div class="footer-navigation__subtitle">Previous</div> -->
+                </div>
+            </a>
+        </div>
     </div>
+    <div class="footer-navigation__container footer-navigation__container_next right-align">
+        <div>
+            <a href="{{include.next-link}}">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">{{include.next-text}}</div>
+                    <!-- <div class="footer-navigation__subtitle">Next</div> -->
+                </div>
+            </a>
+        </div>
+        <div>
+            <a href="{{include.next-link}}">
+                <div class="footer-navigation__subtitle">Next</div>
+                <div class="footer-navigation__navigate-button btn-next-viz">{% include svgs/right-arrow.svg %}</div>
+            </a>
+        </div>
+    </div>
+</div>
 
-    <div class="footer-navigation__separator"></div>
-
-    <div class="footer-navigation__container">
-        <a href="{{include.next-link}}">
-            <div class="footer-navigation__title-container">
-                <div class="footer-navigation__title">{{include.next-text}}</div>
-                <div class="footer-navigation__subtitle">Next Visualization</div>
-            </div>
-        </a>
-        <a href="{{include.next-link}}"><div class="footer-navigation__navigate-button btn-next-viz">{% include svgs/right-arrow.svg %}</div></a>
+<div class="footer-navigation wide">
+    <div class="footer-navigation__container footer-navigation__container_previous">
+        <div>
+            <a href="{{include.prev-link}}">
+                <div class="footer-navigation__navigate-button btn-prev-viz">{% include svgs/left-arrow.svg %}</div>
+            </a>
+        </div>
+        <div>
+            <a href="{{include.prev-link}}">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">{{include.prev-text}}</div>
+                    <div class="footer-navigation__subtitle">Previous</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer-navigation__container footer-navigation__container_next right-align">
+        <div>
+        <div>
+            <a href="{{include.next-link}}">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">{{include.next-text}}</div>
+                    <div class="footer-navigation__subtitle">Next</div>
+                </div>
+            </a>
+        </div>
+        <div>
+            <a href="{{include.next-link}}">
+                <div class="footer-navigation__navigate-button btn-next-viz">{% include svgs/right-arrow.svg %}</div>
+            </a>
+        </div>
+    </div>
     </div>
 </div>

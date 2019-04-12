@@ -2,7 +2,7 @@
 .sass-cache/
 _site
 .vscode/
-.jekyll-metadata/
+.jekyll-metadata
 
 # Windows image file caches
 Thumbs.db
@@ -64,3 +64,5 @@ package.json
 package-lock.json
 node_modules
 .Rproj.user
+
+docker-compose.yml
