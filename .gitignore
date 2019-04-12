@@ -60,7 +60,6 @@ Gemfile.lock
 .eslintrc.json
 
 # node
-package.json
 package-lock.json
 node_modules
 .Rproj.user
