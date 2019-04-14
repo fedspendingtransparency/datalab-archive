@@ -1,0 +1,85 @@
+@import '../colors';
+@import './chapterIntro/introMath';
+@import './chapterIntro/facts';
+@import './chapterIntro/colorOverrides';
+@import './accordion';
+
+#copy {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.intro-hidden {
+  opacity: 0;
+}
+
+.viz-wrapper {
+  position: relative;
+}
+
+aside {
+  section {
+    h1 {
+      font-size: 1.1rem;
+      text-align: left;
+      margin: 0 0 0.5rem;
+    }
+  }
+}
+
+.tour {
+  max-width: 380px;
+}
+
+#viz {
+  margin: 0 auto;
+  width: auto;
+  overflow: hidden;
+}
+
+#compare-options {
+  padding: 0.5rem 1rem;
+}
+
+@media only screen and (min-width: 960px) {
+  #viz, .intro-math, #copy {
+    width: 66%;
+    float: left;
+  }
+
+  .sidebar {
+    position: relative;
+    width: calc(34% - 1rem);
+    margin-left: calc(66% + 1rem);
+    transition: opacity 1s ease;
+    transform: translateY(30px);
+  }
+
+  .facts {
+    top: 0;
+  }
+
+  .facts__inner {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    border-left: 3px solid $color-primary;
+    box-shadow: none;
+  }
+
+  .tour {
+    box-sizing: border-box;
+  }
+
+  #compare-options {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+
+  .hwcta {
+    clear: both;
+    padding-top: 2rem;
+  }
+}
+  

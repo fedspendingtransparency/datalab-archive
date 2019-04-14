@@ -1,0 +1,117 @@
+@import 'bpVars';
+
+$overviewHeight: 400px;
+$barWidth: 50px;
+
+.overview-chart {
+    background: white;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.overview-chart__heading {
+    text-align: center;
+    font-weight: $boldWeight;
+}
+
+.overview-chart__contents {
+    height: 400px;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.overview-chart__bar {
+    position: absolute;
+    width: 11%;
+}
+
+.overview-chart__bar--revenue {
+    background-color: $revenuePrimary;
+    top: 660/4000 * $overviewHeight;
+    right: 52%;
+    height: $overviewHeight - 660/4000 * $overviewHeight;    
+}
+
+.overview-chart__bar--spending {
+    background-color: $spendingPrimary;
+    top: 0;
+    left: 52%;
+    height: $overviewHeight;
+}
+    
+.overview-chart__bar--deficit {
+    background-color: $deficitPrimary;
+    top: 0;
+    right: 52%;
+    height: 660/4000 * $overviewHeight;
+}
+
+.overview-chart__label {
+    position: absolute;
+    font-size: 14px;
+    width: 32%;
+
+    p   {
+        margin: 0;
+    }
+
+    a .fa-stack {
+        transform: scale(0.5) translateX(-20px);
+        margin-right: -18px;
+    }
+}
+
+.overview-chart__label-heading {
+    margin: 0;
+}
+
+.overview-chart__label--revenue {
+    top: 660/4000 * $overviewHeight + 3340/4000 * $overviewHeight / 2 - 25px;
+
+    & > i {
+        float: right;
+        transform: translateY(3px)
+    }
+}
+
+.overview-chart__label--deficit {
+    & > i {
+        float: right;
+        transform: translateY(3px)
+    }
+}
+
+.overview-chart__label--spending {
+    right: 0;
+    top: $overviewHeight / 2 - 25px;
+    padding-left: 20px;
+    box-sizing: border-box;
+
+    & > i {
+        float: left;
+        transform: translateY(3px);
+        margin-left: -20px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+    .overview-chart {
+        padding: 2rem 3rem;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .overview-chart {
+        width: 40%;
+        margin: 0;
+        box-sizing: border-box;
+        margin-left: $col1;
+        padding: 2rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .overview-chart {
+        padding: 2rem 3rem;
+    }
+}

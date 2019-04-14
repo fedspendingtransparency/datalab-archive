@@ -1,95 +1,99 @@
 ---
 layout: landing
 title: Data Lab – U.S. Treasury
-excerpt: The Data Lab is a U.S. Treasury Department initiative to publish analyses and visualizations to help the public better understand government spending.
+excerpt: The Data Lab is a U.S. Treasury initiative to help generate public understanding of government spending through interactive data visualizations. It creates tools and visualizations that seek to answer interesting but complicated questions, and shows the power of the data available on USAspending.gov, as well as other Treasury financial data. 
+description: The Data Lab is a U.S. Treasury Department initiative to publish analyses and visualizations to help the public better understand government spending.
+keywords: Federal spending, data, visualizations, contracts, accounts, grants, federal programs, federal financial data
 ---
-
+<!-- 
 {% include leave-modal.html
-	identifier="leaveModal"
-	outbound="https://aws.amazon.com/public-datasets/usaspending/"
-%}
+identifier="leaveModal"
+outbound="https://aws.amazon.com/public-datasets/usaspending/"
+%} -->
 
-<section id="banner">
-	<p class="index-header">{{ site.description }}</p>
-	<p class="index-sub-header">Data visualizations to help you understand government spending.</p>
-	<a href="#two" class="scrolly homepage-get-started">Get Started<span class="get-started-arrow">{% include svgs/down-arrow.svg %}</span></a>
+{% include main.html %}
+
+<!-- <section id="banner">
+  <p class="index-header">{{ site.description }}</p>
+  <p class="index-sub-header">Data visualizations to help you understand government spending.</p>
+  <a href="#two" class="scrolly homepage-get-started">Get Started<span class="get-started-arrow">{% include svgs/down-arrow.svg %}</span></a>
 </section>
 
 {% include dts-module.html %}
 
 <section id="two" class="wrapper alt style2">
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/cg-revenue.jpg" alt="Citizen's Guide - Revenue" /></div>
-		<div class="content">
-			<h3>Federal Revenue Explorer</h3>
-			<h2><a href="revenue-gdp.html">Where does the money come from?</h2></a>
-			<p>In 2017, the Federal Government collected $3.3 trillion. If you lived or worked in the United States during this time, you likely contributed to this total in some capacity. Believe it or not, taxes aren’t the only source of federal revenue. Discover the various sources of revenue, examine trends over time, and compare total revenue of the U.S. to other countries.</p>
-			<a href="revenue-gdp.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/contracts-over-time.png" alt="Contracts over time" /></div>
-		<div class="content">
-			<h3>Contract Spending Analysis</h3>
-			<h2><a href="contracts-over-time.html">How has federal contract spending changed over time?</h2></a>
-			<p>We wondered what we could learn by analyzing ten years of USAspending data on federal contract spending. We also wanted to know if we could identify a relationship between the type of funding provided by Congress--new appropriations or continuing resolutions--and the amount the federal government spends on contracts.</p>
-			<a href="contracts-over-time.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/federal.jpg" alt="Federal Spending Accounts" /></div>
-		<div class="content">
-			<h3>Federal Account Explorer</h3>
-			<h2><a href="federal-account-explorer.html">Discover the federal government’s spending accounts</a></h2>
-			<p>The government has almost 2,000 spending accounts that it uses to spend money. Use this interactive tree-style visualization to explore these accounts and see how much money has been spent.</p>
-			<a href="federal-account-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div>
-		<div class="content">
-			<h3>Contract Explorer</h3>
-			<h2><a href="contract-explorer.html">Who receives federal contracts?</a></h2>
-			<p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies receive from these contracts.</p>
-			<a href="contract-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div>
-		<div class="content">
-			<h3>Homelessness Analysis</h3>
-			<h2><a href="homelessness-analysis.html">Explore federal programs that address homelessness</a></h2>
-			<p>On a single night in 2016, more than 500,000 people experienced homelessness in the United States. This visualization uses grant data to show the federal government's approach to addressing homelessness.</p>
-			<a href="homelessness-analysis.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div>
-		<div class="content">
-			<h3>Budget Function</h3>
-			<h2><a href="budget-function.html">See how the government categorizes its purchases</a></h2>
-			<p>Data from USAspending.gov allows you to connect two different ways the government categorizes spending: what it pays for and what it's trying to achieve with those purchases. Use this visualization to explore broad spending categories.</p>
-			<a href="budget-function.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div>
-		<div class="content">
-			<h3>Federal Employees</h3>
-			<h2><a href="federal-employees.html">Who works in government?</h2></a>
-			<p>There are hundreds of types of federal employees - special agents, park rangers, and medical staff who care for veterans, to name just a few - who live all across the United States. Use this visualization to explore federal employees’ occupations, salaries, and locations.</p>
-			<a href="federal-employees.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
-	<section class="spotlight">
-		<div class="image"><img src="images/homepage/competition.jpg" alt="Stacked Bar Chart" /></div>
-		<div class="content">
-			<h3>Competition in Contracting</h3>
-			<h2><a href="competition-in-contracting.html">How often do federal agencies compete contracts?</h2></a>
-			<p>The federal government is required to use competition when issuing contracts for goods and services, with a few exceptions.  See which federal agencies employ competitive practices most frequently with this analysis.</p>
-			<a href="competition-in-contracting.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-		</div>
-	</section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/cg-revenue.jpg" alt="Citizen's Guide - Revenue" /></div>
+    <div class="content">
+      <h3>Federal Revenue Explorer</h3>
+      <h2><a href="revenue-gdp.html">Where does the money come from?</h2></a>
+      <p>In 2017, the Federal Government collected $3.3 trillion. If you lived or worked in the United States during this time, you likely contributed to this total in some capacity. Believe it or not, taxes aren’t the only source of federal revenue. Discover the various sources of revenue, examine trends over time, and compare total revenue of the U.S. to other countries.</p>
+      <a href="revenue-gdp.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/contracts-over-time.png" alt="Contracts over time" /></div>
+    <div class="content">
+      <h3>Contract Spending Analysis</h3>
+      <h2><a href="contracts-over-time.html">How has federal contract spending changed over time?</h2></a>
+      <p>We wondered what we could learn by analyzing ten years of USAspending data on federal contract spending. We also wanted to know if we could identify a relationship between the type of funding provided by Congress--new appropriations or continuing resolutions--and the amount the federal government spends on contracts.</p>
+      <a href="contracts-over-time.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/federal.jpg" alt="Federal Spending Accounts" /></div>
+    <div class="content">
+      <h3>Federal Account Explorer</h3>
+      <h2><a href="federal-account-explorer.html">Discover the federal government’s spending accounts</a></h2>
+      <p>The government has almost 2,000 spending accounts that it uses to spend money. Use this interactive tree-style visualization to explore these accounts and see how much money has been spent.</p>
+      <a href="federal-account-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div>
+    <div class="content">
+      <h3>Contract Explorer</h3>
+      <h2><a href="contract-explorer.html">Who receives federal contracts?</a></h2>
+      <p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies receive from these contracts.</p>
+      <a href="contract-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div>
+    <div class="content">
+      <h3>Homelessness Analysis</h3>
+      <h2><a href="homelessness-analysis.html">Explore federal programs that address homelessness</a></h2>
+      <p>On a single night in 2016, more than 500,000 people experienced homelessness in the United States. This visualization uses grant data to show the federal government's approach to addressing homelessness.</p>
+      <a href="homelessness-analysis.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div>
+    <div class="content">
+      <h3>Budget Function</h3>
+      <h2><a href="budget-function.html">See how the government categorizes its purchases</a></h2>
+      <p>Data from USAspending.gov allows you to connect two different ways the government categorizes spending: what it pays for and what it's trying to achieve with those purchases. Use this visualization to explore broad spending categories.</p>
+      <a href="budget-function.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div>
+    <div class="content">
+      <h3>Federal Employees</h3>
+      <h2><a href="federal-employees.html">Who works in government?</h2></a>
+      <p>There are hundreds of types of federal employees - special agents, park rangers, and medical staff who care for veterans, to name just a few - who live all across the United States. Use this visualization to explore federal employees’ occupations, salaries, and locations.</p>
+      <a href="federal-employees.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="images/homepage/competition.jpg" alt="Stacked Bar Chart" /></div>
+    <div class="content">
+      <h3>Competition in Contracting</h3>
+      <h2><a href="competition-in-contracting.html">How often do federal agencies compete contracts?</h2></a>
+      <p>The federal government is required to use competition when issuing contracts for goods and services, with a few exceptions.  See which federal agencies employ competitive practices most frequently with this analysis.</p>
+      <a href="competition-in-contracting.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
+    </div>
+  </section>
 </section>
 
-{% include resources.html %}
+{% include resources.html %} -->

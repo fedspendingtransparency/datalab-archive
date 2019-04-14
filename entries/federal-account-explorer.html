@@ -2,10 +2,11 @@
 layout: page
 menuname: Federal Account Explorer
 menuorder: 4
-title: Data Lab - Federal Account Explorer – U.S. Treasury
-excerpt: The U.S. Treasury’s Data Lab presents a tree-style visualization exploring nearly 2,000 federal government spending accounts and the amounts spent.
+title: Data Lab – Contract Explorer – U.S. Treasury
+excerpt: The federal government spends about $500 billion each year on contracts - that's roughly the size of Sweden's economy.
+description: Ever wonder who's getting federal contracts and what agencies are awarding them? This tool lets you explore contract-related information for FY 17, including which organizations received federal contracts, contract amounts, awarding agencies and sub-agencies, and the types of goods or services contract recipients provided to the federal government.
+keywords: contracts, federal contracts, contractors, federal agencies, agencies, spending
 header: Did you know that the government has almost 2,000 federal spending accounts?
-description: Federal accounts are what the government uses to spend money. We've created this visualization to provide an all-in-one view of these accounts and help you explore how much is being used. The dendrogram (tree diagram) shows how each agency's accounts are organized. The first branch of the diagram shows agencies, the second shows sub-agencies, and the third shows the federal accounts.
 banner: landings/federal.jpg
 alt: Federal Spending Accounts
 permalink: federal-account-explorer.html
@@ -46,17 +47,20 @@ category: entry
           <input type="radio" id="contactChoice2" name="FiscalYear" value="fy17">
           <label for="contactChoice2" style="font-size:12px">FY 17</label>
 
-          <input type="radio" id="contactChoice1" name="FiscalYear" value="fy18" checked>
+          <input type="radio" id="contactChoice1" name="FiscalYear" value="fy18">
           <label for="contactChoice1" style="font-size:12px;">FY 18</label>
+
+          <input type="radio" id="contactChoice7" name="FiscalYear" value="fy19" checked>
+          <label for="contactChoice7" style="font-size:12px;">FY 19</label>
         </div>
         <div class="select-wrapper2" style="position:relative; margin:10px auto 0px 20px;">
-          <input type="radio" id="contactChoice3" name="Quarter" value="12-31">
+          <input type="radio" id="contactChoice3" name="Quarter" value="12-31" checked>
           <label for="contactChoice3" style="font-size:12px;">Q1</label>
 
           <input type="radio" id="contactChoice4" name="Quarter" value="03-31">
           <label for="contactChoice4" style="font-size:12px">Q2</label>
 
-          <input type="radio" id="contactChoice5" name="Quarter" value="06-30" checked>
+          <input type="radio" id="contactChoice5" name="Quarter" value="06-30">
           <label for="contactChoice5" style="font-size:12px;">Q3</label>
 
           <input type="radio" id="contactChoice6" name="Quarter" value="09-30">
@@ -84,8 +88,8 @@ category: entry
 %}
 
 {% include footer-navigation.html
-  prev-text="Competition In Contracting"
-  prev-link="competition-in-contracting.html"
+  prev-text="Contract Spending Analysis"
+  prev-link="contracts-over-time.html"
   next-text="Contract Explorer"
   next-link="contract-explorer.html"
 %}

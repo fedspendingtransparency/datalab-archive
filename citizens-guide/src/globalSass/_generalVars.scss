@@ -1,0 +1,9 @@
+$normalWeight: 300;
+$boldWeight: 600;
+$heavyBoldWeight: 900;
+
+%info-box {
+    border-radius: 4px;
+    box-shadow: 0 0 10px 2px rgba(80, 80, 80, 0.15);
+    padding: 1rem;
+}

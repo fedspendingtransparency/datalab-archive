@@ -1,0 +1,175 @@
+@import '../../colors.scss';
+
+.trend-mobile {
+    margin-top: 1rem;
+    background: white;
+}
+
+.trend-mobile--detail {
+    padding-left: 1rem;
+}
+
+.trend-row {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.trend-row__heading {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.trend-mobile__year {
+    font-size: 1rem;
+    color: #b0b2b7;
+    font-weight: 400;
+}
+
+.trend-mobile__amount {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #0071bc;
+    padding: 0 0.25rem;
+}
+
+.trend-row__summary {
+    padding: 0.25rem 0;
+}
+
+.trend-row__summary-icon {
+    display: inline-block;
+    margin: 0 0.25rem 0 0.75rem;
+}
+
+.trend-row__summary-change {
+    float: right;
+    font-weight: 500;
+}
+
+.trend-row__buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trend-row-button {
+    padding: 2px 0.75rem;
+    border-radius: 5px;
+    border: none;
+    background: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    i {
+        margin-left: 0.5rem;
+    }
+}
+
+.chart-row {
+    display: flex;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    transform: scaleY(0);
+    height: 0; 
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+
+.chart-row.chart-row--active {
+    height: auto;
+    margin-top: 1rem;
+    transform: scaleY(1);
+}
+
+.chart-row__data {
+    box-sizing: border-box;
+    width: 35%;
+
+}
+
+body p.chart-row__data-line {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.chart-row__chart {
+    box-sizing: border-box;
+    width: 65%;
+}
+
+.trend-row__detail {
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    svg {
+        transform: scaleX(0.85);
+    }
+}
+
+.trend-row.trend-row--detail-active .trend-row__detail {
+    margin-top: 1rem;
+    border-left-width: 0.5rem;
+    border-left-style: solid;
+}
+
+.trend-row__detail-toggle {
+    display: none;
+}
+
+.chart-row--active ~ .trend-row__buttons .trend-row__detail-toggle {
+    display: inline-block;
+}
+
+.revenue {
+    .trend-row-button {
+        background: $color-primary;
+        color: white;
+        border: 1px solid $color-primary;
+    }
+    
+    .trend-mobile--detail .trend-row-button {
+        background: lighten($color-primary, 10%);
+        color: white;
+    }
+
+    .trend-row__detail {
+        border-color: $color-primary;
+    }
+
+    .trend-mobile__amount {
+        color: $color-primary;
+    }
+
+    .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
+        color: $color-primary;
+        background: white;
+    }
+
+}
+
+.spending {
+    .trend-row-button {
+        background: $color-spending-primary;
+        color: white;
+        border: 1px solid $color-spending-primary;
+    }
+    
+    .trend-mobile--detail .trend-row-button {
+        background: lighten($color-spending-primary, 10%);
+        color: white;
+    }
+
+    .trend-row__detail {
+        border-color: $color-spending-primary;
+    }
+
+    .trend-mobile__amount {
+        color: $color-spending-primary;
+    }
+
+    .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
+        color: $color-spending-primary;
+        background: white;
+    }
+}

@@ -1,0 +1,165 @@
+.anecdote {
+  position: relative;
+  max-width: 100%;
+  font-size: 1rem;
+  display: inline-block;
+  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif; }
+  .anecdote h1.anecdote__heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    text-align: center; }
+  .anecdote .anecdote__dots--container {
+    margin-bottom: 10px; }
+  .anecdote .anecdote__dots, .anecdote .anecdote__dots--text {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__dots--text {
+    color: #B2C6D8;
+    font-size: 11px; }
+  .anecdote .anecdote__dot {
+    padding: 4px;
+    width: 8px;
+    height: 8px;
+    border: 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #B2C6D8;
+    margin: 4px;
+    cursor: pointer; }
+    .anecdote .anecdote__dot.anecdote__dot--active {
+      background: #205493; }
+    .anecdote .anecdote__dot:focus {
+      outline: 0;
+      box-shadow: 0 0 0.25rem 0.2rem #205493; }
+  .anecdote .anecdote__panes {
+    position: relative;
+    margin: 0 1rem;
+    cursor: pointer; }
+  .anecdote .anecdote__pane {
+    -moz-user-select: none;
+    user-select: none;
+    position: absolute;
+    transition: opacity 0.5s ease;
+    color: black;
+    display: none; }
+    .anecdote .anecdote__pane.anecdote__pane--active {
+      display: block; }
+    .anecdote .anecdote__pane p {
+      text-align: center;
+      margin-top: 0;
+      font-size: 1rem; }
+  .anecdote .anecdote__contents {
+    width: 330px;
+    display: none;
+    opacity: 0;
+    position: absolute;
+    background: white;
+    color: black;
+    top: 0;
+    padding: 0.85rem 1.3rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1;
+    border: 1px solid #E3E3E3;
+    box-shadow: 0 0 20px 10px rgba(80, 80, 80, 0.15);
+    /*
+         * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+         */
+    margin-left: -22px;
+    margin-top: -3px; }
+    .anecdote .anecdote__contents.anecdote__contents--active {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease; }
+  .anecdote .anecdote__close {
+    float: right;
+    background: none;
+    border: none; }
+  .anecdote .anecdote__link--button-container {
+    display: flex;
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: -1rem;
+    padding-top: 5px;
+    margin-bottom: 1.5rem;
+    cursor: pointer; }
+  .anecdote .anecdote__link--button-container, .anecdote .anecdote__link--button-icon, .anecdote .anecdote__icon {
+    height: 20px;
+    width: 20px; }
+  .anecdote .anecdote__link--button-icon, .anecdote .anecdote__icon {
+    flex: 1 20px;
+    background-repeat: no-repeat;
+    display: inline-block; }
+  .anecdote .anecdote__link--button-icon {
+    margin-bottom: -4px;
+    background-color: transparent;
+    border: 0; }
+  .anecdote .anecdote__link--button {
+    padding: 0;
+    -moz-user-select: none;
+    user-select: none; }
+    .anecdote .anecdote__link--button:focus {
+      outline: none; }
+  .anecdote .anecdote__icon {
+    margin-bottom: -4px;
+    margin-left: 0.5px; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .anecdote {
+      /* IE10+ CSS styles go here */ }
+      .anecdote .anecdote__icon {
+        margin-left: 0; } }
+  .anecdote .anecdote__illustration {
+    width: 250px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto; }
+  .anecdote .anecdote__cta--container {
+    display: flex;
+    justify-content: center; }
+  .anecdote .anecdote__cta {
+    font-weight: 600;
+    padding: 0.8rem 1.3rem;
+    font-size: 18px;
+    color: white; }
+    .anecdote .anecdote__cta i {
+      margin-left: 1rem; }
+  .anecdote .anecdote__pane .source {
+    color: #ccc;
+    font-size: 12px; }
+    .anecdote .anecdote__pane .source a {
+      color: #77abe8; }
+
+@media only screen and (min-width: 800px) {
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: calc(-2.5rem + 1px);
+    margin-top: calc(-3.5rem - 2px); }
+  #revenue-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px);
+    margin-top: calc(-3.5rem - 1px); }
+  #spending-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px);
+    margin-top: calc(-3.5rem - 1px); }
+  #debt-chapter .anecdote .anecdote__contents {
+    margin-left: calc(-2.5rem + 2px); } }
+
+@media only screen and (max-width: 800px) {
+  .anecdote .anecdote__link--button-container {
+    width: auto;
+    padding: 7px;
+    border-width: 2px;
+    border-style: solid;
+    height: auto; }
+  .anecdote .anecdote__contents {
+    /*
+             * The following is to offset the anecdote so that the display of the icons overlay on top of each other.
+             */
+    margin-left: calc(-2.5rem + 10px);
+    margin-top: calc(-3.5rem + 2px); }
+  #debt-chapter .anecdote .anecdote__contents {
+    margin-top: calc(-3.5rem + 3px); } }
