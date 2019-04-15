@@ -1,29 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Lab – U.S. Treasury</title>
-  <meta name="description" content="Experiment, Analyze, and Discover.
-">
+  <title>Data Lab - Revenue Country Comparison – U.S. Treasury</title>
+  <meta name="description" content="Compare revenue of the United States to 171 different countries.">
   
+  
+  <meta name="keywords" content="federal revenue, U.S. revenue, gross domestic product, gdp, federal receipts, income taxes, corporate taxes, compare the U.S. GDP to other countries">
   
 
-  <link rel="canonical" href="https://datalab.usaspending.gov/">
+  <link rel="canonical" href="https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison">
   <link rel="stylesheet" href="/main.css" />
   <link rel="shortcut icon" href="/images/favicon.ico">
 
   <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE" id="_fed_an_ua_tag"></script>
   
+  <link rel="stylesheet" href="/assets/fa/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/font-awesome-ie.css">
   
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
   
   
   
+  <link rel="stylesheet" href="/assets/ffg/nav/nav.css" />
   
   
+  <link rel="stylesheet" href="/assets/ffg/css/countryCommon.css" />
   
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
 
@@ -35,12 +40,19 @@
    gtag('js', new Date());
    gtag('config', 'UA-60737492-1');
   </script>
+
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-19138737-13');
+  </script>
   
   <!-- og tags -->
-  <meta property="og:title" content="Data Lab – U.S. Treasury"/>
+  <meta property="og:title" content="Data Lab - Revenue Country Comparison – U.S. Treasury"/>
   <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
-  
-  
+  <meta property="og:description" content="Compare revenue of the United States to 171 different countries."/>
+  <meta property="og:url" content="https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison" />
 </head>
 
 
@@ -51,9 +63,9 @@
 <script src="/js/homepage/header.js"></script>
 <!-- <script src="/js/homepage/sticky.js"></script> -->
 
-  <body class="landing">
+  <body>
     <div id="page-wrapper">
-        <div class="official-banner" role="note">
+      <header class="official-banner">
   <ul class="official-banner__site-list">
     <li class="official-banner__site-item">
       <a class="official-banner__site-link" href="https://www.usaspending.gov">
@@ -75,7 +87,7 @@
     </div>
     <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
   </div>
-</div>
+</header>
 <div class="info-banner">
   <div class="info-banner__content">
     <div class="info-banner__alert-icon">
@@ -99,20 +111,22 @@
   <div class="header__main">
     <a class="header-logo header-logo--init" href="/">
       <div class="header-logo__wrapper">
-	<img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" />
-	<img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" />
+        <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" alt="DataLab logo"/>
+        <img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" alt="Visualizations to help you understand government finance" />
       </div>
-      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" />
+      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
+
+    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
 
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -125,10 +139,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -141,10 +155,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
+          <span class=""><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -157,7 +171,7 @@
         </g>
     </g>
 </svg></span>
-	</li>
+        </li>
       </ul>
     </nav>
   </div>
@@ -290,716 +304,286 @@
 
 </div>
 
-        <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
+      <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
 <svg class="icon-chevron-up" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"/>
 </svg></span>
-        <!-- 
-<style>
-  .redirect-modal {
-    background-color: #fff;
-    -webkit-font-smoothing: antialiased;
-    color: #555;
-    letter-spacing: normal;
-    box-sizing: border-box;
-  }
-
-  .redirect-modal .redirect-modal__header {
-    background-color: #0071bc;
-    display: box;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .redirect-modal .redirect-modal__body {
-    text-align: center;
-    padding: 30px 45px 45px;
-  }
-
-  .redirect-modal .redirect-modal__header .redirect-modal__close-button {
-    flex: 0 0 auto;
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
-    font-weight: 400;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    text-align: left;
-    padding: 10px;
-  }
-
-  .redirect-modal .usa-da-icon-close {
-    width: 16px;
-    height: 16px;
-    fill: white;
-    cursor: pointer;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__explanation {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-size: 18px;
-    line-height: 23px;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__directions {
-    font-size: 14px;
-    padding-bottom: 2px;
-    font-weight: 600;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__link {
-    font-weight: 600;
-    font-size: 21px;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__title .redirect-modal__title-icon {
-    flex: 0 0 25px;
-    padding: 8px 10px 0 0;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__title .redirect-modal__title-text {
-    flex: 1 1 auto;
-    font-weight: 600;
-    font-size: 34px;
-  }
-
-  .redirect-modal .redirect-modal__body .redirect-modal__title .redirect-modal__title-icon svg {
-    width: 25px;
-    height: 25px;
-    fill: #5b616b;
-  }
-
-  .redirect-modal a:visited {
-      color: #4c2c92;
-  }
-
-  .redirect-modal a {
-      color: #0071bc;
-      text-decoration: none;
-  }
-</style>
-
-<div id="leave-modal" style="display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 1050; overflow-x: hidden; overflow-y: auto; text-align: center; background: rgba(0, 0, 0, 0.5); cursor: pointer;">
-  <div style="display: inline-block; height: 100%; vertical-align: middle;"></div>
-  <div role="dialog" id="react-aria-modal-dialog" class="redirect-modal" aria-label="You're leaving a Fiscal Service website." style="display: inline-block; text-align: left; top: 0px; max-width: 100%; cursor: default; vertical-align: middle;">
-     <div class="redirect-modal">
-        <div class="redirect-modal__header">
-           <button class="redirect-modal__close-button" title="Close" aria-label="Close">
-              <svg class="usa-da-icon-close" viewBox="0 0 512 512" aria-label="Close modal">
-                 <title>Close modal</title>
-                 <g>
-                    <path d="M256 212L50 6 6 50l206 206L6 462l44 44 206-206 206 206 44-44-206-206L506 50 462 6"></path>
-                 </g>
-              </svg>
-           </button>
+      <article id="main">
+  <main class="cg-content">
+    <div id="cg-glossary-wrapper">
+    <aside class="cg-glossary-sidebar" role="dialog" aria-labelledby="glossary-title">
+        <div class="cg-glossary-header-wrapper">
+            <div class="cg-glossary-header">
+                <div role="navigation" aria-label="Glossary navigation">
+                    <button class="cg-close-button" id="cg-glossary-close-button" aria-label="Close Glossary" title="Close Glossary"></button>
+                </div>
+                <h1 id="cg-glossary-title" class="cg-glossary-title" tabindex="-1">Glossary</h1>
+                <div class="cg-glossary-search-bar">
+                    <form onsubmit="return false">
+                        <input id="cg-search-text-box" type="text" class="search-field" value="" placeholder="Search for a term...">
+                        <button id="cg-search-button" aria-label="Search" class="cg-search-button"></button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="redirect-modal__body">
-           <div class="redirect-modal__title">
-              <div class="redirect-modal__title-icon">
-                 <i class="usa-da-icon">
-                    <svg class="usa-da-icon-exclamation-triangle" viewBox="0 0 512 512" aria-label="Exclamation Mark Icon">
-                       <title>Exclamation Mark Icon</title>
-                       <g>
-                          <path d="M502.7 491.8l-240-480c-4-8-10.3-8-14.3 0l-240 480c-3.8 7.8 0 14.2 9 14.2h476.3c9 0 13-6.4 9-14.2zM282 438c0 .6-.3 1-1 1h-51.4c-.6 0-1-.4-1-1v-47h-.3c0-.5.4-1 1-1H281c.7 0 1 .5 1 1v47zm2-74.7h-57l-7-178.5h71l-7 178.5z"></path>
-                       </g>
-                    </svg>
-                 </i>
-              </div>
-              <div class="redirect-modal__title-text">You're leaving a Fiscal Service website.</div>
-           </div>
-           <div class="redirect-modal__explanation">
-              You're going to a website that is not managed or controlled by the Fiscal Service.<br>Its privacy policies may differ from ours.
-           </div>
-           <div class="redirect-modal__directions">Click this link to go to the website you have selected.</div>
-           <div class="redirect-modal__link"><a href="https://aws.amazon.com/public-datasets/usaspending/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/public-datasets/usaspending/</a></div>
-        </div>
-     </div>
-  </div>
+        <div id="cg-glossary-term-list-div" style="position: relative; overflow: hidden; width: 100%; height: 743px;">
+            <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: 0px; margin-bottom: -17px; padding: 20px">
+                <div class="cg-glossary-search-results"></div>
+                <div class="cg-glossary-definition hidden">
+                    <div id="cg-definition-wrapper"></div>
+                    <button class="cg-glossary-back">
+                        <div class="cg-glossary-back__content">
+                            <div class="cg-glossary-back-button-label">Back</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="cg-glossary-scrollbar-track">
+                    <div class="cg-glossary-scrollbar-thumb" style="height: 115px; transform: translateY(0px);"></div>
+                </div>
+            </div>
+    </aside>
 </div>
 
-<script>
-  document.getElementById('leave-modal').querySelector(".redirect-modal__close-button").onclick = function() {
-    document.getElementById('leave-modal').style.display = "none";
-  }
-</script> -->
-
-<article id="main">
-  <div class="dl-landing">
-
-    <section class="primary">
-      <a class="primary__link" href="/americas-finance-guide/">
-	<h1 class="primary__mobile-heading">
-	  Your Guide to America's Finances
-	</h1>
-
-	<img class="primary__image" src="../images/homepage/cg-gif.gif" />
-	<div class="primary__content">
-
-	  <h2 class="primary__heading">
-	    Your Guide to America's Finances
-	  </h2>
-
-	  <p class="primary__text primary__text--desktop">
-	    Where does federal government funding come from? Where does it go? How has federal funding changed over
-	    time? We present you with clear, straightforward information about finances in the federal government. Check
-	    out the Data Lab’s re-invention of the <em>Citizen’s Guide to Financial Report of the U.S. Government: Your
-				Guide to America’s Finances.</em>
-	  </p>
-
-	  <div class="primary__text_container">
-	    <p class="primary__text">
-	      This visualization presents you with clear,<br> straightforward
-	      information about the<br> finances of the federal government.
-	    </p>
-	  </div>
-
-	</div>
-
-      </a>
-    </section>
-
-    <section class="secondary">
-
-      <section class="landing-chart">
-	<a class="landing-chart__link" href="dts.html">
-	  <h1>
-	    Visualizing the Daily Treasury Statement
-	  </h1>
-	  <h2>
-	    How much does the federal<br>government spend each day?
-	  </h2>
-	  <div class="dts-container">  
-  <div class="dts-module">
-    <div class="dtsm-img"></div>
-    <div class="dtsm-right-column">
-      <div class="dtsm-tas-container">
-        <div class="dtsm-tas-header">All categories</div>
-      </div>
-      <div class="dtsm-dollars">$</div>
-    </div>
-  </div>
-  
-  <script src="/js/babel-polyfill.min.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="/assets/js/dts-module.js"></script>                
-</div> 
-
-<div class="side-dts__date">
-
-</div>
-	</a>
-
-      </section>
-
-      <section class="landing-feature">
-	<a class="landing-feature__link" href="contracts-over-time.html">
-
-	  <div class="landing-feature__headings">
-	    <h1>
-	      Contract Spending Analysis
-	    </h1>
-	    <h2>
-	      How has federal<br> contract spending<br> changed over time?
-	    </h2>
-	  </div>
-
-	  <div class="landing-feature__image">
-	    <img class="" src="../images/homepage/c-o-t.png" />
-	  </div>
-	  <p class="landing-feature__text">
-	    We explore 10 years of contract data, and provide an analysis of the
-	    impact of short-term continuing resolutions on contract spending.
-	  </p>
-
-	</a>
-      </section>
-
-      <section class="landing-feature">
-	<a class="landing-feature__link" href="contract-explorer.html">
+    <nav class="chapter-nav chapter-nav--revenue">
+    <ul class="chapter-nav__primary-list">
+        <li class="chapter-nav__overview"><a href="../"><i class="fas fa-chevron-left"></i> Overview</a></li>
+        <li><a href="./">Revenue and GDP</a></li>
+        <li><a href="./categories.html">Revenue Categories</a></li>
+        <li><a href="./trends.html">Federal Revenue Trends</a></li>
+        <li><a href="./country-comparison.html">Country Comparison</a></li>
+    </ul>
+    <button class="chapter-nav-trigger">
+        <i class="fas fa-lg fa-angle-down menu-down"></i>
+        <i class="fas fa-lg fa-angle-up menu-up"></i>
+    </button>
+</nav>
 
 
-	  <div class="landing-feature__headings">
-	    <h1>
-	      Contract Explorer
-	    </h1>
-	    <h2>
-	      Who receives federal<br> contracts?
-	    </h2>
-	  </div>
-	  <div class="landing-feature__image">
-	    <img class="" src="../images/homepage/contract-explorer.svg" alt="Contract Explorer" />
-	  </div>
+<div class="ffg-wrapper">
+    <div class="ffg-share"><script>
+    function clickShareItemLink(item, url) {
+        window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
 
-	  <p class="landing-feature__text">
-	    The federal government spends about $500 billion each year on contracts. Learn more
-	    about contract recipients and what agencies recieve from these contracts.
-	  </p>
-	</a>
-      </section>
+        window.Analytics.event({
+            category: 'Share Menu - Click Item',
+            action: item
+        });
 
-    </section>
-  </div>
-  <section class="landing-row">
-    <h1 class="landing-row__heading">
-      More Analyses
-    </h1>
-    <div class="landing-row__tiles">
-
-      <a class="landing-row__tile" href="federal-account-explorer.html">
-	<div class="landing-row__text">
-	  <h2>
-	    Federal Account Explorer
-    </h2>
-	  <p class="landing-row__title">
-	    Discover the federal government's spending accounts
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/federal.jpg" class="landing-row__image" alt="Federal Account Explorer" />
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="federal-employees.html">
-	<div class="landing-row__text">
-	  <h2>
-	    Federal Employees
-    </h2>
-	  <p class="landing-row__title">
-	    Who works<br> in government?
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/workers.jpg" class="landing-row__image" alt="Group of Workers" />
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="budget-function.html">
-	<div class="landing-row__text">
-	  <h2>
-	    Budget Function
-    </h2>
-	  <p class="landing-row__title">
-	    Check out how federal spending is categorized
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/budget.jpg" class="landing-row__image" alt="Budget" />
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="competition-in-contracting.html">
-	<div class="landing-row__text">
-	  <h2>
-	    Competition in Contracting
-    </h2>
-	  <p class="landing-row__title">
-	    How often do federal agencies compete for contracts?
-	  </p>
-	</div>
-	<div>
-	  <img src="../images/homepage/competition.jpg" class="landing-row__image" alt="Competition" />
-	</div>
-      </a>
-    </div>
-  </section>
-
-  <section class="feature-row">
-    <a href="/homelessness-analysis.html">
-      <div class="feature-row__border">
-	<div class="feature-row__image">
-	  <img src="../images/homepage/homelessness.png" alt="Homelessness" />
-	</div>
-	<div class="feature-row__text">
-	  <h1 class="feature-row__heading">
-	    Homelessness Analysis
-	  </h1>
-	  <p class="feature-row__title">
-	    Explore federal programs that address homelessness
-	  </p>
-	  <p class="feature-row__blurb">
-	    On a single night in 2016, more than 500,000 people experienced homelessness in the United States.
-	    With our visualization uncover how individuals experiencing homlessness are counted, which federal programs
-	    are addressing homelessness, and the amount of federal spending on homelessness by region. Through this
-	    analysis
-	    you will get a glimpse of how federal funding impacts homelessness and can serve as a useful too for those
-	    working to reduce
-	    homelessness.
-	  </p>
-	</div>
-      </div>
-    </a>
-  </section>
-
-
-  <section class="landing-row landing-row--resources">
-    <h1 class="landing-row__heading">
-      Resources
-    </h1>
-    <div class="landing-row__tiles">
-
-      <div class="landing-row__tile landing-row__tile--primary">
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    Do you want
-	    <strong><br>to conduct your<br> own analysis?</strong>
-	  </p>
-	  <p class="landing-row__p">
-	    Access Treasury data and<br> create your own charts and<br> visualizations!
-	  </p>
-	</div>
-      </div>
-
-      <a class="landing-row__tile" href="http://api.usaspending.gov/">
-	<img src="../images/homepage/resources-api-2.svg" class="svgImg" alt="Resources API" />
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    API Guide
-	  </p>
-	  <p class="landing-row__p landing-row__p--hide">
-	    Guidance on accessing Treasury<br> data with open source code.
-	  </p>
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="/assets/analyst-guide-1-2.pdf">
-	<img src="../images/homepage/resources-user-guide-2.svg" class="svgImg" alt="Resources User Guide" />
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    Analyst Guide
-	  </p>
-	  <p class="landing-row__p landing-row__p--hide">
-	    Methods to easily navigate data <br>from our sister site,<br> USAspending.gov
-	  </p>
-	</div>
-      </a>
-
-      <a class="landing-row__tile" href="/student-innovators-toolbox.html">
-	<img src="../images/homepage/resources-playbook-2.svg" class="svgImg" alt="Resources Playbook" />
-	<div class="landing-row__text">
-	  <p class="landing-row__title">
-	    Student Innovators Toolbox
-	  </p>
-	  <p class="landing-row__p landing-row__p--hide">
-	    Ways for professors and students to get involved.
-	  </p>
-	</div>
-      </a>
-
-
-    </div>
-
-
-  </section>
-
-
-</article>
-<div class="clearfix"></div>
-
-
-<!-- <section id="banner">
-  <p class="index-header">Experiment, Analyze, and Discover.
-</p>
-  <p class="index-sub-header">Data visualizations to help you understand government spending.</p>
-  <a href="#two" class="scrolly homepage-get-started">Get Started<span class="get-started-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-   <path d="M12.5 25C19.4 25 25 19.4 25 12.5S19.4 0 12.5 0 0 5.6 0 12.5 5.6 25 12.5 25M7.4 12.2c.6-.5 1.5-.5 2 .1l2.5 2.5c.1.1.2.1.2-.1V6.4c0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4v8.3c0 .1.1.2.2.1l2.5-2.5c.6-.6 1.5-.6 2-.1.6.5.6 1.4 0 2L14 19.8c-.3.3-.7.3-1 0l-5.6-5.7c-.5-.5-.5-1.4 0-1.9"/>
-</svg></span></a>
-</section>
-
-<style>
-  .dts-module {
-    box-sizing: border-box;
-    height: 100px;
-    background-color: #7B919F;
-    padding: 25px 25px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .dtsm-left-column {
-    padding-right: 3%;
-  }
-  
-  .dtsm-right-column {
-    display: flex;
-    align-items: center;
-  }
-  
-  .dtsm-header {
-    line-height: 125%;
-  }
-  
-  .dtsm-header-text {
-    opacity: .8;
-    font-weight: 200;
-    font-size: 14px;
-    line-height: 150%;
-    text-transform: uppercase;
-    display: inline-block;
-  }
-  
-  .dtsm-subheader {
-    font-weight: 400;
-    font-size: 24px;
-    opacity: .8;
-    line-height: 125%;
-    letter-spacing: .1px;
-  }
-  
-  .dtsm-vseparator {
-    border-left: 2px solid white;
-    height: 100%;
-    opacity: .4;
-  }
-  
-  .dtsm-img {
-
-  }
-  
-  .dtsm-dollars {
-    font-size: 48px;
-    font-weight: 300;
-    margin-left: 15px;
-    margin-right: 15px;
-    opacity: .75;
-  }
-  
-  .dtsm-tas-header {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 150%;
-    opacity: .8;
-  }
-  
-  .dtsm-tas-subheader {
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-    line-height: 150%;
-    opacity: .8;
-  }
-  
-  .dtsm-beta {
-    display: inline-block;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    padding: 0px 8px;
-    opacity: 1;
-    font-weight: 500;
-    line-height: 18px;
-    font-size: 12px;
-    margin-right: 5px;
-  }
-
-  .line {
-    stroke: white;
-    stroke-width: 3px;
-  }
-
-  .dtsm-img text {
-    fill: white;
-  }
-
-  .dtsm-img .domain {
-    display: none;
-  }
-
-  .dtsm-img .tick line {
-    stroke: white;
-  }
-
-.dtsm-img circle {
-  fill: orange;
-  stroke: white;
-  stroke-width: 1.5px;
-}
-</style>
-  
-<div class="dts-module">
-  <div class="dtsm-left-column">
-    <a href="dts.html">
-      <div class="dtsm-header">
-        <div class="dtsm-beta">BETA</div>
-        <div class="dtsm-header-text">Visualizing the Daily Treasury Statement</div>
-      </div>
-      <div class="dtsm-subheader">How much does the federal government spend each day?</div>
-    </a>
-  </div>
-  <div class="dtsm-vseparator"></div>
-  <div class="dtsm-img"></div>
-  <div class="dtsm-vseparator"></div>
-  <div class="dtsm-right-column">
-    <div class="dtsm-dollars">$</div>
-    <div class="dtsm-tas-container">
-      <div class="dtsm-tas-header">Total Amount Spent</div>
-      <div class="dtsm-tas-subheader">blah</div>
-    </div>
-  </div>
-</div>
-
-<script src="/js/babel-polyfill.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="/assets/js/dts-module-jack.js"></script>
-
-
-<section id="two" class="wrapper alt style2">
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/cg-revenue.jpg" alt="Citizen's Guide - Revenue" /></div>
-    <div class="content">
-      <h3>Federal Revenue Explorer</h3>
-      <h2><a href="revenue-gdp.html">Where does the money come from?</h2></a>
-      <p>In 2017, the Federal Government collected $3.3 trillion. If you lived or worked in the United States during this time, you likely contributed to this total in some capacity. Believe it or not, taxes aren’t the only source of federal revenue. Discover the various sources of revenue, examine trends over time, and compare total revenue of the U.S. to other countries.</p>
-      <a href="revenue-gdp.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/contracts-over-time.png" alt="Contracts over time" /></div>
-    <div class="content">
-      <h3>Contract Spending Analysis</h3>
-      <h2><a href="contracts-over-time.html">How has federal contract spending changed over time?</h2></a>
-      <p>We wondered what we could learn by analyzing ten years of USAspending data on federal contract spending. We also wanted to know if we could identify a relationship between the type of funding provided by Congress--new appropriations or continuing resolutions--and the amount the federal government spends on contracts.</p>
-      <a href="contracts-over-time.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/federal.jpg" alt="Federal Spending Accounts" /></div>
-    <div class="content">
-      <h3>Federal Account Explorer</h3>
-      <h2><a href="federal-account-explorer.html">Discover the federal government’s spending accounts</a></h2>
-      <p>The government has almost 2,000 spending accounts that it uses to spend money. Use this interactive tree-style visualization to explore these accounts and see how much money has been spent.</p>
-      <a href="federal-account-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/contracts.jpg" alt="Federal Contracts (Sunburst Diagram)" /></div>
-    <div class="content">
-      <h3>Contract Explorer</h3>
-      <h2><a href="contract-explorer.html">Who receives federal contracts?</a></h2>
-      <p>The federal government spends about $500 billion each year on contracts -- that's roughly the size of Sweden's economy. Learn more about contract recipients and what agencies receive from these contracts.</p>
-      <a href="contract-explorer.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/homelessness.jpg" alt="Photography by Pablo Unzueta-Homelessness" /></div>
-    <div class="content">
-      <h3>Homelessness Analysis</h3>
-      <h2><a href="homelessness-analysis.html">Explore federal programs that address homelessness</a></h2>
-      <p>On a single night in 2016, more than 500,000 people experienced homelessness in the United States. This visualization uses grant data to show the federal government's approach to addressing homelessness.</p>
-      <a href="homelessness-analysis.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/budget.jpg" alt="Sankey Diagram" /></div>
-    <div class="content">
-      <h3>Budget Function</h3>
-      <h2><a href="budget-function.html">See how the government categorizes its purchases</a></h2>
-      <p>Data from USAspending.gov allows you to connect two different ways the government categorizes spending: what it pays for and what it's trying to achieve with those purchases. Use this visualization to explore broad spending categories.</p>
-      <a href="budget-function.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/workers.jpg" alt="Photography by Al Seib-Workers In Government" /></div>
-    <div class="content">
-      <h3>Federal Employees</h3>
-      <h2><a href="federal-employees.html">Who works in government?</h2></a>
-      <p>There are hundreds of types of federal employees - special agents, park rangers, and medical staff who care for veterans, to name just a few - who live all across the United States. Use this visualization to explore federal employees’ occupations, salaries, and locations.</p>
-      <a href="federal-employees.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-  <section class="spotlight">
-    <div class="image"><img src="images/homepage/competition.jpg" alt="Stacked Bar Chart" /></div>
-    <div class="content">
-      <h3>Competition in Contracting</h3>
-      <h2><a href="competition-in-contracting.html">How often do federal agencies compete contracts?</h2></a>
-      <p>The federal government is required to use competition when issuing contracts for goods and services, with a few exceptions.  See which federal agencies employ competitive practices most frequently with this analysis.</p>
-      <a href="competition-in-contracting.html" class="discover-box"><span class="discover">Discover ⟶</span></a>
-    </div>
-  </section>
-</section>
-
-<link rel="stylesheet" href="/css/animate.min.css">
-<script src="/js/wow.min.js"></script>
-<script>
-new WOW().init();
+        return false;
+    }
 </script>
 
-<section id="one" class="resources-background center-text">
-    <div class="resources-section">
-        <header class="major">
-            <h2>Resources</h2>
-            <div class="resources-divider"></div>
-        </header>
-        <ul class="icons major">
-            <li>
-                <div class="resources-icon wow bounceIn text-primary" data-wow-delay=".1s" data-wow-duration="2s">
-                    <svg width="57" height="75" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-   <g fill="none" fill-rule="evenodd">
-      <g transform="translate(1)">
-         <path d="M52.4156 16.0068H12.091v-.0085h-3.304c-2.9799 0-5.4036-2.3687-5.4036-5.281V9.1419c0-2.9115 2.4237-5.2802 5.4036-5.2802h43.4339c.623 0 1.1287-.4934 1.1287-1.1023V1.657c0-.609-.5056-1.1023-1.1287-1.1023H8.7868c-4.8451 0-8.7872 3.8526-8.7872 8.587v56.2709c0 4.7352 3.942 8.587 8.7873 8.587h3.304v-.05h40.3247c1.5546 0 2.819-1.2017 2.819-2.721v-52.466c0-1.5194-1.2644-2.7558-2.819-2.7558zM8.7072 70.6928c-2.9427-.0416-5.324-2.3942-5.324-5.2802V17.4845c1.4718 1.1254 3.319 1.8022 5.324 1.82v51.3883zm3.4633.2359h39.6812V19.3129H12.1705v51.6158z" fill="#FEFEFE"/>
+<style>
+.new-share-button {
+  display: flex;
+  margin-left: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.newpopup {
+    top: 40px !important;
+    left: 0;
+}
+
+.new-share-button .viz-share-icon:hover {
+    fill: #00c3c2;
+}
+</style>
+
+<div class="popup new-share-button">
+    <span class="viz-share-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" height="18" width="18">
+   <defs>
+      <path id="a" d="M-622 305h23v23h-23z"/>
+   </defs>
+   <clipPath id="b">
+      <use xlink:href="#a" overflow="visible"/>
+   </clipPath>
+   <g clip-path="url(#b)">
+      <defs>
+         <path id="c" d="M-700-2576H740v5192H-700z"/>
+      </defs>
+      <clipPath id="d">
+         <use xlink:href="#c" overflow="visible"/>
+      </clipPath>
+      <g clip-path="url(#d)">
+         <defs>
+            <path id="e" d="M-623 304h25v25h-25z"/>
+         </defs>
+         <clipPath id="f">
+            <use xlink:href="#e" overflow="visible"/>
+         </clipPath>
+         <g clip-path="url(#f)">
+            <defs>
+               <path id="g" d="M-612.4 323.7c-.8 0-1.4-.5-.8-2.6l.9-3.8c.2-.6.2-.8 0-.8s-1.3.4-1.9.8l-.4-.7c1.9-1.6 4.2-2.6 5.1-2.6.8 0 .9.9.5 2.4l-1 4c-.2.7-.1.9.1.9s1-.3 1.8-.9l.5.6c-1.9 2-4 2.7-4.8 2.7m3-14.9c1.2 0 1.5.7 1.5 1.5 0 1-.8 1.9-2.1 1.9-1.1 0-1.6-.6-1.6-1.5 0-.8.7-1.9 2.2-1.9m-1.3-3.8c-6.4.1-11.4 5.3-11.3 11.7.1 6.3 5.3 11.4 11.7 11.3 6.3-.1 11.4-5.3 11.3-11.7-.1-6.3-5.3-11.4-11.7-11.3"/>
+            </defs>
+            <clipPath id="h">
+               <use xlink:href="#g" overflow="visible"/>
+            </clipPath>
+            <g clip-path="url(#h)">
+               <defs>
+                  <path id="i" d="M-622 305h23v23h-23z"/>
+               </defs>
+               <clipPath id="j">
+                  <use xlink:href="#i" overflow="visible"/>
+               </clipPath>
+            </g>
+         </g>
       </g>
-      <path d="M10 10c0-.5503.511-1 1.1346-1h42.7308C54.4891 9 55 9.4497 55 10v1c0 .5497-.511 1-1.1346 1H11.1346C10.5109 12 10 11.5497 10 11v-1zM46 35c0 .5497-.5312 1-1.1813 1H25.1813C24.532 36 24 35.5503 24 35v-1c0-.5497.532-1 1.1813-1h19.6374C45.468 33 46 33.4497 46 34v1zM44 43c0 .5497-.492 1-1.0942 1H29.0942C28.4928 44 28 43.5497 28 43v-1c0-.5497.4928-1 1.0942-1h13.8116C43.5072 41 44 41.4497 44 42v1zM46 52c0 .5497-.514 1-1.143 1H28.143C27.5147 53 27 52.5503 27 52v-1c0-.5497.5147-1 1.143-1h16.714c.6283 0 1.143.4503 1.143 1v1z" fill="#FEFEFE"/>
    </g>
-</svg>
-                </div>
-                <h3 class="philosophy"><a href="assets/analyst-guide-1-2.pdf">Analyst Guide</a></h3>
-                <p>Guidance and hints to help <br /> you conduct data analyses</p>
-            </li>
-            <li>
-                <div class="resources-icon wow bounceIn text-primary" data-wow-delay=".3s" data-wow-duration="2s">
-                    <svg width="82" height="75" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-   <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
-      <path d="M5.0625 2.5833c-1.3955 0-2.5313 1.1592-2.5313 2.5834v51.6666c0 1.4242 1.1358 2.5834 2.5313 2.5834h70.875c1.3955 0 2.5313-1.1592 2.5313-2.5834V5.1667c0-1.4242-1.1358-2.5834-2.5313-2.5834H5.0625zM75.9375 62H5.0625C2.271 62 0 59.6823 0 56.8333V5.1667C0 2.3177 2.271 0 5.0625 0h70.875C78.729 0 81 2.3177 81 5.1667v51.6666C81 59.6823 78.729 62 75.9375 62z" fill="#FFF"/>
-      <path fill="#FFF" d="M49.5244 74L47 60.5287 49.4756 60 52 73.4713zM31.4756 74L29 73.4713 31.5244 60 34 60.5287z"/>
-      <path fill="#FFF" d="M24 74h33v-2H24zM39 55h2v-2h-2zM39 43h2v-2h-2zM44 43h2v-2h-2zM49 43h2v-2h-2zM34 43h2v-2h-2zM29 43h2v-2h-2z"/>
-      <path d="M7.5357 48.4444h65.9286V7.5556H7.5357v40.8888zM5 51h71V5H5v46z" fill="#FFF"/>
-   </g>
-</svg>
-                </div>
-                <h3 class="philosophy"><a href="https://api.usaspending.gov/">API Guide</a></h3>
-                <p>Guidance on accessing our data<br /> with open source code</p>
-            </li>
-            <li>
-                <div class="resources-icon wow bounceIn text-primary" data-wow-delay=".2s" data-wow-duration="2s">
-                    <svg width="65" height="75" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
    <g>
-      <g>
-         <path d="M60.0503.0685H6.9532c-1.6294 0-2.95 1.273-2.95 2.8435v2.6435C1.7872 5.613.0003 7.4236.0003 9.6523c0 2.2286 1.7869 4.0393 4.0029 4.0967v2.7593c-2.216.0575-4.0029 1.8681-4.0029 4.0968 0 2.2286 1.7869 4.0393 4.0029 4.0967v2.7593c-2.216.0575-4.0029 1.868-4.0029 4.0968 0 2.2286 1.7869 4.0392 4.0029 4.0967v2.7593c-2.216.0574-4.0029 1.868-4.0029 4.0967s1.7869 4.0393 4.0029 4.0968v2.7593c-2.216.0574-4.0029 1.868-4.0029 4.0967s1.7869 4.0393 4.0029 4.0968v2.7592c-2.216.0575-4.0029 1.8682-4.0029 4.0968 0 2.2287 1.7869 4.0393 4.0029 4.0968v2.6435C4.0032 72.727 5.3238 74 6.9532 74h53.0971c1.6286 0 2.95-1.273 2.95-2.8435V2.912c0-1.5706-1.3214-2.8435-2.95-2.8435zM2.7393 9.6523c0-.7566.6126-1.369 1.3694-1.369h4.1084v2.738H4.1087c-.7568 0-1.3695-.6133-1.3695-1.369zm0 10.9528c0-.7566.6126-1.369 1.3694-1.369h4.1084v2.738H4.1087c-.7568 0-1.3695-.6133-1.3695-1.369zm0 10.9528c0-.7558.6126-1.369 1.3694-1.369h4.1084v2.738H4.1087c-.7568 0-1.3695-.6133-1.3695-1.369zm0 10.9527c0-.7557.6126-1.369 1.3694-1.369h4.1084v2.738H4.1087c-.7568 0-1.3695-.6124-1.3695-1.369zm0 10.9528c0-.7565.6126-1.369 1.3694-1.369h4.1084v2.738H4.1087c-.7568 0-1.3695-.6124-1.3695-1.369zm0 10.9528c0-.7565.6126-1.369 1.3694-1.369h4.1084v2.738H4.1087c-.7568 0-1.3695-.6125-1.3695-1.369zm4.2139 6.8458c-.1497 0-.2103-.0905-.2103-.1055V68.524H8.217c1.5136 0 2.7397-1.2265 2.7397-2.7388v-2.738c0-1.5123-1.2261-2.738-2.7397-2.738H6.7429v-2.7388H8.217c1.5136 0 2.7397-1.2257 2.7397-2.738v-2.738c0-1.5123-1.2261-2.738-2.7397-2.738H6.7429v-2.7388H8.217c1.5136 0 2.7397-1.2257 2.7397-2.738v-2.738c0-1.5122-1.2261-2.738-2.7397-2.738H6.7429V35.665H8.217c1.5136 0 2.7397-1.2258 2.7397-2.738v-2.738c0-1.5123-1.2261-2.738-2.7397-2.738H6.7429V24.712H8.217c1.5136 0 2.7397-1.2258 2.7397-2.738v-2.738c0-1.5123-1.2261-2.738-2.7397-2.738H6.7429v-2.7388H8.217c1.5136 0 2.7397-1.2257 2.7397-2.738v-2.738c0-1.5123-1.2261-2.738-2.7397-2.738H6.7429V2.912c0-.015.0606-.1055.2103-.1055h6.7425V71.262H6.9532zm53.3082-.1055c0 .015-.0614.1055-.211.1055H16.4346V2.8065h43.6156c.1497 0 .211.0905.211.1055v68.2445z" fill="#FEFEFE"/>
-      </g>
-      <path d="M53.65 26h-24.3c-.746 0-1.35.6717-1.35 1.4996C28 28.3283 28.604 29 29.35 29h24.3c.7453 0 1.35-.6717 1.35-1.5004C55 26.6717 54.3953 26 53.65 26M26 27.5c0 .828-.671 1.5-1.5 1.5s-1.5-.672-1.5-1.5.671-1.5 1.5-1.5 1.5.672 1.5 1.5M53.65 36h-24.3c-.746 0-1.35.6717-1.35 1.4996C28 38.3283 28.604 39 29.35 39h24.3c.7453 0 1.35-.6717 1.35-1.5004C55 36.6717 54.3953 36 53.65 36M26 37.5c0 .828-.671 1.5-1.5 1.5s-1.5-.672-1.5-1.5.671-1.5 1.5-1.5 1.5.672 1.5 1.5M53.65 47h-24.3c-.746 0-1.35.6709-1.35 1.4996S28.604 50 29.35 50h24.3c.7453 0 1.35-.6717 1.35-1.5004S54.3953 47 53.65 47M26 48.5c0 .828-.671 1.5-1.5 1.5s-1.5-.672-1.5-1.5.671-1.5 1.5-1.5 1.5.672 1.5 1.5" fill="#FEFEFE"/>
+      <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
    </g>
 </svg>
-                </div>
-                <h3 class="philosophy"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></h3>
-                <p>Ways for students and <br /> schools to get involved</p>
-            </li>
-        </ul>
+    </span>
+    <span class="popuptext right newpopup" id="sharePopup">
+        <div class="share-buttons">
+            <ul>
+                <li>
+                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Facebook">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-facebook" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1579 128q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-735q-35 0-60-25t-25-60v-1366q0-35 25-60t60-25h1366z"/>
+</svg>
+                        <span class="share-button-text">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab - Revenue Country Comparison – U.S. Treasury&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Twitter">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-twitter" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
+</svg>
+                        <span class="share-button-text">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Google+">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-google-plus" width="2304" height="1792" viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/>
+</svg>
+                        <span class="share-button-text">Google</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Pinterest">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-pinterest" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"/>
+</svg>
+                        <span class="share-button-text">Pinterest</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Tumblr">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-tumblr" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1328 1329l80 237q-23 35-111 66t-177 32q-104 2-190.5-26t-142.5-74-95-106-55.5-120-16.5-118v-544h-168v-215q72-26 129-69.5t91-90 58-102 34-99 15-88.5q1-5 4.5-8.5t7.5-3.5h244v424h333v252h-334v518q0 30 6.5 56t22.5 52.5 49.5 41.5 81.5 14q78-2 134-29z"/>
+</svg>
+                        <span class="share-button-text">Tumblr</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison')" title="Share on Reddit">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-reddit" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1792 846q0 58-29.5 105.5t-79.5 72.5q12 46 12 96 0 155-106.5 287t-290.5 208.5-400 76.5-399.5-76.5-290-208.5-106.5-287q0-47 11-94-51-25-82-73.5t-31-106.5q0-82 58-140.5t141-58.5q85 0 145 63 218-152 515-162l116-521q3-13 15-21t26-5l369 81q18-37 54-59.5t79-22.5q62 0 106 43.5t44 105.5-44 106-106 44-105.5-43.5-43.5-105.5l-334-74-104 472q300 9 519 160 58-61 143-61 83 0 141 58.5t58 140.5zm-1374 199q0 62 43.5 106t105.5 44 106-44 44-106-44-105.5-106-43.5q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20-160-20-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5 91 4.5 91-4.5 122.5-29.5 118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5 44 106 106 44z"/>
+</svg>
+                        <span class="share-button-text">Reddit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison")' title="Share on LinkedIn">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-linkedin" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
+</svg>
+                        <span class="share-button-text">Linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:?subject=Data Lab - Revenue Country Comparison – U.S. Treasury&amp;body=Check out this site https://datalab.usaspending.gov/americas-finance-guide/revenue/country-comparison" title="Share via Email">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
+</svg>
+                        <span class="share-button-text">Email</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </span>
+</div></div>
+
+    <h1>Compare Federal Revenue of the United States to other Countries</h1>
+
+    <div class="country-copy">
+        <div class="country-copy__text">
+            <p>This chart outlines the total revenue of the United States compared to 171 different countries in 2017. In this section, figures are presented using financial data from 2017, allowing us to provide you with the most recent revenue data for the greatest number of countries.  In 2017, the United States collected $3.3 trillion. The $3.3 trillion in revenue collected was equivalent to 17% of total U.S. gross domestic product (GDP) for 2017.</p>
+            <p>How does the U.S. compare to other countries? We encourage you to check out the chart. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product. Find a country of interest and see for yourself. </p>
+            <p>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</p>
+        </div>
+        <a class="chapter-link chapter-link--spending" href="../spending/">
+            <div class="chapter-link__text-block">
+                <div class="chapter-link__learn-more">Learn more about</div>
+                Federal Spending
+            </div>
+            <i class="fa fa-angle-right"></i>
+        </a>
     </div>
-</section>
- -->
 
-        <script>
-  function trackLinkClick(actionName) {
-          window.Analytics.event({
-              category: 'Footer - Click Link',
-              action: actionName
-      });
-  }
+    <div class="country-chart">    
+        <h2 class="chart-title">Country Comparison</h2>
+        <div class="hint">Click <span class="sort-button-placeholder"></span> to sort columns</div>
 
-  function leaveSiteLink(outbound) {
-          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-          document.getElementById('leave-modal').style.display = 'block';
-  }
+        <div id="viz"></div>
+    </div>
+    
+    <div class="clearfix"></div>
+
+    <section class="hwcta">
+        <p>The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0917.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures for the United States come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank" rel="noopener noreferrer">Bureau of Economic Analysis (BEA)</a>. GDP data for countries other than the United States comes from the <a href="https://www.imf.org/external/pubs/ft/weo/2018/01/weodata/weorept.aspx?sy=2017&ey=2017&scsm=1&ssd=1&sort=country&ds=.&br=1&c=512%2C946%2C914%2C137%2C612%2C546%2C614%2C962%2C311%2C674%2C213%2C676%2C911%2C548%2C193%2C556%2C122%2C678%2C912%2C181%2C313%2C867%2C419%2C682%2C513%2C684%2C316%2C273%2C913%2C868%2C124%2C921%2C339%2C948%2C638%2C943%2C514%2C686%2C218%2C688%2C963%2C518%2C616%2C728%2C223%2C836%2C516%2C558%2C918%2C138%2C748%2C196%2C618%2C278%2C624%2C692%2C522%2C694%2C622%2C142%2C156%2C449%2C626%2C564%2C628%2C565%2C228%2C283%2C924%2C853%2C233%2C288%2C632%2C293%2C636%2C566%2C634%2C964%2C238%2C182%2C662%2C359%2C960%2C453%2C423%2C968%2C935%2C922%2C128%2C714%2C611%2C862%2C321%2C135%2C243%2C716%2C248%2C456%2C469%2C722%2C253%2C942%2C642%2C718%2C643%2C724%2C939%2C576%2C644%2C936%2C819%2C961%2C172%2C813%2C132%2C726%2C646%2C199%2C648%2C733%2C915%2C184%2C134%2C524%2C652%2C361%2C174%2C362%2C328%2C364%2C258%2C732%2C656%2C366%2C654%2C734%2C336%2C144%2C263%2C146%2C268%2C463%2C532%2C528%2C944%2C923%2C176%2C738%2C534%2C578%2C536%2C537%2C429%2C742%2C433%2C866%2C178%2C369%2C436%2C744%2C136%2C186%2C343%2C925%2C158%2C869%2C439%2C746%2C916%2C926%2C664%2C466%2C826%2C112%2C542%2C111%2C967%2C298%2C443%2C927%2C917%2C846%2C544%2C299%2C941%2C582%2C446%2C474%2C666%2C754%2C668%2C698%2C672&s=NGDPD&grp=0&a=&pr.x=45&pr.y=14" target="_blank" rel="noopener noreferrer">International Monetary Fund (IMF) World Economic Outlook Database (WEOD)</a>.</p>
+        <p>In researching potential data sources for information on the revenue of other governments for the country comparison module, we chose the <a href="https://www.cia.gov/library/publications/resources/the-world-factbook/index.html" target="_blank" rel="noopener noreferrer">CIA World Factbook</a> because it provides the best comparison for the following reasons:</p>
+        <ul>
+            <li>the number of countries with 2017 data,</li>
+            <li>relative consistency with the level of government measured (central government only as a standard),</li>
+            <li>all figures expressed in US dollars.</li>
+        </ul>
+        <p>Countries with figures before 2017 were excluded from the country comparison data set. Although most countries in the data set feature revenue from central government sources only, some countries included state/provincial/local revenue. As a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.</p>
+        <p>To finish the data set for Country Comparison, gross domestic product figures from BEA and the IMF WEOD were combined with revenue figures from the CIA World Factbook data set, excluding countries that did not have data available from both sources.</p>
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/revenue_country_comparison.csv" download>revenue_country_comparison.csv</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<script src="/assets/ffg/revenue/countryComparison.js"></script>
+
+
+    <script src="/assets/ffg/hwcta.js"></script>
+    <script src="/assets/ffg/nav/nav.js"></script>
+    
+  </main>
+</article>
+
+      <script>
+ function trackLinkClick(actionName) {
+     window.Analytics.event({
+         category: 'Footer - Click Link',
+         action: actionName
+     });
+ }
+
+ function leaveSiteLink(outbound) {
+     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+     document.getElementById('leave-modal').style.display = 'block';
+ }
 </script>
 
 <div class="dl-footer">
@@ -1051,7 +635,7 @@ new WOW().init();
 
     <div class="dl-footer__group-title">Contact Us</div>
     <p>
-      For media inquiries or questions on DataLab activities or operations, please contact our Legislative and Public Affairs Office:
+      For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
     </p>
     <p>
       T: 202-504-3535<br>
@@ -1064,7 +648,7 @@ new WOW().init();
 
     <div class="dl-footer__group-title">Mailing List</div>
     <p>
-      To join our mailing list, send a blank email with no subject to: <br> datalab@lists.fiscal.treasury.gov
+      To join our mailing list, send a<br> blank email with no subject to:<br> <a class="community-page-link" href="mailto: datalab@lists.fiscal.treasury.gov">datalab@lists.fiscal.treasury.gov</a>
     </p>
     <div class="dl-footer__group-title">Join the Conversation</div>
     <p>
@@ -1077,12 +661,11 @@ new WOW().init();
   <div class="dl-footer__social">
     <div class="dl-footer__group-title">Connect With Us</div>
     <div class="dl-footer__social-items">
-      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-label="GitHub" href="https://github.com/fedspendingtransparency/datalab">
+      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-labelledby="Github-icon-title" href="https://github.com/fedspendingtransparency/datalab">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Github</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Github-icon-title">Github</title>
     <g id="Github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-2">
             <rect id="Rectangle" x="0" y="-3.55271368e-15" width="31.8801538" height="32.9714533"></rect>
@@ -1093,12 +676,11 @@ new WOW().init();
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-label="Data World" href="https://data.world/usaspending">
+      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-labelledby="DataWorld-icon-title" href="https://data.world/usaspending">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Data.World</title>
-    <desc>Created with Sketch.</desc>
+    <title id="DataWorld-icon-title">Data World</title>
     <defs>
         <polygon id="path-1" points="0.0359888889 2.06896552e-05 1.95965126 2.06896552e-05 1.95965126 6 0.0359888889 6"></polygon>
         <polygon id="path-3" points="0.00128207569 2.06896552e-05 1.92494445 2.06896552e-05 1.92494445 6 0.00128207569 6"></polygon>
@@ -1138,12 +720,11 @@ new WOW().init();
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-label="Twitter" href="https://twitter.com/fiscalservice">
+      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-labelledby="Twitter-icon-title" href="https://twitter.com/fiscalservice">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Twitter</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Twitter-icon-title">Twitter</title>
     <g id="Twitter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group-12">
             <g transform="translate(0.000000, -0.000000)">
@@ -1156,12 +737,11 @@ new WOW().init();
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="https://www.facebook.com/pg/fiscalservice">
+      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-labelledby="Facebook-icon-title" href="https://www.facebook.com/pg/fiscalservice">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Facebook</title>
-    <desc>Created with Sketch.</desc>
+    <title id="Facebook-icon-title">Facebook</title>
     <g id="Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group">
             <g transform="translate(0.000000, -0.000000)">
@@ -1174,15 +754,14 @@ new WOW().init();
 </svg>
       </a>
 
-      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-labelledby="LinkediIn-icon-title" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
         <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>mdpi/Linkedin</title>
-    <desc>Created with Sketch.</desc>
+    <title id="LinkediIn-icon-title">LinkediIn</title>
     <g id="Linkedin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="LinkedIn">
-            <g id="LinkedIn'" transform="translate(0.000000, -0.000000)">
+            <g id="LinkedIn" transform="translate(0.000000, -0.000000)">
                 <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
                 <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
                 <path d="M9.06009951,13.7978886 L11.8845113,13.7978886 L11.8845113,23.9782792 L9.06009951,23.9782792 L9.06009951,13.7978886 Z M10.4003106,12.5245001 L10.3798624,12.5245001 C9.35745086,12.5245001 8.6945874,11.746265 8.6945874,10.7607563 C8.6945874,9.7550961 9.37704708,8.99221453 10.4199068,8.99221453 C11.4619145,8.99221453 12.1026257,9.7531769 12.123074,10.7578775 C12.123074,11.7433862 11.4619145,12.5245001 10.4003106,12.5245001 L10.4003106,12.5245001 Z M19.9828624,23.9792388 L19.9828624,18.7100782 C19.9828624,17.3311338 19.4818807,16.3907263 18.3802323,16.3907263 C17.5375949,16.3907263 17.0689896,17.0250215 16.8508751,17.6382056 C16.7690822,17.8569943 16.7818624,18.1631065 16.7818624,18.4701783 L16.7818624,23.9792388 L13.6089787,23.9792388 C13.6089787,23.9792388 13.6498751,14.6461745 13.6089787,13.7978886 L16.7818624,13.7978886 L16.7818624,15.3956217 C16.9693045,14.6970333 17.9831959,13.7000094 19.6011621,13.7000094 C21.6084967,13.7000094 23.1855664,15.1653178 23.1855664,18.317602 L23.1855664,23.9792388 L19.9828624,23.9792388 Z" id="Shape" fill="#808080"></path>
@@ -1196,18 +775,49 @@ new WOW().init();
 </div>
 
 <footer id="footer">
-    <div>
-      &copy; 2018 USAspending.gov |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  <div>
+    &copy; 2018 USAspending.gov |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
   </div>
-    <div class="footer-important-info">
-      <b>NOTE:</b> You must <a href="https://beta.usaspending.gov/#/db_info">click here</a> for very important D&B information.
+  <div class="footer-important-info">
+    <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
 </footer>
 
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://datalab.usaspending.gov/"
+        },
+        "image": "https://datalab.usaspending.gov/assets/data-lab-og.png",
+        "headline": "Compare revenue of the United States to 171 different countries.",
+        "datePublished": "2019-04-09T08:00:00+06:00",
+        "dateModified": "2019-04-09T08:00:00+06:00",
+        "author": {
+        "@type": "Organization",
+        "name": "U.S. Treasury",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+            }
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "U.S. Treasury",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+            }
+        },
+        "description": "How does the U.S. compare to other countries? We encourage you to check out the chart below. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product (GDP). Find a country of interest and see for yourself."
+    }
+    </script>
     <script src="/assets/ffg/components/glossary/glossary.js"></script>
   </body>
 </html>

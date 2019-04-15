@@ -4,14 +4,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Lab - Explore Federal Debt – U.S. Treasury</title>
-  <meta name="description" content="By the end of 2018, the government had $21.5 trillion in federal debt.">
+  <title>Data Lab - Federal Revenue and GDP – U.S. Treasury</title>
+  <meta name="description" content="In 2018, the government collected $3.3 trillion in federal revenue.">
   
   
-  <meta name="keywords" content="debt, national debt, federal debt, U.S. debt, deficit vs. debt, deficit, national deficit, interest, surplus, spending exceeds income, spending exceeds revenue, federal deficit, total debt, federal government’s debt, monthly statement of the public debt, MSPD">
+  <meta name="keywords" content="revenue, federal revenue, U.S. revenue, gdp, receipts, income taxes, corporate taxes">
   
 
-  <link rel="canonical" href="https://datalab.usaspending.gov/americas-finance-guide/debt/">
+  <link rel="canonical" href="https://datalab.usaspending.gov/americas-finance-guide/revenue/">
   <link rel="stylesheet" href="/main.css" />
   <link rel="shortcut icon" href="/images/favicon.ico">
 
@@ -40,12 +40,19 @@
    gtag('js', new Date());
    gtag('config', 'UA-60737492-1');
   </script>
+
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-19138737-13');
+  </script>
   
   <!-- og tags -->
-  <meta property="og:title" content="Data Lab - Explore Federal Debt – U.S. Treasury"/>
+  <meta property="og:title" content="Data Lab - Federal Revenue and GDP – U.S. Treasury"/>
   <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
-  <meta property="og:description" content="By the end of 2018, the government had $21.5 trillion in federal debt."/>
-  <meta property="og:url" content="https://datalab.usaspending.gov/americas-finance-guide/debt/" />
+  <meta property="og:description" content="In 2018, the government collected $3.3 trillion in federal revenue."/>
+  <meta property="og:url" content="https://datalab.usaspending.gov/americas-finance-guide/revenue/" />
 </head>
 
 
@@ -110,14 +117,16 @@
       <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
 
+    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
+
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -130,10 +139,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span><?xml version="1.0" encoding="UTF-8"?>
+          <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -146,10 +155,10 @@
         </g>
     </g>
 </svg></span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
+          <span class=""><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -162,7 +171,7 @@
         </g>
     </g>
 </svg></span>
-	</li>
+        </li>
       </ul>
     </nav>
   </div>
@@ -335,12 +344,12 @@
     </aside>
 </div>
 
-    <nav class="chapter-nav chapter-nav--debt">
+    <nav class="chapter-nav chapter-nav--revenue">
     <ul class="chapter-nav__primary-list">
         <li class="chapter-nav__overview"><a href="../"><i class="fas fa-chevron-left"></i> Overview</a></li>
-        <li><a href="./">Explore Debt</a></li>
-        <li><a href="./trends.html">Federal Debt Trends</a></li>
-        <li><a href="./analysis.html">Federal Debt Analysis</a></li>
+        <li><a href="./">Revenue and GDP</a></li>
+        <li><a href="./categories.html">Revenue Categories</a></li>
+        <li><a href="./trends.html">Federal Revenue Trends</a></li>
         <li><a href="./country-comparison.html">Country Comparison</a></li>
     </ul>
     <button class="chapter-nav-trigger">
@@ -349,7 +358,8 @@
     </button>
 </nav>
 
-<div class="ffg-wrapper debt-intro">
+
+<div class="ffg-wrapper revenue-intro">
     <div class="ffg-share"><script>
     function clickShareItemLink(item, url) {
         window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
@@ -431,7 +441,7 @@
         <div class="share-buttons">
             <ul>
                 <li>
-                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html')" title="Share on Facebook">
+                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html')" title="Share on Facebook">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-facebook" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1579 128q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-735q-35 0-60-25t-25-60v-1366q0-35 25-60t60-25h1366z"/>
@@ -440,7 +450,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab - Explore Federal Debt – U.S. Treasury&url=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html')" title="Share on Twitter">
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab - Federal Revenue and GDP – U.S. Treasury&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html')" title="Share on Twitter">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-twitter" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
@@ -449,7 +459,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html')" title="Share on Google+">
+                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html')" title="Share on Google+">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-google-plus" width="2304" height="1792" viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/>
@@ -458,7 +468,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html')" title="Share on Pinterest">
+                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html')" title="Share on Pinterest">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-pinterest" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"/>
@@ -467,7 +477,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html')" title="Share on Tumblr">
+                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html')" title="Share on Tumblr">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-tumblr" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1328 1329l80 237q-23 35-111 66t-177 32q-104 2-190.5-26t-142.5-74-95-106-55.5-120-16.5-118v-544h-168v-215q72-26 129-69.5t91-90 58-102 34-99 15-88.5q1-5 4.5-8.5t7.5-3.5h244v424h333v252h-334v518q0 30 6.5 56t22.5 52.5 49.5 41.5 81.5 14q78-2 134-29z"/>
@@ -476,7 +486,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html')" title="Share on Reddit">
+                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html')" title="Share on Reddit">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-reddit" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1792 846q0 58-29.5 105.5t-79.5 72.5q12 46 12 96 0 155-106.5 287t-290.5 208.5-400 76.5-399.5-76.5-290-208.5-106.5-287q0-47 11-94-51-25-82-73.5t-31-106.5q0-82 58-140.5t141-58.5q85 0 145 63 218-152 515-162l116-521q3-13 15-21t26-5l369 81q18-37 54-59.5t79-22.5q62 0 106 43.5t44 105.5-44 106-106 44-105.5-43.5-43.5-105.5l-334-74-104 472q300 9 519 160 58-61 143-61 83 0 141 58.5t58 140.5zm-1374 199q0 62 43.5 106t105.5 44 106-44 44-106-44-105.5-106-43.5q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20-160-20-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5 91 4.5 91-4.5 122.5-29.5 118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5 44 106 106 44z"/>
@@ -485,7 +495,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/americas-finance-guide/debt/index.html")' title="Share on LinkedIn">
+                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html")' title="Share on LinkedIn">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-linkedin" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
@@ -494,7 +504,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="mailto:?subject=Data Lab - Explore Federal Debt – U.S. Treasury&amp;body=Check out this site https://datalab.usaspending.gov/americas-finance-guide/debt/index.html" title="Share via Email">
+                    <a href="mailto:?subject=Data Lab - Federal Revenue and GDP – U.S. Treasury&amp;body=Check out this site https://datalab.usaspending.gov/americas-finance-guide/revenue/index.html" title="Share via Email">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
@@ -506,80 +516,92 @@
         </div>
     </span>
 </div></div>
-    
-    <h1>By the end of 2018, the federal government had $21.5 trillion in federal debt.
+
+    <h1>In 2018, the government collected $3.3 trillion.
         <button class="info-box-trigger" data-box-id="per-individual">
-            <img src="/assets/ffg/icons/anecdote-debt.svg" alt="anecdote icon">
+            <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
         </button>
     </h1>
 
-    <div class="debt-copy">
-        <p>How did we end up with $21.5 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to a person using his or her credit card for a purchase (rather than cash, check, or a debit card) and not paying the full credit card balance each month. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows.</p>
-    </div>
-
     <div class="viz-wrapper">
         <div id="viz"></div>
-
+        
         <div class="intro-math intro-hidden">
-            <i class="fas fa-reply intro-math__icon"></i>21,500 dots x $1 billion = <strong>$21.5 trillion</strong>
+            <i class="fas fa-reply intro-math__icon"></i>3,300 dots x $1 billion = <strong>$3.3 trillion</strong>
+        </div>
+
+        <div id="copy" class="intro-hidden">
+            <p>Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
+                Year.<button class="info-box-trigger" data-box-id="fiscal-year">
+                    <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
         </div>
 
         <div class="facts sidebar intro-hidden">
             <div class="facts__inner">
                 <div id="compare-options">
-                    <p class="facts__prompt">How does the national debt compare to the deficit and the size of the economy?</p>
+                    <p class="facts__prompt">How does federal revenue compare to federal spending and the size of the economy?</p>
                     <div class="facts__triggers">
-                        <button class="facts__trigger" data-trigger-id="deficit">Deficit</button>
+                        <button class="facts__trigger" data-trigger-id="spending">Federal Spending</button>
                         <button class="facts__trigger" data-trigger-id="gdp">U.S. Economy</button>
                     </div>
                 </div>
-                
-                <section id="deficit-facts" class="facts__section">
-                    <h1>Deficit</h1>
-                    <p>The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending, the government borrows money to make up the difference.  When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt.</p>
+
+                <section id="spending-facts" class="facts__section">
+                    <h1>In Fiscal Year 2018, the federal government spent $4.1 trillion.</h1>
+                    <p>Since the government spent more than it collected, the deficit for 2018 was $779 billion.</p>
+                    <p>
+                        <a href="../spending/">Go Explore Federal Spending</a>
+                    </p>
                 </section>
-                
+
                 <section id="gdp-facts" class="facts__section">
-                    <h1>U.S. Economy</h1>
-                    <p>By comparing the total federal debt-to-gross domestic product (GDP), we can observe the government's ability to utilize the resources at hand to finance the debt the same way you and your family manage your finances to make sure that your monthly payments for your mortgage, car loans, and credit cards can be made.</p>
+                    <h1>In Fiscal Year 2018, federal revenue was equal to 16% of total gross domestic product (GDP), or economic activity, of the United States that year ($20.7 trillion).</h1>
+                    <p>Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government's footprint related to size of the entire country's economic activity. In addition, federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.</p>
+
+                    <strong>What's gross domestic product?
+                        <button class="info-box-trigger" data-box-id="gdp-info">
+                            <img src="/assets/ffg/icons/definition.svg" alt="definition icon">
+                        </button>
+                    </strong>
                 </section>
             </div>
         </div>
 
-        <section class="accordion sidebar intro-hidden">
-            <h1 class="accordion__heading">Who owns the federal government's debt?</h1>
-            <div class="accordion__content">
-                <p>Most of the federal government's debt is owned by federal trust funds and domestic investors in the United States. Foreign investors, including other governments, also own part of the debt.</p>
-            </div>
-        </section>
-        
         <section class="tour sidebar intro-hidden">
-            <div class="tour__part-one">
-                <h1>How has the federal debt changed over time?</h1>
-                <p>When you are done here, we encourage you to explore trends in the federal debt since 2000.</p>
-            </div>
-            <a class="tour__link" href="trends.html">Explore<i class="fas fa-chevron-right"></i></a>
+            <h1 class="tour__heading">What are the sources of government revenue?</h1>
+            <a id="tour-continue" class="tour__link" href="./categories.html">Discover<i class="fas fa-chevron-right"></i></a>
         </section>
     </div>
 
     <div class="info-box" id="per-individual">
-        <img src="/assets/ffg/icons/anecdote-debt.svg" alt="anecdote icon">
-        <p>How much is $21.5 trillion in federal debt? If you take the U.S. population estimate in 2018 of 327.7 million (U.S. Census Bureau), $21.5 trillion would be equivalent to more than $65,000 for every individual in the U.S.</p>
+        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        <p>How much is $3.3 trillion? If you take $3.3 trillion divided by the U.S. population estimate in 2018, of 327.7 million (<a href="https://www.census.gov/popclock/" target="_blank" rel="noopener noreferrer">U.S. Census Bureau</a>) that would equate to a little more than $10,000 in revenue for every individual in the U.S.</p>
     </div>
-
+    <div class="info-box" id="fiscal-year">
+        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        <p>Fiscal Year refers to the period of time used by the government for accounting and budget purposes. For the federal government, the fiscal calendar year runs from October 1 through September 30.</p>
+    </div>
+    <div class="info-box" id="gdp-info">
+        <img src="/assets/ffg/icons/definition.svg" alt="definition icon">
+        <p><strong>Gross domestic product (GDP)</strong> measures the size of the nation's economy by the total value of final goods and services that are produced in a year. Gross domestic product is used to compare the economies of different countries, measure growth in the economy, and determine the right monetary policies to address inflation and unemployment.</p>
+    </div>
     <div class="info-box" id="billion-dollars">
-        <img src="/assets/ffg/icons/anecdote-debt.svg" alt="anecdote icon">
-        <p>In this visualization, one dot represents $1 billion.</p>
+        <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
+        <p>In this visualization, one dot represents $1 billion of federal revenue.</p>
     </div>
 
     <section class="hwcta">
-        This visualization was created using the <a href="https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf" target="_blank" rel="noopener noreferrer">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt of the United States and the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue and spending. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank" rel="noopener noreferrer">Bureau of Economic Analysis (BEA)</a>. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+        The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" target="_blank" rel="noopener noreferrer">Bureau of Economic Analysis (BEA)</a>. The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+        <div class="afg__download--div">
+            <div class="afg__download--heading">Download Source Data</div>
+            <ul>
+                <li><a href="../../../assets/ffg/data/federal_revenue_gdp.csv" download>federal_revenue_gdp.csv</a></li>
+            </ul>
+        </div>
     </section>
 </div>
 
-<script src="/assets/ffg/accordion.js"></script>
-<script src="/assets/ffg/debt/intro.js"></script>
-
+<script src="/assets/ffg/revenue/intro.js"></script>
 
     <script src="/assets/ffg/hwcta.js"></script>
     <script src="/assets/ffg/nav/nav.js"></script>
@@ -588,18 +610,18 @@
 </article>
 
       <script>
-  function trackLinkClick(actionName) {
-          window.Analytics.event({
-              category: 'Footer - Click Link',
-              action: actionName
-      });
-  }
+ function trackLinkClick(actionName) {
+     window.Analytics.event({
+         category: 'Footer - Click Link',
+         action: actionName
+     });
+ }
 
-  function leaveSiteLink(outbound) {
-          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-          document.getElementById('leave-modal').style.display = 'block';
-  }
+ function leaveSiteLink(outbound) {
+     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+     document.getElementById('leave-modal').style.display = 'block';
+ }
 </script>
 
 <div class="dl-footer">
@@ -651,7 +673,7 @@
 
     <div class="dl-footer__group-title">Contact Us</div>
     <p>
-      For media inquiries or questions<br> on DataLab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
+      For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
     </p>
     <p>
       T: 202-504-3535<br>
@@ -791,14 +813,14 @@
 </div>
 
 <footer id="footer">
-    <div>
-      &copy; 2018 USAspending.gov |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
-      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  <div>
+    &copy; 2018 USAspending.gov |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
   </div>
-    <div class="footer-important-info">
-      <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
+  <div class="footer-important-info">
+    <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
 </footer>
 
@@ -812,7 +834,7 @@
             "@id": "http://datalab.usaspending.gov/"
         },
         "image": "https://datalab.usaspending.gov/assets/data-lab-og.png",
-        "headline": "By the end of 2018, the government had $21.5 trillion in federal debt.",
+        "headline": "In 2018, the government collected $3.3 trillion in federal revenue.",
         "datePublished": "2019-04-09T08:00:00+06:00",
         "dateModified": "2019-04-09T08:00:00+06:00",
         "author": {
@@ -831,7 +853,7 @@
             "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
             }
         },
-        "description": "How did we end up with $21.5 trillion in federal debt? When the U.S. government has a deficit, most of the deficit spending is covered by the government taking on new debt. It is similar to people using their credit card for a purchase rather than cash, check, or a debit card. Over the years, if the federal government experiences more deficits than surpluses, the federal debt grows."
+        "description": "Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal Year."
     }
     </script>
     <script src="/assets/ffg/components/glossary/glossary.js"></script>
