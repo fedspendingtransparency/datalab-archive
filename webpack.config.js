@@ -29,65 +29,6 @@ const cssRules = [
     }
 ]
 
-function configFactory(entry, assetFolderName, rules) {
-    let assetPath = path.join(__dirname, '../assets/ffg/');
-
-    if (assetFolderName) {
-        assetPath = assetPath + assetFolderName + '/';
-    }
-
-    rules = rules || [
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
-            }
-        },
-        {
-            test: /\.(css|scss)$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
-        },
-        {
-            test: /\.csv$/,
-            use: {
-                loader: 'csv-loader',
-                options: {
-                    dynamicTyping: true,
-                    header: true
-                }
-            }
-        },
-    ];
-
-    return {
-        entry: entry,
-        devtool: devtool,
-        devServer: devServer,
-        mode: mode,
-        plugins: [
-            new MiniCssExtractPlugin({
-                filename: '[name].css',
-                chunkFilename: '[id].css',
-            })
-        ],
-        output: {
-            filename: '[name].js',
-            path: assetPath,
-        },
-        module: {
-            rules: rules
-        }
-    }
-}
-
 const moduleRules = [
     {
         test: /\.js$/,
@@ -119,7 +60,7 @@ const moduleRules = [
     },
 ],
     devServer = {
-        contentBase: [path.join(__dirname, './static-snapshots/'), path.join(__dirname, './')],
+        contentBase: [path.resolve('static-snapshots/'), path.resolve('')],
         watchContentBase: true,
         compress: true,
     };
@@ -139,7 +80,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + './assets/ffg/bp',
+        path: path.resolve('assets/ffg/bp')
     },
     module: {
         rules: moduleRules
@@ -159,7 +100,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + './assets/ffg',
+        path: path.resolve('assets/ffg')
     },
     module: {
         rules: moduleRules
@@ -179,7 +120,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + './assets/ffg/components/glossary',
+        path: path.resolve('assets/ffg/components/glossary')
     },
     module: {
         rules: moduleRules
@@ -199,7 +140,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + './assets/ffg/components/tabs',
+        path: path.resolve('assets/ffg/components/tabs')
     },
     module: {
         rules: moduleRules
@@ -222,7 +163,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + './assets/ffg/revenue/',
+        path: path.resolve('assets/ffg/revenue/')
     },
     module: {
         rules: moduleRules
@@ -245,7 +186,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + './assets/ffg/spending/',
+        path: path.resolve('assets/ffg/spending/')
     },
     module: {
         rules: moduleRules
@@ -267,7 +208,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../assets/ffg/deficit'),
+        path: path.resolve('assets/ffg/deficit'),
     },
     module: {
         rules: moduleRules
@@ -290,7 +231,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, './assets/ffg/debt'),
+        path: path.resolve('assets/ffg/debt'),
     },
     module: {
         rules: moduleRules
@@ -310,7 +251,7 @@ module.exports = [{
         './citizens-guide/src/debt/analysis/debt-analysis.scss'
     ],
     output: {
-        path: path.resolve(__dirname, '../assets/ffg/css'),
+        path: path.resolve('assets/ffg/css'),
     },
     mode: mode,
     module: {
