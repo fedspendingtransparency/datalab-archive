@@ -46,4 +46,10 @@
 
    gtag('config', 'UA-19138737-13');
   </script>
+
+  <!-- og tags -->
+  {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
+  <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
+  {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
+  {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
 </head>
