@@ -1,19 +1,21 @@
-<header class="official-banner">
-  <ul class="official-banner__site-list">
-    <li class="official-banner__site-item">
-      <a class="official-banner__site-link" href="https://www.usaspending.gov">
-        USAspending.gov
-      </a>
-    </li>
-    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
-      |
-    </li>
-    <li class="official-banner__site-item">
-      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
-        Data Lab
-      </a>
-    </li>
-  </ul>
+<header class="official-banner" role="banner">
+  <nav>
+    <ul class="official-banner__site-list">
+      <li class="official-banner__site-item">
+        <a class="official-banner__site-link" href="https://www.usaspending.gov">
+          USAspending.gov
+        </a>
+      </li>
+      <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+        |
+      </li>
+      <li class="official-banner__site-item">
+        <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+          Data Lab
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div class="official-banner__wrapper">
     <div class="official-banner__text">
       An official website of the U.S. government
@@ -32,7 +34,7 @@
       <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
 
-    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
+    <svg style="height: 0; width: 0;" aria-hidden="true"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
 
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
@@ -55,7 +57,7 @@
     </nav>
   </div>
 
-  <div class="header__sub">
+  <nav class="header__sub">
     <ul class="dropdown-ul-section" id="subnav-analyses">
       <li class="secondaryNavli"><a href="/dts.html">DTS Tracker</a></li>
       <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
@@ -84,11 +86,11 @@
         </button>
       </li>
     </ul>    
-  </div>
+  </nav>
 
 </header>
 
-<div class="mobileUlSection" id="mobileSection"> 
+<nav class="mobileUlSection" id="mobileSection"> 
   <ul class="mobileNav" id="mobile-nav">
     <li class="navListItem">
       <a href="#" id="analysesAnchor">Analyses</a>
@@ -145,4 +147,4 @@
     </ul>
   </ul>
 
-</div>
+</nav>
