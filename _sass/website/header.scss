@@ -29,15 +29,11 @@ $link-color: #999;
   z-index: 20;
 }
 
-article#main {
-  margin-top: 102px;
-}
-
 .official-banner {
   box-sizing: border-box;
 }
 
-.header-tight article#main {
+.header-tight #main {
   margin-top: 75px;
 }
 
