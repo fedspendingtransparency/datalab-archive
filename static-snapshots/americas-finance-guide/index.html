@@ -38,14 +38,14 @@
    gtag('js', new Date());
    gtag('config', 'UA-60737492-1');
   </script>
-
+  
   <script>
    window.dataLayer = window.dataLayer || [];
    function gtag(){dataLayer.push(arguments);}
    gtag('js', new Date());
    gtag('config', 'UA-19138737-13');
   </script>
-  
+
   <!-- og tags -->
   <meta property="og:title" content="Data Lab - Your Guide to America’s Finances – U.S. Treasury"/>
   <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
@@ -115,16 +115,14 @@
       <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
     </a>
 
-    <svg style="height: 0; width: 0;"><g></g></svg> <!--dummy SVG becuase D3 is moving the first one in header in addition to the rest of the dendrogram-->
-
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-        <i class="fas fa-bars"> </i>
+	<i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-        <li class="navListItem desktop-nav-item" data-target="analyses">
+	<li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-          <span><?xml version="1.0" encoding="UTF-8"?>
+	  <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -137,10 +135,10 @@
         </g>
     </g>
 </svg></span>
-        </li>
-        <li class="navListItem desktop-nav-item" data-target="resources">
+	</li>
+	<li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-          <span><?xml version="1.0" encoding="UTF-8"?>
+	  <span><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -153,10 +151,10 @@
         </g>
     </g>
 </svg></span>
-        </li>
-        <li class="navListItem desktop-nav-item" data-target="ffg">
+	</li>
+	<li class="navListItem desktop-nav-item" data-target="ffg">
           <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-          <span class=""><?xml version="1.0" encoding="UTF-8"?>
+	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
 <svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
     <title>Path 2 Copy 2</title>
@@ -169,7 +167,7 @@
         </g>
     </g>
 </svg></span>
-        </li>
+	</li>
       </ul>
     </nav>
   </div>
@@ -890,7 +888,6 @@
     <img src="/assets/ffg/bp/treasury-seal.svg" class="about-us__logo" alt="U.S. Treasury Logo">
 </div>
 
-<script src="/assets/ffg/anecdote.js"></script>
 <script src="/assets/ffg/bp/bp.js"></script>
 <script src="/assets/ffg/accordion.js"></script>
 
@@ -901,18 +898,18 @@
 </article>
 
       <script>
- function trackLinkClick(actionName) {
-     window.Analytics.event({
-         category: 'Footer - Click Link',
-         action: actionName
-     });
- }
+  function trackLinkClick(actionName) {
+          window.Analytics.event({
+              category: 'Footer - Click Link',
+              action: actionName
+      });
+  }
 
- function leaveSiteLink(outbound) {
-     document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
-     document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
-     document.getElementById('leave-modal').style.display = 'block';
- }
+  function leaveSiteLink(outbound) {
+          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+          document.getElementById('leave-modal').style.display = 'block';
+  }
 </script>
 
 <div class="dl-footer">
@@ -1104,14 +1101,14 @@
 </div>
 
 <footer id="footer">
-  <div>
-    &copy; 2018 USAspending.gov |&nbsp;
-    <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
-    <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
-    <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+    <div>
+      &copy; 2018 USAspending.gov |&nbsp;
+      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
   </div>
-  <div class="footer-important-info">
-    <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
+    <div class="footer-important-info">
+      <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
 </footer>
 
@@ -1144,7 +1141,7 @@
             "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
             }
         },
-        "description": "Your Guide to America’s Finances visualizes federal revenue, spending, deficit, and debt. It was created in response to the public’s desire to learn more about the financial picture of the United States. The federal financial information is open and accessible to all - reflecting the very principles that our founding fathers set forth when the United States was formed."
+        "description": "Your Guide to America’s Finances visualizes federal revenue, spending, deficit, and debt. It was created in response to the public’s desire to learn more about the financial picture of the United States. The federal financial information is open and accessible to all - the very principles that our founding fathers set forth when the United States was formed."
     }
     </script>
     <script src="/assets/ffg/components/glossary/glossary.js"></script>
