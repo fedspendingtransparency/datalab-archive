@@ -26,7 +26,8 @@
     function createButton() {
         var button = document.createElement('button'),
             plus = document.createElement('i'),
-            minus = document.createElement('i');
+            minus = document.createElement('i'),
+            srText = document.createElement('span');
 
         plus.classList.add('fas');
         plus.classList.add('fa-plus');
@@ -34,10 +35,13 @@
         minus.classList.add('fas');
         minus.classList.add('fa-minus');
         minus.classList.add('accordion__minus');
+        srText.classList.add('sr-only');
+        srText.textContent = "toggle contents";
 
         button.classList.add('accordion__toggle');
         button.appendChild(plus);
         button.appendChild(minus);
+        button.appendChild(srText);
 
         return button;
     }
