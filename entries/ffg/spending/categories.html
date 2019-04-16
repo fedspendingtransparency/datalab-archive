@@ -1,4 +1,4 @@
---- 
+---
 layout: ffg
 title: Data Lab - Federal Spending Categories – U.S. Treasury
 excerpt: You can explore $4.1 trillion in spending either by category or by agency.  Curious to find out more? Dive deeper to see spending details by sub-category and other options.
@@ -15,7 +15,7 @@ ffgPageCss: css/spending-categories.css
 <div class="ffg-wrapper">
 
     <div class="ffg-share">{% include new-share-menu.html %}</div>
-    
+
     <h1>Federal Spending by Category and Agency</h1>
     <div id="viz-wrapper">
         <h2 class="chart-title">
@@ -38,8 +38,8 @@ ffgPageCss: css/spending-categories.css
                 </div>
                 <div class='bar-controls__right'>
                     <div class='bar-controls__right--div'>
-                        <input type="text" placeholder='Search by a term...' id="filter-by-name">
-                        <i id='filter-by-name-icon' class='fa fa-search spending__search--icon'></i>
+                        <input type="text" placeholder='Search by a term...' id="filter-by-name" aria-label="search by a term">
+                        <i id='filter-by-name-icon' class='fa fa-search spending__search--icon' aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ ffgPageCss: css/spending-categories.css
                 <p>Our partner site, <a href='https://www.usaspending.gov/' rel="noopener noreferrer" target="_blank">USASpending.gov</a> allows visitors to explore federal spending by the types of items and services purchased by the federal government. Go explore federal spending by <a href='https://www.usaspending.gov/#/explorer/object_class' rel="noopener noreferrer" target="_blank">Object Class</a>.</p>
             </div>
         </section>
-    
+
         <section class="accordion">
             <h1 class="accordion__heading">What are mandatory and discretionary spending?</h1>
             <div class="accordion__content">
@@ -79,7 +79,7 @@ ffgPageCss: css/spending-categories.css
                 <p>The majority of Social Security and Medicare funding comes from tax revenue and interest on trust fund reserves. For 2017, income for these programs was also $1.7 trillion. However, starting in 2018, costs for Social Security and Medicare Part A are expected to exceed revenue and will require the federal government to begin drawing down trust fund balances in order to continue paying full benefits. While Medicare Parts B and D are largely funded by general revenues and beneficiary premiums, the Boards project that Medicare Part A trust fund will be depleted by 2026 and the Social Security trust fund will be depleted by 2034.</p>
             </div>
         </section>
-        
+
         <section class="tour">
             <div class="tour__part-one">
                 <h1>How has federal spending changed over time?</h1>
