@@ -122,6 +122,9 @@ h1.anecdote__heading {
     width: 100%;
     opacity: 0;
     transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     &.anecdote__pane--active {
         order: 1;
