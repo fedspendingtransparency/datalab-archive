@@ -329,7 +329,7 @@ function addGlossaryEvents(terms) {
     });
     window.addEventListener('scroll', function (e){
         const scrollPos = document.documentElement.scrollTop,
-            glossaryButton = d3.select('#afg-launch-glossary-button');
+            glossaryButton = d3.select('#afg-launch-glossary-div');
 
         let glossaryButtonHiddenInd = glossaryButton.classed('hidden');
         if(scrollPos === 0){
