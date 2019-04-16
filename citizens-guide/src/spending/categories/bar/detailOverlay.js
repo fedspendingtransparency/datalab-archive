@@ -186,7 +186,6 @@ export function initOverlay(title, config, callback) {
         .attr('transform', translator(5, setOverlayY(startCoords[1], finalRectHeight)) + ' scale(1)')
         .on('end', function () {
             setTimeout(function () {
-                console.log('go')
                 closeText.attr('stroke-width', 1);
             }, 10)
 
