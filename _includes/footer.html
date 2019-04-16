@@ -81,4 +81,7 @@
   <div class="footer-important-info">
     <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
   </div>
+  {% if page.ffg %}
+    {% include ffg/cg-glossary.html %}
+  {% endif %}
 </footer>
