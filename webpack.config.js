@@ -87,26 +87,6 @@ module.exports = [{
     }
 },{
     entry: {
-        anecdote: './citizens-guide/src/anecdote/anecdote.js',
-    },
-    devtool: devtool,
-    devServer: devServer,
-    mode: mode,
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-        })
-    ],
-    output: {
-        filename: '[name].js',
-        path: path.resolve('assets/ffg')
-    },
-    module: {
-        rules: moduleRules
-    }
-}, {
-    entry: {
         glossary: './citizens-guide/src/components/glossary/glossary.js'
     },
     devtool: devtool,
@@ -243,7 +223,6 @@ module.exports = [{
         './citizens-guide/src/globalSass/countryCommon.scss',
         './citizens-guide/src/globalSass/trendsCommon.scss',
         './citizens-guide/src/bigPicture/scss/bp.scss',
-        './citizens-guide/src/anecdote/anecdote.scss',
         './citizens-guide/src/deficit/trends/deficit-trends.scss',
         './citizens-guide/src/revenue/categories/revenue-categories.scss',
         './citizens-guide/src/spending/categories/spending-categories.scss',
