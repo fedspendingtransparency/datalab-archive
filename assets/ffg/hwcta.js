@@ -2,14 +2,16 @@
     function toggle() {
         var element = document.getElementsByClassName('hwcta').item(0),
             openClass = 'hwcta--open';
-    
+
         element.classList.toggle(openClass);
     }
-    
+
     function createButton() {
         var button = document.createElement('button'),
             plus = document.createElement('i'),
-            minus = document.createElement('i');
+            minus = document.createElement('i'),
+            srText = document.createElement('span');
+
 
         plus.classList.add('fas');
         plus.classList.add('fa-plus');
@@ -17,10 +19,13 @@
         minus.classList.add('fas');
         minus.classList.add('fa-minus');
         minus.classList.add('hwcta__minus');
+        srText.classList.add('sr-only');
+        srText.textContent = "toggle contents";
 
         button.classList.add('hwcta__toggle');
         button.appendChild(plus);
         button.appendChild(minus);
+        button.appendChild(srText);
 
         return button;
     }
