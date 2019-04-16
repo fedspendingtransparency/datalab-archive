@@ -1,22 +1,6 @@
 import { select, selectAll, event } from 'd3-selection';
 import SwipeListener from 'swipe-listener';
-
-if (!Element.prototype.matches) {
-    Element.prototype.matches = Element.prototype.msMatchesSelector ||
-        Element.prototype.webkitMatchesSelector;
-}
-
-if (!Element.prototype.closest) {
-    Element.prototype.closest = function (s) {
-        var el = this;
-
-        do {
-            if (el.matches(s)) return el;
-            el = el.parentElement || el.parentNode;
-        } while (el !== null && el.nodeType === 1);
-        return null;
-    };
-}
+import '../matchesPolyfill';
 
 const d3 = { select, selectAll, event },
     config = {
@@ -147,17 +131,17 @@ function addKeyboardNavigation() {
 
 function addMobileSwiping(anecdote) {
     // Add mobile navigation (swipe left/right).
-    const anecdoteEl = anecdote.node(),
-        listener = SwipeListener(anecdoteEl);
+    const anecdoteEl = anecdote.node();
 
-    anecdoteEl.addEventListener('swipe', function(e){
+    anecdoteEl.addEventListener('swipe', function (e) {
         const activeAnecdotes = d3.selectAll(`.${config.anecdoteActiveClass}`),
             swipeDirection = e.detail.directions;
 
         let prev;
-        if(swipeDirection.right){
+
+        if (swipeDirection.right) {
             prev = 'previous';
-        } else if(!swipeDirection.left){
+        } else if (!swipeDirection.left) {
             return; // Ignore up or down swipes.
         }
 
