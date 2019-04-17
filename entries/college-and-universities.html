@@ -1,191 +1,26 @@
-<!--
-// comment out c&u
 ---
 layout: default
 menuname: Colleges & Universities
 menuorder: 3
 permalink: college-and-universities.html
 ---
-<div class="CU">
-<div id="sectionLanding" class="sectionLanding">
 
-        
-        <img src="../images/college-playbook/gradCap--blue.png" class="blue">
-        <img src="../images/college-playbook/gradCap--green.png" class="green">
-        <img src="../images/college-playbook/gradCap--orange.png" class="orange">
-        <img src="../images/college-playbook/gradCap--red.png" class="red">
-        <img src="../images/college-playbook/gradCap--yellow.png" class="yellow">
 
-    <div class="landing">
-        
-        <h1>Tracking federal investment in <strong>colleges & universities</strong> of the United States</h1>
-        <p>Some Text</p>
-        <p>Some Text</p>
-
-    </div>
-</div>
-
-<div id="secitonTableOfContents">
-<div class="table-of-contents">
-    <div>
-            <span class="id">01</span>
-            <span class="content">
-                <a onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">Investment Overview</a>
-                <p>some text</p>
-                <p>some text</p>
-            </span>
-    </div>
-    <div>
-            <span class="id">02</span>
-            <span class="content">
-                <a onclick="secitonInvestmentCategories.scrollIntoView({behavior: 'smooth'})">Investment Categories</a>
-                <p>some text</p>
-                <p>some text</p>
-            </span>
-    </div>
-    <div>
-            <span class="id">03</span>
-            <span class="content">
-                <a onclick="secitonAgencyInvestment.scrollIntoView({behavior: 'smooth'})">Agencey Interview</a>
-                <p>some text</p>
-                <p>some text</p>
-            </span>
-    </div>
-    <div>
-            <span class="id">04</span>
-            <span class="content">
-                <a onclick="secitonInstitutionInvestment.scrollIntoView({behavior: 'smooth'})">Institution Investment</a>
-                <p>some text</p>
-                <p>some text</p>
-            </span>
-    </div>
-    <div>
-            <span class="id">05</span>
-            <span class="content">
-                <a onclick="secitonConclusion.scrollIntoView({behavior: 'smooth'})">Conclusion</a>
-                <p>some text</p>
-                <p>some text</p>
-            </span>
-    </div>
-    <div>
-            <span class="id">06</span>
-            <span class="content">
-                <a onclick="secitonAppendixMethodolgy.scrollIntoView({behavior: 'smooth'})">Appendix: Methodology</a>
-                <p>some text</p>
-                <p>some text</p>
-            </span>
-    </div>
-</div>
-</div>
-
-<div id="secitonInvestmentOverview">
-    <div class="sectionHeader">
-        <h1>01</h1>
-        <h2>Investment Overview</h2>
-        <h3>How Much was invested in colleges & Universities?</h3>
-        <p>Some Text</p>
-    </div>
-    <div class="overview_information">
-        <h2>Total Investment</h2>
-        <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount"></p>
-        <h1 id="investment_spending_total"></h1>
-        <div id="totalInvestments_Graph" class="graph">
-                <span id="totalInvestments_graph_Contracts" class="contracts"></span>
-                <span id="totalInvestments_graph_Grants" class="grants"></span>
-                <span id="totalInvestments_graph_StudentAid" class="studentAid"></span>
-        </div>
-        <div id="totalInvestments_breakdown" class="breakdown">
-                <span>
-                        <h2>Contracts</h2>
-                        <h1 id="totalInvestments_breakdown_contracts_total"></h1>
-                        <p></p>
-                </span>
-                <span>
-                        <h2>Grants</h2>
-                        <h1 id="totalInvestments_breakdown_grants_total"></h1>
-                        <p></p>
-                </span>
-                <span>
-                        <h2>Student Aid</h2>
-                        <h1 id="totalInvestments_breakdown_studentAid_total"></h1>
-                        <p></p>
-                </span>
-        </div>
-    </div>
-</div>
-<div id="secitonInvestmentCategories">
-        <div class="sectionHeader">
-                <h1>02</h1>
-                <h2>Investment Categories</h2>
-                <h3>How was this money invested?</h3>
-                <p>Some Text</p>
-        </div>
-            <div id="investmentCategories" class="investmentCategories">
-                <div id="categoriesPanel" class="panel">
-                        <span id="categories_panel_back_btn">
-                                <strong><</strong> Back
-                        </span>
-                        <div id="investmentCategories_panel_chart" class="panelChart">
-
-                        </div>
-                </div>
-                <div id="categoriesChartContainer" class="chartContainer">
-                        <span id="cat_rt_pg_turn" class="chv right">
-                                <i class="fas fa-chevron-right chv right"></i>   
-                        </span>      
-                        <span id="cat_lt_pg_turn" class="chv left">
-                                <i class="fas fa-chevron-left"></i>
-                        </span>      
-                </div>
-            </div>
-</div>
-<div id="secitonAgencyInvestment">
-        <div class="sectionHeader">
-                <h1>03</h1>
-                <h2>Agencies</h2>
-                <h3>How much did each agency invest?</h3>
-                <p>Some Text</p>
-        </div>
-        <div id="agencies">
-                <div id="bubbleChartContainer" class="bubbleChartContainer">
-
-                </div>
-        
-        </div>
-</div>
-<div id="secitonInstitutionInvestment">
-        <div class="sectionHeader">
-                <h1>04</h1>
-                <h2>Institutions</h2>
-                <h3>How much did each <strong>institution</strong> recieve</h3>
-                <p>Some Text</p>
-        </div>
-        <div id="collegesMap" class="collegesMap">
-        
-        </div>
-</div>
-<div id="secitonConclusion">
-        <div class="sectionHeader">
-                <h1>05</h1>
-                <h2>Conclusion</h2>
-                <h3>What's next?</h3>
-                <p>Some Text</p>
-                <p>Some Text</p>
-        </div>
-</div>
-<div id="secitonAppendixMethodolgy">
-        <div class="sectionHeader">
-                <h1>06</h1>
-                <h2>Appendix: Methodology</h2>
-                <h3>How was this analysis conducted?</h3>
-                <p>Some Text</p>
-                <p>Some Text</p>
-        </div>
-</div>
+<div class="CU" data-aos="fade-down" data-aos-delay="300">
+  
+  <!-- 
+       {% include colleges/sectionone.html %}
+       {% include colleges/sectiontwo.html %}
+       {% include colleges/sectionthree.html %}
+       {% include colleges/sectionfour.html %}
+       {% include colleges/sectionfive.html %}
+       {% include colleges/sectionsix.html %}
+  -->
 </div>
 
 
-<script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
+<!--scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script> <!-- try using 4, whatever -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="{{site.baseurl}}/js/jquery.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script>
@@ -193,4 +28,20 @@ permalink: college-and-universities.html
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/categoriesPieChart.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/institutions.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
--->
+<script src="{{site.baseurl}}/js/jquery.dataTables.min.js"></script>
+
+<!-- List.js Search -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+<!-- ScrollyTelling -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/util/scrolling.js"></script>
+
+<!-- Add AOS for ScrollStory Jazz -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+ AOS.init();
+</script>

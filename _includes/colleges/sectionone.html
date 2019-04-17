@@ -1,0 +1,133 @@
+<div id="sectionLanding" class="sectionLanding" data-aos="fade-down" data-aos-delay="1000">
+
+  <img src="../images/college-playbook/gradCap--blue.png" class="blue">
+  <img src="../images/college-playbook/gradCap--green.png" class="green">
+  <img src="../images/college-playbook/gradCap--orange.png" class="orange">
+  <img src="../images/college-playbook/gradCap--red.png" class="red">
+  <img src="../images/college-playbook/gradCap--yellow.png" class="yellow">
+
+  <div class="landing" data-aos="fade-down" data-aos-delay="200">
+
+    <h1>Tracking federal investment in <strong>colleges & universities</strong> of the United States</h1>
+    <p>Some Text</p>
+    <p>Some Text</p>
+
+  </div>
+</div>
+
+<div id="secitonTableOfContents" data-aos="fade-up" data-aos-delay="1000" data-aos-offset='500'>
+  <div class="table-of-contents">
+    <div>
+      <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">01</span>
+      <span class="content">
+        <a onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">Investment Overview</a>
+        <p>some text</p>
+        <p>some text</p>
+      </span>
+    </div>
+    <div>
+      <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">02</span>
+      <span class="content">
+        <a onclick="secitonInvestmentCategories.scrollIntoView({behavior: 'smooth'})">Investment Categories</a>
+        <p>some text</p>
+        <p>some text</p>
+      </span>
+    </div>
+    <div>
+      <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">03</span>
+      <span class="content">
+        <a onclick="secitonAgencyInvestment.scrollIntoView({behavior: 'smooth'})">Agencey Interview</a>
+        <p>some text</p>
+        <p>some text</p>
+      </span>
+    </div>
+    <div>
+      <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">04</span>
+      <span class="content">
+        <a onclick="secitonInstitutionInvestment.scrollIntoView({behavior: 'smooth'})">Institution Investment</a>
+        <p>some text</p>
+        <p>some text</p>
+      </span>
+    </div>
+    <div>
+      <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">05</span>
+      <span class="content">
+        <a onclick="secitonConclusion.scrollIntoView({behavior: 'smooth'})">Conclusion</a>
+        <p>some text</p>
+        <p>some text</p>
+      </span>
+    </div>
+    <div>
+      <span class="id" onclick="secitonInvestmentOverview.scrollIntoView({behavior: 'smooth'});">06</span>
+      <span class="content">
+        <a onclick="secitonAppendixMethodolgy.scrollIntoView({behavior: 'smooth'})">Appendix: Methodology</a>
+        <p>some text</p>
+        <p>some text</p>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div id="secitonInvestmentOverview" class="InvestmentOverviewContainer">
+  <div class="sectionHeader story" data-aos="fade-down" data-aos-delay="1000" data-aos-offset="500">
+    <h1>01</h1>
+    <h2>Investment Overview</h2>
+    <h3>How Much was invested in colleges & Universities?</h3>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum."</p>
+  </div>
+  <div class="overview_information">
+
+    <div id='investmentScrolly'>
+      <h2 id='investmenth2' class='story hiddenScroll'>Total Investment</h2>
+      <p id="totalInvesmentDollarAmount" class="totalInvesmentDollarAmount hiddenScroll"></p>
+      <h1 id="investment_spending_total" class="contracts hiddenScroll"></h1>
+    </div>
+
+    <!-- Graph Starts Here -->
+    <div id="totalInvestments_Graph" class="graph hiddenScroll">
+      <span id="totalInvestments_graph_Contracts" class="contracts"></span>
+      <span id="totalInvestments_graph_Grants" class="grants"></span>
+      <span id="totalInvestments_graph_StudentAid" class="studentAid"></span>
+    </div>
+
+    <!-- Information Rectangle -->
+    <div class="flex-rect hiddenScroll" id='infoRect'>
+      <div class="Rectangle-3">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur.</p>
+      </div>
+    </div>
+
+
+    <div id="totalInvestments_breakdown" class="breakdown flexcontainer">
+      <div class="story fade-in hiddenScroll" id="contractsSpan">
+        <span id="flexspan">
+          <h2>Contracts</h2>
+          <p id="totalInvestments_breakdown_contracts_total"></p>
+          <p class='blurbtext'>Placeholder</p>
+        </span>
+      </div>
+      <div class="story fade-in hiddenScroll" id="grantsSpan">
+        <span id="flexspan">
+          <h2>Grants</h2>
+          <p id="totalInvestments_breakdown_grants_total"></p>
+          <p class="blurbtext">Placeholder</p>
+        </span>
+      </div>
+      <div class="story fade-in hiddenScroll" id="studentaidSpan">
+        <span id="flexspan">
+          <h2>Student Aid</h2>
+          <p id="totalInvestments_breakdown_studentAid_total"></p>
+          <p class="blurbtext">Placeholder</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
