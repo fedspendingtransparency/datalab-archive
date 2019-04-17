@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    color: #666;
+    color: $text-color-paragraph;
 
     .cg-content {
         letter-spacing: normal;
@@ -113,7 +113,7 @@ blockquote {
     margin-bottom: 3rem;
     font-size: 12px;
     font-style: italic;
-    color: #666666;
+    color: $text-color-paragraph;
 }
 
 .tighter-text {

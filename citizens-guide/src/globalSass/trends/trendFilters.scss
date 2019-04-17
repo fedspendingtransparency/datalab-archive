@@ -31,7 +31,7 @@
     button {
         background: white;
         border: none;
-        color: #666;
+        color: $text-color-paragraph;
         outline:none;
         padding:0.4rem 1rem;
 
@@ -43,13 +43,13 @@
 }
 
 #save-filters-button {
-    background-color: #00766C;
+    background-color: $color-spending-primary;
     color:white;
     padding:0.4rem 1.5rem;
     border-radius:4px;
 
     &:hover {
-        background: lighten(#00766C, 10%);
+        background: lighten($color-spending-primary, 10%);
         transition: background-color 0.3s ease;
     }
 }
@@ -77,11 +77,11 @@
     }
 
     button.active {
-        background-color: #00766C;
+        background-color: $color-spending-primary;
         color:white;
 
         &:hover {
-            background: lighten(#00766C, 10%);
+            background: lighten($color-spending-primary, 10%);
             transition: background-color 0.3s ease;
         }
     }

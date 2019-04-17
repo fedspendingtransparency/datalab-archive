@@ -92,7 +92,7 @@
 
 #bar-controls {
     display:flex;
-    color:#666;
+    color:$text-color-paragraph;
     font-size:14;
     font-weight:bold;
     justify-content:space-between;
@@ -160,7 +160,7 @@
         padding-left: 0;
         padding-bottom: 0;
         font-weight: 600;
-        color: #666;
+        color: $text-color-paragraph;
     }
 
     .link-button__icon {

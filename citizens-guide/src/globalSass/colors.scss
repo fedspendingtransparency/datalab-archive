@@ -39,23 +39,12 @@ $text-color-paragraph: #666666;
     colorGrayDark: $color-gray-dark;
     colorGrayCoolLight: $color-gray-cool-light;
 
-    // change these to match the new names
-        // i found no instances anywhere, or either of them (?)
-    // income -> incomePrimary
-    // parentOne -> incomeParentOne
-    //income: $income;
-    //parentOne: $parent-one;
-    // new ones
     incomePrimary: $income-primary;
     incomeParentOne: $income-parent-one;
 
     colorSpendingPrimary: $color-spending-primary;
     colorSpendingTrends: $color-spending-trends;
-    // change these to match the new name
-        // found no instances of these either
-    //colorSpendingTrendLines: $color-spending-trend-lines;
-    //colorSpendingTrendCircles: $color-spending-trend-circles;
-    // new one
+
     colorSpending: $color-spending;
 
     colorDeficitPrimary: $color-deficit-primary;
