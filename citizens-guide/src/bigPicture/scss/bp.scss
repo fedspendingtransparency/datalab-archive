@@ -83,14 +83,14 @@ section.hwcta {
     h1 {
         font-size:4rem;
         font-weight: 600;
-        color:#555;
+        color:$text-color-heading;
     }
 
     p {
         text-align: center;
         max-width: 1200px;
         margin: 0 auto;
-        color: #666;
+        color: $text-color-paragraph;
         font-size: 1.5rem;
         font-weight:500;
     }

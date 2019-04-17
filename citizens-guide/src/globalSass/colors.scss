@@ -1,0 +1,68 @@
+$color-primary: #0071bc;
+$color-primary-darker: #205493;
+$color-primary-darkest: #112e51;
+$color-primary-alt-darkest: #046b99;
+$color-primary-alt-light: #9bdaf1;
+$color-primary-alt-lightest: #e1f3f8;
+$color-gray-dark: #323a45;
+$color-gray-cool-light: #dce4ef;
+
+// you need to search for the old names and hex codes to replace with the mew ones
+//$income: #4A90E2;
+//$parent-one: #3673BB;
+//new ones
+$income-primary: #0A2F5A;
+$income-parent-one: #0A2F5A;
+
+$color-spending-primary: #00796B;
+$color-spending-trends: #004941;
+$color-spending-trend-lines: rgb(24,90,83);
+$color-spending-trend-circles: rgb(00,72,64);
+// trend-lines and -circles both become
+$color-spending: rgb(0, 121, 107);
+
+$color-deficit-primary: #B3532D;
+$color-deficit-surplus: #DAA200;
+
+$color-debt-primary: #4A0072;
+
+$text-color-heading: #555555;
+$text-color-paragraph: #666666;
+
+:export {
+    colorPrimary: $color-primary;
+    colorPrimaryDarker: $color-primary-darker;
+    colorPrimaryDarkest: $color-primary-darkest;
+    colorPrimaryAltDarkest: $color-primary-alt-darkest;
+    colorPrimaryAltLight: $color-primary-alt-light;
+    colorPrimaryAltLightest: $color-primary-alt-lightest;
+    colorGrayDark: $color-gray-dark;
+    colorGrayCoolLight: $color-gray-cool-light;
+
+    // change these to match the new names
+        // i found no instances anywhere, or either of them (?)
+    // income -> incomePrimary
+    // parentOne -> incomeParentOne
+    //income: $income;
+    //parentOne: $parent-one;
+    // new ones
+    incomePrimary: $income-primary;
+    incomeParentOne: $income-parent-one;
+
+    colorSpendingPrimary: $color-spending-primary;
+    colorSpendingTrends: $color-spending-trends;
+    // change these to match the new name
+        // found no instances of these either
+    //colorSpendingTrendLines: $color-spending-trend-lines;
+    //colorSpendingTrendCircles: $color-spending-trend-circles;
+    // new one
+    colorSpending: $color-spending;
+
+    colorDeficitPrimary: $color-deficit-primary;
+    colorDeficitSurplus: $color-deficit-surplus;
+
+    colorDebtPrimary: $color-debt-primary;
+
+    textColorHeading: $text-color-heading;
+    textColorParagraph: $text-color-paragraph;
+}
