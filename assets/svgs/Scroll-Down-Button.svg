@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Scroll Down Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="COT-DataLab-part1&amp;2" transform="translate(-732.000000, -566.000000)">
+            <g id="Scroll-Down-Button" transform="translate(735.000000, 569.000000)">
+                <circle id="Oval-4" stroke="#FFFFFF" stroke-width="3" cx="24" cy="24" r="25.5"></circle>
+                <polygon id="Rectangle-11-Copy" fill="#FFFFFF" points="14.128966 20.0042965 24.4448141 29.2678006 34.8627625 20.0257224 39 20 24.4711736 33 10 20.0401947"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
