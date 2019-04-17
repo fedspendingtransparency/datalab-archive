@@ -5,7 +5,7 @@ import { closeDetail } from './sort';
 const d3 = { select, selectAll, mouse },
     overlayPadding = 20;
 
-let previousHeight;
+let previousHeight, closeText;
 
 function closeOverlay() {
     const detailLayer = d3.select('.detail-layer'),
@@ -25,7 +25,7 @@ function closeOverlay() {
     resizeSvg();
 }
 
-function placeCloseButton(container, detailLayer, innerWidth) {
+function placeCloseButton(container, innerWidth) {
     const closeButtonWidth = 30,
         closeGroup = container.append('g')
             .classed('pointer', true)
@@ -38,8 +38,8 @@ function placeCloseButton(container, detailLayer, innerWidth) {
         .attr('height', 20)
         .attr('width', closeButtonWidth)
 
-    closeGroup.append('text')
-        .html('&#215;')
+    closeText = closeGroup.append('text')
+        .text('x')
         .attr('stroke', '#ccc')
         .attr('font-size', 24)
         .attr('text-anchor', 'middle')
@@ -50,7 +50,7 @@ function placeCloseButton(container, detailLayer, innerWidth) {
 function renderHeader(detailLayer, title, innerWidth) {
     const headerTextMaxWidth = innerWidth - 60,
         header = detailLayer.append('g')
-        .attr('transform', translator(0, overlayPadding));
+            .attr('transform', translator(0, overlayPadding));
 
     let headerText, calculatedHeaderHeight;
 
@@ -58,7 +58,7 @@ function renderHeader(detailLayer, title, innerWidth) {
         .text(title)
         .attr('x', overlayPadding)
         .attr('y', 20)
-        .attr('font-size', function() {
+        .attr('font-size', function () {
             const svgWidth = document.getElementById('viz').getBoundingClientRect().width;
 
             return svgWidth < 500 ? 16 : 20;
@@ -68,7 +68,7 @@ function renderHeader(detailLayer, title, innerWidth) {
 
     headerText.attr('transform', translator(20, 0))
 
-    placeCloseButton(header, detailLayer, innerWidth);
+    placeCloseButton(header, innerWidth);
 
     calculatedHeaderHeight = header.selectAll('tspan').size() * 20;
 
@@ -98,7 +98,7 @@ function setOverlayY(clickY, overlayHeight) {
         returnY = svgHeight - overlayHeight - 5;
     }
 
-    if(returnY < 5){
+    if (returnY < 5) {
         returnY = 5;
     }
     return returnY;
@@ -185,6 +185,10 @@ export function initOverlay(title, config, callback) {
         .duration(750)
         .attr('transform', translator(5, setOverlayY(startCoords[1], finalRectHeight)) + ' scale(1)')
         .on('end', function () {
+            setTimeout(function () {
+                closeText.attr('stroke-width', 1);
+            }, 10)
+
             callback(config, true)
         })
         .ease();
