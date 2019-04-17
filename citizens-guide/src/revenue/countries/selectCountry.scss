@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../../globalSass/colors';
 
 $primaryColor: #4A90E2;
 
@@ -38,7 +38,7 @@ $primaryColor: #4A90E2;
 
     .list-div li {
         background-color: $color-spending-primary;
-        
+
         &:hover {
             background-color: darken($color-spending-primary, 10);
         }
@@ -90,7 +90,7 @@ $primaryColor: #4A90E2;
     border: 1px solid #ddd;
     border-radius: 4px;
     background: white;
-    display: none; 
+    display: none;
     position: absolute;
     top: 40px;
     box-shadow: 0 0 10px rgba(0,0,10,0.2);

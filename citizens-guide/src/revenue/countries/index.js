@@ -1,7 +1,7 @@
 import { loadSourceData } from './data';
 import { chartInit } from './chart';
 import CountryData from '../../../public/csv/revenue_gdp_by_country.csv';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 const incomeConfig = {
     amountField: 'revenue_usd',

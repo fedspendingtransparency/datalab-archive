@@ -1,4 +1,4 @@
-@import '../../colors';
+@import '../../globalSass/colors';
 @import '../../spending/categories/spending-categories';
 
 #viz {
@@ -48,7 +48,7 @@
     padding-right: 0;
   }
 
-  .tour { 
+  .tour {
     margin: 0 0 0 1rem;
   }
 }

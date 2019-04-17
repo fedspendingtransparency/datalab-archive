@@ -1,5 +1,5 @@
 import { select } from 'd3-selection';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 const d3 = { select };
 

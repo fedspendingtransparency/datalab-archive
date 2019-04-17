@@ -1,6 +1,6 @@
 import { translator } from '../utils';
 import { select } from 'd3-selection';
-import colors from '../colors.scss';
+import colors from '../globalSass/colors.scss';
 
 const d3 = { select };
 
@@ -33,7 +33,7 @@ export const receiptsConstants = {
 
 export function dotFactory(container, x, y, color) {
     color = color || colors.income;
-    
+
     container.append('circle')
         .attr('cx', x)
         .attr('cy', y)

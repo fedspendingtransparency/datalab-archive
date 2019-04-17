@@ -1,6 +1,6 @@
 import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox } from '../../utils';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import textColors from '../../bigPicture/scss/_bpVars.scss';
 
 const d3 = { select, selectAll },
