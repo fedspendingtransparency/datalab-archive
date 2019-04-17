@@ -1,5 +1,5 @@
 import { line } from 'd3-shape';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { simplifyNumber } from '../../utils';
 import { chartWidth } from './widthManager';
 

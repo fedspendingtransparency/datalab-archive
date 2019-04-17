@@ -1,4 +1,4 @@
-@import '../../colors';
+@import '../../globalSass/colors';
 
 .viz-wrapper {
   position: relative;
@@ -6,11 +6,11 @@
 
 .sidebar--hidden {
   opacity: 0;
-  transition: opacity 1s ease;  
+  transition: opacity 1s ease;
 }
 
 .intro-math {
-  transition: opacity 1s ease;  
+  transition: opacity 1s ease;
 }
 
 .intro-math--hidden {
