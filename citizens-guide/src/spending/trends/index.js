@@ -6,7 +6,7 @@ import { setThreshold } from "./setThreshold";
 import { trendDesktop } from '../../components/trends/chart';
 import { manualThresholds } from './manualThresholds';
 import { trendMobile } from '../../components/trendsMobile';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 const d3 = { select, selectAll },
     accessibilityAttrs = {

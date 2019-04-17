@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { byYear } from '../data-spending';
 import { drawChart as barChart } from './bar/chart';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { establishContainer } from '../../utils';
 
 const d3 = { select, selectAll },

@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { translator, simplifyNumber, getElementBox, wordWrap } from '../../../utils';
 import { line } from 'd3-shape';
 import { drawChart } from './chart';
-import colors from '../../../colors.scss';
+import colors from '../../../globalSass/colors.scss';
 
 const d3 = { select, selectAll };
 

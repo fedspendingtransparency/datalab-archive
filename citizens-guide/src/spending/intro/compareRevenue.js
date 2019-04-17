@@ -3,7 +3,7 @@ import { line } from 'd3-shape';
 import { establishContainer, translator, simplifyNumber } from '../../utils';
 import { dotConstants } from './dotConstants';
 import { compareOn, compareOff, generateOverlay, registerLayer } from './compareManager';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 const d3 = { select, selectAll, line };
 

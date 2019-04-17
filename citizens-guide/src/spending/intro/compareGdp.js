@@ -4,7 +4,7 @@ import { establishContainer, translator, simplifyNumber } from '../../utils';
 import { dotConstants } from './dotConstants';
 import { compareOn, compareOff, generateOverlay, registerLayer } from './compareManager';
 import { createDonut } from '../../revenue/donut';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { chartWidth } from './widthManager';
 
 const d3 = { select, selectAll, line };
