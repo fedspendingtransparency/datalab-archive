@@ -13,46 +13,14 @@ permalink: budget-function.html
 category: entry
 ---
 
-{% include viz-header-info.html
-	title="Categorization Systems"
-	body="Budget Functions are used by Congress to categorize federal spending, and are also useful for the
-	public to understand the different missions, or functions of the federal government. Though Budget Functions
-	have evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal
-	spending using a version of these categories for more than 200 years."
-	identifier="panel1Modal"
-%}
+{% include viz-header-info.html title="Categorization Systems" body="Budget Functions are used by Congress to categorize federal spending, and are also useful for the public to understand the different missions, or functions of the federal government. Though Budget Functions have evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal spending using a version of these categories for more than 200 years." identifier="panel1Modal" %}
 
-{% include viz-modal.html
-	identifier="panel1Modal"
-	title="Categorization Systems"
-	body="<p>Budget Functions are used by Congress to categorize federal spending, and are also useful for the public
-		to understand the different missions, or functions of the federal government. Though Budget Functions have
-		evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal spending
-		using a version of these categories for more than 200 years.</p>
-
-		<p>The Object Classification system, which was created
-		in the 1920s, explains what the government received in exchange for spending.  For example, the Object
-		Classification system captures spending on salaries for federal employees, rent payments for federal buildings,
-		and spending on federal contracts.</p>"
-%}
+{% include viz-modal.html identifier="panel1Modal" title="Categorization Systems" body="<p>Budget Functions are used by Congress to categorize federal spending, and are also useful for the public to understand the different missions, or functions of the federal government. Though Budget Functions have evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal spending using a version of these categories for more than 200 years.</p><p>The Object Classification system, which was created in the 1920s, explains what the government received in exchange for spending.  For example, the Object Classification system captures spending on salaries for federal employees, rent payments for federal buildings, and spending on federal contracts.</p>"%}
 
 <section id="one" class="viz-section center-text">
 	<div class="viz-bkgd">
-		{% include viz-title.html
-			title="Budget Function Explorer"
-			subtext="Spending in Fiscal Year 2017/2018"
-			identifier="panel1InstructionsModal"
-		%}
-		{% include viz-modal.html
-			identifier="panel1InstructionsModal"
-			title="Instructions"
-			body="<ul>
-					<li>This Sankey diagram shows Budget Functions on the left and Object Classes on the right. </li>
-              		<li>Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories</li>
-			      	<li>Hover over an Object Class on the right to see how spending breaks down into Budget Functions</li>
-					<li>Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category</li>
-				  </ul>"
-		%}
+		{% include viz-title.html title="Budget Function Explorer" subtext="Spending in Fiscal Year 2017/2018" identifier="panel1InstructionsModal" %}
+		{% include viz-modal.html identifier="panel1InstructionsModal" title="Instructions" body="<ul><li>This Sankey diagram shows Budget Functions on the left and Object Classes on the right. </li><li>Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories</li><li>Hover over an Object Class on the right to see how spending breaks down into Budget Functions</li><li>Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category</li></ul>"%}
 		<div class="mask">
 			<h5 style="position: absolute; margin-left: 25px">Click on nodes to display additional information</h5>
 			<div class="viz-actions">
@@ -77,7 +45,7 @@ category: entry
 					<div id="sankey-container">
 						<div id="sankey-viz">
 							<div class="sankey-brackets">
-								{% include svgs/sankey-brackets.svg %}
+								<img src="/assets/svgs/sankey-brackets.svg" alt="">
 							</div>
 						</div>
 						<div id="sankey-table"></div>
@@ -88,17 +56,9 @@ category: entry
 	</div>
 </section>
 
-{% include viz-footer-info.html
-	body="This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API)."
-	link="budget-function-more.html"
-%}
+{% include viz-footer-info.html body="This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API)." link="budget-function-more.html" %}
 
-{% include footer-navigation.html
-	prev-text="Homelessness Analysis"
-	prev-link="homelessness-analysis.html"
-	next-text="Federal Employees"
-	next-link="federal-employees.html"
-%}
+{% include footer-navigation.html prev-text="Homelessness Analysis" prev-link="homelessness-analysis.html" next-text="Federal Employees" next-link="federal-employees.html" %}
 
 <!-- d3 scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>

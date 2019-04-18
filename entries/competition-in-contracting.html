@@ -14,26 +14,12 @@ category: entry
 ---
 
 </fieldset>
-{% include viz-header-info.html
-	title="Why does the government use competition when awarding contracts?"
-  body="<p>Competition is a healthy component of maintaining the integrity of the federal procurement process.  Competition generates better quality and lower costs for goods and services purchased in support of agency services to the American taxpayer.</p>
-				<p>The 1984 Competition in Contracting Act requires full and open competition while also allowing for exceptions in certain situations. In many cases, federal agencies will pursue competition even when an exception to the law applies, as competition may help to provide innovative solutions or better prices.</p>"
-%}
+{% include viz-header-info.html 	title="Why does the government use competition when awarding contracts?"   body="<p>Competition is a healthy component of maintaining the integrity of the federal procurement process.  Competition generates better quality and lower costs for goods and services purchased in support of agency services to the American taxpayer.</p> 				<p>The 1984 Competition in Contracting Act requires full and open competition while also allowing for exceptions in certain situations. In many cases, federal agencies will pursue competition even when an exception to the law applies, as competition may help to provide innovative solutions or better prices.</p>" %}
 
 <section id="one" class="viz-section center-text">
   <div class="viz-bkgd competition-in-contracting-viz-bkgd">
-     {% include viz-title.html
-        title="Competition in Contracting"
-        subtext="Updated as of December 2017"
-        identifier="panel1InstructionsModal"
-     %}
-     {% include viz-modal.html
-       identifier="panel1InstructionsModal"
-       title="Instructions"
-       body="<ul><li>Click the toggle to switch between raw numbers and percent for each agency</li>
-				 		 <li>Click the toggle to switch between total dollars obligated and the number of contracting actions</li>
-						 <li>Click the check box beside each agency to remove or add it to the visualization and re-scale the horizontal axis.</li></ul>"
-     %}
+     {% include viz-title.html        title="Competition in Contracting"        subtext="Updated as of December 2017"        identifier="panel1InstructionsModal"     %}
+     {% include viz-modal.html        identifier="panel1InstructionsModal"        title="Instructions"        body="<ul><li>Click the toggle to switch between raw numbers and percent for each agency</li> 				 		 <li>Click the toggle to switch between total dollars obligated and the number of contracting actions</li> 						 <li>Click the check box beside each agency to remove or add it to the visualization and re-scale the horizontal axis.</li></ul>"      %}
     <div class="mask">
       {% include action-buttons.html %}
       <div class="viz-container">
@@ -104,16 +90,8 @@ category: entry
   </div>
 </section>
 
-{% include viz-footer-info.html
-  body="This analysis is generated directly from data available in the Federal Procurement Data System Next Generation, which is the source of U.S. federal procurement data  on USASpending.gov. Data updated Dec 2017."
-%}
-
-{% include footer-navigation.html
-  prev-text="Federal Employees"
-  prev-link="federal-employees.html"
-  next-text="DTS Tracker"
-  next-link="dts.html"
-%}
+{% include viz-footer-info.html   body="This analysis is generated directly from data available in the Federal Procurement Data System Next Generation, which is the source of U.S. federal procurement data  on USASpending.gov. Data updated Dec 2017." %}
+{% include footer-navigation.html   prev-text="Federal Employees"   prev-link="federal-employees.html"   next-text="DTS Tracker"   next-link="dts.html" %}
 
 <!-- vendor scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>

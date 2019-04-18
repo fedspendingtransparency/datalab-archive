@@ -13,10 +13,7 @@ permalink: federal-employees.html
 category: entry
 ---
 
-{% include viz-header-info.html
-	title="How much do agencies spend on personnel?"
-	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 billion in personnel compensation. Government-wide spending on personnel compensation (base salaries) is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Veterans Affairs."
-%}
+{% include viz-header-info.html	title="How much do agencies spend on personnel?"	body="In Fiscal Year 2017 (FY 2017), the largest 24 federal agencies - known as CFO Act Agencies* - obligated a total of $115 billion in personnel compensation. Government-wide spending on personnel compensation (base salaries) is distributed across these agencies, with the largest amount of personnel spending made by the Department of Defense, followed by the Department of Veterans Affairs."%}
 
 <div class="fedscope-tool">
 
@@ -35,16 +32,11 @@ category: entry
   </div>
 </section>
 
-{% include viz-header-info.html
-	title="Where do federal employees work?"
-	body="CFO Act agencies employ 1.9 million people across the nation. The largest number of employees live and work in the District of Columbia, California, Virginia, Maryland, and Texas. Nearly a quarter of CFO Act agency employees (407,000 people) are located in 'the DMV area' -the District of Columbia, Maryland, or Virginia."
-  %}
+{% include viz-header-info.html	title="Where do federal employees work?"	body="CFO Act agencies employ 1.9 million people across the nation. The largest number of employees live and work in the District of Columbia, California, Virginia, Maryland, and Texas. Nearly a quarter of CFO Act agency employees (407,000 people) are located in 'the DMV area' -the District of Columbia, Maryland, or Virginia."  %}
   
   <div class="viz-bkgd">
     <div class="mask" id="mapMask">
-      {% include action-buttons.html
-        actions="<div id='mapFilter' class='action-button'>Filter</div>"
-      %}
+      {% include action-buttons.html actions="<div id='mapFilter' class='action-button'>Filter</div>" %}
       <form id="mapToolbar" class="toolbar">
         <div class="formItem">
           <div class="select-title">Agencies:</div>
@@ -64,23 +56,11 @@ category: entry
     </div>
 </div>
 
-{% include viz-header-info.html
-	title="What do federal employees do?"
-  body="
-  <div>
-    Federal employees serve in highly varied occupations. The following interactive visualization lists the main occupational categories, each of which includes several job types that are grouped by function - for example, administrative, medical, legal, or engineering. The occupation data also makes a distinction between blue-collar jobs (for example, warehousing) and white-collar jobs (for example, information technology). Across all CFO Act agencies, the top two occupation categories are Administrative and Clerical and Medical, Hospital, Dental, and Public Health. 
-  </div>
-  <div>
-    To explore the distribution of workers across occupation categories for each agency, select an agency from the menu.
-  </div>
-  "
-%}
+{% include viz-header-info.html	title="What do federal employees do?"  body="<div>Federal employees serve in highly varied occupations. The following interactive visualization lists the main occupational categories, each of which includes several job types that are grouped by function - for example, administrative, medical, legal, or engineering. The occupation data also makes a distinction between blue-collar jobs (for example, warehousing) and white-collar jobs (for example, information technology). Across all CFO Act agencies, the top two occupation categories are Administrative and Clerical and Medical, Hospital, Dental, and Public Health.</div><div>To explore the distribution of workers across occupation categories for each agency, select an agency from the menu.</div>" %}
 
 <div class="viz-bkgd">
 	<div class="mask" id="barchartMask">  
-    {% include action-buttons.html
-      actions="<div id='barchartFilter' class='action-button'>Filter</div>"
-    %}
+    {% include action-buttons.html actions="<div id='barchartFilter' class='action-button'>Filter</div>" %}
     <form id="barchartToolbar" class="toolbar">
       <div class="formItem">
         <div class="select-title">Agencies:</div>
@@ -102,17 +82,9 @@ category: entry
 </div>
 </div>
 
-{% include viz-footer-info.html
-  body="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov."
-  link="federal-employees-more.html"
-%}
+{% include viz-footer-info.html  body="We conducted this analysis using federal agency obligations data reported to USAspending.gov (which is available to the public) and agency employment data made available by the Office of Personnel Management (OPM) at FedScope.OPM.gov." link="federal-employees-more.html" %}
 
-{% include footer-navigation.html
-  prev-text="Budget Function"
-  prev-link="budget-function.html"
-  next-text="Competition In Contracting"
-  next-link="competition-in-contracting.html"
-%}
+{% include footer-navigation.html  prev-text="Budget Function"  prev-link="budget-function.html" next-text="Competition In Contracting" next-link="competition-in-contracting.html" %}
 
 <!-- shared scripts -->
 <script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>

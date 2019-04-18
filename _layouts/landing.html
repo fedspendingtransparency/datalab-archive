@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include head.html %}
-  {% include scripts.html %}
-  <body class="landing">
-    <div id="page-wrapper">
-        {% include header.html %}
-        <span id="return-to-top">{% include svgs/chevron-up.svg class="icon-chevron-up" %}</span>
-        {{ content }}
-        {% include footer.html %}
-    </div>
-    <script src="/assets/ffg/components/glossary/glossary.js"></script>
-  </body>
+{% include head.html %}
+{% include scripts.html %}
+
+<body class="landing">
+  <div id="page-wrapper">
+    {% include header.html %}
+    {% include return-to-top.html %}
+    {{ content }}
+    {% include footer.html %}
+  </div>
+  <script src="/assets/ffg/components/glossary/glossary.js"></script>
+</body>
+
 </html>

@@ -31,38 +31,15 @@ datePublished: 2019-04-08T08:00:00+06:00
   }
 </style>
 
-{% include viz-header-info.html
-	title="How does the government buy things?"
-  body="The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services ranging from internet to research and development. Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing the goods and services they purchase using Product and Service Codes (PSC)."
-	identifier="panel1Modal"
-%}
+{% include viz-header-info.html 	title="How does the government buy things?"   body="The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services ranging from internet to research and development. Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing the goods and services they purchase using Product and Service Codes (PSC)." 	identifier="panel1Modal" %}
 
-{% include viz-modal.html
-	identifier="panel1Modal"
-	title="How does the government buy things?"
-	body="<p>The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services ranging from internet to research and development. Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing the goods and services they purchase using Product and Service Codes (PSC).</p>
-        <p>Although contracts and grants share some similarities, each serves a different purpose. Generally, contracts allow the government to purchase goods and services it will use to execute its mission, while grants allow the government to provide goods and services directly to the public. For example, the Air Force uses contracts to acquire fighter jets to execute its mission, while the Federal Highway Administration uses grants to provide funds to states for public roads.</p>"
-%}
+{% include viz-modal.html 	identifier="panel1Modal" 	title="How does the government buy things?" 	body="<p>The federal government uses contracts to buy the things it needs, from office furniture to airplanes. It also uses contracts to buy services ranging from internet to research and development. Federal agencies and their sub-agencies are responsible for issuing contracts and categorizing the goods and services they purchase using Product and Service Codes (PSC).</p>         <p>Although contracts and grants share some similarities, each serves a different purpose. Generally, contracts allow the government to purchase goods and services it will use to execute its mission, while grants allow the government to provide goods and services directly to the public. For example, the Air Force uses contracts to acquire fighter jets to execute its mission, while the Federal Highway Administration uses grants to provide funds to states for public roads.</p>" %}
 
 <div class="contract-explorer">
   <section id="one" class="viz-section center-text">
     <div class="viz-bkgd">
-       {% include viz-title.html
-          title="Contract Explorer Sunburst"
-          subtext="Updated as of December 2017"
-          identifier="panel1InstructionsModal"
-       %}
-       {% include viz-modal.html
-         identifier="panel1InstructionsModal"
-         title="Instructions"
-         body="<p>This diagram has three rings. The <b>inner ring represents federal agencies</b>, like the Department of Defense, which are sized by the total dollar amounts they spent on contracts in FY 17. <b>The middle ring represents sub-agencies</b>, like the Air Force, which in most cases actually award contracts to contractors. <b>The outer ring represents the contractors</b> who receive awards from those sub-agencies.</p>
-				 			<ul>
-								<li>Hover over any part of the diagram to get a preview of the information featured in the next layer</li>
-								<li>Click on an agency (inner ring), sub-agency (middle ring), or contractor (outer ring) to zoom in on that entity and get more detailed information about it</li>
-								<li>Click the white center circle to reset the sunburst</li>
-								<li>To find a specific agency or contractor by name, type the name into the search bar.</li>
-							</ul>"
-       %}
+       {% include viz-title.html           title="Contract Explorer Sunburst"           subtext="Updated as of December 2017"           identifier="panel1InstructionsModal"        %}
+       {% include viz-modal.html          identifier="panel1InstructionsModal"          title="Instructions"          body="<p>This diagram has three rings. The <b>inner ring represents federal agencies</b>, like the Department of Defense, which are sized by the total dollar amounts they spent on contracts in FY 17. <b>The middle ring represents sub-agencies</b>, like the Air Force, which in most cases actually award contracts to contractors. <b>The outer ring represents the contractors</b> who receive awards from those sub-agencies.</p> 				 			<ul> 								<li>Hover over any part of the diagram to get a preview of the information featured in the next layer</li> 								<li>Click on an agency (inner ring), sub-agency (middle ring), or contractor (outer ring) to zoom in on that entity and get more detailed information about it</li> 								<li>Click the white center circle to reset the sunburst</li> 								<li>To find a specific agency or contractor by name, type the name into the search bar.</li> 							</ul>"        %}
       <div class="mask">
         <div class="viz-container">
           <div id="root">
@@ -74,17 +51,9 @@ datePublished: 2019-04-08T08:00:00+06:00
   </section>
 </div>
 
-{% include viz-footer-info.html
-  body="We conducted this analysis using agency contract data for prime contract awards in FY 2017, which agencies report to USAspending.gov (and which is publicly available). Each reported contract includes information about the agency and sub-agency that awarded the contract, the contract recipient, and a Product and Service Code, which indicates the goods or services delivered as a result of the contract."
-  link="contract-explorer-more.html"
-%}
+{% include viz-footer-info.html   body="We conducted this analysis using agency contract data for prime contract awards in FY 2017, which agencies report to USAspending.gov (and which is publicly available). Each reported contract includes information about the agency and sub-agency that awarded the contract, the contract recipient, and a Product and Service Code, which indicates the goods or services delivered as a result of the contract."   link="contract-explorer-more.html" %}
 
-{% include footer-navigation.html
-  prev-text="Federal Account Explorer"
-  prev-link="federal-account-explorer.html"
-  next-text="Homelessness Analysis"
-  next-link="homelessness-analysis.html"
-%}
+{% include footer-navigation.html   prev-text="Federal Account Explorer"   prev-link="federal-account-explorer.html"   next-text="Homelessness Analysis"   next-link="homelessness-analysis.html" %}
 
 <!-- d3 -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>

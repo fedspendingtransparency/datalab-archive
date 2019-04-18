@@ -13,34 +13,14 @@ permalink: federal-account-explorer.html
 category: entry
 ---
 
-{% include viz-header-info.html
-	title="How do agencies receive and spend money?"
-  body="Every fiscal year, Congress decides how much money to give the federal government through its budgeting and appropriations process. These funds, or appropriations, are then designated for specific purposes and placed in specific federal accounts for each agency to use."
-	identifier="panel1Modal"
-%}
+{% include viz-header-info.html	title="How do agencies receive and spend money?"  body="Every fiscal year, Congress decides how much money to give the federal government through its budgeting and appropriations process. These funds, or appropriations, are then designated for specific purposes and placed in specific federal accounts for each agency to use."	identifier="panel1Modal"%}
 
-{% include viz-modal.html
-	identifier="panel1Modal"
-	title="How do agencies receive and spend money?"
-	body="<p>Every fiscal year, Congress decides how much money to give the federal government through its budgeting and appropriations process. These funds, or appropriations, are then designated for specific purposes and placed in specific federal accounts for each agency to use. </p>
-        <p>Federal agencies are responsible for spending these funds to carry out their programs and operations, which the Treasury Department assists with by managing the federal government's accounts.  All federal agencies have their own financial accounting systems to track money flowing in and out of accounts, and the Treasury Department is responsible for maintaining current and accurate information about the balances of agency accounts. This applies to accounts designated for paying individuals receiving Social Security, providing Medicare reimbursements, or paying for grants for roads and bridges.</p>"
-%}
+{% include viz-modal.html	identifier="panel1Modal"	title="How do agencies receive and spend money?"	body="<p>Every fiscal year, Congress decides how much money to give the federal government through its budgeting and appropriations process. These funds, or appropriations, are then designated for specific purposes and placed in specific federal accounts for each agency to use. </p>        <p>Federal agencies are responsible for spending these funds to carry out their programs and operations, which the Treasury Department assists with by managing the federal government's accounts.  All federal agencies have their own financial accounting systems to track money flowing in and out of accounts, and the Treasury Department is responsible for maintaining current and accurate information about the balances of agency accounts. This applies to accounts designated for paying individuals receiving Social Security, providing Medicare reimbursements, or paying for grants for roads and bridges.</p>"%}
 
 <section id="one" class="viz-section center-text">
   <div class="viz-bkgd">
-     {% include viz-title.html
-        title="Federal Accounts Dendrogram"
-        identifier="panel1InstructionsModal"
-     %}
-     {% include viz-modal.html
-       identifier="panel1InstructionsModal"
-       title="Instructions"
-       body="<ul><li>On the first branch, click any agency to reveal how that agency is organized into sub-agencies.</li>
-             		 <li>On the second branch, click any sub-agency to reveal that sub-agency's federal accounts.</li>
-             		 <li>On the third branch, click any any federal account to go to its Federal Account Profile on USAspending.gov. There, you will find an account description, how much money flowed in and out of the account in a fiscal year, and more.</li>
-             		 <li>Click and drag the visualization to re-center.</li>
-						 		 <li>Use the reset button at the top left corner to reset the visualization.</li></ul>"
-     %}
+     {% include viz-title.html        title="Federal Accounts Dendrogram"        identifier="panel1InstructionsModal"     %}
+     {% include viz-modal.html       identifier="panel1InstructionsModal"       title="Instructions"       body="<ul><li>On the first branch, click any agency to reveal how that agency is organized into sub-agencies.</li>             		 <li>On the second branch, click any sub-agency to reveal that sub-agency's federal accounts.</li>             		 <li>On the third branch, click any any federal account to go to its Federal Account Profile on USAspending.gov. There, you will find an account description, how much money flowed in and out of the account in a fiscal year, and more.</li>             		 <li>Click and drag the visualization to re-center.</li>						 		 <li>Use the reset button at the top left corner to reset the visualization.</li></ul>"     %}
     <div class="mask"><div class="viz-actions">
       <form id="DendroRadio">
         <div class="select-wrapper1" style="position:relative; margin:10px auto 0px 20px;">
@@ -82,17 +62,9 @@ category: entry
   </div>
 </section>
 
-{% include viz-footer-info.html
-  body="We conducted this analysis by organizing the spending data reported to USAspending.gov in a way that reflects the structure of the federal government. To do this, we matched federal accounts with the Office of Management and Budget's (OMB's) Master Account File, which lists agencies and their Treasury accounts as presented in the government-wide budget. We based this analysis on File A information reported to USAspending.gov."
-  link="federal-account-explorer-more.html"
-%}
+{% include viz-footer-info.html  body="We conducted this analysis by organizing the spending data reported to USAspending.gov in a way that reflects the structure of the federal government. To do this, we matched federal accounts with the Office of Management and Budget's (OMB's) Master Account File, which lists agencies and their Treasury accounts as presented in the government-wide budget. We based this analysis on File A information reported to USAspending.gov."  link="federal-account-explorer-more.html"%}
 
-{% include footer-navigation.html
-  prev-text="Contract Spending Analysis"
-  prev-link="contracts-over-time.html"
-  next-text="Contract Explorer"
-  next-link="contract-explorer.html"
-%}
+{% include footer-navigation.html  prev-text="Contract Spending Analysis"  prev-link="contracts-over-time.html"  next-text="Contract Explorer"  next-link="contract-explorer.html"%}
 
 <!-- vendor scripts -->
 <script src="{{site.baseurl}}/assets/js/vendor/d3.v3.min.js"></script>
