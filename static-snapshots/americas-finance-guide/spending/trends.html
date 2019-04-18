@@ -529,11 +529,18 @@
         <div class="trend-chart">
             <h2 class="chart-title">
                 <span class="title-text">Spending over Time by</span>
-                <div class="link-button__div">
-                    <button class="link-button" id="select-budget-function">Categories</button>
-                    <button class="link-button hidden" id="select-agency">Agency</button>
-                    <i class='link-button__icon fa fa-angle-down'></i>
-                </div>
+                <span class="spending-chart-toggle__label spending-chart-toggle__label--categories" data-target="budget-function">Categories</span>
+                <button id="toggle-spending-data-type" class="toggle-control">
+                    <div class="toggle-control__background">
+                        <div class="toggle-control__dot"></div>
+                    </div>
+                </button>
+                <span class="spending-chart-toggle__label spending-chart-toggle__label--agency" data-target="agency">Agency</span>
+                <!--<div class="link-button__div">-->
+                    <!--<button class="link-button" id="select-budget-function">Categories</button>-->
+                    <!--<button class="link-button hidden" id="select-agency">Agency</button>-->
+                    <!--<i class='link-button__icon fa fa-angle-down'></i>-->
+                <!--</div>-->
             </h2>
 
             <div id="show-hide">

@@ -23,6 +23,7 @@ let svg,
             'The top five agencies by federal spending for 2018 were Department of Health and Human Services with $1.1 trillion (27% of total spending), Social Security Administration with $1 trillion (25%), Department of the Treasury with $629 billion (15%), Department of Defense – Military Programs with $601 billion (15%) and Department of Veterans Affairs with $179 billion (4%).\n'
         }
     },
+    currentlyActive,
     debounce,
     top10 = true,
     chartType = 'bar';
@@ -95,6 +96,25 @@ function spendingIndexClickFunctions() {
 function displayShowMoreSection(showMoreInd){
     d3.selectAll('.categories__show-more').classed('hidden', !showMoreInd);
 }
+
+function toggle(force) {
+    currentlyActive.classed(activeClass, false);
+
+    if (force) {
+        currentlyActive = force;
+    } else if (currentlyActive.attr('id') === 'debt-image') {
+        currentlyActive = gdpImage;
+    } else {
+        currentlyActive = debtImage;
+    }
+
+    setActiveDataAttribute();
+
+    currentlyActive.classed(activeClass, true);
+}
+d3.select('#toggle-spending-data-type').on('click', function(){
+    changeDataTypeClickFunction();
+});
 
 export function init(_config){
     config = _config || config;
