@@ -6,7 +6,7 @@ const tasks = requireDir('./buildTasks'),
 
 exports.default = series(
     tasks.emptyFiles.default,
-    tasks.copyAssets.default,
+    tasks.copyFiles.default,
     parallel(
         tasks.buildHtml.default,
         tasks.compileSass.default
