@@ -8,6 +8,11 @@ exports.default = series(
     tasks.emptyFiles.default,
     tasks.copyAssets.default,
     parallel(
-        tasks.buildHtml.default
+        tasks.buildHtml.default,
+        tasks.compileSass.default
     )
 );
+
+exports.startWebserver = series(
+    tasks.webserver.startWebserver
+)
