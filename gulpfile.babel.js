@@ -1,8 +1,13 @@
 import gulp from 'gulp';
 import requireDir from 'require-dir';
 
-const tasks = requireDir('./build');
+const tasks = requireDir('./buildTasks'),
+    { parallel, series } = gulp;
 
-const build = gulp.parallel(tasks.buildHtml.default)
-
-gulp.task('default', build);
+exports.default = series(
+    tasks.emptyFiles.default,
+    tasks.copyAssets.default,
+    parallel(
+        tasks.buildHtml.default
+    )
+);
