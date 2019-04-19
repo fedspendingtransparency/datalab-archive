@@ -20,6 +20,7 @@ const d3 = { select, selectAll },
 let svg;
 
 renderChart(data);
+changeDataTypeClickFunctions();
 
 function sortByLatestYear(a, b) {
     return b.values[b.values.length - 1].amount - a.values[a.values.length - 1].amount;
@@ -54,22 +55,38 @@ function renderChart(data) {
     }
 }
 
-function onSelectDataType() {
-    const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden'),
-        buttonId = sectionToLoad.attr('id'),
-        isAgencyLoadingInd = buttonId.search('agency') > 0,
-        type = isAgencyLoadingInd ? 'agency' : 'function',
-        data = showHideInit(setData(type));
+function changeDataTypeClickFunctions(){
+    d3.select('#toggle-spending-data-type')
+        .on('click', function () {
+            const dataController = d3.select("#spending-chart-toggle"),
+                curData = dataController.attr('data-active');
 
-    if (isAgencyLoadingInd) {
-        selectAgency.classed('hidden', false);
-        selectBudgetFunction.classed('hidden', true);
-    } else {
-        selectAgency.classed('hidden', true);
-        selectBudgetFunction.classed('hidden', false);
-    }
+            let dataType = curData === 'function' ? 'agency' : 'function';
+            changeDataType(dataType);
+        });
 
-    renderChart(data);
+    d3.select('.spending-chart-toggle__label--categories')
+        .on('click', function(){
+            const dataType = 'function';
+            changeDataType(dataType);
+        });
+    d3.select('.spending-chart-toggle__label--agency')
+        .on('click', function(){
+            const dataType = 'agency';
+            changeDataType(dataType);
+        });
 }
 
-d3.select('.link-button__div').on('click', onSelectDataType);
+function changeDataType(dataType){
+    const dataController = d3.select("#spending-chart-toggle"),
+        curData = dataController.attr('data-active');
+
+    if(dataType === curData){
+        return;
+    }
+
+    const data = showHideInit(setData(dataType));
+
+    dataController.attr('data-active', dataType);
+    renderChart(data);
+}
