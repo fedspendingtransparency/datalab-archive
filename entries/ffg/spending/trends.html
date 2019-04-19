@@ -7,7 +7,7 @@ keywords: federal spending, , revenue, federal revenue, U.S. spending, gross dom
 permalink: /americas-finance-guide/spending/trends
 ffg: true
 ffgNav: true
-ffgPageCss: css/trendsCommon.css
+ffgPageCss: css/spending-trends.css
 ---
 
 {% include ffg/nav/spending.html %}
@@ -34,11 +34,14 @@ ffgPageCss: css/trendsCommon.css
 
         <div class="trend-chart">
             <h2 class="chart-title">
-                <span class="title-text">Spending over Time by</span>
-                <div class="link-button__div">
-                    <button class="link-button" id="select-budget-function">Categories</button>
-                    <button class="link-button hidden" id="select-agency">Agency</button>
-                    <i class='link-button__icon fa fa-angle-down'></i>
+                <div id="spending-chart-toggle" class="spending-chart-toggle clearfix" data-active="function">
+                    <span class="spending-chart-toggle__label spending-chart-toggle__label--categories" >Category</span>
+                    <button id="toggle-spending-data-type" class="toggle-control">
+                        <div class="toggle-control__background">
+                            <div class="toggle-control__dot"></div>
+                        </div>
+                    </button>
+                    <span class="spending-chart-toggle__label spending-chart-toggle__label--agency">Agency</span>
                 </div>
             </h2>
 

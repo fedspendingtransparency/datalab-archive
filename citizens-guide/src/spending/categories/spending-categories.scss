@@ -182,12 +182,12 @@
     min-width: 33px;
 }
 
-.spending-chart-toggle[data-active="budget-function"] .spending-chart-toggle__label--spending {
+.spending-chart-toggle[data-active="function"] .spending-chart-toggle__label--categories {
     color: $color-spending-primary;
     font-weight: $boldWeight;
 }
 
-.spending-chart-toggle[data-active="agency"] .spending-chart-toggle__label--gdp {
+.spending-chart-toggle[data-active="agency"] .spending-chart-toggle__label--agency {
     color: $color-spending-primary;
     font-weight: $boldWeight;
 }

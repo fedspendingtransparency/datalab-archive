@@ -226,6 +226,7 @@ module.exports = [{
         './citizens-guide/src/deficit/trends/deficit-trends.scss',
         './citizens-guide/src/revenue/categories/revenue-categories.scss',
         './citizens-guide/src/spending/categories/spending-categories.scss',
+        './citizens-guide/src/spending/trends/spending-trends.scss',
         './citizens-guide/src/debt/trends/debt-trends.scss',
         './citizens-guide/src/debt/analysis/debt-analysis.scss'
     ],

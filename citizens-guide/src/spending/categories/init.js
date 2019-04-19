@@ -57,23 +57,38 @@ function showMore() {
 }
 
 function changeDataTypeClickFunction(){
-    d3.select('.link-button__div')
+    d3.select('#toggle-spending-data-type')
         .on('click', function () {
-            const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden');
-            const buttonId = sectionToLoad.attr('id');
-            const isAgencyLoadingInd = buttonId.search('agency') > 0;
+            const dataController = d3.select("#spending-chart-toggle"),
+                curData = dataController.attr('data-active');
 
-            if (isAgencyLoadingInd) {
-                config.dataType = 'agency';
-                selectAgency.classed('hidden', false);
-                selectBudgetFunction.classed('hidden', true);
-            } else {
-                config.dataType = 'function';
-                selectAgency.classed('hidden', true);
-                selectBudgetFunction.classed('hidden', false);
-            }
-            initChart();
+            let dataType = curData === 'function' ? 'agency' : 'function';
+            changeDataType(dataType);
         });
+
+    d3.select('.spending-chart-toggle__label--categories')
+        .on('click', function(){
+            const dataType = 'function';
+            changeDataType(dataType);
+        });
+    d3.select('.spending-chart-toggle__label--agency')
+        .on('click', function(){
+            const dataType = 'agency';
+            changeDataType(dataType);
+        });
+}
+
+function changeDataType(dataType){
+    const dataController = d3.select("#spending-chart-toggle"),
+        curData = dataController.attr('data-active');
+
+    if(dataType === curData){
+        return;
+    }
+
+    config.dataType = dataType;
+    dataController.attr('data-active', dataType);
+    initChart();
 }
 
 function spendingIndexClickFunctions() {
@@ -96,25 +111,6 @@ function spendingIndexClickFunctions() {
 function displayShowMoreSection(showMoreInd){
     d3.selectAll('.categories__show-more').classed('hidden', !showMoreInd);
 }
-
-function toggle(force) {
-    currentlyActive.classed(activeClass, false);
-
-    if (force) {
-        currentlyActive = force;
-    } else if (currentlyActive.attr('id') === 'debt-image') {
-        currentlyActive = gdpImage;
-    } else {
-        currentlyActive = debtImage;
-    }
-
-    setActiveDataAttribute();
-
-    currentlyActive.classed(activeClass, true);
-}
-d3.select('#toggle-spending-data-type').on('click', function(){
-    changeDataTypeClickFunction();
-});
 
 export function init(_config){
     config = _config || config;
