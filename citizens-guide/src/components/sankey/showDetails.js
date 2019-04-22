@@ -7,7 +7,7 @@ import { easeCubicOut as connectorEase } from 'd3-ease';
 import { dotFactory, receiptsConstants } from '../../revenue/receipts-utils';
 import { getElementBox, translator, getTransform, establishContainer, simplifyNumber } from '../../utils';
 import { getData } from '../../revenue/categories/data';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { addTextElements } from './textElements';
 import { getZoomState } from './zoom';
 

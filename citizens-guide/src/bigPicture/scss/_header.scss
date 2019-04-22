@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../../globalSass/colors';
 @import './bpVars.scss';
 
 $headerBg: rgba(255,255,255,0.9);
@@ -69,12 +69,12 @@ $headerBg: rgba(255,255,255,0.9);
 }
 
 .bp-header__collect-text {
-    color: $revenuePrimary;
+    color: $income-primary;
     font-weight: 700;
 }
 
 .bp-header__spend-text {
-    color: $collectHeaderTextColor;
+    color: $color-spending-primary;
     font-weight: 700;
 }
 

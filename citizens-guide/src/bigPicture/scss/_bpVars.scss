@@ -1,11 +1,5 @@
-@import '../../colors.scss';
+@import '../../globalSass/colors';
 @import '../../globalSass/generalVars';
-
-$revenuePrimary: #0A2F5A;
-$collectHeaderTextColor: #006C6D;
-$spendingPrimary: #00766C;
-$deficitPrimary: #B3532D;
-$debtPrimary: #4A0072;
 
 $bpHeaderColor: #111;
 
@@ -22,10 +16,3 @@ $col2: 40%;
   font-size: 3.2rem;
 }
 
-:export {
-  colorCollectHeaderText: $collectHeaderTextColor;
-  colorRevenueText: $revenuePrimary;
-  colorSpendingText: $spendingPrimary;
-  colorDeficitText: $deficitPrimary;
-  colorDebtText: $debtPrimary;
-}

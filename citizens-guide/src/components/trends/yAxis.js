@@ -3,7 +3,7 @@ import { axisLeft } from 'd3-axis';
 import { min, range } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import { simplifyNumber } from '../../utils';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 const d3 = { select, selectAll, axisLeft, min, range, scaleLinear };
 

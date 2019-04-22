@@ -1,4 +1,4 @@
-import colors from "../../colors.scss";
+import colors from "../../globalSass/colors.scss";
 import { translator, establishContainer } from "../../utils";
 import { select } from 'd3-selection';
 

@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../../globalSass/colors';
 @import './bpVars.scss';
 @import '../../globalSass/generalVars';
 
@@ -30,7 +30,7 @@ section.chapter {
             font-style: italic;
 
             a {
-                color: rgb(119, 171, 232);
+                color: $color-primary-darker;
             }
         }
     }
@@ -65,7 +65,7 @@ section.chapter {
     .chapter__flex {
         display: flex;
     }
-    
+
     .chapter__chart {
         display: block;
         width: 50%;

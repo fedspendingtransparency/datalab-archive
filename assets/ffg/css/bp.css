@@ -23,7 +23,7 @@
   height: 334px; }
 
 .overview-chart__bar--spending {
-  background-color: #00766C;
+  background-color: #00796B;
   top: 0;
   left: 52%;
   height: 400px; }
@@ -142,7 +142,7 @@ section.chapter {
       text-align: center;
       font-style: italic; }
       .chapter__content p.chapter__chart--reference a {
-        color: #77abe8; }
+        color: #205493; }
 
 .chapter__big-number {
   display: block;
@@ -296,7 +296,7 @@ a.chapter__cta i.fa-angle-right {
   font-weight: 700; }
 
 .bp-header__spend-text {
-  color: #006C6D;
+  color: #00796B;
   font-weight: 700; }
 
 .overview-chart {
@@ -758,13 +758,13 @@ section.hwcta {
 .citizens-guide__section h1 {
   font-size: 4rem;
   font-weight: 600;
-  color: #555; }
+  color: #555555; }
 
 .citizens-guide__section p {
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
-  color: #666;
+  color: #666666;
   font-size: 1.5rem;
   font-weight: 500; }
 

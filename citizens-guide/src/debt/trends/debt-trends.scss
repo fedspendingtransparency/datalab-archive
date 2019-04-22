@@ -1,5 +1,5 @@
 @import '../../globalSass/accordion';
-@import '../../colors.scss';
+@import '../../globalSass/colors';
 @import '../../globalSass/generalVars';
 
 .trend-chart-container {
@@ -83,7 +83,7 @@
     width: 67%;
     float: left;
   }
-  
+
   .debt-aside {
     width: 33%;
     float: right;

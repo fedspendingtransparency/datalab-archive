@@ -26,21 +26,21 @@ $barWidth: 50px;
 }
 
 .overview-chart__bar--revenue {
-    background-color: $revenuePrimary;
+    background-color: $income-primary;
     top: 660/4000 * $overviewHeight;
     right: 52%;
-    height: $overviewHeight - 660/4000 * $overviewHeight;    
+    height: $overviewHeight - 660/4000 * $overviewHeight;
 }
 
 .overview-chart__bar--spending {
-    background-color: $spendingPrimary;
+    background-color: $color-spending-primary;
     top: 0;
     left: 52%;
     height: $overviewHeight;
 }
-    
+
 .overview-chart__bar--deficit {
-    background-color: $deficitPrimary;
+    background-color: $color-deficit-primary;
     top: 0;
     right: 52%;
     height: 660/4000 * $overviewHeight;

@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../../globalSass/colors';
 @import './bpVars.scss';
 @import '../../globalSass/generalVars';
 
@@ -18,7 +18,7 @@
     a {
         color:$text-color-paragraph;
     }
-    
+
     i {
         text-align: center;
         font-size: 2em;
@@ -38,11 +38,11 @@
 }
 
 .chapter__divider--text-deficit {
-    color:$deficitPrimary;
+    color: $color-deficit-primary;
 }
 
 .chapter__divider--text-debt {
-    color:$debtPrimary;
+    color: $color-debt-primary;
 }
 
 @media only screen and (min-width: 800px) {
