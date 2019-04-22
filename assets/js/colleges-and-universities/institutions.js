@@ -87,8 +87,6 @@ function createSectFourTable(container, columns) {
 
     // datatable start
     let dTable = $('#sectFourTable').dataTable();
-    //    console.log(dTable);
-
   });
 };
 
@@ -99,7 +97,7 @@ function createSectFourTable(container, columns) {
 const drawMap = (container) => {
 
   var width = 1200,
-      height = 1000,
+      height = 800,
       centered,
       active = d3.select(null);
 
@@ -126,8 +124,6 @@ const drawMap = (container) => {
 	return "School: " + d.Recipient + "<br>"
 	  + d.INSTURL + "<br>" + "Students: " + d.Total;
       });
-
-  let calledCounter = 1; // start odd..
 
   let svg = d3.select(container).append("svg")
       .attr("width", width)
@@ -249,7 +245,7 @@ const drawMap = (container) => {
 	if (long && lat == undefined) { long = 0, lat = 0; }
         return "translate(" + projection([long, lat]) + ")";
       })
-      .attr('r', 16)
+      .attr('r', 18)
       .style('fill', function(d){
 	if (d.value.stateTotal > 2067321200) { // random big number to test against. (subject to change)
 	  return "Red";
@@ -263,6 +259,15 @@ const drawMap = (container) => {
       })
       .on('mouseover', stateToolTip.show)
       .on('mouseout', stateToolTip.hide);
+
+    g.selectAll('circle')
+      .data(d)
+      .enter()
+      .append('svg:circle')
+      .append('text')
+      .text(function(d){
+	return d.value.length;
+      });
   }
 
   function reset() {

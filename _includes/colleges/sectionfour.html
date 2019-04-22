@@ -55,66 +55,30 @@
 
   </div>
 
-  <div id="mapContainerDiv">
-    <div id="filtersDiv">
-
-      <div class="InstitutionFilterSection">
-        <p class="institutionText"><i>Institution Type</i></p>
-        <hr class="halfhr">
-
-        <section class="slider-checkbox checkboxpadding">
-          <input type="checkbox" id="publicCheck" value="Public,">
-          <label class="label" for="publicCheck">Public</label>
-        </section>
-
-        <section class="slider-checkbox checkboxpadding">
-          <input type="checkbox" id="privateCheck" value="Private not-for-profit,">
-          <label class="label" for="privateCheck">Private</label>
-        </section>
-
-        <section class="slider-checkbox checkboxpadding">
-          <input type="checkbox" id="fourYearCheck" />
-          <label class="label" for="fourYearCheck">4 Year</label>
-        </section>
-
-        <section class="slider-checkbox checkboxpadding">
-          <input type="checkbox" id="twoYearCheck" />
-          <label class="label" for="twoYearCheck">2 Year</label>
-        </section>
-
+  <div id="mapContainer">
+    <!-- Filter Section -->
+    <div id="mapFilter">
+      <div class="mapFilter__search"> 
+	<i class="fas fa-search"></i>
       </div>
 
-      <div class="InvestmentFilterSection">
-
-        <hr class='halfhr' />
-        <p class="institutionText"><i>Investment Type</i></p>
-        <hr class='halfhr' />
-
-        <section class="slider-checkbox">
-          <input type="checkbox" id="1" />
-          <label class="label" for="1">Grants</label>
-        </section>
-
-        <section class="slider-checkbox">
-          <input type="checkbox" id="1" />
-          <label class="label" for="1">Contracts</label>
-        </section>
-
-        <section class="slider-checkbox">
-          <input type="checkbox" id="1" />
-          <label class="label" for="1">Loans</label>
-        </section>
-
+      <div class="mapFilter__controls"> 
+	<i class="fas fa-map-marker-alt"></i>
+	<i class="fas fa-list"></i>
+	<hr>
+	<i class="fas fa-plus"></i>
+	<i class="fas fa-minus"></i>
       </div>
-
-      <hr class='halfhr' />
-      <!--dropdown box here -->
-      <p>Colleges</p>
     </div>
+
+    <div id="mapContainer__searchBox">
+      
+    </div>
+
     <!-- College Map -->
     <div id="collegesMap" class="collegesMap"></div>
-  </div>
 
+  </div>
 
   <!-- Table -->
   <div id='sectionFourtableContainerDiv'>
