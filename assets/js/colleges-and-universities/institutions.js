@@ -1,3 +1,7 @@
+// add those back for IE 11 support
+//---
+//---
+
 const mapContainer = document.getElementById('collegesMap');
 const sectFourTableContainer = document.getElementById('sectionFourtableContainerDiv');
 
@@ -12,20 +16,6 @@ const sectionFourtreemapBtn = document.getElementById('sectionFourTreemapBtn');
 
 function createSectFourTable(container, columns) {
   d3.csv('../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
-
-    // let stateCheck = d3.nest()
-    // 	.key(function(d){
-    // 	  return d.State;
-    // 	}).rollup(function(leaves) {
-    // 	  return {
-    // 	    ...leaves, // old object plus..
-    // 	    stateTotal: d3.sum(leaves, function(d){ return d.Total_Federal_Investment; }),
-    // 	    length: leaves.length
-    // 	  };
-    // 	}).entries(data);
-
-    // console.log(stateCheck);
-//    console.log(data);
 
     if (err) { return err; }
 
@@ -97,7 +87,7 @@ function createSectFourTable(container, columns) {
 
     // datatable start
     let dTable = $('#sectFourTable').dataTable();
-    console.log(dTable);
+    //    console.log(dTable);
 
   });
 };
@@ -110,7 +100,8 @@ const drawMap = (container) => {
 
   var width = 1200,
       height = 1000,
-      centered;
+      centered,
+      active = d3.select(null);
 
   var projection = d3.geoAlbersUsa()
       .scale(1500) // was 1500
@@ -136,8 +127,9 @@ const drawMap = (container) => {
 	  + d.INSTURL + "<br>" + "Students: " + d.Total;
       });
 
+  let calledCounter = 1; // start odd..
 
-  var svg = d3.select(container).append("svg")
+  let svg = d3.select(container).append("svg")
       .attr("width", width)
       .attr("height", height);
 
@@ -149,25 +141,11 @@ const drawMap = (container) => {
   let g = svg.append("g");
 
   /**
-   * us-states holds the mapping in data.features (us.features)
+   * us-states holds the mapping in data.features (us.features) !
    * simply for helping draw the visual
    */
   d3.json("../data-lab-data/us-states.json", function (error, us) {
     if (error) throw error;
-
-    let map = g.append("g")
-        .attr("id", "states")
-        .selectAll("path")
-        .data(us.features)
-        .enter().append("path")
-        .attr("d", path)
-        .style("stroke", "#fff")
-        .style("stroke-width", "1.5")
-        .on("click", clicked);
-
-    let circles = map.append("svg:g")
-        .attr("id", "circles");
-
 
     /**
      * EDU Data Section
@@ -176,14 +154,27 @@ const drawMap = (container) => {
     d3.csv("../data-lab-data/EDU_v2_base_data.csv", function (error, data) {
       if (error) throw error;
 
+      let map = g.append("g")
+          .attr("id", "states")
+          .selectAll("path")
+          .data(us.features)
+          .enter().append("path")
+          .attr("d", path)
+          .style("stroke", "#fff")
+          .style("stroke-width", "1.5")
+          .on("click", clicked);
+
+      let circles = map.append("svg:g")
+          .attr("id", "circles");
+
       /**
        * Filter Boxes
        */
-      let public = d3.select(publicCheck);
-      let private = d3.select(privateCheck);
-      let fouryear = d3.select(fourYearCheck);
-      let twoyear = d3.select(twoYearCheck);
-      let filterClearBtn = d3.select('.clearfilter');
+      //      let public = d3.select(publicCheck);
+      //      let private = d3.select(privateCheck);
+      //      let fouryear = d3.select(fourYearCheck);
+      //      let twoyear = d3.select(twoYearCheck);
+      //      let filterClearBtn = d3.select('.clearfilter');
 
       // Dropdown Box
       let dropDown = d3.select("#filtersDiv").append("select")
@@ -206,26 +197,8 @@ const drawMap = (container) => {
           .attr('id', 'clearBtn')
           .text('Clear Filter')
           .on('click', function(d) {
-            svg.selectAll('circle').remove(); // remove whatever is on the map currently
-            // a bit heavy, as we are redrawing all the circles on the DOM again. Consider a better method for production
-            // redrawing map to show all points!
-            svg.selectAll("circle")
-	      .data(data)
-	      .enter()
-	      .append("svg:circle")
-	      .attr("transform", function (d) {
-                let long = parseFloat(d.LONGITUDE);
-                let lat = parseFloat(d.LATITUDE);
-                if (isNaN(long || lat)) { long = 0, lat = 0; }
-		if (long && lat == undefined) { long = 0, lat = 0; }
-                return "translate(" + projection([long, lat]) + ")";
-	      })
-	      .attr('r', 4)
-	      .style("fill", "rgb(217,91,67)")
-	      .style("opacity", 0.85)
-	      .on('mouseover', allToolTip.show)
-	      .on('mouseout', allToolTip.hide);
-            
+            g.selectAll('circle').remove(); // remove whatever is on the map currently
+	    drawAllCircles(data);
           });
 
       let stateCheck = d3.nest()
@@ -239,46 +212,96 @@ const drawMap = (container) => {
 	    };
 	  }).entries(data);
 
-      //      console.log(stateCheck);
-
-
       // ! This is where we draw the circles on the map (working!)
-      // State Version
-      svg.selectAll("circle")
-        .data(stateCheck)
-        .enter()
-        .append("svg:circle")
-        .attr("transform", function (d) {
-          let long = parseFloat(d.value[0].LONGITUDE); // pick random state to put the bubble on.. look into putting into center of state itself.
-          let lat = parseFloat(d.value[0].LATITUDE);
-          if (isNaN(long || lat)) { long = 0, lat = 0; }
-	  if (long && lat == undefined) { long = 0, lat = 0; }
-          return "translate(" + projection([long, lat]) + ")";
-        })
-        .attr('r', 16)
-	.style('fill', function(d){
-	  if (d.value.stateTotal > 2067321200) { // random big number to test against. (subject to change)
-	    return "Red";
-	  } else {
-	    return "Orange";
-	  }
-	})
-        .style("opacity", 0.85)
-	.text(function(d){
-	  return d.value.length;
-	})
-        .on('mouseover', stateToolTip.show)
-        .on('mouseout', stateToolTip.hide);
+      drawStateCircles(stateCheck); // drawing all on map..
 
     });
   }); // end of double d3 zone 
 
+  function drawAllCircles(d) {
+    g.selectAll("circle")
+      .data(d)
+      .enter()
+      .append("svg:circle")
+      .attr("transform", function (d) {
+        let long = parseFloat(d.LONGITUDE);
+        let lat = parseFloat(d.LATITUDE);
+        if (isNaN(long || lat)) { long = 0, lat = 0; }
+	if (long && lat == undefined) { long = 0, lat = 0; }
+        return "translate(" + projection([long, lat]) + ")";
+      })
+      .attr('r', 1.5)
+      .style("fill", "rgb(217,91,67)")
+      .style("opacity", 0.85)
+      .on('mouseover', allToolTip.show)
+      .on('mouseout', allToolTip.hide);
+  }
+
+  function drawStateCircles(d) {
+    g.selectAll("circle")
+      .data(d)
+      .enter()
+      .append("svg:circle")
+      .attr("transform", function (d) {
+        let long = parseFloat(d.value[0].LONGITUDE); // pick random state to put the bubble on.. look into putting into center of state itself.
+        let lat = parseFloat(d.value[0].LATITUDE);
+        if (isNaN(long || lat)) { long = 0, lat = 0; }
+	if (long && lat == undefined) { long = 0, lat = 0; }
+        return "translate(" + projection([long, lat]) + ")";
+      })
+      .attr('r', 16)
+      .style('fill', function(d){
+	if (d.value.stateTotal > 2067321200) { // random big number to test against. (subject to change)
+	  return "Red";
+	} else {
+	  return "Orange";
+	}
+      })
+      .style("opacity", 0.85)
+      .text(function(d) {
+	return d.value.length;
+      })
+      .on('mouseover', stateToolTip.show)
+      .on('mouseout', stateToolTip.hide);
+  }
+
+  function reset() {
+    g.selectAll('circle').remove(); // remove first.. then reset transition()
+    active.classed("active", false);
+    active = d3.select(null);
+
+    g.transition()
+      .duration(750)
+      .style("stroke-width", "1.5px")
+      .attr("transform", "");
+
+    d3.csv("../data-lab-data/EDU_v2_base_data.csv", function (error, data) {
+      let stateFilter = d3.nest()
+	  .key(function(d){
+	    return d.State;
+	  }).rollup(function(leaves) {
+	    return {
+	      ...leaves, // old object plus..
+	      stateTotal: d3.sum(leaves, function(d){ return d.Total_Federal_Investment; }),
+	      length: leaves.length
+	    };
+	  }).entries(data);
+
+      drawStateCircles(stateFilter);
+
+    });
+  }
+
 
   function clicked(d) {
-    var x, y, k;
+    if (active.node() === this) return reset();
+    active.classed("active", false);
+    active = d3.select(this).classed("active", true);
+
+    let x, y, k;
 
     if (d && centered !== d) {
-      var centroid = path.centroid(d);
+      let centroid = path.centroid(d);
       x = centroid[0];
       y = centroid[1];
       k = 4;
@@ -297,9 +320,18 @@ const drawMap = (container) => {
       .duration(750)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", 1.5 / k + "px");
-  }
 
-}; // end main wrapper 
+    replot();
+
+    function replot() {
+      g.selectAll('circle').remove(); // remove all first..
+      d3.csv("../data-lab-data/EDU_v2_base_data.csv", function (error, data) {
+	drawAllCircles(data);
+      });
+    }; 
+  };
+
+}; // end main wrapper (draw Map function)
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -308,28 +340,22 @@ const drawMap = (container) => {
   */
 
 drawMap(mapContainer); // section 4 USA map
-//sectionFourTreeMap(); // section 4 treemap
 createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
 
 /*
   Event Handlers
 */
 $(sectionFourtableBtn).click(function() {
-  console.log('clicking table button!');
   $('#sectionFourtableContainerDiv').css('display', 'flex'); // our table!
   $('#sectionFourTreemapContainerDiv').css('display', 'none'); // treemap
   $('#mapContainerDiv').css('display', 'none'); // donut 
 });
 
 $(sectionFourmapBtn).click(function() {
-  console.log('clicking map button!');
   $('#mapContainerDiv').css('display', 'flex'); 
   $('#sectionFourTreemapContainerDiv').css('display', 'none'); 
   $('#sectionFourtableContainerDiv').css('display', 'none');
 });
-
-
-
 
 
 
