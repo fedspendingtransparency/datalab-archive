@@ -1,15 +1,25 @@
----
-layout: default
----
-
-<article id="main">
-  <main class="cg-content">
-    {% include ffg/cg-glossary.html %}
-
-    {{ content }}
-
-    <script src="/assets/ffg/hwcta.js"></script>
-    {% if page.ffgNav %}<script src="/assets/ffg/nav/nav.js"></script>{% endif %}
-    
-  </main>
-</article>
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  {% include scripts.html %}
+  <body>
+    <div id="page-wrapper">
+      {% include header.html %}
+      {% include return-to-top.html %}
+      <article id="main">
+        <main class="cg-content">
+          {% include ffg/cg-glossary.html %}
+      
+          {{ content }}
+      
+          <script src="/assets/ffg/hwcta.js"></script>
+          {% if page.ffgNav %}<script src="/assets/ffg/nav/nav.js"></script>{% endif %}
+          
+        </main>
+      </article>
+      {% include footer.html %}
+    </div>
+    {% include structured-data.html %}
+    <script src="/assets/ffg/components/glossary/glossary.js"></script>
+  </body>
+</html>

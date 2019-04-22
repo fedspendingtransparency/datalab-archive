@@ -1,4 +1,5 @@
 ---
+babel: true
 ---
 
 window.barchartModule = () => {

@@ -26,7 +26,7 @@ function buildHtml() {
                 content: String(file.contents)
             }).then(function (result) {
                 engine.parseAndRender(result, file.meta).then(function (final) {
-                    console.log('built page:', file.meta.title || "no title");
+                    console.log('built page:', file.meta.title || 'no title');
                     file.contents = Buffer.from(final);
                     cb(null, file)
                 }, function(reason) {
@@ -35,7 +35,7 @@ function buildHtml() {
                     cb(null, file)
                 })
             }, function(){
-                console.log('template no bueno')
+                console.log('template error')
             })
         }))
         .pipe(gulp.dest('./_site/'))
