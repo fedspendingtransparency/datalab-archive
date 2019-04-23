@@ -101,7 +101,7 @@
 #bar-controls button {
     background: #FFF;
     border:0;
-    color:#CCC;
+    color: $text-color-paragraph;
     outline:none;
 
     &.active {
