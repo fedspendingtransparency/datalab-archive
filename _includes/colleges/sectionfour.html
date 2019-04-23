@@ -6,78 +6,77 @@
     <p>Some Text</p>
   </div>
 
-
-  <div id="threeMenu">
-
-    <svg width="44px" height="44px" id="sectionFourTableBtn" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>1_Disabled</title>
-      <desc>Created with Sketch.</desc>
-      <g id="1_Disabled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
-        <g id="iconList" transform="translate(12.000000, 11.000000)" fill-rule="nonzero" stroke="#D04C02">
-          <path d="M0.322580645,0.5 L19.6774194,0.5" id="Line-9"></path>
-          <path d="M0.322580645,9.5 L19.6774194,9.5" id="Line-9-Copy"></path>
-          <path d="M0.322580645,19.5 L19.6774194,19.5" id="Line-9-Copy-2"></path>
-        </g>
-      </g>
-    </svg>
-
-
-    <svg width="44px" height="44px" id="sectionFourMapBtn" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>2_Disabled</title>
-      <desc>Created with Sketch.</desc>
-      <g id="2_Disabled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="iconGrid" transform="translate(13.000000, 12.000000)" fill-rule="nonzero" stroke="#D04C02">
-          <g id="Group-57">
-            <ellipse id="Oval-9" cx="3.45238095" cy="3.46153846" rx="3.45238095" ry="3.46153846"></ellipse>
-            <ellipse id="Oval-9-Copy-3" cx="3.45238095" cy="14.5384615" rx="3.45238095" ry="3.46153846"></ellipse>
-            <ellipse id="Oval-9-Copy" cx="14.5" cy="3.46153846" rx="3.45238095" ry="3.46153846"></ellipse>
-            <ellipse id="Oval-9-Copy-4" cx="14.5" cy="14.5384615" rx="3.45238095" ry="3.46153846"></ellipse>
-          </g>
-        </g>
-      </g>
-    </svg>
-
-
-    <svg width="44px" height="44px" id="sectionFourTreemapBtn" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>3_Disabled</title>
-      <desc>Created with Sketch.</desc>
-      <g id="3_Disabled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="iconTree-2" transform="translate(12.000000, 11.000000)" fill-rule="nonzero" stroke="#D04C02">
-          <g id="iconTree">
-            <rect id="Rectangle-26" x="0.5" y="0.5" width="19" height="19"></rect>
-            <rect id="Rectangle-26-Copy" x="10.5" y="0.5" width="9" height="13"></rect>
-            <rect id="Rectangle-26-Copy-3" x="0.5" y="0.5" width="10" height="10"></rect>
-            <rect id="Rectangle-26-Copy-2" x="10.5" y="7.5" width="9" height="12"></rect>
-          </g>
-        </g>
-      </g>
-    </svg>
-
-  </div>
-
   <div id="mapContainer">
-    <!-- Filter Section -->
-    <div id="mapFilter">
-      <div class="mapFilter__search"> 
-	<i class="fas fa-search"></i>
-      </div>
+    <!-- Hidden Popout Search -->
+    <div id="mapContainer__searchBox">
+      <section id="mapContainer__institution">
+        <div id="mapContainer--inst-text">
+          <h4>Institution Type <i class="far fa-times-circle"></i></h4>
+        </div>
 
-      <div class="mapFilter__controls"> 
-	<i class="fas fa-map-marker-alt"></i>
-	<i class="fas fa-list"></i>
-	<hr>
-	<i class="fas fa-plus"></i>
-	<i class="fas fa-minus"></i>
-      </div>
+        <hr>
+
+        <div id="mapContainer--switch">
+          <p id="mapContainer--labelText">Public</p>
+          <div class="onoffswitch">
+            <input type="checkbox" name="instcheck" class="onoffswitch-checkbox" id="myonoffswitch" value="Public">
+            <label class="onoffswitch-label" for="myonoffswitch"></label>
+          </div>
+
+          <p id="mapContainer--labelText">Private</p>
+          <div class="onoffswitch">
+            <input type="checkbox" name="instcheck" class="onoffswitch-checkbox" id="myonoffswitch" value="Private">
+	    <label class="onoffswitch-label" for="myonoffswitch"></label>
+          </div>
+        </div>
+      </section>
+
+      <section id="mapContainer__institution">
+        <div id="mapContainer--year-text">
+          <h4>Year</h4>
+        </div>
+
+        <hr>
+
+        <div id="mapContainer--switch">
+          <p id="mapContainer--labelText">2 Year</p>
+          <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+            <label class="onoffswitch-label" for="myonoffswitch"></label>
+          </div>
+
+          <p id="mapContainer--labelText">4 Year</p>
+          <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+            <label class="onoffswitch-label" for="myonoffswitch"></label>
+          </div>
+        </div>
+      </section>
+
+      <section id="mapContainer__searchArea">
+	<datalist id="college-dropdown"></datalist>
+	<input type="text" list="college-dropdown" id="college-dropdown-list" placeholder="Type to find an institution..." />
+      </section>
+
     </div>
 
-    <div id="mapContainer__searchBox">
-      
+    <!-- Filter Section -->
+    <div id="mapFilter">
+      <div class="mapFilter__search">
+        <i class="fas fa-search" id="sectionFourSearchBtn"></i>
+      </div>
+
+      <div class="mapFilter__controls">
+        <i class="fas fa-map-marker-alt" id="sectionFourMapBtn"></i>
+        <i class="fas fa-list" id="sectionFourTableBtn"></i>
+        <hr>
+        <i class="fas fa-plus"></i>
+        <i class="fas fa-minus"></i>
+      </div>
     </div>
 
     <!-- College Map -->
     <div id="collegesMap" class="collegesMap"></div>
-
   </div>
 
   <!-- Table -->
@@ -85,6 +84,9 @@
     <div id="sectionFourtableDiv"> </div>
     <!-- Add another div below here in container to have sidebar table-->
   </div>
+
+</div>
+
 
 
 </div> <!-- End of Investment (section 4) -->

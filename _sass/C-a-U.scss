@@ -437,14 +437,12 @@ $unchecked-color: #888;
     justify-content: center;
   }
 
-  #mapContainer #mapContainer__searchBox {
-    display: none; 
-  }
 
   #mapFilter {
     display: flex;
     box-sizing: border-box;
-    padding-right: 2rem;
+    margin-right: -45px;
+    z-index: 20;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -454,8 +452,8 @@ $unchecked-color: #888;
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-//    border: 1px solid #EEEEEE;	
-//    border-radius: 34.5px;
+    border: 1px solid #EEEEEE;	
+    border-radius: .25rem;
     padding-bottom: 4rem;
   }
 
@@ -463,14 +461,69 @@ $unchecked-color: #888;
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-//    border: 1px solid #EEEEEE;	
-//    border-radius: 34.5px;
+    border: 1px solid #EEEEEE;	
+    border-radius: .25rem;
   }    
 
   #mapFilter .mapFilter__controls > i {
     padding-top: .5rem;
     padding-bottom: .5rem;
   }    
+
+  #mapContainer #mapContainer__searchBox {
+    display: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+  }
+
+  #sectionFourMapBtn, #sectionFourTableBtn, #sectionFourSearchBtn {
+    cursor: pointer;
+  }
+
+  #mapContainer #mapContainer--labelText {
+    font-size: 1rem;
+  }
+
+  #mapContainer #mapContainer__searchArea {
+    padding-top: 3rem;
+    font-size: 2rem;
+  }
+
+  // switch toggle css stuff
+  .onoffswitch {
+    position: relative; width: 55px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  }
+  .onoffswitch-checkbox {
+    display: none;
+  }
+  .onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 20px; padding: 0; line-height: 20px;
+    border: 2px solid #999999; border-radius: 20px;
+    background-color: #EEEEEE;
+    transition: background-color 0.3s ease-in;
+  }
+  .onoffswitch-label:before {
+    content: "";
+    display: block; width: 20px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 33px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+  }
+  .onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #229E03;
+  }
+  .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #229E03;
+  }
+  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px; 
+  }
 
   #tableContainerDiv {
     display: none;
@@ -552,7 +605,6 @@ $unchecked-color: #888;
     padding-left: 15px;
     padding-right: 15px;
   }
-
 
 
   .flex-rect {
@@ -660,8 +712,6 @@ $unchecked-color: #888;
       }
     }
   }
-
-
 
   .halfhr {
     //width: 40%;
@@ -784,12 +834,9 @@ $unchecked-color: #888;
   #sectionFourtableContainerDiv {
     display: none;
     padding-top: 3rem;
-    justify-content: center;
-  }
-
-  #invisRect {
-    opacity: 100%;
-    visibility: hidden;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-align: center;
   }
 
   // map clear button (section 4)

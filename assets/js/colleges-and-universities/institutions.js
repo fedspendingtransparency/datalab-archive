@@ -12,7 +12,6 @@ const twoYearCheck = document.getElementById('twoYearcheck');
 
 const sectionFourtableBtn = document.getElementById('sectionFourTableBtn');
 const sectionFourmapBtn = document.getElementById('sectionFourMapBtn');
-const sectionFourtreemapBtn = document.getElementById('sectionFourTreemapBtn');
 
 function createSectFourTable(container, columns) {
   d3.csv('../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
@@ -150,6 +149,8 @@ const drawMap = (container) => {
     d3.csv("../data-lab-data/EDU_v2_base_data.csv", function (error, data) {
       if (error) throw error;
 
+      let filteredBoxData;
+
       let map = g.append("g")
           .attr("id", "states")
           .selectAll("path")
@@ -163,20 +164,39 @@ const drawMap = (container) => {
       let circles = map.append("svg:g")
           .attr("id", "circles");
 
-      /**
-       * Filter Boxes
-       */
-      //      let public = d3.select(publicCheck);
-      //      let private = d3.select(privateCheck);
-      //      let fouryear = d3.select(fourYearCheck);
-      //      let twoyear = d3.select(twoYearCheck);
-      //      let filterClearBtn = d3.select('.clearfilter');
+      d3.selectAll("input[name=instcheck]").on("change", function() {
+	function getCheckedBoxes(chkboxName) {
+	  let checkboxes = document.getElementsByName(chkboxName);
+	  let checkboxesChecked = [];
+	  for (let i=0; i < checkboxes.length; i++) {
+	    if (checkboxes[i].checked) {
+	      checkboxesChecked.push(checkboxes[i].defaultValue);
+	    }
+	  }
+	  return checkboxesChecked.length > 0 ? checkboxesChecked : " ";
+	}
+	
+	let checkedBoxes = getCheckedBoxes('instcheck');
+	console.log(checkedBoxes);
+      });
+
+//      let publicBox = d3.select("#publicBox").on('change', update);
+//      let privateBox = d3.select("#privateBox").on('change', update);
+//      let twoBox = d3.select("#twoBox").on('change', update);
+//     let fourBox = d3.select("#fourBox").on('change', update);
+//      update(); 
+
+      // function update() {
+      // 	if (d3.select('#myonoffswitch').property('checked')) {
+      // 	  filteredBoxData = data.filter(function(d, i){
+      // 	    console.log("data on toggle", d);
+      // 	  });
+      // 	} 
+      // }
 
       // Dropdown Box
-      let dropDown = d3.select("#filtersDiv").append("select")
-          .attr("name", "college-list")
-          .attr('id', 'college-dropdown')
-          .style('width', '200px');
+      let dropDown = d3.select("#college-dropdown").append("datalist")
+          .attr('id', 'college-dropdown');
 
       let options = dropDown.selectAll("option")
           .data(data)
@@ -186,6 +206,17 @@ const drawMap = (container) => {
       options.text(function (d) { return d.Recipient; })
         .attr("value", function (d) { return d.Recipient; });
 
+      let schools = data.filter(d => d.Recipient);
+      d3.select("#college-dropdown-list").on('change', change);
+      function change() {
+	let value = this.value;
+	console.log(value);
+	let schoolsFiltered = schools.filter(function(d){
+	  return d.Recipient === value;
+	});
+	g.selectAll('circle').remove(); // remove then add just the single school..
+	drawAllCirclesBig(schoolsFiltered);
+      }
 
       // Clear Filter Box
       let clearfilter = d3.select('#filtersDiv').append('button')
@@ -213,6 +244,25 @@ const drawMap = (container) => {
 
     });
   }); // end of double d3 zone 
+
+  function drawAllCirclesBig(d) {
+    g.selectAll("circle")
+      .data(d)
+      .enter()
+      .append("svg:circle")
+      .attr("transform", function (d) {
+        let long = parseFloat(d.LONGITUDE);
+        let lat = parseFloat(d.LATITUDE);
+        if (isNaN(long || lat)) { long = 0, lat = 0; }
+	if (long && lat == undefined) { long = 0, lat = 0; }
+        return "translate(" + projection([long, lat]) + ")";
+      })
+      .attr('r', 5)
+      .style("fill", "rgb(217,91,67)")
+      .style("opacity", 0.85)
+      .on('mouseover', allToolTip.show)
+      .on('mouseout', allToolTip.hide);
+  }
 
   function drawAllCircles(d) {
     g.selectAll("circle")
@@ -297,7 +347,6 @@ const drawMap = (container) => {
     });
   }
 
-
   function clicked(d) {
     if (active.node() === this) return reset();
     active.classed("active", false);
@@ -351,15 +400,18 @@ createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Tot
   Event Handlers
 */
 $(sectionFourtableBtn).click(function() {
-  $('#sectionFourtableContainerDiv').css('display', 'flex'); // our table!
-  $('#sectionFourTreemapContainerDiv').css('display', 'none'); // treemap
-  $('#mapContainerDiv').css('display', 'none'); // donut 
+  $('#sectionFourtableContainerDiv').css('display', 'block'); // our table!
+  $('#collegesMap').css('display', 'none');
 });
 
 $(sectionFourmapBtn).click(function() {
-  $('#mapContainerDiv').css('display', 'flex'); 
-  $('#sectionFourTreemapContainerDiv').css('display', 'none'); 
+  $('#collegesMap').css('display', 'flex'); 
   $('#sectionFourtableContainerDiv').css('display', 'none');
+});
+
+$("#sectionFourSearchBtn").click(function(){
+  console.log('search btn');
+  $('#mapContainer__searchBox').toggle();
 });
 
 
