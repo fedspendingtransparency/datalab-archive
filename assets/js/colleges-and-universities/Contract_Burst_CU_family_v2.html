@@ -330,7 +330,7 @@
       .attr ("width", width)
       .attr ("height", height)
       .append ("g")
-      .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+        .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
 
     d3.csv ('CollegesAndUniversityGrants.csv', (error, newData) => {
       // d3.csv ('PSC_by_Recip_CU_fam.csv', (error, recip) => {
@@ -403,13 +403,13 @@
             svg.transition()
               .duration (750)
               .tween ("scale", () => {
+
+                // adjust x values to expand/contract selected sector (no changes to radii (y))
                 const xd = d3.interpolate (x.domain(), [d.x, d.x + d.dx]);
-                const yd = d3.interpolate (y.domain(), [d.y, 1]);
-                const yr = d3.interpolate (y.range(), [d.y ? 175 : 0, radius]);
-                return function (t) {
+                return t => {
                   x.domain (xd (t));
-                  y.domain (yd (t)).range (yr (t));
                 };
+
               })
               .selectAll ("path")
               .attrTween ("d", d => function () {
