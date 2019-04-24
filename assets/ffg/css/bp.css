@@ -509,7 +509,8 @@ a.chapter__cta i.fa-angle-right {
   background: #ccc;
   border: none;
   width: 2.4rem;
-  height: 2.4rem; }
+  height: 2.4rem;
+  text-align: center; }
 
 .anecdote__contents {
   display: none;
