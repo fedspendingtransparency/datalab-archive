@@ -34,8 +34,8 @@ function buildHtml() {
                     console.log('reason', reason)
                     cb(null, file)
                 })
-            }, function(){
-                console.log('template error')
+            }, function(err){
+                console.log('template error', err)
             })
         }))
         .pipe(gulp.dest('./_site/'))

@@ -669,12 +669,12 @@ function createGraph(data) {
     let mtdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["mtd"], this).value);
     let fytdDataPoint = dollarFormatter(getMouseOverDataPoint(masterMapping[categoryValue]["fytd"], this).value);
 
-    ttContainer.select(".dts-tt-category").text(d.name);
-    ttContainer.select(".dts-tt-date").text(mouseOverDateText);
+    // ttContainer.select(".dts-tt-category").text(d.name);
+    // ttContainer.select(".dts-tt-date").text(mouseOverDateText);
 
-    ttContainer.select(".dts-tt-daily-value").text(todayDataPoint);
-    ttContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
-    ttContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
+    // ttContainer.select(".dts-tt-daily-value").text(todayDataPoint);
+    // ttContainer.select(".dts-tt-mtd-value").text(mtdDataPoint);
+    // ttContainer.select(".dts-tt-fytd-value").text(fytdDataPoint);
   }
 }
 
@@ -878,7 +878,7 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function (error, _data) {
   allToSpending["mtd"] = transposeKVToArray("mtd");
   allToSpending["fytd"] = transposeKVToArray("fytd");
 
-  todayAllCategorySpending = allToSpending["today"].last().value;
+  //todayAllCategorySpending = allToSpending["today"].last().value;
   //console.log('reminder ^')
 
   drawChart();
