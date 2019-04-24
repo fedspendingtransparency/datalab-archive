@@ -435,8 +435,44 @@ $unchecked-color: #888;
     display: flex;  
     box-sizing: border-box;
     justify-content: center;
-  }
 
+    #mapContainer__institution {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    #mapContainer__searchBox {
+      display: none;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      border: 1px solid #ddd;
+      border-radius: .25rem;
+    }
+
+    #mapContainer--labelText {
+      font-size: 1rem;
+      display: inline;
+    }
+
+    #mapContainer__searchArea {
+      padding-top: 3rem;
+      font-size: 2rem;
+
+      input#college-dropdown-list::webkit-input-placeholder {
+	font-size: 17px;
+      }
+    }
+
+    #mapContainer--switch {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    #mapContainer__year {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  } // end mapContainer
 
   #mapFilter {
     display: flex;
@@ -446,50 +482,37 @@ $unchecked-color: #888;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
 
-  #mapFilter .mapFilter__search {
-    display: flex;
-    flex-direction: column;
-    font-size: 2rem;
-    border: 1px solid #EEEEEE;	
-    border-radius: .25rem;
-    padding-bottom: 4rem;
-  }
+    .mapFilter__search {
+      display: flex;
+      flex-direction: column;
+      font-size: 2rem;
+      border: 1px solid #EEEEEE;	
+      border-radius: .25rem;
+      padding-bottom: 4rem;
+    }
 
-  #mapFilter .mapFilter__controls {
-    display: flex;
-    flex-direction: column;
-    font-size: 2rem;
-    border: 1px solid #EEEEEE;	
-    border-radius: .25rem;
-  }    
+    .mapFilter__controls {
+      display: flex;
+      flex-direction: column;
+      font-size: 2rem;
+      border: 1px solid #EEEEEE;	
+      border-radius: .25rem;
+    }    
 
-  #mapFilter .mapFilter__controls > i {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-  }    
+    .mapFilter__controls > i {
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }    
+  } // end mapFilter
 
-  #mapContainer #mapContainer__searchBox {
-    display: none;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    border: 1px solid #ddd;
-    border-radius: .25rem;
-  }
 
   #sectionFourMapBtn, #sectionFourTableBtn, #sectionFourSearchBtn {
     cursor: pointer;
   }
 
-  #mapContainer #mapContainer--labelText {
-    font-size: 1rem;
-  }
 
-  #mapContainer #mapContainer__searchArea {
-    padding-top: 3rem;
-    font-size: 2rem;
-  }
+
 
   // switch toggle css stuff
   .onoffswitch {
@@ -643,76 +666,6 @@ $unchecked-color: #888;
   Checkbox Slider
  */
 
-
-  .slider-checkbox {
-    position: relative;
-    input {
-      margin: 0px;
-      margin-top: 1px;
-      cursor: pointer;
-      opacity: 0;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      filter: alpha(opacity=0);
-      -moz-opacity: 0;
-      -khtml-opacity: 0;
-      opacity: 0;
-      position: absolute;
-      z-index: 1;
-      top: 0px;
-      left: 0px;
-      background: red;
-      width: 40px;
-      height: 20px;
-      &:checked + .label {
-	&:before {
-          background-color: $checked-color;
-          content: "\f00c";
-          padding-left: 6px;
-	}
-	&:after {
-          left: 21px;
-	}
-      }
-    }
-    .label {
-      position: relative;
-      padding-left: 46px;
-      &:before, &:after {
-	position: absolute;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	transition: background-color 0.3s, left 0.3s;
-      }
-      &:before {
-	content: "\f00d";
-	color: #fff;
-	box-sizing: border-box;
-	font-family: 'FontAwesome', sans-serif;
-	padding-left: 23px;
-	font-size: 12px;
-	line-height: 20px;
-	background-color: $unchecked-color;
-	left: 0px;
-	top: 0px;
-	height: 20px;
-	width: 40px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-      }
-      &:after {
-	content: "";
-	letter-spacing: 20px;
-	background: #fff;
-	left: 1px;
-	top: 1px;
-	height: 18px;
-	width: 18px;
-      }
-    }
-  }
-
   .halfhr {
     //width: 40%;
     opacity: .25;
@@ -762,15 +715,6 @@ $unchecked-color: #888;
     //border: 1px;
   }
 
-  #threeMenu {
-    display: flex;
-    justify-content: center;
-  }
-
-  #threeMenu > svg {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 
   #treemapContainerDiv {
     display: none;

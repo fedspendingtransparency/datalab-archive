@@ -257,7 +257,7 @@ const drawMap = (container) => {
 	if (long && lat == undefined) { long = 0, lat = 0; }
         return "translate(" + projection([long, lat]) + ")";
       })
-      .attr('r', 5)
+      .attr('r', 8)
       .style("fill", "rgb(217,91,67)")
       .style("opacity", 0.85)
       .on('mouseover', allToolTip.show)
