@@ -177,46 +177,54 @@ const drawMap = (container) => {
 	}
 	
 	let checkedBoxes = getCheckedBoxes('instcheck');
-	console.log(checkedBoxes);
+//	console.log(checkedBoxes);
       });
 
-//      let publicBox = d3.select("#publicBox").on('change', update);
-//      let privateBox = d3.select("#privateBox").on('change', update);
-//      let twoBox = d3.select("#twoBox").on('change', update);
-//     let fourBox = d3.select("#fourBox").on('change', update);
-//      update(); 
 
-      // function update() {
-      // 	if (d3.select('#myonoffswitch').property('checked')) {
-      // 	  filteredBoxData = data.filter(function(d, i){
-      // 	    console.log("data on toggle", d);
-      // 	  });
-      // 	} 
-      // }
+      // // Dropdown Box
+      // let dropDown = d3.select("#college-dropdown").append("datalist")
+      //     .attr('id', 'college-dropdown');
 
-      // Dropdown Box
-      let dropDown = d3.select("#college-dropdown").append("datalist")
-          .attr('id', 'college-dropdown');
+      // let options = dropDown.selectAll("option")
+      //     .data(data)
+      //     .enter()
+      //     .append("option");
 
-      let options = dropDown.selectAll("option")
-          .data(data)
-          .enter()
-          .append("option");
-
-      options.text(function (d) { return d.Recipient; })
-        .attr("value", function (d) { return d.Recipient; });
+      // options.text(function (d) { return d.Recipient; })
+      //   .attr("value", function (d) { return d.Recipient; });
 
       let schools = data.filter(d => d.Recipient);
-      d3.select("#college-dropdown-list").on('change', change);
-      function change() {
-	let value = this.value;
-	console.log(value);
+      // target school UI generated and add click to li to filter
+//      d3.select('#schoolUl').selectAll('li').on('click'. listClick);
+      // d3.select("#college-dropdown-list").on('change', change);
+      // function change() {
+      // 	let value = this.value;
+      // 	//	console.log(value);
+      // 	let schoolsFiltered = schools.filter(function(d){
+      // 	  return d.Recipient === value;
+      // 	});
+      // 	g.selectAll('circle').remove(); // remove then add just the single school..
+      // 	drawAllCirclesBig(schoolsFiltered);
+      // }
+      function listClick() {
+	let value = d3.event.target.textContent;
+	console.log('im running!', d3.event.target.textContent);
 	let schoolsFiltered = schools.filter(function(d){
 	  return d.Recipient === value;
 	});
 	g.selectAll('circle').remove(); // remove then add just the single school..
 	drawAllCirclesBig(schoolsFiltered);
       }
+
+      // School List Box //
+      let f = schools.map(d => d.Recipient); // just array of names..
+      let schoolList = d3.select("#schoolList").append('ul').attr('id', 'schoolUl');
+      schoolList.selectAll('li')
+	.data(f)
+	.enter()
+	.append('li')
+	.text(function(d){ return d; })
+	.on('click', listClick);
 
       // Clear Filter Box
       let clearfilter = d3.select('#filtersDiv').append('button')
@@ -385,7 +393,30 @@ const drawMap = (container) => {
     }; 
   };
 
+
 }; // end main wrapper (draw Map function)
+
+// Keyup Function Helper for Search!
+function inputSearch() {
+  $('#college-dropdown-list').on('keyup', function() {
+    let input, filter, ul, li, i, txtValue;
+    input = document.getElementById('college-dropdown-list');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("schoolUl");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      //    a = li[i].getElementsByTagName("a")[0];
+      txtValue = li[i].textContent || li[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	li[i].style.display = "";
+      } else {
+	li[i].style.display = "none";
+      }
+    }
+  });
+}
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -393,8 +424,12 @@ const drawMap = (container) => {
   *--------------------------------------------------------------------------------------------------------------------
   */
 
-drawMap(mapContainer); // section 4 USA map
-createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
+$(document).ready(function(){
+  drawMap(mapContainer); // section 4 USA map
+  createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
+  inputSearch();
+});
+
 
 /*
   Event Handlers
@@ -410,7 +445,6 @@ $(sectionFourmapBtn).click(function() {
 });
 
 $("#sectionFourSearchBtn").click(function(){
-  console.log('search btn');
   $('#mapContainer__searchBox').toggle();
 });
 

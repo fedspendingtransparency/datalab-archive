@@ -456,22 +456,67 @@ $unchecked-color: #888;
 
     #mapContainer__searchArea {
       padding-top: 3rem;
-      font-size: 2rem;
+      //      font-size: 2rem;
 
-      input#college-dropdown-list::webkit-input-placeholder {
-	font-size: 17px;
+      #college-dropdown-list:placeholder {
+	font-size: 18px;
       }
+
+      ::-webkit-input-placeholder { /* Edge */
+	font-size: 18px;
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+	font-size: 18px;
+      }
+
+      ::placeholder { font-size: 18px }
+      
     }
 
-    #mapContainer--switch {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
+      #schoolList {
+	height: 25rem; // big enough to fill whole container wont go over..
+	overflow: auto;
+      }
+      
+      #college-dropdown-list {
+	width: 98%; // offset with margin.. look into fixing..
+      }
 
-    #mapContainer__year {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
+      #schoolUl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+      }
+
+      #schoolUl li {
+	border: 1px solid #ddd; /* Add a border to all links */
+	margin-top: -1px; /* Prevent double borders */
+	background-color: #f6f6f6; /* Grey background color */
+	padding: .25rem;
+	text-decoration: none; /* Remove default text underline */
+	color: black; /* Add a black text color */
+	display: block; /* Make it into a block element to fill the whole list */
+      }
+
+      #schoolUl li:hover {
+	background-color: #eee; /* Add a hover effect to all links, except for headers */
+      }
+
+      #mapContainer--switch {
+	padding-left: 1rem;
+	padding-right: 1rem;
+      }
+
+      #mapContainer__year {
+	padding-left: 1rem;
+	padding-right: 1rem;
+      }
+
+      #circleFloat {
+	float: right;
+      }
+
   } // end mapContainer
 
   #mapFilter {
@@ -510,9 +555,6 @@ $unchecked-color: #888;
   #sectionFourMapBtn, #sectionFourTableBtn, #sectionFourSearchBtn {
     cursor: pointer;
   }
-
-
-
 
   // switch toggle css stuff
   .onoffswitch {
@@ -834,10 +876,6 @@ $unchecked-color: #888;
     margin-bottom: 5px;
     padding-bottom: 10px;
     padding-top: 10px;
-  }
-
-  ::placeholder {
-    font-size: 11px;
   }
 
 
