@@ -95,7 +95,9 @@ function initGlobals(config, data, drilldown) {
     globals.data = data;
     globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
 
-    setNoZoom(config);
+    if (!config.zoomThreshold) {
+        setNoZoom(config);
+    }
 
     globals.scales = globals.scales || {};
     globals.height = globals.height || 750;

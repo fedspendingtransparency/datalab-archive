@@ -115,8 +115,6 @@ function resizeSvg(reset) {
 }
 
 function placeChart(d, chartContainer, config) {
-    let threshold;
-
     if (config.subcategoryThresholds) {
         config.zoomThreshold = config.subcategoryThresholds[d.officialName];
     }
