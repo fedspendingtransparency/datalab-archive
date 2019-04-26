@@ -57,8 +57,11 @@
       /* right: 0; */
     }
 
-    #sunburst path .faded {
+    #sunburst path.faded {
       opacity: 0.3;
+    }
+    #sunburst path.not-faded {
+      opacity: 1;
     }
 
     #panel {
@@ -389,6 +392,7 @@
             .data (partitionedNodes)
             .enter().append ("path")
               .attr ("d", arc)
+              .attr ('class', 'faded')
               .attr ("fill", wedge => {   //fill with colorIndex color (or ancestors')
                 switch (wedge.depth) {
                   case 0: return centerColor; break;
@@ -425,6 +429,12 @@
           const legend = d3.select ("#panel");
 
           function update_legend (d) {
+            // override "faded" class
+            $('path').addClass ('not-faded');
+            // $(this).addClass ('not-faded');
+            // d3.select(this).datum().parent
+                        // $(this.parentElement.firstChild).addClass ('not-faded');
+
             // Create central node panel --- Top 10 Agencies
             if (d.depth === 0) {
               $("#panel").empty();
@@ -493,9 +503,12 @@
             }
           }
 
-          function remove_legend(d) {
+          function remove_legend (d) {
+            // de-override "faded" class
+            $(this).removeClass ('not-faded');
+
             legend.transition().duration (1000)
-              .style ("opacity", "1");
+              .style("opacity", "1");
           }
 
       //   });
