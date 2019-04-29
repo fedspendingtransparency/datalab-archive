@@ -375,12 +375,10 @@
             });
           });
 
-          // partition into nodes, then add colorIndex to "depth 1" nodes (sorted by total "value")
+          // create hierarchy, then add colorIndex to 1st level nodes (sorted by value)
           const root = d3.hierarchy (data)
             .sum (d => d.value)
           ;
-          d3.partition (root);
-
           const centerColor = "rgba(0,0,0,0)"; //transparent to show #panel
           const wedgeColors = ["#881e3d", "#daa200", "#D25d15", "#082344", "#004c40"];
           root.children
@@ -390,8 +388,9 @@
             })
           ;
 
+          const partitioned = d3.partition()(root);
           svg.selectAll ("path")
-            .data (root)
+            .data (partitioned)
             .enter().append ("path")
               .attr ("d", arc)
               .attr ('class', 'faded')
