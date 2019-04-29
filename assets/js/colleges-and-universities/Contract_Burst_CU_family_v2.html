@@ -389,8 +389,8 @@
           ;
 
           const partitioned = d3.partition()(root);
-          svg.selectAll ("path")
-            .data (partitioned)
+          svg.select ('g')
+            .data (partitioned.descendants())
             .enter().append ("path")
               .attr ("d", arc)
               .attr ('class', 'faded')
