@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
   <link rel="icon" href="favicon-usaSpend.png" type="image/png" sizes="16x16">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
   <title>Q2 FY17 YTD Contract Drilldown</title>
@@ -324,31 +324,33 @@
 
     const formatNumber = d3.format ("$,f");
 
-    const x = d3.scale.linear().range ([0, 2 * Math.PI]);
-    const y = d3.scale.sqrt().range ([0, radius]);
+    const x = d3.scaleLinear().range ([0, 2 * Math.PI]);
+    const y = d3.scaleSqrt().range ([0, radius]);
 
-    const arc = d3.svg.arc()
-      .startAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x))))
-      .endAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x + d.dx))))
-      .innerRadius (d => Math.max (0, y (d.y)))
-      .outerRadius (d => Math.max (0, y (d.y + d.dy)));
+    const arc = d3.arc()
+      .startAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x0))))
+      .endAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x0 + d.x1))))
+      .innerRadius (d => Math.max (0, y (d.y0)))
+      .outerRadius (d => Math.max (0, y (d.y0 + d.y1)))
+    ;
 
-    const svg = d3.select ("#sunburst").append ("svg")
-      .attr ("width", width)
-      .attr ("height", height)
-      .append ("g")
-        .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+    const svg = d3.select ("#sunburst")
+      .append ("svg")
+        .attr ("width", width)
+        .attr ("height", height)
+        .append ("g")
+          .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
 
     d3.csv ('CollegesAndUniversityGrants.csv', (error, newData) => {
       // d3.csv ('PSC_by_Recip_CU_fam.csv', (error, recip) => {
       //   d3.csv ('Recip_Details_CU.csv', (error, details) => {
 
-          const root = { name: "College and University Grants", children: [] };
+          const data = { name: "College and University Grants", children: [] };
           const levels = ["family", "Program_Title"];
 
           newData.forEach (d => {
             // Keep this as a reference to the current level
-            let depthCursor = root.children;
+            let depthCursor = data.children;
             // Go down one level at a time
             levels.forEach ((property, depth) => {
 
@@ -368,28 +370,28 @@
               depthCursor = depthCursor[index].children;
               // This is a leaf, so add the last element to the specified branch
               if (depth === levels.length - 1) {
-                depthCursor.push ({ name: d.Recipient, size: d.Obligation });
+                depthCursor.push ({ name: d.Recipient, value: d.Obligation });
               }
             });
           });
 
           // partition into nodes, then add colorIndex to "depth 1" nodes (sorted by total "value")
-          const partition = d3.layout.partition()
-            .value (d => d.size);
-          const partitionedNodes = partition.nodes (root);
+          const root = d3.hierarchy (data)
+            .sum (d => d.value)
+          ;
+          d3.partition (root);
 
-          const centerColor = "rgba(0, 0, 0, 0)"; //transparent to show #panel
+          const centerColor = "rgba(0,0,0,0)"; //transparent to show #panel
           const wedgeColors = ["#881e3d", "#daa200", "#D25d15", "#082344", "#004c40"];
-          partitionedNodes
-            .filter (node => node.depth === 1)
+          root.children
             .sort ((a, b) => b.value - a.value)
             .forEach ((node, index) => {
-              node.colorIndex = index % wedgeColors.length;
+              node.colorIndex = index++ % wedgeColors.length;
             })
           ;
 
           svg.selectAll ("path")
-            .data (partitionedNodes)
+            .data (root)
             .enter().append ("path")
               .attr ("d", arc)
               .attr ('class', 'faded')
@@ -430,8 +432,9 @@
 
           function update_legend (d) {
             // override "faded" class
-            $('path').addClass ('not-faded');
-            // $(this).addClass ('not-faded');
+            this.attr ('class', 'not-faded');
+            const p = svg.select(() => this.parentNode);
+            p.attr ('class', 'not-faded');
             // d3.select(this).datum().parent
                         // $(this.parentElement.firstChild).addClass ('not-faded');
 
