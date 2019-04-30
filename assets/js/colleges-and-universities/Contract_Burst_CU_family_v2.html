@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
   <link rel="icon" href="favicon-usaSpend.png" type="image/png" sizes="16x16">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
   <title>Q2 FY17 YTD Contract Drilldown</title>
@@ -59,9 +59,6 @@
 
     #sunburst path.faded {
       opacity: 0.3;
-    }
-    #sunburst path.not-faded {
-      opacity: 1;
     }
 
     #panel {
@@ -320,35 +317,31 @@
 
     const width = 700;
     const height = 700;
-    const radius = (Math.min (width, height) / 2); //change 2 to a larger number to make burst smaller
+    const radius = (Math.min (width, height) / 2);
 
-    const formatNumber = d3.format ("$,f");
-
-    const x = d3.scale.linear().range ([0, 2 * Math.PI]);
-    const y = d3.scale.sqrt().range ([0, radius]);
-
-    const arc = d3.svg.arc()
-      .startAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x))))
-      .endAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x + d.dx))))
-      .innerRadius (d => Math.max (0, y (d.y)))
-      .outerRadius (d => Math.max (0, y (d.y + d.dy)));
-
-    const svg = d3.select ("#sunburst").append ("svg")
-      .attr ("width", width)
-      .attr ("height", height)
-      .append ("g")
-        .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+    const svg = d3.select ("#sunburst")
+      .append ("svg")
+        .attr ("width", width)
+        .attr ("height", height)
+        .append ("g")
+          .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")")
+          .on ("mouseout", unfade_all)
+    ;
+    function unfade_all () {
+      svg.selectAll ("path")
+        .classed ('faded', false);
+    }
 
     d3.csv ('CollegesAndUniversityGrants.csv', (error, newData) => {
       // d3.csv ('PSC_by_Recip_CU_fam.csv', (error, recip) => {
       //   d3.csv ('Recip_Details_CU.csv', (error, details) => {
 
-          const root = { name: "College and University Grants", children: [] };
+          const data = { name: "College and University Grants", children: [] };
           const levels = ["family", "Program_Title"];
 
           newData.forEach (d => {
             // Keep this as a reference to the current level
-            let depthCursor = root.children;
+            let depthCursor = data.children;
             // Go down one level at a time
             levels.forEach ((property, depth) => {
 
@@ -373,26 +366,35 @@
             });
           });
 
-          // partition into nodes, then add colorIndex to "depth 1" nodes (sorted by total "value")
-          const partition = d3.layout.partition()
-            .value (d => d.size);
-          const partitionedNodes = partition.nodes (root);
-
-          const centerColor = "rgba(0, 0, 0, 0)"; //transparent to show #panel
-          const wedgeColors = ["#881e3d", "#daa200", "#D25d15", "#082344", "#004c40"];
-          partitionedNodes
-            .filter (node => node.depth === 1)
+          // create hierarchy, then add colorIndex to 1st level nodes (sorted by value)
+          const root = d3.hierarchy (data)
+            .sum (d => d.size)
             .sort ((a, b) => b.value - a.value)
-            .forEach ((node, index) => {
-              node.colorIndex = index % wedgeColors.length;
-            })
+          ;
+          const centerColor = "rgba(0,0,0,0)"; //transparent to show #panel
+          const wedgeColors = ["#881e3d", "#daa200", "#D25d15", "#082344", "#004c40"];
+          root.children.forEach ((node, index) => {
+            node.colorIndex = index % wedgeColors.length;
+          });
+
+          const arc = d3.arc()
+            .startAngle (d => d.x0)
+            .endAngle (d => d.x1)
+            .innerRadius (d => Math.sqrt (d.y0))
+            .outerRadius (d => Math.sqrt (d.y1))
           ;
 
-          svg.selectAll ("path")
-            .data (partitionedNodes)
+          const partition = d3.partition()
+            .size([2 * Math.PI, radius * radius]);
+          const partitioned = partition (root).descendants()
+            .filter (d => true);  //placeholder to filter data too small to render
+
+          const formatNumber = d3.format ("$,.2f");
+
+          svg.selectAll ('path')
+            .data (partitioned)
             .enter().append ("path")
               .attr ("d", arc)
-              .attr ('class', 'faded')
               .attr ("fill", wedge => {   //fill with colorIndex color (or ancestors')
                 switch (wedge.depth) {
                   case 0: return centerColor; break;
@@ -404,7 +406,7 @@
               .on ("mouseover", update_legend)
               .on ("mouseout", remove_legend)
               .on ("click", click)
-              .append ("title").text (d => d.name + "\n" + formatNumber (d.value))
+              .append ("title").text (d => d.data.name + "\n" + formatNumber (d.value))
           ;
 
           function click (d) {
@@ -413,34 +415,37 @@
               .tween ("scale", () => {
 
                 // adjust x values to expand/contract selected sector (no changes to radii (y))
-                const xd = d3.interpolate (x.domain(), [d.x, d.x + d.dx]);
+                const xd = d3.interpolate (x.domain(), [d.x0, d.x0 + d.x1]);
                 return t => {
                   x.domain (xd (t));
                 };
 
               })
               .selectAll ("path")
-              .attrTween ("d", d => function () {
-                return arc (d);
-              })
+              .attrTween ("d", d => () => arc (d));
             ;
           }
 
           const legend = d3.select ("#panel");
 
           function update_legend (d) {
-            // override "faded" class
-            $('path').addClass ('not-faded');
-            // $(this).addClass ('not-faded');
-            // d3.select(this).datum().parent
-                        // $(this.parentElement.firstChild).addClass ('not-faded');
+
+            // fade all but current lineage
+            svg.selectAll ("path")
+              .classed ('faded', true);
+            let sequenceArray = d.ancestors().reverse();
+            sequenceArray.shift(); // remove root node from the array
+            svg.selectAll ("path")
+              .filter (node => sequenceArray.indexOf (node) >= 0)
+              .classed ('faded', false);
+            ;
 
             // Create central node panel --- Top 10 Agencies
             if (d.depth === 0) {
               $("#panel").empty();
               legend.append ("div")
                 .attr ("id", "tab")
-                .html ("<h1 class='panel_title'>" + d.name + "</h1><h3 class='panel_desc'>" + formatNumber (d.value) + "<br /></h3>");
+                .html ("<h1 class='panel_title'>" + d.data.name + "</h1><h3 class='panel_desc'>" + formatNumber (d.value) + "<br /></h3>");
               // for (let k = 0; k < 10; k++) {
               //   legend.append ("div")
               //     .attr ("id", "tab_2")
@@ -497,7 +502,7 @@
               $("#panel").empty();
               legend.append ("div")
                 .attr ("id", "tab")
-                .html ("<h2 class='title'>" + d.name + "</h2><h1>" + formatNumber (d.value));
+                .html ("<h2 class='title'>" + d.data.name + "</h2><h1>" + formatNumber (d.value));
               legend.transition().duration (500)
                 .style ("opacity", "1");
             }
