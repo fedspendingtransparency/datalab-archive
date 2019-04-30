@@ -1,5 +1,5 @@
 import { initChart } from '../../spending/intro/init';
-import colors from '../../globalSass/_colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 (function init(){
     const config = {
