@@ -60,9 +60,6 @@
     #sunburst path.faded {
       opacity: 0.3;
     }
-    #sunburst path.not-faded {
-      opacity: 1;
-    }
 
     #panel {
       /* z-index: 1; */
@@ -327,7 +324,13 @@
         .attr ("width", width)
         .attr ("height", height)
         .append ("g")
-          .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+          .attr ("transform", "translate(" + (width / 2) + "," + (height / 2) + ")")
+          .on ("mouseout", unfade_all)
+    ;
+    function unfade_all () {
+      svg.selectAll ("path")
+        .classed ('faded', false);
+    }
 
     d3.csv ('CollegesAndUniversityGrants.csv', (error, newData) => {
       // d3.csv ('PSC_by_Recip_CU_fam.csv', (error, recip) => {
@@ -374,8 +377,6 @@
             node.colorIndex = index % wedgeColors.length;
           });
 
-          // const x = d3.scaleLinear().range ([0, 2 * Math.PI]);
-          // const y = d3.scaleSqrt().range ([0, radius]);
           const arc = d3.arc()
             .startAngle (d => d.x0)
             .endAngle (d => d.x1)
@@ -394,7 +395,6 @@
             .data (partitioned)
             .enter().append ("path")
               .attr ("d", arc)
-              .attr ('class', 'faded')
               .attr ("fill", wedge => {   //fill with colorIndex color (or ancestors')
                 switch (wedge.depth) {
                   case 0: return centerColor; break;
@@ -429,24 +429,23 @@
           const legend = d3.select ("#panel");
 
           function update_legend (d) {
-            // override "faded" class
-            // this.attr ('class', 'not-faded');
-            // const p = svg.select(() => this.parentNode);
-            // p.attr ('class', 'not-faded');
+
+            // fade all but current lineage
+            svg.selectAll ("path")
+              .classed ('faded', true);
             let sequenceArray = d.ancestors().reverse();
             sequenceArray.shift(); // remove root node from the array
             svg.selectAll ("path")
               .filter (node => sequenceArray.indexOf (node) >= 0)
-              .style("opacity", 1);
-            // d3.select(this).datum().parent
-                        // $(this.parentElement.firstChild).addClass ('not-faded');
+              .classed ('faded', false);
+            ;
 
             // Create central node panel --- Top 10 Agencies
             if (d.depth === 0) {
               $("#panel").empty();
               legend.append ("div")
                 .attr ("id", "tab")
-                .html ("<h1 class='panel_title'>" + d.name + "</h1><h3 class='panel_desc'>" + formatNumber (d.value) + "<br /></h3>");
+                .html ("<h1 class='panel_title'>" + d.data.name + "</h1><h3 class='panel_desc'>" + formatNumber (d.value) + "<br /></h3>");
               // for (let k = 0; k < 10; k++) {
               //   legend.append ("div")
               //     .attr ("id", "tab_2")
@@ -503,7 +502,7 @@
               $("#panel").empty();
               legend.append ("div")
                 .attr ("id", "tab")
-                .html ("<h2 class='title'>" + d.name + "</h2><h1>" + formatNumber (d.value));
+                .html ("<h2 class='title'>" + d.data.name + "</h2><h1>" + formatNumber (d.value));
               legend.transition().duration (500)
                 .style ("opacity", "1");
             }
