@@ -26,7 +26,7 @@ $barWidth: 50px;
 }
 
 .overview-chart__bar--revenue {
-    background-color: $income-primary;
+    background-color: $revenue-primary;
     top: 660/4000 * $overviewHeight;
     right: 52%;
     height: $overviewHeight - 660/4000 * $overviewHeight;

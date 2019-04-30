@@ -1,3 +1,5 @@
+@import '../../../citizens-guide/src/globalSass/_colors.scss';
+
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -27,7 +29,7 @@
 }
 
 .chapter-nav--revenue {
-    background-color: #205493;
+    background-color: #0A2F5A;
 }
 
 .chapter-nav--spending {
@@ -94,7 +96,7 @@
         min-height: auto;
         height: 3rem;
     }
-    
+
     .chapter-nav button {
         display: none;
     }
