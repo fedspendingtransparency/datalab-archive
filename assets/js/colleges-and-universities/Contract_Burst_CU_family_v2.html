@@ -320,19 +320,7 @@
 
     const width = 700;
     const height = 700;
-    const radius = (Math.min (width, height) / 2); //change 2 to a larger number to make burst smaller
-
-    const formatNumber = d3.format ("$,f");
-
-    const x = d3.scaleLinear().range ([0, 2 * Math.PI]);
-    const y = d3.scaleSqrt().range ([0, radius]);
-
-    const arc = d3.arc()
-      .startAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x0))))
-      .endAngle (d => Math.max (0, Math.min (2 * Math.PI, x (d.x0 + d.x1))))
-      .innerRadius (d => Math.max (0, y (d.y0)))
-      .outerRadius (d => Math.max (0, y (d.y0 + d.y1)))
-    ;
+    const radius = (Math.min (width, height) / 2);
 
     const svg = d3.select ("#sunburst")
       .append ("svg")
@@ -370,27 +358,40 @@
               depthCursor = depthCursor[index].children;
               // This is a leaf, so add the last element to the specified branch
               if (depth === levels.length - 1) {
-                depthCursor.push ({ name: d.Recipient, value: d.Obligation });
+                depthCursor.push ({ name: d.Recipient, size: d.Obligation });
               }
             });
           });
 
           // create hierarchy, then add colorIndex to 1st level nodes (sorted by value)
           const root = d3.hierarchy (data)
-            .sum (d => d.value)
+            .sum (d => d.size)
+            .sort ((a, b) => b.value - a.value)
           ;
           const centerColor = "rgba(0,0,0,0)"; //transparent to show #panel
           const wedgeColors = ["#881e3d", "#daa200", "#D25d15", "#082344", "#004c40"];
-          root.children
-            .sort ((a, b) => b.value - a.value)
-            .forEach ((node, index) => {
-              node.colorIndex = index++ % wedgeColors.length;
-            })
+          root.children.forEach ((node, index) => {
+            node.colorIndex = index % wedgeColors.length;
+          });
+
+          // const x = d3.scaleLinear().range ([0, 2 * Math.PI]);
+          // const y = d3.scaleSqrt().range ([0, radius]);
+          const arc = d3.arc()
+            .startAngle (d => d.x0)
+            .endAngle (d => d.x1)
+            .innerRadius (d => Math.sqrt (d.y0))
+            .outerRadius (d => Math.sqrt (d.y1))
           ;
 
-          const partitioned = d3.partition()(root);
-          svg.select ('g')
-            .data (partitioned.descendants())
+          const partition = d3.partition()
+            .size([2 * Math.PI, radius * radius]);
+          const partitioned = partition (root).descendants()
+            .filter (d => true);  //placeholder to filter data too small to render
+
+          const formatNumber = d3.format ("$,.2f");
+
+          svg.selectAll ('path')
+            .data (partitioned)
             .enter().append ("path")
               .attr ("d", arc)
               .attr ('class', 'faded')
@@ -405,7 +406,7 @@
               .on ("mouseover", update_legend)
               .on ("mouseout", remove_legend)
               .on ("click", click)
-              .append ("title").text (d => d.name + "\n" + formatNumber (d.value))
+              .append ("title").text (d => d.data.name + "\n" + formatNumber (d.value))
           ;
 
           function click (d) {
@@ -414,16 +415,14 @@
               .tween ("scale", () => {
 
                 // adjust x values to expand/contract selected sector (no changes to radii (y))
-                const xd = d3.interpolate (x.domain(), [d.x, d.x + d.dx]);
+                const xd = d3.interpolate (x.domain(), [d.x0, d.x0 + d.x1]);
                 return t => {
                   x.domain (xd (t));
                 };
 
               })
               .selectAll ("path")
-              .attrTween ("d", d => function () {
-                return arc (d);
-              })
+              .attrTween ("d", d => () => arc (d));
             ;
           }
 
@@ -431,9 +430,14 @@
 
           function update_legend (d) {
             // override "faded" class
-            this.attr ('class', 'not-faded');
-            const p = svg.select(() => this.parentNode);
-            p.attr ('class', 'not-faded');
+            // this.attr ('class', 'not-faded');
+            // const p = svg.select(() => this.parentNode);
+            // p.attr ('class', 'not-faded');
+            let sequenceArray = d.ancestors().reverse();
+            sequenceArray.shift(); // remove root node from the array
+            svg.selectAll ("path")
+              .filter (node => sequenceArray.indexOf (node) >= 0)
+              .style("opacity", 1);
             // d3.select(this).datum().parent
                         // $(this.parentElement.firstChild).addClass ('not-faded');
 
