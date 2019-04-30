@@ -9,7 +9,7 @@
   display: inline-block;
   width: 1.5rem;
   height: 0.75rem;
-  background: $color-primary-darker;
+  background: $revenue-primary;
   margin-left: 0.3rem;
   margin-right: 0.3rem;
 }
@@ -67,11 +67,11 @@
   }
 
   #bar-controls button.active {
-    color: $color-primary-darker;
+    color: $revenue-primary;
   }
 
   .chart__show-more {
-    color: $color-primary-darker;
+    color: $revenue-primary;
   }
 }
 

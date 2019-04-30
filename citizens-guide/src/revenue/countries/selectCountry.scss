@@ -1,14 +1,14 @@
 @import '../../globalSass/colors';
 
-$primaryColor: #4A90E2;
+//$primaryColor: #4A90E2;
 
 .select-country {
     position: relative;
 }
 
 .trigger-button {
-    background-color: $color-primary;
-    border: 1px solid $color-primary;
+    background-color: $revenue-primary;
+    border: 1px solid $revenue-primary;
     border-radius: 3px;
     color: white;
     font-size: 1rem;
@@ -22,7 +22,7 @@ $primaryColor: #4A90E2;
     }
 
     &:hover {
-        background-color: darken($color-primary, 10);
+        background-color: darken($revenue-primary, 10);
     }
 }
 
@@ -102,7 +102,7 @@ $primaryColor: #4A90E2;
     }
 
     li {
-        background-color: $color-primary;
+        background-color: $revenue-primary;
         display: inline-block;
         margin: 3px 3px 3px 0;
         padding: 2px 1rem;
@@ -111,7 +111,7 @@ $primaryColor: #4A90E2;
         cursor: pointer;
 
         &:hover {
-            background-color: darken($color-primary, 10);
+            background-color: darken($revenue-primary, 10);
         }
 
         svg {
@@ -131,10 +131,10 @@ $primaryColor: #4A90E2;
 
     .add-button {
         float: right;
-        background-color: $color-primary;
+        background-color: $revenue-primary;
         padding: 2px 1rem;
         color: white;
-        border: 1px solid $color-primary;
+        border: 1px solid $revenue-primary;
         border-radius: 2px;
         opacity: 0;
         transition: opacity 0.2 ease-in;

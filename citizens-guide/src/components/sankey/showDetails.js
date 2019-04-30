@@ -177,7 +177,7 @@ function renderDetailBoxes() {
         .append('rect')
         .attr('height', detailBoxHeight)
         .attr('fill', function (d) {
-            return (d.percent_total < 0) ? colors.colorGrayDark : colors.colorPrimaryDarker;
+            return (d.percent_total < 0) ? colors.colorGrayDark : colors.revenuePrimary;
         })
         .attr('opacity', function (d) {
             if (d.percent_total < 0) {

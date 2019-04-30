@@ -9,7 +9,7 @@ const incomeConfig = {
     amountLabel: 'Revenue',
     sourceFields: ['revenue_source','gdp_source'],
     chapter: 'revenue',
-    primaryColor: colors.income,
+    primaryColor: colors.revenuePrimary,
     defaultCountries: [{
         display: 'United States',
         plainName: 'United States'

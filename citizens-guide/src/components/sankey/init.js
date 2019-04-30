@@ -73,7 +73,7 @@ function zoomShaders(state, textFade, zoom) {
                 return (i) ? 1 - i / 7 : 1;
             }
         })
-        .attr('fill', colors.colorPrimaryDarker);
+        .attr('fill', colors.revenuePrimary);
 }
 
 function zoomToMoreCategories(state) {
@@ -178,7 +178,7 @@ function addSegments(more) {
         })
         .attr('height', baseDimensions.height)
         .attr('fill', function (d, i) {
-            return (i < 3) ? colors.colorPrimaryDarker : '#ccc';
+            return (i < 3) ? colors.revenuePrimary : '#ccc';
         })
         .attr('opactity', 0)
         .on('click', function (d) {
