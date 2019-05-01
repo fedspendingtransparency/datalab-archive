@@ -189,7 +189,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/deficit'
+        path: __dirname + '/assets/ffg/deficit/'
     },
     module: {
         rules: moduleRules
@@ -212,7 +212,7 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/debt'
+        path: __dirname + '/assets/ffg/debt/'
     },
     module: {
         rules: moduleRules
@@ -227,12 +227,11 @@ module.exports = [{
         './citizens-guide/src/deficit/trends/deficit-trends.scss',
         './citizens-guide/src/revenue/categories/revenue-categories.scss',
         './citizens-guide/src/spending/categories/spending-categories.scss',
-        './citizens-guide/src/spending/trends/spending-trends.scss',
         './citizens-guide/src/debt/trends/debt-trends.scss',
         './citizens-guide/src/debt/analysis/debt-analysis.scss'
     ],
     output: {
-        path: __dirname + '/assets/ffg/css'
+        path: __dirname + '/assets/ffg/css/'
     },
     mode: mode,
     module: {

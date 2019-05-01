@@ -55,7 +55,7 @@ function renderChart(data) {
     }
 }
 
-function changeDataTypeClickFunctions(){
+function changeDataTypeClickFunctions() {
     d3.select('#toggle-spending-data-type')
         .on('click', function () {
             const dataController = d3.select("#spending-chart-toggle"),
@@ -65,23 +65,20 @@ function changeDataTypeClickFunctions(){
             changeDataType(dataType);
         });
 
-    d3.select('.spending-chart-toggle__label--categories')
-        .on('click', function(){
-            const dataType = 'function';
-            changeDataType(dataType);
-        });
-    d3.select('.spending-chart-toggle__label--agency')
-        .on('click', function(){
-            const dataType = 'agency';
-            changeDataType(dataType);
-        });
+    d3.selectAll('.toggle-component__label')
+        .on('click', function () {
+            const textValue = d3.select(this).text(),
+                type = (textValue === 'Agency') ? 'agency' : 'function';
+
+            changeDataType(type);
+        })
 }
 
-function changeDataType(dataType){
+function changeDataType(dataType) {
     const dataController = d3.select("#spending-chart-toggle"),
         curData = dataController.attr('data-active');
 
-    if(dataType === curData){
+    if (dataType === curData) {
         return;
     }
 
