@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c73acdb7-0421-477d-bf03-14bce5dd64fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/documentation/workflow-structure.md" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/workflow-structure.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/cibuild" beforeDir="false" afterPath="$PROJECT_DIR$/script/cibuild" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,7 +33,7 @@
           <entry key="Gemfile" value="2" />
           <entry key="LICENSE" value="1" />
           <entry key="Rproj" value="1" />
-          <entry key="cibuild" value="1" />
+          <entry key="cibuild" value="2" />
           <entry key="csv" value="2" />
           <entry key="env" value="3" />
           <entry key="gitattributes" value="1" />
@@ -45,9 +46,9 @@
           <entry key="map" value="4" />
           <entry key="md" value="13" />
           <entry key="scss" value="3" />
-          <entry key="sh" value="5" />
+          <entry key="sh" value="6" />
           <entry key="txt" value="1" />
-          <entry key="yml" value="6" />
+          <entry key="yml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -56,15 +57,16 @@
           <entry key="JSON" value="33" />
           <entry key="JSX Harmony" value="58" />
           <entry key="JavaScript" value="52" />
-          <entry key="PLAIN_TEXT" value="35" />
+          <entry key="PLAIN_TEXT" value="37" />
           <entry key="SCSS" value="3" />
           <entry key="SourceMap" value="4" />
-          <entry key="YAML" value="6" />
+          <entry key="YAML" value="7" />
           <entry key="yarn.lock" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="cibuild" value="15" />
           <entry key="html" value="43" />
           <entry key="js" value="57" />
           <entry key="json" value="2" />
@@ -72,6 +74,7 @@
           <entry key="map" value="62" />
           <entry key="md" value="6139" />
           <entry key="sh" value="19" />
+          <entry key="yml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -80,8 +83,9 @@
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="2" />
           <entry key="JavaScript" value="57" />
-          <entry key="PLAIN_TEXT" value="6158" />
+          <entry key="PLAIN_TEXT" value="6173" />
           <entry key="SourceMap" value="62" />
+          <entry key="YAML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -135,7 +139,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1050">
@@ -145,17 +149,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/contract-sunburst/uncompiled-code/move-built-files.sh">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script/cibuild">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/contract-sunburst/uncompiled-code/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="91" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/script/compile-cic-files.sh">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -211,6 +224,8 @@
         <option value="$PROJECT_DIR$/_site/contract-explorer.html" />
         <option value="$PROJECT_DIR$/assets/js/contract-sunburst/uncompiled-code/webpack.config.js" />
         <option value="$PROJECT_DIR$/documentation/workflow-structure.md" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/script/cibuild" />
       </list>
     </option>
   </component>
@@ -230,8 +245,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-266" />
-    <option name="y" value="63" />
+    <option name="x" value="97" />
+    <option name="y" value="36" />
     <option name="width" value="1946" />
     <option name="height" value="958" />
   </component>
@@ -251,7 +266,7 @@
             <path>
               <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
               <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="documentation" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -306,15 +321,15 @@
       <workItem from="1556405253904" duration="5039000" />
       <workItem from="1556562578623" duration="5053000" />
       <workItem from="1556733778807" duration="2357000" />
-      <workItem from="1556737376513" duration="12006000" />
+      <workItem from="1556737376513" duration="12482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39422000" />
+    <option name="totallyTimeSpent" value="39898000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-266" y="63" width="1946" height="958" extended-state="0" />
+    <frame x="97" y="36" width="1946" height="958" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29922077" />
@@ -356,15 +371,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sitemap.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/contract-sunburst/uncompiled-code/src/components/SubagencyCard.jsx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -631,6 +637,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/compile-cic-files.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/cibuild">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
     </entry>
