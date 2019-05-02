@@ -1,55 +1,76 @@
 # Workflow Structure
 
-This has been a big topic at datalab for quite some time now. This document should put an end to all suffering.
+## Overview
 
+The Data Lab team is using a modified version of the GitFlow approach to manage branches and promote code to production. The main branches user are
+master, staging, dev-release, and sandbox.  We modified the GitFlow approach as the team must use the dev environment as a "sandbox".  The sandbox branch includes in progress features that need to be demoed to stakeholders.
 
-## Branching (best practices)
+## Branches (Day to Day Workflow)
 
-At `datalab` we want to try to follow the convention that the `dev` environment remains our "sandbox" while `staging` is the step before we go to `master`
+Main branch descriptions:
+1) `dev-release` : This is the team's default working branch.  Developers create new and push completed features branches here.
+2) `staging` : Staging is for features that are ready for release, hot fixes, and bug fixes. Tied to the staging environment.
+3) `master` : Tied to the production environment.
+4) `sandbox` : In progress features branches are pulled into this branch to demo in the dev environment.
 
-To keep sanity, please always branch off from `dev` unless you are going to hotfix into the live site (`master`). More on that later.
-
-The typical workflow is as follows
-
-"I want to contribute" so...
-
-
-```
-git checkout dev
-git pull origin dev
-git checkout -b mybranch
-```
-
-Be sure to always have to latest version of dev before you branch off. This is important, otherwise you are going to have a ton of lovely merge conflicts.
-
-Once you are done with your commit you can push your branch to the remote and then `pull request` into `dev`
+Feature development begins by creating a feature branch from `dev-release`.
 
 ```
-git push origin mybranch
-(make PR into dev)
+        git checkout dev-release
+        git pull origin dev-release
+        git checkout -b my-feature-branch
 ```
 
-## Moving `dev` into `staging`
+When the feature branch is ready to be reviewed by PO and / or design, the feature branch is pulled into `sandbox`.  The sandbox is deployed to the dev environment.
 
-We can simply move `dev` into the `staging` env by PR'ing `dev` into `staging`.
+Git commands for the first time you use sandbox:
+
+```
+         git add .
+         git commit -m "commit message"
+         git fetch origin sandbox
+         git checkout sandbox
+         git merge <your feature branch name>
+```
+
+Git commands for all subsequent uses:
+
+```
+         git add .
+         git commit -m "commit message"
+         git checkout sandbox
+         git pull origin sandbox
+         git merge <your feature branch name>
+``
+
+Once a feature is completed, create a pull request in Github and merge the branch `dev-release`.
+
+## Feature Branches and Sub-Feature Branches
+
+TBD
+
+## Moving `dev-release` into `staging`
+
+At the end of each sprint, `dev-release` will be PR'ed and merged into the `staging`.
+
 
 `staging` is typically used for client demos and the state that will be tested heavily before a go live. All changes that want to be had before the go live 
 will take the typical process of going into `dev` again before we are ready to test into `staging`. 
 
 ## Hotfixing
 
-Hotfixing the live branch follows a similar process as doing work in `dev`. 
-This time around, when you are hotfixing into `master` (live), the workflow will go as follows.
+Hotfixes should occur off the staging branch only.  If you need to create a hotfix for master, please create the hotfix in staging, test in staging and then we'll promote the fix to master.
 
 ```
-git checkout master
-git pull origin master
-git checkout -b branch-into-master
+        git checkout staging
+        git pull origin staging
+        git checkout -b hotfix-branch
 ```
 
-This will create a mirror of master for you to work on. These commits cannot go into `dev` or `staging` for namesake.
-Afterall, it is a hotfix.
 
+## Visualizing the process
+
+![alt text](documentation/branching.png)
 
 ## Approval/Permissions
 
