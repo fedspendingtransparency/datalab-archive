@@ -5,7 +5,7 @@
 The Data Lab team is using a modified version of the GitFlow approach to manage branches and promote code to production. The main branches user are
 master, staging, dev-release, and sandbox.  We modified the GitFlow approach as the team must use the dev environment as a "sandbox".  The sandbox branch includes in progress features that need to be demoed to stakeholders.
 
-## Branches (Day to Day Workflow)
+## Day to Day Workflow
 
 Main branch descriptions:
 1) `dev-release` : This is the team's default working branch.  Developers create new and push completed features branches here.
@@ -45,17 +45,19 @@ Git commands for all subsequent uses:
 
 Once a feature is completed, create a pull request in Github and merge the branch `dev-release`.
 
-## Feature Branches and Sub-Feature Branches
+Feature Branches and Sub-Feature Branches
 
 TBD
 
-## Moving `dev-release` into `staging`
+## Promoting to Staging and Prod
 
 At the end of each sprint, `dev-release` will be PR'ed and merged into the `staging`.
 
 
 `staging` is typically used for client demos and the state that will be tested heavily before a go live. All changes that want to be had before the go live 
-will take the typical process of going into `dev` again before we are ready to test into `staging`. 
+will take the typical process of going into `dev` again before we are ready to test into `staging`.
+
+`staging` to prod TBD
 
 ## Hotfixing
 
@@ -68,7 +70,7 @@ Hotfixes should occur off the staging branch only.  If you need to create a hotf
 ```
 
 
-## Visualizing the workflow
+## Visualizing the Workflow
 
 ![alt text](https://github.com/fedspendingtransparency/datalab/blob/feature/DA-3824/documentation/branching.png)
 
@@ -80,7 +82,4 @@ the merge.
 
 ## Cleanup
 
-Get into the habit of getting rid of branches that haven't been worked on for more than 2 months or so. This can keep the repository clean.
-
-You can also get rid of local copys of the repository to keep your local git instance clean on the project if you so wish to do so. Remember, 
-if you get rid of the local copy of git, you wont be able to recover the branch from the remote.
+Please delete your feature branch once you have merged your feature into dev-release. This can keep the repository clean.
