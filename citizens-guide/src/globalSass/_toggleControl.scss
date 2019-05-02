@@ -1,7 +1,7 @@
 .toggle-control {
   border: none;
   background: none;
-  padding: 0;
+  //padding: 0 0.25rem;
 }
 
 .toggle-control__background {
@@ -22,6 +22,11 @@
   box-sizing: border-box;
   margin: 2px 2px;
   transition: transform 0.25s ease;
+  padding: 0 0.25rem;
+}
+
+.toggle-component {
+  margin-bottom: 1rem;
 }
 
 .toggle-component--spending .toggle-control__dot {
@@ -32,17 +37,18 @@
   border: 2px solid $color-debt-primary;
 }
 
-.toggle-component {
-  margin-bottom: 1rem;
-}
-
 .toggle-component__label {
   color: $text-color-paragraph;
   transition: color, font-weight 0.3s ease;
   cursor: pointer;
   transform: translateY(-5px);
   display: inline-block;
-  min-width: 33px;
+  min-width: 49px;
+  font-size: 1.5rem;
+}
+
+.toggle-component--spending .toggle-component__label:first-of-type {
+  min-width: 93px;
 }
 
 .toggle-component--spending[data-active="function"] {
