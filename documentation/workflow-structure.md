@@ -41,7 +41,7 @@ Git commands for all subsequent uses:
          git checkout sandbox
          git pull origin sandbox
          git merge <your feature branch name>
-``
+```
 
 Once a feature is completed, create a pull request in Github and merge the branch `dev-release`.
 
@@ -70,7 +70,7 @@ Hotfixes should occur off the staging branch only.  If you need to create a hotf
 
 ## Visualizing the process
 
-![alt text](documentation/branching.png)
+![alt text](https://github.com/fedspendingtransparency/datalab/blob/feature/DA-3824/documentation/branching.png)
 
 ## Approval/Permissions
 

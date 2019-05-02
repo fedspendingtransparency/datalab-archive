@@ -70,7 +70,7 @@
           <entry key="json" value="2" />
           <entry key="jsx" value="2" />
           <entry key="map" value="62" />
-          <entry key="md" value="4809" />
+          <entry key="md" value="4810" />
           <entry key="sh" value="19" />
         </counts>
       </usages-collector>
@@ -80,7 +80,7 @@
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="2" />
           <entry key="JavaScript" value="57" />
-          <entry key="PLAIN_TEXT" value="4828" />
+          <entry key="PLAIN_TEXT" value="4829" />
           <entry key="SourceMap" value="62" />
         </counts>
       </usages-collector>
@@ -138,8 +138,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="469">
+              <caret line="72" column="111" selection-start-line="72" selection-start-column="111" selection-end-line="72" selection-end-column="111" />
             </state>
           </provider>
         </entry>
@@ -221,12 +221,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/_site/assets/js/contract-sunburst/uncompiled-code/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/_site/assets/js/contract-sunburst/uncompiled-code/package.json" />
       <path value="$PROJECT_DIR$/_site/package.json" />
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
@@ -308,12 +306,12 @@
       <workItem from="1556405253904" duration="5039000" />
       <workItem from="1556562578623" duration="5053000" />
       <workItem from="1556733778807" duration="2357000" />
-      <workItem from="1556737376513" duration="8923000" />
+      <workItem from="1556737376513" duration="9333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36339000" />
+    <option name="totallyTimeSpent" value="36749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-19" y="30" width="1786" height="958" extended-state="0" />
@@ -631,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="469">
+          <caret line="72" column="111" selection-start-line="72" selection-start-column="111" selection-end-line="72" selection-end-column="111" />
         </state>
       </provider>
     </entry>
