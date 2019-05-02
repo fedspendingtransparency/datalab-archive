@@ -27,8 +27,9 @@
   {% endif %}
 
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
-  {% if page.dlPageCss %}<link rel="stylesheet" href="{{ page.dlPageCss | prepend: '/css/' | prepend: site.baseurl }}" />{% endif %}
-  
+
+  <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
    window.dataLayer = window.dataLayer || [];
@@ -38,13 +39,18 @@
    gtag('config', 'UA-19138737-13');
   </script>
 
+  <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-19138737-13', 'auto');
+
+      ga('require', 'eventTracker');
+  </script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script async src="path/to/autotrack.js"></script>
+
   <!-- og tags -->
   {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
+  <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
-  {% if page.socialMediaImage %}
-  <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
-  {% else %}
-  <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
-  {% endif %}
 </head>
