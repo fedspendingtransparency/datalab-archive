@@ -352,6 +352,10 @@ $green: #50604f;
       display: none;
       border: 1px solid #ddd;
       border-radius: .25rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
 
   } // end mapContainer
