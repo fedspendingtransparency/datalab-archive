@@ -48,11 +48,11 @@ Once a feature is completed, create a pull request in Github and merge the branc
 Feature Branches and Sub-Feature Branches
 
 If you are working on a feature with a peer, create a main feature branch for the larger feature.  The each dev should create sub-feature branches from and merge completed sub-features here.
-
+```
 main feature branch:     1 - - - - - - (Merge commit) - - - - - - - - - - - (Merge commit)
 sub-feature branch 1:      \ 2 - 3 - 4 /                   \                /
 sub-feature branch 2:                                       \ 5 - 6 - 7 - 8/
-
+```
 ```
          git checkout -b main-feature-branch
          git checkout -b sub-feature-branch-1

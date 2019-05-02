@@ -70,7 +70,7 @@
           <entry key="json" value="2" />
           <entry key="jsx" value="2" />
           <entry key="map" value="62" />
-          <entry key="md" value="5876" />
+          <entry key="md" value="5882" />
           <entry key="sh" value="19" />
         </counts>
       </usages-collector>
@@ -80,7 +80,7 @@
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="2" />
           <entry key="JavaScript" value="57" />
-          <entry key="PLAIN_TEXT" value="5895" />
+          <entry key="PLAIN_TEXT" value="5901" />
           <entry key="SourceMap" value="62" />
         </counts>
       </usages-collector>
@@ -138,8 +138,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="156" selection-start-line="5" selection-start-column="156" selection-end-line="5" selection-end-column="156" />
+            <state relative-caret-position="390">
+              <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -306,18 +306,18 @@
       <workItem from="1556405253904" duration="5039000" />
       <workItem from="1556562578623" duration="5053000" />
       <workItem from="1556733778807" duration="2357000" />
-      <workItem from="1556737376513" duration="11411000" />
+      <workItem from="1556737376513" duration="11528000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38827000" />
+    <option name="totallyTimeSpent" value="38944000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-266" y="23" width="1786" height="958" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22946176" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32634562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -629,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="156" selection-start-line="5" selection-start-column="156" selection-end-line="5" selection-end-column="156" />
+        <state relative-caret-position="390">
+          <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
         </state>
       </provider>
     </entry>
