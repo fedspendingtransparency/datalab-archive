@@ -2,8 +2,8 @@
 
 ## Overview
 
-The Data Lab team is using a modified version of the GitFlow approach to manage branches and promote code to production. The main branches user are
-master, staging, dev-release, and sandbox.  We modified the GitFlow approach as the team must use the dev environment as a "sandbox".  The sandbox branch includes in progress features that need to be demoed to stakeholders.
+The Data Lab team is using a modified version of the GitFlow approach to manage branches and promote code to production. The main branches used are
+`master`, `staging`, `dev-release`, and `sandbox`.  The GitFlow approach was modified so the team can use the dev environment as a "sandbox".  The `sandbox` branch includes in progress features that need to be demoed to stakeholders.
 
 ## Day to Day Workflow
 
@@ -21,7 +21,7 @@ Feature development begins by creating a feature branch from `dev-release`.
         git checkout -b my-feature-branch
 ```
 
-When the feature branch is ready to be reviewed by PO and / or design, the feature branch is pulled into `sandbox`.  The sandbox is deployed to the dev environment.
+When the feature branch is ready to be reviewed by PO and / or design, the feature branch is merged into `sandbox`.  The sandbox is deployed to the dev environment.
 
 Git commands for the first time you use sandbox:
 
@@ -47,17 +47,24 @@ Once a feature is completed, create a pull request in Github and merge the branc
 
 Feature Branches and Sub-Feature Branches
 
-TBD
+If you are working on a feature with a peer, create a main feature branch for the larger feature.  The each dev should create sub-feature branches from and merge completed sub-features here.
+
+main feature branch:     1 - - - - - - (Merge commit) - - - - - - - - - - - (Merge commit)
+sub-feature branch 1:      \ 2 - 3 - 4 /                   \                /
+sub-feature branch 2:                                       \ 5 - 6 - 7 - 8/
+
+```
+         git checkout -b main-feature-branch
+         git checkout -b sub-feature-branch-1
+
+```
+
+Please communicate to ensure your edits will not negatively affect each other.
+
 
 ## Promoting to Staging and Prod
 
-At the end of each sprint, `dev-release` will be PR'ed and merged into the `staging`.
-
-
-`staging` is typically used for client demos and the state that will be tested heavily before a go live. All changes that want to be had before the go live 
-will take the typical process of going into `dev` again before we are ready to test into `staging`.
-
-`staging` to prod TBD
+At the end of each sprint, `dev-release` will be PR'ed and merged into `staging`. `staging` is used for pre-production testing.  After tests have passed, `staging` is merged into `master`.
 
 ## Hotfixing
 
@@ -76,10 +83,10 @@ Hotfixes should occur off the staging branch only.  If you need to create a hotf
 
 ## Approval/Permissions
 
-Any branch or commit that wants to go into `staging` or `master` will need review from a peer. This is a safety measure.
+Any branch going into `staging` or `master` will need review from a peer. This is a safety measure.
 Ping your peer and have them do a quick review of the commits you are merging. Once good, we can okay that, and the `pull request` follows through with 
 the merge. 
 
 ## Cleanup
 
-Please delete your feature branch once you have merged your feature into dev-release. This can keep the repository clean.
+Please delete your feature branch once you have merged your feature into `dev-release`. This can keep the repository clean.
