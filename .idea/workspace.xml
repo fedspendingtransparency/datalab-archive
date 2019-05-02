@@ -70,7 +70,7 @@
           <entry key="json" value="2" />
           <entry key="jsx" value="2" />
           <entry key="map" value="62" />
-          <entry key="md" value="5882" />
+          <entry key="md" value="6139" />
           <entry key="sh" value="19" />
         </counts>
       </usages-collector>
@@ -80,7 +80,7 @@
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="2" />
           <entry key="JavaScript" value="57" />
-          <entry key="PLAIN_TEXT" value="5901" />
+          <entry key="PLAIN_TEXT" value="6158" />
           <entry key="SourceMap" value="62" />
         </counts>
       </usages-collector>
@@ -138,8 +138,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
+            <state relative-caret-position="1050">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
             </state>
           </provider>
         </entry>
@@ -231,8 +231,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-266" />
-    <option name="y" value="23" />
-    <option name="width" value="1786" />
+    <option name="y" value="63" />
+    <option name="width" value="1946" />
     <option name="height" value="958" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -306,23 +306,23 @@
       <workItem from="1556405253904" duration="5039000" />
       <workItem from="1556562578623" duration="5053000" />
       <workItem from="1556733778807" duration="2357000" />
-      <workItem from="1556737376513" duration="11528000" />
+      <workItem from="1556737376513" duration="12006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38944000" />
+    <option name="totallyTimeSpent" value="39422000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-266" y="23" width="1786" height="958" extended-state="0" />
+    <frame x="-266" y="63" width="1946" height="958" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32634562" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29922077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4997167" visible="true" weight="0.25741398" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49974027" visible="true" weight="0.25741398" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -331,7 +331,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002833" side_tool="true" visible="true" weight="0.25741398" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50025976" side_tool="true" visible="true" weight="0.25741398" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -629,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
+        <state relative-caret-position="1050">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
