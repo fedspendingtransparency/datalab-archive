@@ -11,7 +11,7 @@ Main branch descriptions:
 1) `dev-release` : This is the team's default working branch.  Developers create new and push completed features branches here.
 2) `staging` : Staging is for features that are ready for release, hot fixes, and bug fixes. Tied to the staging environment.
 3) `master` : Tied to the production environment.
-4) `sandbox` : In progress features branches are pulled into this branch to demo in the dev environment.
+4) `sandbox` : In progress features branches are pulled into this branch to demo in the dev environment.  Please *do not* branch directly from sandbox or push directly to sandbox (ie. without going through a feature branch).
 
 Feature development begins by creating a feature branch from `dev-release`.
 
@@ -68,7 +68,7 @@ Hotfixes should occur off the staging branch only.  If you need to create a hotf
 ```
 
 
-## Visualizing the process
+## Visualizing the workflow
 
 ![alt text](https://github.com/fedspendingtransparency/datalab/blob/feature/DA-3824/documentation/branching.png)
 

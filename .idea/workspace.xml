@@ -70,7 +70,7 @@
           <entry key="json" value="2" />
           <entry key="jsx" value="2" />
           <entry key="map" value="62" />
-          <entry key="md" value="4810" />
+          <entry key="md" value="4958" />
           <entry key="sh" value="19" />
         </counts>
       </usages-collector>
@@ -80,7 +80,7 @@
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="2" />
           <entry key="JavaScript" value="57" />
-          <entry key="PLAIN_TEXT" value="4829" />
+          <entry key="PLAIN_TEXT" value="4977" />
           <entry key="SourceMap" value="62" />
         </counts>
       </usages-collector>
@@ -138,8 +138,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="72" column="111" selection-start-line="72" selection-start-column="111" selection-end-line="72" selection-end-column="111" />
+            <state relative-caret-position="195">
+              <caret line="13" column="223" selection-start-line="13" selection-start-column="223" selection-end-line="13" selection-end-column="223" />
             </state>
           </provider>
         </entry>
@@ -230,8 +230,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-19" />
-    <option name="y" value="30" />
+    <option name="x" value="-266" />
+    <option name="y" value="23" />
     <option name="width" value="1786" />
     <option name="height" value="958" />
   </component>
@@ -306,15 +306,15 @@
       <workItem from="1556405253904" duration="5039000" />
       <workItem from="1556562578623" duration="5053000" />
       <workItem from="1556733778807" duration="2357000" />
-      <workItem from="1556737376513" duration="9333000" />
+      <workItem from="1556737376513" duration="9481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36749000" />
+    <option name="totallyTimeSpent" value="36897000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-19" y="30" width="1786" height="958" extended-state="0" />
+    <frame x="-266" y="23" width="1786" height="958" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22946176" />
@@ -629,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/documentation/workflow-structure.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="72" column="111" selection-start-line="72" selection-start-column="111" selection-end-line="72" selection-end-column="111" />
+        <state relative-caret-position="195">
+          <caret line="13" column="223" selection-start-line="13" selection-start-column="223" selection-end-line="13" selection-end-column="223" />
         </state>
       </provider>
     </entry>
