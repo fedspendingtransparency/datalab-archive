@@ -13,14 +13,14 @@
     padding-left: 0;
     padding-bottom: 0;
     font-weight: 600;
-    color: #666; }
+    color: #666666; }
   .link-button__div .link-button__icon {
     padding-left: 30px; }
 
 #activate-show-hide {
-  background-color: #00766C;
+  background-color: #00796B;
   color: white;
-  border: 1px solid #00766C;
+  border: 1px solid #00796B;
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   outline: none;
@@ -66,7 +66,7 @@
   .show-hide__buttons button {
     background: white;
     border: none;
-    color: #666;
+    color: #666666;
     outline: none;
     padding: 0.4rem 1rem; }
     .show-hide__buttons button:hover {
@@ -74,12 +74,12 @@
       transition: background-color 0.3s ease; }
 
 #save-filters-button {
-  background-color: #00766C;
+  background-color: #00796B;
   color: white;
   padding: 0.4rem 1.5rem;
   border-radius: 4px; }
   #save-filters-button:hover {
-    background: #00a99b;
+    background: #00ac98;
     transition: background-color 0.3s ease; }
 
 #show-hide-list {
@@ -101,10 +101,10 @@
       background: #e6e6e6;
       transition: background-color 0.3s ease; }
   #show-hide-list button.active {
-    background-color: #00766C;
+    background-color: #00796B;
     color: white; }
     #show-hide-list button.active:hover {
-      background: #00a99b;
+      background: #00ac98;
       transition: background-color 0.3s ease; }
 
 .trend-mobile {
@@ -122,7 +122,7 @@
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #555; }
+  color: #555555; }
 
 .trend-mobile__year {
   font-size: 1rem;
@@ -132,7 +132,7 @@
 .trend-mobile__amount {
   font-weight: 600;
   font-size: 1rem;
-  color: #0071bc;
+  color: #0A2F5A;
   padding: 0 0.25rem; }
 
 .trend-row__summary {
@@ -204,22 +204,22 @@ body p.chart-row__data-line {
   display: inline-block; }
 
 .revenue .trend-row-button {
-  background: #0071bc;
+  background: #0A2F5A;
   color: white;
-  border: 1px solid #0071bc; }
+  border: 1px solid #0A2F5A; }
 
 .revenue .trend-mobile--detail .trend-row-button {
-  background: #0090ef;
+  background: #0f4788;
   color: white; }
 
 .revenue .trend-row__detail {
-  border-color: #0071bc; }
+  border-color: #0A2F5A; }
 
 .revenue .trend-mobile__amount {
-  color: #0071bc; }
+  color: #0A2F5A; }
 
 .revenue .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
-  color: #0071bc;
+  color: #0A2F5A;
   background: white; }
 
 .spending .trend-row-button {
