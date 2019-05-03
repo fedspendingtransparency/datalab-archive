@@ -57,6 +57,16 @@
       /* right: 0; */
     }
 
+    #sunburst path.depth1 {
+      opacity: 1;
+    }
+    #sunburst path.depth2 {
+      opacity: 0.3;
+    }
+    #sunburst path.depth3 {
+      opacity: 0.09;
+    }
+
     #panel {
       /* z-index: 1; */
       text-align: center;
@@ -314,7 +324,10 @@
     const width = 700;
     const height = 700;
     const radius = (Math.min (width, height) / 2);
-    const currentDomain = d3.scaleLinear().domain ([0, 2 * Math.PI]);
+    const xScale = d3.scaleLinear()
+      .domain ([0, 2 * Math.PI])
+      .range ([0, 2 * Math.PI])
+    ;
 
     const svg = d3.select ('#sunburst')
       .append ('svg')
@@ -371,8 +384,8 @@
           });
 
           const arc = d3.arc()
-            .startAngle (d => d.x0)
-            .endAngle (d => d.x1)
+            .startAngle (d => Math.max (0, Math.min (2 * Math.PI, xScale (d.x0))))
+            .endAngle (d => Math.max (0, Math.min (2 * Math.PI, xScale (d.x1))))
             .innerRadius (d => Math.sqrt (d.y0))
             .outerRadius (d => Math.sqrt (d.y1))
           ;
@@ -386,6 +399,7 @@
             .data (partitioned)
             .enter().append ('path')
               .attr ('d', arc)
+              .attr ('class', d => 'depth' + d.depth)
               .attr ("fill", d => {
                 if (d.depth === 0) {
                   return centerColor;
@@ -397,7 +411,7 @@
               })
               .on ('mouseover', update_legend)
               .on ('click', click)
-              .append ('title').text (d => d.data.name + '\n' + formatNumber (d.value))
+              .append ('title').text (d => d.data.name)
           ;
 
           function click (d) {
@@ -405,16 +419,16 @@
               .duration (750)
               .tween ('scale', () => {
 
-                // adjust x values to expand/contract selected sector (no changes to radii (y))
-                const xd = d3.interpolate (currentDomain.domain(), [d.x0, d.x1]);
+                // adjust xScale domain values to expand/contract selected sector (no changes to radii (y))
+                const i = d3.interpolateArray (xScale.domain(), [d.x0, d.x1]);
                 return t => {
-                  currentDomain.domain (xd (t));
+                  xScale.domain (i (t));
                 };
               })
               .selectAll ('path')
-              .attrTween ("d", d => function (d) {
+              .attrTween ('d', d => function() {
                 return arc (d);
-              })
+              });
             ;
           }
           update_legend (partitioned[0]); // initialize legend to summary
@@ -424,12 +438,12 @@
     });
 
     const formatNumber = d3.format ('$,.2f');
-
     const legend = d3.select ('#panel');
 
     function update_legend (d) {
       if (d.depth === 0) {
         if (partitioned) { //ignore while initializing values
+          $('#panel').empty();
           legend.append ('div')
             .attr ('id', 'tab')
             .html ('<h1 class="panel_title">' + partitioned[0].data.name + '</h1><h3 class="panel_desc">' + formatNumber (partitioned[0].value) + '<br /></h3>');
