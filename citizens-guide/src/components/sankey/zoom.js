@@ -114,7 +114,7 @@ function init(g, baseDimensions, zoomTriggerX) {
         .attr('transform', translator(10, 7));
 
     disc.append('circle')
-        .attr('fill', colors.revenuePrimary)
+        .attr('fill', colors.colorPrimaryDarker)
         .attr('r', 16)
         .attr('cx', 16)
         .attr('cy', 16);
