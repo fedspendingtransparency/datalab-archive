@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 --------------------------------------------------------------------------------------------------------------------
 *   declarations
@@ -10,6 +11,8 @@
 //---
 
 >>>>>>> 7addecaf... right panel plus constants starting mapbox
+=======
+>>>>>>> 5361a935... add points to map in clusters
 const mapContainer = document.getElementById('collegesMap');
 <<<<<<< HEAD
 
@@ -35,12 +38,64 @@ const sectionFourmapBtn = document.getElementById('sectionFourMapBtn');
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
-  let map = new mapboxgl.Map({
+  var map = new mapboxgl.Map({
     container: 'collegesMap', // container id
-    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: [-74.50, 40], // starting position [lng, lat]
-    zoom: 9 // starting zoom
+    style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
+    center: [-103.59179687498357, 40.66995747013945], // usa
+    zoom: 4 // starting zoom
   });
+
+  map.on('load', function() {
+    // add geojson data
+    $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) {
+      console.log(data);
+      
+      map.addSource('schools', {
+	type: 'geojson',
+	data: data,
+	cluster: true,
+	clusterMaxZoom: 14,
+	clusterRadius: 20 // 50 is default look into tweaking this
+      });
+
+      map.addLayer({
+	id: 'clusters',
+	type: 'circle',
+	source: 'schools',
+	filter: ['has', 'point_count'],
+	paint: {
+	  // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+	  // with three steps to implement three types of circles:
+	  //   * Blue, 20px circles when point count is less than 100
+	  //   * Yellow, 30px circles when point count is between 100 and 750
+	  //   * Pink, 40px circles when point count is greater than or equal to 750
+	  "circle-color": [
+	    "step",
+	    ["get", "point_count"],
+	    "#51bbd6",
+	    100,
+	    "#f1f075",
+	    750,
+	    "#f28cb1"
+	  ],
+	  "circle-radius": [
+	    "step",
+	    ["get", "point_count"],
+	    20,
+	    100,
+	    30,
+	    750,
+	    40
+	  ]
+	}
+      });
+    }); // end getjson
+
+
+  });
+
+
+
 };
 
 
@@ -548,7 +603,7 @@ function clicked(d) {
 // 	  }
 // 	  return checkboxesChecked.length > 0 ? checkboxesChecked : " ";
 // 	}
-	
+
 // 	let checkedBoxes = getCheckedBoxes('instcheck');
 // 	//	console.log(checkedBoxes);
 //       });
@@ -706,7 +761,7 @@ function clicked(d) {
 //   // function showInstitutionData() {
 //   //   let instPanel = d3.select('#instPanel');
 //   //   instPanel.style('display', 'flex');
-  
+
 //   //   console.log('running show inst function');
 //   // }
 
@@ -818,9 +873,9 @@ function clicked(d) {
   */
 
 $(document).ready(function(){
-//  drawMap(mapContainer); // section 4 USA map
+  //  drawMap(mapContainer); // section 4 USA map
   //  createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
-//  inputSearch();
+  //  inputSearch();
   createMapbox();
 });
 

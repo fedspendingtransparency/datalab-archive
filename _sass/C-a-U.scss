@@ -280,11 +280,14 @@ $green: #50604f;
       margin: 0px;
       display: inline-block;
 
+<<<<<<< HEAD
       p {
         font-size: 16px;
       }
 =======
 
+=======
+>>>>>>> 5361a935... add points to map in clusters
   .mapboxgl-canvas {
     left: 0;
   }
@@ -297,8 +300,8 @@ $green: #50604f;
     position: relative;
     top: 0;
     bottom: 0;
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: 450px;
   }
 
 
