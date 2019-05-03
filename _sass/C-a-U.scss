@@ -274,6 +274,7 @@ $green: #50604f;
     width: 85%;
     position: relative;
 
+<<<<<<< HEAD
     .categoriesParent{
       width:210px;
       margin: 0px;
@@ -282,6 +283,35 @@ $green: #50604f;
       p {
         font-size: 16px;
       }
+=======
+
+  .mapboxgl-canvas {
+    left: 0;
+  }
+
+  .mapboxgl-map {
+    overflow: auto;
+  }
+
+  #collegesMap {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    height: 300px;
+  }
+
+
+  #mapContainer { 
+    display: flex;  
+    box-sizing: border-box;
+    justify-content: center;
+
+
+    #mapContainer__institution {
+      padding-left: 1rem;
+      padding-right: 1rem;
+>>>>>>> 20a6bd02... map added, next add data and scope
     }
 
     .chv {

@@ -6,8 +6,8 @@
 */
 =======
 // add those back for IE 11 support
----
----
+//---
+//---
 
 >>>>>>> 7addecaf... right panel plus constants starting mapbox
 const mapContainer = document.getElementById('collegesMap');
@@ -30,11 +30,17 @@ const sectFourTableContainer = document.getElementById('sectionFourtableContaine
 const sectionFourtableBtn = document.getElementById('sectionFourTableBtn');
 const sectionFourmapBtn = document.getElementById('sectionFourMapBtn');
 
-import mapboxConfig from '../colleges-and-universities/util/constants';
+//import mapboxConfig from '../colleges-and-universities/util/constants';
 
 
 function createMapbox() {
-  
+  mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
+  let map = new mapboxgl.Map({
+    container: 'collegesMap', // container id
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [-74.50, 40], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+  });
 };
 
 
@@ -815,6 +821,7 @@ $(document).ready(function(){
 //  drawMap(mapContainer); // section 4 USA map
   //  createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
 //  inputSearch();
+  createMapbox();
 });
 
 >>>>>>> 81f246e9... right panel

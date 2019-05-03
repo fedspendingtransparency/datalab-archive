@@ -5,6 +5,7 @@ layout: colleges
 menuname: Colleges & Universities
 menuorder: 3
 permalink: college-and-universities.html
+colleges: true
 ---
 <div class="CU">
 <div id="sectionLanding" class="sectionLanding">
@@ -185,7 +186,12 @@ permalink: college-and-universities.html
 </div>
 =======
 <div class="CU" data-aos="fade-down" data-aos-delay="300">
+  {% include colleges/sectionone.html %}
+  {% include colleges/sectiontwo.html %}
+  {% include colleges/sectionthree.html %}
   {% include colleges/sectionfour.html %}
+  {% include colleges/sectionfive.html %}
+  {% include colleges/sectionsix.html %}
 
   <!-- reinclude the rest of the sections -->
 >>>>>>> aabb2304... colleges addition
@@ -204,7 +210,7 @@ permalink: college-and-universities.html
 -->
 =======
 <script src="{{site.baseurl}}/js/jquery.dataTables.min.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+
 
 <!-- List.js Search -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
