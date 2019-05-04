@@ -55,7 +55,7 @@ function createMapbox() {
 	data: data,
 	cluster: true,
 	clusterMaxZoom: 14,
-	clusterRadius: 20 // 50 is default look into tweaking this
+	clusterRadius: 100 // 50 is default look into tweaking this
       });
 
       map.addLayer({
@@ -89,6 +89,51 @@ function createMapbox() {
 	  ]
 	}
       });
+
+      map.addLayer({
+	id: "cluster-count",
+	type: "symbol",
+	source: "schools",
+	filter: ["has", "point_count"],
+	layout: {
+	  "text-field": "{point_count_abbreviated}",
+	  "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+	  "text-size": 12
+	}
+      });
+
+      map.addLayer({
+	id: "unclustered-point",
+	type: "circle",
+	source: "schools",
+	filter: ["!", ["has", "point_count"]],
+	paint: {
+	  "circle-color": "#11b4da",
+	  "circle-radius": 4,
+	  "circle-stroke-width": 1,
+	  "circle-stroke-color": "#fff"
+	}
+      });
+
+      map.on('click', 'schools', function(e) {
+	let features = map.queryRenderedFeatures(e.point, { layers: ['clusters']});
+	let clusterId = features[0].properties.cluster_id;
+	map.getSource('schools').getClusterExpansionZoom(clusterId, function(err, zoom){
+	  if (err) return;
+	  map.easeTo({
+	    center: features[0].geometry.coordinates,
+	    zoom: zoom
+	  });
+	});
+      });
+
+      map.on('mouseenter', 'clusters', function () {
+	map.getCanvas().style.cursor = 'pointer';
+      });
+      map.on('mouseleave', 'clusters', function () {
+	map.getCanvas().style.cursor = '';
+      });
+
     }); // end getjson
 
 
