@@ -1,0 +1,48 @@
+---
+layout: colleges
+menuname: Colleges & Universities
+menuorder: 3
+permalink: college-and-universities.html
+colleges: true
+---
+
+
+<div class="CU" data-aos="fade-down" data-aos-delay="300">
+  {% include colleges/sectionone.html %}
+  {% include colleges/sectiontwo.html %}
+  {% include colleges/sectionthree.html %}
+  {% include colleges/sectionfour.html %}
+  {% include colleges/sectionfive.html %}
+  {% include colleges/sectionsix.html %}
+
+  <!-- reinclude the rest of the sections -->
+</div>
+
+
+<!--scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script> <!-- try using 4, whatever -->
+<script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+<script src="{{site.baseurl}}/js/jquery.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/categoriesPieChart.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/institutions.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="{{site.baseurl}}/js/jquery.dataTables.min.js"></script>
+
+
+<!-- List.js Search -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+<!-- ScrollyTelling -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/util/scrolling.js"></script>
+
+<!-- Add AOS for ScrollStory Jazz -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+ AOS.init();
+</script>
