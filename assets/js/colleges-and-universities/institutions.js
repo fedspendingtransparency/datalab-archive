@@ -50,7 +50,7 @@ function createMapbox() {
 
   // filter overlay section //
   let filterEl = document.getElementById('feature-filter');
-  let listingEl = document.getElementById('feature-listing');
+  let listingEl = document.getElementById('feature-listing-ul');
   let resetBtn = document.getElementById('feature-reset');
 
   function renderListings(features) {
@@ -59,7 +59,7 @@ function createMapbox() {
     if (features.length) {
       features.forEach(function(feature) {
 	var prop = feature.properties;
-	var item = document.createElement('p');
+	var item = document.createElement('li');
 	item.textContent = prop.Recipient;
 	item.addEventListener('mouseover', function() {
 	  // Highlight corresponding feature on the map
@@ -71,7 +71,7 @@ function createMapbox() {
 	  tooltip.remove();
 	});
 	item.addEventListener('click', function(){
-	  console.log('clicking p element');
+	  console.log('clicking li element');
 	  map.easeTo({
 	    center: feature.geometry.coordinates
 	  });

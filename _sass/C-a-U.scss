@@ -439,6 +439,10 @@ $unchecked-color: #888;
     overflow: auto;
   }
 
+  .map-overlay {
+    height: 600px;
+  }
+
   .map-overlay input {
     display: block;
     border: none;
@@ -448,19 +452,32 @@ $unchecked-color: #888;
     margin: 0;
   }
 
-  .map-overlay .listing p {
+  .map-overlay .listing li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #404;
     text-decoration: none;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    cursor: pointer;
   }
+
+//  .map-overlay .listing li:last-child {
+//    padding-top: .5rem;
+//  }
   
-  .map-overlay .listing p:last-child {
+  .map-overlay .listing li:last-child {
     border: none;
   }
   
   .map-overlay .listing p:hover {
     background: #f0f0f0;
   }
+
+  .map-overlay #feature-listing-ul {
+    height: 600px;
+    overflow: none;
+  }
+  
 
   #collegesMap {
     position: relative;
