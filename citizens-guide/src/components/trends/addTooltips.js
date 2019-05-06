@@ -44,7 +44,7 @@ function showTooltip(containerOffset, globals) {
     g.raise();
 
     g.select('circle')
-        .attr('fill', colors.colorSpendingTrendCircles)
+        .attr('fill', globals.baseColor);
 
     tooltip.append('rect')
         .attr('width', width)
@@ -74,7 +74,7 @@ function showTooltip(containerOffset, globals) {
 
     tooltip.append('text')
         .text('Value')
-        .attr('fill', textColors.colorSpendingText)
+        .attr('fill', globals.baseColor)
         .attr('font-weight', 'bold')
         .attr('font-size', 15)
         .attr('dy', 70)
@@ -85,7 +85,7 @@ function showTooltip(containerOffset, globals) {
         .text(function (d) {
             return simplifyNumber(d.amount);
         })
-        .attr('fill', colors.textColorParagraph)
+        .attr('fill', globals.baseColor)
         .attr('font-weight', 'bold')
         .attr('font-size', 18)
         .attr('dy', 100)
@@ -210,7 +210,7 @@ export function addTooltips(globals, containerOffset) {
         })
 
     dataDots.append('circle')
-        .attr('stroke', colors.colorSpendingTrendCircles)
+        .attr('stroke', globals.baseColor)
         .classed(dataDisc, true)
         .attr('fill', 'white')
         .attr('r', 4)
