@@ -27,6 +27,7 @@ function formatMoney(n, c, d, t) {
 }
 
 
+
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
   var map = new mapboxgl.Map({
@@ -50,6 +51,7 @@ function createMapbox() {
   // filter overlay section //
   let filterEl = document.getElementById('feature-filter');
   let listingEl = document.getElementById('feature-listing');
+  let resetBtn = document.getElementById('feature-reset');
 
   function renderListings(features) {
     // Clear any existing listings
@@ -64,6 +66,9 @@ function createMapbox() {
 	  tooltip.setLngLat(feature.geometry.coordinates)
 	    .setText(feature.properties.Recipient)
 	    .addTo(map);
+	});
+	item.addEventListener('mouseout', function() {
+	  tooltip.remove();
 	});
 	item.addEventListener('click', function(){
 	  console.log('clicking p element');
@@ -99,6 +104,15 @@ function createMapbox() {
     
     return uniqueFeatures;
   }
+
+  // reset button click
+  resetBtn.addEventListener('click', function(){
+    console.log('clicky button reset');
+    map.flyTo({
+      center: [-103.59179687498357, 40.66995747013945], // usa
+      zoom: 4 // starting zoom...
+    });
+  });
 
   map.on('render', function() {
     let features = map.queryRenderedFeatures({layers:['unclustered-point', 'clusters']});
