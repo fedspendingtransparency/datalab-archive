@@ -1,5 +1,3 @@
-@import '../../../citizens-guide/src/globalSass/_colors.scss';
-
 .chapter-nav {
     display: flex;
     justify-content: space-between;

@@ -12,6 +12,14 @@
 </script>
 
 <style>
+.viz-actions--budget-function .new-share-button {
+    margin-right: 140px
+}
+
+.viz-actions--budget-function .new-share-button .viz-share-icon {
+    transform: translateX(130px)
+}
+
 .new-share-button {
   display: flex;
   margin-left: 20px;
@@ -46,12 +54,6 @@
                     <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Twitter">
                         {% include svgs/twitter_square_x.svg class="share-icon icon-twitter" %}
                         <span class="share-button-text">Twitter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Google+">
-                        {% include svgs/google-plus.svg class="share-icon icon-google-plus" %}
-                        <span class="share-button-text">Google</span>
                     </a>
                 </li>
                 <li>
