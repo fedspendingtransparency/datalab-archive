@@ -35,6 +35,17 @@ const sectionFourmapBtn = document.getElementById('sectionFourMapBtn');
 
 //import mapboxConfig from '../colleges-and-universities/util/constants';
 
+function formatMoney(n, c, d, t) {
+  var c = isNaN(c = Math.abs(c)) ? 2 : c,
+    d = d == undefined ? "." : d,
+    t = t == undefined ? "," : t,
+    s = n < 0 ? "-" : "",
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+    j = (j = i.length) > 3 ? j % 3 : 0;
+
+  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+}
+
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
@@ -45,11 +56,107 @@ function createMapbox() {
     zoom: 4 // starting zoom
   });
 
+  let schools = []; // hold visible schools for filtering features
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+
+  // Create a popup, but don't add it to the map yet.
+  let tooltip = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  });
+
+  // filter overlay section //
+  let filterEl = document.getElementById('feature-filter');
+  let listingEl = document.getElementById('feature-listing');
+
+  function renderListings(features) {
+    // Clear any existing listings
+    listingEl.innerHTML = '';
+    if (features.length) {
+      features.forEach(function(feature) {
+	console.log(feature);
+	var prop = feature.properties;
+	var item = document.createElement('p');
+	item.textContent = prop.Recipient;
+	item.addEventListener('mouseover', function() {
+	  // Highlight corresponding feature on the map
+	  tooltip.setLngLat(feature.geometry.coordinates)
+	    .setText(feature.properties.Recipient)
+	    .addTo(map);
+	});
+	listingEl.appendChild(item);
+      });
+      
+      // Show the filter input
+      filterEl.parentNode.style.display = 'block';
+    }
+  }
+  
+  function normalize(string) {
+    return string.trim().toLowerCase();
+  }
+  
+  function getUniqueFeatures(array, comparatorProperty) {
+    var existingFeatureKeys = {};
+    // Because features come from tiled vector data, feature geometries may be split
+    // or duplicated across tile boundaries and, as a result, features may appear
+    // multiple times in query results.
+    var uniqueFeatures = array.filter(function(el) {
+      if (existingFeatureKeys[el.properties[comparatorProperty]]) {
+	return false;
+      } else {
+	existingFeatureKeys[el.properties[comparatorProperty]] = true;
+	return true;
+      }
+    });
+    
+    return uniqueFeatures;
+  }
+
+  map.on('moveend', function() {
+    let features = map.queryRenderedFeatures({layers:['unclustered-point']});
+    
+    if (features) {
+      let uniqueFeatures = getUniqueFeatures(features, "Recipient");
+      // Populate features for the listing overlay.
+      renderListings(uniqueFeatures);
+      
+      // Clear the input container
+      filterEl.value = '';
+      
+      // Store the current features in sn `airports` variable to
+      // later use for filtering on `keyup`.
+      schools = uniqueFeatures;
+    }
+  });
+
+  filterEl.addEventListener('keyup', function(e) {
+    var value = normalize(e.target.value);
+    
+    // Filter visible features that don't match the input value.
+    var filtered = schools.filter(function(feature) {
+      var name = normalize(feature.properties.Recipient); // "name"
+      return name.indexOf(value) > -1;
+    });
+    
+    // Populate the sidebar with filtered results
+    renderListings(filtered);
+    
+    // Set the filter to populate features into the layer.
+    map.setFilter('unclustered-point', ['match', ['get', 'Recipient'], filtered.map(function(feature) {
+      return feature.properties.Recipient;
+    }), true, false]);
+  });
+
+
   map.on('load', function() {
     // add geojson data
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) {
       console.log(data);
-      
+//      renderListings([data.features.properties]); // call with empty array at first..
+
       map.addSource('schools', {
 	type: 'geojson',
 	data: data,
@@ -57,6 +164,7 @@ function createMapbox() {
 	clusterMaxZoom: 14,
 	clusterRadius: 100 // 50 is default look into tweaking this
       });
+
 
       map.addLayer({
 	id: 'clusters',
@@ -98,7 +206,7 @@ function createMapbox() {
 	layout: {
 	  "text-field": "{point_count_abbreviated}",
 	  "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-	  "text-size": 12
+	  "text-size": 11
 	}
       });
 
@@ -113,6 +221,39 @@ function createMapbox() {
 	  "circle-stroke-width": 1,
 	  "circle-stroke-color": "#fff"
 	}
+      });
+
+
+      map.on('mouseenter', 'unclustered-point', function(e) {
+	// Change the cursor style as a UI indicator.
+	map.getCanvas().style.cursor = 'pointer';
+	
+	let coordinates = e.features[0].geometry.coordinates.slice();
+	let schoolName = e.features[0].properties.Recipient;
+	let schoolInvestment = e.features[0].properties.Total_Federal_Investment;
+//	schoolInvestment.formatMoney(2); // convert
+	let instType = e.features[0].properties.INST_TYPE_1;
+	let yearType = e.features[0].properties.INST_TYPE_2;
+
+	let html = `<h2> ${schoolName} </h2> <br> Amount Invested: ${schoolInvestment} <br> ${instType} <br> ${yearType}`;
+
+	// Ensure that if the map is zoomed out such that multiple
+	// copies of the feature are visible, the popup appears
+	// over the copy being pointed to.
+	while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+	  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+	}
+	
+	// Populate the popup and set its coordinates
+	// based on the feature found.
+	tooltip.setLngLat(coordinates)
+	  .setHTML(html)
+	  .addTo(map);
+      });
+
+      map.on('mouseleave', 'unclustered-point', function() {
+	map.getCanvas().style.cursor = '';
+	tooltip.remove();
       });
 
       map.on('click', 'schools', function(e) {
@@ -134,7 +275,9 @@ function createMapbox() {
 	map.getCanvas().style.cursor = '';
       });
 
-    }); // end getjson
+
+
+    }); // end getjson (get map function)
 
 
   });
@@ -142,6 +285,9 @@ function createMapbox() {
 
 
 };
+
+
+
 
 
 // function createSectFourTable(container, columns) {
