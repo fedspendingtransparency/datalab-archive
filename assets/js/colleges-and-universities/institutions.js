@@ -76,7 +76,6 @@ function createMapbox() {
     listingEl.innerHTML = '';
     if (features.length) {
       features.forEach(function(feature) {
-	console.log(feature);
 	var prop = feature.properties;
 	var item = document.createElement('p');
 	item.textContent = prop.Recipient;
@@ -85,6 +84,12 @@ function createMapbox() {
 	  tooltip.setLngLat(feature.geometry.coordinates)
 	    .setText(feature.properties.Recipient)
 	    .addTo(map);
+	});
+	item.addEventListener('click', function(){
+	  console.log('clicking p element');
+	  map.easeTo({
+	  center: feature.geometry.coordinates
+	  });
 	});
 	listingEl.appendChild(item);
       });
@@ -115,8 +120,8 @@ function createMapbox() {
     return uniqueFeatures;
   }
 
-  map.on('moveend', function() {
-    let features = map.queryRenderedFeatures({layers:['unclustered-point']});
+  map.on('render', function() {
+    let features = map.queryRenderedFeatures({layers:['unclustered-point', 'clusters']});
     
     if (features) {
       let uniqueFeatures = getUniqueFeatures(features, "Recipient");
@@ -154,7 +159,7 @@ function createMapbox() {
   map.on('load', function() {
     // add geojson data
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) {
-      console.log(data);
+//      console.log(data);
 //      renderListings([data.features.properties]); // call with empty array at first..
 
       map.addSource('schools', {

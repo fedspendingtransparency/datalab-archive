@@ -296,6 +296,29 @@ $green: #50604f;
     overflow: auto;
   }
 
+  .map-overlay input {
+    display: block;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .map-overlay .listing p {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #404;
+    text-decoration: none;
+  }
+  
+  .map-overlay .listing p:last-child {
+    border: none;
+  }
+  
+  .map-overlay .listing p:hover {
+    background: #f0f0f0;
+  }
+
   #collegesMap {
     position: relative;
     top: 0;
