@@ -25,10 +25,9 @@ let originalConfig, activeDrilldownData;
 
 function labelCallback(y) {
     // prevent overlap between labels and zoom button
-    // This function is a callback called by the label module; it then calls a method on the zoom module.
+    // This function is the intermediary between the label module and the zoom module.
+    // It is a callback called by the label module; it then calls a method on the zoom module.
     this.zoomTrigger.repositionButton(y);
-
-    console.log('lcb', this.labels.findLowestVisibleLabel())
 }
 
 function toggleZoom(globals, reset) {
