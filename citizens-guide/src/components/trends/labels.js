@@ -245,7 +245,22 @@ function nudge(labelGroups) {
         })
 }
 
-function rescale(globals, duration) {
+function findLowestVisibleLabel() {
+    const visible = d3.selectAll('.line-label[opacity="1"]'),
+        yValues = [];
+
+    visible.each(function() {
+        yValues.push(d3.select(this).attr('data-y'))
+    })
+
+    if (!yValues.length) {
+        return 0;
+    }
+
+    return d3.max(yValues);
+}
+
+function rescale(globals, duration, labelCallback) {
     let runningY;
 
     this.transition()
@@ -269,6 +284,13 @@ function rescale(globals, duration) {
 
             return translator(-globals.labelPadding, yOffset);
         })
+        .on('end', function() {
+            if (globals.zoomState === 'in') {
+                labelCallback(runningY)
+            } else {
+                labelCallback(findLowestVisibleLabel());
+            }
+        })
         .ease();
 }
 
@@ -284,6 +306,7 @@ export function renderLabels(globals) {
     return {
         rescale: rescale.bind(labels),
         setLabelActive: setLabelActive.bind(labels),
-        setLabelInactive: setLabelInactive.bind(labels)
+        setLabelInactive: setLabelInactive.bind(labels),
+        findLowestVisibleLabel: findLowestVisibleLabel
     }
 }
