@@ -61,7 +61,7 @@ For subsequent uses:
 
 Once a feature is completed, create a pull request in Github and merge the branch into `dev-release`.
 
-## When Developers Work Together on the Same Feature
+## When Developers Work Together on a Feature
 
 If you are working on a feature with a peer, please work off of a main feature branch.  Each developer should create a sub feature branch from the main feature branch and merge when complete.
 
