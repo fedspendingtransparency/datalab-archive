@@ -23,6 +23,14 @@ const d3 = { select, selectAll, scaleLinear, min, max, range, line, axisBottom, 
 
 let originalConfig, activeDrilldownData;
 
+function labelCallback(y) {
+    // prevent overlap between labels and zoom button
+    // This function is a callback called by the label module; it then calls a method on the zoom module.
+    this.zoomTrigger.repositionButton(y);
+
+    console.log('lcb', this.labels.findLowestVisibleLabel())
+}
+
 function toggleZoom(globals, reset) {
     const duration = 1000,
         yMin = globals.scales.y.domain()[0],
@@ -38,7 +46,7 @@ function toggleZoom(globals, reset) {
     globals.yAxis.rescale(globals, duration);
     globals.trendLines.rescale(globals, duration);
     globals.dataDots.rescale(globals, duration);
-    globals.labels.rescale(globals, duration);
+    globals.labels.rescale(globals, duration, labelCallback.bind(globals));
 }
 
 function onSelect(d, reset) {
@@ -162,10 +170,6 @@ function drawChart(globals, container) {
     globals.dataDots = addTooltips(globals, containerOffset);
 }
 
-function optimizeHeight() {
-
-}
-
 function redraw(globals, container) {
     const doDrilldown = d3.selectAll('rect.mask').size();
     
@@ -183,7 +187,7 @@ function redraw(globals, container) {
 }
 
 export function trendDesktop(_data, container, config, drilldown) {
-    let globals, previousWidth, debounce;
+    let globals, previousWidth, debounce, labelYMax;
 
     originalConfig = Object.assign({}, config);
 
@@ -191,8 +195,14 @@ export function trendDesktop(_data, container, config, drilldown) {
 
     drawChart(globals, container);
 
+    labelYMax = Math.ceil(globals.labels.findLowestVisibleLabel());
+
+    globals.zoomTrigger.repositionButton(labelYMax);
+
     if (!drilldown) {
-        d3.select('svg.main').attr('height', 930);
+        d3.select('svg.main').attr('height', function() {
+            return (labelYMax > 800) ? labelYMax + 320 : 930;
+        });
         
         window.addEventListener('resize', function () {
             if (debounce) {
