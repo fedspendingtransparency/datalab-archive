@@ -1,9 +1,12 @@
-$orange: #D04C02;
-$grey: #555555;
-$background: #FBFBFB;
-$green: #50604f;
-$checked-color: #1877c1;
-$unchecked-color: #888;
+ $orange: #D04C02;
+ $grey: #555555;
+ $background: #FBFBFB;
+ $green: #50604f;
+ $checked-color: #1877c1;
+ $unchecked-color: #888;
+
+$grey: #4a4a4a;
+$bluecopy: #2272CE;
 
 .CU {
 
@@ -480,8 +483,8 @@ $unchecked-color: #888;
   }
 
   .map-overlay #feature-listing-ul {
-    height: 600px;
-    overflow: none;
+    height: 450px;
+    overflow: scroll;
   }
   
 
@@ -495,6 +498,8 @@ $unchecked-color: #888;
     width: 100%;
     height: 600px;
   }
+
+  
 
 
   #mapContainer { 
@@ -587,19 +592,49 @@ $unchecked-color: #888;
     // right hand panel jazz
     #inst-panel {
       display: none;
+      box-sizing: border-box;
       border: 1px solid #ddd;
       border-radius: .25rem;
       padding-left: 1rem;
       padding-right: 1rem;
       margin-left: 1rem;
       margin-right: 1rem;
-      justify-content: flex-start;
-      align-items: flex-start;
+
+      #inst-panel-close {
+	padding-top: .5rem;
+	text-align: right;
+      }
+
+      #inst-panel-close:hover {
+	cursor: pointer;
+      }
 
       .inst-panel-header {
+	font-size: 1.5rem; // 24px in rem!
+	font-weight: 600; // semi-bold
+	line-height: 1.5rem; // 72px;
+	text-transform: uppercase;
+	color: #4a4a4a;
 	text-align: center;
       }
 
+      #inst-panel-section {
+	font-size: 15px;
+	line-height: 18px;
+	color: #4a4a4a;
+	font-weight: 400; // regular
+	
+	// child p tag class
+	p.inst-panel-subtext {
+	  display: block;
+	  font-size: 15px;
+	  line-height: 18px;
+	  margin: 0;
+	  padding-top: .3rem;
+	  color: #4a4a4a;
+	}
+
+      }
     }
 
 

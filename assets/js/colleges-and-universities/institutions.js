@@ -233,7 +233,7 @@ function createMapbox() {
 	let instType = e.features[0].properties.INST_TYPE_1;
 	let yearType = e.features[0].properties.INST_TYPE_2;
 
-	let html = `<h2> ${schoolName} </h2> <br> Amount Invested: ${schoolInvestment} <br> ${instType} <br> ${yearType}`;
+	let html = `<h2> ${schoolName} </h2> Amount Invested: ${schoolInvestment} <br> ${instType} <br> ${yearType}`;
 
 	// Ensure that if the map is zoomed out such that multiple
 	// copies of the feature are visible, the popup appears
@@ -266,19 +266,28 @@ function createMapbox() {
 	});
       });
 
-      function createRightPanel(e) {
-	let data = e.features[0].properties;
-	// add font awesome x
-//	$('#inst-panel').append();
-	$('#inst-panel').append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
-      }
-
       // click for righthand panel
       map.on('click', 'unclustered-point', function(e){
-	$('#inst-panel').css('display', 'flex');
+	$('#inst-panel').css('display', 'block');
 	createRightPanel(e);
-//	console.log(e.features[0].properties);
       });
+
+      function createRightPanel(e) {
+	let data = e.features[0].properties;
+	console.log(data);
+	$('#inst-panel').empty();
+	$('#inst-panel').append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
+	$('#inst-panel-close').click(function(){
+	  $('#inst-panel').css('display', 'none');
+	});
+	$('#inst-panel').append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
+	$('#inst-panel').append('<hr>');
+	// append everything to the panel. just read from "data"
+	// this is messy and could easily be improved on.. just list out all fields for now..
+	$('#inst-panel').append(`<section id="inst-panel-section"><p class="inst-panel-subtext">Inst Type: ${data.INST_TYPE_1}, ${data.INST_TYPE_2}</p> <br> 
+<p class="inst-panel-subtext">State: ${data.State}</p> <br> <p class="inst-panel-subtext">County: ${data.COUNTY}</p> <br> <p class="inst-panel-subtext">Total Students: ${data.Total}</p> <br> <p class="inst-panel-subtext">Contract $ Received: ${data.contracts_received}</p> <br> <p class="inst-panel-subtext">Grant $ Received: ${data.grants_received}</p> <br> <p class="inst-panel-subtext">Research Grant $ Received: ${data.research_grants_received}</p> <br> <hr> <p class="inst-panel-subtext">Total Federal Investment: ${data.Total_Federal_Investment}</p>
+</section>`);
+      }
 
       map.on('mouseenter', 'clusters', function () {
 	map.getCanvas().style.cursor = 'pointer';
@@ -288,14 +297,9 @@ function createMapbox() {
       });
 
 
-
     }); // end getjson (get map function)
 
-
   });
-
-
-
 };
 
 
