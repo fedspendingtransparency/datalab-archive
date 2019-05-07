@@ -14,7 +14,7 @@ Feature development starts as a temporary feature-branch off of `dev-release`.  
 If the currently-deployed production release needs to be patched before the current release under `dev-release` deploys,
 a temporary hotfix-branch can be created off of `staging`, and will make its way to production following the hotfix process.
 
-### Main branch descriptions:
+## Main branch descriptions:
 1) `dev-release` : This is the team's default working branch.  Developers create new and push completed features branches here.
 2) `staging` : Staging is for features that are ready for release, hot fixes, and bug fixes. This branch is linked to the staging environment.
 3) `master` : This branch is linked to the production environment.
@@ -61,7 +61,7 @@ For subsequent uses:
 
 Once a feature is completed, create a pull request in Github and merge the branch `dev-release`.
 
-### Feature Branches and Sub-Feature Branches
+## Developers Working in the Same Feature Area
 
 If you are working on a feature with a peer, please work off of a main-feature-branch.  Each developer should create a sub feature branch from the main feature branch and merge work to the main feature branch as well.
 
