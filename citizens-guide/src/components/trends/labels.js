@@ -246,11 +246,13 @@ function nudge(labelGroups) {
 }
 
 function findLowestVisibleLabel() {
-    const visible = d3.selectAll('.line-label[opacity="1"]'),
+    const activeDrilldown = d3.select('.detail-layer').size(),
+        detailPrefix = activeDrilldown ? '.detail-layer' : '',
+        visible = d3.selectAll(detailPrefix + '.line-label[opacity="1"]'),
         yValues = [];
 
     visible.each(function() {
-        yValues.push(d3.select(this).attr('data-y'))
+        yValues.push(Number(d3.select(this).attr('data-y')))
     })
 
     if (!yValues.length) {
