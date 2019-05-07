@@ -441,6 +441,12 @@ $unchecked-color: #888;
 
   .map-overlay {
     height: 600px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
   }
 
   .map-overlay input {
@@ -461,9 +467,9 @@ $unchecked-color: #888;
     cursor: pointer;
   }
 
-//  .map-overlay .listing li:last-child {
-//    padding-top: .5rem;
-//  }
+  //  .map-overlay .listing li:last-child {
+  //    padding-top: .5rem;
+  //  }
   
   .map-overlay .listing li:last-child {
     border: none;
@@ -481,6 +487,9 @@ $unchecked-color: #888;
 
   #collegesMap {
     position: relative;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    margin-right: 1rem;
     top: 0;
     bottom: 0;
     width: 100%;
@@ -576,15 +585,24 @@ $unchecked-color: #888;
     }
 
     // right hand panel jazz
-    #instPanel {
+    #inst-panel {
       display: none;
       border: 1px solid #ddd;
       border-radius: .25rem;
       padding-left: 1rem;
       padding-right: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
       justify-content: flex-start;
       align-items: flex-start;
+
+      .inst-panel-header {
+	text-align: center;
+      }
+
     }
+
+
 
   } // end mapContainer
 

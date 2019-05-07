@@ -26,15 +26,13 @@ function formatMoney(n, c, d, t) {
   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
 
-
-
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
   var map = new mapboxgl.Map({
     container: 'collegesMap', // container id
-    style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
+    style: 'mapbox://styles/usaspending/cjvduv2b7fwlc1fnv9iyihkqo', // stylesheet location
     center: [-103.59179687498357, 40.66995747013945], // usa
-    zoom: 4 // starting zoom
+    zoom: 3 // starting zoom
   });
 
   let schools = []; // hold visible schools for filtering features
@@ -52,6 +50,7 @@ function createMapbox() {
   let filterEl = document.getElementById('feature-filter');
   let listingEl = document.getElementById('feature-listing-ul');
   let resetBtn = document.getElementById('feature-reset');
+//  let rightPanel = document.getElementById('inst-panel');
 
   function renderListings(features) {
     // Clear any existing listings
@@ -110,7 +109,7 @@ function createMapbox() {
     console.log('clicky button reset');
     map.flyTo({
       center: [-103.59179687498357, 40.66995747013945], // usa
-      zoom: 4 // starting zoom...
+      zoom: 3 // starting zoom...
     });
   });
 
@@ -160,8 +159,8 @@ function createMapbox() {
 	type: 'geojson',
 	data: data,
 	cluster: true,
-	clusterMaxZoom: 14,
-	clusterRadius: 100 // 50 is default look into tweaking this
+	clusterMaxZoom: 10,
+	clusterRadius: 70 // 50 is default look into tweaking this
       });
 
 
@@ -265,6 +264,20 @@ function createMapbox() {
 	    zoom: zoom
 	  });
 	});
+      });
+
+      function createRightPanel(e) {
+	let data = e.features[0].properties;
+	// add font awesome x
+//	$('#inst-panel').append();
+	$('#inst-panel').append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
+      }
+
+      // click for righthand panel
+      map.on('click', 'unclustered-point', function(e){
+	$('#inst-panel').css('display', 'flex');
+	createRightPanel(e);
+//	console.log(e.features[0].properties);
       });
 
       map.on('mouseenter', 'clusters', function () {
