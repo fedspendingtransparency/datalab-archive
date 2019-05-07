@@ -59,11 +59,11 @@ For subsequent uses:
          git push origin sandbox
 ```
 
-Once a feature is completed, create a pull request in Github and merge the branch `dev-release`.
+Once a feature is completed, create a pull request in Github and merge the branch into `dev-release`.
 
 ## When Developers Work Together on the Same Feature
 
-If you are working on a feature with a peer, please work off of a main-feature-branch.  Each developer should create a sub feature branch from the main feature branch and merge work to the main feature branch as well.
+If you are working on a feature with a peer, please work off of a main feature branch.  Each developer should create a sub feature branch from the main feature branch and merge when complete.
 
 ```
 main-feature-branch:     1 - - - - - - (Merge commit) - - - - - - - - - - - (Merge commit)
