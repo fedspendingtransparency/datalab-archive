@@ -103,12 +103,6 @@ then we'll promote the fix to `master`.
 Usaspending is using the GitFlow approach.  Though some details about their approach are different, many items apply for Data Lab.  Please see their branch strategy documentation for an important note about timing hotfix branches:
 <https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/branching_strategy.md#timing-hotfixes>
 
-Also, see the following about merge conflict resolution:
-<https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/branching_strategy.md#merge-conflict-resolution>
-
-And finally, how to reset head commit:
-<https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/how_to_reset_head_commit.md>
-
 ## Approval/Permissions
 
 Any branch going into `staging` or `master` will need review from a peer. This is a safety measure.
@@ -118,3 +112,11 @@ the merge.
 ## Cleanup
 
 Please delete your feature branch once you have merged your feature into `dev-release`. This can keep the repository clean.
+
+## Additional Notes
+
+See the following about merge conflict resolution:
+<https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/branching_strategy.md#merge-conflict-resolution>
+
+How to reset head commit:
+<https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/how_to_reset_head_commit.md>
