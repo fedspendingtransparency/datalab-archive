@@ -112,11 +112,3 @@ the merge.
 ## Cleanup
 
 Please delete your feature branch once you have merged your feature into `dev-release`. This can keep the repository clean.
-
-## Additional Notes
-
-See the following about merge conflict resolution:
-<https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/branching_strategy.md#merge-conflict-resolution>
-
-How to reset head commit:
-<https://github.com/fedspendingtransparency/data-act-documentation/blob/master/github/how_to_reset_head_commit.md>
