@@ -28,7 +28,7 @@
   .facts__trigger {
     display: block;
     width: 49%;
-    border: 1px solid $color-primary;
+    border: 1px solid $revenue-primary;
     text-align: center;
     margin-bottom: 2px;
     background: white;
@@ -37,7 +37,7 @@
   }
 
   .facts__trigger.facts__trigger--active {
-    background:$color-primary;
+    background:$revenue-primary;
     color: white;
   }
 

@@ -14,8 +14,8 @@ const d3 = { select, selectAll },
     },
     config = {
         chapter: 'revenue',
-        baseColor: colors.colorPrimaryDarker,
-        secondaryColor: 'rgb(74, 144, 226)',
+        baseColor: colors.revenuePrimary,
+        secondaryColor: colors.colorPrimaryDarker,
         subcategoryThresholds: manualThresholds
     }
 

@@ -13,18 +13,17 @@
     padding-left: 0;
     padding-bottom: 0;
     font-weight: 600;
-    color: #666; }
+    color: #666666; }
   .link-button__div .link-button__icon {
     padding-left: 30px; }
 
 #activate-show-hide {
-  background-color: #00766C;
+  background-color: #00796B;
   color: white;
-  border: 1px solid #00766C;
+  border: 1px solid #00796B;
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
-  outline: none;
-  margin-top: 1rem; }
+  outline: none; }
   #activate-show-hide:hover {
     background: #00a99b;
     transition: background-color 0.3s ease; }
@@ -66,7 +65,7 @@
   .show-hide__buttons button {
     background: white;
     border: none;
-    color: #666;
+    color: #666666;
     outline: none;
     padding: 0.4rem 1rem; }
     .show-hide__buttons button:hover {
@@ -74,12 +73,12 @@
       transition: background-color 0.3s ease; }
 
 #save-filters-button {
-  background-color: #00766C;
+  background-color: #00796B;
   color: white;
   padding: 0.4rem 1.5rem;
   border-radius: 4px; }
   #save-filters-button:hover {
-    background: #00a99b;
+    background: #00ac98;
     transition: background-color 0.3s ease; }
 
 #show-hide-list {
@@ -101,10 +100,10 @@
       background: #e6e6e6;
       transition: background-color 0.3s ease; }
   #show-hide-list button.active {
-    background-color: #00766C;
+    background-color: #00796B;
     color: white; }
     #show-hide-list button.active:hover {
-      background: #00a99b;
+      background: #00ac98;
       transition: background-color 0.3s ease; }
 
 .trend-mobile {
@@ -122,7 +121,7 @@
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #555; }
+  color: #555555; }
 
 .trend-mobile__year {
   font-size: 1rem;
@@ -132,7 +131,7 @@
 .trend-mobile__amount {
   font-weight: 600;
   font-size: 1rem;
-  color: #0071bc;
+  color: #0A2F5A;
   padding: 0 0.25rem; }
 
 .trend-row__summary {
@@ -204,22 +203,22 @@ body p.chart-row__data-line {
   display: inline-block; }
 
 .revenue .trend-row-button {
-  background: #0071bc;
+  background: #0A2F5A;
   color: white;
-  border: 1px solid #0071bc; }
+  border: 1px solid #0A2F5A; }
 
 .revenue .trend-mobile--detail .trend-row-button {
-  background: #0090ef;
+  background: #0f4788;
   color: white; }
 
 .revenue .trend-row__detail {
-  border-color: #0071bc; }
+  border-color: #0A2F5A; }
 
 .revenue .trend-mobile__amount {
-  color: #0071bc; }
+  color: #0A2F5A; }
 
 .revenue .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
-  color: #0071bc;
+  color: #0A2F5A;
   background: white; }
 
 .spending .trend-row-button {
@@ -240,6 +239,69 @@ body p.chart-row__data-line {
 .spending .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
   color: #00796B;
   background: white; }
+
+.toggle-control {
+  border: none;
+  background: none; }
+
+.toggle-control__background {
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  width: 2rem;
+  height: 1.2rem;
+  border-radius: 0.6rem;
+  position: relative;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); }
+
+.toggle-control__dot {
+  height: 1rem;
+  border-radius: 0.5rem;
+  width: 1rem;
+  background: white;
+  box-sizing: border-box;
+  margin: 2px 2px;
+  transition: transform 0.25s ease;
+  padding: 0 0.25rem; }
+
+.toggle-component {
+  margin-bottom: 1rem; }
+
+.toggle-component--spending .toggle-control__dot {
+  border: 2px solid #00796B; }
+
+.toggle-component--debt .toggle-control__dot {
+  border: 2px solid #4A0072; }
+
+.toggle-component__label {
+  color: #666666;
+  transition: color, font-weight 0.3s ease;
+  cursor: pointer;
+  transform: translateY(-5px);
+  display: inline-block;
+  min-width: 49px;
+  font-size: 1.5rem; }
+
+.toggle-component--spending .toggle-component__label:first-of-type {
+  min-width: 93px; }
+
+.toggle-component--spending[data-active="function"] .toggle-component__label:first-of-type {
+  font-weight: 600;
+  color: #00796B; }
+
+.toggle-component--debt[data-active="debt-image"] .toggle-component__label:first-of-type {
+  font-weight: 600;
+  color: #4A0072; }
+
+.toggle-component--spending[data-active="agency"] .toggle-component__label:last-of-type {
+  font-weight: 600;
+  color: #00796B; }
+
+.toggle-component--debt[data-active="gdp-image"] .toggle-component__label:last-of-type {
+  font-weight: 600;
+  color: #4A0072; }
+
+.toggle-component[data-active="gdp-image"] .toggle-control__dot, .toggle-component[data-active="agency"] .toggle-control__dot {
+  transform: translateX(0.8rem); }
 
 #viz {
   overflow-x: hidden;
