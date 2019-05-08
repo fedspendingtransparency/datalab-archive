@@ -87,8 +87,9 @@ function createMapbox() {
       center: [-103.59179687498357, 40.66995747013945], // usa
       zoom: 3 // starting zoom...
     });
+    $(filterEl).val(''); // clear value in input
+    $(listingEl).empty(); // clear list as well
     renderAllSchools();
-    $(filterEl).val(''); // clear value
   });
 
   // handle input filter..
@@ -104,7 +105,6 @@ function createMapbox() {
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
       txtValue = li[i].innerHTML;
-      console.log(txtValue);
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
     	li[i].style.display = "";
       } else {
