@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 
 const d3 = { select, selectAll },
-    control = d3.select('.toggle-component'),
+    control = d3.select('.debt-chart-toggle'),
     debtImage = d3.select('#debt-image'),
     gdpImage = d3.select('#gdp-image'),
     activeClass = 'trend-chart-container__image--active';
@@ -40,8 +40,6 @@ d3.select('#toggle-image').on('click', function(){
     toggle();
 });
 
-d3.selectAll('.toggle-component__label').on('click', onLabelClick);
-
-console.log('test!')
+d3.selectAll('.debt-chart-toggle__label').on('click', onLabelClick);
 
 setActiveDataAttribute();

@@ -34,15 +34,14 @@ ffgPageCss: css/trendsCommon.css
         </div>
 
         <div class="trend-chart">
-            <div id="spending-chart-toggle" class="toggle-component toggle-component--spending clearfix" data-active="function">
-                <span class="toggle-component__label">Category</span>
-                <button id="toggle-spending-data-type" class="toggle-control">
-                    <div class="toggle-control__background">
-                        <div class="toggle-control__dot"></div>
-                    </div>
-                </button>
-                <span class="toggle-component__label">Agency</span>
-            </div>
+            <h2 class="chart-title">
+                <span class="title-text">Spending over Time by</span>
+                <div class="link-button__div">
+                    <button class="link-button" id="select-budget-function">Categories</button>
+                    <button class="link-button hidden" id="select-agency">Agency</button>
+                    <i class='link-button__icon fa fa-angle-down'></i>
+                </div>
+            </h2>
 
             <div id="show-hide">
                 <button id="activate-show-hide">Filter <i class='fa fa-sliders-h'></i></button>
