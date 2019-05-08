@@ -124,7 +124,7 @@ function createMapbox() {
 	data: data,
 	cluster: true,
 	clusterMaxZoom: 8,
-	clusterRadius: 70 // 50 is default look into tweaking this
+	clusterRadius: 75 // 50 is default look into tweaking this
       });
 
 
