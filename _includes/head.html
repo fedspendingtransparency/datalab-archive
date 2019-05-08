@@ -43,7 +43,8 @@
   {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
-  {% if page.socialMediaImage %}<meta property="og:image" content="{{ page.socialMediaImage | prepend: 'https://datalab-dev.usaspending.gov/assets/ffg/social-media-share/}}"/>
+  {% if page.socialMediaImage %}
+  <meta property="og:image" content="{{ page.socialMediaImage | prepend: 'https://datalab-dev.usaspending.gov/assets/ffg/social-media-share/'}}"/>
   {% else %}
   <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
   {% endif %}
