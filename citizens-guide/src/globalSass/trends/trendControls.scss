@@ -1,5 +1,5 @@
 @import '../colors';
-@import '../generalVars';
+@import '../../globalSass/generalVars';
 
 //Globals for file
 .hidden {
@@ -35,6 +35,7 @@
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   outline:none;
+  margin-top: 1rem;
 
   &:hover {
     background: lighten(#00766C, 10%);
