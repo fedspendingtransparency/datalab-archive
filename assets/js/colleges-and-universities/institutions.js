@@ -35,7 +35,7 @@ function createMapbox() {
     zoom: 3 // starting zoom
   });
 
-  let schools = []; // hold visible schools for filtering features
+//  let schools = []; // hold visible schools for filtering features
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
@@ -47,119 +47,83 @@ function createMapbox() {
   });
 
   // filter overlay section //
-  let filterEl = document.getElementById('feature-filter');
-  let listingEl = document.getElementById('feature-listing-ul');
-  let resetBtn = document.getElementById('feature-reset');
-//  let rightPanel = document.getElementById('inst-panel');
+  let filterEl = $('#feature-filter');
+  let listingEl = $('#feature-listing-ul');
+  let resetBtn = $('#feature-reset');
+  let rightPanel = $('#inst-panel');
 
-  function renderListings(features) {
-    // Clear any existing listings
-    listingEl.innerHTML = '';
-    if (features.length) {
-      features.forEach(function(feature) {
-	var prop = feature.properties;
-	var item = document.createElement('li');
-	item.textContent = prop.Recipient;
-	item.addEventListener('mouseover', function() {
-	  // Highlight corresponding feature on the map
-	  tooltip.setLngLat(feature.geometry.coordinates)
-	    .setText(feature.properties.Recipient)
+  function renderAllSchools() {
+    $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
+      listingEl.innerHTML = '';
+      let geoandname = data.features.map(ele => ({ coord: ele.geometry, name: ele.properties.Recipient, fedInvest: ele.properties.Total_Federal_Investment,
+						   instType: ele.properties.INST_TYPE_1, yearType: ele.properties.INST_TYPE_2}));
+      geoandname.forEach(function(ele) {
+	let listitem = document.createElement('li');
+	listitem.textContent = ele.name;
+	listitem.addEventListener('click', function() {
+	  let matched = geoandname.filter(ele => {
+	    return this.textContent === ele.name;
+	  });
+	  let tooltipHtml = `<h2> ${matched[0].name}</h2> Amount Invested: ${matched[0].fedInvest} <br> ${matched[0].instType} <br> ${matched[0].yearType}`;
+	  console.log(matched);
+	  map.easeTo({
+	    center: matched[0].coord.coordinates,
+	    zoom: 12
+	  });
+	  tooltip.setLngLat(matched[0].coord.coordinates)
+	    .setHTML(tooltipHtml)
 	    .addTo(map);
 	});
-	item.addEventListener('mouseout', function() {
-	  tooltip.remove();
-	});
-	item.addEventListener('click', function(){
-	  console.log('clicking li element');
-	  map.easeTo({
-	    center: feature.geometry.coordinates
-	  });
-	});
-	listingEl.appendChild(item);
+	listingEl.append(listitem);
       });
-      
-      // Show the filter input
-      filterEl.parentNode.style.display = 'block';
-    }
-  }
-  
-  function normalize(string) {
-    return string.trim().toLowerCase();
-  }
-  
-  function getUniqueFeatures(array, comparatorProperty) {
-    var existingFeatureKeys = {};
-    // Because features come from tiled vector data, feature geometries may be split
-    // or duplicated across tile boundaries and, as a result, features may appear
-    // multiple times in query results.
-    var uniqueFeatures = array.filter(function(el) {
-      if (existingFeatureKeys[el.properties[comparatorProperty]]) {
-	return false;
-      } else {
-	existingFeatureKeys[el.properties[comparatorProperty]] = true;
-	return true;
-      }
     });
-    
-    return uniqueFeatures;
   }
 
   // reset button click
-  resetBtn.addEventListener('click', function(){
-    console.log('clicky button reset');
+  // resets map to beginning state and renders all schools in list again
+  $(resetBtn).click(function() {
+    tooltip.remove();
     map.flyTo({
       center: [-103.59179687498357, 40.66995747013945], // usa
       zoom: 3 // starting zoom...
     });
+    renderAllSchools();
+    $(filterEl).val(''); // clear value
   });
 
-  map.on('render', function() {
-    let features = map.queryRenderedFeatures({layers:['unclustered-point', 'clusters']});
-    
-    if (features) {
-      let uniqueFeatures = getUniqueFeatures(features, "Recipient");
-      // Populate features for the listing overlay.
-      renderListings(uniqueFeatures);
-      
-      // Clear the input container
-      filterEl.value = '';
-      
-      // Store the current features in sn `airports` variable to
-      // later use for filtering on `keyup`.
-      schools = uniqueFeatures;
+  // handle input filter..
+  $(filterEl).keyup(function(){
+
+    var input, filter, ul, li, i, txtValue;
+    input = document.getElementById('feature-filter');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("feature-listing-ul");
+    li = ul.getElementsByTagName('li');
+    console.log(li);
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      txtValue = li[i].innerHTML;
+      console.log(txtValue);
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    	li[i].style.display = "";
+      } else {
+    	li[i].style.display = "none";
+      }
     }
   });
 
-  filterEl.addEventListener('keyup', function(e) {
-    var value = normalize(e.target.value);
-    
-    // Filter visible features that don't match the input value.
-    var filtered = schools.filter(function(feature) {
-      var name = normalize(feature.properties.Recipient); // "name"
-      return name.indexOf(value) > -1;
-    });
-    
-    // Populate the sidebar with filtered results
-    renderListings(filtered);
-    
-    // Set the filter to populate features into the layer.
-    map.setFilter('unclustered-point', ['match', ['get', 'Recipient'], filtered.map(function(feature) {
-      return feature.properties.Recipient;
-    }), true, false]);
-  });
-
-
+  // when the map first loads all resources!
   map.on('load', function() {
-    // add geojson data
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) {
-      //      console.log(data);
-      //      renderListings([data.features.properties]); // call with empty array at first..
+
+      renderAllSchools(); // populate sidebar with list of all schools
 
       map.addSource('schools', {
 	type: 'geojson',
 	data: data,
 	cluster: true,
-	clusterMaxZoom: 10,
+	clusterMaxZoom: 8,
 	clusterRadius: 70 // 50 is default look into tweaking this
       });
 
@@ -221,6 +185,36 @@ function createMapbox() {
 	}
       });
 
+      map.on('click', 'clusters', function (e) {
+	const cluster = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
+	const coordinates = cluster[0].geometry.coordinates;
+	flyIntoCluster(map, coordinates);
+      });
+
+      map.on('mouseenter', 'clusters', function () {
+	map.getCanvas().style.cursor = 'pointer';
+      });
+      map.on('mouseleave', 'clusters', function () {
+	map.getCanvas().style.cursor = '';
+      });
+
+      function flyIntoCluster(map, coordinates) {
+	const maxZoom = 8; 
+
+	map.flyTo({
+	  // These options control the ending camera position: centered at
+	  // the target, at zoom level 16, and north up.
+	  center: coordinates,
+	  zoom: maxZoom,
+	  bearing: 0,
+
+	  // These options control the flight curve, making it move
+	  // slowly and zoom out almost completely before starting
+	  // to pan.
+	  speed: 1, // make the flying slow
+	  curve: 1, // change the speed at which it zooms out
+	});
+      }
 
       map.on('mouseenter', 'unclustered-point', function(e) {
 	// Change the cursor style as a UI indicator.
@@ -268,33 +262,28 @@ function createMapbox() {
 
       // click for righthand panel
       map.on('click', 'unclustered-point', function(e){
-	$('#inst-panel').css('display', 'block');
+	$(rightPanel).css('display', 'block');
 	createRightPanel(e);
       });
 
       function createRightPanel(e) {
 	let data = e.features[0].properties;
 	console.log(data);
-	$('#inst-panel').empty();
-	$('#inst-panel').append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
+	$(rightPanel).empty();
+	$(rightPanel).append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
 	$('#inst-panel-close').click(function(){
-	  $('#inst-panel').css('display', 'none');
+	  $(rightPanel).css('display', 'none');
 	});
-	$('#inst-panel').append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
-	$('#inst-panel').append('<hr>');
+	$(rightPanel).append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
+	$(rightPanel).append('<hr>');
 	// append everything to the panel. just read from "data"
 	// this is messy and could easily be improved on.. just list out all fields for now..
-	$('#inst-panel').append(`<section id="inst-panel-section"><p class="inst-panel-subtext">Inst Type: ${data.INST_TYPE_1}, ${data.INST_TYPE_2}</p> <br> 
+	$(rightPanel).append(`<section id="inst-panel-section"><p class="inst-panel-subtext">Inst Type: ${data.INST_TYPE_1}, ${data.INST_TYPE_2}</p> <br> 
 <p class="inst-panel-subtext">State: ${data.State}</p> <br> <p class="inst-panel-subtext">County: ${data.COUNTY}</p> <br> <p class="inst-panel-subtext">Total Students: ${data.Total}</p> <br> <p class="inst-panel-subtext">Contract $ Received: ${data.contracts_received}</p> <br> <p class="inst-panel-subtext">Grant $ Received: ${data.grants_received}</p> <br> <p class="inst-panel-subtext">Research Grant $ Received: ${data.research_grants_received}</p> <br> <hr> <p class="inst-panel-subtext">Total Federal Investment: ${data.Total_Federal_Investment}</p>
 </section>`);
       }
 
-      map.on('mouseenter', 'clusters', function () {
-	map.getCanvas().style.cursor = 'pointer';
-      });
-      map.on('mouseleave', 'clusters', function () {
-	map.getCanvas().style.cursor = '';
-      });
+      
 
 
     }); // end getjson (get map function)

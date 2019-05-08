@@ -450,6 +450,36 @@ $bluecopy: #2272CE;
     margin-right: 1rem;
     border: 1px solid #ddd;
     border-radius: .25rem;
+
+    .round {
+      width: 100%;
+      border-radius: 15px;
+      border: 1px #000 solid;
+      padding: 5px 5px 5px 25px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+    }
+
+    .search {
+      position: relative;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-right: 2rem;
+      //      width: 190px;
+      height: 30px;
+    }
+
+    #feature-reset {
+      display: inline-block;
+      padding-top: .5rem;
+    }
+
+    #feature-reset:hover {
+      cursor: pointer;
+    }
+
   }
 
   .map-overlay input {
@@ -463,28 +493,46 @@ $bluecopy: #2272CE;
 
   .map-overlay .listing li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: #404;
+    color: #4a4a4a;
     text-decoration: none;
     padding-top: .5rem;
     padding-bottom: .5rem;
     cursor: pointer;
-  }
 
-  //  .map-overlay .listing li:last-child {
-  //    padding-top: .5rem;
-  //  }
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
   
   .map-overlay .listing li:last-child {
     border: none;
   }
   
-  .map-overlay .listing p:hover {
-    background: #f0f0f0;
+  .map-overlay #feature-filter .rounded {
+    border-radius: 15px;
+  }
+    
+  .map-overlay input[type=button], input[type=button]:hover {
+    position: relative; 
+    display: inline;
+    left:-6px;
+    border:1px solid #adc5cf;
+    background: #e4f1f9; /* Old browsers */
+    background: -moz-linear-gradient(top, #e4f1f9 0%, #d5e7f3 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4f1f9), color-stop(100%,#d5e7f3)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e4f1f9 0%,#d5e7f3 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e4f1f9 0%,#d5e7f3 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e4f1f9 0%,#d5e7f3 100%); /* IE10+ */
+    background: linear-gradient(top, #e4f1f9 0%,#d5e7f3 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f1f9', endColorstr='#d5e7f3',GradientType=0 ); /* IE6-9 */
+    color:#7da2aa;
+    cursor: pointer;
   }
 
   .map-overlay #feature-listing-ul {
     height: 450px;
     overflow: scroll;
+    padding: 0;
   }
   
 
@@ -597,7 +645,6 @@ $bluecopy: #2272CE;
       border-radius: .25rem;
       padding-left: 1rem;
       padding-right: 1rem;
-      margin-left: 1rem;
       margin-right: 1rem;
 
       #inst-panel-close {
