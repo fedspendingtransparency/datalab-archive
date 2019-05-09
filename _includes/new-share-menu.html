@@ -45,7 +45,7 @@
                 <li>
                     {% if page.socialMediaText %}
                     {% assign twitterVariable = page.socialMediaText %}
-                    {% else %} 
+                    {% else %}
                     {% assign twitterVariable = page.title %}
                     {% endif %}
                     <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('{{ twitterVariable }}')+'&url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Twitter">
