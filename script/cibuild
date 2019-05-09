@@ -1,6 +1,13 @@
 jekyll build
+
+# Used so Travis can display the correct build status
+export buildstatus=$?
+
 pip install requests[security] --user
+export buildstatus=$(( $? | $buildstatus ))
+
 pip install awscli --user
+export buildstatus=$(( $? | $buildstatus ))
 
 aws configure set region us-gov-west-1
 aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
@@ -17,6 +24,8 @@ elif [[ $TRAVIS_BRANCH == 'sandbox'      ]]; then
 aws s3 sync $EXCLUDES _site s3://datalab-dev-usaspending-gov --delete
 fi
 
+export buildstatus=$(( $? | $buildstatus ))
+
 # FIR Copies (uses same aws region)
 aws configure set aws_access_key_id $FIR_ACCESS_KEY_ID
 aws configure set aws_secret_access_key $FIR_SECRET_ACCESS_KEY
@@ -24,3 +33,5 @@ aws configure set aws_secret_access_key $FIR_SECRET_ACCESS_KEY
 if [[ $TRAVIS_BRANCH == 'sandbox'     ]]; then
 aws s3 sync $EXCLUDES _site s3://fir-public-datalab-dev --delete || true
 fi
+
+exit $buildstatus
