@@ -31,11 +31,9 @@ function createMapbox() {
   var map = new mapboxgl.Map({
     container: 'collegesMap', // container id
     style: 'mapbox://styles/usaspending/cjvduv2b7fwlc1fnv9iyihkqo', // stylesheet location
-    center: [-103.59179687498357, 40.66995747013945], // usa
-    zoom: 3 // starting zoom
+    center: [-80.59179687498357, 40.66995747013945], // usa
+    zoom: 3 // starting zoom (3 default)
   });
-
-//  let schools = []; // hold visible schools for filtering features
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
@@ -54,7 +52,6 @@ function createMapbox() {
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
-      listingEl.innerHTML = '';
       let geoandname = data.features.map(ele => ({ coord: ele.geometry, name: ele.properties.Recipient, fedInvest: ele.properties.Total_Federal_Investment,
 						   instType: ele.properties.INST_TYPE_1, yearType: ele.properties.INST_TYPE_2}));
       geoandname.forEach(function(ele) {
@@ -84,7 +81,7 @@ function createMapbox() {
   $(resetBtn).click(function() {
     tooltip.remove();
     map.flyTo({
-      center: [-103.59179687498357, 40.66995747013945], // usa
+      center: [-80.59179687498357, 40.66995747013945], // usa
       zoom: 3 // starting zoom...
     });
     $(filterEl).val(''); // clear value in input
