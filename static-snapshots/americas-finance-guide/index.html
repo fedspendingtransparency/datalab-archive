@@ -7,9 +7,9 @@
   <title>Data Lab - Your Guide to America’s Finances – U.S. Treasury</title>
   <meta name="description" content="Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances.">
 
-
+  
   <meta name="keywords" content="federal, revenue, federal income, federal taxes, federal spending, deficit, debt">
-
+  
 
   <link rel="canonical" href="https://datalab.usaspending.gov/americas-finance-guide/">
   <link rel="stylesheet" href="/main.css" />
@@ -19,40 +19,34 @@
 
   <link rel="stylesheet" href="/assets/fa/css/all.min.css" />
   <link rel="stylesheet" href="/assets/font-awesome-ie.css">
-
+  
   <link rel="stylesheet" href="/assets/ffg/css/normalize.css" />
   <link rel="stylesheet" href="/assets/ffg/css/cg.css" />
+  
 
-
-
+  
 
   <link rel="stylesheet" href="/assets/ffg/css/bp.css" />
 
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
 
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60737492-1"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
    window.dataLayer = window.dataLayer || [];
    function gtag(){dataLayer.push(arguments);}
    gtag('js', new Date());
-   gtag('config', 'UA-60737492-1');
-  </script>
 
-  <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
    gtag('config', 'UA-19138737-13');
   </script>
 
   <!-- og tags -->
   <meta property="og:title" content="Data Lab - Your Guide to America’s Finances – U.S. Treasury"/>
-  <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
   <meta property="og:description" content="Explore U.S. revenue, spending, deficit, and debt with Your Guide to America’s Finances, an accessible and open-source guide to federal finances."/>
   <meta property="og:url" content="https://datalab.usaspending.gov/americas-finance-guide/" />
+  
+  <meta property="og:image" content="https://datalab.usaspending.gov/assets/ffg/social-media-share/social-media-share-overview.jpg"/>
+  
 </head>
-
 
   <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.scrolly.min.js"></script>
@@ -176,7 +170,7 @@
     <ul class="dropdown-ul-section" id="subnav-analyses">
       <li class="secondaryNavli"><a href="/dts.html">DTS Tracker</a></li>
       <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
-      <li class="secondaryNavli"><a href="/federal-account-explorer.html">Federal Acount Explorer</a></li>
+      <li class="secondaryNavli"><a href="/federal-account-explorer.html">Federal Account Explorer</a></li>
       <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
       <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
       <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
@@ -200,12 +194,12 @@
           <img src="/assets/ffg/icons/definition.svg" alt="definition icon" width="12px"> <span class="text-element">Glossary</span>
         </button>
       </li>
-    </ul>
+    </ul>    
   </div>
 
 </header>
 
-<div class="mobileUlSection" id="mobileSection">
+<div class="mobileUlSection" id="mobileSection"> 
   <ul class="mobileNav" id="mobile-nav">
     <li class="navListItem">
       <a href="#" id="analysesAnchor">Analyses</a>
@@ -229,7 +223,7 @@
       <hr id="mobileHr">
       <li class="secondaryNavMobileli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
       <hr id="mobileHr">
-      <li class="secondaryNavMobileli"><a href="/federal-account-explorer.html">Federal Acount Explorer</a></li>
+      <li class="secondaryNavMobileli"><a href="/federal-account-explorer.html">Federal Account Explorer</a></li>
       <hr id="mobileHr">
       <li class="secondaryNavMobileli"><a href="/contract-explorer.html">Contract Explorer</a></li>
       <hr id="mobileHr">
@@ -306,6 +300,15 @@
 </svg></span>
       <article id="main">
   <main class="cg-content">
+    <div id="afg-launch-glossary-div" class="hidden">
+            <button id="afg-floating-glossary-button">
+                <div class="button-content">
+                    <span class="floating-glossary-icon">
+                        <i class="fa fa-book" style="margin-right:10px"></i>Glossary
+                    </span>
+                </div>
+            </button>
+        </div>
     <div id="cg-glossary-wrapper">
     <aside class="cg-glossary-sidebar" role="dialog" aria-labelledby="glossary-title">
         <div class="cg-glossary-header-wrapper">
@@ -357,6 +360,14 @@
 </script>
 
 <style>
+.viz-actions--budget-function .new-share-button {
+    margin-right: 140px
+}
+
+.viz-actions--budget-function .new-share-button .viz-share-icon {
+    transform: translateX(130px)
+}
+
 .new-share-button {
   display: flex;
   margin-left: 20px;
@@ -442,15 +453,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/americas-finance-guide/index.html')" title="Share on Google+">
-                        <?xml version="1.0" encoding="utf-8"?>
-<svg class="share-icon icon-google-plus" width="2304" height="1792" viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/>
-</svg>
-                        <span class="share-button-text">Google</span>
-                    </a>
-                </li>
-                <li>
                     <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/americas-finance-guide/index.html')" title="Share on Pinterest">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-pinterest" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -498,7 +500,8 @@
             </ul>
         </div>
     </span>
-</div></div>
+</div>
+</div>
 
         <div class="bp-header__main">
             <h3 class="bp-header__app-name">
@@ -535,7 +538,7 @@
                 <section class="anecdote">
                     <!-- controls -->
                     <div class="anecdote__controls">
-                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $3.3 T is equal to</span></button>
+                        <button class="anecdote__trigger" ga-event-category="Show Me Click" ga-event-action="Click" ><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $3.3 T is equal to</span></button>
                     </div>
 
                     <!-- contents -->
@@ -891,9 +894,10 @@
 <script src="/assets/ffg/bp/bp.js"></script>
 <script src="/assets/ffg/accordion.js"></script>
 
+
     <script src="/assets/ffg/hwcta.js"></script>
-
-
+    
+    
   </main>
 </article>
 
@@ -964,10 +968,8 @@
       For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
     </p>
     <p>
-      T: 202-504-3535<br>
       E: media.relations@fiscal.treasury.gov
     </p>
-
   </div>
 
   <div class="dl-footer__section dl-footer__divider">
@@ -982,7 +984,7 @@
     </p>
 
   </div>
-
+  
 
   <div class="dl-footer__social">
     <div class="dl-footer__group-title">Connect With Us</div>

@@ -2,7 +2,11 @@
 <html lang="en">
   {% include head.html %}
   {% include scripts.html %}
+  {% if page.ffg %}
+  <body class="afg-page">
+  {% else %}
   <body>
+  {% endif %}
     <div id="page-wrapper">
       {% include header.html %}
       <span id="return-to-top">{% include svgs/chevron-up.svg class="icon-chevron-up" %}</span>
