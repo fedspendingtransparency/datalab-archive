@@ -1,4 +1,4 @@
-import colors from "../../colors.scss";
+import colors from "../../globalSass/colors.scss";
 import { translator, establishContainer } from "../../utils";
 import { select } from 'd3-selection';
 
@@ -84,7 +84,7 @@ function init(g, baseDimensions, zoomTriggerX) {
     outGroup.append('rect')
         .attr('width', baseDimensions.width - zoomTriggerX)
         .attr('height', baseDimensions.height)
-        .attr('fill', colors.colorPrimaryDarker)
+        .attr('fill', colors.revenuePrimary)
         .attr('x', 0)
         .attr('y', 0);
 
@@ -114,7 +114,7 @@ function init(g, baseDimensions, zoomTriggerX) {
         .attr('transform', translator(10, 7));
 
     disc.append('circle')
-        .attr('fill', colors.colorPrimary)
+        .attr('fill', colors.colorPrimaryDarker)
         .attr('r', 16)
         .attr('cx', 16)
         .attr('cy', 16);

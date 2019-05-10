@@ -1,4 +1,4 @@
-@import '../colors';
+@import 'colors';
 @import './chapterIntro/introMath';
 @import './chapterIntro/facts';
 @import './chapterIntro/colorOverrides';
@@ -63,7 +63,7 @@ aside {
     width: auto;
     max-width: none;
     margin: 0;
-    border-left: 3px solid $color-primary;
+    border-left: 3px solid $revenue-primary;
     box-shadow: none;
   }
 
@@ -82,4 +82,4 @@ aside {
     padding-top: 2rem;
   }
 }
-  
+

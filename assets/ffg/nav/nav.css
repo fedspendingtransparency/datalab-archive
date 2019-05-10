@@ -27,7 +27,7 @@
 }
 
 .chapter-nav--revenue {
-    background-color: #205493;
+    background-color: #0A2F5A;
 }
 
 .chapter-nav--spending {
@@ -94,7 +94,7 @@
         min-height: auto;
         height: 3rem;
     }
-    
+
     .chapter-nav button {
         display: none;
     }

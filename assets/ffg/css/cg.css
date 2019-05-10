@@ -13,13 +13,13 @@ h1 {
   font-weight: 300;
   text-align: center;
   font-size: 40px;
-  color: #555; }
+  color: #555555; }
 
 h2 {
   font-weight: 300;
   text-align: left;
   margin-bottom: 0;
-  color: #555; }
+  color: #555555; }
 
 .tour {
   margin-bottom: 1rem; }
@@ -186,7 +186,7 @@ h1 .info-box-trigger {
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  color: #666; }
+  color: #666666; }
   body .cg-content {
     letter-spacing: normal;
     line-height: normal;
@@ -216,7 +216,7 @@ blockquote {
 
 .hint {
   font-size: 0.8rem;
-  color: #aaa; }
+  color: #666666; }
 
 .strong, strong {
   font-weight: 600; }
@@ -269,9 +269,6 @@ blockquote {
 
 .tighter-text {
   margin: 0 1rem; }
-
-.clearfix {
-  overflow: visible; }
 
 .clearfix::after {
   content: "";

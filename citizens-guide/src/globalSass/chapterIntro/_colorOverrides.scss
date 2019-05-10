@@ -1,11 +1,11 @@
-@import '../../colors';
+@import '../colors';
 
 // spending
 .spending-intro {
     .facts__trigger {
         border: 1px solid $color-spending-primary;
     }
-    
+
     .facts__trigger.facts__trigger--active {
         background: $color-spending-primary;
     }
@@ -16,7 +16,7 @@
     .facts__trigger {
         border: 1px solid $color-deficit-primary;
     }
-    
+
     .facts__trigger.facts__trigger--active {
         background: $color-deficit-primary;
     }
@@ -27,7 +27,7 @@
     .facts__trigger {
         border: 1px solid $color-debt-primary;
     }
-    
+
     .facts__trigger.facts__trigger--active {
         background: $color-debt-primary;
     }
@@ -37,11 +37,11 @@
     .spending-intro .facts__inner {
         border-left: 3px solid $color-spending-primary;
     }
-    
+
     .deficit-intro .facts__inner {
         border-left: 3px solid $color-deficit-primary;
     }
-    
+
     .debt-intro .facts__inner {
         border-left: 3px solid $color-debt-primary;
     }

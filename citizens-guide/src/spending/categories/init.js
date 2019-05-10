@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { byYear } from '../data-spending';
 import { drawChart as barChart } from './bar/chart';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { establishContainer } from '../../utils';
 
 const d3 = { select, selectAll },
@@ -23,6 +23,7 @@ let svg,
             'The top five agencies by federal spending for 2018 were Department of Health and Human Services with $1.1 trillion (27% of total spending), Social Security Administration with $1 trillion (25%), Department of the Treasury with $629 billion (15%), Department of Defense – Military Programs with $601 billion (15%) and Department of Veterans Affairs with $179 billion (4%).\n'
         }
     },
+    currentlyActive,
     debounce,
     top10 = true,
     chartType = 'bar';
@@ -56,23 +57,38 @@ function showMore() {
 }
 
 function changeDataTypeClickFunction(){
-    d3.select('.link-button__div')
+    d3.select('#toggle-spending-data-type')
         .on('click', function () {
-            const sectionToLoad = d3.select('.link-button__div').selectAll('.hidden');
-            const buttonId = sectionToLoad.attr('id');
-            const isAgencyLoadingInd = buttonId.search('agency') > 0;
+            const dataController = d3.select("#spending-chart-toggle"),
+                curData = dataController.attr('data-active');
 
-            if (isAgencyLoadingInd) {
-                config.dataType = 'agency';
-                selectAgency.classed('hidden', false);
-                selectBudgetFunction.classed('hidden', true);
-            } else {
-                config.dataType = 'function';
-                selectAgency.classed('hidden', true);
-                selectBudgetFunction.classed('hidden', false);
-            }
-            initChart();
+            let dataType = curData === 'function' ? 'agency' : 'function';
+            changeDataType(dataType);
         });
+
+    d3.select('.spending-chart-toggle__label--categories')
+        .on('click', function(){
+            const dataType = 'function';
+            changeDataType(dataType);
+        });
+    d3.select('.spending-chart-toggle__label--agency')
+        .on('click', function(){
+            const dataType = 'agency';
+            changeDataType(dataType);
+        });
+}
+
+function changeDataType(dataType){
+    const dataController = d3.select("#spending-chart-toggle"),
+        curData = dataController.attr('data-active');
+
+    if(dataType === curData){
+        return;
+    }
+
+    config.dataType = dataType;
+    dataController.attr('data-active', dataType);
+    initChart();
 }
 
 function spendingIndexClickFunctions() {

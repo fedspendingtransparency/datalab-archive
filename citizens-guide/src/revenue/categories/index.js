@@ -3,7 +3,7 @@ import { receiptsConstants } from '../receipts-utils';
 import { getDataByYear } from './data';
 import { initSankey, destroySankey } from "../../components/sankey/init";
 import { init as initBarGraph, initChart } from "../../spending/categories/init";
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import '../../infoBox';
 
 const config = {

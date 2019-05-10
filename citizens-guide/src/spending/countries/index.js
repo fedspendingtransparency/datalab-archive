@@ -2,7 +2,7 @@ import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
 import CountryData from '../../../public/csv/spending_gdp_by_country.csv';
 import { chartInit } from '../../revenue/countries/chart';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 const spendingConfig = {
     amountField: 'spending_usd',

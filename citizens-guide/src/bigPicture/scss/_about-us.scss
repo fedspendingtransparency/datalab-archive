@@ -1,3 +1,5 @@
+@import '../../globalSass/colors';
+
 .about-us {
     padding: 1rem;
     max-width: 1200px;
@@ -7,7 +9,7 @@
 
 .about-us__heading {
     @include baseHeader();
-    color: $text-color-heading
+    color: $text-color-heading;
 }
 
 .about-us__logo {

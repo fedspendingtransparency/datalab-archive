@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../colors';
 
 .trend-mobile {
     margin-top: 1rem;
@@ -18,7 +18,7 @@
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #555;
+    color: $text-color-heading;
 }
 
 .trend-mobile__year {
@@ -30,7 +30,7 @@
 .trend-mobile__amount {
     font-weight: 600;
     font-size: 1rem;
-    color: #0071bc;
+    color: $revenue-primary;
     padding: 0 0.25rem;
 }
 
@@ -71,7 +71,7 @@
     margin-top: 0rem;
     margin-bottom: 1rem;
     transform: scaleY(0);
-    height: 0; 
+    height: 0;
     transition: transform 0.5s ease, margin-top 0.5s ease;
 }
 
@@ -123,26 +123,26 @@ body p.chart-row__data-line {
 
 .revenue {
     .trend-row-button {
-        background: $color-primary;
+        background: $revenue-primary;
         color: white;
-        border: 1px solid $color-primary;
+        border: 1px solid $revenue-primary;
     }
-    
+
     .trend-mobile--detail .trend-row-button {
-        background: lighten($color-primary, 10%);
+        background: lighten($revenue-primary, 10%);
         color: white;
     }
 
     .trend-row__detail {
-        border-color: $color-primary;
+        border-color: $revenue-primary;
     }
 
     .trend-mobile__amount {
-        color: $color-primary;
+        color: $revenue-primary;
     }
 
     .chart-row--active ~ .trend-row__buttons .trend-row__chart-toggle.trend-row-button {
-        color: $color-primary;
+        color: $revenue-primary;
         background: white;
     }
 
@@ -154,7 +154,7 @@ body p.chart-row__data-line {
         color: white;
         border: 1px solid $color-spending-primary;
     }
-    
+
     .trend-mobile--detail .trend-row-button {
         background: lighten($color-spending-primary, 10%);
         color: white;
