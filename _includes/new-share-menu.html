@@ -10,6 +10,13 @@
         return false;
     }
 </script>
+<script>
+    function disciplineStringInURL(str) {
+        console.log('encodeURI(str)', encodeURI(str));
+        return encodeURI(str);
+    }
+    const globalTtwitterTextString = disciplineStringInURL('{{ page.socialMediaText }}');
+</script>
 
 <style>
 .new-share-button {
