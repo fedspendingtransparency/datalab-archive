@@ -936,14 +936,12 @@ article > header {
   display: flex;
 }
 
-@import "website/bourbon/_bourbon";
 @import 'website/popup';
 @import 'website/info-banner';
 @import 'website/buttons';
 @import 'website/modal';
 @import 'website/mobile';
 @import 'website/header'; 
-@import 'website/main'; 
 @import 'website/subnav'; // subnav!
 @import 'website/footer-navigation';
 @import 'website/footer';
