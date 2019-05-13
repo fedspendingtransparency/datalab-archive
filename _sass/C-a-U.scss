@@ -10,20 +10,70 @@ $bluecopy: #2272CE;
 
 .CU {
 
+  font-family: "Source Sans Pro";
   padding: 1rem; // padding around whole wrapper
   margin-top: 10rem; // move all content down enough
-  
 
-  #section__one {
+  #section-one {
 
     display: flex;
+    flex-direction: column;
     box-sizing: border-box;
+    justify-content: center;
     
-    section__one--landingimg {
+
+    .section-one--banner {
       width: 100%;
     }
 
-  }
+    #TOC {
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    #section-one__tile {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    // table of contents
+    #section-one__TOC {
+      display: flex;
+      max-width: 1200px;
+      border-top: 1px solid #ddd;
+      justify-content: space-between;
+    }
+
+    .section-one--number {
+      color: #9B9B9B;
+      font-family: "Source Sans Pro";
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 50px;
+    }
+
+    .section-one--subtext {
+      color: #881E3D;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .section-one--subblurb {
+      color: #555555;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 17px;
+    }
+
+    .section-one--blurb {
+      color: #555555;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 16px;
+    }
+
+  } // end of section one
 
 
   .investmentCategories { 
