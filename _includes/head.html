@@ -27,6 +27,7 @@
   {% endif %}
 
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
+  {% if page.dlPageCss %}<link rel="stylesheet" href="{{ page.dlPageCss | prepend: '/' | prepend: site.baseurl }}" />{% endif %}
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
