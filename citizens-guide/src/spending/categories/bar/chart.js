@@ -5,7 +5,7 @@ import { transition } from 'd3-transition';
 import { zoom } from 'd3-zoom';
 import { establishContainer, translator } from "../../../utils";
 import { placeLabels } from './text';
-import colors from '../../../colors.scss';
+import colors from '../../../globalSass/colors.scss';
 import { initSort } from './sort';
 import { initOverlay } from './detailOverlay';
 import { optimizeWidth, scaleToFit } from './optimize-width';

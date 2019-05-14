@@ -1,5 +1,5 @@
-@import '../../colors.scss';
-@import '../../globalSass/generalVars';
+@import '../colors';
+@import '../generalVars';
 
 //Globals for file
 .hidden {
@@ -19,7 +19,7 @@
     padding-left: 0;
     padding-bottom: 0;
     font-weight: 600;
-    color: #666;
+    color: $text-color-paragraph;
   }
 
   .link-button__icon {
@@ -29,13 +29,12 @@
 
 //Filter button
 #activate-show-hide {
-  background-color: #00766C;
+  background-color: $color-spending-primary;
   color: white;
-  border: 1px solid #00766C;
+  border: 1px solid $color-spending-primary;
   border-radius: 4px;
   padding: 0.5rem 0.75rem;
   outline:none;
-  margin-top: 1rem;
 
   &:hover {
     background: lighten(#00766C, 10%);

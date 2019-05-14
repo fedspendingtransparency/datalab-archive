@@ -1,7 +1,7 @@
-import { select } from "d3-selection";
+import { select, selectAll } from "d3-selection";
 import { translator } from "../../utils";
 
-const d3 = { select },
+const d3 = { select, selectAll },
     rect = {
         width: 180,
         height: 42
@@ -60,8 +60,15 @@ function createTrigger(globals) {
     selections.box = selections.triggerWrapper.append('g');
     selections.disc = selections.triggerWrapper.append('g');
 
+    globals.triggerOriginal = {
+        x: -globals.labelPadding - rect.width + labelWidthOffset,
+        y: triggerTop
+    }
+
+    globals.trigger = selections.trigger;
+
     selections.trigger.attr('style', 'cursor:pointer')
-        .attr('transform', translator(-globals.labelPadding - rect.width + labelWidthOffset, triggerTop));
+        .attr('transform', translator(globals.triggerOriginal.x, globals.triggerOriginal.y));
 
     selections.box.append('rect')
         .attr('width', rect.width)
@@ -115,14 +122,6 @@ function addHoverEffects(trigger) {
             .duration(300)
             .attr('opacity', '0.9')
             .ease();
-
-        //Do nothing to circle for now
-
-        // d3.select(this).select('circle')
-        //     .transition()
-        //     .attr('fill', '#006C64')
-        //     .duration(300)
-        //     .ease();
     });
 
     trigger.on('mouseout', function () {
@@ -131,14 +130,6 @@ function addHoverEffects(trigger) {
             .duration(500)
             .attr('opacity', 1)
             .ease();
-
-        //DO nothing to circle for now
-
-        // d3.select(this).select('circle')
-        //     .transition()
-        //     .attr('fill', '#00766C')
-        //     .duration(300)
-        //     .ease();
     });
 }
 
@@ -182,6 +173,14 @@ function setTriggerState(globals, selections, overlayConstants) {
         .attr('points', trianglePoints[globals.zoomState].bottom);
 }
 
+function repositionButton(y) {
+    const newY = (y < this.triggerOriginal.y) ? this.triggerOriginal.y : y;
+
+    this.trigger.transition()
+        .duration(500)
+        .attr('transform', translator(this.triggerOriginal.x, newY));
+}
+
 export function zoomTrigger(globals) {
     const selections = createTrigger(globals),
         triggerTop = getTriggerTop(globals),
@@ -189,6 +188,8 @@ export function zoomTrigger(globals) {
             triggerTop: triggerTop,
             triggerBottom: triggerTop + rect.height
         };
+
+    globals.triggerTop = triggerTop;
 
     selections.overlay = overlayConstants.overlay = addOverlay(globals, overlayConstants);
 
@@ -200,6 +201,7 @@ export function zoomTrigger(globals) {
     })
 
     return {
-        rescale: rescaleOverlay.bind(overlayConstants)
+        rescale: rescaleOverlay.bind(overlayConstants),
+        repositionButton: repositionButton.bind(globals)
     }
 }

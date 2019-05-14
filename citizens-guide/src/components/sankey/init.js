@@ -8,7 +8,7 @@ import { establishContainer } from '../../utils';
 import { zoomInit, getZoomState, resetZoom } from './zoom';
 import { addTextElements } from './textElements';
 import { showDetail, section2_2_init, clearDetails, destroyDetails } from './showDetails';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import '../../infoBox';
 
 const d3 = { select, selectAll, scaleLinear, min, stack, transition },
@@ -73,7 +73,7 @@ function zoomShaders(state, textFade, zoom) {
                 return (i) ? 1 - i / 7 : 1;
             }
         })
-        .attr('fill', colors.colorPrimaryDarker);
+        .attr('fill', colors.revenuePrimary);
 }
 
 function zoomToMoreCategories(state) {
@@ -178,7 +178,7 @@ function addSegments(more) {
         })
         .attr('height', baseDimensions.height)
         .attr('fill', function (d, i) {
-            return (i < 3) ? colors.colorPrimaryDarker : '#ccc';
+            return (i < 3) ? colors.revenuePrimary : '#ccc';
         })
         .attr('opactity', 0)
         .on('click', function (d) {

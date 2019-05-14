@@ -4,14 +4,14 @@
 @import 'tour';
 @import 'copyTourRow';
 @import 'infoBox';
-@import '../colors';
+@import 'colors';
 @import 'hwcta';
 @import 'buttons';
 @import 'ffgShare';
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    color: #666;
+    color: $text-color-paragraph;
 
     .cg-content {
         letter-spacing: normal;
@@ -34,7 +34,7 @@ body {
 a, a:visited {
     color: $color-primary-darker;
     text-decoration: none;
-    
+
     &:hover {
         text-decoration: underline;
     }
@@ -52,7 +52,7 @@ blockquote {
 
 .hint {
     font-size: 0.8rem;
-    color: #aaa;
+    color: $text-color-paragraph;
 }
 
 .strong, strong {
@@ -103,7 +103,7 @@ blockquote {
 
     &.temporary-hide--show {
         opacity: 1;
-        max-height: none;   
+        max-height: none;
     }
 }
 
@@ -113,7 +113,7 @@ blockquote {
     margin-bottom: 3rem;
     font-size: 12px;
     font-style: italic;
-    color: #666666;
+    color: $text-color-paragraph;
 }
 
 .tighter-text {

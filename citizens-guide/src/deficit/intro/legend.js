@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { establishContainer, translator, fadeAndRemove } from '../../utils';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { chartWidth } from './widthManager';
 import { triggerInfoBox } from '../../infoBox';
 
@@ -9,11 +9,11 @@ const d3 = { select, selectAll },
     introWidth = 365,
     radius = 75;
 
-let svg, 
-    largeDot, 
-    billion, 
+let svg,
+    largeDot,
+    billion,
     explanation,
-    callback, 
+    callback,
     config = {};
 
 function buildLegend() {

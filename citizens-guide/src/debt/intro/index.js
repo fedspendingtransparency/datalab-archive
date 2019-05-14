@@ -2,7 +2,7 @@ import { createLayers } from "./createLayers";
 import { startLegendAnimation } from './legend';
 import { setChartWidth } from './widthManager';
 import { establishContainer, translator } from '../../utils';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
 
@@ -75,6 +75,6 @@ window.addEventListener('resize', function () {
     }
 
     previousWidth = window.innerWidth;
-    
+
     debounce = setTimeout(resizeChart, 100);
 });

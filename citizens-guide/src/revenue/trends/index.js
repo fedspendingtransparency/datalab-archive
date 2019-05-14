@@ -2,7 +2,7 @@ import { select, selectAll } from 'd3-selection';
 import { establishContainer, isMobileDevice } from '../../utils';
 import { trendData } from './trendData';
 import { trendDesktop } from '../../components/trends/chart';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { trendMobile } from '../../components/trendsMobile';
 import { manualThresholds } from './manualThresholds';
 
@@ -14,8 +14,8 @@ const d3 = { select, selectAll },
     },
     config = {
         chapter: 'revenue',
-        baseColor: colors.colorPrimaryDarker,
-        secondaryColor: 'rgb(74, 144, 226)',
+        baseColor: colors.revenuePrimary,
+        secondaryColor: colors.colorPrimaryDarker,
         subcategoryThresholds: manualThresholds
     }
 

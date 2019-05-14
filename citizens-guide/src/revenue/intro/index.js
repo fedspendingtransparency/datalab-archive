@@ -1,5 +1,5 @@
 import { initChart } from '../../spending/intro/init';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 
 (function init(){
     const config = {
@@ -10,7 +10,7 @@ import colors from '../../colors.scss';
         gdpPercent: 16,
         sectionAmount: 3300000000000,
         comparisonColor: colors.colorSpendingPrimary,
-        sectionColor: colors.colorPrimary,
+        sectionColor: colors.revenuePrimary,
         accessibilityAttrs : {
             default: {
                 title: '2018 Federal Revenue',

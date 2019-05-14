@@ -35,7 +35,7 @@
 .facts__trigger {
   display: block;
   width: 49%;
-  border: 1px solid #0071bc;
+  border: 1px solid #0A2F5A;
   text-align: center;
   margin-bottom: 2px;
   background: white;
@@ -43,7 +43,7 @@
   transition: all 0.2s ease; }
 
 .facts__trigger.facts__trigger--active {
-  background: #0071bc;
+  background: #0A2F5A;
   color: white; }
 
 .facts__section.facts__section--active {
@@ -203,7 +203,7 @@ aside section h1 {
     width: auto;
     max-width: none;
     margin: 0;
-    border-left: 3px solid #0071bc;
+    border-left: 3px solid #0A2F5A;
     box-shadow: none; }
   .tour {
     box-sizing: border-box; }

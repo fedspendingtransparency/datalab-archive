@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import { transition } from 'd3-transition';
 import { establishContainer, translator, fadeAndRemove } from '../../utils';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { placeDots } from './placeDots';
 import { chartWidth } from './widthManager';
 import { triggerInfoBox } from '../../infoBox';
@@ -68,7 +68,7 @@ function buildLegend() {
 
 function addText() {
     const duration = 500;
-    
+
     explanation = this.largeDot.append('text')
             .attr('y', 54)
             .attr('opacity', 0)

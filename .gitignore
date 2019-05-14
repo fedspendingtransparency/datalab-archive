@@ -56,11 +56,12 @@ vendor/
 Gemfile.lock
 .bundle/config
 
+.idea
+
 # Linting files
 .eslintrc.json
 
 # node
-package.json
 package-lock.json
 node_modules
 .Rproj.user

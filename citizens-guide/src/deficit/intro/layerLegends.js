@@ -1,5 +1,5 @@
 import { line } from 'd3-shape';
-import colors from '../../colors.scss';
+import colors from '../../globalSass/colors.scss';
 import { simplifyNumber } from '../../utils';
 import { chartWidth } from './widthManager';
 
@@ -11,7 +11,7 @@ const d3 = { line },
         .y(function (d) { return d.y; });
 
 export function deficitLabel(yMax, parent, amount) {
-    const layer = parent.append('g').classed('legend', true), 
+    const layer = parent.append('g').classed('legend', true),
         mid = yMax / 2,
         lineData = [
             { x: -20, y: mid },
