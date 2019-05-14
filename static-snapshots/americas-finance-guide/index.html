@@ -27,9 +27,8 @@
   
 
   <link rel="stylesheet" href="/assets/ffg/css/bp.css" />
-
-  <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
-
+  
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
    window.dataLayer = window.dataLayer || [];
@@ -55,24 +54,28 @@
 <script src="/js/homepage/header.js"></script>
 <!-- <script src="/js/homepage/sticky.js"></script> -->
 
-  <body>
+  
+  <body class="afg-page">
+  
     <div id="page-wrapper">
-      <header class="official-banner">
-  <ul class="official-banner__site-list">
-    <li class="official-banner__site-item">
-      <a class="official-banner__site-link" href="https://www.usaspending.gov">
-        USAspending.gov
-      </a>
-    </li>
-    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
-      |
-    </li>
-    <li class="official-banner__site-item">
-      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
-        Data Lab
-      </a>
-    </li>
-  </ul>
+      <header class="official-banner" role="banner">
+  <nav>
+    <ul class="official-banner__site-list">
+      <li class="official-banner__site-item">
+        <a class="official-banner__site-link" href="https://www.usaspending.gov">
+          USAspending.gov
+        </a>
+      </li>
+      <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+        |
+      </li>
+      <li class="official-banner__site-item">
+        <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+          Data Lab
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div class="official-banner__wrapper">
     <div class="official-banner__text">
       An official website of the U.S. government
@@ -166,7 +169,7 @@
     </nav>
   </div>
 
-  <div class="header__sub">
+  <nav class="header__sub">
     <ul class="dropdown-ul-section" id="subnav-analyses">
       <li class="secondaryNavli"><a href="/dts.html">DTS Tracker</a></li>
       <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
@@ -195,11 +198,10 @@
         </button>
       </li>
     </ul>    
-  </div>
-
+  </nav>
 </header>
 
-<div class="mobileUlSection" id="mobileSection"> 
+<nav class="mobileUlSection" id="mobileSection"> 
   <ul class="mobileNav" id="mobile-nav">
     <li class="navListItem">
       <a href="#" id="analysesAnchor">Analyses</a>
@@ -291,8 +293,7 @@
       <hr id="mobileHr">
     </ul>
   </ul>
-
-</div>
+</nav>
 
       <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
 <svg class="icon-chevron-up" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -301,15 +302,15 @@
       <article id="main">
   <main class="cg-content">
     <div id="afg-launch-glossary-div" class="hidden">
-            <button id="afg-floating-glossary-button">
-                <div class="button-content">
-                    <span class="floating-glossary-icon">
-                        <i class="fa fa-book" style="margin-right:10px"></i>Glossary
-                    </span>
-                </div>
-            </button>
+    <button id="afg-floating-glossary-button">
+        <div class="button-content">
+            <span class="floating-glossary-icon">
+                <i class="fa fa-book" style="margin-right:10px"></i>Glossary
+            </span>
         </div>
-    <div id="cg-glossary-wrapper">
+    </button>
+</div>
+<div id="cg-glossary-wrapper">
     <aside class="cg-glossary-sidebar" role="dialog" aria-labelledby="glossary-title">
         <div class="cg-glossary-header-wrapper">
             <div class="cg-glossary-header">
@@ -340,6 +341,7 @@
                     <div class="cg-glossary-scrollbar-thumb" style="height: 115px; transform: translateY(0px);"></div>
                 </div>
             </div>
+        </div>
     </aside>
 </div>
 
@@ -360,14 +362,6 @@
 </script>
 
 <style>
-.viz-actions--budget-function .new-share-button {
-    margin-right: 140px
-}
-
-.viz-actions--budget-function .new-share-button .viz-share-icon {
-    transform: translateX(130px)
-}
-
 .new-share-button {
   display: flex;
   margin-left: 20px;
@@ -444,7 +438,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab - Your Guide to America’s Finances – U.S. Treasury&url=https://datalab.usaspending.gov/americas-finance-guide/index.html')" title="Share on Twitter">
+                    
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('How much money did the government collect and spend in 2018? Find out with #YourGuide, a #Treasury website. #datalab')+'&url=https://datalab.usaspending.gov/americas-finance-guide/index.html')" title="Share on Twitter">
                         <?xml version="1.0" encoding="utf-8"?>
 <svg class="share-icon icon-twitter" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
@@ -515,7 +510,10 @@
             </div>
         </div>
         <div class="bp-header__scroll scroll-to">
-            <a href="#revenue-chapter"><i class="fa fa-angle-down"></i></a>
+            <a href="#revenue-chapter">
+                <i class="fa fa-angle-down"></i>
+                <span class="sr-only">jump to next section</span>
+            </a>
         </div>
     </div>
 </header>
@@ -699,7 +697,10 @@
     How did federal revenue and spending affect the <span class="chapter__divider--text-deficit">deficit</span> and federal <span class="chapter__divider--text-debt">debt</span> in 2018?
 </h1>
 <div class="deficit-debt-heading__arrow-container scroll-to">
-    <a href="#deficit-chapter"><i class="fa fa-angle-down"></i></a>
+    <a href="#deficit-chapter">
+        <i class="fa fa-angle-down"></i>
+        <span class="sr-only">jump to next section</span>
+    </a>
 </div>
 </section>
 
