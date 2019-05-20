@@ -1,6 +1,9 @@
+---
+---
+
 // landing.scss
-@import './landing-dts';
-@import './landing-row';
+@import 'landing/landing-dts';
+@import 'landing/landing-row';
 
 $heading-color: #4A4A4A;
 
