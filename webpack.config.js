@@ -64,8 +64,6 @@ const moduleRules = [
         watchContentBase: true
     };
 
-console.log(path.resolve('static-snapshots'))
-
 module.exports = [{
     entry: {
         bp: './citizens-guide/src/bigPicture/index.js'
@@ -81,7 +79,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/bp/'
+        path: __dirname + '/assets/ffg/bp/',
+        publicPath: '/assets/ffg/bp/'
     },
     module: {
         rules: moduleRules
@@ -101,7 +100,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/components/glossary/'
+        path: __dirname + '/assets/ffg/components/glossary/',
+        publicPath: '/assets/ffg/components/glossary/'
     },
     module: {
         rules: moduleRules
@@ -121,7 +121,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/components/tabs/'
+        path: __dirname + '/assets/ffg/components/tabs/',
+        publicPath: '/assets/ffg/components/tabs/'
     },
     module: {
         rules: moduleRules
@@ -144,7 +145,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/revenue/'
+        path: __dirname + '/assets/ffg/revenue/',
+        publicPath: '/assets/ffg/revenue/'
     },
     module: {
         rules: moduleRules
@@ -167,7 +169,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/spending/'
+        path: __dirname + '/assets/ffg/spending/',
+        publicPath: '/assets/ffg/spending/'
     },
     module: {
         rules: moduleRules
@@ -189,7 +192,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/deficit/'
+        path: __dirname + '/assets/ffg/deficit/',
+        publicPath: '/assets/ffg/deficit/'
     },
     module: {
         rules: moduleRules
@@ -212,7 +216,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/debt/'
+        path: __dirname + '/assets/ffg/debt/',
+        publicPath: '/assets/ffg/debt/'
     },
     module: {
         rules: moduleRules
@@ -231,7 +236,8 @@ module.exports = [{
         './citizens-guide/src/debt/analysis/debt-analysis.scss'
     ],
     output: {
-        path: __dirname + '/assets/ffg/css/'
+        path: __dirname + '/assets/ffg/css/',
+        publicPath: '/assets/ffg/css/'
     },
     mode: mode,
     module: {
