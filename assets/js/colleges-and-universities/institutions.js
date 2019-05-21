@@ -185,7 +185,6 @@ function createMapbox() {
 	}
       });
 
-      map.setPaintProperty('unclustered-point', 'circle-opacity', .4); // opacity of individual schools
 
       map.on('click', 'clusters', function (e) {
 	const cluster = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
@@ -201,7 +200,7 @@ function createMapbox() {
       });
 
       function flyIntoCluster(map, coordinates) {
-	const maxZoom = 5; 
+	const maxZoom = map.getZoom() + 1.5; // goin innn
 
 	map.flyTo({
 	  // These options control the ending camera position: centered at
