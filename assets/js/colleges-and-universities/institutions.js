@@ -36,7 +36,8 @@ function createMapbox() {
   });
 
   // Add zoom and rotation controls to the map.
-  map.addControl(new mapboxgl.NavigationControl());
+  let zoomCtrl = new mapboxgl.NavigationControl();
+  map.addControl(zoomCtrl, 'top-left'); // put in top left for now? could change?
 
   // Create a popup, but don't add it to the map yet.
   let tooltip = new mapboxgl.Popup({
@@ -119,7 +120,7 @@ function createMapbox() {
 	type: 'geojson',
 	data: data,
 	cluster: true,
-	clusterMaxZoom: 8,
+	clusterMaxZoom: 7,
 	clusterRadius: 75 // 50 is default look into tweaking this
       });
 
@@ -135,14 +136,15 @@ function createMapbox() {
 	  //   * Blue, 20px circles when point count is less than 100
 	  //   * Yellow, 30px circles when point count is between 100 and 750
 	  //   * Pink, 40px circles when point count is greater than or equal to 750
+	  "circle-stroke-color": '#ddd',
 	  "circle-color": [
 	    "step",
 	    ["get", "point_count"],
-	    "#51bbd6",
+	    "#881E3D",
 	    100,
-	    "#f1f075",
+	    "#881E3D",
 	    750,
-	    "#f28cb1"
+	    "#881E3D"
 	  ],
 	  "circle-radius": [
 	    "step",
@@ -155,6 +157,8 @@ function createMapbox() {
 	  ]
 	}
       });
+
+      map.setPaintProperty('clusters', 'circle-opacity', .4); // set opactiy to 40%
 
       map.addLayer({
 	id: "cluster-count",
@@ -174,12 +178,14 @@ function createMapbox() {
 	source: "schools",
 	filter: ["!", ["has", "point_count"]],
 	paint: {
-	  "circle-color": "#11b4da",
-	  "circle-radius": 4,
+	  "circle-color": "#881E3D",
+	  "circle-radius": 5,
 	  "circle-stroke-width": 1,
-	  "circle-stroke-color": "#fff"
+	  "circle-stroke-color": "#ddd"
 	}
       });
+
+      map.setPaintProperty('unclustered-point', 'circle-opacity', .4); // opacity of individual schools
 
       map.on('click', 'clusters', function (e) {
 	const cluster = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
@@ -195,7 +201,7 @@ function createMapbox() {
       });
 
       function flyIntoCluster(map, coordinates) {
-	const maxZoom = 8; 
+	const maxZoom = 5; 
 
 	map.flyTo({
 	  // These options control the ending camera position: centered at
