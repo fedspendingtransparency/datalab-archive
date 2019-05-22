@@ -3,28 +3,7 @@
 //---
 
 const mapContainer = document.getElementById('collegesMap');
-const sectFourTableContainer = document.getElementById('sectionFourtableContainerDiv');
-
-// const publicCheck = document.getElementById('publicCheck');
-// const privateCheck = document.getElementById('privateCheck');
-// const fourYearCheck = document.getElementById('fourYearCheck');
-// const twoYearCheck = document.getElementById('twoYearcheck');
-
-const sectionFourtableBtn = document.getElementById('sectionFourTableBtn');
-const sectionFourmapBtn = document.getElementById('sectionFourMapBtn');
-
-//import mapboxConfig from '../colleges-and-universities/util/constants';
-
-function formatMoney(n, c, d, t) {
-  var c = isNaN(c = Math.abs(c)) ? 2 : c,
-      d = d == undefined ? "." : d,
-      t = t == undefined ? "," : t,
-      s = n < 0 ? "-" : "",
-      i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
-      j = (j = i.length) > 3 ? j % 3 : 0;
-
-  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-}
+const tableContainer = $('#alma-mater-table');
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
@@ -46,8 +25,12 @@ function createMapbox() {
   });
 
   // filter overlay section //
+  let mapDiv = $('#mapContainer');
+  let almaTable = $('#alma-mater-table');
   let filterEl = $('#feature-filter');
   let listingEl = $('#feature-listing-ul');
+  let tableBtn = $('#feature-table-toggle');
+  let mapBtn = $('#feature-map-toggle');
   let resetBtn = $('#feature-reset');
   let rightPanel = $('#inst-panel');
 
@@ -63,7 +46,6 @@ function createMapbox() {
 	    return this.textContent === ele.name;
 	  });
 	  let tooltipHtml = `<h2> ${matched[0].name}</h2> Amount Invested: ${matched[0].fedInvest} <br> ${matched[0].instType} <br> ${matched[0].yearType}`;
-	  console.log(matched);
 	  map.easeTo({
 	    center: matched[0].coord.coordinates,
 	    zoom: 12
@@ -88,6 +70,18 @@ function createMapbox() {
     $(filterEl).val(''); // clear value in input
     $(listingEl).empty(); // clear list as well
     renderAllSchools();
+  });
+
+  $(tableBtn).click(function(){
+    mapDiv.toggle();
+    almaTable.toggle();
+    $(mapBtn).toggle();
+  });
+
+  $(mapBtn).click(function(){
+    almaTable.toggle();
+    mapDiv.toggle();
+    mapBtn.toggle();
   });
 
   // handle input filter..
@@ -149,10 +143,10 @@ function createMapbox() {
 	  "circle-radius": [
 	    "step",
 	    ["get", "point_count"],
-	    20,
-	    100,
+	    15,
+	    50,
 	    30,
-	    750,
+	    400,
 	    40
 	  ]
 	}
@@ -269,7 +263,6 @@ function createMapbox() {
 
       function createRightPanel(e) {
 	let data = e.features[0].properties;
-	console.log(data);
 	$(rightPanel).empty();
 	$(rightPanel).append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
 	$('#inst-panel-close').click(function(){
@@ -284,112 +277,77 @@ function createMapbox() {
 </section>`);
       }
 
-      
-
 
     }); // end getjson (get map function)
 
   });
+}; // end function (createMapbox)
+
+function createSectFourTable(columns) {
+  d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
+    if (err) { return err; }
+
+    /**
+     * Table START
+     */
+//    let sortAscending = true;
+    let table = d3.select('#alma-mater-table').append('table')
+        .attr('id', 'datatable'); // id given to table for Datatables.js
+
+    let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
+
+    let rows = table.append('tbody')
+        .selectAll('tr')
+        .data(data).enter()
+        .append('tr')
+        .on('click', function (d) {
+	  // TODO! right hand panel will come out on this TR click! 
+	  // secondary table view
+	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
+        });
+
+    
+    let headers = table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    rows.selectAll('td')
+      .data(function (row) {
+        return columns.map(function (column) {
+          return { column: column, value: row[column] };
+        });
+      }).enter()
+      .append('td')
+      .classed('name', function (d) {
+        return d.column == 'Recipient';
+      })
+      .classed('percentage', function (d) {
+        return d.column == 'State';
+      })
+      .classed('total', function (d) {
+        return d.column == 'Total';
+      })
+      .text(function (d) {
+        return d.value;
+      })
+      .attr('data-th', function (d) {
+        return d.name;
+      });
+
+
+    // datatable start
+    let dTable = $('#datatable').dataTable();
+  }); // end d3 function
 };
 
 
-
-
-
-// function createSectFourTable(container, columns) {
-//   d3.csv('../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
-
-//     if (err) { return err; }
-
-//     /**
-//      * Table START
-//      */
-//     let sortAscending = true;
-//     let table = d3.select(container).append('table')
-//     //        .attr('class', '')
-//         .attr('id', 'sectFourTable'); // id given to table for Datatables.js
-
-//     let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
-
-//     let rows = table.append('tbody')
-//         .selectAll('tr')
-//         .data(data).enter()
-//         .append('tr')
-//         .on('click', function (d) {
-// 	  // secondary table view
-// 	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
-//         });
-
-
-//     let headers = table.append('thead').append('tr')
-//         .selectAll('th')
-//         .data(titles).enter()
-//         .append('th')
-//         .text(function (d) {
-//           return d;
-//         });
-//     // .on('click', function (d) {
-//     //   headers.attr('class', 'header');
-
-//     //   if (sortAscending) {
-//     //     rows.sort(function (a, b) { return b[d] < a[d]; });
-//     //     sortAscending = false;
-//     //     this.className = 'aes';
-//     //   } else {
-//     //     rows.sort(function (a, b) { return b[d] > a[d]; });
-//     //     sortAscending = true;
-//     //     this.className = 'des';
-//     //   }
-//     // });
-
-
-//     rows.selectAll('td')
-//       .data(function (row) {
-//         return columns.map(function (column) {
-//           return { column: column, value: row[column] };
-//         });
-//       }).enter()
-//       .append('td')
-//       .classed('name', function (d) {
-//         return d.column == 'Recipient';
-//       })
-//       .classed('percentage', function (d) {
-//         return d.column == 'State';
-//       })
-//       .classed('total', function (d) {
-//         return d.column == 'Total';
-//       })
-//       .text(function (d) {
-//         return d.value;
-//       })
-//       .attr('data-th', function (d) {
-//         return d.name;
-//       });
-
-
-//     // datatable start
-//     let dTable = $('#sectFourTable').dataTable();
-//   });
-// };
-
-/*
-  --------------------------------------------------------------------------------------------------------------------
-  *   Main Method
-  *--------------------------------------------------------------------------------------------------------------------
-  */
-
+// Bringing it all together! Dom, on load! //
 $(document).ready(function(){
-  //  drawMap(mapContainer); // section 4 USA map
-  //  createSectFourTable(sectFourTableContainer, ['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
-  //  inputSearch();
   createMapbox();
+  createSectFourTable(['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
 });
 
-
-/*
-  --------------------------------------------------------------------------------------------------------------------
-  *   Main Method
-  *--------------------------------------------------------------------------------------------------------------------
-  */
-
-//drawMap(mapContainer);

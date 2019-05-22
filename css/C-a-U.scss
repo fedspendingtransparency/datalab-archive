@@ -150,6 +150,14 @@ $bluecopy: #2272CE;
     box-sizing: border-box;
     justify-content: center;
 
+    #alma-mater-table {
+      display: none;
+      padding-top: 3rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      text-align: center;
+    }
+
     #alma-mater {
       
       display: flex;
@@ -198,6 +206,14 @@ $bluecopy: #2272CE;
 	padding: 1rem;
       }
 
+      #feature-map-toggle {
+	display: none;
+	text-align: center;
+      }
+
+      #feature-map-toggle:hover {
+	cursor: pointer;
+      }
 
     } // end of alma-mater
   } // end of section-two
@@ -510,6 +526,16 @@ $bluecopy: #2272CE;
     #feature-reset {
       display: inline-block;
       padding-top: .5rem;
+    }
+
+    #feature-table-toggle {
+      display: inline-block;
+      padding-top: .5rem;
+      float: right;
+    }
+
+    #feature-table-toggle:hover {
+      cursor: pointer;
     }
 
     #feature-reset:hover {
@@ -1022,13 +1048,6 @@ $bluecopy: #2272CE;
     margin-top: 100px;
   }
 
-  #sectionFourtableContainerDiv {
-    display: none;
-    padding-top: 3rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    text-align: center;
-  }
 
   // map clear button (section 4)
   //
