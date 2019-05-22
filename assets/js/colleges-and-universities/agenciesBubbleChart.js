@@ -3,7 +3,6 @@
 *   Local declarations
 *--------------------------------------------------------------------------------------------------------------------
 */
-const bubbleColor = '#C3DBB5';
 const bubbleChartContainer = document.getElementById('bubbleChartContainer');
 const color = ['#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec788','#a3c787','#91c7a5',
     '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9', '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9',
@@ -63,11 +62,6 @@ var calculateTextFontSize = function(d) {
 
 var margin = 20,
     diameter = 800;
-
-// var color = d3.scale.linear()
-//     .domain([-1, 18])
-//     .range(["hsl(0,0%,100%)", "hsl(228,30%,40%)"])
-//     .interpolate(d3.interpolateHcl);
 
 var pack = d3.layout.pack()
     .padding(2)
