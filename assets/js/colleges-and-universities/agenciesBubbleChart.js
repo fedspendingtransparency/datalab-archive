@@ -246,7 +246,7 @@ function zoom(d) {
 
     } else {
         console.log(recipient[d.parent.name][d.name]);
-        window.alert('open right window, parent - ' + d.parent.name + ', ' + d.name);
+        // window.alert('open right window, parent - ' + d.parent.name + ', ' + d.name);
     }
 
 }
