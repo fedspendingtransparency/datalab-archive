@@ -207,7 +207,7 @@ const partition = d3.layout.partition().value(d => d.size);
 
 let grantsHierarchy, grantsChartArray;
 let researchGrantsHierarchy, researchGrantsChartArray;
-d3.csv('CollegesAndUniversityGrants.csv', (error, grantData) => {
+d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   // create hierarchy (which sorts by total value), then add colorIndex to 1st level nodes
   grantsHierarchy = buildDataHierarchy('Grants CFDA', grantData);
   grantsChartArray = partition.nodes(grantsHierarchy)
@@ -228,7 +228,7 @@ d3.csv('CollegesAndUniversityGrants.csv', (error, grantData) => {
 });
 
 let contractsHierarchy, contractsChartArray;
-d3.csv('CollegesAndUniversitiesContracts.csv', (error, contractData) => {
+d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractData) => {
   // create hierarchy (which sorts by total value), then add colorIndex to 1st level nodes
   contractsHierarchy = buildDataHierarchy('Contracts PSC', contractData);
   contractsChartArray = partition.nodes(contractsHierarchy)
