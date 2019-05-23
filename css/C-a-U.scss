@@ -341,12 +341,15 @@ $bluecopy: #2272ce;
       #sunburst {
         height: 700px;
         width: 700px;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
       }
       #sunburst svg {
         position: absolute;
+        top: 0;
+        left: 0;
       }
   
       #sunburst path {
