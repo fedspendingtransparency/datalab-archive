@@ -16,6 +16,27 @@
       </p>
     </div>
 
+    <div id='chart-area'>
+      <form id='categories'>
+        <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
+          <label for='contracts_data'>Contracts (PSC)</label>
+        <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
+          <label for='grants_data'>Grants (CFDA)</label>
+        <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
+          <label for='research_data'>Research Grants (CFDA)</label>
+      </form>
+      <div id='container'>
+        <div id='legend_colorKey'>
+          <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
+          <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
+          <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
+          <svg id='legend_scaleKey'></svg>
+        </div>
+        <div id='sunburst'>
+          <div id='center'></div>
+        </div>
+      </div>
+    </div>
   </section>
 
 </article>
