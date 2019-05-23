@@ -336,10 +336,15 @@ $bluecopy: #2272ce;
       #chart-area {
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
+        align-items: center;
       }
   
-      #container {
+      #categories {
+        width: 100%;
+      }
+
+      #chart-container {
+        margin-top: 100px;
         display: flex;
       }
   
@@ -405,7 +410,7 @@ $bluecopy: #2272ce;
         left: 0;
         width: 150px;
         height: 130px;
-        margin: 0;
+        margin: 50px 0 0 0;
         padding: 0;
         overflow: visible;
       }
