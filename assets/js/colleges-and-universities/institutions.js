@@ -4,6 +4,8 @@
 
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
+let agenciesTopFive;
+let categoriesTopFive;
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
@@ -261,6 +263,31 @@ function createMapbox() {
 	createRightPanel(e);
       });
 
+      // helper function to filter for top 5 based on school name
+      // function getTopFiveAgencies(name) {
+      // 	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
+
+      // 	  let matched = agencies.filter(ele => {
+      // 	    return name === ele.source;
+      // 	  });
+      // 	  return matched;
+	  
+      // 	});  
+      // }
+
+      // // helper function to do the same thing, with agencies data...
+      // function getTopFiveCategories(name) {
+      // 	$.getJSON('../../data-lab-data/investmentcategories.json', function(categories) {
+
+      // 	  let matched = categories.filter(ele => {
+      // 	    return name === ele.source;
+      // 	  });
+      // 	  return matched;
+	  
+      // 	});  
+      // }
+
+
       function createRightPanel(e) {
 	let data = e.features[0].properties;
 	$(rightPanel).empty();
@@ -268,20 +295,92 @@ function createMapbox() {
 	$('#inst-panel-close').click(function(){
 	  $(rightPanel).css('display', 'none');
 	});
-	$(rightPanel).append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
-	$(rightPanel).append('<hr>');
-	// append everything to the panel. just read from "data"
-	// this is messy and could easily be improved on.. just list out all fields for now..
-	$(rightPanel).append(`<section id="inst-panel-section"><p class="inst-panel-subtext">Inst Type: ${data.INST_TYPE_1}, ${data.INST_TYPE_2}</p> <br> 
-<p class="inst-panel-subtext">State: ${data.State}</p> <br> <p class="inst-panel-subtext">County: ${data.COUNTY}</p> <br> <p class="inst-panel-subtext">Total Students: ${data.Total}</p> <br> <p class="inst-panel-subtext">Contract $ Received: ${data.contracts_received}</p> <br> <p class="inst-panel-subtext">Grant $ Received: ${data.grants_received}</p> <br> <p class="inst-panel-subtext">Research Grant $ Received: ${data.research_grants_received}</p> <br> <hr> <p class="inst-panel-subtext">Total Federal Investment: ${data.Total_Federal_Investment}</p>
-</section>`);
-      }
+
+	$(rightPanel).append(`<p class='inst-panel-preheader'> Institutions </p>`);
+	$(rightPanel).append(`<p class='inst-panel-header'> ${data.Recipient} </p>`);
+
+	// first section
+	$(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Type of Institution </p>
+  <p class='inst-panel-subheading--data'> ${data.INST_TYPE_1} / ${data.INST_TYPE_2} </p> 
+</div>
+
+<div id='inst-panel-section'>
+ <p class='inst-panel-subheading'> Awards Received </p>
+ <p class='inst-panel-subheading--data'> ${data.contracts_received} </p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Total $ Received</p>
+  <p class='inst-panel-subheading--data'> ${data.Total_Federal_Investment}</p>
+</div>
+
+ `);
+
+	// second section - funding type
+	$(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading--bold'> Funding Instrument Type </p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Contracts </p>
+  <p class='inst-panel-subheading--data'> ${data.contracts_received}</p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Grants </p>
+  <p class='inst-panel-subheading--data'> ${data.grants_received}</p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Scholarships </p>
+  <p class='inst-panel-subheading--data'> 0 </p>
+</div>
+`);
+
+	// third section - (top 5)
+	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Funding Agencies (Top 5) </p></div>`);
+	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
+
+	  let matched = agencies.filter(ele => {
+	    return data.Recipient === ele.source; 
+	  });
+	  matched.forEach(function(ele) {
+	    $(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> ${ele.target} </p>
+  <p class='inst-panel-subheading--data'> ${ele.value} </p>
+</div>
+`);
+
+	  });  
+	});
+
+	// fourth section - (top 5 again.. agencies)
+	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
+	$.getJSON('../../data-lab-data/investmentcategories.json', function(agencies) {
+
+	  let matched = agencies.filter(ele => {
+	    return data.Recipient === ele.source; 
+	  });
+	  matched.forEach(function(ele) {
+	    $(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> ${ele.target} </p>
+  <p class='inst-panel-subheading--data'> ${ele.value} </p>
+</div>
+`);
+
+	  });  
+	});
 
 
+      };
     }); // end getjson (get map function)
-
   });
 }; // end function (createMapbox)
+
+
+
+
 
 function createSectFourTable(columns) {
   d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {

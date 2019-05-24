@@ -718,13 +718,45 @@ $bluecopy: #2272CE;
 	cursor: pointer;
       }
 
+      .inst-panel-preheader {
+	color: #555555;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 18px;
+      }
+
       .inst-panel-header {
-	font-size: 1.5rem; // 24px in rem!
-	font-weight: 600; // semi-bold
-	line-height: 1.5rem; // 72px;
-	text-transform: uppercase;
-	color: #4a4a4a;
-	text-align: center;
+	color: #555555;
+	font-size: 25.2px;
+	font-weight: 600;
+	line-height: 32px;
+	text-align: left;
+      }
+
+      #inst-panel-section {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #F2F2F2;
+      }
+
+      .inst-panel-subheading {
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 18px;
+      }
+
+      .inst-panel-subheading--bold {
+	color: #4A4A4A;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 15px;
+      }
+
+      .inst-panel-subheading--data {
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 18px;
       }
 
       #inst-panel-section {
