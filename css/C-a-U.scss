@@ -2,7 +2,6 @@
 ---
 
 $orange: #d04c02;
-$grey: #555555;
 $background: #fbfbfb;
 $green: #50604f;
 $checked-color: #1877c1;
@@ -318,7 +317,16 @@ $bluecopy: #2272ce;
       // }
 
       #function-buttons {
-        background-color: lightblue;
+        img {
+          width:18px;
+          border: 1px solid $grey;
+          padding: 10px;
+        }
+        // img * {
+        //   width:  100%;
+        //   height: 100%;
+        //   fill:   blue;
+        // }
       }
 
       #chart-area {
