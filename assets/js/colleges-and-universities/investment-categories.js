@@ -136,8 +136,8 @@ const arc = d3.svg.arc()
   .startAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x))))
   .endAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x + d.dx))))
   .innerRadius(d => Math.max(0, yScale(d.y)))
-  .outerRadius(d => Math.max(0, yScale(d.y + d.dy)));
-;
+  .outerRadius(d => Math.max(0, yScale(d.y + d.dy)))
+  ;
 
 function drawChart(data) {
   svg.selectAll('path').remove();
@@ -168,8 +168,8 @@ function click(d) {
     .selectAll('path')
     .attrTween('d', d => function () {
       return arc(d);
-    });
-  ;
+    })
+    ;
 }
 
 function buildDataHierarchy(title, dataArray) {
