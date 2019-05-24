@@ -333,10 +333,15 @@ $bluecopy: #2272ce;
       //   height: 500px;
       // }
 
+      #function-buttons {
+        background-color: lightblue;
+      }
+
       #chart-area {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: space-evenly;
       }
   
       #categories {
@@ -346,6 +351,7 @@ $bluecopy: #2272ce;
       #chart-container {
         margin-top: 100px;
         display: flex;
+        justify-content: space-between;
       }
   
       circle {
@@ -379,9 +385,6 @@ $bluecopy: #2272ce;
       #sunburst path.depth2 {
         opacity: 0.5;
       }
-      #sunburst path.depth3 {
-        opacity: 0.25;
-      }
   
       #center {
         font-size: 1.1em;
@@ -411,8 +414,6 @@ $bluecopy: #2272ce;
       #legend_colorKey {
         position: relative;
         left: 0;
-        width: 150px;
-        height: 130px;
         margin: 50px 0 0 0;
         padding: 0;
         overflow: visible;

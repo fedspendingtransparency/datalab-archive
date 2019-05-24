@@ -21,7 +21,7 @@ d3.select('#legend_scaleKey').append('circle')
 let chartData; // ref to current data parent (only for center label) 
 let ringLabels; // text to show in center
 
-const grantRings = ['CFDA', ['Contract Awards', 'Family', 'Program']];
+const grantRings = ['CFDA', ['Grant Awards', 'Family', 'Program']];
 const contractRings = ['PSC', ['Contract Awards', 'Family', 'Program']];
 function changeCategory(category) {
   if (category.value === 'contracts') {
