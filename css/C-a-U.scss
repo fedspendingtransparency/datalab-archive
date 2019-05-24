@@ -325,26 +325,35 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
-      // .investment-categories__viz {
-      //   text-align: center;
-      //   border: 1px solid #ddd;
-      //   border-radius: 0.25rem;
-      //   width: 100%;
-      //   height: 500px;
-      // }
-
       #function-buttons {
-        background-color: lightblue;
-        img {
-          width:18px;
-          border: 1px solid $grey;
-          padding: 10px;
+        display: flex;
+        flex-direction: column;
+        font-size: 24px;
+
+        & * {
+          padding: 10px 15px 15px 15px;
+          border: 3px solid #eee;
+          border-radius: 0 15px 15px 0;
         }
-        // img * {
-        //   width:  100%;
-        //   height: 100%;
-        //   fill:   blue;
-        // }
+
+        #search {
+          -moz-transform: scale(-1, 1);
+          -webkit-transform: scale(-1, 1);
+          -o-transform: scale(-1, 1);
+          -ms-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+          border-radius: 15px 0 0 15px;
+          
+          &::after {
+            content: '\2315';
+          }
+        }
+        #table_view::after {
+          content: '\2630';
+        }
+        #zoom_out {
+          font-size: 32px;
+        }
       }
 
       #chart-area {
@@ -423,7 +432,7 @@ $bluecopy: #2272ce;
   
       #legend_colorKey {
         position: relative;
-        left: 0;
+        left: -100px;
         margin: 50px 0 0 0;
         padding: 0;
         overflow: visible;
