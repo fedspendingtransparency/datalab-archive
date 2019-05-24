@@ -140,7 +140,7 @@ const arc = d3.svg.arc()
 ;
 
 function drawChart(data) {
-  d3.selectAll('path').remove();
+  svg.selectAll('path').remove();
   const paths = svg.selectAll('path').data(data);
   paths.enter().append('path')
     .attr('d', arc)
