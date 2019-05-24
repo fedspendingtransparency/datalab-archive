@@ -120,3 +120,8 @@ $footer-link-color: #2272CE;
   }
 }
 
+@media only screen and (min-width: 1201px) {
+  .afg-page #footer {
+    padding-right: 155px;
+  }
+}
