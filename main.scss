@@ -14,6 +14,7 @@
 @import 'tooltip-module';
 @import 'dts';
 @import 'C-a-U';
+@import './citizens-guide/src/components/glossary/glossary.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600');
 
@@ -674,7 +675,7 @@ header.major h2 {
 
 #return-to-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   right: 20px;
   background: $silver;
   width: 50px;
@@ -685,6 +686,10 @@ header.major h2 {
   z-index: 1000;
   opacity: 0.8;
   cursor: pointer;
+}
+
+.afg-page #return-to-top {
+  bottom: 60px;
 }
 
 #return-to-top:hover .icon-chevron-up {
