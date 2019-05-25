@@ -10,326 +10,292 @@ $bluecopy: #2272CE;
 
 .CU {
 
-  font-family: "Source Sans Pro";
-  padding: 1rem; // padding around whole wrapper
-  margin-top: 10rem; // move all content down enough
+  .sectionLanding {
 
-  #section-pre {
+    img {
+      position: absolute;
 
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: center;
+    } 
 
-    .section-pre--banner {
-      width: 100%;
+    .blue {
+      width: 15%;
+      top: 132px;
+      min-width: 145px;
+      right: 2%;
     }
 
-    // our section id
-    #TOC {
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
+    .yellow { 
+      top: 495px;
+      right: 11%;
+      width: 9%;
     }
 
-    #section-pre__tile {
-      padding-left: 1rem;
-      padding-right: 1rem;
+    .green { 
+      top: 273px;
+      left: 1%;
+      width: 11%;
     }
 
-    // table of contents
-    #section-pre__TOC {
-      display: flex;
-      max-width: 1200px;
-      border-top: 1px solid #ddd;
-      justify-content: space-between;
+    .orange {
+      top: 693px;
+      left: 50%;
+      width: 4%;
     }
 
-    .section-pre--number {
-      color: #9B9B9B;
-      font-family: "Source Sans Pro";
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 50px;
+    .red {
+      top: 600px;
+      left: 7%;
+      width: 11%;
     }
 
-    .section-pre--subtext {
-      color: #881E3D;
-      font-size: 14px;
-      line-height: 18px;
+    .landing {
+      text-align: center;
+      align-content: inherit;
+      padding: 100px;
+      background: $background;
+      margin: 5%;
+      
+      h1 {
+        line-height: 60px;
+        font-weight: 100;
+      }
+      strong {
+        color: $orange;
+      }
+    }
+  }
+
+  /*
+  --------------------------------------------------------------------------------------------------------------------
+*Styling for all section headers
+*--------------------------------------------------------------------------------------------------------------------
+*/
+  
+  .sectionHeader{
+    text-align: center;
+    align-content: inherit;
+    padding: 100px;
+    
+    
+    h1, h2 { 
+      margin: 0px;
+      padding:29px;
     }
 
-    .section-pre--subblurb {
-      color: #555555;
-      font-size: 14px;
+    p, h3, h1 {
+      color: $grey;
+    }
+    
+    h1 {
+      font-size: 100px;
+      font-weight: lighter;
+    }
+    h2 {
+      color: $orange;
+      margin-top:0px;
+      font-size: 50px;
+      line-height: 48px;
+    }
+    h3 {
+      font-size: 33px;
+      margin:10px;
+      font-weight: 400;
+    } 
+    p {
+      font-size: 13px;
+    }
+  }
+  
+  /*
+  --------------------------------------------------------------------------------------------------------------------
+*TABLE OF CONTENTS
+*--------------------------------------------------------------------------------------------------------------------
+*/
+
+  .table-of-contents{
+    text-align: center;
+    background: $background;
+    margin-left: 23%;
+    width:50%;
+    margin-top:50px;
+    padding:5%;
+    
+    span {
+      display: inline-block;
+    }
+    .id {
+      vertical-align: top;
+      text-align: right;
+      width: 20%;
+      font-size: 58px;
+      padding-top: 9px;
+      font-weight: 100;
+      color: $grey;
+      padding-right: 20px;
+    }
+    .content {
+      text-align: left;
+      width:70%;
+    }
+    p {
+      color: $grey;
+      padding:0px;
+      margin: 0px;
+      font-size: 13px;
+    }
+    a {
+      color: $orange;
       font-weight: bold;
-      line-height: 17px;
     }
 
-    .section-pre--blurb {
+    a:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  /*
+  --------------------------------------------------------------------------------------------------------------------
+*TOTAL INVESTMENTS
+*--------------------------------------------------------------------------------------------------------------------
+*/
+
+  .overview_information { 
+    width:70%;
+    margin-left: 15%;
+
+    .totalInvesmentDollarAmount {
+      font-size: 52px;
+      font-weight: 100;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      color: $grey;
+    }
+
+    .blurbtext {
+      flex-wrap: wrap;
+      width: 277px;
+      height: 66px;
+      font-family: SourceSansPro;
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.69;
+      letter-spacing: normal;
       color: #555555;
-      font-size: 15px;
+    }
+
+    .flexcontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .totalInvestments_breakdown_contracts_total {
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
       font-weight: 300;
-      line-height: 16px;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
     }
 
-  } // end of section pre
+    .totalInvestments_breakdown_grants_total {
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
+    }
 
-  #section-one {
+    .totalInvestments_breakdown_studentAid_total {
+      width: 239px;
+      height: 49px;
+      font-family: SourceSansPro;
+      font-size: 38.9px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #555555;
+    }
 
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: center;
 
-    #investment-overview {
 
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
-      flex-direction: column;
-     
-      #investment-overview__number {
-	color: #9B9B9B;
-	font-family: "Source Sans Pro";
-	font-size: 48px;
-	font-weight: 600;
-	line-height: 50px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
 
-      #investment-overview__title {
-	color: #9B9B9B;
-	font-size: 16px;
-	font-weight: 600;
-	letter-spacing: 2.8px;
-	line-height: 20px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      #investment-overview__preblurb {
-	color: #881E3D;
-	font-size: 42px;
-	line-height: 48px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      #investment-overview__blurb {
-	color: #555555;
-	font-size: 17px;
-	font-weight: 300;
-	line-height: 24px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      #investment-viz {
-	text-align: center;
-	border: 1px solid #ddd;
-	border-radius: .25rem;
-	width: 100%;
-	height: 500px;
-      }
+    h2 {
+      color: $orange;
+      font-size: 21px;
     }
     
-  } // end of section-one
+    .graph {
+      font-size: 0;
+      letter-spacing: 0;
 
-  #section-two {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: center;
-
-    #alma-mater {
-      
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
-      flex-direction: column;
-
-      #alma-mater__number {
-	color: #9B9B9B;
-	font-family: "Source Sans Pro";
-	font-size: 48px;
-	font-weight: 600;
-	line-height: 50px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
+      span {
+        display:inline-block;
+        
+        height:60px;
+        width: 30%;
       }
 
-      #alma-mater__title {
-	color: #9B9B9B;
-	font-size: 16px;
-	font-weight: 600;
-	letter-spacing: 2.8px;
-	line-height: 20px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
+      .contracts {
+        background-color: $green;
       }
 
-      #alma-mater__preblurb {
-	color: #881E3D;
-	font-size: 42px;
-	line-height: 48px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
+      .grants {
+        background-color: lighten($green, 50%)
       }
 
-      #alma-mater__blurb {
-	color: #555555;
-	font-size: 17px;
-	font-weight: 300;
-	line-height: 24px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
+      .studentAid {
+        background-color: lighten($green, 60%);
       }
+    }
+    .breakdown {
 
+      span {
+        display: inline-block;
 
-    } // end of alma-mater
-  } // end of section-two
-
-  #section-three {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: center;
-    
-    #agency-investments {
-
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
-      flex-direction: column;
-
-      #agency-investments__number {
-	color: #9B9B9B;
-	font-family: "Source Sans Pro";
-	font-size: 48px;
-	font-weight: 600;
-	line-height: 50px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
+        h2 {
+          font-size: 18px;
+        }
       }
+    }
 
-      #agency-investments__title {
-	color: #9B9B9B;
-	font-size: 16px;
-	font-weight: 600;
-	letter-spacing: 2.8px;
-	line-height: 20px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
+  }
 
-      #agency-investments__preblurb {
-	color: #881E3D;
-	font-size: 42px;
-	line-height: 48px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
+  /*
+  --------------------------------------------------------------------------------------------------------------------
+*     AGENCIES
+*--------------------------------------------------------------------------------------------------------------------
+*/
+  
+  .bubbleChartContainer {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
 
-      #agency-investments__blurb {
-	color: #555555;
-	font-size: 17px;
-	font-weight: 300;
-	line-height: 24px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      .agency-investments__viz {
-	text-align: center;
-	border: 1px solid #ddd;
-	border-radius: .25rem;
-	width: 100%;
-	height: 500px;
-      }
-
-    } // end of agency-investments (bubble)
-  }  // end of section three
-
-  #section-four {
-
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: center;
-
-    #investment-categories {
-
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
-      flex-direction: column;
-
-      #investment-categories__number {
-	color: #9B9B9B;
-	font-family: "Source Sans Pro";
-	font-size: 48px;
-	font-weight: 600;
-	line-height: 50px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      #investment-categories__title {
-	color: #9B9B9B;
-	font-size: 16px;
-	font-weight: 600;
-	letter-spacing: 2.8px;
-	line-height: 20px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      #investment-categories__preblurb {
-	color: #881E3D;
-	font-size: 42px;
-	line-height: 48px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      #investment-categories__blurb {
-	color: #555555;
-	font-size: 17px;
-	font-weight: 300;
-	line-height: 24px;
-	text-align: center;
-	margin: 0;
-	padding: 1rem;
-      }
-
-      .investment-categories__viz {
-	text-align: center;
-	border: 1px solid #ddd;
-	border-radius: .25rem;
-	width: 100%;
-	height: 500px;
-      }
-      
-    } // end of investment categories
-  } // end of section four
-
+  /*
+  --------------------------------------------------------------------------------------------------------------------
+*    Investment Categories
+*--------------------------------------------------------------------------------------------------------------------
+*/
+  
+  #secitonInvestmentCategories {
+    margin-top: 130px;
+  }
 
 
   .investmentCategories { 
