@@ -504,6 +504,27 @@ $bluecopy: #2272ce;
         stroke-dasharray: 2 2;
         fill: none;
       }
+
+      .chart-footer {
+        color: $grey;
+        font-size: 12pt;
+        display: flex;
+        justify-content: flex-end;
+
+        .faded {
+          opacity: 0.5;
+          line-height: 16pt;
+        }
+
+        .download-data {
+          color: #4a4a4a;
+          margin-left: 12px;
+
+          &:hover {
+            color: #00c3c2;
+          }
+        }
+      }
     } // end of investment categories
   } // end of section four
 
