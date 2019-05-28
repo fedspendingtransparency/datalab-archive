@@ -828,7 +828,7 @@ d3.csv("/data-lab-data/dts/dts.csv", type, function (error, _data) {
     d.mtd = +d.mtd * 1000000;
     d.fytd = +d.fytd * 1000000;
 
-    let lastYear = new Date(lastDate);
+    let lastYear = new Date();
     lastYear.setFullYear(lastYear.getFullYear() - 1);
 
     if (!categoryToActiveWithinAYear.hasOwnProperty(d.item_raw)) {
