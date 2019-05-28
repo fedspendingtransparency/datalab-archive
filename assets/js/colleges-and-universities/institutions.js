@@ -345,6 +345,13 @@ function createMapbox() {
 	  let matched = agencies.filter(ele => {
 	    return data.Recipient === ele.source; 
 	  });
+
+	  console.log('agencies matched' + agencies);
+
+	  if (matched.length == 0) {
+	    $(rightPanel).append(`<div id='inst-panel-section'><p class='inst-panel-subheading'>N/A</p></div>`);
+	  }
+
 	  matched.forEach(function(ele) {
 	    $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
@@ -357,11 +364,18 @@ function createMapbox() {
 
 	// fourth section - (top 5 again.. agencies)
 	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
-	$.getJSON('../../data-lab-data/investmentcategories.json', function(agencies) {
+	$.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
 
-	  let matched = agencies.filter(ele => {
+	  let matched = investments.filter(ele => {
 	    return data.Recipient === ele.source; 
 	  });
+
+	  console.log('investments matched' + matched);
+	  
+	  if (matched.length == 0) {
+	    $(rightPanel).append(`<div id='inst-panel-section'><p class='inst-panel-subheading'>N/A</p></div>`);
+	  }
+
 	  matched.forEach(function(ele) {
 	    $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
