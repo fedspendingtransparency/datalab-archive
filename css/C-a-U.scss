@@ -330,10 +330,22 @@ $bluecopy: #2272ce;
         flex-direction: column;
         font-size: 24px;
 
-        & * {
-          padding: 10px 15px 15px 15px;
-          border: 3px solid #eee;
+        $left-button-size: 45px;
+        $left-button-border: 3px solid #eee;
+
+        .button-set {
+          // padding: 11px 15px 13px 17px;
+          display: flex;
+          flex-direction: column;
+          width: $left-button-size;
+          border: $left-button-border;
           border-radius: 0 15px 15px 0;
+
+          div {
+            height: $left-button-size;
+            line-height: $left-button-size;
+            text-align: center;
+          }
         }
 
         #search {
@@ -348,11 +360,25 @@ $bluecopy: #2272ce;
             content: '\2315';
           }
         }
+        #table_view {
+          border-bottom: $left-button-border;
+        }
         #table_view::after {
           content: '\2630';
         }
         #zoom_out {
           font-size: 32px;
+          position: relative;
+          
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: $left-button-size / 3;
+            top: -3px;
+            left: $left-button-size / 3;
+            border: $left-button-border;
+        }
         }
       }
 
