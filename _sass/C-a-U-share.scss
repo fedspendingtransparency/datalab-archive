@@ -1,0 +1,21 @@
+.new-share-button {
+  display: flex;
+  margin-left: 20px;
+  cursor: pointer;
+  position: relative;
+  float: right;
+  transform: translateY(30px);
+}
+
+.newpopup {
+    top: 40px !important;
+    left: 0;
+}
+
+.new-share-button .viz-share-icon:hover {
+    fill: #00c3c2;
+}
+
+.viz-share-icon {
+    width: auto;
+}
