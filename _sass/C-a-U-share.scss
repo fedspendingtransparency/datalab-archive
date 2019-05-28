@@ -9,7 +9,6 @@
 
 .newpopup {
     top: 40px !important;
-    left: 0;
 }
 
 .new-share-button .viz-share-icon:hover {
@@ -18,4 +17,11 @@
 
 .viz-share-icon {
     width: auto;
+    font-size: 1rem;
+    color: #4a4a4a;
+
+    svg {
+        transform: translateY(4px);
+        margin-right: 4px;
+    }
 }
