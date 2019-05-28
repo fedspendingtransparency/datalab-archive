@@ -325,26 +325,71 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
-      // .investment-categories__viz {
-      //   text-align: center;
-      //   border: 1px solid #ddd;
-      //   border-radius: 0.25rem;
-      //   width: 100%;
-      //   height: 500px;
-      // }
-
       #function-buttons {
-        background-color: lightblue;
-        img {
-          width:18px;
-          border: 1px solid $grey;
-          padding: 10px;
+        display: flex;
+        flex-direction: column;
+        font-size: 24px;
+
+        $left-button-size: 45px;
+        $border-width: 3px;
+        $left-button-border: $border-width solid #eee;
+        $partial-border-size: $left-button-size / 2;
+        $border-radius: $left-button-size / 3;
+
+        .button-set {
+          display: flex;
+          flex-direction: column;
+          width: $left-button-size;
+          border: $left-button-border;
+          border-radius: 0 $border-radius $border-radius 0;
+
+          div {
+            height: $left-button-size;
+            width: $left-button-size;
+            line-height: $left-button-size;
+            text-align: center;
+          }
         }
-        // img * {
-        //   width:  100%;
-        //   height: 100%;
-        //   fill:   blue;
-        // }
+
+        #search {
+          // this just mirrors the border and contents, pointing the Unicode magnifier the other way
+          -moz-transform: scale (-1, 1);
+          -webkit-transform: scale (-1, 1);
+          -o-transform: scale (-1, 1);
+          -ms-transform: scale (-1, 1);
+          transform: scale (-1, 1);
+          border-radius: $border-radius 0 0 $border-radius;
+          
+          &::after {
+            content: '\2315';
+          }
+        }
+
+        %partial-top-border {
+          width: $partial-border-size;
+          // top: -$border-width;
+          left: $partial-border-size / 2;
+          border-top: $left-button-border;
+        }
+
+        #table_view::after {
+          @extend %partial-top-border;
+          content: '\2630';
+          padding: 0 4px;
+        }
+        #zoom_in {
+          border-top: $left-button-border;
+        }
+        #zoom_out {
+          font-size: 32px;
+          position: relative;
+          
+          &::after {
+            @extend %partial-top-border;
+            content: '';
+            position: absolute;
+          }
+        }
       }
 
       #chart-area {
