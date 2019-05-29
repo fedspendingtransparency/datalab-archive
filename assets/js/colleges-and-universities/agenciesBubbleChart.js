@@ -288,5 +288,10 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
     addRadius(agenciesData);
 
-});
+    if (!bubble.setAgencies) {
+      console.warn('bubble method not available')
+    } else {
+      bubble.setAgencies(agenciesData);
+    }
 
+});
