@@ -1,6 +1,6 @@
 // add those back for IE 11 support
-//---
-//---
+---
+---
 
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
@@ -341,50 +341,63 @@ function createMapbox() {
 	// third section - (top 5)
 	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Funding Agencies (Top 5) </p></div>`);
 	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
+	  console.log(agencies);
 
-	  let matched = agencies.filter(ele => {
+	  let matchedAgencies = agencies.filter(ele => {
 	    return data.Recipient === ele.source; 
 	  });
 
-	  console.log('agencies matched' + agencies);
+	  console.log(matchedAgencies);
 
-	  if (matched.length == 0) {
-	    $(rightPanel).append(`<div id='inst-panel-section'><p class='inst-panel-subheading'>N/A</p></div>`);
-	  } else {
-	    matched.forEach(function(ele) {
-	      $(rightPanel).append(`<div id='inst-panel-section'>
+	  if (matchedAgencies.length == 0) {
+	    $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
+	  }
+
+	  let sortedAgencies = matchedAgencies.sort(function(a,b){
+	    return b.value - a.value;
+	  });
+
+	  sortedAgencies.slice(0,6); // take only 5 if more return
+
+
+	  sortedAgencies.forEach(function(ele) {
+	    $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
   <p class='inst-panel-subheading--data'> ${ele.value} </p>
 </div>
 `);
-	    });  
-	    
-	  }
+	  });  
 
-	});
 
-	// fourth section - (top 5 again.. agencies)
-	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
-	$.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
+	  // fourth section - (top 5 again.. agencies)
+	  $(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
+	  $.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
 
-	  let matched = investments.filter(ele => {
-	    return data.Recipient === ele.source; 
-	  });
+	    let matchedInvestments = investments.filter(ele => {
+	      return data.Recipient === ele.source; 
+	    });
 
-	  console.log('investments matched' + matched);
-	  
-	  if (matched.length == 0) {
-	    $(rightPanel).append(`<div id='inst-panel-section'><p class='inst-panel-subheading'>N/A</p></div>`);
-	  } else {
-	    matched.forEach(function(ele) {
+	    let sortedInvestments = matchedInvestments.sort(function(a,b){
+	      return b.value - a.value;
+	    });
+
+	    sortedInvestments.slice(0,6);
+
+	    if (sortedInvestments.length == 0) {
+	      $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
+	    }
+
+	    sortedInvestments.forEach(function(ele) {
 	      $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
   <p class='inst-panel-subheading--data'> ${ele.value} </p>
 </div>
 `);	      
 	    });  
-	  }
+
+	  });
 	});
+
 
       }; // end get right panel function
     }); // end getjson (get map function)
