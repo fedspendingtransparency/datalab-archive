@@ -1,9 +1,7 @@
-// add those back for IE 11 support
-//---
-//---
-
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
+let agenciesTopFive;
+let categoriesTopFive;
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
@@ -36,14 +34,24 @@ function createMapbox() {
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
-      let geoandname = data.features.map(ele => ({ coord: ele.geometry, name: ele.properties.Recipient, fedInvest: ele.properties.Total_Federal_Investment,
-						   instType: ele.properties.INST_TYPE_1, yearType: ele.properties.INST_TYPE_2}));
+
+      let geoandname = data.features.map(function (ele) {
+	return {
+	  coord: ele.geometry,
+	  name: ele.properties.Recipient,
+	  fedInvest: ele.properties.Total_Federal_Investment,
+	  instType: ele.properties.INST_TYPE_1,
+	  yearType: ele.properties.INST_TYPE_2
+	};
+      });
+     
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
-	  let matched = geoandname.filter(ele => {
-	    return this.textContent === ele.name;
+	  let that = this;
+	  let matched = geoandname.filter(function(ele) {
+	    return that.textContent === ele.name;
 	  });
 	  let tooltipHtml = `<h2> ${matched[0].name}</h2> Amount Invested: ${matched[0].fedInvest} <br> ${matched[0].instType} <br> ${matched[0].yearType}`;
 	  map.easeTo({
@@ -268,20 +276,115 @@ function createMapbox() {
 	$('#inst-panel-close').click(function(){
 	  $(rightPanel).css('display', 'none');
 	});
-	$(rightPanel).append(`<h2 class='inst-panel-header'> ${data.Recipient} </h2>`);
-	$(rightPanel).append('<hr>');
-	// append everything to the panel. just read from "data"
-	// this is messy and could easily be improved on.. just list out all fields for now..
-	$(rightPanel).append(`<section id="inst-panel-section"><p class="inst-panel-subtext">Inst Type: ${data.INST_TYPE_1}, ${data.INST_TYPE_2}</p> <br> 
-<p class="inst-panel-subtext">State: ${data.State}</p> <br> <p class="inst-panel-subtext">County: ${data.COUNTY}</p> <br> <p class="inst-panel-subtext">Total Students: ${data.Total}</p> <br> <p class="inst-panel-subtext">Contract $ Received: ${data.contracts_received}</p> <br> <p class="inst-panel-subtext">Grant $ Received: ${data.grants_received}</p> <br> <p class="inst-panel-subtext">Research Grant $ Received: ${data.research_grants_received}</p> <br> <hr> <p class="inst-panel-subtext">Total Federal Investment: ${data.Total_Federal_Investment}</p>
-</section>`);
-      }
+
+	$(rightPanel).append(`<p class='inst-panel-preheader'> Institutions </p>`);
+	$(rightPanel).append(`<p class='inst-panel-header'> ${data.Recipient} </p>`);
+
+	// first section
+	$(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Type of Institution </p>
+  <p class='inst-panel-subheading--data'> ${data.INST_TYPE_1} / ${data.INST_TYPE_2} </p> 
+</div>
+
+<div id='inst-panel-section'>
+ <p class='inst-panel-subheading'> Awards Received </p>
+ <p class='inst-panel-subheading--data'> ${data.contracts_received} </p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Total $ Received</p>
+  <p class='inst-panel-subheading--data'> ${data.Total_Federal_Investment}</p>
+</div>
+
+ `);
+
+	// second section - funding type
+	$(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading--bold'> Funding Instrument Type </p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Contracts </p>
+  <p class='inst-panel-subheading--data'> ${data.contracts_received}</p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Grants </p>
+  <p class='inst-panel-subheading--data'> ${data.grants_received}</p>
+</div>
+
+<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> Scholarships </p>
+  <p class='inst-panel-subheading--data'> 0 </p>
+</div>
+`);
+
+	// third section - (top 5)
+	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Funding Agencies (Top 5) </p></div>`);
+	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
+
+	  let matchedAgencies = agencies.filter(function(ele) {
+	    return data.Recipient === ele.source; 
+	  });
+
+	  if (matchedAgencies.length == 0) {
+	    $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
+	  }
+
+	  let sortedAgencies = matchedAgencies.sort(function(a,b){
+	    return b.value - a.value;
+	  });
+
+	  sortedAgencies.slice(0,6); // take only 5 if more return
 
 
+	  sortedAgencies.forEach(function(ele) {
+	    $(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> ${ele.target} </p>
+  <p class='inst-panel-subheading--data'> ${ele.value} </p>
+</div>
+`);
+	  });  
+
+
+	  // fourth section - (top 5 again.. agencies)
+	  $(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
+	  $.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
+
+	    let matchedInvestments = investments.filter(function(ele) {
+	      return data.Recipient === ele.source; 
+	    });
+
+	    let sortedInvestments = matchedInvestments.sort(function(a,b){
+	      return b.value - a.value;
+	    });
+
+	    sortedInvestments.slice(0,6);
+
+	    if (sortedInvestments.length == 0) {
+	      $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
+	    }
+
+	    sortedInvestments.forEach(function(ele) {
+	      $(rightPanel).append(`<div id='inst-panel-section'>
+  <p class='inst-panel-subheading'> ${ele.target} </p>
+  <p class='inst-panel-subheading--data'> ${ele.value} </p>
+</div>
+`);	      
+	    });  
+
+	  });
+	});
+
+
+      }; // end get right panel function
     }); // end getjson (get map function)
-
   });
 }; // end function (createMapbox)
+
+
+
+
 
 function createSectFourTable(columns) {
   d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
