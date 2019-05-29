@@ -1,6 +1,8 @@
 ---
 ---
 
+@import 'C-a-U-share';
+
 $orange: #d04c02;
 $background: #fbfbfb;
 $green: #50604f;
@@ -520,6 +522,9 @@ $bluecopy: #2272ce;
           color: #4a4a4a;
           margin-left: 12px;
 
+          // &::after {
+          //   content: '\8677';
+          // }
           &:hover {
             color: #00c3c2;
           }
