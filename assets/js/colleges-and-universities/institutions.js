@@ -1,7 +1,3 @@
-// add those back for IE 11 support
----
----
-
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
 let agenciesTopFive;
@@ -38,13 +34,22 @@ function createMapbox() {
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
-      let geoandname = data.features.map(ele => ({ coord: ele.geometry, name: ele.properties.Recipient, fedInvest: ele.properties.Total_Federal_Investment,
-						   instType: ele.properties.INST_TYPE_1, yearType: ele.properties.INST_TYPE_2}));
+
+      let geoandname = data.features.map(function (ele) {
+	return {
+	  coord: ele.geometry,
+	  name: ele.properties.Recipient,
+	  fedInvest: ele.properties.Total_Federal_Investment,
+	  instType: ele.properties.INST_TYPE_1,
+	  yearType: ele.properties.INST_TYPE_2
+	};
+      });
+
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
-	  let matched = geoandname.filter(ele => {
+	  let matched = geoandname.filter(function (ele) {
 	    return this.textContent === ele.name;
 	  });
 	  let tooltipHtml = `<h2> ${matched[0].name}</h2> Amount Invested: ${matched[0].fedInvest} <br> ${matched[0].instType} <br> ${matched[0].yearType}`;
@@ -263,31 +268,6 @@ function createMapbox() {
 	createRightPanel(e);
       });
 
-      // helper function to filter for top 5 based on school name
-      // function getTopFiveAgencies(name) {
-      // 	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
-
-      // 	  let matched = agencies.filter(ele => {
-      // 	    return name === ele.source;
-      // 	  });
-      // 	  return matched;
-	  
-      // 	});  
-      // }
-
-      // // helper function to do the same thing, with agencies data...
-      // function getTopFiveCategories(name) {
-      // 	$.getJSON('../../data-lab-data/investmentcategories.json', function(categories) {
-
-      // 	  let matched = categories.filter(ele => {
-      // 	    return name === ele.source;
-      // 	  });
-      // 	  return matched;
-	  
-      // 	});  
-      // }
-
-
       function createRightPanel(e) {
 	let data = e.features[0].properties;
 	$(rightPanel).empty();
@@ -341,13 +321,10 @@ function createMapbox() {
 	// third section - (top 5)
 	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Funding Agencies (Top 5) </p></div>`);
 	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
-	  console.log(agencies);
 
-	  let matchedAgencies = agencies.filter(ele => {
+	  let matchedAgencies = agencies.filter(function(ele) {
 	    return data.Recipient === ele.source; 
 	  });
-
-	  console.log(matchedAgencies);
 
 	  if (matchedAgencies.length == 0) {
 	    $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
@@ -373,7 +350,7 @@ function createMapbox() {
 	  $(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
 	  $.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
 
-	    let matchedInvestments = investments.filter(ele => {
+	    let matchedInvestments = investments.filter(function(ele) {
 	      return data.Recipient === ele.source; 
 	    });
 
