@@ -350,16 +350,17 @@ function createMapbox() {
 
 	  if (matched.length == 0) {
 	    $(rightPanel).append(`<div id='inst-panel-section'><p class='inst-panel-subheading'>N/A</p></div>`);
-	  }
-
-	  matched.forEach(function(ele) {
-	    $(rightPanel).append(`<div id='inst-panel-section'>
+	  } else {
+	    matched.forEach(function(ele) {
+	      $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
   <p class='inst-panel-subheading--data'> ${ele.value} </p>
 </div>
 `);
+	    });  
+	    
+	  }
 
-	  });  
 	});
 
 	// fourth section - (top 5 again.. agencies)
@@ -374,20 +375,18 @@ function createMapbox() {
 	  
 	  if (matched.length == 0) {
 	    $(rightPanel).append(`<div id='inst-panel-section'><p class='inst-panel-subheading'>N/A</p></div>`);
-	  }
-
-	  matched.forEach(function(ele) {
-	    $(rightPanel).append(`<div id='inst-panel-section'>
+	  } else {
+	    matched.forEach(function(ele) {
+	      $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
   <p class='inst-panel-subheading--data'> ${ele.value} </p>
 </div>
-`);
-
-	  });  
+`);	      
+	    });  
+	  }
 	});
 
-
-      };
+      }; // end get right panel function
     }); // end getjson (get map function)
   });
 }; // end function (createMapbox)
