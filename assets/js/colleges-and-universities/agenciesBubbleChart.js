@@ -152,6 +152,12 @@ d3.csv("/data-lab-data/Edu_PSC.csv", (data) => {    //read in education data to 
         return a;
     },[])
 
+    if (!bubble.setAgencies) {
+      console.warn('bubble method not available')
+    } else {
+      bubble.setAgencies(agenciesData);
+    }
+
     addRadius(agenciesData);
 
     drawChart(bubbleChartContainer, agenciesData);
