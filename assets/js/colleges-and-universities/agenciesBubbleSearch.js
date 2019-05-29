@@ -22,6 +22,12 @@
         displayList(searchData.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
     }
 
+    function filterData() {
+        const filterValue = input.property('value').toLowerCase();
+
+        displayList(bubble.agencies.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
+    }
+
     function initInput() {
         input = inputWrapper
             .append('input')
