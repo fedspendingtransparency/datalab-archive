@@ -8,8 +8,15 @@
         list = searchContainer.append('ul').classed('bubble-search__list', true)
     }
 
+    function filterData() {
+        const filterValue = input.property('value').toLowerCase();
+
+        displayList(bubble.agencies.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
+    }
+
     function initInput() {
         input = inputWrapper.append('input')
+            .on('input', filterData)
     }
     
     function initSearch() {
@@ -19,13 +26,23 @@
     }
 
     function displayList(filtered) {
-        console.log('filtered', filtered)
+        let zeroLength;
+
+        list.selectAll('li').remove();
+
+        if (!filtered.length) {
+            filtered.push({
+                name: 'no items matched your search'
+            })
+
+            zeroLength = true;
+        }
+
         list.selectAll('li')
             .data(filtered)
             .enter()
             .append('li')
                 .text(d => d.name)
-
     }
     
     function setAgencies(agencies) {
