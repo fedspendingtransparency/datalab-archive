@@ -281,5 +281,11 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
+    if (!bubble.setAgencies) {
+      console.warn('bubble method not available')
+    } else {
+      bubble.setAgencies(agenciesData);
+    }
+
 });
 
