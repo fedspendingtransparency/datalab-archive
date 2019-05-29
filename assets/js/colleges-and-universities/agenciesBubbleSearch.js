@@ -20,22 +20,26 @@
     }
     
     function initSearch() {
-        console.log('init search')
         initDom();
         initInput();
     }
 
-    function displayList(filtered) {
-        let zeroLength;
+    function selectItem(d) {
+        if (d.zeroLength) {
+            return;
+        }
 
+        console.log(`do something with ${d.name}`);
+    }
+
+    function displayList(filtered) {
         list.selectAll('li').remove();
 
         if (!filtered.length) {
             filtered.push({
-                name: 'no items matched your search'
+                name: 'no items matched your search',
+                zeroLength: true
             })
-
-            zeroLength = true;
         }
 
         list.selectAll('li')
@@ -43,6 +47,7 @@
             .enter()
             .append('li')
                 .text(d => d.name)
+                .on('click', selectItem)
     }
     
     function setAgencies(agencies) {
