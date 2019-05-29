@@ -13,17 +13,18 @@ dlPageCss: C-a-U.css
   {% include colleges/sectionone.html %}
   {% include colleges/sectiontwo.html %}
   {% include colleges/sectionthree.html %}
-  {% include colleges/sectionfour.html %}
+  {% include colleges/investment-categories.html %}
 </div>
 
 
 <!--scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script> <!-- try using 4, whatever -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="{{site.baseurl}}/js/jquery.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script>
-<script src="{{site.baseurl}}/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
-<script src="{{site.baseurl}}/assets/js/colleges-and-universities/categoriesPieChart.js"></script>
+<!-- <script src="{{site.baseurl}}/assets/js/colleges-and-universities/investmentOverview.js"></script> -->
+<!-- <script src="{{site.baseurl}}/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script> -->
+<script src="{{site.baseurl}}/assets/js/colleges-and-universities/investment-categories.js"></script>
 <script src="{{site.baseurl}}/assets/js/colleges-and-universities/institutions.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="{{site.baseurl}}/js/jquery.dataTables.min.js"></script>
