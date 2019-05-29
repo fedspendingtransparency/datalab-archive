@@ -1,4 +1,4 @@
---- 
+---
 layout: ffg
 title: Data Lab - Federal Spending Trends – U.S. Treasury
 excerpt: This chart presents federal spending by spending type or by agency over a five year period. Have there been significant changes in federal spending? What impact does an increase or decrease have on spending at the sub-category level? You can track trends in federal spending by category or at the sub-category level.
@@ -7,6 +7,8 @@ keywords: federal spending, , revenue, federal revenue, U.S. spending, gross dom
 permalink: /americas-finance-guide/spending/trends.html
 ffg: true
 ffgNav: true
+socialMediaImage: social-media-share-spending.jpg
+socialMediaText: "How has federal spending changed over the past few years? #YourGuide tracks spending trends over time. #datalab"
 ffgPageCss: css/trendsCommon.css
 ---
 
@@ -33,14 +35,15 @@ ffgPageCss: css/trendsCommon.css
         </div>
 
         <div class="trend-chart">
-            <h2 class="chart-title">
-                <span class="title-text">Spending over Time by</span>
-                <div class="link-button__div">
-                    <button class="link-button" id="select-budget-function">Categories</button>
-                    <button class="link-button hidden" id="select-agency">Agency</button>
-                    <i class='link-button__icon fa fa-angle-down'></i>
-                </div>
-            </h2>
+            <div id="spending-chart-toggle" class="toggle-component toggle-component--spending clearfix" data-active="function">
+                <span class="toggle-component__label">Category</span>
+                <button id="toggle-spending-data-type" class="toggle-control">
+                    <div class="toggle-control__background">
+                        <div class="toggle-control__dot"></div>
+                    </div>
+                </button>
+                <span class="toggle-component__label">Agency</span>
+            </div>
 
             <div id="show-hide">
                 <button id="activate-show-hide">Filter <i class='fa fa-sliders-h'></i></button>
@@ -55,13 +58,13 @@ ffgPageCss: css/trendsCommon.css
                             <button id="save-filters-button">Save</button>
                         </div>
                     </div>
-        
+
                     <div id="show-hide-list"></div>
                 </div>
             </div>
-        
+
             <div class="hint">Click a spending category to view more</div>
-        
+
             <div id="viz"></div>
         </div>
     </div>

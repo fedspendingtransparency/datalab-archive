@@ -28,7 +28,17 @@
 
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
 
+  {% if page.dlPageCss %}<link rel="stylesheet" href="{{ page.dlPageCss | prepend: '/css/' | prepend: site.baseurl }}" />{% endif %}
+  
+
+
+  {% if page.colleges %}
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet'/>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+  {% endif %}
+
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
+
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
@@ -58,7 +68,11 @@
 
   <!-- og tags -->
   {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
-  <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
+  {% if page.socialMediaImage %}
+  <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
+  {% else %}
+  <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
+  {% endif %}
 </head>

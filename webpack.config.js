@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const build = process.env.BUILD ? process.env.BUILD : false;
 const devtool = build ? '' : 'inline-source-map';
@@ -14,6 +16,7 @@ const cssRules = [
                 loader: 'file-loader',
                 options: {
                     name: '[name].css',
+                    publicPath: '/assets/ffg/css/'
                 }
             },
             {
@@ -64,8 +67,6 @@ const moduleRules = [
         watchContentBase: true
     };
 
-console.log(path.resolve('static-snapshots'))
-
 module.exports = [{
     entry: {
         bp: './citizens-guide/src/bigPicture/index.js'
@@ -73,6 +74,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -81,7 +85,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/bp/'
+        path: __dirname + '/assets/ffg/bp/',
+        publicPath: '/assets/ffg/bp/'
     },
     module: {
         rules: moduleRules
@@ -93,6 +98,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -101,7 +109,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/components/glossary/'
+        path: __dirname + '/assets/ffg/components/glossary/',
+        publicPath: '/assets/ffg/components/glossary/'
     },
     module: {
         rules: moduleRules
@@ -113,6 +122,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -121,7 +133,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/components/tabs/'
+        path: __dirname + '/assets/ffg/components/tabs/',
+        publicPath: '/assets/ffg/components/tabs/'
     },
     module: {
         rules: moduleRules
@@ -136,6 +149,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -144,7 +160,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/revenue/'
+        path: __dirname + '/assets/ffg/revenue/',
+        publicPath: '/assets/ffg/revenue/'
     },
     module: {
         rules: moduleRules
@@ -159,6 +176,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -167,7 +187,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/spending/'
+        path: __dirname + '/assets/ffg/spending/',
+        publicPath: '/assets/ffg/spending/'
     },
     module: {
         rules: moduleRules
@@ -181,6 +202,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -189,7 +213,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/deficit'
+        path: __dirname + '/assets/ffg/deficit/',
+        publicPath: '/assets/ffg/deficit/'
     },
     module: {
         rules: moduleRules
@@ -204,6 +229,9 @@ module.exports = [{
     devtool: devtool,
     devServer: devServer,
     mode: mode,
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -212,7 +240,8 @@ module.exports = [{
     ],
     output: {
         filename: '[name].js',
-        path: __dirname + '/assets/ffg/debt'
+        path: __dirname + '/assets/ffg/debt/',
+        publicPath: '/assets/ffg/debt/'
     },
     module: {
         rules: moduleRules
@@ -230,8 +259,12 @@ module.exports = [{
         './citizens-guide/src/debt/trends/debt-trends.scss',
         './citizens-guide/src/debt/analysis/debt-analysis.scss'
     ],
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     output: {
-        path: __dirname + '/assets/ffg/css'
+        path: __dirname + '/assets/ffg/css/',
+        publicPath: '/assets/ffg/css/'
     },
     mode: mode,
     module: {

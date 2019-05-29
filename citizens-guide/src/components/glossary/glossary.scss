@@ -1,0 +1,355 @@
+@import '../../globalSass/colors.scss';
+
+#afg-launch-glossary-div {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+    opacity: 1;
+    -webkit-transition: opacity .3s ease-in;
+    -moz-transition: opacity .3s ease-in;
+    transition: opacity .3s ease-in;
+}
+
+#afg-launch-glossary-div.hidden {
+    display: block;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in;
+    -moz-transition: opacity .3s ease-in;
+    transition: opacity .3s ease-in;
+    -webkit-animation: removeHeightWidth .1s ease-in .3s forwards;
+    -moz-animation: removeHeightWidth .1s ease-in .3s forwards;
+    animation: removeHeightWidth .1s ease-in .3s forwards;
+}
+
+#afg-floating-glossary-button {
+    background-color: $tour-button;
+    box-shadow: 0 1px 2px rgba(43,59,93,.29);
+    width: 140px;
+    height: 40px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 16px;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Source Sans Pro,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    font-weight: 600;
+    outline: none;
+    padding: 0.625rem 1.3rem;
+    text-align: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width: 1200px) {
+    #afg-launch-glossary-div {
+        display: none;
+    }
+}
+
+#afg-floating-glossary-button:hover, #afg-floating-glossary-button:focus {
+    opacity: 0.85;
+    -webkit-transition: all .25s cubic-bezier(.445,.05,.55,.95);
+    -moz-transition: all .25s cubic-bezier(.445,.05,.55,.95);
+    transition: all .25s cubic-bezier(.445,.05,.55,.95);
+}
+
+#cg-glossary-wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 310px;
+    height: 100%;
+    z-index: 1000;
+    background-color:blue;
+    transform: translateX(100%);
+    transition: visibility  0.5s, transform 0.5s ease;
+    visibility: hidden; /*Prevent the links from being tabbed into when the glossary is hidden.*/
+}
+
+#cg-glossary-wrapper.active {
+    box-shadow: -3px 0 4px rgba(0, 0, 0, .2);
+    transform: translateX(0);
+    visibility: visible;
+}
+
+#cg-glossary-close-button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-align: left;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    float: right;
+}
+
+#cg-glossary-close-button:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+#cg-glossary-close-button svg {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 17px;
+    height: 17px;
+    fill: #fff;
+}
+
+#cg-search-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-align: left;
+    width: 14px;
+    height: 14px;
+}
+#cg-search-button svg {
+    fill: #5b616b;
+}
+
+#cg-definition-wrapper h2 {
+    color: white;
+}
+
+#cg-definition-wrapper p {
+    color: white;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cg-glossary-actionable-text {
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+.cg-glossary-sidebar {
+    background-color: #205493;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    box-sizing:border-box;
+    font-family: Source Sans Pro,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+}
+
+.cg-glossary-header-wrapper {
+    box-sizing:inherit;
+}
+
+.cg-glossary-header-wrapper * {
+    box-sizing:inherit;
+}
+
+.cg-glossary-header {
+    min-height: 200px;
+    padding: 20px;
+    background-color: #112e51;
+}
+
+.cg-glossary-title {
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 2.95rem;
+    margin: 1.9rem 0 0 0;
+    padding: 0;
+    font-family: Source Sans Pro,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    text-align: left;
+    color:white;
+}
+
+.cg-glossary-search-bar {
+    position: relative;
+    width: 250px;
+    height: 34px;
+    margin: 15px 0;
+}
+
+.cg-glossary-search-bar input.search-field {
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #555;
+    padding: 10px 25px 10px 10px;
+    width: 250px;
+    height: 34px;
+    letter-spacing:normal;
+}
+
+.cg-glossary-example {
+    font-style:italic;
+    margin-top:0.5rem;
+}
+
+.cg-glossary-result-group {
+    margin-top: 20px
+}
+
+.cg-glossary-result-group hr {
+    height:0;
+    box-sizing:content-box;
+    border: none;
+    border-top: 1px solid #fff;
+    opacity: .5;
+}
+
+.cg-glossary-result-group ul.cg-group-items {
+    margin-top:0;
+    margin-bottom:0;
+    list-style-type:none;
+    padding-left:0;
+}
+
+.cg-glossary-result-group ul.cg-group-items li {
+    margin-top:10px;
+}
+
+.cg-group-title {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+button.cg-glossary-link {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    width: 100%;
+    cursor:pointer;
+}
+
+button.cg-glossary-link:hover  {
+    text-decoration:underline;
+}
+
+button.cg-glossary-link:focus {
+    box-shadow: 0 0 5px 2px rgb(66, 142, 204);
+    border-radius: 1.5px;
+}
+
+.cg-glossary-scrollbar-track {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    /**
+      * The following is in place for now as the custom scrollbar used by USASpending doesn't respond to any mouse event.
+     */
+    display:none;
+}
+
+.cg-glossary-scrollbar-thumb {
+    width: 10px;
+    opacity: .3;
+    background-color: #fff;
+}
+
+.cg-glossary-back {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    outline: 0;
+    text-align: left;
+    padding: 5px 5px 5px 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.cg-glossary-back__content {
+    position: relative;
+}
+
+.cg-glossary-term {
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: 600;
+    margin: 0 20px 0 0;
+}
+
+.cg-glossary-angle-left {
+    position: absolute;
+    top: 1px;
+    height: 16px;
+    width: 16px;
+    fill: #fff;
+}
+
+.cg-glossary-back-button-label {
+    margin-left: 24px;
+}
+
+.cg-definition-content ul {
+    list-style: disc;
+    padding-left: 1.94em;
+}
+
+.cg-definition-content ul li {
+    line-height: 1.5;
+    margin-bottom: .5em;
+    font-weight: 500;
+}
+
+.cg-glossary-resources-title {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cg-glossary-resources-text {
+    line-height: 1.5;
+    color: white;
+}
+
+.cg-glossary-resources-text a {
+    color: #fff;
+    text-decoration: underline;
+    border-radius: 0;
+    outline: 0;
+}
+
+.cg-glossary-resources-text a:focus {
+    box-shadow: 0 0 5px 2px rgb(66, 142, 204);
+    border-radius: 1.5px;
+    text-decoration: none;
+}
+
+.cg-glossary-resources-text a:hover {
+    text-decoration: none;
+}
+
+.hidden {
+    display:none;
+}

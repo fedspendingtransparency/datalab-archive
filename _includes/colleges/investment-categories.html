@@ -1,0 +1,70 @@
+<article id='section-four'>
+  
+    <section id='investment-categories'>
+      <div>
+        {% include colleges/colleges-share.html %}
+        <h2 id='investment-categories__number'>04</h2>
+        <h3 id='investment-categories__title'>
+    Investment Categories
+        </h3>
+        <h1 id='investment-categories__preblurb'>
+    What is the money used for?
+        </h1>
+        <p id='investment-categories__blurb'>
+    Now that we know how much money was invested in higher education, are you curious to know what the money
+    was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
+    Categories
+        </p>
+      </div>
+  
+      <div id='chart-area'>
+        <form id='categories'>
+          <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
+            <label for='contracts_data'>Contracts (PSC)</label>
+          <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
+            <label for='grants_data'>Grants (CFDA)</label>
+          <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
+            <label for='research_data'>Research Grants (CFDA)</label>
+        </form>
+        <div id='chart-container'>
+          <div id='function-buttons'>
+            <div class='button-set'>
+              <div id='search'></div>
+            </div>
+            <div class='button-set'>
+              <div><!--chart-specific--></div>
+              <div id='table_view'></div>
+              <div id='zoom_in'>+</div>
+              <div id='zoom_out'>-</div>
+            </div>
+          </div>
+  
+          <div>
+            <div id='legend_colorKey'>
+              <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
+              <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
+              <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
+              <svg id='legend_scaleKey'></svg>
+            </div>
+            <div id='sunburst'>
+              <div id='center'></div>
+            </div>
+            <div class="chart-footer" style="display: -ms-grid;">
+              <span class='faded'>Updated as of December 2019 / </span>
+              
+              <a href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
+                <div class="download-data">
+                  {% include svgs/download-grey.svg %}
+                  Download
+                </div>
+              </a>
+            </div>
+          </div>
+  
+          <div>Placeholder for right panel</div>
+        </div>
+      </div>
+    </section>
+  
+  </article>
+  
