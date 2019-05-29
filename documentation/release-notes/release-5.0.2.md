@@ -10,3 +10,4 @@
 | Update text in the America’s Finance Guide accordion |  https://federal-spending-transparency.atlassian.net/browse/DA-3854 |
 | Import CSS locally and minify CSS | https://federal-spending-transparency.atlassian.net/browse/DA-3965 |
 | Optimize America’s Finance Guide Images | n/a |
+| Add Google Tag Manager | https://federal-spending-transparency.atlassian.net/browse/CG-1493 |
