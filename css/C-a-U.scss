@@ -1,8 +1,6 @@
 ---
 ---
 
-@import 'C-a-U-share';
-
 $orange: #d04c02;
 $background: #fbfbfb;
 $green: #50604f;
@@ -357,7 +355,6 @@ $bluecopy: #2272ce;
           // this just mirrors the border and contents, pointing the Unicode magnifier the other way
           -moz-transform: scale (-1, 1);
           -webkit-transform: scale (-1, 1);
-          -o-transform: scale (-1, 1);
           -ms-transform: scale (-1, 1);
           transform: scale (-1, 1);
           border-radius: $border-radius 0 0 $border-radius;
@@ -369,7 +366,6 @@ $bluecopy: #2272ce;
 
         %partial-top-border {
           width: $partial-border-size;
-          // top: -$border-width;
           left: $partial-border-size / 2;
           border-top: $left-button-border;
         }
@@ -515,16 +511,22 @@ $bluecopy: #2272ce;
 
         .faded {
           opacity: 0.5;
-          line-height: 16pt;
+          line-height: 18pt;
         }
 
         .download-data {
           color: #4a4a4a;
           margin-left: 12px;
 
-          // &::after {
-          //   content: '\8677';
-          // }
+          &::before {
+            content: '\21a7';
+            font-size: 18pt;
+            // display: inline-block;
+            // -moz-transform: rotate (90deg);
+            // -webkit-transform: rotate (90deg);
+            // -ms-transform: rotate (90deg);
+            // transform: rotate (90deg);
+          }
           &:hover {
             color: #00c3c2;
           }
