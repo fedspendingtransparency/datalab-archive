@@ -44,13 +44,14 @@ function createMapbox() {
 	  yearType: ele.properties.INST_TYPE_2
 	};
       });
-
+     
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
-	  let matched = geoandname.filter(function (ele) {
-	    return this.textContent === ele.name;
+	  let that = this;
+	  let matched = geoandname.filter(function(ele) {
+	    return that.textContent === ele.name;
 	  });
 	  let tooltipHtml = `<h2> ${matched[0].name}</h2> Amount Invested: ${matched[0].fedInvest} <br> ${matched[0].instType} <br> ${matched[0].yearType}`;
 	  map.easeTo({
