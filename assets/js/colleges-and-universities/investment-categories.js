@@ -209,7 +209,6 @@ function toggleMapView() {
   console.log('toggle map view running!');
   let sunContainer = $('#sunburst');
   let mapBtn = $('#table_view');
-  
   let tableContainer = $('#investment-table');
 
   mapBtn.click(function(){
@@ -218,17 +217,19 @@ function toggleMapView() {
   });  
 }
 
-function createInvesmentTable(columns) {
+// Creating our Table!
+// Passing in an Array[] of Columns! (using map)
+function createInvestmentTable(columns) {
   d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
     if (err) { return err; }
 
     /**
      * Table START
      */
-    let table = d3.select('#alma-mater-table').append('table')
-        .attr('id', 'datatable'); // id given to table for Datatables.js
+    let table = d3.select('#investment-table').append('table')
+        .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
 
-    let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
 
     let rows = table.append('tbody')
         .selectAll('tr')
@@ -274,7 +275,7 @@ function createInvesmentTable(columns) {
 
 
     // datatable start
-    let dTable = $('#datatable').dataTable();
+    let investmentDataTable = $('#investment-table-datatable').dataTable(); // start datatable
   }); // end d3 function
 };
 
@@ -292,8 +293,12 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
     node.colorIndex = index % wedgeColors.length;
   });
   chartData = grantsChartArray[0];
+
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
+  createInvestmentTable(['family', 'Program_Title', 'Agency', 'Subagency', 'Recipient', 'Obligation']); // matching data headers from csv!
+
+  
 
   // now do it all again with only research grants
   researchGrantsHierarchy = buildDataHierarchy('Research Grants CFDA', grantData.filter(c => c.Research));

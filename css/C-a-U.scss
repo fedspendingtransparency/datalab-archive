@@ -327,6 +327,10 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
+      #investment-table {
+	display: none; // toggle show in JS
+      }
+
       #function-buttons {
         display: flex;
         flex-direction: column;
@@ -350,6 +354,11 @@ $bluecopy: #2272ce;
             line-height: $left-button-size;
             text-align: center;
           }
+
+	  &:hover {
+	    cursor: pointer;
+	  }
+
         }
 
         #search {
