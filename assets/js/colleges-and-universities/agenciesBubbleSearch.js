@@ -1,4 +1,6 @@
-(function(){
+(function () {
+    const searchData = [];
+
     let parentSection, searchContainer, inputWrapper, input, list;
 
     function initDom() {
@@ -11,7 +13,7 @@
     function filterData() {
         const filterValue = input.property('value').toLowerCase();
 
-        displayList(bubble.agencies.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
+        displayList(searchData.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
     }
 
     function initInput() {
@@ -21,7 +23,7 @@
             .attr('placeholder', 'Search Agencies')
             .on('input', filterData)
     }
-    
+
     function initSearch() {
         initDom();
         initInput();
@@ -49,16 +51,38 @@
             .data(filtered)
             .enter()
             .append('li')
-                .text(d => d.name)
-                .classed('bubble-search__item', true)
-                .on('click', selectItem)
-    }
-    
-    function setAgencies(agencies) {
-        bubble.agencies = agencies;
-        initSearch();
-        displayList(bubble.agencies);
+            .text(d => d.name)
+            .classed('bubble-search__item', true)
+            .on('click', selectItem)
     }
 
-    bubble.setAgencies = setAgencies;
+    function flattenData(data) {
+        data.children.forEach(child => {
+            searchData.push(child);
+
+            if (child.children && child.children.length > 1) {
+                flattenData(child)
+            }
+        })
+
+        searchData.sort((a, b) => {
+            return a.name - b.name;
+        })
+    }
+
+    function setSearchData(data) {
+        flattenData(data)
+
+        searchData.sort((a, b) => {
+            if (a.name < b.name) { return -1; }
+            if (a.name > b.name) { return 1; }
+            return 0;
+        })
+
+        console.log(searchData)
+        initSearch();
+        displayList(searchData);
+    }
+
+    bubble.setSearchData = setSearchData;
 })()
