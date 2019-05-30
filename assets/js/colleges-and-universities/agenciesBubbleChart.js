@@ -80,12 +80,13 @@ function drawBubbleChart(root) {
 
     var aspect = window.innerWidth / window.innerHeight;
     var targetWidth = window.innerWidth;
-
+    
+    bubble.chartHeight = targetWidth / aspect;
 
     var svg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
-        .attr("height", targetWidth / aspect)
+        .attr("height", bubble.chartHeight)
         .append("g")
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
