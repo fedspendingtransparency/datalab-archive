@@ -205,6 +205,81 @@ function buildDataHierarchy(title, dataArray) {
   return data;
 }
 
+// Creating our Table!
+// Passing in an Array[] of Columns! (using map)
+function createInvestmentTable(columns) {
+  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+    if (err) { return err; }
+
+    /**
+     * Table START
+     */
+    let table = d3.select('#investment-table').append('table')
+        .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
+
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
+
+    let rows = table.append('tbody')
+        .selectAll('tr')
+        .data(data).enter()
+        .append('tr')
+        .on('click', function (d) {
+	  // TODO! right hand panel will come out on this TR click! 
+	  // secondary table view
+	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
+        });
+
+    
+    let headers = table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    rows.selectAll('td')
+      .data(function (row) {
+        return columns.map(function (column) {
+          return { column: column, value: row[column] };
+        });
+      }).enter()
+      .append('td')
+      .classed('name', function (d) {
+        return d.column == 'Recipient';
+      })
+      .classed('percentage', function (d) {
+        return d.column == 'State';
+      })
+      .classed('total', function (d) {
+        return d.column == 'Total';
+      })
+      .text(function (d) {
+        return d.value;
+      })
+      .attr('data-th', function (d) {
+        return d.name;
+      });
+
+
+    // datatable start
+    $('#investment-table-datatable').dataTable(); // start datatable
+
+  });
+};
+
+function toggleMapView() {
+  let sunContainer = $('#sunburst');
+  let mapBtn = $('#table_view');
+  let tableContainer = $('#investment-table');
+
+  mapBtn.click(function(){
+    sunContainer.toggle(); // hide!
+    tableContainer.toggle(); // show!
+    createInvestmentTable(['family', 'Program_Title', 'Agency', 'Subagency', 'Recipient', 'Obligation']); // matching data headers from csv!
+  });  
+}
+
 const partition = d3.layout.partition().value(d => d.size);
 
 let grantsHierarchy, grantsChartArray;
@@ -218,7 +293,11 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
     node.colorIndex = index % wedgeColors.length;
   });
   chartData = grantsChartArray[0];
+
   drawChart(grantsChartArray); // default chart is all grants
+  toggleMapView(); // event listeners for the table view! 
+
+  
 
   // now do it all again with only research grants
   researchGrantsHierarchy = buildDataHierarchy('Research Grants CFDA', grantData.filter(c => c.Research));

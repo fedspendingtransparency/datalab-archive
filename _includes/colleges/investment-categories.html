@@ -2,11 +2,7 @@
 
   <section id='investment-categories'>
     <div>
-<<<<<<< HEAD
-      <!-- {% include colleges/colleges-share.html %} -->
-=======
       {% include colleges/colleges-share.html anchor="section-four" %}
->>>>>>> agency-search-2826
       <h2 id='investment-categories__number'>04</h2>
       <h3 id='investment-categories__title'>
 	Investment Categories
@@ -24,22 +20,22 @@
     <div id='chart-area'>
       <form id='categories'>
         <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
-          <label for='contracts_data'>Contracts (PSC)</label>
+        <label for='contracts_data'>Contracts (PSC)</label>
         <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
-          <label for='grants_data'>Grants (CFDA)</label>
+        <label for='grants_data'>Grants (CFDA)</label>
         <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
-          <label for='research_data'>Research Grants (CFDA)</label>
+        <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
         <div id='function-buttons'>
           <div class='button-set'>
-            <div id='search'></div>
+            <div id='search-btn'><i class="fas fa-search"></i></div>
           </div>
           <div class='button-set'>
             <div><!--chart-specific--></div>
-            <div id='table_view'></div>
-            <div id='zoom_in'>+</div>
-            <div id='zoom_out'>-</div>
+            <div id='table_view'><i class="fas fa-table"></i></div>
+            <div id='zoom_in'><i class="fas fa-plus"></i></div>
+            <div id='zoom_out'><i class="fas fa-minus"></i></div>
           </div>
         </div>
 
@@ -68,7 +64,10 @@
 
         <div>Placeholder for right panel</div>
       </div>
-    </section>
-  
-  </article>
-  
+      <div id="investment-table">
+	<!-- table here -->
+      </div>
+    </div>
+  </section>
+
+</article>
