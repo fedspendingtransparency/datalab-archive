@@ -29,7 +29,7 @@
             .attr('placeholder', 'Search Agencies')
             .on('input', filterData)
     }
-
+    
     function initSearch() {
         initDom();
         initInput();
