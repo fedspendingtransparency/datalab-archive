@@ -27,16 +27,18 @@
           <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div id='function-buttons'>
+      {% include svgs/Search.svg %}
+      {% include svgs/Sunburst.svg %}
+        <!-- <div id='function-buttons'>
           <div class='button-set'>
             <div id='search'></div>
           </div>
           <div class='button-set'>
-            <div><!--chart-specific--></div>
+            <div><!--chart-specific--><!--</div>
             <div id='table_view'></div>
             <div id='zoom_in'>+</div>
             <div id='zoom_out'>-</div>
-          </div>
+          </div> -->
         </div>
 
         <div>
@@ -52,7 +54,6 @@
           <div class="chart-footer">
             <div>
               <span class='faded'>Updated as of December 2019 / </span>
-              
               <a href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
                 <span class="download-data">
                   Download
