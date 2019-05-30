@@ -4,10 +4,16 @@
     let parentSection, searchContainer, inputWrapper, input, list;
 
     function initDom() {
-        parentSection = d3.select('#section-three');
-        searchContainer = parentSection.insert('div', ':first-child').classed('bubble-search', true);
+        parentSection = d3.select('#bubble-search');
+        searchContainer = parentSection.append('div').classed('bubble-search', true);
         inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
-        list = searchContainer.append('ul').classed('bubble-search__list', true)
+        list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
+    }
+
+    function toggleSearch() {
+        d3.select('#bubble-search-trigger').on('click', () => {
+            parentSection.classed('active', !parentSection.classed('active'))
+        })
     }
 
     function filterData() {
@@ -27,6 +33,7 @@
     function initSearch() {
         initDom();
         initInput();
+        toggleSearch();
     }
 
     function selectItem(d) {
