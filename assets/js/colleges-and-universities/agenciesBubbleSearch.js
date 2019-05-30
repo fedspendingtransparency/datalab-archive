@@ -15,7 +15,10 @@
     }
 
     function initInput() {
-        input = inputWrapper.append('input')
+        input = inputWrapper
+            .append('input')
+            .classed('bubble-search__input', true)
+            .attr('placeholder', 'Search Agencies')
             .on('input', filterData)
     }
     
@@ -47,6 +50,7 @@
             .enter()
             .append('li')
                 .text(d => d.name)
+                .classed('bubble-search__item', true)
                 .on('click', selectItem)
     }
     
