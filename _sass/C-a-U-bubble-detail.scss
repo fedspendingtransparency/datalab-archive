@@ -1,0 +1,37 @@
+#bubble-detail {
+    position: relative;
+}
+
+.bubble-detail {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+    transition: right 0.5s ease-in-out;
+}
+
+.bubble-detail.bubble-detail--active {
+    right: 0;
+}
+
+.bubble-detail__agency-label {
+    display: block;
+    color: #aaa;
+}
+
+.bubble-detail__agency-name {
+    display: block;
+    color: #666;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.bubble-detail__close {
+    float: right;
+}
