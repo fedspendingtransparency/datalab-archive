@@ -74,18 +74,31 @@ var pack = d3.layout.pack()
 
 var node, circle, recipientMap;
 
+<<<<<<< HEAD
 function drawChart(root) {
+=======
+function drawBubbleChart(root) {
+>>>>>>> agency-search-2826
     var width = 1600;
     var height = 2000;
 
     var aspect = window.innerWidth / window.innerHeight;
     var targetWidth = window.innerWidth;
+<<<<<<< HEAD
 
+=======
+    
+    bubble.chartHeight = targetWidth / aspect;
+>>>>>>> agency-search-2826
 
     var svg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
+<<<<<<< HEAD
         .attr("height", targetWidth / aspect)
+=======
+        .attr("height", bubble.chartHeight)
+>>>>>>> agency-search-2826
         .append("g")
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
@@ -153,9 +166,15 @@ function transformData(data) {
     // Re-structure data
     for(agency in result) {
         result[agency] = _.groupBy(result[agency], 'subagency');
+<<<<<<< HEAD
 
         tempRoot.children.push({"name": agency, "children": []});
 
+=======
+
+        tempRoot.children.push({"name": agency, "children": []});
+
+>>>>>>> agency-search-2826
         for(subagency in result[agency]) {
             result[agency][subagency] = _.groupBy(result[agency][subagency], 'Recipient');
 
@@ -199,6 +218,7 @@ function transformData(data) {
             delete tempRoot.children[i].children[j].children;
 
         }
+<<<<<<< HEAD
     }
 
     // add color
@@ -207,10 +227,25 @@ function transformData(data) {
             tempRoot.children[i].children[j].color = color[i];
         }
     }
+=======
+    }
+
+    // add color
+    for (var i = 0; i < tempRoot.children.length; i++) {
+        for (var j = 0; j < tempRoot.children[i].children.length; j++) {
+            tempRoot.children[i].children[j].color = color[i];
+        }
+    }
+>>>>>>> agency-search-2826
     return tempRoot;
 }
 
 // Zoom into a specific circle
+<<<<<<< HEAD
+=======
+// CALL THIS FUNCTION ON SEARCH
+// Parameter is a specific node 
+>>>>>>> agency-search-2826
 function zoom(d) {
     var focus0 = focus;
     focus = d;
@@ -270,6 +305,7 @@ function zoomTo(v) {
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
     var root = transformData(data);
 
+<<<<<<< HEAD
     drawChart(root);
 
     d3.select(bubbleChartContainer)
@@ -280,4 +316,22 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
 });
+=======
+    drawBubbleChart(root);
 
+    d3.select(bubbleChartContainer)
+        .on("click", function() {
+            zoom(root);
+        });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+>>>>>>> agency-search-2826
+
+    if (!bubble.setSearchData) {
+      console.warn('bubble method not available')
+    } else {
+      bubble.setSearchData(root);
+      bubble.zoom = zoom;
+    }
+
+});
