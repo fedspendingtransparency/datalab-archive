@@ -34,7 +34,7 @@
             return;
         }
 
-        console.log(`do something with ${d.name}`);
+        bubble.zoom(d);
     }
 
     function displayList(filtered) {
@@ -79,7 +79,6 @@
             return 0;
         })
 
-        console.log(searchData)
         initSearch();
         displayList(searchData);
     }
