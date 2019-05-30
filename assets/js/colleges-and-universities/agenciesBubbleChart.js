@@ -248,10 +248,8 @@ function zoom(d) {
         }, 10)
 
     } else {
-        console.log(recipient[d.parent.name][d.name]);
-        // window.alert('open right window, parent - ' + d.parent.name + ', ' + d.name);
+        bubble.activateDetail(d)
     }
-
 }
 
 function zoomTo(v) {
