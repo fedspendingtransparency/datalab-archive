@@ -74,7 +74,7 @@ var pack = d3.layout.pack()
 
 var node, circle, recipientMap;
 
-function drawChart(root) {
+function drawBubbleChart(root) {
     var width = 1600;
     var height = 2000;
 
@@ -211,6 +211,8 @@ function transformData(data) {
 }
 
 // Zoom into a specific circle
+// CALL THIS FUNCTION ON SEARCH
+// Parameter is a specific node 
 function zoom(d) {
     var focus0 = focus;
     focus = d;
@@ -270,7 +272,7 @@ function zoomTo(v) {
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
     var root = transformData(data);
 
-    drawChart(root);
+    drawBubbleChart(root);
 
     d3.select(bubbleChartContainer)
         .on("click", function() {
