@@ -14,7 +14,7 @@ purpose: utility to return 0 if a number cannot be parsed
 */
 const float = num => {                                          
     return (parseFloat(num) > 0 ? parseFloat(num) : 0);
-}
+};
 
 Number.prototype.formatMoney = function(c, d, t){
     var n = this, 

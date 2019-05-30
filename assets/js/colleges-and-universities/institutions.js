@@ -382,10 +382,6 @@ function createMapbox() {
   });
 }; // end function (createMapbox)
 
-
-
-
-
 function createSectFourTable(columns) {
   d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
     if (err) { return err; }
@@ -393,7 +389,6 @@ function createSectFourTable(columns) {
     /**
      * Table START
      */
-//    let sortAscending = true;
     let table = d3.select('#alma-mater-table').append('table')
         .attr('id', 'datatable'); // id given to table for Datatables.js
 
