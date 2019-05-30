@@ -2,7 +2,7 @@
 
   <section id='investment-categories'>
     <div>
-      <!-- {% include colleges/colleges-share.html %} -->
+      {% include colleges/colleges-share.html anchor="section-four" %}
       <h2 id='investment-categories__number'>04</h2>
       <h3 id='investment-categories__title'>
 	Investment Categories
@@ -20,18 +20,18 @@
     <div id='chart-area'>
       <form id='categories'>
         <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
-          <label for='contracts_data'>Contracts (PSC)</label>
+        <label for='contracts_data'>Contracts (PSC)</label>
         <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
-          <label for='grants_data'>Grants (CFDA)</label>
+        <label for='grants_data'>Grants (CFDA)</label>
         <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
-          <label for='research_data'>Research Grants (CFDA)</label>
+        <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
       {% include svgs/Search.svg %}
       {% include svgs/Sunburst.svg %}
         <!-- <div id='function-buttons'>
           <div class='button-set'>
-            <div id='search'></div>
+            <div id='search-btn'><i class="fas fa-search"></i></div>
           </div>
           <div class='button-set'>
             <div><!--chart-specific--><!--</div>
@@ -64,6 +64,9 @@
         </div>
 
         <div>Placeholder for right panel</div>
+      </div>
+      <div id="investment-table">
+	<!-- table here -->
       </div>
     </div>
   </section>
