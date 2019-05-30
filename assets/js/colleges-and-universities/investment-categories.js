@@ -205,18 +205,6 @@ function buildDataHierarchy(title, dataArray) {
   return data;
 }
 
-function toggleMapView() {
-  console.log('toggle map view running!');
-  let sunContainer = $('#sunburst');
-  let mapBtn = $('#table_view');
-  let tableContainer = $('#investment-table');
-
-  mapBtn.click(function(){
-    sunContainer.toggle(); // hide!
-    tableContainer.toggle(); // show!
-  });  
-}
-
 // Creating our Table!
 // Passing in an Array[] of Columns! (using map)
 function createInvestmentTable(columns) {
@@ -275,10 +263,22 @@ function createInvestmentTable(columns) {
 
 
     // datatable start
-    let investmentDataTable = $('#investment-table-datatable').dataTable(); // start datatable
-  }); // end d3 function
+    $('#investment-table-datatable').dataTable(); // start datatable
+
+  });
 };
 
+function toggleMapView() {
+  let sunContainer = $('#sunburst');
+  let mapBtn = $('#table_view');
+  let tableContainer = $('#investment-table');
+
+  mapBtn.click(function(){
+    sunContainer.toggle(); // hide!
+    tableContainer.toggle(); // show!
+    createInvestmentTable(['family', 'Program_Title', 'Agency', 'Subagency', 'Recipient', 'Obligation']); // matching data headers from csv!
+  });  
+}
 
 const partition = d3.layout.partition().value(d => d.size);
 
@@ -296,7 +296,6 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
 
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
-  createInvestmentTable(['family', 'Program_Title', 'Agency', 'Subagency', 'Recipient', 'Obligation']); // matching data headers from csv!
 
   
 
