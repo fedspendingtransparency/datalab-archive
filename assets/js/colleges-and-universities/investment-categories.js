@@ -270,7 +270,7 @@ function createInvestmentTable(columns) {
 
 function toggleMapView() {
   let sunContainer = $('#sunburst');
-  let mapBtn = $('#table_view');
+  let mapBtn = $('#table-view');
   let tableContainer = $('#investment-table');
 
   mapBtn.click(function(){

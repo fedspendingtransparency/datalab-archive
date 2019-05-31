@@ -29,13 +29,13 @@
       <div id='chart-container'>
         <div id='function-buttons'>
           <div class='button-set'>
-            <div id='search-btn'><i class="fas fa-search"></i></div>
+            <div id='search-btn'>{% include svgs/magnifier.svg %}</div>
           </div>
           <div class='button-set'>
-            <div><!--chart-specific--></div>
-            <div id='table_view'><i class="fas fa-table"></i></div>
-            <div id='zoom_in'><i class="fas fa-plus"></i></div>
-            <div id='zoom_out'><i class="fas fa-minus"></i></div>
+            <div>{% include svgs/sunburst_icon.svg %}</div>
+            <div id='table-view'>{% include svgs/list_icon.svg %}</div>
+            <div id='zoom_in'>+</div>
+            <div id='zoom_out'>-</div>
           </div>
         </div>
 
@@ -52,7 +52,6 @@
           <div class="chart-footer">
             <div>
               <span class='faded'>Updated as of December 2019 / </span>
-              
               <a href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
                 <span class="download-data">
                   Download
@@ -64,9 +63,8 @@
 
         <div>Placeholder for right panel</div>
       </div>
-      <div id="investment-table">
-	<!-- table here -->
-      </div>
+
+      <div id="investment-table"></div>
     </div>
   </section>
 

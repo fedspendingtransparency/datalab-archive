@@ -329,10 +329,6 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
-      #investment-table {
-	display: none; // toggle show in JS
-      }
-
       #function-buttons {
         display: flex;
         flex-direction: column;
@@ -357,22 +353,8 @@ $bluecopy: #2272ce;
             text-align: center;
           }
 
-	  &:hover {
-	    cursor: pointer;
-	  }
-
-        }
-
-        #search {
-          // this just mirrors the border and contents, pointing the Unicode magnifier the other way
-          -moz-transform: scale (-1, 1);
-          -webkit-transform: scale (-1, 1);
-          -ms-transform: scale (-1, 1);
-          transform: scale (-1, 1);
-          border-radius: $border-radius 0 0 $border-radius;
-          
-          &::after {
-            content: '\2315';
+          &:hover {
+            cursor: pointer;
           }
         }
 
@@ -382,11 +364,16 @@ $bluecopy: #2272ce;
           border-top: $left-button-border;
         }
 
-        #table_view::after {
-          @extend %partial-top-border;
-          content: '\2630';
-          padding: 0 4px;
-        }
+        #table-view {
+          position: relative;
+
+          &::after {
+            @extend %partial-top-border;
+            content: '';
+            position: absolute;
+          }
+       }
+       
         #zoom_in {
           border-top: $left-button-border;
         }
@@ -402,6 +389,10 @@ $bluecopy: #2272ce;
         }
       }
 
+      #investment-table {
+        display: none;
+      }
+  
       #chart-area {
         width: 100%;
         display: flex;
