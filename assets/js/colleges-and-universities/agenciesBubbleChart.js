@@ -278,11 +278,8 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
             zoom(root);
         });
 
-<<<<<<< HEAD
-=======
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
->>>>>>> refactor search to handle new data structure
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
     } else {
