@@ -408,7 +408,7 @@ $bluecopy: #2272ce;
         flex-direction: column;
         justify-content: space-evenly;
       }
-  
+      
       #categories {
         width: 100%;
       }
@@ -418,13 +418,13 @@ $bluecopy: #2272ce;
         display: flex;
         justify-content: space-between;
       }
-  
+      
       circle {
         fill: none;
         stroke: black;
         stroke-width: 2px;
       }
-  
+      
       #sunburst {
         height: 700px;
         width: 700px;
@@ -438,7 +438,7 @@ $bluecopy: #2272ce;
         top: 0;
         left: 0;
       }
-  
+      
       #sunburst path {
         cursor: pointer;
         stroke: #fff;
@@ -450,7 +450,7 @@ $bluecopy: #2272ce;
       #sunburst path.depth2 {
         opacity: 0.5;
       }
-  
+      
       #center {
         font-size: 1.1em;
         text-align: center;
@@ -458,11 +458,11 @@ $bluecopy: #2272ce;
         max-width: 320px;
         overflow: hidden;
       }
-  
+      
       .title {
         text-transform: capitalize;
       }
-  
+      
       #center .heading {
         color: grey;
         padding-top: .75em
@@ -475,7 +475,7 @@ $bluecopy: #2272ce;
         padding-top: .75em;
         color: #881e3d; /*match 1st wedgeColor*/
       }
-  
+      
       #legend_colorKey {
         position: relative;
         left: -100px;
@@ -483,20 +483,20 @@ $bluecopy: #2272ce;
         padding: 0;
         overflow: visible;
       }
-  
+      
       #legend_scaleKey {
         width: 225px;
         height: 130px;
         position: absolute;
       }
-  
+      
       .legend_circleKeyLabel {
         position: absolute;
         border-top: solid 1px #DDD;
         width: 70px;
         left: 65px;
       }
-  
+      
       .legend_circleKeyLabel span {
         font-size: 10px;
         color: #999;
@@ -507,7 +507,7 @@ $bluecopy: #2272ce;
         left: 75px;
         z-index: 100;
       }
-  
+      
       .legend_scaleKeyCircle {
         stroke-width: 1;
         stroke: #999;
@@ -690,6 +690,13 @@ $bluecopy: #2272ce;
   }
 
   .map-overlay {
+    //    position: absolute;
+    //    top: 10px;
+    //    right: 10px;
+    //    z-index: 1;
+    //    border-radius: .25rem;
+    //    max-width: 30%;
+    //    color: #fff;
     height: 600px;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -902,6 +909,7 @@ $bluecopy: #2272ce;
       display: none;
       box-sizing: border-box;
       border: 1px solid #ddd;
+      width: 40%;
       border-radius: 0.25rem;
       padding-left: 1rem;
       padding-right: 1rem;
@@ -924,7 +932,7 @@ $bluecopy: #2272ce;
 	line-height: 18px;
       }
 
-.inst-panel-header {
+      .inst-panel-header {
 	color: #555555;
 	font-size: 25.2px;
 	font-weight: 600;
@@ -932,16 +940,13 @@ $bluecopy: #2272ce;
 	text-align: left;
       }
 
-      #inst-panel-section {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid #F2F2F2;
-      }
-
+      // have to reset margin on all of these
+      // defaults with 2em
       .inst-panel-subheading {
 	font-size: 12px;
 	font-weight: 300;
 	line-height: 18px;
+	margin: 0; 
       }
 
       .inst-panel-subheading--bold {
@@ -949,12 +954,14 @@ $bluecopy: #2272ce;
 	font-size: 12px;
 	font-weight: 600;
 	line-height: 15px;
+	margin: 0;
       }
 
       .inst-panel-subheading--data {
 	font-size: 12px;
 	font-weight: 300;
 	line-height: 18px;
+	margin: 0;
       }
 
       .inst-panel-subheading--bold--center {
@@ -963,13 +970,21 @@ $bluecopy: #2272ce;
 	font-weight: 600;
 	line-height: 15px;
 	text-align: center;
- }
+      }
 
       #inst-panel-section {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #F2F2F2;
         font-size: 15px;
         line-height: 18px;
         color: #4a4a4a;
         font-weight: 400; // regular
+	margin-top: 1rem;
+
+	&:last-child {
+	  margin-bottom: 1rem;
+	}
 
         // child p tag class
         p.inst-panel-subtext {
