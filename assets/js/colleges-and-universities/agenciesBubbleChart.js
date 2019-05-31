@@ -80,12 +80,13 @@ function drawBubbleChart(root) {
 
     var aspect = window.innerWidth / window.innerHeight;
     var targetWidth = window.innerWidth;
-
+    
+    bubble.chartHeight = targetWidth / aspect;
 
     var svg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
-        .attr("height", targetWidth / aspect)
+        .attr("height", bubble.chartHeight)
         .append("g")
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
@@ -247,10 +248,8 @@ function zoom(d) {
         }, 10)
 
     } else {
-        console.log(recipient[d.parent.name][d.name]);
-        // window.alert('open right window, parent - ' + d.parent.name + ', ' + d.name);
+        bubble.activateDetail(d)
     }
-
 }
 
 function zoomTo(v) {
@@ -281,5 +280,11 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-});
+    if (!bubble.setSearchData) {
+      console.warn('bubble method not available')
+    } else {
+      bubble.setSearchData(root);
+      bubble.zoom = zoom;
+    }
 
+});
