@@ -28,16 +28,14 @@
       </form>
       <div id='chart-container'>
         <div id='function-buttons'>
-          {% include svgs/Search.svg %}
-          {% include svgs/Sunburst.svg %}
-          <!-- <div class='button-set'>
-            <div id='search-btn'><i class="fas fa-search"></i></div>
+          <div class='button-set'>
+            <div id='search-btn'>{% include svgs/magnifier.svg %}</div>
           </div>
           <div class='button-set'>
-            <div><!--chart-specific--><!--</div>
-            <div id='table_view'></div>
+            <div>{% include svgs/sunburst_icon.svg %}</div>
+            <div id='table-view'>{% include svgs/list_icon.svg %}</div>
             <div id='zoom_in'>+</div>
-            <div id='zoom_out'>-</div> -->
+            <div id='zoom_out'>-</div>
           </div>
         </div>
 
@@ -65,9 +63,8 @@
 
         <div>Placeholder for right panel</div>
       </div>
-      <div id="investment-table">
-	<!-- table here -->
-      </div>
+
+      <div id="investment-table"></div>
     </div>
   </section>
 
