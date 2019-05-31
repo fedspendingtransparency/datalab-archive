@@ -49,7 +49,7 @@
     function placeCloseButton() {
         detailContainer.append('button')
             .classed('bubble-detail__close', true)
-            .text('close')
+            .html('&times;')
             .on('click', () => {
                 detailContainer.classed(activeClass, false)
             })
@@ -80,7 +80,7 @@
         })
 
         tables.funding.append('tr');
-        tables.funding.select('tr').append('th').text('Funding Instrument Type');
+        tables.funding.select('tr').append('th').text('Funding Instrument Type').attr('colspan', 2)
 
         tables.investments.append('tr');
         tables.investments.select('tr').append('th').text('Investment Categories (Top 5)');
