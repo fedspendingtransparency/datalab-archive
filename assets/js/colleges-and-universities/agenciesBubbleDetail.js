@@ -1,6 +1,7 @@
 (function () {
     const detailContainer = d3.select('#bubble-detail').append('section').classed('bubble-detail', true),
         tables = {},
+        detailData = {},
         tableControl = [
             'total',
             'funding',
@@ -9,41 +10,42 @@
         ], // for controlling the order of positioning tables
         activeClass = 'bubble-detail--active';
 
-    const investmentMock = [
-        { key: 'Category 1', value: 1000000 },
-        { key: 'Category 2', value: 1000000 },
-        { key: 'Category 3', value: 1000000 },
-        { key: 'Category 4', value: 1000000 },
-        { key: 'Category 5', value: 1000000 }
-    ],
-        institutionMock = [
-            { key: 'Institution 1', value: 1000000 },
-            { key: 'Institution 2', value: 1000000 },
-            { key: 'Institution 3', value: 1000000 },
-            { key: 'Institution 4', value: 1000000 },
-            { key: 'Institution 5', value: 1000000 }
-        ],
-        instrumentTypeMock = [
-            { key: 'Contracts', value: 1000000 },
-            { key: 'Grants', value: 1000000 }
-        ]
+    const instrumentTypeMock = [
+        { key: 'Contracts', value: 1000000 },
+        { key: 'Grants', value: 1000000 }
+    ]
 
-    let agencyName, subAgencyName, totalNumberOfAwards;
+    let agencyName, subAgencyName, done = 0;
 
     function formatCurrency(n) {
         return '$' + d3.format(",")(n);
     }
 
+    function sortDetail(a, b) {
+        console.log(a.value, b.value)
+        return b.value - a.value;
+    }
+
     function activateDetail(data) {
+        if (done != 2) { return } //don't allow this feature unless both CSVs are in memory
+
         detailContainer.classed(activeClass, true);
 
         agencyName.text(data.parent.name)
         subAgencyName.text(data.name)
-
-        updateTable('total', [{key: 'Total $ of Awards', value: data.value}]);
+        
+        updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
         updateTable('funding', instrumentTypeMock);
-        updateTable('investments', investmentMock);
-        updateTable('institutions', institutionMock);
+
+        if (!detailData[data.name]) {
+            console.warn(`no data for ${data.name}`);
+            updateTable('investments', []);
+            updateTable('institutions', []);
+        } else {
+            updateTable('investments', detailData[data.name].investments.sort(sortDetail));
+            updateTable('institutions', detailData[data.name].institutions.sort(sortDetail));
+        }
+
     }
 
     function placeCloseButton() {
@@ -91,7 +93,29 @@
         tables.institutions.select('tr').append('th').text('Total Investment');
     }
 
+    function indexData(row, a, b, c) {
+        detailData[row.source] = detailData[row.source] || {};
+        detailData[row.source][this] = detailData[row.source][this] || [];
+
+        detailData[row.source][this].push({ key: row.target, value: Number(row.value) });
+    }
+
+    function preloadData() {
+        d3.csv("/data-lab-data/CU/top5InstitutionsPerAgency.csv", function (data) {
+            data.forEach(indexData, 'institutions');
+
+            done += 1;
+        });
+
+        d3.csv("/data-lab-data/CU/top5InvestmentsPerAgency.csv", function (data) {
+            data.forEach(indexData, 'investments');
+
+            done += 1;
+        })
+    }
+
     function init() {
+        preloadData();
         placeCloseButton();
 
         detailContainer.append('span').classed('bubble-detail__agency-label', true).text('Agency');
