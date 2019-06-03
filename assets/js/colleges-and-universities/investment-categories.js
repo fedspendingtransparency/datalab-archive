@@ -21,8 +21,10 @@ d3.select('#legend_scaleKey').append('circle')
 let chartData; // ref to current data parent (only for center label) 
 let ringLabels; // text to show in center
 
-const grantRings = ['CFDA', ['Grant Awards', 'Family', 'Program']];
-const contractRings = ['PSC', ['Contract Awards', 'Family', 'Program']];
+// const grantRings = ['CFDA', ['Grant Awards', 'Family', 'Program']];
+// const contractRings = ['PSC', ['Contract Awards', 'Family', 'Program']];
+const grantRings = ['CFDA'];
+const contractRings = ['PSC'];
 function changeCategory(category) {
   if (category.value === 'contracts') {
     chartData = contractsChartArray[0];
@@ -94,7 +96,7 @@ function updateCenter(d) {
       //         <div class='heading'>Total $ of Funding</div>
       // `)
       .html(`
-        <div class='heading'>CFDA Category</div>
+        <div class='heading'>${ringLabels[0]} Category</div>
         <div class='heading'>${d.name}</div>
         <div class='amount'>${formatNumber(d.value)}</div>
         <div class='heading'>Total $ of Funding</div>
@@ -104,9 +106,9 @@ function updateCenter(d) {
     center.append('div')
       .attr('id', 'tab')
       .html(`
-        <div class='heading'>CFDA Category</div>
+        <div class='heading'>${ringLabels[0]} Category</div>
         <div class='heading'>${d.parent.name}</div>
-        <div class='title'>CFDA</div>
+        <div class='title'>${ringLabels[0]}</div>
         <div class='heading'>${d.name}</div>
         <div class='amount'>${formatNumber(d.value)}</div>
         <div class='heading'>Total $ of Funding</div>
@@ -294,10 +296,9 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   });
   chartData = grantsChartArray[0];
 
+  ringLabels = grantRings;
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
-
-  
 
   // now do it all again with only research grants
   researchGrantsHierarchy = buildDataHierarchy('Research Grants CFDA', grantData.filter(c => c.Research));
