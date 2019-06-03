@@ -26,7 +26,6 @@ Number.prototype.formatMoney = function(c, d, t){
 
 // Reading data
 d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in education data to data files
-  console.log(eduCsv);
   let totalContracts = float(eduCsv.reduce((a, b) => {     //caluculate total contract money given to all universities sum(contracts recived)
     return a + float(b.contracts_received);
   },0)
