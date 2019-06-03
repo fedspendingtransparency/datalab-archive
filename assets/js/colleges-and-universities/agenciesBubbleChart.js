@@ -212,6 +212,7 @@ function transformData(data) {
             tempRoot.children[i].children[j].color = color[i];
         }
     }
+
     return tempRoot;
 }
 
