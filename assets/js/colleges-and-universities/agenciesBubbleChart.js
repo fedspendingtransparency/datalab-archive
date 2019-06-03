@@ -209,8 +209,6 @@ function transformData(data) {
         }
     }
     
-    console.log(tempRoot);
-
     return tempRoot;
 }
 
