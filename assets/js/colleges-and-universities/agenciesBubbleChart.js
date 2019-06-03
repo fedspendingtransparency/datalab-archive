@@ -268,31 +268,18 @@ function zoomTo(v) {
 }
 
 
-
-function createBubbleTable(columns) {
-  
+/**
+   Make a table, a bubble table ;;;;
+**/
+function createBubbleTable() {
   d3.csv('data-lab-data/CU_bubble_chart.csv', function(err, data) {
     if (err) { return err; }
 
-    /**
-     * Table START
-     */
     let table = d3.select('#bubbleTableContainer').append('table')
         .attr('id', 'bubbletable');
 
     let titles = ['Recipient', 'Agency', 'SubAgency', 'Family', 'Type', 'Obligation'];
 
-    let rows = table.append('tbody')
-        .selectAll('tr')
-        .data(data).enter()
-        .append('tr')
-        .on('click', function (d) {
-	  // TODO! right hand panel will come out on this TR click! 
-	  // secondary table view
-	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
-        });
-
-    
     let headers = table.append('thead').append('tr')
         .selectAll('th')
         .data(titles).enter()
@@ -301,31 +288,20 @@ function createBubbleTable(columns) {
           return d;
         });
 
-    rows.selectAll('td')
-      .data(function (row) {
-        return columns.map(function (column) {
-          return { column: column, value: row[column] };
-        });
-      }).enter()
-      .append('td')
-      .classed('name', function (d) {
-        return d.column == 'Recipient';
-      })
-      .classed('percentage', function (d) {
-        return d.column == 'State';
-      })
-      .classed('total', function (d) {
-        return d.column == 'Total';
-      })
-      .text(function (d) {
-        return d.value;
-      })
-      .attr('data-th', function (d) {
-        return d.name;
-      });
-
     // datatable start
-    let dTable = $('#bubbletable').dataTable();
+    let dTable = $('#bubbletable').dataTable({
+      data: data,
+      columns: [
+	{"data": 'Recipient'},
+	{"data": 'agency'},
+	{"data": 'family'},
+	{"data": 'obligation'},
+	{"data": 'subagency'},
+	{"data": 'type'},
+      ],
+      deferRender:    true,
+      scrollCollapse: true,
+      scroller:       true});
   }); // end d3 function
 };
 
@@ -336,6 +312,7 @@ function createBubbleTable(columns) {
 *--------------------------------------------------------------------------------------------------------------------
 */
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
+    let counter = 0;
     var root = transformData(data);
 
     drawBubbleChart(root);
@@ -349,11 +326,12 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
   // table button toggle click
   bTableBtn.click(function(){
-    console.log('clicking button');
+    counter++;
     bTableContainer.toggle(); // show
     bChartContainer.toggle(); // hide bubble chart
-    createBubbleTable(['Recipient', 'agency', 'subagency', 'family', 'type', 'obligation']); // has to match csv columns!
-    
+    if (counter == 1) {
+      createBubbleTable(); // has to match csv columns!
+    }
   });
 
     if (!bubble.setSearchData) {
