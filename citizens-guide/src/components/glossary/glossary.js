@@ -5,7 +5,7 @@ const d3 = { select, selectAll };
 
 let origCategorizedTerms = [], filteredData, termSelected;
 
-let glossaryWrapper, glossaryButton;
+let glossaryWrapper, glossaryLaunchedEl;
 
 function categorizeGlossaryData(data) {
     const categorizedData = [];
@@ -207,9 +207,16 @@ function onFfgPage() {
     return true;
 }
 
-function showGlossary() {
+function showGlossary(el) {
     const activeInd = true,
+        onOpenInd = true,
         showListResultsInd = true;
+
+    if(el && el.target){
+        glossaryLaunchedEl = d3.select(el.target);
+    } else {
+        glossaryLaunchedEl = document.activeElement;
+    }
 
     if (!onFfgPage()) {
         window.location = 'https://' + window.location.host + '/americas-finance-guide/?glossary';
@@ -218,6 +225,26 @@ function showGlossary() {
 
     setActiveStatus(glossaryWrapper, activeInd);
     setTermListView(showListResultsInd);
+
+    setDocumentFocus(onOpenInd);
+}
+
+function setDocumentFocus(onOpenInd){
+    let elementToSetFocus = glossaryLaunchedEl,
+        timeoutTime = 0;
+
+    if(onOpenInd){
+        elementToSetFocus = document.getElementById('cg-glossary-close-button');
+        timeoutTime = 500;
+    }
+
+    if(!elementToSetFocus){
+        return;
+    }
+
+    setTimeout(function(){
+        elementToSetFocus.focus();
+    },timeoutTime);
 }
 
 function addGlossaryEvents(terms) {
@@ -225,16 +252,25 @@ function addGlossaryEvents(terms) {
         searchTextBox = $('#cg-search-text-box'),
         actionableTextEntries = $('.cg-glossary-actionable-text');
 
-    let debounce, previousHeight, previousSearchStr;
+    let debounce, previousHeight, previousSearchStr, glossaryButtonHiddenInd = true;
+
+    // The following button will exist in the Datalab header
+    d3.select('#ffg-glossary-trigger').on('click', showGlossary);
+    // The following button exists at the bottom-right of the screen when the user scrolls down the page
+    d3.select('#afg-floating-glossary-button').on('click', showGlossary);
 
     glossaryWrapper.on('click', '#cg-glossary-close-button', function () {
         const activeInd = false;
         setActiveStatus(glossaryWrapper, activeInd);
+        setDocumentFocus();
+        glossaryLaunchedEl = null;
     });
     glossaryWrapper.on('click', '.cg-glossary-link', function (el) {
         const curElement = el.target,
             termsArr = terms[curElement.getAttribute('hashMap')],
             termDisplay = curElement.innerText;
+
+        glossaryLaunchedEl = d3.select(curElement);
 
         showIndividualTerm(termsArr, termDisplay);
     });
@@ -291,6 +327,19 @@ function addGlossaryEvents(terms) {
         previousHeight = window.innerWidth;
         debounce = setTimeout(resizeTermListDiv, 100);
     });
+    window.addEventListener('scroll', function (e){
+        const scrollPos = document.documentElement.scrollTop,
+            glossaryButton = d3.select('#afg-launch-glossary-div');
+
+        let glossaryButtonHiddenInd = glossaryButton.classed('hidden');
+        if(scrollPos === 0){
+            if(glossaryButtonHiddenInd === false) {
+                glossaryButton.classed('hidden', true);
+            }
+        } else if(glossaryButtonHiddenInd === true){
+            glossaryButton.classed('hidden', false);
+        }
+    });
     setTimeout(function () {
         resizeTermListDiv();
     }, 0);
@@ -298,8 +347,6 @@ function addGlossaryEvents(terms) {
 
 function init() {
     glossaryWrapper = $('#cg-glossary-wrapper');
-    
-    d3.select('#ffg-glossary-trigger').on('click', showGlossary);
 
     filteredData = glossaryData.filter(r => r.term); //remove blank rows
 

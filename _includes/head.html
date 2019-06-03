@@ -28,8 +28,10 @@
 
   {% if page.ffgPageCss %}<link rel="stylesheet" href="{{ page.ffgPageCss | prepend: "/assets/ffg/" }}" />{% endif %}
 
+  {% if page.dlPageCss %}<link rel="stylesheet" href="{{ page.dlPageCss | prepend: '/css/' | prepend: site.baseurl }}" />{% endif %}
+
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
-  
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
    window.dataLayer = window.dataLayer || [];
@@ -38,6 +40,23 @@
 
    gtag('config', 'UA-19138737-13');
   </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5GVVS7L');</script>
+  <!-- End Google Tag Manager -->
+
+  <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-19138737-13', 'auto');
+
+      ga('require', 'eventTracker');
+  </script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script async src="/js/autotrack.js"></script>
 
   <!-- og tags -->
   {% if page.title %}<meta property="og:title" content="{{ page.title | escape }}"/>{% endif %}
