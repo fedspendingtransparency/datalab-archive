@@ -24,13 +24,16 @@ function createMapbox() {
 
   // filter overlay section //
   let mapDiv = $('#mapContainer');
+  let searchBtn = $('#map-search-btn');
   let almaTable = $('#alma-mater-table');
   let filterEl = $('#feature-filter');
   let listingEl = $('#feature-listing-ul');
-  let tableBtn = $('#feature-table-toggle');
-  let mapBtn = $('#feature-map-toggle');
+  let tableBtn = $('#map-search-btn');
+  let mapBtn = $('#colleges-map');
+  let mapToggleBtn = $('#feature-map-toggle');
   let resetBtn = $('#feature-reset');
   let rightPanel = $('#inst-panel');
+  let searchSection = $('#search-section');
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
@@ -78,18 +81,23 @@ function createMapbox() {
     $(filterEl).val(''); // clear value in input
     $(listingEl).empty(); // clear list as well
     renderAllSchools();
+    $(rightPanel).remove(); // clear right panel if its open
   });
 
-  $(tableBtn).click(function(){
-    mapDiv.toggle();
-    almaTable.toggle();
-    $(mapBtn).toggle();
+  $(searchBtn).click(function(){
+    searchSection.toggle();
   });
 
-  $(mapBtn).click(function(){
+  $('#map-table-btn').click(function(){
+    mapDiv.toggle();
+    almaTable.toggle();
+    mapToggleBtn.toggle(); // show button for map
+  });
+  
+  mapToggleBtn.click(function(){
+    mapToggleBtn.toggle(); 
     almaTable.toggle();
     mapDiv.toggle();
-    mapBtn.toggle();
   });
 
   // handle input filter..
