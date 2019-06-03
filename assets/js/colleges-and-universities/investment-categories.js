@@ -94,24 +94,23 @@ function updateCenter(d) {
       //         <div class='heading'>Total $ of Funding</div>
       // `)
       .html(`
-                  <div class='heading'>CFDA Category</div>
-                  <div class='heading'>${d.name}</div>
-                  <div class='amount'>${formatNumber(d.value)}</div>
-                  <div class='heading'>Total $ of Funding</div>
-          `)
+        <div class='heading'>CFDA Category</div>
+        <div class='heading'>${d.name}</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+        <div class='heading'>Total $ of Funding</div>
+      `)
       ;
   } else {
     center.append('div')
       .attr('id', 'tab')
-      // .html (`
-      //         <div class='heading'>${ringLabels[1][d.depth]}</div>
-      //         <div class='title'>${d.name}</div>
-      //         <div class='amount'>${formatNumber (d.value)}</div>
-      //   `)
       .html(`
-                  <div class='title'>${d.name}</div>
-                  <div class='amount'>${formatNumber(d.value)}</div>
-            `)
+        <div class='heading'>CFDA Category</div>
+        <div class='heading'>${d.parent.name}</div>
+        <div class='title'>CFDA</div>
+        <div class='heading'>${d.name}</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+        <div class='heading'>Total $ of Funding</div>
+      `)
       ;
   }
 }
@@ -128,9 +127,9 @@ function getWedgeColor(d) {
   return wedgeColors[d.colorIndex];
 }
 
-function hover(d) {
-  updateCenter(d);
-}
+// function hover(d) {
+//   updateCenter(d);
+// }
 
 const arc = d3.svg.arc()
   .startAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x))))
@@ -146,15 +145,16 @@ function drawChart(data) {
     .attr('d', arc)
     .attr('class', d => 'depth' + d.depth)
     .attr('fill', d => getWedgeColor(d))
-    .on('mouseover', hover)
+    // .on('mouseover', hover)
     .on('click', click)
     .append('title').text(d => d.name)
     ;
-  updateCenter(data[0]); // initialize legend to summary
+  // updateCenter(data[0]); // initialize legend to summary
   click(data[0]); // simulate clicking center to reset zoom
 }
 
 function click(d) {
+  updateCenter(d);
   svg.transition()
     .duration(750)
     .tween('scale', () => {
@@ -319,8 +319,8 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
   });
 });
 
-svg.on('mouseleave', () => {
-  hover(chartData);
-});
+// svg.on('mouseleave', () => {
+//   hover(chartData);
+// });
 
 d3.select(self.frameElement).style('height', height + 'px');
