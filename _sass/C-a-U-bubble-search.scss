@@ -1,3 +1,22 @@
+#function-buttons {
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    background: white;
+    z-index: 101;
+}
+
+#function-buttons.active {
+    transform: translateX(350px);
+}
+
+#function-buttons .bubble-search {
+    background: white;
+}
+
+.button-set {
+    background: white;
+}
+
 #bubble-search {
     position: relative;
     z-index: 1;
