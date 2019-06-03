@@ -28,8 +28,8 @@ function createMapbox() {
   let almaTable = $('#alma-mater-table');
   let filterEl = $('#feature-filter');
   let listingEl = $('#feature-listing-ul');
-  let tableBtn = $('#map-search-btn');
-  let mapBtn = $('#colleges-map');
+//  let tableBtn = $('#map-search-btn');
+//  let mapBtn = $('#colleges-map');
   let mapToggleBtn = $('#feature-map-toggle');
   let resetBtn = $('#feature-reset');
   let rightPanel = $('#inst-panel');
