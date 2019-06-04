@@ -1,5 +1,5 @@
-// ---
-// ---
+---
+---
 
 // add legend
 d3.select('#legend_scaleKey').append('circle')
