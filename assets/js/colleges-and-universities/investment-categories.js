@@ -1,5 +1,5 @@
----
----
+// ---
+// ---
 
 // add legend
 d3.select('#legend_scaleKey').append('circle')
@@ -160,6 +160,8 @@ function click(d) {
       return arc(d);
     })
     ;
+
+  sunburst.activateDetail(d);
 }
 
 function buildDataHierarchy(title, dataArray) {
@@ -208,17 +210,6 @@ function createInvestmentTable(columns) {
         .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
-
-    let rows = table.append('tbody')
-        .selectAll('tr')
-        .data(data).enter()
-        .append('tr')
-        .on('click', function (d) {
-	  // TODO! right hand panel will come out on this TR click! 
-	  // secondary table view
-	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
-        });
-
     
     let headers = table.append('thead').append('tr')
         .selectAll('th')
@@ -228,45 +219,38 @@ function createInvestmentTable(columns) {
           return d;
         });
 
-    rows.selectAll('td')
-      .data(function (row) {
-        return columns.map(function (column) {
-          return { column: column, value: row[column] };
-        });
-      }).enter()
-      .append('td')
-      .classed('name', function (d) {
-        return d.column == 'Recipient';
-      })
-      .classed('percentage', function (d) {
-        return d.column == 'State';
-      })
-      .classed('total', function (d) {
-        return d.column == 'Total';
-      })
-      .text(function (d) {
-        return d.value;
-      })
-      .attr('data-th', function (d) {
-        return d.name;
-      });
-
-
     // datatable start
-    $('#investment-table-datatable').dataTable(); // start datatable
-
-  });
+    $('#investment-table-datatable').dataTable({
+      data: data,
+      columns: [
+	{"data": 'family'},
+	{"data": 'Program_Title'},
+	{"data": 'Agency'},
+	{"data": 'Subagency'},
+	{"data": 'Recipient'},
+	{"data": 'Obligation'},
+      ],
+      deferRender:    true,
+      scrollCollapse: true,
+      scroller:       true});
+  }); // start datatable
 };
 
 function toggleMapView() {
+  let counter = 0;
   let sunContainer = $('#sunburst');
   let mapBtn = $('#table-view');
   let tableContainer = $('#investment-table');
 
-  mapBtn.click(function(){
+  mapBtn.on('click', function() {
+    counter++;
     sunContainer.toggle(); // hide!
     tableContainer.toggle(); // show!
-    createInvestmentTable(['family', 'Program_Title', 'Agency', 'Subagency', 'Recipient', 'Obligation']); // matching data headers from csv!
+    console.log(counter);
+    // create table on first click then we can show and hide
+    if (counter == 1){
+      createInvestmentTable(); // matching data headers from csv!
+    }
   });  
 }
 

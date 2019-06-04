@@ -266,13 +266,10 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
-      .agency-investments__viz {
-        text-align: center;
-        border: 1px solid #ddd;
-        border-radius: 0.25rem;
-        width: 100%;
-        height: 500px;
+      #bubbleTableContainer {
+	display: none; // toggle
       }
+
     } // end of agency-investments (bubble)
   } // end of section three
 
@@ -1148,21 +1145,6 @@ $bluecopy: #2272ce;
     font-size: 13pt;
     padding-left: 15px;
     padding-right: 15px;
-  }
-
-  // on li click
-  #sectionThreeTreemapSidebarTable {
-    text-align: center;
-    height: 80px;
-    font-size: 13pt;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .flex-rect {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .Rectangle-3 {
