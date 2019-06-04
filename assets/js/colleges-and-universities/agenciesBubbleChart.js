@@ -4,9 +4,11 @@
 *--------------------------------------------------------------------------------------------------------------------
 */
 const bubbleChartContainer = document.getElementById('bubbleChartContainer');
-const color = ['#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec788','#a3c787','#91c7a5',
-    '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9', '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9',
-    '#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec788','#a3c787','#91c7a5'];
+const color = ['#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8', '#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8'];
 
 const bTableBtn = $('#bubbleTable-btn');
 const bTableContainer = $('#bubbleTableContainer');
@@ -27,42 +29,36 @@ var circleFill = function(d) {
     } else {
         return '#f8f8f8';
     }
-}
+};
 
 var calculateTextFontSize = function(d) {
     var id = d3.select(this).text();
     var radius = 0;
+    var multiplier = 0;
 
-    if(d.depth === 2) {
-        if(d.fontsize =  d.r > 30) {
-            d.fontsize = "12px";
-        } else if (d.fontsize =  d.r > 20) {
-            d.fontsize = "4px";
-        } else if (d.fontsize =  d.r > 5) {
-            d.fontsize = "2px";
-        } else {
-            d.fontsize = "1px";
-        }
-    }
 
     if (d.fontsize){
         //if fontsize is already calculated use that.
         return d.fontsize;
     }
+
     if (!d.computed) {
         //if computed not present get & store the getComputedTextLength() of the text field
         d.computed = this.getComputedTextLength();
-        if(d.computed != 0){
-            //if computed is not 0 then get the visual radius of DOM
-            //if radius present in DOM use that
-            radius = d.r ? d.r : 0;
-
-            //calculate the font size and store it in object for future
-            d.fontsize = 24 * radius / d.computed + "px";
-            return d.fontsize;
-        }
     }
-}
+
+    if(d.computed != 0){
+        //if computed is not 0 then get the visual radius of DOM
+        //if radius present in DOM use that
+        radius = d.r ? d.r : 0;
+        multiplier = d.depth === 2 ? 60 : 30;
+
+        //calculate the font size and store it in object for future
+        d.fontsize = multiplier * radius / d.computed + "px";
+        return d.fontsize;
+    }
+};
+
 
 var margin = 20,
     diameter = 800;
@@ -79,11 +75,11 @@ var pack = d3.layout.pack()
 var node, circle, recipientMap;
 
 function drawBubbleChart(root) {
-    var width = 1600;
-    var height = 2000;
+    var width = 800;
+    var height = 800;
 
-    var aspect = window.innerWidth / window.innerHeight;
-    var targetWidth = window.innerWidth;
+    var aspect = width / height;
+    var targetWidth = width;
     
     bubble.chartHeight = targetWidth / aspect;
 
@@ -141,7 +137,10 @@ function drawBubbleChart(root) {
             return d.name;
         })
         .style("font-size", calculateTextFontSize)
-        .attr("text-anchor", "middle");
+        .attr("text-anchor", "middle")
+        .on("click", function(d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
 
     node = svg.selectAll("circle,text");
 
@@ -234,9 +233,6 @@ function zoom(d) {
             });
 
         transition.selectAll("text")
-            .filter(function(d) {
-                return d.parent === focus || this.style.display === "inline";
-            })
             .style("fill-opacity", function(d) {
                 return d.parent === focus ? 1 : 0;
             })
