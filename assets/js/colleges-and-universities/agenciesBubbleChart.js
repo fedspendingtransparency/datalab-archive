@@ -8,6 +8,10 @@ const color = ['#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec
     '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9', '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9',
     '#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec788','#a3c787','#91c7a5'];
 
+const bTableBtn = $('#bubbleTable-btn');
+const bTableContainer = $('#bubbleTableContainer');
+const bChartContainer = $('#bubbleChartContainer');
+
 /*
   --------------------------------------------------------------------------------------------------------------------
 *   functions
@@ -264,12 +268,52 @@ function zoomTo(v) {
     });
 }
 
+
+/**
+   Make a table, a bubble table ;;;;
+**/
+function createBubbleTable() {
+  d3.csv('data-lab-data/CU_bubble_chart.csv', function(err, data) {
+    if (err) { return err; }
+
+    let table = d3.select('#bubbleTableContainer').append('table')
+        .attr('id', 'bubbletable');
+
+    let titles = ['Recipient', 'Agency', 'SubAgency', 'Family', 'Type', 'Obligation'];
+
+    let headers = table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    // datatable start
+    let dTable = $('#bubbletable').dataTable({
+      data: data,
+      columns: [
+	{"data": 'Recipient'},
+	{"data": 'agency'},
+	{"data": 'family'},
+	{"data": 'obligation'},
+	{"data": 'subagency'},
+	{"data": 'type'},
+      ],
+      deferRender:    true,
+      scrollCollapse: true,
+      scroller:       true});
+  }); // end d3 function
+};
+
+
 /*
 --------------------------------------------------------------------------------------------------------------------
 *   Main Method
 *--------------------------------------------------------------------------------------------------------------------
 */
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
+    let counter = 0;
     var root = transformData(data);
 
     drawBubbleChart(root);
@@ -280,6 +324,16 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
         });
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+  // table button toggle click
+  bTableBtn.click(function(){
+    counter++;
+    bTableContainer.toggle(); // show
+    bChartContainer.toggle(); // hide bubble chart
+    if (counter == 1) {
+      createBubbleTable(); // has to match csv columns!
+    }
+  });
 
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
