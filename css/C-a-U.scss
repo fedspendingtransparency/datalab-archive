@@ -18,6 +18,8 @@ $bluecopy: #2272ce;
   font-family: "Source Sans Pro";
   padding: 1rem; // padding around whole wrapper
   margin-top: 10rem; // move all content down enough
+  max-width: 100%;
+  overflow-x: hidden;
 
   #section-pre {
     display: flex;
