@@ -21,8 +21,11 @@ const bChartBtn = $('#bubble-chart-trigger');
 *--------------------------------------------------------------------------------------------------------------------
 */
 
+let node, circle, focus, view;
+const margin = 20,
+    diameter = 700;
 
-var circleFill = function(d) {
+const circleFill = function(d) {
     if (d['color']) {
         return d.color;
     } else if (d.parent && d.parent.name === "flare") {
@@ -32,7 +35,7 @@ var circleFill = function(d) {
     }
 };
 
-var calculateTextFontSize = function(d) {
+const calculateTextFontSize = function(d) {
     var id = d3.select(this).text();
     var radius = 0;
     var multiplier = 0;
@@ -60,11 +63,7 @@ var calculateTextFontSize = function(d) {
     }
 };
 
-
-var margin = 20,
-    diameter = 700;
-
-var pack = d3.layout.pack()
+const pack = d3.layout.pack()
     .padding(2)
     .size([diameter - margin, diameter - margin])
     .value(function(d) {
@@ -73,28 +72,25 @@ var pack = d3.layout.pack()
         }
     })
 
-var node, circle, recipientMap;
 
 function drawBubbleChart(root) {
-    var width = 700;
-    var height = 700;
+    const width = 700;
+    const height = 700;
 
-    var aspect = width / height;
-    var targetWidth = width;
+    const aspect = width / height;
+    const targetWidth = width;
     
     bubble.chartHeight = targetWidth / aspect;
 
-    var svg = d3.select(bubbleChartContainer).append("svg")
+    focus = root;
+    nodes = pack.nodes(root);
+
+    const svg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
         .attr("height", bubble.chartHeight)
         .append("g")
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
-
-
-    var focus = root,
-        nodes = pack.nodes(root),
-        view;
 
     circle = svg.selectAll("circle")
         .data(nodes)
@@ -123,7 +119,7 @@ function drawBubbleChart(root) {
             return d.name;
         })
 
-    var text = svg.selectAll("text")
+    svg.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("font-family", "Source Sans Pro")
@@ -148,9 +144,9 @@ function drawBubbleChart(root) {
 }
 
 function transformData(data) {
-    var result = _.groupBy(data, 'agency');
+    let result = _.groupBy(data, 'agency');
     var i = 0;
-    var tempRoot = {
+    let tempRoot = {
         "name": "flare",
         "children": []
     };
@@ -220,11 +216,11 @@ function transformData(data) {
 // CALL THIS FUNCTION ON SEARCH
 // Parameter is a specific node 
 function zoom(d) {
-    var focus0 = focus;
+    const focus0 = focus;
     focus = d;
 
-    if (!d.parent || d.parent.name === "flare") {
-        var transition = d3.transition()
+    if (!d.parent ||d.parent.name === "flare") {
+        const transition = d3.transition()
             .duration(d3.event.altKey ? 7500 : 750)
             .tween("zoom", function(d) {
                 var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
@@ -233,21 +229,30 @@ function zoom(d) {
                 };
             });
 
-        transition.selectAll("text")
+        transition.selectAll("text.label")
             .style("fill-opacity", function(d) {
                 return d.parent === focus ? 1 : 0;
             })
             .each("start", function(d) {
-                if (d.parent === focus) this.style.display = "inline";
+                if (d.parent === focus) {
+                    this.style.display = "inline";
+                } else {
+                    this.style.display="none";
+                }
             })
             .each("end", function(d) {
-                if (d.parent !== focus) this.style.display = "none";
+                if (d.parent !== focus) {
+                    this.style.display = "none";
+                } else {
+                    this.style.display="inline";
+                }
             });
+
         setTimeout(function() {
-            d3.selectAll("text").filter(function(d) {
+            d3.selectAll("text.label").filter(function(d) {
                 return d.parent === focus || this.style.display === "inline";
             }).style("font-size", calculateTextFontSize);
-        }, 10)
+        }, 10);
 
     } else {
         bubble.activateDetail(d)
@@ -316,7 +321,7 @@ bChartBtn.click(function(){
 */
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
     let counter = 0;
-    var root = transformData(data);
+    const root = transformData(data);
 
     drawBubbleChart(root);
 
