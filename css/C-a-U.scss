@@ -520,16 +520,8 @@ $bluecopy: #2272ce;
         .download-data {
           color: #4a4a4a;
           margin-left: 12px;
+          fill: #4a4a4a;
 
-          &::before {
-            content: '\21a7';
-            font-size: 18pt;
-            // display: inline-block;
-            // -moz-transform: rotate (90deg);
-            // -webkit-transform: rotate (90deg);
-            // -ms-transform: rotate (90deg);
-            // transform: rotate (90deg);
-          }
           &:hover {
             color: #00c3c2;
           }
