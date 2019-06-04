@@ -50,19 +50,21 @@ d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in educati
   },0).toFixed(2));
   
   let totalInvestment = totalContracts + totalGrants + totalStudentAid;
-  //  let contractContainer = d3.select('contracts-bar').append('svg');
+  let contractContainer = d3.select('contracts-bar').append('svg');
   let contractSpendingPercent =  parseInt(((totalContracts/totalInvestment)*100));
-  //  let contractRect = contractContainer.append('rect').attr('width', contractSpendingPercent)
-  //      .attr('x', 10).attr('y', 10).attr('height', 100);
+  let contractRect = contractContainer.append('rect').attr('width', contractSpendingPercent)
+        .attr('x', 10).attr('y', 10).attr('height', 59);
   
   let grantsSpendingPercent = parseInt(((totalGrants/totalInvestment)*100));
   let studentAidSpendingPercent = parseInt(((totalStudentAid/totalInvestment)*100));
 
   //updatin bar graph to reflect percentages
   contracts.style.width = `${contractSpendingPercent}%`;
-  contracts.style.color = 'red';
+  contracts.style.height = '59px';
   grants.style.width = `${grantsSpendingPercent}%`;
+  grants.style.height = '59px';
   aid.style.width = `${studentAidSpendingPercent}%`;
+  aid.style.height = '59px';
 
   totalinvestment.innerHTML = `$${totalInvestment.formatMoney(2)}`;
 
