@@ -332,9 +332,7 @@ $bluecopy: #2272ce;
         font-size: 24px;
 
         $left-button-size: 45px;
-        $border-width: 3px;
-        $left-button-border: $border-width solid #eee;
-        $partial-border-size: $left-button-size / 2;
+        $left-button-border: 3px solid #eee;
         $border-radius: $left-button-size / 3;
 
         .button-set {
@@ -344,45 +342,27 @@ $bluecopy: #2272ce;
           border: $left-button-border;
           border-radius: 0 $border-radius $border-radius 0;
 
-          div {
-            width: $left-button-size;
-            line-height: $left-button-size;
-            text-align: center;
-          }
-
           &:hover {
             cursor: pointer;
           }
-        }
-
-        %partial-top-border {
-          width: $partial-border-size;
-          left: $partial-border-size / 2;
-          border-top: $left-button-border;
-        }
-
-        #table-view {
-          position: relative;
-
-          &::after {
-            @extend %partial-top-border;
-            content: '';
-            position: absolute;
-          }
-       }
-       
-        #zoom_in {
-          border-top: $left-button-border;
-        }
-        #zoom_out {
-          font-size: 32px;
-          position: relative;
           
-          &::after {
-            @extend %partial-top-border;
-            content: '';
-            position: absolute;
+          button {
+            width: $left-button-size;
+            height: $left-button-size;
+            margin-top: 5px;
+            background: none;
+            border: none;
+  
+            &:hover {
+              cursor: pointer;
+            }
           }
+        }
+
+        .separator {
+          width: 50%;
+          margin-left: $left-button-size / 4;
+          border-top: $left-button-border;
         }
       }
 
