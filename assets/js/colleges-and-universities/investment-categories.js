@@ -88,13 +88,6 @@ function updateCenter(d) {
   if (d.depth === 0) {
     center.append('div')
       .attr('id', 'tab')
-      // .html (`
-      //         <div class='heading'>CFDA Category</div>
-      //         <div class='title'>${ringLabels[1][d.depth]}</div>
-      //         <div class='heading'>${d.name}</div>
-      //         <div class='amount'>${formatNumber (d.value)}</div>
-      //         <div class='heading'>Total $ of Funding</div>
-      // `)
       .html(`
         <div class='heading'>${ringLabels[0]} Category</div>
         <div class='heading'>${d.name}</div>
@@ -129,10 +122,6 @@ function getWedgeColor(d) {
   return wedgeColors[d.colorIndex];
 }
 
-// function hover(d) {
-//   updateCenter(d);
-// }
-
 const arc = d3.svg.arc()
   .startAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x))))
   .endAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x + d.dx))))
@@ -151,7 +140,6 @@ function drawChart(data) {
     .on('click', click)
     .append('title').text(d => d.name)
     ;
-  // updateCenter(data[0]); // initialize legend to summary
   click(data[0]); // simulate clicking center to reset zoom
 }
 

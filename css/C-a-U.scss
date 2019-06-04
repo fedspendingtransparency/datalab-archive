@@ -373,21 +373,6 @@ $bluecopy: #2272ce;
             position: absolute;
           }
        }
-       
-        #zoom_in {
-          border-top: $left-button-border;
-        }
-        #zoom_out {
-          font-size: 32px;
-          position: relative;
-          
-          &::after {
-            @extend %partial-top-border;
-            content: '';
-            position: absolute;
-          }
-        }
-      }
 
       #investment-table {
         display: none;
