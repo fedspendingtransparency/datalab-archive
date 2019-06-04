@@ -10,9 +10,10 @@ const color = ['#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99
     '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
     '#7FC994','#C57EC8'];
 
-const bTableBtn = $('#bubbleTable-btn');
+const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
+const bChartBtn = $('#bubble-chart-trigger');
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -61,7 +62,7 @@ var calculateTextFontSize = function(d) {
 
 
 var margin = 20,
-    diameter = 800;
+    diameter = 700;
 
 var pack = d3.layout.pack()
     .padding(2)
@@ -75,8 +76,8 @@ var pack = d3.layout.pack()
 var node, circle, recipientMap;
 
 function drawBubbleChart(root) {
-    var width = 800;
-    var height = 800;
+    var width = 700;
+    var height = 700;
 
     var aspect = width / height;
     var targetWidth = width;
@@ -303,6 +304,11 @@ function createBubbleTable() {
 };
 
 
+bChartBtn.click(function(){
+    bTableContainer.hide(); // show
+    bChartContainer.show(); // hide bubble chart
+});
+
 /*
 --------------------------------------------------------------------------------------------------------------------
 *   Main Method
@@ -321,15 +327,19 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-  // table button toggle click
-  bTableBtn.click(function(){
-    counter++;
-    bTableContainer.toggle(); // show
-    bChartContainer.toggle(); // hide bubble chart
-    if (counter == 1) {
-      createBubbleTable(); // has to match csv columns!
-    }
-  });
+    // table button toggle click
+    bTableBtn.click(function(){
+        counter++;
+        bTableContainer.show(); // show
+        bChartContainer.hide(); // hide bubble chart
+        if (counter == 1) {
+            createBubbleTable(); // has to match csv columns!
+        }
+    });
+
+
+    createBubbleTable(); // has to match csv columns!
+
 
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')

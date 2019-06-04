@@ -1,5 +1,15 @@
+<style>
+    .bubbleChartContainer {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 700px;
+    }
+</style>
+
 <article id="section-three">
-  
+
   <section id="agency-investments">
     <div>
       {% include colleges/colleges-share.html anchor="section-three" %}
@@ -19,12 +29,30 @@
 	paying and what vehicles they are using to invest with.
       </p>
     </div>
+
+    <div id="agency-legend_colorKey">
+      <svg>
+        <circle stroke="black" fill="none" cx="50" cy="50" r="50">
+        </circle>
+        <text x="6" y="45">Sub-Agency</text>
+        <circle stroke="black" fill="none" cx="50" cy="75" r="25">
+        </circle>
+        <text x="25" y="125">Agency</text>
+
+      </svg>
+    </div>
+
     <div id="bubble-search">
       <button id="bubble-search-trigger">search</button>
     </div>
-    <div id="bubbleChartContainer" class="bubbleChartContainer" data-aos="fade-left" data-aos-delay="1000"> </div>
-    <div id="bubbleTableContainer"></div>
-    <div id="bubbleTable-btn"><i class="fas fa-map"></i></div>
+    <div id="bubble-table">
+      <button id="bubble-table-trigger">table</button>
+    </div>
+    <div id="bubble-chart">
+      <button id="bubble-chart-trigger">chart</button>
+    </div>
+
+    <div id="bubbleChartContainer" class="bubbleChartContainer"> </div>
   </section>
 
 </article>
