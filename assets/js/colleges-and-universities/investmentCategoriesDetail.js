@@ -1,5 +1,5 @@
 (function () {
-    const detailContainer = d3.select('#bubble-detail').append('section').classed('bubble-detail', true),
+    const detailContainer = d3.select('#categories-detail').attr('style','position:relative').append('section').classed('bubble-detail', true),
         tables = {},
         detailData = {},
         tableControl = [
@@ -26,9 +26,13 @@
     }
 
     function activateDetail(data) {
+        console.log('activate', data);
+        
         if (done != 2) { return } //don't allow this feature unless both CSVs are in memory
-
+        
         detailContainer.classed(activeClass, true);
+        
+        return;
 
         agencyName.text(data.parent.name)
         subAgencyName.text(data.name)
@@ -125,7 +129,7 @@
 
         placeTables();
 
-        bubble.activateDetail = activateDetail
+        sunburst.activateDetail = activateDetail;
     }
 
     init()

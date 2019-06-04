@@ -1,5 +1,5 @@
----
----
+// ---
+// ---
 
 // add legend
 d3.select('#legend_scaleKey').append('circle')
@@ -170,6 +170,8 @@ function click(d) {
       return arc(d);
     })
     ;
+
+  sunburst.activateDetail(d);
 }
 
 function buildDataHierarchy(title, dataArray) {
