@@ -1,7 +1,8 @@
 (function () {
-    const detailContainer = d3.select('#categories-detail').attr('style','position:relative').append('section').classed('bubble-detail', true),
+    const detailContainer = d3.select('#categories-detail').attr('style', 'position:relative').append('section').classed('bubble-detail', true),
         tables = {},
         detailData = {},
+        types = [],
         tableControl = [
             'total',
             'agencies',
@@ -25,28 +26,36 @@
     }
 
     function activateDetail(data) {
-        const lookup = data.parent.name.toLowerCase();
-
         if (data.depth !== 2) { return } //only activate for level 2
-        
         if (done != 2) { return } //don't allow this feature unless both CSVs are in memory
-        
+
+        const lookup = data.parent.name.toLowerCase();
+        let radioValue;
+
+        d3.selectAll('#categories input').each(function () {
+            const radio = d3.select(this);
+
+            if (radio.property('checked')) {
+                radioValue = radio.attr('value');
+            }
+        });
+
         detailContainer.classed(activeClass, true);
-        
+
         categoryName.text(data.parent.name)
         cfda.text(data.name)
-        
+
         updateTable('total', [{ key: 'Total $ of Funding', value: data.value }]);
-        
-        if (!detailData[lookup]) {
-            console.warn(`no data for ${data.name}`);
+
+        if (!detailData[lookup][radioValue]) {
+            console.warn(`no data for ${data.name} (${radioValue})`);
             updateTable('agencies', []);
             updateTable('institutions', []);
         } else {
-            updateTable('agencies', detailData[lookup].agencies.sort(sortDetail));
-            updateTable('institutions', detailData[lookup].institutions.sort(sortDetail));
+            updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+            updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
         }
-        
+
         return;
     }
 
@@ -92,13 +101,16 @@
         tables.institutions.select('tr').append('th').text('Total Investment');
     }
 
-    function indexData(row, a, b, c) {
+    function indexData(row) {
         const source = row.source.toLowerCase();
-        
-        detailData[source] = detailData[source] || {};
-        detailData[source][this] = detailData[source][this] || [];
 
-        detailData[source][this].push({ key: row.target, value: Number(row.value) });
+        if (types.indexOf(row.type) === -1) { types.push(row.type) }
+
+        detailData[source] = detailData[source] || {};
+        detailData[source][row.type] = detailData[source][row.type] || {};
+        detailData[source][row.type][this] = detailData[source][row.type][this] || [];
+
+        detailData[source][row.type][this].push({ key: row.target, value: Number(row.value) });
     }
 
     function preloadData() {
