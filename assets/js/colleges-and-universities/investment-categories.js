@@ -300,6 +300,14 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
 
+  // enable search/filter
+  if (!sunburst.setSearchData) {
+    console.warn('bubble method not available')
+  } else {
+    sunburst.setSearchData(grantsChartArray);
+    sunburst.onSearchSelect = click;
+  }
+
   // now do it all again with only research grants
   researchGrantsHierarchy = buildDataHierarchy('Research Grants CFDA', grantData.filter(c => c.Research));
   researchGrantsChartArray = partition.nodes(researchGrantsHierarchy)
