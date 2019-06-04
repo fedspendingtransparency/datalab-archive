@@ -22,7 +22,6 @@
     }
 
     function sortDetail(a, b) {
-        console.log(a.value, b.value)
         return b.value - a.value;
     }
 
