@@ -92,7 +92,8 @@
         tables.institutions.select('tr').append('th').text('Total Investment');
     }
 
-    function indexData(row, a, b, c) {
+
+    function indexData(row) {
         detailData[row.source] = detailData[row.source] || {};
         detailData[row.source][this] = detailData[row.source][this] || [];
 
