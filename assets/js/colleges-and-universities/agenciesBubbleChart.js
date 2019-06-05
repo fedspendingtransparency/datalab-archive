@@ -14,6 +14,18 @@ const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
+let node, circle, focus, view, svg, recipient;
+const margin = 20,
+    diameter = 700;
+
+const pack = d3.layout.pack()
+    .padding(2)
+    .size([diameter - margin, diameter - margin])
+    .value(function(d) {
+        if(d.size > 0) {
+            return d.size;
+        }
+    });
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -21,24 +33,17 @@ const bChartBtn = $('#bubble-chart-trigger');
 *--------------------------------------------------------------------------------------------------------------------
 */
 
-let node, circle, focus, view;
-const margin = 20,
-    diameter = 700;
-
+/* Set color for sub-agency circles */
 const circleFill = function(d) {
     if (d['color']) {
         return d.color;
-    } else if (d.parent && d.parent.name === "flare") {
-        return '#f3f3f3';
-    } else {
-        return '#f8f8f8';
     }
 };
 
+/* Calculate text font size for bubbles before and after zoom */
 const calculateTextFontSize = function(d) {
-    var id = d3.select(this).text();
-    var radius = 0;
-    var multiplier = 0;
+    let radius = 0;
+    let multiplier = 0;
 
 
     if (d.fontsize){
@@ -63,16 +68,6 @@ const calculateTextFontSize = function(d) {
     }
 };
 
-const pack = d3.layout.pack()
-    .padding(2)
-    .size([diameter - margin, diameter - margin])
-    .value(function(d) {
-        if(d.size > 0) {
-            return d.size;
-        }
-    })
-
-
 function drawBubbleChart(root) {
     const width = 700;
     const height = 700;
@@ -85,7 +80,7 @@ function drawBubbleChart(root) {
     focus = root;
     nodes = pack.nodes(root);
 
-    const svg = d3.select(bubbleChartContainer).append("svg")
+    svg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
         .attr("height", bubble.chartHeight)
@@ -96,10 +91,7 @@ function drawBubbleChart(root) {
         .data(nodes)
         .enter().append("circle")
         .attr("class", function(d) {
-            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
-        })
-        .attr("class", function(d) {
-            return d.name;
+            return d.parent ? d.children ? "node" : "node--leaf" : "node--root";
         })
         .style("fill", circleFill)
         .attr("r", function(d) {
@@ -112,7 +104,11 @@ function drawBubbleChart(root) {
         })
         .on("click", function(d) {
             if (focus !== d) zoom(d), d3.event.stopPropagation();
-        });
+        })
+        .on("mouseover", function(d) {
+            handleMouseOver(d);
+        })
+        .on("mouseout", handleMouseOut);
 
     circle.append("svg:title")
         .text(function(d) {
@@ -141,6 +137,21 @@ function drawBubbleChart(root) {
 
     node = svg.selectAll("circle,text");
 
+}
+
+function handleMouseOver(d) {
+    const circleName = "circle." + d.name;
+    const circleEl = svg.select(circleName);
+
+    if (d.parent && d.parent.name !== "flare") {
+        window.tooltipModule.draw("#tooltip", d.name, {
+            Value: "Contribution: " + d.size
+        });
+    }
+}
+
+function handleMouseOut() {
+    window.tooltipModule.remove();
 }
 
 function transformData(data) {
@@ -213,13 +224,11 @@ function transformData(data) {
 }
 
 // Zoom into a specific circle
-// CALL THIS FUNCTION ON SEARCH
-// Parameter is a specific node 
 function zoom(d) {
     const focus0 = focus;
     focus = d;
 
-    if (!d.parent ||d.parent.name === "flare") {
+    if (!d.parent || d.parent.name === "flare") {
         const transition = d3.transition()
             .duration(d3.event.altKey ? 7500 : 750)
             .tween("zoom", function(d) {
@@ -227,6 +236,11 @@ function zoom(d) {
                 return function(t) {
                     zoomTo(i(t));
                 };
+            });
+
+        transition.selectAll(".node--root")
+            .style("fill-opacity", function() {
+                return focus.name === "flare" ? 1 : 0;
             });
 
         transition.selectAll("text.label")
@@ -274,10 +288,7 @@ function zoomTo(v) {
 /**
    Make a table, a bubble table ;;;;
 **/
-function createBubbleTable() {
-  d3.csv('data-lab-data/CU_bubble_chart.csv', function(err, data) {
-    if (err) { return err; }
-
+function createBubbleTable(data) {
     let table = d3.select('#bubbleTableContainer').append('table')
         .attr('id', 'bubbletable');
 
@@ -305,22 +316,34 @@ function createBubbleTable() {
       deferRender:    true,
       scrollCollapse: true,
       scroller:       true});
-  }); // end d3 function
 };
 
+/*
+--------------------------------------------------------------------------------------------------------------------
+*   Click Handlers
+*--------------------------------------------------------------------------------------------------------------------
+*/
 
 bChartBtn.click(function(){
     bTableContainer.hide(); // show
     bChartContainer.show(); // hide bubble chart
 });
 
+// table button toggle click
+bTableBtn.click(function(){
+    bTableContainer.show(); // show
+    bChartContainer.hide(); // hide bubble chart
+});
+
+
 /*
 --------------------------------------------------------------------------------------------------------------------
 *   Main Method
 *--------------------------------------------------------------------------------------------------------------------
 */
-d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
-    let counter = 0;
+d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
+    if (err) { return err; }
+
     const root = transformData(data);
 
     drawBubbleChart(root);
@@ -332,19 +355,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-    // table button toggle click
-    bTableBtn.click(function(){
-        counter++;
-        bTableContainer.show(); // show
-        bChartContainer.hide(); // hide bubble chart
-        if (counter == 1) {
-            createBubbleTable(); // has to match csv columns!
-        }
-    });
-
-
-    createBubbleTable(); // has to match csv columns!
-
+    createBubbleTable(data); // has to match csv columns!
 
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
