@@ -133,14 +133,99 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
-      #investment-chart {
-	display: flex;
-        text-align: center;
-        border: 1px solid #ddd;
-        border-radius: 0.25rem;
-        width: 100%;
-      }
-    }
+      // viz container
+      #investment-overview__viz {
+
+	padding-left: 3.5rem;
+	padding-right: 3.5rem;
+	box-sizing: border-box;
+
+	#investment-chart {
+	  display: flex;
+          width: 100%;
+	}
+
+	#title-section {
+	  width: 100%;
+
+	  #chart-title-aid {
+	    display: inline-block;
+	    width: 66%;
+	    color: #555555;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	    height: 25px;
+	  }
+
+	  #chart-title-grants {
+	    display: inline-block;
+	    width: 27%;
+	    color: #555555;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	    height: 25px;
+	  }
+
+	  #chart-title-contracts {
+	    display: inline-block;
+	    width: 6%;
+	    color: #555555;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	    height: 25px;
+	  }
+
+
+	} // end title section
+
+	#bar-text {
+	  color: #FFFEFD;
+	  font-size: 36px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
+	#investment-subtext {
+	  display: flex;
+	  justify-content: space-between;
+	  padding-top: 2rem;
+	  padding-left: 3.5rem;
+	  padding-right: 3.5rem;
+
+	  #aid-heading {
+	    margin: 0;
+	    padding-bottom: 1rem;
+	    height: 25px;
+	    color: #0A2F5A;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: bold;
+	    line-height: 18px;
+	    text-align: center;
+	  }
+
+	  #aid-image {
+	    text-align: center;
+	  }
+
+	  #aid-description {
+	    width: 190px;
+	    color: #555555;
+	    font-size: 15px;
+	    font-weight: 300;
+	    line-height: 18px;
+	  }
+	}
+
+      } // end of investment_viz
+    } // end of #investment-overview
   } // end of section-one
 
   #section-two {
