@@ -14,6 +14,7 @@ const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
+
 let node, circle, focus, view, svg, recipient;
 const margin = 20,
     diameter = 700;
@@ -151,7 +152,7 @@ function handleMouseOver(d) {
 }
 
 function handleMouseOut() {
-    window.tooltipModule.remove();
+    window.tooltipModule.remove("#tooltip");
 }
 
 function transformData(data) {
@@ -227,6 +228,8 @@ function transformData(data) {
 function zoom(d) {
     const focus0 = focus;
     focus = d;
+
+    handleMouseOut();
 
     if (!d.parent || d.parent.name === "flare") {
         const transition = d3.transition()
