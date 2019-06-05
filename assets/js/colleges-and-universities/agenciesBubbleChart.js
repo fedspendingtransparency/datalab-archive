@@ -15,7 +15,7 @@ const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
 
-let node, circle, focus, view, svg, recipient;
+let node, circle, focus, view, bubbleSvg, recipient;
 const margin = 20,
     diameter = 700;
 
@@ -81,14 +81,14 @@ function drawBubbleChart(root) {
     focus = root;
     nodes = pack.nodes(root);
 
-    svg = d3.select(bubbleChartContainer).append("svg")
+    bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
         .attr("height", bubble.chartHeight)
         .append("g")
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-    circle = svg.selectAll("circle")
+    circle = bubbleSvg.selectAll("circle")
         .data(nodes)
         .enter().append("circle")
         .attr("class", function(d) {
@@ -116,7 +116,7 @@ function drawBubbleChart(root) {
             return d.name;
         })
 
-    svg.selectAll("text")
+    bubbleSvg.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("font-family", "Source Sans Pro")
@@ -136,13 +136,13 @@ function drawBubbleChart(root) {
             if (focus !== d) zoom(d), d3.event.stopPropagation();
         });
 
-    node = svg.selectAll("circle,text");
+    node = bubbleSvg.selectAll("circle,text");
 
 }
 
 function handleMouseOver(d) {
     const circleName = "circle." + d.name;
-    const circleEl = svg.select(circleName);
+    const circleEl = bubbleSvg.select(circleName);
 
     if (d.parent && d.parent.name !== "flare") {
         window.tooltipModule.draw("#tooltip", d.name, {
