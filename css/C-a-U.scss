@@ -278,11 +278,15 @@ $bluecopy: #2272ce;
           #bubbleChartContainer {
             flex: 1;
             display: flex;
+            height: 700px;
 
             svg#chart {
-              height: 700px;
               width: 700px;
               align-self: center;
+            }
+
+            circle.node,  circle.node--root, circle.node--leaf, text.label {
+              cursor: pointer;
             }
 
             #agency-legend_colorKey {

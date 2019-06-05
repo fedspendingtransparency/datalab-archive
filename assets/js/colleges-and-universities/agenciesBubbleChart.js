@@ -145,7 +145,7 @@ function handleMouseOver(d) {
 
     if (d.parent && d.parent.name !== "flare") {
         window.tooltipModule.draw("#tooltip", d.name, {
-            Value: "Contribution: " + d.size
+            "Total Contribution": numeral(d.size).format('$0,0.00')
         });
     }
 }
