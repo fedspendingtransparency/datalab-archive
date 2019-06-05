@@ -4,13 +4,29 @@
 *--------------------------------------------------------------------------------------------------------------------
 */
 const bubbleChartContainer = document.getElementById('bubbleChartContainer');
-const color = ['#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec788','#a3c787','#91c7a5',
-    '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9', '#91c78b','#91c7c1','#8ab0c6','#9481c4','#bf84b9',
-    '#bf8381','#c19082','#c39f84','#c7bc87','#c7c889','#bbc888','#aec788','#a3c787','#91c7a5'];
+const color = ['#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8', '#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
+    '#7FC994','#C57EC8'];
 
-const bTableBtn = $('#bubbleTable-btn');
+const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
+const bChartBtn = $('#bubble-chart-trigger');
+
+let node, circle, focus, view, bubbleSvg, recipient;
+const margin = 20,
+    diameter = 700;
+
+const pack = d3.layout.pack()
+    .padding(2)
+    .size([diameter - margin, diameter - margin])
+    .value(function(d) {
+        if(d.size > 0) {
+            return d.size;
+        }
+    });
 
 /*
   --------------------------------------------------------------------------------------------------------------------
@@ -18,95 +34,65 @@ const bChartContainer = $('#bubbleChartContainer');
 *--------------------------------------------------------------------------------------------------------------------
 */
 
-
-var circleFill = function(d) {
+/* Set color for sub-agency circles */
+const circleFill = function(d) {
     if (d['color']) {
         return d.color;
-    } else if (d.parent && d.parent.name === "flare") {
-        return '#f3f3f3';
-    } else {
-        return '#f8f8f8';
     }
-}
+};
 
-var calculateTextFontSize = function(d) {
-    var id = d3.select(this).text();
-    var radius = 0;
+/* Calculate text font size for bubbles before and after zoom */
+const calculateTextFontSize = function(d) {
+    let radius = 0;
+    let multiplier = 0;
 
-    if(d.depth === 2) {
-        if(d.fontsize =  d.r > 30) {
-            d.fontsize = "12px";
-        } else if (d.fontsize =  d.r > 20) {
-            d.fontsize = "4px";
-        } else if (d.fontsize =  d.r > 5) {
-            d.fontsize = "2px";
-        } else {
-            d.fontsize = "1px";
-        }
-    }
 
     if (d.fontsize){
         //if fontsize is already calculated use that.
         return d.fontsize;
     }
+
     if (!d.computed) {
         //if computed not present get & store the getComputedTextLength() of the text field
         d.computed = this.getComputedTextLength();
-        if(d.computed != 0){
-            //if computed is not 0 then get the visual radius of DOM
-            //if radius present in DOM use that
-            radius = d.r ? d.r : 0;
-
-            //calculate the font size and store it in object for future
-            d.fontsize = 24 * radius / d.computed + "px";
-            return d.fontsize;
-        }
     }
-}
 
-var margin = 20,
-    diameter = 800;
+    if(d.computed != 0){
+        //if computed is not 0 then get the visual radius of DOM
+        //if radius present in DOM use that
+        radius = d.r ? d.r : 0;
+        multiplier = d.depth === 2 ? 60 : 30;
 
-var pack = d3.layout.pack()
-    .padding(2)
-    .size([diameter - margin, diameter - margin])
-    .value(function(d) {
-        if(d.size > 0) {
-            return d.size;
-        }
-    })
-
-var node, circle, recipientMap;
+        //calculate the font size and store it in object for future
+        d.fontsize = multiplier * radius / d.computed + "px";
+        return d.fontsize;
+    }
+};
 
 function drawBubbleChart(root) {
-    var width = 1600;
-    var height = 2000;
+    const width = 700;
+    const height = 700;
 
-    var aspect = window.innerWidth / window.innerHeight;
-    var targetWidth = window.innerWidth;
+    const aspect = width / height;
+    const targetWidth = width;
     
     bubble.chartHeight = targetWidth / aspect;
 
-    var svg = d3.select(bubbleChartContainer).append("svg")
+    focus = root;
+    nodes = pack.nodes(root);
+
+    bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
         .attr("width", targetWidth)
         .attr("height", bubble.chartHeight)
         .append("g")
         .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-
-    var focus = root,
-        nodes = pack.nodes(root),
-        view;
-
-    circle = svg.selectAll("circle")
+    circle = bubbleSvg.selectAll("circle")
         .data(nodes)
         .enter().append("circle")
         .attr("class", function(d) {
-            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
-        })
-        .attr("class", function(d) {
-            return d.name;
+            return d.parent ? d.children ? "node" : "node--leaf" : "node--root";
         })
         .style("fill", circleFill)
         .attr("r", function(d) {
@@ -119,14 +105,18 @@ function drawBubbleChart(root) {
         })
         .on("click", function(d) {
             if (focus !== d) zoom(d), d3.event.stopPropagation();
-        });
+        })
+        .on("mouseover", function(d) {
+            handleMouseOver(d);
+        })
+        .on("mouseout", handleMouseOut);
 
     circle.append("svg:title")
         .text(function(d) {
             return d.name;
         })
 
-    var text = svg.selectAll("text")
+    bubbleSvg.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("font-family", "Source Sans Pro")
@@ -141,16 +131,34 @@ function drawBubbleChart(root) {
             return d.name;
         })
         .style("font-size", calculateTextFontSize)
-        .attr("text-anchor", "middle");
+        .attr("text-anchor", "middle")
+        .on("click", function(d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
 
-    node = svg.selectAll("circle,text");
+    node = bubbleSvg.selectAll("circle,text");
 
 }
 
+function handleMouseOver(d) {
+    const circleName = "circle." + d.name;
+    const circleEl = bubbleSvg.select(circleName);
+
+    if (d.parent && d.parent.name !== "flare") {
+        window.tooltipModule.draw("#tooltip", d.name, {
+            "Total Contribution": numeral(d.size).format('$0,0.00')
+        });
+    }
+}
+
+function handleMouseOut() {
+    window.tooltipModule.remove("#tooltip");
+}
+
 function transformData(data) {
-    var result = _.groupBy(data, 'agency');
+    let result = _.groupBy(data, 'agency');
     var i = 0;
-    var tempRoot = {
+    let tempRoot = {
         "name": "flare",
         "children": []
     };
@@ -217,14 +225,14 @@ function transformData(data) {
 }
 
 // Zoom into a specific circle
-// CALL THIS FUNCTION ON SEARCH
-// Parameter is a specific node 
 function zoom(d) {
-    var focus0 = focus;
+    const focus0 = focus;
     focus = d;
 
+    handleMouseOut();
+
     if (!d.parent || d.parent.name === "flare") {
-        var transition = d3.transition()
+        const transition = d3.transition()
             .duration(d3.event.altKey ? 7500 : 750)
             .tween("zoom", function(d) {
                 var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
@@ -233,24 +241,35 @@ function zoom(d) {
                 };
             });
 
-        transition.selectAll("text")
-            .filter(function(d) {
-                return d.parent === focus || this.style.display === "inline";
-            })
+        transition.selectAll(".node--root")
+            .style("fill-opacity", function() {
+                return focus.name === "flare" ? 1 : 0;
+            });
+
+        transition.selectAll("text.label")
             .style("fill-opacity", function(d) {
                 return d.parent === focus ? 1 : 0;
             })
             .each("start", function(d) {
-                if (d.parent === focus) this.style.display = "inline";
+                if (d.parent === focus) {
+                    this.style.display = "inline";
+                } else {
+                    this.style.display="none";
+                }
             })
             .each("end", function(d) {
-                if (d.parent !== focus) this.style.display = "none";
+                if (d.parent !== focus) {
+                    this.style.display = "none";
+                } else {
+                    this.style.display="inline";
+                }
             });
+
         setTimeout(function() {
-            d3.selectAll("text").filter(function(d) {
+            d3.selectAll("text.label").filter(function(d) {
                 return d.parent === focus || this.style.display === "inline";
             }).style("font-size", calculateTextFontSize);
-        }, 10)
+        }, 10);
 
     } else {
         bubble.activateDetail(d)
@@ -272,10 +291,7 @@ function zoomTo(v) {
 /**
    Make a table, a bubble table ;;;;
 **/
-function createBubbleTable() {
-  d3.csv('data-lab-data/CU_bubble_chart.csv', function(err, data) {
-    if (err) { return err; }
-
+function createBubbleTable(data) {
     let table = d3.select('#bubbleTableContainer').append('table')
         .attr('id', 'bubbletable');
 
@@ -303,8 +319,24 @@ function createBubbleTable() {
       deferRender:    true,
       scrollCollapse: true,
       scroller:       true});
-  }); // end d3 function
 };
+
+/*
+--------------------------------------------------------------------------------------------------------------------
+*   Click Handlers
+*--------------------------------------------------------------------------------------------------------------------
+*/
+
+bChartBtn.click(function(){
+    bTableContainer.hide(); // show
+    bChartContainer.show(); // hide bubble chart
+});
+
+// table button toggle click
+bTableBtn.click(function(){
+    bTableContainer.show(); // show
+    bChartContainer.hide(); // hide bubble chart
+});
 
 
 /*
@@ -312,9 +344,10 @@ function createBubbleTable() {
 *   Main Method
 *--------------------------------------------------------------------------------------------------------------------
 */
-d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
-    let counter = 0;
-    var root = transformData(data);
+d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
+    if (err) { return err; }
+
+    const root = transformData(data);
 
     drawBubbleChart(root);
 
@@ -325,15 +358,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-  // table button toggle click
-  bTableBtn.click(function(){
-    counter++;
-    bTableContainer.toggle(); // show
-    bChartContainer.toggle(); // hide bubble chart
-    if (counter == 1) {
-      createBubbleTable(); // has to match csv columns!
-    }
-  });
+    createBubbleTable(data); // has to match csv columns!
 
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
