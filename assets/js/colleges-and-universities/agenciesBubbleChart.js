@@ -15,9 +15,11 @@ const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
 
-let node, circle, focus, view, bubbleSvg, recipient;
+let node, circle, focus, view, bubbleSvg, recipient, root;
 const margin = 20,
-    diameter = 700;
+    diameter = bubbleChartContainer.clientWidth;
+
+const width = bubbleChartContainer.clientWidth;
 
 const pack = d3.layout.pack()
     .padding(2)
@@ -70,17 +72,12 @@ const calculateTextFontSize = function(d) {
 };
 
 function drawBubbleChart(root) {
-    const width = 700;
-    const height = 700;
-
-    const aspect = width / height;
     const targetWidth = width;
     
-    bubble.chartHeight = targetWidth / aspect;
+    bubble.chartHeight = targetWidth;
 
     focus = root;
     nodes = pack.nodes(root);
-    
 
     bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
@@ -221,6 +218,7 @@ function transformData(data) {
             tempRoot.children[i].children[j].color = color[i];
         }
     }
+
     return tempRoot;
 }
 
@@ -291,7 +289,6 @@ function zoomTo(v) {
 /**
    Make a table, a bubble table ;;;;
 **/
-
 function createBubbleTable(data) {
     let table = d3.select('#bubbleTableContainer').append('table')
         .attr('id', 'bubbletable');
@@ -324,7 +321,7 @@ function createBubbleTable(data) {
 
 /*
 --------------------------------------------------------------------------------------------------------------------
-*   Click Handlers
+*   Event Handlers
 *--------------------------------------------------------------------------------------------------------------------
 */
 
@@ -339,16 +336,24 @@ bTableBtn.click(function(){
     bChartContainer.hide(); // hide bubble chart
 });
 
+// Redraw based on the new size whenever the browser window is resized.
+window.addEventListener("resize", function() {
+    // put this in a set time out
+    $("#bubbleChartContainer").empty();
+    if(root) {
+        drawBubbleChart(root);
+    }
+});
+
 /*
 --------------------------------------------------------------------------------------------------------------------
 *   Main Method
 *--------------------------------------------------------------------------------------------------------------------
 */
-
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     if (err) { return err; }
 
-    const root = transformData(data);
+    root = transformData(data);
 
     drawBubbleChart(root);
 
@@ -359,8 +364,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-
-    createBubbleTable(data); // has to match csv columns!
+    //createBubbleTable(data); // has to match csv columns!
 
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
