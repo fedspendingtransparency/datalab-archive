@@ -80,6 +80,7 @@ function drawBubbleChart(root) {
 
     focus = root;
     nodes = pack.nodes(root);
+    
 
     bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
