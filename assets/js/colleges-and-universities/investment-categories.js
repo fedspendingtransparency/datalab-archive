@@ -71,8 +71,8 @@ function updateCenter(d) {
     center.append('div')
       .attr('id', 'tab')
       .html(`
-        <div class='title'>${dataType} Category</div>
-        <div class='heading'>${d.name}</div>
+        <div class='heading'>${dataType} Category</div>
+        <div class='title'>${d.name}</div>
         <div class='heading'>Total FY2018 Funding</div>
         <div class='amount'>${formatNumber(d.value)}</div>
       `)
@@ -81,10 +81,10 @@ function updateCenter(d) {
     center.append('div')
       .attr('id', 'tab')
       .html(`
-        <div class='title'>${dataType} Category</div>
-        <div class='heading'>${d.parent.name}</div>
-        <div class='title'>${dataType} Name</div>
-        <div class='heading'>${d.name}</div>
+        <div class='heading'>${dataType} Category</div>
+        <div class='title'>${d.parent.name}</div>
+        <div class='heading'>${dataType} Name</div>
+        <div class='title'>${d.name}</div>
         <div class='heading'>Total FY2018 Funding</div>
         <div class='amount'>${formatNumber(d.value)}</div>
       `)
