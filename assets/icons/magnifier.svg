@@ -10,7 +10,7 @@
         <g mask="url(#magnifier-mask)" fill="#242A42" fill-rule="evenodd">
             <rect x="0" y="0" width="18" height="18"></rect>
         </g>
-        <g mask="url(#magnifier-mask)" fill="#9B9B9B" fill-rule="evenodd" stroke="#9B9B9B" stroke-width="1">
+        <g mask="url(#magnifier-mask)" fill="black" fill-rule="evenodd" stroke="black" stroke-width="1">
             <rect x="0.5" y="0.5" width="17" height="17"></rect>
         </g>
     </g>

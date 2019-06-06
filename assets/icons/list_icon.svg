@@ -11,7 +11,7 @@
             <g mask="url(#list-mask)" fill="#242A42" fill-rule="evenodd">
                 <rect x="0" y="0" width="19" height="19"></rect>
             </g>
-            <g mask="url(#list-mask)" fill="#555555" fill-rule="evenodd" stroke="#555555" stroke-width="1">
+            <g mask="url(#list-mask)" fill="black" fill-rule="evenodd" stroke="black" stroke-width="1">
                 <rect x="0.5" y="0.5" width="18" height="18"></rect>
             </g>
         </g>

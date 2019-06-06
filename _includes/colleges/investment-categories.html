@@ -28,14 +28,14 @@
         <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div class="function-buttons">
+        <div class="function-buttons" onclick='panelClick(e)'>
           <div class='button-set'>
-            <button id='search-btn' type='button' title='Search'>{% include svgs/magnifier.svg %}</button>
+            <button id='search-btn' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <button type='button' title='View chart'>{% include svgs/sunburst_icon.svg %}</button>
+            <button type='button' title='View chart'><img src='/assets/icons/sunburst_icon.svg' /></button>
             <div class='separator'></div>
-            <button id='table-view' type='button' title='View table'>{% include svgs/list_icon.svg %}</button>
+            <button id='table-view' type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 
