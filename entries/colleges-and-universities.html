@@ -18,18 +18,23 @@ dlPageCss: C-a-U.css
 
 
 <!--scripts -->
-<script>
-  var bubble = {},
-    sunburst = {};
-  //expose global variables for communication between scripts
-</script>
-
 <script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 <script src="/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+<script>
+  var bubble = {},
+    sunburst = {};
+  //expose global variables for communication between scripts
+
+  function formatCurrency(n) {
+        return '$' + d3.format(",")(Math.round(n));
+    }
+</script>
+
 <!-- <script src="/assets/js/colleges-and-universities/investmentOverview.js"></script> -->
 <script src="/assets/js/colleges-and-universities/agenciesBubbleSearch.js"></script>
 <script src="/assets/js/colleges-and-universities/sunburstSearch.js"></script>

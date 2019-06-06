@@ -17,10 +17,6 @@
 
     let categoryName, cfda, done = 0;
 
-    function formatCurrency(n) {
-        return '$' + d3.format(",")(n);
-    }
-
     function sortDetail(a, b) {
         return b.value - a.value;
     }
