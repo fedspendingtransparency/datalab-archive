@@ -58,10 +58,11 @@
     function placeCloseButton() {
         detailContainer.append('button')
             .classed('bubble-detail__close', true)
-            .html('&times;')
             .on('click', () => {
                 detailContainer.classed(activeClass, false)
             })
+            .append('span')
+            .html('&times;')
     }
 
     function createTableRow(d) {
