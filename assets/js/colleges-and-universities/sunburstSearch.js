@@ -2,7 +2,7 @@
     let searchData, parentSection, searchContainer, inputWrapper, input, list;
 
     function initDom() {
-        parentSection = d3.select('#function-buttons');
+        parentSection = d3.select('#investment-categories .function-buttons');
         searchContainer = parentSection.append('div').classed('bubble-search', true);
         inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
         list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
