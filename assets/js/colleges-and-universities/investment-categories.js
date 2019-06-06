@@ -19,20 +19,24 @@ d3.select('#legend_scaleKey').append('circle')
   .attr('cy', 65);
 
 let chartData; // ref to current data parent (only for center label) 
+let categoryLabel; // text to show in center
 let dataType; // text to show in center
 
 function changeCategory(category) {
   if (category.value === 'contracts') {
     chartData = contractsChartArray[0];
-    dataType = 'CFDA';
+    categoryLabel = 'Contract';
+    dataType = 'PSC';
     drawChart(contractsChartArray);
   } else if (category.value === 'grants') {
     chartData = grantsChartArray[0];
-    dataType = 'PSC';
+    categoryLabel = 'Grant';
+    dataType = 'CFDA';
     drawChart(grantsChartArray);
   } else if (category.value === 'research') {
     chartData = researchGrantsChartArray[0];
-    dataType = 'PSC';
+    categoryLabel = 'Research Grant';
+    dataType = 'CFDA';
     drawChart(researchGrantsChartArray);
   }
 }
@@ -59,7 +63,7 @@ function updateCenter(d) {
     center.append('div')
       .attr('id', 'tab')
       .html(`
-        <div class='heading'>Total FY2018 Funding</div>
+        <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
         <div class='amount'>${formatNumber(d.value)}</div>
       `)
       ;
@@ -246,7 +250,8 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   });
   chartData = grantsChartArray[0];
 
-  dataType = 'PSC';
+  categoryLabel = 'Grant';
+  dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
 
