@@ -16,8 +16,10 @@ $bluecopy: #2272ce;
 
 .CU {
   font-family: "Source Sans Pro";
-  padding: 1rem; // padding around whole wrapper
+//  padding: 1rem; // padding around whole wrapper
   margin-top: 10rem; // move all content down enough
+  max-width: 100%;
+  overflow: hidden;
 
   #section-pre {
     display: flex;
@@ -131,14 +133,99 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
-      #investment-chart {
-	display: flex;
-        text-align: center;
-        border: 1px solid #ddd;
-        border-radius: 0.25rem;
-        width: 100%;
-      }
-    }
+      // viz container
+      #investment-overview__viz {
+
+	padding-left: 3.5rem;
+	padding-right: 3.5rem;
+	box-sizing: border-box;
+
+	#investment-chart {
+	  display: flex;
+          width: 100%;
+	}
+
+	#title-section {
+	  width: 100%;
+
+	  #chart-title-aid {
+	    display: inline-block;
+	    width: 66%;
+	    color: #555555;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	    height: 25px;
+	  }
+
+	  #chart-title-grants {
+	    display: inline-block;
+	    width: 27%;
+	    color: #555555;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	    height: 25px;
+	  }
+
+	  #chart-title-contracts {
+	    display: inline-block;
+	    width: 6%;
+	    color: #555555;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	    height: 25px;
+	  }
+
+
+	} // end title section
+
+	#bar-text {
+	  color: #FFFEFD;
+	  font-size: 36px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
+	#investment-subtext {
+	  display: flex;
+	  justify-content: space-between;
+	  padding-top: 2rem;
+	  padding-left: 3.5rem;
+	  padding-right: 3.5rem;
+
+	  #aid-heading {
+	    margin: 0;
+	    padding-bottom: 1rem;
+	    height: 25px;
+	    color: #0A2F5A;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: bold;
+	    line-height: 18px;
+	    text-align: center;
+	  }
+
+	  #aid-image {
+	    text-align: center;
+	  }
+
+	  #aid-description {
+	    width: 190px;
+	    color: #555555;
+	    font-size: 15px;
+	    font-weight: 300;
+	    line-height: 18px;
+	  }
+	}
+
+      } // end of investment_viz
+    } // end of #investment-overview
   } // end of section-one
 
   #section-two {
@@ -264,6 +351,44 @@ $bluecopy: #2272ce;
         text-align: center;
         margin: 0;
         padding: 1rem;
+      }
+
+      #agency-investments__content {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
+
+          #bubbleChartContainer {
+            flex: 1;
+            display: flex;
+            height: 700px;
+
+            svg#chart {
+              width: 700px;
+              align-self: center;
+            }
+
+            circle.node,  circle.node--root, circle.node--leaf, text.label {
+              cursor: pointer;
+            }
+
+            #agency-legend_colorKey {
+              width: 20%;
+              margin-top: 6%;
+              align-self: flex-start;
+            }
+
+            .node--root {
+              fill: #f8f8f8;
+            }
+
+            .node {
+              stroke: #E8E8E8;
+              fill: #f3f3f3;
+            }
+          }
       }
 
       #bubbleTableContainer {
@@ -608,39 +733,6 @@ $bluecopy: #2272ce;
     }
   }
 
-  /*
-  --------------------------------------------------------------------------------------------------------------------
-*   Instututions
-*--------------------------------------------------------------------------------------------------------------------
-*/
-
-  .collegesMap {
-    text-align: center;
-    background-color: #eeeeee;
-
-    .background {
-      fill: none;
-      pointer-events: all;
-    }
-
-    #states {
-      fill: #e6e7e5;
-    }
-
-    #states .active {
-      fill: orange;
-    }
-
-    #state-borders {
-      fill: none;
-      stroke: #fff;
-      stroke-width: 1.5px;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-      pointer-events: none;
-    }
-  }
-
   .mapboxgl-canvas {
     left: 0;
   }
@@ -769,7 +861,6 @@ $bluecopy: #2272ce;
     position: relative;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
-    margin-right: 1rem;
     top: 0;
     bottom: 0;
     width: 100%;

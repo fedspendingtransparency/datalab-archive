@@ -1,12 +1,12 @@
 (function () {
-    const detailContainer = d3.select('#categories-detail').attr('style','position:relative').append('section').classed('bubble-detail', true),
+    const detailContainer = d3.select('#categories-detail').attr('style', 'position:relative').append('section').classed('bubble-detail', true),
         tables = {},
         detailData = {},
+        types = [],
         tableControl = [
             'total',
-            'funding',
-            'investments',
-            'institutions'
+            'agencies',
+            'institutions',
         ], // for controlling the order of positioning tables
         activeClass = 'bubble-detail--active';
 
@@ -15,7 +15,7 @@
         { key: 'Grants', value: 1000000 }
     ]
 
-    let agencyName, subAgencyName, done = 0;
+    let categoryName, cfda, done = 0;
 
     function formatCurrency(n) {
         return '$' + d3.format(",")(n);
@@ -26,29 +26,37 @@
     }
 
     function activateDetail(data) {
-        console.log('activate', data);
-        
+        if (data.depth !== 2) { return } //only activate for level 2
         if (done != 2) { return } //don't allow this feature unless both CSVs are in memory
-        
+
+        const lookup = data.parent.name.toLowerCase();
+        let radioValue;
+
+        d3.selectAll('#categories input').each(function () {
+            const radio = d3.select(this);
+
+            if (radio.property('checked')) {
+                radioValue = radio.attr('value');
+            }
+        });
+
         detailContainer.classed(activeClass, true);
-        
-        return;
 
-        agencyName.text(data.parent.name)
-        subAgencyName.text(data.name)
-        
-        updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
-        updateTable('funding', instrumentTypeMock);
+        categoryName.text(data.parent.name)
+        cfda.text(data.name)
 
-        if (!detailData[data.name]) {
-            console.warn(`no data for ${data.name}`);
-            updateTable('investments', []);
+        updateTable('total', [{ key: 'Total $ of Funding', value: data.value }]);
+
+        if (!detailData[lookup][radioValue]) {
+            console.warn(`no data for ${data.name} (${radioValue})`);
+            updateTable('agencies', []);
             updateTable('institutions', []);
         } else {
-            updateTable('investments', detailData[data.name].investments.sort(sortDetail));
-            updateTable('institutions', detailData[data.name].institutions.sort(sortDetail));
+            updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+            updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
         }
 
+        return;
     }
 
     function placeCloseButton() {
@@ -84,34 +92,36 @@
                 .classed('bubble-detail__table', true)
         })
 
-        tables.funding.append('tr');
-        tables.funding.select('tr').append('th').text('Funding Instrument Type').attr('colspan', 2)
-
-        tables.investments.append('tr');
-        tables.investments.select('tr').append('th').text('Investment Categories (Top 5)');
-        tables.investments.select('tr').append('th').text('Total Investment');
+        tables.agencies.append('tr');
+        tables.agencies.select('tr').append('th').text('Funding Agencies (Top 5)');
+        tables.agencies.select('tr').append('th').text('Total Investment');
 
         tables.institutions.append('tr');
-        tables.institutions.select('tr').append('th').text('Institutions (Top 5)');
+        tables.institutions.select('tr').append('th').text('Institution (Top 5)');
         tables.institutions.select('tr').append('th').text('Total Investment');
     }
 
-    function indexData(row, a, b, c) {
-        detailData[row.source] = detailData[row.source] || {};
-        detailData[row.source][this] = detailData[row.source][this] || [];
+    function indexData(row) {
+        const source = row.source.toLowerCase();
 
-        detailData[row.source][this].push({ key: row.target, value: Number(row.value) });
+        if (types.indexOf(row.type) === -1) { types.push(row.type) }
+
+        detailData[source] = detailData[source] || {};
+        detailData[source][row.type] = detailData[source][row.type] || {};
+        detailData[source][row.type][this] = detailData[source][row.type][this] || [];
+
+        detailData[source][row.type][this].push({ key: row.target, value: Number(row.value) });
     }
 
     function preloadData() {
-        d3.csv("/data-lab-data/CU/top5InstitutionsPerAgency.csv", function (data) {
+        d3.csv("/data-lab-data/CU/top5InstitutionsPerInvestmentType.csv", function (data) {
             data.forEach(indexData, 'institutions');
 
             done += 1;
         });
 
-        d3.csv("/data-lab-data/CU/top5InvestmentsPerAgency.csv", function (data) {
-            data.forEach(indexData, 'investments');
+        d3.csv("/data-lab-data/CU/top5AgenciesPerInvestmentType.csv", function (data) {
+            data.forEach(indexData, 'agencies');
 
             done += 1;
         })
@@ -121,11 +131,11 @@
         preloadData();
         placeCloseButton();
 
-        detailContainer.append('span').classed('bubble-detail__agency-label', true).text('Agency');
-        agencyName = detailContainer.append('span').classed('bubble-detail__agency-name', true);
+        detailContainer.append('span').classed('bubble-detail__agency-label', true).text('Category');
+        categoryName = detailContainer.append('span').classed('bubble-detail__agency-name', true);
 
-        detailContainer.append('span').classed('bubble-detail__agency-label', true).text('Sub-Agency');
-        subAgencyName = detailContainer.append('span').classed('bubble-detail__agency-name', true);
+        detailContainer.append('span').classed('bubble-detail__agency-label', true).text('CFDA');
+        cfda = detailContainer.append('span').classed('bubble-detail__agency-name', true);
 
         placeTables();
 

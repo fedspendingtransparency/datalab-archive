@@ -1,5 +1,5 @@
 <article id="section-three">
-  
+
   <section id="agency-investments">
     <div>
       {% include colleges/colleges-share.html anchor="section-three" %}
@@ -19,12 +19,43 @@
 	paying and what vehicles they are using to invest with.
       </p>
     </div>
+
+
     <div id="bubble-search">
       <button id="bubble-search-trigger">search</button>
     </div>
-    <div id="bubbleChartContainer" class="bubbleChartContainer" data-aos="fade-left" data-aos-delay="1000"> </div>
-    <div id="bubbleTableContainer"></div>
-    <div id="bubbleTable-btn"><i class="fas fa-map"></i></div>
+
+    <div id="bubble-table">
+      <button id="bubble-table-trigger">table</button>
+    </div>
+
+    <div id="bubble-chart">
+      <button id="bubble-chart-trigger">chart</button>
+    </div>
+
+    <div id="agency-investments__content">
+
+      <div id="bubbleChartContainer" class="bubbleChartContainer">
+
+        <div id="agency-legend_colorKey">
+          <svg>
+            <circle stroke="#696969" fill="none" cx="60" cy="60" r="60">
+            </circle>
+            <text x="15" y="45">Sub-Agency</text>
+            <circle stroke="#696969" fill="none" cx="60" cy="90" r="30">
+            </circle>
+            <text x="30" y="140">Agency</text>
+          </svg>
+        </div>
+
+        <div id="tooltip" class="tooltip-module"></div>
+
+      </div>
+
+      <div id="bubbleTableContainer"></div>
+
+    </div>
+
   </section>
 
 </article>
