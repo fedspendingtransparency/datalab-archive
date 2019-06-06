@@ -22,6 +22,10 @@ dlPageCss: C-a-U.css
   var bubble = {},
     sunburst = {};
   //expose global variables for communication between scripts
+
+  function formatCurrency(n) {
+        return '$' + d3.format(",")(Math.round(n));
+    }
 </script>
 
 <script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
