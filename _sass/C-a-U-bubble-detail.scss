@@ -63,6 +63,7 @@
 .bubble-detail__table {
     width: 100%;
     margin-bottom: 2rem;
+    border-collapse: collapse;
 }
 
 .bubble-detail__table:last-of-type {
@@ -79,6 +80,7 @@
 
 .bubble-detail__table tr td:last-child {
     color: #555;
+    font-weight: 500;
 }
 
 .bubble-detail__table tr th:first-child {
@@ -88,12 +90,13 @@
 .bubble-detail__table tr th {
     font-size: 0.8rem;
     border-bottom: 1px solid #ddd;
+    color: #555;
 }
 
 .bubble-detail__table tr td {
     font-size: 0.9rem;
     border-bottom: 1px solid #f3f3f3 !important;
     color: #555;
-    padding: 0.35rem 0;
+    padding: 0.35rem 0 !important;
     font-weight: 300;
 }
