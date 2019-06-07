@@ -254,6 +254,8 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   });
   chartData = grantsChartArray[0];
 
+  categoryLabel = 'Grant';
+  dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
 
