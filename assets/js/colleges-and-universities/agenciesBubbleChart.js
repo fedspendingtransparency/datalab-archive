@@ -28,10 +28,6 @@ const pack = d3.layout.pack()
         }
     });
 
-const bTableBtn = $('#bubbleTable-btn');
-const bTableContainer = $('#bubbleTableContainer');
-const bChartContainer = $('#bubbleChartContainer');
-
 /*
   --------------------------------------------------------------------------------------------------------------------
 *   functions
