@@ -1,3 +1,6 @@
+---
+---
+
 (function () {
     const searchData = [];
 
@@ -12,7 +15,7 @@
 
     function toggleSearch() {
         d3.select('#bubble-search-trigger').on('click', () => {
-            parentSection.classed('active', !parentSection.classed('active'))
+            parentSection.classed('active', !parentSection.classed('active'));
         })
     }
 

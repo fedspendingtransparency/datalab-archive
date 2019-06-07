@@ -221,7 +221,6 @@ function transformData(data) {
             tempRoot.children[i].children[j].color = color[i];
         }
     }
-
     return tempRoot;
 }
 
@@ -292,6 +291,7 @@ function zoomTo(v) {
 /**
    Make a table, a bubble table ;;;;
 **/
+
 function createBubbleTable(data) {
     let table = d3.select('#bubbleTableContainer').append('table')
         .attr('id', 'bubbletable');
@@ -339,12 +339,12 @@ bTableBtn.click(function(){
     bChartContainer.hide(); // hide bubble chart
 });
 
-
 /*
 --------------------------------------------------------------------------------------------------------------------
 *   Main Method
 *--------------------------------------------------------------------------------------------------------------------
 */
+
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     if (err) { return err; }
 
@@ -358,6 +358,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
         });
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
+
 
     createBubbleTable(data); // has to match csv columns!
 
