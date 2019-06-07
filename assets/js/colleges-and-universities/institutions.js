@@ -277,114 +277,129 @@ function createMapbox() {
 	createRightPanel(e);
       });
 
+
       function createRightPanel(e) {
-	let data = e.features[0].properties;
-	$(rightPanel).empty();
-	$(rightPanel).append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
-	$('#inst-panel-close').click(function(){
-	  $(rightPanel).css('display', 'none');
-	});
+	var data = e.features[0].properties;
+	//	console.log(data);
 
-	$(rightPanel).append(`<p class='inst-panel-preheader'> Institutions </p>`);
-	$(rightPanel).append(`<p class='inst-panel-header'> ${data.Recipient} </p>`);
+	$.getJSON('../../data-lab-data/rhp.json')
+	  .done(function(rhp) {
 
-	// first section
-	$(rightPanel).append(`<div id='inst-panel-section'>
+	    let arr = rhp.filter(function(x){
+	      return data.Recipient === x.Recipient;
+	    });
+
+	    console.log(arr);
+
+	    // start all right hand jazz
+	    $(rightPanel).empty();
+	    $(rightPanel).append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
+	    $('#inst-panel-close').click(function(){
+	      $(rightPanel).css('display', 'none');
+	    });
+
+	    $(rightPanel).append(`<p class='inst-panel-preheader'> Institutions </p>`);
+	    $(rightPanel).append(`<p class='inst-panel-header'> ${arr[0].Recipient} </p>`);
+
+	    // first section
+	    $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> Type of Institution </p>
-  <p class='inst-panel-subheading--data'> ${data.INST_TYPE_1} / ${data.INST_TYPE_2} </p> 
+  <p class='inst-panel-subheading--data'> ${arr[0].INST_TYPE_1} / ${arr[0].INST_TYPE_2} </p> 
 </div>
 
 <div id='inst-panel-section'>
  <p class='inst-panel-subheading'> Awards Received </p>
- <p class='inst-panel-subheading--data'> ${data.contracts_received} </p>
+ <p class='inst-panel-subheading--data'> ${arr[0].total_awards} </p>
 </div>
 
 <div id='inst-panel-section'>
   <p class='inst-panel-subheading'> Total $ Received</p>
-  <p class='inst-panel-subheading--data'> ${data.Total_Federal_Investment}</p>
+  <p class='inst-panel-subheading--data'> ${arr[0].Total_Federal_Investment}</p>
 </div>
 
  `);
 
-	// second section - funding type
-	$(rightPanel).append(`<div id='inst-panel-section'>
+	    // second section - funding type
+	    $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading--bold'> Funding Instrument Type </p>
 </div>
 
 <div id='inst-panel-section'>
   <p class='inst-panel-subheading'> Contracts </p>
-  <p class='inst-panel-subheading--data'> ${data.contracts_received}</p>
+  <p class='inst-panel-subheading--data'> ${arr[0].contracts}</p>
 </div>
 
 <div id='inst-panel-section'>
   <p class='inst-panel-subheading'> Grants </p>
-  <p class='inst-panel-subheading--data'> ${data.grants_received}</p>
+  <p class='inst-panel-subheading--data'> ${arr[0].grants}</p>
 </div>
 
 <div id='inst-panel-section'>
-  <p class='inst-panel-subheading'> Scholarships </p>
-  <p class='inst-panel-subheading--data'> 0 </p>
+  <p class='inst-panel-subheading'> Student Aid </p>
+  <p class='inst-panel-subheading--data'> ${arr[0].student_aid} </p>
 </div>
 `);
 
-	// third section - (top 5)
-	$(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Funding Agencies (Top 5) </p></div>`);
-	$.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
+	    // third section - (top 5)
+	    $(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Funding Agencies (Top 5) </p></div>`);
+	    $.getJSON('../../data-lab-data/fundingagencies.json', function(agencies) {
 
-	  let matchedAgencies = agencies.filter(function(ele) {
-	    return data.Recipient === ele.source; 
-	  });
+	      let matchedAgencies = agencies.filter(function(ele) {
+		return data.Recipient === ele.source; 
+	      });
 
-	  if (matchedAgencies.length == 0) {
-	    $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
-	  }
+	      if (matchedAgencies.length == 0) {
+		$(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
+	      }
 
-	  let sortedAgencies = matchedAgencies.sort(function(a,b){
-	    return b.value - a.value;
-	  });
+	      let sortedAgencies = matchedAgencies.sort(function(a,b){
+		return b.value - a.value;
+	      });
 
-	  sortedAgencies.slice(0,6); // take only 5 if more return
+	      sortedAgencies.slice(0,6); // take only 5 if more return
 
 
-	  sortedAgencies.forEach(function(ele) {
-	    $(rightPanel).append(`<div id='inst-panel-section'>
+	      sortedAgencies.forEach(function(ele) {
+		$(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
   <p class='inst-panel-subheading--data'> ${ele.value} </p>
 </div>
 `);
-	  });  
+	      });  
 
 
-	  // fourth section - (top 5 again.. agencies)
-	  $(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
-	  $.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
+	      // fourth section - (top 5 again.. agencies)
+	      $(rightPanel).append(`<div id='inst-panel-section'> <p class='inst-panel-subheading--bold'> Investment Categories (Top 5) </p></div>`);
+	      $.getJSON('../../data-lab-data/investmentcategories.json', function(investments) {
 
-	    let matchedInvestments = investments.filter(function(ele) {
-	      return data.Recipient === ele.source; 
-	    });
+		let matchedInvestments = investments.filter(function(ele) {
+		  return data.Recipient === ele.source; 
+		});
 
-	    let sortedInvestments = matchedInvestments.sort(function(a,b){
-	      return b.value - a.value;
-	    });
+		let sortedInvestments = matchedInvestments.sort(function(a,b){
+		  return b.value - a.value;
+		});
 
-	    sortedInvestments.slice(0,6);
+		sortedInvestments.slice(0,6);
 
-	    if (sortedInvestments.length == 0) {
-	      $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
-	    }
+		if (sortedInvestments.length == 0) {
+		  $(rightPanel).append(`<p class='inst-panel-subheading--bold--center'> N/A </p>`);
+		}
 
-	    sortedInvestments.forEach(function(ele) {
-	      $(rightPanel).append(`<div id='inst-panel-section'>
+		sortedInvestments.forEach(function(ele) {
+		  $(rightPanel).append(`<div id='inst-panel-section'>
   <p class='inst-panel-subheading'> ${ele.target} </p>
   <p class='inst-panel-subheading--data'> ${ele.value} </p>
 </div>
 `);	      
-	    });  
+		});  
 
+	      });
+
+	    }).fail(function(){
+	      console.log('promise fail');
+	    });
 	  });
-	});
-
-
       }; // end get right panel function
     }); // end getjson (get map function)
   });
