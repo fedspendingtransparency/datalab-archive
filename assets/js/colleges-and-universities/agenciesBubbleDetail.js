@@ -1,3 +1,6 @@
+---
+---
+
 (function () {
     const detailContainer = d3.select('#bubble-detail').append('section').classed('bubble-detail', true),
         tables = {},
