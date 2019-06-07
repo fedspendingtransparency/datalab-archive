@@ -1,23 +1,33 @@
 <article id="section-one">
   
   <section id="investment-overview">
-    <div>
-      {% include colleges/colleges-share.html anchor="section-one" %}
-      <h2 id="investment-overview__number">01</h2>
-      <h3 id="investment-overview__title">
-	Investment Overview
-      </h3>
-      <h1 id="investment-overview__preblurb">
-	How much was invested in colleges and universities?
-      </h1>
-      <p id="investment-overview__blurb">
-	$xxx, makes up the total investments into colleges and universities by the federal government.
-	That's almost 4% of total federal spending. These investments flow into higher education through 3 main vehicles:
-	contracts, grants, and federal student aid.
-      </p>
-    </div>
-
-    <div id="investment-overview__viz">
+		<div class="cu-header">
+			<div class="cu-header__number">
+				<span>01</span>
+			</div>
+			<h3 class="cu-header__title">Investment Overview</h3>
+			<h1 class="cu-header__teaser">
+				<strong>How much was invested in colleges and universities?</strong>
+			</h1>
+			<p class="cu-header__blurb">
+				$xxx, makes up the total investments into colleges and universities by the federal government.
+				That's almost 4% of total federal spending. These investments flow into higher education through 3 main vehicles:
+				contracts, grants, and federal student aid.
+			</p>
+			
+			<section class="accordion">
+				<h1 class="accordion__heading">Instructions</h1>
+				<div class="accordion__content">
+				<p>Here's everything you need to know</p>
+				</div>
+			</section>
+			
+				<div class="cu-header__controls">
+				{% include colleges/colleges-share.html anchor="section-one" %}
+				</div>
+			</div>
+	
+	<div id="investment-overview__viz">
       
       <div id="title-section">
 	<p id="chart-title-aid">Student Aid</p>
