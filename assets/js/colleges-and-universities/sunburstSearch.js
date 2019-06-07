@@ -1,3 +1,6 @@
+---
+---
+
 (function () {
     let searchData, parentSection, searchContainer, inputWrapper, input, list;
 
@@ -9,7 +12,7 @@
     }
 
     function toggleSearch() {
-        d3.select('#search-btn').on('click', () => {
+        d3.select('#sunburst-search-trigger').on('click', () => {
             parentSection.classed('active', !parentSection.classed('active'))
         })
     }
