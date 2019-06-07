@@ -18,26 +18,28 @@ d3.select('#legend_scaleKey').append('circle')
   .attr('cx', 60)
   .attr('cy', 65);
 
-let chartData; // ref to current data parent (only for center label) 
-let ringLabels; // text to show in center
-
-const grantRings = ['CFDA', ['Grant Awards', 'Family', 'Program']];
-const contractRings = ['PSC', ['Contract Awards', 'Family', 'Program']];
-function changeCategory(category) {
-  if (category.value === 'contracts') {
-    chartData = contractsChartArray[0];
-    ringLabels = contractRings;
-    drawChart(contractsChartArray);
-  } else if (category.value === 'grants') {
-    chartData = grantsChartArray[0];
-    ringLabels = grantRings;
-    drawChart(grantsChartArray);
-  } else if (category.value === 'research') {
-    chartData = researchGrantsChartArray[0];
-    ringLabels = grantRings;
-    drawChart(researchGrantsChartArray);
+  let chartData; // ref to current data parent (only for center label) 
+  let categoryLabel; // text to show in center
+  let dataType; // text to show in center
+  
+  function changeCategory(category) {
+    if (category.value === 'contracts') {
+      chartData = contractsChartArray[0];
+      categoryLabel = 'Contract';
+      dataType = 'PSC';
+      drawChart(contractsChartArray);
+    } else if (category.value === 'grants') {
+      chartData = grantsChartArray[0];
+      categoryLabel = 'Grant';
+      dataType = 'CFDA';
+      drawChart(grantsChartArray);
+    } else if (category.value === 'research') {
+      chartData = researchGrantsChartArray[0];
+      categoryLabel = 'Research Grant';
+      dataType = 'CFDA';
+      drawChart(researchGrantsChartArray);
+    }
   }
-}
 
 const width = 700;
 const height = 700;
