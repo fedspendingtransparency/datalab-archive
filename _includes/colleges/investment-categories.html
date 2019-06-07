@@ -1,22 +1,31 @@
 <article id='section-four'>
 
   <section id='investment-categories'>
-    <div>
-      {% include colleges/colleges-share.html anchor='section-four' %}
-      <div id='categories-detail'></div>
-      <h2 id='investment-categories__number'>04</h2>
-      <h3 id='investment-categories__title'>
-	Investment Categories
-      </h3>
-      <h1 id='investment-categories__preblurb'>
-	What is the money used for?
-      </h1>
-      <p id='investment-categories__blurb'>
-	Now that we know how much money was invested in higher education, are you curious to know what the money
-	was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
-	Categories
-      </p>
-    </div>
+      <div class="cu-header">
+          <div class="cu-header__number">
+            <span>04</span>
+          </div>
+          <h3 class="cu-header__title">Investment Categories</h3>
+          <h1 class="cu-header__teaser">
+            <strong>What is the money used for?</strong>
+          </h1>
+          <p class="cu-header__blurb">
+              Now that we know how much money was invested in higher education, are you curious to know what the money
+              was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
+              Categories
+          </p>
+        
+          <section class="accordion">
+            <h1 class="accordion__heading">Instructions</h1>
+            <div class="accordion__content">
+              <p>Here's everything you need to know</p>
+            </div>
+          </section>
+        
+            <div class="cu-header__controls">
+              {% include colleges/colleges-share.html anchor="section-four" %}
+            </div>
+        </div>
 
     <div id='chart-area'>
       <form id='categories'>
