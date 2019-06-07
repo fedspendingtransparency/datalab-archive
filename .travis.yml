@@ -10,4 +10,4 @@ branches:
   only:
   - master
   - staging
-  - sandbox
+  - colleges-universities

@@ -18,10 +18,6 @@
 
     let categoryName, cfda, done = 0;
 
-    function formatCurrency(n) {
-        return '$' + d3.format(",")(n);
-    }
-
     function sortDetail(a, b) {
         return b.value - a.value;
     }
@@ -63,10 +59,11 @@
     function placeCloseButton() {
         detailContainer.append('button')
             .classed('bubble-detail__close', true)
-            .html('&times;')
             .on('click', () => {
                 detailContainer.classed(activeClass, false)
             })
+            .append('span')
+            .html('&times;')
     }
 
     function createTableRow(d) {

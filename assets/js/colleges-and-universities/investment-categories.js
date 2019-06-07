@@ -44,7 +44,6 @@ function changeCategory(category) {
     dataType = 'CFDA';
     drawChart(researchGrantsChartArray);
   }
-}
 
 const width = 700;
 const height = 700;
