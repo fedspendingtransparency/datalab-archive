@@ -2,7 +2,7 @@
 // ---
 
 function panelClick (event) {
-  while (event)
+  // while (event) ev
   console.log (event);
 }
 
