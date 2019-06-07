@@ -18,26 +18,28 @@ d3.select('#legend_scaleKey').append('circle')
   .attr('cx', 60)
   .attr('cy', 65);
 
-let chartData; // ref to current data parent (only for center label) 
-let ringLabels; // text to show in center
-
-const grantRings = ['CFDA', ['Grant Awards', 'Family', 'Program']];
-const contractRings = ['PSC', ['Contract Awards', 'Family', 'Program']];
-function changeCategory(category) {
-  if (category.value === 'contracts') {
-    chartData = contractsChartArray[0];
-    ringLabels = contractRings;
-    drawChart(contractsChartArray);
-  } else if (category.value === 'grants') {
-    chartData = grantsChartArray[0];
-    ringLabels = grantRings;
-    drawChart(grantsChartArray);
-  } else if (category.value === 'research') {
-    chartData = researchGrantsChartArray[0];
-    ringLabels = grantRings;
-    drawChart(researchGrantsChartArray);
+  let chartData; // ref to current data parent (only for center label) 
+  let categoryLabel; // text to show in center
+  let dataType; // text to show in center
+  
+  function changeCategory(category) {
+    if (category.value === 'contracts') {
+      chartData = contractsChartArray[0];
+      categoryLabel = 'Contract';
+      dataType = 'PSC';
+      drawChart(contractsChartArray);
+    } else if (category.value === 'grants') {
+      chartData = grantsChartArray[0];
+      categoryLabel = 'Grant';
+      dataType = 'CFDA';
+      drawChart(grantsChartArray);
+    } else if (category.value === 'research') {
+      chartData = researchGrantsChartArray[0];
+      categoryLabel = 'Research Grant';
+      dataType = 'CFDA';
+      drawChart(researchGrantsChartArray);
+    }
   }
-}
 
 const width = 700;
 const height = 700;
@@ -55,63 +57,37 @@ const svg = d3.select('#sunburst')
 const formatNumber = d3.format('$,.0f');
 const center = d3.select('#center');
 
-// When contracts is selected:
-// PSC Category
-// [PSC Category Name]
-// [$spending in that PSC category]
-// “Total $ of Funding”
-// Center of Circle when PSC is clicked on
-//     “PSC Category”
-//     [PSC Category Name]
-//     “PSC”
-//     [Name of PSC]
-//     [$spending on that PSC]
-//     Total $ of Funding
-// When grant or grant (research) is selected
-// Center of circle when CFDA category is clicked on
-//     CFDA Category
-//     [CFDA Category Name]
-//     [$spending in that CFDA category]
-//     “Total $ of Funding”
-// Center of Circle when PSC is clicked on
-//     “CFDA Category”
-//     [CFDA Category Name]
-//     “CFDA”
-//     [Name of CFDA]
-//     [$spending on that CFDA]
-//     Total $ of Funding
-
 function updateCenter(d) {
   center.selectAll('*').remove();
   if (d.depth === 0) {
     center.append('div')
       .attr('id', 'tab')
-      // .html (`
-      //         <div class='heading'>CFDA Category</div>
-      //         <div class='title'>${ringLabels[1][d.depth]}</div>
-      //         <div class='heading'>${d.name}</div>
-      //         <div class='amount'>${formatNumber (d.value)}</div>
-      //         <div class='heading'>Total $ of Funding</div>
-      // `)
       .html(`
-                  <div class='heading'>CFDA Category</div>
-                  <div class='heading'>${d.name}</div>
-                  <div class='amount'>${formatNumber(d.value)}</div>
-                  <div class='heading'>Total $ of Funding</div>
-          `)
+        <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+      `)
+      ;
+  } else if (d.depth === 1) {
+    center.append('div')
+      .attr('id', 'tab')
+      .html(`
+        <div class='heading'>${dataType} Category</div>
+        <div class='title'>${d.name}</div>
+        <div class='heading'>Total FY2018 Funding</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+      `)
       ;
   } else {
     center.append('div')
       .attr('id', 'tab')
-      // .html (`
-      //         <div class='heading'>${ringLabels[1][d.depth]}</div>
-      //         <div class='title'>${d.name}</div>
-      //         <div class='amount'>${formatNumber (d.value)}</div>
-      //   `)
       .html(`
-                  <div class='title'>${d.name}</div>
-                  <div class='amount'>${formatNumber(d.value)}</div>
-            `)
+        <div class='heading'>${dataType} Category</div>
+        <div class='title'>${d.parent.name}</div>
+        <div class='heading'>${dataType} Name</div>
+        <div class='title'>${d.name}</div>
+        <div class='heading'>Total FY2018 Funding</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+      `)
       ;
   }
 }
@@ -278,6 +254,8 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   });
   chartData = grantsChartArray[0];
 
+  categoryLabel = 'Grant';
+  dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
   toggleMapView(); // event listeners for the table view! 
 
