@@ -10,7 +10,7 @@
 
   
 
-  <link rel="canonical" href="https://datalab.usaspending.gov/college-and-universities.html">
+  <link rel="canonical" href="https://datalab.usaspending.gov/colleges-and-universities.html">
   <link rel="stylesheet" href="/main.css" />
   <link rel="shortcut icon" href="/images/favicon.ico">
 
@@ -411,8 +411,22 @@
   <article id="section-one">
   
   <section id="investment-overview">
-    <div>
-      <script>
+		<div class="cu-header">
+			<div class="cu-header__number">
+				<span>01</span>
+			</div>
+			<h3 class="cu-header__title">Investment Overview</h3>
+			<h1 class="cu-header__teaser">
+				<strong>How much was invested in colleges and universities?</strong>
+			</h1>
+			<p class="cu-header__blurb">
+				$xxx, makes up the total investments into colleges and universities by the federal government.
+				That's almost 4% of total federal spending. These investments flow into higher education through 3 main vehicles:
+				contracts, grants, and federal student aid.
+			</p>
+			
+			<div class="cu-header__controls">
+				<script>
     function clickShareItemLink(item, url) {
         window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
 
@@ -469,8 +483,7 @@
    <g>
       <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
    </g>
-</svg>
-        Share
+</svg> Share
     </span>
     <span class="popuptext right newpopup" id="sharePopup">
         <div class="share-buttons">
@@ -526,18 +539,68 @@
     </span>
 </div>
 
-      <h2 id="investment-overview__number">01</h2>
-      <h3 id="investment-overview__title">
-	Investment Overview
-      </h3>
-      <h1 id="investment-overview__preblurb">
-	How much was invested in colleges and universities?
-      </h1>
-      <p id="investment-overview__blurb">
-	$xxx, makes up the total investments into colleges and universities by the federal government.
-	That's almost 4% of total federal spending. These investments flow into higher education through 3 main vehicles:
-	contracts, grants, and federal student aid.
-      </p>
+			</div>
+		</div>
+	
+	<div id="investment-overview__viz">
+      
+      <div id="title-section">
+	<p id="chart-title-aid">Student Aid</p>
+	<p id="chart-title-grants">Grants</p>
+	<p id="chart-title-contracts">Contracts</p>
+      </div>
+
+      <div id="investment-chart">
+	<div id="studentAid-bar"><p id="bar-text">102B</p></div>
+	<div id="grants-bar"><p id="bar-text">50B</p></div>
+	<div id="contracts-bar"><p id="bar-text">5B</p></div>
+      </div>
+
+      <div id="investment-subtext">
+	<div id="aid-subsection">
+	  <p id="aid-heading">
+	    Student Aid
+	  </p>
+	  <div id="aid-image">
+	    SVG Image Here...
+	  </div>
+	  <p id="aid-description">
+	    Federal Student Aid is financial aid
+	    provided through grants, scholarships, work-study, and loans
+	    to students for their education. This can include expenses
+	    such as tuition, housing, transportation, books, computers, 
+	    and even child care.
+	  </p>
+	</div>
+	<div id="aid-subsection">
+	  <p id="aid-heading">
+	    Grants
+	  </p>
+	  <div id="aid-image">
+	    SVG Image Here...
+	  </div>
+	  <p id="aid-description">
+	    A federal grant is a method the government uses to fund
+	    research and implementation of ideas and projects that contribute to the betterment
+	    of the public. Grant awards can include costs associated with conducting research or studies, such as
+	    supplies, salaries, equipment, milage for travel and publication costs
+	  </p>
+	</div>
+	<div id="aid-subsection">
+	  <p id="aid-heading">
+	    Contracts
+	  </p>
+	  <div id="aid-image">
+	    SVG Image Here...
+	  </div>
+	  <p id="aid-description">
+	    A federal contract is a legal agreement with a government department or agency
+	    for a product or service for the benefit of the government. These contracts are 
+	    governed by a strict set of terms and conditions, including clauses from the Federal
+	    Acquisition Regulation (FAR).
+	  </p>
+	</div>
+      </div>
     </div>
 
   </section>
@@ -547,7 +610,31 @@
   <article id="section-two">
   
   <section id="alma-mater">
-    <div>
+    <div class="cu-header">
+      <div class="cu-header__number">
+        <span>02</span>
+      </div>
+      <h3 class="cu-header__title">
+	My Alma Mater
+      </h3>
+      <h1 class="cu-header__teaser">
+	Find how much your Alma Mater <br>
+	<strong>received in federal funds.</strong>
+      </h1>
+      <p class="cu-header__blurb">
+	The federal government may have invested in your college or university, whether it is public, private,
+	four year, or two year. Use the map below to uncover the amount and type of investment for individual schools.
+	Click on a regional cluster to hone in on the schools within that area.
+      </p>
+
+      <section class="accordion">
+        <h1 class="accordion__heading">Instructions</h1>
+        <div class="accordion__content">
+            <p>Here's everything you need to know</p>
+        </div>
+    </section>
+
+    <div class="cu-header__controls">
       <script>
     function clickShareItemLink(item, url) {
         window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
@@ -605,8 +692,7 @@
    <g>
       <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
    </g>
-</svg>
-        Share
+</svg> Share
     </span>
     <span class="popuptext right newpopup" id="sharePopup">
         <div class="share-buttons">
@@ -662,31 +748,23 @@
     </span>
 </div>
 
-      <h2 id="alma-mater__number">02</h2>
-      <h3 id="alma-mater__title">
-	My Alma Mater
-      </h3>
-      <h1 id="alma-mater__preblurb">
-	Find how much your Alma Mater <br>
-	received in federal funds.
-      </h1>
-      <p id="alma-mater__blurb">
-	The federal government may have invested in your college or university, whether it is public, private,
-	four year, or two year. Use the map below to uncover the amount and type of investment for individual schools.
-	Click on a regional cluster to hone in on the schools within that area.
-      </p>
+    </div>
     </div>
 
     <div id="mapContainer">
-      <div class='map-overlay'>
+      <div class='map-overlay' id="search-section">
 	<div id='feature-reset'><i class="fas fa-sync"></i></div>
-	<div id="feature-table-toggle"><i class="fas fa-table"></i></div>
 	<div class="search">
 	  <input id='feature-filter' type="text" name="search" class="round" placeholder='Search Schools'/>
 	</div>
 	<div id='feature-listing' class='listing'>
 	  <ul id="feature-listing-ul"></ul>
 	</div>
+      </div>
+
+      <div id="map-btn-overlay">
+	<div id="map-search-btn"><i class="fas fa-search"></i></div>
+	<div id="map-table-btn"><i class="fas fa-table"></i></div>
       </div>
 
       <div id="collegesMap"></div>
@@ -698,15 +776,58 @@
     <div id="feature-map-toggle"><i class="fas fa-map"></i></div>
     <div id='alma-mater-table'></div>
 
-  </section>
+    <div class="chart-footer">
+      <div>
+        <span class='faded'>Updated as of December 2019 / </span>
+        <a class="download-data" href=''>
+          <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+      <path id="download-path" d="M8.60625,0 L11.79375,0 C12.3236719,0 12.75,0.426328125 12.75,0.95625 L12.75,7.65 L16.2442969,7.65 C16.9535156,7.65 17.308125,8.50664063 16.8060937,9.00867188 L10.7458594,15.0728906 C10.4470312,15.3717188 9.95695312,15.3717188 9.658125,15.0728906 L3.58992187,9.00867188 C3.08789062,8.50664063 3.4425,7.65 4.15171875,7.65 L7.65,7.65 L7.65,0.95625 C7.65,0.426328125 8.07632812,0 8.60625,0 Z M20.4,14.98125 L20.4,19.44375 C20.4,19.9736719 19.9736719,20.4 19.44375,20.4 L0.95625,20.4 C0.426328125,20.4 0,19.9736719 0,19.44375 L0,14.98125 C0,14.4513281 0.426328125,14.025 0.95625,14.025 L6.80132812,14.025 L8.75367187,15.9773437 C9.55453125,16.7782031 10.8454687,16.7782031 11.6463281,15.9773437 L13.5986719,14.025 L19.44375,14.025 C19.9736719,14.025 20.4,14.4513281 20.4,14.98125 Z M15.459375,18.4875 C15.459375,18.0492188 15.1007812,17.690625 14.6625,17.690625 C14.2242188,17.690625 13.865625,18.0492188 13.865625,18.4875 C13.865625,18.9257812 14.2242188,19.284375 14.6625,19.284375 C15.1007812,19.284375 15.459375,18.9257812 15.459375,18.4875 Z M18.009375,18.4875 C18.009375,18.0492188 17.6507812,17.690625 17.2125,17.690625 C16.7742187,17.690625 16.415625,18.0492188 16.415625,18.4875 C16.415625,18.9257812 16.7742187,19.284375 17.2125,19.284375 C17.6507812,19.284375 18.009375,18.9257812 18.009375,18.4875 Z"></path>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="currentcolor" fill-rule="evenodd">
+    <mask id="download-mask" fill="white">
+        <use xlink:href="#download-path"></use>
+    </mask>
+    <g mask="url(#download-mask)" fill="#242A42" fill-rule="evenodd">
+        <rect x="0" y="0" width="19.902439" height="19.902439"></rect>
+    </g>
+    <g mask="url(#download-mask)" fill-rule="evenodd" stroke-width="0.85">
+        <rect x="0.425" y="0.425" width="19.1151163" height="19.0477273"></rect>
+    </g>
+  </g>
+</svg>
+          &nbsp;Download
+        </a>
+      </div>
+    </div>
 
+  </section>
 </article>
 
   <article id="section-three">
-  
+
   <section id="agency-investments">
-    <div>
-      <script>
+      <div class="cu-header">
+          <div class="cu-header__number">
+            <span>03</span>
+          </div>
+          <h3 class="cu-header__title">Agency Investments</h3>
+          <h1 class="cu-header__teaser">
+              Connect the government agency to the <strong>federal investment</strong>
+          </h1>
+          <p class="cu-header__blurb">
+              Federal agencies are government organizations that each have a specific purpose such as the management of resources, financial oversight of industries, or national security issues. This section will help you discover the financial breakdown of each agency's investment, whom they are paying and what vehicles they are using to invest with.
+          </p>
+        
+          <section class="accordion">
+            <h1 class="accordion__heading">Instructions</h1>
+            <div class="accordion__content">
+              <p>Here's everything you need to know</p>
+            </div>
+          </section>
+        
+            <div class="cu-header__controls">
+              <script>
     function clickShareItemLink(item, url) {
         window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
 
@@ -763,150 +884,7 @@
    <g>
       <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
    </g>
-</svg>
-        Share
-    </span>
-    <span class="popuptext right newpopup" id="sharePopup">
-        <div class="share-buttons">
-            <ul>
-                <li>
-                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/colleges-and-universities.html#section-three')" title="Share on Facebook">
-                        <?xml version="1.0" encoding="utf-8"?>
-<svg class="share-icon icon-facebook" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1579 128q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-735q-35 0-60-25t-25-60v-1366q0-35 25-60t60-25h1366z"/>
-</svg>
-                        <span class="share-button-text">Facebook</span>
-                    </a>
-                </li>
-                <li>
-                    
-                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('')+'&url=https://datalab.usaspending.gov/colleges-and-universities.html#section-three')" title="Share on Twitter">
-                        <?xml version="1.0" encoding="utf-8"?>
-<svg class="share-icon icon-twitter" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
-</svg>
-                        <span class="share-button-text">Twitter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/colleges-and-universities.html')#section-three" title="Share on Reddit">
-                        <?xml version="1.0" encoding="utf-8"?>
-<svg class="share-icon icon-reddit" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1792 846q0 58-29.5 105.5t-79.5 72.5q12 46 12 96 0 155-106.5 287t-290.5 208.5-400 76.5-399.5-76.5-290-208.5-106.5-287q0-47 11-94-51-25-82-73.5t-31-106.5q0-82 58-140.5t141-58.5q85 0 145 63 218-152 515-162l116-521q3-13 15-21t26-5l369 81q18-37 54-59.5t79-22.5q62 0 106 43.5t44 105.5-44 106-106 44-105.5-43.5-43.5-105.5l-334-74-104 472q300 9 519 160 58-61 143-61 83 0 141 58.5t58 140.5zm-1374 199q0 62 43.5 106t105.5 44 106-44 44-106-44-105.5-106-43.5q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20-160-20-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5 91 4.5 91-4.5 122.5-29.5 118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5 44 106 106 44z"/>
-</svg>
-                        <span class="share-button-text">Reddit</span>
-                    </a>
-                </li>
-                <li>
-                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/colleges-and-universities.html#section-three")' title="Share on LinkedIn">
-                        <?xml version="1.0" encoding="utf-8"?>
-<svg class="share-icon icon-linkedin" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-    <path d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
-</svg>
-                        <span class="share-button-text">Linkedin</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:?subject=&amp;body=Check out this site https://datalab.usaspending.gov/colleges-and-universities.html#section-three" title="Share via Email">
-                        <?xml version="1.0" encoding="utf-8"?>
-<svg class="share-icon icon-envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
-</svg>
-                        <span class="share-button-text">Email</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </span>
-</div>
-
-      <div id="bubble-detail"></div>
-      <h2 id="agency-investments__number">03</h2>
-      <h3 id="agency-investments__title">
-	Agency Investments
-      </h3>
-      <h1 id="agency-investments__preblurb">
-	Connect the government agency <br>
-	to the federal government
-      </h1>
-      <p id="agency-investments__blurb">
-	Federal agencies are government organizations that each have a specific purpose such as
-	the management of resources, financial oversight of industries, or national security issues.
-	This section will help you discover the financial breakdown of each agency's investment, whom they are
-	paying and what vehicles they are using to invest with.
-      </p>
-    </div>
-    <div id="bubble-search">
-      <button id="bubble-search-trigger">search</button>
-    </div>
-    <div id="bubbleChartContainer" class="bubbleChartContainer" data-aos="fade-left" data-aos-delay="1000"> </div>
-  </section>
-
-</article>
-
-  <article id='section-four'>
-
-  <section id='investment-categories'>
-    <div>
-      <script>
-    function clickShareItemLink(item, url) {
-        window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
-
-        window.Analytics.event({
-            category: 'Share Menu - Click Item',
-            action: item
-        });
-
-        return false;
-    }
-</script>
-
-<div class="popup new-share-button">
-    <span class="viz-share-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" height="18" width="18">
-   <defs>
-      <path id="a" d="M-622 305h23v23h-23z"/>
-   </defs>
-   <clipPath id="b">
-      <use xlink:href="#a" overflow="visible"/>
-   </clipPath>
-   <g clip-path="url(#b)">
-      <defs>
-         <path id="c" d="M-700-2576H740v5192H-700z"/>
-      </defs>
-      <clipPath id="d">
-         <use xlink:href="#c" overflow="visible"/>
-      </clipPath>
-      <g clip-path="url(#d)">
-         <defs>
-            <path id="e" d="M-623 304h25v25h-25z"/>
-         </defs>
-         <clipPath id="f">
-            <use xlink:href="#e" overflow="visible"/>
-         </clipPath>
-         <g clip-path="url(#f)">
-            <defs>
-               <path id="g" d="M-612.4 323.7c-.8 0-1.4-.5-.8-2.6l.9-3.8c.2-.6.2-.8 0-.8s-1.3.4-1.9.8l-.4-.7c1.9-1.6 4.2-2.6 5.1-2.6.8 0 .9.9.5 2.4l-1 4c-.2.7-.1.9.1.9s1-.3 1.8-.9l.5.6c-1.9 2-4 2.7-4.8 2.7m3-14.9c1.2 0 1.5.7 1.5 1.5 0 1-.8 1.9-2.1 1.9-1.1 0-1.6-.6-1.6-1.5 0-.8.7-1.9 2.2-1.9m-1.3-3.8c-6.4.1-11.4 5.3-11.3 11.7.1 6.3 5.3 11.4 11.7 11.3 6.3-.1 11.4-5.3 11.3-11.7-.1-6.3-5.3-11.4-11.7-11.3"/>
-            </defs>
-            <clipPath id="h">
-               <use xlink:href="#g" overflow="visible"/>
-            </clipPath>
-            <g clip-path="url(#h)">
-               <defs>
-                  <path id="i" d="M-622 305h23v23h-23z"/>
-               </defs>
-               <clipPath id="j">
-                  <use xlink:href="#i" overflow="visible"/>
-               </clipPath>
-            </g>
-         </g>
-      </g>
-   </g>
-   <g>
-      <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
-   </g>
-</svg>
-        Share
+</svg> Share
     </span>
     <span class="popuptext right newpopup" id="sharePopup">
         <div class="share-buttons">
@@ -961,20 +939,219 @@
         </div>
     </span>
 </div>
-<div id="categories-detail"></div>
-      <h2 id='investment-categories__number'>04</h2>
-      <h3 id='investment-categories__title'>
-	Investment Categories
-      </h3>
-      <h1 id='investment-categories__preblurb'>
-	What is the money used for?
-      </h1>
-      <p id='investment-categories__blurb'>
-	Now that we know how much money was invested in higher education, are you curious to know what the money
-	was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
-	Categories
-      </p>
+
+            </div>
+        </div>
+
+    <div class="function-buttons">
+      <div class='button-set'>
+        <div id="bubble-search">
+          <button id="bubble-search-trigger" type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+        </div>
+      </div>
+      <div class='button-set'>
+        <div id="bubble-table">
+          <button id="bubble-chart-trigger" type='button' title='View chart'><img src='/assets/icons/bubble_icon.svg' /></button>
+        </div>
+        <div class='separator'></div>
+        <div id="bubble-chart">
+          <button id="bubble-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+        </div>
+      </div>
     </div>
+
+    <div id="agency-investments__content">
+
+      <div id="bubbleChartContainer" class="bubbleChartContainer">
+
+        <div id="agency-legend_colorKey">
+          <svg>
+            <circle stroke="#696969" fill="none" cx="60" cy="60" r="60">
+            </circle>
+            <text x="15" y="45">Sub-Agency</text>
+            <circle stroke="#696969" fill="none" cx="60" cy="90" r="30">
+            </circle>
+            <text x="30" y="140">Agency</text>
+          </svg>
+        </div>
+
+        <div id="tooltip" class="tooltip-module"></div>
+
+      </div>
+
+      <div id="bubbleTableContainer"></div>
+
+    </div>
+
+    <div class="chart-footer">
+      <div>
+        <span class='faded'>Updated as of December 2019 / </span>
+        <a class="download-data" href=''>
+          <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+      <path id="download-path" d="M8.60625,0 L11.79375,0 C12.3236719,0 12.75,0.426328125 12.75,0.95625 L12.75,7.65 L16.2442969,7.65 C16.9535156,7.65 17.308125,8.50664063 16.8060937,9.00867188 L10.7458594,15.0728906 C10.4470312,15.3717188 9.95695312,15.3717188 9.658125,15.0728906 L3.58992187,9.00867188 C3.08789062,8.50664063 3.4425,7.65 4.15171875,7.65 L7.65,7.65 L7.65,0.95625 C7.65,0.426328125 8.07632812,0 8.60625,0 Z M20.4,14.98125 L20.4,19.44375 C20.4,19.9736719 19.9736719,20.4 19.44375,20.4 L0.95625,20.4 C0.426328125,20.4 0,19.9736719 0,19.44375 L0,14.98125 C0,14.4513281 0.426328125,14.025 0.95625,14.025 L6.80132812,14.025 L8.75367187,15.9773437 C9.55453125,16.7782031 10.8454687,16.7782031 11.6463281,15.9773437 L13.5986719,14.025 L19.44375,14.025 C19.9736719,14.025 20.4,14.4513281 20.4,14.98125 Z M15.459375,18.4875 C15.459375,18.0492188 15.1007812,17.690625 14.6625,17.690625 C14.2242188,17.690625 13.865625,18.0492188 13.865625,18.4875 C13.865625,18.9257812 14.2242188,19.284375 14.6625,19.284375 C15.1007812,19.284375 15.459375,18.9257812 15.459375,18.4875 Z M18.009375,18.4875 C18.009375,18.0492188 17.6507812,17.690625 17.2125,17.690625 C16.7742187,17.690625 16.415625,18.0492188 16.415625,18.4875 C16.415625,18.9257812 16.7742187,19.284375 17.2125,19.284375 C17.6507812,19.284375 18.009375,18.9257812 18.009375,18.4875 Z"></path>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="currentcolor" fill-rule="evenodd">
+    <mask id="download-mask" fill="white">
+        <use xlink:href="#download-path"></use>
+    </mask>
+    <g mask="url(#download-mask)" fill="#242A42" fill-rule="evenodd">
+        <rect x="0" y="0" width="19.902439" height="19.902439"></rect>
+    </g>
+    <g mask="url(#download-mask)" fill-rule="evenodd" stroke-width="0.85">
+        <rect x="0.425" y="0.425" width="19.1151163" height="19.0477273"></rect>
+    </g>
+  </g>
+</svg>
+          &nbsp;Download
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+</article>
+
+  <article id='section-four'>
+
+  <section id='investment-categories'>
+      <div class="cu-header">
+          <div class="cu-header__number">
+            <span>04</span>
+          </div>
+          <h3 class="cu-header__title">Investment Categories</h3>
+          <h1 class="cu-header__teaser">
+            <strong>What is the money used for?</strong>
+          </h1>
+          <p class="cu-header__blurb">
+              Now that we know how much money was invested in higher education, are you curious to know what the money
+              was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
+              Categories
+          </p>
+        
+          <section class="accordion">
+            <h1 class="accordion__heading">Instructions</h1>
+            <div class="accordion__content">
+              <p>Here's everything you need to know</p>
+            </div>
+          </section>
+        
+            <div class="cu-header__controls">
+              <script>
+    function clickShareItemLink(item, url) {
+        window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
+
+        window.Analytics.event({
+            category: 'Share Menu - Click Item',
+            action: item
+        });
+
+        return false;
+    }
+</script>
+
+<div class="popup new-share-button">
+    <span class="viz-share-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" height="18" width="18">
+   <defs>
+      <path id="a" d="M-622 305h23v23h-23z"/>
+   </defs>
+   <clipPath id="b">
+      <use xlink:href="#a" overflow="visible"/>
+   </clipPath>
+   <g clip-path="url(#b)">
+      <defs>
+         <path id="c" d="M-700-2576H740v5192H-700z"/>
+      </defs>
+      <clipPath id="d">
+         <use xlink:href="#c" overflow="visible"/>
+      </clipPath>
+      <g clip-path="url(#d)">
+         <defs>
+            <path id="e" d="M-623 304h25v25h-25z"/>
+         </defs>
+         <clipPath id="f">
+            <use xlink:href="#e" overflow="visible"/>
+         </clipPath>
+         <g clip-path="url(#f)">
+            <defs>
+               <path id="g" d="M-612.4 323.7c-.8 0-1.4-.5-.8-2.6l.9-3.8c.2-.6.2-.8 0-.8s-1.3.4-1.9.8l-.4-.7c1.9-1.6 4.2-2.6 5.1-2.6.8 0 .9.9.5 2.4l-1 4c-.2.7-.1.9.1.9s1-.3 1.8-.9l.5.6c-1.9 2-4 2.7-4.8 2.7m3-14.9c1.2 0 1.5.7 1.5 1.5 0 1-.8 1.9-2.1 1.9-1.1 0-1.6-.6-1.6-1.5 0-.8.7-1.9 2.2-1.9m-1.3-3.8c-6.4.1-11.4 5.3-11.3 11.7.1 6.3 5.3 11.4 11.7 11.3 6.3-.1 11.4-5.3 11.3-11.7-.1-6.3-5.3-11.4-11.7-11.3"/>
+            </defs>
+            <clipPath id="h">
+               <use xlink:href="#g" overflow="visible"/>
+            </clipPath>
+            <g clip-path="url(#h)">
+               <defs>
+                  <path id="i" d="M-622 305h23v23h-23z"/>
+               </defs>
+               <clipPath id="j">
+                  <use xlink:href="#i" overflow="visible"/>
+               </clipPath>
+            </g>
+         </g>
+      </g>
+   </g>
+   <g>
+      <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
+   </g>
+</svg> Share
+    </span>
+    <span class="popuptext right newpopup" id="sharePopup">
+        <div class="share-buttons">
+            <ul>
+                <li>
+                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/colleges-and-universities.html#section-four')" title="Share on Facebook">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-facebook" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1579 128q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-735q-35 0-60-25t-25-60v-1366q0-35 25-60t60-25h1366z"/>
+</svg>
+                        <span class="share-button-text">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('')+'&url=https://datalab.usaspending.gov/colleges-and-universities.html#section-four')" title="Share on Twitter">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-twitter" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
+</svg>
+                        <span class="share-button-text">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/colleges-and-universities.html')#section-four" title="Share on Reddit">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-reddit" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1792 846q0 58-29.5 105.5t-79.5 72.5q12 46 12 96 0 155-106.5 287t-290.5 208.5-400 76.5-399.5-76.5-290-208.5-106.5-287q0-47 11-94-51-25-82-73.5t-31-106.5q0-82 58-140.5t141-58.5q85 0 145 63 218-152 515-162l116-521q3-13 15-21t26-5l369 81q18-37 54-59.5t79-22.5q62 0 106 43.5t44 105.5-44 106-106 44-105.5-43.5-43.5-105.5l-334-74-104 472q300 9 519 160 58-61 143-61 83 0 141 58.5t58 140.5zm-1374 199q0 62 43.5 106t105.5 44 106-44 44-106-44-105.5-106-43.5q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20-160-20-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5 91 4.5 91-4.5 122.5-29.5 118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5 44 106 106 44z"/>
+</svg>
+                        <span class="share-button-text">Reddit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/colleges-and-universities.html#section-four")' title="Share on LinkedIn">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-linkedin" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/>
+</svg>
+                        <span class="share-button-text">Linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:?subject=&amp;body=Check out this site https://datalab.usaspending.gov/colleges-and-universities.html#section-four" title="Share via Email">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
+</svg>
+                        <span class="share-button-text">Email</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </span>
+</div>
+
+            </div>
+        </div>
 
     <div id='chart-area'>
       <form id='categories'>
@@ -986,71 +1163,14 @@
         <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div id='function-buttons'>
+        <div class='function-buttons' onclick='panelClick(e)'>
           <div class='button-set'>
-            <div id='search-btn'><?xml version="1.0" encoding="UTF-8"?>
-<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path id="magnifier-path" d="M17.7368421,15.5333333 L14.2385965,12.0350877 C14.0807018,11.877193 13.8666667,11.7894737 13.6421053,11.7894737 L13.0701754,11.7894737 C14.0385965,10.5508772 14.6140351,8.99298246 14.6140351,7.29824561 C14.6140351,3.26666667 11.3473684,0 7.31578947,0 C3.28421053,0 0.0175438596,3.26666667 0.0175438596,7.29824561 C0.0175438596,11.3298246 3.28421053,14.5964912 7.31578947,14.5964912 C9.01052632,14.5964912 10.5684211,14.0210526 11.8070175,13.0526316 L11.8070175,13.6245614 C11.8070175,13.8491228 11.8947368,14.0631579 12.0526316,14.2210526 L15.5508772,17.7192982 C15.8807018,18.0491228 16.4140351,18.0491228 16.7403509,17.7192982 L17.7333333,16.7263158 C18.0631579,16.3964912 18.0631579,15.8631579 17.7368421,15.5333333 Z M7.31578947,11.7894737 C4.83508772,11.7894737 2.8245614,9.78245614 2.8245614,7.29824561 C2.8245614,4.81754386 4.83157895,2.80701754 7.31578947,2.80701754 C9.79649123,2.80701754 11.8070175,4.81403509 11.8070175,7.29824561 C11.8070175,9.77894737 9.8,11.7894737 7.31578947,11.7894737 Z"></path>
-    </defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <mask id="magnifier-mask" fill="white">
-            <use xlink:href="#magnifier-path"></use>
-        </mask>
-        <g></g>
-        <g mask="url(#magnifier-mask)" fill="#242A42" fill-rule="evenodd">
-            <rect x="0" y="0" width="18" height="18"></rect>
-        </g>
-        <g mask="url(#magnifier-mask)" fill="#9B9B9B" fill-rule="evenodd" stroke="#9B9B9B" stroke-width="1">
-            <rect x="0.5" y="0.5" width="17" height="17"></rect>
-        </g>
-    </g>
-</svg></div>
+            <button id='search-btn' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <div><?xml version="1.0" encoding="UTF-8"?>
-<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path id="sunburst-path" d="M9.5,2.4516129 C13.3953448,2.4516129 16.5483871,5.60404234 16.5483871,9.5 C16.5483871,13.3953448 13.3959577,16.5483871 9.5,16.5483871 C5.60465524,16.5483871 2.4516129,13.3959577 2.4516129,9.5 C2.4516129,5.60465524 5.60404234,2.4516129 9.5,2.4516129 L9.5,2.4516129 Z M9.5,0 C4.25328024,0 0,4.25328024 0,9.5 C0,14.7467198 4.25328024,19 9.5,19 C14.7467198,19 19,14.7467198 19,9.5 C19,4.25328024 14.7467198,0 9.5,0 Z M9.5,7.0483871 C10.8518347,7.0483871 11.9516129,8.14816532 11.9516129,9.5 C11.9516129,10.8518347 10.8518347,11.9516129 9.5,11.9516129 C8.14816532,11.9516129 7.0483871,10.8518347 7.0483871,9.5 C7.0483871,8.14816532 8.14816532,7.0483871 9.5,7.0483871 L9.5,7.0483871 Z M9.5,4.59677419 C6.79204032,4.59677419 4.59677419,6.79204032 4.59677419,9.5 C4.59677419,12.2079597 6.79204032,14.4032258 9.5,14.4032258 C12.2079597,14.4032258 14.4032258,12.2079597 14.4032258,9.5 C14.4032258,6.79204032 12.2079597,4.59677419 9.5,4.59677419 Z"></path>
-    </defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g>
-            <g>
-                <mask id="sunburst-mask" fill="white">
-                    <use xlink:href="#sunburst-path"></use>
-                </mask>
-                <g></g>
-                <g mask="url(#sunburst-mask)" fill="#555555" stroke="#555555">
-                    <rect x="0.5" y="0.5" width="18" height="18"></rect>
-                </g>
-            </g>
-            <path d="M9.5,13.2724609 L9.5,17.15625"" stroke="#555555" stroke-width="2" stroke-linecap="square"></path>
-            <path d="M13,9.5 L18,9.5" stroke="#555555" stroke-width="2" stroke-linecap="square"></path>
-        </g>
-    </g>
-</svg></div>
-            <div id='table-view'><?xml version="1.0" encoding="UTF-8"?>
-<svg width="19px" height="17px" viewBox="0 0 19 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path id="list-path" d="M3.5625,3.5625 C3.5625,4.54626953 2.76501953,5.34375 1.78125,5.34375 C0.797480469,5.34375 0,4.54626953 0,3.5625 C0,2.57873047 0.797480469,1.78125 1.78125,1.78125 C2.76501953,1.78125 3.5625,2.57873047 3.5625,3.5625 Z M1.78125,7.71875 C0.797480469,7.71875 0,8.51623047 0,9.5 C0,10.4837695 0.797480469,11.28125 1.78125,11.28125 C2.76501953,11.28125 3.5625,10.4837695 3.5625,9.5 C3.5625,8.51623047 2.76501953,7.71875 1.78125,7.71875 Z M1.78125,13.65625 C0.797480469,13.65625 0,14.4537305 0,15.4375 C0,16.4212695 0.797480469,17.21875 1.78125,17.21875 C2.76501953,17.21875 3.5625,16.4212695 3.5625,15.4375 C3.5625,14.4537305 2.76501953,13.65625 1.78125,13.65625 Z M5.34375,4.8984375 L18.40625,4.8984375 C18.7341855,4.8984375 19,4.63262305 19,4.3046875 L19,2.8203125 C19,2.49237695 18.7341855,2.2265625 18.40625,2.2265625 L5.34375,2.2265625 C5.01581445,2.2265625 4.75,2.49237695 4.75,2.8203125 L4.75,4.3046875 C4.75,4.63262305 5.01581445,4.8984375 5.34375,4.8984375 Z M5.34375,10.8359375 L18.40625,10.8359375 C18.7341855,10.8359375 19,10.570123 19,10.2421875 L19,8.7578125 C19,8.42987695 18.7341855,8.1640625 18.40625,8.1640625 L5.34375,8.1640625 C5.01581445,8.1640625 4.75,8.42987695 4.75,8.7578125 L4.75,10.2421875 C4.75,10.570123 5.01581445,10.8359375 5.34375,10.8359375 Z M5.34375,16.7734375 L18.40625,16.7734375 C18.7341855,16.7734375 19,16.507623 19,16.1796875 L19,14.6953125 C19,14.367377 18.7341855,14.1015625 18.40625,14.1015625 L5.34375,14.1015625 C5.01581445,14.1015625 4.75,14.367377 4.75,14.6953125 L4.75,16.1796875 C4.75,16.507623 5.01581445,16.7734375 5.34375,16.7734375 Z"></path>
-    </defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g>
-            <mask id="list-mask" fill="white">
-                <use xlink:href="#list-path"></use>
-            </mask>
-            <g></g>
-            <g mask="url(#list-mask)" fill="#242A42" fill-rule="evenodd">
-                <rect x="0" y="0" width="19" height="19"></rect>
-            </g>
-            <g mask="url(#list-mask)" fill="#555555" fill-rule="evenodd" stroke="#555555" stroke-width="1">
-                <rect x="0.5" y="0.5" width="18" height="18"></rect>
-            </g>
-        </g>
-    </g>
-</svg></div>
-            <div id='zoom_in'>+</div>
-            <div id='zoom_out'>-</div>
+            <button type='button' title='View chart'><img src='/assets/icons/sunburst_icon.svg' /></button>
+            <div class='separator'></div>
+            <button id='table-view' type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 
@@ -1064,20 +1184,36 @@
           <div id='sunburst'>
             <div id='center'></div>
           </div>
-          <div class="chart-footer">
-            <div>
-              <span class='faded'>Updated as of December 2019 / </span>
-              <a href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
-                <span class="download-data">
-                  Download
-                </span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
+      <div id='investment-table'>
+	<!-- table here -->
+      </div>
 
-      <div id="investment-table"></div>
+      <div class='chart-footer'>
+        <div>
+          <span class='faded'>Updated as of December 2019 / </span>
+          <a class='download-data' href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
+            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+      <path id="download-path" d="M8.60625,0 L11.79375,0 C12.3236719,0 12.75,0.426328125 12.75,0.95625 L12.75,7.65 L16.2442969,7.65 C16.9535156,7.65 17.308125,8.50664063 16.8060937,9.00867188 L10.7458594,15.0728906 C10.4470312,15.3717188 9.95695312,15.3717188 9.658125,15.0728906 L3.58992187,9.00867188 C3.08789062,8.50664063 3.4425,7.65 4.15171875,7.65 L7.65,7.65 L7.65,0.95625 C7.65,0.426328125 8.07632812,0 8.60625,0 Z M20.4,14.98125 L20.4,19.44375 C20.4,19.9736719 19.9736719,20.4 19.44375,20.4 L0.95625,20.4 C0.426328125,20.4 0,19.9736719 0,19.44375 L0,14.98125 C0,14.4513281 0.426328125,14.025 0.95625,14.025 L6.80132812,14.025 L8.75367187,15.9773437 C9.55453125,16.7782031 10.8454687,16.7782031 11.6463281,15.9773437 L13.5986719,14.025 L19.44375,14.025 C19.9736719,14.025 20.4,14.4513281 20.4,14.98125 Z M15.459375,18.4875 C15.459375,18.0492188 15.1007812,17.690625 14.6625,17.690625 C14.2242188,17.690625 13.865625,18.0492188 13.865625,18.4875 C13.865625,18.9257812 14.2242188,19.284375 14.6625,19.284375 C15.1007812,19.284375 15.459375,18.9257812 15.459375,18.4875 Z M18.009375,18.4875 C18.009375,18.0492188 17.6507812,17.690625 17.2125,17.690625 C16.7742187,17.690625 16.415625,18.0492188 16.415625,18.4875 C16.415625,18.9257812 16.7742187,19.284375 17.2125,19.284375 C17.6507812,19.284375 18.009375,18.9257812 18.009375,18.4875 Z"></path>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="currentcolor" fill-rule="evenodd">
+    <mask id="download-mask" fill="white">
+        <use xlink:href="#download-path"></use>
+    </mask>
+    <g mask="url(#download-mask)" fill="#242A42" fill-rule="evenodd">
+        <rect x="0" y="0" width="19.902439" height="19.902439"></rect>
+    </g>
+    <g mask="url(#download-mask)" fill-rule="evenodd" stroke-width="0.85">
+        <rect x="0.425" y="0.425" width="19.1151163" height="19.0477273"></rect>
+    </g>
+  </g>
+</svg>
+            &nbsp;Download
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1087,15 +1223,23 @@
 
 
 <!--scripts -->
-<script>
-  var bubble = {},
-    sunburst = {};
-  //expose global variables for communication between scripts
-</script>
+<script src="/assets/js/shared/tooltipModule.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 <script src="/assets/js/vendor/d3.tip.v0.6.3.js"></script>
 <script src="/js/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+<script>
+  var bubble = {},
+    sunburst = {};
+  //expose global variables for communication between scripts
+
+  function formatCurrency(n) {
+        return '$' + d3.format(",")(Math.round(n));
+    }
+</script>
+
 <!-- <script src="/assets/js/colleges-and-universities/investmentOverview.js"></script> -->
 <script src="/assets/js/colleges-and-universities/agenciesBubbleSearch.js"></script>
 <script src="/assets/js/colleges-and-universities/sunburstSearch.js"></script>
@@ -1104,6 +1248,7 @@
 <script src="/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
 <script src="/assets/js/colleges-and-universities/investment-categories.js"></script>
 <script src="/assets/js/colleges-and-universities/institutions.js"></script>
+<script src="/assets/ffg/accordion.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="/js/jquery.dataTables.min.js"></script>
 
