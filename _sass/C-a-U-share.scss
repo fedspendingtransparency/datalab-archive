@@ -3,7 +3,6 @@
   margin-left: 20px;
   cursor: pointer;
   position: relative;
-  transform: translateY(30px);
 }
 
 .newpopup {
@@ -21,5 +20,6 @@
 
     svg {
         margin-right: 4px;
+        transform: translateY(4px);
     }
 }
