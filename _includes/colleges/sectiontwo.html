@@ -1,8 +1,7 @@
 <article id="section-two">
   
   <section id="alma-mater">
-    <div>
-      {% include colleges/colleges-share.html anchor="section-two" %}
+    <div class="cu-header">
       <h2 id="alma-mater__number">02</h2>
       <h3 id="alma-mater__title">
 	My Alma Mater
@@ -11,11 +10,22 @@
 	Find how much your Alma Mater <br>
 	received in federal funds.
       </h1>
-      <p id="alma-mater__blurb">
+      <p id="alma-mater__blurb" class="cu-header__blurb">
 	The federal government may have invested in your college or university, whether it is public, private,
 	four year, or two year. Use the map below to uncover the amount and type of investment for individual schools.
 	Click on a regional cluster to hone in on the schools within that area.
       </p>
+
+      <section class="accordion">
+        <h1 class="accordion__heading">Instructions</h1>
+        <div class="accordion__content">
+            <p>Here's everything you need to know</p>
+        </div>
+    </section>
+
+    <div class="cu-header__controls">
+      {% include colleges/colleges-share.html anchor="section-two" %}
+    </div>
     </div>
 
     <div id="mapContainer">
