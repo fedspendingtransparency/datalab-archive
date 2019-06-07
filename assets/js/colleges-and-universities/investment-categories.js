@@ -55,63 +55,37 @@ const svg = d3.select('#sunburst')
 const formatNumber = d3.format('$,.0f');
 const center = d3.select('#center');
 
-// When contracts is selected:
-// PSC Category
-// [PSC Category Name]
-// [$spending in that PSC category]
-// “Total $ of Funding”
-// Center of Circle when PSC is clicked on
-//     “PSC Category”
-//     [PSC Category Name]
-//     “PSC”
-//     [Name of PSC]
-//     [$spending on that PSC]
-//     Total $ of Funding
-// When grant or grant (research) is selected
-// Center of circle when CFDA category is clicked on
-//     CFDA Category
-//     [CFDA Category Name]
-//     [$spending in that CFDA category]
-//     “Total $ of Funding”
-// Center of Circle when PSC is clicked on
-//     “CFDA Category”
-//     [CFDA Category Name]
-//     “CFDA”
-//     [Name of CFDA]
-//     [$spending on that CFDA]
-//     Total $ of Funding
-
 function updateCenter(d) {
   center.selectAll('*').remove();
   if (d.depth === 0) {
     center.append('div')
       .attr('id', 'tab')
-      // .html (`
-      //         <div class='heading'>CFDA Category</div>
-      //         <div class='title'>${ringLabels[1][d.depth]}</div>
-      //         <div class='heading'>${d.name}</div>
-      //         <div class='amount'>${formatNumber (d.value)}</div>
-      //         <div class='heading'>Total $ of Funding</div>
-      // `)
       .html(`
-                  <div class='heading'>CFDA Category</div>
-                  <div class='heading'>${d.name}</div>
-                  <div class='amount'>${formatNumber(d.value)}</div>
-                  <div class='heading'>Total $ of Funding</div>
-          `)
+        <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+      `)
+      ;
+  } else if (d.depth === 1) {
+    center.append('div')
+      .attr('id', 'tab')
+      .html(`
+        <div class='heading'>${dataType} Category</div>
+        <div class='title'>${d.name}</div>
+        <div class='heading'>Total FY2018 Funding</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+      `)
       ;
   } else {
     center.append('div')
       .attr('id', 'tab')
-      // .html (`
-      //         <div class='heading'>${ringLabels[1][d.depth]}</div>
-      //         <div class='title'>${d.name}</div>
-      //         <div class='amount'>${formatNumber (d.value)}</div>
-      //   `)
       .html(`
-                  <div class='title'>${d.name}</div>
-                  <div class='amount'>${formatNumber(d.value)}</div>
-            `)
+        <div class='heading'>${dataType} Category</div>
+        <div class='title'>${d.parent.name}</div>
+        <div class='heading'>${dataType} Name</div>
+        <div class='title'>${d.name}</div>
+        <div class='heading'>Total FY2018 Funding</div>
+        <div class='amount'>${formatNumber(d.value)}</div>
+      `)
       ;
   }
 }
