@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   font-size: 24px;
-  position: relative;
-  transition: transform 0.5s ease-in-out;
   z-index: 101;
 
   $left-button-size: 45px;
@@ -35,10 +33,6 @@
     }
   }
 
-  .active {
-    transform: translateX(350px);
-  }
-
   .separator {
     width: 50%;
     margin-left: $left-button-size / 4;
@@ -46,7 +40,7 @@
   }
 }
 
-#bubble-search {
+#sunburst-function-buttons,#bubble-function-buttons {
   position: relative;
   z-index: 1;
   transition: transform 0.5s ease-in-out;
