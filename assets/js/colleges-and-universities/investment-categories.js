@@ -1,6 +1,11 @@
 ---
 ---
 
+function panelClick (event) {
+  // while (event) ev
+  console.log (event);
+}
+
 // add legend
 d3.select('#legend_scaleKey').append('circle')
   .attr('r', 25)
@@ -18,28 +23,28 @@ d3.select('#legend_scaleKey').append('circle')
   .attr('cx', 60)
   .attr('cy', 65);
 
-  let chartData; // ref to current data parent (only for center label) 
-  let categoryLabel; // text to show in center
-  let dataType; // text to show in center
-  
-  function changeCategory(category) {
-    if (category.value === 'contracts') {
-      chartData = contractsChartArray[0];
-      categoryLabel = 'Contract';
-      dataType = 'PSC';
-      drawChart(contractsChartArray);
-    } else if (category.value === 'grants') {
-      chartData = grantsChartArray[0];
-      categoryLabel = 'Grant';
-      dataType = 'CFDA';
-      drawChart(grantsChartArray);
-    } else if (category.value === 'research') {
-      chartData = researchGrantsChartArray[0];
-      categoryLabel = 'Research Grant';
-      dataType = 'CFDA';
-      drawChart(researchGrantsChartArray);
-    }
+let chartData; // ref to current data parent (only for center label) 
+let categoryLabel; // text to show in center
+let dataType; // text to show in center
+
+function changeCategory(category) {
+  if (category.value === 'contracts') {
+    chartData = contractsChartArray[0];
+    categoryLabel = 'Contract';
+    dataType = 'PSC';
+    drawChart(contractsChartArray);
+  } else if (category.value === 'grants') {
+    chartData = grantsChartArray[0];
+    categoryLabel = 'Grant';
+    dataType = 'CFDA';
+    drawChart(grantsChartArray);
+  } else if (category.value === 'research') {
+    chartData = researchGrantsChartArray[0];
+    categoryLabel = 'Research Grant';
+    dataType = 'CFDA';
+    drawChart(researchGrantsChartArray);
   }
+}
 
 const width = 700;
 const height = 700;
@@ -104,10 +109,6 @@ function getWedgeColor(d) {
   return wedgeColors[d.colorIndex];
 }
 
-function hover(d) {
-  updateCenter(d);
-}
-
 const arc = d3.svg.arc()
   .startAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x))))
   .endAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x + d.dx))))
@@ -122,15 +123,15 @@ function drawChart(data) {
     .attr('d', arc)
     .attr('class', d => 'depth' + d.depth)
     .attr('fill', d => getWedgeColor(d))
-    .on('mouseover', hover)
+    // .on('mouseover', hover)
     .on('click', click)
     .append('title').text(d => d.name)
     ;
-  updateCenter(data[0]); // initialize legend to summary
   click(data[0]); // simulate clicking center to reset zoom
 }
 
 function click(d) {
+  updateCenter(d);
   svg.transition()
     .duration(750)
     .tween('scale', () => {
@@ -225,7 +226,7 @@ function createInvestmentTable(columns) {
 function toggleMapView() {
   let counter = 0;
   let sunContainer = $('#sunburst');
-  let mapBtn = $('#table_view');
+  let mapBtn = $('#table-view');
   let tableContainer = $('#investment-table');
 
   mapBtn.on('click', function() {
@@ -287,8 +288,8 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
   });
 });
 
-svg.on('mouseleave', () => {
-  hover(chartData);
-});
+// svg.on('mouseleave', () => {
+//   hover(chartData);
+// });
 
 d3.select(self.frameElement).style('height', height + 'px');

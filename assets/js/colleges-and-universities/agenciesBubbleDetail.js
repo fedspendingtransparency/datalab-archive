@@ -1,3 +1,6 @@
+---
+---
+
 (function () {
     const detailContainer = d3.select('#bubble-detail').append('section').classed('bubble-detail', true),
         tables = {},
@@ -88,6 +91,7 @@
         tables.institutions.select('tr').append('th').text('Institutions (Top 5)');
         tables.institutions.select('tr').append('th').text('Total Investment');
     }
+
 
     function indexData(row) {
         detailData[row.source] = detailData[row.source] || {};

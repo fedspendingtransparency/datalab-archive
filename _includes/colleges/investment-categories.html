@@ -1,9 +1,9 @@
 <article id='section-four'>
-  
+
   <section id='investment-categories'>
     <div>
-      {% include colleges/colleges-share.html anchor="section-four" %}
-      <div id="categories-detail"></div>
+      {% include colleges/colleges-share.html anchor='section-four' %}
+      <div id='categories-detail'></div>
       <h2 id='investment-categories__number'>04</h2>
       <h3 id='investment-categories__title'>
 	Investment Categories
@@ -28,15 +28,14 @@
         <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div class="function-buttons">
+        <div class='function-buttons' onclick='panelClick(e)'>
           <div class='button-set'>
-            <div id='search-btn'><i class="fas fa-search"></i></div>
+            <button id='search-btn' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <div><!--chart-specific--></div>
-            <div id='table_view'><i class="fas fa-table"></i></div>
-            <div id='zoom_in'><i class="fas fa-plus"></i></div>
-            <div id='zoom_out'><i class="fas fa-minus"></i></div>
+            <button type='button' title='View chart'><img src='/assets/icons/sunburst_icon.svg' /></button>
+            <div class='separator'></div>
+            <button id='table-view' type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 
@@ -52,14 +51,14 @@
           </div>
         </div>
       </div>
-      <div id="investment-table">
+      <div id='investment-table'>
 	<!-- table here -->
       </div>
 
-      <div class="chart-footer">
+      <div class='chart-footer'>
         <div>
           <span class='faded'>Updated as of December 2019 / </span>
-          <a class="download-data" href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
+          <a class='download-data' href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
             {% include svgs/download_icon.svg %}
             &nbsp;Download
           </a>
