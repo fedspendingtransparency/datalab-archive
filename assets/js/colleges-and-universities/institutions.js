@@ -23,12 +23,12 @@ function createMapbox() {
   });
 
   // filter overlay section //
-  let mapDiv = $('#mapContainer');
+  let mapDiv = $('#collegesMap');
   let searchBtn = $('#map-search-btn');
   let almaTable = $('#alma-mater-table');
   const filterEl = $('.map-search__input');
   let listingEl = $('.map-search__list');
-  let mapToggleBtn = $('#feature-map-toggle');
+//  let mapToggleBtn = $('#map-table-trigger');
   let resetBtn = $('#feature-reset');
   let rightPanel = $('#inst-panel');
   let searchSection = $('#search-section');
@@ -87,19 +87,15 @@ function createMapbox() {
     searchSection.toggle();
   });
 
-  $('#map-table-btn').click(function(){
-    mapDiv.toggle();
-    almaTable.toggle();
-    mapToggleBtn.toggle(); // show button for map
-  });
-  
-  mapToggleBtn.click(function(){
-    mapToggleBtn.toggle(); 
-    almaTable.toggle();
-    mapDiv.toggle();
+  $('#map-table-trigger').click(function(){
+    mapDiv.hide(); // hide map
+    almaTable.show(); // show table
   });
 
-
+  $('#map-chart-trigger').click(function(){
+    mapDiv.show();
+    almaTable.hide();
+  });
 
   // when the map first loads all resources!
   map.on('load', function() {
@@ -474,7 +470,6 @@ function searchToggle() {
     console.log('clicking search trigger!');
   });
 };
-
 
 // Bringing it all together! Dom, on load! //
 $(document).ready(function(){
