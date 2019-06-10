@@ -5,6 +5,7 @@
     const searchData = [];
 
     let parentSection, searchContainer, inputWrapper, input, list;
+    let buttons = d3.select('#bubble-function-buttons');
 
     function initDom() {
         parentSection = d3.select('#bubble-search');
@@ -15,7 +16,7 @@
 
     function toggleSearch() {
         d3.select('#bubble-search-trigger').on('click', () => {
-            parentSection.classed('active', !parentSection.classed('active'));
+            buttons.classed('active', !buttons.classed('active'));
         })
     }
 
