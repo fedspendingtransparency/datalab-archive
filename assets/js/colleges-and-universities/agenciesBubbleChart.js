@@ -174,7 +174,7 @@ function zoom(d) {
     setChartState(d);
 
     handleMouseOut();
-    
+
     if (!d.parent || d.parent.name === "flare") {
         const transition = d3.transition()
             .duration(d3.event && d3.event.altKey ? 7500 : 750)
@@ -293,14 +293,11 @@ window.addEventListener("resize", function() {
         drawBubbleChart(root);
         // check the state here and replay
         const chartState = getChartState();
-        console.log(chartState);
-        zoomTo([root.x, root.y, root.r * 2 + margin]);
 
         if(chartState) {
-            // zoomTo([chartState.x, chartState.y, chartState.r * 2 + margin]);
-
             zoom(chartState);
-            d3.event.stopPropagation();
+        } else {
+            zoomTo([root.x, root.y, root.r * 2 + margin]);
         }
 
     }
