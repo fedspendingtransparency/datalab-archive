@@ -77,6 +77,14 @@ function calculateTextFontSize (d) {
         //if radius present in DOM use that
         radius = d.r ? d.r : 0;
         multiplier = d.depth === 2 ? 60 : 30;
+        // the multiplier should change here depending on how zoomed it
+        // console.log(calculatedWidth / d.r);
+        // console.log(d.r / calculatedWidth);
+        // if(d.parent) {
+        //     console.log(d.r/d.parent.r);
+        // } else {
+        //     console.log("no parent");
+        // }
 
         //calculate the font size and store it in object for future
         d.fontsize = multiplier * radius / d.computed + "px";
@@ -236,33 +244,39 @@ function zoomTo(v) {
    Make a table, a bubble table ;;;;
 **/
 function createBubbleTable(data) {
-    let table = d3.select('#bubbleTableContainer').append('table')
-        .attr('id', 'bubbletable');
+    d3.csv("/data-lab-data/CU_bubble_chart_table.csv", function(err, data) {
+        if (err) {
+            return err;
+        }
+        let table = d3.select('#bubbleTableContainer').append('table')
+            .attr('id', 'bubbletable');
 
-    let titles = ['Recipient', 'Agency', 'SubAgency', 'Family', 'Type', 'Obligation'];
+        let titles = ['Recipient', 'Agency', 'SubAgency', 'Family', 'Type', 'Obligation'];
 
-    let headers = table.append('thead').append('tr')
-        .selectAll('th')
-        .data(titles).enter()
-        .append('th')
-        .text(function (d) {
-          return d;
+        let headers = table.append('thead').append('tr')
+            .selectAll('th')
+            .data(titles).enter()
+            .append('th')
+            .text(function (d) {
+                return d;
+            });
+
+        // datatable start
+        let dTable = $('#bubbletable').dataTable({
+            data: data,
+            columns: [
+                {"data": 'Recipient'},
+                {"data": 'agency'},
+                {"data": 'family'},
+                {"data": 'obligation'},
+                {"data": 'subagency'},
+                {"data": 'type'},
+            ],
+            deferRender: true,
+            scrollCollapse: true,
+            scroller: true
         });
-
-    // datatable start
-    let dTable = $('#bubbletable').dataTable({
-      data: data,
-      columns: [
-	{"data": 'Recipient'},
-	{"data": 'agency'},
-	{"data": 'family'},
-	{"data": 'obligation'},
-	{"data": 'subagency'},
-	{"data": 'type'},
-      ],
-      deferRender:    true,
-      scrollCollapse: true,
-      scroller:       true});
+    });
 };
 
 /*
@@ -322,7 +336,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 
-    //createBubbleTable(data); // has to match csv columns!
+    createBubbleTable(data); // has to match csv columns!
 
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
