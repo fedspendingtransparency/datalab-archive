@@ -26,10 +26,8 @@ function createMapbox() {
   let mapDiv = $('#mapContainer');
   let searchBtn = $('#map-search-btn');
   let almaTable = $('#alma-mater-table');
-  let filterEl = $('#feature-filter');
-  let listingEl = $('#feature-listing-ul');
-//  let tableBtn = $('#map-search-btn');
-//  let mapBtn = $('#colleges-map');
+  const filterEl = $('.map-search__input');
+  let listingEl = $('.map-search__list');
   let mapToggleBtn = $('#feature-map-toggle');
   let resetBtn = $('#feature-reset');
   let rightPanel = $('#inst-panel');
@@ -50,6 +48,7 @@ function createMapbox() {
      
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
+	listitem.classList.add('map-search__item');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
 	  let that = this;
@@ -100,25 +99,7 @@ function createMapbox() {
     mapDiv.toggle();
   });
 
-  // handle input filter..
-  $(filterEl).keyup(function(){
 
-    var input, filter, ul, li, i, txtValue;
-    input = document.getElementById('feature-filter');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("feature-listing-ul");
-    li = ul.getElementsByTagName('li');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      txtValue = li[i].innerHTML;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    	li[i].style.display = "";
-      } else {
-    	li[i].style.display = "none";
-      }
-    }
-  });
 
   // when the map first loads all resources!
   map.on('load', function() {
@@ -194,7 +175,6 @@ function createMapbox() {
 	  "circle-stroke-color": "#ddd"
 	}
       });
-
 
       map.on('click', 'clusters', function (e) {
 	const cluster = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
@@ -465,10 +445,42 @@ function createSectFourTable(columns) {
   }); // end d3 function
 };
 
+function filterSearch() {
+  // handle input filter..
+  $('.map-search__input').keyup(function() {
+
+    var input, filter, ul, li, i, txtValue;
+    input = document.getElementById('map-keydown');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("map-search-ul");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      txtValue = li[i].innerHTML;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    	li[i].style.display = "";
+      } else {
+    	li[i].style.display = "none";
+      }
+    }
+  });
+};
+
+// Search Trigger Functionality...
+function searchToggle() {
+  $('#map-search-trigger').click(function(){
+    $('#map-search').toggleClass('active');
+    console.log('clicking search trigger!');
+  });
+};
+
 
 // Bringing it all together! Dom, on load! //
 $(document).ready(function(){
   createMapbox();
+  searchToggle();
+  filterSearch();
   createSectFourTable(['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
 });
 

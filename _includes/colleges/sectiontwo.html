@@ -21,32 +21,58 @@
       <section class="accordion">
         <h1 class="accordion__heading">Instructions</h1>
         <div class="accordion__content">
-            <p>Here's everything you need to know</p>
+          <p>Here's everything you need to know</p>
         </div>
-    </section>
+      </section>
 
-    <div class="cu-header__controls">
-      {% include colleges/colleges-share.html anchor="section-two" %}
-    </div>
+      <div class="cu-header__controls">
+	{% include colleges/colleges-share.html anchor="section-two" %}
+      </div>
     </div>
 
     <div id="mapContainer">
-      <div class='map-overlay' id="search-section">
-	<div id='feature-reset'><i class="fas fa-sync"></i></div>
-	<div class="search">
-	  <input id='feature-filter' type="text" name="search" class="round" placeholder='Search Schools'/>
+
+      <div class="function-buttons">
+	<div class='button-set'>
+          <div id="map-search">
+            <button id="map-search-trigger" type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+	    <div class="map-search">
+	      <div class="map-search__input-wrapper">
+		<input class="map-search__input" id='map-keydown' placeholder="Search Institutions">
+	      </div>
+	      <ul class="map-search__list" id="map-search-ul"></ul>
+	    </div>
+          </div>
 	</div>
-	<div id='feature-listing' class='listing'>
-	  <ul id="feature-listing-ul"></ul>
+	<div class='button-set'>
+          <div id="map-table">
+            <button id="map-chart-trigger" type='button' title='View map'><img src='/assets/icons/bubble_icon.svg' /></button>
+          </div>
+          <div class='separator'></div>
+          <div id="map-chart">
+            <button id="map-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+          </div>
 	</div>
       </div>
 
-      <div id="map-btn-overlay">
-	<div id="map-search-btn"><i class="fas fa-search"></i></div>
-	<div id="map-table-btn"><i class="fas fa-table"></i></div>
-      </div>
+      <!-- <div class='map-overlay' id="search-section">
+	   <div id='feature-reset'><i class="fas fa-sync"></i></div>
+	   <div class="search">
+	   <input id='feature-filter' type="text" name="search" class="round" placeholder='Search Schools'/>
+	   </div>
+	   <div id='feature-listing' class='listing'>
+	   <ul id="feature-listing-ul"></ul>
+	   </div>
+	   </div>
+      -->
+      <!-- <div id="map-btn-overlay">
+	   <div id="map-search-btn"><i class="fas fa-search"></i></div>
+	   <div id="map-table-btn"><i class="fas fa-table"></i></div>
+	   </div>
+      -->
 
       <div id="collegesMap"></div>
+
       <div id="inst-panel"></div>
       
     </div>
