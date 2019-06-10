@@ -6,4 +6,11 @@ function panelClick (id) {
   panel.classed('active', !panel.classed('active'));
 }
 
-console.log('here');
+function switchView (section, show) {
+  if (section === 'investment') {
+    if (show === 'chart') {
+      d3.select('#investment-chart').show();
+      d3.select('#investment-table').hide();
+    }
+  }
+}

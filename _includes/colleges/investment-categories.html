@@ -38,18 +38,18 @@
         <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div id='sunburst-function-buttons' class='function-buttons' onclick='panelClick("sunburst-function-buttons")'>
+        <div id='sunburst-function-buttons' class='function-buttons'>
           <div class='button-set'>
-            <button id='sunburst-search-trigger' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+            <button type='button' title='Search' onclick='panelClick("sunburst-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <button type='button' title='View chart'><img src='/assets/icons/sunburst_icon.svg' /></button>
+            <button type='button' title='View chart' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
             <div class='separator'></div>
             <button id='table-view' type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 
-        <div>
+        <div id='investment-chart'>
           <div id='legend_colorKey'>
             <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
             <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>

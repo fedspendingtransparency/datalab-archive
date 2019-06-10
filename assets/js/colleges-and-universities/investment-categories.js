@@ -228,7 +228,6 @@ function toggleMapView() {
     counter++;
     sunContainer.toggle(); // hide!
     tableContainer.toggle(); // show!
-    console.log(counter);
     // create table on first click then we can show and hide
     if (counter == 1){
       createInvestmentTable(); // matching data headers from csv!

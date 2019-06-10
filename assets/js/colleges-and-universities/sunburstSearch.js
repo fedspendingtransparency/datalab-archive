@@ -12,12 +12,6 @@
         list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
     }
 
-    // function toggleSearch() {
-    //     d3.select('#sunburst-search-trigger').on('click', () => {
-    //         buttons.classed('active', !buttons.classed('active'))
-    //     })
-    // }
-
     function filterData() {
         const filterValue = input.property('value').toLowerCase();
 
@@ -35,7 +29,6 @@
     function initSearch() {
         initDom();
         initInput();
-        // toggleSearch();
     }
 
     function selectItem(d) {
