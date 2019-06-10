@@ -1,6 +1,3 @@
----
----
-
 (function () {
     const detailContainer = d3.select('#bubble-detail').append('section').classed('bubble-detail', true),
         tables = {},
@@ -19,6 +16,12 @@
     ]
 
     let agencyName, subAgencyName, done = 0;
+
+    function isMobile() {
+        const threshold = 450;
+
+        return (window.innerWidth <= threshold);
+    }
 
     function sortDetail(a, b) {
         return b.value - a.value;
@@ -114,7 +117,17 @@
         })
     }
 
+    function disableMobile() {
+        return;
+    }
+
     function init() {
+        if (isMobile()) {
+            // disable for mobile
+            bubble.activateDetail = disableMobile;
+            return;
+        };
+        
         preloadData();
         placeCloseButton();
 
