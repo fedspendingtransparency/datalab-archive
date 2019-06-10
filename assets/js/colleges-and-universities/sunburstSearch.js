@@ -10,8 +10,6 @@
     }
 
     function toggleSearch() {
-        console.log('ts')
-        
         d3.select('#sunburst-search-trigger').on('click', () => {
             buttons.classed('active', !buttons.classed('active'))
         })
