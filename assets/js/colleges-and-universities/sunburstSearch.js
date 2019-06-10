@@ -68,7 +68,7 @@
     }
 
     function setSearchData(data) {
-        searchData = data;
+        searchData = data.filter(r => r.depth);
 
         initSearch();
         displayList(searchData);
