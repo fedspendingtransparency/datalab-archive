@@ -13,9 +13,10 @@
 
     function toggleSearch() {
         d3.select('#bubble-search-trigger').on('click', () => {
-            if (!buttons.classed('active')) {
-                input.node().focus();
-            }
+            // NOTE: this should focus on the search input, but isn't working; figure it out someday
+            // if (!buttons.classed('active')) {
+            //     input.node().focus();
+            // }
             buttons.classed('active', !buttons.classed('active'));
         })
     }
