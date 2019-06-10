@@ -1,11 +1,6 @@
 ---
 ---
 
-function panelClick (event) {
-  // while (event) ev
-  console.log (event);
-}
-
 // add legend
 d3.select('#legend_scaleKey').append('circle')
   .attr('r', 25)
