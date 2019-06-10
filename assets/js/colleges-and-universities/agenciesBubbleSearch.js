@@ -13,7 +13,7 @@
 
     function toggleSearch() {
         d3.select('#bubble-search-trigger').on('click', () => {
-            if (!parentSection.classed('active')) {
+            if (!buttons.classed('active')) {
                 input.node().focus();
             }
             buttons.classed('active', !buttons.classed('active'));
