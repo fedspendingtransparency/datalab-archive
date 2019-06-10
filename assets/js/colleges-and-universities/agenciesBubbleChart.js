@@ -3,7 +3,7 @@
 *   Local declarations
 *--------------------------------------------------------------------------------------------------------------------
 */
-const bubbleChartContainer = document.getElementById('bubbleChartContainer');
+const bubbleChartContainer = document.getElementById('agency-bubbleChart');
 const color = ['#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
     '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
     '#7FC994','#C57EC8', '#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
@@ -15,11 +15,14 @@ const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
 
-let node, circle, focus, view, bubbleSvg, recipient, root;
-const margin = 20,
-    diameter = bubbleChartContainer.clientWidth;
 
-const width = bubbleChartContainer.clientWidth;
+let node, circle, focus, view, bubbleSvg, recipient, root;
+const widthPercentage = .7;
+let maxHeight = document.getElementById("agency-investments__content").clientHeight;
+let calculatedWidth = window.innerWidth * widthPercentage;
+let bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
+const margin = 20;
+let diameter = bubbleWidth;
 
 const pack = d3.layout.pack()
     .padding(2)
@@ -29,7 +32,6 @@ const pack = d3.layout.pack()
             return d.size;
         }
     });
-
 /*
   --------------------------------------------------------------------------------------------------------------------
 *   functions
@@ -42,6 +44,8 @@ const circleFill = function(d) {
         return d.color;
     }
 };
+
+/* Store the current state */
 
 /* Calculate text font size for bubbles before and after zoom */
 const calculateTextFontSize = function(d) {
@@ -72,7 +76,7 @@ const calculateTextFontSize = function(d) {
 };
 
 function drawBubbleChart(root) {
-    const targetWidth = width;
+    const targetWidth = bubbleWidth;
     
     bubble.chartHeight = targetWidth;
 
@@ -339,9 +343,15 @@ bTableBtn.click(function(){
 // Redraw based on the new size whenever the browser window is resized.
 window.addEventListener("resize", function() {
     // put this in a set time out
-    $("#bubbleChartContainer").empty();
-    if(root) {
+    $("#agency-bubbleChart").empty();
+    if (root) {
+        maxHeight = document.getElementById("agency-investments__content").clientHeight;
+        calculatedWidth = window.innerWidth * widthPercentage;
+        diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
         drawBubbleChart(root);
+        // check the state here and replay
+        zoomTo([root.x, root.y, root.r * 2 + margin]);
+
     }
 });
 
