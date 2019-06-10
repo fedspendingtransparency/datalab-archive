@@ -23,6 +23,7 @@ let calculatedWidth = window.innerWidth * widthPercentage;
 let bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
 const margin = 20;
 let diameter = bubbleWidth;
+let _chartState;
 
 const pack = d3.layout.pack()
     .padding(2)
@@ -38,8 +39,16 @@ const pack = d3.layout.pack()
 *--------------------------------------------------------------------------------------------------------------------
 */
 
+function setChartState (d) {
+    _chartState = d;
+}
+
+function getChartState () {
+    return _chartState;
+}
+
 /* Set color for sub-agency circles */
-const circleFill = function(d) {
+function circleFill (d) {
     if (d['color']) {
         return d.color;
     }
@@ -48,7 +57,7 @@ const circleFill = function(d) {
 /* Store the current state */
 
 /* Calculate text font size for bubbles before and after zoom */
-const calculateTextFontSize = function(d) {
+function calculateTextFontSize (d) {
     let radius = 0;
     let multiplier = 0;
 
@@ -157,85 +166,18 @@ function handleMouseOut() {
     window.tooltipModule.remove("#tooltip");
 }
 
-function transformData(data) {
-    let result = _.groupBy(data, 'agency');
-    var i = 0;
-    let tempRoot = {
-        "name": "flare",
-        "children": []
-    };
-
-    // Re-structure data
-    for(agency in result) {
-        result[agency] = _.groupBy(result[agency], 'subagency');
-
-        tempRoot.children.push({"name": agency, "children": []});
-
-        for(subagency in result[agency]) {
-            result[agency][subagency] = _.groupBy(result[agency][subagency], 'Recipient');
-
-            tempRoot.children[i].children.push({"name": subagency, "children": [], "color": null, "size": 0});
-
-            var rsum;
-            for (recipient in result[agency][subagency]) {
-                rsum = 0;
-                // start calculating size
-                for (var r = 0; r < result[agency][subagency][recipient].length; r++) {
-                    rsum += parseInt(result[agency][subagency][recipient][r].obligation);
-                }
-
-                for (var j = 0; j < tempRoot.children[i].children.length; j++) {
-                    tempRoot.children[i].children[j].children.push({"name": recipient, "size": rsum});
-                }
-            }
-        }
-
-        i++;
-    }
-
-    recipient = result;
-
-    // sum the subagencies obligations
-    for (var i = 0; i < tempRoot.children.length; i++) {
-        for (var j = 0; j < tempRoot.children[i].children.length; j++) {
-            for (var k = 0; k < tempRoot.children[i].children[j].children.length; k++) {
-                tempRoot.children[i].children[j].size += parseInt(tempRoot.children[i].children[j].children[k].size);
-                tempRoot.children[i].children[j].children[k].name = null;
-
-            }
-
-            for (var k = 0; k < tempRoot.children[i].children[j].children.length; k++) {
-                if(tempRoot.children[i].children[j].children[k] &&
-                    !tempRoot.children[i].children[j].children[k].name) {
-                    delete tempRoot.children[i].children[j].children[k];
-                }
-            }
-
-            delete tempRoot.children[i].children[j].children;
-
-        }
-    }
-
-    // add color
-    for (var i = 0; i < tempRoot.children.length; i++) {
-        for (var j = 0; j < tempRoot.children[i].children.length; j++) {
-            tempRoot.children[i].children[j].color = color[i];
-        }
-    }
-
-    return tempRoot;
-}
-
 // Zoom into a specific circle
 function zoom(d) {
     const focus0 = focus;
     focus = d;
 
-    handleMouseOut();
+    setChartState(d);
 
+    handleMouseOut();
+    
     if (!d.parent || d.parent.name === "flare") {
         const transition = d3.transition()
-            .duration(d3.event.altKey ? 7500 : 750)
+            .duration(d3.event && d3.event.altKey ? 7500 : 750)
             .tween("zoom", function(d) {
                 var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
                 return function(t) {
@@ -350,7 +292,16 @@ window.addEventListener("resize", function() {
         diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
         drawBubbleChart(root);
         // check the state here and replay
+        const chartState = getChartState();
+        console.log(chartState);
         zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+        if(chartState) {
+            // zoomTo([chartState.x, chartState.y, chartState.r * 2 + margin]);
+
+            zoom(chartState);
+            d3.event.stopPropagation();
+        }
 
     }
 });
@@ -384,3 +335,78 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     }
 
 });
+
+/*
+-----------------------------------------------------------------------------------------------------------------
+* Function to Transform Data (needs to be refactored)
+*----------------------------------------------------------------------------------------------------------------
+ */
+
+function transformData(data) {
+    let result = _.groupBy(data, 'agency');
+    var i = 0;
+    let tempRoot = {
+        "name": "flare",
+        "children": []
+    };
+
+    // Re-structure data
+    for(agency in result) {
+        result[agency] = _.groupBy(result[agency], 'subagency');
+
+        tempRoot.children.push({"name": agency, "children": []});
+
+        for(subagency in result[agency]) {
+            result[agency][subagency] = _.groupBy(result[agency][subagency], 'Recipient');
+
+            tempRoot.children[i].children.push({"name": subagency, "children": [], "color": null, "size": 0});
+
+            var rsum;
+            for (recipient in result[agency][subagency]) {
+                rsum = 0;
+                // start calculating size
+                for (var r = 0; r < result[agency][subagency][recipient].length; r++) {
+                    rsum += parseInt(result[agency][subagency][recipient][r].obligation);
+                }
+
+                for (var j = 0; j < tempRoot.children[i].children.length; j++) {
+                    tempRoot.children[i].children[j].children.push({"name": recipient, "size": rsum});
+                }
+            }
+        }
+
+        i++;
+    }
+
+    recipient = result;
+
+    // sum the subagencies obligations
+    for (var i = 0; i < tempRoot.children.length; i++) {
+        for (var j = 0; j < tempRoot.children[i].children.length; j++) {
+            for (var k = 0; k < tempRoot.children[i].children[j].children.length; k++) {
+                tempRoot.children[i].children[j].size += parseInt(tempRoot.children[i].children[j].children[k].size);
+                tempRoot.children[i].children[j].children[k].name = null;
+
+            }
+
+            for (var k = 0; k < tempRoot.children[i].children[j].children.length; k++) {
+                if(tempRoot.children[i].children[j].children[k] &&
+                    !tempRoot.children[i].children[j].children[k].name) {
+                    delete tempRoot.children[i].children[j].children[k];
+                }
+            }
+
+            delete tempRoot.children[i].children[j].children;
+
+        }
+    }
+
+    // add color
+    for (var i = 0; i < tempRoot.children.length; i++) {
+        for (var j = 0; j < tempRoot.children[i].children.length; j++) {
+            tempRoot.children[i].children[j].color = color[i];
+        }
+    }
+
+    return tempRoot;
+}
