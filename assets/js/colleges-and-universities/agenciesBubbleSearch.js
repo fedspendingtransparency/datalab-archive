@@ -1,6 +1,3 @@
----
----
-
 (function () {
     const searchData = [];
 
@@ -15,14 +12,30 @@
 
     function toggleSearch() {
         d3.select('#bubble-search-trigger').on('click', () => {
+            if (!parentSection.classed('active')) {
+                input.node().focus();
+            }
+
             parentSection.classed('active', !parentSection.classed('active'));
         })
+    }
+
+    function filterFn(row) {
+        if (row.name.toLowerCase().indexOf(this) !== -1) {
+            return true;
+        }
+
+        if (row.parent.name.toLowerCase().indexOf(this) !== -1) {
+            return true;
+        }
+
+        return;
     }
 
     function filterData() {
         const filterValue = input.property('value').toLowerCase();
 
-        displayList(searchData.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
+        displayList(searchData.filter(filterFn.bind(filterValue)));
     }
 
     function initInput() {
@@ -32,7 +45,7 @@
             .attr('placeholder', 'Search Agencies')
             .on('input', filterData)
     }
-    
+
     function initSearch() {
         initDom();
         initInput();
@@ -44,7 +57,14 @@
             return;
         }
 
-        bubble.zoom(d);
+        bubble.zoom(d.parent);
+    }
+
+    function prepentParent(d) {
+        d3.select(this)
+            .append('span')
+            .text(d => {if (d.parent) return d.parent.name})
+            .classed('bubble-search__parent-name', true)
     }
 
     function displayList(filtered) {
@@ -61,14 +81,19 @@
             .data(filtered)
             .enter()
             .append('li')
-            .text(d => d.name)
             .classed('bubble-search__item', true)
+            .each(prepentParent)
             .on('click', selectItem)
+            .append('span')
+            .text(d => d.name)
     }
 
     function flattenData(data) {
         data.children.forEach(child => {
-            searchData.push(child);
+
+            if (child.depth !== 1) {
+                searchData.push(child);
+            };
 
             if (child.children && child.children.length > 1) {
                 flattenData(child)
