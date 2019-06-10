@@ -1,8 +1,7 @@
 .function-buttons {
-  display: flex;
-  flex-direction: column;
-  font-size: 24px;
-  z-index: 101;
+  // display: flex;
+  // flex-direction: column;
+  // font-size: 24px;
 
   $left-button-size: 45px;
   $left-button-border: 3px solid #eee;
@@ -41,11 +40,9 @@
 }
 
 #sunburst-function-buttons,#bubble-function-buttons {
-  position: relative;
-  z-index: 1;
   transition: transform 0.5s ease-in-out;
 
-  .active {
+  &.active {
     transform: translateX(350px);
   }
 }
