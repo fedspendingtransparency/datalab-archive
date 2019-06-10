@@ -1,6 +1,3 @@
----
----
-
 function panelClick (event) {
   // while (event) ev
   console.log (event);
@@ -28,21 +25,32 @@ let categoryLabel; // text to show in center
 let dataType; // text to show in center
 
 function changeCategory(category) {
+  let scopedData;
+
   if (category.value === 'contracts') {
-    chartData = contractsChartArray[0];
+    scopedData = contractsChartArray;
     categoryLabel = 'Contract';
     dataType = 'PSC';
-    drawChart(contractsChartArray);
   } else if (category.value === 'grants') {
-    chartData = grantsChartArray[0];
+    scopedData = grantsChartArray;
     categoryLabel = 'Grant';
     dataType = 'CFDA';
-    drawChart(grantsChartArray);
   } else if (category.value === 'research') {
-    chartData = researchGrantsChartArray[0];
+    scopedData = researchGrantsChartArray;
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
-    drawChart(researchGrantsChartArray);
+  }
+
+  chartData = scopedData[0];
+
+  drawChart(scopedData);
+
+  // enable search/filter
+  if (!sunburst.setSearchData) {
+    console.warn('bubble method not available')
+  } else {
+    sunburst.setSearchData(scopedData);
+    sunburst.onSearchSelect = click;
   }
 }
 
@@ -261,11 +269,10 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   toggleMapView(); // event listeners for the table view! 
 
   // enable search/filter
-  if (!sunburst.setSearchData) {
-    console.warn('bubble method not available')
-  } else {
-    sunburst.setSearchData(grantsChartArray);
+  if (sunburst) {
     sunburst.onSearchSelect = click;
+    sunburst.init();
+    sunburst.setSearchData(grantsChartArray);
   }
 
   // now do it all again with only research grants

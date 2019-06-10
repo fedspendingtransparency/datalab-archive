@@ -630,12 +630,12 @@
       <section class="accordion">
         <h1 class="accordion__heading">Instructions</h1>
         <div class="accordion__content">
-            <p>Here's everything you need to know</p>
+          <p>Here's everything you need to know</p>
         </div>
-    </section>
+      </section>
 
-    <div class="cu-header__controls">
-      <script>
+      <div class="cu-header__controls">
+	<script>
     function clickShareItemLink(item, url) {
         window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
 
@@ -748,26 +748,52 @@
     </span>
 </div>
 
-    </div>
+      </div>
     </div>
 
     <div id="mapContainer">
-      <div class='map-overlay' id="search-section">
-	<div id='feature-reset'><i class="fas fa-sync"></i></div>
-	<div class="search">
-	  <input id='feature-filter' type="text" name="search" class="round" placeholder='Search Schools'/>
+
+      <div class="function-buttons">
+	<div class='button-set'>
+          <div id="map-search">
+            <button id="map-search-trigger" type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+	    <div class="map-search">
+	      <div class="map-search__input-wrapper">
+		<input class="map-search__input" id='map-keydown' placeholder="Search Institutions">
+	      </div>
+	      <ul class="map-search__list" id="map-search-ul"></ul>
+	    </div>
+          </div>
 	</div>
-	<div id='feature-listing' class='listing'>
-	  <ul id="feature-listing-ul"></ul>
+	<div class='button-set'>
+          <div id="map-table">
+            <button id="map-chart-trigger" type='button' title='View map'><img src='/assets/icons/bubble_icon.svg' /></button>
+          </div>
+          <div class='separator'></div>
+          <div id="map-chart">
+            <button id="map-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+          </div>
 	</div>
       </div>
 
-      <div id="map-btn-overlay">
-	<div id="map-search-btn"><i class="fas fa-search"></i></div>
-	<div id="map-table-btn"><i class="fas fa-table"></i></div>
-      </div>
+      <!-- <div class='map-overlay' id="search-section">
+	   <div id='feature-reset'><i class="fas fa-sync"></i></div>
+	   <div class="search">
+	   <input id='feature-filter' type="text" name="search" class="round" placeholder='Search Schools'/>
+	   </div>
+	   <div id='feature-listing' class='listing'>
+	   <ul id="feature-listing-ul"></ul>
+	   </div>
+	   </div>
+      -->
+      <!-- <div id="map-btn-overlay">
+	   <div id="map-search-btn"><i class="fas fa-search"></i></div>
+	   <div id="map-table-btn"><i class="fas fa-table"></i></div>
+	   </div>
+      -->
 
       <div id="collegesMap"></div>
+
       <div id="inst-panel"></div>
       
     </div>
@@ -944,7 +970,7 @@
         </div>
     <div id="bubble-detail"></div>
 
-    <div class="function-buttons">
+    <div id='bubble-function-buttons' class="function-buttons">
       <div class='button-set'>
         <div id="bubble-search">
           <button id="bubble-search-trigger" type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
@@ -1165,9 +1191,9 @@
         <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div class='function-buttons' onclick='panelClick(e)'>
+        <div id='sunburst-function-buttons' class='function-buttons' onclick='panelClick(e)'>
           <div class='button-set'>
-            <button id='search-btn' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+            <button id='sunburst-search-trigger' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
             <button type='button' title='View chart'><img src='/assets/icons/sunburst_icon.svg' /></button>
@@ -1234,7 +1260,9 @@
 
 <script>
   var bubble = {},
-    sunburst = {};
+      sunburst = {},
+      map = {};
+
   //expose global variables for communication between scripts
 
   function formatCurrency(n) {

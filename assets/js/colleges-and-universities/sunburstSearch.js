@@ -1,8 +1,5 @@
----
----
-
 (function () {
-    let searchData, parentSection, searchContainer, inputWrapper, input, list;
+    let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit;
     let buttons = d3.select('#sunburst-function-buttons');
 
     function initDom() {
@@ -13,6 +10,8 @@
     }
 
     function toggleSearch() {
+        console.log('ts')
+        
         d3.select('#sunburst-search-trigger').on('click', () => {
             buttons.classed('active', !buttons.classed('active'))
         })
@@ -33,6 +32,10 @@
     }
     
     function initSearch() {
+        if (isInit) return;
+
+        isInit = true;
+        
         initDom();
         initInput();
         toggleSearch();
@@ -68,10 +71,11 @@
 
     function setSearchData(data) {
         searchData = data;
-        
+
         initSearch();
         displayList(searchData);
     }
 
     sunburst.setSearchData = setSearchData;
+    sunburst.init = initSearch;
 })()
