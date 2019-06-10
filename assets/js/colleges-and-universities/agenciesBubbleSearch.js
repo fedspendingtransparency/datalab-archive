@@ -12,6 +12,10 @@
 
     function toggleSearch() {
         d3.select('#bubble-search-trigger').on('click', () => {
+            if (!parentSection.classed('active')) {
+                input.node().focus();
+            }
+
             parentSection.classed('active', !parentSection.classed('active'));
         })
     }
@@ -59,7 +63,7 @@
     function prepentParent(d) {
         d3.select(this)
             .append('span')
-            .text(d => d.parent.name)
+            .text(d => {if (d.parent) return d.parent.name})
             .classed('bubble-search__parent-name', true)
     }
 
