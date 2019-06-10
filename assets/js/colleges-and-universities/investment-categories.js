@@ -288,8 +288,4 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
   });
 });
 
-// svg.on('mouseleave', () => {
-//   hover(chartData);
-// });
-
 d3.select(self.frameElement).style('height', height + 'px');

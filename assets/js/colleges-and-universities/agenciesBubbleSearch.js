@@ -2,6 +2,7 @@
     const searchData = [];
 
     let parentSection, searchContainer, inputWrapper, input, list;
+    let buttons = d3.select('#bubble-function-buttons');
 
     function initDom() {
         parentSection = d3.select('#bubble-search');
@@ -15,8 +16,7 @@
             if (!parentSection.classed('active')) {
                 input.node().focus();
             }
-
-            parentSection.classed('active', !parentSection.classed('active'));
+            buttons.classed('active', !buttons.classed('active'));
         })
     }
 

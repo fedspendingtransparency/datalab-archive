@@ -1,5 +1,9 @@
+---
+---
+
 (function () {
     let searchData, parentSection, searchContainer, inputWrapper, input, list;
+    let buttons = d3.select('#sunburst-function-buttons');
 
     function initDom() {
         parentSection = d3.select('#investment-categories .function-buttons');
@@ -9,8 +13,8 @@
     }
 
     function toggleSearch() {
-        d3.select('#search-btn').on('click', () => {
-            parentSection.classed('active', !parentSection.classed('active'))
+        d3.select('#sunburst-search-trigger').on('click', () => {
+            buttons.classed('active', !buttons.classed('active'))
         })
     }
 
