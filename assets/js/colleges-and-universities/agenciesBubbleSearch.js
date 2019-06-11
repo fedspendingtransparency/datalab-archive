@@ -11,16 +11,6 @@
         list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
     }
 
-    function toggleSearch() {
-        d3.select('#bubble-search-trigger').on('click', () => {
-            // NOTE: this should focus on the search input, but isn't working; figure it out someday
-            // if (!buttons.classed('active')) {
-            //     input.node().focus();
-            // }
-            buttons.classed('active', !buttons.classed('active'));
-        })
-    }
-
     function filterFn(row) {
         if (row.name.toLowerCase().indexOf(this) !== -1) {
             return true;
@@ -50,7 +40,6 @@
     function initSearch() {
         initDom();
         initInput();
-        toggleSearch();
     }
 
     function selectItem(d) {

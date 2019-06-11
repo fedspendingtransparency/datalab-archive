@@ -1,7 +1,5 @@
-function panelClick (event) {
-  // while (event) ev
-  console.log (event);
-}
+---
+---
 
 // add legend
 d3.select('#legend_scaleKey').append('circle')
@@ -192,9 +190,7 @@ function buildDataHierarchy(title, dataArray) {
   return data;
 }
 
-// Creating our Table!
-// Passing in an Array[] of Columns! (using map)
-function createInvestmentTable(columns) {
+function createInvestmentTable() {
   d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
     if (err) { return err; }
 
@@ -231,24 +227,6 @@ function createInvestmentTable(columns) {
   }); // start datatable
 };
 
-function toggleMapView() {
-  let counter = 0;
-  let sunContainer = $('#sunburst');
-  let mapBtn = $('#table-view');
-  let tableContainer = $('#investment-table');
-
-  mapBtn.on('click', function() {
-    counter++;
-    sunContainer.toggle(); // hide!
-    tableContainer.toggle(); // show!
-    console.log(counter);
-    // create table on first click then we can show and hide
-    if (counter == 1){
-      createInvestmentTable(); // matching data headers from csv!
-    }
-  });  
-}
-
 const partition = d3.layout.partition().value(d => d.size);
 
 let grantsHierarchy, grantsChartArray;
@@ -266,7 +244,8 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   categoryLabel = 'Grant';
   dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
-  toggleMapView(); // event listeners for the table view! 
+
+  createInvestmentTable()
 
   // enable search/filter
   if (sunburst) {
