@@ -57,6 +57,14 @@
   font-size: 1rem;
 }
 
+.bubble-search__parent-name {
+  display: block;
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 300;
+  margin-bottom: 0.4rem;
+}
+
 .bubble-search__input {
   border: none;
   padding: 1rem 2rem;
@@ -77,10 +85,11 @@
   border: 1px solid #ddd;
   border-top: none;
   margin: 0;
+  background: white;
 }
 
 .bubble-search__item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
   color: #4a4a4a;
   text-decoration: none;
   padding: 0.5rem 0;

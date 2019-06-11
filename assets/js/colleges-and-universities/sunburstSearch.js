@@ -9,10 +9,22 @@
         list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
     }
 
+    function filterFn(row) {
+        if (row.name.toLowerCase().indexOf(this) !== -1) {
+            return true;
+        }
+
+        if (row.parent.name.toLowerCase().indexOf(this) !== -1) {
+            return true;
+        }
+
+        return;
+    }
+
     function filterData() {
         const filterValue = input.property('value').toLowerCase();
 
-        displayList(searchData.filter(agency => agency.name.toLowerCase().indexOf(filterValue) !== -1));
+        displayList(searchData.filter(filterFn.bind(filterValue)));
     }
 
     function initInput() {
@@ -41,6 +53,15 @@
         parentSection.classed('active', false);
     }
 
+    function prependParent(d) {
+        if (d.depth === 2) {
+            d3.select(this)
+            .append('span')
+            .text(d => {if (d.parent) return d.parent.name})
+            .classed('bubble-search__parent-name', true)
+        }
+    }
+
     function displayList(filtered) {
         list.selectAll('li').remove();
 
@@ -55,9 +76,11 @@
             .data(filtered)
             .enter()
             .append('li')
-            .text(d => d.name)
             .classed('bubble-search__item', true)
+            .each(prependParent)
             .on('click', selectItem)
+            .append('span')
+            .text(d => d.name)
     }
 
     function setSearchData(data) {
