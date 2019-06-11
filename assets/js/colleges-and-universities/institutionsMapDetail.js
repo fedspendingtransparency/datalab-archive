@@ -9,7 +9,7 @@
           'total',
           'funding',
           'investments',
-          'institutions'
+          'agencies'
         ], // for controlling the order of positioning tables
         activeClass = 'map-detail--active';
 
@@ -18,7 +18,7 @@
     { key: 'Grants', value: 1000000 }
   ];
 
-  let agencyName, subAgencyName, done = 0;
+  let agencyName, done = 0;
 
   function sortDetail(a, b) {
     return b.value - a.value;
@@ -32,18 +32,17 @@
     detailContainer.classed(activeClass, true);
 
     agencyName.text(data.Recipient);
-    subAgencyName.text(data.name);
     
     updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
     updateTable('funding', instrumentTypeMock);
 
-    if (!detailData[data.name]) {
-      console.warn(`no data for ${data.name}`);
+    if (!detailData[data.Recipient]) {
+      console.warn(`no data for ${data.Recipient}`);
       updateTable('investments', []);
       updateTable('institutions', []);
     } else {
-      updateTable('investments', detailData[data.name].investments.sort(sortDetail));
-      updateTable('institutions', detailData[data.name].institutions.sort(sortDetail));
+      updateTable('investments', detailData[data.Recipient].investments.sort(sortDetail));
+      updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
     }
 
   }
@@ -84,13 +83,13 @@
     tables.funding.append('tr');
     tables.funding.select('tr').append('th').text('Funding Instrument Type').attr('colspan', 2);
 
+    tables.agencies.append('tr');
+    tables.agencies.select('tr').append('th').text('Funding Agencies (Top 5)');
+    tables.agencies.select('tr').append('th').text('Total Investment');
+
     tables.investments.append('tr');
     tables.investments.select('tr').append('th').text('Investment Categories (Top 5)');
     tables.investments.select('tr').append('th').text('Total Investment');
-
-    tables.institutions.append('tr');
-    tables.institutions.select('tr').append('th').text('Institutions (Top 5)');
-    tables.institutions.select('tr').append('th').text('Total Investment');
   }
 
 
@@ -109,7 +108,7 @@
     });
 
     d3.csv("../../data-lab-data/top5AgenciesPerSchool.csv", function (data) {
-      data.forEach(indexData, 'investments');
+      data.forEach(indexData, 'agencies');
 
       done += 1;
     });
@@ -122,8 +121,8 @@
     detailContainer.append('span').classed('map-detail__agency-label', true).text('Institution');
     agencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
 
-    detailContainer.append('span').classed('map-detail__agency-label', true).text('Sub-Agency');
-    subAgencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
+    detailContainer.append('span').classed('map-detail__agency-label', true).text('Sub-Agency'); // fix
+//    subAgencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
 
     placeTables();
 
