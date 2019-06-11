@@ -228,9 +228,6 @@ function createMapbox() {
       map.on('click', 'unclustered-point', function(e) {
 	// call global
 	instmap.activateDetail(e.features[0].properties);
-	
-//	$(rightPanel).css('display', 'block');
-//	createRightPanel(e);
       });
 
 
@@ -244,7 +241,6 @@ function createMapbox() {
 	    let arr = rhp.filter(function(x){
 	      return data.Recipient === x.Recipient;
 	    });
-
 	    // start all right hand jazz
 	    $(rightPanel).empty();
 	    $(rightPanel).append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
