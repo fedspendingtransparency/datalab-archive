@@ -5,6 +5,7 @@
 @import 'C-a-U-function-panel';
 @import 'C-a-U-bubble-detail';
 @import 'C-a-u-map-detail';
+@import 'C-a-U-mobile';
 @import 'C-a-U-header';
 @import 'C-a-U-accordion';
 
@@ -32,13 +33,6 @@ $bluecopy: #2272ce;
 
     .section-pre--banner {
       width: 100%;
-    }
-
-    // our section id
-    #TOC {
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
     }
 
     #section-pre__tile {
