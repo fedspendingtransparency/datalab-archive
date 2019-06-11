@@ -1,8 +1,11 @@
 ---
 ---
 
-function panelClick () {
-  console.log('here');
+function panelClick (id) {
+  // fade all buttons in id's set, then darken active one
+  let panelButtons = d3.selectAll('#' + id + ' button');
+  panelButtons.style('opacity', null);
+  document.activeElement.style.opacity = 1;
 }
 
 function searchClick (id) {
