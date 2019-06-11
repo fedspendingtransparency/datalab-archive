@@ -50,7 +50,7 @@
         bubble.zoom(d.parent);
     }
 
-    function prepentParent(d) {
+    function prependParent(d) {
         d3.select(this)
             .append('span')
             .text(d => {if (d.parent) return d.parent.name})
@@ -72,7 +72,7 @@
             .enter()
             .append('li')
             .classed('bubble-search__item', true)
-            .each(prepentParent)
+            .each(prependParent)
             .on('click', selectItem)
             .append('span')
             .text(d => d.name)

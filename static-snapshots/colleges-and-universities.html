@@ -751,8 +751,9 @@
       </div>
     </div>
 
-    <div id="mapContainer">
+    <div id="map-detail"></div>
 
+    <div id="mapContainer">
       <div class="function-buttons">
 	<div class='button-set'>
           <div id="map-search">
@@ -775,32 +776,11 @@
           </div>
 	</div>
       </div>
-
-      <!-- <div class='map-overlay' id="search-section">
-	   <div id='feature-reset'><i class="fas fa-sync"></i></div>
-	   <div class="search">
-	   <input id='feature-filter' type="text" name="search" class="round" placeholder='Search Schools'/>
-	   </div>
-	   <div id='feature-listing' class='listing'>
-	   <ul id="feature-listing-ul"></ul>
-	   </div>
-	   </div>
-      -->
-      <!-- <div id="map-btn-overlay">
-	   <div id="map-search-btn"><i class="fas fa-search"></i></div>
-	   <div id="map-table-btn"><i class="fas fa-table"></i></div>
-	   </div>
-      -->
-
       <div id="collegesMap"></div>
-
+      <div id='alma-mater-table'></div>
       <div id="inst-panel"></div>
-      
     </div>
 
-    <!-- Table -->
-    <div id="feature-map-toggle"><i class="fas fa-map"></i></div>
-    <div id='alma-mater-table'></div>
 
     <div class="chart-footer">
       <div>
@@ -973,7 +953,7 @@
     <div id='bubble-function-buttons' class="function-buttons">
       <div class='button-set'>
         <div id="bubble-search">
-          <button id="bubble-search-trigger" type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+          <button type='button' title='Search' onclick='panelClick("bubble-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
         </div>
       </div>
       <div class='button-set'>
@@ -1191,18 +1171,18 @@
         <label for='research_data'>Research Grants (CFDA)</label>
       </form>
       <div id='chart-container'>
-        <div id='sunburst-function-buttons' class='function-buttons' onclick='panelClick(e)'>
+        <div id='sunburst-function-buttons' class='function-buttons'>
           <div class='button-set'>
-            <button id='sunburst-search-trigger' type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
+            <button type='button' title='Search' onclick='panelClick("sunburst-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <button type='button' title='View chart'><img src='/assets/icons/sunburst_icon.svg' /></button>
+            <button type='button' title='View chart' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
             <div class='separator'></div>
-            <button id='table-view' type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+            <button type='button' title='View table' onclick='switchView("investment", "table")'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 
-        <div>
+        <div id='investment-sunburst'>
           <div id='legend_colorKey'>
             <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
             <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
@@ -1214,9 +1194,8 @@
           </div>
         </div>
       </div>
-      <div id='investment-table'>
-	<!-- table here -->
-      </div>
+
+      <div id='investment-table'></div>
 
       <div class='chart-footer'>
         <div>
@@ -1259,25 +1238,27 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 <script>
-  var bubble = {},
-      sunburst = {},
-      map = {};
+ var bubble = {},
+     sunburst = {},
+     instmap = {};
 
-  //expose global variables for communication between scripts
+ //expose global variables for communication between scripts
 
-  function formatCurrency(n) {
-        return '$' + d3.format(",")(Math.round(n));
-    }
+ function formatCurrency(n) {
+     return '$' + d3.format(",")(Math.round(n));
+ }
 </script>
 
-<!-- <script src="/assets/js/colleges-and-universities/investmentOverview.js"></script> -->
+<script src="/assets/js/colleges-and-universities/function-panel.js"></script>
+<script src="/assets/js/colleges-and-universities/investmentOverview.js"></script>
+<script src="/assets/js/colleges-and-universities/institutions.js"></script>
+<script src="/assets/js/colleges-and-universities/institutionsMapDetail.js"></script>
 <script src="/assets/js/colleges-and-universities/agenciesBubbleSearch.js"></script>
 <script src="/assets/js/colleges-and-universities/sunburstSearch.js"></script>
 <script src="/assets/js/colleges-and-universities/agenciesBubbleDetail.js"></script>
 <script src="/assets/js/colleges-and-universities/investmentCategoriesDetail.js"></script>
 <script src="/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
 <script src="/assets/js/colleges-and-universities/investment-categories.js"></script>
-<script src="/assets/js/colleges-and-universities/institutions.js"></script>
 <script src="/assets/ffg/accordion.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="/js/jquery.dataTables.min.js"></script>
