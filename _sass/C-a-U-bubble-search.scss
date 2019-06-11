@@ -1,20 +1,5 @@
 // this file no longer used, but kept in case of issues with C-a-U-function-panel.scss
 
-.function-buttons {
-    position: relative;
-    transition: transform 0.5s ease-in-out;
-    background: white;
-    z-index: 101;
-}
-
-.function-buttons.active {
-    transform: translateX(350px);
-}
-
-.button-set {
-    background: white;
-}
-
 #bubble-search {
     position: relative;
     z-index: 1;

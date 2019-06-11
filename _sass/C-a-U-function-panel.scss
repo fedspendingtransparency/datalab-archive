@@ -1,17 +1,13 @@
 .function-buttons {
-  // display: flex;
-  // flex-direction: column;
-  // font-size: 24px;
+  z-index: 1;
 
   $left-button-size: 45px;
   $left-button-border: 3px solid #eee;
   $border-radius: $left-button-size / 3;
 
   .button-set {
-    background: white;
-    display: flex;
-    flex-direction: column;
     width: $left-button-size;
+    background-color: white;
     border: $left-button-border;
     border-radius: 0 $border-radius $border-radius 0;
 
@@ -25,6 +21,7 @@
       margin-top: 5px;
       background: none;
       border: none;
+      opacity: .3; // faded until selected
 
       &:hover {
         cursor: pointer;
@@ -32,7 +29,7 @@
     }
   }
 
-  .separator {
+ .separator {
     width: 50%;
     margin-left: $left-button-size / 4;
     border-top: $left-button-border;
