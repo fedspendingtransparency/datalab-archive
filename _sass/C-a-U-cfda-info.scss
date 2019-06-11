@@ -1,5 +1,6 @@
 .cfda {
     position: relative;
+    display: inline
 }
 
 .cfda__contents {
@@ -24,20 +25,15 @@
     display: block;
 }
 
-#cfda-info.cfda-active {
-    display: block;
-    position: absolute;
-}
-
-.cfda-trigger, .cfda-close {
+.cfda__trigger, .cfda__close {
     border: none;
     background: none;
 }
 
-.cfda-trigger {
+.cfda__trigger {
     display: inline-block
 }
 
-.cfda-close {
+.cfda__close {
     float: right;
 }
