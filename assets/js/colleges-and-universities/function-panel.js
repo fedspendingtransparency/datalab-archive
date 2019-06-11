@@ -1,7 +1,11 @@
 ---
 ---
 
-function panelClick (id) {
+function panelClick () {
+  console.log('here');
+}
+
+function searchClick (id) {
   let panel = d3.select('#' + id);
   panel.classed('active', !panel.classed('active'));
 }
