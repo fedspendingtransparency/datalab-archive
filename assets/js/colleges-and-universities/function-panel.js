@@ -9,8 +9,11 @@ function panelClick (id) {
 function switchView (section, show) {
   if (section === 'investment') {
     if (show === 'chart') {
-      d3.select('#investment-chart').show();
-      d3.select('#investment-table').hide();
+      $('#investment-sunburst').show();
+      $('#investment-table').hide();
+    } else if (show === 'table') {
+      $('#investment-sunburst').hide();
+      $('#investment-table').show();
     }
   }
 }

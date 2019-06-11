@@ -45,11 +45,11 @@
           <div class='button-set'>
             <button type='button' title='View chart' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
             <div class='separator'></div>
-            <button id='table-view' type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+            <button type='button' title='View table' onclick='switchView("investment", "table")'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 
-        <div id='investment-chart'>
+        <div id='investment-sunburst'>
           <div id='legend_colorKey'>
             <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
             <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
@@ -61,6 +61,7 @@
           </div>
         </div>
       </div>
+
       <div id='investment-table'></div>
 
       <div class='chart-footer'>
