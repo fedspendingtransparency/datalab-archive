@@ -6,7 +6,8 @@
   
   /* Table of Contents */
   #TOC {
-    
+    display: block;
+
     #section-pre__TOC {
       flex: 0 50%;
       box-sizing: border-box;
@@ -23,6 +24,7 @@
 /* Mobile View */
 @media (max-width: 400px) {
   #TOC {
+    display: block;
     
     #section-pre__TOC {
       box-sizing: border-box;
