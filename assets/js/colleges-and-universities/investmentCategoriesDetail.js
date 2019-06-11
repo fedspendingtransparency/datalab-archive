@@ -125,7 +125,23 @@
         })
     }
 
+    function isMobile() {
+        const threshold = 450;
+
+        return (window.innerWidth <= threshold);
+    }
+
+    function disableMobile() {
+        return;
+    }
+
     function init() {
+        if (isMobile()) {
+            // disable for mobile
+            bubble.activateDetail = disableMobile;
+            return;
+        };
+        
         preloadData();
         placeCloseButton();
 

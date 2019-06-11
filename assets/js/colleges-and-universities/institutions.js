@@ -23,15 +23,10 @@ function createMapbox() {
   });
 
   // filter overlay section //
-  let mapDiv = $('#mapContainer');
-  let searchBtn = $('#map-search-btn');
+  let mapDiv = $('#collegesMap');
   let almaTable = $('#alma-mater-table');
-  const filterEl = $('.map-search__input');
   let listingEl = $('.map-search__list');
-  let mapToggleBtn = $('#feature-map-toggle');
-  let resetBtn = $('#feature-reset');
   let rightPanel = $('#inst-panel');
-  let searchSection = $('#search-section');
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
@@ -69,37 +64,15 @@ function createMapbox() {
     });
   }
 
-  // reset button click
-  // resets map to beginning state and renders all schools in list again
-  $(resetBtn).click(function() {
-    tooltip.remove();
-    map.flyTo({
-      center: [-80.59179687498357, 40.66995747013945], // usa
-      zoom: 3 // starting zoom...
-    });
-    $(filterEl).val(''); // clear value in input
-    $(listingEl).empty(); // clear list as well
-    renderAllSchools();
-    $(rightPanel).remove(); // clear right panel if its open
+  $('#map-table-trigger').click(function(){
+    mapDiv.hide(); // hide map
+    almaTable.show(); // show table
   });
 
-  $(searchBtn).click(function(){
-    searchSection.toggle();
+  $('#map-chart-trigger').click(function(){
+    mapDiv.show();
+    almaTable.hide();
   });
-
-  $('#map-table-btn').click(function(){
-    mapDiv.toggle();
-    almaTable.toggle();
-    mapToggleBtn.toggle(); // show button for map
-  });
-  
-  mapToggleBtn.click(function(){
-    mapToggleBtn.toggle(); 
-    almaTable.toggle();
-    mapDiv.toggle();
-  });
-
-
 
   // when the map first loads all resources!
   map.on('load', function() {
@@ -252,9 +225,9 @@ function createMapbox() {
       });
 
       // click for righthand panel
-      map.on('click', 'unclustered-point', function(e){
-	$(rightPanel).css('display', 'block');
-	createRightPanel(e);
+      map.on('click', 'unclustered-point', function(e) {
+	// call global
+	instmap.activateDetail(e.features[0].properties);
       });
 
 
@@ -268,9 +241,6 @@ function createMapbox() {
 	    let arr = rhp.filter(function(x){
 	      return data.Recipient === x.Recipient;
 	    });
-
-	    console.log(arr);
-
 	    // start all right hand jazz
 	    $(rightPanel).empty();
 	    $(rightPanel).append('<div id="inst-panel-close"><i class="fa fa-window-close" aria-hidden="true"></i></div>');
@@ -377,7 +347,7 @@ function createMapbox() {
 	      });
 
 	    }).fail(function(){
-	      console.log('promise fail');
+	      console.log('promise fail!');
 	    });
 	  });
       }; // end get right panel function
@@ -471,10 +441,8 @@ function filterSearch() {
 function searchToggle() {
   $('#map-search-trigger').click(function(){
     $('#map-search').toggleClass('active');
-    console.log('clicking search trigger!');
   });
 };
-
 
 // Bringing it all together! Dom, on load! //
 $(document).ready(function(){

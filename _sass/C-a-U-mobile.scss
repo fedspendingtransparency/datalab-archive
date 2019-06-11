@@ -1,0 +1,39 @@
+// jrk
+// 768px tablet -- 320px mobile
+
+/* Tablet View */
+@media (max-width: 768px) {
+  
+  /* Table of Contents */
+  #TOC {
+    display: block;
+
+    #section-pre__TOC {
+      flex: 0 50%;
+      box-sizing: border-box;
+      flex-wrap: wrap; // ahh!
+
+      #section-pre__tile {
+	width: 50%;
+	box-sizing: border-box;
+      }
+    }
+  } // end TOC
+} // end tablet
+
+/* Mobile View */
+@media (max-width: 400px) {
+  #TOC {
+    display: block;
+    
+    #section-pre__TOC {
+      box-sizing: border-box;
+      flex-wrap: wrap; // ahh!
+
+      #section-pre__tile {
+	width: 100%; // one by one..
+	box-sizing: border-box;
+      }
+    }
+  } // end TOC
+}// end mobile
