@@ -60,7 +60,7 @@ function circleFill (d) {
 function calculateTextFontSize (d) {
     let radius = 0;
     let multiplier = 0;
-
+    let labelWidth;
 
     if (d.fontsize){
         //if fontsize is already calculated use that.
@@ -76,19 +76,13 @@ function calculateTextFontSize (d) {
         //if computed is not 0 then get the visual radius of DOM
         //if radius present in DOM use that
         radius = d.r ? d.r : 0;
-        multiplier = d.depth === 2 ? 60 : 30;
-        // the multiplier should change here depending on how zoomed it
-        // console.log(calculatedWidth / d.r);
-        // console.log(d.r / calculatedWidth);
-        // if(d.parent) {
-        //     console.log(d.r/d.parent.r);
-        // } else {
-        //     console.log("no parent");
-        // }
 
-        //calculate the font size and store it in object for future
-        d.fontsize = multiplier * radius / d.computed + "px";
+        labelWidth = radius * 2 * diameter / (d.parent.r * 2 + margin) - margin;
+
+        d.fontsize = labelWidth/d.computed > 0 ? labelWidth/d.computed + "em" : 0.01 + "em";
+
         return d.fontsize;
+
     }
 };
 
