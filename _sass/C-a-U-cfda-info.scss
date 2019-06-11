@@ -10,16 +10,7 @@
     width: 250px;
     position: absolute;
     top: 2rem;
-}
-
-.cfda__contents::before {
-    display: block;
-    content: '';
-    height: 1rem;
-    width: 0.7rem;
-    border-bottom: 1rem solid white;
-    border-left: 0.35rem solid transparent;
-    border-right: 0.35rem solid transparent;
+    left: 0;
 }
 
 .cfda__contents.cfda__contents--active {
