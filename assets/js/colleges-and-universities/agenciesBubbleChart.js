@@ -16,7 +16,7 @@ const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
 
 
-let node, circle, focus, view, bubbleSvg, recipient, root;
+let node, circle, focus, view, bubbleSvg, recipient, root, nodes;
 const widthPercentage = .7;
 let maxHeight = document.getElementById("agency-investments__content").clientHeight;
 let calculatedWidth = window.innerWidth * widthPercentage;
@@ -31,6 +31,14 @@ const pack = d3.layout.pack()
     .value(function(d) {
         if(d.size > 0) {
             return d.size;
+        }
+    })
+    .sort( function(a, b) {
+        var threshold = 100000;
+        if ((a.value > threshold) && (b.value > threshold)) {
+            return b.value - a.value;
+        } else {
+            return -1;
         }
     });
 /*
@@ -59,10 +67,9 @@ function circleFill (d) {
 /* Calculate text font size for bubbles before and after zoom */
 function calculateTextFontSize (d) {
     let radius = 0;
-    let multiplier = 0;
     let labelWidth;
 
-    if (d.fontsize){
+    if (d.fontsize) {
         //if fontsize is already calculated use that.
         return d.fontsize;
     }
@@ -72,7 +79,7 @@ function calculateTextFontSize (d) {
         d.computed = this.getComputedTextLength();
     }
 
-    if(d.computed != 0){
+    if (d.computed != 0) {
         //if computed is not 0 then get the visual radius of DOM
         //if radius present in DOM use that
         radius = d.r ? d.r : 0;
@@ -91,8 +98,13 @@ function drawBubbleChart(root) {
     
     bubble.chartHeight = targetWidth;
 
+    tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
+        return "<div class='bubble-chart-tooltip'><p class='title'>" + d.name + "</p><br/><div class='information'><p class='key'>Total Contribution</p>" + formatCurrency(d.size) + "</div></div>";
+    });
+
     focus = root;
-    nodes = pack.nodes(root);
+    diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
+
 
     bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
@@ -119,15 +131,8 @@ function drawBubbleChart(root) {
         .on("click", function(d) {
             if (focus !== d) zoom(d), d3.event.stopPropagation();
         })
-        .on("mouseover", function(d) {
-            handleMouseOver(d);
-        })
-        .on("mouseout", handleMouseOut);
-
-    circle.append("svg:title")
-        .text(function(d) {
-            return d.name;
-        })
+        .on("mouseover", tip.show)
+        .on("mouseout", tip.hide);
 
     bubbleSvg.selectAll("text")
         .data(nodes)
@@ -151,21 +156,9 @@ function drawBubbleChart(root) {
 
     node = bubbleSvg.selectAll("circle,text");
 
-}
+    bubbleSvg.call(tip);
 
-function handleMouseOver(d) {
-    const circleName = "circle." + d.name;
-    const circleEl = bubbleSvg.select(circleName);
 
-    if (d.parent && d.parent.name !== "flare") {
-        window.tooltipModule.draw("#tooltip", d.name, {
-            "Total Contribution": numeral(d.size).format('$0,0.00')
-        });
-    }
-}
-
-function handleMouseOut() {
-    window.tooltipModule.remove("#tooltip");
 }
 
 // Zoom into a specific circle
@@ -174,8 +167,6 @@ function zoom(d) {
     focus = d;
 
     setChartState(d);
-
-    handleMouseOut();
 
     if (!d.parent || d.parent.name === "flare") {
         const transition = d3.transition()
@@ -320,6 +311,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     if (err) { return err; }
 
     root = transformData(data);
+    nodes = pack.nodes(root);
 
     drawBubbleChart(root);
 
