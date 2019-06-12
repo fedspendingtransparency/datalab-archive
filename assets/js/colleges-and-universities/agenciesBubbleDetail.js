@@ -46,6 +46,7 @@
         
         if (!detailData[data.name]) {
             console.warn(`no data for ${data.name}`);
+            updateTable('total', [{ key: 'Total $ of Awards', value: '-' }]);
             updateTable('funding', []);
             updateTable('investments', []);
             updateTable('institutions', []);
