@@ -1,0 +1,36 @@
+.cfda {
+    position: relative;
+    display: inline
+}
+
+.cfda__contents {
+    display: none;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 250px;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+}
+
+.cfda__contents.cfda__contents--active {
+    display: block;
+}
+
+.cfda__trigger, .cfda__close {
+    border: none;
+    background: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.cfda__trigger {
+    display: inline-block;
+}
+
+.cfda__close {
+    float: right;
+}

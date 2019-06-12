@@ -9,6 +9,7 @@
 @import 'C-a-U-mobile';
 @import 'C-a-U-header';
 @import 'C-a-U-accordion';
+@import 'C-a-U-cfda-info';
 
 $orange: #d04c02;
 $background: #fbfbfb;
@@ -26,17 +27,42 @@ $bluecopy: #2272ce;
   max-width: 100%;
   overflow: hidden;
 
+  // our section id
+  #TOC {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
   #section-pre {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
 
-    // our section id
-    #TOC {
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
+    #section-pre--tablet_banner {
+      display: none; // hide for now..
+
+      .section-pre--tablet-subtext {
+	height: 20px;
+	color: #9B9B9B;
+	font-family: "Source Sans Pro";
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 2.8px;
+	line-height: 20px;
+	text-align: center;
+      }
+
+      .section-pre--tablet-blurb {
+	height: 90px;
+	color: #555555;
+	font-family: "Source Sans Pro";
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 24px;
+	text-align: center;
+      }
     }
 
     .section-pre--banner {
@@ -152,6 +178,7 @@ $bluecopy: #2272ce;
 
 	#title-section {
 	  width: 100%;
+	  display: flex;
 
 	  #chart-title-aid {
 	    display: inline-block;
@@ -199,7 +226,7 @@ $bluecopy: #2272ce;
 
 	#investment-subtext {
 	  display: flex;
-	  justify-content: space-between;
+	  justify-content: space-evenly;
 	  padding-top: 2rem;
 	  padding-left: 3.5rem;
 	  padding-right: 3.5rem;

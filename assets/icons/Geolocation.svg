@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="19px" viewBox="0 0 15 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Group Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.76775781,18.6166602 C3.37583984,10.7999785 2.375,9.99774805 2.375,7.125 C2.375,3.18995898 5.56495898,0 9.5,0 C13.435041,0 16.625,3.18995898 16.625,7.125 C16.625,9.99774805 15.6241602,10.7999785 10.2322422,18.6166602 C9.8784043,19.1278047 9.12155859,19.1277676 8.76775781,18.6166602 Z M9.5,10.09375 C11.1396035,10.09375 12.46875,8.76460352 12.46875,7.125 C12.46875,5.48539648 11.1396035,4.15625 9.5,4.15625 C7.86039648,4.15625 6.53125,5.48539648 6.53125,7.125 C6.53125,8.76460352 7.86039648,10.09375 9.5,10.09375 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.42406064">
+        <g id="CU_Desktop_Zoomed-Map-Copy-4" transform="translate(-225.000000, -2490.000000)">
+            <g id="Group-Copy-2" transform="translate(223.000000, 2490.000000)">
+                <g id="Solid/map-marker-alt">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Color/Black" mask="url(#mask-2)" fill="#242A42" fill-rule="evenodd">
+                        <rect id="Black" x="0" y="0" width="19" height="19"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
