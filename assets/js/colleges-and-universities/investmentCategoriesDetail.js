@@ -1,5 +1,4 @@
 (function () {
-
     const detailContainer = d3.select('#categories-detail').attr('style', 'position:relative').append('section').classed('bubble-detail', true),
         tables = {},
         detailData = {},
@@ -10,11 +9,6 @@
             'institutions',
         ], // for controlling the order of positioning tables
         activeClass = 'bubble-detail--active';
-
-    const instrumentTypeMock = [
-        { key: 'Contracts', value: 1000000 },
-        { key: 'Grants', value: 1000000 }
-    ]
 
     let categoryName, cfda, done = 0;
 
@@ -43,6 +37,8 @@
         cfda.text(data.name)
 
         updateTable('total', [{ key: 'Total $ of Funding', value: data.value }]);
+
+        radioValue = radioValue.replace(/s$/, '');
 
         if (!detailData[lookup][radioValue]) {
             console.warn(`no data for ${data.name} (${radioValue})`);
@@ -76,7 +72,7 @@
     function updateTable(id, rows) {
         tables[id].selectAll('tr.bubble-detail__data-row').remove();
 
-        tables[id].selectAll('tr')
+        tables[id].selectAll('tr.bubble-detail__data-row')
             .data(rows)
             .enter()
             .append('tr')
