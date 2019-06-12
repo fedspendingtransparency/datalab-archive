@@ -1,3 +1,6 @@
+---
+---
+
 (function () {
     let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit;
     let buttons = d3.select('#sunburst-function-buttons');
