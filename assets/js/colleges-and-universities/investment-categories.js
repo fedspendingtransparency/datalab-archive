@@ -52,6 +52,16 @@ function changeCategory(category) {
   }
 }
 
+function downloadData() {
+  switch (categoryLabel) {
+    case 'Contract':
+      window.open('data-lab-data/CollegesAndUniversitiesContracts.csv');
+      break;
+    default:
+      window.open('data-lab-data/CollegesAndUniversityGrants.csv');
+    }
+}
+
 const width = 700;
 const height = 700;
 const radius = Math.min(width, height) / 2;
