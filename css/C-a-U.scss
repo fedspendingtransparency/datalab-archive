@@ -493,17 +493,19 @@ $bluecopy: #2272ce;
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
       }
       
       #categories {
         width: 100%;
+
+        label {
+          margin-right: 35px;
+        }
       }
 
       #chart-container {
-        margin-top: 100px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
       }
       
       circle {
@@ -566,7 +568,6 @@ $bluecopy: #2272ce;
       #legend_colorKey {
         position: relative;
         left: -100px;
-        margin: 50px 0 0 0;
         padding: 0;
         overflow: visible;
       }
