@@ -20,10 +20,15 @@
 .cfda__trigger, .cfda__close {
     border: none;
     background: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.6;
+    }
 }
 
 .cfda__trigger {
-    display: inline-block
+    display: inline-block;
 }
 
 .cfda__close {
