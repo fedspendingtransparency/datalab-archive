@@ -316,6 +316,29 @@ function filterSearch() {
   });
 };
 
+function filterSearchMobile() {
+  // handle input filter..
+  $('.mobile-map-search').keyup(function() {
+
+    var input, filter, ul, li, i, txtValue;
+    input = document.getElementById('omobile-keydown');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("map-search-ul--mobile");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      txtValue = li[i].innerHTML;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    	li[i].style.display = "";
+      } else {
+    	li[i].style.display = "none";
+      }
+    }
+  });
+};
+
+
 // Search Trigger Functionality...
 function searchToggle() {
   $('#map-search-trigger').click(function(){
@@ -323,10 +346,19 @@ function searchToggle() {
   });
 };
 
+function searchMobileToggle() {
+  $('#mobile-search').click(function(){
+    $('#map-search-ul--mobile').toggleClass('active-mobile');
+    console.log('clicking');
+  });
+};
+
 // Bringing it all together! Dom, on load! //
 $(document).ready(function(){
   createMapbox();
   searchToggle();
+  searchMobileToggle();
+  filterSearchMobile();
   filterSearch();
   createSectFourTable(['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
 });

@@ -66,7 +66,7 @@
   function updateTable(id, rows) {
     tables[id].selectAll('tr.map-detail__data-row').remove();
 
-    tables[id].selectAll('tr')
+    tables[id].selectAll('tr.map-detail__data-row')
       .data(rows)
       .enter()
       .append('tr')

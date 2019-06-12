@@ -171,9 +171,40 @@ $bluecopy: #2272ce;
 	padding-right: 3.5rem;
 	box-sizing: border-box;
 
+	#mobile-blurb {
+	  display: none;
+
+	  p.mobile-funding-granted {
+	    color: #555555;
+	    font-size: 14px;
+	    line-height: 18px;
+	  }
+
+	  p.mobile-funding-blurb {
+	    width: 289px;
+	    color: #555555;
+	    font-size: 14px;
+	    font-weight: 300;
+	    line-height: 18px;
+	  }
+	}
+
 	#investment-chart {
 	  display: flex;
           width: 100%;
+	}
+
+	#mobile-search {
+	  display: none;
+	  text-align: center;
+	}
+
+	.map-search__list {
+	  display: none;
+	}
+
+	.map-search-ul--mobile {
+	  display: none;
 	}
 
 	#title-section {
@@ -212,9 +243,36 @@ $bluecopy: #2272ce;
 	    line-height: 18px;
 	    height: 25px;
 	  }
-
-
 	} // end title section
+
+	}
+
+	#studentAid--mobile-title {
+	  display: none;
+	  color: #9B9B9B;
+	  font-size: 13px;
+	  font-weight: bold;
+	  line-height: 17px;
+	  text-transform: uppercase;
+	}
+
+	#grants--mobile-title {
+	  display: none;
+	  color: #9B9B9B;
+	  font-size: 13px;
+	  font-weight: bold;
+	  line-height: 17px;
+	  text-transform: uppercase;
+	}
+
+	#contracts--mobile-title {
+	  display: none;
+	  color: #9B9B9B;
+	  font-size: 13px;
+	  font-weight: bold;
+	  line-height: 17px;
+	  text-transform: uppercase;
+	}
 
 	#bar-text {
 	  color: #FFFEFD;

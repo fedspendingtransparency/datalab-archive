@@ -103,5 +103,51 @@
 	}
       }
     } 
+
+    #section-one #investment-overview #investment-overview__viz #mobile-blurb {
+      display: block !important;
+    }
+    
+    #section-one #investment-overview #investment-overview__viz #investment-chart {
+      display: block !important;
+    }
+
+    #section-one #investment-overview #investment-overview__viz #title-section {
+      display: none !important;
+    }
+
+    #section-one #investment-overview #investment-overview__viz #investment-subtext {
+      display: none !important;
+    }
+
+    #section-one #investment-overview #investment-overview__viz #investment-chart #studentAid--mobile-title {
+      display: block;
+    }
+
+    #section-one #investment-overview #investment-overview__viz #investment-chart #grants--mobile-title {
+      display: block;
+    }
+
+    #section-one #investment-overview #investment-overview__viz #investment-chart #contracts--mobile-title {
+      display: block;
+    }
+
+    #section-two #mapContainer #map-function-buttons {
+      display: none;
+    }
+
+    #section-two #alma-mater #mobile-search {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+    
+    #section-two #alma-mater #mobile-search ul {
+      display: none;
+    }
+
   }
 }
