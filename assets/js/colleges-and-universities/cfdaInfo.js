@@ -1,17 +1,14 @@
-(function(){
-    function init() {
-        const trigger = d3.select('.cfda__trigger'),
+(function () {
+    const trigger = d3.select('.cfda__trigger'),
         close = d3.select('.cfda__close'),
-        contents = d3.select('cfda__contents');
-        
-        trigger.on('click', () => {
-            contents.classed('.cfda__contents--active', !contents.classed('.cfda__contents--active'));
-        })
-        
-        close.on('click', () => {
-            contents.classed('cfda__contents--active', false);
-        })
-    }
+        contents = d3.select('.cfda__contents'),
+        activeClass = 'cfda__contents--active';
 
-    setTimeout(init, 1500) // wait until dom elements are present on the page
+    trigger.on('click', () => {
+        contents.classed(activeClass, !contents.classed(activeClass));
+    })
+
+    close.on('click', () => {
+        contents.classed(activeClass, false);
+    })
 })()

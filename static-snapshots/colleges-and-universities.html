@@ -1168,7 +1168,15 @@
         <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
         <label for='grants_data'>Grants (CFDA)</label>
         <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
-        <label for='research_data'>Research Grants (CFDA)</label>
+        <label for='research_data'>Research Grants (CFDA) 
+          <div class="cfda">
+            <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
+              <div class="cfda__contents">
+                <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
+                <span>This is a written description about Research Grants (CFDA)</span>
+              </div>
+          </div>
+      </label>
       </form>
       <div id='chart-container'>
         <div id='sunburst-function-buttons' class='function-buttons'>
@@ -1258,7 +1266,7 @@
 <script src="/assets/js/colleges-and-universities/agenciesBubbleDetail.js"></script>
 <script src="/assets/js/colleges-and-universities/investmentCategoriesDetail.js"></script>
 <script src="/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
-<script src="/assets/js/colleges-and-universities/investment-categories.js"></script>
+<script src="/assets/js/colleges-and-universities/cfdaInfo.js"></script>
 <script src="/assets/ffg/accordion.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="/js/jquery.dataTables.min.js"></script>
