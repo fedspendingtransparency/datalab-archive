@@ -26,6 +26,7 @@ function createMapbox() {
   let mapDiv = $('#collegesMap');
   let almaTable = $('#alma-mater-table');
   let listingEl = $('.map-search__list');
+  let mobilelistingEl = $('.map-search__list--mobile');
   let rightPanel = $('#inst-panel');
 
   function renderAllSchools() {
@@ -40,7 +41,7 @@ function createMapbox() {
 	  yearType: ele.properties.INST_TYPE_2
 	};
       });
-     
+      
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.classList.add('map-search__item');
@@ -63,6 +64,7 @@ function createMapbox() {
       });
     });
   }
+	     
 
   $('#map-table-trigger').click(function(){
     mapDiv.hide(); // hide map
@@ -321,7 +323,7 @@ function filterSearchMobile() {
   $('.mobile-map-search').keyup(function() {
 
     var input, filter, ul, li, i, txtValue;
-    input = document.getElementById('omobile-keydown');
+    input = document.getElementById('mobile-keydown');
     filter = input.value.toUpperCase();
     ul = document.getElementById("map-search-ul--mobile");
     li = ul.getElementsByTagName('li');
@@ -349,7 +351,7 @@ function searchToggle() {
 function searchMobileToggle() {
   $('#mobile-search').click(function(){
     $('#map-search-ul--mobile').toggleClass('active-mobile');
-    console.log('clicking');
+    console.log('clicking for active mobile toggl');
   });
 };
 
