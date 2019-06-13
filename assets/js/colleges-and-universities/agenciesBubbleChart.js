@@ -34,7 +34,7 @@ const pack = d3.layout.pack()
         }
     })
     .sort( function(a, b) {
-        var threshold = 100000;
+        var threshold = 100;
         if ((a.value > threshold) && (b.value > threshold)) {
             return b.value - a.value;
         } else {
@@ -99,7 +99,11 @@ function drawBubbleChart(root) {
     bubble.chartHeight = targetWidth;
 
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-        return "<div class='bubble-chart-tooltip'><p class='title'>" + d.name + "</p><br/><div class='information'><p class='key'>Total Contribution</p>" + formatCurrency(d.size) + "</div></div>";
+        if(d.depth === 2) {
+            return "<div class='bubble-chart-tooltip'><p class='title'>" + d.name + "</p><br/><div class='information'><p class='key'>Total Contribution</p>" + formatCurrency(d.size) + "</div></div>";
+        }
+
+        return -1;
     });
 
     focus = root;

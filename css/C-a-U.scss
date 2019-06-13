@@ -387,6 +387,17 @@ $bluecopy: #2272ce;
         padding: 1rem;
       }
 
+      #chart-area {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #chart-container {
+        display: flex;
+        justify-content: space-around;
+      }
+
       #agency-investments__content {
         flex: 1;
         display: flex;
@@ -399,19 +410,30 @@ $bluecopy: #2272ce;
             display: flex;
             height: 700px;
 
-            svg#chart {
+            #agency-bubbleChart {
+              height: 700px;
               width: 700px;
-              align-self: center;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              #agency-legend_colorKey {
+                position: relative;
+                left: -100px;
+                padding: 0;
+                overflow: visible;
+              }
+            }
+
+            svg#chart {
+              position: absolute;
+              top: 0;
+              left: 0;
             }
 
             circle.node,  circle.node--root, circle.node--leaf, text.label {
               cursor: pointer;
-            }
-
-            #agency-legend_colorKey {
-              width: 20%;
-              margin-top: 6%;
-              align-self: flex-start;
             }
 
             .node--root {
@@ -514,7 +536,7 @@ $bluecopy: #2272ce;
         stroke-width: 2px;
       }
       
-      #sunburst {
+      #sunburst, #agency-bubbleChart {
         height: 700px;
         width: 700px;
         position: relative;
@@ -522,7 +544,7 @@ $bluecopy: #2272ce;
         align-items: center;
         justify-content: center;
       }
-      #sunburst svg {
+      #sunburst svg, svg#chart {
         position: absolute;
         top: 0;
         left: 0;
