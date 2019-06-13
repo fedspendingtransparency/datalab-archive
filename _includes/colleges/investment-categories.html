@@ -23,36 +23,35 @@
           </section>
         
             <div class="cu-header__controls">
-              {% include colleges/colleges-share.html anchor="section-four" %}
+              <form id='categories'>
+                <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
+                <label for='contracts_data'>Contracts (PSC)</label>
+                <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
+                <label for='grants_data'>Grants (CFDA)</label>
+                <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
+                <label for='research_data'>Research Grants (CFDA)
+                  <div class="cfda">
+                    <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
+                      <div class="cfda__contents">
+                        <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
+                        <span>This is a written description about Research Grants (CFDA)</span>
+                      </div>
+                    </div>
+                </label>
+              </form>
+{% include colleges/colleges-share.html anchor="section-four" %}
             </div>
         </div>
 
     <div id='chart-area'>
       <div id="categories-detail"></div>
-      <form id='categories'>
-        <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
-        <label for='contracts_data'>Contracts (PSC)</label>
-        <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
-        <label for='grants_data'>Grants (CFDA)</label>
-        <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
-        <label for='research_data'>Research Grants (CFDA) 
-            <div class="cfda">
-              <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
-                <div class="cfda__contents">
-                  <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
-                  <span>This is a written description about Research Grants (CFDA)</span>
-                </div>
-            </div>
-        </label>
-      </form>
-
       <div id='chart-container'>
         <div id='sunburst-function-buttons' class='function-buttons' onclick='panelClick(this.id)'>
           <div class='button-set'>
             <button type='button' title='Search' onclick='searchClick("sunburst-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <button type='button' title='View chart' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
+            <button type='button' title='View chart' style='opacity: 1;' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
             <div class='separator'></div>
             <button type='button' title='View table' onclick='switchView("investment", "table")'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
@@ -69,6 +68,7 @@
             <div id='center'></div>
           </div>
         </div>
+        <div id='right-spacer'></div>
       </div>
 
       <div id='investment-table'></div>
@@ -76,7 +76,7 @@
       <div class='chart-footer'>
         <div>
           <span class='faded'>Updated as of December 2019 / </span>
-          <a class='download-data' href='data-lab-data/CollegesAndUniversitiesContracts.csv'>
+          <a class='download-data' onclick='downloadData()'>
             {% include svgs/download_icon.svg %}
             &nbsp;Download
           </a>

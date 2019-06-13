@@ -52,6 +52,20 @@ function changeCategory(category) {
   }
 }
 
+function downloadData() {
+  switch (categoryLabel) {
+    case 'Contract':
+      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Contracts_Download.csv');
+      break;
+    case 'Grant':
+      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Grants_Download.csv');
+      break;
+    case 'Research Grant':
+      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Research_Grants_Download.csv');
+      break;
+    }
+}
+
 const width = 700;
 const height = 700;
 const radius = Math.min(width, height) / 2;

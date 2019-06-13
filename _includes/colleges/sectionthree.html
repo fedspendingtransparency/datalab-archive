@@ -1,78 +1,72 @@
 <article id="section-three">
 
   <section id="agency-investments">
-      <div class="cu-header">
-          <div class="cu-header__number">
-            <span>03</span>
-          </div>
-          <h3 class="cu-header__title">Agency Investments</h3>
-          <h1 class="cu-header__teaser">
-              Connect the government agency to the <strong>federal investment</strong>
-          </h1>
-          <p class="cu-header__blurb">
-              Federal agencies are government organizations that each have a specific purpose such as the management of resources, financial oversight of industries, or national security issues. This section will help you discover the financial breakdown of each agency's investment, whom they are paying and what vehicles they are using to invest with.
-          </p>
-        
-          <section class="accordion">
-            <h1 class="accordion__heading">Instructions</h1>
-            <div class="accordion__content">
-              <p>Here's everything you need to know</p>
-            </div>
-          </section>
-        
-            <div class="cu-header__controls">
-              {% include colleges/colleges-share.html anchor="section-four" %}
-            </div>
-        </div>
-    <div id="bubble-detail"></div>
+    <div class="cu-header">
+      <div class="cu-header__number">
+        <span>03</span>
+      </div>
+      <h3 class="cu-header__title">Agency Investments</h3>
+      <h1 class="cu-header__teaser">
+          Connect the government agency to the <strong>federal investment</strong>
+      </h1>
+      <p class="cu-header__blurb">
+          Federal agencies are government organizations that each have a specific purpose such as the management of resources, financial oversight of industries, or national security issues. This section will help you discover the financial breakdown of each agency's investment, whom they are paying and what vehicles they are using to invest with.
+      </p>
 
-    <div id='bubble-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
-      <div class='button-set'>
-        <div id="bubble-search">
+      <section class="accordion">
+        <h1 class="accordion__heading">Instructions</h1>
+        <div class="accordion__content">
+          <p>Here's everything you need to know</p>
+        </div>
+      </section>
+
+        <div class="cu-header__controls">
+          {% include colleges/colleges-share.html anchor="section-four" %}
+        </div>
+    </div>
+    <div id="chart-area">
+      <div id="bubble-detail" style="position:relative"></div>
+      <div id="chart-container">
+        <div id='bubble-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
+        <div class='button-set' id="bubble-search">
           <button type='button' title='Search' onclick='searchClick("bubble-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
         </div>
-      </div>
-      <div class='button-set'>
-        <div id="bubble-table">
-          <button id="bubble-chart-trigger" type='button' title='View chart'><img src='/assets/icons/bubble_icon.svg' /></button>
-        </div>
-        <div class='separator'></div>
-        <div id="bubble-chart">
+        <div class='button-set' id="bubble-table" >
+          <button id="bubble-chart-trigger" type='button' title='View chart' style='opacity: 1;'><img src='/assets/icons/bubble_icon.svg' /></button>
+          <div class='separator'></div>
           <button id="bubble-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
         </div>
       </div>
-    </div>
+        <div id="agency-investments__content">
+          <div id="bubbleChartContainer" class="bubbleChartContainer">
 
-    <div id="agency-investments__content">
-      <div id="bubbleChartContainer" class="bubbleChartContainer">
+          <div id="agency-legend_colorKey">
+            <svg>
+              <circle stroke="#696969" fill="none" cx="60" cy="60" r="60">
+              </circle>
+              <text x="15" y="45">Sub-Agency</text>
+              <circle stroke="#696969" fill="none" cx="60" cy="90" r="30">
+              </circle>
+              <text x="30" y="140">Agency</text>
+            </svg>
+          </div>
 
-        <div id="agency-legend_colorKey">
-          <svg>
-            <circle stroke="#696969" fill="none" cx="60" cy="60" r="60">
-            </circle>
-            <text x="15" y="45">Sub-Agency</text>
-            <circle stroke="#696969" fill="none" cx="60" cy="90" r="30">
-            </circle>
-            <text x="30" y="140">Agency</text>
-          </svg>
+          <div id="agency-bubbleChart"></div>
         </div>
 
-        <div id="tooltip" class="tooltip-module"></div>
+          <div id="bubbleTableContainer"></div>
 
-        <div id="agency-bubbleChart"></div>
       </div>
 
-      <div id="bubbleTableContainer"></div>
-
-    </div>
-
-    <div class="chart-footer">
-      <div>
-        <span class='faded'>Updated as of December 2019 / </span>
-        <a class="download-data" href=''>
-          {% include svgs/download_icon.svg %}
-          &nbsp;Download
-        </a>
+      </div>
+      <div class="chart-footer">
+        <div>
+          <span class='faded'>Updated as of December 2019 / </span>
+          <a class="download-data" href='assets/js/colleges-and-universities/download-files/Agency_Section_Download.csv'>
+            {% include svgs/download_icon.svg %}
+            &nbsp;Download
+          </a>
+        </div>
       </div>
     </div>
 
