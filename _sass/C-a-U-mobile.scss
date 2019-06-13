@@ -6,6 +6,7 @@
       display: block !important;
     }
 
+
     #section-pre {
 
       .section-pre--banner {
@@ -56,10 +57,11 @@
 	#section-pre__tile {
 	  width: 50%;
 	  box-sizing: border-box;
+	  border-bottom: 1px solid #ddd;
+	  border-right: 1px solid #ddd;
 	}
       }
     } 
-
 
     #section-one {
       #investment-overview {
@@ -107,6 +109,7 @@
       display: block !important;
       
       #section-pre__TOC {
+	border-top: none !important;
 	box-sizing: border-box;
 	flex-wrap: wrap;
 
@@ -115,8 +118,18 @@
 	  box-sizing: border-box;
 	}
       }
-    } 
+    }
 
+    #bar-text-contracts {
+      color: #925003;
+      margin: 0;
+      margin-left: 2.5rem;
+      font-size: 36px;
+      line-height: 50px;
+      margin-left: 2rem;
+      padding-top: .5rem;
+    }
+ 
     #section-one #investment-overview #investment-overview__viz #mobile-blurb {
       display: block !important;
     }
