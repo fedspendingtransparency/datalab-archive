@@ -55,10 +55,14 @@ function changeCategory(category) {
 function downloadData() {
   switch (categoryLabel) {
     case 'Contract':
-      window.open('data-lab-data/CollegesAndUniversitiesContracts.csv');
+      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Contracts_Download.csv');
       break;
-    default:
-      window.open('data-lab-data/CollegesAndUniversityGrants.csv');
+    case 'Grant':
+      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Grants_Download.csv');
+      break;
+    case 'Research Grant':
+      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Research_Grants_Download.csv');
+      break;
     }
 }
 
