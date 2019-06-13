@@ -149,6 +149,15 @@
       display: none;
     }
 
+    #mobile-search {
+      display: flex !important;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+
     #section-two #alma-mater #mobile-search {
       display: flex;
       justify-content: center;

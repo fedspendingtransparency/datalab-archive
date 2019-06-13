@@ -192,11 +192,21 @@
   margin: 0;
 }
 
-.mobile-active {
-  display: block;
-  }
+.active-mobile {
+  display: block !important;
+}
 
 .map-search__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #4a4a4a;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.map-search__item--mobile {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #4a4a4a;
   text-decoration: none;

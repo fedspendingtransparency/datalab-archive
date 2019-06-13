@@ -330,6 +330,10 @@ $bluecopy: #2272ce;
       box-sizing: border-box;
       flex-direction: column;
 
+      #mobile-search {
+	display: none;
+      }
+
       #alma-mater-table {
 	display: none;
 	width: 100%;
