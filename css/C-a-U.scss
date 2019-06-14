@@ -497,6 +497,12 @@ $bluecopy: #2272ce;
               cursor: pointer;
             }
 
+            circle.node--leaf.active {
+              fill-opacity: .8;
+              stroke: #FAEBD0;
+              stroke-width: 9;
+            }
+
             .node--root {
               fill: #f8f8f8;
             }

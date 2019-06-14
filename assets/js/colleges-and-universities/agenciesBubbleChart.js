@@ -4,11 +4,14 @@
 *--------------------------------------------------------------------------------------------------------------------
 */
 const bubbleChartContainer = document.getElementById('agency-bubbleChart');
-const color = ['#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
-    '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
-    '#7FC994','#C57EC8', '#C98D7E','#D18787','#A097D6','#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
-    '#7FC994','#C57EC8','#80B1C9','#C6C97F', '#C9AC7F', '#7FC9A3', '#A38FCA','#C9BB7F','#B7C97E','#C99E7F','#C9AC7F','#7EC9C1',
-    '#7FC994','#C57EC8'];
+const color = ['#c8ac7f','#C6919E','#C99E7F','#879BBA','#A3D1CC', '#88A6A0','#879BBA',
+    '#A3D1CC','#80AEC4','#C9BB7F','#C6919E',
+    '#879BBA','#C99E7F','#879BBA','#C6919E','#A3D1CC','#80AEC4','#C9BB7F',
+    '#88A6A0','#c8ac7f','#C99E7F','#879BBA','#A3D1CC','#88A6A0','#80AEC4','#C9BB7F',
+    '#80AEC4','#C99E7F','#C6919E','#879BBA','#A3D1CC','#88A6A0','#80AEC4','#C9BB7F',
+    '#C9BB7F','#c8ac7f','#C6919E','#879BBA','#A3D1CC','#88A6A0','#80AEC4','#C9BB7F',
+    '#c8ac7f','#c8ac7f','#C99E7F','#879BBA','#A3D1CC','#88A6A0','#80AEC4','#C9BB7F'];
+
 
 const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
@@ -103,7 +106,7 @@ function drawBubbleChart(root) {
             return "<div class='bubble-chart-tooltip'><p class='title'>" + d.name + "</p><br/><div class='information'><p class='key'>Total Contribution</p>" + formatCurrency(d.size) + "</div></div>";
         }
 
-        return -1;
+        return '<div></div>';
     });
 
     focus = root;
@@ -133,7 +136,23 @@ function drawBubbleChart(root) {
             return d.name;
         })
         .on("click", function(d) {
-            if (focus !== d) zoom(d), d3.event.stopPropagation();
+            setChartState(d);
+
+            circle.classed('active', false);
+
+            if (d.depth == 0) {
+                if (focus !== d) zoom(d), d3.event.stopPropagation();
+            } else if (d.depth == 1) {
+                if (focus !== d) zoom(d), d3.event.stopPropagation();
+                d3.select(this).classed("active", false);
+            } else if (d.depth == 2) {
+                // check if a bubble is already selected
+                d3.select(this).classed("active", true);
+                bubble.activateDetail(d);
+            } else {
+                console.log("why are we here?");
+            }
+
         })
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
@@ -155,7 +174,20 @@ function drawBubbleChart(root) {
         .style("font-size", calculateTextFontSize)
         .attr("text-anchor", "middle")
         .on("click", function(d) {
-            if (focus !== d) zoom(d), d3.event.stopPropagation();
+            setChartState(d);
+
+            circle.classed('active', false);
+            if (d.depth == 0) {
+                if (focus !== d) zoom(d), d3.event.stopPropagation();
+            } else if (d.depth == 1) {
+                if (focus !== d) zoom(d), d3.event.stopPropagation();
+                d3.select(this).classed("active", false);
+            } else if (d.depth == 2) {
+                d3.select(this).classed("active", true);
+                bubble.activateDetail(d);
+            } else {
+                console.log("why are we here?");
+            }
         });
 
     node = bubbleSvg.selectAll("circle,text");
@@ -170,51 +202,45 @@ function zoom(d) {
     const focus0 = focus;
     focus = d;
 
-    setChartState(d);
+    const transition = d3.transition()
+        .duration(d3.event && d3.event.altKey ? 7500 : 750)
+        .tween("zoom", function(d) {
+            var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+            return function(t) {
+                zoomTo(i(t));
+            };
+        });
 
-    if (!d.parent || d.parent.name === "flare") {
-        const transition = d3.transition()
-            .duration(d3.event && d3.event.altKey ? 7500 : 750)
-            .tween("zoom", function(d) {
-                var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
-                return function(t) {
-                    zoomTo(i(t));
-                };
-            });
+    transition.selectAll(".node--root")
+        .style("fill-opacity", function() {
+            return focus.name === "flare" ? 1 : 0;
+        });
 
-        transition.selectAll(".node--root")
-            .style("fill-opacity", function() {
-                return focus.name === "flare" ? 1 : 0;
-            });
+    transition.selectAll("text.label")
+        .style("fill-opacity", function(d) {
+            return d.parent === focus ? 1 : 0;
+        })
+        .each("start", function(d) {
+            if (d.parent === focus) {
+                this.style.display = "inline";
+            } else {
+                this.style.display="none";
+            }
+        })
+        .each("end", function(d) {
+            if (d.parent !== focus) {
+                this.style.display = "none";
+            } else {
+                this.style.display="inline";
+            }
+        });
 
-        transition.selectAll("text.label")
-            .style("fill-opacity", function(d) {
-                return d.parent === focus ? 1 : 0;
-            })
-            .each("start", function(d) {
-                if (d.parent === focus) {
-                    this.style.display = "inline";
-                } else {
-                    this.style.display="none";
-                }
-            })
-            .each("end", function(d) {
-                if (d.parent !== focus) {
-                    this.style.display = "none";
-                } else {
-                    this.style.display="inline";
-                }
-            });
+    setTimeout(function() {
+        d3.selectAll("text.label").filter(function(d) {
+            return d.parent === focus || this.style.display === "inline";
+        }).style("font-size", calculateTextFontSize);
+    }, 10);
 
-        setTimeout(function() {
-            d3.selectAll("text.label").filter(function(d) {
-                return d.parent === focus || this.style.display === "inline";
-            }).style("font-size", calculateTextFontSize);
-        }, 10);
-
-    } else {
-        bubble.activateDetail(d)
-    }
 }
 
 function zoomTo(v) {
@@ -321,7 +347,10 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
 
     d3.select(bubbleChartContainer)
         .on("click", function() {
-            zoom(root);
+            const currentState = getChartState();
+            if(!currentState || (currentState && currentState.depth !== 2)) {
+                zoom(root);
+            }
         });
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
