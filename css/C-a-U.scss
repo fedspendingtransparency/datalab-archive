@@ -22,7 +22,6 @@ $bluecopy: #2272ce;
 
 .CU {
   font-family: "Source Sans Pro";
-//  padding: 1rem; // padding around whole wrapper
   margin-top: 10rem; // move all content down enough
   max-width: 100%;
   overflow: hidden;
@@ -39,6 +38,46 @@ $bluecopy: #2272ce;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+
+    .section-pre--banner {
+      z-index: -1;
+    }
+
+    .section-banner-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 200;
+      position: absolute;
+      top: 100px;
+      left: 435px;
+    }
+
+    .section-banner-p-text {
+      color: #9B9B9B;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 2.8px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .section-banner-h3-text {
+      color: #881E3D;
+      margin: 0;
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .section-banner-p-blurb {
+      color: #555555;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 24px;
+      text-align: center;
+    }
 
     #section-pre--tablet_banner {
       display: none; // hide for now..
@@ -76,9 +115,9 @@ $bluecopy: #2272ce;
 
     // table of contents
     #section-pre__TOC {
+      border-top: 1px solid #ddd;
       display: flex;
       max-width: 1200px;
-      border-top: 1px solid #ddd;
       justify-content: space-between;
     }
 
@@ -211,6 +250,7 @@ $bluecopy: #2272ce;
 	  display: flex;
 
 	  #chart-title-aid {
+	    color: #0A2F5A;
 	    display: inline-block;
 	    width: 66%;
 	    color: #555555;
@@ -222,6 +262,7 @@ $bluecopy: #2272ce;
 	  }
 
 	  #chart-title-grants {
+	    color: #004C40;
 	    display: inline-block;
 	    width: 27%;
 	    color: #555555;
@@ -233,6 +274,7 @@ $bluecopy: #2272ce;
 	  }
 
 	  #chart-title-contracts {
+	    color: #925003;
 	    display: inline-block;
 	    width: 6%;
 	    color: #555555;
@@ -281,18 +323,48 @@ $bluecopy: #2272ce;
 	  padding-top: .5rem;
 	}
 
+	#bar-text-contracts {
+	  color: #FFFEFD;
+	  font-size: 36px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
 	#investment-subtext {
 	  display: flex;
 	  justify-content: space-evenly;
 	  padding-top: 2rem;
-	  padding-left: 3.5rem;
-	  padding-right: 3.5rem;
 
-	  #aid-heading {
+	  #aid-heading-aid {
 	    margin: 0;
 	    padding-bottom: 1rem;
 	    height: 25px;
 	    color: #0A2F5A;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: bold;
+	    line-height: 18px;
+	    text-align: center;
+	  }
+
+	  #aid-heading-grants {
+	    margin: 0;
+	    padding-bottom: 1rem;
+	    height: 25px;
+	    color: #004C40;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: bold;
+	    line-height: 18px;
+	    text-align: center;
+	  }
+
+	  #aid-heading-contracts {
+	    margin: 0;
+	    padding-bottom: 1rem;
+	    height: 25px;
+	    color: #925003;
 	    font-family: "Source Sans Pro";
 	    font-size: 14px;
 	    font-weight: bold;
@@ -466,46 +538,46 @@ $bluecopy: #2272ce;
         justify-content: center;
         align-self: center;
 
-          #bubbleChartContainer {
-            flex: 1;
-            display: flex;
+        #bubbleChartContainer {
+          flex: 1;
+          display: flex;
+          height: 700px;
+
+          #agency-bubbleChart {
             height: 700px;
+            width: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            #agency-bubbleChart {
-              height: 700px;
-              width: 700px;
+            #agency-legend_colorKey {
               position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              #agency-legend_colorKey {
-                position: relative;
-                left: -100px;
-                padding: 0;
-                overflow: visible;
-              }
-            }
-
-            svg#chart {
-              position: absolute;
-              top: 0;
-              left: 0;
-            }
-
-            circle.node,  circle.node--root, circle.node--leaf, text.label {
-              cursor: pointer;
-            }
-
-            .node--root {
-              fill: #f8f8f8;
-            }
-
-            .node {
-              stroke: #E8E8E8;
-              fill: #f3f3f3;
+              left: -100px;
+              padding: 0;
+              overflow: visible;
             }
           }
+
+          svg#chart {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          circle.node,  circle.node--root, circle.node--leaf, text.label {
+            cursor: pointer;
+          }
+
+          .node--root {
+            fill: #f8f8f8;
+          }
+
+          .node {
+            stroke: #E8E8E8;
+            fill: #f3f3f3;
+          }
+        }
       }
 
       #bubbleTableContainer {
@@ -569,7 +641,7 @@ $bluecopy: #2272ce;
       }
 
       #investment-table {
-	      display: none; // toggle show in JS
+	display: none; // toggle show in JS
       }
 
       #chart-area {
@@ -1303,7 +1375,7 @@ $bluecopy: #2272ce;
 
   /**
     For use with ScrollyTelling! Make things appear on viewport! Woo!
-  **/
+**/
   .hiddenScroll {
     visibility: hidden;
     opacity: 0;
