@@ -7,6 +7,7 @@
         detailData = {},
         tableControl = [
           'total',
+	  'rhp', // add this (todo)
           'funding',
           'investments',
           'agencies'
@@ -34,6 +35,7 @@
     agencyName.text(data.Recipient);
     
     updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
+     // add update table func here
     updateTable('funding', instrumentTypeMock);
 
     if (!detailData[data.Recipient]) {
