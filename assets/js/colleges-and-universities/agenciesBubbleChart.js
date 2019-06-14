@@ -103,7 +103,15 @@ function drawBubbleChart(root) {
 
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
         if(d.depth === 2) {
-            return "<div class='bubble-chart-tooltip'><p class='title'>" + d.name + "</p><br/><div class='information'><p class='key'>Total Contribution</p>" + formatCurrency(d.size) + "</div></div>";
+            const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+                "<span class='bubble-detail__agency-label'>Agency</span>" +
+                "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
+                "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
+                "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
+                "<div class='information'><p class='key'>Total $ of Awards</p>" +
+                "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
+                "</div></div>";
+            return tooltipHtml;
         }
 
         return '<div></div>';
