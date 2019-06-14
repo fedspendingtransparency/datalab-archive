@@ -1,7 +1,5 @@
 /*
-  --------------------------------------------------------------------------------------------------------------------
 *   Local declarations
-*--------------------------------------------------------------------------------------------------------------------
 */
 const bubbleChartContainer = document.getElementById('agency-bubbleChart');
 const color = ['#c8ac7f','#C6919E','#C99E7F','#879BBA','#A3D1CC', '#88A6A0','#879BBA',
@@ -44,11 +42,25 @@ const pack = d3.layout.pack()
             return -1;
         }
     });
-/*
-  --------------------------------------------------------------------------------------------------------------------
-*   functions
-*--------------------------------------------------------------------------------------------------------------------
-*/
+
+// add legend
+d3.select('#legend_scaleKey').append('circle')
+    .attr('r', 25)
+    .attr('class', 'legend_scaleKeyCircle')
+    .attr('cx', 60)
+    .attr('cy', 65);
+d3.select('#legend_scaleKey').append('circle')
+    .attr('r', 35)
+    .attr('class', 'legend_scaleKeyCircle')
+    .attr('cx', 60)
+    .attr('cy', 65);
+d3.select('#legend_scaleKey').append('circle')
+    .attr('r', 45)
+    .attr('class', 'legend_scaleKeyCircle')
+    .attr('cx', 60)
+    .attr('cy', 65);
+
+/* functions */
 
 function setChartState (d) {
     _chartState = d;
@@ -303,9 +315,7 @@ function createBubbleTable(data) {
 };
 
 /*
---------------------------------------------------------------------------------------------------------------------
 *   Event Handlers
-*--------------------------------------------------------------------------------------------------------------------
 */
 
 bChartBtn.click(function(){
@@ -341,9 +351,7 @@ window.addEventListener("resize", function() {
 });
 
 /*
---------------------------------------------------------------------------------------------------------------------
 *   Main Method
-*--------------------------------------------------------------------------------------------------------------------
 */
 d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     if (err) { return err; }
@@ -375,9 +383,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
 });
 
 /*
------------------------------------------------------------------------------------------------------------------
 * Function to Transform Data (needs to be refactored)
-*----------------------------------------------------------------------------------------------------------------
  */
 
 function transformData(data) {
