@@ -562,9 +562,14 @@ $bluecopy: #2272ce;
         align-self: center;
 
           #bubbleChartContainer {
-            flex: 1;
             display: flex;
             height: 700px;
+
+            svg#chart {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
 
             #agency-legend_colorKey {
               position: relative;
@@ -575,13 +580,13 @@ $bluecopy: #2272ce;
 
             #legend_colorKey {
               position: relative;
-              left: 150px;
+              left: -100px;
               margin: 50px 0 0 0;
               padding: 0;
               overflow: visible;
             }
 
-            #legend_scaleKey {
+            #agency-legend_scaleKey {
               width: 225px;
               height: 130px;
               position: absolute;
@@ -618,12 +623,6 @@ $bluecopy: #2272ce;
               display: flex;
               align-items: center;
               justify-content: center;
-            }
-
-            svg#chart {
-              position: absolute;
-              top: 0;
-              left: 0;
             }
 
             circle.node,  circle.node--root, circle.node--leaf, text.label {
@@ -737,7 +736,7 @@ $bluecopy: #2272ce;
         stroke-width: 2px;
       }
       
-      #sunburst, #agency-bubbleChart {
+      #sunburst {
         height: 700px;
         width: 700px;
         position: relative;
@@ -745,7 +744,8 @@ $bluecopy: #2272ce;
         align-items: center;
         justify-content: center;
       }
-      #sunburst svg, svg#chart {
+
+      #sunburst svg {
         position: absolute;
         top: 0;
         left: 0;
