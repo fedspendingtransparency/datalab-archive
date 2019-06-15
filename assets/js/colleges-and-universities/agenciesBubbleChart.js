@@ -44,17 +44,17 @@ const pack = d3.layout.pack()
     });
 
 // add legend
-d3.select('#legend_scaleKey').append('circle')
+d3.select('#agency-legend_scaleKey').append('circle')
     .attr('r', 25)
     .attr('class', 'legend_scaleKeyCircle')
     .attr('cx', 60)
     .attr('cy', 65);
-d3.select('#legend_scaleKey').append('circle')
+d3.select('#agency-legend_scaleKey').append('circle')
     .attr('r', 35)
     .attr('class', 'legend_scaleKeyCircle')
     .attr('cx', 60)
     .attr('cy', 65);
-d3.select('#legend_scaleKey').append('circle')
+d3.select('#agency-legend_scaleKey').append('circle')
     .attr('r', 45)
     .attr('class', 'legend_scaleKeyCircle')
     .attr('cx', 60)

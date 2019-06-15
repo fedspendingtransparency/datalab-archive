@@ -52,7 +52,7 @@ $bluecopy: #2272ce;
       top: 150px;
       left: 650px;
     }
-    
+
     .section-banner-p-text {
       color: #9B9B9B;
       font-size: 16px;
@@ -524,6 +524,29 @@ $bluecopy: #2272ce;
         width: 100%;
         display: flex;
         flex-direction: column;
+
+
+        .chart-footer {
+          color: $grey;
+          font-size: 12pt;
+          display: flex;
+          justify-content: flex-end;
+
+          .faded {
+            opacity: 0.5;
+            line-height: 18pt;
+          }
+
+          .download-data {
+            color: #4a4a4a;
+            margin-left: 12px;
+            fill: #4a4a4a;
+
+            &:hover {
+              color: #00c3c2;
+            }
+          }
+        }
       }
 
       #chart-container {
@@ -538,18 +561,10 @@ $bluecopy: #2272ce;
         justify-content: center;
         align-self: center;
 
-        #bubbleChartContainer {
-          flex: 1;
-          display: flex;
-          height: 700px;
-
-          #agency-bubbleChart {
-            height: 700px;
-            width: 700px;
-            position: relative;
+          #bubbleChartContainer {
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 700px;
 
             #agency-legend_colorKey {
               position: relative;
@@ -557,17 +572,63 @@ $bluecopy: #2272ce;
               padding: 0;
               overflow: visible;
             }
-          }
 
-          svg#chart {
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
+            #legend_colorKey {
+              position: relative;
+              left: 150px;
+              margin: 50px 0 0 0;
+              padding: 0;
+              overflow: visible;
+            }
 
-          circle.node,  circle.node--root, circle.node--leaf, text.label {
-            cursor: pointer;
-          }
+            #legend_scaleKey {
+              width: 225px;
+              height: 130px;
+              position: absolute;
+            }
+
+            .legend_circleKeyLabel {
+              position: absolute;
+              border-top: solid 1px #DDD;
+              width: 70px;
+              left: 65px;
+            }
+
+            .legend_circleKeyLabel span {
+              font-size: 10px;
+              color: #999;
+              position: absolute;
+              display: block;
+              width: 90px;
+              top: -8px;
+              left: 75px;
+            }
+
+            .legend_scaleKeyCircle {
+              stroke-width: 1;
+              stroke: #999;
+              stroke-dasharray: 2 2;
+              fill: none;
+            }
+
+            #agency-bubbleChart {
+              height: 700px;
+              width: 700px;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            svg#chart {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+
+            circle.node,  circle.node--root, circle.node--leaf, text.label {
+              cursor: pointer;
+            }
 
             circle.node--leaf.active {
               fill-opacity: .8;
@@ -579,11 +640,11 @@ $bluecopy: #2272ce;
               fill: #f8f8f8;
             }
 
-          .node {
-            stroke: #E8E8E8;
-            fill: #f3f3f3;
+            .node {
+              stroke: #E8E8E8;
+              fill: #f3f3f3;
+            }
           }
-        }
       }
 
       #bubbleTableContainer {
@@ -647,7 +708,7 @@ $bluecopy: #2272ce;
       }
 
       #investment-table {
-	display: none; // toggle show in JS
+	      display: none; // toggle show in JS
       }
 
       #chart-area {
@@ -1381,7 +1442,7 @@ $bluecopy: #2272ce;
 
   /**
     For use with ScrollyTelling! Make things appear on viewport! Woo!
-**/
+  **/
   .hiddenScroll {
     visibility: hidden;
     opacity: 0;
