@@ -401,49 +401,19 @@ function transformData(data) {
         tempRoot.children.push({"name": agency, "children": []});
 
         for(subagency in result[agency]) {
-            result[agency][subagency] = _.groupBy(result[agency][subagency], 'Recipient');
-
-            tempRoot.children[i].children.push({"name": subagency, "children": [], "color": null, "size": 0});
-
-            var rsum;
-            for (recipient in result[agency][subagency]) {
-                rsum = 0;
-                // start calculating size
-                for (var r = 0; r < result[agency][subagency][recipient].length; r++) {
-                    rsum += parseInt(result[agency][subagency][recipient][r].obligation);
-                }
-
-                for (var j = 0; j < tempRoot.children[i].children.length; j++) {
-                    tempRoot.children[i].children[j].children.push({"name": recipient, "size": rsum});
-                }
+            if(result[agency][subagency] && result[agency][subagency].length > 0) {
+                result[agency][subagency] = result[agency][subagency][0].obligation;
+            } else {
+                result[agency][subagency] = 0;
             }
+
+            tempRoot.children[i].children.push({"name": subagency, "children": [], "color": null, "size": result[agency][subagency]});
         }
 
         i++;
     }
 
     recipient = result;
-
-    // sum the subagencies obligations
-    for (var i = 0; i < tempRoot.children.length; i++) {
-        for (var j = 0; j < tempRoot.children[i].children.length; j++) {
-            for (var k = 0; k < tempRoot.children[i].children[j].children.length; k++) {
-                tempRoot.children[i].children[j].size += parseInt(tempRoot.children[i].children[j].children[k].size);
-                tempRoot.children[i].children[j].children[k].name = null;
-
-            }
-
-            for (var k = 0; k < tempRoot.children[i].children[j].children.length; k++) {
-                if(tempRoot.children[i].children[j].children[k] &&
-                    !tempRoot.children[i].children[j].children[k].name) {
-                    delete tempRoot.children[i].children[j].children[k];
-                }
-            }
-
-            delete tempRoot.children[i].children[j].children;
-
-        }
-    }
 
     // add color
     for (var i = 0; i < tempRoot.children.length; i++) {
