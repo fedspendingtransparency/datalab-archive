@@ -128,6 +128,29 @@ $cuRed: #881E3D;
       }
     }
 
+    #section-pre #section-pre--tablet_banner {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    #section-pre #section-pre--tablet_banner .section-pre--tablet-subtext {
+      text-align: left;
+      max-width: 250px;
+    }
+
+    #section-pre #section-pre--tablet_banner .section-pre--tablet-subblurb {
+      text-align: left;
+      color: #555555;
+      font-weight: normal;
+      margin: auto auto 1rem;
+    }
+
+    #section-pre #section-pre--tablet_banner .section-pre--tablet-blurb {
+      text-align: left;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     #section-one {
       margin-top: 7rem; // space out when removing elements
     }
