@@ -779,6 +779,8 @@ $cuRed: #881E3D;
       }
       
       #center {
+        display: flex;
+        flex: 1;
         font-size: 1.1em;
         text-align: center;
         max-height: 320px;
@@ -790,11 +792,12 @@ $cuRed: #881E3D;
         text-transform: capitalize;
       }
       
-      #center .heading {
+      .center-heading {
         color: grey;
         padding-top: .75em
       }
-      #center .amount {
+
+      .center-amount {
         font-size: 2em;
         font-style: inherit;
         font-weight: lighter;

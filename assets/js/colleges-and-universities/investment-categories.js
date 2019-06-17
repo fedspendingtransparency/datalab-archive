@@ -1,6 +1,3 @@
----
----
-
 // add legend
 d3.select('#legend_scaleKey').append('circle')
   .attr('r', 25)
@@ -21,6 +18,8 @@ d3.select('#legend_scaleKey').append('circle')
 let chartData; // ref to current data parent (only for center label) 
 let categoryLabel; // text to show in center
 let dataType; // text to show in center
+let catCalculatedWidth, catMaxHeight, catWidth, catHeight, radius, xScale, yScale, svg;
+
 
 function changeCategory(category) {
   let scopedData;
@@ -66,34 +65,36 @@ function downloadData() {
     }
 }
 
-const width = 700;
-const height = 700;
-const radius = Math.min(width, height) / 2;
-const xScale = d3.scale.linear().range([0, 2 * Math.PI]);
-const yScale = d3.scale.sqrt().range([0, radius]);
-const svg = d3.select('#sunburst')
-  .append('svg')
-  .attr('width', width)
-  .attr('height', height)
-  .append('g')
-  .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')')
-  ;
-
 const formatNumber = d3.format('$,.0f');
 const center = d3.select('#center');
 
 function updateCenter(d) {
   center.selectAll('*').remove();
+  // svg.append("svg:text")
+  // svg.style('margin-top', -radius/2 + "px");
+  // svg.style('max-width', radius/2 + "px");
+  // svg.style('max-height', radius/2 + "px");
+  // svg.style('margin-left', -radius/2 + "px");
+
   if (d.depth === 0) {
-    center.append('div')
-      .attr('id', 'tab')
-      .html(`
-        <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
-        <div class='amount'>${formatNumber(d.value)}</div>
-      `)
-      ;
+      svg.append('svg:text')
+        .attr('id', 'tab')
+        .attr('dy', '0em')
+        .style('text-anchor', 'middle')
+        .text('Total FY2018 ' + categoryLabel  + ' Funding')
+        .attr('class', 'center-heading');
+
+      svg.append('svg:text')
+        .attr('dy', '1em')
+          .style('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount');
+
+  // <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
+  //     <div class='amount'>${formatNumber(d.value)}</div>
+
   } else if (d.depth === 1) {
-    center.append('div')
+      svg.append('div')
       .attr('id', 'tab')
       .html(`
         <div class='heading'>${dataType} Category</div>
@@ -103,7 +104,7 @@ function updateCenter(d) {
       `)
       ;
   } else {
-    center.append('div')
+      svg.append('div')
       .attr('id', 'tab')
       .html(`
         <div class='heading'>${dataType} Category</div>
@@ -137,6 +138,21 @@ const arc = d3.svg.arc()
   ;
 
 function drawChart(data) {
+    const widthPercentage = .7;
+    catCalculatedWidth = window.innerWidth * widthPercentage;
+    catMaxHeight = document.getElementById("sunburst").clientHeight;
+    catWidth = catCalculatedWidth < catMaxHeight ? catCalculatedWidth : catMaxHeight;
+    catHeight = catWidth;
+    radius = Math.min(catWidth, catHeight) / 2;
+    xScale = d3.scale.linear().range([0, 2 * Math.PI]);
+    yScale = d3.scale.sqrt().range([0, radius]);
+    svg = d3.select('#sunburst')
+        .append('svg')
+        .attr('width', catWidth)
+        .attr('height', catHeight)
+        .append('g')
+        .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')')
+    ;
   svg.selectAll('path').remove();
   const paths = svg.selectAll('path').data(data);
   paths.enter().append('path')
@@ -146,6 +162,11 @@ function drawChart(data) {
     // .on('mouseover', hover)
     .on('click', click)
     .append('title').text(d => d.name)
+    .append('circle')
+      .attr("r", 40)
+      .attr("cx", catWidth / 2)
+      .attr("cy", catHeight / 2)
+      .text("hello")
     ;
   click(data[0]); // simulate clicking center to reset zoom
 }
@@ -288,4 +309,4 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
   });
 });
 
-d3.select(self.frameElement).style('height', height + 'px');
+d3.select(self.frameElement).style('height', catHeight + 'px');
