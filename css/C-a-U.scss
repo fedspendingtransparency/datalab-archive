@@ -6,7 +6,6 @@
 @import 'C-a-U-bubble-detail';
 @import 'C-a-u-map-detail';
 @import 'C-a-U-map-search';
-@import 'C-a-U-mobile';
 @import 'C-a-U-header';
 @import 'C-a-U-accordion';
 @import 'C-a-U-cfda-info';
@@ -19,6 +18,7 @@ $unchecked-color: #888;
 
 $grey: #4a4a4a;
 $bluecopy: #2272ce;
+$cuRed: #881E3D;
 
 .CU {
   font-family: "Source Sans Pro";
@@ -63,7 +63,7 @@ $bluecopy: #2272ce;
     }
 
     .section-banner-h3-text {
-      color: #881E3D;
+      color: $cuRed;
       margin: 0;
       font-size: 42px;
       font-weight: 600;
@@ -206,8 +206,7 @@ $bluecopy: #2272ce;
       // viz container
       #investment-overview__viz {
 
-	padding-left: 3.5rem;
-	padding-right: 3.5rem;
+	margin: 1rem 14rem 1rem;
 	box-sizing: border-box;
 
 	#investment-chart {
@@ -323,7 +322,23 @@ $bluecopy: #2272ce;
 	  padding-top: .5rem;
 	}
 
-	#bar-text-contracts {
+	#bar-text--aid {
+	  color: #FFFEFD;
+	  font-size: 36px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
+	#bar-text--contracts {
+	  color: #FFFEFD;
+	  font-size: 36px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
+	#bar-text--grants {
 	  color: #FFFEFD;
 	  font-size: 36px;
 	  line-height: 50px;
@@ -1510,3 +1525,5 @@ $bluecopy: #2272ce;
     padding-top: 10px;
   }
 } // end of .CU
+
+@import 'C-a-U-mobile';
