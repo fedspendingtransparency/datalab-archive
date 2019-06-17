@@ -788,22 +788,19 @@ $cuRed: #881E3D;
         overflow: hidden;
       }
       
-      .title {
+      .center-title {
         text-transform: capitalize;
       }
       
       .center-heading {
-        color: grey;
-        padding-top: .75em
+        stroke: grey;
       }
 
       .center-amount {
         font-size: 2em;
         font-style: inherit;
         font-weight: lighter;
-        margin: 0;
-        padding-top: .75em;
-        color: #881e3d; /*match 1st wedgeColor*/
+        stroke: #881e3d; /*match 1st wedgeColor*/
       }
       
       #legend_colorKey {

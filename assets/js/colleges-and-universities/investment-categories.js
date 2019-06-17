@@ -19,10 +19,10 @@ let chartData; // ref to current data parent (only for center label)
 let categoryLabel; // text to show in center
 let dataType; // text to show in center
 let catCalculatedWidth, catMaxHeight, catWidth, catHeight, radius, xScale, yScale, svg;
+let scopedData;
 
 
 function changeCategory(category) {
-  let scopedData;
 
   if (category.value === 'contracts') {
     scopedData = contractsChartArray;
@@ -66,55 +66,92 @@ function downloadData() {
 }
 
 const formatNumber = d3.format('$,.0f');
-const center = d3.select('#center');
+let centerGroup;
 
 function updateCenter(d) {
-  center.selectAll('*').remove();
-  // svg.append("svg:text")
-  // svg.style('margin-top', -radius/2 + "px");
-  // svg.style('max-width', radius/2 + "px");
-  // svg.style('max-height', radius/2 + "px");
-  // svg.style('margin-left', -radius/2 + "px");
+    d3.select('#tab').remove();
 
   if (d.depth === 0) {
-      svg.append('svg:text')
-        .attr('id', 'tab')
-        .attr('dy', '0em')
-        .style('text-anchor', 'middle')
-        .text('Total FY2018 ' + categoryLabel  + ' Funding')
-        .attr('class', 'center-heading');
+      centerGroup = svg.append('g')
+        .attr('id', 'tab');
 
-      svg.append('svg:text')
-        .attr('dy', '1em')
+      centerGroup.append('svg:text')
+          .attr('dy', '-1em')
+          .style('text-anchor', 'middle')
+          .text('Total FY2018 ' + categoryLabel  + ' Funding')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '1em')
           .style('text-anchor', 'middle')
           .text(formatNumber(d.value))
           .attr('class', 'center-amount');
 
-  // <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
-  //     <div class='amount'>${formatNumber(d.value)}</div>
 
   } else if (d.depth === 1) {
-      svg.append('div')
-      .attr('id', 'tab')
-      .html(`
-        <div class='heading'>${dataType} Category</div>
-        <div class='title'>${d.name}</div>
-        <div class='heading'>Total FY2018 Funding</div>
-        <div class='amount'>${formatNumber(d.value)}</div>
-      `)
-      ;
+
+      centerGroup = svg.append('g')
+          .attr('id', 'tab');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-3em')
+          .style('text-anchor', 'middle')
+          .text(dataType  + ' Category')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-2em')
+          .style('text-anchor', 'middle')
+          .text(d.name)
+          .attr('class', 'center-title');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '.5em')
+          .style('text-anchor', 'middle')
+          .text('Total FY2018 Funding')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '1.5em')
+          .style('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount');
+
   } else {
-      svg.append('div')
-      .attr('id', 'tab')
-      .html(`
-        <div class='heading'>${dataType} Category</div>
-        <div class='title'>${d.parent.name}</div>
-        <div class='heading'>${dataType} Name</div>
-        <div class='title'>${d.name}</div>
-        <div class='heading'>Total FY2018 Funding</div>
-        <div class='amount'>${formatNumber(d.value)}</div>
-      `)
-      ;
+
+      centerGroup = svg.append('g')
+          .attr('id', 'tab');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-3em')
+          .style('text-anchor', 'middle')
+          .text(dataType  + ' Category')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-2em')
+          .style('text-anchor', 'middle')
+          .text(d.parent.name)
+          .attr('class', 'center-title');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '.5em')
+          .style('text-anchor', 'middle')
+          .text(dataType +  ' Name')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '1.5em')
+          .style('text-anchor', 'middle')
+          .text(d.name)
+          .attr('class', 'center-title');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '2.5em')
+          .style('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount');
+
   }
 }
 
@@ -162,11 +199,6 @@ function drawChart(data) {
     // .on('mouseover', hover)
     .on('click', click)
     .append('title').text(d => d.name)
-    .append('circle')
-      .attr("r", 40)
-      .attr("cx", catWidth / 2)
-      .attr("cy", catHeight / 2)
-      .text("hello")
     ;
   click(data[0]); // simulate clicking center to reset zoom
 }
@@ -310,3 +342,31 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
 });
 
 d3.select(self.frameElement).style('height', catHeight + 'px');
+
+// Redraw based on the new size whenever the browser window is resized.
+window.addEventListener("resize", function() {
+    // put this in a set time out
+    // $("#sunburst").empty();
+    //
+    catCalculatedWidth = window.innerWidth * widthPercentage;
+    catMaxHeight = document.getElementById("sunburst").clientHeight;
+    catWidth = catCalculatedWidth < catMaxHeight ? catCalculatedWidth : catMaxHeight;
+    catHeight = catWidth;
+    radius = Math.min(catWidth, catHeight) / 2;
+    xScale = d3.scale.linear().range([0, 2 * Math.PI]);
+    yScale = d3.scale.sqrt().range([0, radius]);
+
+    // TODO: Make a selection based on the radio button that's selected
+    if(grantsChartArray) {
+        $("#sunburst").empty();
+        drawChart(grantsChartArray);
+
+    } else if (scopedData) {
+        $("#sunburst").empty();
+        drawChart(scopedData);
+
+    }
+
+});
+
+// TODO: Add debouncing
