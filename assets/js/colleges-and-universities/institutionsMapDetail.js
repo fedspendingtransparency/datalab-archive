@@ -143,13 +143,13 @@
       done += 1;
     });
 
-    d3.csv("../../data-lab-data/top5InvestmentsPerSchool.csv", function (data) {
+    d3.csv("../../data-lab-data/CU/top5InvestmentsPerSchool_v2.csv", function (data) {
       data.forEach(indexData, 'investments');
 
       done += 1;
     });
 
-    d3.csv("../../data-lab-data/top5AgenciesPerSchool.csv", function (data) {
+    d3.csv("../../data-lab-data/CU/top5AgenciesPerSchool_v2.csv", function (data) {
       data.forEach(indexData, 'agencies');
 
       done += 1;
