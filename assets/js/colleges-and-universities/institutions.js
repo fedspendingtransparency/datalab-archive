@@ -40,11 +40,15 @@ function createMapbox() {
 	  yearType: ele.properties.INST_TYPE_2
 	};
       });
-
+      
+      // mobile search //
       geoandname.forEach(function(ele) {
 	let mobileListitem = document.createElement('li');
 	mobileListitem.classList.add('map-search__item--mobile');
 	mobileListitem.textContent = ele.name;
+
+	mobileListingEl.append(mobileListitem);
+
 	mobileListitem.addEventListener('click', function() {
 	  console.log('clicking mobile list item');
 	  let that = this;
@@ -60,10 +64,9 @@ function createMapbox() {
 	    .setHTML(tooltipHtml)
 	    .addTo(map);
 	});
-	mobileListingEl.append(mobileListitem);
       });
 
-      
+      // tablet and desktop search //
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.classList.add('map-search__item');
@@ -87,7 +90,7 @@ function createMapbox() {
       });
     });
   }
-	     
+  
 
   $('#map-table-trigger').click(function(){
     mapDiv.hide(); // hide map
@@ -364,11 +367,23 @@ function filterSearchMobile() {
 };
 
 
-// Search Trigger Functionality...
+// Search Trigger Functionality //
 function searchToggle() {
   $('#map-search-trigger').click(function(){
     $('#map-search').toggleClass('active');
   });
+
+  $('#map-keydown').focusout(function(){
+    $('#map-search').removeClass('active');
+  });
+
+  // hide on "clickout" of element
+  $(document).click(function (e) {
+    if ($(e.target).parents("#map-search").length === 0) {
+      $("#map-search").removeClass('active');
+    }
+  });
+
 };
 
 function searchMobileToggle() {
@@ -376,9 +391,12 @@ function searchMobileToggle() {
     $('#map-search-ul--mobile').addClass('active-mobile');
   });
 
-  // $('#mobile-keydown').focusout(function() {
-  //   $('#map-search-ul--mobile').removeClass('active-mobile');
-  // });
+  // hide on "clickout" of element
+  $(document).click(function (e) {
+    if ($(e.target).parents("#mobile-search").length === 0) {
+      $("#map-search-ul--mobile").removeClass('active-mobile');
+    }
+  });
 };
 
 // Bringing it all together! Dom, on load! //

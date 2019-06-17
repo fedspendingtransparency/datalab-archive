@@ -89,3 +89,12 @@
 .map-search__item--mobile:hover {
     background-color: #FBEBD0;
 }
+
+#map-search-icon {
+  position: relative;
+  z-index: 2;
+  left: 270px;
+  top: -23px;
+  color: #4a4a4a;
+  width: 0;
+}

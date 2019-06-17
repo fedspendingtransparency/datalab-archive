@@ -1,11 +1,16 @@
+$cuRed: #881E3D;
+
 /* Tablet View */
 @media (max-width: 768px) {
   .CU {
     /* Table of Contents */
     #TOC {
-      display: block !important;
+      display: block;
     }
 
+    span#cuRed {
+      color: $cuRed;
+    }
 
     #section-pre {
 
@@ -14,7 +19,7 @@
       }
 
       #section-pre--tablet_banner {
-	display: flex !important;
+	display: flex;
 	flex-direction: column;
 
 	.section-pre--tablet-subtext {
@@ -28,7 +33,7 @@
 	}
 
 	.section-pre--tablet-subblurb {
-	  color: #881E3D;
+
 	  font-family: "Source Sans Pro";
 	  font-size: 42px;
 	  font-weight: 600;
@@ -66,6 +71,9 @@
     #section-one {
       #investment-overview {
 	#investment-overview__viz {
+	  margin: 0;
+	  padding-left: 3.5rem;
+	  padding-right: 3.5rem;
 
 	  #title-section {
 	    display: flex;
@@ -76,7 +84,7 @@
 	    padding-right: 0;
 	    justify-content: space-evenly;
 
-	  
+	    
 	    #aid-subsection {
 	      padding-left: 1rem;
 	      padding-right: 1rem;
@@ -106,10 +114,10 @@
   .CU {
     /* Table of Contents */
     #TOC {
-      display: block !important;
+      display: none;
       
       #section-pre__TOC {
-	border-top: none !important;
+	border-top: none;
 	box-sizing: border-box;
 	flex-wrap: wrap;
 
@@ -120,30 +128,46 @@
       }
     }
 
-    #bar-text-contracts {
+    #section-one {
+      margin-top: 7rem; // space out when removing elements
+    }
+
+    #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
       color: #925003;
       margin: 0;
-      margin-left: 2.5rem;
       font-size: 36px;
       line-height: 50px;
-      margin-left: 2rem;
-      padding-top: .5rem;
+      margin-left: 1.5rem;
+      padding-top: .25rem;
     }
- 
+
+    #section-one #investment-overview #investment-overview__viz #bar-text--grants {
+      color: #004C40;
+      margin: 0;
+      font-size: 36px;
+      line-height: 50px;
+      margin-left: 5rem;
+      padding-top: 0;
+    }
+
+    #section-one #investment-overview #investment-overview__viz #bar-text--aid {
+      margin-left: .25rem;
+    }
+    
     #section-one #investment-overview #investment-overview__viz #mobile-blurb {
-      display: block !important;
+      display: block;
     }
     
     #section-one #investment-overview #investment-overview__viz #investment-chart {
-      display: block !important;
+      display: block;
     }
 
     #section-one #investment-overview #investment-overview__viz #title-section {
-      display: none !important;
+      display: none;
     }
 
     #section-one #investment-overview #investment-overview__viz #investment-subtext {
-      display: none !important;
+      display: none;
     }
 
     #section-one #investment-overview #investment-overview__viz #investment-chart #studentAid--mobile-title {
@@ -162,8 +186,12 @@
       display: none;
     }
 
+    #section-one #investment-overview #investment-overview__viz #mobile-blurb p.mobile-funding-blurb {
+      max-width: 250px;
+    }
+
     #mobile-search {
-      display: flex !important;
+      display: flex;
       justify-content: center;
       flex-direction: column;
       padding-left: 1rem;
@@ -182,6 +210,34 @@
     
     #section-two #alma-mater #mobile-search ul {
       display: none;
+    }
+
+    // for mobile, we get rid of all instructions on every mock!
+    section.accordion {
+      display: none;
+    }
+
+    section.TOC {
+      display: none;  
+    }
+
+    // cu header section //
+    // all of these need to be left aligned //
+    .cu-header__number {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .cu-header__title {
+      text-align: left;
+    }
+
+    .cu-header__teaser {
+      text-align: left;
+    }
+
+    .cu-header__blurb {
+      text-align: left;
     }
 
   }
