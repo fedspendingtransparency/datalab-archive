@@ -23,7 +23,7 @@
         if (data.depth !== 2) { return } //only activate for level 2
         if (done != 2) { return } //don't allow this feature unless both CSVs are in memory
 
-        const lookup = data.parent.name.toLowerCase();
+        const lookup = data.name.toLowerCase();
         let radioValue;
 
         d3.selectAll('#categories input').each(function () {
