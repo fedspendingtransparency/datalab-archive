@@ -108,6 +108,15 @@ function createMapbox() {
 
       renderAllSchools(); // populate sidebar with list of all schools
 
+      map.scrollZoom.disable(); // disable until we click on the map
+
+      // hide on "clickout" of element
+      $(document).click(function (e) {
+	if ($(e.target).parents("#collegesMap").length === 0) {
+	  map.scrollZoom.disable(); // disable until we click on the map
+	}
+      });
+
       map.addSource('schools', {
 	type: 'geojson',
 	data: data,
@@ -181,6 +190,11 @@ function createMapbox() {
 	const cluster = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
 	const coordinates = cluster[0].geometry.coordinates;
 	flyIntoCluster(map, coordinates);
+      });
+
+      // if we click on the map then we can scroll
+      map.on('click', function(){
+	map.scrollZoom.enable();
       });
 
       map.on('mouseenter', 'clusters', function () {
