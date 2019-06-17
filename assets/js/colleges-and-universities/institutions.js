@@ -26,8 +26,7 @@ function createMapbox() {
   let mapDiv = $('#collegesMap');
   let almaTable = $('#alma-mater-table');
   let listingEl = $('.map-search__list');
-  let mobilelistingEl = $('.map-search__list--mobile');
-  let rightPanel = $('#inst-panel');
+  let mobileListingEl = $('.map-search__list--mobile');
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
@@ -41,12 +40,36 @@ function createMapbox() {
 	  yearType: ele.properties.INST_TYPE_2
 	};
       });
+
+      geoandname.forEach(function(ele) {
+	let mobileListitem = document.createElement('li');
+	mobileListitem.classList.add('map-search__item--mobile');
+	mobileListitem.textContent = ele.name;
+	mobileListitem.addEventListener('click', function() {
+	  console.log('clicking mobile list item');
+	  let that = this;
+	  let mobileMatched = geoandname.filter(function(ele) {
+	    return that.textContent === ele.name;
+	  });
+	  let tooltipHtml = `<h2> ${mobileMatched[0].name}</h2> Amount Invested: ${mobileMatched[0].fedInvest} <br> ${mobileMatched[0].instType} <br> ${mobileMatched[0].yearType}`;
+	  map.easeTo({
+	    center: mobileMatched[0].coord.coordinates,
+	    zoom: 12
+	  });
+	  tooltip.setLngLat(mobileMatched[0].coord.coordinates)
+	    .setHTML(tooltipHtml)
+	    .addTo(map);
+	});
+	mobileListingEl.append(mobileListitem);
+      });
+
       
       geoandname.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.classList.add('map-search__item');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
+	  console.log('clicking list item');
 	  let that = this;
 	  let matched = geoandname.filter(function(ele) {
 	    return that.textContent === ele.name;
@@ -349,10 +372,13 @@ function searchToggle() {
 };
 
 function searchMobileToggle() {
-  $('#mobile-search').click(function(){
-    $('#map-search-ul--mobile').toggleClass('active-mobile');
-    console.log('clicking for active mobile toggl');
+  $('#mobile-keydown').focus(function() {
+    $('#map-search-ul--mobile').addClass('active-mobile');
   });
+
+  // $('#mobile-keydown').focusout(function() {
+  //   $('#map-search-ul--mobile').removeClass('active-mobile');
+  // });
 };
 
 // Bringing it all together! Dom, on load! //
