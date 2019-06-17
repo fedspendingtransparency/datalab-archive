@@ -44,6 +44,8 @@
 
         detailContainer.classed(activeClass, true);
 
+      console.log(detailData);
+
         agencyName.text(data.parent.name)
         subAgencyName.text(data.name)
         

@@ -6,8 +6,7 @@
         tables = {},
         detailData = {},
         tableControl = [
-          'total',
-	  'rhp', // add this (todo)
+	  'rhp',
           'funding',
           'investments',
           'agencies'
@@ -25,26 +24,36 @@
     return b.value - a.value;
   }
 
+  function getTotal(funding) {
+    return funding.reduce((acc, row) => {
+      return acc + row.value;
+    }, 0);
+  }
+
   function activateDetail(data) {
-    if (done != 2) { return; } //don't allow this feature unless both CSVs are in memory
-
-    console.log(data);
-
+    if (done != 3) { return; } //don't allow this feature unless all 3 CSVs are in memory
+    
     detailContainer.classed(activeClass, true);
 
+    console.log(detailData);
+
     agencyName.text(data.Recipient);
-    
-    updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
-     // add update table func here
+
+    updateTable('rhp', [{ key: 'Type of Institution', value: data.value }]);
+    updateTable('rhp', [{ key: 'Total $ of Awards', value: data.value} ]);
+
+//    updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
     updateTable('funding', instrumentTypeMock);
 
     if (!detailData[data.Recipient]) {
       console.warn(`no data for ${data.Recipient}`);
       updateTable('investments', []);
       updateTable('institutions', []);
+      updateTable('rhp', []);
     } else {
       updateTable('investments', detailData[data.Recipient].investments.sort(sortDetail));
       updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
+//      updateTable('rhp', detailData[data.Recipient].rhp.sort(sortDetail));
     }
 
   }
@@ -82,6 +91,8 @@
         .classed('map-detail__table', true);
     });
 
+    tables.rhp.append('tr');
+
     tables.funding.append('tr');
     tables.funding.select('tr').append('th').text('Funding Instrument Type').attr('colspan', 2);
 
@@ -96,13 +107,42 @@
 
 
   function indexData(row) {
+
+    // if (this == 'rhp') {
+    //   //      console.log(row);
+    //   row.rhpName = row.Recipient;
+    //   row.rhpValue = [{INST_TYPE_1: row.INST_TYPE_1},
+    // 		   {INST_Type_2: row.INST_TYPE_2},
+    // 		   {Total_Federal_Investment: row.Total_Federal_Investment},
+    // 		   {contracts: row.contracts},
+    // 		   {grants: row.grants},
+    // 		   {student_aid: row.student_aid},
+    // 		   {total_awards: row.total_awards},
+    // 		  ];
+
+    //   if (row.target === 'contract') {
+    //     row.target = 'Contracts';
+    //   }
+
+    //   if (row.target === 'grant') {
+    //     row.target = 'Grants';
+    //   }
+    // }
+
     detailData[row.source] = detailData[row.source] || {};
     detailData[row.source][this] = detailData[row.source][this] || [];
 
     detailData[row.source][this].push({ key: row.target, value: Number(row.value) });
+//    detailData[row.source][this].push({ key: row.rhpName, value: row.rhpValue }); // for rhp
   }
+  
 
   function preloadData() {
+    d3.csv("../../data-lab-data/rhp.csv", function (data) {
+      data.forEach(indexData, 'rhp');
+      done += 1;
+    });
+
     d3.csv("../../data-lab-data/top5InvestmentsPerSchool.csv", function (data) {
       data.forEach(indexData, 'investments');
 
@@ -122,9 +162,6 @@
 
     detailContainer.append('span').classed('map-detail__agency-label', true).text('Institution');
     agencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
-
-    detailContainer.append('span').classed('map-detail__agency-label', true).text('Sub-Agency'); // fix
-//    subAgencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
 
     placeTables();
 
