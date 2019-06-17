@@ -228,12 +228,15 @@ function createInvestmentTable() {
     $('#investment-table-datatable').dataTable({
       data: data,
       columns: [
-	{"data": 'family'},
-	{"data": 'Program_Title'},
-	{"data": 'Agency'},
-	{"data": 'Subagency'},
-	{"data": 'Recipient'},
-	{"data": 'Obligation'},
+        {'data': 'family'},
+        {'data': 'Program_Title'},
+        {'data': 'Agency'},
+        {'data': 'Subagency'},
+        {'data': 'Recipient'},
+        {'data': 'Obligation',
+          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+          'className': 'dt-right'
+        },
       ],
       deferRender:    true,
       scrollCollapse: true,
