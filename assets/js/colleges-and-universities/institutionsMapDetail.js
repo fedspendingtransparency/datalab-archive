@@ -141,6 +141,7 @@
     d3.csv("../../data-lab-data/rhp.csv", function (data) {
       data.forEach(indexData, 'rhp');
       done += 1;
+      console.log('hi');
     });
 
     d3.csv("../../data-lab-data/CU/top5InvestmentsPerSchool_v3.csv", function (data) {
