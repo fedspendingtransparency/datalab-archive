@@ -880,6 +880,24 @@ article > header {
   }
 }
 
+.cu-read-more {
+  ol {
+    list-style-type: decimal;
+
+    ol {
+      list-style-type: lower-alpha;
+
+      ol {
+        list-style-type: lower-roman;
+
+        ol {
+          list-style-type: decimal;
+        }
+      }
+    }
+  }
+}
+
 .right {
   padding-right: 10px;
   text-align: right;
