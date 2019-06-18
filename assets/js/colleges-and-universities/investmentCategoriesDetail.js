@@ -39,17 +39,32 @@
         categoryName.text(data.parent.name)
         cfda.text(data.name)
 
+        console.log(data,lookup, detailData)
+
         updateTable('total', [{ key: 'Total $ of Funding', value: data.value }]);
 
         radioValue = radioValue.replace(/s$/, '');
 
-        if (!detailData[lookup][radioValue]) {
-            console.warn(`no data for ${data.name} (${radioValue})`);
-            updateTable('agencies', []);
-            updateTable('institutions', []);
-        } else {
-            updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
-            updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+        if(radioValue == 'grant'){
+            if(!detailData[lookup][radioValue]){
+                if(radioValue=='grant'){
+                    radioValue = 'research'
+                }
+                updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+                updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+            }else{
+                updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+                updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+            }
+        }else{
+            if (!detailData[lookup][radioValue]) {
+                console.warn(`no data for ${data.name} (${radioValue})`);
+                updateTable('agencies', []);
+                updateTable('institutions', []);
+            } else {
+                updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+                updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+            }
         }
 
         return;
