@@ -20,7 +20,15 @@ let categoryLabel; // text to show in center
 let dataType; // text to show in center
 let catCalculatedWidth, catMaxHeight, catWidth, catHeight, radius, xScale, yScale, svg;
 let scopedData;
+let _categoryState;
 
+function setCategoryState(d) {
+    _categoryState = d;
+}
+
+function getCategoryState() {
+    return _categoryState;
+}
 
 function changeCategory(category) {
 
@@ -40,7 +48,7 @@ function changeCategory(category) {
 
   chartData = scopedData[0];
 
-  drawChart(scopedData);
+  refreshData(scopedData);
 
   // enable search/filter
   if (!sunburst.setSearchData) {
@@ -69,7 +77,7 @@ const formatNumber = d3.format('$,.0f');
 let centerGroup;
 
 function updateCenter(d) {
-    d3.select('#tab').remove();
+    d3.select('g#tab').remove();
 
   if (d.depth === 0) {
       centerGroup = svg.append('g')
@@ -171,10 +179,15 @@ const arc = d3.svg.arc()
   .startAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x))))
   .endAngle(d => Math.max(0, Math.min(2 * Math.PI, xScale(d.x + d.dx))))
   .innerRadius(d => Math.max(0, yScale(d.y)))
-  .outerRadius(d => Math.max(0, yScale(d.y + d.dy)))
-  ;
+  .outerRadius(d => Math.max(0, yScale(d.y + d.dy)));
 
 function drawChart(data) {
+    createChart();
+    refreshData(data);
+}
+
+
+function createChart() {
     const widthPercentage = .7;
     catCalculatedWidth = window.innerWidth * widthPercentage;
     catMaxHeight = document.getElementById("sunburst").clientHeight;
@@ -183,13 +196,18 @@ function drawChart(data) {
     radius = Math.min(catWidth, catHeight) / 2;
     xScale = d3.scale.linear().range([0, 2 * Math.PI]);
     yScale = d3.scale.sqrt().range([0, radius]);
+
+    d3.select("#sunburst").selectAll("*").remove();
+
     svg = d3.select('#sunburst')
         .append('svg')
         .attr('width', catWidth)
         .attr('height', catHeight)
         .append('g')
-        .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')')
-    ;
+        .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')');
+}
+
+function refreshData(data) {
   svg.selectAll('path').remove();
   const paths = svg.selectAll('path').data(data);
   paths.enter().append('path')
@@ -204,6 +222,7 @@ function drawChart(data) {
 }
 
 function click(d) {
+  setCategoryState(d);
   updateCenter(d);
   svg.transition()
     .duration(750)
@@ -346,11 +365,41 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
 
 d3.select(self.frameElement).style('height', catHeight + 'px');
 
+function wrap(text, width) {
+    text.each(function () {
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            x = text.attr("x"),
+            y = text.attr("y"),
+            dy = 0, //parseFloat(text.attr("dy")),
+            tspan = text.text(null)
+                .append("tspan")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("dy", dy + "em");
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan")
+                    .attr("x", x)
+                    .attr("y", y)
+                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                    .text(word);
+            }
+        }
+    });
+}
+
 // Redraw based on the new size whenever the browser window is resized.
 window.addEventListener("resize", function() {
-    // put this in a set time out
-    // $("#sunburst").empty();
-    //
     catCalculatedWidth = window.innerWidth * widthPercentage;
     catMaxHeight = document.getElementById("sunburst").clientHeight;
     catWidth = catCalculatedWidth < catMaxHeight ? catCalculatedWidth : catMaxHeight;
@@ -359,16 +408,15 @@ window.addEventListener("resize", function() {
     xScale = d3.scale.linear().range([0, 2 * Math.PI]);
     yScale = d3.scale.sqrt().range([0, radius]);
 
-    // TODO: Make a selection based on the radio button that's selected
-    if(grantsChartArray) {
-        $("#sunburst").empty();
-        drawChart(grantsChartArray);
+    const state = getCategoryState();
 
+    if (grantsChartArray) {
+        drawChart (grantsChartArray);
     } else if (scopedData) {
-        $("#sunburst").empty();
-        drawChart(scopedData);
-
+        drawChart (scopedData);
     }
+
+    if (state) click(state);
 
 });
 
