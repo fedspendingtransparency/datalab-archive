@@ -23,7 +23,7 @@
         if (data.depth !== 2) { return } //only activate for level 2
         if (done != 2) { return } //don't allow this feature unless both CSVs are in memory
 
-        const lookup = data.parent.name.toLowerCase();
+        const lookup = data.name.toLowerCase();
         let radioValue;
 
         d3.selectAll('#categories input').each(function () {
@@ -43,13 +43,26 @@
 
         radioValue = radioValue.replace(/s$/, '');
 
-        if (!detailData[lookup][radioValue]) {
-            console.warn(`no data for ${data.name} (${radioValue})`);
-            updateTable('agencies', []);
-            updateTable('institutions', []);
-        } else {
-            updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
-            updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+        if(radioValue == 'grant'){
+            if(!detailData[lookup][radioValue]){
+                if(radioValue=='grant'){
+                    radioValue = 'research'
+                }
+                updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+                updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+            }else{
+                updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+                updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+            }
+        }else{
+            if (!detailData[lookup][radioValue]) {
+                console.warn(`no data for ${data.name} (${radioValue})`);
+                updateTable('agencies', []);
+                updateTable('institutions', []);
+            } else {
+                updateTable('agencies', detailData[lookup][radioValue].agencies.sort(sortDetail));
+                updateTable('institutions', detailData[lookup][radioValue].institutions.sort(sortDetail));
+            }
         }
 
         return;
@@ -111,13 +124,13 @@
     }
 
     function preloadData() {
-        d3.csv("/data-lab-data/CU/top5InstitutionsPerInvestmentType.csv", function (data) {
+        d3.csv("/data-lab-data/CU/top5InstitutionsPerInvestmentType_v2.csv", function (data) {
             data.forEach(indexData, 'institutions');
 
             done += 1;
         });
 
-        d3.csv("/data-lab-data/CU/top5AgenciesPerInvestmentType.csv", function (data) {
+        d3.csv("/data-lab-data/CU/top5AgenciesPerInvestmentType_v2.csv", function (data) {
             data.forEach(indexData, 'agencies');
 
             done += 1;
