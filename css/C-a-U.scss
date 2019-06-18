@@ -39,10 +39,6 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
 
-    .section-pre--banner {
-      z-index: -1;
-    }
-
     .section-banner-text {
       display: flex;
       flex-direction: column;
@@ -93,6 +89,10 @@ $cuRed: #881E3D;
 	text-align: center;
       }
 
+      .section-pre--tablet-subblurb {
+	color: #666666;
+      }
+
       .section-pre--tablet-blurb {
 	height: 90px;
 	color: #555555;
@@ -109,13 +109,32 @@ $cuRed: #881E3D;
     }
 
     #section-pre__tile {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-top: 1rem;
+      padding-left: 2rem;
+      padding-right: 1.5rem;
+      border-right: 1px solid #EEEEEE;
     }
+
+    #section-pre__tile:last-child {
+      border-right: none;
+    }
+
+    // #section-pre__tile:nth-child(even) {
+    //   padding-left: 1.25rem;
+    // }
+    
+    // #section-pre__divider:after {
+    //   content: ""; /* This is necessary for the pseudo element to work. */ 
+    //   display: inline-block; /* This will put the pseudo element on its own line. */
+    //   margin: 0 auto; /* This will center the border. */
+    //   width: 70%; /* Change this to whatever width you want. */
+    //   padding-top: 20px; /* This creates some space between the element and the border. */
+    //   border-right: 1px solid #ddd; /* This creates the border. Replace black with whatever color you want. */
+    // }
 
     // table of contents
     #section-pre__TOC {
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #979797;
       display: flex;
       max-width: 1200px;
       justify-content: space-between;
@@ -127,24 +146,30 @@ $cuRed: #881E3D;
       font-size: 48px;
       font-weight: 600;
       line-height: 50px;
+      
+      h2 {
+	margin: 0;
+      }
     }
 
     .section-pre--subtext {
       color: #881e3d;
       font-size: 14px;
+      font-weight: 300;
       line-height: 18px;
     }
 
     .section-pre--subblurb {
       color: #555555;
-      font-size: 14px;
       font-weight: bold;
+      max-width: 250px;
       line-height: 17px;
     }
 
     .section-pre--blurb {
       color: #555555;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 300;
       font-weight: 300;
       line-height: 16px;
     }
@@ -155,6 +180,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem; // 9rem to break up each section
 
     #investment-overview {
       display: flex;
@@ -409,6 +435,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem;
 
 
     #alma-mater {
@@ -487,6 +514,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem;
 
     #agency-investments {
       display: flex;
@@ -673,6 +701,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem;
 
     #investment-categories {
       display: flex;
@@ -1093,8 +1122,8 @@ $cuRed: #881E3D;
     position: relative;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     top: 0;
     bottom: 0;
     width: 100%;
@@ -1346,59 +1375,6 @@ $cuRed: #881E3D;
     }
   } // end mapFilter
 
-  #sectionFourMapBtn,
-  #sectionFourTableBtn,
-  #sectionFourSearchBtn {
-    cursor: pointer;
-  }
-
-  // switch toggle css stuff
-  .onoffswitch {
-    position: relative;
-    width: 55px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-  .onoffswitch-checkbox {
-    display: none;
-  }
-  .onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    height: 20px;
-    padding: 0;
-    line-height: 20px;
-    border: 2px solid #999999;
-    border-radius: 20px;
-    background-color: #eeeeee;
-    transition: background-color 0.3s ease-in;
-  }
-  .onoffswitch-label:before {
-    content: "";
-    display: block;
-    width: 20px;
-    margin: 0px;
-    background: #ffffff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 33px;
-    border: 2px solid #999999;
-    border-radius: 20px;
-    transition: all 0.3s ease-in 0s;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #229e03;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label,
-  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    border-color: #229e03;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    right: 0px;
-  }
 
   #tableContainerDiv {
     display: none;
@@ -1526,4 +1502,4 @@ $cuRed: #881E3D;
   }
 } // end of .CU
 
-@import 'C-a-U-mobile';
+@import 'C-a-U-mobile'; // needs to be last! 
