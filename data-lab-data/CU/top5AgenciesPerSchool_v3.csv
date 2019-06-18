@@ -65,7 +65,7 @@
 "Alcorn State University","Foreign Agricultural Service",46881.42
 "Alcorn State University","U.S. Army Corps of Engineers - Civil Program Financing Only",20149.05
 "Alcorn State University","National Endowment for the Arts",10000
-"Alfred University","Department of the Navy",999650
+"Alfred University","Department of the Navy",997150
 "Alfred University","National Aeronautics and Space Administration",2000
 "Alfred University","U.S. Geological Survey",1500
 "Allan Hancock College","National Science Foundation",1606054
@@ -95,8 +95,8 @@
 "American Samoa Community College","Small Business Administration",249999
 "American Samoa Community College","Forest Service",230000
 "American Samoa Community College","Department of Education",192416
-"American University","National Institutes of Health",4330553.84
 "American University","Office of Justice Programs",4223768.01
+"American University","National Institutes of Health",3980273.96
 "American University","Transportation Security Administration",2641310
 "American University","National Aeronautics and Space Administration",2467840.36
 "American University","Department of State",947258
@@ -129,11 +129,11 @@
 "Aquinas College","Department of Education",812403
 "Arcadia University","National Science Foundation",352500
 "Arcadia University","Offices, Boards and Divisions",300000
-"Arizona State University-Tempe","National Aeronautics and Space Administration",181202595.66
-"Arizona State University-Tempe","National Institutes of Health",122679341.2
+"Arizona State University-Tempe","National Institutes of Health",60796330.4
 "Arizona State University-Tempe","National Science Foundation",56341401
-"Arizona State University-Tempe","Department of the Navy",33081648.06
+"Arizona State University-Tempe","National Aeronautics and Space Administration",35211281.42
 "Arizona State University-Tempe","Department of Education",12758018.43
+"Arizona State University-Tempe","Department of the Navy",11027216.02
 "Arizona Western College","Department of Education",2476597.79
 "Arkansas Baptist College","Department of Education",2309826
 "Arkansas Colleges of Health Education","National Institutes of Health",323628
@@ -168,17 +168,17 @@
 "Auburn University","National Institute of Food and Agriculture",7322607.37
 "Auburn University","Department of Energy",6773581
 "Auburn University","National Institutes of Health",4714866
-"Auburn University","Forest Service",3492798.01
+"Auburn University","National Institute of Standards and Technology",3268436
 "Auburn University at Montgomery","National Science Foundation",219877
 "Auburn University at Montgomery","Department of the Air Force",36900
 "Augsburg College","National Science Foundation",749078
 "Augsburg College","Department of Education",514627
 "Augusta Technical College","Department of Education",591493
 "Augusta University","National Institutes of Health",42260345
-"Augusta University","Department of the Army",6009846
 "Augusta University","Health Resources and Services Administration",4586332
 "Augusta University","Department of Veterans Affairs",4318763.41
 "Augusta University","Substance Abuse and Mental Health Services Administration",3544151
+"Augusta University","Department of the Army",2003282
 "Augustana College","National Science Foundation",241819
 "Augustana University","Offices, Boards and Divisions",296065
 "Augustana University","National Science Foundation",110948
@@ -231,16 +231,16 @@
 "Bay Mills Community College","National Institute of Food and Agriculture",426031
 "Bay Mills Community College","Rural Housing Service",129000
 "Bay Mills Community College","Administration for Children and Families",104762
-"Baylor College of Medicine","National Institutes of Health",1566329401.8
+"Baylor College of Medicine","National Institutes of Health",251529100.35
 "Baylor College of Medicine","Department of the Army",16581637
 "Baylor College of Medicine","Agricultural Research Service",12960500
 "Baylor College of Medicine","National Aeronautics and Space Administration",6172181.74
 "Baylor College of Medicine","Health Resources and Services Administration",3777931
-"Baylor University","National Institutes of Health",6137108
+"Baylor University","National Institutes of Health",6067108
 "Baylor University","National Science Foundation",2723939
-"Baylor University","Department of the Army",1535970.2
 "Baylor University","Administration on Aging",1057136
-"Baylor University","Department of the Navy",1025810
+"Baylor University","Department of the Army",1005970.2
+"Baylor University","Agency for International Development",900000
 "Beaufort County Community College","Department of Education",373140
 "Becker College","Economic Development Administration",116667
 "Bellevue College","Offices, Boards and Divisions",300000
@@ -307,17 +307,17 @@
 "Boise State University","Department of Education",6142115.51
 "Boise State University","National Institutes of Health",3362930
 "Boise State University","Department of Energy",1553884.3
-"Boise State University","Department of the Army",1401394
-"Boston College","National Institutes of Health",20002325
+"Boise State University","Department of the Army",1013433
+"Boston College","National Institutes of Health",19603433
 "Boston College","National Science Foundation",8167571
-"Boston College","Department of the Navy",3937421
 "Boston College","Social Security Administration",2424301
 "Boston College","Department of the Air Force",1798803.31
-"Boston University","National Institutes of Health",2002422236.26
+"Boston College","Department of the Navy",1514861
+"Boston University","National Institutes of Health",218280064.34
 "Boston University","Office of Assistant Secretary for Preparedness and Response",55000000
 "Boston University","National Science Foundation",35841573
-"Boston University","Department of the Navy",13087897.62
 "Boston University","Health Resources and Services Administration",12865046
+"Boston University","Department of the Army",7171681.85
 "Bowdoin College","National Science Foundation",1753138
 "Bowdoin College","National Institutes of Health",1223099
 "Bowdoin College","Department of Education",844077
@@ -362,11 +362,11 @@
 "Broward College","Department of Education",2294914
 "Broward College","Administration for Children and Families",250000
 "Broward College","Federal Bureau of Investigation",5250
-"Brown University","National Institutes of Health",325918388.55
+"Brown University","National Institutes of Health",99396679.79
 "Brown University","National Science Foundation",20920678
-"Brown University","Department of the Army",16122672
-"Brown University","Agency for Healthcare Research and Quality",6665785
+"Brown University","Department of the Army",7788879
 "Brown University","Department of the Navy",4891928
+"Brown University","Agency for Healthcare Research and Quality",4262551
 "Bryan College of Health Sciences","Health Resources and Services Administration",215546
 "Bryant University","Small Business Administration",310310
 "Bryant University","National Science Foundation",54483
@@ -400,8 +400,8 @@
 "California Baptist University","National Science Foundation",181696
 "California Baptist University","Substance Abuse and Mental Health Services Administration",125000
 "California College of the Arts","National Endowment for the Arts",25000
-"California Institute of Technology","National Aeronautics and Space Administration",12148508846.69
-"California Institute of Technology","Department of the Air Force",881314457.56
+"California Institute of Technology","National Aeronautics and Space Administration",2426194273.89
+"California Institute of Technology","Department of the Air Force",296016973.52
 "California Institute of Technology","National Science Foundation",89159760
 "California Institute of Technology","National Institutes of Health",77150706
 "California Institute of Technology","Department of Energy",16586398.53
@@ -530,30 +530,30 @@
 "Carlos Albizu University-Miami","Department of Education",524530
 "Carlos Albizu University-Miami","Health Resources and Services Administration",479260
 "Carlow University","Health Resources and Services Administration",135000
-"Carnegie Mellon University","Department of the Air Force",910975935.05
+"Carnegie Mellon University","Department of the Air Force",144448862.15
 "Carnegie Mellon University","National Science Foundation",52181524
-"Carnegie Mellon University","Department of the Navy",32426844
 "Carnegie Mellon University","National Institutes of Health",28514205
-"Carnegie Mellon University","Department of the Army",21191056
+"Carnegie Mellon University","Department of the Navy",14006536
+"Carnegie Mellon University","Department of the Army",10076952
 "Carroll College","National Endowment for the Humanities",103898
 "Carroll College","Forest Service",2000
 "Carroll University","National Science Foundation",1100000
 "Carroll University","Health Resources and Services Administration",691861
 "Carteret Community College","Department of Education",272496
-"Carthage College","National Aeronautics and Space Administration",1367515
-"Case Western Reserve University","National Institutes of Health",1168466638.4
-"Case Western Reserve University","Centers for Disease Control and Prevention",7326029
+"Carthage College","National Aeronautics and Space Administration",1347511
+"Case Western Reserve University","National Institutes of Health",294856809.58
 "Case Western Reserve University","National Science Foundation",6608339
-"Case Western Reserve University","Department of the Army",4692413
+"Case Western Reserve University","Centers for Disease Control and Prevention",5950414
+"Case Western Reserve University","Department of the Army",4192413
 "Case Western Reserve University","Department of Energy",2834337.06
 "Casper College","National Endowment for the Arts",10000
 "Castleton University","Department of Education",2183468
 "Castleton University","National Science Foundation",308011
-"Catholic University of America","National Institutes of Health",8647925.3
 "Catholic University of America","National Aeronautics and Space Administration",7659951.96
 "Catholic University of America","National Science Foundation",2290771
+"Catholic University of America","National Institutes of Health",2122577.86
 "Catholic University of America","Administration on Aging",924934
-"Catholic University of America","Department of the Navy",658776
+"Catholic University of America","Department of the Navy",381472
 "Cattaraugus Allegany BOCES-Practical Nursing Program","Rural Utilities Service",207205
 "Cazenovia College","Department of Education",324127
 "Cedar Valley College","Department of Education",467126
@@ -692,18 +692,18 @@
 "Clarke University","Health Resources and Services Administration",166646
 "Clarkson College","Health Resources and Services Administration",412992
 "Clarkson University","Environmental Protection Agency",2075000
-"Clarkson University","Department of the Army",1217510
 "Clarkson University","National Science Foundation",1174111
+"Clarkson University","Department of the Army",753255
 "Clarkson University","Department of Education",535654
 "Clarkson University","Defense Threat Reduction Agency",317653
 "Clatsop Community College","Department of Education",1031261.52
 "Clatsop Community College","National Oceanic and Atmospheric Administration",22700
 "Clayton  State University","Department of Education",1262703
 "Clemson University","National Science Foundation",22116301
-"Clemson University","Department of the Navy",14607853.76
 "Clemson University","National Institutes of Health",13016137
 "Clemson University","Department of Energy",8984442.02
 "Clemson University","National Institute of Food and Agriculture",3858092.77
+"Clemson University","Department of the Navy",3753864.88
 "Cleveland Clinic Health System-School of Diagnostic Imaging","Department of the Army",5069467
 "Cleveland Clinic Health System-School of Diagnostic Imaging","Agency for Healthcare Research and Quality",785329
 "Cleveland Clinic Health System-School of Diagnostic Imaging","Department of State",651054
@@ -809,14 +809,14 @@
 "Colorado Mountain College","Corporation for National and Community Service",47705
 "Colorado School of Mines","National Science Foundation",15916790
 "Colorado School of Mines","Department of Energy",8760479.71
-"Colorado School of Mines","National Aeronautics and Space Administration",3417150
-"Colorado School of Mines","Pipeline and Hazardous Materials Safety Administration",2143997.45
 "Colorado School of Mines","National Institutes of Health",2060116
-"Colorado State University-Fort Collins","Department of the Army",101788851.16
-"Colorado State University-Fort Collins","National Institutes of Health",98887556.61
+"Colorado School of Mines","Department of the Army",1917555
+"Colorado School of Mines","National Aeronautics and Space Administration",1627575
+"Colorado State University-Fort Collins","Department of the Army",48555048.56
+"Colorado State University-Fort Collins","National Institutes of Health",32203179.43
 "Colorado State University-Fort Collins","National Science Foundation",28807712
 "Colorado State University-Fort Collins","National Oceanic and Atmospheric Administration",20358986.3
-"Colorado State University-Fort Collins","Centers for Disease Control and Prevention",18760165.78
+"Colorado State University-Fort Collins","Forest Service",16484818.38
 "Colorado State University-Pueblo","Department of Education",4249860.43
 "Columbia Basin College","Department of Education",2119227
 "Columbia Basin College","Nuclear Regulatory Commission",150000
@@ -825,11 +825,11 @@
 "Columbia College-Chicago","National Endowment for the Arts",20000
 "Columbia Gorge Community College","Economic Development Administration",25000
 "Columbia State Community College","Department of Education",242073
-"Columbia University in the City of New York","National Institutes of Health",1534882671.42
-"Columbia University in the City of New York","Centers for Disease Control and Prevention",506958535.83
+"Columbia University in the City of New York","National Institutes of Health",501904232.47
+"Columbia University in the City of New York","Centers for Disease Control and Prevention",168144310.87
 "Columbia University in the City of New York","National Science Foundation",93395388
-"Columbia University in the City of New York","National Aeronautics and Space Administration",73629836.07
-"Columbia University in the City of New York","Defense Advanced Research Projects Agency",19985712
+"Columbia University in the City of New York","National Aeronautics and Space Administration",20574078.69
+"Columbia University in the City of New York","Department of Energy",17236394.77
 "Columbiana County Career and Technical Center","Department of Education",37299
 "Columbus State Community College","National Science Foundation",1406408
 "Columbus State Community College","Department of Education",1395817.45
@@ -864,11 +864,11 @@
 "Coppin State University","Department of Education",6690227
 "Cornell College","National Institutes of Health",394562
 "Cornell College","National Science Foundation",130216
-"Cornell University","National Institutes of Health",349463634
+"Cornell University","National Institutes of Health",244406418
 "Cornell University","National Science Foundation",122636280
-"Cornell University","Agricultural Research Service",72346547.54
-"Cornell University","Department of the Army",42777254.08
-"Cornell University","National Aeronautics and Space Administration",32516041.44
+"Cornell University","Department of the Army",20716146.26
+"Cornell University","Department of Energy",17386919.59
+"Cornell University","National Institute of Food and Agriculture",14384309.46
 "Corning Community College","Department of Education",294236
 "Cosumnes River College","Department of Education",630310
 "Covenant School of Nursing and Allied Health","Department of Veterans Affairs",4000
@@ -971,11 +971,11 @@
 "Dallas County Community College District","Small Business Administration",3274332
 "Danville Area Community College","Department of Education",309835
 "Danville Community College","Department of Education",252181
-"Dartmouth College","National Institutes of Health",94052404
+"Dartmouth College","National Institutes of Health",86372494
 "Dartmouth College","National Science Foundation",16563365
-"Dartmouth College","Department of the Army",3730300.98
 "Dartmouth College","Agency for Healthcare Research and Quality",3566689
-"Dartmouth College","National Aeronautics and Space Administration",3248727.65
+"Dartmouth College","National Aeronautics and Space Administration",3212730.65
+"Dartmouth College","Department of the Army",1865150.49
 "Davenport University","Health Resources and Services Administration",427965
 "Davenport University","National Science Foundation",74851
 "Davenport University","Internal Revenue Service",69620
@@ -1056,17 +1056,17 @@
 "Drake University","National Science Foundation",100000
 "Drake University","Agricultural Research Service",5000
 "Drew University","Corporation for National and Community Service",99994
-"Drexel University","National Institutes of Health",39083425
+"Drexel University","National Institutes of Health",38617925
 "Drexel University","National Science Foundation",14083613
 "Drexel University","Department of Education",9548560.78
-"Drexel University","Centers for Disease Control and Prevention",4014135.6
-"Drexel University","Department of the Army",3011315
+"Drexel University","Department of Energy",2654735
+"Drexel University","Department of the Army",2412284
 "Drury University","Department of Education",390226
-"Duke University","National Institutes of Health",4963319691
-"Duke University","Department of the Army",157884863.94
-"Duke University","Health Resources and Services Administration",51008152.6
+"Duke University","National Institutes of Health",487637864.5
 "Duke University","National Science Foundation",42474748
-"Duke University","Centers for Disease Control and Prevention",37268934.7
+"Duke University","Department of the Army",26314143.99
+"Duke University","Department of Energy",16827971.69
+"Duke University","Health Resources and Services Administration",9137329.4
 "Duquesne University","National Institutes of Health",1813927
 "Duquesne University","National Science Foundation",902019
 "Duquesne University","Department of Education",861904
@@ -1139,7 +1139,7 @@
 "Eastern Oregon University","Forest Service",21013.26
 "Eastern University","Department of Education",599798
 "Eastern Virginia Medical School","Agency for International Development",13686000
-"Eastern Virginia Medical School","National Institutes of Health",6421005.82
+"Eastern Virginia Medical School","National Institutes of Health",3917477.98
 "Eastern Virginia Medical School","Department of the Navy",1132329
 "Eastern Virginia Medical School","Health Resources and Services Administration",988369
 "Eastern Virginia Medical School","Department of the Army",900000
@@ -1187,18 +1187,18 @@
 "Elon University","Corporation for National and Community Service",370342
 "Embry-Riddle Aeronautical University","Department of the Navy",3285133.92
 "Embry-Riddle Aeronautical University","National Science Foundation",3219638
-"Embry-Riddle Aeronautical University","Federal Aviation Administration",1891927
-"Embry-Riddle Aeronautical University","National Aeronautics and Space Administration",1096245.23
+"Embry-Riddle Aeronautical University","Federal Aviation Administration",1109821.5
+"Embry-Riddle Aeronautical University","National Aeronautics and Space Administration",1091155.23
 "Embry-Riddle Aeronautical University","Economic Development Administration",1000000
 "Emerald Coast Technical College","Department of Education",233988.22
 "Emerson College","National Science Foundation",122227
 "Emerson College","National Endowment for the Arts",55000
 "Emory & Henry College","Department of the Navy",49500
-"Emory University-Oxford College","National Institutes of Health",2543847211.56
-"Emory University-Oxford College","Centers for Disease Control and Prevention",83545291.96
+"Emory University-Oxford College","National Institutes of Health",345595097.97
 "Emory University-Oxford College","National Science Foundation",18341548
-"Emory University-Oxford College","Health Resources and Services Administration",11349532.72
-"Emory University-Oxford College","Defense Threat Reduction Agency",6754747.62
+"Emory University-Oxford College","Health Resources and Services Administration",10774076.08
+"Emory University-Oxford College","Centers for Disease Control and Prevention",9997216.36
+"Emory University-Oxford College","Office of Assistant Secretary for Preparedness and Response",5422147
 "Emporia State University","Department of Education",1291761.39
 "Endicott College","Health Resources and Services Administration",68583
 "Enterprise State Community College","Department of Education",532675
@@ -1269,16 +1269,16 @@
 "Florida Gulf Coast University","National Oceanic and Atmospheric Administration",499847
 "Florida Gulf Coast University","National Institutes of Health",493091
 "Florida Gulf Coast University","National Aeronautics and Space Administration",112454
-"Florida Institute of Technology","Department of the Air Force",1752044
 "Florida Institute of Technology","Office of the Under Secretary for Science and Technology",1141120
+"Florida Institute of Technology","Department of the Air Force",1041022
 "Florida Institute of Technology","National Aeronautics and Space Administration",877590
 "Florida Institute of Technology","Federal Aviation Administration",383877
 "Florida Institute of Technology","Health Resources and Services Administration",349035
 "Florida International University","National Institutes of Health",22982946
 "Florida International University","National Science Foundation",18321822
-"Florida International University","National Oceanic and Atmospheric Administration",5562240.6
 "Florida International University","Department of the Air Force",5170996
 "Florida International University","Department of Education",5084567.57
+"Florida International University","Department of Energy",4924830.5
 "Florida Keys Community College","Department of Education",370511
 "Florida Memorial University","Department of Education",3851020.99
 "Florida Panhandle Technical College","Department of Education",726495
@@ -1291,9 +1291,9 @@
 "Florida State College at Jacksonville","Environmental Protection Agency",198790
 "Florida State College at Jacksonville","Federal Prison System / Bureau of Prisons",109240
 "Florida State University","National Science Foundation",73907305
-"Florida State University","Department of Education",56730261.86
 "Florida State University","National Institutes of Health",36627105
-"Florida State University","Department of the Navy",34082378.38
+"Florida State University","Department of Education",17782261.86
+"Florida State University","Department of the Navy",11010259.19
 "Florida State University","Department of Energy",7592110.67
 "Fond du Lac Tribal and Community College","Department of Education",1542868.41
 "Fond du Lac Tribal and Community College","National Institute of Food and Agriculture",761030.63
@@ -1379,31 +1379,31 @@
 "George C Wallace State Community College-Selma","Department of Education",916786
 "George Fox University","Rural Business Cooperative Service",100000
 "George Fox University","Bureau of Indian Affairs and Bureau of Indian Education",20000
-"George Mason University","Department of the Air Force",92573543
-"George Mason University","Department of the Navy",27066233.3
+"George Mason University","Department of the Air Force",31779203
 "George Mason University","National Science Foundation",13638976
 "George Mason University","Office of the National Drug Control Policy",7022349.67
-"George Mason University","Department of the Army",5336360.08
+"George Mason University","Department of the Navy",6848077.15
+"George Mason University","Department of Defense",4950000
 "George Stone Technical Center","Department of Education",440660.33
-"George Washington University","National Institutes of Health",582675288.28
+"George Washington University","National Institutes of Health",96609806.88
 "George Washington University","National Science Foundation",19329702
-"George Washington University","Department of the Navy",13515525.42
 "George Washington University","Department of the Army",8153204
-"George Washington University","Department of Energy",7508182.7
-"Georgetown University","National Institutes of Health",249933576.4
+"George Washington University","Department of the Navy",6757762.71
+"George Washington University","Department of Energy",6308182.7
+"Georgetown University","National Institutes of Health",48956119.55
 "Georgetown University","Department of State",23031097
-"Georgetown University","Department of the Navy",13878220.76
-"Georgetown University","Agency for International Development",11019253.45
-"Georgetown University","Department of the Army",5447055.44
+"Georgetown University","Department of the Navy",7713655.76
+"Georgetown University","Agency for International Development",5505021.15
+"Georgetown University","National Science Foundation",5153947
 "Georgia College and State University","Health Resources and Services Administration",1076047
 "Georgia College and State University","Department of Education",498076
 "Georgia College and State University","Forest Service",5676
 "Georgia Gwinnett College","National Science Foundation",450506
-"Georgia Institute of Technology-Main Campus","Department of the Air Force",794741464.7
-"Georgia Institute of Technology-Main Campus","Department of the Army",477132882.6
-"Georgia Institute of Technology-Main Campus","Department of the Navy",464544575.8
 "Georgia Institute of Technology-Main Campus","Department of Defense",132543962
+"Georgia Institute of Technology-Main Campus","Department of the Air Force",119284187.45
 "Georgia Institute of Technology-Main Campus","National Science Foundation",76497752
+"Georgia Institute of Technology-Main Campus","Department of the Army",72587595.1
+"Georgia Institute of Technology-Main Campus","Department of the Navy",62480484.16
 "Georgia Military College","Department of Education",448574
 "Georgia Military College","Department of the Army",91072
 "Georgia Northwestern Technical College","Department of Education",493626
@@ -1412,10 +1412,10 @@
 "Georgia Southern University","Department of Education",224466.38
 "Georgia Southern University","Department of the Army",197453
 "Georgia Southern University","Corporation for National and Community Service",150210.27
-"Georgia State University","National Institutes of Health",38077151
+"Georgia State University","National Institutes of Health",37380026
 "Georgia State University","Department of Education",8545765.21
-"Georgia State University","Health Resources and Services Administration",5814104.8
 "Georgia State University","National Science Foundation",4009388
+"Georgia State University","Health Resources and Services Administration",2508965.6
 "Georgia State University","Department of the Navy",1913857
 "Georgian Court University","Department of Education",871387
 "Gettysburg College","National Science Foundation",193397
@@ -1488,8 +1488,8 @@
 "Hamline University","Federal Prison System / Bureau of Prisons",125
 "Hampden-Sydney College","National Science Foundation",45523
 "Hampshire College","National Science Foundation",236529
-"Hampton University","National Aeronautics and Space Administration",9127396
 "Hampton University","Department of Education",7751453
+"Hampton University","National Aeronautics and Space Administration",5987796
 "Hampton University","National Science Foundation",3233995
 "Hampton University","Department of the Army",2625000
 "Hampton University","National Institutes of Health",877305
@@ -1504,11 +1504,11 @@
 "Hartnell College","Department of Education",3447418.44
 "Hartnell College","National Science Foundation",1468758
 "Hartwick College","Agricultural Research Service",11700
-"Harvard University","National Institutes of Health",4813073657.38
-"Harvard University","National Aeronautics and Space Administration",617536073.24
-"Harvard University","Department of the Army",99948234.87
+"Harvard University","National Institutes of Health",797955567.39
+"Harvard University","National Aeronautics and Space Administration",79349937.44
 "Harvard University","National Science Foundation",64559152
-"Harvard University","Centers for Disease Control and Prevention",25139794
+"Harvard University","Department of the Army",31801204.99
+"Harvard University","Department of Energy",13819887.95
 "Harvey Mudd College","National Science Foundation",1451418
 "Harvey Mudd College","Department of Education",756261
 "Harvey Mudd College","National Institute of Standards and Technology",17744
@@ -1596,8 +1596,8 @@
 "Howard Community College","Department of Education",376602
 "Howard Community College","National Science Foundation",250000
 "Howard Community College","Offices, Boards and Divisions",450
-"Howard University","National Institutes of Health",13088413.85
 "Howard University","National Science Foundation",9659074
+"Howard University","National Institutes of Health",6399917.39
 "Howard University","Health Resources and Services Administration",3766153
 "Howard University","Department of State",3714349
 "Howard University","National Oceanic and Atmospheric Administration",3515000
@@ -1605,24 +1605,24 @@
 "Hudson Valley Community College","Department of the Army",138161.49
 "Humboldt State University","Small Business Administration",5232797.05
 "Humboldt State University","Department of Education",3685714
-"Humboldt State University","Forest Service",842294.82
-"Humboldt State University","National Oceanic and Atmospheric Administration",529061.66
 "Humboldt State University","Defense Logistics Agency",410818
+"Humboldt State University","U.S. Fish and Wildlife Service",397290.81
+"Humboldt State University","Offices, Boards and Divisions",299835
 "Husson University","National Institute of Food and Agriculture",500000
 "Huston-Tillotson University","Department of Education",2368574
 "Hutchinson Community College","Mine Safety and Health Administration",122352
 "Hutchinson Community College","Corporation for National and Community Service",69672
 "Hutchinson Community College","Internal Revenue Service",24111
-"Icahn School of Medicine at Mount Sinai","National Institutes of Health",1729603051.14
-"Icahn School of Medicine at Mount Sinai","Centers for Disease Control and Prevention",118760940.38
-"Icahn School of Medicine at Mount Sinai","Department of the Army",5834226
+"Icahn School of Medicine at Mount Sinai","National Institutes of Health",343456028.14
+"Icahn School of Medicine at Mount Sinai","Centers for Disease Control and Prevention",42876481.46
+"Icahn School of Medicine at Mount Sinai","Department of the Army",5822226
 "Icahn School of Medicine at Mount Sinai","Administration on Aging",894375
 "Icahn School of Medicine at Mount Sinai","Health Resources and Services Administration",883745
 "Idaho State University","Department of Education",2939439.97
 "Idaho State University","National Science Foundation",2358391
 "Idaho State University","Health Resources and Services Administration",660253
 "Idaho State University","National Aeronautics and Space Administration",396311.32
-"Idaho State University","Department of Energy",177895.75
+"Idaho State University","U.S. Fish and Wildlife Service",172956
 "Ilisagvik College","Department of Education",1686856
 "Ilisagvik College","Bureau of Indian Affairs and Bureau of Indian Education",491510
 "Ilisagvik College","Administration for Children and Families",317850
@@ -1663,9 +1663,9 @@
 "Indiana University of Pennsylvania-Main Campus","Department of Education",641783
 "Indiana University of Pennsylvania-Main Campus","Department of the Navy",600000
 "Indiana University of Pennsylvania-Main Campus","Defense Logistics Agency",350433
-"Indiana University-Bloomington","National Institutes of Health",1237549262.4
+"Indiana University-Bloomington","National Institutes of Health",195971783.76
 "Indiana University-Bloomington","National Science Foundation",46599847
-"Indiana University-Bloomington","Department of the Army",43214922
+"Indiana University-Bloomington","Department of the Army",21547281
 "Indiana University-Bloomington","Centers for Medicare and Medicaid Services",16005504
 "Indiana University-Bloomington","Department of Education",10342419.86
 "Indiana University-Purdue University-Indianapolis","Department of the Navy",849636.69
@@ -1694,14 +1694,14 @@
 "Iowa Lakes Community College","Department of Education",1465848.42
 "Iowa Lakes Community College","Rural Utilities Service",499975
 "Iowa Lakes Community College","Corporation for National and Community Service",61200.04
-"Iowa State University","Department of Energy",314672031.8
+"Iowa State University","Department of Energy",69486764.16
 "Iowa State University","National Science Foundation",37481051
 "Iowa State University","National Institute of Food and Agriculture",17347064.54
 "Iowa State University","National Institutes of Health",14271505
-"Iowa State University","Agricultural Research Service",11928974.13
+"Iowa State University","National Institute of Standards and Technology",6139681.68
 "Iowa Western Community College","Corporation for National and Community Service",320700
 "Iowa Western Community College","Department of Education",312632
-"Irell & Manella Graduate School of Biological Sciences at City of Hope","National Institutes of Health",188988379.34
+"Irell & Manella Graduate School of Biological Sciences at City of Hope","National Institutes of Health",62973083.01
 "Irell & Manella Graduate School of Biological Sciences at City of Hope","Agency for Healthcare Research and Quality",694737
 "Irell & Manella Graduate School of Biological Sciences at City of Hope","Department of the Army",692000
 "Irell & Manella Graduate School of Biological Sciences at City of Hope","Department of Veterans Affairs",9996
@@ -1718,9 +1718,9 @@
 "J F Ingram State Technical College","Department of Education",387408
 "Jackson College","Department of Education",242136
 "Jackson State University","Department of Education",11022764
-"Jackson State University","National Institutes of Health",6233809.92
 "Jackson State University","National Science Foundation",4694958
-"Jackson State University","Department of the Army",1535497.4
+"Jackson State University","National Institutes of Health",2246112.48
+"Jackson State University","Department of the Army",1514504.2
 "Jackson State University","Health Resources and Services Administration",352994
 "Jacksonville State University","Department of Education",542100
 "Jacksonville State University","National Science Foundation",9892
@@ -1757,11 +1757,11 @@
 "John Tyler Community College","Employment and Training Administration",39918752.78
 "John Wood Community College","Department of Education",1005453
 "John Wood Community College","Corporation for National and Community Service",145190
-"Johns Hopkins University","National Institutes of Health",10534194524.56
-"Johns Hopkins University","Department of the Navy",4240715430.52
-"Johns Hopkins University","National Aeronautics and Space Administration",2843664358.35
-"Johns Hopkins University","Department of the Army",682796482.92
-"Johns Hopkins University","Department of the Air Force",238900938.72
+"Johns Hopkins University","National Institutes of Health",691242908.14
+"Johns Hopkins University","Department of the Navy",596754817.36
+"Johns Hopkins University","National Aeronautics and Space Administration",294187817.57
+"Johns Hopkins University","Missile Defense Agency",123290763.84
+"Johns Hopkins University","Agency for International Development",96143077
 "Johnson C Smith University","Department of Education",4180825.6
 "Johnson C Smith University","National Science Foundation",663656
 "Johnson C Smith University","Substance Abuse and Mental Health Services Administration",124623
@@ -1783,7 +1783,7 @@
 "Kansas State University","Agency for International Development",15342771
 "Kansas State University","National Institutes of Health",14309381
 "Kansas State University","National Institute of Food and Agriculture",13798183.22
-"Kansas State University","Agricultural Research Service",9803208.04
+"Kansas State University","Department of Energy",5890472
 "Kapiolani Community College","Department of Education",2922156
 "Kaskaskia College","Department of Education",274798
 "Kauai Community College","Department of Education",677868
@@ -1807,7 +1807,7 @@
 "Kent State University at Kent","National Science Foundation",3700149
 "Kent State University at Kent","Department of Education",2188606.97
 "Kent State University at Kent","Department of Energy",1768000
-"Kent State University at Kent","National Aeronautics and Space Administration",649092.25
+"Kent State University at Kent","Federal Aviation Administration",324138
 "Kentucky Community and Technical College System","Economic Development Administration",2561376
 "Kentucky Community and Technical College System","Department of Education",275606
 "Kentucky Community and Technical College System","Health Resources and Services Administration",230000
@@ -2001,11 +2001,11 @@
 "Louisiana Delta Community College","Department of Education",704747
 "Louisiana Delta Community College","National Science Foundation",599973
 "Louisiana Delta Community College","Federal Motor Carrier Safety Administration",96000
-"Louisiana State University","National Institutes of Health",430993414
-"Louisiana State University","Health Resources and Services Administration",24586090.82
+"Louisiana State University","National Institutes of Health",68104060
 "Louisiana State University","Federal Emergency Management Agency",22342305
 "Louisiana State University","National Science Foundation",12812863
-"Louisiana State University","National Oceanic and Atmospheric Administration",7109400.96
+"Louisiana State University","Department of Energy",5553258
+"Louisiana State University","Centers for Disease Control and Prevention",5456121
 "Louisiana Tech University","National Science Foundation",1427151
 "Louisiana Tech University","Department of Education",150000
 "Louisiana Tech University","Environmental Protection Agency",56945
@@ -2058,7 +2058,7 @@
 "Madisonville Community College","Mine Safety and Health Administration",21600
 "Madonna University","Department of Education",268684
 "Maine College of Art","National Endowment for the Arts",40000
-"Maine Maritime Academy","Maritime Administration",618000
+"Maine Maritime Academy","Maritime Administration",309000
 "Manchester Community College","Department of Education",242135
 "Manchester Community College","Health Resources and Services Administration",129700
 "Manchester University","National Institutes of Health",305507
@@ -2098,26 +2098,26 @@
 "Massachusetts Bay Community College","Department of Education",434452
 "Massachusetts College of Liberal Arts","Department of Education",584028
 "Massachusetts College of Liberal Arts","National Endowment for the Arts",75000
-"Massachusetts General Hospital Dietetic Internship","National Institutes of Health",2258058806.72
-"Massachusetts General Hospital Dietetic Internship","Department of the Army",8592604.14
+"Massachusetts General Hospital Dietetic Internship","National Institutes of Health",459118537.28
+"Massachusetts General Hospital Dietetic Internship","Department of the Army",8313727.38
 "Massachusetts General Hospital Dietetic Internship","Department of the Air Force",7780954
 "Massachusetts General Hospital Dietetic Internship","Centers for Disease Control and Prevention",3318735
 "Massachusetts General Hospital Dietetic Internship","Office of Assistant Secretary for Preparedness and Response",3000000
-"Massachusetts Institute of Technology","Department of the Air Force",7608635457.68
-"Massachusetts Institute of Technology","National Institutes of Health",391907910
-"Massachusetts Institute of Technology","National Aeronautics and Space Administration",222259773.85
-"Massachusetts Institute of Technology","Department of the Navy",213730924.55
-"Massachusetts Institute of Technology","Department of the Army",129196337.84
-"Massachusetts Maritime Academy","Maritime Administration",823500
+"Massachusetts Institute of Technology","Department of the Air Force",956096435.71
+"Massachusetts Institute of Technology","National Institutes of Health",130645120
+"Massachusetts Institute of Technology","National Science Foundation",87063473
+"Massachusetts Institute of Technology","Department of Energy",50584783.98
+"Massachusetts Institute of Technology","Department of the Navy",40072069.71
+"Massachusetts Maritime Academy","Maritime Administration",411750
 "Massachusetts Maritime Academy","Department of the Navy",85944
 "Massachusetts Maritime Academy","U.S. Coast Guard",24820.8
 "Massachusetts Maritime Academy","Immediate Office of the Secretary of Transportation",3868.52
 "Massasoit Community College","Department of Education",309835
 "Mayland Community College","Department of Education",284863.02
-"Mayo Clinic School of Medicine","National Institutes of Health",1003503987.89
-"Mayo Clinic School of Medicine","Department of the Army",26150397.96
+"Mayo Clinic School of Medicine","National Institutes of Health",220514904.23
 "Mayo Clinic School of Medicine","Federal Prison System / Bureau of Prisons",11459977.46
-"Mayo Clinic School of Medicine","Department of the Navy",9324216
+"Mayo Clinic School of Medicine","Department of the Navy",9184216
+"Mayo Clinic School of Medicine","Department of the Army",8290710.74
 "Mayo Clinic School of Medicine","Centers for Medicare and Medicaid Services",2340938
 "Maysville Community and Technical College","Department of Education",703865
 "Mayville State University","Administration for Children and Families",2990894
@@ -2137,12 +2137,12 @@
 "Medaille College","Health Resources and Services Administration",354231
 "Medaille College","Offices, Boards and Divisions",300000
 "Medaille College","National Endowment for the Humanities",99941
-"Medical College of Wisconsin","National Institutes of Health",218980712
-"Medical College of Wisconsin","Health Resources and Services Administration",19090295
+"Medical College of Wisconsin","National Institutes of Health",100981432
+"Medical College of Wisconsin","Health Resources and Services Administration",5910605
 "Medical College of Wisconsin","Department of the Army",2975915
 "Medical College of Wisconsin","Department of Veterans Affairs",2814342.15
 "Medical College of Wisconsin","National Highway Traffic Safety Administration",1504127.4
-"Medical University of South Carolina","National Institutes of Health",320871015
+"Medical University of South Carolina","National Institutes of Health",128174308
 "Medical University of South Carolina","Health Resources and Services Administration",6670413
 "Medical University of South Carolina","Department of Veterans Affairs",5880434.95
 "Medical University of South Carolina","Department of the Army",3058570
@@ -2204,18 +2204,18 @@
 "Miami University-Oxford","National Institutes of Health",1984185
 "Miami University-Oxford","Department of Education",1555802
 "Miami University-Oxford","Department of Energy",1046179
-"Miami University-Oxford","Department of the Army",720453
+"Miami University-Oxford","Department of the Army",520473
 "Michigan State University","Department of Energy",122401867.4
 "Michigan State University","National Science Foundation",77094242
 "Michigan State University","National Institutes of Health",74467996
-"Michigan State University","National Institute of Food and Agriculture",26334451.92
+"Michigan State University","National Institute of Food and Agriculture",26212151.92
 "Michigan State University","Agency for International Development",25012898
 "Michigan State University-College of Law","Internal Revenue Service",100000
-"Michigan Technological University","Department of the Army",10768309.32
 "Michigan Technological University","National Science Foundation",10017314
-"Michigan Technological University","National Aeronautics and Space Administration",5457734.29
+"Michigan Technological University","Department of the Army",5384154.66
+"Michigan Technological University","National Aeronautics and Space Administration",5356968.29
 "Michigan Technological University","National Institutes of Health",1953433
-"Michigan Technological University","Forest Service",1399011.63
+"Michigan Technological University","Forest Service",1415017.86
 "Mid Michigan Community College","Department of Education",398396.34
 "Mid Michigan Community College","Rural Business Cooperative Service",95000
 "Mid-Plains Community College","Rural Utilities Service",101133
@@ -2228,8 +2228,8 @@
 "Middle Tennessee State University","Department of Education",310543.16
 "Middlebury College","National Science Foundation",518275
 "Middlebury College","National Institutes of Health",436832
-"Middlebury College","Department of the Navy",393300
 "Middlebury College","Department of Energy",275364
+"Middlebury College","Department of the Navy",163715
 "Middlebury College","Department of the Air Force",142360
 "Middlesex Community College","Department of Education",2520891.58
 "Middlesex County College","Department of Education",317802
@@ -2268,10 +2268,10 @@
 "Mission College","Department of Education",1690477
 "Mississippi Community College Board","Department of Education",6263315
 "Mississippi Delta Community College","Department of Education",571635.37
-"Mississippi State University","Department of the Army",58154558.6
-"Mississippi State University","Agricultural Research Service",30286029
-"Mississippi State University","National Oceanic and Atmospheric Administration",21396953.93
+"Mississippi State University","National Oceanic and Atmospheric Administration",21336953.93
+"Mississippi State University","Department of the Army",15053420.9
 "Mississippi State University","National Science Foundation",10467285
+"Mississippi State University","Agricultural Research Service",10101135
 "Mississippi State University","National Institute of Food and Agriculture",6984000.11
 "Mississippi University for Women","Department of Education",401628
 "Mississippi Valley State University","Department of Education",6575197.41
@@ -2306,7 +2306,7 @@
 "Montana State University","National Institutes of Health",18680149
 "Montana State University","National Institute of Food and Agriculture",15110651
 "Montana State University","National Science Foundation",11112368
-"Montana State University","Department of the Army",4860460
+"Montana State University","Department of the Army",4840460
 "Montana State University","National Aeronautics and Space Administration",4131738
 "Montana State University-Billings","Department of Education",1466922.23
 "Montana State University-Billings","National Institutes of Health",395533
@@ -2337,13 +2337,13 @@
 "Moraine Valley Community College","National Endowment for the Arts",10000
 "Morehead State University","Department of Education",3891034.1
 "Morehead State University","Corporation for National and Community Service",206924
-"Morehead State University","National Aeronautics and Space Administration",21444.26
+"Morehead State University","National Aeronautics and Space Administration",66238.66
 "Morehouse College","Department of Education",5800063
 "Morehouse College","National Science Foundation",3600201
 "Morehouse College","Centers for Disease Control and Prevention",1047674
 "Morehouse College","National Institutes of Health",472932
 "Morehouse College","Department of State",67350
-"Morehouse School of Medicine","National Institutes of Health",14924637
+"Morehouse School of Medicine","National Institutes of Health",16569904
 "Morehouse School of Medicine","Department of Education",12901666.96
 "Morehouse School of Medicine","Office of Assistant Secretary for Health",1715872
 "Morehouse School of Medicine","Health Resources and Services Administration",1436567
@@ -2443,7 +2443,7 @@
 "New Mexico Highlands University","Forest Service",487235.11
 "New Mexico Highlands University","Department of the Army",24107
 "New Mexico Institute of Mining and Technology","Federal Emergency Management Agency",22000000
-"New Mexico Institute of Mining and Technology","Department of the Air Force",10360124
+"New Mexico Institute of Mining and Technology","Department of the Air Force",10223498
 "New Mexico Institute of Mining and Technology","National Science Foundation",1620693
 "New Mexico Institute of Mining and Technology","Department of Education",1172421.37
 "New Mexico Institute of Mining and Technology","Department of Energy",952264
@@ -2453,7 +2453,7 @@
 "New Mexico State University-Carlsbad","Department of Education",1397958
 "New Mexico State University-Carlsbad","Forest Service",42999.95
 "New Mexico State University-Grants","Department of Education",524845
-"New Mexico State University-Main Campus","Department of the Army",43920995.66
+"New Mexico State University-Main Campus","Department of the Army",13568385.22
 "New Mexico State University-Main Campus","National Science Foundation",9948649
 "New Mexico State University-Main Campus","National Institutes of Health",8258486
 "New Mexico State University-Main Campus","Department of Education",3096442.02
@@ -2468,10 +2468,10 @@
 "New York Medical College","Food and Drug Administration",499998
 "New York Medical College","Department of the Navy",235638.98
 "New York Medical College","National Science Foundation",167808
-"New York University","National Institutes of Health",755472366.67
+"New York University","National Institutes of Health",325542831.77
 "New York University","National Science Foundation",37599879
-"New York University","Centers for Disease Control and Prevention",34579091.55
-"New York University","Department of the Army",11494954
+"New York University","Centers for Disease Control and Prevention",8632856.65
+"New York University","Department of the Army",8344954
 "New York University","Department of Education",5710686.55
 "Niagara County Community College","Department of Education",201633
 "Nicholls State University","Department of Education",252181
@@ -2495,11 +2495,11 @@
 "North Carolina Central University","National Science Foundation",6471736
 "North Carolina Central University","Rural Utilities Service",788521
 "North Carolina Central University","Health Resources and Services Administration",302463
-"North Carolina State University at Raleigh","Department of the Army",61741944.6
 "North Carolina State University at Raleigh","National Science Foundation",58689023
 "North Carolina State University at Raleigh","Department of Energy",28906585.14
-"North Carolina State University at Raleigh","National Institutes of Health",27583043
 "North Carolina State University at Raleigh","National Institute of Food and Agriculture",26048783.45
+"North Carolina State University at Raleigh","National Institutes of Health",25815785
+"North Carolina State University at Raleigh","Department of the Army",8820277.8
 "North Carolina Wesleyan College","Department of Education",424197
 "North Central Missouri College","Administration for Children and Families",2166503
 "North Central Missouri College","Department of Education",587328
@@ -2545,10 +2545,10 @@
 "Northeastern Technical College","Department of Education",878452
 "Northeastern Technical College","Federal Prison System / Bureau of Prisons",136144.32
 "Northeastern University","National Science Foundation",44519856
-"Northeastern University","National Institutes of Health",37774848
-"Northeastern University","Department of the Army",9185678
+"Northeastern University","National Institutes of Health",37215584
+"Northeastern University","Department of the Army",9001478
 "Northeastern University","Department of Energy",3203203.19
-"Northeastern University","Department of the Navy",2305668
+"Northeastern University","Department of the Navy",2039352
 "Northern Arizona University","National Science Foundation",10510383
 "Northern Arizona University","National Institutes of Health",7814604
 "Northern Arizona University","Department of Education",7131649.8
@@ -2591,7 +2591,7 @@
 "Northwest Indian College","Bureau of Indian Affairs and Bureau of Indian Education",5572714
 "Northwest Indian College","Department of Education",3598555
 "Northwest Indian College","National Science Foundation",3321789
-"Northwest Indian College","National Institutes of Health",783066
+"Northwest Indian College","National Institutes of Health",773066
 "Northwest Indian College","National Institute of Food and Agriculture",706147
 "Northwest Iowa Community College","Department of Education",740895
 "Northwest Mississippi Community College","Department of Education",309337
@@ -2614,11 +2614,11 @@
 "Northwestern State University of Louisiana","Department of Education",444846
 "Northwestern State University of Louisiana","National Park Service",442445.88
 "Northwestern State University of Louisiana","National Endowment for the Arts",10000
-"Northwestern University","National Institutes of Health",1987718822.68
+"Northwestern University","National Institutes of Health",349984025.92
 "Northwestern University","National Science Foundation",54235943
 "Northwestern University","Department of Energy",19096588.93
 "Northwestern University","Department of the Army",13601682
-"Northwestern University","Department of the Navy",11102282
+"Northwestern University","Department of the Navy",7392692
 "Norwalk Community College","Department of Education",942503
 "Norwalk Community College","National Science Foundation",224999
 "Norwich University","Department of the Navy",1446279
@@ -2668,14 +2668,14 @@
 "Ohio Northern University","National Science Foundation",1227032
 "Ohio Northern University","Department of State",1067275
 "Ohio Northern University","Substance Abuse and Mental Health Services Administration",88094
-"Ohio State University","National Institutes of Health",417140768
+"Ohio State University","National Institutes of Health",169699760
 "Ohio State University","National Science Foundation",48256825
-"Ohio State University","Department of the Army",43667980
-"Ohio State University","National Aeronautics and Space Administration",39648467.8
-"Ohio State University","Department of the Air Force",21451389.7
+"Ohio State University","National Institute of Food and Agriculture",20758561.22
+"Ohio State University","Department of Energy",17348285.09
+"Ohio State University","Bureau of Labor Statistics",11942226.82
 "Ohio State University Agricultural Technical Institute","Agricultural Research Service",26338.79
 "Ohio University","National Science Foundation",4723619
-"Ohio University","National Institutes of Health",4681022
+"Ohio University","National Institutes of Health",4345022
 "Ohio University","Department of Energy",3205000
 "Ohio University","Economic Development Administration",1603204
 "Ohio University","Federal Aviation Administration",1541371.61
@@ -2690,12 +2690,12 @@
 "Oklahoma State University","National Aeronautics and Space Administration",8895199.11
 "Oklahoma State University","National Institutes of Health",8339020
 "Oklahoma State University","National Science Foundation",6220388
-"Oklahoma State University","Indian Health Service",3580754.73
+"Oklahoma State University","Health Resources and Services Administration",3186182
 "Old Dominion University","National Science Foundation",8493475
-"Old Dominion University","Department of the Navy",7109918.2
 "Old Dominion University","National Institutes of Health",5266233
 "Old Dominion University","Department of Education",2479612.15
 "Old Dominion University","Department of Energy",2333000
+"Old Dominion University","Department of the Air Force",2002402
 "Olivet Nazarene University","Forest Service",5000
 "Olney Central College","Department of Education",1747165.88
 "Olney Central College","Economic Development Administration",300000
@@ -2708,19 +2708,19 @@
 "Orangeburg Calhoun Technical College","National Science Foundation",588711
 "Orangeburg Calhoun Technical College","Department of Education",312379
 "Orangeburg Calhoun Technical College","Federal Motor Carrier Safety Administration",95726
-"Oregon Health & Science University","National Institutes of Health",874012248.11
-"Oregon Health & Science University","Department of the Army",13255092.2
+"Oregon Health & Science University","National Institutes of Health",243960831.07
 "Oregon Health & Science University","Agency for Healthcare Research and Quality",13023259
 "Oregon Health & Science University","Department of Veterans Affairs",9036410.08
 "Oregon Health & Science University","Health Resources and Services Administration",8989740
+"Oregon Health & Science University","Department of the Army",6283691.4
 "Oregon Institute of Technology","Economic Development Administration",2984514
 "Oregon Institute of Technology","Department of Education",272177
 "Oregon Institute of Technology","Bureau of Land Management",15000
 "Oregon State University","National Science Foundation",121563707
-"Oregon State University","National Institutes of Health",33119979.04
-"Oregon State University","National Oceanic and Atmospheric Administration",31277789.85
-"Oregon State University","Department of the Navy",30413122.03
-"Oregon State University","Bureau of Land Management",18380977.05
+"Oregon State University","National Institutes of Health",16014766.71
+"Oregon State University","National Oceanic and Atmospheric Administration",9437990.95
+"Oregon State University","National Institute of Food and Agriculture",8638709.14
+"Oregon State University","Department of the Navy",7867087.01
 "Orleans Technical College","Corporation for National and Community Service",539984
 "Orleans Technical College","Veterans Employment and Training Services",70299
 "Otero Junior College","Administration for Children and Families",6749496
@@ -2790,11 +2790,11 @@
 "Pennsylvania College of Technology","National Endowment for the Arts",10000
 "Pennsylvania Institute of Technology","Department of Education",346845
 "Pennsylvania State System of Higher Education-Central Office","Department of Education",3363222
-"Pennsylvania State University","Department of the Navy",773208156
-"Pennsylvania State University","National Institutes of Health",247210998.69
+"Pennsylvania State University","Department of the Navy",216712337
+"Pennsylvania State University","National Institutes of Health",124588657.01
 "Pennsylvania State University","National Science Foundation",76166942
-"Pennsylvania State University","Department of Energy",70567617.64
-"Pennsylvania State University","Department of the Army",63332490.8
+"Pennsylvania State University","Department of Energy",23245039.23
+"Pennsylvania State University","National Institute of Food and Agriculture",18763522.58
 "Pensacola State College","Department of Education",1636484.1
 "Pensacola State College","Offices, Boards and Divisions",300000
 "Pensacola State College","Department of the Navy",218484.59
@@ -2846,10 +2846,10 @@
 "Portland State University","National Science Foundation",6132749
 "Portland State University","Department of Education",5161671.64
 "Portland State University","Immediate Office of the Secretary of Transportation",2833700
-"Portland State University","Bureau of Land Management",2418629.29
-"Potomac State College of West Virginia University","Centers for Disease Control and Prevention",5593601.56
+"Portland State University","National Park Service",1181803.26
 "Potomac State College of West Virginia University","Department of Veterans Affairs",2355135.52
 "Potomac State College of West Virginia University","National Institute of Food and Agriculture",1538864
+"Potomac State College of West Virginia University","Centers for Disease Control and Prevention",1135616.78
 "Potomac State College of West Virginia University","Department of Energy",1047177
 "Potomac State College of West Virginia University","Department of Education",794691
 "Prairie State College","Economic Development Administration",938447
@@ -2865,11 +2865,11 @@
 "Prince George's Community College","Department of Education",965750
 "Prince George's Community College","National Aeronautics and Space Administration",256067.47
 "Prince George's Community College","National Science Foundation",39339
-"Princeton University","Department of Energy",991293488.87
-"Princeton University","National Science Foundation",73312375.14
-"Princeton University","National Institutes of Health",49389866
-"Princeton University","National Aeronautics and Space Administration",27881021.94
-"Princeton University","Department of the Navy",9636851
+"Princeton University","Department of Energy",138217488.87
+"Princeton University","National Science Foundation",72758779.02
+"Princeton University","National Institutes of Health",48477866
+"Princeton University","National Aeronautics and Space Administration",9293673.98
+"Princeton University","Department of the Army",8246982
 "Providence College","National Science Foundation",407061
 "Providence College","Substance Abuse and Mental Health Services Administration",101933
 "Providence College","National Endowment for the Humanities",34187
@@ -2879,11 +2879,11 @@
 "Pueblo Community College","Occupational Safety and Health Administration",149538
 "Pueblo Community College","Health Resources and Services Administration",50438
 "Pulaski Technical College","Department of Education",1565558.86
-"Purdue University-Main Campus","National Institutes of Health",153763695
 "Purdue University-Main Campus","National Science Foundation",68860612
-"Purdue University-Main Campus","Department of the Navy",39287553.8
-"Purdue University-Main Campus","Department of the Army",23048972.75
-"Purdue University-Main Campus","National Aeronautics and Space Administration",20683238.3
+"Purdue University-Main Campus","National Institutes of Health",49247690
+"Purdue University-Main Campus","Department of Energy",17554940.1
+"Purdue University-Main Campus","Department of the Navy",12198832.7
+"Purdue University-Main Campus","Agency for International Development",8025570
 "Queens University of Charlotte","Department of Education",434208
 "Quincy University","Department of Education",449995
 "Quincy University","National Science Foundation",105452
@@ -2929,7 +2929,7 @@
 "Rensselaer Polytechnic Institute","National Science Foundation",12687148
 "Rensselaer Polytechnic Institute","Department of Energy",9490435.98
 "Rensselaer Polytechnic Institute","National Institutes of Health",6791048
-"Rensselaer Polytechnic Institute","Department of the Navy",2141495.09
+"Rensselaer Polytechnic Institute","Department of the Navy",2156555.03
 "Rensselaer Polytechnic Institute","Department of the Air Force",1445795
 "Research Foundation of CUNY","National Science Foundation",2049610
 "Research Foundation of CUNY","Department of Education",478095.4
@@ -2945,8 +2945,8 @@
 "Rice University","National Science Foundation",38372249
 "Rice University","National Institutes of Health",13293533
 "Rice University","Department of the Air Force",8161887
-"Rice University","National Aeronautics and Space Administration",6992093.38
 "Rice University","Department of Energy",6633987.94
+"Rice University","National Aeronautics and Space Administration",3386939.69
 "Richland College","Department of Education",628273
 "Richland Community College","Department of Education",308922
 "Rider University","Department of Education",563891
@@ -2973,11 +2973,11 @@
 "Robert Morris University Illinois","Department of Education",1566985
 "Rochester Community and Technical College","Department of Education",417563
 "Rochester Institute of Technology","National Science Foundation",11480964
-"Rochester Institute of Technology","Department of the Navy",9444226.96
+"Rochester Institute of Technology","Department of the Navy",4767521.96
 "Rochester Institute of Technology","National Institutes of Health",3484032
 "Rochester Institute of Technology","National Aeronautics and Space Administration",1682324.35
 "Rochester Institute of Technology","Department of the Air Force",986573
-"Rockefeller University","National Institutes of Health",298419872.64
+"Rockefeller University","National Institutes of Health",74570328.86
 "Rockefeller University","Department of the Army",1304053
 "Rockefeller University","National Science Foundation",835888
 "Rockefeller University","Department of Defense",421374
@@ -3012,8 +3012,8 @@
 "Rowan University","National Science Foundation",1985846
 "Rowan University","Department of Education",752373
 "Rowan-Cabarrus Community College","National Science Foundation",1251808
-"Rush University","National Institutes of Health",122774401.44
-"Rush University","Centers for Disease Control and Prevention",3583457
+"Rush University","National Institutes of Health",55511002.02
+"Rush University","Centers for Disease Control and Prevention",1771873
 "Rush University","Health Resources and Services Administration",1697148
 "Rush University","Department of Education",642176
 "Rush University","Agency for Healthcare Research and Quality",249999
@@ -3023,11 +3023,11 @@
 "Rutgers University-Camden","Department of Education",365815
 "Rutgers University-Camden","Health Resources and Services Administration",42027
 "Rutgers University-Camden","Department of State",15000
-"Rutgers University-New Brunswick","National Institutes of Health",1888872719.49
+"Rutgers University-New Brunswick","National Institutes of Health",159263266.71
 "Rutgers University-New Brunswick","National Science Foundation",47205906
-"Rutgers University-New Brunswick","Centers for Disease Control and Prevention",17114485.36
-"Rutgers University-New Brunswick","Department of the Army",16088210
 "Rutgers University-New Brunswick","Health Resources and Services Administration",14557885
+"Rutgers University-New Brunswick","National Institute of Food and Agriculture",12947950.05
+"Rutgers University-New Brunswick","Centers for Disease Control and Prevention",5442822.34
 "Rutgers University-Newark","National Institutes of Health",7678938
 "Rutgers University-Newark","Small Business Administration",3427248
 "Rutgers University-Newark","National Science Foundation",3420679
@@ -3053,7 +3053,7 @@
 "Saint Edward's University","Department of Education",679243
 "Saint Edward's University","Forest Service",6536
 "Saint Francis University","Department of Education",546285
-"Saint Francis University","Department of the Navy",181952
+"Saint Francis University","Department of the Navy",124598
 "Saint Francis University","National Oceanic and Atmospheric Administration",110000
 "Saint John Fisher College","Health Resources and Services Administration",1594950
 "Saint John Fisher College","National Science Foundation",954944
@@ -3067,8 +3067,8 @@
 "Saint Joseph's University","Small Business Administration",50000
 "Saint Leo University","National Science Foundation",73695
 "Saint Louis Community College","Department of Education",1405548.38
-"Saint Louis University","National Institutes of Health",100956032.76
-"Saint Louis University","Department of the Army",2692141.38
+"Saint Louis University","National Institutes of Health",20350939.04
+"Saint Louis University","Department of the Army",2770310.19
 "Saint Louis University","National Science Foundation",2499507
 "Saint Louis University","Health Resources and Services Administration",2442794
 "Saint Louis University","Department of Education",1064048.2
@@ -3079,7 +3079,7 @@
 "Saint Mary's College of California","Corporation for National and Community Service",24000
 "Saint Mary's College of California","Forest Service",10000
 "Saint Mary's University of Minnesota","Bureau of Land Management",1751417.35
-"Saint Mary's University of Minnesota","U.S. Fish and Wildlife Service",1185543
+"Saint Mary's University of Minnesota","U.S. Fish and Wildlife Service",860228
 "Saint Mary's University of Minnesota","National Park Service",166218.09
 "Saint Michael's College","National Science Foundation",1164739
 "Saint Paul College","Department of Education",842136
@@ -3115,11 +3115,11 @@
 "Samford University","Health Resources and Services Administration",2497927
 "Samuel Merritt University","Health Resources and Services Administration",3066946
 "San Bernardino Valley College","Department of Education",156605
-"San Diego State University","National Institutes of Health",49375382.38
-"San Diego State University","Department of the Navy",19187466.52
+"San Diego State University","National Institutes of Health",25056031.06
 "San Diego State University","National Science Foundation",11368344
 "San Diego State University","Department of Education",6663199.87
-"San Diego State University","Department of the Army",2679432.52
+"San Diego State University","Department of the Navy",2784919.63
+"San Diego State University","U.S. Geological Survey",1351169.08
 "San Francisco State University","National Science Foundation",9254861
 "San Francisco State University","National Institutes of Health",8501370
 "San Francisco State University","Department of Education",3186962
@@ -3139,7 +3139,7 @@
 "San Juan College","Economic Development Administration",112850
 "San Juan College","Rural Business Cooperative Service",50000
 "San Mateo County Community College District Office","Department of Education",1296234
-"Sanford Burnham Prebys Medical Discovery Institute","National Institutes of Health",49813832
+"Sanford Burnham Prebys Medical Discovery Institute","National Institutes of Health",49928916.8
 "Sanford Burnham Prebys Medical Discovery Institute","Department of the Army",476000
 "Sanford Burnham Prebys Medical Discovery Institute","National Aeronautics and Space Administration",387042
 "Sanford Burnham Prebys Medical Discovery Institute","Department of Veterans Affairs",10045
@@ -3164,7 +3164,7 @@
 "Savannah State University","Department of the Army",1065172
 "Savannah State University","Department of the Navy",475837.91
 "Savannah State University","National Science Foundation",372331
-"Savannah State University","Department of the Air Force",220242
+"Savannah State University","National Institutes of Health",236923.6
 "Schenectady County Community College","Administration for Children and Families",3000000
 "Schenectady County Community College","Department of Education",909836
 "School of Professional Horticulture, New York Botanical Garden","National Science Foundation",1157258
@@ -3172,7 +3172,7 @@
 "School of Professional Horticulture, New York Botanical Garden","National Endowment for the Arts",20000
 "School of the Museum of Fine Arts at Tufts University","National Science Foundation",11791683
 "School of the Museum of Fine Arts at Tufts University","National Institutes of Health",8026737
-"School of the Museum of Fine Arts at Tufts University","Department of the Army",7630004
+"School of the Museum of Fine Arts at Tufts University","Department of the Army",3815002
 "School of the Museum of Fine Arts at Tufts University","Department of the Navy",2679101
 "School of the Museum of Fine Arts at Tufts University","Agency for International Development",1375099.8
 "Schoolcraft College","Defense Logistics Agency",203601
@@ -3244,7 +3244,7 @@
 "Sistema Universitario Ana G Mendez","National Endowment for the Humanities",60000
 "Sistema Universitario Ana G Mendez","National Institute of Standards and Technology",55267
 "SIT Graduate Institute","Department of State",45979190
-"SIT Graduate Institute","Agency for International Development",26295290.08
+"SIT Graduate Institute","Agency for International Development",24851422.54
 "Sitting Bull College","Department of Education",2829951
 "Sitting Bull College","Bureau of Indian Affairs and Bureau of Indian Education",2191872
 "Sitting Bull College","Federal Transit Administration",1431394
@@ -3295,7 +3295,7 @@
 "South Dakota State University","National Science Foundation",4951159
 "South Dakota State University","Health Resources and Services Administration",2485734
 "South Dakota State University","National Institutes of Health",1805732
-"South Dakota State University","U.S. Geological Survey",1208874.94
+"South Dakota State University","National Aeronautics and Space Administration",916256
 "South Florida State College","Department of Education",1157906
 "South Florida State College","Corporation for National and Community Service",44534
 "South Georgia Technical College","Department of Education",600000
@@ -3344,7 +3344,7 @@
 "Southern Illinois University-Edwardsville","Administration for Children and Families",12046610
 "Southern Illinois University-Edwardsville","Department of Education",2238134
 "Southern Illinois University-Edwardsville","National Institute of Food and Agriculture",1364568
-"Southern Illinois University-Edwardsville","National Institutes of Health",1257049
+"Southern Illinois University-Edwardsville","National Institutes of Health",1117931
 "Southern Illinois University-Edwardsville","National Science Foundation",870488
 "Southern Illinois University-System Office","Department of the Navy",130630.62
 "Southern Illinois University-System Office","National Park Service",49424
@@ -3363,7 +3363,7 @@
 "Southern Regional Technical College","Department of Education",275155
 "Southern University and A & M College","Department of Education",11159859.55
 "Southern University and A & M College","National Science Foundation",5205182
-"Southern University and A & M College","National Aeronautics and Space Administration",2151347.29
+"Southern University and A & M College","National Aeronautics and Space Administration",1886197.25
 "Southern University and A & M College","Economic Development Administration",112850
 "Southern University and A & M College","Department of the Air Force",79000
 "Southern University at New Orleans","Department of Education",6028305.87
@@ -3371,9 +3371,9 @@
 "Southern University at New Orleans","Department of the Navy",330499.93
 "Southern University at Shreveport","Department of Education",7367707
 "Southern Utah University","Administration for Children and Families",4934445
-"Southern Utah University","Bureau of Land Management",1703271.88
 "Southern Utah University","Forest Service",1412803.4
 "Southern Utah University","Department of Education",1275145.15
+"Southern Utah University","Bureau of Land Management",703461.24
 "Southern Utah University","National Park Service",598585.57
 "Southern Vermont College","Department of Education",287295
 "Southern Wesleyan University","Department of Education",242136
@@ -3459,11 +3459,11 @@
 "St. Joseph's College-New York","National Science Foundation",1000000
 "St. Mary's University","Department of Education",3248551
 "St. Mary's University","National Institutes of Health",690299
-"Stanford University","Department of Energy",5686037753.6
-"Stanford University","National Institutes of Health",2086683020.7
-"Stanford University","Department of the Navy",124672329.9
-"Stanford University","National Aeronautics and Space Administration",84852001.05
+"Stanford University","Department of Energy",581413792.52
+"Stanford University","National Institutes of Health",506260449.15
 "Stanford University","National Science Foundation",69071999
+"Stanford University","Department of the Navy",32954229.78
+"Stanford University","Department of the Army",17126804
 "Stark State College","Department of Education",1032905
 "State College of Florida-Manatee-Sarasota","Department of Education",599223
 "State Fair Community College","Department of Education",822008
@@ -3476,8 +3476,8 @@
 "Stevens Institute of Technology","Department of Defense",8451508.59
 "Stevens Institute of Technology","National Science Foundation",5369543
 "Stevens Institute of Technology","Department of Homeland Security",2723000
-"Stevens Institute of Technology","Department of the Navy",2627561
-"Stevens Institute of Technology","Department of the Army",2044684.27
+"Stevens Institute of Technology","Department of the Navy",2427561
+"Stevens Institute of Technology","Office of the Under Secretary for Science and Technology",1862858
 "Stillman College","Department of Education",3767887
 "Stockton University","National Oceanic and Atmospheric Administration",226299
 "Stockton University","U.S. Geological Survey",23010
@@ -3497,7 +3497,7 @@
 "Sul Ross State University","National Park Service",17500
 "Suncoast Technical College","Department of Education",384887
 "Suncoast Technical College","Food and Nutrition Service",100000
-"SUNY at Albany","National Institutes of Health",25980491
+"SUNY at Albany","National Institutes of Health",12588743
 "SUNY at Albany","Department of the Air Force",12472522
 "SUNY at Albany","National Science Foundation",12154878
 "SUNY at Albany","Agency for International Development",10482691
@@ -3510,11 +3510,11 @@
 "SUNY at Fredonia","Department of Education",426690.49
 "SUNY at Fredonia","U.S. Geological Survey",11528.46
 "SUNY at Purchase College","National Institutes of Health",481043
-"SUNY Buffalo State","National Institutes of Health",219818175.86
+"SUNY Buffalo State","National Institutes of Health",64280587.29
 "SUNY Buffalo State","National Science Foundation",22526025
 "SUNY Buffalo State","Health Resources and Services Administration",6045995
-"SUNY Buffalo State","Department of the Navy",5926808
 "SUNY Buffalo State","Department of Energy",4555833.86
+"SUNY Buffalo State","Department of Education",3157752
 "SUNY College at Brockport","Department of Education",973902.89
 "SUNY College at Brockport","National Science Foundation",160884
 "SUNY College at Brockport","U.S. Geological Survey",29916
@@ -3556,7 +3556,7 @@
 "SUNY Downstate Medical Center","Substance Abuse and Mental Health Services Administration",1010000
 "SUNY Downstate Medical Center","National Science Foundation",82614
 "SUNY Downstate Medical Center","Department of Veterans Affairs",76958.36
-"SUNY Maritime College","Maritime Administration",623323.36
+"SUNY Maritime College","Maritime Administration",215661.68
 "SUNY Maritime College","Department of the Navy",76279.3
 "SUNY Oneonta","National Institute of Food and Agriculture",747525
 "SUNY Oneonta","Department of Education",421319
@@ -3595,11 +3595,11 @@
 "Teachers College of San Joaquin","Administration for Children and Families",20446452
 "Teachers College of San Joaquin","Forest Service",50000
 "Technical College of the Lowcountry","Department of Education",708367
-"Temple University","National Institutes of Health",92329691
+"Temple University","National Institutes of Health",82611359
 "Temple University","National Science Foundation",11744423
 "Temple University","Department of Education",5642944.62
 "Temple University","Department of Energy",3077352.22
-"Temple University","Administration on Aging",2287166
+"Temple University","Department of the Army",2306879.44
 "Tennessee College of Applied Technology-Crump","Rural Business Cooperative Service",80000
 "Tennessee College of Applied Technology-Morristown","Rural Business Cooperative Service",67687
 "Tennessee State University","Department of Education",12051297.83
@@ -3620,11 +3620,11 @@
 "Texas A & M International University","National Institute of Food and Agriculture",150844
 "Texas A & M International University","National Aeronautics and Space Administration",86416
 "Texas A & M International University","Internal Revenue Service",79336.82
-"Texas A & M University-College Station","National Institutes of Health",188906212.48
 "Texas A & M University-College Station","National Science Foundation",119563122
-"Texas A & M University-College Station","Department of the Army",36381941.54
+"Texas A & M University-College Station","National Institutes of Health",62452541.68
 "Texas A & M University-College Station","Department of Energy",36036277.95
-"Texas A & M University-College Station","Federal Emergency Management Agency",32813725.92
+"Texas A & M University-College Station","Federal Emergency Management Agency",29711091.49
+"Texas A & M University-College Station","Washington Headquarters Services",17273300
 "Texas A & M University-Commerce","National Science Foundation",1224839
 "Texas A & M University-Commerce","Department of Education",1135823
 "Texas A & M University-Commerce","Office of Justice Programs",344515
@@ -3663,10 +3663,10 @@
 "Texas State University","National Aeronautics and Space Administration",3533851
 "Texas State University","Department of the Army",2390152
 "Texas Tech University","National Science Foundation",7561062
-"Texas Tech University","National Institutes of Health",4754205
+"Texas Tech University","National Institutes of Health",4274205
 "Texas Tech University","Department of Energy",2405507.63
-"Texas Tech University","Department of the Army",1956957.99
 "Texas Tech University","Department of the Navy",1775878
+"Texas Tech University","Administration for Children and Families",1283557
 "Texas Tech University Health Sciences Center","National Institutes of Health",9600572
 "Texas Tech University Health Sciences Center","Health Resources and Services Administration",5379861
 "Texas Tech University Health Sciences Center","Department of the Army",1996479
@@ -3708,13 +3708,13 @@
 "The University of Alabama","National Science Foundation",11869596
 "The University of Alabama","Department of Energy",4489353.9
 "The University of Alabama","National Institutes of Health",2977372
-"The University of Alabama","Department of the Army",2772370.82
 "The University of Alabama","Health Resources and Services Administration",2671122
-"The University of Montana","National Institutes of Health",146324708.32
-"The University of Montana","Forest Service",26318825.67
+"The University of Alabama","Department of Education",2203798
+"The University of Montana","National Institutes of Health",23941979.61
 "The University of Montana","National Science Foundation",10749412
-"The University of Montana","Bureau of Land Management",4230269.8
+"The University of Montana","Forest Service",4279260.86
 "The University of Montana","Department of State",3389187
+"The University of Montana","Health Resources and Services Administration",2220728
 "The University of Montana-Western","Department of Education",272496
 "The University of Montana-Western","Bureau of Land Management",59889.72
 "The University of Montana-Western","Forest Service",3000
@@ -3732,9 +3732,9 @@
 "The University of Tennessee-Health Science Center","National Science Foundation",388254
 "The University of Tennessee-Knoxville","National Science Foundation",25113465
 "The University of Tennessee-Knoxville","Department of Energy",19429620.27
-"The University of Tennessee-Knoxville","Department of the Navy",9919884
 "The University of Tennessee-Knoxville","National Institute of Food and Agriculture",9901554.44
 "The University of Tennessee-Knoxville","National Institutes of Health",5431488
+"The University of Tennessee-Knoxville","Department of the Navy",4959942
 "The University of Tennessee-Martin","National Institute of Food and Agriculture",299988
 "The University of Tennessee-Martin","Department of Education",230897
 "The University of Tennessee-Martin","U.S. Fish and Wildlife Service",12000
@@ -3742,19 +3742,19 @@
 "The University of Texas at Arlington","National Institute of Standards and Technology",6805689
 "The University of Texas at Arlington","National Institutes of Health",5105419
 "The University of Texas at Arlington","Department of Education",3545393.45
-"The University of Texas at Arlington","Department of the Army",3440743.7
-"The University of Texas at Austin","Department of the Navy",514894515.85
+"The University of Texas at Arlington","Department of Energy",2760831
 "The University of Texas at Austin","National Science Foundation",141069497
+"The University of Texas at Austin","Department of the Navy",95793942.17
 "The University of Texas at Austin","National Institutes of Health",81041858
-"The University of Texas at Austin","National Aeronautics and Space Administration",74517721.2
-"The University of Texas at Austin","Department of Energy",50194531
+"The University of Texas at Austin","Department of Energy",49869771
+"The University of Texas at Austin","Department of Education",25333591.19
 "The University of Texas at Brownsville","National Science Foundation",225000
 "The University of Texas at Dallas","National Institutes of Health",18878490
 "The University of Texas at Dallas","Department of the Army",10717749
 "The University of Texas at Dallas","National Science Foundation",7576895
 "The University of Texas at Dallas","Department of the Navy",5591819
 "The University of Texas at Dallas","Department of Energy",2724238
-"The University of Texas at El Paso","National Institutes of Health",16742775
+"The University of Texas at El Paso","National Institutes of Health",14442225
 "The University of Texas at El Paso","National Science Foundation",11342592
 "The University of Texas at El Paso","Department of Education",7025859.27
 "The University of Texas at El Paso","National Institute of Food and Agriculture",3491879.83
@@ -3769,22 +3769,22 @@
 "The University of Texas at Tyler","National Science Foundation",349414
 "The University of Texas at Tyler","Economic Development Administration",112850
 "The University of Texas at Tyler","Animal and Plant Health Inspection Service",111754
-"The University of Texas Health Science Center at Houston","National Institutes of Health",87522322.69
-"The University of Texas Health Science Center at Houston","Department of the Army",10239710
-"The University of Texas Health Science Center at Houston","Centers for Disease Control and Prevention",4522506
+"The University of Texas Health Science Center at Houston","National Institutes of Health",88295663.19
+"The University of Texas Health Science Center at Houston","Department of the Army",5839830
+"The University of Texas Health Science Center at Houston","Centers for Disease Control and Prevention",2797580
 "The University of Texas Health Science Center at Houston","Health Resources and Services Administration",1598937
 "The University of Texas Health Science Center at Houston","Agency for Healthcare Research and Quality",1249135
-"The University of Texas Health Science Center at San Antonio","National Institutes of Health",316563891.8
-"The University of Texas Health Science Center at San Antonio","Department of the Army",52977684.94
+"The University of Texas Health Science Center at San Antonio","National Institutes of Health",86457341.17
+"The University of Texas Health Science Center at San Antonio","Department of the Army",10469558.47
 "The University of Texas Health Science Center at San Antonio","Department of Veterans Affairs",7421813.27
 "The University of Texas Health Science Center at San Antonio","Health Resources and Services Administration",5663041
 "The University of Texas Health Science Center at San Antonio","Office of Assistant Secretary for Health",3097680
-"The University of Texas MD Anderson Cancer Center","National Institutes of Health",938177998.31
+"The University of Texas MD Anderson Cancer Center","National Institutes of Health",147358816.27
 "The University of Texas MD Anderson Cancer Center","Health Resources and Services Administration",7653828
 "The University of Texas MD Anderson Cancer Center","Department of the Army",5124135
 "The University of Texas MD Anderson Cancer Center","Agency for Healthcare Research and Quality",738989
 "The University of Texas MD Anderson Cancer Center","National Science Foundation",331164
-"The University of Texas Medical Branch","National Institutes of Health",292043136
+"The University of Texas Medical Branch","National Institutes of Health",87511800
 "The University of Texas Medical Branch","Defense Threat Reduction Agency",3163525.02
 "The University of Texas Medical Branch","Health Resources and Services Administration",2561822
 "The University of Texas Medical Branch","Department of the Army",2468863
@@ -3804,7 +3804,7 @@
 "The University of West Florida","National Institutes of Health",151576
 "Thomas College","Department of Education",683998
 "Thomas Edison State University","Institute of Museum and Library Services",4320859
-"Thomas Jefferson University","National Institutes of Health",224246777
+"Thomas Jefferson University","National Institutes of Health",64756028
 "Thomas Jefferson University","Department of the Army",5910328
 "Thomas Jefferson University","Health Resources and Services Administration",1029977
 "Thomas Jefferson University","Agency for Healthcare Research and Quality",649322
@@ -3867,19 +3867,19 @@
 "Troy University","National Oceanic and Atmospheric Administration",271117
 "Troy University","Institute of Museum and Library Services",119042
 "Troy University","Forest Service",75000
-"Truckee Meadows Community College","Department of Energy",6413327.24
-"Truckee Meadows Community College","National Oceanic and Atmospheric Administration",2617523.72
-"Truckee Meadows Community College","National Park Service",2538005.87
+"Truckee Meadows Community College","Department of Energy",3206663.62
+"Truckee Meadows Community College","National Oceanic and Atmospheric Administration",1744595.72
 "Truckee Meadows Community College","National Science Foundation",1551709
-"Truckee Meadows Community College","U.S. Geological Survey",925249
+"Truckee Meadows Community College","National Park Service",920511.57
+"Truckee Meadows Community College","National Aeronautics and Space Administration",663409.09
 "Truman State University","National Science Foundation",1399915
 "Truman State University","Department of Education",766409
-"Tufts University","National Institutes of Health",111172523.2
-"Tufts University","Agency for International Development",40379656.2
-"Tufts University","Department of the Army",12811056
+"Tufts University","National Institutes of Health",85813681.3
 "Tufts University","National Science Foundation",11791683
 "Tufts University","Agricultural Research Service",11708036
-"Tulane University of Louisiana","National Institutes of Health",258770467.2
+"Tufts University","Agency for International Development",11496850.8
+"Tufts University","Department of the Army",4270352
+"Tulane University of Louisiana","National Institutes of Health",71209090.9
 "Tulane University of Louisiana","National Science Foundation",7865087
 "Tulane University of Louisiana","Department of Education",2796719
 "Tulane University of Louisiana","Health Resources and Services Administration",2021230
@@ -3935,41 +3935,41 @@
 "University of Akron","Department of Energy",786839
 "University of Akron","National Institutes of Health",772689
 "University of Akron","Office of Justice Programs",323392
-"University of Alabama at Birmingham","National Institutes of Health",1757327169.84
-"University of Alabama at Birmingham","Centers for Disease Control and Prevention",29177283.7
-"University of Alabama at Birmingham","National Aeronautics and Space Administration",19628604.84
+"University of Alabama at Birmingham","National Institutes of Health",293905423.84
 "University of Alabama at Birmingham","Department of the Army",12585544
 "University of Alabama at Birmingham","Health Resources and Services Administration",9688014
-"University of Alabama in Huntsville","National Aeronautics and Space Administration",45518504.26
+"University of Alabama at Birmingham","National Science Foundation",8381828
+"University of Alabama at Birmingham","Department of Education",7567606
+"University of Alabama in Huntsville","National Aeronautics and Space Administration",22565488.13
 "University of Alabama in Huntsville","National Science Foundation",12992137
-"University of Alabama in Huntsville","Department of the Army",12193528.49
+"University of Alabama in Huntsville","Department of the Army",10782088.49
 "University of Alabama in Huntsville","Defense Intelligence Agency",2000000
 "University of Alabama in Huntsville","Federal Aviation Administration",988856
-"University of Alaska Anchorage","Bureau of Land Management",4129259.68
 "University of Alaska Anchorage","National Science Foundation",4067024
 "University of Alaska Anchorage","Department of the Army",2490795
+"University of Alaska Anchorage","Bureau of Land Management",2064629.84
 "University of Alaska Anchorage","Health Resources and Services Administration",1302035
 "University of Alaska Anchorage","Administration on Aging",1119970
-"University of Alaska Fairbanks","National Aeronautics and Space Administration",68638095.07
 "University of Alaska Fairbanks","National Science Foundation",36155423
-"University of Alaska Fairbanks","National Oceanic and Atmospheric Administration",26444466
-"University of Alaska Fairbanks","U.S. Geological Survey",21894346.98
+"University of Alaska Fairbanks","National Aeronautics and Space Administration",16156595.79
 "University of Alaska Fairbanks","National Institutes of Health",11390229
+"University of Alaska Fairbanks","Department of Energy",9087656.6
+"University of Alaska Fairbanks","U.S. Geological Survey",7136370.66
 "University of Alaska Southeast","Department of Education",2569932.02
 "University of Alaska Southeast","National Science Foundation",872925
 "University of Alaska Southeast","Forest Service",81815.58
 "University of Alaska Southeast","National Oceanic and Atmospheric Administration",59289
 "University of Alaska Southeast","U.S. Fish and Wildlife Service",23938
-"University of Arizona","National Institutes of Health",318763948.65
-"University of Arizona","National Aeronautics and Space Administration",244570857.87
+"University of Arizona","National Institutes of Health",126254191.03
+"University of Arizona","National Aeronautics and Space Administration",48377867.29
 "University of Arizona","National Science Foundation",45040117
-"University of Arizona","Department of the Army",24797166.68
 "University of Arizona","Health Resources and Services Administration",13853947
+"University of Arizona","Department of the Army",11354289.78
 "University of Arkansas","National Science Foundation",15884006
 "University of Arkansas","Department of Energy",14139760.35
 "University of Arkansas","National Institute of Food and Agriculture",5895286
 "University of Arkansas","Department of Education",5312598.36
-"University of Arkansas","Agricultural Research Service",2758367.16
+"University of Arkansas","Agricultural Research Service",2741699.16
 "University of Arkansas at Little Rock","Department of Education",2577033.4
 "University of Arkansas at Little Rock","National Institute of Food and Agriculture",1726405
 "University of Arkansas at Little Rock","Small Business Administration",1361680.85
@@ -3995,35 +3995,35 @@
 "University of Bridgeport","Department of Education",618639
 "University of Bridgeport","National Institutes of Health",89551
 "University of California Office of the President","National Institute of Food and Agriculture",2563480
-"University of California Office of the President","U.S. Geological Survey",1614025
+"University of California Office of the President","U.S. Geological Survey",1607025
 "University of California Office of the President","Agricultural Research Service",495361
 "University of California Office of the President","Forest Service",390473.13
 "University of California Office of the President","National Institutes of Health",368064
-"University of California-Berkeley","Department of Energy",9950532469.09
-"University of California-Berkeley","National Institutes of Health",317224484
-"University of California-Berkeley","National Aeronautics and Space Administration",115210740.78
+"University of California-Berkeley","Department of Energy",1021148682.46
+"University of California-Berkeley","National Institutes of Health",155018452
 "University of California-Berkeley","National Science Foundation",111528407
-"University of California-Berkeley","Department of the Navy",21519873.63
-"University of California-Davis","National Institutes of Health",1938063065.32
+"University of California-Berkeley","National Aeronautics and Space Administration",29396832.26
+"University of California-Berkeley","Defense Advanced Research Projects Agency",9910980
+"University of California-Davis","National Institutes of Health",239824059.92
 "University of California-Davis","National Science Foundation",52840350
 "University of California-Davis","Agency for International Development",29819065
-"University of California-Davis","Department of the Navy",26994269.23
-"University of California-Davis","Department of the Army",26124310.6
+"University of California-Davis","National Institute of Food and Agriculture",25037719.55
+"University of California-Davis","Department of Education",14994481.38
 "University of California-Hastings College of Law","Offices, Boards and Divisions",122990.4
 "University of California-Hastings College of Law","Department of State",90384
 "University of California-Hastings College of Law","National Science Foundation",39998
 "University of California-Hastings College of Law","Transportation Security Administration",3300
 "University of California-Hastings College of Law","Department of Veterans Affairs",2100
-"University of California-Irvine","National Institutes of Health",301863251.2
+"University of California-Irvine","National Institutes of Health",151501441.4
 "University of California-Irvine","National Science Foundation",59760667
 "University of California-Irvine","Department of Education",21082450.29
 "University of California-Irvine","Department of Energy",13022982.06
 "University of California-Irvine","National Aeronautics and Space Administration",7653523.99
-"University of California-Los Angeles","National Institutes of Health",1228548014.64
-"University of California-Los Angeles","Department of the Navy",114230762.4
-"University of California-Los Angeles","National Aeronautics and Space Administration",68204950.23
+"University of California-Los Angeles","National Institutes of Health",409540376.08
 "University of California-Los Angeles","National Science Foundation",65284146
 "University of California-Los Angeles","Department of Energy",34347339.39
+"University of California-Los Angeles","National Aeronautics and Space Administration",17588200.41
+"University of California-Los Angeles","Department of the Navy",15785107.2
 "University of California-Merced","National Science Foundation",6892171
 "University of California-Merced","National Institutes of Health",5707704
 "University of California-Merced","Department of Education",2330747.53
@@ -4032,28 +4032,28 @@
 "University of California-Riverside","National Institutes of Health",29270091
 "University of California-Riverside","National Science Foundation",28297498
 "University of California-Riverside","Department of Energy",7258010
-"University of California-Riverside","Department of the Navy",7164816
 "University of California-Riverside","Department of Education",5518754.78
-"University of California-San Diego","National Institutes of Health",2880368952.4
-"University of California-San Diego","Department of the Navy",600422853.1
-"University of California-San Diego","National Oceanic and Atmospheric Administration",149252288.33
+"University of California-Riverside","National Institute of Food and Agriculture",5210645.18
+"University of California-San Diego","National Institutes of Health",458408314.08
 "University of California-San Diego","National Science Foundation",113327686
-"University of California-San Diego","Department of the Army",101945433.8
-"University of California-San Francisco","National Institutes of Health",3801753359.04
-"University of California-San Francisco","Centers for Disease Control and Prevention",45931801.58
-"University of California-San Francisco","Department of the Army",26812738
+"University of California-San Diego","Department of the Navy",44435436.35
+"University of California-San Diego","Department of the Army",33288758.6
+"University of California-San Diego","National Oceanic and Atmospheric Administration",29785229.19
+"University of California-San Francisco","National Institutes of Health",638295529.28
+"University of California-San Francisco","Department of the Army",26588363
 "University of California-San Francisco","Health Resources and Services Administration",22330561
+"University of California-San Francisco","Centers for Disease Control and Prevention",17661108.66
 "University of California-San Francisco","National Science Foundation",11731392
 "University of California-Santa Barbara","National Science Foundation",50453824
-"University of California-Santa Barbara","Department of the Army",47168790.72
 "University of California-Santa Barbara","National Institutes of Health",17647867
+"University of California-Santa Barbara","Department of the Army",16838209.36
 "University of California-Santa Barbara","Department of Energy",10907290.87
 "University of California-Santa Barbara","Department of the Navy",8583405
-"University of California-Santa Cruz","National Institutes of Health",38310367.8
+"University of California-Santa Cruz","National Institutes of Health",38330916.49
 "University of California-Santa Cruz","National Science Foundation",18895710
-"University of California-Santa Cruz","National Oceanic and Atmospheric Administration",11013160.1
 "University of California-Santa Cruz","Department of Education",5555947
-"University of California-Santa Cruz","National Aeronautics and Space Administration",3647775.59
+"University of California-Santa Cruz","Department of Energy",3611796
+"University of California-Santa Cruz","Bureau of Reclamation",3380362.43
 "University of California-System Administration Central Office","Department of Energy",144998505
 "University of California-System Administration Central Office","National Aeronautics and Space Administration",4969986
 "University of California-System Administration Central Office","Department of Education",3500000
@@ -4062,11 +4062,11 @@
 "University of Central Arkansas","National Institute of Food and Agriculture",469000
 "University of Central Arkansas","Department of Education",315155
 "University of Central Arkansas","Forest Service",20000
-"University of Central Florida","Department of the Army",38616010.3
 "University of Central Florida","National Science Foundation",24104191
-"University of Central Florida","Department of the Navy",24096360.44
-"University of Central Florida","National Aeronautics and Space Administration",11979916.84
-"University of Central Florida","Department of the Air Force",10829230
+"University of Central Florida","Department of the Army",13641302.3
+"University of Central Florida","National Institutes of Health",9672540
+"University of Central Florida","Department of Education",9157952.64
+"University of Central Florida","Defense Health Agency",7657866
 "University of Central Missouri","Department of Education",1568880
 "University of Central Missouri","National Institute of Food and Agriculture",895823
 "University of Central Oklahoma","Department of Education",7575497
@@ -4075,46 +4075,46 @@
 "University of Central Oklahoma","National Institutes of Health",274871
 "University of Central Oklahoma","National Endowment for the Arts",45000
 "University of Charleston","Department of Education",364527
-"University of Chicago","National Institutes of Health",2212501419.2
-"University of Chicago","Centers for Disease Control and Prevention",269433956.12
-"University of Chicago","National Science Foundation",168407037.63
-"University of Chicago","Health Resources and Services Administration",41511948.44
-"University of Chicago","Centers for Medicare and Medicaid Services",38643025.67
-"University of Cincinnati","National Institutes of Health",281345979.15
-"University of Cincinnati","Centers for Disease Control and Prevention",12235531.18
+"University of Chicago","National Institutes of Health",184409526.8
+"University of Chicago","National Science Foundation",67134425.51
+"University of Chicago","Centers for Disease Control and Prevention",45617634.02
+"University of Chicago","Centers for Medicare and Medicaid Services",39098880.67
+"University of Chicago","Office of the Assistant Secretary for Administration",20730585.38
+"University of Cincinnati","National Institutes of Health",70570819.95
 "University of Cincinnati","National Science Foundation",10152701
-"University of Cincinnati","Department of the Air Force",6444096
 "University of Cincinnati","Department of Education",5786181.02
-"University of Colorado Boulder","National Aeronautics and Space Administration",774026496.67
-"University of Colorado Boulder","National Oceanic and Atmospheric Administration",379482577.41
-"University of Colorado Boulder","National Institutes of Health",224655118.2
+"University of Cincinnati","Department of the Air Force",5620096
+"University of Cincinnati","Department of Veterans Affairs",2887843.56
 "University of Colorado Boulder","National Science Foundation",99954246
-"University of Colorado Boulder","National Institute of Standards and Technology",43279997.67
+"University of Colorado Boulder","National Aeronautics and Space Administration",74162197.49
+"University of Colorado Boulder","National Oceanic and Atmospheric Administration",60588068.69
+"University of Colorado Boulder","National Institutes of Health",54707400.1
+"University of Colorado Boulder","National Institute of Standards and Technology",21637664.89
 "University of Colorado Colorado Springs","Department of Education",1256493
 "University of Colorado Colorado Springs","National Institutes of Health",914365
 "University of Colorado Colorado Springs","National Science Foundation",731860
 "University of Colorado Colorado Springs","Department of the Navy",213910.63
 "University of Colorado Colorado Springs","Health Resources and Services Administration",208321
-"University of Colorado Denver/Anschutz Medical Campus","National Institutes of Health",483628858.46
-"University of Colorado Denver/Anschutz Medical Campus","Department of the Army",9862333
+"University of Colorado Denver/Anschutz Medical Campus","National Institutes of Health",235352364.79
+"University of Colorado Denver/Anschutz Medical Campus","Department of the Army",9702334
 "University of Colorado Denver/Anschutz Medical Campus","Health Resources and Services Administration",9385904
 "University of Colorado Denver/Anschutz Medical Campus","National Science Foundation",7287643
 "University of Colorado Denver/Anschutz Medical Campus","Centers for Disease Control and Prevention",5363546
 "University of Connecticut","National Institutes of Health",80040282
 "University of Connecticut","National Science Foundation",23282886
-"University of Connecticut","Department of the Navy",15857434
-"University of Connecticut","Department of the Air Force",11517382
+"University of Connecticut","Department of the Air Force",8467007
 "University of Connecticut","Department of Education",8276333.61
-"University of Dayton","Department of the Air Force",684697340.9
-"University of Dayton","Department of the Navy",2423394.01
+"University of Connecticut","Department of Energy",6714808.39
+"University of Dayton","Department of the Air Force",121977156.58
 "University of Dayton","Defense Logistics Agency",1500000
+"University of Dayton","Department of the Navy",1024516.01
 "University of Dayton","Federal Aviation Administration",574944
 "University of Dayton","Department of the Army",525665
-"University of Delaware","National Institutes of Health",77858449.37
+"University of Delaware","National Institutes of Health",37527350.53
 "University of Delaware","National Science Foundation",32005724
 "University of Delaware","National Institute of Standards and Technology",12435381.82
-"University of Delaware","Department of the Army",10127715.6
 "University of Delaware","Department of Energy",9902331.82
+"University of Delaware","Department of Education",5633473.01
 "University of Denver","National Institutes of Health",6522183
 "University of Denver","Administration for Children and Families",5367940
 "University of Denver","National Science Foundation",2042343
@@ -4127,12 +4127,12 @@
 "University of Detroit Mercy","National Endowment for the Arts",35000
 "University of Dubuque","Department of Education",235084
 "University of Dubuque","National Park Service",9200
-"University of Florida","National Institutes of Health",828566736.73
-"University of Florida","Department of the Army",57332812.9
+"University of Florida","National Institutes of Health",178429680.01
 "University of Florida","National Science Foundation",38894535
 "University of Florida","National Institute of Food and Agriculture",35409665.56
-"University of Florida","National Oceanic and Atmospheric Administration",20744052.78
-"University of Georgia","National Institutes of Health",250471467
+"University of Florida","Department of Education",16368603.42
+"University of Florida","Department of Energy",13844079.59
+"University of Georgia","National Institutes of Health",64737009
 "University of Georgia","National Science Foundation",31982294
 "University of Georgia","National Institute of Food and Agriculture",18902380.29
 "University of Georgia","Department of Energy",11931211.86
@@ -4152,11 +4152,11 @@
 "University of Hawaii at Hilo","Small Business Administration",979805.87
 "University of Hawaii at Hilo","National Park Service",847908.59
 "University of Hawaii at Hilo","Department of the Navy",449730
-"University of Hawaii at Manoa","National Institutes of Health",185325893.75
-"University of Hawaii at Manoa","National Oceanic and Atmospheric Administration",106928867.84
-"University of Hawaii at Manoa","Department of the Navy",68116563.18
-"University of Hawaii at Manoa","National Aeronautics and Space Administration",60034859.68
+"University of Hawaii at Manoa","National Institutes of Health",48411848.55
 "University of Hawaii at Manoa","National Science Foundation",35443364
+"University of Hawaii at Manoa","National Oceanic and Atmospheric Administration",26011923.8
+"University of Hawaii at Manoa","National Aeronautics and Space Administration",21953647.34
+"University of Hawaii at Manoa","Department of the Navy",20480729.09
 "University of Hawaii Maui College","Department of Education",5031674
 "University of Hawaii Maui College","National Institute of Food and Agriculture",979532
 "University of Hawaii Maui College","Economic Development Administration",210000
@@ -4170,50 +4170,50 @@
 "University of Houston","National Institutes of Health",23652795
 "University of Houston","National Science Foundation",23096869
 "University of Houston","Department of Education",5372601.96
-"University of Houston","Department of Energy",4754510.3
+"University of Houston","Department of Energy",4739106.1
 "University of Houston","Small Business Administration",2764011
 "University of Houston-System Administration","National Institutes of Health",23652795
 "University of Houston-System Administration","National Science Foundation",22306680
-"University of Houston-System Administration","Department of Energy",4754510.3
+"University of Houston-System Administration","Department of Energy",4739106.1
 "University of Houston-System Administration","Small Business Administration",2764011
 "University of Houston-System Administration","Department of Education",2141687.45
 "University of Idaho","National Science Foundation",10986235
-"University of Idaho","National Institutes of Health",8792648
+"University of Idaho","National Institutes of Health",8492648
 "University of Idaho","Department of Energy",5040021.97
-"University of Idaho","Agricultural Research Service",4994957.88
-"University of Idaho","Forest Service",4980923.64
-"University of Illinois at Chicago","National Institutes of Health",361497599
+"University of Idaho","Department of Education",4782215.76
+"University of Idaho","National Institute of Food and Agriculture",2841649.68
+"University of Illinois at Chicago","National Institutes of Health",120105443
 "University of Illinois at Chicago","National Science Foundation",21795011
-"University of Illinois at Chicago","Health Resources and Services Administration",18504181.54
-"University of Illinois at Chicago","Department of the Army",11248177
-"University of Illinois at Chicago","Centers for Disease Control and Prevention",6245996
+"University of Illinois at Chicago","Health Resources and Services Administration",17041322.61
+"University of Illinois at Chicago","Department of the Army",10074958
+"University of Illinois at Chicago","Centers for Disease Control and Prevention",5739641
 "University of Illinois at Springfield","National Science Foundation",43448
-"University of Illinois at Urbana-Champaign","National Institutes of Health",142066869
 "University of Illinois at Urbana-Champaign","National Science Foundation",91559680
-"University of Illinois at Urbana-Champaign","Department of the Army",52530659.36
+"University of Illinois at Urbana-Champaign","National Institutes of Health",70767711
 "University of Illinois at Urbana-Champaign","Department of Energy",50138522.72
-"University of Illinois at Urbana-Champaign","Department of the Navy",17423526
+"University of Illinois at Urbana-Champaign","National Institute of Food and Agriculture",13656064.88
+"University of Illinois at Urbana-Champaign","Department of the Army",11650393.56
 "University of Indianapolis","Health Resources and Services Administration",640000
-"University of Iowa","National Institutes of Health",818689665.6
-"University of Iowa","Department of the Army",14433482
-"University of Iowa","Centers for Disease Control and Prevention",13915054
+"University of Iowa","National Institutes of Health",172050631.2
+"University of Iowa","Department of the Army",14237018
 "University of Iowa","National Science Foundation",10379116
-"University of Iowa","National Aeronautics and Space Administration",9694931.78
-"University of Kansas","National Institutes of Health",343717581
+"University of Iowa","Centers for Disease Control and Prevention",9726280
+"University of Iowa","National Aeronautics and Space Administration",5555012.78
+"University of Kansas","National Institutes of Health",89769547
 "University of Kansas","Department of Education",22536008.28
 "University of Kansas","National Science Foundation",19798060
-"University of Kansas","Department of the Army",6121628.44
 "University of Kansas","Administration for Children and Families",6027680
-"University of Kentucky","National Institutes of Health",418333018
-"University of Kentucky","Centers for Disease Control and Prevention",58443260
+"University of Kansas","Health Resources and Services Administration",4434125
+"University of Kentucky","National Institutes of Health",132788165
 "University of Kentucky","National Science Foundation",20830901
 "University of Kentucky","Department of Energy",13453729.28
-"University of Kentucky","Department of the Navy",13335334.9
+"University of Kentucky","Centers for Disease Control and Prevention",12422895
+"University of Kentucky","Health Resources and Services Administration",7620549
 "University of La Verne","Department of Education",1204557
 "University of La Verne","National Science Foundation",199025
-"University of Louisiana at Lafayette","National Institutes of Health",6499024.93
 "University of Louisiana at Lafayette","Department of Education",5441392.49
 "University of Louisiana at Lafayette","National Science Foundation",4032832
+"University of Louisiana at Lafayette","National Institutes of Health",2904852.31
 "University of Louisiana at Lafayette","Department of Energy",2317562.71
 "University of Louisiana at Lafayette","Defense Logistics Agency",664514
 "University of Louisiana at Monroe","Department of Education",1000752.71
@@ -4221,7 +4221,7 @@
 "University of Louisiana at Monroe","Corporation for National and Community Service",671135
 "University of Louisiana at Monroe","National Science Foundation",274857
 "University of Louisiana at Monroe","Rural Business Cooperative Service",176239
-"University of Louisville","National Institutes of Health",62319073.04
+"University of Louisville","National Institutes of Health",63227330.06
 "University of Louisville","Department of Veterans Affairs",8384174.53
 "University of Louisville","National Science Foundation",6781109
 "University of Louisville","Health Resources and Services Administration",3148905
@@ -4243,45 +4243,45 @@
 "University of Mary Washington","National Park Service",44999.55
 "University of Mary Washington","National Historical Publications and Records Commission",44625
 "University of Mary Washington","National Science Foundation",19811
-"University of Maryland Center for Environmental Science","National Oceanic and Atmospheric Administration",5175761.33
+"University of Maryland Center for Environmental Science","National Oceanic and Atmospheric Administration",4935761.33
 "University of Maryland Center for Environmental Science","National Science Foundation",2416812
 "University of Maryland Center for Environmental Science","Environmental Protection Agency",1497597
 "University of Maryland Center for Environmental Science","National Aeronautics and Space Administration",1067601
-"University of Maryland Center for Environmental Science","National Park Service",810958.75
+"University of Maryland Center for Environmental Science","National Park Service",383441.25
 "University of Maryland Eastern Shore","Department of Education",7005644
 "University of Maryland Eastern Shore","National Oceanic and Atmospheric Administration",3415000
 "University of Maryland Eastern Shore","National Institute of Food and Agriculture",1983426
 "University of Maryland Eastern Shore","National Science Foundation",1450483
 "University of Maryland Eastern Shore","Offices, Boards and Divisions",300000
 "University of Maryland-Baltimore County","National Science Foundation",13934521
-"University of Maryland-Baltimore County","National Aeronautics and Space Administration",13209862.44
-"University of Maryland-Baltimore County","National Institutes of Health",6969665
-"University of Maryland-Baltimore County","Department of the Army",2278106
+"University of Maryland-Baltimore County","National Aeronautics and Space Administration",13149862.44
+"University of Maryland-Baltimore County","National Institutes of Health",8152340
 "University of Maryland-Baltimore County","Department of Education",1867882
-"University of Maryland-College Park","National Institutes of Health",203430634
-"University of Maryland-College Park","National Aeronautics and Space Administration",164240339.68
-"University of Maryland-College Park","Department of the Army",84608114.6
-"University of Maryland-College Park","Department of the Navy",78367262.1
-"University of Maryland-College Park","National Science Foundation",64290655
+"University of Maryland-Baltimore County","Department of the Army",1139053
+"University of Maryland-College Park","National Science Foundation",63970655
+"University of Maryland-College Park","National Aeronautics and Space Administration",52943660.51
+"University of Maryland-College Park","National Institutes of Health",50796250.15
+"University of Maryland-College Park","National Oceanic and Atmospheric Administration",27422738.47
+"University of Maryland-College Park","National Institute of Standards and Technology",18325211.46
 "University of Maryland-University College","National Institutes of Health",42112.5
 "University of Maryland-University College","Animal and Plant Health Inspection Service",13044
 "University of Maryland-University College","Federal Highway Administration",11652
 "University of Maryland-University College","National Aeronautics and Space Administration",4164
-"University of Maryland, Baltimore","National Institutes of Health",1724331176.49
-"University of Maryland, Baltimore","Centers for Disease Control and Prevention",270407709
-"University of Maryland, Baltimore","Substance Abuse and Mental Health Services Administration",16928739
+"University of Maryland, Baltimore","National Institutes of Health",177234375.13
+"University of Maryland, Baltimore","Centers for Disease Control and Prevention",89744043
+"University of Maryland, Baltimore","Substance Abuse and Mental Health Services Administration",9253114
 "University of Maryland, Baltimore","Office of Assistant Secretary for Preparedness and Response",8852722
 "University of Maryland, Baltimore","Department of Education",5906684
-"University of Massachusetts Medical School Worcester","National Institutes of Health",868802153.05
+"University of Massachusetts Medical School Worcester","National Institutes of Health",158156935.45
 "University of Massachusetts Medical School Worcester","Federal Prison System / Bureau of Prisons",42754253.32
 "University of Massachusetts Medical School Worcester","Centers for Medicare and Medicaid Services",5722347
 "University of Massachusetts Medical School Worcester","Health Resources and Services Administration",5297612
 "University of Massachusetts Medical School Worcester","Department of the Army",3381093
 "University of Massachusetts-Amherst","National Science Foundation",38324996
 "University of Massachusetts-Amherst","National Institutes of Health",29034495
-"University of Massachusetts-Amherst","Department of the Army",7620372.93
 "University of Massachusetts-Amherst","Administration for Children and Families",6800000
 "University of Massachusetts-Amherst","Department of Energy",6758761.7
+"University of Massachusetts-Amherst","Office of the Assistant Secretary for Administration",2999911.24
 "University of Massachusetts-Boston","Department of Education",45870012.62
 "University of Massachusetts-Boston","National Institutes of Health",6281263
 "University of Massachusetts-Boston","National Science Foundation",5059546
@@ -4292,8 +4292,8 @@
 "University of Massachusetts-Dartmouth","Department of Education",866560
 "University of Massachusetts-Dartmouth","Economic Development Administration",600000
 "University of Massachusetts-Dartmouth","Health Resources and Services Administration",319892
-"University of Massachusetts-Lowell","Department of the Army",35959801.4
-"University of Massachusetts-Lowell","National Institutes of Health",8002021
+"University of Massachusetts-Lowell","Department of the Army",10729698.28
+"University of Massachusetts-Lowell","National Institutes of Health",7758649
 "University of Massachusetts-Lowell","National Science Foundation",3632606
 "University of Massachusetts-Lowell","Department of Energy",2562374
 "University of Massachusetts-Lowell","Centers for Disease Control and Prevention",1729267
@@ -4302,42 +4302,42 @@
 "University of Memphis","Department of Education",1553200
 "University of Memphis","U.S. Geological Survey",1053877.03
 "University of Memphis","Department of the Army",510243
-"University of Miami","National Institutes of Health",863098432
-"University of Miami","National Oceanic and Atmospheric Administration",47709751.54
-"University of Miami","Department of the Army",18107728
+"University of Miami","National Institutes of Health",146406246
+"University of Miami","National Oceanic and Atmospheric Administration",23784528.77
 "University of Miami","National Science Foundation",11630561
 "University of Miami","Health Resources and Services Administration",6959250
-"University of Michigan-Ann Arbor","National Institutes of Health",2682732327
-"University of Michigan-Ann Arbor","Department of the Army",196379809.14
-"University of Michigan-Ann Arbor","Centers for Disease Control and Prevention",106970290.98
+"University of Miami","Department of the Army",6609856.4
+"University of Michigan-Ann Arbor","National Institutes of Health",561478375
 "University of Michigan-Ann Arbor","National Science Foundation",101634889
-"University of Michigan-Ann Arbor","National Aeronautics and Space Administration",100738987.04
+"University of Michigan-Ann Arbor","Department of the Army",38952524.69
+"University of Michigan-Ann Arbor","Department of Energy",29640491.05
+"University of Michigan-Ann Arbor","National Aeronautics and Space Administration",19977101.76
 "University of Minnesota-Duluth","National Science Foundation",3107620
 "University of Minnesota-Duluth","National Institutes of Health",897625
 "University of Minnesota-Duluth","Department of the Air Force",12000
 "University of Minnesota-Duluth","National Aeronautics and Space Administration",4868
 "University of Minnesota-Morris","Department of Education",1045906
 "University of Minnesota-Morris","National Science Foundation",45170
-"University of Minnesota-Twin Cities","National Institutes of Health",3161739114.6
+"University of Minnesota-Twin Cities","National Institutes of Health",278032193.95
 "University of Minnesota-Twin Cities","National Science Foundation",70268492
-"University of Minnesota-Twin Cities","Department of the Army",34111048
-"University of Minnesota-Twin Cities","Centers for Disease Control and Prevention",29852461.28
-"University of Minnesota-Twin Cities","Department of the Navy",26397887
-"University of Mississippi","National Institutes of Health",29654221
-"University of Mississippi","Department of the Army",13045186
-"University of Mississippi","Department of the Navy",10853499.74
+"University of Minnesota-Twin Cities","National Institute of Food and Agriculture",26168313.75
+"University of Minnesota-Twin Cities","Department of the Army",15980099
+"University of Minnesota-Twin Cities","Department of Energy",15940282
+"University of Mississippi","National Institutes of Health",8658619
 "University of Mississippi","Food and Nutrition Service",8008976.86
-"University of Mississippi","Agricultural Research Service",4614344.38
-"University of Mississippi Medical Center","National Institutes of Health",241394555.32
+"University of Mississippi","Department of the Army",6522593
+"University of Mississippi","Department of the Navy",5667335.74
+"University of Mississippi","Agricultural Research Service",4615647.19
+"University of Mississippi Medical Center","National Institutes of Health",36425507.84
 "University of Mississippi Medical Center","Health Resources and Services Administration",7979072
 "University of Mississippi Medical Center","Department of Homeland Security",1999998
 "University of Mississippi Medical Center","Substance Abuse and Mental Health Services Administration",1009679
 "University of Mississippi Medical Center","Department of Veterans Affairs",989346.24
-"University of Missouri-Columbia","National Institutes of Health",47913272
-"University of Missouri-Columbia","Department of the Army",19093166.64
+"University of Missouri-Columbia","National Institutes of Health",47491472
 "University of Missouri-Columbia","National Science Foundation",18419431
 "University of Missouri-Columbia","Department of Education",13870121.46
-"University of Missouri-Columbia","Agricultural Research Service",5475853.6
+"University of Missouri-Columbia","Department of the Army",9486653.88
+"University of Missouri-Columbia","Centers for Medicare and Medicaid Services",4911171
 "University of Missouri-Kansas City","Department of the Navy",8057840
 "University of Missouri-Kansas City","National Institutes of Health",4591116
 "University of Missouri-Kansas City","Health Resources and Services Administration",2098743
@@ -4361,13 +4361,13 @@
 "University of Nebraska Medical Center","National Institutes of Health",83649838
 "University of Nebraska Medical Center","Health Resources and Services Administration",6686412
 "University of Nebraska Medical Center","Centers for Disease Control and Prevention",2886725
-"University of Nebraska Medical Center","Department of the Army",2447174.97
 "University of Nebraska Medical Center","Office of Assistant Secretary for Preparedness and Response",2067640.54
+"University of Nebraska Medical Center","Department of the Army",1381489.97
 "University of Nebraska-Lincoln","National Science Foundation",27120690
-"University of Nebraska-Lincoln","National Institutes of Health",19649877
-"University of Nebraska-Lincoln","Agricultural Research Service",11148092.12
+"University of Nebraska-Lincoln","National Institutes of Health",18828885
 "University of Nebraska-Lincoln","National Institute of Food and Agriculture",8719803.24
 "University of Nebraska-Lincoln","Department of Energy",7714729.01
+"University of Nebraska-Lincoln","Department of Education",7074292.73
 "University of Nevada-Las Vegas","Department of Education",9938179
 "University of Nevada-Las Vegas","National Institutes of Health",8969807
 "University of Nevada-Las Vegas","National Science Foundation",7728928
@@ -4384,16 +4384,16 @@
 "University of New England","National Science Foundation",491537
 "University of New England","Department of the Navy",475889.23
 "University of New Hampshire-Main Campus","National Science Foundation",19730273
-"University of New Hampshire-Main Campus","National Aeronautics and Space Administration",18031248.56
-"University of New Hampshire-Main Campus","National Oceanic and Atmospheric Administration",11975928.94
+"University of New Hampshire-Main Campus","National Oceanic and Atmospheric Administration",11681616.49
+"University of New Hampshire-Main Campus","National Aeronautics and Space Administration",8461124.28
 "University of New Hampshire-Main Campus","National Institutes of Health",4347243
 "University of New Hampshire-Main Campus","Department of Education",4263360
 "University of New Haven","Office of Justice Programs",438246
 "University of New Haven","National Science Foundation",269463
 "University of New Haven","Department of the Army",4999
-"University of New Mexico-Main Campus","National Institutes of Health",259673272
-"University of New Mexico-Main Campus","Department of the Air Force",38369682
+"University of New Mexico-Main Campus","National Institutes of Health",63805791
 "University of New Mexico-Main Campus","National Science Foundation",23487913
+"University of New Mexico-Main Campus","Department of the Air Force",11162910
 "University of New Mexico-Main Campus","Health Resources and Services Administration",7816688
 "University of New Mexico-Main Campus","Department of Education",5950658.87
 "University of New Mexico-Taos Campus","Department of Education",545945
@@ -4411,18 +4411,18 @@
 "University of North Carolina at Asheville","U.S. Fish and Wildlife Service",30380
 "University of North Carolina at Asheville","National Park Service",27000
 "University of North Carolina at Asheville","U.S. Geological Survey",9855
-"University of North Carolina at Chapel Hill","National Institutes of Health",7018209032.1
+"University of North Carolina at Chapel Hill","National Institutes of Health",439514046.3
 "University of North Carolina at Chapel Hill","Agency for International Development",60036608
-"University of North Carolina at Chapel Hill","Environmental Protection Agency",46716853.6
-"University of North Carolina at Chapel Hill","Department of the Army",46366899.6
 "University of North Carolina at Chapel Hill","National Science Foundation",41318676
+"University of North Carolina at Chapel Hill","Department of Education",22151822.87
+"University of North Carolina at Chapel Hill","Department of the Army",15455633.2
 "University of North Carolina at Charlotte","National Science Foundation",16586346
 "University of North Carolina at Charlotte","National Institutes of Health",4337387
 "University of North Carolina at Charlotte","Department of Education",4194956.16
 "University of North Carolina at Charlotte","Department of the Army",3678335
 "University of North Carolina at Charlotte","Immediate Office of the Secretary of Transportation",1416900
-"University of North Carolina at Greensboro","Department of Education",13723199.72
 "University of North Carolina at Greensboro","National Institutes of Health",6303926
+"University of North Carolina at Greensboro","Department of Education",4870001.72
 "University of North Carolina at Greensboro","Health Resources and Services Administration",1748552
 "University of North Carolina at Greensboro","National Institute of Food and Agriculture",1254000
 "University of North Carolina at Greensboro","National Science Foundation",521345
@@ -4435,11 +4435,11 @@
 "University of North Carolina General Administration","Department of the Army",170699
 "University of North Carolina Wilmington","National Science Foundation",1642997
 "University of North Carolina Wilmington","Bureau of Ocean Energy Management",1043497
-"University of North Carolina Wilmington","National Oceanic and Atmospheric Administration",588352
+"University of North Carolina Wilmington","National Oceanic and Atmospheric Administration",423412
 "University of North Carolina Wilmington","Department of State",147109
 "University of North Carolina Wilmington","National Park Service",146560
 "University of North Dakota","Department of Energy",19763749.53
-"University of North Dakota","National Institutes of Health",12734755
+"University of North Dakota","National Institutes of Health",12652255
 "University of North Dakota","Health Resources and Services Administration",6066574
 "University of North Dakota","National Science Foundation",2439924
 "University of North Dakota","Department of Education",2341164.23
@@ -4459,8 +4459,8 @@
 "University of North Texas","Department of the Army",1169502
 "University of North Texas","Department of Energy",837154
 "University of North Texas at Dallas","Department of Education",1237559
-"University of North Texas Health Science Center","National Institutes of Health",72345410
 "University of North Texas Health Science Center","Federal Prison System / Bureau of Prisons",33133902.46
+"University of North Texas Health Science Center","National Institutes of Health",27554974.6
 "University of North Texas Health Science Center","Office of Justice Programs",8844570.18
 "University of North Texas Health Science Center","Health Resources and Services Administration",1590581
 "University of North Texas Health Science Center","Centers for Disease Control and Prevention",784965
@@ -4474,39 +4474,39 @@
 "University of Northern Iowa","National Science Foundation",377585
 "University of Northern Iowa","Economic Development Administration",131000
 "University of Northern Iowa","Environmental Protection Agency",120809.56
-"University of Notre Dame","National Institutes of Health",62845020
 "University of Notre Dame","National Science Foundation",24792952
-"University of Notre Dame","Department of the Navy",24035328
+"University of Notre Dame","National Institutes of Health",24089130
 "University of Notre Dame","Department of Energy",13887098
-"University of Notre Dame","Department of the Army",3067166
-"University of Oklahoma-Health Sciences Center","National Institutes of Health",44296667.21
+"University of Notre Dame","Department of the Navy",8011776
+"University of Notre Dame","Department of the Army",2552153
+"University of Oklahoma-Health Sciences Center","National Institutes of Health",44784686.39
 "University of Oklahoma-Health Sciences Center","Health Resources and Services Administration",3175708
 "University of Oklahoma-Health Sciences Center","Agency for Healthcare Research and Quality",2642781
 "University of Oklahoma-Health Sciences Center","Department of the Army",2444734
 "University of Oklahoma-Health Sciences Center","Department of Veterans Affairs",1209390.17
-"University of Oklahoma-Norman Campus","National Oceanic and Atmospheric Administration",206498078.14
-"University of Oklahoma-Norman Campus","National Aeronautics and Space Administration",66105075.3
+"University of Oklahoma-Norman Campus","National Oceanic and Atmospheric Administration",34374158.15
+"University of Oklahoma-Norman Campus","National Aeronautics and Space Administration",24028163.3
 "University of Oklahoma-Norman Campus","Department of Education",14873811.72
 "University of Oklahoma-Norman Campus","National Science Foundation",12134615
 "University of Oklahoma-Norman Campus","National Institutes of Health",10445456
 "University of Oregon","National Institutes of Health",35364037
 "University of Oregon","Department of Education",22147955.34
 "University of Oregon","National Science Foundation",14474665
-"University of Oregon","U.S. Geological Survey",2725267.88
 "University of Oregon","Department of Energy",2181651.88
-"University of Pennsylvania","National Institutes of Health",2824142257.24
+"University of Oregon","Administration on Aging",1543593
+"University of Pennsylvania","National Institutes of Health",515476503.29
 "University of Pennsylvania","National Science Foundation",44127796
-"University of Pennsylvania","Department of the Navy",34360638.45
-"University of Pennsylvania","Department of the Army",25342806.12
-"University of Pennsylvania","Centers for Disease Control and Prevention",16974645
+"University of Pennsylvania","Department of the Navy",11453546.15
+"University of Pennsylvania","Department of the Army",9714861.52
+"University of Pennsylvania","Department of Energy",9500442
 "University of Pikeville","Department of Education",1493459
 "University of Pikeville","Health Resources and Services Administration",650000
 "University of Pikeville","Rural Utilities Service",128675
-"University of Pittsburgh-Pittsburgh Campus","National Institutes of Health",3812296577.76
-"University of Pittsburgh-Pittsburgh Campus","Department of the Army",171965080.44
-"University of Pittsburgh-Pittsburgh Campus","Centers for Disease Control and Prevention",24094488
+"University of Pittsburgh-Pittsburgh Campus","National Institutes of Health",527628098.36
+"University of Pittsburgh-Pittsburgh Campus","Department of the Army",30275199.18
 "University of Pittsburgh-Pittsburgh Campus","National Science Foundation",18436913
-"University of Pittsburgh-Pittsburgh Campus","Department of the Navy",11965241.88
+"University of Pittsburgh-Pittsburgh Campus","Defense Health Agency",8811342.88
+"University of Pittsburgh-Pittsburgh Campus","Centers for Disease Control and Prevention",8104384
 "University of Portland","Forest Service",94252
 "University of Puerto Rico-Arecibo","Department of Education",338568
 "University of Puerto Rico-Bayamon","Department of Education",321755
@@ -4517,20 +4517,20 @@
 "University of Puerto Rico-Humacao","National Science Foundation",223392
 "University of Puerto Rico-Humacao","Corporation for National and Community Service",100000
 "University of Puerto Rico-Humacao","National Aeronautics and Space Administration",92725
-"University of Puerto Rico-Mayaguez","National Oceanic and Atmospheric Administration",8078965.61
 "University of Puerto Rico-Mayaguez","National Science Foundation",7725413
+"University of Puerto Rico-Mayaguez","National Oceanic and Atmospheric Administration",3850507.39
 "University of Puerto Rico-Mayaguez","Department of Education",1080383.28
 "University of Puerto Rico-Mayaguez","National Institute of Food and Agriculture",774868
 "University of Puerto Rico-Mayaguez","National Institutes of Health",666067
 "University of Puerto Rico-Medical Sciences","National Institutes of Health",33001806
 "University of Puerto Rico-Medical Sciences","Office of Assistant Secretary for Health",2488000
-"University of Puerto Rico-Medical Sciences","Health Resources and Services Administration",1975946.06
 "University of Puerto Rico-Medical Sciences","National Science Foundation",1842404
+"University of Puerto Rico-Medical Sciences","Health Resources and Services Administration",1646696.01
 "University of Puerto Rico-Medical Sciences","Environmental Protection Agency",1050121
 "University of Puerto Rico-Ponce","National Institutes of Health",623987
 "University of Puerto Rico-Ponce","Department of Education",249640
 "University of Puerto Rico-Rio Piedras","National Science Foundation",7359573
-"University of Puerto Rico-Rio Piedras","National Institutes of Health",5466713
+"University of Puerto Rico-Rio Piedras","National Institutes of Health",5399213
 "University of Puerto Rico-Rio Piedras","National Institute of Food and Agriculture",1846240.97
 "University of Puerto Rico-Rio Piedras","Department of Education",1190336.37
 "University of Puerto Rico-Rio Piedras","National Aeronautics and Space Administration",1105404
@@ -4538,19 +4538,19 @@
 "University of Puget Sound","National Science Foundation",723843
 "University of Rhode Island","National Science Foundation",18836726
 "University of Rhode Island","National Institutes of Health",14611366
-"University of Rhode Island","Department of the Navy",9447876
 "University of Rhode Island","Agency for International Development",8961634
-"University of Rhode Island","National Oceanic and Atmospheric Administration",8521120.9
+"University of Rhode Island","National Oceanic and Atmospheric Administration",4164911.45
+"University of Rhode Island","Department of the Navy",3277812
 "University of Richmond","National Science Foundation",853646
 "University of Richmond","National Institutes of Health",532593
 "University of Richmond","Administration on Aging",499771
 "University of Richmond","Department of Energy",103876.45
 "University of Richmond","National Endowment for the Humanities",99984
-"University of Rochester","National Institutes of Health",1143169328.77
+"University of Rochester","National Institutes of Health",170247011.97
 "University of Rochester","Department of Energy",78869343.69
 "University of Rochester","National Science Foundation",20450895
 "University of Rochester","Department of the Army",9884699
-"University of Rochester","Department of the Navy",8506416.34
+"University of Rochester","Centers for Disease Control and Prevention",3959216
 "University of Saint Francis-Fort Wayne","Department of Education",242136
 "University of Saint Francis-Fort Wayne","Substance Abuse and Mental Health Services Administration",51096
 "University of Saint Francis-Fort Wayne","Department of the Army",15000
@@ -4575,11 +4575,11 @@
 "University of South Alabama","National Science Foundation",3375774
 "University of South Alabama","Department of Education",1180193.94
 "University of South Alabama","Forest Service",534473.45
-"University of South Carolina-Beaufort","National Institutes of Health",40115851
+"University of South Carolina-Beaufort","National Institutes of Health",39140851
 "University of South Carolina-Beaufort","National Science Foundation",18268566
-"University of South Carolina-Beaufort","Centers for Disease Control and Prevention",7608196
 "University of South Carolina-Beaufort","Department of Education",7156935.35
 "University of South Carolina-Beaufort","Department of Energy",5717615.22
+"University of South Carolina-Beaufort","Centers for Disease Control and Prevention",5206852
 "University of South Carolina-Columbia","Health Resources and Services Administration",996002
 "University of South Carolina-Upstate","Department of Education",448488
 "University of South Dakota","National Institutes of Health",7087989
@@ -4587,16 +4587,16 @@
 "University of South Dakota","Administration for Children and Families",2462215
 "University of South Dakota","Health Resources and Services Administration",1596091
 "University of South Dakota","National Institute of Standards and Technology",1442389
-"University of South Florida","National Institutes of Health",392585814.12
+"University of South Florida","National Institutes of Health",75817779.14
 "University of South Florida","National Science Foundation",12649052
 "University of South Florida","Department of Education",8794532.71
 "University of South Florida","Federal Transit Administration",4174922.84
-"University of South Florida","U.S. Geological Survey",4101196.65
-"University of Southern California","National Institutes of Health",1832000489.08
-"University of Southern California","Department of the Army",235401285.76
-"University of Southern California","Department of the Air Force",156743355
-"University of Southern California","Defense Advanced Research Projects Agency",59312478
+"University of South Florida","Department of the Army",4019184
+"University of Southern California","National Institutes of Health",280592611.04
 "University of Southern California","National Science Foundation",50208827
+"University of Southern California","Department of the Army",43199346.97
+"University of Southern California","Defense Advanced Research Projects Agency",27188451
+"University of Southern California","Department of the Air Force",20601753
 "University of Southern Indiana","Health Resources and Services Administration",1350355
 "University of Southern Indiana","Department of Education",242136
 "University of Southern Indiana","Forest Service",9000
@@ -4605,11 +4605,11 @@
 "University of Southern Maine","Small Business Administration",722222
 "University of Southern Maine","Health Resources and Services Administration",716714
 "University of Southern Maine","Office of Justice Programs",424595.01
-"University of Southern Mississippi","National Oceanic and Atmospheric Administration",36176016.12
-"University of Southern Mississippi","Department of the Army",11575188
+"University of Southern Mississippi","National Oceanic and Atmospheric Administration",12028272.7
 "University of Southern Mississippi","National Institutes of Health",5426449
 "University of Southern Mississippi","Department of Defense",4728344.19
-"University of Southern Mississippi","Department of the Navy",2547045.32
+"University of Southern Mississippi","Department of the Army",4260065
+"University of Southern Mississippi","Department of the Navy",2408198.66
 "University of St Francis","National Science Foundation",790498
 "University of St Thomas","National Science Foundation",949855
 "University of St Thomas","Department of Education",757288.36
@@ -4618,12 +4618,12 @@
 "University of Texas Health Science Center at Tyler","Centers for Disease Control and Prevention",3181418
 "University of Texas Health Science Center at Tyler","Health Resources and Services Administration",276614
 "University of Texas Health Science Center at Tyler","Department of Veterans Affairs",6000
-"University of Texas Southwestern Medical Center","National Institutes of Health",351094174.5
-"University of Texas Southwestern Medical Center","Department of the Army",37741036
+"University of Texas Southwestern Medical Center","National Institutes of Health",176572585.75
 "University of Texas Southwestern Medical Center","Department of Veterans Affairs",14817754.43
+"University of Texas Southwestern Medical Center","Department of the Army",6353328
 "University of Texas Southwestern Medical Center","National Science Foundation",1134953
 "University of Texas Southwestern Medical Center","Health Resources and Services Administration",1050934
-"University of the District of Columbia","Department of Education",6053623.62
+"University of the District of Columbia","Department of Education",6444073.62
 "University of the District of Columbia","Department of the Army",551889
 "University of the District of Columbia","Health Resources and Services Administration",525000
 "University of the District of Columbia","National Science Foundation",399931
@@ -4656,26 +4656,26 @@
 "University of Tulsa","Department of the Air Force",607803
 "University of Tulsa","U.S. Secret Service",250000
 "University of Tulsa","Bureau of Reclamation",144396
-"University of Utah","National Institutes of Health",1471439323.05
-"University of Utah","Department of the Army",44385093.2
+"University of Utah","National Institutes of Health",196977003.35
 "University of Utah","National Science Foundation",38885431
-"University of Utah","Centers for Disease Control and Prevention",28896884.3
-"University of Utah","Department of Energy",23179997.77
-"University of Vermont","National Institutes of Health",159437555.2
+"University of Utah","Department of Energy",23194637.17
+"University of Utah","Department of the Army",14316569.44
+"University of Utah","Health Resources and Services Administration",9830607
+"University of Vermont","National Institutes of Health",53901681.92
 "University of Vermont","National Science Foundation",15094417
 "University of Vermont","National Institute of Food and Agriculture",14993189.51
 "University of Vermont","Department of Education",1811094
 "University of Vermont","Under Secretary for Health/Veterans Health Administration",1592758
-"University of Virginia","National Institutes of Health",296837631
-"University of Virginia","Department of the Army",47458152.7
-"University of Virginia","Department of the Navy",43257247.85
+"University of Virginia","National Institutes of Health",146214042
 "University of Virginia","National Science Foundation",33945106
-"University of Virginia","Department of Education",14240137.6
-"University of Washington","National Institutes of Health",8341258000.88
-"University of Washington","Department of the Navy",264577534.4
-"University of Washington","National Oceanic and Atmospheric Administration",239920115.36
-"University of Washington","Centers for Disease Control and Prevention",167229843.49
-"University of Washington","Department of the Army",148193857.9
+"University of Virginia","Department of the Navy",7430523.95
+"University of Virginia","Department of the Army",7117006.94
+"University of Virginia","Department of Education",7048268.8
+"University of Washington","National Institutes of Health",457740541.48
+"University of Washington","National Science Foundation",97202120
+"University of Washington","Department of the Navy",47641615.6
+"University of Washington","Centers for Disease Control and Prevention",41279066.59
+"University of Washington","Health Resources and Services Administration",41249454
 "University of West Alabama","Department of Education",3398655
 "University of West Alabama","National Institute of Food and Agriculture",299842
 "University of West Georgia","National Park Service",217004.05
@@ -4695,11 +4695,11 @@
 "University of Wisconsin-La Crosse","U.S. Geological Survey",393894
 "University of Wisconsin-La Crosse","National Science Foundation",330479
 "University of Wisconsin-La Crosse","U.S. Fish and Wildlife Service",22432.15
-"University of Wisconsin-Madison","National Institutes of Health",2476009105.92
-"University of Wisconsin-Madison","National Oceanic and Atmospheric Administration",107305657.88
+"University of Wisconsin-Madison","National Institutes of Health",318184280.94
 "University of Wisconsin-Madison","National Science Foundation",77532246
 "University of Wisconsin-Madison","Department of Energy",54001687.67
-"University of Wisconsin-Madison","National Aeronautics and Space Administration",37495981.54
+"University of Wisconsin-Madison","National Oceanic and Atmospheric Administration",17848939.23
+"University of Wisconsin-Madison","Department of the Navy",13381061.05
 "University of Wisconsin-Milwaukee","National Science Foundation",8895988
 "University of Wisconsin-Milwaukee","Department of Education",6601164
 "University of Wisconsin-Milwaukee","National Institutes of Health",4857011
@@ -4713,9 +4713,9 @@
 "University of Wisconsin-Platteville","National Institute of Food and Agriculture",272110
 "University of Wisconsin-Platteville","National Science Foundation",105309
 "University of Wisconsin-Platteville","Agricultural Research Service",99000
-"University of Wisconsin-Stevens Point","U.S. Geological Survey",756966.33
+"University of Wisconsin-Stevens Point","U.S. Geological Survey",710131.63
 "University of Wisconsin-Stevens Point","Department of Education",495667
-"University of Wisconsin-Stevens Point","U.S. Fish and Wildlife Service",492823.66
+"University of Wisconsin-Stevens Point","U.S. Fish and Wildlife Service",189149.83
 "University of Wisconsin-Stevens Point","Forest Service",58875
 "University of Wisconsin-Stevens Point","National Endowment for the Arts",10000
 "University of Wisconsin-Stout","Department of Education",1516927.05
@@ -4736,17 +4736,17 @@
 "University of Wyoming","Health Resources and Services Administration",2506392
 "University System of Maryland-Research Centers","Department of the Navy",135962.83
 "Upper Iowa University","Environmental Protection Agency",95586
-"Upstate Medical University","National Institutes of Health",32109653.48
+"Upstate Medical University","National Institutes of Health",18487995.88
 "Upstate Medical University","Department of the Army",1374500
 "Upstate Medical University","Health Resources and Services Administration",734210
 "Upstate Medical University","Department of the Navy",115050.42
 "Upstate Medical University","Department of Veterans Affairs",68400
 "Ursinus College","National Endowment for the Humanities",33861
-"Utah State University","Department of the Air Force",51775438.42
-"Utah State University","National Institutes of Health",27146473.71
-"Utah State University","Department of the Navy",26176250
+"Utah State University","Department of the Air Force",51122158.42
 "Utah State University","Missile Defense Agency",26037130.99
-"Utah State University","National Aeronautics and Space Administration",25898072.13
+"Utah State University","Department of Education",15564720.67
+"Utah State University","Department of the Navy",13088125
+"Utah State University","National Science Foundation",10811368
 "Utah Valley University","Department of Education",5060964.66
 "Utah Valley University","National Science Foundation",2027640
 "Utah Valley University","Federal Emergency Management Agency",518046
@@ -4765,11 +4765,11 @@
 "Valparaiso University","National Science Foundation",131745
 "Valparaiso University","Substance Abuse and Mental Health Services Administration",91380
 "Vance-Granville Community College","Federal Prison System / Bureau of Prisons",68391.4
-"Vanderbilt University","National Institutes of Health",3640037347.84
+"Vanderbilt University","National Institutes of Health",361753400.84
 "Vanderbilt University","National Science Foundation",25509986
-"Vanderbilt University","Department of the Army",21455700
-"Vanderbilt University","Centers for Disease Control and Prevention",14042342
+"Vanderbilt University","Department of the Army",19855700
 "Vanderbilt University","Department of Energy",12535034
+"Vanderbilt University","Department of Veterans Affairs",12459849.31
 "Vanguard University of Southern California","Department of Education",1251682
 "Vassar College","National Science Foundation",559524
 "Vaughn College of Aeronautics and Technology","Department of Education",2004821
@@ -4799,7 +4799,7 @@
 "Vincennes University","Mine Safety and Health Administration",260255.77
 "Vincennes University","Corporation for National and Community Service",75000
 "Vincennes University","Internal Revenue Service",18000
-"Virginia Commonwealth University","National Institutes of Health",354698132.32
+"Virginia Commonwealth University","National Institutes of Health",83120878.22
 "Virginia Commonwealth University","Department of the Army",8370197
 "Virginia Commonwealth University","Department of Education",7145886
 "Virginia Commonwealth University","National Science Foundation",6681524
@@ -4807,11 +4807,11 @@
 "Virginia Highlands Community College","Department of Education",720778.64
 "Virginia Military Institute","Department of the Navy",2750418
 "Virginia Military Institute","Federal Highway Administration",1000000
-"Virginia Polytechnic Institute and State University","Department of the Navy",119745004.12
 "Virginia Polytechnic Institute and State University","National Science Foundation",49334195
-"Virginia Polytechnic Institute and State University","National Institutes of Health",29549863.68
-"Virginia Polytechnic Institute and State University","Department of the Army",27719961.28
+"Virginia Polytechnic Institute and State University","National Institutes of Health",29522295.06
 "Virginia Polytechnic Institute and State University","Department of Energy",22653134.82
+"Virginia Polytechnic Institute and State University","Department of the Navy",14890579.03
+"Virginia Polytechnic Institute and State University","National Institute of Food and Agriculture",12461027.61
 "Virginia State University","Department of Education",7309183.77
 "Virginia State University","National Institute of Food and Agriculture",4367329.31
 "Virginia State University","National Science Foundation",2029243
@@ -4830,11 +4830,11 @@
 "Voorhees College","Department of Education",2425044
 "Voorhees College","National Park Service",500000
 "Wabash College","National Science Foundation",235749
-"Wake Forest University","National Institutes of Health",149946533.7
-"Wake Forest University","Department of the Army",12270365.6
+"Wake Forest University","National Institutes of Health",119476070.98
+"Wake Forest University","Department of the Army",11909052.6
 "Wake Forest University","Department of Veterans Affairs",4018853.72
 "Wake Forest University","Defense Advanced Research Projects Agency",3152915
-"Wake Forest University","Centers for Disease Control and Prevention",3059926
+"Wake Forest University","National Science Foundation",2947332
 "Wake Technical Community College","Department of Education",707441
 "Walla Walla Community College","National Science Foundation",649800
 "Walla Walla Community College","Department of Education",438971
@@ -4852,19 +4852,19 @@
 "Washington State Community College","Department of Education",740240.51
 "Washington State University","National Institutes of Health",36427882
 "Washington State University","National Institute of Food and Agriculture",23536174.07
-"Washington State University","Department of the Army",20910970
 "Washington State University","National Science Foundation",19674285
-"Washington State University","Department of Energy",15574870.12
-"Washington University in St Louis","National Institutes of Health",3515106039.29
-"Washington University in St Louis","Centers for Disease Control and Prevention",21375554
+"Washington State University","Department of Energy",14053532.12
+"Washington State University","Department of Education",10526262.8
+"Washington University in St Louis","National Institutes of Health",483478979.31
 "Washington University in St Louis","National Science Foundation",20225716
 "Washington University in St Louis","Department of the Army",12375109
-"Washington University in St Louis","National Aeronautics and Space Administration",4499377.93
+"Washington University in St Louis","Centers for Disease Control and Prevention",4564111
+"Washington University in St Louis","Department of Energy",4441754.88
 "Waubonsee Community College","Department of Education",1472403
 "Wayne Community College","Department of Education",450000
 "Wayne County Community College District","Department of Education",427591
 "Wayne State College","Department of Education",339067
-"Wayne State University","National Institutes of Health",836886105.38
+"Wayne State University","National Institutes of Health",74528067.51
 "Wayne State University","Department of the Army",11050493
 "Wayne State University","National Science Foundation",7030828
 "Wayne State University","Health Resources and Services Administration",4872000
@@ -4913,14 +4913,14 @@
 "West Virginia State University","National Institute of Food and Agriculture",2770811.04
 "West Virginia State University","National Science Foundation",299998
 "West Virginia State University","Agricultural Research Service",24225
-"West Virginia University","Centers for Disease Control and Prevention",42313028.52
 "West Virginia University","National Institutes of Health",25705641
-"West Virginia University","Department of Energy",21736713.88
-"West Virginia University","National Aeronautics and Space Administration",18665352.78
+"West Virginia University","Department of Energy",10806260.94
 "West Virginia University","Federal Prison System / Bureau of Prisons",8789207.32
-"West Virginia University Institute of Technology","Centers for Disease Control and Prevention",5593601.56
+"West Virginia University","National Science Foundation",8726133
+"West Virginia University","National Aeronautics and Space Administration",6116290.62
 "West Virginia University Institute of Technology","Department of Veterans Affairs",2355135.52
 "West Virginia University Institute of Technology","National Institute of Food and Agriculture",1538864
+"West Virginia University Institute of Technology","Centers for Disease Control and Prevention",1135616.78
 "West Virginia University Institute of Technology","Department of Energy",1047177
 "West Virginia University Institute of Technology","Department of Education",794691
 "West Virginia Wesleyan College","Department of Education",2000000
@@ -4994,10 +4994,10 @@
 "Whitworth University","National Science Foundation",325000
 "Wichita Area Technical College","Department of Education",449870
 "Wichita State University","Department of Education",10480031.2
-"Wichita State University","National Aeronautics and Space Administration",9935153
 "Wichita State University","Department of the Air Force",5199993
 "Wichita State University","Department of the Navy",2754735
 "Wichita State University","Department of the Army",2647884
+"Wichita State University","Office of Economic Adjustment",2466536
 "Widener University","National Science Foundation",588626
 "Widener University","Health Resources and Services Administration",449357
 "Widener University","National Institutes of Health",21600
@@ -5050,19 +5050,19 @@
 "Woodbury University","Department of Education",593245
 "Woodland Community College","Department of Education",1055881
 "Wor-Wic Community College","Department of Education",968950
-"Worcester Polytechnic Institute","Department of the Army",15672962
 "Worcester Polytechnic Institute","National Science Foundation",11439954
 "Worcester Polytechnic Institute","National Institutes of Health",4669508
+"Worcester Polytechnic Institute","Department of the Army",3598981
 "Worcester Polytechnic Institute","Department of Energy",2509188.7
 "Worcester Polytechnic Institute","Department of the Air Force",1553899
-"Wright State University-Lake Campus","Department of the Air Force",23237479
-"Wright State University-Lake Campus","Department of the Navy",7953267.79
+"Wright State University-Lake Campus","Department of the Air Force",6555018
 "Wright State University-Lake Campus","National Institutes of Health",6415491
+"Wright State University-Lake Campus","Department of the Navy",3953433.79
 "Wright State University-Lake Campus","National Science Foundation",1684396
 "Wright State University-Lake Campus","Department of Defense",1384575
-"Wright State University-Main Campus","Department of the Air Force",23237479
-"Wright State University-Main Campus","Department of the Navy",7953267.79
+"Wright State University-Main Campus","Department of the Air Force",6555018
 "Wright State University-Main Campus","National Institutes of Health",6415491
+"Wright State University-Main Campus","Department of the Navy",3953433.79
 "Wright State University-Main Campus","National Science Foundation",1684396
 "Wright State University-Main Campus","Department of Defense",1384575
 "Wytheville Community College","Department of Education",1030704.35
@@ -5076,13 +5076,13 @@
 "Xavier University of Louisiana","Department of the Army",1173447
 "Yakima Valley College","Department of Education",3045621
 "Yakima Valley College","Corporation for National and Community Service",50734
-"Yale University","National Institutes of Health",2301552540.84
+"Yale University","National Institutes of Health",455254530.98
 "Yale University","National Science Foundation",31828605
 "Yale University","Department of the Army",12736695
 "Yale University","Department of Energy",7914709.16
 "Yale University","Defense Advanced Research Projects Agency",6461254
 "Yavapai College","Department of Education",1041914.02
-"Yeshiva University","National Institutes of Health",419975841.07
+"Yeshiva University","National Institutes of Health",172849151.27
 "Yeshiva University","Department of the Army",2823812
 "Yeshiva University","Agency for Healthcare Research and Quality",2804497
 "Yeshiva University","Centers for Disease Control and Prevention",2274332

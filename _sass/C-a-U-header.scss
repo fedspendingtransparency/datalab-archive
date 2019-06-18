@@ -1,55 +1,61 @@
+$cuRed: #881E3D;
+
 .cu-header {
-    max-width: 1200px;
-    margin: 0 auto 1rem;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+  padding: 0 1rem;
 }
 
 .cu-header__blurb {
-    max-width: 900px;
-    margin: 1rem auto;
-    color: #555555;
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 24px;
-    text-align: center;
+  max-width: 900px;
+  margin: 1rem auto;
+  color: #555555;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: center;
 }
 
 .cu-header__controls {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-    margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  margin-top: 20px;
 }
 
 .cu-header__number {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    span {
-        color: #9b9b9b;
-        font-size: 48px;
-        font-weight: bold;
-        display: inline-block;
-        border-bottom: 1px solid #ddd;
-    }
+  span {
+    color: #9b9b9b;
+    font-size: 48px;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 1px solid #ddd;
+  }
 }
 
 .cu-header__title {
-    text-transform: uppercase;
-    color: #9b9b9b;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 2.8px;
-    line-height: 20px;
-    text-align: center;
-    margin: 0.5rem 0 1rem;
+  text-transform: uppercase;
+  color: #9b9b9b;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2.8px;
+  line-height: 20px;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
 }
 
 .cu-header__teaser {
-    color: #881e3d;
-    font-size: 42px;
-    line-height: 48px;
-    text-align: center;
-    margin: 0;
-    font-weight: normal;
+  color: #555555;
+  font-size: 42px;
+  line-height: 48px;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+}
+
+.cu-header--red {
+  color: $cuRed;
 }

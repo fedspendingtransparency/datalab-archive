@@ -1,6 +1,3 @@
----
----
-
 // add legend
 d3.select('#legend_scaleKey').append('circle')
   .attr('r', 25)
@@ -21,9 +18,11 @@ d3.select('#legend_scaleKey').append('circle')
 let chartData; // ref to current data parent (only for center label) 
 let categoryLabel; // text to show in center
 let dataType; // text to show in center
+let catCalculatedWidth, catMaxHeight, catWidth, catHeight, radius, xScale, yScale, svg;
+let scopedData;
+
 
 function changeCategory(category) {
-  let scopedData;
 
   if (category.value === 'contracts') {
     scopedData = contractsChartArray;
@@ -66,54 +65,93 @@ function downloadData() {
     }
 }
 
-const width = 700;
-const height = 700;
-const radius = Math.min(width, height) / 2;
-const xScale = d3.scale.linear().range([0, 2 * Math.PI]);
-const yScale = d3.scale.sqrt().range([0, radius]);
-const svg = d3.select('#sunburst')
-  .append('svg')
-  .attr('width', width)
-  .attr('height', height)
-  .append('g')
-  .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')')
-  ;
-
 const formatNumber = d3.format('$,.0f');
-const center = d3.select('#center');
+let centerGroup;
 
 function updateCenter(d) {
-  center.selectAll('*').remove();
+    d3.select('#tab').remove();
+
   if (d.depth === 0) {
-    center.append('div')
-      .attr('id', 'tab')
-      .html(`
-        <div class='heading'>Total FY2018 ${categoryLabel} Funding</div>
-        <div class='amount'>${formatNumber(d.value)}</div>
-      `)
-      ;
+      centerGroup = svg.append('g')
+        .attr('id', 'tab');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-1em')
+          .style('text-anchor', 'middle')
+          .text('Total FY2018 ' + categoryLabel  + ' Funding')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '1em')
+          .style('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount');
+
+
   } else if (d.depth === 1) {
-    center.append('div')
-      .attr('id', 'tab')
-      .html(`
-        <div class='heading'>${dataType} Category</div>
-        <div class='title'>${d.name}</div>
-        <div class='heading'>Total FY2018 Funding</div>
-        <div class='amount'>${formatNumber(d.value)}</div>
-      `)
-      ;
+
+      centerGroup = svg.append('g')
+          .attr('id', 'tab');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-3em')
+          .style('text-anchor', 'middle')
+          .text(dataType  + ' Category')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-2em')
+          .style('text-anchor', 'middle')
+          .text(d.name)
+          .attr('class', 'center-title');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '.5em')
+          .style('text-anchor', 'middle')
+          .text('Total FY2018 Funding')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '1.5em')
+          .style('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount');
+
   } else {
-    center.append('div')
-      .attr('id', 'tab')
-      .html(`
-        <div class='heading'>${dataType} Category</div>
-        <div class='title'>${d.parent.name}</div>
-        <div class='heading'>${dataType} Name</div>
-        <div class='title'>${d.name}</div>
-        <div class='heading'>Total FY2018 Funding</div>
-        <div class='amount'>${formatNumber(d.value)}</div>
-      `)
-      ;
+
+      centerGroup = svg.append('g')
+          .attr('id', 'tab');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-3em')
+          .style('text-anchor', 'middle')
+          .text(dataType  + ' Category')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '-2em')
+          .style('text-anchor', 'middle')
+          .text(d.parent.name)
+          .attr('class', 'center-title');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '.5em')
+          .style('text-anchor', 'middle')
+          .text(dataType +  ' Name')
+          .attr('class', 'center-heading');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '1.5em')
+          .style('text-anchor', 'middle')
+          .text(d.name)
+          .attr('class', 'center-title');
+
+      centerGroup.append('svg:text')
+          .attr('dy', '2.5em')
+          .style('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount');
+
   }
 }
 
@@ -137,6 +175,21 @@ const arc = d3.svg.arc()
   ;
 
 function drawChart(data) {
+    const widthPercentage = .7;
+    catCalculatedWidth = window.innerWidth * widthPercentage;
+    catMaxHeight = document.getElementById("sunburst").clientHeight;
+    catWidth = catCalculatedWidth < catMaxHeight ? catCalculatedWidth : catMaxHeight;
+    catHeight = catWidth;
+    radius = Math.min(catWidth, catHeight) / 2;
+    xScale = d3.scale.linear().range([0, 2 * Math.PI]);
+    yScale = d3.scale.sqrt().range([0, radius]);
+    svg = d3.select('#sunburst')
+        .append('svg')
+        .attr('width', catWidth)
+        .attr('height', catHeight)
+        .append('g')
+        .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')')
+    ;
   svg.selectAll('path').remove();
   const paths = svg.selectAll('path').data(data);
   paths.enter().append('path')
@@ -228,12 +281,15 @@ function createInvestmentTable() {
     $('#investment-table-datatable').dataTable({
       data: data,
       columns: [
-	{"data": 'family'},
-	{"data": 'Program_Title'},
-	{"data": 'Agency'},
-	{"data": 'Subagency'},
-	{"data": 'Recipient'},
-	{"data": 'Obligation'},
+        {'data': 'family'},
+        {'data': 'Program_Title'},
+        {'data': 'Agency'},
+        {'data': 'Subagency'},
+        {'data': 'Recipient'},
+        {'data': 'Obligation',
+          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+          'className': 'dt-right'
+        },
       ],
       deferRender:    true,
       scrollCollapse: true,
@@ -288,4 +344,32 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
   });
 });
 
-d3.select(self.frameElement).style('height', height + 'px');
+d3.select(self.frameElement).style('height', catHeight + 'px');
+
+// Redraw based on the new size whenever the browser window is resized.
+window.addEventListener("resize", function() {
+    // put this in a set time out
+    // $("#sunburst").empty();
+    //
+    catCalculatedWidth = window.innerWidth * widthPercentage;
+    catMaxHeight = document.getElementById("sunburst").clientHeight;
+    catWidth = catCalculatedWidth < catMaxHeight ? catCalculatedWidth : catMaxHeight;
+    catHeight = catWidth;
+    radius = Math.min(catWidth, catHeight) / 2;
+    xScale = d3.scale.linear().range([0, 2 * Math.PI]);
+    yScale = d3.scale.sqrt().range([0, radius]);
+
+    // TODO: Make a selection based on the radio button that's selected
+    if(grantsChartArray) {
+        $("#sunburst").empty();
+        drawChart(grantsChartArray);
+
+    } else if (scopedData) {
+        $("#sunburst").empty();
+        drawChart(scopedData);
+
+    }
+
+});
+
+// TODO: Add debouncing
