@@ -132,13 +132,13 @@
     }
 
     function preloadData() {
-        d3.csv("/data-lab-data/CU/top5InstitutionsPerAgency.csv", function (data) {
+        d3.csv("/data-lab-data/CU/top5InstitutionsPerAgency_v3.csv", function (data) {
             data.forEach(indexData, 'institutions');
 
             done += 1;
         });
 
-        d3.csv("/data-lab-data/CU/top5InvestmentsPerAgency.csv", function (data) {
+        d3.csv("/data-lab-data/CU/top5InvestmentsPerAgency_v3.csv", function (data) {
             data.forEach(indexData, 'investments');
 
             done += 1;

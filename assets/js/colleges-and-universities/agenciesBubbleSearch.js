@@ -3,7 +3,7 @@
 
 (function () {
     const searchData = [];
-
+    
     let parentSection, searchContainer, inputWrapper, input, list;
     let buttons = d3.select('#bubble-function-buttons');
 
@@ -88,9 +88,10 @@
                 searchData.push(child);
             };
 
-            if (child.children && child.children.length > 1) {
+            if (child.children && child.children.length >= 1) {
                 flattenData(child)
             }
+            
         })
 
         searchData.sort((a, b) => {

@@ -6,7 +6,6 @@
 @import 'C-a-U-bubble-detail';
 @import 'C-a-u-map-detail';
 @import 'C-a-U-map-search';
-@import 'C-a-U-mobile';
 @import 'C-a-U-header';
 @import 'C-a-U-accordion';
 @import 'C-a-U-cfda-info';
@@ -19,10 +18,10 @@ $unchecked-color: #888;
 
 $grey: #4a4a4a;
 $bluecopy: #2272ce;
+$cuRed: #881E3D;
 
 .CU {
   font-family: "Source Sans Pro";
-//  padding: 1rem; // padding around whole wrapper
   margin-top: 10rem; // move all content down enough
   max-width: 100%;
   overflow: hidden;
@@ -39,6 +38,46 @@ $bluecopy: #2272ce;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+
+    .section-pre--banner {
+      z-index: -1;
+    }
+
+    .section-banner-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 200;
+      position: absolute;
+      top: 150px;
+      left: 650px;
+    }
+
+    .section-banner-p-text {
+      color: #9B9B9B;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 2.8px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .section-banner-h3-text {
+      color: $cuRed;
+      margin: 0;
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .section-banner-p-blurb {
+      color: #555555;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 24px;
+      text-align: center;
+    }
 
     #section-pre--tablet_banner {
       display: none; // hide for now..
@@ -76,9 +115,9 @@ $bluecopy: #2272ce;
 
     // table of contents
     #section-pre__TOC {
+      border-top: 1px solid #ddd;
       display: flex;
       max-width: 1200px;
-      border-top: 1px solid #ddd;
       justify-content: space-between;
     }
 
@@ -167,8 +206,7 @@ $bluecopy: #2272ce;
       // viz container
       #investment-overview__viz {
 
-	padding-left: 3.5rem;
-	padding-right: 3.5rem;
+	margin: 1rem 14rem 1rem;
 	box-sizing: border-box;
 
 	#investment-chart {
@@ -211,6 +249,7 @@ $bluecopy: #2272ce;
 	  display: flex;
 
 	  #chart-title-aid {
+	    color: #0A2F5A;
 	    display: inline-block;
 	    width: 66%;
 	    color: #555555;
@@ -222,6 +261,7 @@ $bluecopy: #2272ce;
 	  }
 
 	  #chart-title-grants {
+	    color: #004C40;
 	    display: inline-block;
 	    width: 27%;
 	    color: #555555;
@@ -233,6 +273,7 @@ $bluecopy: #2272ce;
 	  }
 
 	  #chart-title-contracts {
+	    color: #925003;
 	    display: inline-block;
 	    width: 6%;
 	    color: #555555;
@@ -281,18 +322,64 @@ $bluecopy: #2272ce;
 	  padding-top: .5rem;
 	}
 
+	#bar-text--aid {
+	  color: #FFFEFD;
+	  font-size: 28px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
+	#bar-text--contracts {
+	  color: #FFFEFD;
+	  font-size: 28px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
+	#bar-text--grants {
+	  color: #FFFEFD;
+	  font-size: 28px;
+	  line-height: 50px;
+	  margin: 0;
+	  padding-top: .5rem;
+	}
+
 	#investment-subtext {
 	  display: flex;
 	  justify-content: space-evenly;
 	  padding-top: 2rem;
-	  padding-left: 3.5rem;
-	  padding-right: 3.5rem;
 
-	  #aid-heading {
+	  #aid-heading-aid {
 	    margin: 0;
 	    padding-bottom: 1rem;
 	    height: 25px;
 	    color: #0A2F5A;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: bold;
+	    line-height: 18px;
+	    text-align: center;
+	  }
+
+	  #aid-heading-grants {
+	    margin: 0;
+	    padding-bottom: 1rem;
+	    height: 25px;
+	    color: #004C40;
+	    font-family: "Source Sans Pro";
+	    font-size: 14px;
+	    font-weight: bold;
+	    line-height: 18px;
+	    text-align: center;
+	  }
+
+	  #aid-heading-contracts {
+	    margin: 0;
+	    padding-bottom: 1rem;
+	    height: 25px;
+	    color: #925003;
 	    font-family: "Source Sans Pro";
 	    font-size: 14px;
 	    font-weight: bold;
@@ -452,6 +539,29 @@ $bluecopy: #2272ce;
         width: 100%;
         display: flex;
         flex-direction: column;
+
+
+        .chart-footer {
+          color: $grey;
+          font-size: 12pt;
+          display: flex;
+          justify-content: flex-end;
+
+          .faded {
+            opacity: 0.5;
+            line-height: 18pt;
+          }
+
+          .download-data {
+            color: #4a4a4a;
+            margin-left: 12px;
+            fill: #4a4a4a;
+
+            &:hover {
+              color: #00c3c2;
+            }
+          }
+        }
       }
 
       #chart-container {
@@ -467,9 +577,59 @@ $bluecopy: #2272ce;
         align-self: center;
 
           #bubbleChartContainer {
-            flex: 1;
             display: flex;
             height: 700px;
+
+            svg#chart {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+
+            #agency-legend_colorKey {
+              position: relative;
+              left: -100px;
+              padding: 0;
+              overflow: visible;
+            }
+
+            #legend_colorKey {
+              position: relative;
+              left: -100px;
+              margin: 50px 0 0 0;
+              padding: 0;
+              overflow: visible;
+            }
+
+            #agency-legend_scaleKey {
+              width: 225px;
+              height: 130px;
+              position: absolute;
+            }
+
+            .legend_circleKeyLabel {
+              position: absolute;
+              border-top: solid 1px #DDD;
+              width: 70px;
+              left: 65px;
+            }
+
+            .legend_circleKeyLabel span {
+              font-size: 10px;
+              color: #999;
+              position: absolute;
+              display: block;
+              width: 90px;
+              top: -8px;
+              left: 75px;
+            }
+
+            .legend_scaleKeyCircle {
+              stroke-width: 1;
+              stroke: #999;
+              stroke-dasharray: 2 2;
+              fill: none;
+            }
 
             #agency-bubbleChart {
               height: 700px;
@@ -478,19 +638,6 @@ $bluecopy: #2272ce;
               display: flex;
               align-items: center;
               justify-content: center;
-
-              #agency-legend_colorKey {
-                position: relative;
-                left: -100px;
-                padding: 0;
-                overflow: visible;
-              }
-            }
-
-            svg#chart {
-              position: absolute;
-              top: 0;
-              left: 0;
             }
 
             circle.node,  circle.node--root, circle.node--leaf, text.label {
@@ -604,7 +751,7 @@ $bluecopy: #2272ce;
         stroke-width: 2px;
       }
       
-      #sunburst, #agency-bubbleChart {
+      #sunburst {
         height: 700px;
         width: 700px;
         position: relative;
@@ -612,7 +759,8 @@ $bluecopy: #2272ce;
         align-items: center;
         justify-content: center;
       }
-      #sunburst svg, svg#chart {
+
+      #sunburst svg {
         position: absolute;
         top: 0;
         left: 0;
@@ -631,6 +779,8 @@ $bluecopy: #2272ce;
       }
       
       #center {
+        display: flex;
+        flex: 1;
         font-size: 1.1em;
         text-align: center;
         max-height: 320px;
@@ -638,21 +788,19 @@ $bluecopy: #2272ce;
         overflow: hidden;
       }
       
-      .title {
+      .center-title {
         text-transform: capitalize;
       }
       
-      #center .heading {
-        color: grey;
-        padding-top: .75em
+      .center-heading {
+        stroke: grey;
       }
-      #center .amount {
+
+      .center-amount {
         font-size: 2em;
         font-style: inherit;
         font-weight: lighter;
-        margin: 0;
-        padding-top: .75em;
-        color: #881e3d; /*match 1st wedgeColor*/
+        stroke: #881e3d; /*match 1st wedgeColor*/
       }
       
       #legend_colorKey {
@@ -1377,3 +1525,5 @@ $bluecopy: #2272ce;
     padding-top: 10px;
   }
 } // end of .CU
+
+@import 'C-a-U-mobile';

@@ -7,7 +7,9 @@
       </div>
       <h3 class="cu-header__title">Agency Investments</h3>
       <h1 class="cu-header__teaser">
-          Connect the government agency to the <strong>federal investment</strong>
+        <span>Connect the government agency</span>
+        <br>
+        <span class="cu-header--red">to the federal investment</span>
       </h1>
       <p class="cu-header__blurb">
           Federal agencies are government organizations that each have a specific purpose such as the management of resources, financial oversight of industries, or national security issues. This section will help you discover the financial breakdown of each agency's investment, whom they are paying and what vehicles they are using to invest with.
@@ -40,16 +42,11 @@
         <div id="agency-investments__content">
           <div id="bubbleChartContainer" class="bubbleChartContainer">
 
-          <div id="agency-legend_colorKey">
-            <svg>
-              <circle stroke="#696969" fill="none" cx="60" cy="60" r="60">
-              </circle>
-              <text x="15" y="45">Sub-Agency</text>
-              <circle stroke="#696969" fill="none" cx="60" cy="90" r="30">
-              </circle>
-              <text x="30" y="140">Agency</text>
-            </svg>
-          </div>
+            <div id='legend_colorKey'>
+              <div style='top:35px;' class='legend_circleKeyLabel'><span>Agency</span></div>
+              <div style='top:50px;' class='legend_circleKeyLabel'><span>Sub-Agency</span></div>
+              <svg id='agency-legend_scaleKey'></svg>
+            </div>
 
           <div id="agency-bubbleChart"></div>
         </div>
