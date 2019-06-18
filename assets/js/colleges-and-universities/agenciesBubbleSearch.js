@@ -3,7 +3,7 @@
 
 (function () {
     const searchData = [];
-    console.log(searchData)
+    
     let parentSection, searchContainer, inputWrapper, input, list;
     let buttons = d3.select('#bubble-function-buttons');
 

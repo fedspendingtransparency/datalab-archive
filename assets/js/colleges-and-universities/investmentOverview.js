@@ -25,29 +25,32 @@ Number.prototype.formatMoney = function(c, d, t){
  };
 
 // Reading data
-d3.csv("/data-lab-data/EDU_v2_base_data.csv", (eduCsv) => {    //read in education data to data files
-  let totalContracts = float(eduCsv.reduce((a, b) => {     //caluculate total contract money given to all universities sum(contracts recived)
-    return a + float(b.contracts_received);
-  },0)
-			     .toFixed(2));                                        // 2 decimal places
+d3.csv("/data-lab-data/EDU_v4_base_data.csv", (eduCsv) => {    //read in education data to data files
+  let totalContracts = 10467392637;
+  let totalGrants = 40819465556;
+  let totalStudentAid = 98262303519;
+  // let totalContracts = float(eduCsv.reduce((a, b) => {     //caluculate total contract money given to all universities sum(contracts recived)
+  //   return a + float(b.contracts_received);
+  // },0)
+	// 		     .toFixed(2));                                        // 2 decimal places
 
-  let totalGrants = float(eduCsv.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
-    return a + float(b.grants_received) + float(b.research_grants_received);
-  },0)
-			  .toFixed(2));
+  // let totalGrants = float(eduCsv.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
+  //   return a + float(b.grants_received) + float(b.research_grants_received);
+  // },0)
+	// 		  .toFixed(2));
 
-  let totalStudentAid = float(eduCsv.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
-    return a + 
-      float(b.subsidized17) + 
-      float(b.unsubsidized17) +
-      float(b.parent17) +
-      float(b.grad_plus17) + 
-      float(b.grants17) + 
-      float(b.perkins17) + 
-      float(b.FSEOG17) + 
-      float(b.FWS17);
+  // let totalStudentAid = float(eduCsv.reduce((a, b) => {     //caluculate total grants money  sum(grants_received + research_grants_received)
+  //   return a + 
+  //     float(b.subsidized18) + 
+  //     float(b.unsubsidized18) +
+  //     float(b.parent18) +
+  //     float(b.grad_plus18) + 
+  //     float(b.grants18) //+ 
+  //     // float(b.perkins18) + 
+  //     // float(b.FSEOG18) + 
+  //     // float(b.FWS18);
     
-  },0).toFixed(2));
+  // },0).toFixed(2));
   
   let totalInvestment = totalContracts + totalGrants + totalStudentAid;
   let contractSpendingPercent =  parseInt(((totalContracts/totalInvestment)*100));
