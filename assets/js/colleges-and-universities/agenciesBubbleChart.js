@@ -376,6 +376,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
     } else {
+    console.log(root)
       bubble.setSearchData(root);
       bubble.zoom = zoom;
     }

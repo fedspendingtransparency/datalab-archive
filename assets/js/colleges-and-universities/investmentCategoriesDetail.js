@@ -39,8 +39,6 @@
         categoryName.text(data.parent.name)
         cfda.text(data.name)
 
-        console.log(data,lookup, detailData)
-
         updateTable('total', [{ key: 'Total $ of Funding', value: data.value }]);
 
         radioValue = radioValue.replace(/s$/, '');
