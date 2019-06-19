@@ -37,10 +37,8 @@
 
     agencyName.text(data.Recipient);
 
-    updateTable('rhp', [{ key: 'Type of Institution', value: data.value }]);
-    updateTable('rhp', [{ key: 'Total $ of Awards', value: data.value} ]);
+    doRHP(data.Recipient); // filter by school
 
-//    updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
     updateTable('funding', instrumentTypeMock);
 
     if (!detailData[data.Recipient]) {
@@ -51,8 +49,48 @@
     } else {
       updateTable('investments', detailData[data.Recipient].investments.sort(sortDetail));
       updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
+      doRHP(data.Recipient); // filter by school
 //      updateTable('rhp', detailData[data.Recipient].rhp.sort(sortDetail));
-    }
+   }
+
+  }
+
+  function doRHP(schoolName) {
+    d3.csv("../../data-lab-data/CU/rhp.csv", function (data) {
+      let matched = data.filter(function(ele){
+	return schoolName === ele.Recipient;
+      });
+
+      tables['rhp'].selectAll('tr.map-detail__data-row').remove();
+      tables['rhp'].selectAll('tr.map-detail__data-row')
+	.data(matched)
+	.enter()
+	.append('tr')
+	.classed('map-detail__data-row', true)
+	.each(createRHPRow);
+
+    });
+  };
+
+  function createRHPRow(d) {
+
+    const row = d3.select(this);
+    console.log(row);
+
+    row.append('td').text('Type of Institution');
+    row.append('td').text(d.INST_TYPE_1 + "/" + d.INST_TYPE_2);
+
+    d3.selectAll('tr.map-detail__data-row').append('tr')
+      .classed('map-detail__data-row', true);
+
+    row.append('td').text('Awards Received');
+    row.append('td').text(d.awards_received);
+
+    d3.selectAll('tr.map-detail__data-row').append('tr')
+      .classed('map-detail__data-row', true);
+
+    row.append('td').text('Total $ Received');
+    row.append('td').text(formatCurrency(d.Total_Federal_Investment));
 
   }
 
@@ -65,6 +103,30 @@
       .append('span')
       .html('&times;');
   }
+
+  // function createRHPRow(d) {
+  //   const row = d3.select(this);
+  //   row.append('td').text('Type of Institution');
+  //   row.append('td').text(d.INST_TYPE_1 + "/" + d.INST_TYPE_2);
+
+  //   row.append('td').text('Awards Received');
+  //   row.append('td').text(d.total_awards);
+
+  //   row.append('td').text('Total $ Received');
+  //   row.append('td').text(d.Total_Federal_Investment);
+  // }
+
+  // function updateRHPTable(id, rows) {
+  //   console.log(rows);
+  //   tables[id].selectAll('tr.map-detail__data-row').remove();
+
+  //   tables[id].selectAll('tr.map-detail__data-row')
+  //     .data(rows)
+  //     .enter()
+  //     .append('tr')
+  //     .classed('map-detail__data-row', true)
+  //     .each(createRHPRow);
+  // }
 
   function createTableRow(d) {
     const row = d3.select(this);
@@ -83,13 +145,25 @@
       .each(createTableRow);
   }
 
+  // function rhpTable(rows) {
+  //   tables['rhp'].selectAll('tr.map-detail__data-row').remove();
+
+  //   tables['rhp'].selectAll('tr.map-detail__data-row')
+  //     .data(rows)
+  //     .enter()
+  //     .append('tr')
+  //     .classed('map-detail__data-row', true)
+  //     .each(createTableRow);
+
+  // }
+
   function placeTables() {
     tableControl.forEach(c => {
       tables[c] = detailContainer.append('table')
         .classed('map-detail__table', true);
     });
 
-    tables.rhp.append('tr');
+//    tables.rhp.append('tr');
 
     tables.funding.append('tr');
     tables.funding.select('tr').append('th').text('Funding Instrument Type').attr('colspan', 2);
@@ -106,37 +180,32 @@
 
   function indexData(row) {
 
-    // if (this == 'rhp') {
-    //   //      console.log(row);
-    //   row.rhpName = row.Recipient;
-    //   row.rhpValue = [{INST_TYPE_1: row.INST_TYPE_1},
-    // 		   {INST_Type_2: row.INST_TYPE_2},
-    // 		   {Total_Federal_Investment: row.Total_Federal_Investment},
-    // 		   {contracts: row.contracts},
-    // 		   {grants: row.grants},
-    // 		   {student_aid: row.student_aid},
-    // 		   {total_awards: row.total_awards},
-    // 		  ];
+     if (this == 'rhp') {
 
-    //   if (row.target === 'contract') {
-    //     row.target = 'Contracts';
-    //   }
-
-    //   if (row.target === 'grant') {
-    //     row.target = 'Grants';
-    //   }
-    // }
+       row.source = row.Recipient;
+       row.target = row.Recipient;
+//       row.target = 
+//       console.log(row);
+       row.value = [{INST_TYPE_1: row.INST_TYPE_1},
+      		       {INST_Type_2: row.INST_TYPE_2},
+      		       {Total_Federal_Investment: formatCurrency(row.Total_Federal_Investment)},
+      		       {contracts: Number(row.contracts)},
+      		       {grants: Number(row.grants)},
+      		       {student_aid: Number(row.student_aid)},
+      		       {total_awards: Number(row.total_awards)},
+      		      ];
+    }
 
     detailData[row.source] = detailData[row.source] || {};
     detailData[row.source][this] = detailData[row.source][this] || [];
 
     detailData[row.source][this].push({ key: row.target, value: Number(row.value) });
-//    detailData[row.source][this].push({ key: row.rhpName, value: row.rhpValue }); // for rhp
+//    detailData[row.source]['rhp'].push({ key: row.Recipient, value: row.value }); // for rhp
   }
   
 
   function preloadData() {
-    d3.csv("../../data-lab-data/rhp.csv", function (data) {
+    d3.csv("../../data-lab-data/CU/rhp.csv", function (data) {
       data.forEach(indexData, 'rhp');
       done += 1;
     });

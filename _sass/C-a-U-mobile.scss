@@ -1,5 +1,12 @@
 $cuRed: #881E3D;
 
+@media (max-width: 550px) {
+  #aid-subsection {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 /* Tablet View */
 @media (max-width: 850px) {
   .CU {
@@ -72,7 +79,7 @@ $cuRed: #881E3D;
 	  width: 50%;
 	  box-sizing: border-box;
 	  border-bottom: 1px solid #ddd;
-	  border-right: 1px solid #ddd;
+//	  border-right: 1px solid #ddd;
 	}
       }
     } 
@@ -278,3 +285,5 @@ $cuRed: #881E3D;
 
   }
 }
+
+
