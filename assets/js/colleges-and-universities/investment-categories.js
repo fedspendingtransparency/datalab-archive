@@ -155,7 +155,10 @@ function updateCenter(d) {
           .attr('dy', '1.5em')
           .style('text-anchor', 'middle')
           .text(d.name)
-          .attr('class', 'center-title');
+          .attr('class', 'center-title')
+          .call(wordWrap, 350);
+
+      console.log(d);
 
       centerGroup.append('svg:text')
           .attr('dy', '2.5em')
@@ -368,38 +371,33 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
 
 d3.select(self.frameElement).style('height', catHeight + 'px');
 
-function wrap(text, width) {
-    text.each(function () {
-        var text = d3.select(this),
-            words = text.text().split(/\s+/).reverse(),
-            word,
-            line = [],
-            lineNumber = 0,
-            lineHeight = 1.1, // ems
-            x = text.attr("x"),
-            y = text.attr("y"),
-            dy = 0, //parseFloat(text.attr("dy")),
-            tspan = text.text(null)
-                .append("tspan")
-                .attr("x", x)
-                .attr("y", y)
-                .attr("dy", dy + "em");
-        while (word = words.pop()) {
-            line.push(word);
+function wordWrap(text, maxWidth) {
+    var words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineHeight = 1.1,
+        tspan;
+
+    tspan = text.text(null)
+        .append("tspan")
+        .attr("x", 0);
+
+    while (words.length > 0) {
+        word = words.pop();
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (tspan.node().getComputedTextLength() > maxWidth) {
+            line.pop();
             tspan.text(line.join(" "));
-            if (tspan.node().getComputedTextLength() > width) {
-                line.pop();
-                tspan.text(line.join(" "));
-                line = [word];
-                tspan = text.append("tspan")
-                    .attr("x", x)
-                    .attr("y", y)
-                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
-                    .text(word);
-            }
+            line = [word];
+            tspan = text.append("tspan")
+                .attr("x", 0)
+                .attr("dy", lineHeight + "em")
+                .text(word);
         }
-    });
+    }
 }
+
 
 // Redraw based on the new size whenever the browser window is resized.
 window.addEventListener("resize", function() {

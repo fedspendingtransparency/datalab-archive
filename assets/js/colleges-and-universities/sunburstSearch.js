@@ -34,7 +34,7 @@
         input = inputWrapper
             .append('input')
             .classed('bubble-search__input', true)
-            .attr('placeholder', 'Search Agencies')
+            .attr('placeholder', 'Search Categories')
             .on('input', filterData)
     }
     
