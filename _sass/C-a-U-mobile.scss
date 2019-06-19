@@ -118,9 +118,14 @@ $cuRed: #881E3D;
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
-    
+
+    #section-two #alma-mater #mobile-search > input {
+      text-align: center;
+    }
+
     #section-two #alma-mater #mobile-search ul {
       display: none;
+      text-align: left;
     }
   }
 }
@@ -170,10 +175,6 @@ $cuRed: #881E3D;
       text-align: left;
       padding-left: 0;
       padding-right: 0;
-    }
-
-    #section-one {
-      margin-top: 7rem; // space out when removing elements
     }
 
     #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
