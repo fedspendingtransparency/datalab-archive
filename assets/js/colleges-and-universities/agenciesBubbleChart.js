@@ -302,10 +302,10 @@ function createBubbleTable(data) {
             columns: [
                 {"data": 'Recipient'},
                 {"data": 'agency'},
-                {"data": 'family'},
-                {"data": 'obligation'},
                 {"data": 'subagency'},
+                {"data": 'family'},
                 {"data": 'type'},
+                {"data": 'obligation', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')}
             ],
             deferRender: true,
             scrollCollapse: true,

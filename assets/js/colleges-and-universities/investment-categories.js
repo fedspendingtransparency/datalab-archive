@@ -311,10 +311,7 @@ function createInvestmentTable() {
         {'data': 'Agency'},
         {'data': 'Subagency'},
         {'data': 'Recipient'},
-        {'data': 'Obligation',
-          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
-          'className': 'dt-right'
-        },
+        {'data': 'Obligation', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')}
       ],
       deferRender:    true,
       scrollCollapse: true,
