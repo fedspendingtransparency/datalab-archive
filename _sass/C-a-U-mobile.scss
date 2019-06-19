@@ -1,7 +1,7 @@
 $cuRed: #881E3D;
 
 /* Tablet View */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .CU {
     /* Table of Contents */
     #TOC {
@@ -10,6 +10,14 @@ $cuRed: #881E3D;
 
     span#cuRed {
       color: $cuRed;
+    }
+
+    .cu-header {
+      max-width: 800px;
+    }
+
+    .cu-header__blurb {
+      max-width: 500px;
     }
 
     #section-pre {
@@ -21,6 +29,7 @@ $cuRed: #881E3D;
       #section-pre--tablet_banner {
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 1.5rem;
 
 	.section-pre--tablet-subtext {
 	  color: #9B9B9B;

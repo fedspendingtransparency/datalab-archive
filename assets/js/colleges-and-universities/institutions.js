@@ -1,3 +1,6 @@
+---
+---
+
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
 let agenciesTopFive;
@@ -5,6 +8,7 @@ let categoriesTopFive;
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
+
   var map = new mapboxgl.Map({
     container: 'collegesMap', // container id
     style: 'mapbox://styles/usaspending/cjvduv2b7fwlc1fnv9iyihkqo', // stylesheet location
@@ -14,7 +18,7 @@ function createMapbox() {
 
   // Add zoom and rotation controls to the map.
   let zoomCtrl = new mapboxgl.NavigationControl();
-  map.addControl(zoomCtrl, 'top-left'); // put in top left for now? could change?
+  map.addControl(zoomCtrl, 'top-right');
 
   // Create a popup, but don't add it to the map yet.
   let tooltip = new mapboxgl.Popup({

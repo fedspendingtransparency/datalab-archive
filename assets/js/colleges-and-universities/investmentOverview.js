@@ -1,7 +1,5 @@
-//const contractsGraphBar = $('#contracts-bar');
-//const grantsGraphBar = $('#grants-bar');
-//const studentAidGraphBar = $('#studentAid-bar');
-//const totalInvestmetnBar = $('#totalInvestment');
+---
+---
 
 const contracts = document.getElementById('contracts-bar');
 const grants = document.getElementById('grants-bar');
