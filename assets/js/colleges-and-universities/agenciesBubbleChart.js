@@ -314,6 +314,14 @@ function createBubbleTable(data) {
     });
 };
 
+function selectSubAgency(d) {
+    circle.classed('active', false);
+    d3.select("circle#" + d.name).classed("active", true);
+    if (focus !== d) zoom(d.parent), d3.event.stopPropagation();
+
+}
+
+
 /*
 *   Event Handlers
 */
@@ -378,6 +386,7 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     } else {
     console.log(root)
       bubble.setSearchData(root);
+      bubble.selectSubAgency = selectSubAgency;
       bubble.zoom = zoom;
     }
 

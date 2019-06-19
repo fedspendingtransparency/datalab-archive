@@ -50,7 +50,7 @@
             return;
         }
 
-        bubble.zoom(d.parent);
+        bubble.selectSubAgency(d);
     }
 
     function prependParent(d) {
