@@ -449,6 +449,46 @@ $landing-title-color: #4A4A4A;
     padding-top: 0;
   }
 
+  .landing-row {
+    &.landing-row--analyses {
+
+      .landing-row__tiles {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .landing_row__tile-row {
+        display: flex;
+        flex: 1;
+        flex-basis: 100%;
+      }
+      .landing-row__tile {
+        width: 46%;
+        display: inline-block;
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-right: 2.5rem;
+      }
+
+      .landing-row__featured {
+        width: 100%;
+        float: left;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+        margin-top: 2.25rem;
+        padding-bottom: 0.4rem;
+
+        .landing-row__featured__image {
+          width: 100%;
+        }
+
+        .landing-row__featured__content {
+          margin: 1.6rem;
+          text-align: center;
+        }
+      }
+    }
+  }
 
 }
 
