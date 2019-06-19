@@ -156,12 +156,10 @@ $landing-title-color: #4A4A4A;
     }
   }
 
-  .landing-row {
-    &.landing-row--analyses {
-        .landing-row__featured__image {
-          width: 100%;
-        }
-    }
+  &.landing-row--analyses {
+      .landing-row__featured__image {
+        width: 100%;
+      }
   }
 }
 
@@ -180,6 +178,8 @@ $landing-title-color: #4A4A4A;
 
     .feature-row__text {
       padding-top: 15px;
+      float: left;
+
       .feature-row__heading {
         @include landing-header;
 
