@@ -284,7 +284,7 @@ function createInvestmentTable() {
      * Table START
      */
     let table = d3.select('#investment-table').append('table')
-      .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
+        .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
