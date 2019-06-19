@@ -1559,6 +1559,68 @@ $cuRed: #881E3D;
     padding-bottom: 10px;
     padding-top: 10px;
   }
+
+  .dataTable {
+    font-size: 17px;
+
+    td {
+      color: #aaa !important;
+      text-align: left;
+      font-size: 17px;
+    }
+
+    th {
+      text-align: left !important;
+      text-transform: uppercase !important;
+      font-size: 17px;
+      color: #666 !important;
+    }
+
+    tr {
+      height: 60px;
+      border-bottom: #aaa 1px solid !important;
+    }
+
+    .no-footer {
+      border-bottom: #aaa 1px solid !important;
+    }
+
+  }
+
+  label, select, .dataTables_info, .dataTables_paginate {
+    color: #666 !important;
+    font-size: 12px !important;
+  }
+
+  .dataTables_paginate paging_simple_numbers, .dataTables_length,
+  .paging_simple_numbers {
+    color: #aaa !important;
+  }
+
+  table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before,
+  table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before,
+  table.dataTable thead .sorting_desc_disabled:before {
+    content: "\25BE" !important;
+    font-size: 14px !important;
+    margin-bottom: .75em !important;
+    margin-right: .25em;
+  }
+
+  table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after,
+  table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:after {
+    content: "\25BE" !important;
+    font-size: 14px !important;
+    margin-bottom: .55em !important;
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
+
+
 } // end of .CU
 
 @import 'C-a-U-mobile'; // needs to be last! 
