@@ -284,7 +284,7 @@ function createInvestmentTable() {
      * Table START
      */
     let table = d3.select('#investment-table').append('table')
-        .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
+      .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
@@ -300,11 +300,21 @@ function createInvestmentTable() {
     $('#investment-table-datatable').dataTable({
       data: data,
       columns: [
-        {'data': 'family'},
-        {'data': 'Program_Title'},
-        {'data': 'Agency'},
-        {'data': 'Subagency'},
-        {'data': 'Recipient'},
+        {'data': 'family',
+          'className': 'dt-left'
+        },
+        {'data': 'Program_Title',
+          'className': 'dt-left'
+        },
+        {'data': 'Agency',
+          'className': 'dt-left'
+        },
+        {'data': 'Subagency',
+          'className': 'dt-left'
+        },
+        {'data': 'Recipient',
+          'className': 'dt-left'
+        },
         {'data': 'Obligation',
           'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
           'className': 'dt-right'
