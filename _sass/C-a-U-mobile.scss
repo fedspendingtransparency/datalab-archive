@@ -74,12 +74,12 @@ $cuRed: #881E3D;
 	flex: 0 50%;
 	box-sizing: border-box;
 	flex-wrap: wrap;
-
+	
 	#section-pre__tile {
 	  width: 50%;
 	  box-sizing: border-box;
 	  border-bottom: 1px solid #ddd;
-//	  border-right: 1px solid #ddd;
+	  border-right: none;
 	}
       }
     } 
@@ -126,7 +126,7 @@ $cuRed: #881E3D;
 }
 
 /* Mobile View */
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .CU {
     /* Table of Contents */
     #TOC {
@@ -142,6 +142,11 @@ $cuRed: #881E3D;
 	  box-sizing: border-box;
 	}
       }
+    }
+
+    #collegesMap {
+      margin-left: .5rem;
+      margin-right: .5rem;
     }
 
     #section-pre #section-pre--tablet_banner {
