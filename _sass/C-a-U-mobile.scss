@@ -1,7 +1,7 @@
 $cuRed: #881E3D;
 
 /* Tablet View */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .CU {
     /* Table of Contents */
     #TOC {
@@ -10,6 +10,14 @@ $cuRed: #881E3D;
 
     span#cuRed {
       color: $cuRed;
+    }
+
+    .cu-header {
+      max-width: 800px;
+    }
+
+    .cu-header__blurb {
+      max-width: 500px;
     }
 
     #section-pre {
@@ -21,6 +29,7 @@ $cuRed: #881E3D;
       #section-pre--tablet_banner {
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 1.5rem;
 
 	.section-pre--tablet-subtext {
 	  color: #9B9B9B;
@@ -33,7 +42,7 @@ $cuRed: #881E3D;
 	}
 
 	.section-pre--tablet-subblurb {
-
+	  color: #666666;
 	  font-family: "Source Sans Pro";
 	  font-size: 42px;
 	  font-weight: 600;
@@ -110,7 +119,7 @@ $cuRed: #881E3D;
 }
 
 /* Mobile View */
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .CU {
     /* Table of Contents */
     #TOC {
@@ -242,6 +251,10 @@ $cuRed: #881E3D;
 
     section.TOC {
       display: none;  
+    }
+
+    #section-one, #section-two, #section-three, #section-four {
+      padding-top: 4rem; // for mobile, lets have less space between the sections! 
     }
 
     // cu header section //
