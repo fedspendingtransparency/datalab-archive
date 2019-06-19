@@ -18,7 +18,12 @@
           <section class="accordion">
             <h1 class="accordion__heading">Instructions</h1>
             <div class="accordion__content">
-              <p>Here's everything you need to know</p>
+	      <ul class="accordion__list">
+		<li>Select an investment type: contracts, grants, or research grants</li>
+		<li>Hover over each section to determine the category </li>
+		<li>Click on a specific section to display the total awards for that category </li>
+		<li>Click the center section to return to the original display</li>
+	      </ul>
             </div>
           </section>
         
@@ -64,7 +69,9 @@
             <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
             <svg id='legend_scaleKey'></svg>
           </div>
-          <div id='sunburst'></div>
+          <div id='sunburst'>
+            <div id='center'></div>
+          </div>
         </div>
         <div id='right-spacer'></div>
       </div>
@@ -73,7 +80,7 @@
 
       <div class='chart-footer'>
         <div>
-          <span class='faded'>Updated as of December 2019 / </span>
+          <span class='faded'>Updated as of December 2018 / </span>
           <a class='download-data' onclick='downloadData()'>
             {% include svgs/download_icon.svg %}
             &nbsp;Download
