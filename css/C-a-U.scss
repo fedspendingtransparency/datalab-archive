@@ -473,7 +473,15 @@ $cuRed: #881E3D;
 	padding-top: 5px;
       }
 
+      #refresh-div > i {
+	padding-right: 3px;
+      }
+
       #refresh-div:hover {
+	cursor: pointer;
+      }
+
+      #refresh-div > i:hover {
 	color: $cuRed;
 	cursor: pointer;
       }
