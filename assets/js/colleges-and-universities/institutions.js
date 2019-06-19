@@ -16,6 +16,7 @@ function createMapbox() {
     zoom: 3 // starting zoom (3 default)
   });
 
+
   // Add zoom and rotation controls to the map.
   let zoomCtrl = new mapboxgl.NavigationControl();
   map.addControl(zoomCtrl, 'top-right');
@@ -104,6 +105,16 @@ function createMapbox() {
   $('#map-chart-trigger').click(function(){
     mapDiv.show();
     almaTable.hide();
+  });
+
+  $('#refresh-div').click(function(){
+    map.flyTo({
+      center: [-80.59179687498357, 40.66995747013945],
+      zoom: 3,
+      bearing: 0,
+      speed: 1,
+      curve: 1,
+    });
   });
 
   // when the map first loads all resources!
@@ -385,6 +396,7 @@ function filterSearchMobile() {
 };
 
 
+
 // Search Trigger Functionality //
 function searchToggle() {
   $('#map-search-trigger').click(function(){
@@ -417,7 +429,6 @@ function searchMobileToggle() {
   });
 };
 
-// Bringing it all together! Dom, on load! //
 $(document).ready(function(){
   createMapbox();
   searchToggle();

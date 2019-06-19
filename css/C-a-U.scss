@@ -451,6 +451,20 @@ $cuRed: #881E3D;
 	display: none;
       }
 
+      #refresh-div {
+	display: inline-block;
+	width: auto;
+	font-size: 1rem;
+	color: #4a4a4a;
+	margin-left: 20px;
+	padding-top: 5px;
+      }
+
+      #refresh-div:hover {
+	color: $cuRed;
+	cursor: pointer;
+      }
+
       #alma-mater-table {
 	display: none;
 	width: 100%;
