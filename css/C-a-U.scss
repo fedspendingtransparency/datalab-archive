@@ -585,7 +585,7 @@ $cuRed: #881E3D;
       justify-content: center;
 
       #bubbletable_wrapper {
-        width: 80%;
+        padding: 0 3rem;
       }
     }
 
@@ -776,6 +776,10 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
     padding-top: 9rem;
+
+    #investment-table-datatable_wrapper {
+      padding: 0 3rem;
+    }
 
     #investment-categories {
       display: flex;
