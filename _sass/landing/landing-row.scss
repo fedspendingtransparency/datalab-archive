@@ -478,6 +478,13 @@ $landing-title-color: #4A4A4A;
         padding-right: unset;
       }
 
+      .landing-row__image {
+        width: 100%;
+        margin: 0 auto;
+        object-fit: cover !important;
+        height: 380px;
+      }
+
       .landing-row__featured {
         width: 100%;
         float: left;

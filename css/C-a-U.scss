@@ -580,6 +580,15 @@ $cuRed: #881E3D;
     justify-content: center;
     padding-top: 9rem;
 
+    #bubbleTableContainer {
+      display: flex;
+      justify-content: center;
+
+      #bubbletable_wrapper {
+        width: 80%;
+      }
+    }
+
     #agency-investments {
       display: flex;
       justify-content: center;
