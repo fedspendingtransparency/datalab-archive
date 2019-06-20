@@ -1,22 +1,10 @@
 ---
 ---
-
 (function () {
   const detailContainer = d3.select('#map-detail').append('section').classed('map-detail', true),
         tables = {},
         detailData = {},
-        tableControl = [
-	  'rhp',
-          'funding',
-          'investments',
-          'agencies'
-        ], // for controlling the order of positioning tables
         activeClass = 'map-detail--active';
-
-  const instrumentTypeMock = [
-    { key: 'Contracts', value: 1000000 },
-    { key: 'Grants', value: 1000000 }
-  ];
 
   let agencyName, done = 0;
 
@@ -35,15 +23,26 @@
     
     detailContainer.classed(activeClass, true);
 
-    console.log(detailData);
+    // console.log(detailData);
 
     agencyName.text(data.Recipient);
 
-    updateTable('rhp', [{ key: 'Type of Institution', value: data.value }]);
-    updateTable('rhp', [{ key: 'Total $ of Awards', value: data.value} ]);
+    updateTable('rhp', [
+      {key: 'Type of Institution', value: data.INST_TYPE_1 + data.INST_TYPE_2},
+      {key: 'Total $ of Awards', value: formatCurrency(data.Total_Federal_Investment)}
+    ]);
 
-//    updateTable('total', [{ key: 'Total $ of Awards', value: data.value }]);
-    updateTable('funding', instrumentTypeMock);
+    const fundingRows = [];
+    if (data.contracts_received) {
+      fundingRows.push({key: 'Contracts', value: formatCurrency(data.contracts_received)});
+    }
+    if (data.grants_received) {
+      fundingRows.push({key: 'Grants', value: formatCurrency(data.grants_received)});
+    }
+    if (data.research_grants_received) {
+      fundingRows.push({key: 'Grants (Research)', value: formatCurrency(data.research_grants_received)});
+    }
+    updateTable('funding', fundingRows);
 
     if (!detailData[data.Recipient]) {
       console.warn(`no data for ${data.Recipient}`);
@@ -55,7 +54,6 @@
       updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
 //      updateTable('rhp', detailData[data.Recipient].rhp.sort(sortDetail));
     }
-
   }
 
   function placeCloseButton() {
@@ -71,24 +69,25 @@
   function createTableRow(d) {
     const row = d3.select(this);
     row.append('td').text(d.key);
-    row.append('td').text(formatCurrency(d.value));
+    row.append('td').text(d.value);
   }
 
   function updateTable(id, rows) {
     tables[id].selectAll('tr.map-detail__data-row').remove();
-
     tables[id].selectAll('tr.map-detail__data-row')
       .data(rows)
       .enter()
       .append('tr')
       .classed('map-detail__data-row', true)
-      .each(createTableRow);
+      .each(createTableRow)
+    ;
   }
 
   function placeTables() {
+    const tableControl = ['rhp', 'funding', 'investments', 'agencies']; // for controlling the order of positioning tables
+
     tableControl.forEach(c => {
-      tables[c] = detailContainer.append('table')
-        .classed('map-detail__table', true);
+      tables[c] = detailContainer.append('table').classed('map-detail__table', true);
     });
 
     tables.rhp.append('tr');
@@ -104,7 +103,6 @@
     tables.investments.select('tr').append('th').text('Investment Categories (Top 5)');
     tables.investments.select('tr').append('th').text('Total Investment');
   }
-
 
   function indexData(row) {
 
@@ -141,18 +139,15 @@
     d3.csv("../../data-lab-data/rhp.csv", function (data) {
       data.forEach(indexData, 'rhp');
       done += 1;
-      console.log('hi');
     });
 
     d3.csv("../../data-lab-data/CU/top5InvestmentsPerSchool_v3.csv", function (data) {
       data.forEach(indexData, 'investments');
-
       done += 1;
     });
 
     d3.csv("../../data-lab-data/CU/top5AgenciesPerSchool_v3.csv", function (data) {
       data.forEach(indexData, 'agencies');
-
       done += 1;
     });
   }
@@ -161,8 +156,13 @@
     preloadData();
     placeCloseButton();
 
-    detailContainer.append('span').classed('map-detail__agency-label', true).text('Institution');
-    agencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
+    detailContainer.append('span')
+      .classed('map-detail__agency-label', true)
+      .text('Institution')
+    ;
+    agencyName = detailContainer.append('span')
+      .classed('map-detail__agency-name', true)
+    ;
 
     placeTables();
 
