@@ -39,14 +39,17 @@ function changeCategory(category) {
     scopedData = contractsChartArray;
     categoryLabel = 'Contract';
     dataType = 'PSC';
+    revealTable('contracts');
   } else if (category.value === 'grants') {
     scopedData = grantsChartArray;
     categoryLabel = 'Grant';
     dataType = 'CFDA';
+    revealTable('grants');
   } else if (category.value === 'research') {
     scopedData = researchGrantsChartArray;
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
+    revealTable('grants');
   }
 
   chartData = scopedData[0];
@@ -55,10 +58,23 @@ function changeCategory(category) {
 
   // enable search/filter
   if (!sunburst.setSearchData) {
-    console.warn('bubble method not available')
+    console.warn('bubble method not available');
   } else {
     sunburst.setSearchData(scopedData);
     sunburst.onSearchSelect = click;
+  }
+}
+
+function revealTable(category) {
+  if (category.value === 'contracts') {
+    $('#investment-table--grants').hide();
+    $('#investment-table--contracts').show();
+  } else if (category.value === 'grants') {
+    $('#investment-table--contracts').hide();
+    $('#investment-table--grants').show();
+  } else {
+    $('#investment-table--contracts').hide();
+    $('#investment-table--grants').show();
   }
 }
 
@@ -343,19 +359,17 @@ function buildDataHierarchy(title, dataArray) {
   return data;
 }
 
-function createInvestmentTable() {
-  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
-    if (err) { return err; }
+function createContractsTable() {
+  d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', function(contractData) {
 
-    /**
-     * Table START
-     */
-    let table = d3.select('#investment-table').append('table')
+//    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
+
+    let table = d3.select('#investment-table--contracts').append('table')
         .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
-    let headers = table.append('thead').append('tr')
+    table.append('thead').append('tr')
         .selectAll('th')
         .data(titles).enter()
         .append('th')
@@ -365,6 +379,45 @@ function createInvestmentTable() {
 
     // datatable start
     $('#investment-table-datatable').dataTable({
+      data: contractData,
+      columns: [
+        {'data': 'family'},
+        {'data': 'Program_Title'},
+        {'data': 'Agency'},
+        {'data': 'Subagency'},
+        {'data': 'Recipient'},
+        {'data': 'Obligation',
+         'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+         'className': 'dt-right'
+        },
+      ],
+      deferRender:    true,
+      scrollCollapse: true,
+      scroller:       true});
+  });
+};
+
+function createGrantsTable() {
+  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+    if (err) { return err; }
+
+//    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
+    
+    let table = d3.select('#investment-table--grants').append('table')
+        .attr('id', 'investment-table-datatable--grants'); // id given to table for Datatables.js
+
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation', 'Research Grant?'];
+    
+    table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    // datatable start
+    $('#investment-table-datatable--grants').dataTable({
       data: data,
       columns: [
         {'data': 'family'},
@@ -372,7 +425,11 @@ function createInvestmentTable() {
         {'data': 'Agency'},
         {'data': 'Subagency'},
         {'data': 'Recipient'},
-        {'data': 'Obligation', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')}
+        {'data': 'Obligation',
+          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+          'className': 'dt-right'
+         },
+	{'data': 'Research'},
       ],
       deferRender:    true,
       scrollCollapse: true,
@@ -398,7 +455,8 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
 
-  createInvestmentTable()
+  createGrantsTable();
+  createContractsTable();
 
   // enable search/filter
   if (sunburst) {

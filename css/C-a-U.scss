@@ -479,7 +479,12 @@ $cuRed: #881E3D;
 
       #refresh-div:hover {
 	cursor: pointer;
-      }
+
+	i {
+	  color: $cuRed;
+	  cursor: pointer;
+	}
+     }
 
       #refresh-div > i:hover {
 	color: $cuRed;
@@ -837,6 +842,14 @@ $cuRed: #881E3D;
 
       #investment-table {
 	display: none; // toggle show in JS
+      }
+
+      #investment-table--contracts {
+	display: none;
+      }
+
+      #investment-table--research {
+	display: none;
       }
 
       #chart-area {

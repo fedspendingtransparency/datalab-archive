@@ -14,13 +14,28 @@ function searchClick (id) {
 }
 
 function switchView (section, show) {
+
+  let radioVal =$("input[name='category']:checked").val();
+
   if (section === 'investment') {
     if (show === 'chart') {
       $('#investment-sunburst').show();
-      $('#investment-table').hide();
+      $('#investment-table--grants').hide();
+      $('#investment-table--contracts').hide();
     } else if (show === 'table') {
       $('#investment-sunburst').hide();
-      $('#investment-table').show();
+      if (radioVal == 'contracts') {
+	console.log('show contracts table');
+	$('#investment-table--contracts').show();
+	$('#investment-table--grants').hide();
+      } else if (radioVal == 'grants') {
+	console.log('show grants table');
+	$('#investment-table--grants').show();
+	$('#investment-table--contracts').hide();
+      } else {
+	$('#investment-table--grants').show();
+	$('#investment-table--contracts').hide();
+      }
     }
   }
 }
