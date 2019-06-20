@@ -76,6 +76,14 @@ function downloadData() {
     }
 }
 
+function calculateLineHeight(lineHeight) {
+    if (lineHeight < 1.2 && lineHeight > 0) {
+        return "1.2em";
+    }
+
+    return lineHeight + "em";
+}
+
 const formatNumber = d3.format('$,.0f');
 let centerGroup;
 
@@ -97,10 +105,10 @@ function updateCenter(d) {
               labelFontSize = calculateCenterTextFontSize(this, 1);
               return labelFontSize * .6 + "em";
           })
-          .attr('dy', -1 * labelFontSize + "em");
+          .attr('dy', calculateLineHeight(-1 * labelFontSize));
 
       centerGroup.append('tspan')
-          .attr('dy', labelFontSize + "em")
+          .attr('dy', calculateLineHeight(labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
@@ -123,10 +131,10 @@ function updateCenter(d) {
               labelFontSize = calculateCenterTextFontSize(this, 2);
               return labelFontSize * .75 + "em";
           })
-          .attr('dy', -2 * labelFontSize + "em");
+          .attr('dy', calculateLineHeight(-2 * labelFontSize));
 
       centerGroup.append('tspan')
-          .attr('dy', labelFontSize + "em")
+          .attr('dy', calculateLineHeight(labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(d.name)
@@ -134,7 +142,7 @@ function updateCenter(d) {
           .style('font-size', labelFontSize * .75 + "em");
 
       centerGroup.append('tspan')
-          .attr('dy', labelFontSize * 1.5 + "em")
+          .attr('dy', calculateLineHeight(1.5 * labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text('Total FY2018 Funding')
@@ -142,7 +150,7 @@ function updateCenter(d) {
           .style('font-size', labelFontSize * .75 + "em");
 
       centerGroup.append('tspan')
-          .attr('dy', labelFontSize + "em")
+          .attr('dy', calculateLineHeight(labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
@@ -164,10 +172,10 @@ function updateCenter(d) {
               labelFontSize = calculateCenterTextFontSize(this, 2);
               return labelFontSize * .75 + "em";
           })
-          .attr('dy', -3 * labelFontSize + "em");
+          .attr('dy', calculateLineHeight(-3 * labelFontSize));
 
       centerGroup.append('tspan')
-          .attr('dy', labelFontSize + 'em')
+          .attr('dy', calculateLineHeight(labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(d.parent.name)
@@ -175,7 +183,7 @@ function updateCenter(d) {
           .style('font-size', labelFontSize * .75 + "em");
 
       centerGroup.append('tspan')
-          .attr('dy', 1.5 * labelFontSize + 'em')
+          .attr('dy', calculateLineHeight(1.5 * labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(dataType +  ' Name')
@@ -184,7 +192,7 @@ function updateCenter(d) {
 
 
       centerGroup.append('tspan')
-          .attr('dy', labelFontSize + 'em')
+          .attr('dy', calculateLineHeight(labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(d.name)
@@ -192,10 +200,8 @@ function updateCenter(d) {
           .style('font-size', labelFontSize * .75 + "em")
           .call(wordWrap, radius);
 
-      console.log(d);
-
       centerGroup.append('tspan')
-          .attr('dy', 1.5 * labelFontSize + 'em')
+          .attr('dy', calculateLineHeight(1.5 * labelFontSize))
           .attr('x', '0')
           .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
@@ -203,6 +209,18 @@ function updateCenter(d) {
           .style('font-size', labelFontSize + "em");
 
 
+  }
+
+  /* Scale text to fit */
+  const bbox = centerGroup.node().getBBox();
+  const buffer = 50;
+  const maxHeight = bbox.height + buffer;
+  const maxWidth = bbox.width + buffer;
+
+  if(maxHeight >= radius) {
+      centerGroup.attr("transform" ,"scale(" + radius / maxHeight + ")");
+  } else if (maxWidth >= radius) {
+    centerGroup.attr("transform" ,"scale(" + radius / maxWidth + ")");
   }
 
   centerGroup.style('cursor', 'pointer')
@@ -443,10 +461,6 @@ function calculateCenterTextFontSize (centerNode, multiplier) {
     const computed = centerNode.getComputedTextLength();
     const labelWidth = (radius - 20) / multiplier;
     const fontsize = labelWidth / computed > 0 ? labelWidth / computed : 0.01;
-    console.log(radius);
-    console.log(labelWidth);
-    console.log(computed);
-    console.log(fontsize);
     return fontsize;
 }
 
