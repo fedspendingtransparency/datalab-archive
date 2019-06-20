@@ -168,7 +168,6 @@ $landing-title-color: #4A4A4A;
   max-width: 1200px;
 
   .feature-row__border {
-    padding: 1rem;
 
     .feature-row__image {
       img {
@@ -177,7 +176,6 @@ $landing-title-color: #4A4A4A;
     }
 
     .feature-row__text {
-      padding-top: 15px;
       float: left;
 
       .feature-row__heading {
@@ -232,6 +230,8 @@ $landing-title-color: #4A4A4A;
   .feature-row .feature-row__border .feature-row__image img {
     //width: 500px;
     //height: 265px;
+    width: 100%;
+    height: 100%;
   }
 
 
@@ -379,17 +379,14 @@ $landing-title-color: #4A4A4A;
 //      padding: 2em;
 
       .feature-row__image {
-        width: 53%;
-        padding-bottom: 2.188rem;
-        padding-top: 2.188rem;
+        width: 57%;
       }
 
       .feature-row__text {
         width: 50%;
         padding-top: 2.188rem;
-        padding-left: 0;
+        padding-left: 2.188rem;
         padding-right: 2.188rem;
-	    padding-bottom: 2.188rem;
 
         .feature-row__blurb {
           display: block;
