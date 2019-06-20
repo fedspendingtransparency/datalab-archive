@@ -80,93 +80,136 @@ const formatNumber = d3.format('$,.0f');
 let centerGroup;
 
 function updateCenter(d) {
-    d3.select('g#tab').remove();
+    d3.select('text#tab').remove();
 
   if (d.depth === 0) {
-      centerGroup = svg.append('g')
+      let labelFontSize = 1.1;
+
+      centerGroup = svg.append('svg:text')
         .attr('id', 'tab');
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-1em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text('Total FY2018 ' + categoryLabel  + ' Funding')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', function() {
+              labelFontSize = calculateCenterTextFontSize(this, 1);
+              return labelFontSize * .6 + "em";
+          })
+          .attr('dy', -1 * labelFontSize + "em");
 
-      centerGroup.append('svg:text')
-          .attr('dy', '1em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', labelFontSize + "em")
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
-          .attr('class', 'center-amount');
+          .attr('class', 'center-amount')
+          .style('font-size', labelFontSize + "em");
 
 
   } else if (d.depth === 1) {
 
-      centerGroup = svg.append('g')
+      let labelFontSize = 1.1;
+      centerGroup = svg.append('svg:text')
           .attr('id', 'tab');
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-3em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(dataType  + ' Category')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', function() {
+              labelFontSize = calculateCenterTextFontSize(this, 2);
+              return labelFontSize * .75 + "em";
+          })
+          .attr('dy', -2 * labelFontSize + "em");
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-2em')
-          .style('text-anchor', 'middle')
-          .text(d.name)
-          .attr('class', 'center-title');
-
-      centerGroup.append('svg:text')
-          .attr('dy', '.5em')
-          .style('text-anchor', 'middle')
-          .text('Total FY2018 Funding')
-          .attr('class', 'center-heading');
-
-      centerGroup.append('svg:text')
-          .attr('dy', '1.5em')
-          .style('text-anchor', 'middle')
-          .text(formatNumber(d.value))
-          .attr('class', 'center-amount');
-
-  } else {
-
-      centerGroup = svg.append('g')
-          .attr('id', 'tab');
-
-      centerGroup.append('svg:text')
-          .attr('dy', '-3em')
-          .style('text-anchor', 'middle')
-          .text(dataType  + ' Category')
-          .attr('class', 'center-heading');
-
-      centerGroup.append('svg:text')
-          .attr('dy', '-2em')
-          .style('text-anchor', 'middle')
-          .text(d.parent.name)
-          .attr('class', 'center-title');
-
-      centerGroup.append('svg:text')
-          .attr('dy', '.5em')
-          .style('text-anchor', 'middle')
-          .text(dataType +  ' Name')
-          .attr('class', 'center-heading');
-
-      centerGroup.append('svg:text')
-          .attr('dy', '1.5em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', labelFontSize + "em")
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(d.name)
           .attr('class', 'center-title')
-          .call(wordWrap, 350);
+          .style('font-size', labelFontSize * .75 + "em");
+
+      centerGroup.append('tspan')
+          .attr('dy', labelFontSize * 1.5 + "em")
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
+          .text('Total FY2018 Funding')
+          .attr('class', 'center-heading')
+          .style('font-size', labelFontSize * .75 + "em");
+
+      centerGroup.append('tspan')
+          .attr('dy', labelFontSize + "em")
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
+          .text(formatNumber(d.value))
+          .attr('class', 'center-amount')
+          .style('font-size', labelFontSize + "em");
+
+  } else {
+      let labelFontSize = 1.1;
+
+      centerGroup = svg.append('svg:text')
+          .attr('id', 'tab');
+
+      centerGroup.append('tspan')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
+          .text(dataType  + ' Category')
+          .attr('class', 'center-heading')
+          .style('font-size', function() {
+              labelFontSize = calculateCenterTextFontSize(this, 2);
+              return labelFontSize * .75 + "em";
+          })
+          .attr('dy', -3 * labelFontSize + "em");
+
+      centerGroup.append('tspan')
+          .attr('dy', labelFontSize + 'em')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
+          .text(d.parent.name)
+          .attr('class', 'center-title')
+          .style('font-size', labelFontSize * .75 + "em");
+
+      centerGroup.append('tspan')
+          .attr('dy', 1.5 * labelFontSize + 'em')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
+          .text(dataType +  ' Name')
+          .attr('class', 'center-heading')
+          .style('font-size', labelFontSize * .75 + "em");
+
+
+      centerGroup.append('tspan')
+          .attr('dy', labelFontSize + 'em')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
+          .text(d.name)
+          .attr('class', 'center-title')
+          .style('font-size', labelFontSize * .75 + "em")
+          .call(wordWrap, radius);
 
       console.log(d);
 
-      centerGroup.append('svg:text')
-          .attr('dy', '2.5em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', 1.5 * labelFontSize + 'em')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
-          .attr('class', 'center-amount');
+          .attr('class', 'center-amount')
+          .style('font-size', labelFontSize + "em");
+
 
   }
+
+  centerGroup.style('cursor', 'pointer')
+      .on('click', function() {
+          click(chartData);
+      });
+
 }
 
 const centerColor = 'rgba(0, 0, 0, 0)'; //transparent to show #center
@@ -395,6 +438,17 @@ function wordWrap(text, maxWidth) {
     }
 }
 
+
+function calculateCenterTextFontSize (centerNode, multiplier) {
+    const computed = centerNode.getComputedTextLength();
+    const labelWidth = (radius - 20) / multiplier;
+    const fontsize = labelWidth / computed > 0 ? labelWidth / computed : 0.01;
+    console.log(radius);
+    console.log(labelWidth);
+    console.log(computed);
+    console.log(fontsize);
+    return fontsize;
+}
 
 // Redraw based on the new size whenever the browser window is resized.
 window.addEventListener("resize", function() {

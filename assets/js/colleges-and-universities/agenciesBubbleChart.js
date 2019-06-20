@@ -120,7 +120,7 @@ function drawBubbleChart(root) {
                 "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
                 "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
-                "<div class='information'><p class='key'>Total $ of Awards</p>" +
+                "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
                 "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
                 "</div></div>";
             return tooltipHtml;
@@ -170,7 +170,7 @@ function drawBubbleChart(root) {
                 d3.select(this).classed("active", true);
                 bubble.activateDetail(d);
             } else {
-                console.log("why are we here?");
+                console.warn("Invalid visualization depth requested in agencies bubble chart.");
             }
 
         })
@@ -206,7 +206,7 @@ function drawBubbleChart(root) {
                 d3.select(this).classed("active", true);
                 bubble.activateDetail(d);
             } else {
-                console.log("why are we here?");
+                console.warn("Invalid visualization depth requested in agencies bubble chart.");
             }
         });
 
