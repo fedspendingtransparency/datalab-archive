@@ -1,6 +1,5 @@
 ---
 ---
-
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
 let agenciesTopFive;
@@ -55,7 +54,7 @@ function createMapbox() {
 	mobileListingEl.append(mobileListitem);
 
 	mobileListitem.addEventListener('click', function() {
-	  console.log('clicking mobile list item');
+	  // console.log('clicking mobile list item');
 	  let that = this;
 	  let mobileMatched = geoandname.filter(function(ele) {
 	    return that.textContent === ele.name;
@@ -77,7 +76,7 @@ function createMapbox() {
 	listitem.classList.add('map-search__item');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
-	  console.log('clicking list item');
+	  // console.log('clicking list item');
 	  let that = this;
 	  let matched = geoandname.filter(function(ele) {
 	    return that.textContent === ele.name;
@@ -304,23 +303,19 @@ function createSectFourTable(columns) {
     let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
 
     let rows = table.append('tbody')
-        .selectAll('tr')
-        .data(data).enter()
-        .append('tr')
-        .on('click', function (d) {
-	  // TODO! right hand panel will come out on this TR click! 
-	  // secondary table view
-	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
-        });
+      .selectAll('tr')
+      .data(data).enter()
+      .append('tr')
+    ;
 
-    
     let headers = table.append('thead').append('tr')
-        .selectAll('th')
-        .data(titles).enter()
-        .append('th')
-        .text(function (d) {
-          return d;
-        });
+      .selectAll('th')
+      .data(titles).enter()
+      .append('th')
+      .text(function (d) {
+        return d;
+      })
+    ;
 
     rows.selectAll('td')
       .data(function (row) {
