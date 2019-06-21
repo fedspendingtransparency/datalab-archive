@@ -393,6 +393,17 @@ $cuRed: #881E3D;
 	  justify-content: space-evenly;
 	  padding-top: 2rem;
 
+	  /* #aid-subsection { */
+	  /*   padding-right: 3rem; */
+	  /*   height: 450px; */
+	  /*   border-right: 1px solid #ddd; */
+	  /* } */
+
+	  #aid-subsection:last-child {
+	    padding-right: 0;
+	    border-right: none;
+	  }
+
 	  #aid-heading-aid {
 	    margin: 0;
 	    padding-bottom: 1rem;
@@ -849,6 +860,10 @@ $cuRed: #881E3D;
       }
 
       #investment-table--research {
+	display: none;
+      }
+
+      #investment-table--grants {
 	display: none;
       }
 

@@ -16,6 +16,7 @@ function searchClick (id) {
 function switchView (section, show) {
 
   let radioVal =$("input[name='category']:checked").val();
+  console.log(radioVal);
 
   if (section === 'investment') {
     if (show === 'chart') {

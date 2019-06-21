@@ -39,17 +39,23 @@ function changeCategory(category) {
     scopedData = contractsChartArray;
     categoryLabel = 'Contract';
     dataType = 'PSC';
-    revealTable('contracts');
+    if ($('#investment-sunburst').css('display') == 'none') {
+      revealTable('contracts');
+    }
   } else if (category.value === 'grants') {
     scopedData = grantsChartArray;
     categoryLabel = 'Grant';
     dataType = 'CFDA';
-    revealTable('grants');
+    if ($('#investment-sunburst').css('display') == 'none') {
+      revealTable('grants');
+    }
   } else if (category.value === 'research') {
     scopedData = researchGrantsChartArray;
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
-    revealTable('grants');
+    if ($('#investment-sunburst').css('display') == 'none') {
+      revealTable('grants');
+    }
   }
 
   chartData = scopedData[0];
@@ -67,12 +73,14 @@ function changeCategory(category) {
 
 function revealTable(category) {
   if (category.value === 'contracts') {
+    console.log('show contracts table!');
     $('#investment-table--grants').hide();
     $('#investment-table--contracts').show();
   } else if (category.value === 'grants') {
+    console.log('show grants table!');
     $('#investment-table--contracts').hide();
     $('#investment-table--grants').show();
-  } else {
+  } else if (category.value === 'research') {
     $('#investment-table--contracts').hide();
     $('#investment-table--grants').show();
   }
@@ -365,7 +373,8 @@ function createContractsTable() {
 //    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
 
     let table = d3.select('#investment-table--contracts').append('table')
-        .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
+        .attr('id', 'investment-table-datatable')
+	.attr('class', 'compact');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
@@ -392,8 +401,9 @@ function createContractsTable() {
         },
       ],
       deferRender:    true,
+      responsive: true,
       scrollCollapse: true,
-      scroller:       true});
+      scroller:       true,});
   });
 };
 
@@ -404,7 +414,8 @@ function createGrantsTable() {
 //    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
     
     let table = d3.select('#investment-table--grants').append('table')
-        .attr('id', 'investment-table-datatable--grants'); // id given to table for Datatables.js
+        .attr('id', 'investment-table-datatable--grants')
+	.attr('class', 'compact');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation', 'Research Grant?'];
     
@@ -432,6 +443,7 @@ function createGrantsTable() {
 	{'data': 'Research'},
       ],
       deferRender:    true,
+      responsive: true,
       scrollCollapse: true,
       scroller:       true});
   }); // start datatable

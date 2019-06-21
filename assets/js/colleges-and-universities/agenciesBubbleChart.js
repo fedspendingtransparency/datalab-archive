@@ -284,7 +284,8 @@ function createBubbleTable(data) {
             return err;
         }
         let table = d3.select('#bubbleTableContainer').append('table')
-            .attr('id', 'bubbletable');
+            .attr('id', 'bubbletable')
+	    .attr('class', 'compact');
 
         let titles = ['Recipient', 'Agency', 'SubAgency', 'Family', 'Type', 'Obligation'];
 

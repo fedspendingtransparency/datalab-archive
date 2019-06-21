@@ -9,7 +9,7 @@
       <h1 class="cu-header__teaser">
         <span>Connect the government agency</span>
         <br>
-        <span class="cu-header--red">to the federal investment</span>
+        <span class="cu-header--red">to the federal investment.</span>
       </h1>
       <p class="cu-header__blurb">
 	Federal agencies are organizations in the executive branch with specific missions to serve the public, ranging from promoting the progress of science to ensuring national security. Use the chart below to discover the financial breakdown of each agency’s investment, including which colleges and universities get funds, and what investment vehicles they are using. In this visualization we focus on funding through grants and contracts. 
@@ -26,23 +26,23 @@
         </div>
       </section>
 
-        <div class="cu-header__controls">
-          {% include colleges/colleges-share.html anchor="section-four" %}
-        </div>
+      <div class="cu-header__controls">
+        {% include colleges/colleges-share.html anchor="section-four" %}
+      </div>
     </div>
     <div id="chart-area">
       <div id="bubble-detail" style="position:relative"></div>
       <div id="chart-container">
         <div id='bubble-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
-        <div class='button-set' id="bubble-search">
-          <button type='button' title='Search' onclick='searchClick("bubble-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
-        </div>
-        <div class='button-set' id="bubble-table" >
-          <button id="bubble-chart-trigger" type='button' title='View chart' style='opacity: 1;'><img src='/assets/icons/bubble_icon.svg' /></button>
-          <div class='separator'></div>
-          <button id="bubble-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
-        </div>
-      </div>
+          <div class='button-set' id="bubble-search">
+            <button type='button' title='Search' onclick='searchClick("bubble-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
+          </div>
+          <div class='button-set' id="bubble-table" >
+            <button id="bubble-chart-trigger" type='button' title='View chart' style='opacity: 1;'><img src='/assets/icons/bubble_icon.svg' /></button>
+            <div class='separator'></div>
+            <button id="bubble-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+          </div>
+	</div>
         <div id="agency-investments__content">
           <div id="bubbleChartContainer" class="bubbleChartContainer">
 
@@ -52,17 +52,17 @@
               <svg id='agency-legend_scaleKey'></svg>
             </div>
 
-          <div id="agency-bubbleChart"></div>
-        </div>
+            <div id="agency-bubbleChart"></div>
+          </div>
 
           <div id="bubbleTableContainer"></div>
 
-      </div>
+	</div>
 
       </div>
       <div class="chart-footer">
         <div>
-          <span class='faded'>Updated as of December 2018 / </span>
+          <span class='faded'>Updated as of March 2019 / </span>
           <a class="download-data" href='assets/js/colleges-and-universities/download-files/Agency_Section_Download.csv'>
             {% include svgs/download_icon.svg %}
             &nbsp;Download
