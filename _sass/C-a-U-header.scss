@@ -4,6 +4,7 @@ $cuRed: #881E3D;
   max-width: 1200px;
   margin: 0 auto 1rem;
   padding: 0 1rem;
+  width: 100%; // add for IE 11! 
 }
 
 .cu-header__blurb {

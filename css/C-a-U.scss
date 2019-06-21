@@ -390,7 +390,7 @@ $cuRed: #881E3D;
 
 	#investment-subtext {
 	  display: flex;
-	  justify-content: space-evenly;
+	  justify-content: space-between;
 	  padding-top: 2rem;
 
 	  /* #aid-subsection { */
@@ -852,7 +852,7 @@ $cuRed: #881E3D;
       }
 
       #investment-table {
-	display: none; // toggle show in JS
+	display: none;
       }
 
       #investment-table--contracts {

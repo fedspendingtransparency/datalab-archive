@@ -54,7 +54,7 @@ function changeCategory(category) {
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
     if ($('#investment-sunburst').css('display') == 'none') {
-      revealTable('grants');
+      revealTable('research');
     }
   }
 
@@ -73,16 +73,17 @@ function changeCategory(category) {
 
 function revealTable(category) {
   if (category.value === 'contracts') {
-    console.log('show contracts table!');
     $('#investment-table--grants').hide();
     $('#investment-table--contracts').show();
+    $('#investment-table--research').hide();
   } else if (category.value === 'grants') {
-    console.log('show grants table!');
     $('#investment-table--contracts').hide();
+    $('#investment-table--research').hide();
     $('#investment-table--grants').show();
   } else if (category.value === 'research') {
     $('#investment-table--contracts').hide();
-    $('#investment-table--grants').show();
+    $('#investment-table--grants').hide();
+    $('#investment-table--research').show();
   }
 }
 
@@ -277,7 +278,6 @@ function drawChart(data) {
     refreshData(data);
 }
 
-
 function createChart() {
     const widthPercentage = .7;
     catCalculatedWidth = window.innerWidth * widthPercentage;
@@ -417,7 +417,7 @@ function createGrantsTable() {
         .attr('id', 'investment-table-datatable--grants')
 	.attr('class', 'compact');
 
-    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation', 'Research Grant?'];
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
     table.append('thead').append('tr')
         .selectAll('th')
@@ -440,7 +440,6 @@ function createGrantsTable() {
           'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
           'className': 'dt-right'
          },
-	{'data': 'Research'},
       ],
       deferRender:    true,
       responsive: true,
@@ -448,6 +447,49 @@ function createGrantsTable() {
       scroller:       true});
   }); // start datatable
 };
+
+function createResearchTable() {
+  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+    if (err) { return err; }
+
+    let researchData = data.filter(d => d.Research);
+    console.log(researchData);
+    
+    let table = d3.select('#investment-table--research').append('table')
+        .attr('id', 'investment-table-datatable--research')
+	.attr('class', 'compact');
+
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
+    
+    table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    // datatable start
+    $('#investment-table-datatable--research').dataTable({
+      data: researchData,
+      columns: [
+        {'data': 'family'},
+        {'data': 'Program_Title'},
+        {'data': 'Agency'},
+        {'data': 'Subagency'},
+        {'data': 'Recipient'},
+        {'data': 'Obligation',
+          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+          'className': 'dt-right'
+         },
+      ],
+      deferRender:    true,
+      responsive: true,
+      scrollCollapse: true,
+      scroller:       true});
+  }); // start datatable
+};
+
 
 const partition = d3.layout.partition().value(d => d.size);
 
@@ -467,8 +509,6 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
 
-  createGrantsTable();
-  createContractsTable();
 
   // enable search/filter
   if (sunburst) {
@@ -554,6 +594,12 @@ window.addEventListener("resize", function() {
 
     if (state) click(state);
 
+});
+
+$(document).ready(function(){
+  createGrantsTable();
+  createContractsTable();
+  createResearchTable();
 });
 
 // TODO: Add debouncing
