@@ -7,6 +7,7 @@ let categoriesTopFive;
 
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
+
   var map = new mapboxgl.Map({
     container: 'collegesMap', // container id
     style: 'mapbox://styles/usaspending/cjvduv2b7fwlc1fnv9iyihkqo', // stylesheet location
@@ -14,9 +15,10 @@ function createMapbox() {
     zoom: 3 // starting zoom (3 default)
   });
 
+
   // Add zoom and rotation controls to the map.
   let zoomCtrl = new mapboxgl.NavigationControl();
-  map.addControl(zoomCtrl, 'top-left'); // put in top left for now? could change?
+  map.addControl(zoomCtrl, 'top-right');
 
   // Create a popup, but don't add it to the map yet.
   let tooltip = new mapboxgl.Popup({
@@ -102,6 +104,16 @@ function createMapbox() {
   $('#map-chart-trigger').click(function(){
     mapDiv.show();
     almaTable.hide();
+  });
+
+  $('#refresh-div').click(function(){
+    map.flyTo({
+      center: [-80.59179687498357, 40.66995747013945],
+      zoom: 3,
+      bearing: 0,
+      speed: 1,
+      curve: 1,
+    });
   });
 
   // when the map first loads all resources!
@@ -379,6 +391,7 @@ function filterSearchMobile() {
 };
 
 
+
 // Search Trigger Functionality //
 function searchToggle() {
   $('#map-search-trigger').click(function(){
@@ -411,7 +424,6 @@ function searchMobileToggle() {
   });
 };
 
-// Bringing it all together! Dom, on load! //
 $(document).ready(function(){
   createMapbox();
   searchToggle();

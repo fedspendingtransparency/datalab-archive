@@ -1,3 +1,6 @@
+---
+---
+
 // add legend
 d3.select('#legend_scaleKey').append('circle')
   .attr('r', 25)
@@ -36,14 +39,23 @@ function changeCategory(category) {
     scopedData = contractsChartArray;
     categoryLabel = 'Contract';
     dataType = 'PSC';
+    if ($('#investment-sunburst').css('display') == 'none') {
+      revealTable('contracts');
+    }
   } else if (category.value === 'grants') {
     scopedData = grantsChartArray;
     categoryLabel = 'Grant';
     dataType = 'CFDA';
+    if ($('#investment-sunburst').css('display') == 'none') {
+      revealTable('grants');
+    }
   } else if (category.value === 'research') {
     scopedData = researchGrantsChartArray;
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
+    if ($('#investment-sunburst').css('display') == 'none') {
+      revealTable('research');
+    }
   }
 
   chartData = scopedData[0];
@@ -52,10 +64,26 @@ function changeCategory(category) {
 
   // enable search/filter
   if (!sunburst.setSearchData) {
-    console.warn('bubble method not available')
+    console.warn('bubble method not available');
   } else {
     sunburst.setSearchData(scopedData);
     sunburst.onSearchSelect = click;
+  }
+}
+
+function revealTable(category) {
+  if (category.value === 'contracts') {
+    $('#investment-table--grants').hide();
+    $('#investment-table--contracts').show();
+    $('#investment-table--research').hide();
+  } else if (category.value === 'grants') {
+    $('#investment-table--contracts').hide();
+    $('#investment-table--research').hide();
+    $('#investment-table--grants').show();
+  } else if (category.value === 'research') {
+    $('#investment-table--contracts').hide();
+    $('#investment-table--grants').hide();
+    $('#investment-table--research').show();
   }
 }
 
@@ -73,94 +101,158 @@ function downloadData() {
     }
 }
 
+function calculateLineHeight(lineHeight) {
+    if (lineHeight < 1.2 && lineHeight > 0) {
+        return "1.2em";
+    }
+
+    return lineHeight + "em";
+}
+
 const formatNumber = d3.format('$,.0f');
 let centerGroup;
 
 function updateCenter(d) {
-    d3.select('g#tab').remove();
+    d3.select('text#tab').remove();
 
   if (d.depth === 0) {
-      centerGroup = svg.append('g')
+      let labelFontSize = 1.1;
+
+      centerGroup = svg.append('svg:text')
         .attr('id', 'tab');
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-1em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text('Total FY2018 ' + categoryLabel  + ' Funding')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', function() {
+              labelFontSize = calculateCenterTextFontSize(this, 1);
+              return labelFontSize * .6 + "em";
+          })
+          .attr('dy', calculateLineHeight(-1 * labelFontSize));
 
-      centerGroup.append('svg:text')
-          .attr('dy', '1em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
-          .attr('class', 'center-amount');
+          .attr('class', 'center-amount')
+          .style('font-size', labelFontSize + "em");
 
 
   } else if (d.depth === 1) {
 
-      centerGroup = svg.append('g')
+      let labelFontSize = 1.1;
+      centerGroup = svg.append('svg:text')
           .attr('id', 'tab');
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-3em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(dataType  + ' Category')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', function() {
+              labelFontSize = calculateCenterTextFontSize(this, 2);
+              return labelFontSize * .75 + "em";
+          })
+          .attr('dy', calculateLineHeight(-2 * labelFontSize));
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-2em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(d.name)
-          .attr('class', 'center-title');
+          .attr('class', 'center-title')
+          .style('font-size', labelFontSize * .75 + "em");
 
-      centerGroup.append('svg:text')
-          .attr('dy', '.5em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(1.5 * labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text('Total FY2018 Funding')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', labelFontSize * .75 + "em");
 
-      centerGroup.append('svg:text')
-          .attr('dy', '1.5em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
-          .attr('class', 'center-amount');
+          .attr('class', 'center-amount')
+          .style('font-size', labelFontSize + "em");
 
   } else {
+      let labelFontSize = 1.1;
 
-      centerGroup = svg.append('g')
+      centerGroup = svg.append('svg:text')
           .attr('id', 'tab');
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-3em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(dataType  + ' Category')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', function() {
+              labelFontSize = calculateCenterTextFontSize(this, 2);
+              return labelFontSize * .75 + "em";
+          })
+          .attr('dy', calculateLineHeight(-3 * labelFontSize));
 
-      centerGroup.append('svg:text')
-          .attr('dy', '-2em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(d.parent.name)
-          .attr('class', 'center-title');
+          .attr('class', 'center-title')
+          .style('font-size', labelFontSize * .75 + "em");
 
-      centerGroup.append('svg:text')
-          .attr('dy', '.5em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(1.5 * labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(dataType +  ' Name')
-          .attr('class', 'center-heading');
+          .attr('class', 'center-heading')
+          .style('font-size', labelFontSize * .75 + "em");
 
-      centerGroup.append('svg:text')
-          .attr('dy', '1.5em')
-          .style('text-anchor', 'middle')
+
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(d.name)
-          .attr('class', 'center-title');
+          .attr('class', 'center-title')
+          .style('font-size', labelFontSize * .75 + "em")
+          .call(wordWrap, radius);
 
-      centerGroup.append('svg:text')
-          .attr('dy', '2.5em')
-          .style('text-anchor', 'middle')
+      centerGroup.append('tspan')
+          .attr('dy', calculateLineHeight(1.5 * labelFontSize))
+          .attr('x', '0')
+          .attr('text-anchor', 'middle')
           .text(formatNumber(d.value))
-          .attr('class', 'center-amount');
+          .attr('class', 'center-amount')
+          .style('font-size', labelFontSize + "em");
+
 
   }
+
+  /* Scale text to fit */
+  const bbox = centerGroup.node().getBBox();
+  const buffer = 50;
+  const maxHeight = bbox.height + buffer;
+  const maxWidth = bbox.width + buffer;
+
+  if(maxHeight >= radius) {
+      centerGroup.attr("transform" ,"scale(" + radius / maxHeight + ")");
+  } else if (maxWidth >= radius) {
+    centerGroup.attr("transform" ,"scale(" + radius / maxWidth + ")");
+  }
+
+  centerGroup.style('cursor', 'pointer')
+      .on('click', function() {
+          click(chartData);
+      });
+
 }
 
 const centerColor = 'rgba(0, 0, 0, 0)'; //transparent to show #center
@@ -185,7 +277,6 @@ function drawChart(data) {
     createChart();
     refreshData(data);
 }
-
 
 function createChart() {
     const widthPercentage = .7;
@@ -276,19 +367,18 @@ function buildDataHierarchy(title, dataArray) {
   return data;
 }
 
-function createInvestmentTable() {
-  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
-    if (err) { return err; }
+function createContractsTable() {
+  d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', function(contractData) {
 
-    /**
-     * Table START
-     */
-    let table = d3.select('#investment-table').append('table')
-        .attr('id', 'investment-table-datatable'); // id given to table for Datatables.js
+//    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
+
+    let table = d3.select('#investment-table--contracts').append('table')
+        .attr('id', 'investment-table-datatable')
+	.attr('class', 'compact');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
-    let headers = table.append('thead').append('tr')
+    table.append('thead').append('tr')
         .selectAll('th')
         .data(titles).enter()
         .append('th')
@@ -298,6 +388,47 @@ function createInvestmentTable() {
 
     // datatable start
     $('#investment-table-datatable').dataTable({
+      data: contractData,
+      columns: [
+        {'data': 'family'},
+        {'data': 'Program_Title'},
+        {'data': 'Agency'},
+        {'data': 'Subagency'},
+        {'data': 'Recipient'},
+        {'data': 'Obligation',
+         'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+         'className': 'dt-right'
+        },
+      ],
+      deferRender:    true,
+      responsive: true,
+      scrollCollapse: true,
+      scroller:       true,});
+  });
+};
+
+function createGrantsTable() {
+  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+    if (err) { return err; }
+
+//    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
+    
+    let table = d3.select('#investment-table--grants').append('table')
+        .attr('id', 'investment-table-datatable--grants')
+	.attr('class', 'compact');
+
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
+    
+    table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    // datatable start
+    $('#investment-table-datatable--grants').dataTable({
       data: data,
       columns: [
         {'data': 'family'},
@@ -305,13 +436,60 @@ function createInvestmentTable() {
         {'data': 'Agency'},
         {'data': 'Subagency'},
         {'data': 'Recipient'},
-        {'data': 'Obligation', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')}
+        {'data': 'Obligation',
+          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+          'className': 'dt-right'
+         },
       ],
       deferRender:    true,
+      responsive: true,
       scrollCollapse: true,
       scroller:       true});
   }); // start datatable
 };
+
+function createResearchTable() {
+  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+    if (err) { return err; }
+
+    let researchData = data.filter(d => d.Research);
+    console.log(researchData);
+    
+    let table = d3.select('#investment-table--research').append('table')
+        .attr('id', 'investment-table-datatable--research')
+	.attr('class', 'compact');
+
+    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
+    
+    table.append('thead').append('tr')
+        .selectAll('th')
+        .data(titles).enter()
+        .append('th')
+        .text(function (d) {
+          return d;
+        });
+
+    // datatable start
+    $('#investment-table-datatable--research').dataTable({
+      data: researchData,
+      columns: [
+        {'data': 'family'},
+        {'data': 'Program_Title'},
+        {'data': 'Agency'},
+        {'data': 'Subagency'},
+        {'data': 'Recipient'},
+        {'data': 'Obligation',
+          'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+          'className': 'dt-right'
+         },
+      ],
+      deferRender:    true,
+      responsive: true,
+      scrollCollapse: true,
+      scroller:       true});
+  }); // start datatable
+};
+
 
 const partition = d3.layout.partition().value(d => d.size);
 
@@ -331,7 +509,6 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   dataType = 'CFDA';
   drawChart(grantsChartArray); // default chart is all grants
 
-  createInvestmentTable()
 
   // enable search/filter
   if (sunburst) {
@@ -362,37 +539,39 @@ d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractDat
 
 d3.select(self.frameElement).style('height', catHeight + 'px');
 
-function wrap(text, width) {
-    text.each(function () {
-        var text = d3.select(this),
-            words = text.text().split(/\s+/).reverse(),
-            word,
-            line = [],
-            lineNumber = 0,
-            lineHeight = 1.1, // ems
-            x = text.attr("x"),
-            y = text.attr("y"),
-            dy = 0, //parseFloat(text.attr("dy")),
-            tspan = text.text(null)
-                .append("tspan")
-                .attr("x", x)
-                .attr("y", y)
-                .attr("dy", dy + "em");
-        while (word = words.pop()) {
-            line.push(word);
+function wordWrap(text, maxWidth) {
+    var words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineHeight = 1.1,
+        tspan;
+
+    tspan = text.text(null)
+        .append("tspan")
+        .attr("x", 0);
+
+    while (words.length > 0) {
+        word = words.pop();
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (tspan.node().getComputedTextLength() > maxWidth) {
+            line.pop();
             tspan.text(line.join(" "));
-            if (tspan.node().getComputedTextLength() > width) {
-                line.pop();
-                tspan.text(line.join(" "));
-                line = [word];
-                tspan = text.append("tspan")
-                    .attr("x", x)
-                    .attr("y", y)
-                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
-                    .text(word);
-            }
+            line = [word];
+            tspan = text.append("tspan")
+                .attr("x", 0)
+                .attr("dy", lineHeight + "em")
+                .text(word);
         }
-    });
+    }
+}
+
+
+function calculateCenterTextFontSize (centerNode, multiplier) {
+    const computed = centerNode.getComputedTextLength();
+    const labelWidth = (radius - 20) / multiplier;
+    const fontsize = labelWidth / computed > 0 ? labelWidth / computed : 0.01;
+    return fontsize;
 }
 
 // Redraw based on the new size whenever the browser window is resized.
@@ -415,6 +594,12 @@ window.addEventListener("resize", function() {
 
     if (state) click(state);
 
+});
+
+$(document).ready(function(){
+  createGrantsTable();
+  createContractsTable();
+  createResearchTable();
 });
 
 // TODO: Add debouncing

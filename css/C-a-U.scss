@@ -39,10 +39,6 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
 
-    .section-pre--banner {
-      z-index: -1;
-    }
-
     .section-banner-text {
       display: flex;
       flex-direction: column;
@@ -93,6 +89,10 @@ $cuRed: #881E3D;
 	text-align: center;
       }
 
+      .section-pre--tablet-subblurb {
+	color: #666666;
+      }
+
       .section-pre--tablet-blurb {
 	height: 90px;
 	color: #555555;
@@ -109,13 +109,32 @@ $cuRed: #881E3D;
     }
 
     #section-pre__tile {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-top: 1rem;
+      padding-left: 2rem;
+      padding-right: 1.5rem;
+      border-right: 1px solid #EEEEEE;
     }
+
+    #section-pre__tile:last-child {
+      border-right: none;
+    }
+
+    // #section-pre__tile:nth-child(even) {
+    //   padding-left: 1.25rem;
+    // }
+    
+    // #section-pre__divider:after {
+    //   content: ""; /* This is necessary for the pseudo element to work. */ 
+    //   display: inline-block; /* This will put the pseudo element on its own line. */
+    //   margin: 0 auto; /* This will center the border. */
+    //   width: 70%; /* Change this to whatever width you want. */
+    //   padding-top: 20px; /* This creates some space between the element and the border. */
+    //   border-right: 1px solid #ddd; /* This creates the border. Replace black with whatever color you want. */
+    // }
 
     // table of contents
     #section-pre__TOC {
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #979797;
       display: flex;
       max-width: 1200px;
       justify-content: space-between;
@@ -127,24 +146,32 @@ $cuRed: #881E3D;
       font-size: 48px;
       font-weight: 600;
       line-height: 50px;
+      
+      h2 {
+	margin: 0;
+      }
     }
 
     .section-pre--subtext {
       color: #881e3d;
       font-size: 14px;
+      font-weight: 300;
       line-height: 18px;
     }
 
     .section-pre--subblurb {
       color: #555555;
-      font-size: 14px;
       font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      max-width: 200px;
       line-height: 17px;
     }
 
     .section-pre--blurb {
       color: #555555;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 300;
       font-weight: 300;
       line-height: 16px;
     }
@@ -155,6 +182,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem; // 9rem to break up each section
 
     #investment-overview {
       display: flex;
@@ -206,7 +234,8 @@ $cuRed: #881E3D;
       // viz container
       #investment-overview__viz {
 
-	margin: 1rem 14rem 1rem;
+	margin-right: 11rem;
+	margin-left: 11rem;
 	box-sizing: border-box;
 
 	#investment-chart {
@@ -218,7 +247,20 @@ $cuRed: #881E3D;
  	  display: none;
  	  text-align: center;
  	}
-	
+
+	::-moz-placeholder { /* Firefox 19+ */
+	  text-align: center;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  text-align: center;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	  text-align: center;
+	}
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  text-align: center;
+	}
+
  	.map-search__list {
  	  display: none;
  	}
@@ -348,8 +390,19 @@ $cuRed: #881E3D;
 
 	#investment-subtext {
 	  display: flex;
-	  justify-content: space-evenly;
+	  justify-content: space-between;
 	  padding-top: 2rem;
+
+	  /* #aid-subsection { */
+	  /*   padding-right: 3rem; */
+	  /*   height: 450px; */
+	  /*   border-right: 1px solid #ddd; */
+	  /* } */
+
+	  #aid-subsection:last-child {
+	    padding-right: 0;
+	    border-right: none;
+	  }
 
 	  #aid-heading-aid {
 	    margin: 0;
@@ -409,6 +462,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem;
 
 
     #alma-mater {
@@ -419,6 +473,33 @@ $cuRed: #881E3D;
 
       #mobile-search {
 	display: none;
+      }
+
+      #refresh-div {
+	display: inline-block;
+	width: auto;
+	font-size: 1rem;
+	color: #4a4a4a;
+	margin-left: 20px;
+	padding-top: 5px;
+      }
+
+      #refresh-div > i {
+	padding-right: 3px;
+      }
+
+      #refresh-div:hover {
+	cursor: pointer;
+
+	i {
+	  color: $cuRed;
+	  cursor: pointer;
+	}
+     }
+
+      #refresh-div > i:hover {
+	color: $cuRed;
+	cursor: pointer;
       }
 
       #alma-mater-table {
@@ -479,6 +560,32 @@ $cuRed: #881E3D;
       #feature-map-toggle:hover {
       	cursor: pointer;
       }
+
+      .chart-footer {
+        color: $grey;
+        font-size: 12pt;
+        display: flex;
+        justify-content: flex-end;
+	padding-right: 2rem; // align with mapbox
+	padding-top: 5px; // small small space so we're not touching the canvas
+
+        .faded {
+          opacity: 0.5;
+          line-height: 18pt;
+        }
+
+        .download-data {
+          color: #4a4a4a;
+          margin-left: 12px;
+          fill: #4a4a4a;
+	  cursor: pointer;
+
+          &:hover {
+            color: $cuRed;
+          }
+        }
+      }
+
     } // end of alma-mater
   } // end of section-two
 
@@ -487,7 +594,24 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem;
 
+    #bubbleTableContainer {
+      display: flex;
+      justify-content: center;
+
+      #bubbletable_wrapper {
+        padding: 0 3rem;
+      }
+    }
+
+    .bubble-chart-tooltip {
+      .information {
+        .key {
+          color: #881E3D;
+        }
+      }
+    }
     #agency-investments {
       display: flex;
       justify-content: center;
@@ -546,6 +670,7 @@ $cuRed: #881E3D;
           font-size: 12pt;
           display: flex;
           justify-content: flex-end;
+	  padding-right: 2rem;
 
           .faded {
             opacity: 0.5;
@@ -558,7 +683,8 @@ $cuRed: #881E3D;
             fill: #4a4a4a;
 
             &:hover {
-              color: #00c3c2;
+              color: $cuRed;
+	      cursor: pointer;
             }
           }
         }
@@ -566,7 +692,6 @@ $cuRed: #881E3D;
 
       #chart-container {
         display: flex;
-        justify-content: space-around;
       }
 
       #agency-investments__content {
@@ -576,89 +701,89 @@ $cuRed: #881E3D;
         justify-content: center;
         align-self: center;
 
-          #bubbleChartContainer {
-            display: flex;
-            height: 700px;
+        #bubbleChartContainer {
+          display: flex;
+          height: 700px;
 
-            svg#chart {
-              position: absolute;
-              top: 0;
-              left: 0;
-            }
-
-            #agency-legend_colorKey {
-              position: relative;
-              left: -100px;
-              padding: 0;
-              overflow: visible;
-            }
-
-            #legend_colorKey {
-              position: relative;
-              left: -100px;
-              margin: 50px 0 0 0;
-              padding: 0;
-              overflow: visible;
-            }
-
-            #agency-legend_scaleKey {
-              width: 225px;
-              height: 130px;
-              position: absolute;
-            }
-
-            .legend_circleKeyLabel {
-              position: absolute;
-              border-top: solid 1px #DDD;
-              width: 70px;
-              left: 65px;
-            }
-
-            .legend_circleKeyLabel span {
-              font-size: 10px;
-              color: #999;
-              position: absolute;
-              display: block;
-              width: 90px;
-              top: -8px;
-              left: 75px;
-            }
-
-            .legend_scaleKeyCircle {
-              stroke-width: 1;
-              stroke: #999;
-              stroke-dasharray: 2 2;
-              fill: none;
-            }
-
-            #agency-bubbleChart {
-              height: 700px;
-              width: 700px;
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-
-            circle.node,  circle.node--root, circle.node--leaf, text.label {
-              cursor: pointer;
-            }
-
-            circle.node--leaf.active {
-              fill-opacity: .8;
-              stroke: #FAEBD0;
-              stroke-width: 9;
-            }
-
-            .node--root {
-              fill: #f8f8f8;
-            }
-
-            .node {
-              stroke: #E8E8E8;
-              fill: #f3f3f3;
-            }
+          svg#chart {
+            position: absolute;
+            top: 0;
+            left: 0;
           }
+
+          #agency-legend_colorKey {
+            position: relative;
+            left: -100px;
+            padding: 0;
+            overflow: visible;
+          }
+
+          #legend_colorKey {
+            position: relative;
+            left: -100px;
+            margin: 50px 0 0 0;
+            padding: 0;
+            overflow: visible;
+          }
+
+          #agency-legend_scaleKey {
+            width: 225px;
+            height: 130px;
+            position: absolute;
+          }
+
+          .legend_circleKeyLabel {
+            position: absolute;
+            border-top: solid 1px #DDD;
+            width: 70px;
+            left: 65px;
+          }
+
+          .legend_circleKeyLabel span {
+            font-size: 10px;
+            color: #999;
+            position: absolute;
+            display: block;
+            width: 90px;
+            top: -8px;
+            left: 75px;
+          }
+
+          .legend_scaleKeyCircle {
+            stroke-width: 1;
+            stroke: #999;
+            stroke-dasharray: 2 2;
+            fill: none;
+          }
+
+          #agency-bubbleChart {
+            height: 700px;
+            width: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          circle.node,  circle.node--root, circle.node--leaf, text.label {
+            cursor: pointer;
+          }
+
+          circle.node--leaf.active {
+            fill-opacity: .8;
+            stroke: #FAEBD0;
+            stroke-width: 9;
+          }
+
+          .node--root {
+            fill: #f8f8f8;
+          }
+
+          .node {
+            stroke: #E8E8E8;
+            fill: #f3f3f3;
+          }
+        }
       }
 
       #bubbleTableContainer {
@@ -673,6 +798,11 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
+    padding-top: 9rem;
+
+    #investment-table-datatable_wrapper {
+      padding: 0 3rem;
+    }
 
     #investment-categories {
       display: flex;
@@ -722,7 +852,19 @@ $cuRed: #881E3D;
       }
 
       #investment-table {
-	      display: none; // toggle show in JS
+	display: none;
+      }
+
+      #investment-table--contracts {
+	display: none;
+      }
+
+      #investment-table--research {
+	display: none;
+      }
+
+      #investment-table--grants {
+	display: none;
       }
 
       #chart-area {
@@ -846,6 +988,7 @@ $cuRed: #881E3D;
         font-size: 12pt;
         display: flex;
         justify-content: flex-end;
+	padding-right: 2rem;
 
         .faded {
           opacity: 0.5;
@@ -858,7 +1001,8 @@ $cuRed: #881E3D;
           fill: #4a4a4a;
 
           &:hover {
-            color: #00c3c2;
+            color: $cuRed;
+	    cursor: pointer;
           }
         }
       }    } // end of investment categories
@@ -1093,8 +1237,8 @@ $cuRed: #881E3D;
     position: relative;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     top: 0;
     bottom: 0;
     width: 100%;
@@ -1346,59 +1490,6 @@ $cuRed: #881E3D;
     }
   } // end mapFilter
 
-  #sectionFourMapBtn,
-  #sectionFourTableBtn,
-  #sectionFourSearchBtn {
-    cursor: pointer;
-  }
-
-  // switch toggle css stuff
-  .onoffswitch {
-    position: relative;
-    width: 55px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-  .onoffswitch-checkbox {
-    display: none;
-  }
-  .onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    height: 20px;
-    padding: 0;
-    line-height: 20px;
-    border: 2px solid #999999;
-    border-radius: 20px;
-    background-color: #eeeeee;
-    transition: background-color 0.3s ease-in;
-  }
-  .onoffswitch-label:before {
-    content: "";
-    display: block;
-    width: 20px;
-    margin: 0px;
-    background: #ffffff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 33px;
-    border: 2px solid #999999;
-    border-radius: 20px;
-    transition: all 0.3s ease-in 0s;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #229e03;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label,
-  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    border-color: #229e03;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    right: 0px;
-  }
 
   #tableContainerDiv {
     display: none;
@@ -1457,7 +1548,7 @@ $cuRed: #881E3D;
 
   /**
     For use with ScrollyTelling! Make things appear on viewport! Woo!
-  **/
+**/
   .hiddenScroll {
     visibility: hidden;
     opacity: 0;
@@ -1524,6 +1615,68 @@ $cuRed: #881E3D;
     padding-bottom: 10px;
     padding-top: 10px;
   }
+
+  .dataTable {
+    font-size: 17px;
+
+    td {
+      color: #aaa !important;
+      text-align: left;
+      font-size: 17px;
+    }
+
+    th {
+      text-align: left !important;
+      text-transform: uppercase !important;
+      font-size: 17px;
+      color: #666 !important;
+    }
+
+    tr {
+      height: 60px;
+      border-bottom: #aaa 1px solid !important;
+    }
+
+    .no-footer {
+      border-bottom: #aaa 1px solid !important;
+    }
+
+  }
+
+  label, select, .dataTables_info, .dataTables_paginate {
+    color: #666 !important;
+    font-size: 14px !important;
+  }
+
+  .dataTables_paginate paging_simple_numbers, .dataTables_length,
+  .paging_simple_numbers {
+    color: #aaa !important;
+  }
+
+  table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before,
+  table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before,
+  table.dataTable thead .sorting_desc_disabled:before {
+    content: "\25BE" !important;
+    font-size: 14px !important;
+    margin-bottom: .75em !important;
+    margin-right: .25em;
+  }
+
+  table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after,
+  table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:after {
+    content: "\25BE" !important;
+    font-size: 14px !important;
+    margin-bottom: .55em !important;
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
+
+
 } // end of .CU
 
-@import 'C-a-U-mobile';
+@import 'C-a-U-mobile'; // needs to be last! 

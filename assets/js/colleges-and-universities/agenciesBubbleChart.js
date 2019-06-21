@@ -120,7 +120,7 @@ function drawBubbleChart(root) {
                 "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
                 "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
-                "<div class='information'><p class='key'>Total $ of Awards</p>" +
+                "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
                 "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
                 "</div></div>";
             return tooltipHtml;
@@ -170,7 +170,7 @@ function drawBubbleChart(root) {
                 d3.select(this).classed("active", true);
                 bubble.activateDetail(d);
             } else {
-                console.log("why are we here?");
+                console.warn("Invalid visualization depth requested in agencies bubble chart.");
             }
 
         })
@@ -206,7 +206,7 @@ function drawBubbleChart(root) {
                 d3.select(this).classed("active", true);
                 bubble.activateDetail(d);
             } else {
-                console.log("why are we here?");
+                console.warn("Invalid visualization depth requested in agencies bubble chart.");
             }
         });
 
@@ -284,7 +284,8 @@ function createBubbleTable(data) {
             return err;
         }
         let table = d3.select('#bubbleTableContainer').append('table')
-            .attr('id', 'bubbletable');
+            .attr('id', 'bubbletable')
+	    .attr('class', 'compact');
 
         let titles = ['Recipient', 'Agency', 'SubAgency', 'Family', 'Type', 'Obligation'];
 
@@ -313,6 +314,15 @@ function createBubbleTable(data) {
         });
     });
 };
+
+function selectSubAgency(d) {
+    const elSelector = "circle.node--leaf[id='" + d.name + "']";
+    circle.classed('active', false);
+    d3.select(elSelector).classed("active", true);
+    if (focus !== d) zoom(d.parent), d3.event.stopPropagation();
+
+}
+
 
 /*
 *   Event Handlers
@@ -376,8 +386,8 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
     if (!bubble.setSearchData) {
       console.warn('bubble method not available')
     } else {
-    console.log(root)
       bubble.setSearchData(root);
+      bubble.selectSubAgency = selectSubAgency;
       bubble.zoom = zoom;
     }
 

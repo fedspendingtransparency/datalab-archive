@@ -34,9 +34,7 @@
     }
 
     function getTotal(funding) {
-        return funding.reduce((acc, row) => {
-            return acc + row.value;
-        }, 0)
+        return formatCurrency(funding);
     }
 
     function activateDetail(data) {
@@ -46,7 +44,7 @@
 
         agencyName.text(data.parent.name)
         subAgencyName.text(data.name)
-        
+
         if (!detailData[data.name]) {
             console.warn(`no data for ${data.name}`);
             updateTable('total', [{ key: 'Total $ of Awards', value: '-' }]);
@@ -54,7 +52,7 @@
             updateTable('investments', []);
             updateTable('institutions', []);
         } else {
-            updateTable('total', [{ key: 'Total $ of Awards', value: getTotal(detailData[data.name].funding) }]);
+            updateTable('total', [{ key: 'Total $ of Awards', value: data.size }]);
             updateTable('funding', detailData[data.name].funding.sort(fundingSort));
             updateTable('investments', detailData[data.name].investments.sort(sortDetail));
             updateTable('institutions', detailData[data.name].institutions.sort(sortDetail));
