@@ -132,7 +132,7 @@
   }
   
   function preloadData() {
-    d3.csv("../../data-lab-data/rhp.csv", function (data) {
+    d3.csv("../../data-lab-data/CU/rhp.csv", function (data) {
       data.forEach(indexData, 'rhp');
       dataFilesLoaded += 1;
     });
