@@ -1,7 +1,14 @@
 $cuRed: #881E3D;
 
+@media (max-width: 550px) {
+  #aid-subsection {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 /* Tablet View */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .CU {
     /* Table of Contents */
     #TOC {
@@ -10,6 +17,14 @@ $cuRed: #881E3D;
 
     span#cuRed {
       color: $cuRed;
+    }
+
+    .cu-header {
+      max-width: 800px;
+    }
+
+    .cu-header__blurb {
+      max-width: 500px;
     }
 
     #section-pre {
@@ -21,6 +36,7 @@ $cuRed: #881E3D;
       #section-pre--tablet_banner {
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 1.5rem;
 
 	.section-pre--tablet-subtext {
 	  color: #9B9B9B;
@@ -33,7 +49,7 @@ $cuRed: #881E3D;
 	}
 
 	.section-pre--tablet-subblurb {
-
+	  color: #666666;
 	  font-family: "Source Sans Pro";
 	  font-size: 42px;
 	  font-weight: 600;
@@ -58,12 +74,12 @@ $cuRed: #881E3D;
 	flex: 0 50%;
 	box-sizing: border-box;
 	flex-wrap: wrap;
-
+	
 	#section-pre__tile {
 	  width: 50%;
 	  box-sizing: border-box;
 	  border-bottom: 1px solid #ddd;
-	  border-right: 1px solid #ddd;
+	  border-right: none;
 	}
       }
     } 
@@ -102,15 +118,20 @@ $cuRed: #881E3D;
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
-    
+
+    #section-two #alma-mater #mobile-search > input {
+      text-align: center;
+    }
+
     #section-two #alma-mater #mobile-search ul {
       display: none;
+      text-align: left;
     }
   }
 }
 
 /* Mobile View */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .CU {
     /* Table of Contents */
     #TOC {
@@ -126,6 +147,11 @@ $cuRed: #881E3D;
 	  box-sizing: border-box;
 	}
       }
+    }
+
+    #collegesMap {
+      margin-left: .5rem;
+      margin-right: .5rem;
     }
 
     #section-pre #section-pre--tablet_banner {
@@ -149,10 +175,6 @@ $cuRed: #881E3D;
       text-align: left;
       padding-left: 0;
       padding-right: 0;
-    }
-
-    #section-one {
-      margin-top: 7rem; // space out when removing elements
     }
 
     #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
@@ -244,6 +266,10 @@ $cuRed: #881E3D;
       display: none;  
     }
 
+    #section-one, #section-two, #section-three, #section-four {
+      padding-top: 4rem; // for mobile, lets have less space between the sections! 
+    }
+
     // cu header section //
     // all of these need to be left aligned //
     .cu-header__number {
@@ -263,5 +289,11 @@ $cuRed: #881E3D;
       text-align: left;
     }
 
+    #section-three #bubble-function-buttons, #section-four #sunburst-function-buttons {
+      display: none;
+    }
+
   }
 }
+
+

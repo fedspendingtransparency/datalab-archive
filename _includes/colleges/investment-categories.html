@@ -1,47 +1,52 @@
 <article id='section-four'>
 
   <section id='investment-categories'>
-      <div class="cu-header">
-          <div class="cu-header__number">
-            <span>04</span>
-          </div>
-          <h3 class="cu-header__title">Investment Categories</h3>
-          <h1 class="cu-header__teaser">
-            What is the <span class="cu-header--red">money</span> used for?
-          </h1>
-          <p class="cu-header__blurb">
-              Now that we know how much money was invested in higher education, are you curious to know what the money
-              was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
-              Categories
-          </p>
-        
-          <section class="accordion">
-            <h1 class="accordion__heading">Instructions</h1>
-            <div class="accordion__content">
-              <p>Here's everything you need to know</p>
-            </div>
-          </section>
-        
-            <div class="cu-header__controls">
-              <form id='categories'>
-                <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
-                <label for='contracts_data'>Contracts (PSC)</label>
-                <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
-                <label for='grants_data'>Grants (CFDA)</label>
-                <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
-                <label for='research_data'>Research Grants (CFDA)
-                  <div class="cfda">
-                    <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
-                      <div class="cfda__contents">
-                        <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
-                        <span>This is a written description about Research Grants (CFDA)</span>
-                      </div>
-                    </div>
-                </label>
-              </form>
-{% include colleges/colleges-share.html anchor="section-four" %}
-            </div>
+    <div class="cu-header">
+      <div class="cu-header__number">
+        <span>04</span>
+      </div>
+      <h3 class="cu-header__title">Investment Categories</h3>
+      <h1 class="cu-header__teaser">
+        What is the <span class="cu-header--red">money</span> used for?
+      </h1>
+      <p class="cu-header__blurb">
+        Now that we know how much money was invested in higher education, are you curious to know what the money
+        was used for? The government categorizes its purchases of products and services by Product Service Codes (PSCs) and
+        Categories
+      </p>
+      
+      <section class="accordion">
+        <h1 class="accordion__heading">Instructions</h1>
+        <div class="accordion__content">
+	  <ul class="accordion__list">
+	    <li>Select an investment type: contracts, grants, or research grants</li>
+	    <li>Hover over each section to determine the category </li>
+	    <li>Click on a specific section to display the total awards for that category </li>
+	    <li>Click the center section to return to the original display</li>
+	  </ul>
         </div>
+      </section>
+      
+      <div class="cu-header__controls">
+        <form id='categories'>
+          <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
+          <label for='contracts_data'>Contracts (PSC)</label>
+          <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
+          <label for='grants_data'>Grants (CFDA)</label>
+          <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
+          <label for='research_data'>Research Grants (CFDA)
+            <div class="cfda">
+              <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
+              <div class="cfda__contents">
+                <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
+                <span>This is a written description about Research Grants (CFDA)</span>
+              </div>
+            </div>
+          </label>
+        </form>
+	{% include colleges/colleges-share.html anchor="section-four" %}
+      </div>
+    </div>
 
     <div id='chart-area'>
       <div id="categories-detail"></div>
@@ -64,16 +69,20 @@
             <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
             <svg id='legend_scaleKey'></svg>
           </div>
-          <div id='sunburst'></div>
+          <div id='sunburst'>
+            <div id='center'></div>
+          </div>
         </div>
         <div id='right-spacer'></div>
       </div>
 
-      <div id='investment-table'></div>
+      <div id='investment-table--grants'></div>
+      <div id='investment-table--contracts'></div>
+      <div id='investment-table--research'></div>
 
       <div class='chart-footer'>
         <div>
-          <span class='faded'>Updated as of December 2019 / </span>
+          <span class='faded'>Updated as of March 2019 / </span>
           <a class='download-data' onclick='downloadData()'>
             {% include svgs/download_icon.svg %}
             &nbsp;Download

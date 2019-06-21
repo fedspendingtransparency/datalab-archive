@@ -24,11 +24,18 @@
       <section class="accordion">
         <h1 class="accordion__heading">Instructions</h1>
         <div class="accordion__content">
-          <p>Here's everything you need to know</p>
+	  <ul class="accordion__list">
+	    <li>Click into the map to start</li>
+	    <li>The number displayed on each cluster is the number of institutions in that area</li>
+	    <li>Click on a regional cluster to expand the area and display details for each school</li>
+	    <li>Use the zoom in and zoom out keys to adjust the map view</li>
+	    <li>For a specific search, use the search tool to type in the school by name </li>
+	  </ul>
         </div>
       </section>
 
       <div class="cu-header__controls">
+	<div id="refresh-div"><i class="fas fa-sync"></i> Refresh Map </div>
 	{% include colleges/colleges-share.html anchor="section-two" %}
       </div>
     </div>
@@ -72,7 +79,7 @@
 
     <div class="chart-footer">
       <div>
-        <span class='faded'>Updated as of December 2019 / </span>
+        <span class='faded'>Updated as of March 2019 / </span>
         <a class="download-data" href='assets/js/colleges-and-universities/download-files/Institutions_Section_Download.csv'>
           {% include svgs/download_icon.svg %}
           &nbsp;Download
