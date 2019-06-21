@@ -290,23 +290,73 @@ function createMapbox() {
   });
 }; // end function (createMapbox)
 
-function createSectFourTable(columns) {
-  d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
-    if (err) { return err; }
+// function createSectFourTable(columns) {
+//   d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
+//     if (err) { return err; }
 
-    /**
-     * Table START
-     */
+//     /**
+//      * Table START
+//      */
+//     let table = d3.select('#alma-mater-table').append('table')
+//         .attr('id', 'datatable'); // id given to table for Datatables.js
+
+//     let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
+
+//     let rows = table.append('tbody')
+//         .selectAll('tr')
+//         .data(data).enter()
+//         .append('tr')
+//         .on('click', function (d) {
+// 	  // TODO! right hand panel will come out on this TR click! 
+// 	  // secondary table view
+// 	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
+//         });
+
+    
+//     let headers = table.append('thead').append('tr')
+//         .selectAll('th')
+//         .data(titles).enter()
+//         .append('th')
+//         .text(function (d) {
+//           return d;
+//         });
+
+//     rows.selectAll('td')
+//       .data(function (row) {
+//         return columns.map(function (column) {
+//           return { column: column, value: row[column] };
+//         });
+//       }).enter()
+//       .append('td')
+//       .classed('name', function (d) {
+//         return d.column == 'Recipient';
+//       })
+//       .classed('percentage', function (d) {
+//         return d.column == 'State';
+//       })
+//       .classed('total', function (d) {
+//         return d.column == 'Total';
+//       })
+//       .text(function (d) {
+//         return d.value;
+//       })
+//       .attr('data-th', function (d) {
+//         return d.name;
+//       });
+
+
+//     // datatable start
+//     let dTable = $('#datatable').dataTable();
+//   }); // end d3 function
+// };
+
+function createInstTable() {
+  d3.csv('../../data-lab-data/CU/rhp.csv', function(err, data) {
+
     let table = d3.select('#alma-mater-table').append('table')
-        .attr('id', 'datatable'); // id given to table for Datatables.js
+        .attr('id', 'institution-table'); // id given to table for Datatables.js
 
-    let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
-
-    let rows = table.append('tbody')
-      .selectAll('tr')
-      .data(data).enter()
-      .append('tr')
-    ;
+    let titles = ['Institution', 'Type', 'Contracts', 'Grants', 'Student Aid', 'Total $ Received'];
 
     let headers = table.append('thead').append('tr')
       .selectAll('th')
@@ -317,33 +367,26 @@ function createSectFourTable(columns) {
       })
     ;
 
-    rows.selectAll('td')
-      .data(function (row) {
-        return columns.map(function (column) {
-          return { column: column, value: row[column] };
-        });
-      }).enter()
-      .append('td')
-      .classed('name', function (d) {
-        return d.column == 'Recipient';
-      })
-      .classed('percentage', function (d) {
-        return d.column == 'State';
-      })
-      .classed('total', function (d) {
-        return d.column == 'Total';
-      })
-      .text(function (d) {
-        return d.value;
-      })
-      .attr('data-th', function (d) {
-        return d.name;
-      });
+    // concat into a "type" property
+    data.forEach(function(e){
+      e.type = e.INST_TYPE_1 + " /" + e.INST_TYPE_2;
+    });
 
-
-    // datatable start
-    let dTable = $('#datatable').dataTable();
-  }); // end d3 function
+    $('#institution-table').dataTable({
+      data: data,
+      columns: [
+        {"data": 'Recipient'},
+        {"data": 'type'},
+        {"data": 'contracts', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')},
+        {"data": 'grants', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')},
+        {"data": 'student_aid', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')},
+        {"data": 'Total_Federal_Investment', 'render': $.fn.dataTable.render.number(',', '.', 0, '$')}
+      ],
+      deferRender: true,
+      scrollCollapse: true,
+      scroller: true
+    });
+  });
 };
 
 function filterSearch() {
@@ -430,6 +473,6 @@ $(document).ready(function(){
   searchMobileToggle();
   filterSearchMobile();
   filterSearch();
-  createSectFourTable(['Recipient', 'State', 'Total', 'Total_Federal_Investment']);
+  createInstTable();
 });
 

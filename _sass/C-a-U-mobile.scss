@@ -191,7 +191,7 @@ $cuRed: #881E3D;
       margin: 0;
       font-size: 36px;
       line-height: 50px;
-      margin-left: 5rem;
+      margin-left: 6rem;
       padding-top: 0;
     }
 
@@ -270,8 +270,6 @@ $cuRed: #881E3D;
       padding-top: 4rem; // for mobile, lets have less space between the sections! 
     }
 
-    // cu header section //
-    // all of these need to be left aligned //
     .cu-header__number {
       text-align: left;
       justify-content: flex-start;
@@ -287,6 +285,11 @@ $cuRed: #881E3D;
 
     .cu-header__blurb {
       text-align: left;
+    }
+    
+
+    .CU #section-two #alma-mater #refresh-div {
+      margin-left: 0;
     }
 
     #section-three #bubble-function-buttons, #section-four #sunburst-function-buttons {

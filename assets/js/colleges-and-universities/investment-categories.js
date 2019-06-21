@@ -370,40 +370,38 @@ function buildDataHierarchy(title, dataArray) {
 function createContractsTable() {
   d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', function(contractData) {
 
-//    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
+  let table = d3.select('#investment-table--contracts').append('table')
+      .attr('id', 'investment-table-datatable');
+  //	.attr('class', 'compact');
 
-    let table = d3.select('#investment-table--contracts').append('table')
-        .attr('id', 'investment-table-datatable')
-	.attr('class', 'compact');
+  let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
+  
+  table.append('thead').append('tr')
+    .selectAll('th')
+    .data(titles).enter()
+    .append('th')
+    .text(function (d) {
+      return d;
+    });
 
-    let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
-    
-    table.append('thead').append('tr')
-        .selectAll('th')
-        .data(titles).enter()
-        .append('th')
-        .text(function (d) {
-          return d;
-        });
+  $('#investment-table-datatable').dataTable({
+    data: contractData,
+    columns: [
+      {'data': 'family'},
+      {'data': 'Program_Title'},
+      {'data': 'Agency'},
+      {'data': 'Subagency'},
+      {'data': 'Recipient'},
+      {'data': 'Obligation',
+       'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
+       'className': 'dt-right'
+      },
+    ],
+    deferRender:    true,
+    responsive: true,
+    scrollCollapse: true,
+    scroller:       true,});
 
-    // datatable start
-    $('#investment-table-datatable').dataTable({
-      data: contractData,
-      columns: [
-        {'data': 'family'},
-        {'data': 'Program_Title'},
-        {'data': 'Agency'},
-        {'data': 'Subagency'},
-        {'data': 'Recipient'},
-        {'data': 'Obligation',
-         'render': $.fn.dataTable.render.number(',', '.', 0, '$'),
-         'className': 'dt-right'
-        },
-      ],
-      deferRender:    true,
-      responsive: true,
-      scrollCollapse: true,
-      scroller:       true,});
   });
 };
 
@@ -411,11 +409,9 @@ function createGrantsTable() {
   d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
     if (err) { return err; }
 
-//    d3.select('#investment-table').selectAll('*').remove(); // remove table and data before re-rendering
-    
     let table = d3.select('#investment-table--grants').append('table')
-        .attr('id', 'investment-table-datatable--grants')
-	.attr('class', 'compact');
+        .attr('id', 'investment-table-datatable--grants');
+//	.attr('class', 'compact');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
@@ -453,11 +449,10 @@ function createResearchTable() {
     if (err) { return err; }
 
     let researchData = data.filter(d => d.Research);
-    console.log(researchData);
     
     let table = d3.select('#investment-table--research').append('table')
-        .attr('id', 'investment-table-datatable--research')
-	.attr('class', 'compact');
+        .attr('id', 'investment-table-datatable--research');
+//	.attr('class', 'compact');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
@@ -597,9 +592,9 @@ window.addEventListener("resize", function() {
 });
 
 $(document).ready(function(){
-  createGrantsTable();
-  createContractsTable();
-  createResearchTable();
+  createGrantsTable(grantsChartArray);
+  createContractsTable(contractsChartArray);
+  createResearchTable(researchGrantsChartArray);
 });
 
 // TODO: Add debouncing
