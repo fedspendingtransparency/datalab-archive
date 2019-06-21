@@ -21,35 +21,38 @@
   function activateDetail(data) {
     if (done != 3) { return; } //don't allow this feature unless all 3 CSVs are in memory
     
-    detailContainer.classed(activeClass, true);
-
-    // console.log(detailData);
-
     agencyName.text(data.Recipient);
-
-    updateTable('rhp', [
-      {key: 'Type of Institution', value: data.INST_TYPE_1 + data.INST_TYPE_2},
-      {key: 'Total $ of Awards', value: formatCurrency(data.Total_Federal_Investment)}
-    ]);
-
-    const fundingRows = [];
-    if (data.contracts_received) {
-      fundingRows.push({key: 'Contracts', value: formatCurrency(data.contracts_received)});
-    }
-    if (data.grants_received) {
-      fundingRows.push({key: 'Grants', value: formatCurrency(data.grants_received)});
-    }
-    if (data.research_grants_received) {
-      fundingRows.push({key: 'Grants (Research)', value: formatCurrency(data.research_grants_received)});
-    }
-    updateTable('funding', fundingRows);
 
     if (!detailData[data.Recipient]) {
       console.warn(`no data for ${data.Recipient}`);
-      updateTable('investments', []);
-      updateTable('institutions', []);
       updateTable('rhp', []);
+      updateTable('funding', []);
+      updateTable('investments', []);
+      updateTable('agencies', []);
     } else {
+      detailContainer.classed(activeClass, true);
+
+      updateTable('rhp', [
+        {key: 'Type of Institution', value: data.INST_TYPE_1 + data.INST_TYPE_2},
+        {key: 'Awards Received', value: data.Total},
+        {key: 'Total $ Received', value: formatCurrency(data.Total_Federal_Investment)}
+      ]);
+
+      const fundingRows = [];
+      if (data.contracts_received) {
+        fundingRows.push({key: 'Contracts', value: formatCurrency(data.contracts_received)});
+      }
+      if (data.grants_received) {
+        fundingRows.push({key: 'Grants', value: formatCurrency(data.grants_received)});
+      }
+      if (data.research_grants_received) {
+        fundingRows.push({key: 'Grants (Research)', value: formatCurrency(data.research_grants_received)});
+      }
+      // if (data.student_aid_received) {
+      //   fundingRows.push({key: 'Scholarships ', value: formatCurrency(data.student_aid_received)});
+      // }
+      updateTable('funding', fundingRows);
+
       updateTable('investments', detailData[data.Recipient].investments.sort(sortDetail));
       updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
 //      updateTable('rhp', detailData[data.Recipient].rhp.sort(sortDetail));
@@ -130,7 +133,7 @@
     detailData[row.source] = detailData[row.source] || {};
     detailData[row.source][this] = detailData[row.source][this] || [];
 
-    detailData[row.source][this].push({ key: row.target, value: Number(row.value) });
+    detailData[row.source][this].push({ key: row.target, value: formatCurrency(row.value) });
 //    detailData[row.source][this].push({ key: row.rhpName, value: row.rhpValue }); // for rhp
   }
   
