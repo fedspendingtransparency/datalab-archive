@@ -68,6 +68,7 @@
             })
             .append('span')
             .html('&times;')
+        ;
     }
 
     function createTableRow(d) {

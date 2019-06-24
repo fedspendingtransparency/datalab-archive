@@ -41,24 +41,35 @@
 }
 
 .bubble-detail__close {
+    position: relative;
     float: right;
+    font-size: 1rem;
     font-weight: 700;
     background: white;
-    border: 2px solid #bbb;
     color: #aaa;
-    font-size: 1rem;
-    border-radius: 11px;
-    height: 22px;
-    width: 22px;
-    text-align: center;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
     padding: 0;
+    border: 2px solid #bbb;
+    border-radius: 50%;
+    text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
-}
 
-.bubble-detail__close:hover {
-    color: #ddd;
-    border-color: #ddd;
+    .bubble-detail__close:hover {
+        color: #ddd;
+        border-color: #ddd;
+    }
+
+    span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
 }
 
 .bubble-detail__table {
