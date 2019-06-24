@@ -874,12 +874,12 @@ $cuRed: #881E3D;
 	justify-content: space-evenly;
       }
       
-      #categories {
-        width: 100%;
+      #sunburst-header {
+        justify-content: space-between;
+      }
 
-        label {
-          margin-right: 35px;
-        }
+      #categories label {
+        margin-right: 35px;
       }
 
       #chart-container {
