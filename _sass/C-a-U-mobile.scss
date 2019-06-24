@@ -128,6 +128,15 @@ $cuRed: #881E3D;
       text-align: left;
     }
   }
+
+  .hwcta-entry__more-analyses-tile-row {
+    flex-wrap: wrap;
+  }
+
+  .hwcta-entry__more-analyses-tile {
+    width: 46%;
+  }
+
 }
 
 /* Mobile View */
@@ -296,6 +305,10 @@ $cuRed: #881E3D;
       display: none;
     }
 
+  }
+
+  .hwcta-entry__more-analyses-tile {
+    width: 100%;
   }
 }
 
