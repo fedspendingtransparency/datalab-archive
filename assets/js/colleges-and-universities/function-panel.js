@@ -3,8 +3,7 @@
 
 function panelClick (id) {
   // fade all buttons in id's set, then darken active one
-  let panelButtons = d3.selectAll('#' + id + ' button');
-  panelButtons.style('opacity', null);
+  d3.selectAll('#' + id + ' button').style('opacity', null);
   document.activeElement.style.opacity = 1;
 }
 
@@ -26,17 +25,17 @@ function switchView (section, show) {
     } else if (show === 'table') {
       $('#investment-sunburst').hide();
       if (radioVal == 'contracts') {
-	$('#investment-table--contracts').show();
-	$('#investment-table--research').hide();
-	$('#investment-table--grants').hide();
+        $('#investment-table--contracts').show();
+        $('#investment-table--research').hide();
+        $('#investment-table--grants').hide();
       } else if (radioVal == 'grants') {
-	$('#investment-table--grants').show();
-	$('#investment-table--contracts').hide();
-	$('#investment-table--research').hide();
+        $('#investment-table--grants').show();
+        $('#investment-table--contracts').hide();
+        $('#investment-table--research').hide();
       } else if (radioVal == 'research') {
-	$('#investment-table--grants').hide();
-	$('#investment-table--contracts').hide();
-	$('#investment-table--research').show();
+        $('#investment-table--grants').hide();
+        $('#investment-table--contracts').hide();
+        $('#investment-table--research').show();
       }
     }
   }

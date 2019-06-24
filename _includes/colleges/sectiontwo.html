@@ -47,21 +47,21 @@
     </div>
 
     <div id="map-detail"></div>
-
     <div id="mapContainer">
+
       <div id='map-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
-	<div class='button-set'>
+        <div class='button-set'>
           <div id="map-search">
-            <button id="map-search-trigger" type='button' title='Search'><img src='/assets/icons/magnifier.svg' /></button>
-	    <div class="map-search">
-	      <div class="map-search__input-wrapper">
-		<input class="map-search__input" id='map-keydown' placeholder="Search Institutions">
-	      </div>
-	      <ul class="map-search__list" id="map-search-ul"></ul>
-	    </div>
+            <button type='button' title='Search' onclick='searchClick("map-function-buttons")'><img src='/assets/icons/magnifier.svg' />
+            <div class="map-search">
+              <div class="map-search__input-wrapper">
+                <input class="map-search__input" id='map-keydown' placeholder="Search Institutions"></input>
+              </div>
+              <ul class="map-search__list" id="map-search-ul"></ul>
+            </div>
           </div>
-	</div>
-	<div class='button-set'>
+        </div>
+        <div class='button-set'>
           <div id="map-table">
             <button id="map-chart-trigger" type='button' title='View map' style='opacity: 1;'><img src='/assets/icons/Geolocation.svg' /></button>
           </div>
@@ -69,13 +69,13 @@
           <div id="map-chart">
             <button id="map-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
-	</div>
+        </div>
       </div>
+          
       <div id="collegesMap"></div>
       <div id='alma-mater-table'></div>
       <div id="inst-panel"></div>
     </div>
-
 
     <div class="chart-footer">
       <div>
