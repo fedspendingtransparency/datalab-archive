@@ -160,10 +160,6 @@ $cuRed: #881E3D;
 /* Mobile View */
 @media (max-width: 480px) {
   .CU {
-    .desktop {
-      display: none;
-    }
-
     /* Table of Contents */
     #TOC {
       display: none;
@@ -318,6 +314,7 @@ $cuRed: #881E3D;
       text-align: left;
     }
     
+
     .CU #section-two #alma-mater #refresh-div {
       margin-left: 0;
     }
@@ -326,13 +323,6 @@ $cuRed: #881E3D;
       display: none;
     }
 
-    #legend_colorKey {
-      display: none;
-    }
-
-    #section-four #investment-categories #chart-container {
-      justify-content: center;
-    }
   }
 
   .hwcta-entry__more-analyses-tile {
