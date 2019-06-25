@@ -15,14 +15,18 @@ $cuRed: #881E3D;
     }
   }
 }
-
-
-/* Tablet View */
+/* Tablet-only View */
 @media (min-width: 481px) and (max-width: 850px) {
   .CU {
     .mobile {
       display: none;
     }
+  }
+}
+
+/* Tablet View */
+@media (max-width: 850px) {
+  .CU {
 
     /* Table of Contents */
     #TOC {
