@@ -30,12 +30,16 @@
       <div id='sunburst-header' class="cu-header__controls">
         <form id='categories'>
           <input type='radio' name='category' value='contracts' id='contracts_data' onchange='changeCategory(this)' />
-          <label for='contracts_data'>Contracts (PSC)</label>
+          <label for='contracts_data' class='desktop'>Contracts (PSC)</label>
+          <label for='contracts_data' class='mobile'>PSC</label>
           <input type='radio' name='category' value='grants' id='grants_data' checked onchange='changeCategory(this)' />
-          <label for='grants_data'>Grants (CFDA)</label>
+          <label for='grants_data' class='desktop'>Grants (CFDA)</label>
+          <label for='grants_data' class='mobile'>CFDA</label>
           <input type='radio' name='category' value='research' id='research_data' onchange='changeCategory(this)'/>
-          <label for='research_data'>Research Grants (CFDA)
-            <div class="cfda">
+          <label for='research_data'>
+              <span  class='desktop'>Research Grants (CFDA)</span>
+              <span  class='mobile'>Grants (Research)</span>
+              <div class="cfda">
               <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
               <div class="cfda__contents">
                 <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
@@ -73,6 +77,7 @@
           <div id='sunburst'>
             <div id='center'></div>
           </div>
+          <p class="cu-header__blurb">To return to a higher level click the center node</p>
         </div>
         <div id='right-spacer'></div>
       </div>
