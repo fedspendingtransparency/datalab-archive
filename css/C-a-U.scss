@@ -7,6 +7,7 @@
 @import 'C-a-u-map-detail';
 @import 'C-a-U-map-search';
 @import 'C-a-U-header';
+@import 'C-a-U-table';
 @import 'C-a-U-accordion';
 @import 'C-a-U-cfda-info';
 @import 'C-a-U-hwcta-footer';
@@ -111,6 +112,7 @@ $cuRed: #881E3D;
 
     #section-pre__tile {
       padding-top: 1rem;
+      flex-basis: 100%; // all same width flex children
       padding-left: 2rem;
       padding-right: 1.5rem;
       border-right: 1px solid #EEEEEE;
@@ -505,7 +507,7 @@ $cuRed: #881E3D;
 
       #alma-mater-table {
 	display: none;
-	width: 100%;
+	width: 100% !important;
 	padding-top: 3rem;
 	padding-left: 3rem;
 	padding-right: 3rem;
@@ -1533,19 +1535,6 @@ $cuRed: #881E3D;
     border-radius: 6px 6px 0 0;
   }
 
-  .investmenth4 {
-    font-size: 11pt;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 25px;
-  }
-
-  // on row click table div
-  #sidebarTable {
-    width: 40%;
-    height: 70px;
-    font-size: 15pt;
-  }
 
   /**
     For use with ScrollyTelling! Make things appear on viewport! Woo!
