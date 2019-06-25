@@ -25,12 +25,8 @@ $cuRed: #881E3D;
 }
 
 /* Tablet View */
-@media (min-width: 481px) and (max-width: 850px) {
+@media (max-width: 850px) {
   .CU {
-    .mobile {
-      display: none;
-    }
-
     /* Table of Contents */
     #TOC {
       display: block;
@@ -149,15 +145,20 @@ $cuRed: #881E3D;
       text-align: left;
     }
   }
+
+  .hwcta-entry__more-analyses-tile-row {
+    flex-wrap: wrap;
+  }
+
+  .hwcta-entry__more-analyses-tile {
+    width: 46%;
+  }
+
 }
 
 /* Mobile View */
 @media (max-width: 480px) {
   .CU {
-    .desktop {
-      display: none;
-    }
-
     /* Table of Contents */
     #TOC {
       display: none;
@@ -312,6 +313,7 @@ $cuRed: #881E3D;
       text-align: left;
     }
     
+
     .CU #section-two #alma-mater #refresh-div {
       margin-left: 0;
     }
@@ -320,13 +322,10 @@ $cuRed: #881E3D;
       display: none;
     }
 
-    #legend_colorKey {
-      display: none;
-    }
+  }
 
-    #section-four #investment-categories #chart-container {
-      justify-content: center;
-    }
+  .hwcta-entry__more-analyses-tile {
+    width: 100%;
   }
 }
 
