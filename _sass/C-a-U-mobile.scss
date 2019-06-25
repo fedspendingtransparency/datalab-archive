@@ -159,6 +159,10 @@ $cuRed: #881E3D;
 /* Mobile View */
 @media (max-width: 480px) {
   .CU {
+    .desktop {
+      display: none;
+    }
+
     /* Table of Contents */
     #TOC {
       display: none;
@@ -331,7 +335,7 @@ $cuRed: #881E3D;
   #section-four #investment-categories #chart-container {
     justify-content: center;
   }
-  
+
   .hwcta-entry__more-analyses-tile {
     width: 100%;
   }
