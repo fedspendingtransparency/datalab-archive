@@ -7,6 +7,23 @@ $cuRed: #881E3D;
   }
 }
 
+/* Desktop View */
+@media (min-width: 851px) {
+  .CU {
+    .mobile {
+      display: none;
+    }
+  }
+}
+/* Tablet-only View */
+@media (min-width: 481px) and (max-width: 850px) {
+  .CU {
+    .mobile {
+      display: none;
+    }
+  }
+}
+
 /* Tablet View */
 @media (max-width: 850px) {
   .CU {
@@ -142,6 +159,10 @@ $cuRed: #881E3D;
 /* Mobile View */
 @media (max-width: 480px) {
   .CU {
+    .desktop {
+      display: none;
+    }
+
     /* Table of Contents */
     #TOC {
       display: none;
@@ -305,6 +326,14 @@ $cuRed: #881E3D;
       display: none;
     }
 
+  }
+
+  #legend_colorKey {
+    display: none;
+  }
+
+  #section-four #investment-categories #chart-container {
+    justify-content: center;
   }
 
   .hwcta-entry__more-analyses-tile {
