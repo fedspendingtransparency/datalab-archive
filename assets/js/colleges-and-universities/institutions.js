@@ -114,6 +114,8 @@ function createMapbox() {
       speed: 1,
       curve: 1,
     });
+    tooltip.remove();
+    $('.map-detail').removeClass('map-detail--active');
   });
 
   // when the map first loads all resources!
