@@ -291,11 +291,13 @@ function createChart() {
     d3.select("#sunburst").selectAll("*").remove();
 
     svg = d3.select('#sunburst')
-        .append('svg')
-        .attr('width', catWidth)
-        .attr('height', catHeight)
-        .append('g')
-        .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')');
+      .attr('style', `width: ${catWidth}px; height: ${catHeight}px`)
+      .append('svg')
+      .attr('width', catWidth)
+      .attr('height', catHeight)
+      .append('g')
+      .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')')
+    ;
 }
 
 function refreshData(data) {
