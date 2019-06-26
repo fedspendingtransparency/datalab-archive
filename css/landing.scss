@@ -16,6 +16,11 @@ $heading-color: #4A4A4A;
   color: #333;
 }
 
+.landing-chart {
+  text-align: center;
+}
+
+
 h2.primary__heading {
   font-size: 24px;
 }
@@ -188,7 +193,6 @@ h2.primary__heading {
     padding-right: 1rem;
     padding-top: 3rem;
   }
-
 
   .primary {
     width: 63%;
@@ -369,8 +373,13 @@ h2.primary__heading {
     padding-right: 1rem;
   }
 
-
-
 }
 
+@media (min-width: 1200px) {
+
+  .landing-chart {
+    text-align: left;
+  }
+
+}
 
