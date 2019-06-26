@@ -105,8 +105,9 @@ $cuRed: #881E3D;
       #investment-overview {
 	#investment-overview__viz {
 	  margin: 0;
-	  padding-left: 3.5rem;
+	  padding-left: 3.5rem; // align with the left!
 	  padding-right: 3.5rem;
+
 
 	  #title-section {
 	    display: flex;
@@ -222,10 +223,42 @@ $cuRed: #881E3D;
       padding-right: 0;
     }
 
+    #section-one #investment-overview #investment-overview__viz {
+      margin: 0;
+      padding-left: 1rem;
+      padding-right: 3.5rem;
+
+      #investment-chart {
+	#studentAid-bar {
+	  width: 100% !important;
+	  margin-right: 0 !important;
+	  padding: 0;
+	  margin: 0;
+	}
+
+	#grants-bar {
+	  width: 60% !important;
+	  margin-right: 0 !important;
+	  padding: 0;
+	  margin: 0;
+	}
+
+	#bar-text--grants {
+	  color: white;
+	  margin: 0;
+	  font-size: 28px;
+	  line-height: 50px;
+	  margin-left: .25rem;
+	  padding-top: .25rem;
+	}
+
+      }
+    }
+
     #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
       color: #925003;
       margin: 0;
-      font-size: 36px;
+      font-size: 28px;
       line-height: 50px;
       margin-left: 1.5rem;
       padding-top: .25rem;
@@ -234,7 +267,7 @@ $cuRed: #881E3D;
     #section-one #investment-overview #investment-overview__viz #bar-text--grants {
       color: #004C40;
       margin: 0;
-      font-size: 36px;
+      font-size: 28px;
       line-height: 50px;
       margin-left: 6rem;
       padding-top: 0;

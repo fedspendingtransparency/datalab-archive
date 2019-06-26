@@ -1,5 +1,6 @@
 ---
 ---
+
 const mapContainer = document.getElementById('collegesMap');
 const tableContainer = $('#alma-mater-table');
 let agenciesTopFive;
@@ -15,15 +16,14 @@ function createMapbox() {
     zoom: 3 // starting zoom (3 default)
   });
 
-
   // Add zoom and rotation controls to the map.
   let zoomCtrl = new mapboxgl.NavigationControl();
   map.addControl(zoomCtrl, 'top-right');
 
   // Create a popup, but don't add it to the map yet.
   let tooltip = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false
+    closeButton: true,
+    closeOnClick: true
   });
 
   // filter overlay section //
