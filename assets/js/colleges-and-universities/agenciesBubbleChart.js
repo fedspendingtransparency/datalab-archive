@@ -114,7 +114,7 @@ function drawBubbleChart(root) {
     bubble.chartHeight = targetWidth;
 
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-        if(d.depth === 2) {
+        if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
             const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
                 "<span class='bubble-detail__agency-label'>Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
@@ -122,6 +122,16 @@ function drawBubbleChart(root) {
                 "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
                 "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
                 "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
+                "</div></div>";
+            return tooltipHtml;
+
+        } else if (d.depth !== 0) {
+            const agencyName = d.depth === 1 ? d.name : d.parent.name;
+            const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+                "<span class='bubble-detail__agency-label'>Agency</span>" +
+                "<span class='bubble-detail__agency-name'>" + agencyName + "</span>" +
+                "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
+                "<span class='bubble-detail__agency-name'>" + "xxx" + "</span>" +
                 "</div></div>";
             return tooltipHtml;
         }
@@ -155,25 +165,7 @@ function drawBubbleChart(root) {
         .attr("id", function(d) {
             return d.name;
         })
-        .on("click", function(d) {
-            setChartState(d);
-
-            circle.classed('active', false);
-
-            if (d.depth == 0) {
-                if (focus !== d) zoom(d), d3.event.stopPropagation();
-            } else if (d.depth == 1) {
-                if (focus !== d) zoom(d), d3.event.stopPropagation();
-                d3.select(this).classed("active", false);
-            } else if (d.depth == 2) {
-                // check if a bubble is already selected
-                d3.select(this).classed("active", true);
-                bubble.activateDetail(d);
-            } else {
-                console.warn("Invalid visualization depth requested in agencies bubble chart.");
-            }
-
-        })
+        .on("click", bubbleClick)
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 
@@ -193,22 +185,7 @@ function drawBubbleChart(root) {
         })
         .style("font-size", calculateTextFontSize)
         .attr("text-anchor", "middle")
-        .on("click", function(d) {
-            setChartState(d);
-
-            circle.classed('active', false);
-            if (d.depth == 0) {
-                if (focus !== d) zoom(d), d3.event.stopPropagation();
-            } else if (d.depth == 1) {
-                if (focus !== d) zoom(d), d3.event.stopPropagation();
-                d3.select(this).classed("active", false);
-            } else if (d.depth == 2) {
-                d3.select(this).classed("active", true);
-                bubble.activateDetail(d);
-            } else {
-                console.warn("Invalid visualization depth requested in agencies bubble chart.");
-            }
-        });
+        .on("click", bubbleClick);
 
     node = bubbleSvg.selectAll("circle,text");
 
@@ -321,6 +298,32 @@ function selectSubAgency(d) {
     d3.select(elSelector).classed("active", true);
     if (focus !== d) zoom(d.parent), d3.event.stopPropagation();
 
+}
+
+function bubbleClick(d) {
+    setChartState(d);
+
+    circle.classed('active', false);
+
+    // need to check if focus is d
+    if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
+        // zoomed in?
+        if (d.depth == 2) {
+            // check if a bubble is already selected
+            d3.select(this).classed("active", true);
+            bubble.activateDetail(d);
+        } else {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        }
+    } else {
+        // not zoomed in?
+        if (d.depth == 2) {
+            // check if a bubble is already selected
+            if (focus !== d.parent) zoom(d.parent), d3.event.stopPropagation();
+        } else {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        }
+    }
 }
 
 
