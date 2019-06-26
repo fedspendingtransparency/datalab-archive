@@ -769,7 +769,14 @@ $cuRed: #881E3D;
             justify-content: center;
           }
 
-          circle.node,  circle.node--root, circle.node--leaf, text.label {
+          circle.node,  circle.node--root, text.label {
+            //cursor: zoom-in;
+            //cursor: -moz-zoom-in;
+            //cursor: -webkit-zoom-in;
+            cursor: pointer;
+          }
+
+          circle.node--leaf {
             cursor: pointer;
           }
 
