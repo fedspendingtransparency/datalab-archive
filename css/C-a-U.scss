@@ -273,6 +273,14 @@ $cuRed: #881E3D;
  	  display: none;
   	}
 
+	.bubble-search__list {
+	  display: none;
+	}
+
+	.bubble-search__list--mobile {
+	  display: none;
+	}
+
 	#mobile-blurb {
 	  display: none;
 	  p.mobile-funding-granted {
@@ -479,6 +487,13 @@ $cuRed: #881E3D;
 	display: none;
       }
 
+      #mobile-search > input {
+	padding: 1rem 2rem;
+	width: 100%;
+	box-sizing: border-box;
+	
+      }
+
       #refresh-div {
 	display: inline-block;
 	width: auto;
@@ -599,6 +614,10 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
     padding-top: 9rem;
+
+    #mobile-search--bubble {
+      display: none;
+    }
 
     #bubbleTableContainer {
       display: flex;
@@ -1674,6 +1693,9 @@ $cuRed: #881E3D;
     //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   }
 
+  .active-bubble {
+    display: block;
+  }
 
 } // end of .CU
 
