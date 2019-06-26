@@ -16,6 +16,8 @@ const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
 
+const detailContainer = d3.select('#bubble-detail section.bubble-detail');
+const detailContainerActiveClass = 'bubble-detail--active';
 
 let node, circle, focus, view, bubbleSvg, recipient, root, nodes;
 const widthPercentage = .7;
@@ -77,6 +79,19 @@ function circleFill (d) {
     }
 };
 
+function isZoomedIn(d) {
+    if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
+        return true;
+    }
+
+    return false;
+}
+
+function closeDetailPanel() {
+    console.log("close");
+    detailContainer.classed(detailContainerActiveClass, false);
+}
+
 /* Store the current state */
 
 /* Calculate text font size for bubbles before and after zoom */
@@ -114,7 +129,8 @@ function drawBubbleChart(root) {
     bubble.chartHeight = targetWidth;
 
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-        if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
+
+        if (isZoomedIn(d)) {
             const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
                 "<span class='bubble-detail__agency-label'>Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
@@ -185,7 +201,9 @@ function drawBubbleChart(root) {
         })
         .style("font-size", calculateTextFontSize)
         .attr("text-anchor", "middle")
-        .on("click", bubbleClick);
+        .on("click", bubbleClick)
+        .on("mouseover", tip.show)
+        .on("mouseout", tip.hide);
 
     node = bubbleSvg.selectAll("circle,text");
 
@@ -198,6 +216,8 @@ function drawBubbleChart(root) {
 function zoom(d) {
     const focus0 = focus;
     focus = d;
+
+    closeDetailPanel();
 
     const transition = d3.transition()
         .duration(d3.event && d3.event.altKey ? 7500 : 750)
@@ -306,7 +326,7 @@ function bubbleClick(d) {
     circle.classed('active', false);
 
     // need to check if focus is d
-    if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
+    if (isZoomedIn(d)) {
         // zoomed in?
         if (d.depth == 2) {
             // check if a bubble is already selected
