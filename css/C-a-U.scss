@@ -112,7 +112,8 @@ $cuRed: #881E3D;
 
     #section-pre__tile {
       padding-top: 1rem;
-      flex-basis: 100%; // all same width flex children
+      flex-basis: auto; // all same width flex children
+      width: 100%; // ie 11...
       padding-left: 2rem;
       padding-right: 1.5rem;
       border-right: 1px solid #EEEEEE;
