@@ -742,14 +742,12 @@ $cuRed: #881E3D;
             left: -100px;
             padding: 0;
             overflow: visible;
+            -webkit-transition: left 1000ms; /* For Safari 3.1 to 6.0 */
+            transition: left 1000ms;
           }
 
-          #legend_colorKey {
-            position: relative;
-            left: -100px;
-            margin: 50px 0 0 0;
-            padding: 0;
-            overflow: visible;
+          #agency-legend_colorKey.left {
+            left: -200px;
           }
 
           #agency-legend_scaleKey {

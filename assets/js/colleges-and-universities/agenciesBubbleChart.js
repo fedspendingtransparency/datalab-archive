@@ -86,11 +86,15 @@ function circleFill (d) {
 };
 
 function isZoomedIn(d) {
-    if (focus === d.parent) {
+    if (d.depth === 2 && focus === d.parent || d.depth === 1 && focus === d) {
         return true;
     }
 
     return false;
+}
+
+function setLegendLeft (leftState) {
+    d3.select('#agency-legend_colorKey').classed("left", leftState);
 }
 
 function closeDetailPanel() {
@@ -129,37 +133,54 @@ function calculateTextFontSize (d) {
     }
 };
 
+function setAgencyTooltipHtml(d) {
+    const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+        "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
+        "<span class='bubble-detail__agency-label'>Agency</span>" +
+        "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
+        "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
+        "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[d.name].total_investment) + "</span>" +
+        "</div></div>";
+    return tooltipHtml;
+}
+
+function setSubagencyTooltipHtml(d) {
+    const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+        "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
+        "<span class='bubble-detail__agency-label'>Agency</span>" +
+        "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
+        "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
+        "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
+        "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
+        "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
+        "</div></div>";
+    return tooltipHtml;
+}
+
+
 function drawBubbleChart(root) {
     const targetWidth = bubbleWidth;
     
     bubble.chartHeight = targetWidth;
 
-    tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-        if (isZoomedIn(d) && focus.parent && focus.parent.depth === 0) {
-            const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
-                "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
-                "<span class='bubble-detail__agency-label'>Agency</span>" +
-                "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
-                "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
-                "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
-                "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
-                "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
-                "</div></div>";
-            return tooltipHtml;
+    let tooltipHtml = '<div></div>';
 
-        } else if (d.depth !== 0) {
-            const agencyName = d.depth === 1 ? d.name : d.parent.name;
-            const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
-                "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
-                "<span class='bubble-detail__agency-label'>Agency</span>" +
-                "<span class='bubble-detail__agency-name'>" + agencyName + "</span>" +
-                "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
-                "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[agencyName].total_investment) + "</span>" +
-                "</div></div>";
-            return tooltipHtml;
+    tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
+        if (isZoomedIn(d)) {
+            if (d.depth === 2) {
+                tooltipHtml = setSubagencyTooltipHtml(d);
+            } else if (d.depth === 1) {
+                tooltipHtml = setAgencyTooltipHtml(d);
+            }
+        } else {
+            if (d.depth === 2) {
+                tooltipHtml = setAgencyTooltipHtml(d.parent);
+            } else if (d.depth === 1) {
+                tooltipHtml = setAgencyTooltipHtml(d);
+            }
         }
 
-        return '<div></div>';
+        return tooltipHtml;
     });
 
     focus = root;
@@ -219,12 +240,18 @@ function drawBubbleChart(root) {
 
 }
 
+// close tooltip
+function closeTooltip() {
+    tip.hide();
+}
+
 // Zoom into a specific circle
 function zoom(d) {
     const focus0 = focus;
     focus = d;
 
     closeDetailPanel();
+    closeTooltip();
 
     const transition = d3.transition()
         .duration(d3.event && d3.event.altKey ? 7500 : 750)
@@ -331,7 +358,7 @@ function bubbleClick(d) {
 
     circle.classed('active', false);
 
-    // need to check if focus is d
+    // need to check if focus is d, maybe?
     if (isZoomedIn(d)) {
         if (d.depth === 2) {
             d3.event.stopPropagation();
@@ -341,8 +368,10 @@ function bubbleClick(d) {
             d3.select(this).classed("active", true);
             bubble.activateDetail(d);
 
-        } else {
-            setChartState(d);
+        } else if (d.depth === 1) {
+            setLegendLeft(false);
+
+            clearChartState();
 
             if (focus !== d) zoom(d), d3.event.stopPropagation();
 
@@ -350,14 +379,16 @@ function bubbleClick(d) {
     } else {
 
         if (d.depth === 2) {
+            setLegendLeft(true);
             setChartState(d.parent);
 
             // check if a bubble is already selected
             if (focus !== d.parent) zoom(d.parent), d3.event.stopPropagation();
 
-        } else {
-            clearChartState();
-            
+        } else if (d.depth === 1) {
+            setLegendLeft(true);
+            setChartState(d);
+
             if (focus !== d) zoom(d), d3.event.stopPropagation();
 
         }
@@ -426,6 +457,8 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err1, data) {
             .on("click", function () {
                 const currentState = getChartState();
                 if (!currentState || (currentState && currentState.depth !== 2)) {
+                    setLegendLeft(false);
+                    clearChartState();
                     zoom(root);
                 }
             });
