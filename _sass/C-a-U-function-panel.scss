@@ -73,6 +73,17 @@
   border: 1px solid #ddd;
 }
 
+.sunburst-search__input-wrapper {
+  border: 1px solid #ddd;
+}
+
+.sunburst-search__input {
+  border: none;
+  padding: 1rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .bubble-search__list {
   list-style-type: none;
   padding: 0;
