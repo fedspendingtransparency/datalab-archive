@@ -186,7 +186,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem; // 9rem to break up each section
+    padding-top: 7rem; // 9rem to break up each section
 
     #investment-overview {
       display: flex;
@@ -405,7 +405,7 @@ $cuRed: #881E3D;
 
 	#investment-subtext {
 	  display: flex;
-	  justify-content: space-between;
+	  justify-content: space-evenly;
 	  padding-top: 2rem;
 
 	  /* #aid-subsection { */
@@ -460,7 +460,7 @@ $cuRed: #881E3D;
 	  }
 
 	  #aid-description {
-	    width: 190px;
+	    width: 250px;
 	    color: #555555;
 	    font-size: 15px;
 	    font-weight: 300;
@@ -477,7 +477,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem;
+    padding-top: 7rem;
 
 
     #alma-mater {
@@ -616,7 +616,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem;
+    padding-top: 7rem;
 
     #mobile-search--bubble {
       display: none;
@@ -694,9 +694,12 @@ $cuRed: #881E3D;
         .chart-footer {
           color: $grey;
           font-size: 12pt;
+          max-width: 900px;
+          margin: 0 auto 1rem;
+          padding: 0 1rem;
           display: flex;
           justify-content: flex-end;
-	  padding-right: 2rem;
+          width: calc(100% - 2rem);
 
           .faded {
             opacity: 0.5;
@@ -829,7 +832,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem;
+    padding-top: 7rem;
 
     #mobile-search--sunburst {
       display: none;
@@ -1021,9 +1024,12 @@ $cuRed: #881E3D;
       .chart-footer {
         color: $grey;
         font-size: 12pt;
+        max-width: 900px;
+        margin: 0 auto 1rem;
+        padding: 0 1rem;
         display: flex;
         justify-content: flex-end;
-	padding-right: 2rem;
+        width: calc(100% - 2rem);
 
         .faded {
           opacity: 0.5;

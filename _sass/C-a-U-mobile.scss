@@ -21,10 +21,14 @@ $cuRed: #881E3D;
     .mobile {
       display: none;
     }
+
+    #aid-description {
+      width: 190px;
+    }
   }
 }
 
-/* Tablet View */
+/* Tablet and Mobile View */
 @media (max-width: 850px) {
   .CU {
     /* Table of Contents */
