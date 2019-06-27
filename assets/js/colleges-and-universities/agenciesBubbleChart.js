@@ -15,6 +15,7 @@ const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
 const bChartContainer = $('#bubbleChartContainer');
 const bChartBtn = $('#bubble-chart-trigger');
+const tooltipClose = $('.bubble-detail__close');
 
 const detailContainer = d3.select('#bubble-detail section.bubble-detail');
 const detailContainerActiveClass = 'bubble-detail--active';
@@ -27,6 +28,7 @@ let bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
 const margin = 20;
 let diameter = bubbleWidth;
 let _chartState;
+let popoverData;
 
 const pack = d3.layout.pack()
     .padding(2)
@@ -132,6 +134,7 @@ function drawBubbleChart(root) {
 
         if (isZoomedIn(d)) {
             const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+                "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
                 "<span class='bubble-detail__agency-label'>Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
                 "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
@@ -144,10 +147,11 @@ function drawBubbleChart(root) {
         } else if (d.depth !== 0) {
             const agencyName = d.depth === 1 ? d.name : d.parent.name;
             const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+                "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
                 "<span class='bubble-detail__agency-label'>Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + agencyName + "</span>" +
-                "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
-                "<span class='bubble-detail__agency-name'>" + "xxx" + "</span>" +
+                "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
+                "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[d.name].total_investment) + "</span>" +
                 "</div></div>";
             return tooltipHtml;
         }
@@ -383,37 +387,49 @@ window.addEventListener("resize", function() {
     }
 });
 
+tooltipClose.click(function() {
+    console.log('tooltip close');
+    tip.hide();
+});
+
+
 /*
 *   Main Method
 */
-d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err, data) {
-    if (err) { return err; }
 
-    root = transformData(data);
-    nodes = pack.nodes(root);
+d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err1, data) {
+    if (err1) { return err1; }
+    d3.csv("/data-lab-data/CU/Bubble_Chart_Agency_Hover_data.csv", function(err2, rawPopoverData) {
+        if (err2) { return err2; }
 
-    drawBubbleChart(root);
+        popoverData = _.keyBy(rawPopoverData, 'agency');
+        console.log(popoverData);
 
-    d3.select(bubbleChartContainer)
-        .on("click", function() {
-            const currentState = getChartState();
-            if(!currentState || (currentState && currentState.depth !== 2)) {
-                zoom(root);
-            }
-        });
+        root = transformData(data);
+        nodes = pack.nodes(root);
 
-    zoomTo([root.x, root.y, root.r * 2 + margin]);
+        drawBubbleChart(root);
 
-    createBubbleTable(data); // has to match csv columns!
+        d3.select(bubbleChartContainer)
+            .on("click", function () {
+                const currentState = getChartState();
+                if (!currentState || (currentState && currentState.depth !== 2)) {
+                    zoom(root);
+                }
+            });
 
-    if (!bubble.setSearchData) {
-      console.warn('bubble method not available')
-    } else {
-      bubble.setSearchData(root);
-      bubble.selectSubAgency = selectSubAgency;
-      bubble.zoom = zoom;
-    }
+        zoomTo([root.x, root.y, root.r * 2 + margin]);
 
+        createBubbleTable(data); // has to match csv columns!
+
+        if (!bubble.setSearchData) {
+            console.warn('bubble method not available')
+        } else {
+            bubble.setSearchData(root);
+            bubble.selectSubAgency = selectSubAgency;
+            bubble.zoom = zoom;
+        }
+    });
 });
 
 /*
