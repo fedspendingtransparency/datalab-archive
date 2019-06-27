@@ -370,6 +370,11 @@ $cuRed: #881E3D;
       background: white;
     }
 
+    #section-three {
+      #agency-legend_colorKey {
+        display: none;
+      }
+    }
     // for mobile, we get rid of all instructions on every mock!
     section.accordion {
       display: none;
