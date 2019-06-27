@@ -479,6 +479,53 @@ $cuRed: #881E3D;
     justify-content: center;
     padding-top: 9rem;
 
+    .tooltip-float {
+      clear: both;
+      margin: 0;
+      padding: 0;
+
+      .tooltip-float--underline {
+	border-bottom: 1px solid #666666;
+      }
+
+      .map-tooltip-p-left-inst {
+//	padding-right: 3em; // tab space
+	margin: 0;
+	color: #666666;
+	float: left;
+      }
+
+      .map-tooltip-p-left {
+	color: #666666;
+	margin: 0;
+	float: left;
+      }
+      
+      .map-tooltip-p-right {
+	color: #000000;
+	margin: 0;
+	float: right;
+      }
+
+      .map-tooltip-p-right-invest {
+	color: #881E3D;
+	margin: 0;
+	float: right;
+      }
+
+      .map-tooltip-p-right-students {
+	color: #000000;
+	margin: 0;
+	float: right;
+	border-bottom: 1px solid #666666;
+      }
+
+      .tooltip-hr {
+	clear: both;
+	width: 250px;
+	text-align: center;
+      }
+    }
 
     #alma-mater {
       display: flex;
@@ -1703,5 +1750,18 @@ $cuRed: #881E3D;
   }
 
 } // end of .CU
+
+// overrride mapbox
+div.mapboxgl-popup-content {
+  width: 300px;
+  max-width: 300px;
+  position: relative;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 15px;
+  pointer-events: auto;
+}
+
 
 @import 'C-a-U-mobile'; // needs to be last! 
