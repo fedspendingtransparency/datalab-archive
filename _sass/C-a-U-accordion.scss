@@ -4,6 +4,7 @@ $padding: 20px;
 .accordion {
     margin: 0 0 1rem 0;
     transition: opacity 1s ease;
+    max-width: 900px;
 
     ul {
         list-style-type: disc;
