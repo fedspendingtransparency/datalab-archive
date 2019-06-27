@@ -186,7 +186,7 @@ h2.primary__heading {
 
 .landing-row__featured__text {
   margin: 1rem 0;
-  padding: 0 2.188rem 2.188rem;
+  padding: 0 2.188rem 2.188rem 2.188rem;
   font-size: 14px;
   font-weight: 300;
   font-style: normal;
@@ -280,6 +280,7 @@ h2.primary__heading {
       font-size: 1rem;
       margin: 0;
       line-height: 1.5;
+      padding: 0 2.188rem;
     }
   }
 
@@ -400,6 +401,7 @@ h2.primary__heading {
   a.landing-row__tile:nth-child(odd) {
     padding-right: 1rem;
   }
+
 
 }
 
