@@ -87,7 +87,7 @@ several parts of the feature, changing Javascript that is used throughout the fe
 At the end of each sprint, `dev-release` will be PR'ed by a dev team member and merged into `staging`. `staging` is used for pre-production testing.  After tests have passed, `staging` is
 merged into `master`. `master` is tagged with a release version number.
 
-![alt text](https://github.com/fedspendingtransparency/datalab/blob/feature/DA-3824/documentation/branching.png)
+![alt text](https://github.com/fedspendingtransparency/datalab/blob/master/documentation/branching.png)
 
 ## Hotfixing
 
