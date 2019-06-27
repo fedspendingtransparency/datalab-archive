@@ -87,7 +87,6 @@ function circleFill (d) {
 
 function isZoomedIn(d) {
     if (focus === d.parent) {
-    // if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
         return true;
     }
 
@@ -95,6 +94,7 @@ function isZoomedIn(d) {
 }
 
 function closeDetailPanel() {
+    if (d3.event) d3.event.stopPropagation();
     detailContainer.classed(detailContainerActiveClass, false);
 }
 
@@ -382,7 +382,7 @@ bTableBtn.click(function(){
 
 // Redraw based on the new size whenever the browser window is resized.
 window.addEventListener("resize", function() {
-    // put this in a set time out
+    closeDetailPanel();
     $("#agency-bubbleChart").empty();
     if (root) {
         maxHeight = document.getElementById("agency-investments__content").clientHeight;
