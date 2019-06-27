@@ -408,11 +408,10 @@ $cuRed: #881E3D;
 	  justify-content: space-evenly;
 	  padding-top: 2rem;
 
-	  /* #aid-subsection { */
-	  /*   padding-right: 3rem; */
-	  /*   height: 450px; */
-	  /*   border-right: 1px solid #ddd; */
-	  /* } */
+	  #aid-subsection {
+	    padding-left: 1rem;
+	    padding-right: 1rem;
+	  }
 
 	  #aid-subsection:last-child {
 	    padding-right: 0;
