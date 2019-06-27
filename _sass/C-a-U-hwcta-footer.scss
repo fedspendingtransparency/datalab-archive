@@ -72,37 +72,28 @@
   width: 23%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .hwcta-entry__more-analyses-text {
-  order: 2;
-  width: 50%;  
-  box-sizing: border-box;
-  text-align: right;  
-  padding-left: 0.5rem;
-}
-
-.hwcta-entry__more-analyses-text h2 {
-  color: #2272CE;
-  margin-bottom: 1rem;
-  margin-top: 0;
-  font-size: 17px;
+  font-size: 12px;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  line-height: normal;
   letter-spacing: normal;
+
+  h2 {
+    color: #2272CE;
+    margin-top: 2rem;
+  }
 }
 
 .hwcta-entry__more-analyses-title {
-  font-size: 1rem;
+  font-size: 20px;
   height: 87px;
   color: #666666;
-}
-
-.hwcta-entry__more-analyses-image-div {
-  width: 50%;
-  box-sizing: border-box;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .hwcta-entry__more-analyses-image {

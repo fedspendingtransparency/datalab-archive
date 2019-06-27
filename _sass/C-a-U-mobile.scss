@@ -405,7 +405,29 @@ $cuRed: #881E3D;
     width: 100%;
     display: flex;
     flex-direction: row;
+    font-size: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .hwcta-entry__more-analyses-title {
+    font-size: 17px;
+  }
+
+  .hwcta-entry__more-analyses-text {
+    // font-size: 18px;
+    order: 2;
+    width: 60%;  
+    box-sizing: border-box;
+    text-align: right;  
+    padding-left: 0.5rem;
+
+    h2 {
+      font-size: 16px;
+    }
+  }
+
+  .hwcta-entry__more-analyses-image-div {
+    width: 40%;
+    box-sizing: border-box;
   }
 }
-
-
