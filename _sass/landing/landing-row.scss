@@ -160,6 +160,16 @@ $landing-title-color: #4A4A4A;
       .landing-row__featured__image {
         width: 100%;
       }
+
+    .landing-row__featured__mobile-heading {
+      display: block;
+      text-align: center;
+      margin: 2.188rem 0;
+    }
+
+    .landing-row__featured__heading {
+      display: none;
+    }
   }
 }
 
@@ -357,6 +367,14 @@ $landing-title-color: #4A4A4A;
           margin: 1.6rem;
           text-align: center;
         }
+
+        .landing-row__featured__mobile-heading {
+          display: none;
+        }
+
+        .landing-row__featured__heading {
+          display: block;
+        }
       }
     }
   }
@@ -497,6 +515,7 @@ $landing-title-color: #4A4A4A;
           margin: 1.6rem;
           text-align: center;
         }
+
       }
     }
   }
