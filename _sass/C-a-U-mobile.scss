@@ -403,6 +403,8 @@ $cuRed: #881E3D;
 
   .hwcta-entry__more-analyses-tile {
     width: 100%;
+    display: flex;
+    flex-direction: row;
   }
 }
 

@@ -75,8 +75,11 @@
 }
 
 .hwcta-entry__more-analyses-text {
-  display: flex;
-  flex-direction: column;
+  order: 2;
+  width: 50%;  
+  box-sizing: border-box;
+  text-align: right;  
+  padding-left: 0.5rem;
 }
 
 .hwcta-entry__more-analyses-text h2 {
@@ -92,10 +95,14 @@
 }
 
 .hwcta-entry__more-analyses-title {
-  display: flex;
-  font-size: 1.5rem;
+  font-size: 1rem;
   height: 87px;
   color: #666666;
+}
+
+.hwcta-entry__more-analyses-image-div {
+  width: 50%;
+  box-sizing: border-box;
 }
 
 .hwcta-entry__more-analyses-image {
