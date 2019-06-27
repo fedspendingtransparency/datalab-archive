@@ -74,6 +74,10 @@ function getChartState () {
     return _chartState;
 }
 
+function clearChartState () {
+    _chartState = null;
+}
+
 /* Set color for sub-agency circles */
 function circleFill (d) {
     if (d['color']) {
@@ -82,7 +86,8 @@ function circleFill (d) {
 };
 
 function isZoomedIn(d) {
-    if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
+    if (focus === d.parent) {
+    // if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
         return true;
     }
 
@@ -90,7 +95,6 @@ function isZoomedIn(d) {
 }
 
 function closeDetailPanel() {
-    console.log("close");
     detailContainer.classed(detailContainerActiveClass, false);
 }
 
@@ -131,8 +135,7 @@ function drawBubbleChart(root) {
     bubble.chartHeight = targetWidth;
 
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-
-        if (isZoomedIn(d)) {
+        if (isZoomedIn(d) && focus.parent && focus.parent.depth === 0) {
             const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
                 "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
                 "<span class='bubble-detail__agency-label'>Agency</span>" +
@@ -151,7 +154,7 @@ function drawBubbleChart(root) {
                 "<span class='bubble-detail__agency-label'>Agency</span>" +
                 "<span class='bubble-detail__agency-name'>" + agencyName + "</span>" +
                 "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
-                "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[d.name].total_investment) + "</span>" +
+                "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[agencyName].total_investment) + "</span>" +
                 "</div></div>";
             return tooltipHtml;
         }
@@ -325,27 +328,38 @@ function selectSubAgency(d) {
 }
 
 function bubbleClick(d) {
-    setChartState(d);
 
     circle.classed('active', false);
 
     // need to check if focus is d
     if (isZoomedIn(d)) {
-        // zoomed in?
-        if (d.depth == 2) {
+        if (d.depth === 2) {
+            d3.event.stopPropagation();
+            setChartState(d.parent);
+
             // check if a bubble is already selected
             d3.select(this).classed("active", true);
             bubble.activateDetail(d);
+
         } else {
+            setChartState(d);
+
             if (focus !== d) zoom(d), d3.event.stopPropagation();
+
         }
     } else {
-        // not zoomed in?
-        if (d.depth == 2) {
+
+        if (d.depth === 2) {
+            setChartState(d.parent);
+
             // check if a bubble is already selected
             if (focus !== d.parent) zoom(d.parent), d3.event.stopPropagation();
+
         } else {
+            clearChartState();
+            
             if (focus !== d) zoom(d), d3.event.stopPropagation();
+
         }
     }
 }
@@ -388,7 +402,6 @@ window.addEventListener("resize", function() {
 });
 
 tooltipClose.click(function() {
-    console.log('tooltip close');
     tip.hide();
 });
 
@@ -403,7 +416,6 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err1, data) {
         if (err2) { return err2; }
 
         popoverData = _.keyBy(rawPopoverData, 'agency');
-        console.log(popoverData);
 
         root = transformData(data);
         nodes = pack.nodes(root);
