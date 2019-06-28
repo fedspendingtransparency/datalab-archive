@@ -30,6 +30,8 @@ let diameter = bubbleWidth;
 let _chartState;
 let popoverData;
 
+let resize = false;
+
 const pack = d3.layout.pack()
     .padding(2)
     .size([diameter - margin, diameter - margin])
@@ -109,14 +111,16 @@ function calculateTextFontSize (d) {
     let radius = 0;
     let labelWidth;
 
-    if (d.fontsize) {
-        //if fontsize is already calculated use that.
-        return d.fontsize;
-    }
+    if (!resize) {
+        if (d.fontsize) {
+            //if fontsize is already calculated use that.
+            return d.fontsize;
+        }
 
-    if (!d.computed) {
-        //if computed not present get & store the getComputedTextLength() of the text field
-        d.computed = this.getComputedTextLength();
+        if (!d.computed) {
+            //if computed not present get & store the getComputedTextLength() of the text field
+            d.computed = this.getComputedTextLength();
+        }
     }
 
     if (d.computed != 0) {
@@ -288,12 +292,14 @@ function zoom(d) {
             }
         });
 
+    // hide the text
     setTimeout(function() {
+        // show the text
         d3.selectAll("text.label").filter(function(d) {
             return d.parent === focus || this.style.display === "inline";
         }).style("font-size", calculateTextFontSize);
-    }, 10);
 
+    }, 100);
 }
 
 function zoomTo(v) {
@@ -302,6 +308,7 @@ function zoomTo(v) {
     node.attr("transform", function(d) {
         return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
     });
+
     circle.attr("r", function(d) {
         return d.r * k;
     });
@@ -421,12 +428,17 @@ window.addEventListener("resize", function() {
         maxHeight = document.getElementById("agency-investments__content").clientHeight;
         calculatedWidth = window.innerWidth * widthPercentage;
         diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
+
+        resize = true;
         drawBubbleChart(root);
+        resize = false;
+
         // check the state here and replay
         const chartState = getChartState();
 
         if(chartState) {
             zoom(chartState);
+
         } else {
             zoomTo([root.x, root.y, root.r * 2 + margin]);
         }
