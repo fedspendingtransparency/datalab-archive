@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="69px" viewBox="0 0 69 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="CU_Desktop_Zoomed-Map-Copy-2" transform="translate(-689.000000, -1511.000000)">
+            <g id="Group-8" transform="translate(690.000000, 1512.000000)">
+                <circle id="Oval-Copy" stroke="#004C40" stroke-width="2" cx="33.5" cy="33.5" r="33.5"></circle>
+                <g id="Group-9" transform="translate(19.000000, 17.000000)" stroke="#030303" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35">
+                    <path d="M20.0634621,16.5 L26.3112192,9.4688 C27.2517898,8.4106 27.4070621,6.8805 26.6988415,5.6595 L24.3798099,1.6632 C23.783296,0.6347 22.6718141,0 21.4698498,0 L7.48640208,0 C6.28443773,0 5.17295583,0.6347 4.57644192,1.6632 L2.25405914,5.665 C1.54695557,6.8838 1.69999379,8.4095 2.63497906,9.4677 L23.4146638,33 L29,28.6 L7.77572249,4.4" id="Stroke-1"></path>
+                    <path d="M14.5,11.5945946 L20.84375,4.45945946" id="Stroke-3"></path>
+                    <polyline id="Stroke-5" points="14.5 23.1132687 5.57692308 33 0 28.7014212 9.73842308 17.8378378"></polyline>
+                    <path d="M9.96875,6.68918919 L19.03125,6.68918919" id="Stroke-7"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

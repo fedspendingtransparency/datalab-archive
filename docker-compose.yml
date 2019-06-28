@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   datalab:
     container_name: datalab
@@ -6,11 +6,13 @@ services:
     restart: always
     working_dir: /datalab-repo-mount
     command: >
-        /bin/bash -c "
-          bundle install; 
-          bundle exec jekyll serve --host=0.0.0.0 --watch --incremental; 
-        "
+        /bin/bash -c "export HTTP_PROXY=p1proxy.frb.org:8080 && echo $HTTP_PROXY && bundle install && bundle exec jekyll serve --host=0.0.0.0 --watch --incremental;"
     ports:
         - 4000:4000
+    environment:
+        - HTTPS_PROXY = p1proxy.frb.org:8080
+        - HTTP_PROXY = p1proxy.frb.org:8080
+        - http_proxy = p1proxy.frb.org:8080
+        - https_proxy = p1proxy.frb.org:8080
     volumes:
         - .:/datalab-repo-mount

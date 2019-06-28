@@ -1,0 +1,118 @@
+#map-detail {
+    position: relative;
+
+    // top table total row only
+    table:first-of-type {
+        border-collapse: unset;
+        border-bottom-style: double;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+
+        tr:nth-of-type(4) td {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+}
+
+.map-detail {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+    transition: right 0.5s ease-in-out;
+    z-index: 103;
+}
+
+.map-detail.map-detail--active {
+    right: 0;
+}
+
+.map-detail__agency-label {
+    display: block;
+    color: #aaa;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.map-detail__agency-name {
+    display: block;
+    color: #666;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.map-detail__agency-name:last-of-type {
+    margin-bottom: 1.75rem;
+}
+
+.map-detail__close {
+    float: right;
+    font-weight: 700;
+    background: white;
+    border: 2px solid #bbb;
+    color: #aaa;
+    font-size: .75rem;
+    border-radius: 11px;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.map-detail__close:hover {
+    color: #ddd;
+    border-color: #ddd;
+}
+
+.map-detail__table {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+}
+
+.map-detail__table:last-of-type {
+    margin-bottom: 0;
+}
+
+.map-detail__table td, .map-detail__table th {
+    padding: 4px 0 !important;
+}
+
+.map-detail__table tr td:last-child, .map-detail__table tr th:last-child {
+    text-align: end;
+}
+
+.map-detail__table tr td:last-child {
+    color: #555;
+    font-weight: 500;
+}
+
+.map-detail__table tr th:first-child {
+    text-align: start;
+}
+
+.map-detail__table tr th {
+    font-size: 0.8rem;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    text-align: left;
+}
+
+.map-detail__table tr td {
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f3f3f3 !important;
+    color: #555;
+    padding: 0.35rem 0 !important;
+    font-weight: 300;
+}

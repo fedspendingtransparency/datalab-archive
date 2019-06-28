@@ -1,0 +1,67 @@
+---
+layout: colleges
+menuname: Colleges & Universities
+menuorder: 3
+permalink: colleges-and-universities.html
+colleges: true
+dlPageCss: C-a-U.css
+socialMediaText: "Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds! #DataLab #Treasury #DataTransparency #USAspending"
+---
+
+
+<div class="CU" data-aos="fade-down" data-aos-delay="300">
+  {% include colleges/sectionpre.html %}
+  {% include colleges/sectionone.html %}
+  {% include colleges/sectiontwo.html %}
+  {% include colleges/sectionthree.html %}
+  {% include colleges/investment-categories.html %}
+  {% include new-viz-footer-info.html
+  body="Data Sources and Methodologies"
+  link="colleges-and-universities-more.html"
+  %}
+</div>
+
+
+<!--scripts -->
+<script src="{{site.baseurl}}/assets/js/shared/tooltipModule.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="/assets/js/vendor/d3.tip.v0.6.3.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+<script>
+ var bubble = {},
+     sunburst = {},
+     instmap = {};
+
+ //expose global variables for communication between scripts
+
+ function formatCurrency(n) {
+     return '$' + d3.format(",")(Math.round(n));
+ }
+</script>
+
+<script src="/assets/js/colleges-and-universities/function-panel.js"></script>
+<script src="/assets/js/colleges-and-universities/investmentOverview.js"></script>
+<script src="/assets/js/colleges-and-universities/institutions.js"></script>
+<script src="/assets/js/colleges-and-universities/institutionsMapDetail.js"></script>
+<script src="/assets/js/colleges-and-universities/agenciesBubbleSearch.js"></script>
+<script src="/assets/js/colleges-and-universities/sunburstSearch.js"></script>
+<script src="/assets/js/colleges-and-universities/agenciesBubbleDetail.js"></script>
+<script src="/assets/js/colleges-and-universities/investmentCategoriesDetail.js"></script>
+<script src="/assets/js/colleges-and-universities/agenciesBubbleChart.js"></script>
+<script src="/assets/js/colleges-and-universities/investment-categories.js"></script>
+<script src="/assets/js/colleges-and-universities/cfdaInfo.js"></script>
+<script src="/assets/ffg/accordion.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+
+<!-- List.js Search -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+<!-- Add AOS for ScrollStory Jazz -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+ AOS.init();
+</script>

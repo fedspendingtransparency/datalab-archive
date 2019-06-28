@@ -30,6 +30,13 @@
 
   {% if page.dlPageCss %}<link rel="stylesheet" href="{{ page.dlPageCss | prepend: '/css/' | prepend: site.baseurl }}" />{% endif %}
 
+
+
+  {% if page.colleges %}
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet'/>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+  {% endif %}
+
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
