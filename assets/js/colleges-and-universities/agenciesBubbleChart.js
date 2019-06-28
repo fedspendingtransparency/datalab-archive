@@ -187,7 +187,7 @@ function drawBubbleChart(root) {
     diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
 
     d3.select(bubbleChartContainer)
-        .attr('style', `width: ${bubbleWidth}px; height: ${bubbleWidth}px`);
+        .attr('style', "width: " + bubbleWidth + "px; height: " + bubbleWidth + "px;");
 
     bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
