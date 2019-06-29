@@ -107,7 +107,8 @@ $cuRed: #881E3D;
     }
 
     .section-pre--banner {
-      width: 100%;
+		width: 1200px;
+		margin: 0 auto;
     }
 
     #section-pre__tile {
@@ -411,6 +412,7 @@ $cuRed: #881E3D;
 	  #aid-subsection {
 	    padding-left: 1rem;
 	    padding-right: 1rem;
+		width: 25%;
 	  }
 
 	  #aid-subsection:last-child {
@@ -459,7 +461,6 @@ $cuRed: #881E3D;
 	  }
 
 	  #aid-description {
-	    width: 250px;
 	    color: #555555;
 	    font-size: 15px;
 	    font-weight: 300;
@@ -974,9 +975,6 @@ $cuRed: #881E3D;
 	  #investment-sunburst {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1 1 auto;
 	  }
 
       circle {
