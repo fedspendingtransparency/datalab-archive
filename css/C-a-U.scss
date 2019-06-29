@@ -107,7 +107,8 @@ $cuRed: #881E3D;
     }
 
     .section-pre--banner {
-      width: 100%;
+		width: 1200px;
+		margin: 0 auto;
     }
 
     #section-pre__tile {
@@ -974,9 +975,6 @@ $cuRed: #881E3D;
 	  #investment-sunburst {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1 1 auto;
 	  }
 
       circle {
