@@ -373,8 +373,8 @@ function bubbleClick(d) {
             d3.event.stopPropagation();
             setChartState(d.parent);
 
-            // check if a bubble is already selected
-            d3.select(this).classed("active", true);
+            const elName = "circle[id='" + d.name + "']";
+            d3.select(elName).classed("active", true);
             bubble.activateDetail(d);
 
         } else if (d.depth === 1) {
