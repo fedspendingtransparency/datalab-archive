@@ -44,7 +44,8 @@
               <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
               <div class="cfda__contents">
                 <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
-                <span>This is a written description about Research Grants (CFDA)</span>
+                <span>In this visualization, we identified and set apart grants used for research projects.
+                  This subset of grants were awarded to individuals, groups, or institutions.</span>
               </div>
               </div>
           </label>
@@ -71,23 +72,24 @@
         </div>
 
         <div id='investment-sunburst'>
-          <div id='legend_colorKey'>
-            <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
-            <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
-            <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
-            <svg id='legend_scaleKey'></svg>
+          <div id='investment-sunburst-viz'>
+            <div id='legend_colorKey'>
+              <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
+              <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
+              <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
+              <svg id='legend_scaleKey'></svg>
+            </div>
+
+            <div id='sunburst'>
+            </div>
+            <p class="cu-header__blurb">To return to a higher level click the center node</p>
           </div>
-          <div id='sunburst'>
-            <div id='center'></div>
-          </div>
-          <p class="cu-header__blurb">To return to a higher level click the center node</p>
+          <div id='investment-table--grants'></div>
+          <div id='investment-table--contracts'></div>
+          <div id='investment-table--research'></div>
         </div>
         <div id='right-spacer'></div>
       </div>
-
-      <div id='investment-table--grants'></div>
-      <div id='investment-table--contracts'></div>
-      <div id='investment-table--research'></div>
 
       <div class='chart-footer'>
         <div>

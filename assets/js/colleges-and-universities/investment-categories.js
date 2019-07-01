@@ -39,21 +39,21 @@ function changeCategory(category) {
     scopedData = contractsChartArray;
     categoryLabel = 'Contract';
     dataType = 'PSC';
-    if ($('#investment-sunburst').css('display') == 'none') {
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
       revealTable('contracts');
     }
   } else if (category.value === 'grants') {
     scopedData = grantsChartArray;
     categoryLabel = 'Grant';
     dataType = 'CFDA';
-    if ($('#investment-sunburst').css('display') == 'none') {
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
       revealTable('grants');
     }
   } else if (category.value === 'research') {
     scopedData = researchGrantsChartArray;
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
-    if ($('#investment-sunburst').css('display') == 'none') {
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
       revealTable('research');
     }
   }

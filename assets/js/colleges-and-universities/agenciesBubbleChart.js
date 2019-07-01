@@ -30,6 +30,8 @@ let diameter = bubbleWidth;
 let _chartState;
 let popoverData;
 
+let resize = false;
+
 const pack = d3.layout.pack()
     .padding(2)
     .size([diameter - margin, diameter - margin])
@@ -109,14 +111,16 @@ function calculateTextFontSize (d) {
     let radius = 0;
     let labelWidth;
 
-    if (d.fontsize) {
-        //if fontsize is already calculated use that.
-        return d.fontsize;
-    }
+    if (!resize) {
+        if (d.fontsize) {
+            //if fontsize is already calculated use that.
+            return d.fontsize;
+        }
 
-    if (!d.computed) {
-        //if computed not present get & store the getComputedTextLength() of the text field
-        d.computed = this.getComputedTextLength();
+        if (!d.computed) {
+            //if computed not present get & store the getComputedTextLength() of the text field
+            d.computed = this.getComputedTextLength();
+        }
     }
 
     if (d.computed != 0) {
@@ -134,7 +138,8 @@ function calculateTextFontSize (d) {
 };
 
 function setAgencyTooltipHtml(d) {
-    const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+    const elName = "agency_tip_" + d.name.replace(/ /g,"_");
+    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
         "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
         "<span class='bubble-detail__agency-label'>Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
@@ -145,7 +150,8 @@ function setAgencyTooltipHtml(d) {
 }
 
 function setSubagencyTooltipHtml(d) {
-    const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+    const elName = "subagency_tip_" + d.name.replace(/ /g,"_");
+    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
         "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
         "<span class='bubble-detail__agency-label'>Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
@@ -209,17 +215,24 @@ function drawBubbleChart(root) {
             }
         })
         .attr("id", function(d) {
-            return d.name;
+            return d.name.replace(/ /g,"_");
         })
         .on("click", bubbleClick)
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
+        .on("mouseover", function(d) {
+            tip.show(d);
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+        });
 
     bubbleSvg.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("font-family", "Source Sans Pro")
         .attr("class", "label")
+        .attr("id", function(d) {
+            return "text_" + d.name.replace(/ /g,"_");
+        })
         .style("fill-opacity", function(d) {
             return d.parent === root ? 1 : 0;
         })
@@ -232,7 +245,10 @@ function drawBubbleChart(root) {
         .style("font-size", calculateTextFontSize)
         .attr("text-anchor", "middle")
         .on("click", bubbleClick)
-        .on("mouseover", tip.show)
+        .on("mouseover", function(d) {
+            // const elName = d.name.replace(/ /g,"_");
+            tip.show(d);
+        })
         .on("mouseout", tip.hide);
 
     node = bubbleSvg.selectAll("circle,text");
@@ -288,12 +304,14 @@ function zoom(d) {
             }
         });
 
+    // hide the text
     setTimeout(function() {
+        // show the text
         d3.selectAll("text.label").filter(function(d) {
             return d.parent === focus || this.style.display === "inline";
         }).style("font-size", calculateTextFontSize);
-    }, 10);
 
+    }, 100);
 }
 
 function zoomTo(v) {
@@ -302,6 +320,7 @@ function zoomTo(v) {
     node.attr("transform", function(d) {
         return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
     });
+
     circle.attr("r", function(d) {
         return d.r * k;
     });
@@ -349,7 +368,7 @@ function createBubbleTable(data) {
 };
 
 function selectSubAgency(d) {
-    const elSelector = "circle.node--leaf[id='" + d.name + "']";
+    const elSelector = "circle.node--leaf[id='" + d.name.replace(/ /g,"_") + "']";
     circle.classed('active', false);
     d3.select(elSelector).classed("active", true);
     if (focus !== d) zoom(d.parent), d3.event.stopPropagation();
@@ -366,8 +385,8 @@ function bubbleClick(d) {
             d3.event.stopPropagation();
             setChartState(d.parent);
 
-            // check if a bubble is already selected
-            d3.select(this).classed("active", true);
+            const elName = "circle#" + d.name.replace(/ /g,"_");
+            d3.select(elName).classed("active", true);
             bubble.activateDetail(d);
 
         } else if (d.depth === 1) {
@@ -421,12 +440,17 @@ window.addEventListener("resize", function() {
         maxHeight = document.getElementById("agency-investments__content").clientHeight;
         calculatedWidth = window.innerWidth * widthPercentage;
         diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
+
+        resize = true;
         drawBubbleChart(root);
+        resize = false;
+
         // check the state here and replay
         const chartState = getChartState();
 
         if(chartState) {
             zoom(chartState);
+
         } else {
             zoomTo([root.x, root.y, root.r * 2 + margin]);
         }
