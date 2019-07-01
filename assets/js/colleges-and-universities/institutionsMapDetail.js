@@ -58,8 +58,17 @@
       }
       updateTable('funding', fundingRows);
 
-      updateTable('investments', detailData[data.Recipient].investments.sort(sortDetail));
-      updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
+      if (detailData[data.Recipient].investments) {
+        updateTable('investments', detailData[data.Recipient].investments.sort(sortDetail));
+      } else {
+        updateTable('investments', '');
+      }
+      
+      if (detailData[data.Recipient].agencies) {
+        updateTable('agencies', detailData[data.Recipient].agencies.sort(sortDetail));
+      } else {
+        updateTable('agencies', '');
+      }
     }
   }
 
