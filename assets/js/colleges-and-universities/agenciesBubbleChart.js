@@ -138,7 +138,8 @@ function calculateTextFontSize (d) {
 };
 
 function setAgencyTooltipHtml(d) {
-    const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+    const elName = "agency_tip_" + d.name.replace(/ /g,"_");
+    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
         "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
         "<span class='bubble-detail__agency-label'>Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
@@ -149,7 +150,8 @@ function setAgencyTooltipHtml(d) {
 }
 
 function setSubagencyTooltipHtml(d) {
-    const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
+    const elName = "subagency_tip_" + d.name.replace(/ /g,"_");
+    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
         "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
         "<span class='bubble-detail__agency-label'>Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
@@ -213,17 +215,24 @@ function drawBubbleChart(root) {
             }
         })
         .attr("id", function(d) {
-            return d.name;
+            return d.name.replace(/ /g,"_");
         })
         .on("click", bubbleClick)
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
+        .on("mouseover", function(d) {
+            tip.show(d);
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+        });
 
     bubbleSvg.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("font-family", "Source Sans Pro")
         .attr("class", "label")
+        .attr("id", function(d) {
+            return "text_" + d.name.replace(/ /g,"_");
+        })
         .style("fill-opacity", function(d) {
             return d.parent === root ? 1 : 0;
         })
@@ -236,7 +245,10 @@ function drawBubbleChart(root) {
         .style("font-size", calculateTextFontSize)
         .attr("text-anchor", "middle")
         .on("click", bubbleClick)
-        .on("mouseover", tip.show)
+        .on("mouseover", function(d) {
+            // const elName = d.name.replace(/ /g,"_");
+            tip.show(d);
+        })
         .on("mouseout", tip.hide);
 
     node = bubbleSvg.selectAll("circle,text");
@@ -356,7 +368,7 @@ function createBubbleTable(data) {
 };
 
 function selectSubAgency(d) {
-    const elSelector = "circle.node--leaf[id='" + d.name + "']";
+    const elSelector = "circle.node--leaf[id='" + d.name.replace(/ /g,"_") + "']";
     circle.classed('active', false);
     d3.select(elSelector).classed("active", true);
     if (focus !== d) zoom(d.parent), d3.event.stopPropagation();
@@ -373,8 +385,8 @@ function bubbleClick(d) {
             d3.event.stopPropagation();
             setChartState(d.parent);
 
-            // check if a bubble is already selected
-            d3.select(this).classed("active", true);
+            const elName = "circle#" + d.name.replace(/ /g,"_");
+            d3.select(elName).classed("active", true);
             bubble.activateDetail(d);
 
         } else if (d.depth === 1) {

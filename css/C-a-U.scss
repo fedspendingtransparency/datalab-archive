@@ -678,6 +678,11 @@ $cuRed: #881E3D;
       }
     }
 
+    .d3-tip {
+		pointer-events: none!important;
+		z-index: 9999!important;
+	}
+
     .bubble-chart-tooltip {
       .information {
         .key {
