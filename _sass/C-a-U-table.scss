@@ -51,7 +51,7 @@ table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_di
 table.dataTable thead .sorting_desc_disabled:after {
   content: "\25BE" !important;
   font-size: 14px !important;
-  margin-bottom: .55em !important;
+  margin-bottom: .58em !important;
   transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
@@ -59,6 +59,15 @@ table.dataTable thead .sorting_desc_disabled:after {
   -o-transform: rotate(-180deg);
   //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
+
+
+table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+  width: 250px !important;
+}
+
+
 
 
 /* All IE 11 width fixes! */
