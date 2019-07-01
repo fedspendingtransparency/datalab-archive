@@ -4,7 +4,7 @@
   font-size: 17px;
 
   td {
-    color: #aaa !important;
+    color: #555 !important;
     text-align: left;
     font-size: 17px;
   }
@@ -18,11 +18,11 @@
 
   tr {
     height: 60px;
-    border-bottom: #aaa 1px solid !important;
+    border-bottom: #555 1px solid !important;
   }
 
   .no-footer {
-    border-bottom: #aaa 1px solid !important;
+    border-bottom: #555 1px solid !important;
   }
 
 }
@@ -34,7 +34,7 @@ label, select, .dataTables_info, .dataTables_paginate {
 
 .dataTables_paginate paging_simple_numbers, .dataTables_length,
 .paging_simple_numbers {
-  color: #aaa !important;
+  color: #666 !important;
 }
 
 table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before,
@@ -71,15 +71,15 @@ table.dataTable {
 }
 
 #investment-table--grants {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 #investment-table--research {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 #invesment-table--contracts {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 #bubbletable {
