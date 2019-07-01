@@ -8,6 +8,7 @@ $padding: 20px;
 
     ul {
         list-style-type: disc;
+        color: #555;
     }
 }
 
@@ -21,6 +22,7 @@ $padding: 20px;
     display: flex;
     justify-content: space-between;
     font-weight: $boldWeight;
+    color: #666666;
 }
 
 .accordion__content {
@@ -46,6 +48,7 @@ $padding: 20px;
     border: none;
     float: right;
     width: 26px;
+    color: #666;
 }
 
 .accordion__plus {
