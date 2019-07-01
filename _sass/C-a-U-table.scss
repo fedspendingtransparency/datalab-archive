@@ -4,7 +4,7 @@
   font-size: 17px;
 
   td {
-    color: #aaa !important;
+    color: #555 !important;
     text-align: left;
     font-size: 17px;
   }
@@ -18,23 +18,23 @@
 
   tr {
     height: 60px;
-    border-bottom: #aaa 1px solid !important;
+    border-bottom: #555 1px solid !important;
   }
 
   .no-footer {
-    border-bottom: #aaa 1px solid !important;
+    border-bottom: #555 1px solid !important;
   }
 
 }
 
 label, select, .dataTables_info, .dataTables_paginate {
-  color: #666 !important;
+  color: #555 !important;
   font-size: 14px !important;
 }
 
 .dataTables_paginate paging_simple_numbers, .dataTables_length,
 .paging_simple_numbers {
-  color: #aaa !important;
+  color: #666 !important;
 }
 
 table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before,
@@ -51,7 +51,7 @@ table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_di
 table.dataTable thead .sorting_desc_disabled:after {
   content: "\25BE" !important;
   font-size: 14px !important;
-  margin-bottom: .55em !important;
+  margin-bottom: .65em !important;
   transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
@@ -59,6 +59,15 @@ table.dataTable thead .sorting_desc_disabled:after {
   -o-transform: rotate(-180deg);
   //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
+
+
+table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+  width: 250px !important;
+}
+
+
 
 
 /* All IE 11 width fixes! */
@@ -71,15 +80,15 @@ table.dataTable {
 }
 
 #investment-table--grants {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 #investment-table--research {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 #invesment-table--contracts {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 #bubbletable {
