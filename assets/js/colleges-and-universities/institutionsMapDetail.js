@@ -6,7 +6,7 @@
         detailData = {},
         activeClass = 'map-detail--active';
 
-  let agencyName, dataFilesLoaded = 0;
+  let agencyName, agencyType, dataFilesLoaded = 0;
 
   function sortDetail(a, b) {
     return b.value - a.value;
@@ -24,7 +24,8 @@
     }
     
     agencyName.text(data.Recipient);
-
+    agencyType.text(data.INST_TYPE_1 + data.INST_TYPE_2);
+    
     if (!detailData[data.Recipient]) {
       console.warn(`no data for ${data.Recipient}`);
       updateTable('rhp', []);
@@ -37,8 +38,8 @@
       const rhpDetails = detailData[data.Recipient]['rhp'];
 
       updateTable('rhp', [
-        {key: 'Type of Institution', value: rhpDetails.INST_TYPE_1 + rhpDetails.INST_TYPE_2},
-        {key: 'Awards Received', value: rhpDetails.total_awards},
+      //   {key: 'Type of Institution', value: rhpDetails.INST_TYPE_1 + rhpDetails.INST_TYPE_2},
+      //   {key: 'Awards Received', value: rhpDetails.total_awards},
         {key: 'Total $ Received', value: formatCurrency(rhpDetails.Total_Federal_Investment)}
       ]);
 
@@ -53,7 +54,7 @@
         fundingRows.push({key: '&emsp;Grants (Research)', value: formatCurrency(data.research_grants_received)});
       }
       if (rhpDetails.student_aid) {
-        fundingRows.push({key: 'Scholarships ', value: formatCurrency(rhpDetails.student_aid)});
+        fundingRows.push({key: 'Student Aid ', value: formatCurrency(rhpDetails.student_aid)});
       }
       updateTable('funding', fundingRows);
 
@@ -69,7 +70,8 @@
         detailContainer.classed(activeClass, false);
       })
       .append('span')
-      .html('&times;');
+      .html('&times;')
+    ;
   }
 
   function createTableRow(d) {
@@ -152,13 +154,9 @@
     preloadData();
     placeCloseButton();
 
-    detailContainer.append('span')
-      .classed('map-detail__agency-label', true)
-      .text('Institution')
-    ;
-    agencyName = detailContainer.append('span')
-      .classed('map-detail__agency-name', true)
-    ;
+    detailContainer.append('span').classed('map-detail__agency-label', true).text('Institution');
+    agencyName = detailContainer.append('span').classed('map-detail__agency-name', true);
+    agencyType = detailContainer.append('span').classed('map-detail__agency-label', true);
 
     placeTables();
 
