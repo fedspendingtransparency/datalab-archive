@@ -1,14 +1,12 @@
 .hwcta-entry {
-  display: flex;
-  flex-direction: column;
-  margin: 5% 8%;
-  padding: 5%;
+  margin: 5% 8% 0;
+  padding: 5% 5% 0 5%;
   border-top: 1px solid #eeeeee;
-  color: #9B9B9B;
+  color: #666666;
 }
 
 .hwcta-entry__body-container {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -45,8 +43,9 @@
 }
 
 .hwcta-entry__more-analyses {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+  // -ms-flex: 1;
   padding: 5%;
 }
 
@@ -54,30 +53,25 @@
   font-size: 1.17em;
   color: #666;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #666666;
   text-transform: uppercase;
 }
 
 .hwcta-entry__more-analyses-tiles {
-  display: flex;
+  // display: flex;
 }
 
 .hwcta-entry__more-analyses-tile-row {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   justify-content: space-between;
 }
 
 .hwcta-entry__more-analyses-tile {
   width: 23%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  a {
-    height: 100%;
-    position: relative;
-  }
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 }
 
 .hwcta-entry__more-analyses-text {
@@ -89,7 +83,8 @@
 
   h2 {
     color: #2272CE;
-    margin-top: 2rem;
+    height: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -99,11 +94,6 @@
   color: #666666;
   margin-bottom: 0;
   margin-top: 0;
-}
-
-.hwcta-entry__more-analyses-image-div {
-  position: absolute;
-  bottom: 0;
 }
 
 .hwcta-entry__more-analyses-image {
