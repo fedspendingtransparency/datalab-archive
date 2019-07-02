@@ -994,6 +994,7 @@ $cuRed: #881E3D;
 	  #investment-sunburst {
 		display: flex;
 		flex-direction: column;
+		  margin: 0 auto;
 
 		  #investment-sunburst-tables {
 			  width: 100% !important;
@@ -1013,6 +1014,7 @@ $cuRed: #881E3D;
         display: flex;
         align-items: center;
         justify-content: center;
+		margin: 0 auto;
       }
 
       #sunburst svg {
