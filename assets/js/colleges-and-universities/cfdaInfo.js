@@ -1,3 +1,5 @@
+---
+---
 (function () {
     const trigger = d3.select('.cfda__trigger'),
         close = d3.select('.cfda__close'),

@@ -106,9 +106,20 @@ $cuRed: #881E3D;
       }
     }
 
+	  .section-pre-container {
+		  display: flex;
+		  background-image: url('/assets/icons/collegebannerbkgrd.svg');
+		  background-repeat: no-repeat;
+		  background-size: cover;
+	  }
+
     .section-pre--banner {
-		width: 1200px;
 		margin: 0 auto;
+
+		img {
+			width: 700px;
+			height: 375px;
+		}
     }
 
     #section-pre__tile {
@@ -550,7 +561,7 @@ $cuRed: #881E3D;
 	font-size: 1rem;
 	color: #4a4a4a;
 	margin-left: 20px;
-	padding-top: 5px;
+//	padding-top: 5px;
       }
 
       #refresh-div > i {

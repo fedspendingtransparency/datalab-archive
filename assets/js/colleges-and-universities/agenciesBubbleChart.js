@@ -1,3 +1,5 @@
+---
+---
 /*
 *   Local declarations
 */
@@ -29,6 +31,7 @@ const margin = 20;
 let diameter = bubbleWidth;
 let _chartState;
 let popoverData;
+let tip;
 
 let resize = false;
 
@@ -385,7 +388,7 @@ function bubbleClick(d) {
             d3.event.stopPropagation();
             setChartState(d.parent);
 
-            const elName = "circle#" + d.name.replace(/ /g,"_");
+            const elName = "circle.node--leaf#" + d.name.replace(/ /g,"_");
             d3.select(elName).classed("active", true);
             bubble.activateDetail(d);
 
@@ -516,12 +519,12 @@ function transformData(data) {
     };
 
     // Re-structure data
-    for(agency in result) {
+    for(let agency in result) {
         result[agency] = _.groupBy(result[agency], 'subagency');
 
         tempRoot.children.push({"name": agency, "children": []});
 
-        for(subagency in result[agency]) {
+        for(let subagency in result[agency]) {
             if(result[agency][subagency] && result[agency][subagency].length > 0) {
                 result[agency][subagency] = result[agency][subagency][0].obligation;
             } else {
