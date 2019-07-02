@@ -16,7 +16,7 @@
     let agencyName, subAgencyName, done = 0;
 
     function isMobile() {
-        const threshold = 1200;
+        const threshold = 949;
 
         return (window.innerWidth <= threshold);
     }
