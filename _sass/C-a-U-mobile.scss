@@ -437,23 +437,13 @@ $cuRed: #881E3D;
     justify-content: center;
   }
 
-  // .hwcta-entry__more-analyses-tiles {
-  //   flex-direction: column;
-  // }
-
   .hwcta-entry__more-analyses-heading {
     padding-bottom: 1rem;
     margin-bottom: 0;
   }
 
-  .hwcta-entry__more-analyses-tile-row {
-    flex-direction: column;
-  }
-
   .hwcta-entry__more-analyses-tile {
     width: 100%;
-    display: flex;
-    flex-direction: column;
     font-size: 1rem;
     border-top: 1px solid #ddd;
     padding: 1rem 0;
@@ -465,7 +455,6 @@ $cuRed: #881E3D;
   }
 
   .hwcta-entry__more-analyses-text {
-    // font-size: 18px;
     float: right;
     width: 60%;  
     box-sizing: border-box;

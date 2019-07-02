@@ -43,9 +43,6 @@
 }
 
 .hwcta-entry__more-analyses {
-  // display: flex;
-  // flex-direction: column;
-  // -ms-flex: 1;
   padding: 5%;
 }
 
@@ -57,21 +54,13 @@
   text-transform: uppercase;
 }
 
-.hwcta-entry__more-analyses-tiles {
-  // display: flex;
-}
-
 .hwcta-entry__more-analyses-tile-row {
   display: flex;
-  // flex-direction: row;
   justify-content: space-between;
 }
 
 .hwcta-entry__more-analyses-tile {
   width: 23%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
 }
 
 .hwcta-entry__more-analyses-text {
