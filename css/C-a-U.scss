@@ -106,21 +106,17 @@ $cuRed: #881E3D;
       }
     }
 
-	  .section-pre-container {
-		  display: flex;
-		  background-image: url('/assets/icons/collegebannerbkgrd.svg');
-		  background-repeat: no-repeat;
-		  background-size: cover;
-	  }
-
     .section-pre--banner {
+		display: block;
 		margin: 0 auto;
-
-		img {
-			width: 700px;
-			height: 375px;
-		}
+		width: 100%;
     }
+
+	  .section-pre--banner--widescreen {
+		  margin: 0 auto;
+		  display: none;
+		  width: 1500px;
+	  }
 
     #section-pre__tile {
       padding-top: 1rem;

@@ -140,6 +140,13 @@ function calculateTextFontSize (d) {
     }
 };
 
+function isTablet() {
+    const minThreshold = 949;
+    const maxThreshold = 1199;
+
+    return (minThreshold <= window.innerWidth && window.innerWidth <= maxThreshold);
+}
+
 function setAgencyTooltipHtml(d) {
     const elName = "agency_tip_" + d.name.replace(/ /g,"_");
     const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
@@ -222,7 +229,9 @@ function drawBubbleChart(root) {
         })
         .on("click", bubbleClick)
         .on("mouseover", function(d) {
-            tip.show(d);
+            if (!isTablet()) {
+                tip.show(d);
+            }
         })
         .on("mouseout", function(d) {
             tip.hide(d);
@@ -250,7 +259,9 @@ function drawBubbleChart(root) {
         .on("click", bubbleClick)
         .on("mouseover", function(d) {
             // const elName = d.name.replace(/ /g,"_");
-            tip.show(d);
+            if (!isTablet()) {
+                tip.show(d);
+            }
         })
         .on("mouseout", tip.hide);
 
