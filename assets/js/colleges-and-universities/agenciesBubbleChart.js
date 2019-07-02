@@ -385,7 +385,7 @@ function bubbleClick(d) {
             d3.event.stopPropagation();
             setChartState(d.parent);
 
-            const elName = "circle#" + d.name.replace(/ /g,"_");
+            const elName = "circle.node--leaf#" + d.name.replace(/ /g,"_");
             d3.select(elName).classed("active", true);
             bubble.activateDetail(d);
 
