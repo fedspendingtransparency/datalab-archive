@@ -461,7 +461,7 @@ $cuRed: #881E3D;
 
   .hwcta-entry__more-analyses-text {
     // font-size: 18px;
-    order: 2;
+    float: right;
     width: 60%;  
     box-sizing: border-box;
     text-align: right;  
@@ -475,6 +475,6 @@ $cuRed: #881E3D;
 
   .hwcta-entry__more-analyses-image-div {
     width: 40%;
-    box-sizing: border-box;
+    float: left;
   }
 }
