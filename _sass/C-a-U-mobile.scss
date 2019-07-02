@@ -56,9 +56,9 @@ $cuRed: #881E3D;
       max-width: 800px;
     }
 
-    .cu-header__blurb {
-      max-width: 500px;
-    }
+    // .cu-header__blurb {
+    //   max-width: 500px;
+    // }
 
     #section-pre {
 
@@ -280,7 +280,7 @@ $cuRed: #881E3D;
       margin: 0;
       font-size: 28px;
       line-height: 50px;
-      margin-left: 1.5rem;
+      margin-left: 2.3rem;
       padding-top: .25rem;
     }
 
@@ -423,6 +423,7 @@ $cuRed: #881E3D;
 
     .cu-header__blurb {
       text-align: left;
+      max-width: inherit;
     }
     
 
@@ -481,5 +482,11 @@ $cuRed: #881E3D;
   .hwcta-entry__more-analyses-image-div {
     width: 40%;
     float: left;
+  }
+}
+
+@media (max-width: 450px) {
+  .CU #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
+    margin-left: 1.4rem;
   }
 }
