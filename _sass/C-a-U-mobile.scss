@@ -20,6 +20,17 @@ $cuRed: #881E3D;
     }
   }
 }
+
+@media (min-width: 1501px) {
+  .section-pre--banner--widescreen {
+    display: block !important;
+  }
+
+  .section-pre--banner {
+    display: none !important;
+  }
+}
+
 /* Tablet-only View */
 @media (min-width: 950px) and (max-width: 1200px) {
   .CU {
@@ -45,9 +56,9 @@ $cuRed: #881E3D;
       max-width: 800px;
     }
 
-    .cu-header__blurb {
-      max-width: 500px;
-    }
+    // .cu-header__blurb {
+    //   max-width: 500px;
+    // }
 
     #section-pre {
 
@@ -269,7 +280,7 @@ $cuRed: #881E3D;
       margin: 0;
       font-size: 28px;
       line-height: 50px;
-      margin-left: 1.5rem;
+      margin-left: 2.3rem;
       padding-top: .25rem;
     }
 
@@ -412,6 +423,7 @@ $cuRed: #881E3D;
 
     .cu-header__blurb {
       text-align: left;
+      max-width: inherit;
     }
     
 
@@ -437,21 +449,25 @@ $cuRed: #881E3D;
     justify-content: center;
   }
 
+  .hwcta-entry__more-analyses-heading {
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+  }
+
   .hwcta-entry__more-analyses-tile {
     width: 100%;
-    display: flex;
-    flex-direction: row;
     font-size: 1rem;
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 1rem 0;
   }
 
   .hwcta-entry__more-analyses-title {
     font-size: 17px;
+    height: auto;
   }
 
   .hwcta-entry__more-analyses-text {
-    // font-size: 18px;
-    order: 2;
+    float: right;
     width: 60%;  
     box-sizing: border-box;
     text-align: right;  
@@ -459,11 +475,18 @@ $cuRed: #881E3D;
 
     h2 {
       font-size: 16px;
+      margin-top: 0;
     }
   }
 
   .hwcta-entry__more-analyses-image-div {
     width: 40%;
-    box-sizing: border-box;
+    float: left;
+  }
+}
+
+@media (max-width: 450px) {
+  .CU #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
+    margin-left: 1.4rem;
   }
 }

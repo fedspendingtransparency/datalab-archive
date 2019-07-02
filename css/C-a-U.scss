@@ -106,21 +106,17 @@ $cuRed: #881E3D;
       }
     }
 
-	  .section-pre-container {
-		  display: flex;
-		  background-image: url('/assets/icons/collegebannerbkgrd.svg');
-		  background-repeat: no-repeat;
-		  background-size: cover;
-	  }
-
     .section-pre--banner {
+		display: block;
 		margin: 0 auto;
-
-		img {
-			width: 700px;
-			height: 375px;
-		}
+		width: 100%;
     }
+
+	  .section-pre--banner--widescreen {
+		  margin: 0 auto;
+		  display: none;
+		  width: 1500px;
+	  }
 
     #section-pre__tile {
       padding-top: 1rem;
@@ -994,6 +990,7 @@ $cuRed: #881E3D;
 	  #investment-sunburst {
 		display: flex;
 		flex-direction: column;
+		  margin: 0 auto;
 
 		  #investment-sunburst-tables {
 			  width: 100% !important;
@@ -1013,6 +1010,7 @@ $cuRed: #881E3D;
         display: flex;
         align-items: center;
         justify-content: center;
+		margin: 0 auto;
       }
 
       #sunburst svg {
