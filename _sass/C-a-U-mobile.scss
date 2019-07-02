@@ -437,8 +437,17 @@ $cuRed: #881E3D;
     justify-content: center;
   }
 
+  // .hwcta-entry__more-analyses-tiles {
+  //   flex-direction: column;
+  // }
+
+  .hwcta-entry__more-analyses-tile-row {
+    flex-direction: column;
+  }
+
   .hwcta-entry__more-analyses-tile {
     width: 100%;
+    flex: 1 25%;
     display: flex;
     flex-direction: row;
     font-size: 1rem;
@@ -447,6 +456,7 @@ $cuRed: #881E3D;
 
   .hwcta-entry__more-analyses-title {
     font-size: 17px;
+    height: auto;
   }
 
   .hwcta-entry__more-analyses-text {
@@ -459,6 +469,7 @@ $cuRed: #881E3D;
 
     h2 {
       font-size: 16px;
+      margin-top: 0;
     }
   }
 
