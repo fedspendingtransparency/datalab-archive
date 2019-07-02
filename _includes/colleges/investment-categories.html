@@ -18,7 +18,6 @@
       <section class="accordion">
         <h1 class="accordion__heading">Instructions</h1>
         <div class="accordion__content">
-	  <p>In this visualization sub-agencies are represented by colorful circles and grouped together by their agency symbolized by the light gray bubble</p>
 	  <ul class="accordion__list">
 	    <li>Select an investment type: contracts, grants, or research grants</li>
 	    <li>Hover over each section to determine the category </li>
@@ -44,14 +43,17 @@
               <button type="button" class="cfda__trigger"><img src="/assets/icons/CU/info-circle-solid.svg" alt="close"></button>
               <div class="cfda__contents">
                 <button type="button" class="cfda__close"><img src="/assets/icons/CU/close button.svg" alt="close"></button>
-                <span>This is a written description about Research Grants (CFDA)</span>
+                <span>In this visualization, we identified and set apart grants used for research projects.
+                  This subset of grants were awarded to individuals, groups, or institutions.</span>
               </div>
-            </div>
+              </div>
           </label>
         </form>
-    {% include colleges/colleges-share.html anchor="section-four" %}
+	{% include colleges/colleges-share.html anchor="section-four" %}
       </div>
     </div>
+
+    <div id="mobile-search--sunburst"></div>
 
     <div id='chart-area'>
       <div id="categories-detail"></div>
@@ -69,23 +71,26 @@
         </div>
 
         <div id='investment-sunburst'>
-          <div id='legend_colorKey'>
-            <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
-            <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
-            <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
-            <svg id='legend_scaleKey'></svg>
+          <div id='investment-sunburst-viz'>
+            <div id='legend_colorKey'>
+              <div style='top:25px;' class='legend_circleKeyLabel'><span>Program Title</span></div>
+              <div style='top:36px;' class='legend_circleKeyLabel'><span>Grant Family</span></div>
+              <div style='top:65px;' class='legend_circleKeyLabel'><span>2018 Federal Grants</span></div>
+              <svg id='legend_scaleKey'></svg>
+            </div>
+
+            <div id='sunburst'>
+            </div>
+            <p class="cu-header__blurb">To return to a higher level click the center node</p>
           </div>
-          <div id='sunburst'>
-            <div id='center'></div>
+          <div id="investment-sunburst-tables">
+            <div id='investment-table--grants'></div>
+            <div id='investment-table--contracts'></div>
+            <div id='investment-table--research'></div>
           </div>
-          <p class="cu-header__blurb">To return to a higher level click the center node</p>
         </div>
         <div id='right-spacer'></div>
       </div>
-
-      <div id='investment-table--grants'></div>
-      <div id='investment-table--contracts'></div>
-      <div id='investment-table--research'></div>
 
       <div class='chart-footer'>
         <div>

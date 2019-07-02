@@ -18,12 +18,12 @@ function switchView (section, show) {
 
   if (section === 'investment') {
     if (show === 'chart') {
-      $('#investment-sunburst').show();
+      $('#investment-sunburst-viz').show();
       $('#investment-table--grants').hide();
       $('#investment-table--contracts').hide();
       $('#investment-table--research').hide();
     } else if (show === 'table') {
-      $('#investment-sunburst').hide();
+      $('#investment-sunburst-viz').hide();
       if (radioVal == 'contracts') {
         $('#investment-table--contracts').show();
         $('#investment-table--research').hide();

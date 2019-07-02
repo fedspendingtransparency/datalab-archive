@@ -6,6 +6,10 @@ const tableContainer = $('#alma-mater-table');
 let agenciesTopFive;
 let categoriesTopFive;
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function createMapbox() {
   mapboxgl.accessToken = 'pk.eyJ1IjoidXNhc3BlbmRpbmciLCJhIjoiY2l6ZnZjcmh0MDBtbDMybWt6NDR4cjR6ZSJ9.zsCqjJgrMDOA-i1RcCvGvg';
 
@@ -23,7 +27,7 @@ function createMapbox() {
   // Create a popup, but don't add it to the map yet.
   let tooltip = new mapboxgl.Popup({
     closeButton: true,
-    closeOnClick: true
+    closeOnClick: false,
   });
 
   // filter overlay section //
@@ -34,17 +38,20 @@ function createMapbox() {
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
-
+      
       let geoandname = data.features.map(function (ele) {
 	return {
 	  coord: ele.geometry,
 	  name: ele.properties.Recipient,
-	  fedInvest: ele.properties.Total_Federal_Investment,
+	  fedInvest: formatCurrency(ele.properties.Total_Federal_Investment),
 	  instType: ele.properties.INST_TYPE_1,
-	  yearType: ele.properties.INST_TYPE_2
+	  yearType: ele.properties.INST_TYPE_2,
+	  state: ele.properties.State,
+	  county: ele.properties.COUNTY,
+	  numStudents: numberWithCommas(ele.properties.Total),
 	};
       });
-      
+
       // mobile search //
       geoandname.forEach(function(ele) {
 	let mobileListitem = document.createElement('li');
@@ -54,18 +61,17 @@ function createMapbox() {
 	mobileListingEl.append(mobileListitem);
 
 	mobileListitem.addEventListener('click', function() {
-	  // console.log('clicking mobile list item');
 	  let that = this;
 	  let mobileMatched = geoandname.filter(function(ele) {
 	    return that.textContent === ele.name;
 	  });
-	  let tooltipHtml = `<h2> ${mobileMatched[0].name}</h2> Amount Invested: ${mobileMatched[0].fedInvest} <br> ${mobileMatched[0].instType} <br> ${mobileMatched[0].yearType}`;
+	  let mobileTooltip = `<div class='tooltip-float'><p class='map-tooltip-p-left-inst'>Institution</p> <p class='map-tooltip-p-right'>${mobileMatched[0].name}</p></div> <div class='tooltip-float'><p class='map-tooltip-p-left'>State</p> <p class='map-tooltip-p-right'>${mobileMatched[0].state}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>County</p> <p class='map-tooltip-p-right'>${mobileMatched[0].county}</p></div><div class='tooltip-float tooltip-float--underline'><p class='map-tooltip-p-left'>Number of Students </p> <p class='map-tooltip-p-right'>${mobileMatched[0].numStudents}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>Total $ Received</p><p class='map-tooltip-p-right-invest'>${mobileMatched[0].fedInvest}</p></div>`;
 	  map.easeTo({
 	    center: mobileMatched[0].coord.coordinates,
 	    zoom: 12
 	  });
 	  tooltip.setLngLat(mobileMatched[0].coord.coordinates)
-	    .setHTML(tooltipHtml)
+	    .setHTML(mobileTooltip)
 	    .addTo(map);
 	});
       });
@@ -76,12 +82,11 @@ function createMapbox() {
 	listitem.classList.add('map-search__item');
 	listitem.textContent = ele.name;
 	listitem.addEventListener('click', function() {
-	  // console.log('clicking list item');
 	  let that = this;
 	  let matched = geoandname.filter(function(ele) {
 	    return that.textContent === ele.name;
 	  });
-	  let tooltipHtml = `<h2> ${matched[0].name}</h2> Amount Invested: ${matched[0].fedInvest} <br> ${matched[0].instType} <br> ${matched[0].yearType}`;
+	  let tooltipHtml = `<div class='tooltip-float'><p class='map-tooltip-p-left-inst'>Institution</p> <p class='map-tooltip-p-right'>${matched[0].name}</p></div> <div class='tooltip-float'><p class='map-tooltip-p-left'>State</p> <p class='map-tooltip-p-right'>${matched[0].state}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>County</p> <p class='map-tooltip-p-right'>${matched[0].county}</p></div><div class='tooltip-float tooltip-float--underline'><p class='map-tooltip-p-left'>Number of Students </p> <p class='map-tooltip-p-right'>${matched[0].numStudents}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>Total $ Received</p><p class='map-tooltip-p-right-invest'>${matched[0].fedInvest}</p></div>`;
 	  map.easeTo({
 	    center: matched[0].coord.coordinates,
 	    zoom: 12
@@ -141,7 +146,6 @@ function createMapbox() {
 	clusterRadius: 75 // 50 is default look into tweaking this
       });
 
-
       map.addLayer({
 	id: 'clusters',
 	type: 'circle',
@@ -160,23 +164,30 @@ function createMapbox() {
 	    "#881E3D",
 	    100,
 	    "#881E3D",
-	    750,
+	    400,
 	    "#881E3D"
 	  ],
 	  "circle-radius": [
 	    "step",
 	    ["get", "point_count"],
+	    6,
+	    8,
+	    12,
+	    30,
 	    15,
 	    50,
+	    20,
+	    75,
 	    30,
-	    400,
+	    300,
 	    40
 	  ]
 	}
       });
 
-      map.setPaintProperty('clusters', 'circle-opacity', .4); // set opactiy to 40%
-
+      // set opactiy to 40%
+      map.setPaintProperty('clusters', 'circle-opacity', .4);
+      
       map.addLayer({
 	id: "cluster-count",
 	type: "symbol",
@@ -185,7 +196,7 @@ function createMapbox() {
 	layout: {
 	  "text-field": "{point_count_abbreviated}",
 	  "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-	  "text-size": 11
+	  "text-size": 10
 	}
       });
 
@@ -196,7 +207,7 @@ function createMapbox() {
 	filter: ["!", ["has", "point_count"]],
 	paint: {
 	  "circle-color": "#881E3D",
-	  "circle-radius": 5,
+	  "circle-radius": 3.5,
 	  "circle-stroke-width": 1,
 	  "circle-stroke-color": "#ddd"
 	}
@@ -243,13 +254,14 @@ function createMapbox() {
 	map.getCanvas().style.cursor = 'pointer';
 	
 	let coordinates = e.features[0].geometry.coordinates.slice();
-	let schoolName = e.features[0].properties.Recipient;
-	let schoolInvestment = e.features[0].properties.Total_Federal_Investment;
-	//	schoolInvestment.formatMoney(2); // convert
-	let instType = e.features[0].properties.INST_TYPE_1;
-	let yearType = e.features[0].properties.INST_TYPE_2;
+	let name = e.features[0].properties.Recipient;
+	let state = e.features[0].properties.State;
+	let fedInvest = formatCurrency(e.features[0].properties.Total_Federal_Investment);
+	let county = e.features[0].properties.COUNTY;
+	let numStudents = numberWithCommas(e.features[0].properties.Total);
 
-	let html = `<h2> ${schoolName} </h2> Amount Invested: ${schoolInvestment} <br> ${instType} <br> ${yearType}`;
+	let tooltipHtml = `<div class='tooltip-float'><p class='map-tooltip-p-left-inst'>Institution</p> <p class='map-tooltip-p-right'>${name}</p></div> <div class='tooltip-float'><p class='map-tooltip-p-left'>State</p> <p class='map-tooltip-p-right'>${state}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>County</p> <p class='map-tooltip-p-right'>${county}</p></div><div class='tooltip-float tooltip-float--underline'><p class='map-tooltip-p-left'>Number of Students </p> <p class='map-tooltip-p-right'>${numStudents}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>Total $ Received</p><p class='map-tooltip-p-right-invest'>${fedInvest}</p></div>`;
+
 
 	// Ensure that if the map is zoomed out such that multiple
 	// copies of the feature are visible, the popup appears
@@ -261,7 +273,7 @@ function createMapbox() {
 	// Populate the popup and set its coordinates
 	// based on the feature found.
 	tooltip.setLngLat(coordinates)
-	  .setHTML(html)
+	  .setHTML(tooltipHtml)
 	  .addTo(map);
       });
 

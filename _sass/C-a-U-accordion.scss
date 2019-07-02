@@ -4,9 +4,11 @@ $padding: 20px;
 .accordion {
     margin: 0 0 1rem 0;
     transition: opacity 1s ease;
+    max-width: 900px;
 
     ul {
         list-style-type: disc;
+        color: #555;
     }
 }
 
@@ -20,6 +22,7 @@ $padding: 20px;
     display: flex;
     justify-content: space-between;
     font-weight: $boldWeight;
+    color: #555;
 }
 
 .accordion__content {
@@ -36,6 +39,7 @@ $padding: 20px;
         margin-bottom: 0;
         margin-top: 0;
         transition: margin 0.5s ease;
+        color: #555;
     }
 }
 
@@ -45,6 +49,7 @@ $padding: 20px;
     border: none;
     float: right;
     width: 26px;
+    color: #666;
 }
 
 .accordion__plus {

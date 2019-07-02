@@ -52,7 +52,7 @@ $cuRed: #881E3D;
     }
 
     .section-banner-p-text {
-      color: #9B9B9B;
+      color: #666666;
       font-size: 16px;
       font-weight: 600;
       letter-spacing: 2.8px;
@@ -82,7 +82,7 @@ $cuRed: #881E3D;
 
       .section-pre--tablet-subtext {
 	height: 20px;
-	color: #9B9B9B;
+	color: #666666;
 	font-family: "Source Sans Pro";
 	font-size: 16px;
 	font-weight: 600;
@@ -106,8 +106,20 @@ $cuRed: #881E3D;
       }
     }
 
+	  .section-pre-container {
+		  display: flex;
+		  background-image: url('/assets/icons/collegebannerbkgrd.svg');
+		  background-repeat: no-repeat;
+		  background-size: cover;
+	  }
+
     .section-pre--banner {
-      width: 100%;
+		margin: 0 auto;
+
+		img {
+			width: 700px;
+			height: 375px;
+		}
     }
 
     #section-pre__tile {
@@ -145,7 +157,7 @@ $cuRed: #881E3D;
     }
 
     .section-pre--number {
-      color: #9b9b9b;
+      color: #666666;
       font-family: "Source Sans Pro";
       font-size: 48px;
       font-weight: 600;
@@ -186,7 +198,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem; // 9rem to break up each section
+    padding-top: 7rem; // 9rem to break up each section
 
     #investment-overview {
       display: flex;
@@ -195,7 +207,7 @@ $cuRed: #881E3D;
       flex-direction: column;
 
       #investment-overview__number {
-        color: #9b9b9b;
+        color: #666666;
         font-family: "Source Sans Pro";
         font-size: 48px;
         font-weight: 600;
@@ -206,7 +218,7 @@ $cuRed: #881E3D;
       }
 
       #investment-overview__title {
-        color: #9b9b9b;
+        color: #666666;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 2.8px;
@@ -343,7 +355,7 @@ $cuRed: #881E3D;
 
 	#studentAid--mobile-title {
  	  display: none;
- 	  color: #9B9B9B;
+ 	  color: #666666;
  	  font-size: 13px;
  	  font-weight: bold;
  	  line-height: 17px;
@@ -352,7 +364,7 @@ $cuRed: #881E3D;
 	
  	#grants--mobile-title {
  	  display: none;
- 	  color: #9B9B9B;
+ 	  color: #666666;
  	  font-size: 13px;
  	  font-weight: bold;
  	  line-height: 17px;
@@ -361,7 +373,7 @@ $cuRed: #881E3D;
 	
  	#contracts--mobile-title {
  	  display: none;
- 	  color: #9B9B9B;
+ 	  color: #666666;
  	  font-size: 13px;
 	  font-weight: bold;
  	  line-height: 17px;
@@ -405,14 +417,14 @@ $cuRed: #881E3D;
 
 	#investment-subtext {
 	  display: flex;
-	  justify-content: space-between;
+	  justify-content: space-around;
 	  padding-top: 2rem;
 
-	  /* #aid-subsection { */
-	  /*   padding-right: 3rem; */
-	  /*   height: 450px; */
-	  /*   border-right: 1px solid #ddd; */
-	  /* } */
+	  #aid-subsection {
+	    padding-left: 1rem;
+	    padding-right: 1rem;
+		width: 25%;
+	  }
 
 	  #aid-subsection:last-child {
 	    padding-right: 0;
@@ -460,7 +472,6 @@ $cuRed: #881E3D;
 	  }
 
 	  #aid-description {
-	    width: 190px;
 	    color: #555555;
 	    font-size: 15px;
 	    font-weight: 300;
@@ -477,8 +488,55 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem;
+    padding-top: 7rem;
 
+    .tooltip-float {
+      clear: both;
+      margin: 0;
+      padding: 0;
+
+      .tooltip-float--underline {
+	border-bottom: 1px solid #666666;
+      }
+
+      .map-tooltip-p-left-inst {
+//	padding-right: 3em; // tab space
+	margin: 0;
+	color: #666666;
+	float: left;
+      }
+
+      .map-tooltip-p-left {
+	color: #666666;
+	margin: 0;
+	float: left;
+      }
+      
+      .map-tooltip-p-right {
+	color: #000000;
+	margin: 0;
+	float: right;
+      }
+
+      .map-tooltip-p-right-invest {
+	color: #881E3D;
+	margin: 0;
+	float: right;
+      }
+
+      .map-tooltip-p-right-students {
+	color: #000000;
+	margin: 0;
+	float: right;
+	border-bottom: 1px solid #666666;
+      }
+
+      .tooltip-hr {
+	clear: both;
+	width: 250px;
+	text-align: center;
+      }
+    }
 
     #alma-mater {
       display: flex;
@@ -503,7 +561,7 @@ $cuRed: #881E3D;
 	font-size: 1rem;
 	color: #4a4a4a;
 	margin-left: 20px;
-	padding-top: 5px;
+//	padding-top: 5px;
       }
 
       #refresh-div > i {
@@ -527,14 +585,14 @@ $cuRed: #881E3D;
       #alma-mater-table {
 	display: none;
 	width: 100% !important;
-	padding-top: 3rem;
+	padding-top: 0;
 	padding-left: 3rem;
 	padding-right: 3rem;
 	text-align: center;
       }
 
       #alma-mater__number {
-        color: #9b9b9b;
+        color: #666666;
         font-family: "Source Sans Pro";
         font-size: 48px;
         font-weight: 600;
@@ -545,7 +603,7 @@ $cuRed: #881E3D;
       }
 
       #alma-mater__title {
-        color: #9b9b9b;
+        color: #666666;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 2.8px;
@@ -616,7 +674,7 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem;
+    padding-top: 7rem;
 
     #mobile-search--bubble {
       display: none;
@@ -630,6 +688,11 @@ $cuRed: #881E3D;
         padding: 0 3rem;
       }
     }
+
+    .d3-tip {
+		pointer-events: none!important;
+		z-index: 9999!important;
+	}
 
     .bubble-chart-tooltip {
       .information {
@@ -645,7 +708,7 @@ $cuRed: #881E3D;
       flex-direction: column;
 
       #agency-investments__number {
-        color: #9b9b9b;
+        color: #666666;
         font-family: "Source Sans Pro";
         font-size: 48px;
         font-weight: 600;
@@ -656,7 +719,7 @@ $cuRed: #881E3D;
       }
 
       #agency-investments__title {
-        color: #9b9b9b;
+        color: #666666;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 2.8px;
@@ -694,9 +757,12 @@ $cuRed: #881E3D;
         .chart-footer {
           color: $grey;
           font-size: 12pt;
+          max-width: 900px;
+          margin: 0 auto 1rem;
+          padding: 0 1rem;
           display: flex;
           justify-content: flex-end;
-	  padding-right: 2rem;
+          width: calc(100% - 2rem);
 
           .faded {
             opacity: 0.5;
@@ -721,7 +787,7 @@ $cuRed: #881E3D;
       }
 
       #agency-investments__content {
-        flex: 1;
+        flex: 1 1 auto;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -729,7 +795,7 @@ $cuRed: #881E3D;
 
         #bubbleChartContainer {
           display: flex;
-          height: 700px;
+          margin-bottom: 1rem;
 
           svg#chart {
             position: absolute;
@@ -742,14 +808,12 @@ $cuRed: #881E3D;
             left: -100px;
             padding: 0;
             overflow: visible;
+            -webkit-transition: left 1000ms; /* For Safari 3.1 to 6.0 */
+            transition: left 1000ms;
           }
 
-          #legend_colorKey {
-            position: relative;
-            left: -100px;
-            margin: 50px 0 0 0;
-            padding: 0;
-            overflow: visible;
+          #agency-legend_colorKey.left {
+            left: -200px;
           }
 
           #agency-legend_scaleKey {
@@ -831,9 +895,13 @@ $cuRed: #881E3D;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: center;
-    padding-top: 9rem;
+    padding-top: 7rem;
 
-    #investment-table-datatable_wrapper {
+    #mobile-search--sunburst {
+      display: none;
+    }
+
+    #investment-table-datatable_wrapper, #investment-table-datatable--grants_wrapper, #investment-table-datatable--research_wrapper {
       padding: 0 3rem;
     }
 
@@ -844,7 +912,7 @@ $cuRed: #881E3D;
       flex-direction: column;
 
       #investment-categories__number {
-        color: #9b9b9b;
+        color: #666666;
         font-family: "Source Sans Pro";
         font-size: 48px;
         font-weight: 600;
@@ -855,7 +923,7 @@ $cuRed: #881E3D;
       }
 
       #investment-categories__title {
-        color: #9b9b9b;
+        color: #666666;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 2.8px;
@@ -889,22 +957,25 @@ $cuRed: #881E3D;
       }
 
       #investment-table--contracts {
-	display: none;
+		  display: none;
+		  align-self: center;
       }
 
       #investment-table--research {
-	display: none;
-      }
+		  display: none;
+		  align-self: center;
+	  }
 
       #investment-table--grants {
-	display: none;
-      }
+		  display: none;
+		  align-self: center;
+	  }
 
       #chart-area {
         width: 100%;
         display: flex;
         flex-direction: column;
-	justify-content: space-evenly;
+		justify-content: space-around;
       }
       
       #sunburst-header {
@@ -919,7 +990,16 @@ $cuRed: #881E3D;
         display: flex;
         justify-content: space-between;
       }
-      
+
+	  #investment-sunburst {
+		display: flex;
+		flex-direction: column;
+
+		  #investment-sunburst-tables {
+			  width: 100% !important;
+		  }
+	  }
+
       circle {
         fill: none;
         stroke: black;
@@ -955,7 +1035,7 @@ $cuRed: #881E3D;
       
       #center {
         display: flex;
-        flex: 1;
+        flex: 1 1 auto;
         font-size: 1.1em;
         text-align: center;
         max-height: 320px;
@@ -1019,9 +1099,12 @@ $cuRed: #881E3D;
       .chart-footer {
         color: $grey;
         font-size: 12pt;
+        max-width: 900px;
+        margin: 0 auto 1rem;
+        padding: 0 1rem;
         display: flex;
         justify-content: flex-end;
-	padding-right: 2rem;
+        width: calc(100% - 2rem);
 
         .faded {
           opacity: 0.5;
@@ -1636,70 +1719,23 @@ $cuRed: #881E3D;
     padding-top: 10px;
   }
 
-  .dataTable {
-    font-size: 17px;
-
-    td {
-      color: #aaa !important;
-      text-align: left;
-      font-size: 17px;
-    }
-
-    th {
-      text-align: left !important;
-      text-transform: uppercase !important;
-      font-size: 17px;
-      color: #666 !important;
-    }
-
-    tr {
-      height: 60px;
-      border-bottom: #aaa 1px solid !important;
-    }
-
-    .no-footer {
-      border-bottom: #aaa 1px solid !important;
-    }
-
-  }
-
-  label, select, .dataTables_info, .dataTables_paginate {
-    color: #666 !important;
-    font-size: 14px !important;
-  }
-
-  .dataTables_paginate paging_simple_numbers, .dataTables_length,
-  .paging_simple_numbers {
-    color: #aaa !important;
-  }
-
-  table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before,
-  table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before,
-  table.dataTable thead .sorting_desc_disabled:before {
-    content: "\25BE" !important;
-    font-size: 14px !important;
-    margin-bottom: .75em !important;
-    margin-right: .25em;
-  }
-
-  table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after,
-  table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after,
-  table.dataTable thead .sorting_desc_disabled:after {
-    content: "\25BE" !important;
-    font-size: 14px !important;
-    margin-bottom: .55em !important;
-    transform: rotate(-180deg);
-    -webkit-transform: rotate(-180deg);
-    -moz-transform: rotate(-180deg);
-    -ms-transform: rotate(-180deg);
-    -o-transform: rotate(-180deg);
-    //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-  }
-
   .active-bubble {
     display: block;
   }
 
 } // end of .CU
+
+// overrride mapbox
+div.mapboxgl-popup-content {
+  width: 300px;
+  max-width: 300px;
+  position: relative;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 15px;
+  pointer-events: auto;
+}
+
 
 @import 'C-a-U-mobile'; // needs to be last! 

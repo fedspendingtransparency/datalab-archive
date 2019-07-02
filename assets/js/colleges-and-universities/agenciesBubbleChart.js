@@ -1,3 +1,5 @@
+---
+---
 /*
 *   Local declarations
 */
@@ -29,6 +31,9 @@ const margin = 20;
 let diameter = bubbleWidth;
 let _chartState;
 let popoverData;
+let tip;
+
+let resize = false;
 
 const pack = d3.layout.pack()
     .padding(2)
@@ -74,6 +79,10 @@ function getChartState () {
     return _chartState;
 }
 
+function clearChartState () {
+    _chartState = null;
+}
+
 /* Set color for sub-agency circles */
 function circleFill (d) {
     if (d['color']) {
@@ -82,15 +91,19 @@ function circleFill (d) {
 };
 
 function isZoomedIn(d) {
-    if (focus.parent && focus.parent.depth === 0 && focus === d.parent) {
+    if (d.depth === 2 && focus === d.parent || d.depth === 1 && focus === d) {
         return true;
     }
 
     return false;
 }
 
+function setLegendLeft (leftState) {
+    d3.select('#agency-legend_colorKey').classed("left", leftState);
+}
+
 function closeDetailPanel() {
-    console.log("close");
+    if (d3.event) d3.event.stopPropagation();
     detailContainer.classed(detailContainerActiveClass, false);
 }
 
@@ -101,14 +114,16 @@ function calculateTextFontSize (d) {
     let radius = 0;
     let labelWidth;
 
-    if (d.fontsize) {
-        //if fontsize is already calculated use that.
-        return d.fontsize;
-    }
+    if (!resize) {
+        if (d.fontsize) {
+            //if fontsize is already calculated use that.
+            return d.fontsize;
+        }
 
-    if (!d.computed) {
-        //if computed not present get & store the getComputedTextLength() of the text field
-        d.computed = this.getComputedTextLength();
+        if (!d.computed) {
+            //if computed not present get & store the getComputedTextLength() of the text field
+            d.computed = this.getComputedTextLength();
+        }
     }
 
     if (d.computed != 0) {
@@ -125,43 +140,63 @@ function calculateTextFontSize (d) {
     }
 };
 
+function setAgencyTooltipHtml(d) {
+    const elName = "agency_tip_" + d.name.replace(/ /g,"_");
+    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
+        "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
+        "<span class='bubble-detail__agency-label'>Agency</span>" +
+        "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
+        "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
+        "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[d.name].total_investment) + "</span>" +
+        "</div></div>";
+    return tooltipHtml;
+}
+
+function setSubagencyTooltipHtml(d) {
+    const elName = "subagency_tip_" + d.name.replace(/ /g,"_");
+    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
+        "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
+        "<span class='bubble-detail__agency-label'>Agency</span>" +
+        "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
+        "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
+        "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
+        "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
+        "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
+        "</div></div>";
+    return tooltipHtml;
+}
+
+
 function drawBubbleChart(root) {
     const targetWidth = bubbleWidth;
     
     bubble.chartHeight = targetWidth;
 
+    let tooltipHtml = '<div></div>';
+
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-
         if (isZoomedIn(d)) {
-            const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
-                "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
-                "<span class='bubble-detail__agency-label'>Agency</span>" +
-                "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
-                "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
-                "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
-                "<div class='information'><p class='key' style='color: #881E3D;'>Total $ of Awards</p>" +
-                "<span class='bubble-detail__agency-name'>" + formatCurrency(d.size) + "</span>" +
-                "</div></div>";
-            return tooltipHtml;
-
-        } else if (d.depth !== 0) {
-            const agencyName = d.depth === 1 ? d.name : d.parent.name;
-            const tooltipHtml = "<div class='bubble-chart-tooltip'>" +
-                "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
-                "<span class='bubble-detail__agency-label'>Agency</span>" +
-                "<span class='bubble-detail__agency-name'>" + agencyName + "</span>" +
-                "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
-                "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[d.name].total_investment) + "</span>" +
-                "</div></div>";
-            return tooltipHtml;
+            if (d.depth === 2) {
+                tooltipHtml = setSubagencyTooltipHtml(d);
+            } else if (d.depth === 1) {
+                tooltipHtml = setAgencyTooltipHtml(d);
+            }
+        } else {
+            if (d.depth === 2) {
+                tooltipHtml = setAgencyTooltipHtml(d.parent);
+            } else if (d.depth === 1) {
+                tooltipHtml = setAgencyTooltipHtml(d);
+            }
         }
 
-        return '<div></div>';
+        return tooltipHtml;
     });
 
     focus = root;
     diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
 
+    d3.select(bubbleChartContainer)
+        .attr('style', "width: " + bubbleWidth + "px; height: " + bubbleWidth + "px;");
 
     bubbleSvg = d3.select(bubbleChartContainer).append("svg")
         .attr("id", "chart")
@@ -183,17 +218,24 @@ function drawBubbleChart(root) {
             }
         })
         .attr("id", function(d) {
-            return d.name;
+            return d.name.replace(/ /g,"_");
         })
         .on("click", bubbleClick)
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
+        .on("mouseover", function(d) {
+            tip.show(d);
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+        });
 
     bubbleSvg.selectAll("text")
         .data(nodes)
         .enter().append("text")
         .attr("font-family", "Source Sans Pro")
         .attr("class", "label")
+        .attr("id", function(d) {
+            return "text_" + d.name.replace(/ /g,"_");
+        })
         .style("fill-opacity", function(d) {
             return d.parent === root ? 1 : 0;
         })
@@ -206,7 +248,10 @@ function drawBubbleChart(root) {
         .style("font-size", calculateTextFontSize)
         .attr("text-anchor", "middle")
         .on("click", bubbleClick)
-        .on("mouseover", tip.show)
+        .on("mouseover", function(d) {
+            // const elName = d.name.replace(/ /g,"_");
+            tip.show(d);
+        })
         .on("mouseout", tip.hide);
 
     node = bubbleSvg.selectAll("circle,text");
@@ -216,12 +261,18 @@ function drawBubbleChart(root) {
 
 }
 
+// close tooltip
+function closeTooltip() {
+    tip.hide();
+}
+
 // Zoom into a specific circle
 function zoom(d) {
     const focus0 = focus;
     focus = d;
 
     closeDetailPanel();
+    closeTooltip();
 
     const transition = d3.transition()
         .duration(d3.event && d3.event.altKey ? 7500 : 750)
@@ -256,12 +307,14 @@ function zoom(d) {
             }
         });
 
+    // hide the text
     setTimeout(function() {
+        // show the text
         d3.selectAll("text.label").filter(function(d) {
             return d.parent === focus || this.style.display === "inline";
         }).style("font-size", calculateTextFontSize);
-    }, 10);
 
+    }, 100);
 }
 
 function zoomTo(v) {
@@ -270,6 +323,7 @@ function zoomTo(v) {
     node.attr("transform", function(d) {
         return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
     });
+
     circle.attr("r", function(d) {
         return d.r * k;
     });
@@ -317,7 +371,7 @@ function createBubbleTable(data) {
 };
 
 function selectSubAgency(d) {
-    const elSelector = "circle.node--leaf[id='" + d.name + "']";
+    const elSelector = "circle.node--leaf[id='" + d.name.replace(/ /g,"_") + "']";
     circle.classed('active', false);
     d3.select(elSelector).classed("active", true);
     if (focus !== d) zoom(d.parent), d3.event.stopPropagation();
@@ -325,27 +379,42 @@ function selectSubAgency(d) {
 }
 
 function bubbleClick(d) {
-    setChartState(d);
 
     circle.classed('active', false);
 
-    // need to check if focus is d
+    // need to check if focus is d, maybe?
     if (isZoomedIn(d)) {
-        // zoomed in?
-        if (d.depth == 2) {
-            // check if a bubble is already selected
-            d3.select(this).classed("active", true);
+        if (d.depth === 2) {
+            d3.event.stopPropagation();
+            setChartState(d.parent);
+
+            const elName = "circle.node--leaf#" + d.name.replace(/ /g,"_");
+            d3.select(elName).classed("active", true);
             bubble.activateDetail(d);
-        } else {
+
+        } else if (d.depth === 1) {
+            setLegendLeft(false);
+
+            clearChartState();
+
             if (focus !== d) zoom(d), d3.event.stopPropagation();
+
         }
     } else {
-        // not zoomed in?
-        if (d.depth == 2) {
+
+        if (d.depth === 2) {
+            setLegendLeft(true);
+            setChartState(d.parent);
+
             // check if a bubble is already selected
             if (focus !== d.parent) zoom(d.parent), d3.event.stopPropagation();
-        } else {
+
+        } else if (d.depth === 1) {
+            setLegendLeft(true);
+            setChartState(d);
+
             if (focus !== d) zoom(d), d3.event.stopPropagation();
+
         }
     }
 }
@@ -368,18 +437,23 @@ bTableBtn.click(function(){
 
 // Redraw based on the new size whenever the browser window is resized.
 window.addEventListener("resize", function() {
-    // put this in a set time out
+    closeDetailPanel();
     $("#agency-bubbleChart").empty();
     if (root) {
         maxHeight = document.getElementById("agency-investments__content").clientHeight;
         calculatedWidth = window.innerWidth * widthPercentage;
         diameter = bubbleWidth = calculatedWidth < maxHeight ? calculatedWidth : maxHeight;
+
+        resize = true;
         drawBubbleChart(root);
+        resize = false;
+
         // check the state here and replay
         const chartState = getChartState();
 
         if(chartState) {
             zoom(chartState);
+
         } else {
             zoomTo([root.x, root.y, root.r * 2 + margin]);
         }
@@ -388,7 +462,6 @@ window.addEventListener("resize", function() {
 });
 
 tooltipClose.click(function() {
-    console.log('tooltip close');
     tip.hide();
 });
 
@@ -403,7 +476,6 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err1, data) {
         if (err2) { return err2; }
 
         popoverData = _.keyBy(rawPopoverData, 'agency');
-        console.log(popoverData);
 
         root = transformData(data);
         nodes = pack.nodes(root);
@@ -414,6 +486,8 @@ d3.csv("/data-lab-data/CU_bubble_chart.csv", function(err1, data) {
             .on("click", function () {
                 const currentState = getChartState();
                 if (!currentState || (currentState && currentState.depth !== 2)) {
+                    setLegendLeft(false);
+                    clearChartState();
                     zoom(root);
                 }
             });
@@ -445,12 +519,12 @@ function transformData(data) {
     };
 
     // Re-structure data
-    for(agency in result) {
+    for(let agency in result) {
         result[agency] = _.groupBy(result[agency], 'subagency');
 
         tempRoot.children.push({"name": agency, "children": []});
 
-        for(subagency in result[agency]) {
+        for(let subagency in result[agency]) {
             if(result[agency][subagency] && result[agency][subagency].length > 0) {
                 result[agency][subagency] = result[agency][subagency][0].obligation;
             } else {

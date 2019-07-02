@@ -33,27 +33,48 @@ function getCategoryState() {
     return _categoryState;
 }
 
+function radioChange() {
+  $('#categories input[type=radio]').change(function() {
+    let selectedVal = $("input[name='category']:checked").val();
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
+      if (selectedVal === 'contracts') {
+	$('#investment-table--grants').hide();
+	$('#investment-table--contracts').show();
+	$('#investment-table--research').hide();
+      } else if (selectedVal === 'grants') {
+	$('#investment-table--contracts').hide();
+	$('#investment-table--research').hide();
+	$('#investment-table--grants').show();
+      } else if (selectedVal === 'research') {
+	$('#investment-table--contracts').hide();
+	$('#investment-table--grants').hide();
+	$('#investment-table--research').show();
+      }
+    };
+  });
+};
+
 function changeCategory(category) {
 
   if (category.value === 'contracts') {
     scopedData = contractsChartArray;
     categoryLabel = 'Contract';
     dataType = 'PSC';
-    if ($('#investment-sunburst').css('display') == 'none') {
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
       revealTable('contracts');
     }
   } else if (category.value === 'grants') {
     scopedData = grantsChartArray;
     categoryLabel = 'Grant';
     dataType = 'CFDA';
-    if ($('#investment-sunburst').css('display') == 'none') {
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
       revealTable('grants');
     }
   } else if (category.value === 'research') {
     scopedData = researchGrantsChartArray;
     categoryLabel = 'Research Grant';
     dataType = 'CFDA';
-    if ($('#investment-sunburst').css('display') == 'none') {
+    if ($('#investment-sunburst-viz').css('display') == 'none') {
       revealTable('research');
     }
   }
@@ -597,6 +618,7 @@ $(document).ready(function(){
   createGrantsTable(grantsChartArray);
   createContractsTable(contractsChartArray);
   createResearchTable(researchGrantsChartArray);
+  radioChange();
 });
 
 // TODO: Add debouncing
