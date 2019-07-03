@@ -147,11 +147,20 @@ function isTablet() {
     return (minThreshold <= window.innerWidth && window.innerWidth <= maxThreshold);
 }
 
+function isDesktop() {
+    const threshold = 1200;
+    return (threshold <= window.innerWidth);
+}
+
 function setAgencyTooltipHtml(d) {
     const elName = "agency_tip_" + d.name.replace(/ /g,"_");
-    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
-        "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
-        "<span class='bubble-detail__agency-label'>Agency</span>" +
+    let tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>";
+
+    if(isDesktop()) {
+        tooltipHtml += "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>";
+    }
+
+    tooltipHtml += "<span class='bubble-detail__agency-label'>Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
         "<div class='information'><p class='key' style='color: #881E3D;'>Total Investment</p>" +
         "<span class='bubble-detail__agency-name'>" + formatCurrency(popoverData[d.name].total_investment) + "</span>" +
@@ -161,9 +170,14 @@ function setAgencyTooltipHtml(d) {
 
 function setSubagencyTooltipHtml(d) {
     const elName = "subagency_tip_" + d.name.replace(/ /g,"_");
-    const tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>" +
-        "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>" +
-        "<span class='bubble-detail__agency-label'>Agency</span>" +
+
+    let tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>";
+
+    if(isDesktop()) {
+        tooltipHtml += "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>";
+    }
+
+    tooltipHtml += "<span class='bubble-detail__agency-label'>Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.parent.name + "</span>" +
         "<span class='bubble-detail__agency-label'>Sub-Agency</span>" +
         "<span class='bubble-detail__agency-name'>" + d.name + "</span>" +
