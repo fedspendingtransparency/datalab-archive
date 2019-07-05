@@ -62,11 +62,11 @@
         </div>
         <div class='button-set'>
           <div id="map-table">
-            <button id="map-chart-trigger" type='button' title='View map' style='opacity: 1;'><img src='/assets/icons/Geolocation.svg' /></button>
+            <button id="map-chart-trigger" type='button' title='View map' style='opacity: 1;' onclick='switchView("map", "chart")'><img src='/assets/icons/Geolocation.svg' /></button>
           </div>
           <div class='separator'></div>
           <div id="map-chart">
-            <button id="map-table-trigger" type='button' title='View table'><img src='/assets/icons/list_icon.svg' /></button>
+            <button id="map-table-trigger" type='button' title='View table' onclick='switchView("map", "table")'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
       </div>
