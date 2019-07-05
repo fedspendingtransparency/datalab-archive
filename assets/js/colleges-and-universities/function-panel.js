@@ -14,9 +14,15 @@ function searchClick (id) {
 
 function switchView (section, show) {
 
-  let radioVal =$("input[name='category']:checked").val();
+  // show/hide search button
+  if (show === 'chart') {
+    $('#' + section + '-search').show();
+  } else if (show === 'table') {
+    $('#' + section + '-search').hide();
+  }
 
-  if (section === 'investment') {
+  const radioVal = $("input[name='category']:checked").val();
+  if (section === 'investment') { // for unknown reasons, other programmers duplicated visibility controls for the two other areas
     if (show === 'chart') {
       $('#investment-sunburst-viz').show();
       $('#investment-table--grants').hide();
