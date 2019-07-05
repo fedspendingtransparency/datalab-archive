@@ -8,7 +8,7 @@ function panelClick (id) {
 }
 
 function searchClick (id) {
-  let panel = d3.select('#' + id);
+  const panel = d3.select('#' + id);
   panel.classed('active', !panel.classed('active'));
 }
 
@@ -19,6 +19,9 @@ function switchView (section, show) {
     $('#' + section + '-search').show();
   } else if (show === 'table') {
     $('#' + section + '-search').hide();
+    d3.select('#' + section + '-function-buttons')
+      .classed('active', false)
+    ;
   }
 
   const radioVal = $("input[name='category']:checked").val();
