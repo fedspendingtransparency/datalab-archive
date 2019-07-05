@@ -598,7 +598,6 @@ function wordWrap(text, maxWidth) {
   }
 }
 
-
 function calculateCenterTextFontSize (centerNode, multiplier) {
   const computed = centerNode.getComputedTextLength();
   const labelWidth = (radius - 20) / multiplier;

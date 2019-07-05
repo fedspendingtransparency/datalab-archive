@@ -3,7 +3,7 @@
 
 (function () {
   let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit, mobileList, mobileSearchContainer, mobileInputWrapper, mobileInput;
-  let buttons = d3.select('#sunburst-function-buttons');
+  let buttons = d3.select('#investment-function-buttons');
 
   function initDom() {
     parentSection = d3.select('#investment-categories .function-buttons');
