@@ -140,20 +140,6 @@
     });
   });
   
-  // function searchMobileToggleTwo() {
-  //   $('#mobile-search--sunburst').click(function() {
-  //     console.log('clicking again (sunbursty)');
-  //     $('.bubble-search-ul--mobile').addClass('active-bubble');
-  //   });
-
-  //   // hide on "clickout" of element
-  //   $(document).click(function (e) {
-  //     if ($(e.target).parents("#mobile-search--sunburst").length === 0) {
-  // 	$(".bubble-search-ul--mobile").removeClass('active-bubble');
-  //     }
-  //   });
-  // };
-
   sunburst.setSearchData = setSearchData;
   sunburst.init = initSearch;
 })();
