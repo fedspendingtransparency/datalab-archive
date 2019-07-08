@@ -149,6 +149,7 @@ function isTablet() {
 
 function isDesktop() {
     const threshold = 1200;
+
     return (threshold <= window.innerWidth);
 }
 
@@ -156,7 +157,7 @@ function setAgencyTooltipHtml(d) {
     const elName = "agency_tip_" + d.name.replace(/ /g,"_");
     let tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>";
 
-    if(isDesktop()) {
+    if(!isDesktop()) {
         tooltipHtml += "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>";
     }
 
@@ -173,7 +174,7 @@ function setSubagencyTooltipHtml(d) {
 
     let tooltipHtml = "<div class='bubble-chart-tooltip' id='" + elName + "'>";
 
-    if(isDesktop()) {
+    if(!isDesktop()) {
         tooltipHtml += "<span class='bubble-detail__close'><i class='fas fa-times'></i></span>";
     }
 
