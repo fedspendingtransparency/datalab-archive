@@ -21,20 +21,19 @@
             <ul>
                 <li>
                     <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Facebook">
-                        {% include svgs/facebook.svg class="share-icon icon-facebook" %}
+                        {% include svgs/facebook_square_x.svg class="share-icon icon-facebook" %}
                         <span class="share-button-text">Facebook</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Twitter">
-                        {% include svgs/twitter.svg class="share-icon icon-twitter" %}
+                    {% if page.socialMediaText %}
+                    {% assign twitterVariable = page.socialMediaText %}
+                    {% else %} 
+                    {% assign twitterVariable = page.title %}
+                    {% endif %}
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('{{ twitterVariable }}')+'&url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Twitter">
+                        {% include svgs/twitter_square_x.svg class="share-icon icon-twitter" %}
                         <span class="share-button-text">Twitter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Google+">
-                        {% include svgs/google-plus.svg class="share-icon icon-google-plus" %}
-                        <span class="share-button-text">Google</span>
                     </a>
                 </li>
                 <li>
@@ -57,7 +56,7 @@
                 </li>
                 <li>
                     <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}")' title="Share on LinkedIn">
-                        {% include svgs/linkedin.svg class="share-icon icon-linkedin" %}
+                        {% include svgs/linkedin_square_x.svg class="share-icon icon-linkedin" %}
                         <span class="share-button-text">Linkedin</span>
                     </a>
                 </li>
