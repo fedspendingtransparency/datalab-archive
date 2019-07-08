@@ -126,13 +126,13 @@ $cuRed: #881E3D;
       padding-left: 2rem;
       padding-right: 1.5rem;
       border-right: 1px solid #EEEEEE;
-
-		.section-pre--number:hover, .section-pre--subtext:hover {
-			color: #881e3d;
-			font-weight: bolder;
-		}
-
     }
+
+	.section-pre__tile a:hover .section-pre--number, .section-pre__tile a:hover .section-pre--subtext,
+	.section-pre__tile a:hover .section-pre--subblurb, .section-pre__tile a:hover .section-pre--subtext {
+	  color: #881e3d !important;
+	  font-weight: bolder !important;
+	}
 
     .section-pre__tile:last-child {
       border-right: none;
