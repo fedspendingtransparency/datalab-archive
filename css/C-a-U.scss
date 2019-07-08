@@ -416,13 +416,13 @@ $cuRed: #881E3D;
 	  justify-content: space-around;
 	  padding-top: 2rem;
 
-	  #aid-subsection {
+	  .aid-subsection {
 	    padding-left: 1rem;
 	    padding-right: 1rem;
 		width: 25%;
 	  }
 
-	  #aid-subsection:last-child {
+	  .aid-subsection:last-child {
 	    padding-right: 0;
 	    border-right: none;
 	  }
