@@ -150,6 +150,21 @@
       $('#mobile-search--bubble ul').css('display','block');
     });
 
+    $('#mobile-search--bubble').click(function() {
+      console.log('testing dev');
+      $('#mobile-search--bubble ul').css('display','block');
+    });
+
+    $('#mobile-search--bubble > div').click(function() {
+      console.log('testing dev');
+      $('#mobile-search--bubble ul').css('display','block');
+    });
+
+    $('input.bubble-search__input').click(function() {
+      console.log('testing dev');
+      $('#mobile-search--bubble ul').css('display','block');
+    });
+
     $('#bubble-keydown').focus(function() {
       $('#mobile-search--bubble ul').css('display', 'block');
     });
