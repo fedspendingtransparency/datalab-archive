@@ -1681,7 +1681,8 @@ $cuRed: #881E3D;
         color: $cuRed;
         
         img {
-          filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+          filter: brightness(0.5) sepia(1);
+          // filter: invert(.5) sepia(1) saturate(75.5%) hue-rotate(322deg) brightness(42.7%);
         }
       }
     }
