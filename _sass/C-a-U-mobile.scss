@@ -21,16 +21,6 @@ $cuRed: #881E3D;
   }
 }
 
-@media (min-width: 1501px) {
-  .section-pre--banner--widescreen {
-    display: block !important;
-  }
-
-  .section-pre--banner {
-    display: none !important;
-  }
-}
-
 /* Tablet-only View */
 @media (min-width: 950px) and (max-width: 1200px) {
   .CU {
@@ -63,9 +53,9 @@ $cuRed: #881E3D;
     #section-pre {
 
       .section-pre--banner {
-	display: none;
+	    display: none;
       }
-
+      
       #section-pre--tablet_banner {
 	display: flex;
 	flex-direction: column;
