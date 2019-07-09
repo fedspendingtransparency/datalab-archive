@@ -148,28 +148,24 @@ $cuRed: #881E3D;
       } 
     }
 
-    #section-two #alma-mater #mobile-search {
+    #section-two #alma-mater #mobile-search--map {
       display: none;
-      justify-content: center;
-      flex-direction: column;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
 
-    #section-two #alma-mater #mobile-search > input {
+    #section-two #alma-mater #mobile-search--map > input {
       text-align: left;
     }
 
-    #section-two #alma-mater #mobile-search ul {
+    #section-two #alma-mater #mobile-search--map ul {
       display: none;
       text-align: left;
     }
 
     #section-three #agency-investments #mobile-search--bubble {
       display: none;
-      justify-content: center;
-      flex-direction: column;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;
@@ -182,8 +178,6 @@ $cuRed: #881E3D;
 
     #section-four #investment-categories #mobile-search--sunburst {
       display: none;
-      justify-content: center;
-      flex-direction: column;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;
@@ -355,23 +349,19 @@ $cuRed: #881E3D;
       max-width: 250px;
     }
 
-    #section-two #alma-mater #mobile-search {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+    #section-two #alma-mater #mobile-search--map {
+      display: block;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
     
-    #section-two #alma-mater #mobile-search ul {
+    #section-two #alma-mater #mobile-search--map ul {
       display: none;
     }
 
     #section-three #agency-investments #mobile-search--bubble {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+      display: block;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;
@@ -391,9 +381,7 @@ $cuRed: #881E3D;
     }
 
     #section-four #investment-categories #mobile-search--sunburst {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+      display: block;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;

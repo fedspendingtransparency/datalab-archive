@@ -40,8 +40,11 @@
       </div>
     </div>
 
-    <div id="mobile-search">
+    <div id="mobile-search--map" class="mobile-search">
       <input type="text" class="mobile-map-search" id='mobile-keydown' placeholder="Search Institutions..."/>
+      <a xlink:href="#0" onclick="$('#map-search-ul--mobile').addClass('active-mobile');">
+        {% include svgs/search-solid.svg %}
+      </a>
       <ul class="map-search__list--mobile" id="map-search-ul--mobile"></ul>
     </div>
 
