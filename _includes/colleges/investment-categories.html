@@ -59,14 +59,14 @@
       <div id="categories-detail"></div>
       <div id='chart-container'>
         
-        <div id='sunburst-function-buttons' class='function-buttons' onclick='panelClick(this.id)'>
-          <div class='button-set'>
-            <button type='button' title='Search' onclick='searchClick("sunburst-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
+        <div id='investment-function-buttons' class='function-buttons' onclick='panelClick(this.id)'>
+          <div id='investment-search' class='button-set'>
+            <button type='button' title='Search' onclick='searchClick("investment-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set'>
-            <button type='button' title='View chart' style='opacity: 1;' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
+            <button id='sunburst-chart-trigger' type='button' title='View chart' style='opacity: 1;' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
             <div class='separator'></div>
-            <button type='button' title='View table' onclick='switchView("investment", "table")'><img src='/assets/icons/list_icon.svg' /></button>
+            <button id='sunburst-table-trigger' type='button' title='View table' onclick='switchView("investment", "table")'><img src='/assets/icons/list_icon.svg' /></button>
           </div>
         </div>
 

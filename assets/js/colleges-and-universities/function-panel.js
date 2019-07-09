@@ -8,15 +8,24 @@ function panelClick (id) {
 }
 
 function searchClick (id) {
-  let panel = d3.select('#' + id);
+  const panel = d3.select('#' + id);
   panel.classed('active', !panel.classed('active'));
 }
 
 function switchView (section, show) {
 
-  let radioVal =$("input[name='category']:checked").val();
+  // show/hide search button
+  if (show === 'chart') {
+    $('#' + section + '-search').show();
+  } else if (show === 'table') {
+    $('#' + section + '-search').hide();
+    d3.select('#' + section + '-function-buttons')
+      .classed('active', false)
+    ;
+  }
 
-  if (section === 'investment') {
+  const radioVal = $("input[name='category']:checked").val();
+  if (section === 'investment') { // for unknown reasons, other programmers duplicated visibility controls for the two other areas
     if (show === 'chart') {
       $('#investment-sunburst-viz').show();
       $('#investment-table--grants').hide();

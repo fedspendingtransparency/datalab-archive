@@ -3,14 +3,14 @@
 
 (function () {
   let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit, mobileList, mobileSearchContainer, mobileInputWrapper, mobileInput;
-  let buttons = d3.select('#sunburst-function-buttons');
+  let buttons = d3.select('#investment-function-buttons');
 
   function initDom() {
     parentSection = d3.select('#investment-categories .function-buttons');
     mobileSearchContainer = d3.select('#mobile-search--sunburst');
     searchContainer = parentSection.append('div').classed('bubble-search', true);
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
-    mobileInputWrapper = mobileSearchContainer.append('div').classed('sunburst-search__input-wrapper', true);
+    mobileInputWrapper = mobileSearchContainer.append('div').classed('bubble-search__input-wrapper', true);
     list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
     mobileList = mobileSearchContainer.append('ul').classed('bubble-search__list--mobile', true);
   };
@@ -44,7 +44,7 @@
 
     mobileInput = mobileInputWrapper
       .append('input')
-      .classed('sunburst-search__input', true)
+      .classed('bubble-search__input', true)
       .attr('placeholder', 'Search Categories...')
       .on('input', filterData);
   };
@@ -140,20 +140,6 @@
     });
   });
   
-  // function searchMobileToggleTwo() {
-  //   $('#mobile-search--sunburst').click(function() {
-  //     console.log('clicking again (sunbursty)');
-  //     $('.bubble-search-ul--mobile').addClass('active-bubble');
-  //   });
-
-  //   // hide on "clickout" of element
-  //   $(document).click(function (e) {
-  //     if ($(e.target).parents("#mobile-search--sunburst").length === 0) {
-  // 	$(".bubble-search-ul--mobile").removeClass('active-bubble');
-  //     }
-  //   });
-  // };
-
   sunburst.setSearchData = setSearchData;
   sunburst.init = initSearch;
 })();

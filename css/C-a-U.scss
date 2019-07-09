@@ -35,6 +35,7 @@ $cuRed: #881E3D;
     box-sizing: border-box;
   }
 
+
   #section-pre {
     display: flex;
     flex-direction: column;
@@ -118,7 +119,7 @@ $cuRed: #881E3D;
 		  width: 1500px;
 	  }
 
-    #section-pre__tile {
+    .section-pre__tile {
       padding-top: 1rem;
       flex-basis: auto; // all same width flex children
       width: 100%; // ie 11...
@@ -127,7 +128,13 @@ $cuRed: #881E3D;
       border-right: 1px solid #EEEEEE;
     }
 
-    #section-pre__tile:last-child {
+	.section-pre__tile a:hover .section-pre--number, .section-pre__tile a:hover .section-pre--subtext,
+	.section-pre__tile a:hover .section-pre--subblurb, .section-pre__tile a:hover .section-pre--subtext {
+	  color: #881e3d !important;
+	  font-weight: bolder !important;
+	}
+
+    .section-pre__tile:last-child {
       border-right: none;
     }
 

@@ -26,8 +26,8 @@ function createMapbox() {
 
   // Create a popup, but don't add it to the map yet.
   let tooltip = new mapboxgl.Popup({
-    closeButton: true,
-    closeOnClick: false,
+    closeButton: false,
+    closeOnClick: true,
   });
 
   // filter overlay section //

@@ -145,15 +145,11 @@
   }
 
   $(document).ready(function() {
-    $('.bubble-search__input-wrapper').click(function(){
-      console.log('bubble keydown');
+    $('#mobile-search--bubble').click(function() {
+      console.log('testing dev');
       $('#mobile-search--bubble ul').css('display','block');
     });
-
-    // $('#bubble-keydown').focus(function() {
-    //   $('#mobile-search--bubble ul').css('display', 'block');
-    // });
-
+    
     // hide on "clickout" of element
     $(document).click(function (e) {
       if ($(e.target).parents("#mobile-search--bubble").length === 0) {
@@ -162,25 +158,6 @@
     });
 
   });
-
-  function searchMobileToggle() {
-    
-    $('.bubble-search__input-wrapper').click(function(){
-      $('.bubble-search-ul--mobile').addClass('active-bubble');
-    });
-
-    $('#bubble-keydown').focus(function() {
-      console.log('bubble keydown');
-      $('.bubble-search-ul--mobile').addClass('active-bubble');
-    });
-
-    // hide on "clickout" of element
-    $(document).click(function (e) {
-      if ($(e.target).parents("#mobile-search--bubble").length === 0) {
-	$(".bubble-search-ul--mobile").removeClass('active-bubble');
-      }
-    });
-  };
 
   bubble.setSearchData = setSearchData;
 })();
