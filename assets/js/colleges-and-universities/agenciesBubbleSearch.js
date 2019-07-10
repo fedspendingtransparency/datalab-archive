@@ -3,30 +3,22 @@
 
 (function () {
   const searchData = [];
-  
-  const inputWrapper, list, mobileList, mobileInputWrapper;
-  let input, mobileInput;
+
+  const searchContainer = d3.select('#bubble-search').append('div').classed('bubble-search', true);
+  const mobileInput = d3.select('#bubble-search__input');
+  const mobileList = d3.select('#bubble-search__list--mobile');
+  let inputWrapper, list, input;
   // let buttons = d3.select('#bubble-function-buttons');
 
   function initDom() {
-    const searchContainer = d3.select('#bubble-search').append('div').classed('bubble-search', true);
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
     list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
-    const mobileSearchContainer = d3.select('#mobile-search--bubble');
-    mobileInputWrapper = mobileSearchContainer.append('div').classed('bubble-search__input-wrapper', true);
-    mobileList = mobileSearchContainer.append('ul').classed('bubble-search__list--mobile', true);
   }
 
   function filterFn(row) {
-    if (row.name.toLowerCase().indexOf(this) !== -1) {
+    if (row.name.toLowerCase().indexOf(this) !== -1 || row.parent.name.toLowerCase().indexOf(this) !== -1) {
       return true;
     }
-
-    if (row.parent.name.toLowerCase().indexOf(this) !== -1) {
-      return true;
-    }
-
-    return;
   }
 
   function filterData() {
@@ -44,11 +36,7 @@
       .attr('placeholder', 'Search Agencies...')
       .on('input', filterData);
 
-    mobileInput = mobileInputWrapper
-      .append('input')
-      .classed('bubble-search__input', true)
-      .attr('placeholder', 'Search Agencies...')
-      .on('input', filterData);
+      d3.select('#bubble-search__input').on('input', filterData);
   }
 
   function initSearch() {
