@@ -427,7 +427,7 @@ function filterSearch() {
 
 function filterSearchMobile() {
   // handle input filter..
-  $('.mobile-map-search').keyup(function() {
+  $('#mobile-keydown').keyup(function() {
     const filter = document.getElementById('mobile-keydown').value.toUpperCase();
     const li = document.getElementById("map-search-ul--mobile").getElementsByTagName('li');
 

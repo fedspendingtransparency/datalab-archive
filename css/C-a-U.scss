@@ -1115,8 +1115,12 @@ $cuRed: #881E3D;
     }    
     input {
       padding: 1rem 2rem;
-      width: calc(100% - 8rem);
+      width: calc(100% - 4rem);
     }
+  }
+  #mobile-search--map input {
+    width: calc(100% - 8rem);
+    border: none;
   }
 
   .investmentCategories {

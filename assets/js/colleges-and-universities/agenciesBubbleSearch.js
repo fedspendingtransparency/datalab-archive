@@ -30,13 +30,13 @@
   }
 
   function initInput() {
+    d3.select('#bubble-search__input').on('input', filterData);
     input = inputWrapper
       .append('input')
       .classed('bubble-search__input', true)
       .attr('placeholder', 'Search Agencies...')
-      .on('input', filterData);
-
-      d3.select('#bubble-search__input').on('input', filterData);
+      .on('input', filterData)
+    ;
   }
 
   function initSearch() {
@@ -48,7 +48,6 @@
     if (d.zeroLength) {
       return;
     }
-
     bubble.selectSubAgency(d);
   }
 
@@ -56,7 +55,8 @@
     d3.select(this)
       .append('span')
       .text(d => {if (d.parent) return d.parent.name })
-      .classed('bubble-search__parent-name', true);
+      .classed('bubble-search__parent-name', true)
+    ;
   }
 
   function displayMobileList(filtered) {
@@ -77,7 +77,8 @@
       .each(prependParent)
       .on('click', selectItem)
       .append('span')
-      .text(d => d.name);
+      .text(d => d.name)
+    ;
   };
 
   function displayList(filtered) {
@@ -98,16 +99,15 @@
       .each(prependParent)
       .on('click', selectItem)
       .append('span')
-      .text(d => d.name);
+      .text(d => d.name)
+    ;
   }
 
   function flattenData(data) {
     data.children.forEach(child => {
-
       if (child.depth !== 1) {
         searchData.push(child);
       };
-
       if (child.children && child.children.length >= 1) {
         flattenData(child);
       }
@@ -143,8 +143,7 @@
       	$("#mobile-search--bubble ul").css('display', 'none');
       }
     });
-
   });
-
+  
   bubble.setSearchData = setSearchData;
 })();

@@ -41,10 +41,12 @@
     </div>
 
     <div id="mobile-search--map" class="mobile-search">
-      <input id='mobile-keydown' type="text" class="mobile-map-search" placeholder="Search Institutions..."/>
-      <a xlink:href="#0" onclick="$('#map-search-ul--mobile').addClass('active-mobile');">
-        {% include svgs/search-solid.svg %}
-      </a>
+      <div class='bubble-search__input-wrapper'>
+        <input id='mobile-keydown' type="text" class="mobile-map-search" placeholder="Search Institutions..."/>
+        <a xlink:href="#0" onclick="$('#map-search-ul--mobile').addClass('active-mobile');">
+          {% include svgs/search-solid.svg %}
+        </a>
+      </div>
       <ul id="map-search-ul--mobile" class="map-search__list--mobile"></ul>
     </div>
 
