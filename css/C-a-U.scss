@@ -108,16 +108,14 @@ $cuRed: #881E3D;
     }
 
     .section-pre--banner {
-		display: block;
-		margin: 0 auto;
+		background: url(/assets/icons/collegebanner-extrawidescreen.svg) center top no-repeat;
+		background-size: cover;
+		height: 400px;
+		top: 0;
+		left: 0;
 		width: 100%;
+		z-index: 0;
     }
-
-	  .section-pre--banner--widescreen {
-		  margin: 0 auto;
-		  display: none;
-		  width: 1500px;
-	  }
 
     .section-pre__tile {
       padding-top: 1rem;
