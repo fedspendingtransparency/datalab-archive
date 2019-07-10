@@ -4,16 +4,16 @@
 (function () {
   const searchData = [];
   
-  let parentSection, searchContainer, inputWrapper, input, list, mobileList, mobileSearchContainer, mobileInputWrapper, mobileInput;
-  let buttons = d3.select('#bubble-function-buttons');
+  const inputWrapper, list, mobileList, mobileInputWrapper;
+  let input, mobileInput;
+  // let buttons = d3.select('#bubble-function-buttons');
 
   function initDom() {
-    parentSection = d3.select('#bubble-search');
-    mobileSearchContainer = d3.select('#mobile-search--bubble');
-    searchContainer = parentSection.append('div').classed('bubble-search', true);
+    const searchContainer = d3.select('#bubble-search').append('div').classed('bubble-search', true);
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
-    mobileInputWrapper = mobileSearchContainer.append('div').classed('bubble-search__input-wrapper', true);
     list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
+    const mobileSearchContainer = d3.select('#mobile-search--bubble');
+    mobileInputWrapper = mobileSearchContainer.append('div').classed('bubble-search__input-wrapper', true);
     mobileList = mobileSearchContainer.append('ul').classed('bubble-search__list--mobile', true);
   }
 
@@ -146,14 +146,13 @@
 
   $(document).ready(function() {
     $('#mobile-search--bubble').click(function() {
-      console.log('testing dev');
       $('#mobile-search--bubble ul').css('display','block');
     });
     
     // hide on "clickout" of element
     $(document).click(function (e) {
       if ($(e.target).parents("#mobile-search--bubble").length === 0) {
-	$("#mobile-search--bubble ul").css('display', 'none');
+      	$("#mobile-search--bubble ul").css('display', 'none');
       }
     });
 
