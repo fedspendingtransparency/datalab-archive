@@ -8,7 +8,6 @@
   const mobileInput = d3.select('#bubble-search__input');
   const mobileList = d3.select('#bubble-search__list--mobile');
   let inputWrapper, list, input;
-  // let buttons = d3.select('#bubble-function-buttons');
 
   function initDom() {
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);

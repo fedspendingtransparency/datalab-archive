@@ -1114,13 +1114,14 @@ $cuRed: #881E3D;
       width: 1em;
     }    
     input {
-      padding: 1rem 2rem;
       width: calc(100% - 4rem);
+      padding: 1rem 2rem;
+      border: none;
     }
   }
   #mobile-search--map input {
     width: calc(100% - 8rem);
-    border: none;
+    // border: none;
   }
 
   .investmentCategories {
