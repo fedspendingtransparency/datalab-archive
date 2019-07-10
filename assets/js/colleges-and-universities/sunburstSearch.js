@@ -2,17 +2,14 @@
 ---
 
 (function () {
-  let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit, mobileList, mobileSearchContainer, mobileInputWrapper, mobileInput;
-  let buttons = d3.select('#investment-function-buttons');
+  let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit, mobileList, mobileInput;
 
   function initDom() {
     parentSection = d3.select('#investment-categories .function-buttons');
-    mobileSearchContainer = d3.select('#mobile-search--sunburst');
     searchContainer = parentSection.append('div').classed('bubble-search', true);
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
-    mobileInputWrapper = mobileSearchContainer.append('div').classed('bubble-search__input-wrapper', true);
     list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
-    mobileList = mobileSearchContainer.append('ul').classed('bubble-search__list--mobile', true);
+    mobileList = d3.select('#sunburst-search__list--mobile');
   };
 
   function filterFn(row) {
@@ -36,17 +33,18 @@
   };
 
   function initInput() {
-    input = inputWrapper
+    d3.select('#sunburst-search__input').on('input', filterData);
+     input = inputWrapper
       .append('input')
       .classed('bubble-search__input', true)
       .attr('placeholder', 'Search Categories')
       .on('input', filterData);
 
-    mobileInput = mobileInputWrapper
-      .append('input')
-      .classed('bubble-search__input', true)
-      .attr('placeholder', 'Search Categories...')
-      .on('input', filterData);
+    // mobileInput = mobileInputWrapper
+    //   .append('input')
+    //   .classed('bubble-search__input', true)
+    //   .attr('placeholder', 'Search Categories...')
+    //   .on('input', filterData);
   };
   
   function initSearch() {
@@ -128,14 +126,13 @@
 
   $(document).ready(function() {
     $('#mobile-search--sunburst').click(function() {
-      console.log('input wrapper search sunburst ok');
       $('#mobile-search--sunburst ul').css('display','block');
     });
 
     // hide on "clickout" of element
     $(document).click(function (e) {
       if ($(e.target).parents("#mobile-search--sunburst").length === 0) {
-	$("#mobile-search--sunburst ul").css('display', 'none');
+	      $("#mobile-search--sunburst ul").css('display', 'none');
       }
     });
   });

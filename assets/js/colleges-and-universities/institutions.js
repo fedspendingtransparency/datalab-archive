@@ -427,27 +427,21 @@ function filterSearch() {
 
 function filterSearchMobile() {
   // handle input filter..
-  $('.mobile-map-search').keyup(function() {
-
-    var input, filter, ul, li, i, txtValue;
-    input = document.getElementById('mobile-keydown');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("map-search-ul--mobile");
-    li = ul.getElementsByTagName('li');
+  $('#mobile-keydown').keyup(function() {
+    const filter = document.getElementById('mobile-keydown').value.toUpperCase();
+    const li = document.getElementById("map-search-ul--mobile").getElementsByTagName('li');
 
     // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      txtValue = li[i].innerHTML;
+    for (let i = 0; i < li.length; i++) {
+      const txtValue = li[i].innerHTML;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    	li[i].style.display = "";
+    	  li[i].style.display = "";
       } else {
-    	li[i].style.display = "none";
+    	  li[i].style.display = "none";
       }
     }
   });
 };
-
-
 
 // Search Trigger Functionality //
 function searchToggle() {
@@ -475,7 +469,7 @@ function searchMobileToggle() {
 
   // hide on "clickout" of element
   $(document).click(function (e) {
-    if ($(e.target).parents("#mobile-search").length === 0) {
+    if ($(e.target).parents("#mobile-search--map").length === 0) {
       $("#map-search-ul--mobile").removeClass('active-mobile');
     }
   });

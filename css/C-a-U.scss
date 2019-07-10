@@ -260,10 +260,6 @@ $cuRed: #881E3D;
           width: 100%;
 	}
 
-	#mobile-search {
- 	  display: none;
- 	  text-align: center;
- 	}
 
 	::-moz-placeholder { /* Firefox 19+ */
 	  text-align: center;
@@ -545,17 +541,6 @@ $cuRed: #881E3D;
       box-sizing: border-box;
       flex-direction: column;
 
-      #mobile-search {
-	display: none;
-      }
-
-      #mobile-search > input {
-	padding: 1rem 2rem;
-	width: 100%;
-	box-sizing: border-box;
-	
-      }
-
       #refresh-div {
 	display: inline-block;
 	width: auto;
@@ -676,10 +661,6 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
     padding-top: 7rem;
-
-    #mobile-search--bubble {
-      display: none;
-    }
 
     #bubbleTableContainer {
       display: flex;
@@ -897,10 +878,6 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
     padding-top: 7rem;
-
-    #mobile-search--sunburst {
-      display: none;
-    }
 
     #investment-table-datatable_wrapper, #investment-table-datatable--grants_wrapper, #investment-table-datatable--research_wrapper {
       padding: 0 3rem;
@@ -1126,6 +1103,24 @@ $cuRed: #881E3D;
         }
       }    } // end of investment categories
   } // end of section four
+
+	.mobile-search {
+    display: none;
+    text-align: center;
+
+    .svg-inline--fa.fa-w-16 {
+      width: 1em;
+    }    
+    input {
+      width: calc(100% - 4rem);
+      padding: 1rem 2rem;
+      border: none;
+    }
+  }
+  #mobile-search--map input {
+    width: calc(100% - 8rem);
+    // border: none;
+  }
 
   .investmentCategories {
     padding-left: 5%;

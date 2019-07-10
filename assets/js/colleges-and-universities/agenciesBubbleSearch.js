@@ -3,30 +3,21 @@
 
 (function () {
   const searchData = [];
-  
-  let parentSection, searchContainer, inputWrapper, input, list, mobileList, mobileSearchContainer, mobileInputWrapper, mobileInput;
-  let buttons = d3.select('#bubble-function-buttons');
+
+  const searchContainer = d3.select('#bubble-search').append('div').classed('bubble-search', true);
+  const mobileInput = d3.select('#bubble-search__input');
+  const mobileList = d3.select('#bubble-search__list--mobile');
+  let inputWrapper, list, input;
 
   function initDom() {
-    parentSection = d3.select('#bubble-search');
-    mobileSearchContainer = d3.select('#mobile-search--bubble');
-    searchContainer = parentSection.append('div').classed('bubble-search', true);
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
-    mobileInputWrapper = mobileSearchContainer.append('div').classed('bubble-search__input-wrapper', true);
     list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
-    mobileList = mobileSearchContainer.append('ul').classed('bubble-search__list--mobile', true);
   }
 
   function filterFn(row) {
-    if (row.name.toLowerCase().indexOf(this) !== -1) {
+    if (row.name.toLowerCase().indexOf(this) !== -1 || row.parent.name.toLowerCase().indexOf(this) !== -1) {
       return true;
     }
-
-    if (row.parent.name.toLowerCase().indexOf(this) !== -1) {
-      return true;
-    }
-
-    return;
   }
 
   function filterData() {
@@ -38,17 +29,13 @@
   }
 
   function initInput() {
+    d3.select('#bubble-search__input').on('input', filterData);
     input = inputWrapper
       .append('input')
       .classed('bubble-search__input', true)
       .attr('placeholder', 'Search Agencies...')
-      .on('input', filterData);
-
-    mobileInput = mobileInputWrapper
-      .append('input')
-      .classed('bubble-search__input', true)
-      .attr('placeholder', 'Search Agencies...')
-      .on('input', filterData);
+      .on('input', filterData)
+    ;
   }
 
   function initSearch() {
@@ -60,7 +47,6 @@
     if (d.zeroLength) {
       return;
     }
-
     bubble.selectSubAgency(d);
   }
 
@@ -68,7 +54,8 @@
     d3.select(this)
       .append('span')
       .text(d => {if (d.parent) return d.parent.name })
-      .classed('bubble-search__parent-name', true);
+      .classed('bubble-search__parent-name', true)
+    ;
   }
 
   function displayMobileList(filtered) {
@@ -89,7 +76,8 @@
       .each(prependParent)
       .on('click', selectItem)
       .append('span')
-      .text(d => d.name);
+      .text(d => d.name)
+    ;
   };
 
   function displayList(filtered) {
@@ -110,16 +98,15 @@
       .each(prependParent)
       .on('click', selectItem)
       .append('span')
-      .text(d => d.name);
+      .text(d => d.name)
+    ;
   }
 
   function flattenData(data) {
     data.children.forEach(child => {
-
       if (child.depth !== 1) {
         searchData.push(child);
       };
-
       if (child.children && child.children.length >= 1) {
         flattenData(child);
       }
@@ -146,18 +133,16 @@
 
   $(document).ready(function() {
     $('#mobile-search--bubble').click(function() {
-      console.log('testing dev');
       $('#mobile-search--bubble ul').css('display','block');
     });
     
     // hide on "clickout" of element
     $(document).click(function (e) {
       if ($(e.target).parents("#mobile-search--bubble").length === 0) {
-	$("#mobile-search--bubble ul").css('display', 'none');
+      	$("#mobile-search--bubble ul").css('display', 'none');
       }
     });
-
   });
-
+  
   bubble.setSearchData = setSearchData;
 })();
