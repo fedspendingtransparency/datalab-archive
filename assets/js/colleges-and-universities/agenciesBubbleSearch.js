@@ -29,7 +29,7 @@
   }
 
   function initInput() {
-    d3.select('#bubble-search__input').on('input', filterData);
+    mobileInput.on('input', filterData);
     input = inputWrapper
       .append('input')
       .classed('bubble-search__input', true)

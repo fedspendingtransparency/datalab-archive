@@ -2,26 +2,20 @@
 ---
 
 (function () {
-  let searchData, parentSection, searchContainer, inputWrapper, input, list, isInit, mobileList, mobileInput;
+  const searchContainer = d3.select('#investment-categories .function-buttons').append('div').classed('bubble-search', true);
+  const mobileInput = d3.select('#sunburst-search__input');
+  const mobileList = d3.select('#sunburst-search__list--mobile');
+  let searchData, inputWrapper, input, list, isInit;
 
   function initDom() {
-    parentSection = d3.select('#investment-categories .function-buttons');
-    searchContainer = parentSection.append('div').classed('bubble-search', true);
     inputWrapper = searchContainer.append('div').classed('bubble-search__input-wrapper', true);
     list = searchContainer.append('ul').style('height', (bubble.chartHeight * .7) + 'px').classed('bubble-search__list', true);
-    mobileList = d3.select('#sunburst-search__list--mobile');
   };
 
   function filterFn(row) {
-    if (row.name.toLowerCase().indexOf(this) !== -1) {
+    if (row.name.toLowerCase().indexOf(this) !== -1 || row.parent.name.toLowerCase().indexOf(this) !== -1) {
       return true;
     }
-
-    if (row.parent.name.toLowerCase().indexOf(this) !== -1) {
-      return true;
-    }
-
-    return;
   }
 
   function filterData() {
@@ -33,25 +27,18 @@
   };
 
   function initInput() {
-    d3.select('#sunburst-search__input').on('input', filterData);
-     input = inputWrapper
+    mobileInput.on('input', filterData);
+    input = inputWrapper
       .append('input')
       .classed('bubble-search__input', true)
       .attr('placeholder', 'Search Categories')
-      .on('input', filterData);
-
-    // mobileInput = mobileInputWrapper
-    //   .append('input')
-    //   .classed('bubble-search__input', true)
-    //   .attr('placeholder', 'Search Categories...')
-    //   .on('input', filterData);
+      .on('input', filterData)
+    ;
   };
   
   function initSearch() {
     if (isInit) return;
-
     isInit = true;
-    
     initDom();
     initInput();
   };
@@ -70,7 +57,8 @@
       d3.select(this)
         .append('span')
         .text(d => {if (d.parent) return d.parent.name})
-        .classed('bubble-search__parent-name', true);
+        .classed('bubble-search__parent-name', true)
+      ;
     };
   };
 
@@ -92,7 +80,8 @@
       .each(prependParent)
       .on('click', selectItem)
       .append('span')
-      .text(d => d.name);
+      .text(d => d.name)
+    ;
   }
 
   function displayMobileList(filtered) {
@@ -113,12 +102,12 @@
       .each(prependParent)
       .on('click', selectItem)
       .append('span')
-      .text(d => d.name);
+      .text(d => d.name)
+    ;
   }
 
   function setSearchData(data) {
     searchData = data.filter(r => r.depth);
-
     initSearch();
     displayList(searchData);
     displayMobileList(searchData);
