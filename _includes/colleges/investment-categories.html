@@ -53,7 +53,15 @@
       </div>
     </div>
 
-    <div id="mobile-search--sunburst"></div>
+    <div id="mobile-search--sunburst" class="mobile-search">
+      <div class='bubble-search__input-wrapper'>
+        <input id='sunburst-search__input' type="text" class="sunburst-search__input" placeholder="Search Categories...">
+        <a xlink:href="#0" onclick="$('#sunburst-search__list--mobile').toggle();">
+          {% include svgs/search-solid.svg %}
+        </a>
+      </div>
+      <ul id='sunburst-search__list--mobile' class='bubble-search__list--mobile'></ul>
+    </div>
 
     <div id='chart-area'>
       <div id="categories-detail"></div>

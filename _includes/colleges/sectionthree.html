@@ -32,7 +32,14 @@
       </div>
     </div>
 
-    <div id="mobile-search--bubble">
+    <div id="mobile-search--bubble" class="mobile-search">
+      <div class='bubble-search__input-wrapper'>
+        <input id='bubble-search__input' class='bubble-search__input' placeholder='Search Agencies...'>
+        <a xlink:href="#0" onclick="$('#bubble-search__list--mobile').toggle();">
+          {% include svgs/search-solid.svg %}
+        </a>
+      </div>
+      <ul id='bubble-search__list--mobile' class='bubble-search__list--mobile'></ul>
     </div>
 
     <div id="chart-area">
@@ -40,7 +47,7 @@
       <div id="chart-container">
         
         <div id='bubble-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
-          <div class='button-set' id="bubble-search">
+          <div id="bubble-search" class='button-set'>
             <button type='button' title='Search' onclick='searchClick("bubble-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
           </div>
           <div class='button-set' id="bubble-table" >

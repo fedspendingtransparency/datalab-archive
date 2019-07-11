@@ -24,30 +24,34 @@
       <section class="accordion">
         <h1 class="accordion__heading">Instructions</h1>
         <div class="accordion__content">
-	  <ul class="accordion__list">
-	    <li>Click into the map to start</li>
-	    <li>The number displayed on each cluster is the number of institutions in that area</li>
-	    <li>Click on a regional cluster to expand the area and display details for each school</li>
-	    <li>Use the zoom in and zoom out keys to adjust the map view</li>
-	    <li>For a specific search, use the search tool to type in the school by name </li>
-	  </ul>
+          <ul class="accordion__list">
+            <li>Click into the map to start</li>
+            <li>The number displayed on each cluster is the number of institutions in that area</li>
+            <li>Click on a regional cluster to expand the area and display details for each school</li>
+            <li>Use the zoom in and zoom out keys to adjust the map view</li>
+            <li>For a specific search, use the search tool to type in the school by name </li>
+          </ul>
         </div>
       </section>
 
       <div class="cu-header__controls">
-	<div id="refresh-div"><img src="/assets/icons/refresh.svg"/> Refresh Map </div>
-	{% include colleges/colleges-share.html anchor="section-two" %}
+      <div id="refresh-div"><img src="/assets/icons/refresh.svg"/> Refresh Map </div>
+        {% include colleges/colleges-share.html anchor="section-two" %}
       </div>
     </div>
 
-    <div id="mobile-search">
-      <input type="text" class="mobile-map-search" id='mobile-keydown' placeholder="Search Institutions..."/>
-      <ul class="map-search__list--mobile" id="map-search-ul--mobile"></ul>
+    <div id="mobile-search--map" class="mobile-search">
+      <div class='bubble-search__input-wrapper'>
+        <input id='mobile-keydown' type="text" class="mobile-map-search" placeholder="Search Institutions..."/>
+        <a xlink:href="#0" onclick="$('#map-search-ul--mobile').toggle();">
+          {% include svgs/search-solid.svg %}
+        </a>
+      </div>
+      <ul id="map-search-ul--mobile" class="map-search__list--mobile"></ul>
     </div>
 
     <div id="map-detail"></div>
     <div id="mapContainer">
-
       <div id='map-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
           <div id="map-search" class='button-set'>
             <button type='button' title='Search' onclick='searchClick("map-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
