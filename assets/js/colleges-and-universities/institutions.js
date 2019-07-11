@@ -72,7 +72,9 @@ function createMapbox() {
 	  });
 	  tooltip.setLngLat(mobileMatched[0].coord.coordinates)
 	    .setHTML(mobileTooltip)
-	    .addTo(map);
+      .addTo(map)
+    ;
+    $("#map-search-ul--mobile").hide(); // hide mobile search list
 	});
       });
 
@@ -93,7 +95,8 @@ function createMapbox() {
 	  });
 	  tooltip.setLngLat(matched[0].coord.coordinates)
 	    .setHTML(tooltipHtml)
-	    .addTo(map);
+      .addTo(map)
+    ;
 	});
 	listingEl.append(listitem);
       });
@@ -304,66 +307,6 @@ function createMapbox() {
   });
 }; // end function (createMapbox)
 
-// function createSectFourTable(columns) {
-//   d3.csv('../../data-lab-data/EDU_v2_base_data.csv', function(err, data) {
-//     if (err) { return err; }
-
-//     /**
-//      * Table START
-//      */
-//     let table = d3.select('#alma-mater-table').append('table')
-//         .attr('id', 'datatable'); // id given to table for Datatables.js
-
-//     let titles = ['Recipient', 'State', 'Total Students', 'Total Federal Investment'];
-
-//     let rows = table.append('tbody')
-//         .selectAll('tr')
-//         .data(data).enter()
-//         .append('tr')
-//         .on('click', function (d) {
-// 	  // TODO! right hand panel will come out on this TR click! 
-// 	  // secondary table view
-// 	  //          createSecondaryTableView(d.name, ['Type', 'Awarded Amount', '% of Total']); // going to pass in the row value and columns we want
-//         });
-
-    
-//     let headers = table.append('thead').append('tr')
-//         .selectAll('th')
-//         .data(titles).enter()
-//         .append('th')
-//         .text(function (d) {
-//           return d;
-//         });
-
-//     rows.selectAll('td')
-//       .data(function (row) {
-//         return columns.map(function (column) {
-//           return { column: column, value: row[column] };
-//         });
-//       }).enter()
-//       .append('td')
-//       .classed('name', function (d) {
-//         return d.column == 'Recipient';
-//       })
-//       .classed('percentage', function (d) {
-//         return d.column == 'State';
-//       })
-//       .classed('total', function (d) {
-//         return d.column == 'Total';
-//       })
-//       .text(function (d) {
-//         return d.value;
-//       })
-//       .attr('data-th', function (d) {
-//         return d.name;
-//       });
-
-
-//     // datatable start
-//     let dTable = $('#datatable').dataTable();
-//   }); // end d3 function
-// };
-
 function createInstTable() {
   d3.csv('../../data-lab-data/CU/rhp.csv', function(err, data) {
 
@@ -464,13 +407,13 @@ function searchToggle() {
 
 function searchMobileToggle() {
   $('#mobile-keydown').focus(function() {
-    $('#map-search-ul--mobile').addClass('active-mobile');
+    $('#map-search-ul--mobile').show();
   });
 
   // hide on "clickout" of element
   $(document).click(function (e) {
     if ($(e.target).parents("#mobile-search--map").length === 0) {
-      $("#map-search-ul--mobile").removeClass('active-mobile');
+      $("#map-search-ul--mobile").hide();
     }
   });
 };
