@@ -1047,9 +1047,9 @@ $cuRed: #881E3D;
     display: none;
 
     .svg-inline--fa.fa-w-16 {
-      width: 1em;
       color: #666;
     }    
+
     input {
       width: calc(100% - 4rem);
       padding: 1rem 2rem;
@@ -1060,6 +1060,10 @@ $cuRed: #881E3D;
     width: calc(100% - 8rem);
     // border: none;
   }
+
+  .svg-inline--fa.fa-w-16 {
+    width: 1em;
+  }    
 
   .investmentCategories {
     padding-left: 5%;
