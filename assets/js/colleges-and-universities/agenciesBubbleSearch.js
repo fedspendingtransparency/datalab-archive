@@ -47,6 +47,7 @@
     if (d.zeroLength) {
       return;
     }
+    $("#mobile-search--bubble ul").hide();
     bubble.selectSubAgency(d);
   }
 
@@ -132,14 +133,14 @@
   }
 
   $(document).ready(function() {
-    $('#mobile-search--bubble').click(function() {
-      $('#mobile-search--bubble ul').css('display','block');
+    $('#bubble-search__input').click(function() {
+      $('#mobile-search--bubble ul').show();
     });
     
     // hide on "clickout" of element
     $(document).click(function (e) {
       if ($(e.target).parents("#mobile-search--bubble").length === 0) {
-      	$("#mobile-search--bubble ul").css('display', 'none');
+      	$("#mobile-search--bubble ul").hide();
       }
     });
   });

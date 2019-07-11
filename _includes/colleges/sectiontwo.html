@@ -43,7 +43,7 @@
     <div id="mobile-search--map" class="mobile-search">
       <div class='bubble-search__input-wrapper'>
         <input id='mobile-keydown' type="text" class="mobile-map-search" placeholder="Search Institutions..."/>
-        <a xlink:href="#0" onclick="$('#map-search-ul--mobile').addClass('active-mobile');">
+        <a xlink:href="#0" onclick="$('#map-search-ul--mobile').toggle();">
           {% include svgs/search-solid.svg %}
         </a>
       </div>

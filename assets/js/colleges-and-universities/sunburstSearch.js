@@ -47,9 +47,8 @@
     if (d.zeroLength) {
       return;
     }
-
+    $("#sunburst-search__list--mobile").hide();
     sunburst.onSearchSelect(d);
-    parentSection.classed('active', false);
   };
 
   function prependParent(d) {
@@ -114,14 +113,14 @@
   };
 
   $(document).ready(function() {
-    $('#mobile-search--sunburst').click(function() {
-      $('#mobile-search--sunburst ul').css('display','block');
+    $('#sunburst-search__input').click(function() {
+      $('#mobile-search--sunburst ul').show();
     });
 
     // hide on "clickout" of element
     $(document).click(function (e) {
       if ($(e.target).parents("#mobile-search--sunburst").length === 0) {
-	      $("#mobile-search--sunburst ul").css('display', 'none');
+	      $("#mobile-search--sunburst ul").hide();
       }
     });
   });
