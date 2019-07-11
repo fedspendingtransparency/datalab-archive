@@ -35,6 +35,7 @@ $cuRed: #881E3D;
     box-sizing: border-box;
   }
 
+
   #section-pre {
     display: flex;
     flex-direction: column;
@@ -107,18 +108,16 @@ $cuRed: #881E3D;
     }
 
     .section-pre--banner {
-		display: block;
-		margin: 0 auto;
+		background: url(/assets/icons/collegebanner-extrawidescreen.svg) center top no-repeat;
+		background-size: cover;
+		height: 400px;
+		top: 0;
+		left: 0;
 		width: 100%;
+		z-index: 0;
     }
 
-	  .section-pre--banner--widescreen {
-		  margin: 0 auto;
-		  display: none;
-		  width: 1500px;
-	  }
-
-    #section-pre__tile {
+    .section-pre__tile {
       padding-top: 1rem;
       flex-basis: auto; // all same width flex children
       width: 100%; // ie 11...
@@ -127,7 +126,13 @@ $cuRed: #881E3D;
       border-right: 1px solid #EEEEEE;
     }
 
-    #section-pre__tile:last-child {
+	.section-pre__tile a:hover .section-pre--number, .section-pre__tile a:hover .section-pre--subtext,
+	.section-pre__tile a:hover .section-pre--subblurb, .section-pre__tile a:hover .section-pre--subtext {
+	  color: #881e3d !important;
+	  font-weight: bolder !important;
+	}
+
+    .section-pre__tile:last-child {
       border-right: none;
     }
 
@@ -255,10 +260,6 @@ $cuRed: #881E3D;
           width: 100%;
 	}
 
-	#mobile-search {
- 	  display: none;
- 	  text-align: center;
- 	}
 
 	::-moz-placeholder { /* Firefox 19+ */
 	  text-align: center;
@@ -540,17 +541,6 @@ $cuRed: #881E3D;
       box-sizing: border-box;
       flex-direction: column;
 
-      #mobile-search {
-	display: none;
-      }
-
-      #mobile-search > input {
-	padding: 1rem 2rem;
-	width: 100%;
-	box-sizing: border-box;
-	
-      }
-
       #refresh-div {
 	display: inline-block;
 	width: auto;
@@ -650,10 +640,6 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
     padding-top: 7rem;
-
-    #mobile-search--bubble {
-      display: none;
-    }
 
     #bubbleTableContainer {
       display: flex;
@@ -850,10 +836,6 @@ $cuRed: #881E3D;
     box-sizing: border-box;
     justify-content: center;
     padding-top: 7rem;
-
-    #mobile-search--sunburst {
-      display: none;
-    }
 
     #investment-table-datatable_wrapper, #investment-table-datatable--grants_wrapper, #investment-table-datatable--research_wrapper {
       padding: 0 3rem;
@@ -1060,6 +1042,24 @@ $cuRed: #881E3D;
       }    
     } // end of investment categories
   } // end of section four
+
+	.mobile-search {
+    display: none;
+
+    .svg-inline--fa.fa-w-16 {
+      width: 1em;
+      color: #666;
+    }    
+    input {
+      width: calc(100% - 4rem);
+      padding: 1rem 2rem;
+      border: none;
+    }
+  }
+  #mobile-search--map input {
+    width: calc(100% - 8rem);
+    // border: none;
+  }
 
   .investmentCategories {
     padding-left: 5%;
