@@ -7,12 +7,50 @@ parent: colleges-and-universities.html
 permalink: colleges-and-universities-more.html
 category: read-more
 ---
+<style>
+	ol {
+		margin: 0 0 1.5em;
+		padding: 0;
+		counter-reset: item;
+	}
+
+	ol > li {
+		margin: 0;
+		padding: 0 0 0 2em;
+		text-indent: -2em;
+		list-style-type: none;
+		counter-increment: item;
+	}
+
+	ol > li:before {
+		display: inline-block;
+		width: 1em;
+		padding-right: 0.5em;
+		font-weight: bold;
+		text-align: right;
+		content: counter(item) ".";
+	}
+
+	ol ul {
+		margin-left: 60px;
+	}
+</style>
+
 <div class='homelessness-read-more'>
 
-<h3>Identifying Institutions</h3>
-<p>The first step we took in conducting this analysis was to gather meta-data on all 2-year, 4-year, public and private post-secondary intuitions from the National Center for Education Statistics’ Integrated Postsecondary Education Data System (IPEDS).</p>
-<ul>
-	<li>IPEDS - <a href='https://nces.ed.gov/ipeds/use-the-data'>https://nces.ed.gov/ipeds/use-the-data</a>
+	<p>This analysis was conducted in five phases, listed below. Each step is described in more detail below.</p>
+	<ol>
+		<li>Identifying institutions of higher education</li>
+		<li>Connecting those institutions to federal spending data</li>
+		<li>Creating a data set that linked institutions to federal spending data</li>
+		<li>Categorizing federal spending into three investment types</li>
+		<li>Converting academic year data to align with the federal fiscal year, instead of the academic year, for consistency.</li>
+	</ol>
+
+	<h3>Step 1:  Identifying Institutions</h3>
+	<p>
+		First, we identified educational institutions across the United States by downloading data from the <a href="https://nces.ed.gov/ipeds/use-the-data" target="_blank">National Center for Education Statistics’ Integrated Postsecondary Education Data System (IPEDS)</a>. We gathered meta-data from IPEDS on all 2-year, 4-year, public and private post-secondary institutions, including:
+	</p>
 	<ul>
 		<li>Institution Type: 2yr/4yr, public/private</li>
 		<li>Undergraduate population</li>
@@ -20,91 +58,104 @@ category: read-more
 		<li>State</li>
 		<li>OPEID</li>
 		<li>UnitID</li>
-		<li>Lat/Long</li>
-		</ul>
-	</li>
-	<li>IPEDS data was gathered using the IPEDS site data download functionality</li>
-</ul>
+		<li>Latitude/Longitude</li>
+	</ul>
 
-<h3>Connecting Institutions to Spending</h3>
-<p>Our next step was to connect the institution to the spending data. We looked-for a way to derive a unique identifier between the IPEDS data and the USASpending data. Although IPEDS lists several unique identifiers for each institution, a combination of normalized name and state were used to make the connection.</p>
-<p>To standardize the names of the various institutions, we grouped records by their DUNS number, the unique_recipient_id field, and obvious matches were paired with the IPEDS version of the institution name. Semi-obvious matches, where institutional systems are identified but not a specific campus (e.g. Regents of the University of California), the record is attributed to the main campus of that system (e.g. University of California Berkley).</p>
-<p>Non-obvious records with a business_type field indicating the record belongs to a college or university, the DUNS number is used in a reverse look up yielding the address registered to the DUNS number. We then researched that address, if it is on a college campus, that campus is used. If the address is related to a research facility or to a research hospital, then the main campus is identified as the recipient.</p>
-<ul>
-	<li>USASpending Data
-		<ul>
-			<li>Institution</li>
-			<li>Agency/Sub agency</li>
-			<li>Procurement/Assistance Obligation</li>
-			<li>PSC/CFDA</li>
-		</ul>
-	</li>
-</ul>
+	<h3>Step 2: Connecting Institutions to Spending</h3>
+	<p>
+		Next, we connected the institutions to federal spending data using information available on <a href="https://www.usaspending.gov" target="_blank">USAspending.gov</a> and DUNS numbers.  The USAspending data output consisted of:
+	</p>
+	<ul>
+		<li>Institution</li>
+		<li>Agency/Sub agency</li>
+		<li>Procurement/Assistance Obligation</li>
+		<li>Product Service Code (PSC)/ Catalog of Federal Domestic Assistance (CFDA)</li>
+	</ul>
 
-<h3>Process for Identifying Institutions in USASpending data</h3>
-<ol type='1|a|i|1'>
-	<li>Step 1
-		<ol>
-			<li>2017 USASpending contract and assistance data pulled</li>
-			<li>Unique recipient name and DUNS number combinations filtered and isolated in a new data set</li>
-			<li>College/University names identified, and institution names are normalized according to the IPEDS official campus name so that a connection may be made later</li>
-		</ol>
-	</li>
-	<li>Step 2
-		<ol>
-			<li>2017 USASpending data are filtered by the Business Type field for the following types:
-				<ol>
-					<li>higher_education</li>
-					<li>public_institution_of_higher_education</li>
-					<li>private_institution_of_higher_education</li>
-				</ol>
-			</li>
-			<li>Records with trivial recipient names are added to the DUNS list and names are normalized</li>
-			<li>Records with non-obvious recipient names have a reverse look up on their DUNS number, yielding the address associated with the DUNS number.</li>
-			<li>The address is researched
-				<ol>
-					<li>If the address belongs to a college or university campus the name is normalized to the appropriate institution and the DUNS number is collected</li>
-					<li>If the address yields a research center, research hospital, College or University satellite office, or some other location, further research is conducted
-						<ol>
-							<li>If the entity website lists the entity as being affiliated with a specific college or university the name is normalized to the appropriate institution and the DUNS number is collected</li>
-							<li>If there is no mention of affiliation, the record is not used in this analysis</li>
-						</ol>
-					</li>
-				</ol>
-			</li>
-		</ol>
-	</li>
-	<li>Step 3</li>
+	<p>
+		To begin, we derived a unique identifier between the IPEDS data in step 1 and the USAspending.gov data listed above. IPEDS lists several unique identifiers for each institution, and we normalized the name and state associated with each institution for consistency. To normalize the name, we connected any variation of an institution name to one common name. Data normalization is a process in which values measured on different scales are adjusted to a common scale to enable an accurate analysis and/or comparison of values.
+	</p>
+
+	<p>
+		Next, we normalized the names of the institutions, grouping records by their DUNS number and the unique_recipient_id field. To easily identify a recipient name as an institution of higher education, the records were paired with the IPEDS version of the institution name. However, there were two types of instances when a judgement call was required:
+	</p>
+
 	<ol>
-		<li>2017 USASpending data is filtered on the DUNS numbers that have been identified in the previous three passes, the selected records names are normalized</li>
-		<li>The compliment of the records is analyzed a final time to ensure no trivial or peculiar entities were missed
-			<ol>
-				<li>Any record that raises a flag has a reverse look up on their DUNS number, the associated address is researched, and the entity is determined to be affiliated with a qualifying institution or not</li>
-			</ol>
+		<li>
+			In situations where institutional systems are listed but a specific campus is not identified, the record was attributed to the main campus of that system. (For example, if listed as Regents of the University of California, it is attributed to University of California - Berkeley.)
 		</li>
+		<li>
+			If it was not clear whether the recipient name corresponded to an institution of higher education but the Business Type field indicated the record belonged to a college or university, the DUNS number was used in a reverse look up to collect the address registered to that DUNS number. The address was then researched.
+		</li>
+
+		<ul>
+			<li>If the address was on a college campus, that campus was used.</li>
+			<li>If the address related to a research facility or to a research hospital, the main campus was identified as the recipient.</li>
+		</ul>
+
 	</ol>
-	<li>Identifying institutions for time series data 2013-2016
-		<ol>
-			<li>The DUNS numbers identified in the 2017 were used to filter USASpeding data from 2013-2016</li>
-			<li>The compliment of the data goes through the same process detailed above to determine non-obvious institutions in the 2017 USASpending data</li>
-		</ol>
-	</li>
-	<li>Identifying institutions for FY2018
-		<ol>
-			<li>The DUNS numbers identified in the 2017 were used to filter USASpeding data for 2018</li>
-			<li>The compliment of the data goes through the same process detailed above to determine non-obvious institutions in the 2017 USASpending data</li>
-		</ol>
-	</li>
-</ol>
 
-<h3>Sorting Investments by Category </h3>
-<p>We divided the award data into contracts, grants and research Grants (a subset of grants that ware awarded for research purposes). The chart aggregates contracts and grants by category (inner ring) and program (outer ring); the detail table shows the top five awards and the recipient institution by category or program. The file available for download includes all data used to form the chart, including the awarding federal agency and sub agency.</p>
+	<h3>Step 3: Identifying Institutions in the USAspending data</h3>
+	<p>
+		The third step was to identify institutions in the USAspending data. We began by pulling 2017 USASpending contract and assistance data. Then, we filtered and isolated the unique recipient name and DUNS number combinations into a new data set. Lastly, we identified and standardized the institution names.
+	</p>
 
-<h3>Converting the Academic Year to Fiscal Year</h3>
-<p>Finally, federal student assistance data was retrieved directly from the Department of Education. Student assistance data is based on the academic year, federal spending data is based on the federal fiscal calendar. The quarterly federal student assistance data was transformed from academic year to federal fiscal year. Institution data for Federal Work Study, Perkins Loans, and Federal Supplemental Educational Opportunity Grants programs cannot be transformed to federal fiscal year due to the data is report annually on the calendar year. This is an accepted feature of the data and it will be recognized in a comment on the visualization.</p>
-<ul>
-	<li>Federal Student Aid - <a href='https://studentaid.ed.gov/sa/about/data-center/student/portfolio'>https://studentaid.ed.gov/sa/about/data-center/student/portfolio</a></li>
-</ul>
+	<p>
+		Once we had the institution names, we filtered the 2017 USASpending data by the Business Type field by: higher_education, public_institution_of_higher_education, and private_institiution_of_higher_education.  For records where it was easy to identify the recipient name as an institution of higher education, the names were added to the DUNS list. However, for records where it was not clear if the recipient names corresponded with an institution of higher education, we conducted a reverse look up of their DUNS number to obtain the address. Two common scenarios emerged:
+	</p>
 
-To join the conversation or share your ideas visit the USAspending.gov’s Community Page.
+	<ol>
+		<li>If the address belonged to a college campus, the campus name was normalized to the appropriate institution and the DUNS number was collected.</li>
+		<li>If the address belonged to a research center, research hospital, college or university satellite office, or some other location, further research was conducted.</li>
+		<ul>
+			<li>If the entity website listed the entity as being affiliated with a specific college or university the name was normalized to the appropriate institution and the DUNS number was collected.</li>
+			<li>If there was no mention of affiliation, the record was not used in this analysis.	</li>
+		</ul>
+	</ol>
+
+	<p>
+		Next, we filtered 2017 USAspending data on the DUNS numbers that were identified in the previous three passes, and normalized the names of the selected records. The remaining records were analyzed again to ensure no minor or unusual entities were missed.
+	</p>
+
+	<ul>
+		<li>
+			If the record consisted of unusual entities, we did a reverse look up on the DUNS number and researched the associated address to determine if the entity is connected with a qualifying institution.
+		</li>
+	</ul>
+
+	<p>
+		To update this data to fiscal year 2018 the process outlined in the above paragraph was repeated and the new identifiers were added to the fiscal year 2017 data. We also pulled student aid data for the 2017-2018 academic year, which included student loan programs, the Federal Pell Grant program, the Teacher Education Assistance for College and Higher Education program, and the Iraq Afghanistan Service Grant program. This data was converted to fiscal year. For annually reported federal student aid programs such as, Perkins loans, Federal Supplemental Educational Opportunity Grants, and Federal Work Study program data, the most recent data available is for the 2016-2017 academic year. This data was used as a proxy for 2018 data in our calculated totals.
+	</p>
+
+	<h3>Step 4: Sorting Investments by Category</h3>
+
+	<p>
+		The fourth step was to sort the USAspending award data into one of three investment categories: contracts, grants, and research grants (a subset of grants that were awarded for research purposes).
+	</p>
+
+	<p>
+		We created a chart with 2 rings that aggregates contracts and grants by category (inner ring) and program (outer ring).
+	</p>
+
+	<ul>
+		<li>
+			The detail table shows the top five awards and the recipient institution by category or program.
+		</li>
+		<li>
+			The file available for download includes all data used to form the chart, including the awarding federal agency and sub agency.
+		</li>
+	</ul>
+
+	<h3>Step 5: Converting Academic Year Data to Fiscal Year</h3>
+
+	<p>The last step was to convert the academic year information into the federal fiscal year.  We began by retrieving federal student assistance data from the Department of Education, which was organized by quarter and re-organizing it according to the federal fiscal calendar. </p>
+
+	<p>However, we did encounter a few areas where data could not converted, such as institution data for Federal Work Study, Perkins Loans, and Federal Supplemental Educational Opportunity Grant programs.  In these instances, data is reported annually by calendar year.</p>
+
+	<p>
+		For more information on Federal Student Aid, visit: <a href="https://studentaid.ed.gov/sa/about/data-center/student/portfolio" target="_blank">https://studentaid.ed.gov/sa/about/data-center/student/portfolio</a>.
+	</p>
+	<p>
+		To join the conversation or share your ideas visit the <a href="https://usaspending-help.zendesk.com/hc/en-us/community/topics" target="_blank">USAspending.gov’s Community Page</a>.
+	</p>
 </div>
