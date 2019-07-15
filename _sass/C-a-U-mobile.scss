@@ -1,5 +1,12 @@
 $cuRed: #881E3D;
 
+// scale text down as screen shrinks
+@media (max-width: 1300px) {
+  .CU #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
+    font-size: 20px;
+  }
+}
+
 /* Mobile View only */
 @media (max-width: 949px) {
   #aid-subsection {
@@ -94,18 +101,27 @@ $cuRed: #881E3D;
       }
 
       #section-pre__TOC {
-	flex: 0 50%;
+	//flex: 0 50%;
 	box-sizing: border-box;
 	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	justify-content: space-around;
 	
-	#section-pre__tile {
-	  width: 50%;
+	.section-pre__tile {
+	  width: 40%;
 	  box-sizing: border-box;
-	  border-bottom: 1px solid #ddd;
 	  border-right: none;
+	  
 	}
       }
-    } 
+
+      // .CU #section-pre .section-pre__tile {
+      // 	  width: 40%;
+      // 	  box-sizing: border-box;
+      // 	  border-right: none;
+      // }
+    }
 
     #section-one {
       #investment-overview {
