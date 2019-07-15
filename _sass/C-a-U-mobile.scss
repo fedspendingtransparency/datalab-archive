@@ -40,6 +40,7 @@ $cuRed: #881E3D;
 
     span#cuRed {
       color: $cuRed;
+      font-weight: 600;
     }
 
     .cu-header {
@@ -75,9 +76,13 @@ $cuRed: #881E3D;
 	  color: #666666;
 	  font-family: "Source Sans Pro";
 	  font-size: 42px;
-	  font-weight: 600;
+	  font-weight: 300;
 	  line-height: 50px;
 	  text-align: center;
+
+	  h3 {
+	    font-weight: 600;
+	  }
 	}
 
 	.section-pre--tablet-blurb {
@@ -97,11 +102,12 @@ $cuRed: #881E3D;
 	flex: 0 50%;
 	box-sizing: border-box;
 	flex-wrap: wrap;
+	justify-content: space-around;
 	
-	#section-pre__tile {
-	  width: 50%;
+	.section-pre__tile {
+	  width: 40%;
 	  box-sizing: border-box;
-	  border-bottom: 1px solid #ddd;
+	  border-bottom: none;
 	  border-right: none;
 	}
       }
@@ -239,7 +245,7 @@ $cuRed: #881E3D;
     #section-pre #section-pre--tablet_banner .section-pre--tablet-subblurb {
       text-align: left;
       color: #555555;
-      font-weight: normal;
+      font-weight: 300;
       margin: auto auto 1rem;
     }
 
