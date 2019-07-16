@@ -134,7 +134,9 @@ let centerGroup;
 
 function updateCenter(d) {
   d3.select('text#tab').remove();
-  const dataTypeLabel = dataType === 'CFDA' ? '' : dataType + ' ';
+    const boundingBox = innerRadius * 2/Math.sqrt(2);
+
+    const dataTypeLabel = dataType === 'CFDA' ? '' : dataType + ' ';
 
   if (d.depth === 0) {
     let labelFontSize = 1.1;
@@ -189,7 +191,7 @@ function updateCenter(d) {
       .text(d.name)
       .attr('class', 'center-title')
       .style('font-size', labelFontSize * .75 + "em")
-      .call(wordWrap, innerRadius)
+      .call(wordWrap, boundingBox)
 
     ;
 
@@ -255,7 +257,7 @@ function updateCenter(d) {
         .text(d.name)
         .attr('class', 'center-title')
         .style('font-size', labelFontSize * 1.5 + "em")
-        .call(wordWrap, innerRadius)
+        .call(wordWrap, boundingBox)
       ;
 
       centerGroup.append('tspan')
@@ -272,17 +274,26 @@ function updateCenter(d) {
   const bbox = centerGroup.node().getBBox();
   const maxHeight = bbox.height;
   const maxWidth = bbox.width;
-  let heightScale = 1;
+  let scale = 1;
+  let max = maxHeight;
 
-  if(maxHeight >= innerRadius) {
-    heightScale = innerRadius / maxHeight;
-    centerGroup.attr("transform" ,"scale(" + heightScale + ")");
-  } else if (maxWidth >= radius) {
-    centerGroup.attr("transform" ,"scale(" + innerRadius / maxWidth + ")");
+  console.log(boundingBox);
+  console.log(maxHeight);
+  console.log(maxWidth);
+
+  if(maxHeight >= boundingBox && maxHeight >= maxWidth) {
+      scale = boundingBox / maxHeight;
+      max = maxHeight;
+    centerGroup.attr("transform" ,"scale(" + boundingBox / maxHeight + ")");
+  } else if (maxWidth >= boundingBox) {
+      scale = boundingBox / maxWidth;
+      max = maxWidth;
+      centerGroup.attr("transform" ,"scale(" + boundingBox / maxWidth + ")");
   }
 
+  console.log(scale);
   centerGroup.style('cursor', 'pointer')
-    .attr('y', -(maxHeight / 2) * heightScale)
+    .attr('y', -maxHeight / 2)
     .on('click', function() {
         click(chartData);
     })
@@ -589,8 +600,6 @@ function wordWrap(text, maxWidth) {
     lineHeight = 1.1,
     tspan;
 
-  const padding = 18;
-
   tspan = text.text(null)
     .append("tspan")
     .attr("x", 0);
@@ -599,7 +608,7 @@ function wordWrap(text, maxWidth) {
     word = words.pop();
     line.push(word);
     tspan.text(line.join(" "));
-    if (tspan.node().getComputedTextLength() > maxWidth * 2) {
+    if (tspan.node().getComputedTextLength() > maxWidth) {
       line.pop();
       tspan.text(line.join(" "));
       line = [word];
