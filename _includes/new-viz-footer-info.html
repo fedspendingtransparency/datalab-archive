@@ -12,6 +12,24 @@
         </div>
     </section>
 
+    {% if include.footnotes1 %}
+        <div id="hwcta-entry__footer">
+            Footnotes
+            <hr>
+            {% if include.footnotes1 %}
+             <p>
+                 <sup>1</sup>&nbsp;{{ include.footnotes1 }}
+             </p>
+            {% endif %}
+
+            {% if include.footnotes2 %}
+            <p>
+                <sup>2</sup>&nbsp;{{ include.footnotes2 }}
+            </p>
+            {% endif %}
+        </div>
+    {% endif %}
+
     <section class="hwcta-entry__more-analyses">
         <h1 class="hwcta-entry__more-analyses-heading">
             More Analyses
