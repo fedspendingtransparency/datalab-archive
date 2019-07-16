@@ -61,12 +61,14 @@ $cuRed: #881E3D;
     #section-pre {
 
       .section-pre--banner {
-	    display: none;
+	display: none;
       }
       
       #section-pre--tablet_banner {
 	display: flex;
 	flex-direction: column;
+	max-width: 700px;
+	margin: auto;
 	padding-bottom: 1.5rem;
 
 	.section-pre--tablet-subtext {
