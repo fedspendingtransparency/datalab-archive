@@ -65,5 +65,3 @@ Gemfile.lock
 package-lock.json
 node_modules
 .Rproj.user
-
-docker-compose.yml
