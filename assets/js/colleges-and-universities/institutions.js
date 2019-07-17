@@ -346,12 +346,10 @@ function createInstTable() {
   });
 };
 
-function filterSearch() {
-  // handle input filter..
-  $('.map-search__input').keyup(function() {
-
+function filterMapSearch() {
+  $('#map-search__input').keyup(function() {
     var input, filter, ul, li, i, txtValue;
-    input = document.getElementById('map-keydown');
+    input = document.getElementById('map-search__input');
     filter = input.value.toUpperCase();
     ul = document.getElementById("map-search-ul");
     li = ul.getElementsByTagName('li');
@@ -371,6 +369,7 @@ function filterSearch() {
 function filterSearchMobile() {
   // handle input filter..
   $('#mobile-keydown').keyup(function() {
+    console.log('mobile keydown pressed');
     const filter = document.getElementById('mobile-keydown').value.toUpperCase();
     const li = document.getElementById("map-search-ul--mobile").getElementsByTagName('li');
 
@@ -420,10 +419,10 @@ function searchMobileToggle() {
 
 $(document).ready(function(){
   createMapbox();
+  filterMapSearch();
   searchToggle();
   searchMobileToggle();
   filterSearchMobile();
-  filterSearch();
   createInstTable();
 });
 
