@@ -56,7 +56,7 @@
             <button type='button' title='Search' onclick='searchClick("map-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
             <div class="map-search">
               <div class="map-search__input-wrapper">
-                <input class="map-search__input" id='map-keydown' placeholder="Search Institutions"></input>
+                <input id='map-search__input' class="map-search__input" onkeydown="filterSearch()" placeholder="Search Institutions"/>
               </div>
               <ul class="map-search__list" id="map-search-ul"></ul>
             </div>
