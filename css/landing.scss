@@ -16,11 +16,6 @@ $heading-color: #4A4A4A;
   color: #333;
 }
 
-.landing-chart {
-  text-align: center;
-}
-
-
 h2.primary__heading {
   font-size: 24px;
 }
@@ -65,7 +60,7 @@ h2.primary__heading {
 
 .primary__text {
   margin: 1rem 0;
-  padding: 1rem 2.188rem;
+  padding: 1rem;
   font-size: 14px;
   font-weight: 300;
   font-style: normal;
@@ -73,7 +68,6 @@ h2.primary__heading {
   line-height: 1.43;
   letter-spacing: 0.4px;
   color: #000000;
-  text-align: center;
 
   &.primary__text--desktop {
     display: none;
@@ -184,22 +178,6 @@ h2.primary__heading {
   float: left;
 }
 
-.landing-row__featured__text {
-  margin: 1rem 0;
-  padding: 0 2.188rem 2.188rem 2.188rem;
-  font-size: 14px;
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.43;
-  letter-spacing: 0.4px;
-  color: #000000;
-  text-align: center;
-
-  &.landing-row__featured__text--desktop {
-    display: none;
-  }
-}
 
 @media only screen and (min-width: 950px) {
 
@@ -210,6 +188,7 @@ h2.primary__heading {
     padding-right: 1rem;
     padding-top: 3rem;
   }
+
 
   .primary {
     width: 63%;
@@ -267,20 +246,8 @@ h2.primary__heading {
       font-weight: 300;
       font-size: 1rem;
       margin: 0;
+      padding-top: 2.188rem;
       line-height: 1.5;
-    }
-  }
-
-  .landing-row__featured__text {
-    display: none;
-
-    &.landing-row__featured__text--desktop {
-      display: block;
-      font-weight: 300;
-      font-size: 1rem;
-      margin: 0;
-      line-height: 1.5;
-      padding: 0 2.188rem;
     }
   }
 
@@ -403,13 +370,7 @@ h2.primary__heading {
   }
 
 
-}
-
-@media (min-width: 1200px) {
-
-  .landing-chart {
-    text-align: left;
-  }
 
 }
+
 

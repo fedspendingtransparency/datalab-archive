@@ -17,7 +17,7 @@ const d3 = { select, selectAll },
         baseColor: colors.revenuePrimary,
         secondaryColor: colors.colorPrimaryDarker,
         subcategoryThresholds: manualThresholds
-    };
+    }
 
 let container;
 
@@ -27,7 +27,7 @@ function sortByLatestYear(a, b) {
 
 function init() {
     if (isMobileDevice()) {
-        container = d3.select('#viz').append('div').classed('trend-mobile', true);
+        container = d3.select('#viz').append('div').classed('trend-mobile', true)
         trendMobile(data.sort(sortByLatestYear), container, config);
     } else {
         container = establishContainer(930, null, accessibilityAttrs);
