@@ -277,10 +277,6 @@ function updateCenter(d) {
   let scale = 1;
   let max = maxHeight;
 
-  console.log(boundingBox);
-  console.log(maxHeight);
-  console.log(maxWidth);
-
   if(maxHeight >= boundingBox && maxHeight >= maxWidth) {
       scale = boundingBox / maxHeight;
       max = maxHeight;
@@ -291,7 +287,6 @@ function updateCenter(d) {
       centerGroup.attr("transform" ,"scale(" + boundingBox / maxWidth + ")");
   }
 
-  console.log(scale);
   centerGroup.style('cursor', 'pointer')
     .attr('y', -maxHeight / 2)
     .on('click', function() {
