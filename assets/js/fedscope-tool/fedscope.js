@@ -48,10 +48,7 @@ $(() => {
                 const occupationDropdownOptions = Object.values(occupationCategories)
                     .sort(sorter)
                     .map((o) => `<option value="${o.id}">${o.name}</option>`);
-                $("#mapOccupationDropdown")
-                    .append('<option value="any">(Any Type)</option>')
-                    .append(...occupationDropdownOptions)
-                ;
+                $("#mapOccupationDropdown").append(...occupationDropdownOptions);
             });
         });
     });
@@ -76,7 +73,7 @@ $(() => {
             );
         }
 
-        if (filterOccupations.length && filterOccupations[0] !== 'any') {
+        if (filterOccupations) {
             newData = newData.filter((e) =>
                 filterOccupations.some((o) => e.occupationCategoryId === +o)
             );
