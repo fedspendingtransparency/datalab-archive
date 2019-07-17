@@ -1,0 +1,106 @@
+<div class="hwcta-entry">
+  <section class="hwcta-entry__body-container">
+    <p class="hwcta-entry__detail-text">All of our data was sourced from <a href="usaspending.gov"> USAspending.gov</a>, check out our methodology section to see how we did it!</p>
+    <div class="hwcta-entry__link-container">
+      {% if include.link %}
+      <a class="hwcta-entry__link" href="{{include.link}}">
+        <span class="hwcta-entry__link-image"><img src="../../assets/icons/sources.svg" /></span>
+        <span class="hwcta-entry__link-text">{{include.body}}</span>
+        <span class="hwcta-entry__link-chevron"><i class="fas fa-chevron-right"></i></span></a>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if include.footnotes1 %}
+  <div id="hwcta-entry__footer">
+    Footnotes
+    <hr>
+    {% if include.footnotes1 %}
+    <p>
+      <sup>1</sup>&nbsp;{{ include.footnotes1 }}
+    </p>
+    {% endif %}
+
+    {% if include.footnotes2 %}
+    <p>
+      <sup>2</sup>&nbsp;{{ include.footnotes2 }}
+    </p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <section class="hwcta-entry__more-analyses">
+    <h1 class="hwcta-entry__more-analyses-heading">
+      More Analyses
+    </h1>
+
+    <div class="hwcta-entry__more-analyses-tiles">
+
+      <div class="hwcta-entry__more-analyses-tile-row">
+        <div class="hwcta-entry__more-analyses-tile">
+          <a href="federal-account-explorer.html">
+            <div class="hwcta-entry__more-analyses-text">
+              <h2>
+                Federal Account Explorer
+              </h2>
+              <p class="hwcta-entry__more-analyses-title">
+                Discover the federal government's spending accounts
+              </p>
+            </div>
+            <div class="hwcta-entry__more-analyses-image-div">
+              <img src="../images/homepage/federal.jpg" class="hwcta-entry__more-analyses-image" />
+            </div>
+          </a>
+        </div>
+
+        <div class="hwcta-entry__more-analyses-tile">
+          <a href="federal-employees.html">
+            <div class="hwcta-entry__more-analyses-text">
+              <h2>
+                Federal Employees
+              </h2>
+              <p class="hwcta-entry__more-analyses-title">
+                Who works in government?
+              </p>
+            </div>
+            <div class="hwcta-entry__more-analyses-image-div">
+              <img src="../images/homepage/workers.jpg" class="hwcta-entry__more-analyses-image" />
+            </div>
+          </a>
+        </div>
+
+        <div class="hwcta-entry__more-analyses-tile">
+          <a href="budget-function.html">
+            <div class="hwcta-entry__more-analyses-text">
+              <h2>
+                Budget Function
+              </h2>
+              <p class="hwcta-entry__more-analyses-title">
+                Check out how federal spending is categorized
+              </p>
+            </div>
+            <div class="hwcta-entry__more-analyses-image-div">
+              <img src="../images/homepage/budget.jpg" class="hwcta-entry__more-analyses-image" />
+            </div>
+          </a>
+        </div>
+
+        <div class="hwcta-entry__more-analyses-tile">
+          <a href="competition-in-contracting.html">
+            <div class="hwcta-entry__more-analyses-text">
+              <h2>
+                Competition in Contracting
+              </h2>
+              <p class="hwcta-entry__more-analyses-title">
+                How often do federal agencies compete for contracts?
+              </p>
+            </div>
+            <div class="hwcta-entry__more-analyses-image-div">
+              <img src="../images/homepage/competition.jpg" class="hwcta-entry__more-analyses-image" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
