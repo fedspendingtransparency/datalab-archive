@@ -1,51 +1,49 @@
 // jrk <Killilea_Jack@bah.com>
 // 404 page, fun
 
+// body class
+.four-oh-four {
+  background-image: url('../../images/homepage/404background.svg');
+  height: 100%; 
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
 #four-oh-four {
-  margin-top: 150px;
+  margin-top: 250px;
   display: flex;
   flex-direction: column;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  // padding-left: 2rem;
+  // padding-right: 2rem;
   justify-content: center;
   align-items: center;
   line-height: 1.4;
 
-  h1 {
-    font-size: 4rem;
-  }
+  .four-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
 
-  h3 {
-    font-size: 2rem;
-  }
-}
+    h3 {
+      font-size: 11rem;
+      font-weight: 300;
+      line-height: 1.4;
+      padding: 0;
+      margin: 0;
+    }
 
-#four-oh-four__icon i {
-  font-size: 11rem;
-}
+    p {
+      font-size: 5rem;
+      line-height: 1.1;
+      margin-top: 2em;
 
-.fa-hand-paper {
-  font-size: 11rem;
-}
+      span {
+	font-weight: bold;
+      }
+    }
+    
 
-#four-oh-four__text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-#four-oh-four__text a {
-  color: #2272CE;
-
-  &:hover {
-    text-decoration: underline;
   }
 }
 
-#four-oh-four__about {
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 2;
-}
 

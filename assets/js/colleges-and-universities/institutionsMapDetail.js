@@ -38,8 +38,8 @@
       const rhpDetails = detailData[data.Recipient]['rhp'];
 
       updateTable('rhp', [
-      //   {key: 'Type of Institution', value: rhpDetails.INST_TYPE_1 + rhpDetails.INST_TYPE_2},
-      //   {key: 'Awards Received', value: rhpDetails.total_awards},
+	//   {key: 'Type of Institution', value: rhpDetails.INST_TYPE_1 + rhpDetails.INST_TYPE_2},
+	//   {key: 'Awards Received', value: rhpDetails.total_awards},
         {key: 'Total $ Received', value: formatCurrency(rhpDetails.Total_Federal_Investment)}
       ]);
 

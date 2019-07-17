@@ -1,5 +1,12 @@
 $cuRed: #881E3D;
 
+// scale text down as screen shrinks
+@media (max-width: 1300px) {
+  .CU #section-one #investment-overview #investment-overview__viz #bar-text--contracts {
+    font-size: 20px;
+  }
+}
+
 /* Mobile View only */
 @media (max-width: 949px) {
   #aid-subsection {
@@ -40,6 +47,7 @@ $cuRed: #881E3D;
 
     span#cuRed {
       color: $cuRed;
+      font-weight: 600;
     }
 
     .cu-header {
@@ -53,12 +61,14 @@ $cuRed: #881E3D;
     #section-pre {
 
       .section-pre--banner {
-	    display: none;
+	display: none;
       }
       
       #section-pre--tablet_banner {
 	display: flex;
 	flex-direction: column;
+	max-width: 700px;
+	margin: auto;
 	padding-bottom: 1.5rem;
 
 	.section-pre--tablet-subtext {
@@ -75,9 +85,13 @@ $cuRed: #881E3D;
 	  color: #666666;
 	  font-family: "Source Sans Pro";
 	  font-size: 42px;
-	  font-weight: 600;
+	  font-weight: 300;
 	  line-height: 50px;
 	  text-align: center;
+
+	  h3 {
+	    font-weight: 600;
+	  }
 	}
 
 	.section-pre--tablet-blurb {
@@ -94,18 +108,19 @@ $cuRed: #881E3D;
       }
 
       #section-pre__TOC {
-	flex: 0 50%;
+	//flex: 0 50%;
 	box-sizing: border-box;
 	flex-wrap: wrap;
+	justify-content: space-around;
 	
-	#section-pre__tile {
-	  width: 50%;
+	.section-pre__tile {
+	  width: 40%;
 	  box-sizing: border-box;
-	  border-bottom: 1px solid #ddd;
+	  border-bottom: none;
 	  border-right: none;
 	}
       }
-    } 
+    }
 
     #section-one {
       #investment-overview {
@@ -239,7 +254,7 @@ $cuRed: #881E3D;
     #section-pre #section-pre--tablet_banner .section-pre--tablet-subblurb {
       text-align: left;
       color: #555555;
-      font-weight: normal;
+      font-weight: 300;
       margin: auto auto 1rem;
     }
 

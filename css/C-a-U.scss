@@ -1735,5 +1735,8 @@ div.mapboxgl-popup-content {
   pointer-events: auto;
 }
 
+.hwcta-entry__detail-text a:hover {
+  color: $cuRed;
+}
 
 @import 'C-a-U-mobile'; // needs to be last! 
