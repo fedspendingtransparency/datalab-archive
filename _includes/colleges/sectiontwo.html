@@ -17,15 +17,14 @@
       <p class="cu-header__blurb">
 	The federal government may have invested in your college or university, whether it is public, private,
 	four year, or two year. Use the map below to uncover the amount and type of investment for individual schools.
-	Click on a regional cluster to hone in on the schools within that area.
+	Click on a regional cluster to expand the area and see the schools in that area.
       </p>
-
 
       <section class="accordion">
         <h1 class="accordion__heading">Instructions</h1>
         <div class="accordion__content">
           <ul class="accordion__list">
-            <li>Click into the map to start</li>
+            <li>Click the map to get started</li>
             <li>The number displayed on each cluster is the number of institutions in that area</li>
             <li>Click on a regional cluster to expand the area and display details for each school</li>
             <li>Use the zoom in and zoom out keys to adjust the map view</li>
@@ -57,7 +56,7 @@
             <button type='button' title='Search' onclick='searchClick("map-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
             <div class="map-search">
               <div class="map-search__input-wrapper">
-                <input class="map-search__input" id='map-keydown' placeholder="Search Institutions"></input>
+                <input id='map-search__input' class="map-search__input" onkeydown="filterSearch()" placeholder="Search Institutions"/>
               </div>
               <ul class="map-search__list" id="map-search-ul"></ul>
             </div>
