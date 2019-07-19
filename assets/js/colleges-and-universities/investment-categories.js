@@ -253,7 +253,7 @@ function updateCenter(d) {
         .text(d.name)
         .attr('class', 'center-title')
         .style('font-size', labelFontSize * largeText + "em")
-        .call(wordWrap, innerRadius * 3)
+        .call(wordWrap, innerRadius * 2.5)
       ;
 
       centerGroup.append('tspan')
@@ -367,8 +367,15 @@ function refreshData(data) {
     .attr('fill', d => getWedgeColor(d))
     // .on('mouseover', hover)
     .on('click', click)
-    .append('title').text(d => d.name)
+    .append('title').text(function(d) {
+      const name = d.name.replace(/CFDA/i, '').replace(/PSC/i, '').trim();
+      console.log(name);
+      return name;
+    });
   ;
+
+  console.log(d);
+
   click(data[0]); // simulate clicking center to reset zoom
 }
 
