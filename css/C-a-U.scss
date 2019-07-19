@@ -999,7 +999,7 @@ $cuRed: #881E3D;
       #legend_colorKey {
         position: relative;
         left: -100px;
-	margin: 50px 0 0 0;
+	      margin: 50px 0 0 0;
         padding: 0;
         overflow: visible;
       }
@@ -1705,5 +1705,8 @@ div.mapboxgl-popup-content {
   pointer-events: auto;
 }
 
+.hwcta-entry__detail-text a:hover {
+  color: $cuRed;
+}
 
 @import 'C-a-U-mobile'; // needs to be last! 

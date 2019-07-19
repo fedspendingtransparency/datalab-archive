@@ -156,7 +156,7 @@
     function init() {
       if (isMobile()) {
         // disable for mobile
-        bubble.activateDetail = disableMobile;
+        sunburst.activateDetail = disableMobile;
         return;
       };
 
