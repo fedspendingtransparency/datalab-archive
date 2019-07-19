@@ -15,9 +15,9 @@ $(() => {
 		mem
 	} = dataModule;
 
-	loadStates((states) => {
-		loadAgencies((agencies) => {
-			loadOccupationCategories((occupationCategories) => {
+	loadStates(states => {
+		loadAgencies(agencies => {
+			loadOccupationCategories(occupationCategories => {
 				loadEmployeeCountData([mapModule.draw, barchartModule.draw], {
 					states,
 					agencies,
@@ -36,18 +36,19 @@ $(() => {
 
 				const stateDropdownOptions = Object.values(states)
 					.sort(sorter)
-					.map((s) => `<option value="${s.abbreviation}">${s.name}</option>`);
+					.map(s => `<option value="${s.abbreviation}">${s.name}</option>`)
+				;
 				$("#barchartStateDropdown").append(...stateDropdownOptions);
 
 				const agencyDropdownOptions = Object.values(agencies)
 					.sort(sorter)
-					.map((a) => `<option value="${a.id}">${a.name}</option>`);
+					.map(a => `<option value="${a.id}">${a.name}</option>`)
+				;
 				$("#mapAgencyDropdown").append(...agencyDropdownOptions);
 				$("#barchartAgencyDropdown").append(...agencyDropdownOptions);
 
-				const occupationDropdownOptions = Object.values(occupationCategories)
-					.sort(sorter)
-					.map((o) => `<option value="${o.id}">${o.name}</option>`);
+				const occupationDropdownMasterList = Object.values(occupationCategories).sort(sorter);
+				let occupationDropdownOptions = occupationDropdownMasterList.map(o => `<option value="${o.id}">${o.name}</option>`);
 				$("#mapOccupationDropdown")
 					.append('<option value="any">(Any Type)</option>')
 					.append(...occupationDropdownOptions)
@@ -71,14 +72,14 @@ $(() => {
 		});
 
 		if (filterAgencies) {
-			newData = newData.filter((e) =>
-				filterAgencies.some((a) => e.agencyId === +a)
+			newData = newData.filter(e =>
+				filterAgencies.some(a => e.agencyId === +a)
 			);
 		}
 
 		if (filterOccupations.length && filterOccupations[0] !== 'any') {
-			newData = newData.filter((e) =>
-				filterOccupations.some((o) => e.occupationCategoryId === +o)
+			newData = newData.filter(e =>
+				filterOccupations.some(o => e.occupationCategoryId === +o)
 			);
 		}
 
@@ -88,26 +89,23 @@ $(() => {
 		});
 	});
 
-	$("#mapMask")
-		.find("#button1")
-		.click((e) => {
-			e.preventDefault();
+	$("#mapMask").find("#button1").click(e => {
+		e.preventDefault();
 
-			$("#mapAgencyDropdown > option").attr("selected", false);
-			$("#mapOccupationDropdown > option").attr("selected", false);
+		$("#mapAgencyDropdown > option").attr("selected", false);
+		$("#mapOccupationDropdown > option").attr("selected", false);
 
-			const { employeeCounts, states, occupationCategories } = mem;
+		const { employeeCounts, states, occupationCategories } = mem;
 
-			mapModule.draw([...employeeCounts], {
-				states,
-				occupationCategories
-			});
+		mapModule.draw([...employeeCounts], {
+			states,
+			occupationCategories
 		});
+	});
 
 	$("#barchartFilter").click(() => {
 		const filterStates = $("#barchartStateDropdown").val();
 		const filterAgencies = $("#barchartAgencyDropdown").val();
-
 		const filterStatesName = $("#barchartStateDropdown option:selected").text();
 		const filterAgenciesName = $("#barchartAgencyDropdown option:selected").text();
 
@@ -120,14 +118,14 @@ $(() => {
 		let newData = employeeCounts;
 
 		if (filterStates) {
-			newData = newData.filter((e) =>
-				filterStates.some((s) => e.stateAbbreviation === s)
+			newData = newData.filter(e =>
+				filterStates.some(s => e.stateAbbreviation === s)
 			);
 		}
 
 		if (filterAgencies) {
-			newData = newData.filter((e) =>
-				filterAgencies.some((a) => e.agencyId === +a)
+			newData = newData.filter(e =>
+				filterAgencies.some(a => e.agencyId === +a)
 			);
 		}
 
@@ -137,19 +135,17 @@ $(() => {
 		});
 	});
 
-	$("#barchartMask")
-		.find("#button1")
-		.click((e) => {
-			e.preventDefault();
+	$("#barchartMask").find("#button1").click(e => {
+		e.preventDefault();
 
-			$("#barchartAgencyDropdown > option").attr("selected", false);
-			$("#barchartStateDropdown > option").attr("selected", false);
+		$("#barchartAgencyDropdown > option").attr("selected", false);
+		$("#barchartStateDropdown > option").attr("selected", false);
 
-			const { employeeCounts, states, occupationCategories } = mem;
+		const { employeeCounts, states, occupationCategories } = mem;
 
-			barchartModule.draw([...employeeCounts], {
-				states,
-				occupationCategories
-			});
+		barchartModule.draw([...employeeCounts], {
+			states,
+			occupationCategories
 		});
+	});
 });
