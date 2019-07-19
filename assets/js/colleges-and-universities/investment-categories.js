@@ -369,13 +369,10 @@ function refreshData(data) {
     .on('click', click)
     .append('title').text(function(d) {
       const name = d.name.replace(/CFDA/i, '').replace(/PSC/i, '').trim();
-      console.log(name);
       return name;
     });
   ;
-
-  console.log(d);
-
+  
   click(data[0]); // simulate clicking center to reset zoom
 }
 
