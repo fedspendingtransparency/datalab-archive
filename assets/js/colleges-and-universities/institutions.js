@@ -36,6 +36,14 @@ function createMapbox() {
   let listingEl = $('.map-search__list');
   let mobileListingEl = $('.map-search__list--mobile');
 
+  // helper function, sort json //
+  function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+      let x = a[key]; let y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+  }
+
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
       
@@ -52,8 +60,10 @@ function createMapbox() {
 	};
       });
 
+      let sortedGeoandName = sortByKey(geoandname, 'name');
+
       // mobile search //
-      geoandname.forEach(function(ele) {
+      sortedGeoandName.forEach(function(ele) {
 	let mobileListitem = document.createElement('li');
 	mobileListitem.classList.add('map-search__item--mobile');
 	mobileListitem.textContent = ele.name;
@@ -79,7 +89,7 @@ function createMapbox() {
       });
 
       // tablet and desktop search //
-      geoandname.forEach(function(ele) {
+      sortedGeoandName.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.classList.add('map-search__item');
 	listitem.textContent = ele.name;
@@ -100,6 +110,7 @@ function createMapbox() {
 	});
 	listingEl.append(listitem);
       });
+      
     });
   }
   
@@ -369,7 +380,6 @@ function filterMapSearch() {
 function filterSearchMobile() {
   // handle input filter..
   $('#mobile-keydown').keyup(function() {
-    console.log('mobile keydown pressed');
     const filter = document.getElementById('mobile-keydown').value.toUpperCase();
     const li = document.getElementById("map-search-ul--mobile").getElementsByTagName('li');
 
