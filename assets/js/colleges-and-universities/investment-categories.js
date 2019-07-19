@@ -138,7 +138,7 @@ function updateCenter(d) {
 
     const dataTypeLabel = dataType === 'CFDA' ? '' : dataType + ' ';
 
-    const labelFontSize = 1;
+    let labelFontSize = 1;
     const lineHeight = 1.1;
     const doubleSpace = 2;
     const mediumText = 1.25;
@@ -156,7 +156,7 @@ function updateCenter(d) {
       .text('Total FY2018 ' + categoryLabel  + ' Funding')
       .attr('class', 'center-heading')
       .style('font-size', function() {
-        return labelFontSize + "em";
+        return labelFontSize * mediumText + "em";
       })
       .attr('dy', '0')
     ;
@@ -181,7 +181,7 @@ function updateCenter(d) {
       .attr('text-anchor', 'middle')
       .text(dataTypeLabel + 'Category')
       .attr('class', 'center-heading')
-      .style('font-size', labelFontSize * mediumText + "em")
+      .style('font-size', labelFontSize + "em")
       .attr('dy', '0')
     ;
 
@@ -191,7 +191,7 @@ function updateCenter(d) {
       .attr('text-anchor', 'middle')
       .text(d.name)
       .attr('class', 'center-title')
-      .style('font-size', labelFontSize * largeText + "em")
+      .style('font-size', labelFontSize * mediumText + "em")
       .call(wordWrap, boundingBox)
 
     ;
@@ -202,7 +202,7 @@ function updateCenter(d) {
       .attr('text-anchor', 'middle')
       .text('Total FY2018 Funding')
       .attr('class', 'center-heading')
-      .style('font-size', labelFontSize * mediumText + "em")
+      .style('font-size', labelFontSize + "em")
     ;
 
     centerGroup.append('tspan')
@@ -211,7 +211,7 @@ function updateCenter(d) {
       .attr('text-anchor', 'middle')
       .text(formatNumber(d.value))
       .attr('class', 'center-amount')
-      .style('font-size', labelFontSize * exLargeText + "em")
+      .style('font-size', labelFontSize * largeText + "em")
     ;
 
   } else {
