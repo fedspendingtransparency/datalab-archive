@@ -138,8 +138,14 @@ function updateCenter(d) {
 
     const dataTypeLabel = dataType === 'CFDA' ? '' : dataType + ' ';
 
+    const labelFontSize = 1;
+    const lineHeight = 1.1;
+    const doubleSpace = 2;
+    const mediumText = 1.25;
+    const largeText = 1.75;
+    const exLargeText = 2;
+
   if (d.depth === 0) {
-    let labelFontSize = 1.1;
 
     centerGroup = svg.append('svg:text')
       .attr('id', 'tab');
@@ -150,72 +156,65 @@ function updateCenter(d) {
       .text('Total FY2018 ' + categoryLabel  + ' Funding')
       .attr('class', 'center-heading')
       .style('font-size', function() {
-        labelFontSize = calculateCenterTextFontSize(this);
         return labelFontSize + "em";
       })
       .attr('dy', '0')
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(labelFontSize))
+      .attr('dy', lineHeight + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(formatNumber(d.value))
       .attr('class', 'center-amount')
-      .style('font-size', labelFontSize * 2 + "em")
+      .style('font-size', labelFontSize * largeText + "em")
     ;
 
 
   } else if (d.depth === 1) {
-
-    let labelFontSize = 1.1;
-    centerGroup = svg.append('svg:text')
+      centerGroup = svg.append('svg:text')
       .attr('id', 'tab');
 
+      // category
     centerGroup.append('tspan')
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(dataTypeLabel + 'Category')
       .attr('class', 'center-heading')
-      .style('font-size', function() {
-        labelFontSize = calculateCenterTextFontSize(this);
-        return labelFontSize * .75 + "em";
-      })
+      .style('font-size', labelFontSize * mediumText + "em")
       .attr('dy', '0')
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(0.5 * labelFontSize))
+      .attr('dy', lineHeight + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(d.name)
       .attr('class', 'center-title')
-      .style('font-size', labelFontSize * .75 + "em")
+      .style('font-size', labelFontSize * largeText + "em")
       .call(wordWrap, boundingBox)
 
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(labelFontSize))
+      .attr('dy', lineHeight * doubleSpace + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text('Total FY2018 Funding')
       .attr('class', 'center-heading')
-      .style('font-size', labelFontSize * .75 + "em")
+      .style('font-size', labelFontSize * mediumText + "em")
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(0.5 * labelFontSize))
+      .attr('dy', lineHeight + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(formatNumber(d.value))
       .attr('class', 'center-amount')
-      .style('font-size', labelFontSize + "em")
+      .style('font-size', labelFontSize * exLargeText + "em")
     ;
 
   } else {
-      let labelFontSize = 1.1;
-
       centerGroup = svg.append('svg:text')
         .attr('id', 'tab');
 
@@ -224,49 +223,46 @@ function updateCenter(d) {
         .attr('text-anchor', 'middle')
         .text(dataTypeLabel + 'Category')
         .attr('class', 'center-heading')
-        .style('font-size', function() {
-            labelFontSize = calculateCenterTextFontSize(this);
-            return labelFontSize * 1.5 + "em";
-        })
+        .style('font-size', labelFontSize * mediumText + "em")
         .attr('dy', '0')
       ;
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(.5 * labelFontSize))
+        .attr('dy', lineHeight + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(d.parent.name)
         .attr('class', 'center-title')
-        .style('font-size', labelFontSize * 1.5 + "em")
+        .style('font-size', labelFontSize * largeText + "em")
       ;
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(labelFontSize))
+        .attr('dy', lineHeight * 2 + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(dataTypeLabel + 'Sub-Category')
         .attr('class', 'center-heading')
-        .style('font-size', labelFontSize * 1.5 + "em")
+        .style('font-size', labelFontSize * mediumText + "em")
       ;
 
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(.5 * labelFontSize))
+        .attr('dy', lineHeight + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(d.name)
         .attr('class', 'center-title')
-        .style('font-size', labelFontSize * 1.5 + "em")
-        .call(wordWrap, boundingBox)
+        .style('font-size', labelFontSize * largeText + "em")
+        .call(wordWrap, innerRadius * 3)
       ;
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(labelFontSize))
+        .attr('dy', lineHeight * 2 + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(formatNumber(d.value))
         .attr('class', 'center-amount')
-        .style('font-size', labelFontSize * 1.75 + "em")
+        .style('font-size', labelFontSize * exLargeText + "em")
       ;
   }
 
@@ -277,18 +273,32 @@ function updateCenter(d) {
   let scale = 1;
   let max = maxHeight;
 
-  if(maxHeight >= boundingBox && maxHeight >= maxWidth) {
-      scale = boundingBox / maxHeight;
+  if(maxHeight >= maxWidth) {
+
+      if(maxHeight >= boundingBox) {
+          scale = boundingBox / maxHeight;
+      } else {
+          scale = maxHeight / boundingBox;
+      }
+
       max = maxHeight;
-    centerGroup.attr("transform" ,"scale(" + boundingBox / maxHeight + ")");
-  } else if (maxWidth >= boundingBox) {
-      scale = boundingBox / maxWidth;
+      centerGroup.attr("transform", "scale(" + scale + ")");
+
+  } else {
+      if (maxWidth >= boundingBox) {
+          scale = boundingBox / maxWidth;
+      } else {
+          scale = maxWidth / boundingBox;
+      }
+
       max = maxWidth;
-      centerGroup.attr("transform" ,"scale(" + boundingBox / maxWidth + ")");
+      centerGroup.attr("transform", "scale(" + scale + ")");
   }
 
+  const padding = 16 * scale; // 1em = 16px
+    
   centerGroup.style('cursor', 'pointer')
-    .attr('y', -maxHeight / 2)
+    .attr('y', -maxHeight / 2 + padding)
     .on('click', function() {
         click(chartData);
     })
@@ -603,7 +613,7 @@ function wordWrap(text, maxWidth) {
     word = words.pop();
     line.push(word);
     tspan.text(line.join(" "));
-    if (tspan.node().getComputedTextLength() > maxWidth) {
+    if (tspan.node().getComputedTextLength() >= maxWidth) {
       line.pop();
       tspan.text(line.join(" "));
       line = [word];
@@ -613,13 +623,6 @@ function wordWrap(text, maxWidth) {
         .text(word);
     }
   }
-}
-
-function calculateCenterTextFontSize (centerNode) {
-  const computed = centerNode.getComputedTextLength();
-  const labelWidth = innerRadius;
-  const fontsize = labelWidth / computed > 0 ? labelWidth / computed : 0.01;
-  return fontsize;
 }
 
 // Redraw based on the new size whenever the browser window is resized.
