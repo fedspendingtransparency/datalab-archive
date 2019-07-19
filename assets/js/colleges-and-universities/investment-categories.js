@@ -234,6 +234,8 @@ function updateCenter(d) {
         .text(d.parent.name)
         .attr('class', 'center-title')
         .style('font-size', labelFontSize * largeText + "em")
+        .call(wordWrap, boundingBox)
+
       ;
 
       centerGroup.append('tspan')
@@ -271,28 +273,18 @@ function updateCenter(d) {
   const maxHeight = bbox.height;
   const maxWidth = bbox.width;
   let scale = 1;
-  let max = maxHeight;
 
   if(maxHeight >= maxWidth) {
-
-      if(maxHeight >= boundingBox) {
-          scale = boundingBox / maxHeight;
-      } else {
-          scale = maxHeight / boundingBox;
+      if (maxHeight > boundingBox) {
+        scale = boundingBox / maxHeight;
+        centerGroup.attr("transform", "scale(" + scale + ")");
       }
-
-      max = maxHeight;
-      centerGroup.attr("transform", "scale(" + scale + ")");
 
   } else {
-      if (maxWidth >= boundingBox) {
-          scale = boundingBox / maxWidth;
-      } else {
-          scale = maxWidth / boundingBox;
+      if(maxWidth > boundingBox) {
+        scale = boundingBox / maxWidth;
+        centerGroup.attr("transform", "scale(" + scale + ")");
       }
-
-      max = maxWidth;
-      centerGroup.attr("transform", "scale(" + scale + ")");
   }
 
   const padding = 16 * scale; // 1em = 16px
