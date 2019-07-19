@@ -38,7 +38,15 @@ function createMapbox() {
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
+      let realData = data;
+      let realDataArr = [];
+      realDataArr = JSON.parse(realData);
+      console.log(realDataArr);
       
+//      let sortedData = realData.features.sort(compare);
+//      let sortedData = realData.features.sort((a,b) => (a.Recipient > b.Recipient) ? 1 : ((b.Recipient > a.Recipient) ? -1 : 0)); 
+//      console.log(sortedData);
+
       let geoandname = data.features.map(function (ele) {
 	return {
 	  coord: ele.geometry,
@@ -173,9 +181,9 @@ function createMapbox() {
 	  "circle-radius": [
 	    "step",
 	    ["get", "point_count"],
-	    6,
-	    8,
-	    12,
+	    7,
+	    10,
+	    15,
 	    30,
 	    15,
 	    50,
@@ -210,7 +218,7 @@ function createMapbox() {
 	filter: ["!", ["has", "point_count"]],
 	paint: {
 	  "circle-color": "#881E3D",
-	  "circle-radius": 3.5,
+	  "circle-radius": 5,
 	  "circle-stroke-width": 1,
 	  "circle-stroke-color": "#ddd"
 	}
