@@ -16,6 +16,7 @@ $(() => {
 	} = dataModule;
 
 	let occupationDropdownMasterList;
+	let agencyOccupationIds = [];
 	let occupationDropdownOptions;
 	
 	loadStates(states => {
@@ -50,6 +51,16 @@ $(() => {
 				$("#mapAgencyDropdown").append(...agencyDropdownOptions);
 				$("#barchartAgencyDropdown").append(...agencyDropdownOptions);
 
+				// create array or agency IDs, each an array of occupations within that agency
+				for (let e of mem.employeeCounts) {
+					if (!agencyOccupationIds[e.agencyId]) {
+						agencyOccupationIds[e.agencyId] = [];
+					}
+					if (!agencyOccupationIds[e.agencyId].includes(e.occupationCategoryId)) {
+						agencyOccupationIds[e.agencyId].push(e.occupationCategoryId);
+					}
+				}
+
 				occupationDropdownMasterList = Object.values(occupationCategories).sort(sorter);
 				filterOccupationsList();
 			});
@@ -70,13 +81,6 @@ $(() => {
 
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
-			const { employeeCounts } = mem;
-			const agencyOccupationIds = [];
-			for (let e of employeeCounts) {
-				if (selectedAgencies.includes(e.agencyId.toString())) {
-					agencyOccupationIds.push(e.occupationCategoryId);
-				}
-			};
 			occupationDropdownOptions = occupationDropdownMasterList
 				.filter(o => agencyOccupationIds.includes(o.id))
 				.map(o => `<option value="${o.id}">${o.name}</option>`);
