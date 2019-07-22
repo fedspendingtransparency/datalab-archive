@@ -18,11 +18,11 @@ $(() => {
 	let occupationDropdownMasterList;
 	let agencyOccupationIds = [];
 	let occupationDropdownOptions;
-	
+
 	loadStates(states => {
 		loadAgencies(agencies => {
 			loadOccupationCategories(occupationCategories => {
-				loadEmployeeCountData([mapModule.draw, barchartModule.draw], {
+				loadEmployeeCountData([mapModule.draw, barchartModule.draw, initAgencyOccupationIds], {
 					states,
 					agencies,
 					occupationCategories
@@ -41,31 +41,33 @@ $(() => {
 				const stateDropdownOptions = Object.values(states)
 					.sort(sorter)
 					.map(s => `<option value="${s.abbreviation}">${s.name}</option>`)
-				;
+					;
 				$("#barchartStateDropdown").append(...stateDropdownOptions);
 
 				const agencyDropdownOptions = Object.values(agencies)
 					.sort(sorter)
 					.map(a => `<option value="${a.id}">${a.name}</option>`)
-				;
+					;
 				$("#mapAgencyDropdown").append(...agencyDropdownOptions);
 				$("#barchartAgencyDropdown").append(...agencyDropdownOptions);
-
-				// create array of agency IDs, each an array of occupation IDs within that agency
-				for (let e of mem.employeeCounts) {
-					if (!agencyOccupationIds[e.agencyId]) {
-						agencyOccupationIds[e.agencyId] = [];
-					}
-					if (!agencyOccupationIds[e.agencyId].includes(e.occupationCategoryId)) {
-						agencyOccupationIds[e.agencyId].push(e.occupationCategoryId);
-					}
-				}
 
 				occupationDropdownMasterList = Object.values(occupationCategories).sort(sorter);
 				filterOccupationsList();
 			});
 		});
 	});
+
+	// create array of agency IDs, each an array of occupation IDs within that agency
+	function initAgencyOccupationIds() {
+		for (let e of mem.employeeCounts) {
+			if (!agencyOccupationIds[e.agencyId]) {
+				agencyOccupationIds[e.agencyId] = [];
+			}
+			if (!agencyOccupationIds[e.agencyId].includes(e.occupationCategoryId)) {
+				agencyOccupationIds[e.agencyId].push(e.occupationCategoryId);
+			}
+		}
+	}
 
 	let changes = 0;
 	$("#mapAgencyDropdown").change(() => {
@@ -82,9 +84,9 @@ $(() => {
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
 			let currentOccupations = agencyOccupationIds[selectedAgencies[0]].slice();
-			if (selectedAgencies.length > 1) {
-				selectedAgencies.slice(1).forEach (agencyId => {
-					agencyOccupationIds[agencyId].forEach (occupationId => {
+			if (selectedAgencies.length > 1) { // add to array of unique occupation IDs for the other selected agencies (besides above)
+				selectedAgencies.slice(1).forEach(agencyId => {
+					agencyOccupationIds[agencyId].forEach(occupationId => {
 						if (!currentOccupations.includes(occupationId)) {
 							currentOccupations.push(occupationId);
 						}
@@ -105,7 +107,7 @@ $(() => {
 			.end()
 			.append('<option value="any">(Any Type)</option>')
 			.append(...occupationDropdownOptions)
-		;
+			;
 	}
 
 	$("#mapFilter").click(() => {
