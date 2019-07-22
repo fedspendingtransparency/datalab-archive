@@ -84,3 +84,27 @@ hr.horizontal_dts{
   opacity: .1;
   margin-top: -5px;
 }
+
+@media only screen and (max-width: 1200px) {
+  .dts-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dts-module {
+    width: 80%;
+  }
+  
+  .dtsm-dollars {
+    font-size: 1.8em;
+  }
+
+  .dtsm-tas-header {
+    font-size: 1.188em;
+  }
+
+  .dtsm-img svg {
+    width: 80%;
+  }
+
+}

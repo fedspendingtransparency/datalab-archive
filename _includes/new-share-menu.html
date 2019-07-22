@@ -12,6 +12,14 @@
 </script>
 
 <style>
+.viz-actions--budget-function .new-share-button {
+    margin-right: 140px
+}
+
+.viz-actions--budget-function .new-share-button .viz-share-icon {
+    transform: translateX(130px)
+}
+
 .new-share-button {
   display: flex;
   margin-left: 20px;
@@ -51,18 +59,6 @@
                     <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('{{ twitterVariable }}')+'&url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Twitter">
                         {% include svgs/twitter_square_x.svg class="share-icon icon-twitter" %}
                         <span class="share-button-text">Twitter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Pinterest">
-                        {% include svgs/pinterest.svg class="share-icon icon-pinterest" %}
-                        <span class="share-button-text">Pinterest</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Tumblr">
-                        {% include svgs/tumblr.svg class="share-icon icon-tumblr" %}
-                        <span class="share-button-text">Tumblr</span>
                     </a>
                 </li>
                 <li>

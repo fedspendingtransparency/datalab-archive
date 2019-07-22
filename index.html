@@ -12,31 +12,26 @@ dlPageCss: landing.css
   <div class="dl-landing">
 
     <section class="primary">
-      <a class="primary__link" href="/americas-finance-guide/">
+      <a class="primary__link" href="/colleges-and-universities.html">
         <h1 class="primary__mobile-heading">
-          Your Guide to America's Finances
+          Federal Investment in Higher Education
         </h1>
 
-        <img class="primary__image" src="../images/homepage/cg-gif.gif"
+        <img class="primary__image" src="../images/homepage/collegehomepage.svg"
           alt="Answer all your questions about federal government finance" />
         <div class="primary__content">
 
           <h2 class="primary__heading">
-            Your Guide to America's Finances
+            Federal Investment in Higher Education
           </h2>
 
           <p class="primary__text primary__text--desktop">
-            Your Guide to America's Finances is an overview of federal government finances in 2018, providing
-            information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab,
-            presents a series of interactive visualizations to allow you to explore these categories and how they have
-            changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of
-            dollars collected and spent by the federal government each year.
+	    The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution.  In the visualizations you can also break down the investment by federal agency and view data by investment category. This analysis gives the public an interactive lens into the government’s investment in higher education.
           </p>
 
           <div class="primary__text_container">
-            <p class="primary__text">
-              The Guide presents straightforward information about the federal government's spending and revenue, as
-              well as the deficit and debt in 2018.
+            <p class="primary__text primary__text--mobile">
+              The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities. Dive in and search by individual schools, federal agencies, or investment categories!
             </p>
           </div>
 
@@ -53,7 +48,7 @@ dlPageCss: landing.css
             Visualizing the Daily Treasury Statement
           </h1>
           <h2>
-            How much does the federal<br>government spend each day?
+            How much does the federal government spend each day?
           </h2>
           {% include landing-dts.html %}
         </a>
@@ -92,7 +87,7 @@ dlPageCss: landing.css
               Contract Explorer
             </h1>
             <h2>
-              Who receives <br>federal<br> contracts?
+              Who receives federal contracts?
             </h2>
           </div>
           <div class="landing-feature__image">
@@ -108,82 +103,117 @@ dlPageCss: landing.css
 
     </section>
   </div>
-  <section class="landing-row">
+  <section class="landing-row landing-row--analyses">
     <h1 class="landing-row__heading">
       More Analyses
     </h1>
+    <div class="landing-row__featured">
+    <a class="landing-row__featured__link" href="/americas-finance-guide/">
+      <h2 class="landing-row__featured__mobile-heading">
+        Your Guide to America's Finances
+      </h2>
+      <img class="landing-row__featured__image" src="../images/homepage/cg-gif.gif"
+           alt="Answer all your questions about federal government finance" />
+      <div class="landing-row__featured__content">
+
+        <h2 class="landing-row__featured__heading">
+          Your Guide to America's Finances
+        </h2>
+
+        <p class="landing-row__featured__text landing-row__featured__text--desktop">
+          Your Guide to America's Finances is an overview of federal government finances in 2018, providing
+          information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab,
+          presents a series of interactive visualizations to allow you to explore these categories and how they have
+          changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of
+          dollars collected and spent by the federal government each year.
+        </p>
+
+        <div class="landing-row__featured__text_container">
+          <p class="landing-row__featured__text">
+            The Guide presents straightforward information about the federal government's spending and revenue, as
+            well as the deficit and debt in 2018.
+          </p>
+        </div>
+
+      </div>
+
+    </a>
+  </div>
+
     <div class="landing-row__tiles">
 
-      <a class="landing-row__tile" href="federal-account-explorer.html">
-        <div class="landing-row__text">
-          <h2>
-            Federal Account Explorer
-          </h2>
-          <p class="landing-row__title">
-            Discover the federal government's spending accounts
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/federal.jpg" class="landing-row__image" />
-        </div>
-      </a>
+      <div class="landing_row__tile-row">
+        <a class="landing-row__tile" href="federal-account-explorer.html">
+          <div class="landing-row__text">
+            <h2>
+              Federal Account Explorer
+            </h2>
+            <p class="landing-row__title">
+              Discover the federal government's spending accounts
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/federal.jpg" class="landing-row__image" />
+          </div>
+        </a>
 
-      <a class="landing-row__tile" href="federal-employees.html">
-        <div class="landing-row__text">
-          <h2>
-            Federal Employees
-          </h2>
-          <p class="landing-row__title">
-            Who works<br> in government?
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/workers.jpg" class="landing-row__image" />
-        </div>
-      </a>
+        <a class="landing-row__tile" href="federal-employees.html">
+          <div class="landing-row__text">
+            <h2>
+              Federal Employees
+            </h2>
+            <p class="landing-row__title">
+              Who works in government?
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/workers.jpg" class="landing-row__image" />
+          </div>
+        </a>
+      </div>
 
-      <a class="landing-row__tile" href="budget-function.html">
-        <div class="landing-row__text">
-          <h2>
-            Budget Function
-          </h2>
-          <p class="landing-row__title">
-            Check out how federal spending is categorized
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/budget.jpg" class="landing-row__image" />
-        </div>
-      </a>
+      <div class="landing_row__tile-row">
+        <a class="landing-row__tile" href="budget-function.html">
+          <div class="landing-row__text">
+            <h2>
+              Budget Function
+            </h2>
+            <p class="landing-row__title">
+              Check out how federal spending is categorized
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/budget.jpg" class="landing-row__image" />
+          </div>
+        </a>
 
-      <a class="landing-row__tile" href="competition-in-contracting.html">
-        <div class="landing-row__text">
-          <h2>
-            Competition in Contracting
-          </h2>
-          <p class="landing-row__title">
-            How often do federal agencies compete for contracts?
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/competition.jpg" class="landing-row__image" />
-        </div>
-      </a>
+        <a class="landing-row__tile" href="competition-in-contracting.html">
+          <div class="landing-row__text">
+            <h2>
+              Competition in Contracting
+            </h2>
+            <p class="landing-row__title">
+              How often do federal agencies compete for contracts?
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/competition.jpg" class="landing-row__image" />
+          </div>
+        </a>
+      </div>
+
     </div>
   </section>
 
   <section class="feature-row">
     <a href="/homelessness-analysis.html">
       <div class="feature-row__border">
-        <div class="feature-row__image">
-          <img src="../images/homepage/homelessness.png" />
-        </div>
         <div class="feature-row__text">
           <h1 class="feature-row__heading">
             Homelessness Analysis
           </h1>
           <p class="feature-row__title">
-            Explore federal programs that address <br>homelessness
+            Explore federal programs that address homelessness
           </p>
           <p class="feature-row__blurb">
             On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our
@@ -192,6 +222,9 @@ dlPageCss: landing.css
             provide information about which regions are similar to others based on their homeless populations and
             funding profiles.
           </p>
+        </div>
+        <div class="feature-row__image">
+          <img src="../images/homepage/homelessness.png" />
         </div>
       </div>
     </a>
@@ -208,10 +241,10 @@ dlPageCss: landing.css
         <div class="landing-row__text">
           <p class="landing-row__title">
             Do you want
-            <strong><br>to conduct your<br> own analysis?</strong>
+            <strong> to conduct your own analysis?</strong>
           </p>
           <p class="landing-row__p">
-            Access Treasury data and<br> create your own charts and<br> visualizations!
+            Access Treasury data and create your own charts and visualizations!
           </p>
         </div>
       </div>
@@ -223,7 +256,7 @@ dlPageCss: landing.css
             API Guide
           </h1>
           <p class="landing-row__p landing-row__p--hide">
-            Guidance on accessing Treasury<br> data with open source code.
+            Guidance on accessing Treasury data with open source code.
           </p>
         </div>
       </a>
@@ -235,7 +268,7 @@ dlPageCss: landing.css
             Analyst Guide
           </h1>
           <p class="landing-row__p landing-row__p--hide">
-            Methods to easily navigate data <br>from our sister site,<br> USAspending.gov
+            Methods to easily navigate data from our sister site, USAspending.gov
           </p>
         </div>
       </a>

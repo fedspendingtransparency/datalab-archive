@@ -4,28 +4,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Lab – U.S. Treasury</title>
-  <meta name="description" content="The Data Lab is a U.S. Treasury Department initiative to publish analyses and visualizations to help the public better understand government spending.">
-
+  <title>Data Lab – Budget Function – U.S. Treasury</title>
+  <meta name="description" content="The U.S. Treasury’s Data Lab presents an analysis on federal spending related to the government’s main functions. This visualization sheds light on both budg...">
   
-  <meta name="keywords" content="Federal spending, data, visualizations, contracts, accounts, grants, federal programs, federal financial data">
+  
+  <meta name="keywords" content="spending categories, budget function, object class, federal spending">
   
 
-  <link rel="canonical" href="https://datalab.usaspending.gov/">
+  <link rel="canonical" href="https://datalab.usaspending.gov/budget-function.html">
   <link rel="stylesheet" href="/main.css" />
   <link rel="shortcut icon" href="/images/favicon.ico">
 
   <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE" id="_fed_an_ua_tag"></script>
-
+  
   <link rel="stylesheet" href="/assets/fa/css/all.min.css" />
   <link rel="stylesheet" href="/assets/font-awesome-ie.css">
   
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
 
-  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60737492-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-60737492-1');
+  </script>
 
-  
-  <link rel="stylesheet" href="/css/landing.css" />
-  
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
   <script>
    window.dataLayer = window.dataLayer || [];
@@ -36,12 +45,10 @@
   </script>
 
   <!-- og tags -->
-  <meta property="og:title" content="Data Lab – U.S. Treasury"/>
-  <meta property="og:description" content="The Data Lab is a U.S. Treasury Department initiative to publish analyses and visualizations to help the public better understand government spending."/>
-  
-  
+  <meta property="og:title" content="Data Lab – Budget Function – U.S. Treasury"/>
   <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
-  
+  <meta property="og:description" content="The U.S. Treasury’s Data Lab presents an analysis on federal spending related to the government’s main functions. This visualization sheds light on both budg..."/>
+  <meta property="og:url" content="https://datalab.usaspending.gov/budget-function.html" />
 </head>
 
   <script src="/js/jquery.min.js"></script>
@@ -51,26 +58,24 @@
 <script src="/js/homepage/header.js"></script>
 <!-- <script src="/js/homepage/sticky.js"></script> -->
 
-  <body class="landing">
+  <body>
     <div id="page-wrapper">
-        <header class="official-banner" role="banner">
-  <nav>
-    <ul class="official-banner__site-list">
-      <li class="official-banner__site-item">
-        <a class="official-banner__site-link" href="https://www.usaspending.gov">
-          USAspending.gov
-        </a>
-      </li>
-      <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
-        |
-      </li>
-      <li class="official-banner__site-item">
-        <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
-          Data Lab
-        </a>
-      </li>
-    </ul>
-  </nav>
+      <header class="official-banner">
+  <ul class="official-banner__site-list">
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://www.usaspending.gov">
+        USAspending.gov
+      </a>
+    </li>
+    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+      |
+    </li>
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+        Data Lab
+      </a>
+    </li>
+  </ul>
   <div class="official-banner__wrapper">
     <div class="official-banner__text">
       An official website of the U.S. government
@@ -164,7 +169,7 @@
     </nav>
   </div>
 
-  <nav class="header__sub">
+  <div class="header__sub">
     <ul class="dropdown-ul-section" id="subnav-analyses">
       <li class="secondaryNavli"><a href="/dts.html">DTS Tracker</a></li>
       <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
@@ -193,10 +198,11 @@
         </button>
       </li>
     </ul>    
-  </nav>
+  </div>
+
 </header>
 
-<nav class="mobileUlSection" id="mobileSection"> 
+<div class="mobileUlSection" id="mobileSection"> 
   <ul class="mobileNav" id="mobile-nav">
     <li class="navListItem">
       <a href="#" id="analysesAnchor">Analyses</a>
@@ -288,286 +294,424 @@
       <hr id="mobileHr">
     </ul>
   </ul>
-</nav>
 
-        <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
+</div>
+
+      <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
 <svg class="icon-chevron-up" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
     <path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"/>
 </svg></span>
-        <article id="main">
-
-  <div class="dl-landing">
-
-    <section class="primary">
-      <a class="primary__link" href="/americas-finance-guide/">
-        <h1 class="primary__mobile-heading">
-          Your Guide to America's Finances
-        </h1>
-
-        <img class="primary__image" src="../images/homepage/cg-gif.gif"
-          alt="Answer all your questions about federal government finance" />
-        <div class="primary__content">
-
-          <h2 class="primary__heading">
-            Your Guide to America's Finances
-          </h2>
-
-          <p class="primary__text primary__text--desktop">
-            Your Guide to America's Finances is an overview of federal government finances in 2018, providing
-            information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab,
-            presents a series of interactive visualizations to allow you to explore these categories and how they have
-            changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of
-            dollars collected and spent by the federal government each year.
-          </p>
-
-          <div class="primary__text_container">
-            <p class="primary__text">
-              The Guide presents straightforward information about the federal government's spending and revenue, as
-              well as the deficit and debt in 2018.
-            </p>
-          </div>
-
-        </div>
-
-      </a>
-    </section>
-
-    <section class="secondary">
-
-      <section class="landing-chart">
-        <a class="landing-chart__link" href="dts.html">
-          <h1>
-            Visualizing the Daily Treasury Statement
-          </h1>
-          <h2>
-            How much does the federal<br>government spend each day?
-          </h2>
-          <div class="dts-container">  
-  <div class="dts-module">
-    <div class="dtsm-img"></div>
-    <div class="dtsm-right-column">
-      <div class="dtsm-tas-container">
-        <div class="dtsm-tas-header">All categories</div>
-      </div>
-      <div class="dtsm-dollars">$</div>
+      <article id="main">
+  <header style='background-image: url("images/landings/budget.jpg");' alt=Budget Function-Photography by Brandon Mowinkel>
+    <div class="header-box">
+      <h2 class="page-menuname">Budget Function</h2>
+      <h2 class="page-title">Understanding federal spending related to the government's main functions</h2>
+      <h3 class="page-description">The U.S. Treasury’s Data Lab presents an analysis on federal spending related to the government’s main functions. This visualization sheds light on both budget functions and object classes.</h3>
     </div>
-  </div>
-  
-  <script src="/js/babel-polyfill.min.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="/assets/js/dts-module.js"></script>                
-</div> 
-
-<div class="side-dts__date">
-
+  </header>
+  <section class="wrapper">
+    <div class="entry-about-container">
+    <div class="entry-about-title-container">
+        <h2 class="entry-about-title">Categorization Systems</h2>
+        <div class="entry-about-divider"></div>
+    </div>
+    <div class="entry-about-body-container">
+        <h3 class="entry-about-body">Budget Functions are used by Congress to categorize federal spending, and are also useful for the
+	public to understand the different missions, or functions of the federal government. Though Budget Functions
+	have evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal
+	spending using a version of these categories for more than 200 years.</h3>
+        
+            <a onclick="document.getElementById('panel1Modal').style.display='block';" class="button-read-more"><span>Read More ⟶</span></a>
+        
+    </div>
 </div>
-        </a>
 
-      </section>
+<div id=panel1Modal class="modal">
+    <div class="modal-content">
+        <div class="modal-blue-bar"></div>
+        <div class="modal-body">
+            <div class="modal-body-title">Categorization Systems</div>
+            <div class="modal-body-content"><p>Budget Functions are used by Congress to categorize federal spending, and are also useful for the public
+		to understand the different missions, or functions of the federal government. Though Budget Functions have
+		evolved over time, the use of Budget Functions is nothing new: Congress has been tracking federal spending
+		using a version of these categories for more than 200 years.</p>
 
-      <section class="landing-feature">
-        <a class="landing-feature__link" href="contracts-over-time.html">
-
-          <div class="landing-feature__headings">
-            <h1>
-              Contract Spending Analysis
-            </h1>
-            <h2>
-              How has federal<br> contract spending<br> changed over time?
-            </h2>
-          </div>
-
-          <div class="landing-feature__image">
-            <img class="" src="../images/homepage/c-o-t.png" />
-          </div>
-          <p class="landing-feature__text">
-            We explore 10 years of contract data, and provide an analysis of the
-            impact of short-term continuing resolutions on contract spending.
-          </p>
-
-        </a>
-      </section>
-
-      <section class="landing-feature">
-        <a class="landing-feature__link" href="contract-explorer.html">
-
-
-          <div class="landing-feature__headings">
-            <h1>
-              Contract Explorer
-            </h1>
-            <h2>
-              Who receives <br>federal<br> contracts?
-            </h2>
-          </div>
-          <div class="landing-feature__image">
-            <img class="" src="../images/homepage/contract-explorer.svg" />
-          </div>
-
-          <p class="landing-feature__text">
-            The federal government spends about $500 billion each year on contracts. Learn more
-            about contract recipients and what agencies receive from these contracts.
-          </p>
-        </a>
-      </section>
-
-    </section>
-  </div>
-  <section class="landing-row">
-    <h1 class="landing-row__heading">
-      More Analyses
-    </h1>
-    <div class="landing-row__tiles">
-
-      <a class="landing-row__tile" href="federal-account-explorer.html">
-        <div class="landing-row__text">
-          <h2>
-            Federal Account Explorer
-          </h2>
-          <p class="landing-row__title">
-            Discover the federal government's spending accounts
-          </p>
+		<p>The Object Classification system, which was created
+		in the 1920s, explains what the government received in exchange for spending.  For example, the Object
+		Classification system captures spending on salaries for federal employees, rent payments for federal buildings,
+		and spending on federal contracts.</p></div>
+            <span class="modal-body-close">Close</span>
         </div>
-        <div>
-          <img src="../images/homepage/federal.jpg" class="landing-row__image" />
-        </div>
-      </a>
-
-      <a class="landing-row__tile" href="federal-employees.html">
-        <div class="landing-row__text">
-          <h2>
-            Federal Employees
-          </h2>
-          <p class="landing-row__title">
-            Who works<br> in government?
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/workers.jpg" class="landing-row__image" />
-        </div>
-      </a>
-
-      <a class="landing-row__tile" href="budget-function.html">
-        <div class="landing-row__text">
-          <h2>
-            Budget Function
-          </h2>
-          <p class="landing-row__title">
-            Check out how federal spending is categorized
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/budget.jpg" class="landing-row__image" />
-        </div>
-      </a>
-
-      <a class="landing-row__tile" href="competition-in-contracting.html">
-        <div class="landing-row__text">
-          <h2>
-            Competition in Contracting
-          </h2>
-          <p class="landing-row__title">
-            How often do federal agencies compete for contracts?
-          </p>
-        </div>
-        <div>
-          <img src="../images/homepage/competition.jpg" class="landing-row__image" />
-        </div>
-      </a>
     </div>
-  </section>
+</div>
 
-  <section class="feature-row">
-    <a href="/homelessness-analysis.html">
-      <div class="feature-row__border">
-        <div class="feature-row__image">
-          <img src="../images/homepage/homelessness.png" />
+<script>
+    document.getElementById('panel1Modal').querySelector("div > div.modal-body > span").onclick = function() {
+		document.getElementById('panel1Modal').style.display = "none";
+	}
+</script>
+
+<section id="one" class="viz-section center-text">
+	<div class="viz-bkgd">
+		<div class="viz-title-container">
+    <div class="viz-title">Budget Function Explorer</div>
+    <div onclick="document.getElementById('panel1InstructionsModal').style.display='block';" class="button-instructions">Instructions</div>
+    <div class="viz-subtext">Spending in Fiscal Year 2017/2018</div>
+    <div class="viz-mobile-message"><b>Heads up!</b> This visualization requires a wider screen to be displayed.</div>
+</div>
+		<div id=panel1InstructionsModal class="modal">
+    <div class="modal-content">
+        <div class="modal-blue-bar"></div>
+        <div class="modal-body">
+            <div class="modal-body-title">Instructions</div>
+            <div class="modal-body-content"><ul>
+					<li>This Sankey diagram shows Budget Functions on the left and Object Classes on the right. </li>
+              		<li>Hover over a Budget Function category on the left to see how spending breaks down into Object Class categories</li>
+			      	<li>Hover over an Object Class on the right to see how spending breaks down into Budget Functions</li>
+					<li>Click and drag any Budget Function or Object Class color bar to vertically rearrange the ordering of that category</li>
+				  </ul></div>
+            <span class="modal-body-close">Close</span>
         </div>
-        <div class="feature-row__text">
-          <h1 class="feature-row__heading">
-            Homelessness Analysis
-          </h1>
-          <p class="feature-row__title">
-            Explore federal programs that address <br>homelessness
-          </p>
-          <p class="feature-row__blurb">
-            On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our
-            visualizations, you can see which federal programs are addressing homelessness, the amount of federal
-            spending on homelessness by region, and where individuals experiencing homelessness are located. We also
-            provide information about which regions are similar to others based on their homeless populations and
-            funding profiles.
-          </p>
-        </div>
-      </div>
-    </a>
-  </section>
-
-
-  <section class="landing-row landing-row--resources">
-    <h1 class="landing-row__heading">
-      Resources
-    </h1>
-    <div class="landing-row__tiles">
-
-      <div class="landing-row__tile landing-row__tile--primary">
-        <div class="landing-row__text">
-          <p class="landing-row__title">
-            Do you want
-            <strong><br>to conduct your<br> own analysis?</strong>
-          </p>
-          <p class="landing-row__p">
-            Access Treasury data and<br> create your own charts and<br> visualizations!
-          </p>
-        </div>
-      </div>
-
-      <a class="landing-row__tile" href="http://api.usaspending.gov/">
-        <img src="../images/homepage/resources-api-2.svg" class="svgImg" />
-        <div class="landing-row__text">
-          <h1 class="landing-row__title landing-row__title-mod">
-            API Guide
-          </h1>
-          <p class="landing-row__p landing-row__p--hide">
-            Guidance on accessing Treasury<br> data with open source code.
-          </p>
-        </div>
-      </a>
-
-      <a class="landing-row__tile" href="/assets/analyst-guide-1-2.pdf">
-        <img src="../images/homepage/resources-user-guide-2.svg" class="svgImg" />
-        <div class="landing-row__text">
-          <h1 class="landing-row__title landing-row__title-mod">
-            Analyst Guide
-          </h1>
-          <p class="landing-row__p landing-row__p--hide">
-            Methods to easily navigate data <br>from our sister site,<br> USAspending.gov
-          </p>
-        </div>
-      </a>
-
-      <a class="landing-row__tile landing-row__tile--last" href="/student-innovators-toolbox.html">
-        <img src="../images/homepage/resources-playbook-2.svg" class="svgImg" />
-        <div class="landing-row__text">
-          <h1 class="landing-row__title landing-row__title-mod">
-            Student Innovators Toolbox
-          </h1>
-          <p class="landing-row__p landing-row__p--hide">
-            Ways for professors and students to get involved.
-          </p>
-        </div>
-      </a>
-
-
     </div>
+</div>
 
+<script>
+    document.getElementById('panel1InstructionsModal').querySelector("div > div.modal-body > span").onclick = function() {
+		document.getElementById('panel1InstructionsModal').style.display = "none";
+	}
+</script>
+		<div class="mask">
+			<h5 style="position: absolute; margin-left: 25px">Click on nodes to display additional information</h5>
+			<div class="viz-actions">
+				<form id="SankeyRadio">
+					<div class="select-wrapper1" style="position:absolute; margin:20px;">
+						<input type="radio" id="contactChoice1" name="FiscalYear" value="fy19" checked>
+						<label for="contactChoice1" style="font-size:12px;">FY 19</label>
+
+						<input type="radio" id="contactChoice2" name="FiscalYear" value="fy18">
+						<label for="contactChoice2" style="font-size:12px;">FY 18</label>
+
+						<input type="radio" id="contactChoice3" name="FiscalYear" value="fy17">
+						<label for="contactChoice3" style="font-size:12px">FY 17</label>
+					</div>
+				</form>
+				<div>
+					<script>
+    function clickShareItemLink(item, url) {
+        window.open(url, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
+
+        window.Analytics.event({
+            category: 'Share Menu - Click Item',
+            action: item
+        });
+
+        return false;
+    }
+</script>
+
+<div class="action-button share-viz-button popup">
+    <span class="viz-share-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" height="18" width="18">
+   <defs>
+      <path id="a" d="M-622 305h23v23h-23z"/>
+   </defs>
+   <clipPath id="b">
+      <use xlink:href="#a" overflow="visible"/>
+   </clipPath>
+   <g clip-path="url(#b)">
+      <defs>
+         <path id="c" d="M-700-2576H740v5192H-700z"/>
+      </defs>
+      <clipPath id="d">
+         <use xlink:href="#c" overflow="visible"/>
+      </clipPath>
+      <g clip-path="url(#d)">
+         <defs>
+            <path id="e" d="M-623 304h25v25h-25z"/>
+         </defs>
+         <clipPath id="f">
+            <use xlink:href="#e" overflow="visible"/>
+         </clipPath>
+         <g clip-path="url(#f)">
+            <defs>
+               <path id="g" d="M-612.4 323.7c-.8 0-1.4-.5-.8-2.6l.9-3.8c.2-.6.2-.8 0-.8s-1.3.4-1.9.8l-.4-.7c1.9-1.6 4.2-2.6 5.1-2.6.8 0 .9.9.5 2.4l-1 4c-.2.7-.1.9.1.9s1-.3 1.8-.9l.5.6c-1.9 2-4 2.7-4.8 2.7m3-14.9c1.2 0 1.5.7 1.5 1.5 0 1-.8 1.9-2.1 1.9-1.1 0-1.6-.6-1.6-1.5 0-.8.7-1.9 2.2-1.9m-1.3-3.8c-6.4.1-11.4 5.3-11.3 11.7.1 6.3 5.3 11.4 11.7 11.3 6.3-.1 11.4-5.3 11.3-11.7-.1-6.3-5.3-11.4-11.7-11.3"/>
+            </defs>
+            <clipPath id="h">
+               <use xlink:href="#g" overflow="visible"/>
+            </clipPath>
+            <g clip-path="url(#h)">
+               <defs>
+                  <path id="i" d="M-622 305h23v23h-23z"/>
+               </defs>
+               <clipPath id="j">
+                  <use xlink:href="#i" overflow="visible"/>
+               </clipPath>
+            </g>
+         </g>
+      </g>
+   </g>
+   <g>
+      <path d="M32.9 26.2c-2.1 0-4 1-5.2 2.5l-14.1-7c.1-.5.2-1 .2-1.6 0-.6-.1-1.1-.2-1.6l14-7c1.2 1.6 3.1 2.6 5.3 2.6 3.8 0 6.9-3.1 6.9-6.9S36.7.3 32.9.3C29.1.3 26 3.4 26 7.2c0 .4.1.9.2 1.3l-14.1 7.1C10.9 14.1 9 13.2 7 13.2c-3.8 0-6.9 3.1-6.9 6.9S3.2 27 7 27c2.1 0 3.9-.9 5.2-2.4l14.1 7c-.1.5-.2.9-.2 1.4 0 3.8 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9c-.1-3.8-3.2-6.8-7-6.8z"/>
+   </g>
+</svg>
+    </span>
+    Share
+    <span class="popuptext right" id="sharePopup">
+        <div class="share-buttons">
+            <ul>
+                <li>
+                    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://datalab.usaspending.gov/budget-function.html')" title="Share on Facebook">
+                        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>mdpi/Facebook</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <g transform="translate(0.000000, -0.000000)">
+                <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
+                <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+                <path d="M16.8926455,26.2272924 L13.3586842,26.2272924 L13.3586842,17.6086657 L11.5927832,17.6086657 L11.5927832,14.638976 L13.3586842,14.638976 L13.3586842,12.8560745 C13.3586842,10.4335474 14.3552764,8.99221453 17.188492,8.99221453 L19.5466257,8.99221453 L19.5466257,11.962992 L18.0727921,11.962992 C16.9698463,11.962992 16.8969644,12.3779871 16.8969644,13.1524995 L16.8921057,14.638976 L19.5628217,14.638976 L19.2502394,17.6086657 L16.8921057,17.6086657 L16.8921057,26.2272924 L16.8926455,26.2272924 Z" id="Shape" fill="#808080"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+                        <span class="share-button-text">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text=Data Lab – Budget Function – U.S. Treasury&url=https://datalab.usaspending.gov/budget-function.html')" title="Share on Twitter">
+                        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>mdpi/Twitter</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Twitter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-12">
+            <g transform="translate(0.000000, -0.000000)">
+                <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
+                <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+                <path d="M22.1176892,12.6233694 C22.7624982,12.2025291 23.2572686,11.5352244 23.4894712,10.7403038 C22.8857442,11.1309449 22.218608,11.4134535 21.5068175,11.5663978 C20.938814,10.9039639 20.1269976,10.490917 19.2285518,10.490917 C17.5048934,10.490917 16.1081049,12.0154889 16.1081049,13.895632 C16.1081049,14.1625539 16.1340044,14.4226566 16.1875897,14.6710693 C13.5940642,14.5288408 11.2943645,13.1747481 9.75378891,11.1134099 C9.48496964,11.6180286 9.33135863,12.2025291 9.33135863,12.8259962 C9.33135863,14.0066871 9.88239348,15.0490462 10.7201093,15.6608233 C10.2083703,15.6432883 9.72699629,15.4883957 9.3054591,15.2351122 L9.3054591,15.2770014 C9.3054591,16.927241 10.3807362,18.3037395 11.8105689,18.6154731 C11.5480013,18.6953548 11.2729304,18.7352956 10.9871424,18.7352956 C10.7861978,18.7352956 10.5897186,18.7148381 10.4003841,18.6748973 C10.7969149,20.0270416 11.9498905,21.012899 13.3163141,21.0392015 C12.2472886,21.9529706 10.9014061,22.496556 9.43942219,22.496556 C9.18757158,22.496556 8.93840023,22.4819435 8.6945874,22.4497959 C10.0761934,23.4151958 11.7167947,23.9792388 13.479749,23.9792388 C19.2223002,23.9792388 22.3606089,18.7908232 22.3606089,14.291144 C22.3606089,14.1430705 22.3588227,13.9959713 22.3525711,13.8508203 C22.9625497,13.3705558 23.4930436,12.7704687 23.9101154,12.0875773 C23.3501496,12.3583959 22.7482088,12.5415393 22.1176892,12.6233694 Z" id="Shape" fill="#808080"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+                        <span class="share-button-text">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Google Plus', 'https://plus.google.com/share?url=https://datalab.usaspending.gov/budget-function.html')" title="Share on Google+">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-google-plus" width="2304" height="1792" viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/>
+</svg>
+                        <span class="share-button-text">Google</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Pinterest', 'http://pinterest.com/pin/create/button/?url=https://datalab.usaspending.gov/budget-function.html')" title="Share on Pinterest">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-pinterest" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"/>
+</svg>
+                        <span class="share-button-text">Pinterest</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Tumblr', 'http://www.tumblr.com/share/link?url=https://datalab.usaspending.gov/budget-function.html')" title="Share on Tumblr">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-tumblr" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1328 1329l80 237q-23 35-111 66t-177 32q-104 2-190.5-26t-142.5-74-95-106-55.5-120-16.5-118v-544h-168v-215q72-26 129-69.5t91-90 58-102 34-99 15-88.5q1-5 4.5-8.5t7.5-3.5h244v424h333v252h-334v518q0 30 6.5 56t22.5 52.5 49.5 41.5 81.5 14q78-2 134-29z"/>
+</svg>
+                        <span class="share-button-text">Tumblr</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url=https://datalab.usaspending.gov/budget-function.html')" title="Share on Reddit">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-reddit" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1792 846q0 58-29.5 105.5t-79.5 72.5q12 46 12 96 0 155-106.5 287t-290.5 208.5-400 76.5-399.5-76.5-290-208.5-106.5-287q0-47 11-94-51-25-82-73.5t-31-106.5q0-82 58-140.5t141-58.5q85 0 145 63 218-152 515-162l116-521q3-13 15-21t26-5l369 81q18-37 54-59.5t79-22.5q62 0 106 43.5t44 105.5-44 106-106 44-105.5-43.5-43.5-105.5l-334-74-104 472q300 9 519 160 58-61 143-61 83 0 141 58.5t58 140.5zm-1374 199q0 62 43.5 106t105.5 44 106-44 44-106-44-105.5-106-43.5q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20-160-20-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5 91 4.5 91-4.5 122.5-29.5 118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5 44 106 106 44z"/>
+</svg>
+                        <span class="share-button-text">Reddit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url=https://datalab.usaspending.gov/budget-function.html")' title="Share on LinkedIn">
+                        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>mdpi/Linkedin</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Linkedin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LinkedIn">
+            <g id="LinkedIn'" transform="translate(0.000000, -0.000000)">
+                <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
+                <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+                <path d="M9.06009951,13.7978886 L11.8845113,13.7978886 L11.8845113,23.9782792 L9.06009951,23.9782792 L9.06009951,13.7978886 Z M10.4003106,12.5245001 L10.3798624,12.5245001 C9.35745086,12.5245001 8.6945874,11.746265 8.6945874,10.7607563 C8.6945874,9.7550961 9.37704708,8.99221453 10.4199068,8.99221453 C11.4619145,8.99221453 12.1026257,9.7531769 12.123074,10.7578775 C12.123074,11.7433862 11.4619145,12.5245001 10.4003106,12.5245001 L10.4003106,12.5245001 Z M19.9828624,23.9792388 L19.9828624,18.7100782 C19.9828624,17.3311338 19.4818807,16.3907263 18.3802323,16.3907263 C17.5375949,16.3907263 17.0689896,17.0250215 16.8508751,17.6382056 C16.7690822,17.8569943 16.7818624,18.1631065 16.7818624,18.4701783 L16.7818624,23.9792388 L13.6089787,23.9792388 C13.6089787,23.9792388 13.6498751,14.6461745 13.6089787,13.7978886 L16.7818624,13.7978886 L16.7818624,15.3956217 C16.9693045,14.6970333 17.9831959,13.7000094 19.6011621,13.7000094 C21.6084967,13.7000094 23.1855664,15.1653178 23.1855664,18.317602 L23.1855664,23.9792388 L19.9828624,23.9792388 Z" id="Shape" fill="#808080"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+                        <span class="share-button-text">Linkedin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:?subject=Data Lab – Budget Function – U.S. Treasury&amp;body=Check out this site https://datalab.usaspending.gov/budget-function.html" title="Share via Email">
+                        <?xml version="1.0" encoding="utf-8"?>
+<svg class="share-icon icon-envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
+</svg>
+                        <span class="share-button-text">Email</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </span>
+</div>
+				</div>
+			</div>
+			<div class="viz-container">
+				<element class="budget-sankey">
+					<div id="sankey-container">
+						<div id="sankey-viz">
+							<div class="sankey-brackets">
+								<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 664.4">
+   <defs>
+      <style>.cls-1{fill:none}.cls-3{clip-path:url(#clip-path-2)}.cls-4{fill:#5b616b}.cls-6{fill:#979797}</style>
+      <clipPath id="clip-path">
+         <path class="cls-1" d="M1 239h19v165H1z"/>
+      </clipPath>
+      <clipPath id="clip-path-2">
+         <path class="cls-1" d="M-84-1392h1440v3335H-84z"/>
+      </clipPath>
+      <clipPath id="clip-path-3">
+         <path class="cls-1" transform="rotate(-89 628.9976 362.5353)" d="M556 353.03h146v19H556z"/>
+      </clipPath>
+   </defs>
+   <g class="cls-3" clip-path="url(#clip-path)">
+      <path class="cls-4" d="M7.19 402.43v-3.51c0-2.39.81-4.07 2.88-4.07a2.57 2.57 0 0 1 2.57 2.07h.08c.27-1.72 1.2-2.73 2.82-2.73 2.33 0 3.46 1.83 3.46 4.46v3.78zm5-3.26c0-2-.72-2.84-2-2.84s-1.82.95-1.82 2.77v1.82h3.85zm5.58-.3c0-2-.74-3.21-2.34-3.21s-2.12 1.14-2.12 3.21v2.05h4.46zM7.19 391.4v-1.51h7c2.84 0 3.74-1.21 3.74-2.74s-.9-2.81-3.74-2.81h-7v-1.44h6.93c3.8 0 5.1 1.84 5.1 4.25s-1.3 4.25-5.1 4.25zM7.19 379.23v-3c0-3.64 2.1-5.58 5.85-5.58s6 1.94 6 5.51v3zm10.59-2.84c0-2.78-1.75-4.14-4.74-4.14s-4.63 1.36-4.63 4.14v1.33h9.37zM7 362.85a4.62 4.62 0 0 1 1.46-3.39l1 .87a3.2 3.2 0 0 0-1.09 2.5c0 2.4 1.83 3.93 4.77 3.93s4.84-1.41 4.84-3.93a3.31 3.31 0 0 0-.7-2.14h-3.16v2.5h-1.24v-3.87h5a5.35 5.35 0 0 1 1.34 3.68c0 3.1-2.27 5.32-6.13 5.32S7 366 7 362.85zM7.19 356v-6.8h1.26v5.29h3.71V350h1.28v4.47h4.28V349H19v7zM8.45 343.56v3.58H7.19v-8.66h1.26v3.58H19v1.5zM7.19 331.64v-6.82h1.26v5.31h4v-4.5h1.26v4.5H19v1.51zM7.19 322.3v-1.51h7c2.84 0 3.74-1.21 3.74-2.74s-.9-2.81-3.74-2.81h-7v-1.44h6.93c3.8 0 5.1 1.84 5.1 4.25s-1.3 4.25-5.1 4.25zM7.19 310.13v-1.55l7.42-4.28 2.45-1.3c-1.19.07-2.52.19-3.77.19h-6.1v-1.42H19v1.55l-7.44 4.27-2.43 1.28v.07c1.19-.07 2.45-.18 3.69-.18H19v1.42zM7 293.39a4.36 4.36 0 0 1 1.46-3.22l1 .84a3.18 3.18 0 0 0-1.09 2.36c0 2.25 1.83 3.75 4.77 3.75s4.84-1.43 4.84-3.68a3.47 3.47 0 0 0-1.31-2.7l.92-.84a4.5 4.5 0 0 1 1.71 3.58c0 3-2.27 5.18-6.13 5.18S7 296.41 7 293.39zM8.45 285.06v3.58H7.19V280h1.26v3.58H19v1.5zM7.19 277.37v-1.51H19v1.51zM13 272.82c-3.78 0-6.07-2.09-6.07-5.06s2.31-5 6.07-5 6.18 2.08 6.18 5-2.34 5.06-6.18 5.06zm0-8.56c-2.93 0-4.75 1.39-4.75 3.5s1.82 3.51 4.75 3.51 4.86-1.39 4.86-3.51-1.86-3.5-4.86-3.5zM7.19 259.59V258l7.42-4.28 2.45-1.28v-.07c-1.19.07-2.52.2-3.77.2h-6.1v-1.43H19v1.55L11.56 257l-2.43 1.28v.07c1.19-.07 2.45-.18 3.69-.18H19v1.42z"/>
+   </g>
+   <g class="cls-3" clip-path="url(#clip-path-3)">
+      <path class="cls-4" d="M627.72 290.38c3.78.07 6 2.2 6 5.17s-2.4 5-6.16 4.93-6.14-2.19-6.08-5.14 2.44-5.02 6.24-4.96zm-.15 8.56c2.93.05 4.78-1.31 4.81-3.41s-1.75-3.55-4.69-3.6-4.88 1.3-4.92 3.43 1.85 3.52 4.8 3.58zM633.34 303.62l-.06 3.51c0 2.4-.88 4.06-2.95 4a2.56 2.56 0 0 1-2.54-2.11h-.07c-.3 1.72-1.26 2.71-2.88 2.68-2.32 0-3.42-1.89-3.38-4.52l.07-3.78zM622.66 307c0 2 .68 3.22 2.28 3.25s2.14-1.1 2.18-3.17v-2.05l-4.47-.08zm5.58-.21c0 2 .67 2.86 2 2.88s1.83-.92 1.86-2.74v-1.81l-3.86-.07zM623.77 314.28a2.28 2.28 0 0 0-1.37 2c0 1.26.69 1.9 2.49 1.93l8.19.14v1.5l-8.34-.15c-2 0-3.67-1-3.63-3.32a3.43 3.43 0 0 1 1.89-3.18zM633 323.55l-.12 6.8h-1.26l.1-5.29L628 325l-.08 4.47h-1.28l.08-4.47-4.29-.07-.09 5.47h-1.28l.12-7zM633 338.13a4.35 4.35 0 0 1-1.51 3.2l-.94-.87a3.13 3.13 0 0 0 1.14-2.34c0-2.25-1.77-3.77-4.71-3.82s-4.86 1.33-4.9 3.59a3.45 3.45 0 0 0 1.26 2.72l-.93.83a4.56 4.56 0 0 1-1.65-3.61c.06-3 2.36-5.15 6.22-5.08s6.02 2.35 6.02 5.38zM631.33 346.44l.06-3.59h1.27l-.16 8.65h-1.26l.07-3.58-10.55-.18v-1.5zM632.52 363a4.36 4.36 0 0 1-1.51 3.19l-.94-.86a3.2 3.2 0 0 0 1.14-2.34c0-2.25-1.77-3.78-4.71-3.83s-4.87 1.34-4.91 3.59a3.44 3.44 0 0 0 1.27 2.72l-.93.83a4.48 4.48 0 0 1-1.65-3.61c.05-3 2.36-5.14 6.21-5.08s6.08 2.33 6.03 5.39zM632.2 369.15v1.51l-10.53-.18-.09 5.15h-1.28l.12-6.66zM623.73 383.71l.08-4.3-3.59-1.2v-1.53l11.78 4.21v1.69l-11.88 3.79v-1.59zm1.21-.35l1.81-.53c1.32-.39 2.63-.75 4-1.1v-.07c-1.36-.41-2.65-.81-4-1.24l-1.79-.61zM622.62 388.63a4.57 4.57 0 0 0-1.53 3.23c0 1.55.73 2.48 1.88 2.5s1.6-.84 2.12-1.95l.77-1.68a3.34 3.34 0 0 1 3.08-2.34c1.8 0 3.11 1.64 3.07 3.78a4.79 4.79 0 0 1-1.52 3.45l-1-.81a3.77 3.77 0 0 0 1.17-2.66c0-1.33-.63-2.22-1.69-2.24s-1.59 1-2 1.92l-.75 1.68c-.62 1.36-1.45 2.41-3.19 2.38s-3.34-1.61-3.3-4.09a5.67 5.67 0 0 1 1.82-4.09zM622.44 398.81a4.57 4.57 0 0 0-1.53 3.23c0 1.55.73 2.48 1.88 2.5s1.6-.84 2.12-1.94l.77-1.68a3.36 3.36 0 0 1 3.09-2.35c1.8 0 3.1 1.64 3.06 3.79a4.79 4.79 0 0 1-1.52 3.44l-.95-.8a3.85 3.85 0 0 0 1.16-2.67c0-1.33-.63-2.22-1.69-2.24s-1.59 1-2 1.93l-.75 1.68c-.61 1.35-1.44 2.4-3.19 2.37s-3.34-1.61-3.3-4.09a5.69 5.69 0 0 1 1.82-4.09z"/>
+   </g>
+   <g class="cls-3">
+      <path class="cls-6" d="M11.5 5.5h27.54v2H11.5z"/>
+      <path class="cls-6" d="M11.5 5.88h2v231.16h-2zM600.96 48.5h27.54v2h-27.54z"/>
+      <path class="cls-6" d="M626.5 48.88h2v231.16h-2zM8.5 650.5h27.54v2H8.5z"/>
+      <path class="cls-6" d="M8.5 420.96h2v231.16h-2zM597.96 651.5h27.54v2h-27.54z"/>
+      <path class="cls-6" d="M623.5 421.96h2v231.16h-2z"/>
+   </g>
+</svg>
+							</div>
+						</div>
+						<div id="sankey-table"></div>
+					</div>
+				</element>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="entry-about-container">
+    <div class="entry-about-title-container">
+        <h2 class="entry-about-title">How We Conducted This Analysis</h2>
+        <div class="entry-about-divider"></div>
+    </div>
+    <div class="entry-about-body-container">
+        <h3 class="entry-about-body">This analysis was conducted using agency account obligation data reported to USAspending.gov, which is available to the public. Each reported account is aligned to a single Budget Function and is further broken out by the dollars obligated under each Object Class (data can be found via the TAS/categories endpoint within the DATA Act API).</h3>
+        
+            <a href="budget-function-more.html" class="button-read-more"><span>Read More ⟶</span></a>
+        
+    </div>
+</div>
+
+<div class="footer-navigation narrow">
+    <div class="footer-navigation__container footer-navigation__container_previous">
+        <div>
+            <a href="homelessness-analysis.html">
+                <div class="footer-navigation__subtitle">Previous</div>
+                <div class="footer-navigation__navigate-button btn-prev-viz"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.8 29.6">
+  <path fill="#666" d="M14.9 28.1c-7.4 0-13.5-6-13.5-13.5s6-13.5 13.5-13.5c7.4 0 13.5 6 13.5 13.5s-6.1 13.5-13.5 13.5zm0-28.1C6.8 0 .2 6.6.2 14.6s6.6 14.6 14.6 14.6c8.1 0 14.6-6.6 14.6-14.6S22.9 0 14.9 0zM17 8.3c-.2-.2-.6-.2-.8.1l-5.4 6.2 5.4 6.2c.1.1.3.2.4.2.1 0 .3 0 .4-.1.2-.2.3-.6.1-.8l-4.7-5.5 4.7-5.5c.2-.2.2-.6-.1-.8z"/>
+</svg></div>
+            </a>
+        </div>
+        <div>
+            <a href="homelessness-analysis.html">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">Homelessness Analysis</div>
+                    <!-- <div class="footer-navigation__subtitle">Previous</div> -->
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer-navigation__container footer-navigation__container_next right-align">
+        <div>
+            <a href="federal-employees.html">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">Federal Employees</div>
+                    <!-- <div class="footer-navigation__subtitle">Next</div> -->
+                </div>
+            </a>
+        </div>
+        <div>
+            <a href="federal-employees.html">
+                <div class="footer-navigation__subtitle">Next</div>
+                <div class="footer-navigation__navigate-button btn-next-viz"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.8 29.6">
+  <path fill="#666" d="M1.4 14.6c0-7.4 6-13.5 13.5-13.5 7.4 0 13.5 6 13.5 13.5s-6 13.5-13.5 13.5S1.4 22 1.4 14.6zm-1.2 0c0 8.1 6.6 14.6 14.6 14.6 8.1 0 14.6-6.6 14.6-14.6S22.9 0 14.9 0C6.8 0 .2 6.6.2 14.6zm12.4-5.5l4.7 5.5-4.7 5.5c-.2.2-.2.6.1.8.1.1.2.1.4.1s.3-.1.4-.2l5.4-6.2-5.4-6.2c-.2-.2-.6-.3-.8-.1-.3.2-.3.6-.1.8z"/>
+</svg></div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="footer-navigation wide">
+    <div class="footer-navigation__container footer-navigation__container_previous">
+        <div>
+            <a href="homelessness-analysis.html">
+                <div class="footer-navigation__navigate-button btn-prev-viz"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.8 29.6">
+  <path fill="#666" d="M14.9 28.1c-7.4 0-13.5-6-13.5-13.5s6-13.5 13.5-13.5c7.4 0 13.5 6 13.5 13.5s-6.1 13.5-13.5 13.5zm0-28.1C6.8 0 .2 6.6.2 14.6s6.6 14.6 14.6 14.6c8.1 0 14.6-6.6 14.6-14.6S22.9 0 14.9 0zM17 8.3c-.2-.2-.6-.2-.8.1l-5.4 6.2 5.4 6.2c.1.1.3.2.4.2.1 0 .3 0 .4-.1.2-.2.3-.6.1-.8l-4.7-5.5 4.7-5.5c.2-.2.2-.6-.1-.8z"/>
+</svg></div>
+            </a>
+        </div>
+        <div>
+            <a href="homelessness-analysis.html">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">Homelessness Analysis</div>
+                    <div class="footer-navigation__subtitle">Previous</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer-navigation__container footer-navigation__container_next right-align">
+        <div>
+        <div>
+            <a href="federal-employees.html">
+                <div class="footer-navigation__title-container">
+                    <div class="footer-navigation__title">Federal Employees</div>
+                    <div class="footer-navigation__subtitle">Next</div>
+                </div>
+            </a>
+        </div>
+        <div>
+            <a href="federal-employees.html">
+                <div class="footer-navigation__navigate-button btn-next-viz"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.8 29.6">
+  <path fill="#666" d="M1.4 14.6c0-7.4 6-13.5 13.5-13.5 7.4 0 13.5 6 13.5 13.5s-6 13.5-13.5 13.5S1.4 22 1.4 14.6zm-1.2 0c0 8.1 6.6 14.6 14.6 14.6 8.1 0 14.6-6.6 14.6-14.6S22.9 0 14.9 0C6.8 0 .2 6.6.2 14.6zm12.4-5.5l4.7 5.5-4.7 5.5c-.2.2-.2.6.1.8.1.1.2.1.4.1s.3-.1.4-.2l5.4-6.2-5.4-6.2c-.2-.2-.6-.3-.8-.1-.3.2-.3.6-.1.8z"/>
+</svg></div>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- d3 scripts -->
+<script src="/assets/js/vendor/d3.v3.min.js"></script>
+<script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/budget-sankey.js"></script>
 
   </section>
-
-
 </article>
-<div class="clearfix"></div>
-
-        <script>
+      <script>
   function trackLinkClick(actionName) {
           window.Analytics.event({
               category: 'Footer - Click Link',
@@ -781,6 +925,37 @@
 </footer>
 
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://datalab.usaspending.gov/"
+        },
+        "image": "https://datalab.usaspending.gov/assets/data-lab-og.png",
+        "headline": "The U.S. Treasury’s Data Lab presents an analysis on federal spending related to the government’s main functions. This visualization sheds light on both budg...",
+        "datePublished": "2019-04-09T08:00:00+06:00",
+        "dateModified": "2019-04-09T08:00:00+06:00",
+        "author": {
+        "@type": "Organization",
+        "name": "U.S. Treasury",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+            }
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "U.S. Treasury",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.treasury.gov/Style%20Library/legacy-header/seal.png"
+            }
+        },
+        "description": "Do you know what the government spends money on in support of its main functions? Budget Functions are categories that describe the purpose of federal spending (the why), and Object Classes are categories that describe what goods and services were purchased (the what). This visualization will shed light on both categories and help you draw connections between them."
+    }
+    </script>
     <script src="/assets/ffg/components/glossary/glossary.js"></script>
   </body>
 </html>
