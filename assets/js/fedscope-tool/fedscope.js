@@ -52,11 +52,6 @@ $(() => {
 
 				occupationDropdownMasterList = Object.values(occupationCategories).sort(sorter);
 				filterOccupationsList();
-				// occupationDropdownOptions = occupationDropdownMasterList.map(o => `<option value="${o.id}">${o.name}</option>`);
-				// $("#mapOccupationDropdown")
-				// 	.append('<option value="any">(Any Type)</option>')
-				// 	.append(...occupationDropdownOptions)
-				// ;
 			});
 		});
 	});
@@ -75,6 +70,7 @@ $(() => {
 
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
+			const { employeeCounts } = mem;
 			occupationDropdownOptions = occupationDropdownMasterList
 				.filter(o => selectedAgencies.includes(o.id))
 				.map(o => `<option value="${o.id}">${o.name}</option>`);
