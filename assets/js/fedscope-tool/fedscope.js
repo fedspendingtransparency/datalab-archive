@@ -72,7 +72,7 @@ $(() => {
 		if (selectedAgencies) {
 			const { employeeCounts } = mem;
 			const agencyOccupationIds = [];
-			for (let e in employeeCounts) {
+			for (let e of employeeCounts) {
 				if (selectedAgencies.includes(e.agencyId)) {
 					agencyOccupationIds.push(e.occupationCategoryId);
 				}
