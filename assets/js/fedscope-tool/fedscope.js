@@ -51,46 +51,46 @@ $(() => {
 				$("#barchartAgencyDropdown").append(...agencyDropdownOptions);
 
 				occupationDropdownMasterList = Object.values(occupationCategories).sort(sorter);
-				// filterOccupationsList();
-				occupationDropdownOptions = occupationDropdownMasterList.map(o => `<option value="${o.id}">${o.name}</option>`);
-				$("#mapOccupationDropdown")
-					.append('<option value="any">(Any Type)</option>')
-					.append(...occupationDropdownOptions)
-				;
+				filterOccupationsList();
+				// occupationDropdownOptions = occupationDropdownMasterList.map(o => `<option value="${o.id}">${o.name}</option>`);
+				// $("#mapOccupationDropdown")
+				// 	.append('<option value="any">(Any Type)</option>')
+				// 	.append(...occupationDropdownOptions)
+				// ;
 			});
 		});
 	});
 
-	// let changes = 0;
-	// $("#mapAgencyDropdown").change(() => {
-	// 	changes++;
-	// 	let local_change = changes;
+	let changes = 0;
+	$("#mapAgencyDropdown").change(() => {
+		changes++;
+		let local_change = changes;
 
-	// 	setTimeout(function () { // wait 1 sec to see if they're done making changes
-	// 		if (local_change === changes) {
-	// 			filterOccupationsList($(this).val());
-	// 		}
-	// 	}, 1000);
-	// })
+		setTimeout(function () { // wait 1 sec to see if they're done making changes
+			if (local_change === changes) {
+				filterOccupationsList($("#mapAgencyDropdown").val());
+			}
+		}, 1000);
+	})
 
-	// function filterOccupationsList(selectedAgencies) {
-	// 	if (selectedAgencies) {
-	// 		occupationDropdownOptions = occupationDropdownMasterList
-	// 			.filter()
-	// 			.map(o => `<option value="${o.id}">${o.name}</option>`);
-	// 	} else {
-	// 		occupationDropdownOptions = occupationDropdownMasterList
-	// 			.map(o => `<option value="${o.id}">${o.name}</option>`);
-	// 	}
+	function filterOccupationsList(selectedAgencies) {
+		if (selectedAgencies) {
+			occupationDropdownOptions = occupationDropdownMasterList
+				.filter(o => selectedAgencies.includes(o.id))
+				.map(o => `<option value="${o.id}">${o.name}</option>`);
+		} else {
+			occupationDropdownOptions = occupationDropdownMasterList
+				.map(o => `<option value="${o.id}">${o.name}</option>`);
+		}
 
-	// 	$('#mapAgencyDropdown')
-	// 		.find('option')
-	// 		.remove()
-	// 		.end()
-	// 		.append('<option value="any">(Any Type)</option>')
-	// 		.append(...occupationDropdownOptions)
-	// 	;
-	// }
+		$('#mapAgencyDropdown')
+			.find('option')
+			.remove()
+			.end()
+			.append('<option value="any">(Any Type)</option>')
+			.append(...occupationDropdownOptions)
+		;
+	}
 
 	$("#mapFilter").click(() => {
 		const filterAgencies = $("#mapAgencyDropdown").val();
