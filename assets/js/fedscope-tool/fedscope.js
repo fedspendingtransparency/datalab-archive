@@ -81,7 +81,7 @@ $(() => {
 
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
-			let currentOccupations = agencyOccupationIds[0].slice();
+			let currentOccupations = agencyOccupationIds[selectedAgencies[0]].slice();
 			if (selectedAgencies.length > 1) {
 				selectedAgencies.slice(1).forEach (agencyId => {
 					agencyOccupationIds[agencyId].forEach (occupationId => {
