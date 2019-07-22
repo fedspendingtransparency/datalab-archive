@@ -83,8 +83,8 @@ $(() => {
 				.map(o => `<option value="${o.id}">${o.name}</option>`);
 		}
 
-		$('#mapAgencyDropdown')
-			.find('option')
+		$("#mapAgencyDropdown")
+			.find("option")
 			.remove()
 			.end()
 			.append('<option value="any">(Any Type)</option>')
