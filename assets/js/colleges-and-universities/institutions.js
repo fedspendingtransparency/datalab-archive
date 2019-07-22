@@ -310,8 +310,9 @@ function createMapbox() {
 
       // click for righthand panel
       map.on('click', 'unclustered-point', function(e) {
-	// call global
-	instmap.activateDetail(e.features[0].properties);
+	if ($(window).width() > 949) {
+	  instmap.activateDetail(e.features[0].properties);
+	}
       });
       
     }); // end getjson (get map function)
