@@ -51,7 +51,7 @@ $(() => {
 				$("#mapAgencyDropdown").append(...agencyDropdownOptions);
 				$("#barchartAgencyDropdown").append(...agencyDropdownOptions);
 
-				// create array or agency IDs, each an array of occupations within that agency
+				// create array of agency IDs, each an array of occupation IDs within that agency
 				for (let e of mem.employeeCounts) {
 					if (!agencyOccupationIds[e.agencyId]) {
 						agencyOccupationIds[e.agencyId] = [];
@@ -72,7 +72,7 @@ $(() => {
 		changes++;
 		let local_change = changes;
 
-		setTimeout(function () { // wait 1 sec to see if they're done making changes
+		setTimeout(() => { // wait 1 sec to see if user is done making changes
 			if (local_change === changes) {
 				filterOccupationsList($("#mapAgencyDropdown").val());
 			}
@@ -81,8 +81,18 @@ $(() => {
 
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
+			let currentOccupations = agencyOccupationIds[0].slice();
+			if (selectedAgencies.length > 1) {
+				selectedAgencies.slice(1).forEach (agencyId => {
+					agencyOccupationIds[agencyId].forEach (occupationId => {
+						if (!currentOccupations.includes(occupationId)) {
+							currentOccupations.push(occupationId);
+						}
+					})
+				})
+			}
 			occupationDropdownOptions = occupationDropdownMasterList
-				.filter(o => agencyOccupationIds.includes(o.id))
+				.filter(o => currentOccupations.includes(o.id))
 				.map(o => `<option value="${o.id}">${o.name}</option>`);
 		} else {
 			occupationDropdownOptions = occupationDropdownMasterList
