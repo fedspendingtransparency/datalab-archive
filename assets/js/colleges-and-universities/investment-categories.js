@@ -122,11 +122,17 @@ function downloadData() {
     }
 }
 
-function calculateLineHeight(lineHeight) {
-  if (lineHeight < 1.2 && lineHeight > 0) {
-    return "1.2em";
-  }
-  return lineHeight + "em";
+function isMobile() {
+    const maxThreshold = 768;
+    return window.innerWidth <= maxThreshold;
+}
+
+function isTablet() {
+    const minThreshold = 769;
+    const maxThreshold = 1199;
+
+   return (minThreshold <= window.innerWidth && window.innerWidth <= maxThreshold);
+
 }
 
 const formatNumber = d3.format('$,.0f');
@@ -144,6 +150,9 @@ function updateCenter(d) {
     const mediumText = 1.25;
     const largeText = 1.75;
     const exLargeText = 2;
+
+    let wordWrapMultiplier = isMobile() ? 5.5 : 2;
+    let smWordWrapMultiplier = isMobile() ? 3 : 1;
 
   if (d.depth === 0) {
 
@@ -192,7 +201,7 @@ function updateCenter(d) {
       .text(d.name)
       .attr('class', 'center-title')
       .style('font-size', labelFontSize * mediumText + "em")
-      .call(wordWrap, boundingBox)
+      .call(wordWrap, boundingBox * smWordWrapMultiplier)
 
     ;
 
@@ -234,7 +243,7 @@ function updateCenter(d) {
         .text(d.parent.name)
         .attr('class', 'center-title')
         .style('font-size', labelFontSize * largeText + "em")
-        .call(wordWrap, boundingBox)
+        .call(wordWrap, boundingBox * smWordWrapMultiplier)
 
       ;
 
@@ -255,7 +264,7 @@ function updateCenter(d) {
         .text(d.name)
         .attr('class', 'center-title')
         .style('font-size', labelFontSize * largeText + "em")
-        .call(wordWrap, innerRadius * 2.5)
+        .call(wordWrap, innerRadius * wordWrapMultiplier)
       ;
 
       centerGroup.append('tspan')
