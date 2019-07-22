@@ -71,7 +71,7 @@ $(() => {
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
 			const { employeeCounts } = mem;
-			const agencyOccupationIds = [];
+			let agencyOccupationIds = [];
 			for (let e of employeeCounts) {
 				if (selectedAgencies.includes(e.agencyId)) {
 					agencyOccupationIds.push(e.occupationCategoryId);
