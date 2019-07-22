@@ -83,7 +83,7 @@ $(() => {
 				.map(o => `<option value="${o.id}">${o.name}</option>`);
 		}
 
-		$("#mapAgencyDropdown")
+		$("#mapOccupationDropdown")
 			.find("option")
 			.remove()
 			.end()
