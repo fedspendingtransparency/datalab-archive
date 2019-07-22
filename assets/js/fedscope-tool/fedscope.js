@@ -71,8 +71,13 @@ $(() => {
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
 			const { employeeCounts } = mem;
+			const agencyOccupationIds = employeeCounts.map(e => {
+				if (selectedAgencies.includes(e.agencyId)) {
+					return e.occupationCategoryId;
+				}
+			});
 			occupationDropdownOptions = occupationDropdownMasterList
-				.filter(o => selectedAgencies.includes(o.id))
+				.filter(o => agencyOccupationIds.includes(o.id))
 				.map(o => `<option value="${o.id}">${o.name}</option>`);
 		} else {
 			occupationDropdownOptions = occupationDropdownMasterList
