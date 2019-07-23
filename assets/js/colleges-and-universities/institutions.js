@@ -184,9 +184,9 @@ function createMapbox() {
 	  "circle-radius": [
 	    "step",
 	    ["get", "point_count"],
-	    7,
-	    10,
+	    9,
 	    15,
+	    20,
 	    30,
 	    15,
 	    50,
@@ -200,7 +200,7 @@ function createMapbox() {
       });
 
       // set opactiy to 40%
-      map.setPaintProperty('clusters', 'circle-opacity', .4);
+      map.setPaintProperty('clusters', 'circle-opacity', .35);
       
       map.addLayer({
 	id: "cluster-count",
@@ -221,7 +221,7 @@ function createMapbox() {
 	filter: ["!", ["has", "point_count"]],
 	paint: {
 	  "circle-color": "#881E3D",
-	  "circle-radius": 5,
+	  "circle-radius": 6,
 	  "circle-stroke-width": 1,
 	  "circle-stroke-color": "#ddd"
 	}
