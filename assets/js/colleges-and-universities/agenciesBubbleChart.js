@@ -238,7 +238,11 @@ function drawBubbleChart(root) {
 			}
 		})
 		.attr("id", function (d) {
-			return d.name.replace(/ /g, "_!");
+			let name = d.name.replace(/ /g, "_");
+			if (name === d.parent.name) {
+				name += '_sub'
+			}
+			return name;
 		})
 		.on("click", bubbleClick)
 		.on("mouseover", function (d) {
@@ -257,7 +261,11 @@ function drawBubbleChart(root) {
 		.attr("font-family", "Source Sans Pro")
 		.attr("class", "label")
 		.attr("id", function (d) {
-			return "text_" + d.name.replace(/ /g, "&_");
+			let name = "text_" + d.name.replace(/ /g, "_");
+			if (name === d.parent.name) {
+				name += '_sub'
+			}
+			return name;
 		})
 		.style("fill-opacity", function (d) {
 			return d.parent === root ? 1 : 0;
@@ -543,7 +551,7 @@ function transformData(data) {
 			} else {
 				result[agency][subagency] = 0;
 			}
-			tempRoot.children[i].children.push({ "name": `s${subagency}`, "children": [], "color": null, "size": result[agency][subagency] });
+			tempRoot.children[i].children.push({ "name": subagency, "children": [], "color": null, "size": result[agency][subagency] });
 		}
 		i++;
 	}
