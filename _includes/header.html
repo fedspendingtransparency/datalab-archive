@@ -5,11 +5,17 @@
         USAspending.gov
       </a>
     </li>
-    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+    <li
+      class="official-banner__site-item official-banner__site-item_spacer"
+      aria-hidden="true"
+    >
       |
     </li>
     <li class="official-banner__site-item">
-      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+      <a
+        class="official-banner__site-link"
+        href="https://datalab.usaspending.gov"
+      >
         Data Lab
       </a>
     </li>
@@ -18,7 +24,11 @@
     <div class="official-banner__text">
       An official website of the U.S. government
     </div>
-    <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
+    <img
+      class="official-banner__flag"
+      src="/images/us_flag_small.png"
+      alt="U.S. flag"
+    />
   </div>
 </header>
 {% include info-banner.html %}
@@ -26,124 +36,298 @@
   <div class="header__main">
     <a class="header-logo header-logo--init" href="/">
       <div class="header-logo__wrapper">
-        <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" alt="DataLab logo"/>
-        <img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" alt="Visualizations to help you understand government finance" />
+        <img
+          src="/assets/header-svg/data-lab-logo.svg"
+          class="header-logo__img"
+          id="master-logo"
+          alt="DataLab logo"
+        />
+        <img
+          src="/assets/header-svg/two-line.png"
+          class="header-logo__two-line header-logo__tagline"
+          id="two-line-tag"
+          alt="Visualizations to help you understand government finance"
+        />
       </div>
-      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
+      <img
+        src="/assets/header-svg/one-line.png"
+        class="header-logo__tagline"
+        id="one-line-tag"
+        alt="Visualizations to help you understand government finance"
+      />
     </a>
 
     <nav class="header-nav">
       <span class="navbar-toggle" id="burger-navbar-toggle">
-	<i class="fas fa-bars"> </i>
+        <i class="fas fa-bars"> </i>
       </span>
       <ul class="nav" id="burger-menu">
-	<li class="navListItem desktop-nav-item" data-target="analyses">
+        <li class="navListItem desktop-nav-item" data-target="analyses">
           <a href="#">ANALYSES</a>
-	  <span>{% include svgs/arrow.svg %}</span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="resources">
+          <span>{% include svgs/arrow.svg %}</span>
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="resources">
           <a href="#">RESOURCES</a>
-	  <span>{% include svgs/arrow.svg %}</span>
-	</li>
-	<li class="navListItem desktop-nav-item" data-target="ffg">
-          <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
-	  <span class="">{% include svgs/arrow.svg %}</span>
-	</li>
+          <span>{% include svgs/arrow.svg %}</span>
+        </li>
+        <li class="navListItem desktop-nav-item" data-target="ffg">
+          <a href="/americas-finance-guide/" id="ffgNavAnchor"
+            >AMERICA'S FINANCE GUIDE</a
+          >
+          <span class="">{% include svgs/arrow.svg %}</span>
+        </li>
       </ul>
     </nav>
   </div>
 
   <div class="header__sub">
     <ul class="dropdown-ul-section" id="subnav-analyses">
-      <li class="secondaryNavli"><a href="/colleges-and-universities.html">Colleges and Universities</a></li>
-      <li class="secondaryNavli"><a href="/dts.html">DTS Tracker</a></li>
-      <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
-      <li class="secondaryNavli"><a href="/federal-account-explorer.html">Federal Account Explorer</a></li>
-      <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
-      <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
-      <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
-      <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
-      <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+      <li class="secondaryNavli">
+        <a href="/colleges-and-universities.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Colleges and Universities'"
+        >
+          Colleges and Universities
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/dts.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'DTS Tracker'"
+        >
+          DTS Tracker
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/contracts-over-time.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Contract Spending Analysis'"
+        >
+          Contract Spending Analysis
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/federal-account-explorer.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Federal Account Explorer'"
+        >
+          Federal Account Explorer
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/contract-explorer.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Contract Explorer'"
+        >
+          Contract Explorer
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/homelessness-analysis.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Homelessness Analysis'"
+        >
+          Homelessness Analysis
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/budget-function.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Budget Function'"
+        >
+          Budget Function
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/federal-employees.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Federal Employees'"
+        >
+          Federal Employees
+        </a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/competition-in-contracting.html"
+            ga-on="click" ga-event-category="Main (top) Menu" ga-event-action="Clicked 'Competition in Contracting'"
+        >
+          Competition in Contracting
+        </a>
+      </li>
     </ul>
     <ul class="dropdown-ul-section" id="subnav-resources">
-      <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
-      <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
-      <li class="secondaryNavli"><a href="https://www.fiscal.treasury.gov/data-transparency/DAIMS-current.html">Data Model</a></li>
-      <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+      <li class="secondaryNavli">
+        <a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="http://api.usaspending.gov/">API Guide</a>
+      </li>
+      <li class="secondaryNavli">
+        <a
+          href="https://www.fiscal.treasury.gov/data-transparency/DAIMS-current.html"
+          >Data Model</a
+        >
+      </li>
+      <li class="secondaryNavli">
+        <a href="/student-innovators-toolbox.html"
+          >Student Innovator's Toolbox</a
+        >
+      </li>
     </ul>
     <ul class="dropdown-ul-section" id="subnav-ffg">
-      <li class="secondaryNavli"><a href="/americas-finance-guide/">Overview</a></li>
-      <li class="secondaryNavli"><a href="/americas-finance-guide/revenue">Revenue</a></li>
-      <li class="secondaryNavli"><a href="/americas-finance-guide/spending">Spending</a></li>
-      <li class="secondaryNavli"><a href="/americas-finance-guide/deficit">Deficit</a></li>
-      <li class="secondaryNavli"><a href="/americas-finance-guide/debt">Debt</a></li>
+      <li class="secondaryNavli">
+        <a href="/americas-finance-guide/">Overview</a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/americas-finance-guide/revenue">Revenue</a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/americas-finance-guide/spending">Spending</a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/americas-finance-guide/deficit">Deficit</a>
+      </li>
+      <li class="secondaryNavli">
+        <a href="/americas-finance-guide/debt">Debt</a>
+      </li>
       <li class="secondaryNavli">
         <button id="ffg-glossary-trigger">
-          <img src="/assets/ffg/icons/definition.svg" alt="definition icon" width="12px"> <span class="text-element">Glossary</span>
+          <img
+            src="/assets/ffg/icons/definition.svg"
+            alt="definition icon"
+            width="12px"
+          />
+          <span class="text-element">Glossary</span>
         </button>
       </li>
-    </ul>    
+    </ul>
   </div>
-
 </header>
 
-<div class="mobileUlSection" id="mobileSection"> 
+<div class="mobileUlSection" id="mobileSection">
   <ul class="mobileNav" id="mobile-nav">
     <li class="navListItem">
       <a href="#" id="analysesAnchor">Analyses</a>
       <span>{% include svgs/arrow.svg %}</span>
     </li>
     <ul class="secondaryNavAnalysesMobile" id="mobileAnalyses">
-      <li class="secondaryNavMobileli"><a href="/colleges-and-universities.html">Colleges and Universities</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/dts.html">DTS Tracker</a></li>
+      <li class="secondaryNavMobileli">
+        <a href="/colleges-and-universities.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Colleges and Universities'"
+        >
+          Colleges and Universities
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/dts.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'DTS Tracker'"
+        >
+          DTS Tracker
+        </a>
+      </li>
       <!-- change to ::after or id to class  -->
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/federal-account-explorer.html">Federal Account Explorer</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/contract-explorer.html">Contract Explorer</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/budget-function.html">Budget Function</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/federal-employees.html">Federal Employees</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
-      <hr>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/contracts-over-time.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Contract Spending Analysis'"
+        >
+          Contract Spending Analysis
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/federal-account-explorer.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Federal Account Explorer'"
+        >
+          Federal Account Explorer
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/contract-explorer.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Contract Explorer'"
+        >
+          Contract Explorer
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/homelessness-analysis.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Homelessness Analysis'"
+        >
+          Homelessness Analysis
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/budget-function.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Budget Function'"
+        >
+          Budget Function
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/federal-employees.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Federal Employees'"
+        >
+          Federal Employees
+        </a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/competition-in-contracting.html"
+            ga-on="click" ga-event-category="Main (mobile) Menu" ga-event-action="Clicked 'Competition in Contracting'"
+        >
+          Competition in Contracting
+        </a>
+      </li>
+      <hr id="mobileHr" />
     </ul>
     <li class="navListItem">
       <a href="#" id="resourcesAnchor">Resources</a>
       <span>{% include svgs/arrow.svg %}</span>
     </li>
     <ul class="secondaryNavResourcesMobile" id="mobileResources">
-      <li class="secondaryNavMobileli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="http://api.usaspending.gov/">API Guide</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="https://www.fiscal.treasury.gov/data-transparency/DAIMS-current.html">Data Model</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
-      <hr>
+      <li class="secondaryNavMobileli">
+        <a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="http://api.usaspending.gov/">API Guide</a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a
+          href="https://www.fiscal.treasury.gov/data-transparency/DAIMS-current.html"
+          >Data Model</a
+        >
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/student-innovators-toolbox.html"
+          >Student Innovator's Toolbox</a
+        >
+      </li>
+      <hr id="mobileHr" />
     </ul>
     <li class="navListItem">
       <a href="#" id="ffgAnchor">America's Finance Guide</a>
       <span class="">{% include svgs/arrow.svg %}</span>
     </li>
     <ul class="secondaryNavFFGMobile" id="mobileFFG">
-      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/">Overview</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/revenue">Revenue</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/spending">Spending</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/deficit">Deficit</a></li>
-      <hr>
-      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/debt">Debt</a></li>
-      <hr>
+      <li class="secondaryNavMobileli">
+        <a href="/americas-finance-guide/">Overview</a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/americas-finance-guide/revenue">Revenue</a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/americas-finance-guide/spending">Spending</a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/americas-finance-guide/deficit">Deficit</a>
+      </li>
+      <hr id="mobileHr" />
+      <li class="secondaryNavMobileli">
+        <a href="/americas-finance-guide/debt">Debt</a>
+      </li>
+      <hr id="mobileHr" />
     </ul>
   </ul>
-
 </div>
