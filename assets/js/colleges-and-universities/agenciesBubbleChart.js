@@ -1,5 +1,5 @@
 ---
-	---
+---
 /*
 *   Local declarations
 */
@@ -11,7 +11,6 @@ const color = ['#c8ac7f', '#C6919E', '#C99E7F', '#879BBA', '#A3D1CC', '#88A6A0',
 	'#80AEC4', '#C99E7F', '#C6919E', '#879BBA', '#A3D1CC', '#88A6A0', '#80AEC4', '#C9BB7F',
 	'#C9BB7F', '#c8ac7f', '#C6919E', '#879BBA', '#A3D1CC', '#88A6A0', '#80AEC4', '#C9BB7F',
 	'#c8ac7f', '#c8ac7f', '#C99E7F', '#879BBA', '#A3D1CC', '#88A6A0', '#80AEC4', '#C9BB7F'];
-
 
 const bTableBtn = $('#bubble-table-trigger');
 const bTableContainer = $('#bubbleTableContainer');
