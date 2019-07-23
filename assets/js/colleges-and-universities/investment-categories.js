@@ -151,8 +151,8 @@ function updateCenter(d) {
     const largeText = 1.75;
     const exLargeText = 2;
 
-    let wordWrapMultiplier = isMobile() ? 5.5 : 2;
-    let smWordWrapMultiplier = isMobile() ? 3 : 1;
+    let wordWrapMultiplier = isMobile() ? 5.5 : isTablet() ? 3 : 2;
+    let smWordWrapMultiplier = isMobile() ? 3 : isTablet() ? 2 : 1;
 
   if (d.depth === 0) {
 
