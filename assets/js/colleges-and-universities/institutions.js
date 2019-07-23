@@ -36,9 +36,25 @@ function createMapbox() {
   let listingEl = $('.map-search__list');
   let mobileListingEl = $('.map-search__list--mobile');
 
+  // helper function, sort json //
+  function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+      let x = a[key]; let y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+  }
+
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
+      let realData = data;
+      let realDataArr = [];
+      realDataArr = JSON.parse(realData);
+      console.log(realDataArr);
       
+//      let sortedData = realData.features.sort(compare);
+//      let sortedData = realData.features.sort((a,b) => (a.Recipient > b.Recipient) ? 1 : ((b.Recipient > a.Recipient) ? -1 : 0)); 
+//      console.log(sortedData);
+
       let geoandname = data.features.map(function (ele) {
 	return {
 	  coord: ele.geometry,
@@ -52,8 +68,10 @@ function createMapbox() {
 	};
       });
 
+      let sortedGeoandName = sortByKey(geoandname, 'name');
+
       // mobile search //
-      geoandname.forEach(function(ele) {
+      sortedGeoandName.forEach(function(ele) {
 	let mobileListitem = document.createElement('li');
 	mobileListitem.classList.add('map-search__item--mobile');
 	mobileListitem.textContent = ele.name;
@@ -79,7 +97,7 @@ function createMapbox() {
       });
 
       // tablet and desktop search //
-      geoandname.forEach(function(ele) {
+      sortedGeoandName.forEach(function(ele) {
 	let listitem = document.createElement('li');
 	listitem.classList.add('map-search__item');
 	listitem.textContent = ele.name;
@@ -100,6 +118,7 @@ function createMapbox() {
 	});
 	listingEl.append(listitem);
       });
+      
     });
   }
   
@@ -173,9 +192,9 @@ function createMapbox() {
 	  "circle-radius": [
 	    "step",
 	    ["get", "point_count"],
-	    6,
-	    8,
-	    12,
+	    7,
+	    10,
+	    15,
 	    30,
 	    15,
 	    50,
@@ -210,7 +229,7 @@ function createMapbox() {
 	filter: ["!", ["has", "point_count"]],
 	paint: {
 	  "circle-color": "#881E3D",
-	  "circle-radius": 3.5,
+	  "circle-radius": 5,
 	  "circle-stroke-width": 1,
 	  "circle-stroke-color": "#ddd"
 	}
@@ -299,8 +318,9 @@ function createMapbox() {
 
       // click for righthand panel
       map.on('click', 'unclustered-point', function(e) {
-	// call global
-	instmap.activateDetail(e.features[0].properties);
+	if ($(window).width() > 949) {
+	  instmap.activateDetail(e.features[0].properties);
+	}
       });
       
     }); // end getjson (get map function)
@@ -369,7 +389,6 @@ function filterMapSearch() {
 function filterSearchMobile() {
   // handle input filter..
   $('#mobile-keydown').keyup(function() {
-    console.log('mobile keydown pressed');
     const filter = document.getElementById('mobile-keydown').value.toUpperCase();
     const li = document.getElementById("map-search-ul--mobile").getElementsByTagName('li');
 
