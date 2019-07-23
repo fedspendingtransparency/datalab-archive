@@ -49,24 +49,28 @@ const pack = d3.layout.pack()
 		} else {
 			return -1;
 		}
-	});
+	})
+	;
 
 // add legend
 d3.select('#agency-legend_scaleKey').append('circle')
 	.attr('r', 25)
 	.attr('class', 'legend_scaleKeyCircle')
 	.attr('cx', 60)
-	.attr('cy', 65);
+	.attr('cy', 65)
+	;
 d3.select('#agency-legend_scaleKey').append('circle')
 	.attr('r', 35)
 	.attr('class', 'legend_scaleKeyCircle')
 	.attr('cx', 60)
-	.attr('cy', 65);
+	.attr('cy', 65)
+	;
 d3.select('#agency-legend_scaleKey').append('circle')
 	.attr('r', 45)
 	.attr('class', 'legend_scaleKeyCircle')
 	.attr('cx', 60)
-	.attr('cy', 65);
+	.attr('cy', 65)
+	;
 
 /* functions */
 
@@ -539,7 +543,7 @@ function transformData(data) {
 			} else {
 				result[agency][subagency] = 0;
 			}
-			tempRoot.children[i].children.push({ "name": subagency, "children": [], "color": null, "size": result[agency][subagency] });
+			tempRoot.children[i].children.push({ "name": `s${subagency}`, "children": [], "color": null, "size": result[agency][subagency] });
 		}
 		i++;
 	}
