@@ -239,7 +239,7 @@ function drawBubbleChart(root) {
 		})
 		.attr("id", function (d) {
 			let name = d.name.replace(/ /g, "_");
-			if (name === d.parent.name) {
+			if (d.depth > 1 && name === d.parent.name) {
 				name += '_sub'
 			}
 			return name;
@@ -262,7 +262,7 @@ function drawBubbleChart(root) {
 		.attr("class", "label")
 		.attr("id", function (d) {
 			let name = "text_" + d.name.replace(/ /g, "_");
-			if (name === d.parent.name) {
+			if (d.depth > 1 && name === d.parent.name) {
 				name += '_sub'
 			}
 			return name;
