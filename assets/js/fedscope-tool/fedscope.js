@@ -15,6 +15,8 @@ $(() => {
 		mem
 	} = dataModule;
 
+	const mapAgencyDropdown = $("#mapAgencyDropdown");
+	const mapOccupationDropdown = $("#mapOccupationDropdown");
 	let occupationDropdownMasterList;
 	let agencyOccupationIds = [];
 	let occupationDropdownOptions;
@@ -48,7 +50,7 @@ $(() => {
 					.sort(sorter)
 					.map(a => `<option value="${a.id}">${a.name}</option>`)
 					;
-				$("#mapAgencyDropdown").append(...agencyDropdownOptions);
+				mapAgencyDropdown.append(...agencyDropdownOptions);
 				$("#barchartAgencyDropdown").append(...agencyDropdownOptions);
 
 				occupationDropdownMasterList = Object.values(occupationCategories).sort(sorter);
@@ -70,16 +72,16 @@ $(() => {
 	}
 
 	let changes = 0;
-	$("#mapAgencyDropdown").change(() => {
+	mapAgencyDropdown.change(() => {
 		changes++;
 		let local_change = changes;
 
 		setTimeout(() => { // wait 1 sec to see if user is done making changes
 			if (local_change === changes) {
-				filterOccupationsList($("#mapAgencyDropdown").val());
+				filterOccupationsList(mapAgencyDropdown.val());
 			}
 		}, 1000);
-	})
+	});
 
 	function filterOccupationsList(selectedAgencies) {
 		if (selectedAgencies) {
@@ -93,26 +95,23 @@ $(() => {
 					})
 				})
 			}
-			occupationDropdownOptions = occupationDropdownMasterList
-				.filter(o => currentOccupations.includes(o.id))
-				.map(o => `<option value="${o.id}">${o.name}</option>`);
+			occupationDropdownOptions = occupationDropdownMasterList.filter(o => currentOccupations.includes(o.id));
 		} else {
-			occupationDropdownOptions = occupationDropdownMasterList
-				.map(o => `<option value="${o.id}">${o.name}</option>`);
+			occupationDropdownOptions = occupationDropdownMasterList;
 		}
 
-		$("#mapOccupationDropdown")
+		mapOccupationDropdown
 			.find("option")
 			.remove()
 			.end()
 			.append('<option value="any">(Any Type)</option>')
-			.append(...occupationDropdownOptions)
+			.append(...occupationDropdownOptions.map(o => `<option value="${o.id}">${o.name}</option>`))
 			;
 	}
 
 	$("#mapFilter").click(() => {
-		const filterAgencies = $("#mapAgencyDropdown").val();
-		const filterOccupations = $("#mapOccupationDropdown").val();
+		const filterAgencies = mapAgencyDropdown.val();
+		const filterOccupations = mapOccupationDropdown.val();
 		const { employeeCounts, states, occupationCategories } = mem;
 		let newData = [...employeeCounts];
 
