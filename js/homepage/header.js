@@ -7,7 +7,7 @@
   let subNavHideTimeout;
   const headerContainers = {};
   const mobileContainers = {};
-  const desktopMin = 992;
+  const desktopMin = 769;
   const superMobile = 576;
   const twolineCollision = 1350;
   let logoMarginOffset = 149;
