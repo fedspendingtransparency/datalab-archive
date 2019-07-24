@@ -19,6 +19,11 @@
 // table styling (Material Design)
 @import url('css/materialTable.min.css');
 
+// device screen widths
+$desktop-xl: 1200px;
+$desktop: 992px;
+$tablet: 768px;
+$phone: 576px;
 
 $accent-blue: #007fae;
 $accent-grey: #323A45;
