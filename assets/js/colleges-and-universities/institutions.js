@@ -7,7 +7,7 @@ let agenciesTopFive;
 let categoriesTopFive;
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function createMapbox() {
@@ -46,14 +46,6 @@ function createMapbox() {
 
   function renderAllSchools() {
     $.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
-      let realData = data;
-      let realDataArr = [];
-      realDataArr = JSON.parse(realData);
-      console.log(realDataArr);
-      
-//      let sortedData = realData.features.sort(compare);
-//      let sortedData = realData.features.sort((a,b) => (a.Recipient > b.Recipient) ? 1 : ((b.Recipient > a.Recipient) ? -1 : 0)); 
-//      console.log(sortedData);
 
       let geoandname = data.features.map(function (ele) {
 	return {
@@ -90,9 +82,10 @@ function createMapbox() {
 	  });
 	  tooltip.setLngLat(mobileMatched[0].coord.coordinates)
 	    .setHTML(mobileTooltip)
-      .addTo(map)
-    ;
-    $("#map-search-ul--mobile").hide(); // hide mobile search list
+	    .addTo(map);
+
+
+	  $("#map-search-ul--mobile").hide(); // hide mobile search list
 	});
       });
 
@@ -113,8 +106,7 @@ function createMapbox() {
 	  });
 	  tooltip.setLngLat(matched[0].coord.coordinates)
 	    .setHTML(tooltipHtml)
-      .addTo(map)
-    ;
+	    .addTo(map);
 	});
 	listingEl.append(listitem);
       });
@@ -192,9 +184,9 @@ function createMapbox() {
 	  "circle-radius": [
 	    "step",
 	    ["get", "point_count"],
-	    7,
-	    10,
+	    9,
 	    15,
+	    20,
 	    30,
 	    15,
 	    50,
@@ -208,7 +200,7 @@ function createMapbox() {
       });
 
       // set opactiy to 40%
-      map.setPaintProperty('clusters', 'circle-opacity', .4);
+      map.setPaintProperty('clusters', 'circle-opacity', .35);
       
       map.addLayer({
 	id: "cluster-count",
@@ -229,7 +221,7 @@ function createMapbox() {
 	filter: ["!", ["has", "point_count"]],
 	paint: {
 	  "circle-color": "#881E3D",
-	  "circle-radius": 5,
+	  "circle-radius": 6,
 	  "circle-stroke-width": 1,
 	  "circle-stroke-color": "#ddd"
 	}
@@ -299,6 +291,30 @@ function createMapbox() {
 	  .addTo(map);
       });
 
+      // duplicate with "click" for mobile register
+      map.on('click', 'unclustered-point', function(e) {
+	// Change the cursor style as a UI indicator.
+	map.getCanvas().style.cursor = 'pointer';
+	
+	let coordinates = e.features[0].geometry.coordinates.slice();
+	let name = e.features[0].properties.Recipient;
+	let state = e.features[0].properties.State;
+	let fedInvest = formatCurrency(e.features[0].properties.Total_Federal_Investment);
+	let county = e.features[0].properties.COUNTY;
+	let numStudents = numberWithCommas(e.features[0].properties.Total);
+
+	let tooltipHtml = `<div class='tooltip-float'><p class='map-tooltip-p-left-inst'>Institution</p> <p class='map-tooltip-p-right'>${name}</p></div> <div class='tooltip-float'><p class='map-tooltip-p-left'>State</p> <p class='map-tooltip-p-right'>${state}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>County</p> <p class='map-tooltip-p-right'>${county}</p></div><div class='tooltip-float tooltip-float--underline'><p class='map-tooltip-p-left'>Number of Students </p> <p class='map-tooltip-p-right'>${numStudents}</p></div><div class='tooltip-float'><p class='map-tooltip-p-left'>Total $ Received</p><p class='map-tooltip-p-right-invest'>${fedInvest}</p></div>`;
+
+	while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+	  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+	}
+
+	tooltip.setLngLat(coordinates)
+	  .setHTML(tooltipHtml)
+	  .addTo(map);
+      });
+
+
       map.on('mouseleave', 'unclustered-point', function() {
 	map.getCanvas().style.cursor = '';
 	tooltip.remove();
@@ -336,12 +352,12 @@ function createInstTable() {
     let titles = ['Institution', 'Type', 'Contracts', 'Grants', 'Student Aid', 'Total $ Received'];
 
     let headers = table.append('thead').append('tr')
-      .selectAll('th')
-      .data(titles).enter()
-      .append('th')
-      .text(function (d) {
-        return d;
-      })
+	.selectAll('th')
+	.data(titles).enter()
+	.append('th')
+	.text(function (d) {
+          return d;
+	})
     ;
 
     // concat into a "type" property
@@ -396,9 +412,9 @@ function filterSearchMobile() {
     for (let i = 0; i < li.length; i++) {
       const txtValue = li[i].innerHTML;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    	  li[i].style.display = "";
+    	li[i].style.display = "";
       } else {
-    	  li[i].style.display = "none";
+    	li[i].style.display = "none";
       }
     }
   });
