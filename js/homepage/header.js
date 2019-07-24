@@ -119,7 +119,7 @@
 
     let leftMargin = 0 - (max - y) * mSteps;
 
-    if (width > desktopMin && width < twolineCollision) {
+    if (width >= desktopMin && width < twolineCollision) {
       forceLogoLeft(width);
       return;
     }
@@ -336,7 +336,7 @@
   function setInitialLogoPosition() {
     let width = window.innerWidth;
     const hasTight = headerContainers.header.hasClass('tight');
-    if (width > desktopMin && width < twolineCollision) {
+    if (width >= desktopMin && width < twolineCollision) {
       forceLogoLeft(width);
     } else if (hasTight) {
       forceLogoLeft(width);
