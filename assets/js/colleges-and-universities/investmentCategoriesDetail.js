@@ -166,7 +166,7 @@
       detailContainer.append('span').classed('bubble-detail__agency-label', true).text('Category');
       categoryName = detailContainer.append('span').classed('bubble-detail__agency-name', true);
 
-      detailContainer.append('span').classed('bubble-detail__agency-label', true).text('CFDA');
+      detailContainer.append('span').classed('bubble-detail__agency-label', true).text('Sub-Category');
       cfda = detailContainer.append('span').classed('bubble-detail__agency-name', true);
 
       placeTables();

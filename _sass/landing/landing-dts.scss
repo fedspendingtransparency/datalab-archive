@@ -85,7 +85,7 @@ hr.horizontal_dts{
   margin-top: -5px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: $desktop - 1) {
   .dts-container {
     display: flex;
     justify-content: center;
