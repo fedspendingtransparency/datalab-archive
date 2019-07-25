@@ -2,6 +2,8 @@
 // 404 page, fun
 
 // body class
+$cuRed: #881E3D;
+
 .four-oh-four {
   background-image: url('../../images/homepage/404background.svg');
   height: 100%; 
@@ -13,8 +15,6 @@
   margin-top: 250px;
   display: flex;
   flex-direction: column;
-  // padding-left: 2rem;
-  // padding-right: 2rem;
   justify-content: center;
   align-items: center;
   line-height: 1.4;
@@ -36,12 +36,67 @@
       font-size: 5rem;
       line-height: 1.1;
       margin-top: 2em;
+      margin-bottom: 1em;
 
       span {
 	font-weight: bold;
       }
     }
-    
+
+    #btn-container {
+      display: flex;
+      padding-top: 1rem;
+      padding-bottom: 8rem;
+      justify-content: space-evenly;
+      
+      #back-btn {
+	font-weight: bold;
+
+	a {
+	  display: block;
+	  margin: auto;
+	  margin-top: .7rem;
+	  text-align: center;
+
+	  i {
+	    padding-right: .3rem;
+	  }
+	}
+
+	a:hover {
+	  color: $cuRed;
+	}
+	
+	height: 50px;
+	width: 100px;
+	border: 1.5px solid #000;
+	border-radius: 10%;
+      }
+
+      #home-btn {
+	font-weight: bold;
+
+	a {
+	  display: block;
+	  margin: auto;
+	  margin-top: .7rem;
+	  text-align: center;
+
+	  i {
+	    padding-right: .3rem;
+	  }
+	}
+
+	a:hover {
+	  color: $cuRed;
+	}
+
+	height: 50px;
+	width: 100px;
+	border-radius: 10%;
+	border: 1.5px solid #000;
+      }
+    }
 
   }
 }

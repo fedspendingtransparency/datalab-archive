@@ -122,11 +122,17 @@ function downloadData() {
     }
 }
 
-function calculateLineHeight(lineHeight) {
-  if (lineHeight < 1.2 && lineHeight > 0) {
-    return "1.2em";
-  }
-  return lineHeight + "em";
+function isMobile() {
+    const maxThreshold = 768;
+    return window.innerWidth <= maxThreshold;
+}
+
+function isTablet() {
+    const minThreshold = 769;
+    const maxThreshold = 1199;
+
+   return (minThreshold <= window.innerWidth && window.innerWidth <= maxThreshold);
+
 }
 
 const formatNumber = d3.format('$,.0f');
@@ -138,8 +144,17 @@ function updateCenter(d) {
 
     const dataTypeLabel = dataType === 'CFDA' ? '' : dataType + ' ';
 
+    let labelFontSize = 1;
+    const lineHeight = 1.1;
+    const doubleSpace = 2;
+    const mediumText = 1.25;
+    const largeText = 1.75;
+    const exLargeText = 2;
+
+    let wordWrapMultiplier = isMobile() ? 5.5 : isTablet() ? 3 : 2;
+    let smWordWrapMultiplier = isMobile() ? 3 : isTablet() ? 2 : 1;
+
   if (d.depth === 0) {
-    let labelFontSize = 1.1;
 
     centerGroup = svg.append('svg:text')
       .attr('id', 'tab');
@@ -150,72 +165,65 @@ function updateCenter(d) {
       .text('Total FY2018 ' + categoryLabel  + ' Funding')
       .attr('class', 'center-heading')
       .style('font-size', function() {
-        labelFontSize = calculateCenterTextFontSize(this);
-        return labelFontSize + "em";
+        return labelFontSize * mediumText + "em";
       })
       .attr('dy', '0')
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(labelFontSize))
+      .attr('dy', lineHeight + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(formatNumber(d.value))
       .attr('class', 'center-amount')
-      .style('font-size', labelFontSize * 2 + "em")
+      .style('font-size', labelFontSize * largeText + "em")
     ;
 
 
   } else if (d.depth === 1) {
-
-    let labelFontSize = 1.1;
-    centerGroup = svg.append('svg:text')
+      centerGroup = svg.append('svg:text')
       .attr('id', 'tab');
 
+      // category
     centerGroup.append('tspan')
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(dataTypeLabel + 'Category')
       .attr('class', 'center-heading')
-      .style('font-size', function() {
-        labelFontSize = calculateCenterTextFontSize(this);
-        return labelFontSize * .75 + "em";
-      })
+      .style('font-size', labelFontSize + "em")
       .attr('dy', '0')
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(0.5 * labelFontSize))
+      .attr('dy', lineHeight + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(d.name)
       .attr('class', 'center-title')
-      .style('font-size', labelFontSize * .75 + "em")
-      .call(wordWrap, boundingBox)
+      .style('font-size', labelFontSize * mediumText + "em")
+      .call(wordWrap, boundingBox * smWordWrapMultiplier)
 
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(labelFontSize))
+      .attr('dy', lineHeight * doubleSpace + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text('Total FY2018 Funding')
       .attr('class', 'center-heading')
-      .style('font-size', labelFontSize * .75 + "em")
+      .style('font-size', labelFontSize + "em")
     ;
 
     centerGroup.append('tspan')
-      .attr('dy', calculateLineHeight(0.5 * labelFontSize))
+      .attr('dy', lineHeight + "em")
       .attr('x', '0')
       .attr('text-anchor', 'middle')
       .text(formatNumber(d.value))
       .attr('class', 'center-amount')
-      .style('font-size', labelFontSize + "em")
+      .style('font-size', labelFontSize * largeText + "em")
     ;
 
   } else {
-      let labelFontSize = 1.1;
-
       centerGroup = svg.append('svg:text')
         .attr('id', 'tab');
 
@@ -224,49 +232,48 @@ function updateCenter(d) {
         .attr('text-anchor', 'middle')
         .text(dataTypeLabel + 'Category')
         .attr('class', 'center-heading')
-        .style('font-size', function() {
-            labelFontSize = calculateCenterTextFontSize(this);
-            return labelFontSize * 1.5 + "em";
-        })
+        .style('font-size', labelFontSize * mediumText + "em")
         .attr('dy', '0')
       ;
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(.5 * labelFontSize))
+        .attr('dy', lineHeight + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(d.parent.name)
         .attr('class', 'center-title')
-        .style('font-size', labelFontSize * 1.5 + "em")
+        .style('font-size', labelFontSize * largeText + "em")
+        .call(wordWrap, boundingBox * smWordWrapMultiplier)
+
       ;
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(labelFontSize))
+        .attr('dy', lineHeight * 2 + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(dataTypeLabel + 'Sub-Category')
         .attr('class', 'center-heading')
-        .style('font-size', labelFontSize * 1.5 + "em")
+        .style('font-size', labelFontSize * mediumText + "em")
       ;
 
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(.5 * labelFontSize))
+        .attr('dy', lineHeight + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(d.name)
         .attr('class', 'center-title')
-        .style('font-size', labelFontSize * 1.5 + "em")
-        .call(wordWrap, boundingBox)
+        .style('font-size', labelFontSize * largeText + "em")
+        .call(wordWrap, innerRadius * wordWrapMultiplier)
       ;
 
       centerGroup.append('tspan')
-        .attr('dy', calculateLineHeight(labelFontSize))
+        .attr('dy', lineHeight * 2 + "em")
         .attr('x', '0')
         .attr('text-anchor', 'middle')
         .text(formatNumber(d.value))
         .attr('class', 'center-amount')
-        .style('font-size', labelFontSize * 1.75 + "em")
+        .style('font-size', labelFontSize * exLargeText + "em")
       ;
   }
 
@@ -275,20 +282,24 @@ function updateCenter(d) {
   const maxHeight = bbox.height;
   const maxWidth = bbox.width;
   let scale = 1;
-  let max = maxHeight;
 
-  if(maxHeight >= boundingBox && maxHeight >= maxWidth) {
-      scale = boundingBox / maxHeight;
-      max = maxHeight;
-    centerGroup.attr("transform" ,"scale(" + boundingBox / maxHeight + ")");
-  } else if (maxWidth >= boundingBox) {
-      scale = boundingBox / maxWidth;
-      max = maxWidth;
-      centerGroup.attr("transform" ,"scale(" + boundingBox / maxWidth + ")");
+  if(maxHeight >= maxWidth) {
+      if (maxHeight > boundingBox) {
+        scale = boundingBox / maxHeight;
+        centerGroup.attr("transform", "scale(" + scale + ")");
+      }
+
+  } else {
+      if(maxWidth > boundingBox) {
+        scale = boundingBox / maxWidth;
+        centerGroup.attr("transform", "scale(" + scale + ")");
+      }
   }
 
+  const padding = 16 * scale; // 1em = 16px
+    
   centerGroup.style('cursor', 'pointer')
-    .attr('y', -maxHeight / 2)
+    .attr('y', -maxHeight / 2 + padding)
     .on('click', function() {
         click(chartData);
     })
@@ -357,8 +368,12 @@ function refreshData(data) {
     .attr('fill', d => getWedgeColor(d))
     // .on('mouseover', hover)
     .on('click', click)
-    .append('title').text(d => d.name)
+    .append('title').text(function(d) {
+      const name = d.name.replace(/CFDA/i, '').replace(/PSC/i, '').trim();
+      return name;
+    });
   ;
+  
   click(data[0]); // simulate clicking center to reset zoom
 }
 
@@ -603,7 +618,7 @@ function wordWrap(text, maxWidth) {
     word = words.pop();
     line.push(word);
     tspan.text(line.join(" "));
-    if (tspan.node().getComputedTextLength() > maxWidth) {
+    if (tspan.node().getComputedTextLength() >= maxWidth) {
       line.pop();
       tspan.text(line.join(" "));
       line = [word];
@@ -613,13 +628,6 @@ function wordWrap(text, maxWidth) {
         .text(word);
     }
   }
-}
-
-function calculateCenterTextFontSize (centerNode) {
-  const computed = centerNode.getComputedTextLength();
-  const labelWidth = innerRadius;
-  const fontsize = labelWidth / computed > 0 ? labelWidth / computed : 0.01;
-  return fontsize;
 }
 
 // Redraw based on the new size whenever the browser window is resized.
