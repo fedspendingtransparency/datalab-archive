@@ -942,6 +942,10 @@ $cuRed: #881E3D;
         stroke: black;
         stroke-width: 2px;
       }
+
+		circle.innerCircle {
+			stroke: none;
+		}
       
       #sunburst {
         height: 700px;
