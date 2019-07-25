@@ -417,13 +417,13 @@ $cuRed: #881E3D;
 	  justify-content: space-around;
 	  padding-top: 2rem;
 
-	  #aid-subsection {
+	  .aid-subsection {
 	    padding-left: 1rem;
 	    padding-right: 1rem;
 		width: 25%;
 	  }
 
-	  #aid-subsection:last-child {
+	  .aid-subsection:last-child {
 	    padding-right: 0;
 	    border-right: none;
 	  }
@@ -464,11 +464,11 @@ $cuRed: #881E3D;
 	    text-align: center;
 	  }
 
-	  #aid-image {
+	  .aid-image {
 	    text-align: center;
 	  }
 
-	  #aid-description {
+	  .aid-description {
 	    color: #555555;
 	    font-size: 15px;
 	    font-weight: 300;
@@ -628,30 +628,9 @@ $cuRed: #881E3D;
       }
 
       .chart-footer {
-        color: $grey;
-        font-size: 12pt;
-        display: flex;
-        justify-content: flex-end;
 	padding-right: 2rem; // align with mapbox
 	padding-top: 5px; // small small space so we're not touching the canvas
-
-        .faded {
-          opacity: 0.5;
-          line-height: 18pt;
-        }
-
-        .download-data {
-          color: #4a4a4a;
-          margin-left: 12px;
-          fill: #4a4a4a;
-	  cursor: pointer;
-
-          &:hover {
-            color: $cuRed;
-          }
-        }
       }
-
     } // end of alma-mater
   } // end of section-two
 
@@ -735,32 +714,11 @@ $cuRed: #881E3D;
         display: flex;
         flex-direction: column;
 
-
         .chart-footer {
-          color: $grey;
-          font-size: 12pt;
           max-width: 900px;
           margin: 0 auto 1rem;
           padding: 0 1rem;
-          display: flex;
-          justify-content: flex-end;
           width: calc(100% - 2rem);
-
-          .faded {
-            opacity: 0.5;
-            line-height: 18pt;
-          }
-
-          .download-data {
-            color: #4a4a4a;
-            margin-left: 12px;
-            fill: #4a4a4a;
-
-            &:hover {
-              color: $cuRed;
-	      cursor: pointer;
-            }
-          }
         }
       }
 
@@ -984,6 +942,10 @@ $cuRed: #881E3D;
         stroke: black;
         stroke-width: 2px;
       }
+
+		circle.innerCircle {
+			stroke: none;
+		}
       
       #sunburst {
         height: 700px;
@@ -1077,40 +1039,21 @@ $cuRed: #881E3D;
       }
 
       .chart-footer {
-        color: $grey;
-        font-size: 12pt;
         max-width: 900px;
         margin: 0 auto 1rem;
         padding: 0 1rem;
-        display: flex;
-        justify-content: flex-end;
         width: calc(100% - 2rem);
-
-        .faded {
-          opacity: 0.5;
-          line-height: 18pt;
-        }
-
-        .download-data {
-          color: #4a4a4a;
-          margin-left: 12px;
-          fill: #4a4a4a;
-
-          &:hover {
-            color: $cuRed;
-	    cursor: pointer;
-          }
-        }
-      }    } // end of investment categories
+      }    
+    } // end of investment categories
   } // end of section four
 
 	.mobile-search {
     display: none;
 
     .svg-inline--fa.fa-w-16 {
-      width: 1em;
       color: #666;
     }    
+
     input {
       width: calc(100% - 4rem);
       padding: 1rem 2rem;
@@ -1121,6 +1064,10 @@ $cuRed: #881E3D;
     width: calc(100% - 8rem);
     // border: none;
   }
+
+  .svg-inline--fa.fa-w-16 {
+    width: 1em;
+  }    
 
   .investmentCategories {
     padding-left: 5%;
@@ -1721,6 +1668,33 @@ $cuRed: #881E3D;
     display: block;
   }
 
+  .chart-footer {
+    color: $grey;
+    font-size: 12pt;
+    display: flex;
+    justify-content: flex-end;
+
+    .faded {
+      opacity: 0.5;
+      line-height: 18pt;
+    }
+
+    .download-data {
+      color: #4a4a4a;
+      margin-left: 12px;
+      fill: #4a4a4a;
+      cursor: pointer;
+
+      &:hover {
+        color: $cuRed;
+        
+        img {
+          filter: brightness(0.5) sepia(1);
+          // filter: invert(.5) sepia(1) saturate(75.5%) hue-rotate(322deg) brightness(42.7%);
+        }
+      }
+    }
+  } 
 } // end of .CU
 
 // overrride mapbox
