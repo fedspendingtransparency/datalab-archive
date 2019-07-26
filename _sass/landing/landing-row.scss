@@ -1,9 +1,9 @@
 // landing-row.scss
-$landing-title-color: #4a4a4a;
+$landing-title-color: #4A4A4A;
 
 @mixin landing-header {
   font-size: 17px;
-  color: #2272ce;
+  color: #2272CE;
   font-weight: bold;
 }
 
@@ -14,7 +14,7 @@ $landing-title-color: #4a4a4a;
 
 .landing-row {
   clear: both;
-  max-width: $desktop - 1;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
   color: #666;
@@ -33,6 +33,7 @@ $landing-title-color: #4a4a4a;
       clear: both;
       margin-bottom: 0;
       height: 100%;
+
 
       &:hover {
         h2 {
@@ -53,7 +54,7 @@ $landing-title-color: #4a4a4a;
         clear: both;
 
         h2 {
-          color: #2272ce;
+          color: #2272CE;
           margin-bottom: 1rem;
           margin-top: 0;
           font-size: 17px;
@@ -67,7 +68,7 @@ $landing-title-color: #4a4a4a;
         .landing-row__title {
           @include landing-subtext;
 
-          color: #4a4a4a;
+          color: #4A4A4A;
           margin-top: 0;
           font-size: 17px;
           font-weight: 600;
@@ -120,6 +121,7 @@ $landing-title-color: #4a4a4a;
         -ms-flex-pack: justify;
         justify-content: space-between;
 
+
         .svgImg {
           height: 62px;
           margin: 0 auto 1rem auto;
@@ -128,7 +130,7 @@ $landing-title-color: #4a4a4a;
         }
 
         .landing-row__text {
-          //          width: 50%;
+//          width: 50%;
           margin: auto; // center..
 
           .landing-row__title {
@@ -155,9 +157,9 @@ $landing-title-color: #4a4a4a;
   }
 
   &.landing-row--analyses {
-    .landing-row__featured__image {
-      width: 100%;
-    }
+      .landing-row__featured__image {
+        width: 100%;
+      }
 
     .landing-row__featured__mobile-heading {
       display: block;
@@ -173,10 +175,11 @@ $landing-title-color: #4a4a4a;
 
 .feature-row {
   clear: both;
-  max-width: $desktop - 1;
+  max-width: 1200px;
   padding: 0 1rem;
 
   .feature-row__border {
+
     .feature-row__image {
       img {
         width: 100%;
@@ -228,7 +231,9 @@ $landing-title-color: #4a4a4a;
   display: table;
 }
 
-@media only screen and (min-width: $tablet) {
+
+@media only screen and (min-width: 950px) {
+
   .feature-row__border {
     padding: 0;
   }
@@ -237,6 +242,8 @@ $landing-title-color: #4a4a4a;
     width: 100%;
     height: 100%;
   }
+
+
 
   .landing-row {
     padding: 1rem;
@@ -324,6 +331,7 @@ $landing-title-color: #4a4a4a;
 
   .landing-row {
     &.landing-row--analyses {
+
       .landing-row__tiles {
         flex-wrap: wrap;
         width: 49.5%;
@@ -390,6 +398,7 @@ $landing-title-color: #4a4a4a;
       display: flex;
       border: 1px solid #ddd;
       border-radius: 0.25rem;
+//      padding: 2em;
 
       .feature-row__image {
         width: 57%;
@@ -417,7 +426,7 @@ $landing-title-color: #4a4a4a;
   }
 }
 
-@media (min-width: $tablet) and (max-width: $desktop - 1) {
+@media (min-width: 950px) and (max-width: 1200px) {
   .feature-row {
     box-sizing: border-box;
     display: flex;
@@ -432,12 +441,12 @@ $landing-title-color: #4a4a4a;
     padding: 0;
   }
 
-  .feature-row .feature-row__border .feature-row__text {
+.feature-row .feature-row__border .feature-row__text {
     width: 50%;
     padding-top: 0;
     padding-left: 1rem;
     padding-right: 2rem;
-  }
+}
 
   .feature-row .feature-row__image {
     box-sizing: border-box;
@@ -457,7 +466,7 @@ $landing-title-color: #4a4a4a;
   }
 
   .feature-row .feature-row__border .feature-row__image img {
-    width: 100%;
+    width: 100%
   }
 
   .feature-row .feature-row__border .feature-row__image {
@@ -469,6 +478,7 @@ $landing-title-color: #4a4a4a;
 
   .landing-row {
     &.landing-row--analyses {
+
       .landing-row__tiles {
         flex-wrap: wrap;
         width: 100%;
@@ -510,7 +520,14 @@ $landing-title-color: #4a4a4a;
           margin: 1.6rem;
           text-align: center;
         }
+
       }
     }
   }
+
 }
+
+
+
+ 
+
