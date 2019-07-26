@@ -7,8 +7,8 @@
   let subNavHideTimeout;
   const headerContainers = {};
   const mobileContainers = {};
-  const desktopMin = 768;
-  const superMobile = 576;
+  const desktopMin = 956;
+  const superMobile = 450;
   const twolineCollision = 1350;
   let logoMarginOffset = 149;
 
@@ -70,7 +70,7 @@
     if (width >= superMobile) {
       let yOffset = max - y;
       if (y > 29) {
-	      yOffset = 80;
+	yOffset = 80;
       }
       mobileContainers.mobileNav.css('top', yOffset + 'px');
     }
@@ -78,7 +78,7 @@
 
   function fixSuperMobileNav(y, width) {
     const max = 110;
-    if (width < superMobile) {
+    if (width <= superMobile) {
       let yOffset = max - y;
       if (y > 29) {
         yOffset = 80;
@@ -119,7 +119,7 @@
 
     let leftMargin = 0 - (max - y) * mSteps;
 
-    if (width >= desktopMin && width < twolineCollision) {
+    if (width > desktopMin && width < twolineCollision) {
       forceLogoLeft(width);
       return;
     }
@@ -336,7 +336,7 @@
   function setInitialLogoPosition() {
     let width = window.innerWidth;
     const hasTight = headerContainers.header.hasClass('tight');
-    if (width >= desktopMin && width < twolineCollision) {
+    if (width > desktopMin && width < twolineCollision) {
       forceLogoLeft(width);
     } else if (hasTight) {
       forceLogoLeft(width);
