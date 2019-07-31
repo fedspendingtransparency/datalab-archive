@@ -47,7 +47,7 @@
 	  {% else %}
           {% assign linkedText = page.title %}
           {% endif %}
-          <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}&title=Colleges+and+Universities&summary={{linkedText}}")' title="Share on LinkedIn">
+          <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}")&summary={{linkedText}}")' title="Share on LinkedIn">
             {% include svgs/linkedin_square_x.svg class="share-icon icon-linkedin" %}
             <span class="share-button-text">Linkedin</span>
           </a>
