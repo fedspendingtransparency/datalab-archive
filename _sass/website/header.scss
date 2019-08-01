@@ -1,9 +1,4 @@
-// device screen min widths
-$desktop-xl: 1200px;
-$desktop: 992px;
-$tablet: 768px;
-$phone: 576px;
-
+// Jack Killilea (jrk) <Killilea_Jack@bah.com>
 // For our *New* homepage Sticky Header & Banner (plus extras!)
 $lb-link: #2376d8;
 $db-link: #0a2644;
@@ -445,25 +440,53 @@ ul.nav:first-child li:hover > ul:after {
   100% { left: -3%; }
 }
 
-@media screen and (max-width: $desktop - 1) {
+@media screen and (max-width: 1043px) {
   ul.nav {
     flex-wrap: nowrap;
+//    padding-right: 0px;
   }
 }
 
-@media (max-width: $desktop - 1) {
+@media screen and (max-width: 898px) {
+  ul.nav {
+    flex-wrap: wrap;
+//    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 937px) {
+  ul.nav {
+    flex-wrap: nowrap;
+///    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  ul.nav {
+    flex-wrap: nowrap;
+//    padding-right: 0px;
+  }
+}
+
+@media (max-width: 1280px) {
   .logo-div {
     position: static;
   }
 }
 
-@media (max-width: $phone - 1) {
-  margin-top: 6px;
-  font-size: 20px;
-
+@media (max-width: 450px) {
   .header-logo__img {
     width: 200px;
   }
+}
+
+@media (max-width: 515px) {
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+// "super mobile" - where logo shrinks
+@media (max-width: 450px) {
   
   .official-banner {
     box-sizing: border-box;
@@ -477,7 +500,7 @@ ul.nav:first-child li:hover > ul:after {
 }
 
 // mobile view toggle - hamburger
-@media (max-width: $tablet) {
+@media (max-width: 955px) {
   ul.nav {
     list-style-type: none;
     display: none;

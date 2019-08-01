@@ -1,12 +1,6 @@
 ---
 ---
 
-// device screen min widths
-$desktop-xl: 1200px;
-$desktop: 992px;
-$tablet: 768px;
-$phone: 576px;
-
 // landing.scss
 @import 'landing/landing-dts';
 @import 'landing/landing-row';
@@ -16,7 +10,7 @@ $heading-color: #4A4A4A;
 .dl-landing {
   display: block;
   box-sizing: border-box;
-  max-width: $desktop - 1;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 1rem;
   color: #333;
@@ -25,6 +19,7 @@ $heading-color: #4A4A4A;
 .landing-chart {
   text-align: center;
 }
+
 
 h2.primary__heading {
   font-size: 24px;
@@ -83,6 +78,7 @@ h2.primary__heading {
   &.primary__text--desktop {
     display: none;
   }
+
 }
 
 .landing-chart {
@@ -113,6 +109,7 @@ h2.primary__heading {
   h2:hover {
     text-decoration: underline;
   }
+
 }
 
 .landing-feature {
@@ -140,7 +137,9 @@ h2.primary__heading {
     letter-spacing: normal;
     color: $heading-color;
   }
+
 }
+
 
 .landing-feature__link {
   cursor: pointer;
@@ -154,6 +153,7 @@ h2.primary__heading {
     text-decoration: underline
   }
 }
+
 
 .landing-feature__text {
   font-weight: 300;
@@ -201,7 +201,8 @@ h2.primary__heading {
   }
 }
 
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: 950px) {
+
   .dl-landing {
     display: flex;
     justify-content: space-between;
@@ -312,14 +313,16 @@ h2.primary__heading {
     letter-spacing: normal;
     color: $heading-color;
   }
+
 }
 
 // tablet view
-@media only screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+@media only screen and (min-width: 950px) and (max-width: 1200px) {
+  
   .dl-landing {
     display: block;
     box-sizing: border-box;
-    max-width: $desktop - 1;
+    max-width: 1200px;
     margin: 0 auto;
     padding-top: 4rem;
     padding-left: 1rem;
@@ -339,6 +342,7 @@ h2.primary__heading {
     height: 100%;
   }
 
+  
   .secondary {
     width: 100%;
     padding-top: 1rem;
@@ -347,6 +351,7 @@ h2.primary__heading {
 
   .landing-feature {
     box-sizing: border-box;
+//    padding-right: 1rem;
     width: 50%;
     float: left;
     clear: none;
@@ -359,6 +364,7 @@ h2.primary__heading {
   .landing-feature:nth-child(odd) {
     padding-left: 1rem;
   }
+
 
   // was display: flex..
   .landing-row .landing-row__tiles {
@@ -399,11 +405,15 @@ h2.primary__heading {
   a.landing-row__tile:nth-child(odd) {
     padding-right: 1rem;
   }
+
+
 }
 
-@media (min-width: $desktop) {
+@media (min-width: 1200px) {
+
   .landing-chart {
     text-align: left;
   }
+
 }
 
