@@ -69,7 +69,12 @@
         
         <div id='investment-function-buttons' class='function-buttons' onclick='panelClick(this.id)'>
           <div id='investment-search' class='button-set'>
-            <button type='button' title='Search' onclick='searchClick("investment-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
+            <button type='button' title='Search'
+              onclick='searchClick("investment-function-buttons")'
+              ga-on="click" ga-event-category="AB Test" ga-event-action="Clicked C&U Search"
+            >
+              <img src='/assets/icons/magnifier.svg' />
+            </button>
           </div>
           <div class='button-set'>
             <button id='sunburst-chart-trigger' type='button' title='View chart' style='opacity: 1;' onclick='switchView("investment", "chart")'><img src='/assets/icons/sunburst_icon.svg' /></button>
@@ -104,7 +109,7 @@
         <div>
           <span class='faded'>Updated as of March 2019 / </span>
           <a class='download-data' onclick='downloadData()'>
-            {% include svgs/download-solid.svg %}
+            {% include svgs/download_icon.svg %}
             &nbsp;Download
           </a>
         </div>

@@ -53,7 +53,12 @@
     <div id="mapContainer">
       <div id='map-function-buttons' class="function-buttons" onclick='panelClick(this.id)'>
           <div id="map-search" class='button-set'>
-            <button type='button' title='Search' onclick='searchClick("map-function-buttons")'><img src='/assets/icons/magnifier.svg' /></button>
+            <button type='button' title='Search'
+              onclick='searchClick("map-function-buttons")'
+              ga-on="click" ga-event-category="AB Test" ga-event-action="Clicked C&U Search"
+            >
+              <img src='/assets/icons/magnifier.svg' />
+            </button>
             <div class="map-search">
               <div class="map-search__input-wrapper">
                 <input id='map-search__input' class="map-search__input" onkeydown="filterSearch()" placeholder="Search Institutions"/>
@@ -81,7 +86,7 @@
       <div>
         <span class='faded'>Updated as of March 2019 / </span>
         <a class="download-data" href='assets/js/colleges-and-universities/download-files/Institutions_Section_Download.csv'>
-          {% include svgs/download-solid.svg %}
+          {% include svgs/download_icon.svg %}
           &nbsp;Download
         </a>
       </div>
