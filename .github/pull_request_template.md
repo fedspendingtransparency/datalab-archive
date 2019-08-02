@@ -1,24 +1,15 @@
----
-name: Peer Code Review Template
-about: Description of what reviewer(s) should cover during code review.
-title: ''
-labels: ''
-assignees: ''
-
----
-
 **High level description:**
-[Description of the change]
+[High level description of the PR.]
 
 **Technical details:**
-[Please add a technical overview.  If applicable, identify other areas in the code that may be affected, risks, and unknowns.] 
+[Technical details for the knowledge of other developers.  If applicable, identify other areas in the code that may be affected, risks, and unknowns.]
 
 **JIRA ticket:**
-[Link to JIRA ticket](https://someurl.com)
+[Link to JIRA ticket](https://federal-spending-transparency.atlassian.net/browse/DA-1234)
 
 The following are ALL required for the PR to be merged:
 
-#[ ] Code review
-#[ ] Design approved by [designer's name]
-#[ ] Verified cross-browser compatibility
-#[ ] Verified mobile, tablet, and desktop
+- [ ] Code review
+- [ ] Design approved by [designer's name]
+- [ ] Verified cross-browser compatibility
+- [ ] Verified mobile, tablet, and desktop
