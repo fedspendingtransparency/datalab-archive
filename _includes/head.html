@@ -35,6 +35,9 @@
   {% if page.colleges %}
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet'/>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+  {% if page.socialMediaImage %}
+  <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/cu-share.jpg' | prepend: site.baseurl | prepend: site.url }}"/>
+  {% endif %}
   {% endif %}
 
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
