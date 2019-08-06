@@ -1,6 +1,5 @@
-// d3.json("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
-	d3.json("/data-lab-data/accounts_obligations_link_update_FY17.csv", (error, data) => {
-		if (error) throw error;
+d3.csv("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
+	if (error) throw error;
 	console.log (data);
 });
 
