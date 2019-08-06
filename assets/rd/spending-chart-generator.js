@@ -10,7 +10,10 @@ const
 ;
 
 const p = document.createElement("p");
-d3.select("body").append(() => p);
+const chart = d3.select("#chart");
+chart.append(function() {
+	return p;
+});
 
 // const svg = d3.select("#chart")
 // 	.append("svg")
