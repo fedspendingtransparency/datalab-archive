@@ -70,11 +70,7 @@
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
   {% if page.socialMediaImage %}
-    {% if page.colleges %}
-      <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/cu-share.jpg' | prepend: site.baseurl | prepend: site.url }}"/>
-    {% else %}
       <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
-    {% endif %}
   {% elsif page.socialShare %}
   <meta property="og:image" content="{{ page.socialShare | prepend: '/assets/' | prepend: site.baseurl | prepend: site.url }}"/>
   {% else %}
