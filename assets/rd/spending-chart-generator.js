@@ -1,4 +1,4 @@
-var d3 = require("d3");
+var d3 = import("d3");
 d3.json("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
 	if (error) throw error;
 	console.log (data);
