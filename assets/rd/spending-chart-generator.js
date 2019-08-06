@@ -5,7 +5,8 @@ const
 	x       = d3.scaleBand().range([0,width]).round(0.5),
 	y       = d3.scaleLinear().range([height,0]),
 	xAxis   = d3.axisBottom(x),
-	yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
+	yAxis   = d3.axisLeft(y)
+	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
 ;
 
 const svg = d3.select("#chart")
