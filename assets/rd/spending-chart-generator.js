@@ -9,7 +9,7 @@ const
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
 ;
 
-d3.select("#chart").append("span","testing");
+d3.select("body").append(function() { return document.createElement("p") });
 
 const svg = d3.select("#chart")
 	.append("svg")
