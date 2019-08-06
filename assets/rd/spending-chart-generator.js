@@ -1,16 +1,18 @@
 const
-	margin  = {top: 20, right: 20, bottom: 100, left: 60},
-	width   = 600 - margin.left - margin.right,
-	height  = 400 - margin.top - margin.bottom,
-	x       = d3.scaleBand().range([0,width]).round(0.5),
-	y       = d3.scaleLinear().range([height,0]),
-	xAxis   = d3.axisBottom(x),
-	yAxis   = d3.axisLeft(y)
+	margin = { top: 20, right: 20, bottom: 100, left: 60 },
+	width = 600 - margin.left - margin.right,
+	height = 400 - margin.top - margin.bottom,
+	x = d3.scaleBand().range([0, width]).round(0.5),
+	y = d3.scaleLinear().range([height, 0]),
+	xAxis = d3.axisBottom(x),
+	yAxis = d3.axisLeft(y)
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
-;
+	;
 
-const chart = d3.select("#chart");
-chart.append("p");
+window.onload = () => {
+	const chart = d3.select("#chart");
+	chart.append("p");
+}
 
 // const svg = d3.select("#chart")
 // 	.append("svg")
