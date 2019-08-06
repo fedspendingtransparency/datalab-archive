@@ -35,9 +35,6 @@
   {% if page.colleges %}
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet'/>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
-  {% if page.socialMediaImage %}
-  <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/cu-share.jpg' | prepend: site.baseurl | prepend: site.url }}"/>
-  {% endif %}
   {% endif %}
 
   <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
@@ -73,7 +70,11 @@
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
   {% if page.socialMediaImage %}
-  <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
+    {% if page.colleges %}
+      <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/cu-share.jpg' | prepend: site.baseurl | prepend: site.url }}"/>
+    {% else %}
+      <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
+    {% endif %}
   {% elsif page.socialShare %}
   <meta property="og:image" content="{{ page.socialShare | prepend: '/assets/' | prepend: site.baseurl | prepend: site.url }}"/>
   {% else %}
