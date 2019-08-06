@@ -9,11 +9,8 @@ const
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
 ;
 
-const p = document.createElement("p");
 const chart = d3.select("#chart");
-chart.append(function() {
-	return p;
-});
+chart.append("p");
 
 // const svg = d3.select("#chart")
 // 	.append("svg")
