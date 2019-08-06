@@ -74,7 +74,7 @@
       <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/cu-share.jpg' | prepend: site.baseurl | prepend: site.url }}"/>
     {% else %}
       <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
-    <% endif %}
+    {% endif %}
   {% elsif page.socialShare %}
   <meta property="og:image" content="{{ page.socialShare | prepend: '/assets/' | prepend: site.baseurl | prepend: site.url }}"/>
   {% else %}
