@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+const d3 = require("d3");
 
 d3.json("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
 	if (error) throw error;
