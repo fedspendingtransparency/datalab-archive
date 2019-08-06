@@ -61,7 +61,7 @@ d3.csv("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
 			{
 					return x(d.agency);
 			})
-			.attr("width", x.rangeBand())
+			.attr("width", x.bandwidth())
 			.attr("y", function (d)
 			{
 					return y(d.total);
