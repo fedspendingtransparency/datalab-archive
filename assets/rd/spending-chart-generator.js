@@ -13,8 +13,8 @@ const svg = d3.select("#chart")
 	.append("svg")
 	.attr("width", width + margin.left + margin.right)
 	.attr("height", height + margin.top + margin.bottom)
-	.append("g")
-	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+	// .append("g")
+	// .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 ;
 
 d3.csv("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
