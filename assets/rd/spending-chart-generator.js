@@ -1,7 +1,7 @@
 const
 	margin = { top: 20, right: 20, bottom: 100, left: 60 },
-	width = 600 - margin.left - margin.right,
-	height = 400 - margin.top - margin.bottom,
+	width = 1000 - margin.left - margin.right,
+	height = 1000 - margin.top - margin.bottom,
 	x = d3.scaleBand().range([0, width]).round(0.5),
 	y = d3.scaleLinear().range([height, 0]),
 	xAxis = d3.axisBottom(x),
@@ -39,7 +39,8 @@ window.onload = () => {
 			.attr("dx", "-0.5em")
 			.attr("dy", "-.55em")
 			.attr("y", 30)
-			.attr("transform", "rotate(0)");
+			.attr("transform", "rotate(0)")
+			;
 
 		svg.append("g")
 			.attr("class", "y axis")
@@ -49,9 +50,10 @@ window.onload = () => {
 			.attr("y", 5)
 			.attr("dy", "0.8em")
 			.attr("text-anchor", "end")
-			.text("Word Count");
+			.text("Word Count")
+			;
 
-			svg.selectAll("bar")
+		svg.selectAll("bar")
 			.data(data)
 			.enter()
 			.append("rect")
@@ -66,6 +68,7 @@ window.onload = () => {
 			.attr("height", function (d) {
 				return height - y(d.total);
 			})
+			;
 
 		svg.selectAll("bar")
 			.data(data)
@@ -82,6 +85,22 @@ window.onload = () => {
 			.attr("height", function (d) {
 				return height - y(d.rnd);
 			})
+			;
+
+		svg.selectAll(".text")
+			.data(data)
+			.enter()
+			.append("text")
+			.attr("class", "label")
+			.attr("x", function (d) {
+				return x(d.agency);
+			})
+			.attr("y", function (d) {
+				return y(d.total);
+			})
+			// .attr("dy", ".75em")
+			.text(function (d) { return d.agency; })
+			;
 	});
 }
 
