@@ -2,9 +2,9 @@ const
 	margin = { top: 20, right: 20, bottom: 100, left: 60 },
 	width = 1000 - margin.left - margin.right,
 	height = 1000 - margin.top - margin.bottom,
-	x = d3.scaleOrdinal().range([0, width]),
+	x = d3.scaleOrdinal().range([0, width]).round(0.5),
 	y = d3.scaleLinear().range([height, 0]),
-	xAxis = d3.axisBottom(x),
+	xAxis = d3.axisBottom(x).ticks(0),
 	yAxis = d3.axisLeft(y)
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
 	;
