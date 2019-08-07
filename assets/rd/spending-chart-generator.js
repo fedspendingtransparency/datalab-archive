@@ -51,11 +51,11 @@ window.onload = () => {
 			.attr("text-anchor", "end")
 			.text("Word Count");
 
-		svg.selectAll("bar")
+			svg.selectAll("bar")
 			.data(data)
 			.enter()
 			.append("rect")
-			.style("fill", "orange")
+			.style("class", "total")
 			.attr("x", function (d) {
 				return x(d.agency);
 			})
@@ -65,6 +65,22 @@ window.onload = () => {
 			})
 			.attr("height", function (d) {
 				return height - y(d.total);
+			})
+
+		svg.selectAll("bar")
+			.data(data)
+			.enter()
+			.append("rect")
+			.style("class", "rnd")
+			.attr("x", function (d) {
+				return x(d.agency);
+			})
+			.attr("width", x.bandwidth())
+			.attr("y", function (d) {
+				return y(d.rnd);
+			})
+			.attr("height", function (d) {
+				return height - y(d.rnd);
 			})
 	});
 }
