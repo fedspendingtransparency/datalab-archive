@@ -91,6 +91,7 @@ window.onload = () => {
 			.data(data)
 			.enter()
 			.append("text")
+			.attr("transform", "rotate(-90)")
 			.attr("class", "label")
 			.attr("x", function (d) {
 				return x(d.agency);
