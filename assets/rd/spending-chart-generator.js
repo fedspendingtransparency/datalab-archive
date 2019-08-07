@@ -55,7 +55,7 @@ window.onload = () => {
 			.data(data)
 			.enter()
 			.append("rect")
-			.style("class", "total")
+			.classed("total", true)
 			.attr("x", function (d) {
 				return x(d.agency);
 			})
@@ -71,7 +71,7 @@ window.onload = () => {
 			.data(data)
 			.enter()
 			.append("rect")
-			.style("class", "rnd")
+			.classed("rnd", true)
 			.attr("x", function (d) {
 				return x(d.agency);
 			})
