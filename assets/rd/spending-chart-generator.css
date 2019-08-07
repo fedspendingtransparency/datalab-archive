@@ -4,3 +4,6 @@ rect.rnd {
 rect.total {
   fill: lightblue;
 }
+label {
+  text-transform: uppercase;
+}
