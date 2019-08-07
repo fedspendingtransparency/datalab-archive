@@ -22,18 +22,13 @@ window.onload = () => {
 		if (error) throw error;
 		console.log(data);
 
-		x.domain(data.map(function (d) {
-			return d.agency;
-		}));
-
-		y.domain([0, d3.max(data, function (d) {
-			return d.total;
-		})]);
+		x.domain(data.map(d => d.agency));
+		y.domain([0, d3.max(data, d => d.total)]);
 
 		svg.append("g")
 			.attr("class", "x axis")
 			.attr("transform", "translate(0, " + height + ")")
-			.call(xAxis)
+			// .call(xAxis)
 			.selectAll("text")
 			.style("text-anchor", "middle")
 			.attr("dx", "-0.5em")
@@ -50,7 +45,6 @@ window.onload = () => {
 			.attr("y", 5)
 			.attr("dy", "0.8em")
 			.attr("text-anchor", "end")
-			.text("Word Count")
 			;
 
 		svg.selectAll("bar")
@@ -58,16 +52,10 @@ window.onload = () => {
 			.enter()
 			.append("rect")
 			.classed("total", true)
-			.attr("x", function (d) {
-				return x(d.agency);
-			})
+			.attr("x", d => x(d.agency))
 			.attr("width", x.bandwidth())
-			.attr("y", function (d) {
-				return y(d.total);
-			})
-			.attr("height", function (d) {
-				return height - y(d.total);
-			})
+			.attr("y", d => y(d.total))
+			.attr("height", d => height - y(d.total))
 			;
 
 		svg.selectAll("bar")
@@ -75,32 +63,22 @@ window.onload = () => {
 			.enter()
 			.append("rect")
 			.classed("rnd", true)
-			.attr("x", function (d) {
-				return x(d.agency);
-			})
+			.attr("x", d => x(d.agency))
 			.attr("width", x.bandwidth())
-			.attr("y", function (d) {
-				return y(d.rnd);
-			})
-			.attr("height", function (d) {
-				return height - y(d.rnd);
-			})
+			.attr("y", d => y(d.rnd))
+			.attr("height", d => height - y(d.rnd))
 			;
 
 		svg.selectAll(".text")
 			.data(data)
 			.enter()
 			.append("text")
-			.attr("transform", "rotate(-90)")
+			.attr("transform", "rotate(90)")
 			.attr("class", "label")
-			.attr("x", function (d) {
-				return x(d.agency);
-			})
-			.attr("y", function (d) {
-				return y(d.total);
-			})
+			.attr("x", d => x(d.agency))
+			.attr("y", d => y(d.total))
 			// .attr("dy", ".75em")
-			.text(function (d) { return d.agency; })
+			.text(d => d.agency)
 			;
 	});
 }
