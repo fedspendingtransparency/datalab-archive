@@ -10,73 +10,64 @@ const
 	;
 
 window.onload = () => {
-	const chart = d3.select("#chart");
-	chart.append("p");
+	const svg = d3.select("#chart")
+		.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		;
+
+	d3.csv("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
+		if (error) throw error;
+		console.log(data);
+
+		x.domain(data.map(function (d) {
+			return d.agency;
+		}));
+
+		y.domain([0, d3.max(data, function (d) {
+			return d.total;
+		})]);
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0, " + height + ")")
+			.call(xAxis)
+			.selectAll("text")
+			.style("text-anchor", "middle")
+			.attr("dx", "-0.5em")
+			.attr("dy", "-.55em")
+			.attr("y", 30)
+			.attr("transform", "rotate(0)");
+
+		svg.append("g")
+			.attr("class", "y axis")
+			.call(yAxis)
+			.append("text")
+			.attr("transform", "rotate(-90)")
+			.attr("y", 5)
+			.attr("dy", "0.8em")
+			.attr("text-anchor", "end")
+			.text("Word Count");
+
+		svg.selectAll("bar")
+			.data(data)
+			.enter()
+			.append("rect")
+			.style("fill", "orange")
+			.attr("x", function (d) {
+				return x(d.agency);
+			})
+			.attr("width", x.bandwidth())
+			.attr("y", function (d) {
+				return y(d.total);
+			})
+			.attr("height", function (d) {
+				return height - y(d.total);
+			})
+	});
 }
-
-// const svg = d3.select("#chart")
-// 	.append("svg")
-// 	.attr("width", width + margin.left + margin.right)
-// 	.attr("height", height + margin.top + margin.bottom)
-// 	.append("g")
-// 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-// ;
-
-// d3.csv("/data-lab-data/rd/2018_RnD_Total_Pct_v2.csv", (error, data) => {
-// 	if (error) throw error;
-// 	console.log (data);
-
-// 	x.domain(data.map(function (d)
-// 	{
-// 			return d.agency;
-// 	}));
-
-// 	y.domain([0, d3.max(data, function (d)
-// 	{
-// 			return d.total;
-// 	})]);
-
-// 	svg.append("g")
-// 			.attr("class", "x axis")
-// 			.attr("transform", "translate(0, " + height + ")")
-// 			.call(xAxis)
-// 			.selectAll("text")
-// 			.style("text-anchor", "middle")
-// 			.attr("dx", "-0.5em")
-// 			.attr("dy", "-.55em")
-// 			.attr("y", 30)
-// 			.attr("transform", "rotate(0)" );
-
-// 	svg.append("g")
-// 			.attr("class", "y axis")
-// 			.call(yAxis)
-// 			.append("text")
-// 			.attr("transform", "rotate(-90)")
-// 			.attr("y", 5)
-// 			.attr("dy", "0.8em")
-// 			.attr("text-anchor", "end")
-// 			.text("Word Count");
-
-// 	svg.selectAll("bar")
-// 			.data(data)
-// 			.enter()
-// 			.append("rect")
-// 			.style("fill", "orange")
-// 			.attr("x", function(d)
-// 			{
-// 					return x(d.agency);
-// 			})
-// 			.attr("width", x.bandwidth())
-// 			.attr("y", function (d)
-// 			{
-// 					return y(d.total);
-// 			})
-// 			.attr("height", function (d)
-// 			{
-// 					return height - y(d.total);
-// 			})
-// });
-
 
 
 
