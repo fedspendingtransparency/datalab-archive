@@ -1,10 +1,10 @@
 const
-	margin = { top: 20, right: 20, bottom: 100, left: 60 },
+	margin = { top: 10, right: 10, bottom: 10, left: 10 },
 	width = 1000 - margin.left - margin.right,
 	height = 1000 - margin.top - margin.bottom,
-	x = d3.scaleBand().range([0, width]).ticks(0).round(0.5),
+	x = d3.scaleBand().range([0, width]).round(0.5),
 	y = d3.scaleLinear().range([height, 0]),
-	xAxis = d3.axisBottom(x).ticks(0),
+	xAxis = d3.axisBottom(x).tickSize(0),
 	yAxis = d3.axisLeft(y)
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
 	;
@@ -30,12 +30,13 @@ window.onload = () => {
 			.attr("class", "x axis")
 			.attr("transform", "translate(0, " + height + ")")
 			.call(xAxis)
+			.select(".domain").remove()
 			.selectAll("text")
 			.style("text-anchor", "middle")
 			.attr("dx", "-0.5em")
 			.attr("dy", "-.55em")
 			.attr("y", 30)
-			.attr("transform", "rotate(0)")
+			.attr("transform", "rotate(90)")
 			;
 
 		svg.append("g")
