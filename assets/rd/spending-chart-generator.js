@@ -2,7 +2,7 @@ const
 	margin = { top: 20, right: 20, bottom: 100, left: 60 },
 	width = 1000 - margin.left - margin.right,
 	height = 1000 - margin.top - margin.bottom,
-	x = d3.scaleBand().range([0, width]).round(0.5),
+	x = d3.scaleBand().range([0, width]).round(0.5).ticks(0),
 	y = d3.scaleLinear().range([height, 0]),
 	xAxis = d3.axisBottom(x).ticks(0),
 	yAxis = d3.axisLeft(y)
@@ -22,8 +22,7 @@ window.onload = () => {
 		if (error) throw error;
 		console.log(data);
 
-		data = data.sort((a, b) => a.rnd - b.rnd);
-
+		data = data.sort((a, b) => b.rnd - a.rnd);
 		x.domain(data.map(d => d.agency));
 		y.domain([0, d3.max(data, d => d.total)]);
 
