@@ -70,7 +70,7 @@
   {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | strip_newlines | truncate: 160 }}"/>{% endif %}
   {% if page.permalink %}<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
   {% if page.socialMediaImage %}
-      <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
+  <meta property="og:image" content="{{ page.socialMediaImage | prepend: '/assets/ffg/social-media-share/' | prepend: site.baseurl | prepend: site.url }}"/>
   {% else %}
   <meta property="og:image" content="{{ '/assets/data-lab-og.png' | prepend: site.baseurl | prepend: site.url }}"/>
   {% endif %}
