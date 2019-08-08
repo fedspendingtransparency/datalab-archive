@@ -75,12 +75,13 @@ window.onload = () => {
 		svg.selectAll(".text")
 			.data(data)
 			.enter()
-			.append("text")
+			.append("g")
 			// .attr("transform", "rotate(90)")
-			.attr("class", "label")
 			.attr("x", d => x(d.agency))
 			.attr("y", 0)
-			.attr("dy", ".75em")
+			// .attr("dy", ".75em")
+			.append("text")
+			.attr("class", "label")
 			.text(d => d.agency)
 			;
 	});
