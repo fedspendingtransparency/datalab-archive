@@ -6,4 +6,5 @@ rect.total {
 }
 label {
   text-transform: uppercase;
+  transform: rotate(90deg)
 }
