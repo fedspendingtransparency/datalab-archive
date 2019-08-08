@@ -76,7 +76,7 @@ window.onload = () => {
 			.data(data)
 			.enter()
 			.append("g")
-			.attr("transform", d => "translate(" + (x(d.agency) + x.bandwidth() - 3) + "," + (height - y(d.rnd)) + ")")
+			.attr("transform", d => "translate(" + (x(d.agency) + x.bandwidth() / 2 - 3) + "," + (height - y(d.rnd)) + ")")
 			.attr("dy", ".75em")
 			.append("text")
 			.attr("class", "label")
