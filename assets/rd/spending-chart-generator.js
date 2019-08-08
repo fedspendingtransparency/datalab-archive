@@ -33,9 +33,10 @@ window.onload = () => {
 			.select(".domain").remove()
 			.selectAll("text")
 			.style("text-anchor", "middle")
+			.attr("x", d => x(d.agency))
 			.attr("dx", "-0.5em")
-			.attr("dy", "-.55em")
 			.attr("y", 30)
+			.attr("dy", "-0.55em")
 			.attr("transform", "rotate(90)")
 			;
 
