@@ -72,14 +72,15 @@ window.onload = () => {
 			.attr("height", d => height - y(d.rnd))
 			;
 
-		svg.selectAll(".text")
+		svg.selectAll(".label")
 			.data(data)
 			.enter()
 			.append("g")
-			.attr("transform", d => "translate(" + (x(d.agency) + x.bandwidth() / 2 - 3) + "," + (height - y(d.rnd)) + ")")
-			.attr("dy", ".75em")
+			// .attr("transform", d => "translate(" + (x(d.agency) + x.bandwidth() / 2 - 3) + "," + (height - y(d.rnd)) + ")")
+			.attr("transform", d => "translate(" + (x(d.agency) + x.bandwidth() / 2 - 3) + ",0)")
 			.append("text")
 			.attr("class", "label")
+			.attr("x", 850)
 			.text(d => d.agency)
 			;
 	});
