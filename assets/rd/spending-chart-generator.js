@@ -78,9 +78,11 @@ window.onload = () => {
 			.append("text")
 			.attr("transform", "rotate(90)")
 			.attr("class", "label")
-			.attr("x", d => x(d.agency))
-			.attr("y", d => y(d.total))
-			// .attr("dy", ".75em")
+			// .attr("x", d => x(d.agency))
+			// .attr("y", d => y(d.total))
+			.attr("y", d => x(d.agency))
+			.attr("x", d => y(d.total))
+			.attr("dy", ".75em")
 			.text(d => d.agency)
 			;
 	});
