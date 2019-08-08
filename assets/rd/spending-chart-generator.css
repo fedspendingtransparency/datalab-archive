@@ -4,7 +4,7 @@ rect.rnd {
 rect.total {
   fill: lightblue;
 }
-label {
+.label {
   text-transform: uppercase;
   transform: rotate(90deg)
 }
