@@ -24,7 +24,7 @@ window.onload = () => {
 		console.log(data);
 
 		data = data.sort((a, b) => b.rnd - a.rnd);
-		x.domain(data.map(d => d.agency));
+		x.domain(data.map(d => d.abbreviation));
 		y.domain([0, d3.max(data, d => d.total)]);
 
 		svg.append("g")
