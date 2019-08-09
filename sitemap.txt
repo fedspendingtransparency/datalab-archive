@@ -1,4 +1,5 @@
 https://datalab.usaspending.gov/
+https://datalab.usaspending.gov/colleges-and-universities.html
 https://datalab.usaspending.gov/contracts-over-time.html
 https://datalab.usaspending.gov/federal-account-explorer.html
 https://datalab.usaspending.gov/contract-explorer.html
