@@ -3,6 +3,7 @@ const
 	width = 1000 - margin.left - margin.right,
 	height = 1000 - margin.top - margin.bottom,
 	x = d3.scaleBand().range([0, width]).round(0.5),
+	// y = d3.scaleLinear().range([height, 0]),
 	y = d3.scaleSqrt().range([height, 0]),
 	xAxis = d3.axisBottom(x).tickSize(0),
 	yAxis = d3.axisLeft(y)
@@ -33,7 +34,7 @@ window.onload = () => {
 			.select(".domain").remove()
 			.selectAll("text")
 			.style("text-anchor", "middle")
-			// .attr("x", d => x(d.agency))
+			.attr("x", d => x(d.abbreviation))
 			.attr("dx", "-0.5em")
 			.attr("y", 30)
 			.attr("dy", "-0.55em")
