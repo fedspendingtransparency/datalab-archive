@@ -1,7 +1,7 @@
 const
 	margin = { top: 10, right: 10, bottom: 10, left: 10 },
-	width = 1000 - margin.left - margin.right,
-	height = 1000 - margin.top - margin.bottom,
+	width = 800 - margin.left - margin.right,
+	height = 800 - margin.top - margin.bottom,
 	x = d3.scaleBand().range([0, width]).round(0.5),
 	// y = d3.scaleLinear().range([height, 0]),
 	y = d3.scaleSqrt().range([height, 0]),
@@ -34,8 +34,8 @@ window.onload = () => {
 			.select(".domain").remove()
 			.selectAll("text")
 			.style("text-anchor", "middle")
-			.attr("x", d => x(d.agency))
-			.attr("dx", "-0.5em")
+			.attr("x", d => x(d.abbreviation))
+			// .attr("dx", "-0.5em")
 			.attr("y", 30)
 			.attr("dy", "-0.55em")
 			.attr("transform", "rotate(90)")
@@ -67,7 +67,7 @@ window.onload = () => {
 			.enter()
 			.append("rect")
 			.classed("rnd", true)
-			.attr("x", d => x(d.agency))
+			.attr("x", d => x(d.abbreviation))
 			.attr("width", x.bandwidth())
 			.attr("y", d => y(d.rnd))
 			.attr("height", d => height - y(d.rnd))
