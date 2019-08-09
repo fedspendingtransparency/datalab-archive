@@ -3,7 +3,7 @@ const
 	width = 1000 - margin.left - margin.right,
 	height = 1000 - margin.top - margin.bottom,
 	x = d3.scaleBand().range([0, width]).round(0.5),
-	y = d3.scaleLog().range([height, 0]),
+	y = d3.scaleSqrt().range([height, 0]),
 	xAxis = d3.axisBottom(x).tickSize(0),
 	yAxis = d3.axisLeft(y)
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
