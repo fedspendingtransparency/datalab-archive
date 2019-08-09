@@ -1,5 +1,5 @@
 const
-	margin = { top: 10, right: 10, bottom: 10, left: 10 },
+	margin = { top: 0, right: 0, bottom: 0, left: 100 },
 	width = 900 - margin.left - margin.right,
 	height = 900 - margin.top - margin.bottom,
 	x = d3.scaleBand().range([0, width]).round(0.5),
