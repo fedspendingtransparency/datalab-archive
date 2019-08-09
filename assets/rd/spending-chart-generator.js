@@ -5,7 +5,7 @@ const
 	x = d3.scaleBand().range([0, width]).round(0.5),
 	// y = d3.scaleLinear().range([height, 0]),
 	y = d3.scaleSqrt().range([height, 0]),
-	xAxis = d3.axisBottom(x).tickSize(0),
+	xAxis = d3.axisBottom(x).tickSize(5),
 	yAxis = d3.axisLeft(y)
 	// yAxis   = d3.axisLeft(y).ticks(5).innerTickSize(-width).outerTickSize(0).tickPadding(10)
 	;
@@ -80,7 +80,7 @@ window.onload = () => {
 			.attr("transform", d => "translate(" + (x(d.abbreviation) + x.bandwidth() / 2 - 3) + ",0)")
 			.append("text")
 			.attr("class", "label")
-			.attr("x", 850)
+			.attr("x", 600)
 			.text(d => d.agency)
 			;
 	});
