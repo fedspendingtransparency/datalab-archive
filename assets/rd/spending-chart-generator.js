@@ -1,7 +1,7 @@
 const
 	margin = { top: 10, right: 10, bottom: 10, left: 10 },
-	width = 800 - margin.left - margin.right,
-	height = 800 - margin.top - margin.bottom,
+	width = 900 - margin.left - margin.right,
+	height = 900 - margin.top - margin.bottom,
 	x = d3.scaleBand().range([0, width]).round(0.5),
 	// y = d3.scaleLinear().range([height, 0]),
 	y = d3.scaleSqrt().range([height, 0]),
@@ -77,7 +77,7 @@ window.onload = () => {
 			.data(data)
 			.enter()
 			.append("g")
-			.attr("transform", d => "translate(" + (x(d.agency) + x.bandwidth() / 2 - 3) + ",0)")
+			.attr("transform", d => "translate(" + (x(d.abbreviation) + x.bandwidth() / 2 - 3) + ",0)")
 			.append("text")
 			.attr("class", "label")
 			.attr("x", 850)
