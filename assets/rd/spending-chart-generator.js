@@ -34,21 +34,23 @@ window.onload = () => {
 			.select(".domain").remove()
 			.selectAll("text")
 			.style("text-anchor", "middle")
-			.attr("x", d => x(d.abbreviation))
+			.attr("x", d => x(d.agency))
 			.attr("dx", "-0.5em")
 			.attr("y", 30)
 			.attr("dy", "-0.55em")
 			.attr("transform", "rotate(90)")
+			.text(d => d.abbreviation)
 			;
 
 		svg.append("g")
 			.attr("class", "y axis")
 			.call(yAxis)
 			.append("text")
-			.attr("transform", "rotate(-90)")
+			// .attr("transform", "rotate(-90)")
 			.attr("y", 5)
 			.attr("dy", "0.8em")
 			.attr("text-anchor", "end")
+			.text(d => d.total)
 			;
 
 		svg.selectAll("bar")
