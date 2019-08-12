@@ -10,12 +10,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.site_header {
+.site-header {
   display: flex;
   align-items: center;
   box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
 
-  .site_banner {
+  .site-banner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,47 +24,59 @@ body {
 
 /* whitespace LR margins of main content */
 @media (min-width: $desktop) {
-  .page_margin {
+  .page-margin {
     width: $page-margin;
   }
-  .page_header {
-    width: 100% - $page-margin * 2;
+  .page-header {
     text-align: center;
   }
-  .section_header {
+  .section-header {
     flex-direction: row;
 
-    p.section_text {
+    p.section-text {
       text-align: justify;
     }
   }
 }
 @media (max-width: $desktop - 1) {
-  .page_margin {
+  .page-margin {
     width: 0;
   }
 
-  .page_header {
+  .page-header {
     width: 100%;
     text-align: left;
   }
 
-  .section_header {
+  .section-header {
     flex-direction: column;
   }
 }
 
-.page_header {
+.page-header {
 }
 
-.section_header {
+.section-header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 
-  .section_title {
+  .section-title {
   }
 
-  p.section_text {
+  p.section-text {
+  }
+}
+
+.chart-area {
+
+  .chart-header {
+
+    .chart-title {
+    }
+  }
+
+  .chart-footer {
+    text-align: end;
   }
 }
