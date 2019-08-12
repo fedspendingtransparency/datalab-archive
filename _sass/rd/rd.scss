@@ -1,9 +1,10 @@
-// device screen min widths; needs to be moved upsream
+// device screen min widths; needs to be moved to site-common file
 $desktop-xl: 1200px;
 $desktop: 992px;
 $tablet: 768px;
 $phone: 576px;
 
+$page-margin: 10%;
 
 body {
   display: flex;
@@ -24,11 +25,46 @@ body {
 /* whitespace LR margins of main content */
 @media (min-width: $desktop) {
   .page_margin {
-    width: 10%;
+    width: $page-margin;
+  }
+  .page_header {
+    width: 100% - $page-margin * 2;
+    text-align: center;
+  }
+  .section_header {
+    flex-direction: row;
+
+    p.section_text {
+      text-align: justify;
+    }
   }
 }
 @media (max-width: $desktop - 1) {
   .page_margin {
     width: 0;
+  }
+
+  .page_header {
+    width: 100%;
+    text-align: left;
+  }
+
+  .section_header {
+    flex-direction: column;
+  }
+}
+
+.page_header {
+}
+
+.section_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .section_title {
+  }
+
+  p.section_text {
   }
 }
