@@ -59,6 +59,8 @@ function dataMapper(r) {
 
 export function getDataByYear(year) {
     const categories = CategoryData.filter(r => {
+        console.log('r.sub_activity', r.sub_activity);
+        console.log('r.fiscal_year', r.fiscal_year);
         return (r.fiscal_year === year && !r.sub_activity)
     }).map(dataMapper).sort(sortByAmount);
 
