@@ -1,0 +1,34 @@
+// device screen min widths; needs to be moved upsream
+$desktop-xl: 1200px;
+$desktop: 992px;
+$tablet: 768px;
+$phone: 576px;
+
+
+body {
+  display: flex;
+  justify-content: space-between;
+}
+.site_header {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+
+  .site_banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* whitespace LR margins of main content */
+@media (min-width: $desktop) {
+  .page_margin {
+    width: 10%;
+  }
+}
+@media (max-width: $desktop - 1) {
+  .page_margin {
+    width: 0;
+  }
+}
