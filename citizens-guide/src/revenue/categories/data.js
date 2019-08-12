@@ -1,7 +1,7 @@
 // import CategoryData from '../../../public/csv/revenue_source_fy14_fy18.csv';
 // this comment is to ge the IDE to show changes to commit
-// import CategoryData from '../../../assets/ffg/federal_revenue_categories.csv';
-import CategoryData from './assets/ffg/federal_revenue_categories';
+import CategoryData from '../../../../assets/ffg/data/federal_revenue_categories.csv';
+// import CategoryData from './assets/ffg/federal_revenue_categories';
 import { min, max } from 'd3-array';
 
 const d3 = { min, max };
