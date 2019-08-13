@@ -1,4 +1,3 @@
-// import CategoryData from '../../../public/csv/revenue_source_fy14_fy18.csv';
 import CategoryData from '../../../../assets/ffg/data/federal_revenue_categories.csv';
 import { min, max } from 'd3-array';
 
@@ -39,13 +38,10 @@ function sortByAmount(a, b) {
 
 function addSubcategories(categoryRow) {
     //'this' argument expects a year
-    console.log('categoryRow', categoryRow);
-    console.log('this', this);
     categoryRow.subcategories = CategoryData.filter(r => {
         return (r.fiscal_year === this && r.child && r.parent_plain === categoryRow.activity)
     }).map(dataMapper).sort(sortSubcategories);
     
-    console.log('categoryRow', categoryRow);
     enrichData(categoryRow.subcategories);
 }
 

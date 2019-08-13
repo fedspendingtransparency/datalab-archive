@@ -26,7 +26,6 @@ let isDesktopInd = false,
 
 function init() {
     config.data = JSON.parse(JSON.stringify(data));
-    console.log('config.data', config.data);
     if (window.innerWidth >= 1200) {
         isDesktopInd = true;
         initSankey(config);
