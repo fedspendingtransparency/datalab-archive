@@ -43,6 +43,7 @@ function addSubcategories(categoryRow) {
         return (r.fiscal_year === this && r.child && r.parent_plain === categoryRow.parent)
     }).map(dataMapper).sort(sortSubcategories);
     
+    console.log('categoryRow', categoryRow);
     enrichData(categoryRow.subcategories);
 }
 
