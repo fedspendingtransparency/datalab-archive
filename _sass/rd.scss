@@ -7,9 +7,9 @@ $phone: 576px;
 $page-margin: 10%;
 
 .page-wrapper {
+  margin-top: 102px; // header banner margin
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
 }
 
 // these are for when we control the whole page, after Jekyll removed
