@@ -6,21 +6,24 @@ $phone: 576px;
 
 $page-margin: 10%;
 
-body {
+page-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
-.site-header {
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
 
-  .site-banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
+// these are for when we control the whole page, after Jekyll removed
+// .site-header {
+//   display: flex;
+//   align-items: center;
+//   box-shadow: 0 2px 20px 0 rgba(0,0,0,0.2);
+
+//   .site-banner {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//   }
+// }
 
 /* whitespace LR margins of main content */
 @media (min-width: $desktop) {
