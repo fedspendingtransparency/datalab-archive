@@ -1,7 +1,5 @@
 // import CategoryData from '../../../public/csv/revenue_source_fy14_fy18.csv';
-// this comment is to ge the IDE to show changes to commit
 import CategoryData from '../../../../assets/ffg/data/federal_revenue_categories.csv';
-// import CategoryData from './assets/ffg/federal_revenue_categories';
 import { min, max } from 'd3-array';
 
 const d3 = { min, max };
@@ -42,7 +40,7 @@ function sortByAmount(a, b) {
 function addSubcategories(categoryRow) {
     //'this' argument expects a year
     categoryRow.subcategories = CategoryData.filter(r => {
-        return (r.fiscal_year === this && r.sub_activity && r.activity_plain === categoryRow.activity)
+        return (r.fiscal_year === this && r.child && r.parent_plain === categoryRow.parent)
     }).map(dataMapper).sort(sortSubcategories);
     
     enrichData(categoryRow.subcategories);
@@ -50,18 +48,16 @@ function addSubcategories(categoryRow) {
 
 function dataMapper(r) {
     return {
-        activity: r.activity_plain,
-        sub_activity: r.sub_activity_plain,
-        amount: r.revenue_adjusted,
+        activity: r.parent_plain,
+        sub_activity: r.child_plain,
+        amount: r.federal_revenue,
         percent_total: r.percent_total
     }
 }
 
 export function getDataByYear(year) {
     const categories = CategoryData.filter(r => {
-        console.log('r.sub_activity', r.sub_activity);
-        console.log('r.fiscal_year', r.fiscal_year);
-        return (r.fiscal_year === year && !r.sub_activity)
+        return (r.fiscal_year === year && !r.child)
     }).map(dataMapper).sort(sortByAmount);
 
     categories.forEach(addSubcategories, year);
