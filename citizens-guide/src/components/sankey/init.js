@@ -40,9 +40,13 @@ function stackData(series) {
 
         r.x0 = tracker;
 
+        // comment here, just to make the IDE mark the file as changed
+        console.log('r.amount', r.amount);
+        console.log('c.amount', c.amount);
         tracker += Math.abs(r.amount);
 
         if (r.subcategories) {
+            console.log('r.subcategories', r.subcategories);
             stackData(r.subcategories)
         }
 
