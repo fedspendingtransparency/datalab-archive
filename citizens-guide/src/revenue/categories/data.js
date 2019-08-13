@@ -39,8 +39,10 @@ function sortByAmount(a, b) {
 
 function addSubcategories(categoryRow) {
     //'this' argument expects a year
+    console.log('categoryRow', categoryRow);
+    console.log('this', this);
     categoryRow.subcategories = CategoryData.filter(r => {
-        return (r.fiscal_year === this && r.child && r.parent_plain === categoryRow.parent)
+        return (r.fiscal_year === this && r.child && r.parent_plain === categoryRow.activity)
     }).map(dataMapper).sort(sortSubcategories);
     
     console.log('categoryRow', categoryRow);
