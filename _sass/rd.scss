@@ -6,8 +6,10 @@ $phone: 576px;
 
 $page-margin: 10%;
 
+$color-titles: #666;
+
 .page-wrapper {
-  margin-top: 102px; // header banner margin
+  margin-top: 10rem; // for header/banner
   display: flex;
   justify-content: space-between;
 }
@@ -31,14 +33,23 @@ $page-margin: 10%;
 //   }
 // }
 
-/* whitespace LR margins of main content */
 @media (min-width: $desktop) {
   .page-margin {
     width: $page-margin;
   }
+
   .page-header {
     text-align: center;
+    
+    .desktop: {
+      visibility: block;
+    }
+
+    .mobile: {
+      visibility: hidden;
+    }
   }
+  
   .section {
     flex-direction: row;
     align-items: center;
@@ -55,6 +66,14 @@ $page-margin: 10%;
 
   .page-header {
     text-align: left;
+
+    .desktop: {
+      visibility: hidden;
+    }
+
+    .mobile: {
+      visibility: block;
+    }
   }
 
   .section {
@@ -64,6 +83,19 @@ $page-margin: 10%;
 }
 
 .page-header {
+
+  .page-title {
+    color: $color-titles;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.8px;
+    line-height: 20px;
+  }
+
+  .page-heading {
+
+  }
 }
 
 .section {
