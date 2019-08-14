@@ -35,7 +35,7 @@ $color-titles: #666;
 
 @media (min-width: $desktop) {
   .desktop {
-    display: inline;
+    display: block;
   }
   .mobile {
     display: none;
@@ -83,7 +83,7 @@ $color-titles: #666;
 .page-header {
   color: $color-titles;
 
-  .page-title {
+  .page-name {
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
