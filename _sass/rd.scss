@@ -18,11 +18,6 @@ $page-margin: 10%;
   justify-content: space-between;
 }
 
-.section {
-  display: flex;
-  justify-content: space-between;
-}
-
 // these are for when we control the whole page, after Jekyll removed
 // .site-header {
 //   display: flex;
@@ -69,16 +64,18 @@ $page-margin: 10%;
 .page-header {
 }
 
-.section-header {
+.section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
-  .section-title {
-  }
+  .section-header {
 
-  p.section-text {
+    .section-title {
+    }
+
+    p.section-text {
+    }
   }
 }
 
