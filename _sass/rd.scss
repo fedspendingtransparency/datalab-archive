@@ -35,10 +35,10 @@ $color-titles: #666;
 
 @media (min-width: $desktop) {
   .desktop {
-    visibility: block;
+    display: inline;
   }
   .mobile {
-    visibility: hidden;
+    display: none;
   }
 
   .page-margin {
@@ -60,10 +60,10 @@ $color-titles: #666;
 }
 @media (max-width: $desktop - 1) {
   .desktop {
-    visibility: hidden;
+    display: none;
   }
   .mobile {
-    visibility: block;
+    display: block;
   }
 
   .page-margin {
