@@ -81,9 +81,9 @@ $color-titles: #666;
 }
 
 .page-header {
+  color: $color-titles;
 
   .page-title {
-    color: $color-titles;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
@@ -92,7 +92,9 @@ $color-titles: #666;
   }
 
   .page-heading {
-
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 50px;
   }
 }
 
