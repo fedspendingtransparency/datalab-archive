@@ -7,7 +7,6 @@
          action: item
      });
 
-     return false;
  }
 </script>
 
@@ -36,13 +35,16 @@
           </a>
         </li>
         <li>
-          <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}')" title="Share on Reddit">
+	    {% assign redditTitle = "Colleges and Universities @ Datalab" %}
+	    {% assign redditBody = page.socialRedditText %}
+          <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{redditTitle}}')" title="Share on Reddit">
             {% include svgs/reddit.svg class="share-icon icon-reddit" %}
             <span class="share-button-text">Reddit</span>
           </a>
         </li>
         <li>
-          <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}")' title="Share on LinkedIn">
+	    {% assign blurb = page.socialLinkedinText %}
+            <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}&summary={{blurb}}")' title="Share on LinkedIn">
             {% include svgs/linkedin_square_x.svg class="share-icon icon-linkedin" %}
             <span class="share-button-text">Linkedin</span>
           </a>
