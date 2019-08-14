@@ -34,20 +34,19 @@ $color-titles: #666;
 // }
 
 @media (min-width: $desktop) {
+  .desktop {
+    visibility: block;
+  }
+  .mobile {
+    visibility: hidden;
+  }
+
   .page-margin {
     width: $page-margin;
   }
 
   .page-header {
     text-align: center;
-    
-    .desktop: {
-      visibility: block;
-    }
-
-    .mobile: {
-      visibility: hidden;
-    }
   }
   
   .section {
@@ -60,20 +59,19 @@ $color-titles: #666;
   }
 }
 @media (max-width: $desktop - 1) {
+  .desktop {
+    visibility: hidden;
+  }
+  .mobile {
+    visibility: block;
+  }
+
   .page-margin {
     width: 0;
   }
 
   .page-header {
     text-align: left;
-
-    .desktop: {
-      visibility: hidden;
-    }
-
-    .mobile: {
-      visibility: block;
-    }
   }
 
   .section {
