@@ -20,7 +20,7 @@
     <div class="share-buttons">
       <ul>
         <li>
-          <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}' + encodeURIComponent('#{{include.anchor}}'))" title="Share on Facebook">
+          <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}' + '#{{include.anchor}}')" title="Share on Facebook">
             {% include svgs/facebook_square_x.svg class="share-icon icon-facebook" %}
             <span class="share-button-text">Facebook</span>
           </a>
@@ -37,13 +37,13 @@
           </a>
         </li>
         <li>
-          <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}' + encodeURIComponent('#{{include.anchor}}'))" title="Share on Reddit">
+          <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}' + '#{{include.anchor}}')" title="Share on Reddit">
             {% include svgs/reddit.svg class="share-icon icon-reddit" %}
             <span class="share-button-text">Reddit</span>
           </a>
         </li>
         <li>
-          <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" + encodeURIComponent("#{{include.anchor}}"))' title="Share on LinkedIn">
+          <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" + "#{{include.anchor}}")' title="Share on LinkedIn">
             {% include svgs/linkedin_square_x.svg class="share-icon icon-linkedin" %}
             <span class="share-button-text">Linkedin</span>
           </a>
