@@ -1,0 +1,11 @@
+rect.rnd {
+  fill: #1302D9;
+}
+rect.total {
+  fill: lightblue;
+}
+.label {
+  text-transform: uppercase;
+  text-anchor: end;
+  transform: rotate(90deg)
+}
