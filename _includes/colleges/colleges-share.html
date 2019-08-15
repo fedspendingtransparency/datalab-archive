@@ -20,7 +20,7 @@
     <div class="share-buttons">
       <ul>
         <li>
-          <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}' + '#{{include.anchor}}')" title="Share on Facebook">
+          <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}' + encodeURIComponent('#{{include.anchor}}'))" title="Share on Facebook">
             {% include svgs/facebook_square_x.svg class="share-icon icon-facebook" %}
             <span class="share-button-text">Facebook</span>
           </a>
