@@ -1,6 +1,6 @@
 import '../../revenue/countries/selectCountry.scss';
 import { loadSourceData } from '../../revenue/countries/data';
-import CountryData from '../../../public/csv/surplus_deficit_gdp_by_country.csv';
+import CountryData from '../../../../assets/ffg/data/deficit_country_comparison.csv';
 import { chartInit } from '../../revenue/countries/chart';
 import colors from '../../globalSass/colors.scss';
 
