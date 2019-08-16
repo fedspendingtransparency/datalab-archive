@@ -6,56 +6,55 @@
          category: 'Share Menu - Click Item',
          action: item
      });
-
  }
 </script>
 
 <div class="popup new-share-button">
-  <span class="viz-share-icon" aria-hidden="true">
-    {% include svgs/share.svg %} Share
-  </span>
-  <span class="popuptext right newpopup" id="sharePopup">
-    <div class="share-buttons">
-      <ul>
-        <li>
-          <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}')" title="Share on Facebook">
-            {% include svgs/facebook_square_x.svg class="share-icon icon-facebook" %}
-            <span class="share-button-text">Facebook</span>
-          </a>
-        </li>
-        <li>
-          {% if page.socialTwitterText %}
-          {% assign twitterVariable = page.socialTwitterText %}
-          {% else %} 
-          {% assign twitterVariable = page.title %}
-          {% endif %}
-          <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('{{ twitterVariable }}')+'&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}')" title="Share on Twitter">
-            {% include svgs/twitter_square_x.svg class="share-icon icon-twitter" %}
-            <span class="share-button-text">Twitter</span>
-          </a>
-        </li>
-        <li>
-	    {% assign redditTitle = "Colleges and Universities @ Datalab" %}
-	    {% assign redditBody = page.socialRedditText %}
-          <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{redditTitle}}')" title="Share on Reddit">
-            {% include svgs/reddit.svg class="share-icon icon-reddit" %}
-            <span class="share-button-text">Reddit</span>
-          </a>
-        </li>
-        <li>
-	    {% assign blurb = page.socialLinkedinText %}
-            <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}&summary={{blurb}}")' title="Share on LinkedIn">
-            {% include svgs/linkedin_square_x.svg class="share-icon icon-linkedin" %}
-            <span class="share-button-text">Linkedin</span>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:?subject=Check out this analysis on Data Lab&body=Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds!%0D%0A%0D%0ACheck out this site {{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}" title="Share via Email">
-            {% include svgs/envelope.svg class="share-icon icon-envelope" %}
-            <span class="share-button-text">Email</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </span>
+    <span class="viz-share-icon" aria-hidden="true">
+	{% include svgs/share.svg %} Share
+    </span>
+    <span class="popuptext right newpopup" id="sharePopup">
+	<div class="share-buttons">
+	    <ul>
+		<li>
+		    <a href="javascript:clickShareItemLink('Facebook', 'https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}')" title="Share on Facebook">
+			{% include svgs/facebook_square_x.svg class="share-icon icon-facebook" %}
+			<span class="share-button-text">Facebook</span>
+		    </a>
+		</li>
+		<li>
+		    {% if page.socialTwitterText %}
+		    {% assign twitterVariable = page.socialTwitterText %}
+		    {% else %} 
+		    {% assign twitterVariable = page.title %}
+		    {% endif %}
+		    <a href="javascript:clickShareItemLink('Twitter', 'https://twitter.com/intent/tweet?text='+encodeURIComponent('{{ twitterVariable }}')+'&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}')" title="Share on Twitter">
+			{% include svgs/twitter_square_x.svg class="share-icon icon-twitter" %}
+			<span class="share-button-text">Twitter</span>
+		    </a>
+		</li>
+		<li>
+		    {% assign redditTitle = "Colleges and Universities @ Datalab" %}
+		    {% assign redditBody = page.socialRedditText %}
+		    <a href="javascript:clickShareItemLink('Reddit', 'http://www.reddit.com/submit?url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{redditTitle}}')" title="Share on Reddit">
+			{% include svgs/reddit.svg class="share-icon icon-reddit" %}
+			<span class="share-button-text">Reddit</span>
+		    </a>
+		</li>
+		<li>
+		    {% assign blurb = page.socialLinkedinText %}
+		    <a href='javascript:clickShareItemLink("Linkedin", "https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}&summary={{blurb}}")' title="Share on LinkedIn">
+			{% include svgs/linkedin_square_x.svg class="share-icon icon-linkedin" %}
+			<span class="share-button-text">Linkedin</span>
+		    </a>
+		</li>
+		<li>
+		    <a href="mailto:?subject=Check out this analysis on Data Lab&body=Did you know the federal government invested over $149 billion in higher education? Check out this analysis and discover how much your Alma Mater received in federal funds!%0D%0A%0D%0ACheck out this site {{ site.url }}{{ site.baseurl }}{{ page.url }}#{{include.anchor}}" title="Share via Email">
+			{% include svgs/envelope.svg class="share-icon icon-envelope" %}
+			<span class="share-button-text">Email</span>
+		    </a>
+		</li>
+	    </ul>
+	</div>
+    </span>
 </div>
