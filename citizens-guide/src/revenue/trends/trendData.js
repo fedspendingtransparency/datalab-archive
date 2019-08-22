@@ -1,5 +1,4 @@
 import CategoryData from '../../../../assets/ffg/data/federal_revenue_categories.csv';
-// import CategoryData from '../../../../assets/ffg/data/federal_revenue_categories_test_higher.csv';
 
 export function trendData(){
     const indexed = {};
