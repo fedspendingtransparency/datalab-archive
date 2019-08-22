@@ -1,4 +1,6 @@
 import SpendingData from '../../../assets/ffg/data/federal_revenue_categories.csv';
+// import SpendingData from '../../../../assets/ffg/data/federal_revenue_categories_test_higher.csv';
+
 
 import { min } from 'd3-array';
 
