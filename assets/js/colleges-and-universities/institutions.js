@@ -223,7 +223,7 @@ function createMapbox() {
 		    source: "schools",
 		    layout: {
 			"icon-image": 'pin',
-			"icon-size": .05
+			"icon-size": .6
 		    },
 		    filter: ["!", ["has", "point_count"]]
 		});
