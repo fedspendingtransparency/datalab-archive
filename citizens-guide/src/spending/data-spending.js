@@ -1,11 +1,11 @@
-import SpendingData from '../../../assets/ffg/data/federal_revenue_categories.csv';
+import SpendingData from '../../../assets/ffg/data/federal_spending_categories.csv';
 
 import { min } from 'd3-array';
 
 const d3 = { min },
     dataTypes = [
         'agency',
-        'function'
+        'category'
     ];
 
 function stackData(series) {
@@ -81,7 +81,7 @@ export function indexByYear(yyyy) {
 
             indexed[r.function][r.parent].subcategories[r.child] = {
                 activity: r.child_plain,
-                amount: r.federal_spending_adjusted,
+                amount: r.federal_spending,
                 percent_total: r.percent_total
             }
         } else {
@@ -90,7 +90,7 @@ export function indexByYear(yyyy) {
 
             indexed[r.function][r.parent] = {
                 activity: r.parent_plain,
-                amount: r.federal_spending_adjusted,
+                amount: r.federal_spending,
                 percent_total: r.percent_total,
                 subcategories: tempChildren
             }
