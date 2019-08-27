@@ -111,13 +111,13 @@ function revealTable(category) {
 function downloadData() {
   switch (categoryLabel) {
     case 'Contract':
-      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Contracts_Download.csv');
+      window.open('data-lab-data/CU/updated_CU_data/Investment_Section_Contracts_Download_V2.csv');
       break;
     case 'Grant':
-      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Grants_Download.csv');
+      window.open('data-lab-data/CU/updated_CU_data/Investment_Section_Grants_Download_V2.csv');
       break;
     case 'Research Grant':
-      window.open('assets/js/colleges-and-universities/download-files/Investment_Section_Research_Grants_Download.csv');
+      window.open('data-lab-data/CU/updated_CU_data/Investment_Section_Research_Grants_Download_V2');
       break;
     }
 }
@@ -355,8 +355,7 @@ function createChart() {
     .attr('width', catWidth)
     .attr('height', catHeight)
     .append('g')
-    .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')')
-  ;
+    .attr('transform', 'translate(' + (catWidth / 2) + ',' + (catHeight / 2) + ')');
 }
 
 function refreshData(data) {
@@ -433,11 +432,10 @@ function buildDataHierarchy(title, dataArray) {
 }
 
 function createContractsTable() {
-  d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', function(contractData) {
+  d3.csv('data-lab-data/CU/updated_CU_data/InvestmentSectionContractsV2.csv', function(contractData) {
 
     let table = d3.select('#investment-table--contracts').append('table')
-      .attr('id', 'investment-table-datatable')
-    ;
+      .attr('id', 'investment-table-datatable');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
@@ -472,12 +470,11 @@ function createContractsTable() {
 };
 
 function createGrantsTable() {
-  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+  d3.csv('data-lab-data/CU/updated_CU_data/InvestmentSectionGrantsV2.csv', function(err, data) {
     if (err) { return err; }
 
     let table = d3.select('#investment-table--grants').append('table')
-      .attr('id', 'investment-table-datatable--grants')
-    ;
+      .attr('id', 'investment-table-datatable--grants');
 
     let titles = ['Family', 'Program Title', 'Agency', 'Subagency', 'Recipient', 'Obligation'];
     
@@ -513,7 +510,7 @@ function createGrantsTable() {
 };
 
 function createResearchTable() {
-  d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', function(err, data) {
+  d3.csv('data-lab-data/CU/updated_CU_data/InvestmentSectionGrantsV2.csv', function(err, data) {
     if (err) { return err; }
 
     let researchData = data.filter(d => d.Research);
@@ -560,7 +557,8 @@ const partition = d3.layout.partition().value(d => d.size);
 
 let grantsHierarchy, grantsChartArray;
 let researchGrantsHierarchy, researchGrantsChartArray;
-d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
+d3.csv('data-lab-data/CU/updated_CU_data/InvestmentSectionGrantsV2.csv', (error, grantData) => {
+    if (error) { console.log(error); }
   // create hierarchy (which sorts by total value), then add colorIndex to 1st level nodes
   grantsHierarchy = buildDataHierarchy('Grants CFDA', grantData);
   grantsChartArray = partition.nodes(grantsHierarchy)
@@ -568,6 +566,7 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
   grantsHierarchy.children.forEach((node, index) => {
     node.colorIndex = index % wedgeColors.length;
   });
+
   chartData = grantsChartArray[0];
 
   categoryLabel = 'Grant';
@@ -591,7 +590,7 @@ d3.csv('data-lab-data/CollegesAndUniversityGrants.csv', (error, grantData) => {
 });
 
 let contractsHierarchy, contractsChartArray;
-d3.csv('data-lab-data/CollegesAndUniversitiesContracts.csv', (error, contractData) => {
+d3.csv('data-lab-data/CU/updated_CU_data/InvestmentSectionContractsV2.csv', (error, contractData) => {
   // create hierarchy (which sorts by total value), then add colorIndex to 1st level nodes
   contractsHierarchy = buildDataHierarchy('Contracts PSC', contractData);
   contractsChartArray = partition.nodes(contractsHierarchy)
