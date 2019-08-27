@@ -15,7 +15,7 @@ let svg,
     config = {
         data: byYear(2018),
         sectionColor: colors.colorSpendingPrimary,
-        dataType: 'function',
+        dataType: 'category',
         accessibilityAttrs : {
             title: '2018 Federal Spending by Category and Agency',
             desc: 'The federal government reports spending by category and by agency. \n' +
