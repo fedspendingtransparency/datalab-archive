@@ -1,13 +1,13 @@
-import CategoryData from '../../../public/csv/spending_agency_function_fy14_fy18.csv';
+import CategoryData from '../../../../assets/ffg/data/federal_spending_trends.csv';
 
 export function trendData(type){
     const indexed = {},
-        filtered = CategoryData.filter(r => r.category === type);
+        filtered = CategoryData.filter(r => r.function === type);
 
     let arr;
 
     filtered.forEach(r => {
-        if (isNaN(r.spending)) {
+        if (isNaN(r.federal_spending)) {
             return;
         }
         
@@ -27,12 +27,12 @@ export function trendData(type){
 
             indexed[r.parent_plain].subcategories[r.child_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.spending
+                amount: r.federal_spending
             })
         } else {
             indexed[r.parent_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.spending
+                amount: r.federal_spending
             })
         }
     });

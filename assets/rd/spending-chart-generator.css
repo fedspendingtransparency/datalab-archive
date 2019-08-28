@@ -1,0 +1,13 @@
+rect.rnd {
+  fill: #1302D9;
+}
+rect.total {
+  fill: lightblue;
+}
+.label {
+  font-family: 'Source Sans Pro';
+  color: lightslategray;
+  text-transform: uppercase;
+  text-anchor: end;
+  transform: rotate(90deg)
+}
