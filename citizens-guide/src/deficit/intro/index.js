@@ -6,13 +6,20 @@ import colors from '../../globalSass/colors.scss';
 import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
 import '../../matchesPolyfill';
+import DeficitData from '../../../../assets/ffg/data/explore_federal_deficit.csv';
+
+console.log('DeficitData', DeficitData);
 
 const config = {
     anecdoteName: 'anecdote-deficit.svg',
-    revenueAmount: 3300000000000,
-    spendingAmount: 4100000000000,
-    debtBalance: 21500000000000,
-    reportedDeficitAmount: 779000000000,
+    // revenueAmount: 3300000000000, //1
+    revenueAmount: DeficitData[1].amount,
+    // spendingAmount: 4100000000000,//2
+    spendingAmount: DeficitData[2].amount,
+    // debtBalance: 21500000000000,//3
+    debtBalance: DeficitData[3].amount,
+    // reportedDeficitAmount: 779000000000,//0
+    reportedDeficitAmount: DeficitData[0].amount,//0
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,
     spendingColor: colors.colorSpendingPrimary,
