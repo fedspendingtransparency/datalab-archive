@@ -3,15 +3,15 @@
 
 (function () {
     const detailContainer = d3.select('#bubble-detail').append('section').classed('bubble-detail', true),
-        tables = {},
-        detailData = {},
-        tableControl = [
-            'total',
-            'funding',
-            'investments',
-            'institutions'
-        ], // for controlling the order of positioning tables
-        activeClass = 'bubble-detail--active';
+          tables = {},
+          detailData = {},
+          tableControl = [
+              'total',
+              'funding',
+              'investments',
+              'institutions'
+          ], // for controlling the order of positioning tables
+          activeClass = 'bubble-detail--active';
 
     let agencyName, subAgencyName, done = 0;
 
@@ -42,8 +42,8 @@
 
         detailContainer.classed(activeClass, true);
 
-        agencyName.text(data.parent.name)
-        subAgencyName.text(data.name)
+        agencyName.text(data.parent.name);
+        subAgencyName.text(data.name);
 
         if (!detailData[data.name]) {
             console.warn(`no data for ${data.name}`);
@@ -131,23 +131,23 @@
     }
 
     function preloadData() {
-        d3.csv("/data-lab-data/CU/top5InstitutionsPerAgency_v3.csv", function (data) {
+	// top 5 inst per agency
+        d3.csv("/data-lab-data/CU/updated_CU_data/top5InstitutionsPerAgency_v2.csv", function (data) {
             data.forEach(indexData, 'institutions');
-
             done += 1;
         });
 
-        d3.csv("/data-lab-data/CU/top5InvestmentsPerAgency_v3.csv", function (data) {
+        d3.csv("/data-lab-data/CU/updated_CU_data/top5InvestmentsPerAgency_v2.csv", function (data) {
+	    // top 5 investments per agency..
             data.forEach(indexData, 'investments');
-
             done += 1;
-        })
+        });
 
-        d3.csv("/data-lab-data/CU/Agencies_RHP_summary.csv", function (data) {
+        d3.csv("/data-lab-data/CU/updated_CU_data/Agencies_RHP_summary_v2.csv", function (data) {
+	    // agencies rhp summary!
             data.forEach(indexData, 'funding');
-
             done += 1;
-        })
+        });
     }
 
     function disableMobile() {
@@ -172,8 +172,8 @@
 
         placeTables();
 
-        bubble.activateDetail = activateDetail
+        bubble.activateDetail = activateDetail;
     }
 
-    init()
-})()
+    init();
+})();
