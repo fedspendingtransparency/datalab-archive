@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Lab – U.S. Treasury</title>
+  <meta name="description" content="The Data Lab is a U.S. Treasury Department initiative to publish analyses and visualizations to help the public better understand government spending.">
+
+  
+  <meta name="keywords" content="Federal spending, data, visualizations, contracts, accounts, grants, federal programs, federal financial data">
+  
+
+  <link rel="canonical" href="https://datalab.usaspending.gov/">
+  <link rel="stylesheet" href="/main.css" />
+  <link rel="shortcut icon" href="/images/favicon.ico">
+
+  <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=TRE" id="_fed_an_ua_tag"></script>
+
+  <link rel="stylesheet" href="/assets/fa/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/font-awesome-ie.css">
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="/css/landing.css" />
+
+
+
+  
+
+  <link rel="stylesheet" href="/assets/ffg/components/glossary/glossary.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19138737-13"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'UA-19138737-13');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+							new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+												  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+												      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-5GVVS7L');</script>
+  <!-- End Google Tag Manager -->
+
+  <script>
+   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+   ga('create', 'UA-19138737-13', 'auto');
+
+   ga('require', 'eventTracker');
+  </script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script async src="/js/autotrack.js"></script>
+
+  <!-- og tags -->
+  <meta property="og:title" content="Data Lab – U.S. Treasury"/>
+  <meta property="og:description" content="The Data Lab is a U.S. Treasury Department initiative to publish analyses and visualizations to help the public better understand government spending."/>
+  
+  
+  <meta property="og:image" content="https://datalab.usaspending.gov/assets/data-lab-og.png"/>
+  
+</head>
+
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/Analytics.js"></script>
+<script src="/js/homepage/header.js"></script>
+<!-- <script src="/js/homepage/sticky.js"></script> -->
+
+  <body class="landing">
+    <div id="page-wrapper">
+        <header class="official-banner">
+  <ul class="official-banner__site-list">
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://www.usaspending.gov">
+        USAspending.gov
+      </a>
+    </li>
+    <li class="official-banner__site-item official-banner__site-item_spacer" aria-hidden="true">
+      |
+    </li>
+    <li class="official-banner__site-item">
+      <a class="official-banner__site-link" href="https://datalab.usaspending.gov">
+        Data Lab
+      </a>
+    </li>
+  </ul>
+  <div class="official-banner__wrapper">
+    <div class="official-banner__text">
+      An official website of the U.S. government
+    </div>
+    <img class="official-banner__flag" src="/images/us_flag_small.png" alt="U.S. flag" />
+  </div>
+</header>
+<div class="info-banner">
+  <div class="info-banner__content">
+    <div class="info-banner__alert-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="usa-da-icon-exclamation-triangle" viewBox="0 0 512 512" aria-label="Exclamation Mark Icon">
+   <path d="M502.7 491.8l-240-480c-4-8-10.3-8-14.3 0l-240 480c-3.8 7.8 0 14.2 9 14.2h476.3c9 0 13-6.4 9-14.2zM282 438c0 .6-.3 1-1 1h-51.4c-.6 0-1-.4-1-1v-47h-.3c0-.5.4-1 1-1H281c.7 0 1 .5 1 1v47zm2-74.7h-57l-7-178.5h71l-7 178.5z" fill="#5bc0de"/>
+</svg>
+    </div>
+    <div class="info-banner__alert-text">
+      <div class="info-banner__body-text">This site is in beta. We're updating this site on a rolling basis and we'd love your feedback! Contact us <a href="mailto:datapmo@fiscal.treasury.gov">here</a>.</div>
+    </div>
+    <div onclick="closeInfoBanner();">
+      <svg class="info-banner__close-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" zoomAndPan="disable" preserveAspectRatio="none">
+	<line x1="0" y1="0" x2="16" y2="16" />
+	<line x1="16" y1="0" x2="0" y2="16" />
+</svg>
+    </div>
+  </div>
+</div>
+
+<header id="header">
+  <div class="header__main">
+    <a class="header-logo header-logo--init" href="/">
+      <div class="header-logo__wrapper">
+        <img src="/assets/header-svg/data-lab-logo.svg" class="header-logo__img" id="master-logo" alt="DataLab logo"/>
+        <img src="/assets/header-svg/two-line.png" class="header-logo__two-line header-logo__tagline" id="two-line-tag" alt="Visualizations to help you understand government finance" />
+      </div>
+      <img src="/assets/header-svg/one-line.png" class="header-logo__tagline" id="one-line-tag" alt="Visualizations to help you understand government finance" />
+    </a>
+
+    <nav class="header-nav">
+      <span class="navbar-toggle" id="burger-navbar-toggle">
+	<i class="fas fa-bars"> </i>
+      </span>
+      <ul class="nav" id="burger-menu">
+	<li class="navListItem desktop-nav-item" data-target="analyses">
+          <a href="#">ANALYSES</a>
+	  <span><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g transform="translate(1114.000000, 46.000000)">
+                <polyline points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+	</li>
+	<li class="navListItem desktop-nav-item" data-target="resources">
+          <a href="#">RESOURCES</a>
+	  <span><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g transform="translate(1114.000000, 46.000000)">
+                <polyline points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+	</li>
+	<li class="navListItem desktop-nav-item" data-target="ffg">
+          <a href="/americas-finance-guide/" id="ffgNavAnchor">AMERICA'S FINANCE GUIDE</a>
+	  <span class=""><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g transform="translate(1114.000000, 46.000000)">
+                <polyline points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+	</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="header__sub">
+    <ul class="dropdown-ul-section" id="subnav-analyses">
+      <li class="secondaryNavli"><a href="/colleges-and-universities.html">Colleges and Universities</a></li>
+      <li class="secondaryNavli"><a href="/dts.html">DTS Tracker</a></li>
+      <li class="secondaryNavli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <li class="secondaryNavli"><a href="/federal-account-explorer.html">Federal Account Explorer</a></li>
+      <li class="secondaryNavli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <li class="secondaryNavli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <li class="secondaryNavli"><a href="/budget-function.html">Budget Function</a></li>
+      <li class="secondaryNavli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <li class="secondaryNavli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+    </ul>
+    <ul class="dropdown-ul-section" id="subnav-resources">
+      <li class="secondaryNavli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <li class="secondaryNavli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <li class="secondaryNavli"><a href="https://www.fiscal.treasury.gov/data-transparency/DAIMS-current.html">Data Model</a></li>
+      <li class="secondaryNavli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+    </ul>
+    <ul class="dropdown-ul-section" id="subnav-ffg">
+      <li class="secondaryNavli"><a href="/americas-finance-guide/">Overview</a></li>
+      <li class="secondaryNavli"><a href="/americas-finance-guide/revenue/">Revenue</a></li>
+      <li class="secondaryNavli"><a href="/americas-finance-guide/spending/">Spending</a></li>
+      <li class="secondaryNavli"><a href="/americas-finance-guide/deficit/">Deficit</a></li>
+      <li class="secondaryNavli"><a href="/americas-finance-guide/debt/">Debt</a></li>
+      <li class="secondaryNavli">
+        <button id="ffg-glossary-trigger">
+          <img src="/assets/ffg/icons/definition.svg" alt="definition icon" width="12px"> <span class="text-element">Glossary</span>
+        </button>
+      </li>
+    </ul>    
+  </div>
+
+</header>
+
+<div class="mobileUlSection" id="mobileSection"> 
+  <ul class="mobileNav" id="mobile-nav">
+    <li class="navListItem">
+      <a href="#" id="analysesAnchor">Analyses</a>
+      <span><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g transform="translate(1114.000000, 46.000000)">
+                <polyline points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+    </li>
+    <ul class="secondaryNavAnalysesMobile" id="mobileAnalyses">
+      <li class="secondaryNavMobileli"><a href="/colleges-and-universities.html">Colleges and Universities</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/dts.html">DTS Tracker</a></li>
+      <!-- change to ::after or id to class  -->
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contracts-over-time.html">Contract Spending Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-account-explorer.html">Federal Account Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/contract-explorer.html">Contract Explorer</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/homelessness-analysis.html">Homelessness Analysis</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/budget-function.html">Budget Function</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/federal-employees.html">Federal Employees</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/competition-in-contracting.html">Competition in Contracting</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="resourcesAnchor">Resources</a>
+      <span><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g transform="translate(1114.000000, 46.000000)">
+                <polyline points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+    </li>
+    <ul class="secondaryNavResourcesMobile" id="mobileResources">
+      <li class="secondaryNavMobileli"><a href="/assets/analyst-guide-1-2.pdf">Analyst Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="http://api.usaspending.gov/">API Guide</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="https://www.fiscal.treasury.gov/data-transparency/DAIMS-current.html">Data Model</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/student-innovators-toolbox.html">Student Innovator's Toolbox</a></li>
+      <hr id="mobileHr">
+    </ul>
+    <li class="navListItem">
+      <a href="#" id="ffgAnchor">America's Finance Guide</a>
+      <span class=""><?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="6px" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1198.000000, -52.000000)" stroke="#757575">
+            <g transform="translate(1114.000000, 46.000000)">
+                <polyline points="84 7 88.2036133 11.0668945 92 7"></polyline>
+            </g>
+        </g>
+    </g>
+</svg></span>
+    </li>
+    <ul class="secondaryNavFFGMobile" id="mobileFFG">
+      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/">Overview</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/revenue/">Revenue</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/spending/">Spending</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/deficit/">Deficit</a></li>
+      <hr id="mobileHr">
+      <li class="secondaryNavMobileli"><a href="/americas-finance-guide/debt/">Debt</a></li>
+      <hr id="mobileHr">
+    </ul>
+  </ul>
+
+</div>
+
+        <span id="return-to-top"><?xml version="1.0" encoding="utf-8"?>
+<svg class="icon-chevron-up" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"/>
+</svg></span>
+        <article id="main">
+
+  <div class="dl-landing">
+    <section class="primary">
+      <a href="/colleges-and-universities.html"
+          class="primary__link"
+          ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Investment in Higher Education'"
+      >
+        <h1 class="primary__mobile-heading">
+          Federal Investment in Higher Education
+        </h1>
+
+        <img class="primary__image" src="../images/homepage/collegehomepage.svg"
+          alt="Answer all your questions about federal government finance" />
+        <div class="primary__content">
+
+          <h2 class="primary__heading">
+            Federal Investment in Higher Education
+          </h2>
+
+          <p class="primary__text primary__text--desktop">
+	    The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution.  In the visualizations you can also break down the investment by federal agency and view data by investment category. This analysis gives the public an interactive lens into the government’s investment in higher education.
+          </p>
+
+          <div class="primary__text_container">
+            <p class="primary__text primary__text--mobile">
+              The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities. Dive in and search by individual schools, federal agencies, or investment categories!
+            </p>
+          </div>
+
+        </div>
+
+      </a>
+    </section>
+    <section class="secondary">
+      <section class="landing-chart">
+        <a href="dts.html"
+            class="landing-chart__link"   
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Visualizing the Daily Treasury Statement'"
+        >
+          <h1>
+            Visualizing the Daily Treasury Statement
+          </h1>
+          <h2>
+            How much does the federal government spend each day?
+          </h2>
+          <div class="dts-container">  
+  <div class="dts-module">
+    <div class="dtsm-img"></div>
+    <div class="dtsm-right-column">
+      <div class="dtsm-tas-container">
+        <div class="dtsm-tas-header">All categories</div>
+      </div>
+      <div class="dtsm-dollars">$</div>
+    </div>
+  </div>
+  
+  <script src="/js/babel-polyfill.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="/assets/js/dts-module.js"></script>                
+</div> 
+
+<div class="side-dts__date">
+
+</div>
+        </a>
+      </section>
+      <section class="landing-feature">
+        <a href="contracts-over-time.html"
+            class="landing-feature__link"
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Contract Spending Analysis'"
+        >
+          <div class="landing-feature__headings">
+            <h1>
+              Contract Spending Analysis
+            </h1>
+            <h2>
+              How has federal<br> contract spending<br> changed over time?
+            </h2>
+          </div>
+          <div class="landing-feature__image">
+            <img class="" src="../images/homepage/c-o-t.png" />
+          </div>
+          <p class="landing-feature__text">
+            We explore 10 years of contract data, and provide an analysis of the
+            impact of short-term continuing resolutions on contract spending.
+          </p>
+
+        </a>
+      </section>
+      <section class="landing-feature">
+        <a href="contract-explorer.html"
+            class="landing-feature__link"
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Contract Explorer'"
+        >
+          <div class="landing-feature__headings">
+            <h1>
+              Contract Explorer
+            </h1>
+            <h2>
+              Who receives federal contracts?
+            </h2>
+          </div>
+          <div class="landing-feature__image">
+            <img class="" src="../images/homepage/contract-explorer.svg" />
+          </div>
+          <p class="landing-feature__text">
+            The federal government spends about $500 billion each year on contracts. Learn more
+            about contract recipients and what agencies receive from these contracts.
+          </p>
+        </a>
+      </section>
+    </section>
+  </div>
+  <section class="landing-row landing-row--analyses">
+    <h1 class="landing-row__heading">
+      More Analyses
+    </h1>
+    <div class="landing-row__featured">
+    <a href="/americas-finance-guide/"
+        class="landing-row__featured__link"
+        ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Your Guide to Americas Finances'"
+    >
+      <h2 class="landing-row__featured__mobile-heading">
+        Your Guide to America's Finances
+      </h2>
+      <img class="landing-row__featured__image" src="../images/homepage/cg-gif.gif"
+           alt="Answer all your questions about federal government finance" />
+      <div class="landing-row__featured__content">
+
+        <h2 class="landing-row__featured__heading">
+          Your Guide to America's Finances
+        </h2>
+
+        <p class="landing-row__featured__text landing-row__featured__text--desktop">
+          Your Guide to America's Finances is an overview of federal government finances in 2018, providing
+          information on spending, revenue, the deficit, and debt. The Guide, which is created by Treasury's Data Lab,
+          presents a series of interactive visualizations to allow you to explore these categories and how they have
+          changed over time. Ultimately, the Guide seeks to provide a comprehensive overview of the trillions of
+          dollars collected and spent by the federal government each year.
+        </p>
+
+        <div class="landing-row__featured__text_container">
+          <p class="landing-row__featured__text">
+            The Guide presents straightforward information about the federal government's spending and revenue, as
+            well as the deficit and debt in 2018.
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+    <div class="landing-row__tiles">
+      <div class="landing_row__tile-row">
+        <a href="federal-account-explorer.html"
+            class="landing-row__tile"
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Account Explorer'"
+        >
+          <div class="landing-row__text">
+            <h2>
+              Federal Account Explorer
+            </h2>
+            <p class="landing-row__title">
+              Discover the federal government's spending accounts
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/federal.jpg" class="landing-row__image" />
+          </div>
+        </a>
+        <a href="federal-employees.html"
+            class="landing-row__tile"
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Employees'"
+        >
+          <div class="landing-row__text">
+            <h2>
+              Federal Employees
+            </h2>
+            <p class="landing-row__title">
+              Who works in government?
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/workers.jpg" class="landing-row__image" />
+          </div>
+        </a>
+      </div>
+
+      <div class="landing_row__tile-row">
+        <a href="budget-function.html"
+            class="landing-row__tile"
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Budget Function'"
+        >
+          <div class="landing-row__text">
+            <h2>
+              Budget Function
+            </h2>
+            <p class="landing-row__title">
+              Check out how federal spending is categorized
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/budget.jpg" class="landing-row__image" />
+          </div>
+        </a>
+
+        <a href="competition-in-contracting.html"
+            class="landing-row__tile"
+            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Competition in Contracting'"
+        >
+          <div class="landing-row__text">
+            <h2>
+              Competition in Contracting
+            </h2>
+            <p class="landing-row__title">
+              How often do federal agencies compete for contracts?
+            </p>
+          </div>
+          <div>
+            <img src="../images/homepage/competition.jpg" class="landing-row__image" />
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="feature-row">
+    <a href="/homelessness-analysis.html"
+        ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Homelessness Analysis'"
+    >
+      <div class="feature-row__border">
+        <div class="feature-row__text">
+          <h1 class="feature-row__heading">
+            Homelessness Analysis
+          </h1>
+          <p class="feature-row__title">
+            Explore federal programs that address homelessness
+          </p>
+          <p class="feature-row__blurb">
+            On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our
+            visualizations, you can see which federal programs are addressing homelessness, the amount of federal
+            spending on homelessness by region, and where individuals experiencing homelessness are located. We also
+            provide information about which regions are similar to others based on their homeless populations and
+            funding profiles.
+          </p>
+        </div>
+        <div class="feature-row__image">
+          <img src="../images/homepage/homelessness.png" />
+        </div>
+      </div>
+    </a>
+  </section>
+
+
+  <section class="landing-row landing-row--resources">
+    <h1 class="landing-row__heading">
+      Resources
+    </h1>
+    <div class="landing-row__tiles">
+
+      <div class="landing-row__tile landing-row__tile--primary">
+        <div class="landing-row__text">
+          <p class="landing-row__title">
+            Do you want
+            <strong> to conduct your own analysis?</strong>
+          </p>
+          <p class="landing-row__p">
+            Access Treasury data and create your own charts and visualizations!
+          </p>
+        </div>
+      </div>
+
+      <a class="landing-row__tile" href="http://api.usaspending.gov/">
+        <img src="../images/homepage/resources-api-2.svg" class="svgImg" />
+        <div class="landing-row__text">
+          <h1 class="landing-row__title landing-row__title-mod">
+            API Guide
+          </h1>
+          <p class="landing-row__p landing-row__p--hide">
+            Guidance on accessing Treasury data with open source code.
+          </p>
+        </div>
+      </a>
+
+      <a class="landing-row__tile" href="/assets/analyst-guide-1-2.pdf">
+        <img src="../images/homepage/resources-user-guide-2.svg" class="svgImg" />
+        <div class="landing-row__text">
+          <h1 class="landing-row__title landing-row__title-mod">
+            Analyst Guide
+          </h1>
+          <p class="landing-row__p landing-row__p--hide">
+            Methods to easily navigate data from our sister site, USAspending.gov
+          </p>
+        </div>
+      </a>
+
+      <a class="landing-row__tile landing-row__tile--last" href="/student-innovators-toolbox.html">
+        <img src="../images/homepage/resources-playbook-2.svg" class="svgImg" />
+        <div class="landing-row__text">
+          <h1 class="landing-row__title landing-row__title-mod">
+            Student Innovators Toolbox
+          </h1>
+          <p class="landing-row__p landing-row__p--hide">
+            Ways for professors and students to get involved.
+          </p>
+        </div>
+      </a>
+
+
+    </div>
+
+
+  </section>
+
+
+</article>
+<div class="clearfix"></div>
+
+        <script>
+  function trackLinkClick(actionName) {
+          window.Analytics.event({
+              category: 'Footer - Click Link',
+              action: actionName
+      });
+  }
+
+  function leaveSiteLink(outbound) {
+          document.querySelector('#leave-modal .redirect-modal__link a').href = outbound;
+          document.querySelector('#leave-modal .redirect-modal__link a').innerHTML = outbound;
+          document.getElementById('leave-modal').style.display = 'block';
+  }
+</script>
+
+<div class="dl-footer">
+  <div class="dl-footer__logo dl-footer__divider">
+    <?xml version="1.0" encoding="UTF-8"?>
+<svg width="261px" height="36px" viewBox="0 0 261 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>DatalabLogo/Gray</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.299807167 0.0786854118 21.0997359 0.0786854118 21.0997359 24.7665325 0.299807167 24.7665325"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DL_Footer" transform="translate(-1230.000000, -200.000000)">
+            <g id="DatalabLogo/Gray" transform="translate(1230.000000, 200.000000)">
+                <path d="M100.936893,28.3715727 C107.933392,28.3715727 111.38751,24.7396335 111.38751,18.521796 C111.38751,12.3464374 107.933392,8.90034299 100.936893,8.90034299 L97.5736733,8.90034299 L97.5736733,28.3715727 L100.936893,28.3715727 Z M93.7572816,6.35294118 L101.209587,6.35294118 C110.386316,6.35294118 115.296117,10.7348971 115.296117,18.521796 C115.296117,26.3498463 110.386316,30.9176471 101.391382,30.9176471 L93.7572816,30.9176471 L93.7572816,6.35294118 Z" id="Fill-1" fill="#666666"></path>
+                <path d="M134.071805,20.9191945 L132.659486,17.1757484 C131.614107,14.4425017 130.655842,11.746424 129.700217,8.90034299 L129.518068,8.90034299 C128.562443,11.746424 127.605498,14.4425017 126.560119,17.1757484 L125.102923,20.9191945 L134.071805,20.9191945 Z M135.02743,23.4280999 L124.145978,23.4280999 L121.277784,30.9176471 L117.407767,30.9176471 L127.515743,6.35294118 L131.794936,6.35294118 L141.902913,30.9176471 L137.895624,30.9176471 L135.02743,23.4280999 Z" id="Fill-3" fill="#666666"></path>
+                <polygon id="Fill-5" fill="#666666" points="150.566318 8.97468093 141.480583 8.97468093 141.480583 6.35294118 163.441748 6.35294118 163.441748 8.97468093 154.356012 8.97468093 154.356012 30.9176471 150.566318 30.9176471"></polygon>
+                <path d="M179.261125,20.9191945 L177.848807,17.1757484 C176.802107,14.4425017 175.845162,11.746424 174.889538,8.90034299 L174.707388,8.90034299 C173.751763,11.746424 172.796138,14.4425017 171.749439,17.1757484 L170.292243,20.9191945 L179.261125,20.9191945 Z M180.21675,23.4280999 L169.335298,23.4280999 L166.467104,30.9176471 L162.597087,30.9176471 L172.705064,6.35294118 L176.984257,6.35294118 L187.092233,30.9176471 L183.084944,30.9176471 L180.21675,23.4280999 Z" id="Fill-7" fill="#666666"></path>
+                <polygon id="Fill-9" fill="#666666" points="191.315534 6.35294118 195.150025 6.35294118 195.150025 28.2587383 208.208738 28.2587383 208.208738 30.9176471 191.315534 30.9176471"></polygon>
+                <path d="M228.673747,20.9191945 L227.261428,17.1757484 C226.216048,14.4425017 225.259104,11.746424 224.302159,8.90034299 L224.121329,8.90034299 C223.165705,11.746424 222.21008,14.4425017 221.16206,17.1757484 L219.704864,20.9191945 L228.673747,20.9191945 Z M229.629371,23.4280999 L218.74792,23.4280999 L215.879725,30.9176471 L212.009709,30.9176471 L222.117685,6.35294118 L226.396878,6.35294118 L236.504854,30.9176471 L232.497566,30.9176471 L229.629371,23.4280999 Z" id="Fill-11" fill="#666666"></path>
+                <g id="Group-15" stroke-width="1" transform="translate(239.883495, 6.352941)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-14"></g>
+                    <path d="M9.29138883,22.2824054 C14.3777089,22.2824054 17.3757806,20.7388313 17.3757806,17.3915301 C17.3757806,14.3430713 14.5146433,12.9502525 9.29138883,12.9502525 L4.11421808,12.9502525 L4.11421808,22.2824054 L9.29138883,22.2824054 Z M8.51981659,10.6168807 C13.5613697,10.6168807 15.6943851,9.111996 15.6943851,6.36504776 C15.6943851,3.69281012 13.2888177,2.56414659 8.7015179,2.56414659 L4.11421808,2.56414659 L4.11421808,10.6168807 L8.51981659,10.6168807 Z M0.299807167,0.0786854118 L9.15445451,0.0786854118 C15.1940482,0.0786854118 19.4192621,1.77301482 19.4192621,6.10222659 C19.4192621,8.54633012 17.7391832,10.7302807 14.1973243,11.4813889 L14.1973243,11.6334784 C18.5555225,12.1978101 21.1006575,14.1549607 21.1006575,17.5409513 C21.1006575,22.3958054 16.467274,24.7665325 9.83649278,24.7665325 L0.299807167,24.7665325 L0.299807167,0.0786854118 Z" id="Fill-13" fill="#666666" mask="url(#mask-2)"></path>
+                </g>
+                <polygon id="Fill-16" fill="#666666" points="78.131068 36 79.8203883 36 79.8203883 0 78.131068 0"></polygon>
+                <polygon id="Fill-18" fill="#666666" points="24.4951456 3.81176471 49.4126214 3.81176471 49.4126214 1.27058824 24.4951456 1.27058824"></polygon>
+                <polygon id="Fill-19" fill="#666666" points="24.4951456 8.89411765 63.3495146 8.89411765 63.3495146 6.35294118 24.4951456 6.35294118"></polygon>
+                <polygon id="Fill-20" fill="#666666" points="24.4951456 13.9764706 58.7038835 13.9764706 58.7038835 11.4352941 24.4951456 11.4352941"></polygon>
+                <polygon id="Fill-21" fill="#666666" points="24.4951456 19.0588235 54.0582524 19.0588235 54.0582524 16.5176471 24.4951456 16.5176471"></polygon>
+                <polygon id="Fill-22" fill="#666666" points="0 23.7176471 59.1262136 23.7176471 59.1262136 21.1764706 0 21.1764706"></polygon>
+                <polygon id="Fill-23" fill="#666666" points="0 28.8 63.7718447 28.8 63.7718447 26.2588235 0 26.2588235"></polygon>
+                <polygon id="Fill-24" fill="#666666" points="0 33.8823529 54.4805825 33.8823529 54.4805825 31.3411765 0 31.3411765"></polygon>
+                <polygon id="Fill-25" fill="#666666" points="2.53398058 1.27058824 2.51827409 18.6352941 0 18.6352941 0.0143976169 1.27058824"></polygon>
+                <polygon id="Fill-26" fill="#666666" points="5.06796117 19.0588235 7.60194175 19.0588235 7.60194175 6.35294118 5.06796117 6.35294118"></polygon>
+                <polygon id="Fill-27" fill="#666666" points="9.71359223 19.0588235 12.2475728 19.0588235 12.2475728 2.54117647 9.71359223 2.54117647"></polygon>
+                <polygon id="Fill-28" fill="#666666" points="14.7815534 18.6352941 17.315534 18.6352941 17.315534 3.81176471 14.7815534 3.81176471"></polygon>
+                <polygon id="Fill-29" fill="#666666" points="22.3834951 1.27058824 22.3690975 18.6352941 19.8495146 18.6352941 19.8652211 1.27058824"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
+  </div>
+
+  <div class="dl-footer__section dl-footer__divider">
+
+    <div class="dl-footer__group-title">Contact Us</div>
+    <p>
+      For media inquiries or questions<br> on Data Lab activities or operations,<br> please contact our Legislative<br> and Public Affairs Office:
+    </p>
+    <p>
+      E: media.relations@fiscal.treasury.gov
+    </p>
+  </div>
+
+  <div class="dl-footer__section dl-footer__divider">
+
+    <div class="dl-footer__group-title">Mailing List</div>
+    <p>
+      To join our mailing list, send a<br> blank email with no subject to:<br> <a class="community-page-link" href="mailto: datalab@lists.fiscal.treasury.gov">datalab@lists.fiscal.treasury.gov</a>
+    </p>
+    <div class="dl-footer__group-title">Join the Conversation</div>
+    <p>
+      Visit our  <a onclick="leaveSiteLink('https://usaspending-help.zendesk.com/hc/en-us/community/topics'); trackLinkClick('Send Feedback'); return false;" href="https://usaspending-help.zendesk.com/hc/en-us/community/topics" class="community-page-link">Community Page today.</a>
+    </p>
+
+  </div>
+  
+
+  <div class="dl-footer__social">
+    <div class="dl-footer__group-title">Connect With Us</div>
+    <div class="dl-footer__social-items">
+      <a onclick="trackLinkClick('GitHub')" target="_blank" rel="noopener noreferrer" aria-labelledby="Github-icon-title" href="https://github.com/fedspendingtransparency/datalab">
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title id="Github-icon-title">Github</title>
+    <g id="Github" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2">
+            <rect id="Rectangle" x="0" y="-3.55271368e-15" width="31.8801538" height="32.9714533"></rect>
+            <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+            <path d="M6.86938776,16.3222425 C6.86938776,20.4114307 9.49352663,23.8812171 13.1331347,25.1052459 C13.5913891,25.1904847 13.7583849,24.9046507 13.7583849,24.659163 C13.7583849,24.439247 13.750513,23.8573503 13.7460148,23.0850869 C11.1983454,23.6442533 10.6608102,21.8440104 10.6608102,21.8440104 C10.2441642,20.7745479 9.64365414,20.4898504 9.64365414,20.4898504 C8.81204895,19.915341 9.70662897,19.9272744 9.70662897,19.9272744 C10.6259491,19.9926242 11.1095059,20.8813805 11.1095059,20.8813805 C11.9270542,22.2957759 13.2534616,21.887198 13.7752531,21.6502342 C13.8584699,21.051858 14.0951878,20.6444167 14.3566458,20.4125672 C12.322896,20.179013 10.184563,19.3851558 10.184563,15.8380862 C10.184563,14.8271543 10.5416078,14.0009065 11.1274987,13.35366 C11.0335987,13.1195375 10.7192868,12.1785015 11.2174627,10.9044659 C11.2174627,10.9044659 11.9866554,10.6550004 13.7358938,11.8528893 C14.4668518,11.647748 15.2501013,11.5448932 16.0288526,11.5414837 C16.8070416,11.5448932 17.5902911,11.647748 18.3223736,11.8528893 C20.0704875,10.6550004 20.8385556,10.9044659 20.8385556,10.9044659 C21.337856,12.1785015 21.0235442,13.1195375 20.9296442,13.35366 C21.5166596,14.0009065 21.870893,14.8271543 21.870893,15.8380862 C21.870893,19.3936797 19.7297487,20.1761717 17.6892516,20.4057481 C18.0181826,20.6915821 18.3105658,21.2564311 18.3105658,22.1196157 C18.3105658,23.3572828 18.2998825,24.355713 18.2998825,24.659163 C18.2998825,24.9069237 18.4646292,25.1944625 18.9296309,25.1041094 C22.5658653,23.8778076 25.1877551,20.4108624 25.1877551,16.3222425 C25.1877551,11.2096207 21.086519,7.06531142 16.027728,7.06531142 C10.9706239,7.06531142 6.86938776,11.2096207 6.86938776,16.3222425 Z" id="Shape" fill="#808080"></path>
+        </g>
+    </g>
+</svg>
+      </a>
+
+      <a onclick="trackLinkClick('Data World')" target="_blank" rel="noopener noreferrer" aria-labelledby="DataWorld-icon-title" href="https://data.world/usaspending">
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title id="DataWorld-icon-title">Data World</title>
+    <defs>
+        <polygon id="path-1" points="0.0359888889 2.06896552e-05 1.95965126 2.06896552e-05 1.95965126 6 0.0359888889 6"></polygon>
+        <polygon id="path-3" points="0.00128207569 2.06896552e-05 1.92494445 2.06896552e-05 1.92494445 6 0.00128207569 6"></polygon>
+    </defs>
+    <g id="Data.World" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10">
+            <g id="Group-4" stroke="#808080" stroke-width="2">
+                <ellipse id="Oval-Copy" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+            </g>
+            <path d="M16.6370325,8.25393012 C16.6370325,8.25393012 14.2019074,6.99491373 13.8842824,6.5752416 L14.7312824,7.83425799 L12.6137823,6.5752416 L14.0960324,8.04409406 L12.7196573,7.93917603 C12.7196573,7.93917603 11.9785323,7.41458586 10.6021572,7.30966783 L10.4962822,8.77852029 C10.4962822,8.77852029 9.22578211,9.72278259 9.54340713,11.8211432 C9.54340713,11.8211432 9.12435386,14.7280022 9.11990711,14.7586383 C9.13695298,14.6406055 8.27428344,14.7908481 8.21975781,14.8143498 C7.56375627,15.0976285 7.47217439,15.7458121 7.38196889,16.3742711 C7.20536938,17.6040154 7.14237375,20.4840154 8.37878207,21.2637662 L9.27871962,19.1129465 L9.27871962,21.1063891 C9.27871962,21.1063891 9.70221964,22.4703236 10.7609697,22.5752416 L20.6073453,22.5752416 C20.6073453,22.5752416 22.0895953,22.2604875 21.9837203,21.0014711 L21.9837203,19.0080285 C22.2750883,19.7091957 22.5908076,20.7075957 23.1765081,21.2008154 C24.046483,20.1257203 24.3247225,18.6308481 24.2814197,17.2840154 C24.2637386,16.7322515 24.2464809,16.0705334 23.9839109,15.5691301 C23.8368506,15.2884744 22.6007598,14.6136416 22.6189704,14.7063891 C22.6189704,14.7061793 21.8778453,10.92934 21.8778453,10.92934 L22.2131515,10.9468613 C22.2131515,10.9468613 22.3013453,9.4604875 21.1367203,8.93589734 L21.0308452,7.36212685 C21.0308452,7.36212685 18.5957201,7.78179898 18.4898451,8.41130717 L16.6370325,8.25393012 Z" id="Fill-1" fill="#808080" fill-rule="nonzero"></path>
+            <path d="M14.6045487,10.2212304 C13.4362999,9.32669564 12.2025809,9.4556957 10.8433683,10.0351881 C7.80757774,11.3294215 7.26940714,15.6748084 10.3430954,17.1685887 C10.4445343,17.21777 10.5484694,17.2630208 10.6545604,17.3036356 C12.3039063,17.9357359 14.3846511,17.4257826 15.4828913,16.1759938 C16.2690992,15.2811567 16.347164,14.2350469 16.2552563,13.1307863 C16.1650506,12.0473874 15.5869399,11.0029909 14.6634377,10.2671867 C14.6438081,10.2515656 14.6241784,10.236146 14.6045487,10.2212304" id="Fill-3" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M16.9668798,10.2212304 C18.1351287,9.32669564 19.3688476,9.4556957 20.7280603,10.0351881 C23.7638508,11.3294215 24.3020214,15.6748084 21.2283332,17.1685887 C21.1268943,17.21777 21.0230727,17.2630208 20.9168682,17.3036356 C19.2675222,17.9357359 17.1867775,17.4257826 16.0885373,16.1759938 C15.3023294,15.2811567 15.2242646,14.2350469 15.3161722,13.1307863 C15.406378,12.0473874 15.9844887,11.0029909 16.9079908,10.2671867 C16.9276205,10.2515656 16.9472502,10.236146 16.9668798,10.2212304" id="Fill-5" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path d="M13.2369774,13.265837 L12.2330827,13.265837 L12.2330827,12.5752416 C11.7053985,12.6028931 11.2857143,13.0387708 11.2857143,13.5739322 C11.2857143,14.1269631 11.7333985,14.5752416 12.2857143,14.5752416 C12.8379248,14.5752416 13.2857143,14.1269631 13.2857143,13.5739322 C13.2857143,13.4664069 13.2683459,13.362964 13.2369774,13.265837" id="Fill-7" fill="#808080" fill-rule="nonzero"></path>
+            <path d="M20.2369774,13.265837 L19.2330827,13.265837 L19.2330827,12.5752416 C18.7053985,12.6028931 18.2857143,13.0387708 18.2857143,13.5739322 C18.2857143,14.1269631 18.7333985,14.5752416 19.2857143,14.5752416 C19.8379248,14.5752416 20.2857143,14.1269631 20.2857143,13.5739322 C20.2857143,13.4664069 20.2683459,13.362964 20.2369774,13.265837" id="Fill-9" fill="#808080" fill-rule="nonzero"></path>
+            <g id="Group-13" transform="translate(13.285714, 21.575242)">
+                <g id="Fill-11-Clipped">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="path-1"></g>
+                    <path d="M1.80143333,4.30936552 C1.77465555,4.27946897 1.74065555,4.25133103 1.70265555,4.22474483 L1.70265555,2.06896552e-05 L1.25821111,2.06896552e-05 L1.25821111,4.03688276 C0.952211113,3.96136552 0.606988889,3.95660689 0.407544445,4.06388276 C0.0458777778,4.25836552 0.0359888889,4.84708965 0.0359888889,5.17243448 L0.0359888889,5.68967586 L0.480433333,5.37933103 L0.480433333,6.00002069 C0.480433333,6.00002069 1.9121,4.76960689 1.92487778,4.75864138 C2.03243333,4.66595173 1.86165555,4.37660689 1.80143333,4.30936552" id="Fill-11" fill="#808080" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+            <g id="Group-16" transform="translate(16.285714, 21.575242)">
+                <g id="Fill-14-Clipped">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="path-3"></g>
+                    <path d="M0.1595,4.30936552 C0.186277778,4.27946897 0.220277778,4.25133103 0.258277778,4.22474483 L0.258277778,2.06896552e-05 L0.70272222,2.06896552e-05 L0.70272222,4.03688276 C1.00872222,3.96136552 1.35394445,3.95660689 1.55338889,4.06388276 C1.91505555,4.25836552 1.92494445,4.84708965 1.92494445,5.17243448 L1.92494445,5.68967586 L1.4805,5.37933103 L1.4805,6.00002069 C1.4805,6.00002069 0.0488333333,4.76960689 0.0360555555,4.75864138 C-0.0715,4.66595173 0.099277778,4.37660689 0.1595,4.30936552" id="Fill-14" fill="#808080" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                </g>
+            </g>
+            <path d="M12.2857143,23.5752416 C12.2857143,23.5752416 12.3948728,17.4676204 16.4337374,17.5766851 C16.4337374,17.5766851 20.690919,17.4676204 20.254285,23.5752416 L12.2857143,23.5752416 Z" id="Fill-17" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <polygon id="Fill-19" fill="#808080" fill-rule="nonzero" points="14.2857143 17.2752416 16.2857143 15.5752416 18.2857143 17.2752416 16.2857143 19.5752416"></polygon>
+        </g>
+    </g>
+</svg>
+      </a>
+
+      <a onclick="trackLinkClick('Twitter')" target="_blank" rel="noopener noreferrer" aria-labelledby="Twitter-icon-title" href="https://twitter.com/fiscalservice">
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title id="Twitter-icon-title">Twitter</title>
+    <g id="Twitter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-12">
+            <g transform="translate(0.000000, -0.000000)">
+                <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
+                <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+                <path d="M22.1176892,12.6233694 C22.7624982,12.2025291 23.2572686,11.5352244 23.4894712,10.7403038 C22.8857442,11.1309449 22.218608,11.4134535 21.5068175,11.5663978 C20.938814,10.9039639 20.1269976,10.490917 19.2285518,10.490917 C17.5048934,10.490917 16.1081049,12.0154889 16.1081049,13.895632 C16.1081049,14.1625539 16.1340044,14.4226566 16.1875897,14.6710693 C13.5940642,14.5288408 11.2943645,13.1747481 9.75378891,11.1134099 C9.48496964,11.6180286 9.33135863,12.2025291 9.33135863,12.8259962 C9.33135863,14.0066871 9.88239348,15.0490462 10.7201093,15.6608233 C10.2083703,15.6432883 9.72699629,15.4883957 9.3054591,15.2351122 L9.3054591,15.2770014 C9.3054591,16.927241 10.3807362,18.3037395 11.8105689,18.6154731 C11.5480013,18.6953548 11.2729304,18.7352956 10.9871424,18.7352956 C10.7861978,18.7352956 10.5897186,18.7148381 10.4003841,18.6748973 C10.7969149,20.0270416 11.9498905,21.012899 13.3163141,21.0392015 C12.2472886,21.9529706 10.9014061,22.496556 9.43942219,22.496556 C9.18757158,22.496556 8.93840023,22.4819435 8.6945874,22.4497959 C10.0761934,23.4151958 11.7167947,23.9792388 13.479749,23.9792388 C19.2223002,23.9792388 22.3606089,18.7908232 22.3606089,14.291144 C22.3606089,14.1430705 22.3588227,13.9959713 22.3525711,13.8508203 C22.9625497,13.3705558 23.4930436,12.7704687 23.9101154,12.0875773 C23.3501496,12.3583959 22.7482088,12.5415393 22.1176892,12.6233694 Z" id="Shape" fill="#808080"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+      </a>
+
+      <a onclick="trackLinkClick('Facebook')" target="_blank" rel="noopener noreferrer" aria-labelledby="Facebook-icon-title" href="https://www.facebook.com/pg/fiscalservice">
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title id="Facebook-icon-title">Facebook</title>
+    <g id="Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <g transform="translate(0.000000, -0.000000)">
+                <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
+                <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+                <path d="M16.8926455,26.2272924 L13.3586842,26.2272924 L13.3586842,17.6086657 L11.5927832,17.6086657 L11.5927832,14.638976 L13.3586842,14.638976 L13.3586842,12.8560745 C13.3586842,10.4335474 14.3552764,8.99221453 17.188492,8.99221453 L19.5466257,8.99221453 L19.5466257,11.962992 L18.0727921,11.962992 C16.9698463,11.962992 16.8969644,12.3779871 16.8969644,13.1524995 L16.8921057,14.638976 L19.5628217,14.638976 L19.2502394,17.6086657 L16.8921057,17.6086657 L16.8921057,26.2272924 L16.8926455,26.2272924 Z" id="Shape" fill="#808080"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+      </a>
+
+      <a onclick="trackLinkClick('Linkedin')" target="_blank" rel="noopener noreferrer" aria-labelledby="LinkediIn-icon-title" href="https://www.linkedin.com/company/united-states-department-of-the-treasury-bureau-of-public-debt">
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title id="LinkediIn-icon-title">LinkediIn</title>
+    <g id="Linkedin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LinkedIn">
+            <g id="LinkedIn" transform="translate(0.000000, -0.000000)">
+                <rect id="Rectangle" x="0" y="0" width="31.8801538" height="32.9714533"></rect>
+                <ellipse id="Oval" stroke="#808080" stroke-width="2" cx="15.9400769" cy="16.4857266" rx="14.9400769" ry="15.4857266"></ellipse>
+                <path d="M9.06009951,13.7978886 L11.8845113,13.7978886 L11.8845113,23.9782792 L9.06009951,23.9782792 L9.06009951,13.7978886 Z M10.4003106,12.5245001 L10.3798624,12.5245001 C9.35745086,12.5245001 8.6945874,11.746265 8.6945874,10.7607563 C8.6945874,9.7550961 9.37704708,8.99221453 10.4199068,8.99221453 C11.4619145,8.99221453 12.1026257,9.7531769 12.123074,10.7578775 C12.123074,11.7433862 11.4619145,12.5245001 10.4003106,12.5245001 L10.4003106,12.5245001 Z M19.9828624,23.9792388 L19.9828624,18.7100782 C19.9828624,17.3311338 19.4818807,16.3907263 18.3802323,16.3907263 C17.5375949,16.3907263 17.0689896,17.0250215 16.8508751,17.6382056 C16.7690822,17.8569943 16.7818624,18.1631065 16.7818624,18.4701783 L16.7818624,23.9792388 L13.6089787,23.9792388 C13.6089787,23.9792388 13.6498751,14.6461745 13.6089787,13.7978886 L16.7818624,13.7978886 L16.7818624,15.3956217 C16.9693045,14.6970333 17.9831959,13.7000094 19.6011621,13.7000094 C21.6084967,13.7000094 23.1855664,15.1653178 23.1855664,18.317602 L23.1855664,23.9792388 L19.9828624,23.9792388 Z" id="Shape" fill="#808080"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+    <div>
+      &copy; 2018 USAspending.gov |&nbsp;
+      <a href="https://www.usaspending.gov/#/about/accessibility">Accessibility</a> |&nbsp;
+      <a href="https://www.usaspending.gov/#/about/privacy">Privacy Policy</a> |&nbsp;
+      <a href="https://www.usaspending.gov/#/about/foia">Freedom of Information Act</a>
+  </div>
+    <div class="footer-important-info">
+      <b>NOTE:</b> <a href="https://beta.usaspending.gov/#/db_info">You must click here for very important D&B information.</a>
+  </div>
+</footer>
+
+    </div>
+    <script src="/assets/ffg/components/glossary/glossary.js"></script>
+  </body>
+</html>
