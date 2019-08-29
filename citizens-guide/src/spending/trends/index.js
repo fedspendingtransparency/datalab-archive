@@ -15,7 +15,7 @@ const d3 = { select, selectAll },
     },
     selectBudgetFunction = d3.select('#select-budget-function'),
     selectAgency = d3.select('#select-agency'),
-    data = showHideInit(setData('function'), renderChart);
+    data = showHideInit(setData('category'), renderChart);
 
 let svg;
 
@@ -61,14 +61,14 @@ function changeDataTypeClickFunctions() {
             const dataController = d3.select("#spending-chart-toggle"),
                 curData = dataController.attr('data-active');
 
-            let dataType = curData === 'function' ? 'agency' : 'function';
+            let dataType = curData === 'category' ? 'agency' : 'category';
             changeDataType(dataType);
         });
 
     d3.selectAll('.toggle-component__label')
         .on('click', function () {
             const textValue = d3.select(this).text(),
-                type = (textValue === 'Agency') ? 'agency' : 'function';
+                type = (textValue === 'Agency') ? 'agency' : 'category';
 
             changeDataType(type);
         })

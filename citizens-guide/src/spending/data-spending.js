@@ -1,11 +1,11 @@
-// import 'babel-polyfill';
-import SpendingData from '../../public/csv/spending_agency_function_fy14_fy18.csv';
+import SpendingData from '../../../assets/ffg/data/federal_spending_categories.csv';
+
 import { min } from 'd3-array';
 
 const d3 = { min },
     dataTypes = [
         'agency',
-        'function'
+        'category'
     ];
 
 function stackData(series) {
@@ -71,26 +71,26 @@ export function indexByYear(yyyy) {
     getByYear(yyyy).forEach(r => {
         let tempChildren;
 
-        indexed[r.category] = indexed[r.category] || {};
+        indexed[r.function] = indexed[r.function] || {};
 
         if (r.child) {
             // child rows
-            indexed[r.category][r.parent] = indexed[r.category][r.parent] || {
+            indexed[r.function][r.parent] = indexed[r.function][r.parent] || {
                 subcategories: {}
             }
 
-            indexed[r.category][r.parent].subcategories[r.child] = {
+            indexed[r.function][r.parent].subcategories[r.child] = {
                 activity: r.child_plain,
-                amount: r.spending_adjusted,
+                amount: r.federal_spending,
                 percent_total: r.percent_total
             }
         } else {
             // parent rows
-            tempChildren = (indexed[r.category][r.parent]) ? indexed[r.category][r.parent].subcategories : {};
+            tempChildren = (indexed[r.function][r.parent]) ? indexed[r.function][r.parent].subcategories : {};
 
-            indexed[r.category][r.parent] = {
+            indexed[r.function][r.parent] = {
                 activity: r.parent_plain,
-                amount: r.spending_adjusted,
+                amount: r.federal_spending,
                 percent_total: r.percent_total,
                 subcategories: tempChildren
             }

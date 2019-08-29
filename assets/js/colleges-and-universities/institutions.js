@@ -45,7 +45,7 @@ function createMapbox() {
     }
 
     function renderAllSchools() {
-	$.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) { 
+	$.getJSON('../../data-lab-data/CU/updated_CU_Data/CU_mapbox_v2.geojson', function(data) { 
 
 	    let geoandname = data.features.map(function (ele) {
 		return {
@@ -139,7 +139,7 @@ function createMapbox() {
 
     // when the map first loads all resources!
     map.on('load', function() {
-	$.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) {
+	$.getJSON('../../data-lab-data/CU/updated_CU_Data/CU_mapbox_v2.geojson', function(data) {
 
 	    renderAllSchools(); // populate sidebar with list of all schools
 
@@ -346,7 +346,7 @@ function createMapbox() {
 }; // end function (createMapbox)
 
 function createInstTable() {
-    d3.csv('../../data-lab-data/CU/rhp.csv', function(err, data) {
+    d3.csv('data-lab-data/CU/updated_CU_data/instutions_table_view_data_v3.csv', function(err, data) {
 
 	let table = d3.select('#alma-mater-table').append('table')
             .attr('id', 'institution-table'); // id given to table for Datatables.js
