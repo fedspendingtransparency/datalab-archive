@@ -139,7 +139,7 @@ function createMapbox() {
 
     // when the map first loads all resources!
     map.on('load', function() {
-	$.getJSON('../../data-lab-data/CU_features_min.geojson', function(data) {
+	$.getJSON('../../data-lab-data/CU/updated_CU_Data/CU_mapbox_v2.geojson', function(data) {
 
 	    renderAllSchools(); // populate sidebar with list of all schools
 
