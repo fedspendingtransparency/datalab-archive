@@ -24,7 +24,7 @@
 	}
 	
 	agencyName.text(data.Recipient);
-	agencyType.text(data.INST_TYPE_1 + data.INST_TYPE_2);
+	agencyType.text(data.INST_TYPE);
 	
 	if (!detailData[data.Recipient]) {
 	    console.warn(`no data for ${data.Recipient}`);
