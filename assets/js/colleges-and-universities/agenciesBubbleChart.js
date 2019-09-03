@@ -365,7 +365,7 @@ function zoomTo(v) {
 	 Make a table, a bubble table ;;;;
 **/
 function createBubbleTable(data) {
-	d3.csv("/data-lab-data/CU_bubble_chart_table.csv", function (err, data) {
+	d3.csv("/data-lab-data/CU/updated_CU_data/CU_bubble_chart_table_v2.csv", function (err, data) {
 		if (err) {
 			return err;
 		}
@@ -495,9 +495,9 @@ tooltipClose.click(function () {
 *   Main Method
 */
 
-d3.csv("/data-lab-data/CU_bubble_chart.csv", function (err1, data) {
+d3.csv("/data-lab-data/CU/updated_CU_data/CU_bubble_chart_V2.csv", function (err1, data) {
 	if (err1) { return err1; }
-	d3.csv("/data-lab-data/CU/Bubble_Chart_Agency_Hover_data.csv", function (err2, rawPopoverData) {
+	d3.csv("/data-lab-data/CU/updated_CU_data/Bubble_Chart_Agency_Hover_data_v2.csv", function (err2, rawPopoverData) {
 		if (err2) { return err2; }
 
 		popoverData = _.keyBy(rawPopoverData, 'agency');

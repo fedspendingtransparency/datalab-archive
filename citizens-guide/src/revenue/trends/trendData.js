@@ -1,4 +1,4 @@
-import CategoryData from '../../../public/csv/revenue_source_fy14_fy18.csv';
+import CategoryData from '../../../../assets/ffg/data/federal_revenue_trends.csv';
 
 export function trendData(){
     const indexed = {};
@@ -6,32 +6,32 @@ export function trendData(){
     let arr;
 
     CategoryData.forEach(r => {
-        if (isNaN(r.revenue)) {
+        if (isNaN(r.federal_revenue)) {
             return;
         }
         
-        indexed[r.activity_plain] = indexed[r.activity_plain] || {
-            name: r.activity_plain,
-            officialName: r.activity,
+        indexed[r.parent_plain] = indexed[r.parent_plain] || {
+            name: r.parent_plain,
+            officialName: r.parent,
             values: [],
             subcategories: {}
         };
 
-        if (r.sub_activity) {
-            indexed[r.activity_plain].subcategories[r.sub_activity_plain] = indexed[r.activity_plain].subcategories[r.sub_activity_plain] || {
-                name: r.sub_activity_plain,
-                officialName: r.sub_activity,
+        if (r.child) {
+            indexed[r.parent_plain].subcategories[r.child_plain] = indexed[r.parent_plain].subcategories[r.child_plain] || {
+                name: r.child_plain,
+                officialName: r.child,
                 values: [],
             };
 
-            indexed[r.activity_plain].subcategories[r.sub_activity_plain].values.push({
+            indexed[r.parent_plain].subcategories[r.child_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.revenue
+                amount: r.federal_revenue
             })
         } else {
-            indexed[r.activity_plain].values.push({
+            indexed[r.parent_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.revenue
+                amount: r.federal_revenue
             })
         }
     })
