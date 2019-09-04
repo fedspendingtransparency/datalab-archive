@@ -9,14 +9,10 @@ import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
 
 const config = {
     anecdoteName: 'anecdote-debt.svg',
-    // debtAmount: 21500000000000, //0
-    debtAmount: DebtData[0].amount, //0
-    // gdpAmount: 20700000000000, //2
-    gdpAmount: DebtData[2].amount, //2
-    // deficitAmount: 779000000000, //1
-    deficitAmount: DebtData[1].amount, //1
-    // gdpPercent: 104, //3
-    gdpPercent: DebtData[3].amount * 100, //3
+    debtAmount: DebtData[0].amount, 
+    gdpAmount: DebtData[2].amount, 
+    deficitAmount: DebtData[1].amount, 
+    gdpPercent: DebtData[3].amount * 100, 
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {

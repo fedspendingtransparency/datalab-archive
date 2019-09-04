@@ -12,14 +12,10 @@ console.log('DeficitData', DeficitData);
 
 const config = {
     anecdoteName: 'anecdote-deficit.svg',
-    // revenueAmount: 3300000000000, //1
     revenueAmount: DeficitData[1].amount,
-    // spendingAmount: 4100000000000,//2
     spendingAmount: DeficitData[2].amount,
-    // debtBalance: 21500000000000,//3
     debtBalance: DeficitData[3].amount,
-    // reportedDeficitAmount: 779000000000,//0
-    reportedDeficitAmount: DeficitData[0].amount,//0
+    reportedDeficitAmount: DeficitData[0].amount,
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,
     spendingColor: colors.colorSpendingPrimary,

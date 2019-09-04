@@ -6,14 +6,10 @@ import RevenueData from '../../../../assets/ffg/data/federal_revenue_gdp.csv';
 (function init(){
     const config = {
         anecdoteName: 'anecdote.svg',
-        // comparisonAmount: 4100000000000,
         comparisonAmount: RevenueData[1].amount,
         compareString: 'spending',
-        // gdpAmount: 20700000000000,
         gdpAmount: RevenueData[2].amount,
-        // gdpPercent: 16,
         gdpPercent: RevenueData[3].amount * 100,
-        // sectionAmount: 3300000000000,
         sectionAmount: RevenueData[0].amount,
         comparisonColor: colors.colorSpendingPrimary,
         sectionColor: colors.revenuePrimary,
