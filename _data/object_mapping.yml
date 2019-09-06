@@ -53,7 +53,7 @@ country_comparison_mspd:
 country_comparison_mts:
   value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0917.pdf
 current_fy:
-  value: 'here'
+  value: '2018'
 current_fy_debt:
   value: $21.5 trillion
 current_fy_deficit:
