@@ -7,6 +7,16 @@ import { trendDesktop } from '../../components/trends/chart';
 import { manualThresholds } from './manualThresholds';
 import { trendMobile } from '../../components/trendsMobile';
 import colors from '../../globalSass/colors.scss';
+import CategoryData from '../../../../assets/ffg/data/federal_spending_trends.csv';
+
+// get all the fiscal years in this csv, make a set, so we only have unique values
+// this gets attached to the config object, which gets passed to the d3 functions
+const fySet = new Set(CategoryData.map( function(c) { return c.fiscal_year }));
+// make an array from that set, and filter out any undefined values
+const fyArray = Array.from(fySet).filter(function(value, i, arr) {
+    return value;
+});
+fyArray.sort();
 
 const d3 = { select, selectAll },
     accessibilityAttrs = {
@@ -37,7 +47,8 @@ function renderChart(data) {
             baseColor: colors.colorSpendingPrimary,
             secondaryColor: '#00766C',
             zoomThreshold,
-            subcategoryThresholds: manualThresholds
+            subcategoryThresholds: manualThresholds,
+            fiscalYearArray: fyArray
         }
 
     let container;
