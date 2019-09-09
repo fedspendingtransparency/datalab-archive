@@ -25,7 +25,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                 YOUR GUIDE TO AMERICA'S FINANCES
             </h3>
             <h1 class="bp-header__heading">
-                How much money did the federal <span class="bp-header__break">government <span class="bp-header__collect-text">collect</span> and <span class="bp-header__spend-text">spend</span> in {{site.data.object_mapping.current_fy.value}}</span>
+                How much money did the federal <span class="bp-header__break">government <span class="bp-header__collect-text">collect</span> and <span class="bp-header__spend-text">spend</span> in {{site.data.object_mapping_dummy.current_fy.value}}</span>
             </h1>
             <div class="bp-header__text">
                 Interested in learning about the deficit or federal debt? Keep reading or <a href="#deficit-debt-heading" class="scroll-to">jump to the deficit and federal debt section</a>.
@@ -45,7 +45,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
 
         <div class="chapter__flex">
             <div class="chapter__primary">
-                <h1 class="chapter__heading">In 2018,<br>the federal government <span class="chapter__big-number">collected $3.3 trillion in revenue.</span></h1>
+                <h1 class="chapter__heading">In {{site.data.object_mapping_dummy.current_fy.value}},<br>the federal government <span class="chapter__big-number">collected  {{site.data.object_mapping_dummy.current_fy_revenue.value}} in revenue.</span></h1>
 
                 <section class="anecdote">
                     <!-- controls -->
@@ -64,24 +64,24 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                                 <!-- panes -->
                                 <div class="anecdote__panes">
                                     <div class="anecdote__pane">
-                                        <p>Federal government revenue equates to about <strong>$105,000 of revenue per second</strong>.</p>
+                                        <p>Federal government revenue equates to about <strong>{{site.data.object_mapping_dummy.revenue_second.value}} of revenue per second</strong>.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-1-outline.svg" alt="">
-                                        <p>In the time it takes you to read this statement, that’s <strong>roughly $1 million in revenue</strong>.</p>
+                                        <p>In the time it takes you to read this statement, that’s <strong>roughly {{site.data.object_mapping_dummy.revenue_during_read.value}} in revenue</strong>.</p>
                                     </div>
                                     <div class="anecdote__pane">
-                                        <p>$3.3 trillion is the same amount as <strong>68 million</strong> individuals each receiving a salary of <strong>$49,000 per year</strong></p>
+                                        <p>{{site.data.object_mapping_dummy.current_fy_revenue.value}} is the same amount as <strong>{{site.data.object_mapping_dummy.number_of_salaries.value}}</strong> individuals each receiving a salary of <strong>{{site.data.object_mapping_dummy.individual_salary.value}} per year</strong></p>
                                         <img class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-2-outline.svg" alt="">
-                                        <p><strong>(roughly equal to the average annual salary of someone in the construction industry)</strong>.</p>
-                                        <p class="source">Source - <a href="https://www.bls.gov/oes/current/oes_nat.htm" rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a></p>
+                                        <p><strong>(roughly equal to the average annual salary of {{site.data.object_mapping_dummy.salary_job_type.value}})</strong>.</p>
+                                        <p class="source">Source - <a href="{{site.data.object_mapping_dummy.bls_occ_employment.value}}" rel="noopener noreferrer" target="_blank">Bureau of Labor Statistics</a></p>
                                     </div>
                                     <div class="anecdote__pane">
-                                        <p>$3.3 trillion equates to the average U.S. household contributing <strong>$2,200 per month</strong>.</p>
+                                        <p>{{site.data.object_mapping_dummy.current_fy_revenue.value}} equates to the average U.S. household contributing <strong>{{site.data.object_mapping_dummy.household_contribution.value}} per month</strong>.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-4-outline.svg" alt="">
-                                        <p>That is roughly equal to the cost of <strong>renting a three-bedroom apartment</strong> in Juneau, AK ($2,165/month).</p>
-                                        <p class="source">Source - <a href="https://www.huduser.gov/portal/datasets/50per.html#2018" rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
+                                        <p>That is roughly equal to the cost of <strong>renting a {{site.data.object_mapping_dummy.household_contribution_type.value}}</strong> in {{site.data.object_mapping_dummy.household_contribution_city.value}}.</p>
+                                        <p class="source">Source - <a href="{{site.data.object_mapping_dummy.hud_median_rent.value}}" rel="noopener noreferrer" target="_blank">Department of Housing and Urban Development</a> & <a href="{{site.data.object_mapping_dummy.census_household.value}}" rel="noopener noreferrer" target="_blank">U.S. Census Bureau</a></p>
                                     </div>
                                     <div class="anecdote__pane">
-                                        <p>$3.3 trillion equates to the <strong>revenue of the top 18 companies</strong> in the S&P 500.</p>
+                                        <p>{{site.data.object_mapping_dummy.current_fy_revenue.value}} equates to the <strong>revenue of the top {{site.data.object_mapping_dummy.sp_companies.value}} companies</strong> in the S&P 500.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-5-outline.svg" alt="">
                                         <p class="source">Figures based on 2017 10-K reports for S&P 500 Companies</p>
                                     </div>
@@ -115,7 +115,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
 
             <div class="chapter__chart">
                 <img src="/assets/ffg/bp/revenue/revenue-graph-outline.svg" alt="Federal revenue has increased over the past five years. Annual revenue was $3 trillion, $3.25 trillion, $3.27 trillion, $3.31 trillion and $3.33 trillion for the years 2014 to 2018 respectively.">
-                <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a> and refers to Fiscal Year 2018</p>
+                <p class="chapter__chart--reference">Data used throughout this site is provided by the <a href="{{site.data.object_mapping_dummy.overview_mts.value}}" target="_blank" rel="noopener noreferrer">U.S. Department of the Treasury</a> and refers to Fiscal Year {{site.data.object_mapping_dummy.current_fy.value}}</p>
             </div>
         </div>
     </div>
