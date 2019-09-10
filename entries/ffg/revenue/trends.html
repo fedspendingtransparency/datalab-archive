@@ -22,7 +22,7 @@ ffgPageCss: css/trendsCommon.css
     <div class="trend-flex">
         <div class="trend-copy">
             <div class="tend-copy__text">
-                <p>How has federal revenue changed over the past few years? This chart shows the various source categories for federal revenue over a five year period. Click a category to view revenue by subcategory. What changes have occurred over the past five years? What impact do changes in a subcategory have on government revenue?</p>
+                <p>How has federal revenue changed over the past few years? This chart shows the various source categories for federal revenue over a {{site.data.object_mapping.number_trend_years.value}} year period. Click a category to view revenue by subcategory. What changes have occurred over the past {{site.data.object_mapping.number_trend_years.value}} years? What impact do changes in a subcategory have on government revenue?</p>
             </div>
             <section class="tour">
                 <div class="tour__part-one">
@@ -44,7 +44,7 @@ ffgPageCss: css/trendsCommon.css
     <div class="clearfix"></div>
 
     <section class="hwcta">
-        The visualization was created using {% include ffg/data-sources/mts_homepage.html %} as the data source for federal government revenue of the United States. Some categories from the MTS have been renamed in order to be more easily understood. {% include ffg/data-sources/bls_cpiu.html %} was used to adjust revenue in fiscal years {% include ffg/data-sources/inflation_fys.html %} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
+        The visualization was created using {{site.data.object_mapping.mts_homepage.value}} as the data source for federal government revenue of the United States. Some categories from the MTS have been renamed in order to be more easily understood. {{site.data.object_mapping.bls_cpiu.value}} was used to adjust revenue in fiscal years {{site.data.object_mapping.inflation_adj_years.value}} for inflation. Adjusting for inflation allows users to see real, not nominal, changes in sources of revenue over time.
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>

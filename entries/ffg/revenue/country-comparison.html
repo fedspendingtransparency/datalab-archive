@@ -21,7 +21,7 @@ ffgPageCss: css/countryCommon.css
 
     <div class="country-copy">
         <div class="country-copy__text">
-            <p>This chart outlines the total revenue of the United States compared to 169 different countries in 2017. In this section, figures are presented using financial data from 2017, allowing us to provide you with the most recent revenue data for the greatest number of countries.  In 2017, the United States collected $3.3 trillion. The $3.3 trillion in revenue collected was equivalent to 17% of total U.S. gross domestic product (GDP) for 2017.</p>
+            <p>This chart outlines the total revenue of the United States compared to {{site.data.object_mapping.countries_compared.value}} different countries in {{site.data.object_mapping.country_compare_year.value}}. In this section, figures are presented using financial data from {{site.data.object_mapping.country_compare_year.value}}, allowing us to provide you with the most recent revenue data for the greatest number of countries.  In {{site.data.object_mapping.country_compare_year.value}}, the United States collected {{site.data.object_mapping.compare_us_revenue.value}}. The {{site.data.object_mapping.compare_us_revenue.value}} in revenue collected was equivalent to {{site.data.object_mapping.compare_us_revenue_gdp.value}} of total U.S. gross domestic product (GDP) for {{site.data.object_mapping.country_compare_year.value}}.</p>
             <p>How does the U.S. compare to other countries? We encourage you to check out the chart. You can compare total revenue (in dollars) and revenue as a percent of gross domestic product. Find a country of interest and see for yourself. </p>
             <p><em>Please note that the countries depicted in this chart have different forms of government, and these differences may impact the scope of finances reported by each country.</em></p>
         </div>
@@ -44,14 +44,14 @@ ffgPageCss: css/countryCommon.css
     <div class="clearfix"></div>
 
     <section class="hwcta">
-        <p>The visualization was created using the {% include ffg/data-sources/country_comparison_mts.html %} as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures for the United States come from the {% include ffg/data-sources/bea_gdp.html %}. GDP data for countries other than the United States comes from the {% include ffg/data-sources/imf_gdp.html %}.</p>
-        <p>In researching potential data sources for information on the revenue of other governments for the country comparison module, we chose the {% include ffg/data-sources/cia_world_factbook.html %} because it provides the best comparison for the following reasons:</p>
+        <p>The visualization was created using the {{site.data.object_mapping.country_comparison_mts.value}} as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures for the United States come from the {{site.data.object_mapping.bea_gdp.value}}. GDP data for countries other than the United States comes from the {{site.data.object_mapping.imf_gdp.value}}.</p>
+        <p>In researching potential data sources for information on the revenue of other governments for the country comparison module, we chose the {{site.data.object_mapping.cia_world_factbook.value}} because it provides the best comparison for the following reasons:</p>
         <ul>
-            <li>the number of countries with {% include ffg/data-sources/country_comparison_fy.html %} data,</li>
+            <li>the number of countries with {{site.data.object_mapping.country_compare_year.value}} data,</li>
             <li>relative consistency with the level of government measured (central government only as a standard),</li>
             <li>all figures expressed in US dollars.</li>
         </ul>
-        <p>Countries with figures before {% include ffg/data-sources/country_comparison_fy.html %} were excluded from the country comparison data set. Although most countries in the data set feature revenue from central government sources only, some countries included state/provincial/local revenue. As a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.</p>
+        <p>Countries with figures before {{site.data.object_mapping.country_compare_year.value}} were excluded from the country comparison data set. Although most countries in the data set feature revenue from central government sources only, some countries included state/provincial/local revenue. As a result, this visualization should not be considered an absolute comparison of the revenue of central governments for all countries.</p>
         <p>To finish the data set for Country Comparison, gross domestic product figures from BEA and the IMF WEOD were combined with revenue figures from the CIA World Factbook data set, excluding countries that did not have data available from both sources.</p>
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
