@@ -7,12 +7,27 @@ import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
 import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
 
+function findAmountInCsv(str) {
+        let amount;
+        
+        DebtData.every(row => {
+            if (row.category != str) {
+                return true
+            } else {
+                amount = row.amount;
+                return false
+            }
+        })
+     
+        return amount;
+    } 
+
 const config = {
     anecdoteName: 'anecdote-debt.svg',
-    debtAmount: DebtData[0].amount, 
-    gdpAmount: DebtData[2].amount, 
-    deficitAmount: DebtData[1].amount, 
-    gdpPercent: DebtData[3].amount * 100, 
+    debtAmount: findAmountInCsv('federal debt'), 
+    gdpAmount: findAmountInCsv('gdp'), 
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit')), 
+    gdpPercent: findAmountInCsv('federal debt percent of gdp') * 100, 
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {
