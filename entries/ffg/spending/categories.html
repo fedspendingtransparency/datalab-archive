@@ -59,13 +59,13 @@ ffgPageCss: css/spending-categories.css
     </div>
 
     <div class="poc-content" id="income-facts">
-        <p>This section breaks down how the $4.1 trillion was spent. You can explore federal spending either by category or by agency.  Curious to find out more?  Dive deeper to see spending details by subcategory and other options.</p>
+        <p>This section breaks down how the {{site.data.object_mapping.current_fy_spending.value}} was spent. You can explore federal spending either by category or by agency.  Curious to find out more?  Dive deeper to see spending details by subcategory and other options.</p>
 
         <section class="accordion">
             <h1 class="accordion__heading">What does the government buy?</h1>
             <div class="accordion__content">
                 <p>Well, a lot. The government buys a variety of products and services used to serve the public - everything from military aircraft, construction and highway maintenance equipment, buildings, and livestock, to research, education, and training. These types of final goods and services purchased by the government are classified as Object Classes.</p>
-                <p>Our partner site, <a href='https://www.usaspending.gov/' rel="noopener noreferrer" target="_blank">USASpending.gov</a> allows visitors to explore federal spending by the types of items and services purchased by the federal government. Go explore federal spending by <a href='https://www.usaspending.gov/#/explorer/object_class' rel="noopener noreferrer" target="_blank">Object Class</a>.</p>
+                <p>Our partner site, <a href='{{site.data.object_mapping.usaspending_home.value}}' rel="noopener noreferrer" target="_blank">USASpending.gov</a> allows visitors to explore federal spending by the types of items and services purchased by the federal government. Go explore federal spending by <a href='{{site.data.object_mapping.usaspending_object_class.value}}' rel="noopener noreferrer" target="_blank">Object Class</a>.</p>
             </div>
         </section>
 
@@ -80,22 +80,22 @@ ffgPageCss: css/spending-categories.css
         <section class="accordion">
             <h1 class="accordion__heading">What does the future of Social Security and Medicare look like?</h1>
             <div class="accordion__content">
-                <p>Each year, the Social Security and Medicare Boards of Trustees publish their <a href="https://www.ssa.gov/oact/TRSUM/" rel="noopener noreferrer" target="_blank">Annual Report</a> on the financial status of Social Security and Medicare.  The Boards’ projections indicate that spending will continue to increase.  As the average age of Americans increases, more funding is needed to support entitlement programs like Social Security, Medicare, and retirement and disability services for both military and civil servants. In 2018, the cost of the Social Security and Medicare programs was $1.7 trillion.</p>
-                <p>The majority of Social Security and Medicare funding comes from tax revenue and interest on trust fund reserves. For 2018, income for these programs was $1.8 trillion. However, costs are expected to exceed revenue starting in 2018 for Medicare Part A and 2020 for Social Security, and will require the federal government to begin drawing down trust fund balances in order to continue paying full benefits. While Medicare Parts B and D are largely funded by general revenues and beneficiary premiums, the Boards project that Medicare Part A trust fund will be depleted by 2026 and the Social Security trust fund will be depleted by 2034.</p>
+                <p>Each year, the Social Security and Medicare Boards of Trustees publish their <a href="{{site.data.object_mapping.trustees_report.value}}" rel="noopener noreferrer" target="_blank">Annual Report</a> on the financial status of Social Security and Medicare.  The Boards’ projections indicate that spending will continue to increase.  As the average age of Americans increases, more funding is needed to support entitlement programs like Social Security, Medicare, and retirement and disability services for both military and civil servants. In {{site.data.object_mapping.current_fy.value}}, the cost of the Social Security and Medicare programs was {{site.data.object_mapping.ss_med_cost.value}}.</p>
+                <p>The majority of Social Security and Medicare funding comes from tax revenue and interest on trust fund reserves. For {{site.data.object_mapping.current_fy.value}}, income for these programs was {{site.data.object_mapping.ss_med_income.value}}. However, costs are expected to exceed revenue starting in {{site.data.object_mapping.med_deficit_year.value}} for Medicare Part A and {{site.data.object_mapping.ss_deficit_year.value}} for Social Security, and will require the federal government to begin drawing down trust fund balances in order to continue paying full benefits. While Medicare Parts B and D are largely funded by general revenues and beneficiary premiums, the Boards project that Medicare Part A trust fund will be depleted by {{site.data.object_mapping.med_deplete_year.value}} and the Social Security trust fund will be depleted by {{site.data.object_mapping.ss_deplete_year.value}}.</p>
             </div>
         </section>
 
         <section class="tour">
             <div class="tour__part-one">
                 <h1>How has federal spending changed over time?</h1>
-                <p>When you are done here we encourage you to explore trends in government spending over the past five years.</p>
+                <p>When you are done here we encourage you to explore trends in government spending over the past {{site.data.object_mapping.number_trend_years.value}} years.</p>
             </div>
             <a class="tour__link" href="trends.html">Continue<i class="fas fa-chevron-right"></i></a>
         </section>
     </div>
 
     <section class="hwcta">
-        <p>The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Some categories from the MTS have been renamed in order to be more easily understood.</p>
+        <p>The visualization was created using the <a href="{{site.data.object_mapping.current_mts.value}}" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Some categories from the MTS have been renamed in order to be more easily understood.</p>
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>
