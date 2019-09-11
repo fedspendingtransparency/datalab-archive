@@ -1,30 +1,31 @@
 import { initChart } from '../../spending/intro/init';
 import colors from '../../globalSass/colors.scss';
 import revenueData from '../../../../assets/ffg/data/federal_revenue_gdp.csv';
+import { findAmountInCsv } from '../../../src/utils';
 
-function findAmountInCsv(str) {
-    let amount;
-    
-    revenueData.every(row => {
-        if (row.category != str) {
-            return true
-        } else {
-            amount = row.amount;
-            return false
-        }
-    })
- 
-    return amount;
-} 
+// function findAmountInCsv(str) {
+//     let amount;
+//     
+//     revenueData.every(row => {
+//         if (row.category != str) {
+//             return true
+//         } else {
+//             amount = row.amount;
+//             return false
+//         }
+//     })
+//  
+//     return amount;
+// } 
 
 (function init(){
     const config = {
         anecdoteName: 'anecdote.svg',
-        comparisonAmount: findAmountInCsv('federal spending'),
+        comparisonAmount: findAmountInCsv('federal spending', revenueData),
         compareString: 'spending',
-        gdpAmount: findAmountInCsv('gdp'), 
-        gdpPercent: findAmountInCsv('federal revenue percent of gdp') * 100, 
-        sectionAmount: findAmountInCsv('federal revenue'), 
+        gdpAmount: findAmountInCsv('gdp', revenueData), 
+        gdpPercent: findAmountInCsv('federal revenue percent of gdp', revenueData) * 100, 
+        sectionAmount: findAmountInCsv('federal revenue', revenueData), 
         comparisonColor: colors.colorSpendingPrimary,
         sectionColor: colors.revenuePrimary,
         accessibilityAttrs : {

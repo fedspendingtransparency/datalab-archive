@@ -6,28 +6,14 @@ import colors from '../../globalSass/colors.scss';
 import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
 import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
-
-function findAmountInCsv(str) {
-        let amount;
-        
-        DebtData.every(row => {
-            if (row.category != str) {
-                return true
-            } else {
-                amount = row.amount;
-                return false
-            }
-        })
-     
-        return amount;
-    } 
+import { findAmountInCsv } from '../../../src/utils';
 
 const config = {
     anecdoteName: 'anecdote-debt.svg',
-    debtAmount: findAmountInCsv('federal debt'), 
-    gdpAmount: findAmountInCsv('gdp'), 
-    deficitAmount: Math.abs(findAmountInCsv('federal deficit')), 
-    gdpPercent: findAmountInCsv('federal debt percent of gdp') * 100, 
+    debtAmount: findAmountInCsv('federal debt', DebtData), 
+    gdpAmount: findAmountInCsv('gdp', DebtData), 
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DebtData)), 
+    gdpPercent: findAmountInCsv('federal debt percent of gdp', DebtData) * 100, 
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {

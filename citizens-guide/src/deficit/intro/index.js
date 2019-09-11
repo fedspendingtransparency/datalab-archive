@@ -7,28 +7,14 @@ import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
 import '../../matchesPolyfill';
 import DeficitData from '../../../../assets/ffg/data/explore_federal_deficit.csv';
-
-function findAmountInCsv(str) {
-        let amount;
-        
-        DeficitData.every(row => {
-            if (row.category != str) {
-                return true
-            } else {
-                amount = row.amount;
-                return false
-            }
-        })
-     
-        return amount;
-    } 
+import { findAmountInCsv } from '../../../src/utils';
 
 const config = {
     anecdoteName: 'anecdote-deficit.svg',
-    revenueAmount: findAmountInCsv('federal revenue'), 
-    spendingAmount: findAmountInCsv('federal spending'), 
-    debtBalance: findAmountInCsv('federal debt'), 
-    reportedDeficitAmount: findAmountInCsv('federal deficit'), 
+    revenueAmount: findAmountInCsv('federal revenue', DeficitData), 
+    spendingAmount: findAmountInCsv('federal spending', DeficitData), 
+    debtBalance: findAmountInCsv('federal debt', DeficitData), 
+    reportedDeficitAmount: findAmountInCsv('federal deficit', DeficitData), 
     compareString: 'revenue',
     revenueColor: colors.colorPrimary,
     spendingColor: colors.colorSpendingPrimary,
