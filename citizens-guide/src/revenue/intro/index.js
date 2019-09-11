@@ -3,21 +3,6 @@ import colors from '../../globalSass/colors.scss';
 import revenueData from '../../../../assets/ffg/data/federal_revenue_gdp.csv';
 import { findAmountInCsv } from '../../../src/utils';
 
-// function findAmountInCsv(str) {
-//     let amount;
-//     
-//     revenueData.every(row => {
-//         if (row.category != str) {
-//             return true
-//         } else {
-//             amount = row.amount;
-//             return false
-//         }
-//     })
-//  
-//     return amount;
-// } 
-
 (function init(){
     const config = {
         anecdoteName: 'anecdote.svg',
