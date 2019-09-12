@@ -5,13 +5,15 @@ import { establishContainer, translator } from '../../utils';
 import colors from '../../globalSass/colors.scss';
 import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
+import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
+import { findAmountInCsv } from '../../../src/utils';
 
 const config = {
     anecdoteName: 'anecdote-debt.svg',
-    debtAmount: 21500000000000,
-    gdpAmount: 20700000000000,
-    deficitAmount: 779000000000,
-    gdpPercent: 104,
+    debtAmount: findAmountInCsv('federal debt', DebtData), 
+    gdpAmount: findAmountInCsv('gdp', DebtData), 
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DebtData)), 
+    gdpPercent: findAmountInCsv('federal debt percent of gdp', DebtData) * 100, 
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {
