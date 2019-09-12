@@ -6,6 +6,8 @@ import { compareOn, compareOff, generateOverlay, registerLayer } from './compare
 import { createDonut } from '../../revenue/donut';
 import colors from '../../globalSass/colors.scss';
 import { chartWidth } from './widthManager';
+import SpendingData from '../../../../assets/ffg/data/federal_spending_gdp.csv';
+import { findAmountInCsv } from '../../../src/utils';
 
 const d3 = { select, selectAll, line };
 
@@ -109,8 +111,9 @@ function placeDonut(g) {
 
 export function initGdp(_config) {
     config = _config || config;
-    const svg = establishContainer(),
-        gdpCount = 20700;
+    const svg = establishContainer();
+    let gdpCount = (findAmountInCsv('gdp', SpendingData)) / 100000000000; 
+    gdpCount = Math.round(gdpCount) * 100; 
 
     gdpLayer = generateOverlay(gdpCount, svg.select('.main-container'), 'gdp-layer');
 

@@ -17,7 +17,7 @@ socialMediaText: "How does federal revenue compare to federal spending and the s
 <div class="ffg-wrapper revenue-intro">
     <div class="ffg-share">{% include new-share-menu.html %}</div>
 
-    <h1>In 2018, the government collected $3.3 trillion in revenue.
+    <h1>In {{site.data.object_mapping.current_fy.value}}, the government collected {{site.data.object_mapping.current_fy_revenue.value}} in revenue.
         <button class="info-box-trigger" data-box-id="per-individual">
             <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
         </button>
@@ -27,11 +27,11 @@ socialMediaText: "How does federal revenue compare to federal spending and the s
         <div id="viz"></div>
 
         <div class="intro-math intro-hidden">
-            <i class="fas fa-reply intro-math__icon"></i>3,300 dots x $1 billion = <strong>$3.3 trillion</strong>
+            <i class="fas fa-reply intro-math__icon"></i>3,300 dots x {{site.data.object_mapping.dot_represents.value}} = <strong>{{site.data.object_mapping.current_fy_revenue.value}}</strong>
         </div>
 
         <div id="copy" class="intro-hidden">
-            <p>Where does the money come from? If you lived or worked in the United States in 2018, most likely your contributions are part of the $3.3 trillion. Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
+            <p>Where does the money come from? If you lived or worked in the United States in {{site.data.object_mapping.current_fy.value}}, most likely your contributions are part of the {{site.data.object_mapping.current_fy_revenue.value}}. Federal revenue consists mostly of individual, corporate, and social insurance taxes collected from the people who live, work, or do business in the United States each Fiscal
                 Year.<button class="info-box-trigger" data-box-id="fiscal-year">
                     <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
         </div>
@@ -47,15 +47,15 @@ socialMediaText: "How does federal revenue compare to federal spending and the s
                 </div>
 
                 <section id="spending-facts" class="facts__section">
-                    <h1>In Fiscal Year 2018, the federal government spent $4.1 trillion.</h1>
-                    <p>Since the government spent more than it collected, the deficit for 2018 was $779 billion.</p>
+                    <h1>In Fiscal Year {{site.data.object_mapping.current_fy.value}}, the federal government spent {{site.data.object_mapping.current_fy_spending.value}}.</h1>
+                    <p>Since the government spent more than it collected, the deficit for {{site.data.object_mapping.current_fy.value}} was {{site.data.object_mapping.current_fy_deficit.value}}.</p>
                     <p>
                         <a href="../spending/">Go Explore Federal Spending</a>
                     </p>
                 </section>
 
                 <section id="gdp-facts" class="facts__section">
-                    <h1>In Fiscal Year 2018, federal revenue was equal to 16% of total gross domestic product (GDP), or economic activity, of the United States that year ($20.7 trillion).</h1>
+                    <h1>In Fiscal Year {{site.data.object_mapping.current_fy.value}}, federal revenue was equal to {{site.data.object_mapping.revenue_percent_gdp.value}} of total gross domestic product (GDP), or economic activity, of the United States that year ({{site.data.object_mapping.current_fy_gdp.value}}).</h1>
                     <p>Why do we compare federal revenue to gross domestic product? For one, the comparison serves as a rough gauge of the size of the federal government's footprint related to size of the entire country's economic activity. In addition, federal taxes are based on a percentage of income for people and businesses. If an economy is performing well, people and businesses earn more, and federal revenue from taxes increases.</p>
 
                     <strong>What's gross domestic product?
@@ -75,7 +75,7 @@ socialMediaText: "How does federal revenue compare to federal spending and the s
 
     <div class="info-box" id="per-individual">
         <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
-        <p>How much is $3.3 trillion? If you take $3.3 trillion divided by the U.S. population estimate in 2018, of 327.7 million (<a href="https://www.census.gov/popclock/" target="_blank" rel="noopener noreferrer">U.S. Census Bureau</a>) that would equate to a little more than $10,000 in revenue for every individual in the U.S.</p>
+        <p>How much is {{site.data.object_mapping.current_fy_revenue.value}}? If you take {{site.data.object_mapping.current_fy_revenue.value}} divided by the U.S. population estimate in {{site.data.object_mapping.current_fy.value}}, of {{site.data.object_mapping.us_population.value}} (<a href="{{site.data.object_mapping.census_population.value}}" target="_blank" rel="noopener noreferrer">U.S. Census Bureau</a>) that would equate to a little more than {{site.data.object_mapping.revenue_per_individual.value}} in revenue for every individual in the U.S.</p>
     </div>
     <div class="info-box" id="fiscal-year">
         <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
@@ -87,11 +87,11 @@ socialMediaText: "How does federal revenue compare to federal spending and the s
     </div>
     <div class="info-box" id="billion-dollars">
         <img src="/assets/ffg/icons/anecdote.svg" alt="anecdote icon">
-        <p>In this visualization, one dot represents $1 billion of federal revenue.</p>
+        <p>In this visualization, one dot represents {{site.data.object_mapping.dot_represents.value}} of federal revenue.</p>
     </div>
 
     <section class="hwcta">
-        The visualization was created using the {% include ffg/data-sources/current_mts.html %} as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures come from the {% include ffg/data-sources/bea_gdp.html %}. The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
+        The visualization was created using the <a href="{{site.data.object_mapping.current_mts.value}}" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue of the United States. Gross domestic product (GDP) figures come from the <a href="{{site.data.object_mapping.bea_gdp.value}}" rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. The revenue-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that come in to the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>

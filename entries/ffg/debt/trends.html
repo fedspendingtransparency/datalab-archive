@@ -34,7 +34,7 @@ ffgPageCss: css/debt-trends.css
     </div>
 
     <aside class="debt-aside">
-        <p>The U.S. has steadily increased the federal debt since 2000. Another way to view the federal debt over time is to look at the ratio of federal debt related to gross domestic product (GDP). This ratio has also increased over time. According to the most recent <a href="https://www.fiscal.treasury.gov/reports-statements/financial-report/" rel="noopener noreferrer" target="_blank">Financial Report of the United States Government (FR)</a>, the current fiscal policy is not sustainable.</p>
+        <p>The U.S. has steadily increased the federal debt since {{site.data.object_mapping.debt_trend_start.value}}. Another way to view the federal debt over time is to look at the ratio of federal debt related to gross domestic product (GDP). This ratio has also increased over time. According to the most recent <a href="{{site.data.object_mapping.financial_report.value}}" rel="noopener noreferrer" target="_blank">Financial Report of the United States Government (FR)</a>, the current fiscal policy is not sustainable.</p>
 
         <section class="tour">
             <div class="tour__part-one">
@@ -48,7 +48,7 @@ ffgPageCss: css/debt-trends.css
     <div class="clearfix"></div>
 
     <section class="hwcta">
-        <p>This visualization was created using the {% include ffg/data-sources/mspd_homepage.html %} as the data source for federal debt of the United States. Gross domestic product (GDP) figures come from the {% include ffg/data-sources/bea_gdp.html %}. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
+        <p>This visualization was created using the <a href="{{site.data.object_mapping.mspd_homepage.value}}" rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source for federal debt of the United States. Gross domestic product (GDP) figures come from the <a href="{{site.data.object_mapping.bea_gdp.value}}" rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>

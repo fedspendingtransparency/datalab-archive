@@ -16,7 +16,7 @@ socialMediaText: "How much money did the government spend in 2018? How does it c
 
 <div class="ffg-wrapper spending-intro">
     <div class="ffg-share">{% include new-share-menu.html %}</div>
-    <h1>In 2018, the government spent $4.1 trillion.
+    <h1>In {{site.data.object_mapping.current_fy.value}}, the government spent {{site.data.object_mapping.current_fy_spending.value}}.
         <button class="info-box-trigger" data-box-id="per-individual">
             <img src="/assets/ffg/icons/anecdote-spending.svg" alt="anecdote icon">
         </button>
@@ -26,7 +26,7 @@ socialMediaText: "How much money did the government spend in 2018? How does it c
         <div id="viz"></div>
 
         <div class="intro-math intro-hidden">
-            <i class="fas fa-reply intro-math__icon"></i>4,100 dots x $1 billion = <strong>$4.1 trillion</strong>
+            <i class="fas fa-reply intro-math__icon"></i>4,100 dots x {{site.data.object_mapping.dot_represents.value}} = <strong>{{site.data.object_mapping.current_fy_spending.value}}</strong>
         </div>
 
         <div id="copy" class="intro-hidden">
@@ -44,17 +44,17 @@ socialMediaText: "How much money did the government spend in 2018? How does it c
                 </div>
 
                 <section id="revenue-facts" class="facts__section">
-                    <h1>In Fiscal Year 2018, the federal government collected $3.3 trillion in federal revenue.</h1>
-                    <p>Since the government spent more than it collected, the deficit for 2018 was $779 billion.
+                    <h1>In Fiscal Year {{site.data.object_mapping.current_fy.value}}, the federal government collected {{site.data.object_mapping.current_fy_revenue.value}} in federal revenue.</h1>
+                    <p>Since the government spent more than it collected, the deficit for {{site.data.object_mapping.current_fy.value}} was {{site.data.object_mapping.current_fy_deficit.value}}.
                     </p><p>
                         <a target="_blank" href="../revenue/">Go Explore Federal Revenue.</a>
                     </p>
                 </section>
 
                 <section id="gdp-facts" class="facts__section">
-                    <h1>In Fiscal Year 2018, federal spending was equal to 20% of the total gross domestic product (GDP), or economic activity, of the United States that year ($20.7 trillion).</h1>
+                    <h1>In Fiscal Year {{site.data.object_mapping.current_fy.value}}, federal spending was equal to {{site.data.object_mapping.spending_percent_gdp.value}} of the total gross domestic product (GDP), or economic activity, of the United States that year ({{site.data.object_mapping.current_fy_gdp.value}}).</h1>
 
-                    <p>Why do we compare federal spending to gross domestic product? One reason is to give a reference point for the size of the federal government, as measured by the amount it spends. U.S. gross domestic product is much larger than government spending, because it includes all the economic activity of the entire nation. Government spending equates to roughly $1 out of every $5 of the goods produced and services provided in the United States.</p>
+                    <p>Why do we compare federal spending to gross domestic product? One reason is to give a reference point for the size of the federal government, as measured by the amount it spends. U.S. gross domestic product is much larger than government spending, because it includes all the economic activity of the entire nation. Government spending equates to roughly {{site.data.object_mapping.spending_proportion.value}} of the goods produced and services provided in the United States.</p>
 
                     <strong>What's gross domestic product?
                         <button class="info-box-trigger" data-box-id="gdp-info">
@@ -73,7 +73,7 @@ socialMediaText: "How much money did the government spend in 2018? How does it c
 
     <div class="info-box" id="per-individual">
         <img src="/assets/ffg/icons/anecdote-spending.svg" alt="anecdote icon">
-        <p>How much is $4.1 trillion in federal spending?  If you divide it by the U.S. population estimate in 2018, 327.7 million (<a target="_blank" href="https://www.census.gov/popclock/" target="_blank">U.S. Census Bureau</a>), it would equate to a little more than $12,500 in federal spending for every individual.</p>
+        <p>How much is {{site.data.object_mapping.current_fy_spending.value}} in federal spending?  If you divide it by the U.S. population estimate in {{site.data.object_mapping.current_fy.value}}, {{site.data.object_mapping.us_population.value}} (<a target="_blank" href="{{site.data.object_mapping.census_population.value}}" target="_blank">U.S. Census Bureau</a>), it would equate to a little more than {{site.data.object_mapping.spending_per_individual.value}} in federal spending for every individual.</p>
     </div>
 
     <div class="info-box" id="gdp-info">
@@ -83,11 +83,11 @@ socialMediaText: "How much money did the government spend in 2018? How does it c
 
     <div class="info-box" id="billion-dollars">
         <img src="/assets/ffg/icons/anecdote-spending.svg" alt="anecdote icon">
-        <p>In this visualization, one dot represents $1 billion of federal spending. </p>
+        <p>In this visualization, one dot represents {{site.data.object_mapping.dot_represents.value}} of federal spending. </p>
     </div>
 
     <section class="hwcta">
-        <p>The visualization was created using the <a href="https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href="https://www.bea.gov/data/gdp/gross-domestic-product" rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. The spending-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that go out from the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
+        <p>The visualization was created using the <a href="{{site.data.object_mapping.current_mts.value}}" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government spending of the United States. Gross domestic product (GDP) figures come from the <a href="{{site.data.object_mapping.bea_gdp.value}}" rel="noopener noreferrer" target="_blank">Bureau of Economic Analysis (BEA)</a>. The spending-to-gross domestic product ratio is included to provide you with context for the trillions of dollars that go out from the federal government annually. Throughout this page, we use the gross domestic product for the Fiscal Year, not the Calendar Year, in order to facilitate an appropriate comparison.</p>
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>
