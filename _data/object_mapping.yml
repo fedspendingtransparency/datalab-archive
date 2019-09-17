@@ -73,7 +73,7 @@ current_mspd:
 current_mts:
   value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf
 dc_sf_miles:
-  value: 685,000
+  value: '685,000'
 dc_sf_trips:
   value: 122
 debt_average_salary_type:
@@ -101,13 +101,13 @@ deficit_trend_start:
 dot_represents:
   value: $1 billion
 dot_number_revenue:
-  value: 3,300
+  value: '3,300'
 dot_number_spending:
-  value: 4,100
+  value: '4,100'
 dot_number_deficit:
   value: 779
 dot_number_debt:
-  value: 21,500
+  value: '21,500'
 financial_report:
   value: https://www.fiscal.treasury.gov/reports-statements/financial-report/
 frbny_microecon:
