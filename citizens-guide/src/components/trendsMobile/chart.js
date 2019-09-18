@@ -30,12 +30,15 @@ function setYScale(data, config) {
 }
 
 function setXScale(config) {
+    const fiscalYearArraylength = config.fiscalYearArray.length;
+    const first = config.fiscalYearArray[0];
+    const last = config.fiscalYearArray[fiscalYearArraylength - 1];
+
     chartWidth = getElementBox(containerScope.select('.chart-row__chart')).width;
 
-    config.scaleX = d3.scaleLinear();
-
-    config.scaleX.range([0, chartWidth - margin[1] - margin[3]])
-        .domain([2014, 2018]);
+    config.scaleX = d3.scaleLinear()
+        .range([0, chartWidth - margin[1] - margin[3]])
+        .domain([first, last]);
 }
 
 function createSvg(container, d, config) {
@@ -50,7 +53,6 @@ function createSvg(container, d, config) {
 }
 
 function drawLine(svg, d, config) {
-    
     const max = d3.max(d.map(r => r.amount)),
     shift = config.scaleY(config.scaleY.domain()[1]) - config.scaleY(max),
     lineG = svg.append('g').attr('transform', translator(margin[3], shift + margin[0]));
@@ -84,26 +86,30 @@ function placeDots(lineG, config, d) {
 }
 
 function drawAxis(g, config, d) {
+    const fiscalYearArraylength = config.fiscalYearArray.length;
+    const first = config.fiscalYearArray[0];
+    const last = config.fiscalYearArray[fiscalYearArraylength - 1];
+
     const min = d3.min(d.map(r => r.amount));
 
     g.append('line')
         .attr('stroke', '#ccc')
         .attr('stroke-width', '1')
-        .attr('x1', config.scaleX(2014))
+        .attr('x1', config.scaleX(first))
         .attr('y1', config.scaleY(min) + 9)
-        .attr('x2', config.scaleX(2018))
+        .attr('x2', config.scaleX(last))
         .attr('y2', config.scaleY(min) + 9)
 
     g.append('text')
-        .text(2014)
+        .text(first)
         .attr('fill', '#aaa')
-        .attr('x', config.scaleX(2014))
+        .attr('x', config.scaleX(first))
         .attr('dy', config.scaleY(min) + 25)
 
     g.append('text')
-        .text(2018)
+        .text(last)
         .attr('fill', '#aaa')
-        .attr('x', config.scaleX(2018))
+        .attr('x', config.scaleX(last))
         .attr('dy', config.scaleY(min) + 25)
         .attr('text-anchor', 'end')
 }
