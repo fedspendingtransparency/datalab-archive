@@ -17,21 +17,21 @@ socialMediaText: "Did you know the federal deficit was $779 billion in 2018? Won
 <div class="ffg-wrapper deficit-intro">
     <div class="ffg-share">{% include new-share-menu.html %}</div>
 
-    <h1>In {{site.data.object_mapping.current_fy.value}}, the federal government spent {{site.data.object_mapping.current_fy_deficit.value}} more than it collected, resulting in a deficit.
+    <h1>In {{site.data.object_mapping_2018.current_fy.value}}, the federal government spent {{site.data.object_mapping_2018.current_fy_deficit.value}} more than it collected, resulting in a deficit.
         <button class="info-box-trigger" data-box-id="per-individual">
             <img src="/assets/ffg/icons/anecdote-deficit.svg" alt="anecdote icon">
         </button>
     </h1>
 
     <div class="debt-copy">
-        <p>How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent {{site.data.object_mapping.current_fy_spending.value}} and collected {{site.data.object_mapping.current_fy_revenue.value}} in {{site.data.object_mapping.current_fy.value}}, the government ran a deficit for the year.</p>
+        <p>How did we end up with a deficit? A deficit occurs when the money going out exceeds the money coming in. Since the federal government spent {{site.data.object_mapping_2018.current_fy_spending.value}} and collected {{site.data.object_mapping_2018.current_fy_revenue.value}} in {{site.data.object_mapping_2018.current_fy.value}}, the government ran a deficit for the year.</p>
     </div>
 
     <div class="viz-wrapper">
         <div id="viz"></div>
 
         <div class="intro-math intro-hidden">
-            <i class="fas fa-reply intro-math__icon"></i>{{site.data.object_mapping.dot_number_deficit.value}} dots x {{site.data.object_mapping.dot_represents.value}} = <strong>{{site.data.object_mapping.current_fy_deficit.value}}</strong>
+            <i class="fas fa-reply intro-math__icon"></i>779 dots x {{site.data.object_mapping_2018.dot_represents.value}} = <strong>{{site.data.object_mapping_2018.current_fy_deficit.value}}</strong>
         </div>
 
         <div class="facts sidebar intro-hidden">
@@ -50,7 +50,7 @@ socialMediaText: "Did you know the federal deficit was $779 billion in 2018? Won
 
                 <section id="debt-facts" class="facts__section">
                     <p>To pay for a deficit, the government takes on debt. The total debt that the government owes is essentially the accumulation of deficits over time, minus repayments of debt.</p>
-                    <p>*The {{site.data.object_mapping.added_debt_short.value}} increase in federal debt actually consists of the {{site.data.object_mapping.current_fy_deficit_short.value}} deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.</p>
+                    <p>*The {{site.data.object_mapping_2018.added_debt_short.value}} increase in federal debt actually consists of the {{site.data.object_mapping_2018.current_fy_deficit_short.value}} deficit along with changes to operating cash balance, intergovernmental holdings, and other financial activities. In the visualization, the operating cash balance, intergovernmental holdings, and other financial activities were combined with the prior year debt balance for simplicity.</p>
                 </section>
             </div>
         </div>
@@ -65,7 +65,7 @@ socialMediaText: "Did you know the federal deficit was $779 billion in 2018? Won
         <section class="tour sidebar intro-hidden">
             <div class="tour__part-one">
                 <h1>How has the federal deficit changed over time?</h1>
-                <p>When you are done here, we encourage you to explore trends in the federal deficit since {{site.data.object_mapping.deficit_trend_start.value}}.</p>
+                <p>When you are done here, we encourage you to explore trends in the federal deficit since {{site.data.object_mapping_2018.deficit_trend_start.value}}.</p>
             </div>
             <a class="tour__link" href="trends.html">Explore<i class="fas fa-chevron-right"></i></a>
         </section>
@@ -75,16 +75,16 @@ socialMediaText: "Did you know the federal deficit was $779 billion in 2018? Won
 
     <div class="info-box" id="per-individual">
         <img src="/assets/ffg/icons/anecdote-deficit.svg" alt="anecdote icon">
-        <p>How much is {{site.data.object_mapping.current_fy_deficit.value}} in deficit spending? If you take the U.S. population estimate in {{site.data.object_mapping.current_fy.value}} of {{site.data.object_mapping.us_population.value}} people <a href="{{site.data.object_mapping.census_population.value}}" rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>, {{site.data.object_mapping.current_fy_deficit.value}} would be equivalent to a little less than {{site.data.object_mapping.deficit_per_individual.value}} in deficit spending for every individual in the U.S.</p>
+        <p>How much is {{site.data.object_mapping_2018.current_fy_deficit.value}} in deficit spending? If you take the U.S. population estimate in {{site.data.object_mapping_2018.current_fy.value}} of {{site.data.object_mapping_2018.us_population.value}} people <a href="{{site.data.object_mapping_2018.census_population.value}}" rel="noopener noreferrer" target="_blank">(U.S. Census Bureau)</a>, {{site.data.object_mapping_2018.current_fy_deficit.value}} would be equivalent to a little less than {{site.data.object_mapping_2018.deficit_per_individual.value}} in deficit spending for every individual in the U.S.</p>
     </div>
 
     <div class="info-box" id="billion-dollars">
         <img src="/assets/ffg/icons/anecdote-deficit.svg" alt="anecdote icon">
-        <p>In this visualization, one dot represents {{site.data.object_mapping.dot_represents.value}}.</p>
+        <p>In this visualization, one dot represents {{site.data.object_mapping_2018.dot_represents.value}}.</p>
     </div>
 
     <section class="hwcta">
-        <p>This visualization was created using the <a href="{{site.data.object_mapping.current_mts.value}}" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue, spending, and deficit and the <a href="{{site.data.object_mapping.current_mspd.value}}" rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source of federal debt.</p>
+        <p>This visualization was created using the <a href="{{site.data.object_mapping_2018.current_mts.value}}" rel="noopener noreferrer" target="_blank">Monthly Treasury Statement (MTS)</a> as the data source for federal government revenue, spending, and deficit and the <a href="{{site.data.object_mapping_2018.current_mspd.value}}" rel="noopener noreferrer" target="_blank">Monthly Statement of the Public Debt (MSPD)</a> as the data source of federal debt.</p>
         <div class="afg__download--div">
             <div class="afg__download--heading">Download Source Data</div>
             <ul>
