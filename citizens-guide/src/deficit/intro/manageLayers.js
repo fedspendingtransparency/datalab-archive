@@ -1,7 +1,7 @@
 import { select, selectAll } from 'd3-selection';
 import 'd3-transition';
 import { layers } from './createLayers';
-import { translator, establishContainer } from '../../utils';
+import { translator, establishContainer, isMobileDevice } from '../../utils';
 import { chartWidth } from './widthManager';
 import { touchIe } from '../../touchIe';
 
@@ -45,7 +45,13 @@ function zoom(out) {
     if (out) {
         layers.master.transition()
             .duration(duration)
-            .attr('transform', translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`)
+            .attr('transform', function() {
+                if (isMobileDevice()) {
+                    return translator(0, yOffset);                    
+                }
+                
+                return translator((chartWidth - chartWidth * scaleFactor) / 2, yOffset) + ` scale(${scaleFactor})`;
+            })
             .ease();
     } else {
         layers.master.transition()
