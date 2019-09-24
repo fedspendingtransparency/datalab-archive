@@ -35,7 +35,7 @@ compare_us_deficit_gdp:
 compare_us_deficit_gdp_rank:
   value: 75th
 compare_us_revenue:
-  value: value
+  value: $3.3 trillion
 compare_us_revenue_gdp:
   value: 17%
 compare_us_spending:
@@ -45,7 +45,7 @@ compare_us_spending_gdp:
 consecutive_deficits:
   value: 18
 countries_compared:
-  value: 171
+  value: 169
 country_compare_year:
   value: 2017
 country_comparison_mspd:
@@ -89,7 +89,7 @@ debt_owned_trust_funds:
 debt_owned_us_investors:
   value: 44%
 debt_per_individual:
-  value: $66,000
+  value: $65,000
 debt_trend_start:
   value: 2000
 deficit_minute:
@@ -178,6 +178,8 @@ soma_domestic_securities:
   value: https://www.newyorkfed.org/markets/soma/sysopen_accholdings
 sp_companies:
   value: 18
+spending_percent_gdp:
+  value: 20%
 spending_per_individual:
   value: $12,500
 spending_proportion:
@@ -216,3 +218,5 @@ xe_conversion:
   value: https://www.xe.com/currencytables/?from=USD&date=2017-09-30
 xe_conversion_date:
   value: September 30, 2017
+tic_date:
+  value: 2018
