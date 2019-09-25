@@ -15,7 +15,7 @@ cc_debt_total:
 census_household:
   value: https://www.census.gov/data/tables/time-series/demo/families/households.html
 census_median_home:
-  value: https://www.census.gov/data/tables/time-series/demo/families/households.html
+  value: https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml
 census_population:
   value: https://www.census.gov/popclock/
 cia_world_factbook:
