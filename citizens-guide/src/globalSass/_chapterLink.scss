@@ -24,10 +24,11 @@ a.chapter-link {
 }
 
 .chapter-link--revenue {
-    background-color: $color-primary-darker;
+    // background-color: $color-primary-darker;
+    background-color: $revenue-primary;
 
     &:hover {
-        background-color: lighten($color-primary-darker, 5%);
+        background-color: lighten($revenue-primary, 5%);
     }
 }
 

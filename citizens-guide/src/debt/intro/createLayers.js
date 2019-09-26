@@ -4,7 +4,7 @@ import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, deficitLabel } from './layerLegends';
 import { initDebtDots } from './debtDots';
-import { translator } from '../../utils';
+import { translator, isMobileDevice } from '../../utils';
 import { chartWidth } from './widthManager';
 import { createDonut } from '../../revenue/donut';
 
@@ -68,7 +68,9 @@ function generateOverlay(number, id, label, rectColor) {
         }
     }
 
-    labelMaker(overlayLayer, overlayHeight, label, amount);
+    if (!isMobileDevice()) {
+        labelMaker(overlayLayer, overlayHeight, label, amount);
+    }
 
     overlayLayer.attr('data-height', overlayHeight);
 
@@ -95,7 +97,9 @@ function placeDonut(g) {
 
 function createGdp() {
     generateOverlay(config.gdpAmount, 'gdp', 'GDP', '#777');
-    placeDonut(layers.gdp);
+    if (!isMobileDevice()) {
+        placeDonut(layers.gdp);
+    }
 }
 
 function createDeficit() {

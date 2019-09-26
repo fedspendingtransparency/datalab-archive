@@ -11,7 +11,7 @@ import { findAmountInCsv } from '../../../src/utils';
         gdpAmount: findAmountInCsv('gdp', SpendingData), 
         gdpPercent: findAmountInCsv('federal spending percent of gdp', SpendingData) * 100, 
         sectionAmount: findAmountInCsv('federal spending', SpendingData), 
-        comparisonColor: colors.colorPrimary,
+        comparisonColor: colors.revenuePrimary,
         sectionColor: colors.colorSpendingPrimary,
         accessibilityAttrs : {
             default: {
