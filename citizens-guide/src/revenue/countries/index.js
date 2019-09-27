@@ -2,6 +2,7 @@ import { loadSourceData } from './data';
 import { chartInit } from './chart';
 import CountryData from '../../../../assets/ffg/data/revenue_country_comparison.csv';
 import colors from '../../globalSass/colors.scss';
+import Mapping from '../../../../_data/object_mapping.yml';
 
 const incomeConfig = {
     amountField: 'revenue_usd',

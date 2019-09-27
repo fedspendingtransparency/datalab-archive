@@ -8,6 +8,10 @@ const build = process.env.BUILD ? process.env.BUILD : false;
 const devtool = build ? '' : 'inline-source-map';
 const mode = build ? 'production' : 'development';
 
+// const mapping = require('json-loader!yaml-loader!./_data/object_mapping.yml');
+
+// console.log('m', mapping)
+
 const cssRules = [
     {
         test: /\.scss$/,
@@ -60,6 +64,10 @@ const moduleRules = [
                 header: true
             }
         }
+    },
+    {
+        test: /\.yml$/,
+        use: 'js-yaml-loader'
     },
 ],
     devServer = {
