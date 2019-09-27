@@ -43,9 +43,9 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "d3": "^5.5.0",
+    "js-yaml-loader": "^1.2.2",
     "normalize-css": "^2.3.1",
     "smoothscroll-polyfill": "^0.4.3",
-    "swipe-listener": "^1.0.7",
-    "yaml-loader": "^0.5.0"
+    "swipe-listener": "^1.0.7"
   }
 }
