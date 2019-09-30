@@ -6,6 +6,7 @@ import colors from '../../globalSass/colors.scss';
 import { trendMobile } from '../../components/trendsMobile';
 import { manualThresholds } from './manualThresholds';
 import CategoryData from '../../../../assets/ffg/data/federal_revenue_trends.csv';
+import Mapping from "../../../../_data/object_mapping.yml";
 
 // get all the fiscal years in this csv, make a set, so we only have unique values
 const fySet = new Set(CategoryData.map( function(c) { return c.fiscal_year }));
@@ -18,8 +19,8 @@ fyArray.sort();
 const d3 = { select, selectAll },
     data = trendData(),
     accessibilityAttrs = {
-        title: '2018 Federal Revenue Trends over Time',
-        desc: 'Individual income taxes have increased over the past five years from $1.4 trillion in 2014 to $1.7 trillion in 2018. Social Security and Medicare taxes have also increased from $960 billion in 2014 to $1.1 trillion in 2018. Corporate income taxes have decreased from $320 billion in 2014 to $205 billion in 2018.'
+        title: `${Mapping.current_fy.value} Federal Revenue Trends over Time`,
+        desc: `Individual income taxes have increased over the past five years from $1.4 trillion in 2014 to $1.7 trillion in 2018. Social Security and Medicare taxes have also increased from $960 billion in 2014 to $1.1 trillion in 2018. Corporate income taxes have decreased from $320 billion in 2014 to $205 billion in 2018.`
     },
     config = {
         chapter: 'revenue',

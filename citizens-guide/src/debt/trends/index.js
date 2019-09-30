@@ -42,6 +42,4 @@ d3.select('#toggle-image').on('click', function(){
 
 d3.selectAll('.toggle-component__label').on('click', onLabelClick);
 
-console.log('test!')
-
 setActiveDataAttribute();
