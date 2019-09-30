@@ -5,6 +5,15 @@ import { trendDesktop } from '../../components/trends/chart';
 import colors from '../../globalSass/colors.scss';
 import { trendMobile } from '../../components/trendsMobile';
 import { manualThresholds } from './manualThresholds';
+import CategoryData from '../../../../assets/ffg/data/federal_revenue_trends.csv';
+
+// get all the fiscal years in this csv, make a set, so we only have unique values
+const fySet = new Set(CategoryData.map( function(c) { return c.fiscal_year }));
+// make an array from that set, and filter out any undefined values
+const fyArray = Array.from(fySet).filter(function(value, i, arr) {
+    return value;
+});
+fyArray.sort();
 
 const d3 = { select, selectAll },
     data = trendData(),
@@ -16,7 +25,8 @@ const d3 = { select, selectAll },
         chapter: 'revenue',
         baseColor: colors.revenuePrimary,
         secondaryColor: colors.colorPrimaryDarker,
-        subcategoryThresholds: manualThresholds
+        subcategoryThresholds: manualThresholds,
+        fiscalYearArray: fyArray
     };
 
 let container;

@@ -1,4 +1,4 @@
-import glossaryData from '../../../public/csv/glossary.csv';
+import glossaryData from '../../../../assets/ffg/data/glossary.csv';
 import { select, selectAll } from 'd3-selection';
 
 const d3 = { select, selectAll };

@@ -101,6 +101,7 @@ function initGlobals(config, data, drilldown) {
 
     globals.data = data;
     globals.domainMax = d3.max(globals.data.map(row => d3.max(row.values.map(v => v.amount))));
+    globals.fiscalYearSet = config.fiscalYearSet;
 
     if (!config.zoomThreshold) {
         setNoZoom(config);

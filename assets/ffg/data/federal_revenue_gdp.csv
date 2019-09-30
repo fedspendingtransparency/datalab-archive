@@ -1,4 +1,5 @@
-"year","category","amount","source_url","source_url_name"
-2018,"federal revenue",3328745000000,"https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf","Monthly Treasury Statement"
-2018,"federal spending",4107741000000,"https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf","Monthly Treasury Statement"
-2018,"gdp",20658204000000,"https://apps.bea.gov/iTable/index_nipa.cfm","Bureau of Economic Analysis"
+year,category,amount,source_url,source_url_name
+2018,federal revenue,3328745000000,https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf,Monthly Treasury Statement
+2018,federal spending,4107741000000,https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf,Monthly Treasury Statement
+2018,gdp,20658204000000,https://apps.bea.gov/iTable/index_nipa.cfm,Bureau of Economic Analysis
+2018,federal revenue percent of gdp,0.16113428834374954,NA,NA

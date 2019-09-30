@@ -4,7 +4,7 @@ import { line } from 'd3-shape';
 import { dotsPerRow, dotConstants } from "./dotConstants";
 import { labelMaker, deficitLabel } from './layerLegends';
 import { initDeficitDots } from './deficitDots';
-import { translator } from '../../utils';
+import { translator, isMobileDevice } from '../../utils';
 import { chartWidth } from './widthManager';
 import colors from '../../globalSass/colors.scss';
 
@@ -69,7 +69,9 @@ function generateOverlay(number, id, label, rectColor) {
         }
     }
 
-    labelMaker(overlayLayer, overlayHeight, label, labelAmount);
+    if (!isMobileDevice()) {
+        labelMaker(overlayLayer, overlayHeight, label, labelAmount);
+    }
 
     overlayLayer.attr('data-height', overlayHeight);
 
@@ -106,7 +108,9 @@ function createSpending() {
 
 function createDebt() {
     generateOverlay(config.debtBalance, 'debt', 'Federal Debt', config.debtColor);
-    addDebtLabel();
+    if (!isMobileDevice()) {
+        addDebtLabel();
+    }
     layers.debt.attr('transform', translator(0, 100))
 }
 
