@@ -203,7 +203,7 @@ function CreateDendro(newData){
     }
 
     function handleMouseOver(d) {
-      console.log('d: ',d);
+      //console.log('d: ',d);
       if (d.depth === 3) {
         window.tooltipModule.draw("#tooltip", d.name, {
           "Total Obligations": formatNumber(d.size),
@@ -496,8 +496,7 @@ function CreateDendro(newData){
 d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17) =>{
   d3.csv('/data-lab-data/accounts_obligations_link_update_FY18.csv', (dendroData18) =>{
     d3.csv('/data-lab-data/accounts_obligations_link_update_FY19Q3.csv', (dendroData19) =>{
-      console.log(dendroData19);
-
+      
       CreateDendro(dendroData19.filter((d) => d.reporting_period_end === '2018-12-31'));
 
       $(document).ready(() => {
@@ -550,7 +549,7 @@ d3.csv('/data-lab-data/accounts_obligations_link_update_FY17.csv', (dendroData17
               CreateDendro(data);
             }else {
               // console.log('FY18 Q4 selected')
-              data = dendroData18.filter((d) => d.reporting_period_end == '2018-06-30');
+              data = dendroData18.filter((d) => d.reporting_period_end == '2018-09-30');
               CreateDendro(data);
             }             
           }else if (FiscalYear === 'fy19'){
