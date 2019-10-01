@@ -5,7 +5,6 @@ import colors from '../../globalSass/colors.scss';
 import { establishContainer } from '../../utils';
 import Mapping from "../../../../_data/object_mapping.yml";
 
-
 const d3 = { select, selectAll },
     chartTitle = d3.select('h2.chart-title .title-text'),
     selectBudgetFunction = d3.select('#select-budget-function'),
@@ -15,7 +14,7 @@ const d3 = { select, selectAll },
 
 let svg,
     config = {
-        data: byYear(2018),
+        data: byYear(Mapping.current_fy.value),
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'category',
         accessibilityAttrs : {
@@ -60,41 +59,29 @@ function showMore() {
 
 function changeDataTypeClickFunction(){
     d3.select('#toggle-spending-data-type')
-        .on('click', function () {
-            const dataController = d3.select("#spending-chart-toggle"),
-                curData = dataController.attr('data-active');
+    .on('click', function () {
+        let dataType;
+        const dataController = d3.select("#spending-chart-toggle"),
+        curData = dataController.attr('data-active');
 
-            let dataType = curData === 'function' ? 'agency' : 'function';
+        if (curData === 'category' || curData === 'function') {
+            dataType = 'agency';
             changeDataType(dataType);
-        });
-
-    d3.select('.spending-chart-toggle__label--categories')
-        .on('click', function(){
-            const dataType = 'function';
+        } else {
+            dataType = 'category';
             changeDataType(dataType);
-        });
-    d3.select('.spending-chart-toggle__label--agency')
-        .on('click', function(){
-            const dataType = 'agency';
-            changeDataType(dataType);
-        });
+        } 
+    });
 }
 
 function changeDataType(dataType){
-    const dataController = d3.select("#spending-chart-toggle"),
-        curData = dataController.attr('data-active');
-
-    if(dataType === curData){
-        return;
-    }
-
+    const dataController = d3.select("#spending-chart-toggle");
     config.dataType = dataType;
     dataController.attr('data-active', dataType);
     initChart();
 }
 
 function spendingIndexClickFunctions() {
-
     d3.select('#filter-by-name')
         .on('input', function () {
             const v = this.value.toLowerCase(),
@@ -132,7 +119,7 @@ export function init(_config){
     }
 
     spendingIndexClickFunctions();
-    if(config.dataType){
+    if (config.dataType) {
         changeDataTypeClickFunction();
     }
     initSection();
