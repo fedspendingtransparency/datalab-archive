@@ -56,11 +56,8 @@ current_fy:
   value: 2018
 current_fy_debt:
   value: $21.5 trillion
-<<<<<<< HEAD
-=======
 current_fy_debt_short:
   value: $21.5 T
->>>>>>> cg1828-spending-category-toggle-bug
 current_fy_deficit:
   value: $779 billion
 current_fy_deficit_short:
@@ -69,11 +66,8 @@ current_fy_gdp:
   value: $20.7 trillion
 current_fy_revenue:
   value: $3.3 trillion
-<<<<<<< HEAD
-=======
 current_fy_revenue_short:
   value: $3.3 T
->>>>>>> cg1828-spending-category-toggle-bug
 current_fy_spending:
   value: $4.1 trillion
 current_fy_spending_short:
