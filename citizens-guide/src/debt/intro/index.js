@@ -5,27 +5,30 @@ import { establishContainer, translator } from '../../utils';
 import colors from '../../globalSass/colors.scss';
 import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
+import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
+import { findAmountInCsv } from '../../../src/utils';
+import Mapping from '../../../../_data/object_mapping.yml';
 
 const config = {
     anecdoteName: 'anecdote-debt.svg',
-    debtAmount: 21500000000000,
-    gdpAmount: 20700000000000,
-    deficitAmount: 779000000000,
-    gdpPercent: 104,
+    debtAmount: findAmountInCsv('federal debt', DebtData), 
+    gdpAmount: findAmountInCsv('gdp', DebtData), 
+    deficitAmount: Math.abs(findAmountInCsv('federal deficit', DebtData)), 
+    gdpPercent: findAmountInCsv('federal debt percent of gdp', DebtData) * 100, 
     deficitColor: colors.colorDeficitPrimary,
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {
         default: {
-            title: '2018 Federal Debt',
-            desc: 'The image illustrates the federal government’s debt at the end of 2018 using dots, and each dot is equal to a billion dollars. There are 21,500 dots.'
+            title: `${Mapping.current_fy.value} Federal Debt`,
+            desc: `The image illustrates the federal government’s debt at the end of ${Mapping.current_fy.value} using dots, and each dot is equal to a billion dollars. There are ${Mapping.dot_number_debt.value} dots.`
         },
         deficit : {
-            title: '2018 Federal Debt and Deficit',
-            desc: 'The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference. When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt. The $779 billion deficit contributed to the $1.3 trillion increase in debt from $20.2 trillion at the end of 2017 to $21.5 trillion by the end of 2018.'
+            title: `${Mapping.current_fy.value} Federal Debt and Deficit`,
+            desc: `The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference. When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt. The ${Mapping.current_fy_deficit.value} deficit contributed to the ${Mapping.added_debt.value} increase in debt from ${Mapping.compare_us_debt.value} at the end of ${Mapping.country_compare_year.value} to ${Mapping.current_fy_debt.value} by the end of ${Mapping.current_fy.value}.`
         },
         gdp : {
-            title: '2018 Federal Debt and GDP',
-            desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $779 billion deficit contributed to the $1.3 trillion increase in debt from $20.2 trillion at the end of 2017to $21.5 trillion by the end of 2018.'
+            title: `${Mapping.current_fy.value} Federal Debt and GDP`,
+            desc: `When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The ${Mapping.current_fy_deficit.value} deficit contributed to the ${Mapping.added_debt.value} increase in debt from ${Mapping.compare_us_debt.value} at the end of ${Mapping.country_compare_year.value} to ${Mapping.current_fy_debt.value} by the end of ${Mapping.current_fy.value}.`
         }
     }
 };

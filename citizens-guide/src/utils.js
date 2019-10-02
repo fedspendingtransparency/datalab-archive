@@ -2,6 +2,21 @@ import { select, selectAll } from 'd3-selection';
 
 const d3 = { select, selectAll };
 
+export function findAmountInCsv(str, data) {
+    let amount;
+    
+    data.every(row => {
+        if (row.category != str) {
+            return true
+        } else {
+            amount = row.amount;
+            return false
+        }
+    })
+ 
+    return amount;
+} 
+
 export function getElementBox(d3Selection) {
     const rect = d3Selection.node().getBoundingClientRect();
 

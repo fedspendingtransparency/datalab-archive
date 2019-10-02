@@ -61,6 +61,10 @@ const moduleRules = [
             }
         }
     },
+    {
+        test: /\.yml$/,
+        use: 'js-yaml-loader'
+    },
 ],
     devServer = {
         contentBase: [path.resolve('static-snapshots'), path.resolve('')],

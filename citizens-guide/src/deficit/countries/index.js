@@ -3,11 +3,12 @@ import { loadSourceData } from '../../revenue/countries/data';
 import CountryData from '../../../../assets/ffg/data/deficit_country_comparison.csv';
 import { chartInit } from '../../revenue/countries/chart';
 import colors from '../../globalSass/colors.scss';
+import Mapping from "../../../../_data/object_mapping.yml";
 
 const spendingConfig = {
     accessibilityAttrs : {
         title: 'Federal Deficit Country Comparison',
-        desc: 'While the U.S. had the largest deficit in 2017 of $666 billion, the deficit as a percent of gross domestic product was smaller for the U.S. than other countries like China, Japan, and India. Of the five largest countries in terms of federal revenue and spending, four of them had a deficit in 2017: $666 billion (3.4% of its gross domestic product) for the United States, $513 billion (4.3%) for China, $224 billion (4.6%) for Japan, and $69 billion (2.7%) for France. Germany was the only country of the five with a surplus in 2017 of $25 billion or 0.7% of gross domestic product.'
+        desc: `While the U.S. had the largest deficit in ${Mapping.country_compare_year.value} of ${Mapping.compare_us_deficit.value}, the deficit as a percent of gross domestic product was smaller for the U.S. than other countries like China, Japan, and India. Of the five largest countries in terms of federal revenue and spending, four of them had a deficit in ${Mapping.country_compare_year.value}: ${Mapping.compare_us_deficit.value} (${Mapping.compare_us_deficit_gdp.value} of its gross domestic product) for the United States, $513 billion (4.3%) for China, $224 billion (4.6%) for Japan, and $69 billion (2.7%) for France. Germany was the only country of the five with a surplus in 2017 of $25 billion or 0.7% of gross domestic product.`
     },
     amountField: 'deficit_usd',
     amountInverse: true,

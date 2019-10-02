@@ -23,10 +23,15 @@ function getValueByYear(values, year) {
     return response;
 }
 
-function buildSummary(row, d) {
+function buildSummary(row, d, config) {
+    const fiscalYearArraylength = config.fiscalYearArray.length;
+    const first = config.fiscalYearArray[0];
+    const last = config.fiscalYearArray[fiscalYearArraylength - 1];
+    const summaryYearsString = first + ' - ' + last + ': ';
+
     const summary = row.append('div').classed('trend-row__summary', true),
-        begin = getValueByYear(d.values, 2014),
-        end = getValueByYear(d.values, 2018),
+        begin = getValueByYear(d.values, first),
+        end = getValueByYear(d.values, last),
         difference = begin - end,
         percentChange = Number.parseFloat((Math.abs(difference / begin) * 100)).toFixed(1);
 
@@ -40,8 +45,8 @@ function buildSummary(row, d) {
         changeSign = '';
     }
 
-    summary.append('span').classed('trend-row__summary-years trend-mobile__year', true).text('2014-2018: ')
-    summary.append('span').classed('trend-row__summary-amounts trend-mobile__amount', true).text(`${simplifyNumber(begin)} - ${simplifyNumber(end)} `)
+    summary.append('span').classed('trend-row__summary-years trend-mobile__year', true).text(summaryYearsString);
+    summary.append('span').classed('trend-row__summary-amounts trend-mobile__amount', true).text(`${simplifyNumber(begin)} - ${simplifyNumber(end)} `);
     summary.append('span').classed('trend-row__summary-change', true).text(`${changeSign}${percentChange}%`);
 }
 
@@ -147,7 +152,7 @@ function buildRow(d, dom, config, detail) {
         .classed('trend-row__heading', true)
         .text(d.name);
 
-    buildSummary(row, d);
+    buildSummary(row, d, config);
     insertChart(row, d.values, config, detail);
 
     buttonRow = row.append('div').classed('trend-row__buttons', true);
