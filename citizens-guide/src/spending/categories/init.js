@@ -3,7 +3,6 @@ import { byYear } from '../data-spending';
 import { drawChart as barChart } from './bar/chart';
 import colors from '../../globalSass/colors.scss';
 import { establishContainer } from '../../utils';
-import Mapping from "../../../../_data/object_mapping.yml";
 
 const d3 = { select, selectAll },
     chartTitle = d3.select('h2.chart-title .title-text'),
@@ -14,11 +13,11 @@ const d3 = { select, selectAll },
 
 let svg,
     config = {
-        data: byYear(Mapping.current_fy.value),
+        data: byYear(2018),
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'category',
         accessibilityAttrs : {
-            title: `${Mapping.current_fy.value} Federal Spending by Category and Agency`,
+            title: '2018 Federal Spending by Category and Agency',
             desc: 'The federal government reports spending by category and by agency. \n' +
             'The top five spending categories for 2018 were Social Security with $988 billion (24% of total spending), National Defense with $665 billion (16%), Medicare with $589 billion (14%), Health with $519 billion (13%) and Income Security with $496 billion (12%). \n' +
             'The top five agencies by federal spending for 2018 were Department of Health and Human Services with $1.1 trillion (27% of total spending), Social Security Administration with $1 trillion (25%), Department of the Treasury with $629 billion (15%), Department of Defense – Military Programs with $601 billion (15%) and Department of Veterans Affairs with $179 billion (4%).\n'
@@ -59,29 +58,41 @@ function showMore() {
 
 function changeDataTypeClickFunction(){
     d3.select('#toggle-spending-data-type')
-    .on('click', function () {
-        let dataType;
-        const dataController = d3.select("#spending-chart-toggle"),
-        curData = dataController.attr('data-active');
+        .on('click', function () {
+            const dataController = d3.select("#spending-chart-toggle"),
+                curData = dataController.attr('data-active');
 
-        if (curData === 'category' || curData === 'function') {
-            dataType = 'agency';
+            let dataType = curData === 'function' ? 'agency' : 'function';
             changeDataType(dataType);
-        } else {
-            dataType = 'category';
+        });
+
+    d3.select('.spending-chart-toggle__label--categories')
+        .on('click', function(){
+            const dataType = 'function';
             changeDataType(dataType);
-        } 
-    });
+        });
+    d3.select('.spending-chart-toggle__label--agency')
+        .on('click', function(){
+            const dataType = 'agency';
+            changeDataType(dataType);
+        });
 }
 
 function changeDataType(dataType){
-    const dataController = d3.select("#spending-chart-toggle");
+    const dataController = d3.select("#spending-chart-toggle"),
+        curData = dataController.attr('data-active');
+
+    if(dataType === curData){
+        return;
+    }
+
     config.dataType = dataType;
     dataController.attr('data-active', dataType);
     initChart();
 }
 
 function spendingIndexClickFunctions() {
+
     d3.select('#filter-by-name')
         .on('input', function () {
             const v = this.value.toLowerCase(),
@@ -119,7 +130,7 @@ export function init(_config){
     }
 
     spendingIndexClickFunctions();
-    if (config.dataType) {
+    if(config.dataType){
         changeDataTypeClickFunction();
     }
     initSection();
