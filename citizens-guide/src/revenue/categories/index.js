@@ -16,7 +16,7 @@ const config = {
         desc: `The federal government collected $1.7 trillion in individual income taxes in ${Mapping.current_fy.value}. That represented 51% of all federal revenue for the year. Social Security and Medicare taxes added another $1.1 trillion (or 34%) of total federal revenue. Corporate income taxes were the third largest source of revenue for the federal government in 2018 with $205 billion collected. Miscellaneous revenue, excise taxes, unemployment insurance, customs duties, estate and gift taxes, and other retirement taxes contributed the remaining $325 billion of federal revenue for ${Mapping.current_fy.value}.`
     }
 },
-    data = getDataByYear(2018),
+    data = getDataByYear(Mapping.current_fy.value),
     d3 = { select, selectAll },
     viz = d3.select('#viz');
 
