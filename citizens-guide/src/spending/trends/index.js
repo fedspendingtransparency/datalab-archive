@@ -70,11 +70,17 @@ function renderChart(data) {
 function changeDataTypeClickFunctions() {
     d3.select('#toggle-spending-data-type')
         .on('click', function () {
+            let dataType;
             const dataController = d3.select("#spending-chart-toggle"),
                 curData = dataController.attr('data-active');
 
-            let dataType = curData === 'category' ? 'agency' : 'category';
-            changeDataType(dataType);
+            if (curData === 'category' || curData === 'function') {
+                dataType = 'agency';
+                changeDataType(dataType);
+            } else {
+                dataType = 'category';
+                changeDataType(dataType);
+            } 
         });
 
     d3.selectAll('.toggle-component__label')
@@ -87,15 +93,8 @@ function changeDataTypeClickFunctions() {
 }
 
 function changeDataType(dataType) {
-    const dataController = d3.select("#spending-chart-toggle"),
-        curData = dataController.attr('data-active');
-
-    if (dataType === curData) {
-        return;
-    }
-
+    const dataController = d3.select("#spending-chart-toggle");
     const data = showHideInit(setData(dataType));
-
     dataController.attr('data-active', dataType);
     renderChart(data);
 }
