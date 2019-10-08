@@ -200,7 +200,7 @@ function resizeTermListDiv() {
 }
 
 function onFfgPage() {
-    if (window.location.pathname.indexOf('americas-finance-guide') === -1 && window.location.host.indexOf('localhost') === -1) {
+    if (window.location.pathname.indexOf('americas-finance-guide') === -1) {
         return false;
     }
 
@@ -219,7 +219,7 @@ function showGlossary(el) {
     }
 
     if (!onFfgPage()) {
-        window.location = 'https://' + window.location.host + '/americas-finance-guide/?glossary';
+        window.location = 'https://' + window.location.host + '/americas-finance-guide/index.html?glossary';
         return;
     }
 
