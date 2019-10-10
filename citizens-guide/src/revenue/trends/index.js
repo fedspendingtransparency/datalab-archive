@@ -19,8 +19,8 @@ fyArray.sort();
 const d3 = { select, selectAll },
     data = trendData(),
     accessibilityAttrs = {
-        title: `${Mapping.current_fy.value} Federal Revenue Trends over Time`,
-        desc: `Individual income taxes have increased over the past five years from $1.4 trillion in 2014 to $1.7 trillion in 2018. Social Security and Medicare taxes have also increased from $960 billion in 2014 to $1.1 trillion in 2018. Corporate income taxes have decreased from $320 billion in 2014 to $205 billion in 2018.`
+        title: 'Federal Revenue Trends Over Time',
+        desc: 'Federal revenue has increased over the past five years. Annual revenue was $3.25 trillion, $3.27 trillion, $3.31 trillion $3.33 trillion and $3.5 trillion for the years 2015 to 2019 respectively.'
     },
     config = {
         chapter: 'revenue',
