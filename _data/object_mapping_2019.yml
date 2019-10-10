@@ -1,7 +1,7 @@
 added_debt:
-  value: $1.3 trillion
+  value: $1.2 trillion
 added_debt_short:
-  value: $1.3 T
+  value: $1.2 T
 artba_road_cost:
   value: https://www.artba.org/about/faq/
 bea_gdp:
@@ -11,7 +11,7 @@ bls_cpiu:
 bls_occ_employment:
   value: https://www.bls.gov/oes/current/oes_nat.htm
 cc_debt_total:
-  value: $36 billion
+  value: $40 billion
 census_household:
   value: https://www.census.gov/data/tables/time-series/demo/families/households.html
 census_median_home:
@@ -29,105 +29,115 @@ compare_us_debt_gdp:
 compare_us_debt_gdp_rank:
   value: 19th
 compare_us_deficit:
-  value: $779 billion
+  value: $666 billion
 compare_us_deficit_gdp:
-  value: 3.76%
+  value: 3.4%
 compare_us_deficit_gdp_rank:
   value: 75th
 compare_us_revenue:
-  value: value
+  value: $3.3 trillion
 compare_us_revenue_gdp:
-  value: 16%
+  value: 17%
 compare_us_spending:
-  value: $4.1 trillion
+  value: $4 trillion
 compare_us_spending_gdp:
-  value: 20%
+  value: 21%
 consecutive_deficits:
-  value: 19
+  value: 18
 countries_compared:
-  value: 171
+  value: 169
 country_compare_year:
-  value: 2018
+  value: 2017
 country_comparison_mspd:
   value: https://www.treasurydirect.gov/govt/reports/pd/mspd/2017/opdm092017.pdf
 country_comparison_mts:
   value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0917.pdf
 current_fy:
-  value: 2018
+  value: 2019
 current_fy_debt:
-  value: $21.5 trillion
+  value: $22.7 trillion
+current_fy_debt_short:
+  value: $22.7 T
 current_fy_deficit:
-  value: $779 billion
+  value: $984 billion
 current_fy_deficit_short:
-  value: $779 B
+  value: $984 B
 current_fy_gdp:
   value: $21.3 trillion
 current_fy_revenue:
-  value: value
+  value: $3.5 trillion
+current_fy_revenue_short:
+  value: $3.5 T
 current_fy_spending:
-  value: $4.1 trillion
+  value: $4.4 trillion
 current_fy_spending_short:
-  value: $4.1 T
+  value: $4.4 T
 current_mspd:
-  value: https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf
+  value: https://treasurydirect.gov/govt/reports/pd/mspd/2019/opds092019.pdf
 current_mts:
-  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf
+  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf
 dc_sf_miles:
-  value: 685,000
+  value: '741,000'
 dc_sf_trips:
-  value: 122
+  value: 132
 debt_average_salary_type:
-  value: a Human Resources Specialist
+  value: a Public Relations Specialist
 debt_gdp_high:
-  value: 2018
+  value: 2019
 debt_gdp_low:
   value: 2001
 debt_owned_foreign_investors:
-  value: 29%
+  value: 30%
 debt_owned_trust_funds:
-  value: 27%
+  value: 26%
 debt_owned_us_investors:
   value: 44%
 debt_per_individual:
-  value: $66,000 
+  value: $69,000 
 debt_trend_start:
   value: 2000
 deficit_minute:
-  value: $1.5 million
+  value: $1.9 million
 deficit_per_individual:
-  value: $2,400 
+  value: $3,000 
+deficit_per_household:
+  value: $7,700 
 deficit_trend_start:
   value: 2000
 dot_represents:
   value: $1 billion
 dot_number_revenue:
-  value: 3,300
+  value: '3,500'
 dot_number_spending:
-  value: 4,100
+  value: '4,400'
 dot_number_deficit:
-  value: 779
+  value: 984
 dot_number_debt:
-  value: 21,500
+  value: '22,700'
 financial_report:
   value: https://www.fiscal.treasury.gov/reports-statements/financial-report/
 frbny_microecon:
   value: https://www.newyorkfed.org/microeconomics/databank.html
+gdp_date:
+  value: June 2019
+gdp_nipa_url:
+  value: https://www.bea.gov/resources/methodologies/nipa-handbook
 household_contribution:
-  value: $2,200 
+  value: $2,300 
 household_contribution_city:
-  value: Juneau, AK ($2,165/month)
+  value: Boston, MA ($2,320/month)
 household_contribution_type:
-  value: three-bedroom apartment 
+  value: two-bedroom apartment
 household_share_debt:
-  value: $171,000 
+  value: $177,000 
 household_spending_city:
-  value: Santa Barbara, CA ($2,744/month)
+  value: Santa Rosa, CA ($2,903/month)
 household_spending_month:
-  value: $2,700 
+  value: $2,900 
 household_spending_type:
   value: three-bedroom apartment
 hud_median_rent:
-  value: https://www.huduser.gov/portal/datasets/50per.html#2018
+  value: https://www.huduser.gov/portal/datasets/50per.html#2019
 imf_debt:
   value: https://www.imf.org/external/pubs/ft/weo/2017/02/weodata/weorept.aspx?pr.x=77&pr.y=3&sy=2017&ey=2017&scsm=1&ssd=1&sort=country&ds=.&br=1&c=512%2C946%2C914%2C137%2C612%2C546%2C614%2C962%2C311%2C674%2C213%2C676%2C911%2C548%2C193%2C556%2C122%2C678%2C912%2C181%2C313%2C867%2C419%2C682%2C513%2C684%2C316%2C273%2C913%2C868%2C124%2C921%2C339%2C948%2C638%2C943%2C514%2C686%2C218%2C688%2C963%2C518%2C616%2C728%2C223%2C836%2C516%2C558%2C918%2C138%2C748%2C196%2C618%2C278%2C624%2C692%2C522%2C694%2C622%2C142%2C156%2C449%2C626%2C564%2C628%2C565%2C228%2C283%2C924%2C853%2C233%2C288%2C632%2C293%2C636%2C566%2C634%2C964%2C238%2C182%2C662%2C359%2C960%2C453%2C423%2C968%2C935%2C922%2C128%2C714%2C611%2C862%2C321%2C135%2C243%2C716%2C248%2C456%2C469%2C722%2C253%2C942%2C642%2C718%2C643%2C724%2C939%2C576%2C644%2C936%2C819%2C961%2C172%2C813%2C132%2C726%2C646%2C199%2C648%2C733%2C915%2C184%2C134%2C524%2C652%2C361%2C174%2C362%2C328%2C364%2C258%2C732%2C656%2C366%2C654%2C734%2C336%2C144%2C263%2C146%2C268%2C463%2C532%2C528%2C944%2C923%2C176%2C738%2C534%2C578%2C536%2C537%2C429%2C742%2C433%2C866%2C178%2C369%2C436%2C744%2C136%2C186%2C343%2C925%2C158%2C869%2C439%2C746%2C916%2C926%2C664%2C466%2C826%2C112%2C542%2C111%2C967%2C298%2C443%2C927%2C917%2C846%2C544%2C299%2C941%2C582%2C446%2C474%2C666%2C754%2C668%2C698%2C672&s=GGXWDG&grp=0&a=
 imf_gdp:
@@ -149,43 +159,47 @@ mspd_homepage:
 mts_homepage:
   value: https://fiscal.treasury.gov/reports-statements/mts/
 number_of_salaries:
-  value: 68 million
+  value: 71 million
 number_trend_years:
   value: five
 other_revenue_percent:
   value: 9%
 overview_mspd:
-  value: https://www.treasurydirect.gov/govt/reports/pd/mspd/2018/opdm092018.pdf
+  value: https://treasurydirect.gov/govt/reports/pd/mspd/2019/opds092019.pdf
 overview_mts:
-  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0918.pdf
+  value: https://www.fiscal.treasury.gov/files/reports-statements/mts/mts0919.pdf
 revenue_during_read:
   value: $1 million
 revenue_per_household:
-  value: $26,000 
+  value: $27,000 
 revenue_per_individual:
-  value: $10,000 
+  value: $10,500 
 revenue_percent_gdp:
   value: 16%
 revenue_second:
-  value: $105,000 
+  value: $110,000 
 salary_job_type:
   value: someone in the construction industry
 share_debt_city:
-  value: Houston, TX
+  value: Florida
 share_debt_city_price:
-  value: $173,600 
+  value: $178,700 
 soma_domestic_securities:
   value: https://www.newyorkfed.org/markets/soma/sysopen_accholdings
+sp_year:
+  value: 2018
 sp_companies:
-  value: 18
+  value: 25
+spending_percent_gdp:
+  value: 21%
 spending_per_individual:
-  value: $12,500 
+  value: $13,500 
 spending_proportion:
   value: $1 out of every $5
 spending_second:
-  value: $130,000 
+  value: $140,000 
 spending_ten_seconds:
-  value: $1,300,000 
+  value: $1,400,000 
 ss_deficit_year:
   value: 2020
 ss_deplete_year:
@@ -197,7 +211,7 @@ ss_med_income:
 tic_foreign_holders:
   value: http://ticdata.treasury.gov/Publish/mfh.txt
 times_cc_debt:
-  value: 22
+  value: 25
 treasury_direct_int_rates:
   value: https://www.treasurydirect.gov/govt/rates/pd/avg/avg.htm
 trustees_fy:
@@ -207,7 +221,7 @@ trustees_report:
 us_households:
   value: 128 million
 us_population:
-  value: 327.7 million
+  value: 329.7 million
 usaspending_home:
   value: https://www.usaspending.gov/
 usaspending_object_class:
@@ -215,4 +229,6 @@ usaspending_object_class:
 xe_conversion:
   value: https://www.xe.com/currencytables/?from=USD&date=2018-09-30
 xe_conversion_date:
-  value: 30-Sep-18
+  value: September 30, 2018
+tic_date:
+  value: July 2019
