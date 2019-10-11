@@ -23,16 +23,16 @@ const config = {
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs: {
         default: {
-            title: `${Mapping.current_fy.value} Federal Deficit`,
-            desc: `The image illustrates the federal government’s deficit in ${Mapping.current_fy.value} using dots, and each dot is equal to ${Mapping.dot_represents.value}. There are ${Mapping.dot_number_deficit.value} dots.`
+            title: '2019 Federal Deficit',
+            desc: 'The image illustrates the federal government’s deficit in 2019 using dots, and each dot is equal to a billion dollars. There are 984 dots.'
         },
         debt: {
-            title: `${Mapping.current_fy.value} Federal Deficit and Debt`,
-            desc: `When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The ${Mapping.current_fy_deficit.value} deficit contributed to the ${Mapping.added_debt.value} increase in debt from ${Mapping.compare_us_debt.value} at the end of ${Mapping.country_compare_year.value} to ${Mapping.current_fy_debt.value} by the end of ${Mapping.current_fy.value}.`
+            title: '2019 Federal Deficit and Debt',
+            desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.'
         },
         deficit: {
-            title: `${Mapping.current_fy.value} Federal Deficit, Revenue, and Spending`,
-            desc: `A deficit occurs when spending exceeds revenue. For ${Mapping.current_fy.value}, the ${Mapping.current_fy_spending.value} in federal spending exceeded the ${Mapping.current_fy_revenue.value} in federal revenue leading to a deficit of ${Mapping.current_fy_deficit.value}.`
+            title: '2019 Federal Deficit, Revenue, and Spending',
+            desc: 'A deficit occurs when spending exceeds revenue. For 2019, the $4.4 trillion in federal spending exceeded the $3.5 trillion in federal revenue leading to a deficit of $984 billion.'
         }
     }
 };
