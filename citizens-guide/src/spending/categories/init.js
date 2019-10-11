@@ -60,23 +60,27 @@ function showMore() {
 
 function changeDataTypeClickFunction(){
     d3.select('#toggle-spending-data-type')
-    .on('click', function () {
-        let dataType;
+        .on('click', toggleDataType);
+
+    d3.selectAll('.spending-chart-toggle__label')
+        .on('click', toggleDataType);
+}
+
+function toggleDataType() {
+    let dataType;
         const dataController = d3.select("#spending-chart-toggle"),
-        curData = dataController.attr('data-active');
+            curData = dataController.attr('data-active');
 
         if (curData === 'category') {
             dataType = 'agency';
-            changeDataType(dataType);
         } else {
             dataType = 'category';
-            changeDataType(dataType);
-        } 
-    });
+        }
+
+        changeDataType(dataType, dataController);
 }
 
-function changeDataType(dataType){
-    const dataController = d3.select("#spending-chart-toggle");
+function changeDataType(dataType, dataController){
     config.dataType = dataType;
     dataController.attr('data-active', dataType);
     initChart();
