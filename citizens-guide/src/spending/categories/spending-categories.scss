@@ -128,11 +128,11 @@
         border: 1px solid #CCC;
         overflow:hidden;
     }
+    
     input {
         padding: 0.25rem 0.2rem;
         border:0;
         outline:none;
-        width:calc(100% - 0.6rem);
         //The following is required for Safari browser as the input covers the border of the parent div
         margin-top: 1px;
     }
