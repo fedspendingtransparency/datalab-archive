@@ -41,12 +41,13 @@ function initSection() {
 
 export function initChart(filteredData) {
     const configData = config.dataType ? config.data[config.dataType] : config.data;
-
+    
     const d = filteredData || configData,
-        chartData = top10 ? d.slice(0,9) : d;
-
+    chartData = top10 ? d.slice(0,9) : d;
+    
     d3.selectAll('svg.main').remove();
     barChart(chartData, config.dataType, config);
+
 }
 
 function showMore() {
@@ -82,6 +83,7 @@ function changeDataType(dataType){
 }
 
 function spendingIndexClickFunctions() {
+    //console.log('in spendingIndexClickFunctions');
     d3.select('#filter-by-name')
         .on('input', function () {
             const v = this.value.toLowerCase(),
@@ -119,8 +121,12 @@ export function init(_config){
     }
 
     spendingIndexClickFunctions();
+
     if (config.dataType) {
         changeDataTypeClickFunction();
     }
+
+    d3.select("#spending-chart-toggle").attr('data-active', 'category');
+
     initSection();
 }
