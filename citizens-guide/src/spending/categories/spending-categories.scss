@@ -179,7 +179,8 @@
     cursor: pointer;
     transform: translateY(-5px);
     display: inline-block;
-    min-width: 33px;
+    min-width: 93px;
+    font-weight: $normalWeight;
 }
 
 .spending-chart-toggle[data-active="category"] .spending-chart-toggle__label--categories {
