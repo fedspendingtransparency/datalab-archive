@@ -9,7 +9,7 @@ ffg: true
 ffgNav: true
 ffgPageCss: css/debt-analysis.css
 socialMediaImage: social-media-share-debt.jpg
-socialMediaText: "How much does it cost to maintain the federal debt? How have interest rates on the debt changed? Who owns the debt? #YourGuide, a #Treasury website, has details. #datalab"
+socialMediaText: "How much does it cost to maintain the federal debt? How have interest rates on the debt changed? Who owns the debt? Your Guide to America’s Finances has information on debt dating back to 2000. Use the site’s data visualizations to compare and contrast, then download .CSV files of the data to perform your own analysis."
 ---
 
 {% include ffg/nav/debt.html %}
@@ -47,7 +47,7 @@ socialMediaText: "How much does it cost to maintain the federal debt? How have i
             <div class="card__contents">
                 <h1 class="card__heading">Is there more information about who owns the debt?</h1>
                 <img src="/assets/ffg/debt/analysis/us-debt-top-investors.svg" alt="The largest segment of federal debt holders is made up of domestic investors. Domestic investors hold $7 trillion in federal debt. Foreign investors other than those in China and Japan hold another $4 trillion in federal debt. The Social Security trust funds have $2.9 trillion of federal debt and the Federal Reserve holds another $2.3 trillion. Chinese and Japanese investors hold $1.2 trillion and $1 trillion respectively." class="card__image">
-                At the end of {{site.data.object_mapping.current_fy.value}}, {{site.data.object_mapping.debt_owned_us_investors.value}} of federal debt was owned by investors from the United States, including the Federal Reserve. The various trust funds operated by the United States government, like the Social Security and Medicare trust fund accounts, held another {{site.data.object_mapping.debt_owned_trust_funds.value}} of federal debt. Foreign investors owned the remaining {{site.data.object_mapping.debt_owned_foreign_investors.value}} of federal debt. For a complete list of foreign investors, visit the <a href="{{site.data.object_mapping.tic_foreign_holders.value}}" target="_blank" rel="noopener noreferrer">Treasury International Capital (TIC) System</a>.
+                At the end of {{site.data.object_mapping.tic_date.value}}, {{site.data.object_mapping.debt_owned_us_investors.value}} of federal debt was owned by investors from the United States, including the Federal Reserve. The various trust funds operated by the United States government, like the Social Security and Medicare trust fund accounts, held another {{site.data.object_mapping.debt_owned_trust_funds.value}} of federal debt. Foreign investors owned the remaining {{site.data.object_mapping.debt_owned_foreign_investors.value}} of federal debt. For a complete list of foreign investors, visit the <a href="{{site.data.object_mapping.tic_foreign_holders.value}}" target="_blank" rel="noopener noreferrer">Treasury International Capital (TIC) System</a>.
             </div>
         </section>
     </div>
