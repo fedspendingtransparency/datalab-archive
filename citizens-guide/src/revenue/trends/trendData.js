@@ -6,13 +6,13 @@ export function trendData(){
     let arr;
 
     CategoryData.forEach(r => {
-        if (isNaN(r.federal_revenue)) {
+        if (isNaN(r.federal_revenue_adjusted)) {
             return;
         }
         
         indexed[r.parent_plain] = indexed[r.parent_plain] || {
             name: r.parent_plain,
-            officialName: r.parent,
+            officialName: r.parent_plain,
             values: [],
             subcategories: {}
         };
@@ -26,12 +26,12 @@ export function trendData(){
 
             indexed[r.parent_plain].subcategories[r.child_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.federal_revenue
+                amount: r.federal_revenue_adjusted
             })
         } else {
             indexed[r.parent_plain].values.push({
                 year: r.fiscal_year,
-                amount: r.federal_revenue
+                amount: r.federal_revenue_adjusted
             })
         }
     })

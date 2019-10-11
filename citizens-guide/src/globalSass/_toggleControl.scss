@@ -51,7 +51,7 @@
   min-width: 93px;
 }
 
-.toggle-component--spending[data-active="function"] {
+.toggle-component--spending[data-active="category"] {
   .toggle-component__label:first-of-type {
     font-weight: $boldWeight;
     color: $color-spending-primary;

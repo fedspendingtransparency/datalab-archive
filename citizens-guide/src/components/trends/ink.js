@@ -4,7 +4,7 @@ import { range } from 'd3-array';
 const d3 = { line, range };
 
 export function addVerticalShading(globals) {
-    const ctrl = [2014, 2016];
+    const ctrl = [globals.fiscalYearArray[0], globals.fiscalYearArray[2]];
 
     globals.verticalStripes = globals.chart.selectAll('.shading')
         .data(ctrl)

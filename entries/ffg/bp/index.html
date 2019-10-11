@@ -11,7 +11,7 @@ menuorder: 0
 ffg: true
 ffgPageCss: css/bp.css
 socialMediaImage: social-media-share-overview.jpg
-socialMediaText: "How much money did the government collect and spend in 2018? Find out with #YourGuide, a #Treasury website. #datalab"
+socialMediaText: "Curious how much the federal government collected and spent last year? Find out from Your Guide to America’s Finances. The site contains federal revenue, spending, deficit, and debt data. Data is available for .CSV download too!"
 
 ---
 
@@ -51,7 +51,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                     <!-- controls -->
                     <div class="anecdote__controls">
                         <button class="anecdote__trigger">
-                            <i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $3.3 T is equal to</span>
+                            <i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what {{site.data.object_mapping.current_fy_revenue_short.value}} is equal to</span>
                         </button>
                     </div>
 
@@ -83,7 +83,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                                     <div class="anecdote__pane">
                                         <p>{{site.data.object_mapping.current_fy_revenue.value}} equates to the <strong>revenue of the top {{site.data.object_mapping.sp_companies.value}} companies</strong> in the S&P 500.</p>
                                         <img role="presentation" class="anecdote__illustration" src="/assets/ffg/bp/revenue/revenue-5-outline.svg" alt="">
-                                        <p class="source">Figures based on 2017 10-K reports for S&P 500 Companies</p>
+                                        <p class="source">Figures based on {{site.data.object_mapping.sp_year.value}} 10-K reports for S&P 500 Companies</p>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                 <section class="anecdote">
                     <!-- controls -->
                     <div class="anecdote__controls">
-                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $4.1 T is equal to</span></button>
+                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what {{site.data.object_mapping.current_fy_spending_short.value}} is equal to</span></button>
                     </div>
 
                     <!-- contents -->
@@ -226,7 +226,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                 <section class="anecdote">
                     <!-- controls -->
                     <div class="anecdote__controls">
-                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $779 B is equal to</span></button>
+                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what {{site.data.object_mapping.current_fy_deficit_short.value}} is equal to</span></button>
                     </div>
 
                     <!-- contents -->
@@ -303,7 +303,7 @@ socialMediaText: "How much money did the government collect and spend in 2018? F
                 <section class="anecdote">
                     <!-- controls -->
                     <div class="anecdote__controls">
-                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what $21.5 T is equal to</span></button>
+                        <button class="anecdote__trigger"><i class="fas fa-street-view"></i> <span class="anecdote__teaser">Show me what {{site.data.object_mapping.current_fy_debt_short.value}} is equal to</span></button>
                     </div>
 
                     <!-- contents -->
