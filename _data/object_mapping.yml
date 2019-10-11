@@ -227,8 +227,8 @@ usaspending_home:
 usaspending_object_class:
   value: https://www.usaspending.gov/#/explorer/object_class
 xe_conversion:
-  value: https://www.xe.com/currencytables/?from=USD&date=2018-09-30
+  value: https://www.xe.com/currencytables/?from=USD&date=2017-09-30
 xe_conversion_date:
-  value: September 30, 2018
+  value: September 30, 2017
 tic_date:
   value: July 2019
