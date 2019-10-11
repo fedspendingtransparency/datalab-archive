@@ -65,7 +65,7 @@ function changeDataTypeClickFunction(){
         const dataController = d3.select("#spending-chart-toggle"),
         curData = dataController.attr('data-active');
 
-        if (curData === 'category' || curData === 'function') {
+        if (curData === 'category') {
             dataType = 'agency';
             changeDataType(dataType);
         } else {
