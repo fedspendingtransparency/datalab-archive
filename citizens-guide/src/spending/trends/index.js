@@ -30,6 +30,11 @@ const d3 = { select, selectAll },
 
 let svg;
 
+function init() {
+    d3.select("#spending-chart-toggle").attr('data-active', 'category');
+}
+
+init();
 renderChart(data);
 changeDataTypeClickFunctions();
 
