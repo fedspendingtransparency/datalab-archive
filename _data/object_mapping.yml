@@ -31,7 +31,7 @@ compare_us_debt_gdp_rank:
 compare_us_deficit:
   value: $666 billion
 compare_us_deficit_gdp:
-  value: 3.40%
+  value: 3.4%
 compare_us_deficit_gdp_rank:
   value: 75th
 compare_us_revenue:
