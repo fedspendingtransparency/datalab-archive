@@ -12,7 +12,7 @@ export function trendData(){
         
         indexed[r.parent_plain] = indexed[r.parent_plain] || {
             name: r.parent_plain,
-            officialName: r.parent,
+            officialName: r.parent_plain,
             values: [],
             subcategories: {}
         };
