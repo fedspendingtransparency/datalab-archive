@@ -14,6 +14,8 @@ const d3 = { select, selectAll, line };
 let gdpLayer,
     config = {};
 
+const gdpLabelFy = 'FY' + SpendingData[0].year.toString().slice(2) ;
+
 function getNewSvgHeight() {
     return Number(gdpLayer.attr('data-rect-height'));
 }
@@ -49,7 +51,7 @@ function placeLegend(g) {
         .attr('stroke-width', 2);
 
     text.append('tspan')
-        .text('FY18')
+        .text(gdpLabelFy)
         .style('font-weight', '600')
         .attr('x', textX)
         .attr('dx', 0)

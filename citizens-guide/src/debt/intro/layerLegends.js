@@ -2,6 +2,9 @@ import { line } from 'd3-shape';
 import colors from '../../globalSass/colors.scss';
 import { simplifyNumber } from '../../utils';
 import { chartWidth } from './widthManager';
+import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
+
+const gdpLabelFy = 'FY' + DebtData[0].year.toString().slice(2) ;
 
 const d3 = { line },
     duration = 1500,
@@ -12,7 +15,7 @@ const d3 = { line },
 
 function gdpText(text, amount) {
     text.append('tspan')
-        .text('FY18')
+        .text(gdpLabelFy)
         .style('font-weight', '600')
         .attr('x', -40)
         .attr('dx', 0)
