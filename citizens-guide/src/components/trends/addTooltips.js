@@ -83,6 +83,9 @@ function showTooltip(containerOffset, globals) {
     tooltip.append('text')
         .data(g.data())
         .text(function (d) {
+            if (d.amount >= 1000000000000) {
+                return (Math.abs(d.amount) / 1000000000000).toFixed(2);
+            }
             return simplifyNumber(d.amount);
         })
         .attr('fill', globals.baseColor)
