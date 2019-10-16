@@ -95,6 +95,9 @@ export function simplifyNumber(n) {
         letter = 'B';
     }
 
+    if (simplifier === trillion) {
+        return `${negativeSign}$${(Math.abs(n) / simplifier).toFixed(2)} ${letter}`;
+    }
     return `${negativeSign}$${Math.round(Math.abs(n) / simplifier * 10) / 10} ${letter}`;
 }
 
