@@ -18,7 +18,7 @@ export const manualThresholds = {
     'Judicial Branch': 1000000000,
     'Legislative Branch': 200000000,
     'National Defense': 60000000000,
-    'Health': 10000000000,
+    'Health': 50000000000,
     'National Aeronautics and Space Administration': 1,
     'Net Interest': 50000000000,
     'Office of Personnel Management': 4000000000,
