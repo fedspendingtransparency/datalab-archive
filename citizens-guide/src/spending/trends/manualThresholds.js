@@ -1,9 +1,9 @@
 export const manualThresholds = {
-    'Department of Agriculture': 8500000000,
-    'Department of Commerce': 1800000000,
+    'Department of Agriculture': 25000000000,
+    'Department of Commerce': 2600000000,
     'Department of Education': 5000000000,
     'Department of Energy': 2000000000,
-    'Department of Defense - Military Programs': 80000000000,
+    'Department of Defense - Military Programs': 10000000000,
     'Department of Health and Human Services': 40000000000,
     'Department of Homeland Security': 8000000000,
     'Department of Justice': 5000000000,
