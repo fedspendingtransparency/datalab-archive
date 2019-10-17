@@ -27,7 +27,6 @@ function establishRange(data){
 
 function findThreshold(extentedData, data){
     let threshold = extentedData[0] + (extentedData[1] - extentedData[0])*ratio;
-
     return lookForOverlaps(data, threshold);
 }
 
