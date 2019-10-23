@@ -10,6 +10,11 @@ import colors from '../../globalSass/colors.scss';
 import CategoryData from '../../../../assets/ffg/data/federal_spending_trends.csv';
 import Mapping from "../../../../_data/object_mapping.yml";
 
+// IE shim
+if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector;
+}
+
 // get all the fiscal years in this csv, make a set, so we only have unique values
 // this gets attached to the config object, which gets passed to the d3 functions
 const fySet = new Set(CategoryData.map( function(c) { return c.fiscal_year }));
