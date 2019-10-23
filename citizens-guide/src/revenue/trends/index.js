@@ -8,6 +8,11 @@ import { manualThresholds } from './manualThresholds';
 import CategoryData from '../../../../assets/ffg/data/federal_revenue_trends.csv';
 import Mapping from "../../../../_data/object_mapping.yml";
 
+// IE shim
+if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector;
+}
+
 // get all the fiscal years in this csv, make a set, so we only have unique values
 const fySet = new Set(CategoryData.map( function(c) { return c.fiscal_year }));
 // make an array from that set, and filter out any undefined values
