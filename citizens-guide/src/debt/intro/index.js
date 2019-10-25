@@ -7,6 +7,7 @@ import { setDotsPerRow } from "./dotConstants";
 import { layersInit, resetLayers } from "./manageLayers";
 import DebtData from '../../../../assets/ffg/data/explore_federal_debt.csv';
 import { findAmountInCsv } from '../../../src/utils';
+import Mapping from '../../../../_data/object_mapping.yml';
 
 const config = {
     anecdoteName: 'anecdote-debt.svg',
@@ -18,16 +19,16 @@ const config = {
     debtColor: colors.colorDebtPrimary,
     accessibilityAttrs : {
         default: {
-            title: '2018 Federal Debt',
-            desc: 'The image illustrates the federal government’s debt at the end of 2018 using dots, and each dot is equal to a billion dollars. There are 21,500 dots.'
+            title: '2019 Federal Debt',
+            desc: 'The image illustrates the federal government’s debt at the end of 2019 using dots, and each dot is equal to a billion dollars. There are 22,700 dots.'
         },
         deficit : {
-            title: '2018 Federal Debt and Deficit',
-            desc: 'The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference. When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt. The $779 billion deficit contributed to the $1.3 trillion increase in debt from $20.2 trillion at the end of 2017 to $21.5 trillion by the end of 2018.'
+            title: '2019 Federal Debt and Deficit',
+            desc: 'The change in federal debt each year is heavily influenced by the deficit or surplus that year. When there is not enough revenue to pay for spending the government borrows money to make up the difference. When there is excess revenue in a given year, the majority of those funds are used to pay down the federal debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.'
         },
         gdp : {
-            title: '2018 Federal Debt and GDP',
-            desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $779 billion deficit contributed to the $1.3 trillion increase in debt from $20.2 trillion at the end of 2017to $21.5 trillion by the end of 2018.'
+            title: '2019 Federal Debt and GDP',
+            desc: 'When the federal government experiences a deficit, the majority of funding for the deficit comes from taking on more debt. The $984 billion deficit contributed to the $1.2 trillion increase in debt from $21.5 trillion at the end of 2018 to $22.7 trillion by the end of 2019.'
         }
     }
 };

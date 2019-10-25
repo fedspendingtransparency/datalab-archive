@@ -18,10 +18,8 @@ let svg,
         sectionColor: colors.colorSpendingPrimary,
         dataType: 'category',
         accessibilityAttrs : {
-            title: '2018 Federal Spending by Category and Agency',
-            desc: 'The federal government reports spending by category and by agency. \n' +
-            'The top five spending categories for 2018 were Social Security with $988 billion (24% of total spending), National Defense with $665 billion (16%), Medicare with $589 billion (14%), Health with $519 billion (13%) and Income Security with $496 billion (12%). \n' +
-            'The top five agencies by federal spending for 2018 were Department of Health and Human Services with $1.1 trillion (27% of total spending), Social Security Administration with $1 trillion (25%), Department of the Treasury with $629 billion (15%), Department of Defense – Military Programs with $601 billion (15%) and Department of Veterans Affairs with $179 billion (4%).\n'
+            title: '2019 Federal Spending by Category and Agency',
+            desc: 'The federal government reports spending by category and by agency. The top five spending categories for 2019 were Social Security with $1 trillion (24% of total spending), National Defense with $688 billion (15%), Medicare with $651 billion (15%), Health with $585 billion (13%) and Income Security with $515 billion (12%). The top five agencies by federal spending for 2019 were Department of Health and Human Services with $1.2 trillion (27% of total spending), Social Security Administration with $1.1 trillion (25%), Department of the Treasury with $689 billion (16%), Department of Defense – Military Programs with $654 billion (15%) and Department of Veterans Affairs with $200 billion (4%).'
         }
     },
     currentlyActive,
@@ -41,12 +39,13 @@ function initSection() {
 
 export function initChart(filteredData) {
     const configData = config.dataType ? config.data[config.dataType] : config.data;
-
+    
     const d = filteredData || configData,
-        chartData = top10 ? d.slice(0,9) : d;
-
+    chartData = top10 ? d.slice(0,9) : d;
+    
     d3.selectAll('svg.main').remove();
     barChart(chartData, config.dataType, config);
+
 }
 
 function showMore() {
@@ -59,29 +58,34 @@ function showMore() {
 
 function changeDataTypeClickFunction(){
     d3.select('#toggle-spending-data-type')
-    .on('click', function () {
-        let dataType;
-        const dataController = d3.select("#spending-chart-toggle"),
-        curData = dataController.attr('data-active');
+        .on('click', toggleDataType);
 
-        if (curData === 'category' || curData === 'function') {
-            dataType = 'agency';
-            changeDataType(dataType);
-        } else {
-            dataType = 'category';
-            changeDataType(dataType);
-        } 
-    });
+    d3.selectAll('.spending-chart-toggle__label')
+        .on('click', toggleDataType);
 }
 
-function changeDataType(dataType){
-    const dataController = d3.select("#spending-chart-toggle");
+function toggleDataType() {
+    let dataType;
+        const dataController = d3.select("#spending-chart-toggle"),
+            curData = dataController.attr('data-active');
+
+        if (curData === 'category') {
+            dataType = 'agency';
+        } else {
+            dataType = 'category';
+        }
+
+        changeDataType(dataType, dataController);
+}
+
+function changeDataType(dataType, dataController){
     config.dataType = dataType;
     dataController.attr('data-active', dataType);
     initChart();
 }
 
 function spendingIndexClickFunctions() {
+    //console.log('in spendingIndexClickFunctions');
     d3.select('#filter-by-name')
         .on('input', function () {
             const v = this.value.toLowerCase(),
@@ -119,8 +123,12 @@ export function init(_config){
     }
 
     spendingIndexClickFunctions();
+
     if (config.dataType) {
         changeDataTypeClickFunction();
     }
+
+    d3.select("#spending-chart-toggle").attr('data-active', 'category');
+
     initSection();
 }

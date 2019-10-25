@@ -128,11 +128,11 @@
         border: 1px solid #CCC;
         overflow:hidden;
     }
+    
     input {
         padding: 0.25rem 0.2rem;
         border:0;
         outline:none;
-        width:calc(100% - 0.6rem);
         //The following is required for Safari browser as the input covers the border of the parent div
         margin-top: 1px;
     }
@@ -179,10 +179,11 @@
     cursor: pointer;
     transform: translateY(-5px);
     display: inline-block;
-    min-width: 33px;
+    min-width: 93px;
+    font-weight: $normalWeight;
 }
 
-.spending-chart-toggle[data-active="function"] .spending-chart-toggle__label--categories {
+.spending-chart-toggle[data-active="category"] .spending-chart-toggle__label--categories {
     color: $color-spending-primary;
     font-weight: $boldWeight;
 }
