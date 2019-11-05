@@ -84,7 +84,8 @@ h2.primary__heading {
 .landing-chart {
   border: 1px solid #ddd;
   border-radius: 0.25rem;
-  margin-bottom: 2.188rem;
+//  margin-bottom: 2.188rem;
+  margin-bottom: 1rem;
 
   h1 {
     text-transform: uppercase;
@@ -115,7 +116,7 @@ h2.primary__heading {
 .landing-feature__homelessness {
   clear: both;
   border-top: 1px solid #ddd;
-  padding-top: .75rem;
+  padding-top: 1rem;
   
   h1, h2 {
     text-align: left;
@@ -135,6 +136,10 @@ h2.primary__heading {
     line-height: 31px;
     letter-spacing: normal;
     color: $heading-color;
+  }
+
+  .landing-feature__headings {
+    padding-top: 1rem;
   }
 
   .landing-homelessness-refresh {
@@ -160,11 +165,6 @@ h2.primary__heading {
       color: #666666;
       margin: 0;
       padding: .75rem;
-    }
-
-    .homelessness-sync-icon {
-      fill: teal;
-      color: teal;
     }
   }
 }
