@@ -12,15 +12,15 @@ dlPageCss: landing.css
   <div class="dl-landing">
     <section class="primary">
       <a href="/americas-finance-guide/"
-          class="primary__link"
-          ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Your Guide to Americas Finances'"
+         class="primary__link"
+         ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Your Guide to Americas Finances'"
       >
         <h1 class="primary__mobile-heading">
           Your Guide to America's Finances
         </h1>
 
         <img class="primary__image" src="../images/homepage/cg-gif.gif"
-          alt="Answer all your questions about federal government finance" />
+             alt="Answer all your questions about federal government finance" />
         <div class="primary__content">
 
           <h2 class="primary__heading">
@@ -38,7 +38,7 @@ dlPageCss: landing.css
           <div class="primary__text_container">
             <p class="primary__text primary__text--mobile">
               The Guide presents straightforward information about the federal government's spending and revenue, as
-            well as the deficit and debt in {{site.data.object_mapping.current_fy.value}}.
+              well as the deficit and debt in {{site.data.object_mapping.current_fy.value}}.
             </p>
           </div>
 
@@ -49,8 +49,8 @@ dlPageCss: landing.css
     <section class="secondary">
       <section class="landing-chart">
         <a href="dts.html"
-            class="landing-chart__link"   
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Visualizing the Daily Treasury Statement'"
+           class="landing-chart__link"   
+           ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Visualizing the Daily Treasury Statement'"
         >
           <h1>
             Visualizing the Daily Treasury Statement
@@ -61,48 +61,39 @@ dlPageCss: landing.css
           {% include landing-dts.html %}
         </a>
       </section>
-      <section class="landing-feature">
-        <a href="contracts-over-time.html"
-            class="landing-feature__link"
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Contract Spending Analysis'"
+      <section class="landing-feature__homelessness">
+	<div class='landing-feature__tablet'>
+	<a href="/homelessness-analysis.html">
+	  <div class="landing-homelessness-refresh"><p class="landing-homelessness-refresh--text"><i class="fas fa-sync" id="homelessness-sync-icon"></i> The new 2019 data is here!</p></div></a>
+        <a href="/homelessness-analysis.html"
+           class="landing-feature__link"
+           ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Homelessness Analyses'"
         >
           <div class="landing-feature__headings">
             <h1>
-              Contract Spending Analysis
+              Homelessness Analyses
             </h1>
             <h2>
-              How has federal<br> contract spending<br> changed over time?
+	      Explore federal programs that address homelessness
             </h2>
           </div>
-          <div class="landing-feature__image">
-            <img class="" src="../images/homepage/c-o-t.png" />
-          </div>
-          <p class="landing-feature__text">
-            We explore 10 years of contract data, and provide an analysis of the
-            impact of short-term continuing resolutions on contract spending.
+	  <p class="landing-feature__text--tablet">
+            On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our
+            visualizations, you can see which federal programs are addressing homelessness, the amount of federal
+            spending on homelessness by region, and where individuals experiencing homelessness are located. We also
+            provide information about which regions are similar to others based on their homeless populations and
+            funding profiles.
           </p>
-
-        </a>
-      </section>
-      <section class="landing-feature">
-        <a href="contract-explorer.html"
-            class="landing-feature__link"
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Contract Explorer'"
-        >
-          <div class="landing-feature__headings">
-            <h1>
-              Contract Explorer
-            </h1>
-            <h2>
-              Who receives federal contracts?
-            </h2>
-          </div>
+	</div>
           <div class="landing-feature__image">
-            <img class="" src="../images/homepage/contract-explorer.svg" />
+            <img class="" src="../images/homepage/homelessness.png" />
           </div>
           <p class="landing-feature__text">
-            The federal government spends about $500 billion each year on contracts. Learn more
-            about contract recipients and what agencies receive from these contracts.
+            On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our
+            visualizations, you can see which federal programs are addressing homelessness, the amount of federal
+            spending on homelessness by region, and where individuals experiencing homelessness are located. We also
+            provide information about which regions are similar to others based on their homeless populations and
+            funding profiles.
           </p>
         </a>
       </section>
@@ -113,38 +104,38 @@ dlPageCss: landing.css
       More Analyses
     </h1>
     <div class="landing-row__featured">
-    <a href="/colleges-and-universities.html"
-        class="landing-row__featured__link"
-        ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Investment in Higher Education'"
-    >
-      <h2 class="landing-row__featured__mobile-heading">
-        Federal Investment in Higher Education
-      </h2>
-      <img class="landing-row__featured__image" src="../images/homepage/collegehomepage.svg"
-           alt="Answer all your questions about federal investments in higher education" />
-      <div class="landing-row__featured__content">
-
-        <h2 class="landing-row__featured__heading">
+      <a href="/colleges-and-universities.html"
+         class="landing-row__featured__link"
+         ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Investment in Higher Education'"
+      >
+	<h2 class="landing-row__featured__mobile-heading">
           Federal Investment in Higher Education
-        </h2>
+	</h2>
+	<img class="landing-row__featured__image" src="../images/homepage/collegehomepage.svg"
+             alt="Answer all your questions about federal investments in higher education" />
+	<div class="landing-row__featured__content">
 
-        <p class="landing-row__featured__text landing-row__featured__text--desktop">
-          The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution.  In the visualizations you can also break down the investment by federal agency and view data by investment category. This analysis gives the public an interactive lens into the government’s investment in higher education.
-        </p>
+          <h2 class="landing-row__featured__heading">
+            Federal Investment in Higher Education
+          </h2>
 
-        <div class="landing-row__featured__text_container">
-          <p class="landing-row__featured__text">
-            The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities. Dive in and search by individual schools, federal agencies, or investment categories!
+          <p class="landing-row__featured__text landing-row__featured__text--desktop">
+            The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities through grants, contracts, and student aid. This interactive analysis gives you an opportunity to search schools and discover how much the government has invested in that institution.  In the visualizations you can also break down the investment by federal agency and view data by investment category. This analysis gives the public an interactive lens into the government’s investment in higher education.
           </p>
-        </div>
-      </div>
-    </a>
-  </div>
+
+          <div class="landing-row__featured__text_container">
+            <p class="landing-row__featured__text">
+              The Federal Investment in Higher Education analysis gives an overview of federal funding in colleges and universities. Dive in and search by individual schools, federal agencies, or investment categories!
+            </p>
+          </div>
+	</div>
+      </a>
+    </div>
     <div class="landing-row__tiles">
       <div class="landing_row__tile-row">
         <a href="federal-account-explorer.html"
-            class="landing-row__tile"
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Account Explorer'"
+           class="landing-row__tile"
+           ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Account Explorer'"
         >
           <div class="landing-row__text">
             <h2>
@@ -159,8 +150,8 @@ dlPageCss: landing.css
           </div>
         </a>
         <a href="federal-employees.html"
-            class="landing-row__tile"
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Employees'"
+           class="landing-row__tile"
+           ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Federal Employees'"
         >
           <div class="landing-row__text">
             <h2>
@@ -178,8 +169,8 @@ dlPageCss: landing.css
 
       <div class="landing_row__tile-row">
         <a href="budget-function.html"
-            class="landing-row__tile"
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Budget Function'"
+           class="landing-row__tile"
+           ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Budget Function'"
         >
           <div class="landing-row__text">
             <h2>
@@ -195,8 +186,8 @@ dlPageCss: landing.css
         </a>
 
         <a href="competition-in-contracting.html"
-            class="landing-row__tile"
-            ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Competition in Contracting'"
+           class="landing-row__tile"
+           ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Competition in Contracting'"
         >
           <div class="landing-row__text">
             <h2>
@@ -216,27 +207,24 @@ dlPageCss: landing.css
   </section>
 
   <section class="feature-row">
-    <a href="/homelessness-analysis.html"
-        ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Homelessness Analysis'"
+    <a href="/contract-explorer.html"
+       ga-on="click" ga-event-category="Data Lab Home Page" ga-event-action="Clicked 'Contract Explorer'"
     >
       <div class="feature-row__border">
         <div class="feature-row__text">
           <h1 class="feature-row__heading">
-            Homelessness Analysis
+	    Contract Explorer
           </h1>
           <p class="feature-row__title">
-            Explore federal programs that address homelessness
+	    Who receives federal contracts?
           </p>
           <p class="feature-row__blurb">
-            On a single night in 2016, more than 500,000 people experienced homelessness in the United States. With our
-            visualizations, you can see which federal programs are addressing homelessness, the amount of federal
-            spending on homelessness by region, and where individuals experiencing homelessness are located. We also
-            provide information about which regions are similar to others based on their homeless populations and
-            funding profiles.
+	    The federal government spends about $500 billion each year on contracts. Learn
+	    more about contract recipients and what agencies receive from these contracts.
           </p>
         </div>
         <div class="feature-row__image">
-          <img src="../images/homepage/homelessness.png" />
+          <img src="../images/homepage/contract-explorer.png" />
         </div>
       </div>
     </a>
@@ -280,7 +268,7 @@ dlPageCss: landing.css
             Analyst Guide
           </h1>
           <p class="landing-row__p landing-row__p--hide">
-            Methods to easily navigate data from our sister site, USAspending.gov
+            Methods to easily navigate data from our sister site, USAspending.gov.
           </p>
         </div>
       </a>
