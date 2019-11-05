@@ -224,7 +224,6 @@ h2.primary__heading {
 .landing-feature__link {
   cursor: pointer;
   display: block;
-  padding-top: 1rem; // maybe get rid.. desktop only
 
   &:hover h2 {
     text-decoration: underline;
