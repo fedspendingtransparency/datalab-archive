@@ -47,6 +47,8 @@ function addCloseIcon(anecdote) {
 function toggleVisibility() {
     const anecdote = d3.select(this.closest(`.${config.anecdoteClass}`));
 
+    console.log('anecdote', anecdote);
+
     anecdote.classed(config.anecdoteActiveClass, !anecdote.classed(config.anecdoteActiveClass));
 }
 
@@ -267,6 +269,9 @@ function shiftLinksIntoFocus() {
 export function anecdoteInit() {
     d3.selectAll(`.${config.anecdoteClass}`).each(buildAnecdote);
     d3.selectAll(`button.${config.triggerClass}`).on('click', toggleVisibility);
+
+console.log('d3.selectAll(`button.${config.triggerClass}`)', d3.selectAll(`button.${config.triggerClass}`));
+
     addKeyboardNavigation();
     shiftLinksIntoFocus();
 }
