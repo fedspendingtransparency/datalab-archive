@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="305px" height="69px" viewBox="0 0 305 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 1610</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homelessness-Section-3-10" transform="translate(-842.000000, -1762.000000)">
+            <g id="Group-16" transform="translate(842.000000, 1758.000000)">
+                <polygon id="Fill-1" fill="#E0E0E0" points="2.7585 37.460375 299.7585 37.460375 299.7585 27.710375 2.7585 27.710375"></polygon>
+                <line x1="2.758275" y1="45.464825" x2="2.758275" y2="19.214825" id="Stroke-2" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="77.008275" y1="45.335225" x2="77.008275" y2="19.085225" id="Stroke-3" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="151.258275" y1="45.464825" x2="151.258275" y2="19.214825" id="Stroke-4" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="225.508275" y1="45.464825" x2="225.508275" y2="19.214825" id="Stroke-5" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="299.758275" y1="45.464825" x2="299.758275" y2="19.214825" id="Stroke-6" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <g id="Group-15" transform="translate(0.000000, 0.421875)">
+                    <path d="M267.508275,40.78835 L89.758275,40.78835 C87.695775,40.78835 86.008275,39.10085 86.008275,37.03835 L86.008275,27.28835 C86.008275,25.22585 87.695775,23.53835 89.758275,23.53835 L267.508275,23.53835 C269.570775,23.53835 271.258275,25.22585 271.258275,27.28835 L271.258275,37.03835 C271.258275,39.10085 269.570775,40.78835 267.508275,40.78835" id="Fill-7" fill="#FFC69F"></path>
+                    <path d="M140.785425,42.28835 L92.865675,42.28835 C91.311675,42.28835 90.039675,41.0171 90.039675,39.4616 L90.039675,24.8651 C90.039675,23.31035 91.311675,22.03835 92.865675,22.03835 L140.785425,22.03835 C142.339425,22.03835 143.612175,23.31035 143.612175,24.8651 L143.612175,39.4616 C143.612175,41.0171 142.339425,42.28835 140.785425,42.28835" id="Fill-9" fill="#E8751A"></path>
+                    <text id="CLUSTER-MEDIAN:-$703" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" letter-spacing="-0.0149999997" fill="#3F3F3F">
+                        <tspan x="69.32115" y="70.0948205">C</tspan>
+                        <tspan x="75.35415" y="70.0948205" letter-spacing="-0.361499995">L</tspan>
+                        <tspan x="79.91715" y="70.0948205" letter-spacing="-0.119999997">U</tspan>
+                        <tspan x="86.56965" y="70.0948205" letter-spacing="-0.225000009">S</tspan>
+                        <tspan x="91.85715" y="70.0948205">TER MEDIAN: $703</tspan>
+                    </text>
+                    <text id="$1,000" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                        <tspan x="137.20365" y="10.8433205">$1,000</tspan>
+                    </text>
+                    <text id="$0" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                        <tspan x="0.00015" y="10.8433205">$0</tspan>
+                    </text>
+                    <text id="$2,000" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                        <tspan x="276.70665" y="10.8433205">$2,000</tspan>
+                    </text>
+                    <line x1="119.008275" y1="61.03835" x2="119.008275" y2="47.9591" id="Stroke-12" stroke="#636363" stroke-width="1.5" stroke-linecap="round"></line>
+                    <path d="M119.008275,48.260525 C118.224525,49.044275 116.675025,49.417775 115.599525,49.448525 C117.043275,48.373775 118.302525,46.978025 119.008275,45.288275 C119.684025,46.978025 121.019775,48.312275 122.417025,49.448525 C121.265775,49.356275 119.867775,49.075025 119.008275,48.260525" id="Fill-13" fill="#636363"></path>
+                    <polygon id="Fill-14" fill="#FFFFFF" points="123.326625 30.6992 123.326625 27.3587 121.417125 27.3587 121.417125 28.7897 119.507625 26.88095 114.258375 32.1302 115.213125 32.1302 115.213125 37.38095 118.076625 37.38095 118.076625 33.0857 120.940125 33.0857 120.940125 37.38095 123.803625 37.38095 123.803625 32.1302 124.758375 32.1302"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

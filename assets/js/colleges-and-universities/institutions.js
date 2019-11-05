@@ -161,7 +161,7 @@ function createMapbox() {
 	    });
 
 	    map.addLayer({
-		id: 'clusters',
+		id: 'homeless',
 		type: 'circle',
 		source: 'schools',
 		filter: ['has', 'point_count'],
@@ -200,7 +200,7 @@ function createMapbox() {
 	    });
 
 	    // set opactiy to 40%
-	    map.setPaintProperty('clusters', 'circle-opacity', .35);
+	    map.setPaintProperty('homeless', 'circle-opacity', .35);
 	    
 	    map.addLayer({
 		id: "cluster-count",
@@ -229,8 +229,8 @@ function createMapbox() {
 		});
 	    });
 
-	    map.on('click', 'clusters', function (e) {
-		const cluster = map.queryRenderedFeatures(e.point, { layers: ["clusters"] });
+	    map.on('click', 'homeless', function (e) {
+		const cluster = map.queryRenderedFeatures(e.point, { layers: ["homeless"] });
 		const coordinates = cluster[0].geometry.coordinates;
 		flyIntoCluster(map, coordinates);
 	    });
@@ -240,10 +240,10 @@ function createMapbox() {
 		map.scrollZoom.enable();
 	    });
 
-	    map.on('mouseenter', 'clusters', function () {
+	    map.on('mouseenter', 'homeless', function () {
 		map.getCanvas().style.cursor = 'pointer';
 	    });
-	    map.on('mouseleave', 'clusters', function () {
+	    map.on('mouseleave', 'homeless', function () {
 		map.getCanvas().style.cursor = '';
 	    });
 
@@ -323,7 +323,7 @@ function createMapbox() {
 	    });
 
 	    map.on('click', 'schools', function(e) {
-		let features = map.queryRenderedFeatures(e.point, { layers: ['clusters']});
+		let features = map.queryRenderedFeatures(e.point, { layers: ['homeless']});
 		let clusterId = features[0].properties.cluster_id;
 		map.getSource('schools').getClusterExpansionZoom(clusterId, function(err, zoom){
 		    if (err) return;

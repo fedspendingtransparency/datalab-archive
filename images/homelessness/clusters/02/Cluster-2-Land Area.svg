@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="302px" height="78px" viewBox="0 0 302 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 272</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.62145 0.345570483 22.35675 0.345570483 22.35675 13.8455705 0.62145 13.8455705"></polygon>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homelessness-Section-3-2" transform="translate(-844.000000, -2117.000000)">
+            <g id="Group-27" transform="translate(844.000000, 2112.000000)">
+                <polygon id="Fill-1" fill="#E0E0E0" points="1.84725 46.502 298.84725 46.502 298.84725 36.752 1.84725 36.752"></polygon>
+                <line x1="1.847175" y1="46.95215" x2="1.847175" y2="20.70215" id="Stroke-2" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="76.097175" y1="54.3767" x2="76.097175" y2="28.1267" id="Stroke-3" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="150.347175" y1="54.45215" x2="150.347175" y2="28.20215" id="Stroke-4" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="224.597175" y1="54.45215" x2="224.597175" y2="28.20215" id="Stroke-5" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="298.847175" y1="54.45215" x2="298.847175" y2="28.20215" id="Stroke-6" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <g id="Group-26" transform="translate(0.000000, 0.427500)">
+                    <path d="M272.597175,49.8242 L8.597175,49.8242 C6.497175,49.8242 4.847175,48.17495 4.847175,46.0742 L4.847175,36.3242 C4.847175,34.2242 6.497175,32.5742 8.597175,32.5742 L272.597175,32.5742 C274.697175,32.5742 276.347175,34.2242 276.347175,36.3242 L276.347175,46.0742 C276.347175,48.0992 274.697175,49.8242 272.597175,49.8242" id="Fill-7" fill="#DDD0EA"></path>
+                    <path d="M8.522475,51.3242 L7.997475,51.3242 C6.347475,51.3242 4.997475,49.9742 4.997475,48.3242 L4.997475,34.0742 C4.997475,32.42495 6.347475,31.0742 7.997475,31.0742 L8.522475,31.0742 C10.171725,31.0742 11.522475,32.42495 11.522475,34.0742 L11.522475,48.3242 C11.522475,49.9742 10.171725,51.3242 8.522475,51.3242" id="Fill-9" fill="#2F1868"></path>
+                    <text id="CLUSTER-MEDIAN:-789" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" fill="#2F1868">
+                        <tspan x="3.64965" y="80.5940705">C</tspan>
+                        <tspan x="9.69765" y="80.5940705" letter-spacing="-0.346500009">L</tspan>
+                        <tspan x="14.27565" y="80.5940705" letter-spacing="-0.105">U</tspan>
+                        <tspan x="20.94315" y="80.5940705" letter-spacing="-0.210000001">S</tspan>
+                        <tspan x="26.24565" y="80.5940705">TER MEDIAN: 789</tspan>
+                    </text>
+                    <g id="Group-13" fill="#848484" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500">
+                        <text id="0">
+                            <tspan x="-0.000375" y="10.8397205">0</tspan>
+                        </text>
+                    </g>
+                    <g id="Group-15" transform="translate(279.000000, 8.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-14"></g>
+                        <text id="600K" mask="url(#mask-2)" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" fill="#848484">
+                            <tspan x="0.62145" y="10.3455705">600K</tspan>
+                        </text>
+                    </g>
+                    <text id="300K" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" fill="#848484">
+                        <tspan x="143.87145" y="18.3455705">300K</tspan>
+                    </text>
+                    <text id="450K" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" fill="#848484">
+                        <tspan x="215.12145" y="18.3455705">450K</tspan>
+                    </text>
+                    <text id="150K" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" fill="#848484">
+                        <tspan x="65.12145" y="18.3455705">150K</tspan>
+                    </text>
+                    <text id="-" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="9" font-weight="500"></text>
+                    <line x1="7.847175" y1="72.3242" x2="7.847175" y2="56.1992" id="Stroke-20" stroke="#636363" stroke-width="1.5" stroke-linecap="round"></line>
+                    <path d="M7.847175,56.4995 C7.097175,57.2495 5.522175,57.6245 4.472175,57.6995 C5.897175,56.6495 7.172175,55.2245 7.847175,53.5745 C8.522175,55.2995 9.872175,56.5745 11.222175,57.6995 C10.097175,57.6245 8.672175,57.3245 7.847175,56.4995" id="Fill-22" fill="#636363"></path>
+                    <path d="M7.322025,42.09935 C5.897775,42.09935 4.772775,40.97435 4.847025,39.5501 C4.847025,38.27435 5.972025,37.14935 7.322025,37.14935 C8.672025,37.14935 9.797025,38.27435 9.797025,39.62435 C9.797025,40.97435 8.672025,42.09935 7.322025,42.09935 M11.447025,37.37435 C10.622025,35.72435 9.122025,34.97435 7.697025,34.89935 C4.772775,34.89935 2.672025,36.99935 2.597025,39.5501 C2.597025,41.0501 3.197025,42.24935 4.172025,43.37435 C5.222025,44.57435 6.347025,45.69935 6.947025,47.12435 C7.022775,47.27435 7.247025,47.49935 7.322025,47.49935 C7.472025,47.49935 7.622025,47.27435 7.697025,47.12435 C8.147775,46.37435 8.522775,45.62435 9.047025,44.94935 C9.722025,44.0501 10.547025,43.3001 11.147775,42.39935 C12.272775,40.82435 12.347025,39.09935 11.447025,37.37435" id="Fill-24" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

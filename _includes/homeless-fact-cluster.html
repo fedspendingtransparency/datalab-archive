@@ -1,0 +1,107 @@
+<style>
+    .flex-grid {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .flex-grid-row {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col-7 {
+        width: 57.8%;
+        margin-right: 0.5rem;
+    }
+
+    .col-6 {
+        width: 46%;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .col-5 {
+        margin-left: 0.5rem;
+        width: 40.8%;
+    }
+
+    .homeless-fact-cluster {
+        padding: 1rem 2rem 1rem 1rem;
+    }
+
+    @media (max-width: 400px) {
+        .flex-grid {
+            display: block;
+        }
+    }
+</style>
+
+<div class="homeless-fact-cluster flex-grid">
+    <div class="flex-grid-row">
+        <div class="col-7">
+            <div>
+                <p>Facts about Cluster 1</p>
+                <p>Federal Spending on Homelessness</p>
+                <img src="/images/homelessness/clusters/01/circles.svg" />
+            </div>
+            <div class="flex-grid-row">
+                <div class="col-6">
+                    <div>
+                        <p>Number of People Experiencing Homelessness</p>
+                        <p>People experiencing homelessness on a single night in January in this cluster</p>
+                        <p>169,971</p>
+                        <p>People</p>
+                        <img src="/images/homelessness/clusters/01/people.svg" /></div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <p>Population Density</p>
+                        <p>Number of people per square mile in this cluster</p>
+                        <img src="/images/homelessness/clusters/01/density.svg" />
+                    </div>
+                    <div>
+                        <p>Total Population</p>
+                        <p>Total population in this cluster</p>
+                        <img src="/images/homelessness/clusters/01/total-population.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div><img src="/images/homelessness/clusters/01/key.svg" /></div>
+            <div>
+                <p>Income</p>
+                <p>Range of 20th percentile incomes for areas within this cluster</p>
+                <img src="/images/homelessness/clusters/01/income.svg" />
+            </div>
+            <div>
+                <p>Rent</p>
+                <p>Range of median gross rents for areas within this cluster</p>
+                <img src="/images/homelessness/clusters/01/rent.svg" />
+            </div>
+            <div>
+                <p>Rent as Percent of Income</p>
+                <p>Range of 20th percentile incomes to annualized rents for areas: within this cluster</p>
+                <img src="/images/homelessness/clusters/01/rent-as-income.svg" />
+            </div>
+            <div>
+                <p>Land Area</p>
+                <p>Range of land areas in square miles for areas within this cluster</p>
+                <img src="/images/homelessness/clusters/01/land-area.svg" />
+            </div>
+            <div>
+                <p>Property Crime Rate</p>
+                <p>Range of property crime incidents per 100k people for areas within this cluster</p>
+                <img src="/images/homelessness/clusters/01/crime.svg" />
+            </div>
+            <div>
+                <p>Beds Available</p>
+                <p>Total sheltered and permanent beds available with this cluster</p>
+                <img src="/images/homelessness/clusters/01/bed.svg" />
+            </div>
+        </div>
+    </div>
+</div>
+

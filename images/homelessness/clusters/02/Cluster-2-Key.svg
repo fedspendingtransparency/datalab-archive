@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="238px" height="41px" viewBox="0 0 238 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 332</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.060075 0.192675 0.732 0.192675 0.732 1.017675 0.060075 1.017675"></polygon>
+        <polygon id="path-3" points="0.060075 0.417525 0.732 0.417525 0.732 25.992525 0.060075 25.992525"></polygon>
+        <polygon id="path-5" points="0.060075 0.1176 0.732 0.1176 0.732 0.9426 0.060075 0.9426"></polygon>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homelessness-Section-3-2" transform="translate(-842.000000, -1434.000000)">
+            <g id="Group-33" transform="translate(841.000000, 1434.000000)">
+                <path d="M235.010525,20.84685 L4.909775,20.84685 C3.184775,20.84685 1.835525,19.42185 1.835525,17.77185 L1.835525,12.22185 C1.835525,10.49685 3.260525,9.14685 4.909775,9.14685 L235.010525,9.14685 C236.735525,9.14685 238.085525,10.57185 238.085525,12.22185 L238.085525,17.77185 C238.085525,19.49685 236.659775,20.84685 235.010525,20.84685" id="Fill-1" fill="#DDD0EA"></path>
+                <path d="M140.435075,23.546925 L48.260825,23.546925 C46.760825,23.546925 45.560075,22.346925 45.560075,20.846925 L45.560075,10.121925 C45.560075,8.621925 46.760825,7.421925 48.260825,7.421925 L140.435075,7.421925 C141.935075,7.421925 143.135825,8.621925 143.135825,10.121925 L143.135825,20.846925 C143.060075,22.346925 141.860075,23.546925 140.435075,23.546925" id="Fill-3" fill="#2F1868"></path>
+                <text id="CLUSTER" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="8.25" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="76.57445" y="15.9103447">C</tspan>
+                    <tspan x="81.37595" y="15.9103447" letter-spacing="-0.305250004">L</tspan>
+                    <tspan x="85.03895" y="15.9103447" letter-spacing="-0.0824999996">U</tspan>
+                    <tspan x="90.3602" y="15.9103447" letter-spacing="-0.164999999">S</tspan>
+                    <tspan x="94.6172" y="15.9103447">TER</tspan>
+                </text>
+                <text id="UNITED-STATES" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="8.25" font-weight="bold" fill="#380A6D">
+                    <tspan x="158.438375" y="15.9103447">UNITED </tspan>
+                    <tspan x="187.956875" y="15.9103447" letter-spacing="-0.165825002">S</tspan>
+                    <tspan x="192.21305" y="15.9103447" letter-spacing="-0.329174995">T</tspan>
+                    <tspan x="196.140875" y="15.9103447" letter-spacing="-0.329999998">A</tspan>
+                    <tspan x="200.208125" y="15.9103447">TES</tspan>
+                </text>
+                <text id="Lowest-values" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="9" font-weight="bold" letter-spacing="-0.107999995" fill="#7A7A7A">
+                    <tspan x="0.707975" y="39.2095033">L</tspan>
+                    <tspan x="5.135975" y="39.2095033" letter-spacing="-0.0360000003">ow</tspan>
+                    <tspan x="16.898975" y="39.2095033">est </tspan>
+                    <tspan x="30.866975" y="39.2095033" letter-spacing="-0.179999996">v</tspan>
+                    <tspan x="35.213975" y="39.2095033">alues</tspan>
+                </text>
+                <text id="Highest-values" font-family="SourceSansPro-Bold, Source Sans Pro" font-size="9" font-weight="bold" fill="#7A7A7A">
+                    <tspan x="164.580425" y="37.7095033">Highest </tspan>
+                    <tspan x="197.043425" y="37.7095033" letter-spacing="-0.1809">v</tspan>
+                    <tspan x="201.389525" y="37.7095033">alues</tspan>
+                </text>
+                <line x1="1.460225" y1="30.447075" x2="1.460225" y2="29.622075" id="Stroke-10" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round"></line>
+                <line x1="1.460225" y1="27.671925" x2="1.460225" y2="2.096925" id="Stroke-12" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round" stroke-dasharray="1.8960000872612,1.8960000872612"></line>
+                <line x1="1.460225" y1="1.122" x2="1.460225" y2="0.297" id="Stroke-14" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round"></line>
+                <line x1="45.860375" y1="30.447075" x2="45.860375" y2="0.297075" id="Stroke-16" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round" stroke-dasharray="1.781999945640564,1.781999945640564"></line>
+                <g id="Group-20" transform="translate(237.500000, 29.429400)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-19"></g>
+                    <line x1="0.435075" y1="1.017675" x2="0.435075" y2="0.192675" id="Stroke-18" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round" mask="url(#mask-2)"></line>
+                </g>
+                <g id="Group-23" transform="translate(237.500000, 1.679400)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Clip-22"></g>
+                    <line x1="0.435075" y1="25.992525" x2="0.435075" y2="0.417525" id="Stroke-21" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round" stroke-dasharray="1.8960000872612,1.8960000872612" mask="url(#mask-4)"></line>
+                </g>
+                <g id="Group-26" transform="translate(237.500000, 0.179400)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Clip-25"></g>
+                    <line x1="0.435075" y1="0.9426" x2="0.435075" y2="0.1176" id="Stroke-24" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round" mask="url(#mask-6)"></line>
+                </g>
+                <line x1="143.210225" y1="30.447075" x2="143.210225" y2="29.622075" id="Stroke-27" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round"></line>
+                <line x1="143.210225" y1="27.671925" x2="143.210225" y2="2.096925" id="Stroke-29" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round" stroke-dasharray="1.8960000872612,1.8960000872612"></line>
+                <line x1="143.210225" y1="1.122" x2="143.210225" y2="0.297" id="Stroke-31" stroke="#AAAAAA" stroke-width="0.594" stroke-linecap="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

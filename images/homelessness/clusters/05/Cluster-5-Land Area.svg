@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="301px" height="78px" viewBox="0 0 301 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 205</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homelessness-Section-3-5" transform="translate(-847.000000, -2117.000000)">
+            <g id="Group-20" transform="translate(847.000000, 2112.000000)">
+                <polygon id="Fill-1" fill="#E0E0E0" points="1.85925 46.46675 298.85925 46.46675 298.85925 36.71675 1.85925 36.71675"></polygon>
+                <line x1="1.858875" y1="46.9646" x2="1.858875" y2="20.7146" id="Stroke-2" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="76.108875" y1="54.341525" x2="76.108875" y2="28.091525" id="Stroke-3" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="150.358875" y1="54.47045" x2="150.358875" y2="28.22045" id="Stroke-4" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="224.608875" y1="54.47045" x2="224.608875" y2="28.22045" id="Stroke-5" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <line x1="298.858875" y1="54.47045" x2="298.858875" y2="28.22045" id="Stroke-6" stroke="#D1D1D1" stroke-width="0.75" stroke-linecap="round"></line>
+                <g id="Group-12" transform="translate(0.000000, 0.426750)">
+                    <path d="M272.608875,49.789775 L8.608875,49.789775 C6.546375,49.789775 4.858875,48.102275 4.858875,46.039775 L4.858875,36.289775 C4.858875,34.227275 6.546375,32.539775 8.608875,32.539775 L272.608875,32.539775 C274.671375,32.539775 276.358875,34.227275 276.358875,36.289775 L276.358875,46.039775 C276.358875,48.102275 274.671375,49.789775 272.608875,49.789775" id="Fill-7" fill="#B4B4D6"></path>
+                    <path d="M8.562,51.289775 L8.06175,51.289775 C6.4125,51.289775 5.06175,49.939025 5.06175,48.289775 L5.06175,34.039775 C5.06175,32.389775 6.4125,31.039775 8.06175,31.039775 L8.562,31.039775 C10.212,31.039775 11.562,32.389775 11.562,34.039775 L11.562,48.289775 C11.562,49.939025 10.212,51.289775 8.562,51.289775" id="Fill-9" fill="#5E5E96"></path>
+                    <text id="CLUSTER-MEDIAN:-518" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="10.5" font-weight="500" letter-spacing="-0.0149999997" fill="#380A6D">
+                        <tspan x="3.980325" y="80.5948205">C</tspan>
+                        <tspan x="10.013325" y="80.5948205" letter-spacing="-0.361499995">L</tspan>
+                        <tspan x="14.576325" y="80.5948205" letter-spacing="-0.119999997">U</tspan>
+                        <tspan x="21.228825" y="80.5948205" letter-spacing="-0.225000009">S</tspan>
+                        <tspan x="26.516325" y="80.5948205">TER MEDIAN: 518</tspan>
+                    </text>
+                    <text id="0" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" fill="#848484">
+                        <tspan x="0.000824999999" y="10.8433205">0</tspan>
+                    </text>
+                </g>
+                <text id="600K" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                    <tspan x="279.62145" y="18.7723205">600K</tspan>
+                </text>
+                <text id="300K" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                    <tspan x="143.86695" y="18.7723205">300K</tspan>
+                </text>
+                <text id="450K" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                    <tspan x="215.11995" y="18.7723205">450K</tspan>
+                </text>
+                <text id="150K" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.5" font-weight="normal" letter-spacing="-0.0299999993" fill="#848484">
+                    <tspan x="65.11695" y="18.7723205">150K</tspan>
+                </text>
+                <text id="-" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="9" font-weight="normal"></text>
+                <g id="Group-19" transform="translate(2.250000, 34.676750)">
+                    <line x1="5.604525" y1="38.039775" x2="5.604525" y2="21.960525" id="Stroke-13" stroke="#636363" stroke-width="1.5" stroke-linecap="round"></line>
+                    <path d="M5.604525,22.26195 C4.820775,23.0457 3.271275,23.4192 2.195775,23.44995 C3.639525,22.3752 4.898775,20.9787 5.604525,19.2897 C6.280275,20.9787 7.616025,22.3137 9.013275,23.44995 C7.862025,23.3577 6.464025,23.07645 5.604525,22.26195" id="Fill-15" fill="#636363"></path>
+                    <path d="M5.08005,7.86331836 C3.67455,7.86855 2.5668,6.7473 2.57128634,5.32305 C2.57505,4.01055 3.72105,2.8923 5.06655,2.88627592 C6.42255,2.8803 7.54155,3.9963 7.55655,5.3673 C7.5708,6.70605 6.42705,7.8588 5.08005,7.86331836 M9.1968,3.1413 C8.34105,1.52655 6.90705,0.7548 5.4273,0.658799799 C2.51655,0.65805 0.40005,2.75655 0.35505,5.34405 C0.3288,6.8388 0.92355,8.07105 1.8933,9.1608 C2.9358,10.3338 4.03605,11.46255 4.67805,12.9348 C4.7463,13.09155 4.95105,13.29705 5.08155,13.2888 C5.21955,13.2813 5.3688,13.06155 5.4693,12.90555 C5.92905,12.19155 6.32505,11.43105 6.83355,10.7538 C7.4913,9.8793 8.3088,9.1203 8.92155,8.2188 C10.0143,6.61005 10.1088,4.86105 9.1968,3.1413" id="Fill-17" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
