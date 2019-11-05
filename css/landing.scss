@@ -115,7 +115,6 @@ h2.primary__heading {
 .landing-feature__homelessness {
   clear: both;
   border-top: 1px solid #ddd;
-//  padding: 2.188rem 0;
   padding-top: .75rem;
   
   h1, h2 {
@@ -244,7 +243,7 @@ h2.primary__heading {
   color: #000000;
   clear: both;
   margin: 0;
-  font-size: 16px; // 14px?
+  font-size: 16px;
   display: none;
 }
 
@@ -257,7 +256,7 @@ h2.primary__heading {
   color: #000000;
   clear: both;
   margin: 0;
-  font-size: 16px; // 14px?
+  font-size: 16px;
   display: none;
 }
 
@@ -270,11 +269,6 @@ h2.primary__heading {
   img {
     width: 100%;
   }
-}
-
-.landing-feature__headings {
-//  width: 60%;
-//  float: left;
 }
 
 .landing-row__featured__text {
@@ -391,8 +385,6 @@ h2.primary__heading {
     float: right;
 
     img {
-//      width: 156px;
-//      height: 108px;
       width: 100%;
     }
   }
@@ -444,7 +436,6 @@ h2.primary__heading {
 
   .landing-feature {
     box-sizing: border-box;
-    //    padding-right: 1rem;
     width: 50%;
     float: left;
     clear: none;
@@ -556,6 +547,7 @@ h2.primary__heading {
   }
 } // end tablet mode
 
+// hide when text is too long!
 @media (max-width: 580px) {
   .landing-feature__text--tablet {
     display: none;
@@ -564,7 +556,7 @@ h2.primary__heading {
 
 
 // toggle back for mobile
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .landing-feature__text--tablet {
     display: none;
   }
