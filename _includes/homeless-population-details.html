@@ -1,0 +1,97 @@
+<style>
+    .flex-grid {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .flex-grid-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .header {
+        float: left;
+        width: 70%;
+    }
+
+    .value {
+        float: right;
+    }
+
+    @media (max-width: 400px) {
+        .flex-grid {
+            display: block;
+        }
+    }
+</style>
+
+<div class="homeless-fact-cluster flex-grid">
+    <div class="flex-grid-column">
+        <table>
+            <th>
+                <td>Individuals</td>
+                <td>Families</td>
+                <td>Total</td>
+            </th>
+            <tr>
+                <td>Sheltered</td>
+                <td>a</td>
+                <td>x</td>
+                <td>13,972</td>
+            </tr>
+            <tr>
+                <td>Unsheltered</td>
+                <td>b</td>
+                <td>y</td>
+                <td>41,216</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>47,028</td>
+                <td>8,106</td>
+                <td>55,188</td>
+            </tr>
+        </table>
+
+        <div>
+            <div class="header">Chronically Homeless:</div>
+            <div class="value">16,567</div>
+        </div>
+        <div>
+            <div class="header">Homeless Veterans:</div>
+            <div class="value">16,567</div>
+        </div>
+        <div>
+            <div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div>
+            <div class="value">16,567</div>
+        </div>
+
+        <h3>Number of people who return to homelessness within:</h3>
+
+        <div>
+            <div class="header">6 months</div>
+            <div class="value">16,567</div>
+        </div>
+        <div>
+            <div class="header">12 months</div>
+            <div class="value">16,567</div>
+        </div>
+        <div>
+            <div class="header">24 months</div>
+            <div class="value">16,567</div>
+        </div>
+        <br/>
+        <div>
+            <div class="header">Percentage of people who exit to permanent housing</div>
+            <div class="value">44%</div>
+        </div>
+        <div>
+            <div class="header">Percentage of those who retain their permanent housing status</div>
+            <div class="value">96%</div>
+        </div>
+    </div>
+</div>
+
