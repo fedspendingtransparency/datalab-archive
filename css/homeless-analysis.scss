@@ -36,7 +36,27 @@
     &#right{
       float:right;
     }
+
 }
+
+  .header {
+    text-align: left;
+    float: left;
+    width: 80%;
+  }
+
+  .h3-header {
+    clear: both;
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  .value {
+    text-align: left;
+    float: right;
+    clear: both;
+  }
+
   .modal {
     display: none;
     /* Hidden by default */

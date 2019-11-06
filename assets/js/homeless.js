@@ -1,12 +1,36 @@
 ---
 ---
 
+const absWidth = 1024;
+const absHeight = 575;
+const margin = {
+    top: 100,
+    right: 50,
+    bottom: 15,
+    left: 100
+};
+let la;
+let map1Centered = null;
+let map2Centered;
+const formatNumber = d3.format('$,.0f');
+const OtherformatNumber = d3.format(',.0f');
+const panel2Width = absWidth - margin.left - margin.right;
+const panel2Height = absHeight - margin.top - margin.bottom;
+const matrixWidth = (absWidth / 1.85) - margin.left - margin.right;
+const mapWidth = panel2Width - matrixWidth - margin.left - margin.right - 45;
+const mapHeight = panel2Height / 3;
+const infoWidth = panel2Width - matrixWidth - margin.left - margin.right;
+const infoHeight = panel2Height / 3;
+
+
+(function () {
+
 d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
     d3.csv('/data-lab-data/statecfda.csv', (cfdaState) => {
         d3.csv('/data-lab-data/CFDACOCAward_Updated.csv', (barChrt) => {
             d3.csv('/data-lab-data/State_crosswalk.csv', (state) => {
                 d3.csv('/data-lab-data/cfda_acronyms.csv', (acr) => {
-                    d3.csv('/data-lab-data/coc_pop_value.csv', (tableData) => {
+                    d3.csv('/data-lab-data/panel_2_table_and_counts.csv', (tableData) => {
                         d3.select('#container2_1').append('div').attr('id', 'p2_1_title');
                         d3.select('#container2_1').append('div').attr('id', 'p2_1').style('top', '150px');
                         d3.select('#container2_2').append('div').attr('id', 'p2_2_legend_title');
@@ -24,26 +48,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         d3.select('#p2_4').append('div').attr('id', 'panel_info');
                         d3.select('#p2_5').append('div').attr('id', 'panel_contact');
 
-                        const absWidth = 1024;
-                        const absHeight = 575;
-                        const margin = {
-                            top: 100,
-                            right: 50,
-                            bottom: 15,
-                            left: 100
-                        };
-                        const la = us.features.filter((d) => d.properties.coc_number === 'CA-600');
-                        let map1Centered = null;
-                        let map2Centered = la[0];
-                        const formatNumber = d3.format('$,.0f');
-                        const OtherformatNumber = d3.format(',.0f');
-                        const panel2Width = absWidth - margin.left - margin.right;
-                        const panel2Height = absHeight - margin.top - margin.bottom;
-                        const matrixWidth = (absWidth / 1.85) - margin.left - margin.right;
-                        const mapWidth = panel2Width - matrixWidth - margin.left - margin.right - 45;
-                        const mapHeight = panel2Height / 3;
-                        const infoWidth = panel2Width - matrixWidth - margin.left - margin.right;
-                        const infoHeight = panel2Height / 3;
+                        la = us.features.filter((d) => d.properties.coc_number === 'CA-600');
+                        map2Centered = la[0];
 
                         function getDollarValue(d) {
                             for (let i = 0; i < tableData.length; i++) {
@@ -56,10 +62,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function getCFDAValue(d) {
                             return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">` +
-                            `${d.program_title}</b> [CFDA No. ${d.cfda_number}]</p><br>` +
-                            `<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ${formatNumber(d.fed_funding)}</p><br>` +
-                            `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">` +
-                            `Click to visit the program website</p>`;
+                                `${d.program_title}</b> [CFDA No. ${d.cfda_number}]</p><br>` +
+                                `<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ${formatNumber(d.fed_funding)}</p><br>` +
+                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">` +
+                                `Click to visit the program website</p>`;
                         }
 
                         const mapTitle = d3.select('#p2_1_title')
@@ -87,10 +93,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function p2TipHTML(d) {
                             return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; `
-                            + `padding-bottom:15px; color: #555555; font-weight: bold">`
-                            + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
-                            `<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ${getDollarValue(d)}</p><br>` +
-                            `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/out</p>`;
+                                + `padding-bottom:15px; color: #555555; font-weight: bold">`
+                                + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
+                                `<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ${getDollarValue(d)}</p><br>` +
+                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/out</p>`;
                         }
 
                         const p2Tip = d3.tip()
@@ -149,6 +155,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         });
 
                         barChrt = barChrt.sort((x, y) => d3.descending(x.fed_funding, y.fed_funding));
+
                         // **************************************************************
                         function barClick(d) {
                             window.Analytics.event({
@@ -379,6 +386,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('text-anchor', 'end');
                         }
 
+                        /**
+                         * @return {string}
+                         */
                         function MakeCoCTable(d7) {
                             d3.selectAll('#p2_quad3_title').remove();
 
@@ -393,24 +403,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 if (tableData[i].coc_number === d7.properties.coc_number) {
                                     const tabDat = tableData[i];
 
-                                    return `${'<table><tr><td class="panel_text">Homeless Individuals </td><td class="panel_text2">'}`
-                                    + `${OtherformatNumber(tabDat.homeless_individuals)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">`
-                                    + `Homeless People in Families </td><td class="panel_text2"  style="border-bottom:1pt solid black">`
-                                    + `${OtherformatNumber(tabDat.homeless_people_in_families)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">` +
-                                    `${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-                                    `<table><tr><td class="panel_text">Sheltered Homeless </td><td class="panel_text2">`
-                                    + `${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">` +
-                                    `Unsheltered Homeless </td><td class="panel_text2" style="border-bottom:1pt solid black">` +
-                                    `${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">` +
-                                    `${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-                                    `<table style="margin-bottom:0"><tr><td class="panel_text">Chronically Homeless `
-                                    + `</td><td class="panel_text2">${OtherformatNumber(tabDat.chronically_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Homeless Veterans </td><td class="panel_text2">`
-                                    + `${OtherformatNumber(tabDat.homeless_veterans)}</td></tr></table>`;
+                                    return `<table><th><td>Individuals</td><td>Families</td><td>Total</td></th><tr><td>Sheltered</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_individuals_2017)}</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families_2017)}</td><td>${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr><tr><td>Unsheltered</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_Individuals_2017)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_people_in_families_2017)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr><tr><td>Total</td><td>${OtherformatNumber(tabDat.homeless_individuals)}</td><td>${OtherformatNumber(tabDat.homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.total_homeless)}</td></tr></table><div><div class="header">Chronically Homeless:</div><div class="value">${OtherformatNumber(tabDat.chronically_homeless)}</div></div><div><div class="header">Homeless Veterans:</div><div class="value">${OtherformatNumber(tabDat.homeless_veterans)}</div></div><div><div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div><div class="value">${OtherformatNumber(tabDat.es_sh_th_avg_days)}</div></div><h3 class="h3-header">Number of people who return to homelessness within:</h3><div><div class="header">6 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_6_mths)}</div></div><div><div class="header">12 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort)}</div></div><div><div class="header">24 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort)}</div></div><br/><div><div class="header">Percentage of people who exit to permanent housing</div><div class="value">${tabDat.percent_with_successful_es_th_sh_ph_rrh_exit}</div></div><div><div class="header">Percentage of those who retain their permanent housing status</div><div class="value">${tabDat.percent_with_successful_ph_retention_or_exit}</div></div>`;
                                 }
                             }
                         }
@@ -596,11 +589,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function makeContactTable(df) {
                             return `<h4 style="margin-bottom:0">${df.properties.COCNAME}</h4><br>` +
-                            `<p><b>Contact information for the Continuum of Care program</b>` +
-                            `<br>${df.properties.CONTACT_TY}<br>` +
-                            `Name: ${df.properties.FIRST_NAME} ${df.properties.LAST_NAME}<br>` +
-                            `Email: ${df.properties.EMAIL_ADDR}<br>` +
-                            `Phone: ${df.properties.PRIMARY_PH}</p>`;
+                                `<p><b>Contact information for the Continuum of Care program</b>` +
+                                `<br>${df.properties.CONTACT_TY}<br>` +
+                                `Name: ${df.properties.FIRST_NAME} ${df.properties.LAST_NAME}<br>` +
+                                `Email: ${df.properties.EMAIL_ADDR}<br>` +
+                                `Phone: ${df.properties.PRIMARY_PH}</p>`;
                         }
 
                         function createContact(d) {
@@ -812,17 +805,17 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('width', '300px')
                                 .offset([-10, -10])
                                 .html((d) => `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0;`
-                                + ` padding-bottom:15px; font-weight: bold; color:#555555">`
-                                + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
-                                `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">`
-                                + `Total Homeless: ${getValue(d)}</p><br>` +
-                                `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
-                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
-                                + `Sheltered Homeless: ${getSheltered(d)}</li>` +
-                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
-                                + `Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
-                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">`
-                                + ` Double click to zoom in/zoom out</p>`);
+                                    + ` padding-bottom:15px; font-weight: bold; color:#555555">`
+                                    + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
+                                    `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">`
+                                    + `Total Homeless: ${getValue(d)}</p><br>` +
+                                    `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
+                                    `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
+                                    + `Sheltered Homeless: ${getSheltered(d)}</li>` +
+                                    `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
+                                    + `Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
+                                    `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">`
+                                    + ` Double click to zoom in/zoom out</p>`);
 
                             mapSvg.append('circle').attr('id', 'tipfollowscursor_1');
                             mapSvg.call(tip);
@@ -972,7 +965,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             const table = d3.select('#table_container')
                                 .append('table')
                                 .attr('id', 'tab');
-                            
+
                             table.append('thead').append('tr');
 
                             const headers = table.select('tr').selectAll('th')
@@ -1092,8 +1085,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     if (clicks.coc_number % 2 === 0) {
                                         rows.sort((a, b) => a.coc_number.localeCompare(b.coc_number));
                                     }
-                                    else
-                                    if (clicks.coc_number % 2 !== 0) {
+                                    else if (clicks.coc_number % 2 !== 0) {
                                         rows.sort((a, b) => b.coc_number.localeCompare(a.coc_number));
                                     }
                                 }
@@ -1103,8 +1095,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     if (clicks.coc_name % 2 === 0) {
                                         rows.sort((a, b) => a.coc_name.localeCompare(b.coc_name));
                                     }
-                                    else
-                                    if (clicks.coc_name % 2 !== 0) {
+                                    else if (clicks.coc_name % 2 !== 0) {
                                         rows.sort((a, b) => b.coc_name.localeCompare(a.coc_name));
                                     }
                                 }
@@ -1431,16 +1422,16 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                             var modal = d3.select("#panel3InstructionsModal > div > div.modal-body > div.modal-body-content")
                                 .append("div")
-                                .attr("id","p3Modal")
+                                .attr("id", "p3Modal")
 
                             modal.append('img')
                                 .attr('class', 'picture')
-                                .attr('src','/images/homelessness/region_guide_full.jpg')
-                                .style("display","block")
-                                .style("max-width","480px")
-                                .style("max-height","500px")
-                                .style("width","auto")
-                                .style("height","auto");
+                                .attr('src', '/images/homelessness/region_guide_full.jpg')
+                                .style("display", "block")
+                                .style("max-width", "480px")
+                                .style("max-height", "500px")
+                                .style("width", "auto")
+                                .style("height", "auto");
 
                             const w = $('#panel_3b').width();
                             const h = 340;
@@ -1454,12 +1445,12 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .sticky(true)
                                 .sort((a, b) => a.value - b.value)
                                 .value((d) => d.total_homeless);
-                                // .value((d) => d.total_homeless);
+                            // .value((d) => d.total_homeless);
 
                             const svg = d3.select("#tree").append("div")
                                 .attr("class", "chart")
                                 .append("svg:svg")
-                                .attr("height",`${h}`)
+                                .attr("height", `${h}`)
                                 .attr("viewBox", `0 0 ${w} ${h}`)
                                 .append("svg:g")
                                 .attr("transform", "translate(.5,.5)");
@@ -1539,59 +1530,59 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                         d3.select('#imagebox').remove();
 
                                         d3.select('#picture')
-                                          .append('img')
-                                          .attr('id', 'imagebox')
-                                          .style('width', '100%')
-                                          .style('height', 'auto')
-                                          .attr('width', w2)
-                                          .attr('height', h2)
-                                          .attr('src', getInfographic(d));
+                                            .append('img')
+                                            .attr('id', 'imagebox')
+                                            .style('width', '100%')
+                                            .style('height', 'auto')
+                                            .attr('width', w2)
+                                            .attr('height', h2)
+                                            .attr('src', getInfographic(d));
                                     }
 
                                     function makeCoCTableTitle(d) {
                                         const textColor = color(d.cluster_final);
                                         return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster}: </p>` +
-                                        `<p class="cocTabTitleCity">${d.coc_name}</p>`;
+                                            `<p class="cocTabTitleCity">${d.coc_name}</p>`;
                                     }
 
                                     function makeCoCTableFund(d) {
                                         return `<table class="FundingTable"><tr><th class="fundingTitle">`
-                                        + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
-                                        `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
-                                        `<tr><td class="fundingAmount">${formatNumber(d.other_fed_funding)}</td></tr></table>`;
+                                            + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
+                                            `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
+                                            `<tr><td class="fundingAmount">${formatNumber(d.other_fed_funding)}</td></tr></table>`;
                                     }
 
                                     function makeCoCTableInfoCol1(d) {
                                         return '<table class="InfoTable">' +
-                                        '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
+                                            '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
                                     }
 
                                     function makeCoCTableInfoCol2(d) {
                                         return '<table class="InfoTable">' +
-                                        '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
-                                        `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
-                                        `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
-                                        `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr></table>`;
+                                            '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
+                                            `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
+                                            `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
+                                            `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr></table>`;
                                     }
 
                                     function makeCoCTableInfoCol3(d) {
                                         return '<table class="InfoTable">' +
-                                        '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">PROPERTY CRIME RATE: PER 100K</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.Property_crime_rate)}</td></tr></table>`;
+                                            '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr>` +
+                                            `<tr><th class="fundingTitle">PROPERTY CRIME RATE: PER 100K</th></tr>` +
+                                            `<tr><td class="infoAmount">${OtherformatNumber(d.Property_crime_rate)}</td></tr></table>`;
                                     }
 
                                     function makeCoCTable(d) {
@@ -1664,7 +1655,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                         $(".tablinks > .cocButton").first().addClass("active");
 
-                                        $(".tablinks > .cocButton").click( function() {
+                                        $(".tablinks > .cocButton").click(function () {
                                             $(".tablinks > .cocButton").removeClass("active");
                                             $(this).addClass("active");
                                         });
@@ -1702,7 +1693,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                                     $(".cell ").first().addClass("active");
 
-                                    $(".cell").click(function() {
+                                    $(".cell").click(function () {
                                         $(".cell").removeClass("active");
                                         $(this).addClass("active");
                                     });
@@ -1755,9 +1746,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         }
 
                         d3.selectAll("#button1").on("click", change);
+
                     });
                 });
             });
         });
     });
 });
+})();
