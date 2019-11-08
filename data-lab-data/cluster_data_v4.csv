@@ -1,4 +1,5 @@
-cluster,cluster_final,coc_number,coc_name,density,land_area,weighted_estimate_median_gross_rent,weighted_income,rent_pct_income,estimated_pop_2016,Property_crime_rate,Total_Year_Round_Beds,total_homeless,homeless_individuals,homeless_people_in_families,CoC_program_funding,Other_program_funding,Total_funding,empty,other_fed_funding
+cluster,cluster_final,coc_number,coc_name,density,land_area,weighted_estimate_median_gross_rent,weighted_income,rent_pct_income,estimated_pop_2016,
+Property_crime_rate,Total_Year_Round_Beds,total_homeless,homeless_individuals,homeless_people_in_families,CoC_program_funding,Other_program_funding,Total_funding,empty,other_fed_funding
 1,1a,NY-600,New York City CoC,27959.56055,302.65,1328.60446,10062.74049,0.631159787,8461961,1718.2,76865,76501,31124,45377,103229020.8,142281059.1,245510079.9,0,1121390.03
 1,1a,CA-600,Los Angeles City & County CoC,2337.819315,3954.17,1264,12164,0.801951477,9244135,2128.1,15225,55188,47082,8106,107398460.1,161416728.8,268815188.9,0,16964337
 1,1a,DC-500,District of Columbia CoC,10794.57821,61.05,1362,10076,0.61649535,659009,5012.5,7402,7473,3583,3890,23994458.72,29923614.42,53918073.14,0,19236606

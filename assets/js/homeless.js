@@ -10,7 +10,7 @@ const margin = {
     left: 100
 };
 let la;
-let map1Centered = null;
+let map1Centered;
 let map2Centered;
 const formatNumber = d3.format('$,.0f');
 const OtherformatNumber = d3.format(',.0f');
@@ -23,14 +23,12 @@ const infoWidth = panel2Width - matrixWidth - margin.left - margin.right;
 const infoHeight = panel2Height / 3;
 
 
-(function () {
-
-d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
-    d3.csv('/data-lab-data/statecfda.csv', (cfdaState) => {
-        d3.csv('/data-lab-data/CFDACOCAward_Updated.csv', (barChrt) => {
+d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
+    d3.csv('/data-lab-data/2019statecfdafunding.csv', (cfdaState) => {
+        d3.csv('/data-lab-data/2019CoCCFDAfunding_v3.csv', (barChrt) => {
             d3.csv('/data-lab-data/State_crosswalk.csv', (state) => {
                 d3.csv('/data-lab-data/cfda_acronyms.csv', (acr) => {
-                    d3.csv('/data-lab-data/panel_2_table_and_counts.csv', (tableData) => {
+                    d3.csv('/data-lab-data/panel_2_table_and_counts_v3.csv', (tableData) => {
                         d3.select('#container2_1').append('div').attr('id', 'p2_1_title');
                         d3.select('#container2_1').append('div').attr('id', 'p2_1').style('top', '150px');
                         d3.select('#container2_2').append('div').attr('id', 'p2_2_legend_title');
@@ -269,7 +267,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function getProgram(d) {
                             for (let i = 0; i < barChrt.length; i++) {
-                                if (d.cfda_number === acr[i].cfda_number) {
+                                if (acr[i] && d.cfda_number === acr[i].cfda_number) {
                                     return acr[i].acronym;
                                 }
                             }
@@ -403,7 +401,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 if (tableData[i].coc_number === d7.properties.coc_number) {
                                     const tabDat = tableData[i];
 
-                                    return `<table><th><td>Individuals</td><td>Families</td><td>Total</td></th><tr><td>Sheltered</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_individuals_2017)}</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families_2017)}</td><td>${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr><tr><td>Unsheltered</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_Individuals_2017)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_people_in_families_2017)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr><tr><td>Total</td><td>${OtherformatNumber(tabDat.homeless_individuals)}</td><td>${OtherformatNumber(tabDat.homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.total_homeless)}</td></tr></table><div><div class="header">Chronically Homeless:</div><div class="value">${OtherformatNumber(tabDat.chronically_homeless)}</div></div><div><div class="header">Homeless Veterans:</div><div class="value">${OtherformatNumber(tabDat.homeless_veterans)}</div></div><div><div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div><div class="value">${OtherformatNumber(tabDat.es_sh_th_avg_days)}</div></div><h3 class="h3-header">Number of people who return to homelessness within:</h3><div><div class="header">6 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_6_mths)}</div></div><div><div class="header">12 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort)}</div></div><div><div class="header">24 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort)}</div></div><br/><div><div class="header">Percentage of people who exit to permanent housing</div><div class="value">${tabDat.percent_with_successful_es_th_sh_ph_rrh_exit}</div></div><div><div class="header">Percentage of those who retain their permanent housing status</div><div class="value">${tabDat.percent_with_successful_ph_retention_or_exit}</div></div>`;
+                                    return `<table><th><td>Individuals</td><td>Families</td><td>Total</td></th><tr><td>Sheltered</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_individuals)}</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr><tr><td>Unsheltered</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_individuals)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr><tr><td>Total</td><td>${OtherformatNumber(tabDat.homeless_individuals)}</td><td>${OtherformatNumber(tabDat.homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.total_homeless)}</td></tr></table><div><div class="header">Chronically Homeless:</div><div class="value">${OtherformatNumber(tabDat.chronically_homeless)}</div></div><div><div class="header">Homeless Veterans:</div><div class="value">${OtherformatNumber(tabDat.homeless_veterans)}</div></div><div><div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div><div class="value">${OtherformatNumber(tabDat.es_sh_th_avg_days)}</div></div><h3 class="h3-header">Number of people who return to homelessness within:</h3><div><div class="header">6 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_6_mths)}</div></div><div><div class="header">12 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort)}</div></div><div><div class="header">24 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort)}</div></div><br/><div><div class="header">Percentage of people who exit to permanent housing</div><div class="value">${tabDat.percent_with_successful_es_th_sh_ph_rrh_exit}</div></div><div><div class="header">Percentage of those who retain their permanent housing status</div><div class="value">${tabDat.percent_with_successful_ph_retention_or_exit}</div></div>`;
                                 }
                             }
                         }
@@ -505,7 +503,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             p24MatrixSvg.call(p23BarTip);
 
                             function filterStateBarChart(cfdaStateData) {
-                                return cfdaStateData.State_code === d.properties.STUSAB;
+                                return cfdaStateData.pop_state_code === d.properties.STUSAB;
                             }
 
                             const initial = cfdaState.filter(filterStateBarChart);
@@ -1455,274 +1453,250 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .append("svg:g")
                                 .attr("transform", "translate(.5,.5)");
 
-                            d3.json('/data-lab-data/homeless_cluster_v2.json', (treeData) => {
-                                d3.csv('/data-lab-data/cluster_data_v4.csv', (cluster) => {
-                                    const percentFormat = d3.format(",.1%");
+                            d3.json('/data-lab-data/homeless_cluster_v3.json', (treeData) => {
+                                d3.csv('/data-lab-data/cluster_data_panel_3_v2.csv', (cluster) => {
+                                    d3.csv('/data-lab-data/cluster_data_svg_v3.csv', (inforgraphicData) => {
+                                        d3.csv('/data-lab-data/homelessness_alt_text_panel3_2019.csv', (altText) => {
+                                            const percentFormat = d3.format(",.1%");
 
-                                    cluster.forEach((d) => {
-                                        d.rent_pct_income = +d.rent_pct_income;
-                                        d.amount = +d.amount;
-                                        d.density = +d.density;
-                                        d.estimated_pop_2016 = +d.estimated_pop_2016;
-                                        d.homeless_individuals = +d.homeless_individuals;
-                                        d.homeless_people_in_families = +d.homeless_people_in_families;
-                                        d.land_area = +d.land_area;
-                                        d.total_homeless = +d.total_homeless;
-                                        d.unsheltered_homeless = +d.unsheltered_homeless;
-                                        d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent;
-                                        d.weighted_income = +d.weighted_income;
-                                        d.Property_crime_rate = +d.Property_crime_rate;
-                                        d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
-                                        d.CoC_program_funding = +d.CoC_program_funding;
-                                        d.other_fed_funding = +d.other_fed_funding;
-                                        d.Total_funding = +d.Total_funding;
-                                    });
+                                            cluster.forEach((d) => {
+                                                d.rent_pct_income = +d.rent_pct_income;
+                                                d.amount = +d.amount;
+                                                d.density = +d.density;
+                                                d.estimated_pop_2018 = +d.estimated_pop_2018;
+                                                d.homeless_individuals = +d.homeless_individuals;
+                                                d.homeless_people_in_families = +d.homeless_people_in_families;
+                                                d.land_area = +d.land_area;
+                                                d.total_homeless = +d.total_homeless;
+                                                d.unsheltered_homeless = +d.unsheltered_homeless;
+                                                d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent;
+                                                d.weighted_income = +d.weighted_income;
+                                                d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
+                                                d.CoC_program_funding = +d.CoC_program_funding;
+                                                d.Other_program_funding = +d.Other_program_funding;
+                                                d.Total_funding = +d.Total_funding;
+                                            });
 
-                                    root = treeData;
-                                    const nodes = treemap.nodes(root).filter((d) => !d.children);
-                                    const w2 = $('#panel_3b').width();
-                                    const h2 = $('#panel_3b').height();
+                                            root = treeData;
+                                            const nodes = treemap.nodes(root).filter((d) => !d.children);
+                                            const w2 = $('#panel_3b').width();
+                                            const h2 = $('#panel_3b').height();
 
-                                    d3.select('#infographic').attr('height', h2).attr('width', w2)
-                                        .append('div')
-                                        .attr('id', 'picture');
+                                            d3.select('#infographic').attr('height', h2).attr('width', w2)
+                                                .append('div')
+                                                .attr('id', 'picture');
 
-                                    d3.select("#cocTab").append("div").attr("class", "cocTable");
+                                            d3.select("#cocTab").append("div").attr("class", "cocTable");
 
-                                    function getInfographic(d) {
-                                        if (d === "1a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster1.svg');
-                                        }
-                                        else if (d === "2a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster4.svg');
-                                        }
-                                        else if (d === "2b") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster8.svg');
-                                        }
-                                        else if (d === "2c") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster10.svg');
-                                        }
-                                        else if (d === "3a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster5.svg');
-                                        }
-                                        else if (d === "4a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster2.svg');
-                                        }
-                                        else if (d === "4b") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster7.svg');
-                                        }
-                                        else if (d === "4c") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster11.svg');
-                                        }
-                                        else if (d === "5a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster3.svg');
-                                        }
-                                        else if (d === "5b") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster6.svg');
-                                        }
-                                        else if (d === "5c") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster9.svg');
-                                        }
-                                        return '';
-                                    }
+                                            function makeInfographic(d) {
+                                                d3.select('.homeless-fact-cluster img').remove();
+                                                const clusterId = d;
+                                                const svgPath = "/images/homelessness/clusters/Cluster-" + clusterId;
 
-                                    function makeInfographic(d) {
-                                        d3.select('#imagebox').remove();
+                                                d3.select('#homelessness-cluster-bed')
+                                                    .append('img')
+                                                    .attr('src', svgPath + '/Bed.svg');
 
-                                        d3.select('#picture')
-                                            .append('img')
-                                            .attr('id', 'imagebox')
-                                            .style('width', '100%')
-                                            .style('height', 'auto')
-                                            .attr('width', w2)
-                                            .attr('height', h2)
-                                            .attr('src', getInfographic(d));
-                                    }
+                                                d3.select('#homelessness-cluster-circles')
+                                                    .append('img')
+                                                    .attr('src', svgPath + '/Circles.svg');
 
-                                    function makeCoCTableTitle(d) {
-                                        const textColor = color(d.cluster_final);
-                                        return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster}: </p>` +
-                                            `<p class="cocTabTitleCity">${d.coc_name}</p>`;
-                                    }
+                                                d3.select('#homelessness-cluster-rent')
+                                                    .append('img')
+                                                    .attr('src', svgPath + '/Rent.svg');
 
-                                    function makeCoCTableFund(d) {
-                                        return `<table class="FundingTable"><tr><th class="fundingTitle">`
-                                            + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
-                                            `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
-                                            `<tr><td class="fundingAmount">${formatNumber(d.other_fed_funding)}</td></tr></table>`;
-                                    }
+                                                d3.select('#homelessness-cluster-people')
+                                                    .append('img')
+                                                    .attr('src', svgPath + '/People.svg');
 
-                                    function makeCoCTableInfoCol1(d) {
-                                        return '<table class="InfoTable">' +
-                                            '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
-                                    }
 
-                                    function makeCoCTableInfoCol2(d) {
-                                        return '<table class="InfoTable">' +
-                                            '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
-                                            `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
-                                            `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
-                                            `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr></table>`;
-                                    }
 
-                                    function makeCoCTableInfoCol3(d) {
-                                        return '<table class="InfoTable">' +
-                                            '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr>` +
-                                            `<tr><th class="fundingTitle">PROPERTY CRIME RATE: PER 100K</th></tr>` +
-                                            `<tr><td class="infoAmount">${OtherformatNumber(d.Property_crime_rate)}</td></tr></table>`;
-                                    }
+                                            }
 
-                                    function makeCoCTable(d) {
-                                        d3.select(".cocTab")
-                                            .insert("div", ":first-child")
-                                            .attr("class", "cocTabTitle")
-                                            .html(makeCoCTableTitle(d));
-                                    }
+                                            function makeCoCTableTitle(d) {
+                                                const textColor = color(d.cluster_final);
+                                                return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster_final}: </p>` +
+                                                    `<p class="cocTabTitleCity">${d.coc_name}</p>`;
+                                            }
 
-                                    function makeFundingTable(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabFund")
-                                            .html(makeCoCTableFund(d));
-                                    }
+                                            function makeCoCTableFund(d) {
+                                                return `<table class="FundingTable"><tr><th class="fundingTitle">`
+                                                    + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
+                                                    `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
+                                                    `<tr><td class="fundingAmount">${formatNumber(d.Other_program_funding)}</td></tr></table>`;
+                                            }
 
-                                    function makeInfoTableCol1(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabInfo")
-                                            .html(makeCoCTableInfoCol1(d));
-                                    }
+                                            function makeCoCTableInfoCol1(d) {
+                                                return '<table class="InfoTable">' +
+                                                    '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
+                                            }
 
-                                    function makeInfoTableCol2(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabInfo")
-                                            .html(makeCoCTableInfoCol2(d));
-                                    }
+                                            function makeCoCTableInfoCol2(d) {
+                                                return '<table class="InfoTable">' +
+                                                    '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
+                                                    `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr></table>`;
+                                            }
 
-                                    function makeInfoTableCol3(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabInfo")
-                                            .html(makeCoCTableInfoCol3(d));
-                                    }
+                                            function makeCoCTableInfoCol3(d) {
+                                                return '<table class="InfoTable">' +
+                                                    '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr></table>`;
+                                            }
 
-                                    function CreateCoCTable(d) {
-                                        d3.selectAll(".cocTabInfo").remove();
-                                        d3.selectAll(".cocTabFund").remove();
-                                        d3.selectAll(".cocTabTitle").remove();
+                                            function makeCoCTable(d) {
+                                                d3.select(".cocTab")
+                                                    .insert("div", ":first-child")
+                                                    .attr("class", "cocTabTitle")
+                                                    .html(makeCoCTableTitle(d));
+                                            }
 
-                                        makeCoCTable(d);
-                                        makeFundingTable(d);
-                                        makeInfoTableCol1(d);
-                                        makeInfoTableCol2(d);
-                                        makeInfoTableCol3(d);
-                                    }
+                                            function makeFundingTable(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabFund")
+                                                    .html(makeCoCTableFund(d));
+                                            }
 
-                                    function makeCocTile(d) {
-                                        return `<p class="CocTileTitle">${d.coc_name}</p>`;
-                                    }
+                                            function makeInfoTableCol1(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabInfo")
+                                                    .html(makeCoCTableInfoCol1(d));
+                                            }
 
-                                    function makeSelectionPanel(d) {
-                                        d3.select('.tablinks').remove();
+                                            function makeInfoTableCol2(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabInfo")
+                                                    .html(makeCoCTableInfoCol2(d));
+                                            }
 
-                                        d3.select('#tab').append("g")
-                                            .attr('class', 'tablinks')
-                                            .selectAll('button')
-                                            .data(d)
-                                            .enter()
-                                            .append('button')
-                                            .attr("class", "cocButton")
-                                            .attr('position', 'relative')
-                                            .on('click', (dA) => CreateCoCTable(dA))
-                                            .append('div')
-                                            .attr('class', 'header')
-                                            .attr('background-color', "#E8EAF5")
-                                            .html((dB) => makeCocTile(dB));
+                                            function makeInfoTableCol3(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabInfo")
+                                                    .html(makeCoCTableInfoCol3(d));
+                                            }
 
-                                        $(".tablinks > .cocButton").first().addClass("active");
+                                            function CreateCoCTable(d) {
+                                                d3.selectAll(".cocTabInfo").remove();
+                                                d3.selectAll(".cocTabFund").remove();
+                                                d3.selectAll(".cocTabTitle").remove();
 
-                                        $(".tablinks > .cocButton").click(function () {
-                                            $(".tablinks > .cocButton").removeClass("active");
-                                            $(this).addClass("active");
+                                                makeCoCTable(d);
+                                                makeFundingTable(d);
+                                                makeInfoTableCol1(d);
+                                                makeInfoTableCol2(d);
+                                                makeInfoTableCol3(d);
+                                            }
+
+                                            function makeCocTile(d) {
+                                                return `<p class="CocTileTitle">${d.coc_name}</p>`;
+                                            }
+
+                                            function makeSelectionPanel(d) {
+                                                d3.select('.tablinks').remove();
+
+                                                d3.select('#tab').append("g")
+                                                    .attr('class', 'tablinks')
+                                                    .selectAll('button')
+                                                    .data(d)
+                                                    .enter()
+                                                    .append('button')
+                                                    .attr("class", "cocButton")
+                                                    .attr('position', 'relative')
+                                                    .on('click', (dA) => CreateCoCTable(dA))
+                                                    .append('div')
+                                                    .attr('class', 'header')
+                                                    .attr('background-color', "#E8EAF5")
+                                                    .html((dB) => makeCocTile(dB));
+
+                                                $(".tablinks > .cocButton").first().addClass("active");
+
+                                                $(".tablinks > .cocButton").click(function () {
+                                                    $(".tablinks > .cocButton").removeClass("active");
+                                                    $(this).addClass("active");
+                                                });
+                                            }
+
+                                            const cell = svg.selectAll("g")
+                                                .data(nodes)
+                                                .enter().append("svg:g")
+                                                .attr("class", "cell")
+                                                .attr("transform", (d) => `translate(${d.x},${d.y})`)
+                                                .on("click", (d) => {
+                                                    const group = d.group;
+                                                    makeInfographic(d.group);
+                                                    const current = cluster.filter((dC) => (dC.cluster_final === group));
+                                                    CreateCoCTable(current[0]);
+                                                    makeSelectionPanel(current);
+                                                });
+
+                                            cell.append("svg:rect")
+                                                .attr("class", "rect")
+                                                .attr("z-index", "99")
+                                                .attr("width", (d) => d.dx - 1)
+                                                .attr("height", (d) => d.dy - 1)
+                                                .style("fill", (d) => color(d.group));
+
+                                            cell.append("svg:text")
+                                                .attr("x", (d) => d.dx / 2)
+                                                .attr("y", (d) => d.dy / 2)
+                                                .attr("dy", ".35em")
+                                                .attr("text-anchor", "middle")
+                                                .text((d) => d.name)
+                                                .style('font-size', '40px')
+                                                .style('font-weight', 'lighter')
+                                                .style("opacity", '1');
+
+                                            $(".cell ").first().addClass("active");
+
+                                            $(".cell").click(function () {
+                                                $(".cell").removeClass("active");
+                                                $(this).addClass("active");
+                                            });
+
+                                            function initializeCoCTable() {
+                                                const initTable = cluster.filter((d) => (d.cluster_final === "1"));
+                                                makeCoCTable(initTable[0]);
+                                                makeFundingTable(initTable[0]);
+                                                makeInfoTableCol1(initTable[0]);
+                                                makeInfoTableCol2(initTable[0]);
+                                                makeInfoTableCol3(initTable[0]);
+                                            }
+
+                                            initializeCoCTable();
+
+
+                                            function initializeCoCSelection() {
+                                                const initSelection = cluster.filter((d) => (d.cluster_final === "1"));
+                                                initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
+                                                makeSelectionPanel(initSelection);
+                                            }
+
+                                            function initializeInfographic() {
+                                                const initInfographic = cluster.filter((d) => (d.cluster_final === '1'));
+                                                makeInfographic(initInfographic[0].cluster_final);
+                                            }
+
+                                            initializeCoCSelection();
+                                            initializeInfographic();
                                         });
-                                    }
-
-                                    const cell = svg.selectAll("g")
-                                        .data(nodes)
-                                        .enter().append("svg:g")
-                                        .attr("class", "cell")
-                                        .attr("transform", (d) => `translate(${d.x},${d.y})`)
-                                        .on("click", (d) => {
-                                            const group = d.group;
-                                            makeInfographic(d.group);
-                                            const current = cluster.filter((dC) => (dC.cluster_final === group));
-                                            CreateCoCTable(current[0]);
-                                            makeSelectionPanel(current);
-                                        });
-
-                                    cell.append("svg:rect")
-                                        .attr("class", "rect")
-                                        .attr("z-index", "99")
-                                        .attr("width", (d) => d.dx - 1)
-                                        .attr("height", (d) => d.dy - 1)
-                                        .style("fill", (d) => color(d.group));
-
-                                    cell.append("svg:text")
-                                        .attr("x", (d) => d.dx / 2)
-                                        .attr("y", (d) => d.dy / 2)
-                                        .attr("dy", ".35em")
-                                        .attr("text-anchor", "middle")
-                                        .text((d) => d.name)
-                                        .style('font-size', '40px')
-                                        .style('font-weight', 'lighter')
-                                        .style("opacity", '1');
-
-                                    $(".cell ").first().addClass("active");
-
-                                    $(".cell").click(function () {
-                                        $(".cell").removeClass("active");
-                                        $(this).addClass("active");
                                     });
-
-                                    function initializeCoCTable() {
-                                        const initTable = cluster.filter((d) => (d.cluster_final === "1a"));
-                                        makeCoCTable(initTable[0]);
-                                        makeFundingTable(initTable[0]);
-                                        makeInfoTableCol1(initTable[0]);
-                                        makeInfoTableCol2(initTable[0]);
-                                        makeInfoTableCol3(initTable[0]);
-                                    }
-
-                                    initializeCoCTable();
-
-
-                                    function initializeCoCSelection() {
-                                        const initSelection = cluster.filter((d) => (d.cluster_final === "1a"));
-                                        initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
-                                        makeSelectionPanel(initSelection);
-                                    }
-
-                                    function initializeInfographic() {
-                                        const initInfographic = cluster.filter((d) => (d.cluster_final === '1a'));
-                                        makeInfographic(initInfographic[0].cluster_final);
-                                    }
-
-                                    initializeCoCSelection();
-                                    initializeInfographic();
                                 });
                             });
                         }
@@ -1753,4 +1727,3 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
         });
     });
 });
-})();
