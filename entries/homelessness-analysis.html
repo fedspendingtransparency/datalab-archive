@@ -112,114 +112,113 @@ dlPageCss: homeless-analysis.css
 					they received in federal funding.<span class='superscript'>7</span> </p>
 			  <p>And, to cite an example of private funding, the Church of Latter Day Saints has donated $42 million between 2007 and 2017 to build housing in Salt Lake City for people experiencing chronic homelessness.<span class='superscript'>8</span></p>
 				<hr>
-				<p><span class='superscript'>4</span> As an example, we included a program managed by the Department of Health and Human Services called <i>Grants for New and Expanded Services under the Health Center Program</i>, which provides funding for expanded and sustained national investment in health centers, even though people experiencing homelessness were one type of beneficiary listed, along with migrant workers, public housing residents, and others. We did not include programs intended to address poverty or that provide resources for low-income individuals if homeless individuals were not specifically mentioned as a type of beneficiary.</p>
+				<p><span class='superscript'>4</span> As an example, we included a program managed by the Department of Health and Human Services called <i>Grants for New and Expanded Services under the Health Center Program</i>, which provides funding for expanded and sustained national investment in health centers, even people experiencing homelessness were one type of beneficiary listed, along with migrant workers, public housing residents, and others. We did not include programs intended to address poverty or that provide resources for low-income individuals if homeless individuals were not specifically mentioned as a type of beneficiary.</p>
 				<p><span class='superscript'>5</span> Dawsey, Josh. <a href='https://www.wsj.com/articles/nycs-homeless-spending-surges-to-1-6-billion-1479676408' target='_blank'>'NYC's Homeless Spending Surges to $1.6 Billion.' </a><i>The Wall Street Journal.</i></p>
 				<p><span class='superscript'>6</span> Knight, Heather. <a href='http://www.sfchronicle.com/aboutsfgate/article/Despite-money-and-work-homelessness-in-SF-as-bad-11242946.php' target='_blank'>'Despite money and effort, homelessness in SF as bad as ever.'</a>.</p>
 				<p><span class='superscript'>7</span> Federal, state, and local fiscal years do not always align to the same time frame; the purpose here is to make a broad comparison. </p>
 				<p><span class='superscript'>8</span> Walch, Tad. <a href='https://www.deseretnews.com/article/865677276/Over-a-decade-LDS-Church-has-given-42-million-to-homeless-relief-in-Salt-Lake.html' target='_blank'>'Over a decade, LDS Church has given $42 million to homeless relief in Salt Lake.'</a></p>"
-%}
+				%}
 
-<section id="one" class="viz-section center-text">
-	<div class="viz-bkgd">
-		{% include viz-title.html
-			title="Federal Spending on Homelessness by Region"
-			subtext="Federal grant awards by Continuum of Care Area"
-			identifier="panel2InstructionsModal"
-		%}
-		{% include viz-modal.html
-			identifier="panel2InstructionsModal"
-			title="Instructions"
-			body="
-				<b>Map</b>
-				<ul>
-					<li>Double click to zoom into a region</li>
-					<li>Double click that same region to zoom out</li>
-					<li>While zoomed in, double clicking a different region will re-center the map</li>
-					<li>To select a different CoC area and update the charts, single-click a different region</li>
-				</ul>
-				<br />
-				<b>Bar Charts</b>
-				<ul>
-					<li>Single-click the bars on the charts to visit a website describing each program in depth</li>
-				<ul>"
-		%}
-		<div class="mask">
-			{% include action-buttons.html %}
-			<div class="viz-container homeless-analysis" style="background-color: #E2DFEC">
-				<div class="flex-container">
-					<div class="panel2_container" id="container2_1"></div>
-					<div class="panel2_container" id="container2_2"></div>
-					<div class="panel2_container">
+				<section id="one" class="viz-section center-text">
+				  <div class="viz-bkgd">
+				    {% include viz-title.html
+				    title="Federal Spending on Homelessness by Region"
+				    subtext="Federal grant awards by Continuum of Care Area"
+				    identifier="panel2InstructionsModal"
+				    %}
+				    {% include viz-modal.html
+				    identifier="panel2InstructionsModal"
+				    title="Instructions"
+				    body="
+				    <b>Map</b>
+				    <ul>
+				      <li>Double click to zoom into a region.</li>
+				      <li>Double click that same region to zoom out.</li>
+				      <li>While zoomed in, double clicking a different region will re-center the map on that region.</li>
+				      <li>To select a different CoC area and update the charts, single-click a different region.</li>
+				    </ul>
+				    <br />
+				    <b>Bar Charts</b>
+				    <ul>
+				      <li>Single-click the bars on the charts to visit a website describing each listed program in depth</li>
+				      <ul>"
+					%}
+					<div class="mask">
+					  {% include action-buttons.html %}
+					  <div class="viz-container homeless-analysis" style="background-color: #E2DFEC">
+					    <div class="flex-container">
+					      <div class="panel2_container" id="container2_1"></div>
+					      <div class="panel2_container" id="container2_2"></div>
+					      <div class="panel2_container">
 						<div id="container2_3"></div>
 						<!--<button class="button" id="myBtnContact">CoC Contact</button>-->
 						<div id="myModalContact" class="modal">
-							<div class="modal-content" id="modalContact"  style="width:30%">
-								<div class="modal-blue-bar"></div>
-								<div class="modal-body"  style="max-width:100%; padding: 0 0 0 0">
-									<span onclick="document.getElementById('myModalContact').style.display='none'" class="closeContact">&times;</span>
-									<div class="modal-body-content" id="CoCcontact"></div>
-								</div>
-							</div>
+						  <div class="modal-content" id="modalContact"  style="width:30%">
+						    <div class="modal-blue-bar"></div>
+						    <div class="modal-body"  style="max-width:100%; padding: 0 0 0 0">
+						      <span onclick="document.getElementById('myModalContact').style.display='none'" class="closeContact">&times;</span>
+						      <div class="modal-body-content" id="CoCcontact"></div>
+						    </div>
+						  </div>
 						</div>
+					      </div>
+					      <div class="panel2_container" id="container2_4"></div>
+					    </div>
+					  </div>
 					</div>
-					<div class="panel2_container" id="container2_4"></div>
-				</div>
-			</div>
-		</div>
-		</div>
+				  </div>
 	</div>
-</section>
+				</section>
 
-<script>
-	var modal = document.getElementById('myModalContact');
-	document.getElementById("myBtnContact").onclick = function() {
-		modal.style.display = "block";
-	}
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-</script>
+				<script>
+				 var modal = document.getElementById('myModalContact');
+				 document.getElementById("myBtnContact").onclick = function() {
+				   modal.style.display = "block";
+				 }
+				 window.onclick = function(event) {
+				   if (event.target == modal) {
+				     modal.style.display = "none";
+				   }
+				 }
+				</script>
 
-{% include viz-header-info.html
-	title="Which Continuum of Care areas are similar to each other?"
-	body="While the section above allows you to compare Continuum of Care areas that are neighbors geographically, we wanted to explore if Continuum of Care areas were similar along characteristics other than geography. It may be helpful for those working in the field to know what types of funding their neighbors are receiving and to know what regions are similar to their own regardless of location. Using an unsupervised machine learning algorithm, we clustered Continuum of Care areas based on a variety of attributes, such as population, income, and the prevalence of mental illness."
-%}
+				{% include viz-header-info.html
+				title="Which Continuum of Care areas are similar to each other?"
+				body="While the previous section allows you to compare Continuum of Care areas that are neighbors geographically, we wanted to explore if Continuum of Care areas were similar along characteristics other than geography. It may be helpful for those working in the field to know what types of funding their neighbors receive and to know what regions are similar to their own, regardless of location. Using an unsupervised machine-learning algorithm, we clustered Continuum of Care areas based on a variety of attributes, such as population, income, and the prevalence of mental illness."
+				%}
 
-<section id="one" class="viz-section center-text">
-	<div class="viz-bkgd">
-		{% include viz-title.html
-			title="Clustering Administrative Regions"
-			subtext="Using multiple data sources to discover similarities between regions"
-			identifier="panel3InstructionsModal"
-		%}
-		{% include viz-modal.html
-			identifier="panel3InstructionsModal"
-			title="Instructions"
-			body="
-			<img src='/images/homelessness/region_guide_full.jpg' class='homeless-analysis-picture'>
-			<p>
-				There are three parts to explore: the top tree map shows all Continuum of Care areas and the clusters
-				to which they belong. The right panel will show all Continuum of Care areas that belong to the selected cluster.
-				The infographic below offers a quick snapshot of the cluster's attributes. For example, one Continuum of Care
-				area in a cluster may have a median rent of $1,800 (the maximum for that cluster) while another Continuum of Care
-				area has a median rent of $900 (the minimum for that cluster).</p>
-				<ul>
-					<li>The top tree map updates the panel on the right and the infographic below.</li>
-					<li>To change the right-hand panel or infographic, click a cluster in the top tree map.</li>
-					<li>To zoom in and see more Continuum of Care areas within a cluster, click any cluster in the top tree map.</li>
-					<li>Click any Continuum of Care area in the right panel to expand its information.</li>
-				</ul>"
-		%}
-		<div class="mask">
-			{% include action-buttons.html %}
-			<div class="viz-container homeless-analysis" style = "height:90%; padding: 15px 15px 15px 15px;">
-				<div id="panel_3b">
-					<div id="tree"></div>
-					<div id="tab_info">
-						<div class="tab" id="tab"></div>
-					</div>
+				<section id="one" class="viz-section center-text">
+				  <div class="viz-bkgd">
+				    {% include viz-title.html
+				    title="Clustering Administrative Regions"
+				    subtext="Using multiple data sources to discover similarities between regions"
+				    identifier="panel3InstructionsModal"
+				    %}
+				    {% include viz-modal.html
+				    identifier="panel3InstructionsModal"
+				    title="Instructions"
+				    body="
+				    <img src='/images/homelessness/region_guide_full.jpg' class='homeless-analysis-picture'>
+				    <p>
+				      There are three parts to explore: the top tree map shows all Continuum of Care areas and the clusters
+				      to which they belong. The right panel will show all Continuum of Care areas that belong to the selected cluster.
+				      The infographic below offers a quick snapshot of the cluster's attributes. For example, one Continuum of Care
+				      area in a cluster may have a median rent of $1,800 (the maximum for that cluster) while another Continuum of Care
+				      area has a median rent of $900 (the minimum for that cluster).</p>
+				    <ul>
+				      <li>The top chart updates the data points and the infographic below.</li>
+				      <li>To view a different Continuum of Care area, click a cluster in the top chart.</li>
+				      <li>To see more areas within a cluster, click a Continuum of Care area in the gray panel.</li>
+				    </ul>"
+				    %}
+				    <div class="mask">
+				      {% include action-buttons.html %}
+				      <div class="viz-container homeless-analysis" style = "height:90%; padding: 15px 15px 15px 15px;">
+					<div id="panel_3b">
+					  <div id="tree"></div>
+					  <div id="tab_info">
+					    <div class="tab" id="tab"></div>
+					  </div>
 					<div class="cocTab" id="cocTab"></div>
 					<div id="infographic"></div>
 				</div>
