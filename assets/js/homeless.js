@@ -1490,27 +1490,21 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
 
                                             function makeInfographic(d) {
                                                 d3.select('.homeless-fact-cluster img').remove();
-                                                const clusterId = d;
-                                                const svgPath = "/images/homelessness/clusters/Cluster-" + clusterId;
+                                                const svgPath = "/images/homelessness/clusters/Cluster-" + d;
+                                                const selectedInforgraphicItem = inforgraphicData.filter(item => item.cluster_final === d);
 
-                                                d3.select('#homelessness-cluster-bed')
-                                                    .append('img')
-                                                    .attr('src', svgPath + '/Bed.svg');
+                                                d3.select('#cluster-beds').append('img').attr('src', svgPath + '/Bed.svg');
+                                                d3.select('#cluster-circles').append('img').attr('src', svgPath + '/Circles.svg');
+                                                d3.select('#cluster-rent').append('img').attr('src', svgPath + '/Rent.svg');
+                                                d3.select('#cluster-people').append('img').attr('src', svgPath + '/People.svg');
+                                                d3.select('#cluster-population').append('img').attr('src', svgPath + '/Total-Population.svg');
+                                                d3.select('#cluster-land-area').append('img').attr('src', svgPath + '/Land-Area.svg');
+                                                d3.select('#cluster-income').append('img').attr('src', svgPath + '/Income.svg');
+                                                d3.select('#cluster-key').append('img').attr('src', svgPath + '/Key.svg');
+                                                d3.select('#cluster-rent-as-income').append('img').attr('src', svgPath + '/rent-as-income.svg');
 
-                                                d3.select('#homelessness-cluster-circles')
-                                                    .append('img')
-                                                    .attr('src', svgPath + '/Circles.svg');
-
-                                                d3.select('#homelessness-cluster-rent')
-                                                    .append('img')
-                                                    .attr('src', svgPath + '/Rent.svg');
-
-                                                d3.select('#homelessness-cluster-people')
-                                                    .append('img')
-                                                    .attr('src', svgPath + '/People.svg');
-
-
-
+                                                d3.select('#cluster-beds-count').text(selectedInforgraphicItem[0].total_beds);
+                                                d3.select('#cluster-people-count').text(selectedInforgraphicItem[0].total_homeless);
                                             }
 
                                             function makeCoCTableTitle(d) {
