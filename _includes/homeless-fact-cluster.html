@@ -12,8 +12,8 @@
     }
 
     .col-7 {
-        width: 57.8%;
-        margin-right: 0.5rem;
+        width: 57%;  //57.8
+        margin-right: 1rem;
     }
 
     .col-6 {
@@ -24,11 +24,88 @@
 
     .col-5 {
         margin-left: 0.5rem;
-        width: 40.8%;
+        width: 41.67%; //40.8
     }
 
     .homeless-fact-cluster {
         padding: 1rem 2rem 1rem 1rem;
+    }
+
+    .homeless-fact-cluster .title {
+        font-family: "Source Sans Pro";
+        font-weight: bold;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .homeless-fact-cluster .subtitle {
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .homeless-fact-cluster .header {
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-bottom: 0;
+        height: 45px;
+    }
+
+    .homeless-fact-cluster .desc {
+        font-family: "Source Sans Pro";
+        font-size: 1rem;
+        clear: both;
+    }
+
+    .homeless-fact-cluster .highlight-text {
+        font-family: "Source Sans Pro";
+        font-weight: 300;
+        font-size: 3rem;
+    }
+
+    #cluster-people .highlight-text {
+        margin-bottom: 2rem;
+    }
+
+    #cluster-people .highlight-text#cluster-people-count {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #cluster-people .highlight-text.people-text {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .homeless-fact-cluster img {
+        width: 80%;
+    }
+
+    #cluster-circles img, #cluster-people img {
+        width: 90% !important;
+    }
+
+    #cluster-beds img {
+        width: 40% !important;
+        margin-left: 30px;
+    }
+
+    #cluster-beds .highlight-text {
+        float: left;
+    }
+
+    #cluster-key {
+        margin-top: 7rem;
+    }
+
+    #cluster-key .header {
+        margin-bottom: 1rem;
+    }
+
+    #cluster-population {
+        margin-top: 1.8rem;
     }
 
     @media (max-width: 400px) {
@@ -42,54 +119,54 @@
     <div class="flex-grid-row">
         <div class="col-7">
             <div id="cluster-circles">
-                <p>Facts about Cluster 1</p>
-                <p>Federal Spending on Homelessness</p>
+                <h2 class="title">Facts about Cluster <span id="cluster-number"></span></h2>
+                <p class="subtitle">Federal Spending on Homelessness</p>
             </div>
             <div class="flex-grid-row">
                 <div class="col-6">
                     <div id="cluster-people">
-                        <p>Number of People Experiencing Homelessness</p>
-                        <p>People experiencing homelessness on a single night in January in this cluster</p>
-                        <p id="cluster-people-count"></p>
-                        <p>People</p>
+                        <p class="header">Number of People Experiencing Homelessness</p>
+                        <p class="desc">People experiencing homelessness on a single night in January in this cluster</p>
+                        <p class="highlight-text" id="cluster-people-count"></p>
+                        <p class="highlight-text people-text"> People</p>
+                    </div>
                 </div>
                 <div class="col-6">
                     <div id="cluster-density">
-                        <p>Population Density</p>
-                        <p>Number of people per square mile in this cluster</p>
+                        <p class="header">Population Density</p>
+                        <p class="desc">Number of people per square mile in this cluster</p>
                     </div>
                     <div id="cluster-population">
-                        <p>Total Population</p>
-                        <p>Total population in this cluster</p>
+                        <p class="header">Total Population</p>
+                        <p class="desc">Total population in this cluster</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-5">
-            <div id="cluster-key"></div>
+            <div id="cluster-key">
+                <p class="desc">KEY</p>
+            </div>
             <div id="cluster-income">
-                <p>Income</p>
-                <p>Range of 20th percentile incomes for areas within this cluster</p>
+                <p class="header">Income</p>
+                <p class="desc">Range of 20th percentile incomes for areas within this cluster</p>
             </div>
             <div id="cluster-rent">
-                <p>Rent</p>
-                <p>Range of median gross rents for areas within this cluster</p>
+                <p class="header">Rent</p>
+                <p class="desc">Range of median gross rents for areas within this cluster</p>
             </div>
             <div id="cluster-rent-as-income">
-                <p>Rent as Percent of Income</p>
-                <p>Range of 20th percentile incomes to annualized rents for areas: within this cluster</p>
+                <p class="header">Rent as Percent of Income</p>
+                <p class="desc">Range of 20th percentile incomes to annualized rents for areas: within this cluster</p>
             </div>
             <div id="cluster-land-area">
-                <p>Land Area</p>
-                <p>Range of land areas in square miles for areas within this cluster</p>
-            </div>
-            <div id="cluster-crime">
-                <p>Property Crime Rate</p>
-                <p>Range of property crime incidents per 100k people for areas within this cluster</p>
+                <p class="header">Land Area</p>
+                <p class="desc">Range of land areas in square miles for areas within this cluster</p>
             </div>
             <div id="cluster-beds">
-                <p><span id="cluster-beds-count"></span>Beds Available</p>
-                <p>Total sheltered and permanent beds available with this cluster</p>
+                <p class="header">Beds Available</p>
+                <p class="desc">Total sheltered and permanent beds available with this cluster</p>
+                <p class="highlight-text"><span id="cluster-beds-count"></span> Beds</p>
             </div>
         </div>
     </div>
