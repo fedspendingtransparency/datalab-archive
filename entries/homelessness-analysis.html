@@ -15,103 +15,95 @@ dlPageCss: homeless-analysis.css
 ---
 
 {% include viz-header-info.html
-	title="How individuals experiencing homelessness are counted"
-	body="People experiencing homelessness are counted once a year (in late January) by grantees who
-	receive funding from  the U.S Department of Housing and Urban Development's (HUD) Continuum of Care program. This program is the largest federal
-	program related to homelessness.<span class='superscript'>1</span> It requires grantees to collect reliable data on the total
-	number of people experiencing homelessness who reside in the grantee's geographic area.<span class='superscript'>2</span>"
-	identifier="panel1Modal"
+title="How individuals experiencing homelessness are counted"
+body="People experiencing homelessness are counted each January by grantees who receive funding from the U.S. Department of Housing and Urban Development’s (HUD) Continuum of Care program. This program is the largest federal program related to homelessness.<span class='superscript'>1</span> It requires grantees to collect reliable data on the total number of people experiencing homelessness who reside in the grantee's geographic area.<span class='superscript'>2</span>"
+identifier="panel1Modal"
 %}
 
 {% include viz-modal.html
-	identifier="panel1Modal"
-	title="How individuals experiencing homelessness are counted"
-	body="<p>
-				People experiencing homelessness are counted once a year (in late January) by grantees who
-				receive funding from the U.S Department of Housing and Urban Development's (HUD) Continuum of Care program. This program is the largest federal
-				program related to homelessness.<span class='superscript'>1</span> It requires grantees to collect reliable data on the total
-				number of people experiencing homelessness who reside in the grantee's geographic area.<span class='superscript'>2</span>
-			</p>
-		  <p>
-				State and local governments create the Continuum of Care regions. These regional divisions how each community
-				organizes itself and applies for funding from HUD's Continuum of Care program. HUD allows Continuum of
-				Care grantees to use multiple approaches to complete their count, if necessary. Grantees may use a
-				census approach, a sampling approach, or a combination of the methods.<span class='superscript'>3</span>
-		  </p>
-			<hr>
-			<p><span class='superscript'>1</span> <a href='https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf' target='_blank'>United States Interagency Council on Homelessness.</a></p>
-			<p><span class='superscript'>2</span> <i>'The Point-in-Time (PIT) count is a count of sheltered and unsheltered homeless persons on a single night in January. HUD requires that Continuums of Care conduct an annual count of homeless persons who are sheltered in emergency shelter, transitional housing, and Safe Havens on a single night. Continuums of Care also must conduct a count of unsheltered homeless persons every other year (odd numbered years). Each count is planned, coordinated, and carried out locally.'</i></span><br />- <a href='https://www.hudexchange.info/programs/hdx/guides/pit-hic/#general-pit-guides-and-tools' target='_blank'>Department of Housing and Urban Development.</a></p>
-			<p><span class='superscript'>3</span> <a href='https://www.hudexchange.info/resources/documents/PIT-Count-Methodology-Guide.pdf' target='_blank'>Department of Housing and Urban Development.</a></p>"
+identifier="panel1Modal"
+title="How individuals experiencing homelessness are counted"
+body="<p>
+  People experiencing homelessness are counted once a year (in late January) by grantees who
+  receive funding from the U.S Department of Housing and Urban Development's (HUD) Continuum of Care program. This program is the largest federal
+  program related to homelessness.<span class='superscript'>1</span> It requires grantees to collect reliable data on the total
+  number of people experiencing homelessness who reside in the grantee's geographic area.<span class='superscript'>2</span>
+</p>
+<p>
+  State and local governments create the Continuum of Care regions. These regional divisions reflect how each community organizes itself and applies for funding from HUD's Continuum of Care program. HUD allows Continuum of Care grantees to use multiple approaches to complete their count, if necessary. Grantees may use a census approach, a sampling approach, or a combination of the methods.<span class='superscript>3</span>
+																																																		     </p>
+																																																		     <hr>
+																																																		     <p><span class='superscript'>1</span> <a href='https://www.usich.gov/resources/uploads/asset_library/2016_Budget_Fact_Sheet_on_Homelessness_Assistance.pdf' target='_blank'>United States Interagency Council on Homelessness.</a></p>
+<p><span class='superscript'>2</span> <i>'The Point-in-Time (PIT) count is a count of sheltered and unsheltered homeless persons on a single night in January. HUD requires that Continuums of Care conduct an annual count of homeless persons who are sheltered in emergency shelter, transitional housing, and Safe Havens on a single night. Continuums of Care also must conduct a count of unsheltered homeless persons every other year (odd numbered years). Each count is planned, coordinated, and carried out locally.'</i></span><br />- <a href='https://www.hudexchange.info/programs/hdx/guides/pit-hic/#general-pit-guides-and-tools' target='_blank'>Department of Housing and Urban Development.</a></p>
+<p><span class='superscript'>3</span> <a href='https://www.hudexchange.info/resources/documents/PIT-Count-Methodology-Guide.pdf' target='_blank'>Department of Housing and Urban Development.</a></p>"
 %}
 
 <section id="one" class="viz-section center-text">
-	<div class="viz-bkgd">
-		{% include viz-title.html
-		   title="Homeless Population by Region"
-		   subtext="HUD Point-in-time Count by Continuum of Care Area"
-		   identifier="panel1InstructionsModal"
-		%}
-		{% include viz-modal.html
-			identifier="panel1InstructionsModal"
-			title="Instructions"
-			body="<ul>
-					<li>Double click to zoom into a region.</li>
-					<li>Double click that same region to zoom out or click the reset button.</li>
-					<li>While zoomed in, double clicking a different region will re-center the map.</li>
-					<li>To view this data in table format, click the table icon in the upper-left hand corner of the visualization.</li>
-					<li>To return to map view, click on the map icon in the upper-left hand corner of the visualization.</li>
+  <div class="viz-bkgd">
+    {% include viz-title.html
+    title="Homeless Population by Region"
+    subtext="HUD Point-in-time Count by Continuum of Care Area"
+    identifier="panel1InstructionsModal"
+    %}
+    {% include viz-modal.html
+    identifier="panel1InstructionsModal"
+    title="Instructions"
+    body="<ul>
+    <li>Double click to zoom into a region.</li>
+    <li>Double click that same region to zoom out or click the reset button.</li>
+    <li>While zoomed in, double clicking a different region will re-center the map.</li>
+    <li>To view this data in table format, click the table icon in the upper-left hand corner of the visualization.</li>
+    <li>To return to map view, click on the map icon in the upper-left hand corner of the visualization.</li>
 
-					<br>
-					* White areas with no hover-over represent areas of the country that are not represented by a Continuum of Care area.
-					<br>
-					** This map reflects the most up-to-date HUD map available; however, some Continuum of Care areas merged together in 2018 after this map was created.
+    <br>
+    * White areas with no hover-over represent areas of the country that are not represented by a Continuum of Care area.
+    <br>
+    ** This map reflects the most up-to-date HUD map available; however, some Continuum of Care areas merged together in 2018 after this map was created.
 
-				  </ul>"
-		%}
-		<div class="mask">
-			{% include homeless-p1-buttons.html %}
-			<div class="viz-container homeless-analysis">
-				<div id="container" height="100%" width="100%"></div>
-			</div>
-			<div class="homeless-panel-one-info">
-				<p>* White areas with no hover-over represent areas of the country that are not represented by a Continuum of Care area.</p>
-				<p>** This map reflects the most up to date HUD map available; however, some Continuum of Care areas have merged together in 2017 since this map was updated.</p>
-				<p>See our section on How We Conducted This Analysis for more information.</p>
-		</div>
-	</div>
+    </ul>"
+    %}
+    <div class="mask">
+      {% include homeless-p1-buttons.html %}
+      <div class="viz-container homeless-analysis">
+	<div id="container" height="100%" width="100%"></div>
+      </div>
+      <div class="homeless-panel-one-info">
+	<p>* White areas with no hover-over represent areas of the country that are not represented by a Continuum of Care area.</p>
+	<p>** This map reflects the most up to date HUD map available; however, some Continuum of Care areas have merged together in 2017 since this map was updated.</p>
+	<p>See our section on How We Conducted This Analysis for more information.</p>
+      </div>
+    </div>
 </section>
 
 {% include viz-header-info.html
-	title="Federal programs that address homelessness"
-	body="The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, although multiple federal agencies manage programs that provide services including education, employment, housing resources, and more."
-	identifier="panel2Modal"
+title="Federal programs that address homelessness"
+body="The Department of Housing and Urban Development plays a lead role in federal efforts to address homelessness, although multiple federal agencies manage programs that provide services including education, employment, housing resources, and more."
+identifier="panel2Modal"
 %}
 
 {% include viz-modal.html
-	identifier="panel2Modal"
-	title="Federal programs that address homelessness"
-	body="<p>The Department of Housing and Urban Development plays a lead role in federal efforts to
-					address homelessness, although multiple federal agencies manage programs that provide
-					services including education, employment, housing resources, and more.</p>
-        <p>Our analysis identified 33 federal programs that explicitly flagged homeless individuals
-					as beneficiaries. These included programs that named homeless individuals as primary
-					targets of services or as one of the program's target recipient groups.<span class='superscript'>4</span> We found that
-					programs targeting homelessness focus either on all individuals experiencing homelessness,
-					or on a subset, such as veterans or youth. These programs provide various types of assistance,
-					which we divided into six categories: housing, food, education, employment, health, and support
-					services.</p>
-			  <p>Federal funding is just one piece of the puzzle - states, municipalities, and other organizations
-					play a large role in providing funds to address homelessness. While we did not conduct a comprehensive
-					analysis of the relationship between federal, state, local, and private funding sources for programs that
-					alleviate homelessness across the country, numerous examples show that federal funding works as part of a
-					larger network of support.</p>
-			  <p>For example, the city of New York spent $3.2 billion on homelessness programs in 2019,<span class='superscript'>5</span> compared with
-					about $134 million from federal programs (including those where homeless individuals are one of several
-					beneficiaries).</p>
-			  <p>The city of San Francisco expects to spend $305 million on similar programs in 2019,<span class='superscript'>6</span> compared to the $XX43 million they recieved in federal funding.
-					they received in federal funding.<span class='superscript'>7</span> </p>
-			  <p>And, to cite an example of private funding, the Church of Latter Day Saints has donated $42 million between 2007 and 2017 to build housing in Salt Lake City for people experiencing chronic homelessness.<span class='superscript'>8</span></p>
+identifier="panel2Modal"
+title="Federal programs that address homelessness"
+body="<p>The Department of Housing and Urban Development plays a lead role in federal efforts to
+  address homelessness, although multiple federal agencies manage programs that provide
+  services including education, employment, housing resources, and more.</p>
+<p>
+  Our analysis identified 33 federal programs that explicitly flag homeless individuals as beneficiaries. These include programs that name homeless individuals as primary targets of services or as one of the program's target recipient groups.<span class='superscript'>4</span> We found that programs targeting homelessness focus either on all individuals experiencing homelessness, or on a subset, such as veterans or youth. These programs provide various types of assistance, which we divided into six categories: housing, food, education, employment, health, and support services.
+</p>
+<p>
+  Federal funding is just one piece of the puzzle - states, municipalities, and other organizations play a large role in providing funds to address homelessness. While we did not conduct a comprehensive analysis of the relationship between federal, state, local, and private funding sources for programs that alleviate homelessness across the country, numerous examples show federal funding works as part of a larger network of support.
+</p>
+<p>
+  For example, the city of New York spent $3.2 billion on homelessness programs in 2019,<span class='superscript'>5</span> compared with about $134 million from federal programs (including those where homeless individuals are one of several beneficiaries).
+</p>
+
+<p>The city of San Francisco expects to spend $305 million on similar programs in 2019,<span class='superscript'>6</span> compared to the $XX43 million they recieved in federal funding.
+  they received in federal funding.<span class='superscript'>7</span> </p>
+
+<p>And, to cite an example of private funding, the Church of Latter Day Saints has donated $42 million between 2007 and 2017 to build housing in Salt Lake City for people experiencing chronic homelessness.<span class='superscript'>8</span>
+</p>
 				<hr>
+
 				<p><span class='superscript'>4</span> As an example, we included a program managed by the Department of Health and Human Services called <i>Grants for New and Expanded Services under the Health Center Program</i>, which provides funding for expanded and sustained national investment in health centers, even people experiencing homelessness were one type of beneficiary listed, along with migrant workers, public housing residents, and others. We did not include programs intended to address poverty or that provide resources for low-income individuals if homeless individuals were not specifically mentioned as a type of beneficiary.</p>
 				<p><span class='superscript'>5</span> Dawsey, Josh. <a href='https://www.wsj.com/articles/nycs-homeless-spending-surges-to-1-6-billion-1479676408' target='_blank'>'NYC's Homeless Spending Surges to $1.6 Billion.' </a><i>The Wall Street Journal.</i></p>
 				<p><span class='superscript'>6</span> Knight, Heather. <a href='http://www.sfchronicle.com/aboutsfgate/article/Despite-money-and-work-homelessness-in-SF-as-bad-11242946.php' target='_blank'>'Despite money and effort, homelessness in SF as bad as ever.'</a>.</p>
@@ -132,7 +124,7 @@ dlPageCss: homeless-analysis.css
 				    body="
 				    <b>Map</b>
 				    <ul>
-				      <li>Double click to zoom into a region.</li>
+				      <li>Double click the map to zoom into a region.</li>
 				      <li>Double click that same region to zoom out.</li>
 				      <li>While zoomed in, double clicking a different region will re-center the map on that region.</li>
 				      <li>To select a different CoC area and update the charts, single-click a different region.</li>
@@ -140,7 +132,7 @@ dlPageCss: homeless-analysis.css
 				    <br />
 				    <b>Bar Charts</b>
 				    <ul>
-				      <li>Single-click the bars on the charts to visit a website describing each listed program in depth</li>
+				      <li>Single-click the bars on the charts to visit a website describing each listed program in depth.</li>
 				      <ul>"
 					%}
 					<div class="mask">
