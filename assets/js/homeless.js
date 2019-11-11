@@ -1394,6 +1394,8 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                             const h = 340;
                             const color = d3.scale.ordinal().range(["#E8751A", "#280C60", "#789E25", "#365608", "#4D4D8C", "#5E5E96",
                                 "#2F1868", "#372C7A", "#E55C00", "#587C13"]);
+                            const clusterColors = ["#E8751A","#280C60","#365608", "#2F1868","#372C7A", "#4D4D8C", "#587C13", "#5E5E96", "#789E25","#E55C01"];
+
                             let root;
 
                             const treemap = d3.layout.treemap()
@@ -1464,10 +1466,11 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                                                 d3.select('#cluster-rent-as-income').append('img').attr('src', svgPath + '/Rent-As-Income.svg').attr('alt', clusterAltText[0].rent_as_income);
                                                 d3.select('#cluster-number').text(d);d3.select('#cluster-beds-count').text(OtherformatNumber(selectedInforgraphicItem[0].total_beds));
                                                 d3.select('#cluster-people-count').text(OtherformatNumber(selectedInforgraphicItem[0].total_homeless));
+                                                d3.select('#cluster-circles h2').style('color', clusterColors[d - 1]);
                                             }
 
                                             function makeCoCTableTitle(d) {
-                                                const textColor = color(d.cluster_final);
+                                                const textColor = clusterColors[d.cluster_final - 1];
                                                 return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster_final}: </p>` +
                                                     `<p class="cocTabTitleCity">${d.coc_name}</p>`;
                                             }
@@ -1604,7 +1607,7 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                                                 .attr("z-index", "99")
                                                 .attr("width", (d) => d.dx - 1)
                                                 .attr("height", (d) => d.dy - 1)
-                                                .style("fill", (d) => color(d.group));
+                                                .style("fill", (d) => clusterColors[d.group - 1]);
 
                                             cell.append("svg:text")
                                                 .attr("x", (d) => d.dx / 2)
