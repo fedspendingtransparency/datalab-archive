@@ -154,7 +154,6 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
 
                         barChrt = barChrt.sort((x, y) => d3.descending(x.fed_funding, y.fed_funding));
 
-                        // **************************************************************
                         function barClick(d) {
                             window.Analytics.event({
                                 category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
@@ -652,60 +651,25 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                         function p2GetColor(d) {
                             for (let i = 0; i < tableData.length; i++) {
                                 if (d.properties.coc_number === tableData[i].coc_number) {
-                                    if (tableData[i].amount <= 500000) {
-                                        return ('#BEF399');
-                                    }
-                                    else if (tableData[i].amount <= 1500000) {
-                                        return ('#B0EC9A');
-                                    }
-                                    else if (tableData[i].amount <= 2500000) {
-                                        return ('#A3E59B');
-                                    }
-                                    else if (tableData[i].amount <= 5000000) {
-                                        return ('#96DD9B');
-                                    }
-                                    else if (tableData[i].amount <= 7500000) {
-                                        return ('#8AD59C');
-                                    }
-                                    else if (tableData[i].amount <= 10000000) {
-                                        return ('#80CE9C');
-                                    }
-                                    else if (tableData[i].amount <= 20000000) {
-                                        return ('#76C69C');
-                                    }
-                                    else if (tableData[i].amount <= 30000000) {
-                                        return ('#6DBD9B');
-                                    }
-                                    else if (tableData[i].amount <= 40000000) {
-                                        return ('#66B59A');
-                                    }
-                                    else if (tableData[i].amount <= 50000000) {
-                                        return ('#5FAD98');
-                                    }
-                                    else if (tableData[i].amount <= 60000000) {
-                                        return ('#5AA496');
-                                    }
-                                    else if (tableData[i].amount <= 70000000) {
-                                        return ('#569C93');
-                                    }
-                                    else if (tableData[i].amount <= 80000000) {
-                                        return ('#529490');
-                                    }
-                                    else if (tableData[i].amount <= 90000000) {
-                                        return ('#508B8C');
-                                    }
-                                    else if (tableData[i].amount <= 100000000) {
-                                        return ('#4E8387');
-                                    }
-                                    else if (tableData[i].amount <= 150000000) {
-                                        return ('#465261');
-                                    }
-                                    else if (tableData[i].amount <= 200000000) {
-                                        return ('#3E3C4A');
-                                    }
+                                    if (tableData[i].amount <= 500000) { return ('#BEF399'); }
+                                    else if (tableData[i].amount <= 1500000) { return ('#B0EC9A'); }
+                                    else if (tableData[i].amount <= 2500000) { return ('#A3E59B'); }
+                                    else if (tableData[i].amount <= 5000000) { return ('#96DD9B'); }
+                                    else if (tableData[i].amount <= 7500000) { return ('#8AD59C'); }
+                                    else if (tableData[i].amount <= 10000000) { return ('#80CE9C'); }
+                                    else if (tableData[i].amount <= 20000000) { return ('#76C69C'); }
+                                    else if (tableData[i].amount <= 30000000) { return ('#6DBD9B'); }
+                                    else if (tableData[i].amount <= 40000000) { return ('#66B59A'); }
+                                    else if (tableData[i].amount <= 50000000) { return ('#5FAD98'); }
+                                    else if (tableData[i].amount <= 60000000) { return ('#5AA496'); }
+                                    else if (tableData[i].amount <= 70000000) { return ('#569C93'); }
+                                    else if (tableData[i].amount <= 80000000) { return ('#529490'); }
+                                    else if (tableData[i].amount <= 90000000) { return ('#508B8C'); }
+                                    else if (tableData[i].amount <= 100000000) { return ('#4E8387'); }
+                                    else if (tableData[i].amount <= 150000000) { return ('#465261'); }
+                                    else if (tableData[i].amount <= 200000000) { return ('#3E3C4A'); }
                                 }
                             }
-
                             return ('#291C24');
                         }
 
@@ -1344,9 +1308,6 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                             p21MapSvg.call(p2Tip);
 
                             // // Initialize Panel 2 info
-                            // for (let y = 0; y < us.features.length; y++) {
-                            //     if (us.features[y].properties.coc_number === 'CA-600') {
-                            //         const la = us.features[y];
                             const xyz = map2Centered;
 
                             BarChart(xyz);
@@ -1397,7 +1358,6 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                         function mapIconFunction() {
                             d3.selectAll('#viz_container').remove();
                             d3.selectAll('#counties_mini').remove();
-
                             GenMap();
                             GenPanelTwo();
                         }
@@ -1405,7 +1365,6 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                         function tableIconFunction() {
                             d3.selectAll('#viz_container').remove();
                             d3.selectAll('#counties_mini').remove();
-
                             GenTable();
                             GenPanelTwo();
                         }
@@ -1491,15 +1450,18 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                                             function makeInfographic(d) {
                                                 d3.selectAll('.homeless-fact-cluster img').remove();
                                                 const svgPath = "/images/homelessness/clusters/Cluster-" + d;
+                                                const clusterAltText = altText.filter(item => item.cluster.indexOf(d) > -1);
                                                 const selectedInforgraphicItem = inforgraphicData.filter(item => item.cluster_final === d);
-                                                d3.select('#cluster-beds').append('img').attr('src', svgPath + '/Bed.svg');d3.select('#cluster-circles').append('img').attr('src', svgPath + '/Circles.svg');d3.select('#cluster-rent').append('img').attr('src', svgPath + '/Rent.svg');
-                                                d3.select('#cluster-people').append('img').attr('src', svgPath + '/People.svg');
-                                                d3.select('#cluster-population').append('img').attr('src', svgPath + '/Total-Population.svg');
-                                                d3.select('#cluster-land-area').append('img').attr('src', svgPath + '/Land-Area.svg');
-                                                d3.select('#cluster-income').append('img').attr('src', svgPath + '/Income.svg');
-                                                d3.select('#cluster-key').append('img').attr('src', svgPath + '/Key.svg');
-                                                d3.select('#cluster-density').append('img').attr('src', svgPath + '/Density.svg');
-                                                d3.select('#cluster-rent-as-income').append('img').attr('src', svgPath + '/Rent-As-Income.svg');
+                                                d3.select('#cluster-beds').append('img').attr('src', svgPath + '/Bed.svg').attr('alt', clusterAltText[0].beds);
+                                                d3.select('#cluster-circles').append('img').attr('src', svgPath + '/Circles.svg').attr('alt', clusterAltText[0].funding);
+                                                d3.select('#cluster-rent').append('img').attr('src', svgPath + '/Rent.svg').attr('alt', clusterAltText[0].rent);
+                                                d3.select('#cluster-people').append('img').attr('src', svgPath + '/People.svg').attr('alt', clusterAltText[0].homelessness);
+                                                d3.select('#cluster-population').append('img').attr('src', svgPath + '/Total-Population.svg').attr('alt', clusterAltText[0].total_population);
+                                                d3.select('#cluster-land-area').append('img').attr('src', svgPath + '/Land-Area.svg').attr('alt', clusterAltText[0].land_area);
+                                                d3.select('#cluster-income').append('img').attr('src', svgPath + '/Income.svg').attr('alt', clusterAltText[0].income);
+                                                d3.select('#cluster-key').append('img').attr('src', svgPath + '/Key.svg').attr('alt', '');
+                                                d3.select('#cluster-density').append('img').attr('src', svgPath + '/Density.svg').attr('alt', clusterAltText[0].density);
+                                                d3.select('#cluster-rent-as-income').append('img').attr('src', svgPath + '/Rent-As-Income.svg').attr('alt', clusterAltText[0].rent_as_income);
                                                 d3.select('#cluster-number').text(d);d3.select('#cluster-beds-count').text(selectedInforgraphicItem[0].total_beds);d3.select('#cluster-people-count').text(selectedInforgraphicItem[0].total_homeless);
                                             }
 
@@ -1630,8 +1592,8 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                                                 .attr("transform", (d) => `translate(${d.x},${d.y})`)
                                                 .on("click", (d) => {
                                                     const group = d.group;
-                                                    makeInfographic(d.group);
                                                     const current = cluster.filter((dC) => (dC.cluster_final === group));
+                                                    makeInfographic(d.group);
                                                     CreateCoCTable(current[0]);
                                                     makeSelectionPanel(current);
                                                 });
@@ -1702,7 +1664,6 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                             d3.selectAll(".cocTabInfo").remove();
                             d3.selectAll(".cocTabFund").remove();
                             d3.selectAll(".cocTabTitle").remove();
-                            // d3.selectAll("").remove();
 
                             GenMap();
                             GenPanelTwo();
@@ -1717,3 +1678,4 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
         });
     });
 });
+
