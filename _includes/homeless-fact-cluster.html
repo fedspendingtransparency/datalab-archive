@@ -11,7 +11,7 @@
         justify-content: space-between;
     }
 
-    .col-7 {
+    .col-left {
         width: 57%;  //57.8
         margin-right: 1rem;
     }
@@ -22,7 +22,7 @@
         margin-right: 0.5rem;
     }
 
-    .col-5 {
+    .col-right {
         margin-left: 0.5rem;
         width: 41.67%; //40.8
     }
@@ -113,11 +113,30 @@
             display: block;
         }
     }
+
+    @media (max-width: 1200px) {
+        .col-left {
+            width: 100%;
+        }
+
+        .col-right {
+            width: 100%;
+        }
+
+        .col-6 {
+            width: 100%;
+        }
+        
+        .flex-grid-row {
+            flex-direction: column;
+        }
+
+    }
 </style>
 
 <div class="homeless-fact-cluster flex-grid">
     <div class="flex-grid-row">
-        <div class="col-7">
+        <div class="col-left">
             <div id="cluster-circles">
                 <h2 class="title">Facts about Cluster <span id="cluster-number"></span></h2>
                 <p class="subtitle">Federal Spending on Homelessness</p>
@@ -143,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-5">
+        <div class="col-right">
             <div id="cluster-key">
                 <p class="desc">KEY</p>
             </div>
