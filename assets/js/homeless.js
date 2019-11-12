@@ -28,7 +28,7 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
         d3.csv('/data-lab-data/2019CoCCFDAfunding_v3.csv', (barChrt) => {
             d3.csv('/data-lab-data/State_crosswalk.csv', (state) => {
                 d3.csv('/data-lab-data/cfda_acronyms.csv', (acr) => {
-                    d3.csv('/data-lab-data/panel_2_table_and_counts_v4.csv', (tableData) => {
+                    d3.csv('/data-lab-data/panel_2_table_and_counts_v5.csv', (tableData) => {
                         d3.select('#container2_1').append('div').attr('id', 'p2_1_title');
                         d3.select('#container2_1').append('div').attr('id', 'p2_1').style('top', '150px');
                         d3.select('#container2_2').append('div').attr('id', 'p2_2_legend_title');
