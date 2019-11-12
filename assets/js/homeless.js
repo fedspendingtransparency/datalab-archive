@@ -435,11 +435,11 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                 .attr('height', '30px')
                                 .attr('id', 'p2_4_cfda_legend');
 
-                            const cfdaColor = ['#324D5C', '#2A5DA8', '#F53855', '#E37B40', '#F0CA4D'];
+                            const cfdaColor = ['#324D5C', '#2A5DA8', '#F53855', '#E37B40', '#F0CA4D', '#06984E'];
 
-                            const cfdaLegendKeyValues = ['Housing', 'Education', 'Employment', 'Support Services', 'Health'];
+                            const cfdaLegendKeyValues = ['Housing', 'Education', 'Employment', 'Support Services', 'Health', 'Food'];
 
-                            for (let i = 0; i < 5; i++) {
+                            for (let i = 0; i < cfdaLegendKeyValues.length; i++) {
                                 const k = cfdaLegend22.append('div')
                                     .attr('id', 'p2_2_legend_key');
 
@@ -448,7 +448,7 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                     .style('position', 'relative')
                                     .append('svg')
                                     .attr('height', '40px')
-                                    .attr('width', '53px')
+                                    .attr('width', '40px')
                                     .append('circle')
                                     .attr('cx', 7)
                                     .attr('cy', 7)
@@ -538,6 +538,9 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                     }
                                     else if (db.category === 'Employment') {
                                         return '#F53855';
+                                    }
+                                    else if (db.category === 'Food') {
+                                        return '#06984E';
                                     }
                                     return '#000000';
                                 })
