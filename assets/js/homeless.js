@@ -23,12 +23,12 @@ const infoWidth = panel2Width - matrixWidth - margin.left - margin.right;
 const infoHeight = panel2Height / 3;
 
 
-d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
+d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
     d3.csv('/data-lab-data/2019statecfdafunding.csv', (cfdaState) => {
         d3.csv('/data-lab-data/2019CoCCFDAfunding_v3.csv', (barChrt) => {
             d3.csv('/data-lab-data/State_crosswalk.csv', (state) => {
                 d3.csv('/data-lab-data/cfda_acronyms.csv', (acr) => {
-                    d3.csv('/data-lab-data/panel_2_table_and_counts_v3.csv', (tableData) => {
+                    d3.csv('/data-lab-data/panel_2_table_and_counts_v4.csv', (tableData) => {
                         d3.select('#container2_1').append('div').attr('id', 'p2_1_title');
                         d3.select('#container2_1').append('div').attr('id', 'p2_1').style('top', '150px');
                         d3.select('#container2_2').append('div').attr('id', 'p2_2_legend_title');
@@ -1625,7 +1625,7 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
                                             });
 
                                             function initializeCoCTable() {
-                                                const initTable = cluster.filter((d) => (d.cluster_final === "1"));
+                                                const initTable = cluster.filter((d) => (d.cluster_final === "10"));
                                                 makeCoCTable(initTable[0]);
                                                 makeFundingTable(initTable[0]);
                                                 makeInfoTableCol1(initTable[0]);
@@ -1637,13 +1637,13 @@ d3.json('/data-lab-data/2019_CoC_Grantee_Areas.json', (us) => {
 
 
                                             function initializeCoCSelection() {
-                                                const initSelection = cluster.filter((d) => (d.cluster_final === "1"));
+                                                const initSelection = cluster.filter((d) => (d.cluster_final === "10"));
                                                 initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
                                                 makeSelectionPanel(initSelection);
                                             }
 
                                             function initializeInfographic() {
-                                                const initInfographic = cluster.filter((d) => (d.cluster_final === '1'));
+                                                const initInfographic = cluster.filter((d) => (d.cluster_final === '10'));
                                                 makeInfographic(initInfographic[0].cluster_final);
                                             }
 
