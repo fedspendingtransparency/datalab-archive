@@ -39,6 +39,10 @@
 
 }
 
+  #panel_coc {
+    color: #666;
+  }
+
   #panel_coc .header {
     text-align: left;
     float: left;
@@ -70,6 +74,7 @@
 
   #coc_info table, #coc_info div.item {
     font-weight: 300;
+    color: #666;
   }
 
   #coc_info h3 {
@@ -80,12 +85,14 @@
 
   #coc_info td.table-heading {
     font-weight: bold;
+    color: #555;
     text-align: left;
     padding-left: 30px;
   }
 
   #coc_info th.table-heading {
     font-weight: bold;
+    color: #555;
     text-align: center;
   }
 
