@@ -74,6 +74,8 @@
 
   #coc_info h3 {
     margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   #coc_info td.table-heading {
@@ -85,6 +87,33 @@
   #coc_info th.table-heading {
     font-weight: bold;
     text-align: center;
+  }
+
+  #coc_info {
+    table, table td, table th {
+      border: 1px solid #aaaaaa;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      margin-bottom: 15px;
+    }
+
+    td:first-child, th:first-child {
+      border-left: none;
+    }
+
+    td:last-child, th:last-child {
+      border-right: none;
+    }
+
+    th {
+      border-top: none !important;
+    }
+
   }
 
   #panel_coc {
@@ -466,15 +495,12 @@
   }
 
   #p2_3 > #panel_coc > #coc_info > table {
-    margin: 0 0 1.6em;
     background-color: inherit;
-    border: none;
     width: 100%;
   }
 
   #p2_3 > #panel_coc > #coc_info > table > tbody > tr {
     background: inherit;
-    border: none;
   }
 
   #cfda_info > table > tbody > td {
