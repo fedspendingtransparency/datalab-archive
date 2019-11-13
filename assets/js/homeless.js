@@ -1505,12 +1505,8 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                                     `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
                                                     `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
                                                     `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
-                                                    `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr></table>`;
-                                            }
-
-                                            function makeCoCTableInfoCol3(d) {
-                                                return '<table class="InfoTable">' +
-                                                    '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
+                                                    `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES:</th></tr>` +
                                                     `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr></table>`;
                                             }
 
@@ -1542,13 +1538,6 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                                     .html(makeCoCTableInfoCol2(d));
                                             }
 
-                                            function makeInfoTableCol3(d) {
-                                                d3.select(".cocTable")
-                                                    .append("div")
-                                                    .attr("class", "cocTabInfo")
-                                                    .html(makeCoCTableInfoCol3(d));
-                                            }
-
                                             function CreateCoCTable(d) {
                                                 d3.selectAll(".cocTabInfo").remove();
                                                 d3.selectAll(".cocTabFund").remove();
@@ -1558,7 +1547,6 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                                 makeFundingTable(d);
                                                 makeInfoTableCol1(d);
                                                 makeInfoTableCol2(d);
-                                                makeInfoTableCol3(d);
                                             }
 
                                             function makeCocTile(d) {
@@ -1634,7 +1622,6 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                                 makeFundingTable(initTable[0]);
                                                 makeInfoTableCol1(initTable[0]);
                                                 makeInfoTableCol2(initTable[0]);
-                                                makeInfoTableCol3(initTable[0]);
                                             }
 
                                             initializeCoCTable();

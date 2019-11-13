@@ -12,19 +12,23 @@
     }
 
     .col-main-left {
-        width: 57%;  //57.8
-        margin-right: 1rem;
+        width: 57%;
     }
 
     .col-half {
         width: 46%;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .col-right {
-        margin-left: 0.5rem;
-        /*width: 41.67%; //40.8*/
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .homeless-fact-cluster {
@@ -202,7 +206,9 @@
         }
 
         .flex-grid-row-2 {
+            flex: 1;
             flex-direction: row;
+            justify-content: space-evenly;
         }
 
         #cluster-beds img {
