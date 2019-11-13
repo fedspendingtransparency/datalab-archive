@@ -43,6 +43,7 @@
         font-weight: 600;
         font-size: 1.5rem;
         margin-bottom: 3rem;
+        color: #666;
     }
 
     .homeless-fact-cluster .header {
@@ -50,6 +51,7 @@
         font-weight: 600;
         font-size: 1.125rem;
         margin-bottom: 0;
+        color: #555;
     }
 
     .homeless-fact-cluster .desc {
@@ -57,12 +59,14 @@
         font-size: 1rem;
         clear: both;
         margin-top: 10px;
+        color: #555;
     }
 
     .homeless-fact-cluster .highlight-text {
         font-family: "Source Sans Pro";
         font-weight: 300;
         font-size: 3rem;
+        color: #666;
     }
 
     .cluster-people .highlight-text {
@@ -80,7 +84,7 @@
     }
 
     .cluster-people .header, .cluster-density .header {
-        height: 25px;
+        height: 30px;
     }
 
     .homeless-fact-cluster img {
@@ -91,16 +95,17 @@
         width: 90% !important;
     }
 
-    #cluster-beds img {
+    #cluster-beds #count-img-container {
         display: flex;
-        flex: 1;
-        width: 30% !important;
-        padding-left: 20px;
-
+        align-items: baseline;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
     }
 
-    #cluster-beds .highlight-text {
-        float: left;
+    #cluster-beds img {
+        display: flex;
+        width: 30% !important;
+        padding-right: 5%;
     }
 
     #cluster-key {
@@ -150,6 +155,13 @@
         #cluster-key {
             margin-top: 0;
         }
+    }
+
+    /* special query for beds */
+    @media (min-width: 950px) and (max-width: 1024px) {
+       #cluster-beds img {
+           width: 20% !important;
+       }
     }
 
     /* Tablet */
@@ -268,7 +280,7 @@
                 <div id="cluster-beds">
                     <p class="header">Beds Available</p>
                     <p class="desc">Total sheltered and permanent beds available with this cluster</p>
-                    <p class="highlight-text"><span id="cluster-beds-count"></span> beds</p>
+                    <div class="highlight-text" id="count-img-container"><span>&nbsp;beds</span><span id="cluster-beds-count"></span></div>
                 </div>
             </div>
         </div>

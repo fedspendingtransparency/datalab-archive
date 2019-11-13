@@ -217,7 +217,7 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                     else if (tableData[i].total_homeless <= 12000) {
                                         return ('#392870');
                                     }
-                                    else if (tableData[i].total_homeless <= 77000) {
+                                    else if (tableData[i].total_homeless <= 80000) {
                                         return ('#311C66');
                                     }
 
@@ -1455,7 +1455,7 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                                 const svgPath = "/images/homelessness/clusters/Cluster-" + d;
                                                 const clusterAltText = altText.filter(item => item.cluster.indexOf(d) > -1);
                                                 const selectedInforgraphicItem = inforgraphicData.filter(item => item.cluster_final === d);
-                                                d3.select('#cluster-beds').append('img').attr('src', svgPath + '/Bed.svg').attr('alt', clusterAltText[0].beds);
+                                                d3.select('#cluster-beds #count-img-container').append('img').attr('src', svgPath + '/Bed.svg').attr('alt', clusterAltText[0].beds);
                                                 d3.select('#cluster-circles').append('img').attr('src', svgPath + '/Circles.svg').attr('alt', clusterAltText[0].funding);
                                                 d3.select('#cluster-rent').append('img').attr('src', svgPath + '/Rent.svg').attr('alt', clusterAltText[0].rent);
                                                 d3.selectAll('.cluster-people').append('img').attr('src', svgPath + '/People.svg').attr('alt', clusterAltText[0].homelessness);
