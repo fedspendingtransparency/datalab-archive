@@ -39,7 +39,7 @@ category: read-more
       For example, the Homeless Veterans Reintegration Program provides services to homeless veterans looking for jobs, which we classified as employment related. We presented these programs to the U.S. Interagency Council on Homelessness, who recommended that we remove several programs where the preponderance of funds went to beneficiaries other than individuals experiencing homelessness.
     </p>
 
-    <h2>Identifying grants data and linking to continuum of care area.</h2>
+    <h2>Identifying grants data and linking to Continuum of Care area.</h2>
     <p>We used this dataset to identify all grant spending from USAspending.gov for the programs we determined to have a direct relation to homelessness. As part of our analysis, we identified three categories of grant awards in USAspending.gov data that are relevant to our work: </p>
     <ul>
       <li>Grant awards for a Continuum of Care area <i>(an administrative region recognized by HUD)</i> or were awarded to organizations within its geographic area;</li>
@@ -49,19 +49,19 @@ category: read-more
     <p>To create our visualization, we mapped funding amounts for the programs that fell within a Continuum of Care area using mapping files provided by HUD. The data used in this story was updated as of November 2019.</p>
 
     <h2>Linking additional data to Continuum of Care areas</h2>
-    <p><h3>Area and population:</h3> Most continuum of care areas are based on the geographic boundaries of one or more counties. Where that is true for counties, the data for counties in the Continuum of Care areas were added together to get the total for the Continuum of Care area. In instances where boundaries were determined by cities or cities and counties, the data for the city was subtracted from the surrounding county and the county/city data was allocated to the correct Continuum of Care area.</p>
+    <p><h3>Area and population:</h3> Most Continuum of Care areas are based on the geographic boundaries of one or more counties. Where that is true for counties, the data for counties in the Continuum of Care areas were added together to get the total for the Continuum of Care area. In instances where boundaries were determined by cities or cities and counties, the data for the city was subtracted from the surrounding county and the county/city data was allocated to the correct Continuum of Care area.</p>
     <p><h3>Income and Rent:</h3> The lowest geographic area for income was county. For this reason both counties and cities were linked to the data for their county. Using the population data described above, we used a weighted average based on me median lowest quintile income of the geographic area that make up each Continuum of Care area based on the population of each area. </p>
     <p><h3>Mental Health, illicit drug use, and alcohol dependence or abuse:</h3> The data for these metrics are based upon geographic areas created by HHS. Like Continuum of Care areas, these areas are largely based upon counties. We linked these geographic areas to counties and created a weighted average for each Continuum of Care area based upon population. </p>
     <p>This data was linked to the HUD PIT Count and Housing Inventory Count as well as the total funding data. </p>
     <h3>Creating clusters</h3>
     <p>To find the optimal number of clusters to target for this analysis we used a method that looks at the percentage of variance explained as a function of the number of clusters, the optimal value comes when the marginal gain for adding more clusters begins to level off. We chose five clusters as our target.</p>
-    <p>We tested several unsupervised clustering algorithms, the method we employed was Fuzzy C Means. </p>
+    <p>We tested several unsupervised clustering algorithms, the method we employed was Fuzzy C Means, a data clustering technique which allows one piece of data to belong to two or more clusters. </p>
     <p>The clusters were then further segmented by population density in an attempt to manage the size of the final clusters, but also to visualize areas with similar behavior and conditions for comparison.</p>
     <h3>Notes on the data</h3>
     <p><h3>Area:</h3> Measured in square miles of land area (not including water area); data from 2010 and Continuum of Care totals have been updated to reflect 2018 Continuum of Care area alignment.</p>
     <p><h3>Population:</h3> Estimated 2018 data</p>
     <p><h3>Median Rent:</h3> Estimated median gross rent per month </p>
-    <p><h3>Income:</h3> 2017 Annual income estimates by quintile; we used the lowest quintile</p>
+    <p><h3>Income:</h3> 2017 annual income estimates by quintile; we used the lowest quintile</p>
     <p><h3>Drug Use:</h3> Illicit drug use in the past month among individuals 12 or over, percentages; data from 2016</p>
     <p>Illicit drugs include, marijuana/hashish, cocaine (including crack), heroin, hallucinogens, inhalants, or prescription-type psychotherapeutics used nonmedically, including data from original methamphetamine questions but not including new methamphetamine items added in 2005 and 2006.</p>
     <p><h3>Alcohol dependence:</h3> Alcohol dependence or abuse in the past year among individuals age 12 or older, percentages; data from 2016</p>
