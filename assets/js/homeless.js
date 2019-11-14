@@ -166,60 +166,24 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                         function getColor(d) {
                             for (let i = 0; i < tableData.length; i++) {
                                 if (d.properties.coc_number === tableData[i].coc_number) {
-                                    if (tableData[i].total_homeless <= 0) {
-                                        return ('#EEEEFF');
-                                    }
-                                    else if (tableData[i].total_homeless <= 200) {
-                                        return ('#E1E1F4');
-                                    }
-                                    else if (tableData[i].total_homeless <= 300) {
-                                        return ('#D6D6EA');
-                                    }
-                                    else if (tableData[i].total_homeless <= 500) {
-                                        return ('#D0D0F0');
-                                    }
-                                    else if (tableData[i].total_homeless <= 700) {
-                                        return ('#B8B8D1');
-                                    }
-                                    else if (tableData[i].total_homeless <= 1000) {
-                                        return ('#ACACC6');
-                                    }
-                                    else if (tableData[i].total_homeless <= 1500) {
-                                        return ('#9E9EBA');
-                                    }
-                                    else if (tableData[i].total_homeless <= 2000) {
-                                        return ('#9595AD');
-                                    }
-                                    else if (tableData[i].total_homeless <= 2500) {
-                                        return ('#8888A5');
-                                    }
-                                    else if (tableData[i].total_homeless <= 3000) {
-                                        return ('#7F7FA0');
-                                    }
-                                    else if (tableData[i].total_homeless <= 3500) {
-                                        return ('#72729B');
-                                    }
-                                    else if (tableData[i].total_homeless <= 4000) {
-                                        return ('#656593');
-                                    }
-                                    else if (tableData[i].total_homeless <= 5000) {
-                                        return ('#5E5D91');
-                                    }
-                                    else if (tableData[i].total_homeless <= 6000) {
-                                        return ('#534E89');
-                                    }
-                                    else if (tableData[i].total_homeless <= 7000) {
-                                        return ('#4D4484');
-                                    }
-                                    else if (tableData[i].total_homeless <= 8000) {
-                                        return ('#45387A');
-                                    }
-                                    else if (tableData[i].total_homeless <= 12000) {
-                                        return ('#392870');
-                                    }
-                                    else if (tableData[i].total_homeless <= 80000) {
-                                        return ('#311C66');
-                                    }
+                                    if (tableData[i].total_homeless <= 0) { return ('#EEEEFF'); }
+                                    else if (tableData[i].total_homeless <= 200) { return ('#E1E1F4'); }
+                                    else if (tableData[i].total_homeless <= 300) { return ('#D6D6EA'); }
+                                    else if (tableData[i].total_homeless <= 500) { return ('#D0D0F0'); }
+                                    else if (tableData[i].total_homeless <= 700) { return ('#B8B8D1'); }
+                                    else if (tableData[i].total_homeless <= 1000) { return ('#ACACC6'); }
+                                    else if (tableData[i].total_homeless <= 1500) { return ('#9E9EBA'); }
+                                    else if (tableData[i].total_homeless <= 2000) { return ('#9595AD'); }
+                                    else if (tableData[i].total_homeless <= 2500) { return ('#8888A5'); }
+                                    else if (tableData[i].total_homeless <= 3000) { return ('#7F7FA0'); }
+                                    else if (tableData[i].total_homeless <= 3500) { return ('#72729B'); }
+                                    else if (tableData[i].total_homeless <= 4000) { return ('#656593'); }
+                                    else if (tableData[i].total_homeless <= 5000) { return ('#5E5D91'); }
+                                    else if (tableData[i].total_homeless <= 6000) { return ('#534E89'); }
+                                    else if (tableData[i].total_homeless <= 7000) { return ('#4D4484'); }
+                                    else if (tableData[i].total_homeless <= 8000) { return ('#45387A'); }
+                                    else if (tableData[i].total_homeless <= 12000) { return ('#392870'); }
+                                    else if (tableData[i].total_homeless <= 80000) { return ('#311C66'); }
 
                                     return ('#FFAD29');
                                 }
@@ -323,21 +287,11 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                             bar.attr('class', 'bar')
                                 .attr('cx', 0)
                                 .style('fill', (d2) => {
-                                    if (d2.category === 'Housing') {
-                                        return '#324D5C';
-                                    }
-                                    else if (d2.category === 'Health') {
-                                        return '#F0CA4D';
-                                    }
-                                    else if (d2.category === 'Education') {
-                                        return '#2A5DA8';
-                                    }
-                                    else if (d2.category === 'Support Services') {
-                                        return '#E37B40';
-                                    }
-                                    else if (d2.category === 'Employment') {
-                                        return '#F53855';
-                                    }
+                                    if (d2.category === 'Housing') { return '#324D5C'; }
+                                    else if (d2.category === 'Health') { return '#F0CA4D'; }
+                                    else if (d2.category === 'Education') { return '#2A5DA8'; }
+                                    else if (d2.category === 'Support Services') { return '#E37B40'; }
+                                    else if (d2.category === 'Employment') { return '#F53855'; }
                                     return "#FFF";
                                 })
                                 .attr('transform', (d4, i) => `translate(5,${i * (barHeight + barPadding)})`)
@@ -400,7 +354,27 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                 if (tableData[i].coc_number === d7.properties.coc_number) {
                                     const tabDat = tableData[i];
 
-                                    return `<table><tr><th></th><th class="table-heading">Individuals</th><th class="table-heading">Families</th><th class="table-heading">Total</th></tr><tr><td class="table-heading">Sheltered</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_individuals)}</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr><tr><td class="table-heading">Unsheltered</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_individuals)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr><tr><td class="table-heading">Total</td><td>${OtherformatNumber(tabDat.homeless_individuals)}</td><td>${OtherformatNumber(tabDat.homeless_people_in_families)}</td><td>${OtherformatNumber(tabDat.total_homeless)}</td></tr></table><div class="item"><div class="header">Chronically Homeless:</div><div class="value">${OtherformatNumber(tabDat.chronically_homeless)}</div></div><div class="item"><div class="header">Homeless Veterans:</div><div class="value">${OtherformatNumber(tabDat.homeless_veterans)}</div></div><div class="item"><div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div><div class="value">${OtherformatNumber(tabDat.es_sh_th_avg_days)}</div></div><h3 class="h3-header item">Number of people who return to homelessness within:</h3><div class="item"><div class="header">6 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_6_mths)}</div></div><div class="item"><div class="header">12 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort)}</div></div><div class="item"><div class="header">24 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort)}</div></div><br/><div class="item"><div class="header">Percentage of people who exit to permanent housing</div><div class="value">${tabDat.percent_with_successful_es_th_sh_ph_rrh_exit}</div></div><div class="item"><div class="header">Percentage of those who retain their permanent housing status</div><div class="value">${tabDat.percent_with_successful_ph_retention_or_exit}</div></div>`;
+                                    return `<table><tr><th></th><th class="table-heading">Individuals</th><th class="table-heading">Families</th><th class="table-heading">Total</th></tr>` +
+                                        `<tr><td class="table-heading">Sheltered</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_individuals) == 'NaN' ? 'NA' : OtherformatNumber(tabDat.sheltered_total_homeless_individuals)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.sheltered_homeless) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
+                                        `<tr><td class="table-heading">Unsheltered</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_individuals) == "NaN"  ? 'NA'  : OtherformatNumber(tabDat.unsheltered_homeless_individuals)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.unsheltered_homeless_people_in_families) == "NaN"  ? 'NA'  : OtherformatNumber(tabDat.unsheltered_homeless_people_in_families)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.unsheltered_homeless) == "NaN"  ? 'NA'  : OtherformatNumber(tabDat.unsheltered_homeless)}</td>` +
+                                        `</tr><tr><td class="table-heading">Total</td><td>${OtherformatNumber(tabDat.homeless_individuals) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.homeless_individuals)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.homeless_people_in_families) == "NaN" ? 'NA' : OtherformatNumber(tabDat.homeless_people_in_families)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.total_homeless) == "NaN" ? 'NA' : OtherformatNumber(tabDat.total_homeless)}</td></tr></table><div class="item"><div class="header">Chronically Homeless:</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.chronically_homeless) == "NaN" ? 'NA' : OtherformatNumber(tabDat.chronically_homeless)}</div></div><div class="item"><div class="header">Homeless Veterans:</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.homeless_veterans) == "NaN" ? 'NA' : OtherformatNumber(tabDat.homeless_veterans)}</div></div><div class="item">` +
+                                        `<div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.es_sh_th_avg_days) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.es_sh_th_avg_days)}</div></div>` +
+                                        `<h3 class="h3-header item">Number of people who return to homelessness within:</h3><div class="item"><div class="header">6 months</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_6_mths) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.total_persons_returns_in_6_mths)}</div></div><div class="item">` +
+                                        `<div class="header">12 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort)}</div>` +
+                                        `</div><div class="item"><div class="header">24 months</div>` +
+                                        `<div class="value">${tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort === 'NA' ? 'NA' : OtherformatNumber(tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort)}</div></div><br/>` +
+                                        `<div class="item"><div class="header">Percentage of people who exit to permanent housing</div><div class="value">${tabDat.percent_with_successful_es_th_sh_ph_rrh_exit}</div></div>` +
+                                        `<div class="item"><div class="header">Percentage of those who retain their permanent housing status</div><div class="value">${tabDat.percent_with_successful_ph_retention_or_exit}</div></div>`;
                                 }
                             }
                         }
@@ -524,24 +498,12 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                             bar.attr('class', 'bar')
                                 .attr('cx', 0)
                                 .style('fill', (db) => {
-                                    if (db.category === 'Housing') {
-                                        return '#324D5C';
-                                    }
-                                    else if (db.category === 'Health') {
-                                        return '#F0CA4D';
-                                    }
-                                    else if (db.category === 'Education') {
-                                        return '#2A5DA8';
-                                    }
-                                    else if (db.category === 'Support Services') {
-                                        return '#E37B40';
-                                    }
-                                    else if (db.category === 'Employment') {
-                                        return '#F53855';
-                                    }
-                                    else if (db.category === 'Food') {
-                                        return '#06984E';
-                                    }
+                                    if (db.category === 'Housing') { return '#324D5C'; }
+                                    else if (db.category === 'Health') { return '#F0CA4D'; }
+                                    else if (db.category === 'Education') { return '#2A5DA8'; }
+                                    else if (db.category === 'Support Services') { return '#E37B40'; }
+                                    else if (db.category === 'Employment') { return '#F53855'; }
+                                    else if (db.category === 'Food') { return '#06984E'; }
                                     return '#000000';
                                 })
                                 .attr('transform', (db, i) => `translate(5,${i * (barHeight + barPadding)})`)
@@ -773,12 +735,12 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                     + ` padding-bottom:15px; font-weight: bold; color:#555555">`
                                     + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
                                     `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">`
-                                    + `Total Homeless: ${getValue(d)}</p><br>` +
+                                    + `Total Homeless: ${getValue(d) == "NaN" ? "NA" : getValue(d)}</p><br>` +
                                     `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
                                     `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
-                                    + `Sheltered Homeless: ${getSheltered(d)}</li>` +
+                                    + `Sheltered Homeless: ${getSheltered(d) == "NaN" ? "NA": getSheltered(d)}</li>` +
                                     `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
-                                    + `Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
+                                    + `Unsheltered Homeless: ${getUnsheltered(d) == "NaN" ? "NA" : getUnsheltered(d)}</li></ul><br>` +
                                     `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">`
                                     + ` Double click to zoom in/zoom out</p>`);
 
@@ -964,7 +926,7 @@ d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
                                             arr.push(d[k]);
                                         }
                                     }
-                                    return [arr[0], arr[1], arr[2], arr[3], arr[4], arr[7], arr[8], arr[5], arr[6], arr[9]];
+                                    return [arr[0], arr[1], arr[16], arr[8], arr[9], arr[24], arr[12], arr[4], arr[7], arr[15]];
                                 })
                                 .enter()
                                 .append('td');
