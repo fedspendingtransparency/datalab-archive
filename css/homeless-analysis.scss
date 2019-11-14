@@ -36,7 +36,97 @@
     &#right{
       float:right;
     }
+
 }
+
+  #panel_coc {
+    color: #666;
+  }
+
+  #panel_coc .header {
+    text-align: left;
+    float: left;
+    width: 80%;
+  }
+
+  .h3-header {
+    clear: both;
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  #coc_info .value {
+    text-align: left;
+    float: right;
+  }
+
+  #coc_info table {
+    margin-bottom: 0;
+  }
+
+  #coc_info table, #coc_info .item {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 16px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+  }
+
+  #coc_info table, #coc_info div.item {
+    font-weight: 300;
+    color: #666;
+  }
+
+  #coc_info h3 {
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #coc_info td.table-heading {
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  #coc_info th.table-heading {
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+  }
+
+  #coc_info {
+    table, table td, table th {
+      border: 1px solid #aaaaaa;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      margin-bottom: 15px;
+    }
+
+    td:first-child, th:first-child {
+      border-left: none;
+    }
+
+    td:last-child, th:last-child {
+      border-right: none;
+    }
+
+    th {
+      border-top: none !important;
+    }
+
+  }
+
+  #panel_coc {
+    margin-bottom: 30px;
+  }
+
   .modal {
     display: none;
     /* Hidden by default */
@@ -412,15 +502,12 @@
   }
 
   #p2_3 > #panel_coc > #coc_info > table {
-    margin: 0 0 1.6em;
     background-color: inherit;
-    border: none;
     width: 100%;
   }
 
   #p2_3 > #panel_coc > #coc_info > table > tbody > tr {
     background: inherit;
-    border: none;
   }
 
   #cfda_info > table > tbody > td {
@@ -612,7 +699,7 @@
 
   #p2_4_legend_key {
     height: 15px;
-    width: 18%;
+    width: 15%;
     float: left;
   }
 
@@ -633,7 +720,7 @@
 
   #p2_2_legend_key {
     height: 15px;
-    width: 18%;
+    width: 15%;
     float: left;
   }
 
