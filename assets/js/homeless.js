@@ -1,12 +1,34 @@
 ---
 ---
 
-d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
-    d3.csv('/data-lab-data/statecfda.csv', (cfdaState) => {
-        d3.csv('/data-lab-data/CFDACOCAward_Updated.csv', (barChrt) => {
+const absWidth = 1024;
+const absHeight = 575;
+const margin = {
+    top: 100,
+    right: 50,
+    bottom: 15,
+    left: 100
+};
+let la;
+let map1Centered;
+let map2Centered;
+const formatNumber = d3.format('$,.0f');
+const OtherformatNumber = d3.format(',.0f');
+const panel2Width = absWidth - margin.left - margin.right;
+const panel2Height = absHeight - margin.top - margin.bottom;
+const matrixWidth = (absWidth / 1.85) - margin.left - margin.right;
+const mapWidth = panel2Width - matrixWidth - margin.left - margin.right - 45;
+const mapHeight = panel2Height / 3;
+const infoWidth = panel2Width - matrixWidth - margin.left - margin.right;
+const infoHeight = panel2Height / 3;
+
+
+d3.json('/data-lab-data/2019_coc_grantee_areas_v2.json', (us) => {
+    d3.csv('/data-lab-data/2019statecfdafunding.csv', (cfdaState) => {
+        d3.csv('/data-lab-data/2019CoCCFDAfunding_v3.csv', (barChrt) => {
             d3.csv('/data-lab-data/State_crosswalk.csv', (state) => {
                 d3.csv('/data-lab-data/cfda_acronyms.csv', (acr) => {
-                    d3.csv('/data-lab-data/coc_pop_value.csv', (tableData) => {
+                    d3.csv('/data-lab-data/panel_2_table_and_counts_v6.csv', (tableData) => {
                         d3.select('#container2_1').append('div').attr('id', 'p2_1_title');
                         d3.select('#container2_1').append('div').attr('id', 'p2_1').style('top', '150px');
                         d3.select('#container2_2').append('div').attr('id', 'p2_2_legend_title');
@@ -24,26 +46,8 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         d3.select('#p2_4').append('div').attr('id', 'panel_info');
                         d3.select('#p2_5').append('div').attr('id', 'panel_contact');
 
-                        const absWidth = 1024;
-                        const absHeight = 575;
-                        const margin = {
-                            top: 100,
-                            right: 50,
-                            bottom: 15,
-                            left: 100
-                        };
-                        const la = us.features.filter((d) => d.properties.coc_number === 'CA-600');
-                        let map1Centered = null;
-                        let map2Centered = la[0];
-                        const formatNumber = d3.format('$,.0f');
-                        const OtherformatNumber = d3.format(',.0f');
-                        const panel2Width = absWidth - margin.left - margin.right;
-                        const panel2Height = absHeight - margin.top - margin.bottom;
-                        const matrixWidth = (absWidth / 1.85) - margin.left - margin.right;
-                        const mapWidth = panel2Width - matrixWidth - margin.left - margin.right - 45;
-                        const mapHeight = panel2Height / 3;
-                        const infoWidth = panel2Width - matrixWidth - margin.left - margin.right;
-                        const infoHeight = panel2Height / 3;
+                        la = us.features.filter((d) => d.properties.coc_number === 'CA-600');
+                        map2Centered = la[0];
 
                         function getDollarValue(d) {
                             for (let i = 0; i < tableData.length; i++) {
@@ -56,10 +60,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function getCFDAValue(d) {
                             return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; padding-bottom:15px"><b style="color:#555555">` +
-                            `${d.program_title}</b> [CFDA No. ${d.cfda_number}]</p><br>` +
-                            `<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ${formatNumber(d.fed_funding)}</p><br>` +
-                            `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">` +
-                            `Click to visit the program website</p>`;
+                                `${d.program_title}</b> [CFDA No. ${d.cfda_number}]</p><br>` +
+                                `<p style="color: #0071BC; margin: 0; font-size: 20px; padding:0">Federal Funding: ${formatNumber(d.fed_funding)}</p><br>` +
+                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">` +
+                                `Click to visit the program website</p>`;
                         }
 
                         const mapTitle = d3.select('#p2_1_title')
@@ -87,10 +91,10 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function p2TipHTML(d) {
                             return `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0; `
-                            + `padding-bottom:15px; color: #555555; font-weight: bold">`
-                            + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
-                            `<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ${getDollarValue(d)}</p><br>` +
-                            `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/out</p>`;
+                                + `padding-bottom:15px; color: #555555; font-weight: bold">`
+                                + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
+                                `<p style="color: #0071BC; margin: 0; font-size: 20px">Federal Funding: ${getDollarValue(d)}</p><br>` +
+                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic"> Double click to zoom in/out</p>`;
                         }
 
                         const p2Tip = d3.tip()
@@ -149,7 +153,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         });
 
                         barChrt = barChrt.sort((x, y) => d3.descending(x.fed_funding, y.fed_funding));
-                        // **************************************************************
+
                         function barClick(d) {
                             window.Analytics.event({
                                 category: 'Homelessness Analysis - Panel 2 - Click Bar Chart',
@@ -162,60 +166,24 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function getColor(d) {
                             for (let i = 0; i < tableData.length; i++) {
                                 if (d.properties.coc_number === tableData[i].coc_number) {
-                                    if (tableData[i].total_homeless <= 0) {
-                                        return ('#EEEEFF');
-                                    }
-                                    else if (tableData[i].total_homeless <= 200) {
-                                        return ('#E1E1F4');
-                                    }
-                                    else if (tableData[i].total_homeless <= 300) {
-                                        return ('#D6D6EA');
-                                    }
-                                    else if (tableData[i].total_homeless <= 500) {
-                                        return ('#D0D0F0');
-                                    }
-                                    else if (tableData[i].total_homeless <= 700) {
-                                        return ('#B8B8D1');
-                                    }
-                                    else if (tableData[i].total_homeless <= 1000) {
-                                        return ('#ACACC6');
-                                    }
-                                    else if (tableData[i].total_homeless <= 1500) {
-                                        return ('#9E9EBA');
-                                    }
-                                    else if (tableData[i].total_homeless <= 2000) {
-                                        return ('#9595AD');
-                                    }
-                                    else if (tableData[i].total_homeless <= 2500) {
-                                        return ('#8888A5');
-                                    }
-                                    else if (tableData[i].total_homeless <= 3000) {
-                                        return ('#7F7FA0');
-                                    }
-                                    else if (tableData[i].total_homeless <= 3500) {
-                                        return ('#72729B');
-                                    }
-                                    else if (tableData[i].total_homeless <= 4000) {
-                                        return ('#656593');
-                                    }
-                                    else if (tableData[i].total_homeless <= 5000) {
-                                        return ('#5E5D91');
-                                    }
-                                    else if (tableData[i].total_homeless <= 6000) {
-                                        return ('#534E89');
-                                    }
-                                    else if (tableData[i].total_homeless <= 7000) {
-                                        return ('#4D4484');
-                                    }
-                                    else if (tableData[i].total_homeless <= 8000) {
-                                        return ('#45387A');
-                                    }
-                                    else if (tableData[i].total_homeless <= 12000) {
-                                        return ('#392870');
-                                    }
-                                    else if (tableData[i].total_homeless <= 77000) {
-                                        return ('#311C66');
-                                    }
+                                    if (tableData[i].total_homeless <= 0) { return ('#EEEEFF'); }
+                                    else if (tableData[i].total_homeless <= 200) { return ('#E1E1F4'); }
+                                    else if (tableData[i].total_homeless <= 300) { return ('#D6D6EA'); }
+                                    else if (tableData[i].total_homeless <= 500) { return ('#D0D0F0'); }
+                                    else if (tableData[i].total_homeless <= 700) { return ('#B8B8D1'); }
+                                    else if (tableData[i].total_homeless <= 1000) { return ('#ACACC6'); }
+                                    else if (tableData[i].total_homeless <= 1500) { return ('#9E9EBA'); }
+                                    else if (tableData[i].total_homeless <= 2000) { return ('#9595AD'); }
+                                    else if (tableData[i].total_homeless <= 2500) { return ('#8888A5'); }
+                                    else if (tableData[i].total_homeless <= 3000) { return ('#7F7FA0'); }
+                                    else if (tableData[i].total_homeless <= 3500) { return ('#72729B'); }
+                                    else if (tableData[i].total_homeless <= 4000) { return ('#656593'); }
+                                    else if (tableData[i].total_homeless <= 5000) { return ('#5E5D91'); }
+                                    else if (tableData[i].total_homeless <= 6000) { return ('#534E89'); }
+                                    else if (tableData[i].total_homeless <= 7000) { return ('#4D4484'); }
+                                    else if (tableData[i].total_homeless <= 8000) { return ('#45387A'); }
+                                    else if (tableData[i].total_homeless <= 12000) { return ('#392870'); }
+                                    else if (tableData[i].total_homeless <= 80000) { return ('#311C66'); }
 
                                     return ('#FFAD29');
                                 }
@@ -262,7 +230,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function getProgram(d) {
                             for (let i = 0; i < barChrt.length; i++) {
-                                if (d.cfda_number === acr[i].cfda_number) {
+                                if (acr[i] && d.cfda_number === acr[i].cfda_number) {
                                     return acr[i].acronym;
                                 }
                             }
@@ -319,21 +287,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             bar.attr('class', 'bar')
                                 .attr('cx', 0)
                                 .style('fill', (d2) => {
-                                    if (d2.category === 'Housing') {
-                                        return '#324D5C';
-                                    }
-                                    else if (d2.category === 'Health') {
-                                        return '#F0CA4D';
-                                    }
-                                    else if (d2.category === 'Education') {
-                                        return '#2A5DA8';
-                                    }
-                                    else if (d2.category === 'Support Services') {
-                                        return '#E37B40';
-                                    }
-                                    else if (d2.category === 'Employment') {
-                                        return '#F53855';
-                                    }
+                                    if (d2.category === 'Housing') { return '#324D5C'; }
+                                    else if (d2.category === 'Health') { return '#F0CA4D'; }
+                                    else if (d2.category === 'Education') { return '#2A5DA8'; }
+                                    else if (d2.category === 'Support Services') { return '#E37B40'; }
+                                    else if (d2.category === 'Employment') { return '#F53855'; }
                                     return "#FFF";
                                 })
                                 .attr('transform', (d4, i) => `translate(5,${i * (barHeight + barPadding)})`)
@@ -379,6 +337,9 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('text-anchor', 'end');
                         }
 
+                        /**
+                         * @return {string}
+                         */
                         function MakeCoCTable(d7) {
                             d3.selectAll('#p2_quad3_title').remove();
 
@@ -393,24 +354,27 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 if (tableData[i].coc_number === d7.properties.coc_number) {
                                     const tabDat = tableData[i];
 
-                                    return `${'<table><tr><td class="panel_text">Homeless Individuals </td><td class="panel_text2">'}`
-                                    + `${OtherformatNumber(tabDat.homeless_individuals)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">`
-                                    + `Homeless People in Families </td><td class="panel_text2"  style="border-bottom:1pt solid black">`
-                                    + `${OtherformatNumber(tabDat.homeless_people_in_families)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">` +
-                                    `${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-                                    `<table><tr><td class="panel_text">Sheltered Homeless </td><td class="panel_text2">`
-                                    + `${OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text" style="border-bottom:1pt solid black">` +
-                                    `Unsheltered Homeless </td><td class="panel_text2" style="border-bottom:1pt solid black">` +
-                                    `${OtherformatNumber(tabDat.unsheltered_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Total Homeless</td><td class="panel_text2">` +
-                                    `${OtherformatNumber(tabDat.total_homeless)}</td></tr></table>` +
-                                    `<table style="margin-bottom:0"><tr><td class="panel_text">Chronically Homeless `
-                                    + `</td><td class="panel_text2">${OtherformatNumber(tabDat.chronically_homeless)}</td></tr>` +
-                                    `<tr><td class="panel_text">Homeless Veterans </td><td class="panel_text2">`
-                                    + `${OtherformatNumber(tabDat.homeless_veterans)}</td></tr></table>`;
+                                    return `<table><tr><th></th><th class="table-heading">Individuals</th><th class="table-heading">Families</th><th class="table-heading">Total</th></tr>` +
+                                        `<tr><td class="table-heading">Sheltered</td><td>${OtherformatNumber(tabDat.sheltered_total_homeless_individuals) == 'NaN' ? 'NA' : OtherformatNumber(tabDat.sheltered_total_homeless_individuals)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.sheltered_total_homeless_people_in_families)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.sheltered_homeless) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.sheltered_homeless)}</td></tr>` +
+                                        `<tr><td class="table-heading">Unsheltered</td><td>${OtherformatNumber(tabDat.unsheltered_homeless_individuals) == "NaN"  ? 'NA'  : OtherformatNumber(tabDat.unsheltered_homeless_individuals)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.unsheltered_homeless_people_in_families) == "NaN"  ? 'NA'  : OtherformatNumber(tabDat.unsheltered_homeless_people_in_families)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.unsheltered_homeless) == "NaN"  ? 'NA'  : OtherformatNumber(tabDat.unsheltered_homeless)}</td>` +
+                                        `</tr><tr><td class="table-heading">Total</td><td>${OtherformatNumber(tabDat.homeless_individuals) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.homeless_individuals)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.homeless_people_in_families) == "NaN" ? 'NA' : OtherformatNumber(tabDat.homeless_people_in_families)}</td>` +
+                                        `<td>${OtherformatNumber(tabDat.total_homeless) == "NaN" ? 'NA' : OtherformatNumber(tabDat.total_homeless)}</td></tr></table><div class="item"><div class="header">Chronically Homeless:</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.chronically_homeless) == "NaN" ? 'NA' : OtherformatNumber(tabDat.chronically_homeless)}</div></div><div class="item"><div class="header">Homeless Veterans:</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.homeless_veterans) == "NaN" ? 'NA' : OtherformatNumber(tabDat.homeless_veterans)}</div></div><div class="item">` +
+                                        `<div class="header">Average number of days in Emergency Shelters, Safe Havens, or Transitional Housing:</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.es_sh_th_avg_days) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.es_sh_th_avg_days)}</div></div>` +
+                                        `<h3 class="h3-header item">Number of people who return to homelessness within:</h3><div class="item"><div class="header">6 months</div>` +
+                                        `<div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_6_mths) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.total_persons_returns_in_6_mths)}</div></div><div class="item">` +
+                                        `<div class="header">12 months</div><div class="value">${OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort) == "NaN"  ? 'NA' : OtherformatNumber(tabDat.total_persons_returns_in_12_mths_should_include_the_6_month_cohort)}</div>` +
+                                        `</div><div class="item"><div class="header">24 months</div>` +
+                                        `<div class="value">${tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort === 'NA' ? 'NA' : OtherformatNumber(tabDat.total_persons_returns_in_24_mths_should_include_both_the_6_and_12_month_cohort)}</div></div><br/>` +
+                                        `<div class="item"><div class="header">Percentage of people who exit to permanent housing</div><div class="value">${tabDat.percent_with_successful_es_th_sh_ph_rrh_exit}</div></div>` +
+                                        `<div class="item"><div class="header">Percentage of those who retain their permanent housing status</div><div class="value">${tabDat.percent_with_successful_ph_retention_or_exit}</div></div>`;
                                 }
                             }
                         }
@@ -445,11 +409,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .attr('height', '30px')
                                 .attr('id', 'p2_4_cfda_legend');
 
-                            const cfdaColor = ['#324D5C', '#2A5DA8', '#F53855', '#E37B40', '#F0CA4D'];
+                            const cfdaColor = ['#324D5C', '#2A5DA8', '#F53855', '#E37B40', '#F0CA4D', '#06984E'];
 
-                            const cfdaLegendKeyValues = ['Housing', 'Education', 'Employment', 'Support Services', 'Health'];
+                            const cfdaLegendKeyValues = ['Housing', 'Education', 'Employment', 'Support Services', 'Health', 'Food'];
 
-                            for (let i = 0; i < 5; i++) {
+                            for (let i = 0; i < cfdaLegendKeyValues.length; i++) {
                                 const k = cfdaLegend22.append('div')
                                     .attr('id', 'p2_2_legend_key');
 
@@ -458,7 +422,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     .style('position', 'relative')
                                     .append('svg')
                                     .attr('height', '40px')
-                                    .attr('width', '53px')
+                                    .attr('width', '40px')
                                     .append('circle')
                                     .attr('cx', 7)
                                     .attr('cy', 7)
@@ -512,7 +476,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             p24MatrixSvg.call(p23BarTip);
 
                             function filterStateBarChart(cfdaStateData) {
-                                return cfdaStateData.State_code === d.properties.STUSAB;
+                                return cfdaStateData.pop_state_code === d.properties.STUSAB;
                             }
 
                             const initial = cfdaState.filter(filterStateBarChart);
@@ -534,21 +498,12 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             bar.attr('class', 'bar')
                                 .attr('cx', 0)
                                 .style('fill', (db) => {
-                                    if (db.category === 'Housing') {
-                                        return '#324D5C';
-                                    }
-                                    else if (db.category === 'Health') {
-                                        return '#F0CA4D';
-                                    }
-                                    else if (db.category === 'Education') {
-                                        return '#2A5DA8';
-                                    }
-                                    else if (db.category === 'Support Services') {
-                                        return '#E37B40';
-                                    }
-                                    else if (db.category === 'Employment') {
-                                        return '#F53855';
-                                    }
+                                    if (db.category === 'Housing') { return '#324D5C'; }
+                                    else if (db.category === 'Health') { return '#F0CA4D'; }
+                                    else if (db.category === 'Education') { return '#2A5DA8'; }
+                                    else if (db.category === 'Support Services') { return '#E37B40'; }
+                                    else if (db.category === 'Employment') { return '#F53855'; }
+                                    else if (db.category === 'Food') { return '#06984E'; }
                                     return '#000000';
                                 })
                                 .attr('transform', (db, i) => `translate(5,${i * (barHeight + barPadding)})`)
@@ -596,11 +551,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                         function makeContactTable(df) {
                             return `<h4 style="margin-bottom:0">${df.properties.COCNAME}</h4><br>` +
-                            `<p><b>Contact information for the Continuum of Care program</b>` +
-                            `<br>${df.properties.CONTACT_TY}<br>` +
-                            `Name: ${df.properties.FIRST_NAME} ${df.properties.LAST_NAME}<br>` +
-                            `Email: ${df.properties.EMAIL_ADDR}<br>` +
-                            `Phone: ${df.properties.PRIMARY_PH}</p>`;
+                                `<p><b>Contact information for the Continuum of Care program</b>` +
+                                `<br>${df.properties.CONTACT_TY}<br>` +
+                                `Name: ${df.properties.FIRST_NAME} ${df.properties.LAST_NAME}<br>` +
+                                `Email: ${df.properties.EMAIL_ADDR}<br>` +
+                                `Phone: ${df.properties.PRIMARY_PH}</p>`;
                         }
 
                         function createContact(d) {
@@ -661,60 +616,25 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function p2GetColor(d) {
                             for (let i = 0; i < tableData.length; i++) {
                                 if (d.properties.coc_number === tableData[i].coc_number) {
-                                    if (tableData[i].amount <= 500000) {
-                                        return ('#BEF399');
-                                    }
-                                    else if (tableData[i].amount <= 1500000) {
-                                        return ('#B0EC9A');
-                                    }
-                                    else if (tableData[i].amount <= 2500000) {
-                                        return ('#A3E59B');
-                                    }
-                                    else if (tableData[i].amount <= 5000000) {
-                                        return ('#96DD9B');
-                                    }
-                                    else if (tableData[i].amount <= 7500000) {
-                                        return ('#8AD59C');
-                                    }
-                                    else if (tableData[i].amount <= 10000000) {
-                                        return ('#80CE9C');
-                                    }
-                                    else if (tableData[i].amount <= 20000000) {
-                                        return ('#76C69C');
-                                    }
-                                    else if (tableData[i].amount <= 30000000) {
-                                        return ('#6DBD9B');
-                                    }
-                                    else if (tableData[i].amount <= 40000000) {
-                                        return ('#66B59A');
-                                    }
-                                    else if (tableData[i].amount <= 50000000) {
-                                        return ('#5FAD98');
-                                    }
-                                    else if (tableData[i].amount <= 60000000) {
-                                        return ('#5AA496');
-                                    }
-                                    else if (tableData[i].amount <= 70000000) {
-                                        return ('#569C93');
-                                    }
-                                    else if (tableData[i].amount <= 80000000) {
-                                        return ('#529490');
-                                    }
-                                    else if (tableData[i].amount <= 90000000) {
-                                        return ('#508B8C');
-                                    }
-                                    else if (tableData[i].amount <= 100000000) {
-                                        return ('#4E8387');
-                                    }
-                                    else if (tableData[i].amount <= 150000000) {
-                                        return ('#465261');
-                                    }
-                                    else if (tableData[i].amount <= 200000000) {
-                                        return ('#3E3C4A');
-                                    }
+                                    if (tableData[i].amount <= 500000) { return ('#BEF399'); }
+                                    else if (tableData[i].amount <= 1500000) { return ('#B0EC9A'); }
+                                    else if (tableData[i].amount <= 2500000) { return ('#A3E59B'); }
+                                    else if (tableData[i].amount <= 5000000) { return ('#96DD9B'); }
+                                    else if (tableData[i].amount <= 7500000) { return ('#8AD59C'); }
+                                    else if (tableData[i].amount <= 10000000) { return ('#80CE9C'); }
+                                    else if (tableData[i].amount <= 20000000) { return ('#76C69C'); }
+                                    else if (tableData[i].amount <= 30000000) { return ('#6DBD9B'); }
+                                    else if (tableData[i].amount <= 40000000) { return ('#66B59A'); }
+                                    else if (tableData[i].amount <= 50000000) { return ('#5FAD98'); }
+                                    else if (tableData[i].amount <= 60000000) { return ('#5AA496'); }
+                                    else if (tableData[i].amount <= 70000000) { return ('#569C93'); }
+                                    else if (tableData[i].amount <= 80000000) { return ('#529490'); }
+                                    else if (tableData[i].amount <= 90000000) { return ('#508B8C'); }
+                                    else if (tableData[i].amount <= 100000000) { return ('#4E8387'); }
+                                    else if (tableData[i].amount <= 150000000) { return ('#465261'); }
+                                    else if (tableData[i].amount <= 200000000) { return ('#3E3C4A'); }
                                 }
                             }
-
                             return ('#291C24');
                         }
 
@@ -812,17 +732,17 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .style('width', '300px')
                                 .offset([-10, -10])
                                 .html((d) => `<p style="border-bottom:1px solid #898C90; font-size: 18px; margin:0;`
-                                + ` padding-bottom:15px; font-weight: bold; color:#555555">`
-                                + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
-                                `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">`
-                                + `Total Homeless: ${getValue(d)}</p><br>` +
-                                `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
-                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
-                                + `Sheltered Homeless: ${getSheltered(d)}</li>` +
-                                `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
-                                + `Unsheltered Homeless: ${getUnsheltered(d)}</li></ul><br>` +
-                                `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">`
-                                + ` Double click to zoom in/zoom out</p>`);
+                                    + ` padding-bottom:15px; font-weight: bold; color:#555555">`
+                                    + `${d.properties.coc_number}: ${d.properties.COCNAME}</p><br>` +
+                                    `<p style="color: #0071BC; margin: 0; padding-bottom:0; font-size: 20px; line-height: 22px">`
+                                    + `Total Homeless: ${getValue(d) == "NaN" ? "NA" : getValue(d)}</p><br>` +
+                                    `<ul style="list-style-type: circle; margin:0; padding:0 0 0 15px">` +
+                                    `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
+                                    + `Sheltered Homeless: ${getSheltered(d) == "NaN" ? "NA": getSheltered(d)}</li>` +
+                                    `<li style="font-size: 14px; font-weight: normal; margin:0; line-height: 16px; padding:0">`
+                                    + `Unsheltered Homeless: ${getUnsheltered(d) == "NaN" ? "NA" : getUnsheltered(d)}</li></ul><br>` +
+                                    `<p style="font-size: 16px; margin-top:0; padding-top:0; margin-bottom:0; font-style: italic">`
+                                    + ` Double click to zoom in/zoom out</p>`);
 
                             mapSvg.append('circle').attr('id', 'tipfollowscursor_1');
                             mapSvg.call(tip);
@@ -972,7 +892,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             const table = d3.select('#table_container')
                                 .append('table')
                                 .attr('id', 'tab');
-                            
+
                             table.append('thead').append('tr');
 
                             const headers = table.select('tr').selectAll('th')
@@ -1006,7 +926,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                             arr.push(d[k]);
                                         }
                                     }
-                                    return [arr[0], arr[1], arr[2], arr[3], arr[4], arr[7], arr[8], arr[5], arr[6], arr[9]];
+                                    return [arr[0], arr[1], arr[16], arr[8], arr[9], arr[24], arr[12], arr[4], arr[7], arr[15]];
                                 })
                                 .enter()
                                 .append('td');
@@ -1092,8 +1012,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     if (clicks.coc_number % 2 === 0) {
                                         rows.sort((a, b) => a.coc_number.localeCompare(b.coc_number));
                                     }
-                                    else
-                                    if (clicks.coc_number % 2 !== 0) {
+                                    else if (clicks.coc_number % 2 !== 0) {
                                         rows.sort((a, b) => b.coc_number.localeCompare(a.coc_number));
                                     }
                                 }
@@ -1103,8 +1022,7 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                     if (clicks.coc_name % 2 === 0) {
                                         rows.sort((a, b) => a.coc_name.localeCompare(b.coc_name));
                                     }
-                                    else
-                                    if (clicks.coc_name % 2 !== 0) {
+                                    else if (clicks.coc_name % 2 !== 0) {
                                         rows.sort((a, b) => b.coc_name.localeCompare(a.coc_name));
                                     }
                                 }
@@ -1355,9 +1273,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             p21MapSvg.call(p2Tip);
 
                             // // Initialize Panel 2 info
-                            // for (let y = 0; y < us.features.length; y++) {
-                            //     if (us.features[y].properties.coc_number === 'CA-600') {
-                            //         const la = us.features[y];
                             const xyz = map2Centered;
 
                             BarChart(xyz);
@@ -1408,7 +1323,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function mapIconFunction() {
                             d3.selectAll('#viz_container').remove();
                             d3.selectAll('#counties_mini').remove();
-
                             GenMap();
                             GenPanelTwo();
                         }
@@ -1416,7 +1330,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         function tableIconFunction() {
                             d3.selectAll('#viz_container').remove();
                             d3.selectAll('#counties_mini').remove();
-
                             GenTable();
                             GenPanelTwo();
                         }
@@ -1431,21 +1344,21 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
 
                             var modal = d3.select("#panel3InstructionsModal > div > div.modal-body > div.modal-body-content")
                                 .append("div")
-                                .attr("id","p3Modal")
+                                .attr("id", "p3Modal")
 
                             modal.append('img')
                                 .attr('class', 'picture')
-                                .attr('src','/images/homelessness/region_guide_full.jpg')
-                                .style("display","block")
-                                .style("max-width","480px")
-                                .style("max-height","500px")
-                                .style("width","auto")
-                                .style("height","auto");
+                                .attr('src', '/images/homelessness/region_guide_full.jpg')
+                                .style("display", "block")
+                                .style("max-width", "480px")
+                                .style("max-height", "500px")
+                                .style("width", "auto")
+                                .style("height", "auto");
 
                             const w = $('#panel_3b').width();
                             const h = 340;
-                            const color = d3.scale.ordinal().range(['#280c60', '#2f1868', '#372c7a', '#4d4d8c',
-                                '#5e5e96', '#26660c', '#587c13', '#789e25', '#e55c00', '#e8751a', '#ffad29']);
+                            const clusterColors = ["#E8751A","#280C60","#365608", "#2F1868","#372C7A", "#4D4D8C", "#587C13", "#5E5E96", "#789E25","#E55C01"];
+
                             let root;
 
                             const treemap = d3.layout.treemap()
@@ -1454,284 +1367,243 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                                 .sticky(true)
                                 .sort((a, b) => a.value - b.value)
                                 .value((d) => d.total_homeless);
-                                // .value((d) => d.total_homeless);
+                            // .value((d) => d.total_homeless);
 
                             const svg = d3.select("#tree").append("div")
                                 .attr("class", "chart")
                                 .append("svg:svg")
-                                .attr("height",`${h}`)
+                                .attr("height", `${h}`)
                                 .attr("viewBox", `0 0 ${w} ${h}`)
                                 .append("svg:g")
                                 .attr("transform", "translate(.5,.5)");
 
-                            d3.json('/data-lab-data/homeless_cluster_v2.json', (treeData) => {
-                                d3.csv('/data-lab-data/cluster_data_v4.csv', (cluster) => {
-                                    const percentFormat = d3.format(",.1%");
+                            d3.json('/data-lab-data/homeless_cluster_v3.json', (treeData) => {
+                                d3.csv('/data-lab-data/cluster_data_panel_3_v2.csv', (cluster) => {
+                                    d3.csv('/data-lab-data/cluster_data_svg_v3.csv', (inforgraphicData) => {
+                                        d3.csv('/data-lab-data/homelessness_alt_text_panel3_2019.csv', (altText) => {
+                                            const percentFormat = d3.format(",.1%");
 
-                                    cluster.forEach((d) => {
-                                        d.rent_pct_income = +d.rent_pct_income;
-                                        d.amount = +d.amount;
-                                        d.density = +d.density;
-                                        d.estimated_pop_2016 = +d.estimated_pop_2016;
-                                        d.homeless_individuals = +d.homeless_individuals;
-                                        d.homeless_people_in_families = +d.homeless_people_in_families;
-                                        d.land_area = +d.land_area;
-                                        d.total_homeless = +d.total_homeless;
-                                        d.unsheltered_homeless = +d.unsheltered_homeless;
-                                        d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent;
-                                        d.weighted_income = +d.weighted_income;
-                                        d.Property_crime_rate = +d.Property_crime_rate;
-                                        d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
-                                        d.CoC_program_funding = +d.CoC_program_funding;
-                                        d.other_fed_funding = +d.other_fed_funding;
-                                        d.Total_funding = +d.Total_funding;
-                                    });
+                                            cluster.forEach((d) => {
+                                                d.rent_pct_income = +d.rent_pct_income;
+                                                d.amount = +d.amount;
+                                                d.density = +d.density;
+                                                d.estimated_pop_2018 = +d.estimated_pop_2018;
+                                                d.homeless_individuals = +d.homeless_individuals;
+                                                d.homeless_people_in_families = +d.homeless_people_in_families;
+                                                d.land_area = +d.land_area;
+                                                d.total_homeless = +d.total_homeless;
+                                                d.unsheltered_homeless = +d.unsheltered_homeless;
+                                                d.weighted_estimate_median_gross_rent = +d.weighted_estimate_median_gross_rent;
+                                                d.weighted_income = +d.weighted_income;
+                                                d.Total_Year_Round_Beds = +d.Total_Year_Round_Beds;
+                                                d.CoC_program_funding = +d.CoC_program_funding;
+                                                d.Other_program_funding = +d.Other_program_funding;
+                                                d.Total_funding = +d.Total_funding;
+                                            });
 
-                                    root = treeData;
-                                    const nodes = treemap.nodes(root).filter((d) => !d.children);
-                                    const w2 = $('#panel_3b').width();
-                                    const h2 = $('#panel_3b').height();
+                                            root = treeData;
+                                            const nodes = treemap.nodes(root).filter((d) => !d.children);
+                                            const w2 = $('#panel_3b').width();
+                                            const h2 = $('#panel_3b').height();
 
-                                    d3.select('#infographic').attr('height', h2).attr('width', w2)
-                                        .append('div')
-                                        .attr('id', 'picture');
+                                            d3.select('#infographic').attr('height', h2).attr('width', w2)
+                                                .append('div')
+                                                .attr('id', 'picture');
 
-                                    d3.select("#cocTab").append("div").attr("class", "cocTable");
+                                            d3.select("#cocTab").append("div").attr("class", "cocTable");
 
-                                    function getInfographic(d) {
-                                        if (d === "1a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster1.svg');
-                                        }
-                                        else if (d === "2a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster4.svg');
-                                        }
-                                        else if (d === "2b") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster8.svg');
-                                        }
-                                        else if (d === "2c") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster10.svg');
-                                        }
-                                        else if (d === "3a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster5.svg');
-                                        }
-                                        else if (d === "4a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster2.svg');
-                                        }
-                                        else if (d === "4b") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster7.svg');
-                                        }
-                                        else if (d === "4c") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster11.svg');
-                                        }
-                                        else if (d === "5a") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster3.svg');
-                                        }
-                                        else if (d === "5b") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster6.svg');
-                                        }
-                                        else if (d === "5c") {
-                                            return ('/images/homelessness/BFS_DataLab_Homelessness_Cluster9.svg');
-                                        }
-                                        return '';
-                                    }
+                                            function makeInfographic(d) {
+                                                d3.selectAll('.homeless-fact-cluster img').remove();
+                                                const svgPath = "/images/homelessness/clusters/Cluster-" + d;
+                                                const clusterAltText = altText.filter(item => item.cluster.indexOf(d) > -1);
+                                                const selectedInforgraphicItem = inforgraphicData.filter(item => item.cluster_final === d);
+                                                d3.select('#cluster-beds #count-img-container').append('img').attr('src', svgPath + '/Bed.svg').attr('alt', clusterAltText[0].beds);
+                                                d3.select('#cluster-circles').append('img').attr('src', svgPath + '/Circles.svg').attr('alt', clusterAltText[0].funding);
+                                                d3.select('#cluster-rent').append('img').attr('src', svgPath + '/Rent.svg').attr('alt', clusterAltText[0].rent);
+                                                d3.selectAll('.cluster-people').append('img').attr('src', svgPath + '/People.svg').attr('alt', clusterAltText[0].homelessness);
+                                                d3.selectAll('.cluster-population').append('img').attr('src', svgPath + '/Total-Population.svg').attr('alt', clusterAltText[0].total_population);
+                                                d3.select('#cluster-land-area').append('img').attr('src', svgPath + '/Land-Area.svg').attr('alt', clusterAltText[0].land_area);
+                                                d3.select('#cluster-income').append('img').attr('src', svgPath + '/Income.svg').attr('alt', clusterAltText[0].income);
+                                                d3.select('#cluster-key').append('img').attr('src', svgPath + '/Key.svg').attr('alt', '');
+                                                d3.selectAll('.cluster-density').append('img').attr('src', svgPath + '/Density.svg').attr('alt', clusterAltText[0].density);
+                                                d3.select('#cluster-rent-as-income').append('img').attr('src', svgPath + '/Rent-as-Income.svg').attr('alt', clusterAltText[0].rent_as_income);
+                                                d3.select('#cluster-number').text(d);d3.select('#cluster-beds-count').text(OtherformatNumber(selectedInforgraphicItem[0].total_beds));
+                                                d3.selectAll('.cluster-people-count').text(OtherformatNumber(selectedInforgraphicItem[0].total_homeless));
+                                                d3.select('#cluster-circles h2').style('color', clusterColors[d - 1]);
+                                            }
 
-                                    function makeInfographic(d) {
-                                        d3.select('#imagebox').remove();
+                                            function makeCoCTableTitle(d) {
+                                                const textColor = clusterColors[d.cluster_final - 1];
+                                                return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster_final}: </p>` +
+                                                    `<p class="cocTabTitleCity">${d.coc_name}</p>`;
+                                            }
 
-                                        d3.select('#picture')
-                                          .append('img')
-                                          .attr('id', 'imagebox')
-                                          .style('width', '100%')
-                                          .style('height', 'auto')
-                                          .attr('width', w2)
-                                          .attr('height', h2)
-                                          .attr('src', getInfographic(d));
-                                    }
+                                            function makeCoCTableFund(d) {
+                                                return `<table class="FundingTable"><tr><th class="fundingTitle">`
+                                                    + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
+                                                    `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
+                                                    `<tr><td class="fundingAmount">${formatNumber(d.Other_program_funding)}</td></tr></table>`;
+                                            }
 
-                                    function makeCoCTableTitle(d) {
-                                        const textColor = color(d.cluster_final);
-                                        return `<p class="cocTabTitleCluster" style=color:white;background:${textColor}>Cluster ${d.cluster}: </p>` +
-                                        `<p class="cocTabTitleCity">${d.coc_name}</p>`;
-                                    }
+                                            function makeCoCTableInfoCol1(d) {
+                                                return '<table class="InfoTable">' +
+                                                    '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
+                                            }
 
-                                    function makeCoCTableFund(d) {
-                                        return `<table class="FundingTable"><tr><th class="fundingTitle">`
-                                        + `FEDERAL FUNDING FOR THE CONTINUUM OF CARE PROGRAM:</th></tr>` +
-                                        `<tr><td class="fundingAmount">${formatNumber(d.CoC_program_funding)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">FEDERAL FUNDING FOR OTHER HOMELESSNESS PROGRAMS:</th></tr>` +
-                                        `<tr><td class="fundingAmount">${formatNumber(d.other_fed_funding)}</td></tr></table>`;
-                                    }
+                                            function makeCoCTableInfoCol2(d) {
+                                                return '<table class="InfoTable">' +
+                                                    '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
+                                                    `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr>` +
+                                                    `<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES:</th></tr>` +
+                                                    `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr></table>`;
+                                            }
 
-                                    function makeCoCTableInfoCol1(d) {
-                                        return '<table class="InfoTable">' +
-                                        '<tr><th class="fundingTitle">POPULATION OF HOMELESS:</th></tr>' +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.total_homeless)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">HOMELESS THAT ARE IN FAMILIES:</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_people_in_families)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">HOMELESS THAT ARE INDIVIDUALS:</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.homeless_individuals)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">TOTAL SHELTERED AND PERMANENT BEDS AVAILABLE:</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.Total_Year_Round_Beds)}</td></tr></table>`;
-                                    }
+                                            function makeCoCTable(d) {
+                                                d3.select(".cocTab")
+                                                    .insert("div", ":first-child")
+                                                    .attr("class", "cocTabTitle")
+                                                    .html(makeCoCTableTitle(d));
+                                            }
 
-                                    function makeCoCTableInfoCol2(d) {
-                                        return '<table class="InfoTable">' +
-                                        '<tr><th class="fundingTitle">POPULATION DENSITY: PPL. PER SQ. MI.</th></tr>' +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.density)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">INCOME AVG. FOR LOWEST 20% OF POP.:</th></tr>` +
-                                        `<tr><td class="infoAmount">${formatNumber(d.weighted_income)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">RENT: MEDIAN GROSS</th></tr>` +
-                                        `<tr><td class="infoAmount">${formatNumber(d.weighted_estimate_median_gross_rent)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">RENT AS A PERCENT OF INCOME:</th></tr>` +
-                                        `<tr><td class="infoAmount">${percentFormat(d.rent_pct_income)}</td></tr></table>`;
-                                    }
+                                            function makeFundingTable(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabFund")
+                                                    .html(makeCoCTableFund(d));
+                                            }
 
-                                    function makeCoCTableInfoCol3(d) {
-                                        return '<table class="InfoTable">' +
-                                        '<tr><th class="fundingTitle">LAND AREA: PER SQ. MILES</th></tr>' +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.land_area)}</td></tr>` +
-                                        `<tr><th class="fundingTitle">PROPERTY CRIME RATE: PER 100K</th></tr>` +
-                                        `<tr><td class="infoAmount">${OtherformatNumber(d.Property_crime_rate)}</td></tr></table>`;
-                                    }
+                                            function makeInfoTableCol1(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabInfo")
+                                                    .html(makeCoCTableInfoCol1(d));
+                                            }
 
-                                    function makeCoCTable(d) {
-                                        d3.select(".cocTab")
-                                            .insert("div", ":first-child")
-                                            .attr("class", "cocTabTitle")
-                                            .html(makeCoCTableTitle(d));
-                                    }
+                                            function makeInfoTableCol2(d) {
+                                                d3.select(".cocTable")
+                                                    .append("div")
+                                                    .attr("class", "cocTabInfo")
+                                                    .html(makeCoCTableInfoCol2(d));
+                                            }
 
-                                    function makeFundingTable(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabFund")
-                                            .html(makeCoCTableFund(d));
-                                    }
+                                            function CreateCoCTable(d) {
+                                                d3.selectAll(".cocTabInfo").remove();
+                                                d3.selectAll(".cocTabFund").remove();
+                                                d3.selectAll(".cocTabTitle").remove();
 
-                                    function makeInfoTableCol1(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabInfo")
-                                            .html(makeCoCTableInfoCol1(d));
-                                    }
+                                                makeCoCTable(d);
+                                                makeFundingTable(d);
+                                                makeInfoTableCol1(d);
+                                                makeInfoTableCol2(d);
+                                            }
 
-                                    function makeInfoTableCol2(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabInfo")
-                                            .html(makeCoCTableInfoCol2(d));
-                                    }
+                                            function makeCocTile(d) {
+                                                return `<p class="CocTileTitle">${d.coc_name}</p>`;
+                                            }
 
-                                    function makeInfoTableCol3(d) {
-                                        d3.select(".cocTable")
-                                            .append("div")
-                                            .attr("class", "cocTabInfo")
-                                            .html(makeCoCTableInfoCol3(d));
-                                    }
+                                            function makeSelectionPanel(d) {
+                                                d3.select('.tablinks').remove();
 
-                                    function CreateCoCTable(d) {
-                                        d3.selectAll(".cocTabInfo").remove();
-                                        d3.selectAll(".cocTabFund").remove();
-                                        d3.selectAll(".cocTabTitle").remove();
+                                                d3.select('#tab').append("g")
+                                                    .attr('class', 'tablinks')
+                                                    .selectAll('button')
+                                                    .data(d)
+                                                    .enter()
+                                                    .append('button')
+                                                    .attr("class", "cocButton")
+                                                    .attr('position', 'relative')
+                                                    .on('click', (dA) => CreateCoCTable(dA))
+                                                    .append('div')
+                                                    .attr('class', 'header')
+                                                    .attr('background-color', "#E8EAF5")
+                                                    .html((dB) => makeCocTile(dB));
 
-                                        makeCoCTable(d);
-                                        makeFundingTable(d);
-                                        makeInfoTableCol1(d);
-                                        makeInfoTableCol2(d);
-                                        makeInfoTableCol3(d);
-                                    }
+                                                $(".tablinks > .cocButton").first().addClass("active");
 
-                                    function makeCocTile(d) {
-                                        return `<p class="CocTileTitle">${d.coc_name}</p>`;
-                                    }
+                                                $(".tablinks > .cocButton").click(function () {
+                                                    $(".tablinks > .cocButton").removeClass("active");
+                                                    $(this).addClass("active");
+                                                });
+                                            }
 
-                                    function makeSelectionPanel(d) {
-                                        d3.select('.tablinks').remove();
+                                            const cell = svg.selectAll("g")
+                                                .data(nodes)
+                                                .enter().append("svg:g")
+                                                .classed("cell", true)
+                                                .attr("transform", (d) => `translate(${d.x},${d.y})`)
+                                                .classed('active', (d) => d.group === '10')
+                                                .on("click", (d) => {
+                                                    const group = d.group;
+                                                    const current = cluster.filter((dC) => (dC.cluster_final === group));
+                                                    makeInfographic(d.group);
+                                                    CreateCoCTable(current[0]);
+                                                    makeSelectionPanel(current);
+                                                });
 
-                                        d3.select('#tab').append("g")
-                                            .attr('class', 'tablinks')
-                                            .selectAll('button')
-                                            .data(d)
-                                            .enter()
-                                            .append('button')
-                                            .attr("class", "cocButton")
-                                            .attr('position', 'relative')
-                                            .on('click', (dA) => CreateCoCTable(dA))
-                                            .append('div')
-                                            .attr('class', 'header')
-                                            .attr('background-color', "#E8EAF5")
-                                            .html((dB) => makeCocTile(dB));
 
-                                        $(".tablinks > .cocButton").first().addClass("active");
 
-                                        $(".tablinks > .cocButton").click( function() {
-                                            $(".tablinks > .cocButton").removeClass("active");
-                                            $(this).addClass("active");
+                                            cell.append("svg:rect")
+                                                .classed("rect", true)
+                                                .attr("z-index", "99")
+                                                .attr("width", (d) => d.dx - 1)
+                                                .attr("height", (d) => d.dy - 1)
+                                                .style("fill", (d) => clusterColors[d.group - 1]);
+
+                                            cell.append("svg:text")
+                                                .attr("x", (d) => d.dx / 2)
+                                                .attr("y", (d) => d.dy / 2)
+                                                .attr("dy", ".35em")
+                                                .attr("text-anchor", "middle")
+                                                .text((d) => d.name)
+                                                .style('font-size', '40px')
+                                                .style('font-weight', 'lighter')
+                                                .style("opacity", '1');
+
+                                            $(".cell").click(function () {
+                                                $(".cell").removeClass("active");
+                                                $(this).addClass("active");
+                                            });
+
+                                            function initializeCoCTable() {
+                                                const initTable = cluster.filter((d) => (d.cluster_final === "10"));
+                                                makeCoCTable(initTable[0]);
+                                                makeFundingTable(initTable[0]);
+                                                makeInfoTableCol1(initTable[0]);
+                                                makeInfoTableCol2(initTable[0]);
+                                            }
+
+                                            initializeCoCTable();
+
+
+                                            function initializeCoCSelection() {
+                                                const initSelection = cluster.filter((d) => (d.cluster_final === "10"));
+                                                initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
+                                                makeSelectionPanel(initSelection);
+                                            }
+
+                                            function initializeInfographic() {
+                                                const initInfographic = cluster.filter((d) => (d.cluster_final === '10'));
+                                                makeInfographic(initInfographic[0].cluster_final);
+                                            }
+
+                                            initializeCoCSelection();
+                                            initializeInfographic();
                                         });
-                                    }
-
-                                    const cell = svg.selectAll("g")
-                                        .data(nodes)
-                                        .enter().append("svg:g")
-                                        .attr("class", "cell")
-                                        .attr("transform", (d) => `translate(${d.x},${d.y})`)
-                                        .on("click", (d) => {
-                                            const group = d.group;
-                                            makeInfographic(d.group);
-                                            const current = cluster.filter((dC) => (dC.cluster_final === group));
-                                            CreateCoCTable(current[0]);
-                                            makeSelectionPanel(current);
-                                        });
-
-                                    cell.append("svg:rect")
-                                        .attr("class", "rect")
-                                        .attr("z-index", "99")
-                                        .attr("width", (d) => d.dx - 1)
-                                        .attr("height", (d) => d.dy - 1)
-                                        .style("fill", (d) => color(d.group));
-
-                                    cell.append("svg:text")
-                                        .attr("x", (d) => d.dx / 2)
-                                        .attr("y", (d) => d.dy / 2)
-                                        .attr("dy", ".35em")
-                                        .attr("text-anchor", "middle")
-                                        .text((d) => d.name)
-                                        .style('font-size', '40px')
-                                        .style('font-weight', 'lighter')
-                                        .style("opacity", '1');
-
-                                    $(".cell ").first().addClass("active");
-
-                                    $(".cell").click(function() {
-                                        $(".cell").removeClass("active");
-                                        $(this).addClass("active");
                                     });
-
-                                    function initializeCoCTable() {
-                                        const initTable = cluster.filter((d) => (d.cluster_final === "1a"));
-                                        makeCoCTable(initTable[0]);
-                                        makeFundingTable(initTable[0]);
-                                        makeInfoTableCol1(initTable[0]);
-                                        makeInfoTableCol2(initTable[0]);
-                                        makeInfoTableCol3(initTable[0]);
-                                    }
-
-                                    initializeCoCTable();
-
-
-                                    function initializeCoCSelection() {
-                                        const initSelection = cluster.filter((d) => (d.cluster_final === "1a"));
-                                        initSelection.sort((a, b) => b.total_homeless - a.total_homeless);
-                                        makeSelectionPanel(initSelection);
-                                    }
-
-                                    function initializeInfographic() {
-                                        const initInfographic = cluster.filter((d) => (d.cluster_final === '1a'));
-                                        makeInfographic(initInfographic[0].cluster_final);
-                                    }
-
-                                    initializeCoCSelection();
-                                    initializeInfographic();
                                 });
                             });
                         }
@@ -1747,7 +1619,6 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                             d3.selectAll(".cocTabInfo").remove();
                             d3.selectAll(".cocTabFund").remove();
                             d3.selectAll(".cocTabTitle").remove();
-                            // d3.selectAll("").remove();
 
                             GenMap();
                             GenPanelTwo();
@@ -1755,9 +1626,11 @@ d3.json('/data-lab-data/2017_CoC_Grantee_Areas_2.json', (us) => {
                         }
 
                         d3.selectAll("#button1").on("click", change);
+
                     });
                 });
             });
         });
     });
 });
+

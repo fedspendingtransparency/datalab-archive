@@ -1,0 +1,295 @@
+<style>
+    .flex-grid {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .flex-grid-row,  .flex-grid-row-2 {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col-main-left {
+        width: 57%;
+    }
+
+    .col-half {
+        width: 46%;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .col-right {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .homeless-fact-cluster {
+        padding: 1rem 2rem;
+    }
+
+    .homeless-fact-cluster .title {
+        font-family: "Source Sans Pro";
+        font-weight: bold;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .homeless-fact-cluster .subtitle {
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        color: #666;
+    }
+
+    .homeless-fact-cluster .header {
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-bottom: 0;
+        color: #555;
+    }
+
+    .homeless-fact-cluster .desc {
+        font-family: "Source Sans Pro";
+        font-size: 1rem;
+        clear: both;
+        margin-top: 10px;
+        color: #555;
+    }
+
+    .homeless-fact-cluster .highlight-text {
+        font-family: "Source Sans Pro";
+        font-weight: 300;
+        font-size: 3rem;
+        color: #666;
+    }
+
+    .cluster-people .highlight-text {
+        margin-bottom: 2rem;
+    }
+
+    .cluster-people .highlight-text.cluster-people-count {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .cluster-people .highlight-text.people-text {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cluster-people .header, .cluster-density .header {
+        height: 30px;
+    }
+
+    .homeless-fact-cluster img {
+        width: 80%;
+    }
+
+    #cluster-circles img, .cluster-people img {
+        width: 90% !important;
+    }
+
+    #cluster-beds #count-img-container {
+        display: flex;
+        align-items: baseline;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    #cluster-beds img {
+        display: flex;
+        width: 30% !important;
+        padding-right: 5%;
+    }
+
+    #cluster-key {
+        margin-top: 7rem;
+    }
+
+    #cluster-key .header {
+        margin-bottom: 1rem;
+    }
+
+    .cluster-population {
+        margin-top: 1.8rem;
+    }
+
+    .col-sub-left {
+        display: none;
+    }
+
+    .lower-sub-left {
+        display: flex;
+    }
+
+    @media (max-width: 400px) {
+        .flex-grid {
+            display: block;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 950px) {
+        .lower-sub-left {
+            display: flex;
+        }
+
+        .col-sub-left {
+            display: none;
+        }
+
+        .flex-grid-row {
+            flex-direction: column;
+        }
+
+        .col-main-left, .col-half {
+            width: 100%;
+        }
+
+        #cluster-key {
+            margin-top: 0;
+        }
+    }
+
+    /* special query for beds */
+    @media (min-width: 950px) and (max-width: 1024px) {
+       #cluster-beds img {
+           width: 20% !important;
+       }
+    }
+
+    /* Tablet */
+    @media (min-width: 950px) and (max-width: 1200px) {
+        #cluster-key {
+            margin-top: 0;
+        }
+
+        .col-main-left {
+            width: 100%;
+        }
+
+        .col-right {
+            width: 100%;
+            width: 46%;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .col-half {
+            width: 100%;
+        }
+
+        .lower-sub-left {
+            display: none;
+        }
+
+        .col-sub-left {
+            display: flex;
+            width: 46%;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            flex-direction: column;
+        }
+
+        .flex-grid-row {
+            flex-direction: column;
+        }
+
+        .flex-grid-row-2 {
+            flex: 1;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        #cluster-beds img {
+            padding-top: 20px;
+        }
+
+    }
+</style>
+
+<div class="homeless-fact-cluster flex-grid">
+    <div class="flex-grid-row">
+        <div class="col-main-left">
+            <div id="cluster-circles">
+                <h2 class="title">Facts about Cluster <span id="cluster-number"></span></h2>
+                <p class="subtitle">Federal Spending on Homelessness</p>
+            </div>
+            <div class="flex-grid-row lower-sub-left">
+                <div class="col-half">
+                    <div class="cluster-people">
+                        <p class="header">Number of People Experiencing Homelessness</p>
+                        <p class="desc">People experiencing homelessness on a single night in January in this cluster</p>
+                        <p class="highlight-text cluster-people-count"></p>
+                        <p class="highlight-text people-text"> People</p>
+                    </div>
+                </div>
+                <div class="col-half">
+                    <div class="cluster-density">
+                        <p class="header">Population Density</p>
+                        <p class="desc">Number of people per square mile in this cluster</p>
+                    </div>
+                    <div class="cluster-population">
+                        <p class="header">Total Population</p>
+                        <p class="desc">Total population in this cluster</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-grid-row-2">
+            <div class="col-sub-left">
+                <div class="cluster-people">
+                    <p class="header">Number of People Experiencing Homelessness</p>
+                    <p class="desc">People experiencing homelessness on a single night in January in this cluster</p>
+                    <p class="highlight-text cluster-people-count"></p>
+                    <p class="highlight-text people-text"> people</p>
+                </div>
+                <div class="cluster-density">
+                    <p class="header">Population Density</p>
+                    <p class="desc">Number of people per square mile in this cluster</p>
+                </div>
+                <div class="cluster-population">
+                    <p class="header">Total Population</p>
+                    <p class="desc">Total population in this cluster</p>
+                </div>
+            </div>
+            <div class="col-right">
+                <div id="cluster-key">
+                    <p class="desc">KEY</p>
+                </div>
+                <div id="cluster-income">
+                    <p class="header">Income</p>
+                    <p class="desc">Range of 20th percentile incomes for areas within this cluster</p>
+                </div>
+                <div id="cluster-rent">
+                    <p class="header">Rent</p>
+                    <p class="desc">Range of median gross rents for areas within this cluster</p>
+                </div>
+                <div id="cluster-rent-as-income">
+                    <p class="header">Rent as Percent of Income</p>
+                    <p class="desc">Range of 20th percentile incomes to annualized rents for areas: within this cluster</p>
+                </div>
+                <div id="cluster-land-area">
+                    <p class="header">Land Area</p>
+                    <p class="desc">Range of land areas in square miles for areas within this cluster</p>
+                </div>
+                <div id="cluster-beds">
+                    <p class="header">Beds Available</p>
+                    <p class="desc">Total sheltered and permanent beds available with this cluster</p>
+                    <div class="highlight-text" id="count-img-container"><span>&nbsp;beds</span><span id="cluster-beds-count"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

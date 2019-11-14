@@ -84,7 +84,8 @@ h2.primary__heading {
 .landing-chart {
   border: 1px solid #ddd;
   border-radius: 0.25rem;
-  margin-bottom: 2.188rem;
+//  margin-bottom: 2.188rem;
+  margin-bottom: 1rem;
 
   h1 {
     text-transform: uppercase;
@@ -112,8 +113,63 @@ h2.primary__heading {
 
 }
 
-.landing-feature {
+.landing-feature__homelessness {
+  clear: both;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
   
+  h1, h2 {
+    text-align: left;
+    margin: 0 0 1rem;
+  }
+
+  h1 {
+    color: #2272CE;
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 31px;
+    letter-spacing: normal;
+    color: $heading-color;
+  }
+
+  .landing-feature__headings {
+    padding-top: 1rem;
+  }
+
+  .landing-homelessness-refresh {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #BCE8F1;
+    border-radius: 0.25rem;
+    background-color: rgba(188,232,241, .15);
+    fill: #BCE8F1;
+    width: 100%;
+
+    i {
+      padding-left: .5rem;
+      padding-right: 1rem;
+      color: #2272CE;
+    }
+
+    .landing-homelessness-refresh--text {
+      font-size: 16px;
+      font-family: 'Source Sans Pro';
+      line-height: 20px;
+      color: #666666;
+      margin: 0;
+      padding: .75rem;
+    }
+  }
+}
+
+.landing-feature {
   clear: both;
   border-top: 1px solid #ddd;
   padding: 2.188rem 0;
@@ -138,8 +194,31 @@ h2.primary__heading {
     color: $heading-color;
   }
 
-}
+  .landing-homelessness-refresh {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #2272CE;
+    border-radius: 0.25rem;
+    background-color: rgba(188,232,241, .2);
+    fill: #BCE8F1;
+    width: 100%;
 
+    .landing-homelessness-refresh--text {
+      font-size: 16px;
+      font-family: 'Source Sans Pro';
+      line-height: 20px;
+      color: #666666;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    .homelessness-sync-icon {
+      fill: teal;
+      color: teal;
+    }
+  }
+}
 
 .landing-feature__link {
   cursor: pointer;
@@ -159,29 +238,37 @@ h2.primary__heading {
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.43;
+  line-height: 20px;
   letter-spacing: 0.4px;
   color: #000000;
   clear: both;
   margin: 0;
-  font-size: 1rem; // 14px?
+  font-size: 16px;
+  display: none;
+}
+
+.landing-feature__text--tablet {
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: #000000;
+  clear: both;
+  margin: 0;
+  font-size: 16px;
   display: none;
 }
 
 .landing-feature__image {
   box-sizing: border-box;
   margin-bottom: 1rem;
-  width: 40%;
+  width: 100%;
   float: right;
 
   img {
     width: 100%;
   }
-}
-
-.landing-feature__headings {
-  width: 60%;
-  float: left;
 }
 
 .landing-row__featured__text {
@@ -206,7 +293,6 @@ h2.primary__heading {
   .dl-landing {
     display: flex;
     justify-content: space-between;
-    //    padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 3rem;
   }
@@ -295,12 +381,11 @@ h2.primary__heading {
   .landing-feature__image {
     box-sizing: border-box;
     margin-bottom: 1rem;
-    width: 40%;
+    width: 100%;
     float: right;
 
     img {
-      width: 156px;
-      height: 108px;
+      width: 100%;
     }
   }
 
@@ -351,10 +436,16 @@ h2.primary__heading {
 
   .landing-feature {
     box-sizing: border-box;
-//    padding-right: 1rem;
     width: 50%;
     float: left;
     clear: none;
+  }
+
+  .landing-feature__homelessness {
+    width: 100%;
+    box-sizing: border-box;
+    clear: none;
+    border-top: none;
   }
 
   .landing-feature:nth-child(even) {
@@ -410,10 +501,98 @@ h2.primary__heading {
 }
 
 @media (min-width: 1200px) {
-
   .landing-chart {
     text-align: left;
   }
+}
+
+@media (max-width: 950px) {
+  .landing-feature__homelessness {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: .75rem;
+    border-top: none;
+
+    h2 {
+      font-size: 18px;
+      line-height: 23px;
+      color: #555555;
+      margin-bottom: .25rem;
+    }
+  }
+
+  .landing-feature__headings {
+    padding-top: .5rem;
+    width: 100%;
+  }
+
+  .landing-feature__link {
+    cursor: pointer;
+    display: block;
+    padding-top: 0;
+    padding-right: .75rem;
+  }
+
+  .landing-feature__image img {
+    width: 329px;
+    height: 255px;
+  }
+
+  .landing-feature__tablet {
+    padding-left: .75rem;
+  }
+
+  .landing-feature__text--tablet {
+    display: block;
+  }
+} // end tablet mode
+
+// hide when text is too long!
+@media (max-width: 580px) {
+  .landing-feature__text--tablet {
+    display: none;
+  }
+}
+
+
+// toggle back for mobile
+@media (max-width: 520px) {
+  .landing-feature__text--tablet {
+    display: none;
+  }
+
+  .landing-feature__homelessness {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: .75rem;
+    border-top: none;
+
+    h2 {
+      font-size: 19px; // 18 or 19.. want wrap..
+      line-height: 23px;
+      color: #555555;
+      margin-bottom: .25rem;
+    }
+  }
+
+  .landing-feature__image img {
+    width: 100%;
+  }
+
+  .landing-feature__link {
+    padding: 0;
+  }
+
+  .landing-feature__tablet {
+    padding: 0;
+  }
+
+  .landing-feature__headings {
+    padding-top: 1rem;
+  }
 
 }
+
+
+
 

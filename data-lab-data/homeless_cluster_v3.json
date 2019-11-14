@@ -1,0 +1,62 @@
+{
+  "name": "cocs",
+  "children": [{
+      "group": "Urban",
+      "children": [
+        {
+            "name": "1",
+            "group": "1",
+            "total_homeless": 87924
+        },{
+            "name": "10",
+            "group": "10",
+            "total_homeless": 128631
+        }
+      ]
+    },
+    {
+      "group": "Suburban",
+      "children": [
+        {
+            "name": "2",
+            "group": "2",
+            "total_homeless": 15161
+        },{
+            "name": "4",
+            "group": "4",
+            "total_homeless": 35515
+        },{
+            "name": "5",
+            "group": "5",
+            "total_homeless": 21506
+        },{
+            "name": "6",
+            "group": "6",
+            "total_homeless": 47240
+        },{
+            "name": "8",
+            "group": "8",
+            "total_homeless": 52181
+        }
+      ]
+    },
+    {
+      "group": "Rural",
+      "children": [
+        {
+            "name": "3",
+            "group": "3",
+            "total_homeless": 59349
+        },{
+            "name": "7",
+            "group": "7",
+            "total_homeless": 36838
+        },{
+            "name": "9",
+            "group": "9",
+            "total_homeless": 43659
+        }
+      ]
+    }
+  ]
+}
