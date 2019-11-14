@@ -1,4 +1,3 @@
-Encoding.default_external = Encoding::UTF_8
 source "http://rubygems.org"
 
 gem "jekyll", ['>= 3.6.3', '< 3.7']
