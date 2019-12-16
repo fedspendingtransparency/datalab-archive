@@ -117,7 +117,7 @@ function downloadData() {
       window.open('data-lab-data/CU/updated_CU_data/Investment_Section_Grants_Download_V2.csv');
       break;
     case 'Research Grant':
-      window.open('data-lab-data/CU/updated_CU_data/Investment_Section_Research_Grants_Download_V2');
+      window.open('data-lab-data/CU/updated_CU_data/Investment_Section_Research_Grants_Download_V2.csv');
       break;
     }
 }
